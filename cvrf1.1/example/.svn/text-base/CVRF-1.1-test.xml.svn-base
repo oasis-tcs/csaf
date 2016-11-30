@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cvrfdoc
+xmlns="http://www.icasi.org/CVRF/schema/cvrf/1.1"
+xmlns:cvrf="http://www.icasi.org/CVRF/schema/cvrf/1.1">
+  <DocumentTitle>This is a title</DocumentTitle>
+  <DocumentType>Test Document</DocumentType>
+  <DocumentPublisher Type="Vendor" VendorID="MarcusCom"/>
+  <DocumentTracking>
+    <Identification>
+      <ID>Test Doc 1.0</ID>
+    </Identification>
+    <Status>Final</Status>
+    <Version>1.0</Version>
+    <RevisionHistory>
+      <Revision>
+        <Number>1</Number>
+        <Date>2011-11-26T00:00:00+00:00</Date>
+        <Description>First Revision</Description>
+      </Revision>
+    </RevisionHistory>
+    <InitialReleaseDate>2011-11-26T00:00:00+00:00</InitialReleaseDate>
+    <CurrentReleaseDate>2011-11-26T00:00:00+00:00</CurrentReleaseDate>
+  </DocumentTracking>
+  <DocumentNotes>
+    <Note Title="Details" Audience="All" Ordinal="1" Type="Description" xml:lang="en">
+      This is a description of this vulnerability.
+    </Note>
+  </DocumentNotes>
+  <DocumentReferences>
+    <Reference Type="External">
+      <URL>http://localhost/test</URL>
+      <Description xml:lang="fr">
+        C'est un test de référence.
+      </Description>
+    </Reference>
+  </DocumentReferences>
+  <ProductTree xmlns="http://www.icasi.org/CVRF/schema/prod/1.1">
+    <Branch Type="Product Family" Name="Test Family">
+      <FullProductName ProductID="TestFamProd">Test Family Product</FullProductName>
+    </Branch>
+    <FullProductName ProductID="TestComponent">Test Component</FullProductName>
+    <Relationship ProductReference="TestComponent" RelationType="Installed On" RelatesToProductReference="TestFamProd">
+      <FullProductName ProductID="TestProd">Test Product</FullProductName>
+    </Relationship>
+    <ProductGroups>
+      <Group GroupID="TestGroup">
+        <Description>This is a test group</Description>
+        <ProductID>TestProd</ProductID>
+        <ProductID>TestComponent</ProductID>
+      </Group>
+    </ProductGroups>
+  </ProductTree>
+  <Vulnerability Ordinal="1" xmlns="http://www.icasi.org/CVRF/schema/vuln/1.1">
+    <ID SystemName="SysName">Test ID</ID>
+    <Notes>
+      <Note Type="General" Ordinal="1">
+        This is a test vulnerability.
+      </Note>
+    </Notes>
+    <Involvements>
+      <Involvement Party="Vendor" Status="Open">
+        <Description>
+          TestCo is actively enegaged in fixing this vulnerability.
+        </Description>
+      </Involvement>
+    </Involvements>
+    <ProductStatuses>
+      <Status Status="Fixed">
+        <ProductID>TestProd</ProductID>
+        <ProductID>TestComponent</ProductID>
+      </Status>
+    </ProductStatuses>
+    <Threats>
+      <Threat Type="Impact">
+        <Description>
+          This threat represents an Impact.
+        </Description>
+        <ProductID>TestFamProd</ProductID>
+        <GroupID>TestGroup</GroupID>
+      </Threat>
+    </Threats>
+    <CVSSScoreSets>
+      <ScoreSet>
+        <BaseScore>1.0</BaseScore>
+        <ProductID>TestProd</ProductID>
+      </ScoreSet>
+    </CVSSScoreSets>
+    <Remediations>
+      <Remediation Type="Vendor Fix">
+        <Description>
+          This is a fix for Test Prod.
+        </Description>
+        <GroupID>TestGroup</GroupID>
+      </Remediation>
+    </Remediations>
+    <References>
+      <Reference>
+        <URL>http://localhost/testvuln</URL>
+        <Description>
+          This is a link to this vulnerability.
+        </Description>
+      </Reference>
+    </References>
+  </Vulnerability>
+</cvrfdoc>

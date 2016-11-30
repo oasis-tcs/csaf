@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="http://www.icasi.org/CVRF/schema/common/1.1" uri="common/1.1/common.xsd"/>
+  <uri name="http://www.icasi.org/CVRF/schema/cvrf/1.1" uri="cvrf/1.1/cvrf.xsd"/>
+  <uri name="http://www.icasi.org/CVRF/schema/vuln/1.1" uri="vuln/1.1/vuln.xsd"/>
+  <uri name="http://www.icasi.org/CVRF/schema/prod/1.1" uri="prod/1.1/prod.xsd"/>
+</catalog>

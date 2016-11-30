@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cvrfdoc xmlns="http://www.icasi.org/CVRF/schema/cvrf/1.1" xmlns:cvrf="http://www.icasi.org/CVRF/schema/cvrf/1.1">
+  <DocumentTitle xml:lang="en">Red Hat Security Advisory: samba security update</DocumentTitle>
+  <DocumentType>Security Advisory</DocumentType>
+  <DocumentPublisher Type="Vendor">
+    <ContactDetails>secalert@redhat.com</ContactDetails>
+    <IssuingAuthority>Red Hat Security Response Team</IssuingAuthority>
+  </DocumentPublisher>
+  <DocumentTracking>
+    <Identification><ID>RHSA-2012:0465</ID></Identification>
+    <Status>Final</Status>
+    <Version>2</Version>
+    <RevisionHistory>
+       <Revision>
+         <Number>2</Number>
+         <Date>2012-04-10T19:43:00Z</Date>
+         <Description>Current version</Description>
+       </Revision>
+    </RevisionHistory>
+    <InitialReleaseDate>2012-04-10T19:43:00Z</InitialReleaseDate>
+    <CurrentReleaseDate>2012-04-10T19:43:00Z</CurrentReleaseDate>
+    <Generator>
+      <Engine>Red Hat rhsa-to-cvrf</Engine>
+      <Date>2012-04-24T09:31:50Z</Date>
+    </Generator>
+  </DocumentTracking>
+  <DocumentNotes>
+    <Note Title="Topic" Type="Summary" Ordinal="1" xml:lang="en">
+Updated samba packages that fix one security issue are now available for
+Red Hat Enterprise Linux 5 and 6; Red Hat Enterprise Linux 5.3 Long Life;
+and Red Hat Enterprise Linux 5.6, 6.0 and 6.1 Extended Update Support.
+
+The Red Hat Security Response Team has rated this update as having critical
+security impact. A Common Vulnerability Scoring System (CVSS) base score,
+which gives a detailed severity rating, is available from the CVE link in
+the References section.
+</Note>
+    <Note Title="Details" Type="General" Ordinal="2" xml:lang="en">
+Samba is an open-source implementation of the Server Message Block (SMB) or
+Common Internet File System (CIFS) protocol, which allows PC-compatible
+machines to share files, printers, and other information.
+
+A flaw in the Samba suite's Perl-based DCE/RPC IDL (PIDL) compiler, used
+to generate code to handle RPC calls, resulted in multiple buffer overflows
+in Samba. A remote, unauthenticated attacker could send a specially-crafted
+RPC request that would cause the Samba daemon (smbd) to crash or, possibly,
+execute arbitrary code with the privileges of the root user.
+(CVE-2012-1182)
+
+Users of Samba are advised to upgrade to these updated packages, which
+contain a backported patch to resolve this issue. After installing this
+update, the smb service will be restarted automatically.
+</Note>
+    <Note Title="Terms of Use" Ordinal="3" Type="Legal Disclaimer" xml:lang="en">Please see https://www.redhat.com/footer/terms-of-use.html</Note>
+  </DocumentNotes>
+  <DocumentDistribution xml:lang="en">Copyright © 2012 Red Hat, Inc. All rights reserved.</DocumentDistribution>
+  <AggregateSeverity Namespace="https://access.redhat.com/security/updates/classification/">Critical</AggregateSeverity>
+  <DocumentReferences>
+    <Reference Type="Self">
+       <URL>https://rhn.redhat.com/errata/RHSA-2012-0465.html</URL>
+       <Description>https://rhn.redhat.com/errata/RHSA-2012-0465.html</Description>
+    </Reference>
+    <Reference>
+       <URL>https://access.redhat.com/security/updates/classification/#critical</URL>
+       <Description>https://access.redhat.com/security/updates/classification/#critical</Description>
+    </Reference>
+  </DocumentReferences>
+  <ProductTree xmlns="http://www.icasi.org/CVRF/schema/prod/1.1">
+    <Branch Type="Product Family" Name="Red Hat Enterprise Linux">
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux EUS (v. 5.6 server)">
+        <FullProductName ProductID="5Server-5.6.EUS">Red Hat Enterprise Linux EUS (v. 5.6 server)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Workstation Optional (v. 6)">
+        <FullProductName ProductID="6Workstation-optional-6.2.z">Red Hat Enterprise Linux Workstation Optional (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Desktop (v. 5 client)">
+        <FullProductName ProductID="5Client-5.8.Z">Red Hat Enterprise Linux Desktop (v. 5 client)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Server Optional (v. 6)">
+        <FullProductName ProductID="6Server-optional-6.1.EUS">Red Hat Enterprise Linux Server Optional (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux HPC Node (v. 6)">
+        <FullProductName ProductID="6ComputeNode-6.2.z">Red Hat Enterprise Linux HPC Node (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Server Optional (v. 6.0.z)">
+        <FullProductName ProductID="6Server-optional-6.0.z">Red Hat Enterprise Linux Server Optional (v. 6.0.z)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Desktop (v. 6)">
+        <FullProductName ProductID="6Client-6.2.z">Red Hat Enterprise Linux Desktop (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Server Optional (v. 6)">
+        <FullProductName ProductID="6Server-optional-6.2.z">Red Hat Enterprise Linux Server Optional (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Server EUS (v. 6.1)">
+        <FullProductName ProductID="6Server-6.1.EUS">Red Hat Enterprise Linux Server EUS (v. 6.1)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Server EUS (v. 6.0)">
+        <FullProductName ProductID="6Server-6.0.z">Red Hat Enterprise Linux Server EUS (v. 6.0)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux HPC Node Optional (v. 6)">
+        <FullProductName ProductID="6ComputeNode-optional-6.2.z">Red Hat Enterprise Linux HPC Node Optional (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Long Life (v. 5.3 server)">
+        <FullProductName ProductID="5Server-5.3.LL">Red Hat Enterprise Linux Long Life (v. 5.3 server)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Server (v. 6)">
+        <FullProductName ProductID="6Server-6.2.z">Red Hat Enterprise Linux Server (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Workstation (v. 6)">
+        <FullProductName ProductID="6Workstation-6.2.z">Red Hat Enterprise Linux Workstation (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux Desktop Optional (v. 6)">
+        <FullProductName ProductID="6Client-optional-6.2.z">Red Hat Enterprise Linux Desktop Optional (v. 6)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="Red Hat Enterprise Linux (v. 5 server)">
+        <FullProductName ProductID="5Server-5.8.Z">Red Hat Enterprise Linux (v. 5 server)</FullProductName>
+      </Branch>
+      <Branch Type="Product Name" Name="RHEL Desktop Workstation (v. 5 client)">
+        <FullProductName ProductID="5Client-Workstation-5.8.Z">RHEL Desktop Workstation (v. 5 client)</FullProductName>
+      </Branch>
+    </Branch>
+    <Branch Type="Product Version" Name="samba-3.0.33-3.29.el5_6.5">
+      <FullProductName ProductID="samba-3.0.33-3.29.el5_6.5">samba-3.0.33-3.29.el5_6.5.src.rpm</FullProductName>
+    </Branch>
+    <Branch Type="Product Version" Name="samba-3.0.33-3.39.el5_8">
+      <FullProductName ProductID="samba-3.0.33-3.39.el5_8">samba-3.0.33-3.39.el5_8.src.rpm</FullProductName>
+    </Branch>
+    <Branch Type="Product Version" Name="samba-3.0.33-3.7.el5_3.5">
+      <FullProductName ProductID="samba-3.0.33-3.7.el5_3.5">samba-3.0.33-3.7.el5_3.5.src.rpm</FullProductName>
+    </Branch>
+    <Branch Type="Product Version" Name="samba-3.5.10-115.el6_2">
+      <FullProductName ProductID="samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2.src.rpm</FullProductName>
+    </Branch>
+    <Branch Type="Product Version" Name="samba-3.5.4-68.el6_0.3">
+      <FullProductName ProductID="samba-3.5.4-68.el6_0.3">samba-3.5.4-68.el6_0.3.src.rpm</FullProductName>
+    </Branch>
+    <Branch Type="Product Version" Name="samba-3.5.6-86.el6_1.5">
+      <FullProductName ProductID="samba-3.5.6-86.el6_1.5">samba-3.5.6-86.el6_1.5.src.rpm</FullProductName>
+    </Branch>
+    <Relationship ProductReference="samba-3.0.33-3.29.el5_6.5" RelationType="Default Component Of" RelatesToProductReference="5Server-5.6.EUS">
+      <FullProductName ProductID="5Server-5.6.EUS:samba-3.0.33-3.29.el5_6.5">samba-3.0.33-3.29.el5_6.5 as a component of Red Hat Enterprise Linux EUS (v. 5.6 server)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6Workstation-optional-6.2.z">
+      <FullProductName ProductID="6Workstation-optional-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux Workstation Optional (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.0.33-3.39.el5_8" RelationType="Default Component Of" RelatesToProductReference="5Client-5.8.Z">
+      <FullProductName ProductID="5Client-5.8.Z:samba-3.0.33-3.39.el5_8">samba-3.0.33-3.39.el5_8 as a component of Red Hat Enterprise Linux Desktop (v. 5 client)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.6-86.el6_1.5" RelationType="Default Component Of" RelatesToProductReference="6Server-optional-6.1.EUS">
+      <FullProductName ProductID="6Server-optional-6.1.EUS:samba-3.5.6-86.el6_1.5">samba-3.5.6-86.el6_1.5 as a component of Red Hat Enterprise Linux Server Optional (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6ComputeNode-6.2.z">
+      <FullProductName ProductID="6ComputeNode-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux HPC Node (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.4-68.el6_0.3" RelationType="Default Component Of" RelatesToProductReference="6Server-optional-6.0.z">
+      <FullProductName ProductID="6Server-optional-6.0.z:samba-3.5.4-68.el6_0.3">samba-3.5.4-68.el6_0.3 as a component of Red Hat Enterprise Linux Server Optional (v. 6.0.z)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6Client-6.2.z">
+      <FullProductName ProductID="6Client-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux Desktop (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6Server-optional-6.2.z">
+      <FullProductName ProductID="6Server-optional-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux Server Optional (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.6-86.el6_1.5" RelationType="Default Component Of" RelatesToProductReference="6Server-6.1.EUS">
+      <FullProductName ProductID="6Server-6.1.EUS:samba-3.5.6-86.el6_1.5">samba-3.5.6-86.el6_1.5 as a component of Red Hat Enterprise Linux Server EUS (v. 6.1)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.4-68.el6_0.3" RelationType="Default Component Of" RelatesToProductReference="6Server-6.0.z">
+      <FullProductName ProductID="6Server-6.0.z:samba-3.5.4-68.el6_0.3">samba-3.5.4-68.el6_0.3 as a component of Red Hat Enterprise Linux Server EUS (v. 6.0)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6ComputeNode-optional-6.2.z">
+      <FullProductName ProductID="6ComputeNode-optional-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux HPC Node Optional (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.0.33-3.7.el5_3.5" RelationType="Default Component Of" RelatesToProductReference="5Server-5.3.LL">
+      <FullProductName ProductID="5Server-5.3.LL:samba-3.0.33-3.7.el5_3.5">samba-3.0.33-3.7.el5_3.5 as a component of Red Hat Enterprise Linux Long Life (v. 5.3 server)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6Server-6.2.z">
+      <FullProductName ProductID="6Server-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux Server (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6Workstation-6.2.z">
+      <FullProductName ProductID="6Workstation-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux Workstation (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.5.10-115.el6_2" RelationType="Default Component Of" RelatesToProductReference="6Client-optional-6.2.z">
+      <FullProductName ProductID="6Client-optional-6.2.z:samba-3.5.10-115.el6_2">samba-3.5.10-115.el6_2 as a component of Red Hat Enterprise Linux Desktop Optional (v. 6)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.0.33-3.39.el5_8" RelationType="Default Component Of" RelatesToProductReference="5Server-5.8.Z">
+      <FullProductName ProductID="5Server-5.8.Z:samba-3.0.33-3.39.el5_8">samba-3.0.33-3.39.el5_8 as a component of Red Hat Enterprise Linux (v. 5 server)</FullProductName>
+    </Relationship>
+    <Relationship ProductReference="samba-3.0.33-3.39.el5_8" RelationType="Default Component Of" RelatesToProductReference="5Client-Workstation-5.8.Z">
+      <FullProductName ProductID="5Client-Workstation-5.8.Z:samba-3.0.33-3.39.el5_8">samba-3.0.33-3.39.el5_8 as a component of RHEL Desktop Workstation (v. 5 client)</FullProductName>
+    </Relationship>
+  </ProductTree>
+
+  <Vulnerability Ordinal="1" xmlns="http://www.icasi.org/CVRF/schema/vuln/1.1">
+    <Notes><Note Title="Vulnerability Description" Type="General" Ordinal="1" xml:lang="en">A flaw in the Samba suite's Perl-based DCE/RPC IDL (PIDL) compiler, used to generate code to handle RPC calls, resulted in multiple buffer overflows in Samba. A remote, unauthenticated attacker could send a specially-crafted RPC request that would cause the Samba daemon (smbd) to crash or, possibly, execute arbitrary code with the privileges of the root user. </Note></Notes>
+    <DiscoveryDate>2012-03-16T00:00:00Z</DiscoveryDate>
+    <ReleaseDate>2012-04-10T00:00:00Z</ReleaseDate>
+    <Involvements><Involvement Party="Vendor" Status="Completed"></Involvement></Involvements>
+    <CVE>CVE-2012-1182</CVE>
+    <ProductStatuses><Status Type="Fixed">
+      <ProductID>5Client-5.8.Z:samba-3.0.33-3.39.el5_8</ProductID>
+      <ProductID>5Client-Workstation-5.8.Z:samba-3.0.33-3.39.el5_8</ProductID>
+      <ProductID>5Server-5.3.LL:samba-3.0.33-3.7.el5_3.5</ProductID>
+      <ProductID>5Server-5.6.EUS:samba-3.0.33-3.29.el5_6.5</ProductID>
+      <ProductID>5Server-5.8.Z:samba-3.0.33-3.39.el5_8</ProductID>
+      <ProductID>6Client-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+      <ProductID>6Client-optional-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+      <ProductID>6ComputeNode-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+      <ProductID>6ComputeNode-optional-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+      <ProductID>6Server-6.0.z:samba-3.5.4-68.el6_0.3</ProductID>
+      <ProductID>6Server-6.1.EUS:samba-3.5.6-86.el6_1.5</ProductID>
+      <ProductID>6Server-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+      <ProductID>6Server-optional-6.0.z:samba-3.5.4-68.el6_0.3</ProductID>
+      <ProductID>6Server-optional-6.1.EUS:samba-3.5.6-86.el6_1.5</ProductID>
+      <ProductID>6Server-optional-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+      <ProductID>6Workstation-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+      <ProductID>6Workstation-optional-6.2.z:samba-3.5.10-115.el6_2</ProductID>
+    </Status></ProductStatuses>
+    <Threats><Threat Type="Impact"><Description>Critical</Description></Threat></Threats>
+    <CVSSScoreSets><ScoreSet>
+      <BaseScore>8.3</BaseScore>
+      <Vector>AV:A/AC:L/Au:N/C:C/I:C/A:C</Vector>
+    </ScoreSet></CVSSScoreSets>
+    <Remediations>
+      <Remediation Type="Vendor Fix"><Description xml:lang="en">
+Before applying this update, make sure all previously-released errata
+relevant to your system have been applied.
+
+This update is available via the Red Hat Network. Details on how to
+use the Red Hat Network to apply this update are available at
+https://access.redhat.com/knowledge/articles/11258
+</Description>      <URL>https://rhn.redhat.com/errata/RHSA-2012-0465.html</URL></Remediation>
+    </Remediations>
+    <References>
+      <Reference>
+        <URL>http://www.samba.org/samba/history/samba-3.6.4.html</URL>
+        <Description>http://www.samba.org/samba/history/samba-3.6.4.html</Description>
+      </Reference>
+      <Reference>
+        <URL>https://www.redhat.com/security/data/cve/CVE-2012-1182.html</URL>
+        <Description>CVE-2012-1182</Description>
+      </Reference>
+      <Reference>
+        <URL>https://bugzilla.redhat.com/show_bug.cgi?id=804093</URL>
+        <Description>bz#804093: CVE-2012-1182 samba: Multiple heap-based buffer overflows in memory management based on NDR marshalling code output</Description>
+      </Reference>
+    </References>
+  </Vulnerability>
+</cvrfdoc>

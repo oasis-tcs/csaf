@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cvrfdoc xmlns="http://www.icasi.org/CVRF/schema/cvrf/1.1" xmlns:cvrf="http://www.icasi.org/CVRF/schema/cvrf/1.1">
+    <DocumentTitle>
+    Cisco Security Advisory: Cisco RVS4000 and WRVS4400N Web Management Interface Vulnerabilities
+    </DocumentTitle>
+    <DocumentType>Security Advisory</DocumentType>
+    <DocumentPublisher Type="Vendor"/>
+    <DocumentTracking>
+        <Identification>
+            <ID>cisco-sa-20110525-rvs4000</ID>
+        </Identification>
+        <Status>Final</Status>
+        <Version>1.1</Version>
+        <RevisionHistory>
+    	    <Revision>
+                <Number>1.1</Number>
+                <Date>2011-06-17T00:00:00+00:00</Date>
+                <Description>
+                Modified software table to indicate that First Fixed release for RVS4000v1 is 1.3.3.5.
+                </Description>
+      	    </Revision>
+            <Revision>
+                <Number>1.0</Number>
+                <Date>2011-05-25T00:00:00+00:00</Date>
+                <Description>Initial public release.</Description>
+      	    </Revision>
+        </RevisionHistory>
+        <InitialReleaseDate>2011-05-25T00:00:00+00:00</InitialReleaseDate>
+        <CurrentReleaseDate>2011-06-17T00:00:00+00:00</CurrentReleaseDate>
+    </DocumentTracking>
+    <DocumentNotes>
+        <Note Type="Summary" Ordinal="001" Title="Summary" Audience="All" xml:lang="en">
+        Cisco RVS4000 4-port Gigabit Security Routers and Cisco WRVS4400N Wireless-N Gigabit 
+        Security Routers have several web interface vulnerabilities that can be exploited by a 
+        remote, unauthenticated user. Cisco has released free software updates that address 
+        these vulnerabilities. Workarounds that mitigate these vulnerabilities are available.
+        This advisory is posted at http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20110525-rvs4000.
+        </Note>
+        <Note Type="Legal Disclaimer" Ordinal="002" Title="Legal Disclaimer" Audience="All" xml:lang="en">
+        THIS DOCUMENT IS PROVIDED ON AN "AS IS" BASIS AND DOES NOT IMPLY ANY KIND OF GUARANTEE OR 
+        WARRANTY, INCLUDING THE WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE. YOUR 
+        USE OF THE INFORMATION ON THE DOCUMENT OR MATERIALS LINKED FROM THE DOCUMENT IS AT YOUR OWN 
+        RISK. CISCO RESERVES THE RIGHT TO CHANGE OR UPDATE THIS DOCUMENT AT ANY TIME. CISCO EXPECTS 
+        TO UPDATE THIS DOCUMENT AS NEW INFORMATION BECOMES AVAILABLE.
+        A stand-alone copy or Paraphrase of the text of this document that omits the distribution URL
+        in the following section is an uncontrolled copy, and may lack important information or 
+        contain factual errors.
+        </Note>
+    </DocumentNotes>
+    <DocumentDistribution>
+    This advisory is posted on Cisco's worldwide website at :
+    http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20110525-rvs4000
+    In addition to worldwide web posting, a text version of this notice is clear-signed with the 
+    Cisco PSIRT PGP key and is posted to the following e-mail and Usenet news recipients.
+    - cust-security-announce@cisco.com
+    - first-bulletins@lists.first.org
+    - bugtraq@securityfocus.com
+    - vulnwatch@vulnwatch.org
+    - cisco@spot.colorado.edu
+    - cisco-nsp@puck.nether.net
+    - full-disclosure@lists.grok.org.uk
+    - comp.dcom.sys.cisco@newsgate.cisco.com
+    Future updates of this advisory, if any, will be placed on Cisco's worldwide website, but may or 
+    may not be actively announced on mailing lists or newsgroups. Users concerned about this problem
+    are encouraged to check the above URL for any updates.
+    </DocumentDistribution>
+    <DocumentReferences>
+        <Reference Type="External">
+            <URL>http://www.cisco.com/en/US/products/products_security_advisory09186a0080b7f190.shtml</URL>
+            <Description xml:lang="en">URL to the html advisory.</Description>
+        </Reference>
+    </DocumentReferences>
+    <Acknowledgments>
+        <Acknowledgment>
+            <Name>Michal Sajdak</Name>
+            <Organization>Securitum, Poland</Organization>
+        </Acknowledgment>
+    </Acknowledgments>
+    <ProductTree xmlns="http://www.icasi.org/CVRF/schema/prod/1.1">
+        <Branch Type="Vendor" Name="Cisco">
+            <Branch Type="Product Family" Name="RVS4000">
+                <Branch Type="Product Name" Name="Gigabit Security Router">
+                    <Branch Type="Product Version" Name="1">
+                        <FullProductName ProductID="CVRF1.1-PID-0001">Cisco RVS4000 Gigabit Security Router version 1</FullProductName>
+                    </Branch>
+                    <Branch Type="Product Version" Name="2">
+                        <FullProductName ProductID="CVRF1.1-PID-0002">Cisco RVS4000 Gigabit Security Router version 2</FullProductName>
+                    </Branch>
+                    <Branch Type="Product Version" Name="1.3.3.5">
+                    <FullProductName ProductID="CVRF1.1-PID-0006">Cisco RVS4000 Gigabit Security Router version 1.3.3.5</FullProductName>
+                    </Branch>
+                    <Branch Type="Product Version" Name="2.0.2.7">
+                        <FullProductName ProductID="CVRF1.1-PID-0007">Cisco RVS4000 Gigabit Security Router version 2.0.2.7</FullProductName>
+                    </Branch>
+                </Branch>
+            </Branch>
+            <Branch Type="Product Family" Name="WRVS4400N">
+                <Branch Type="Product Name" Name="Wireless-N Gigabit Security Router">
+                    <Branch Type="Product Version" Name="1.0">
+                        <FullProductName ProductID="CVRF1.1-PID-0003">Cisco WRVS4400N Wireless-N Gigabit Security Router version 1.0</FullProductName>
+                    </Branch>
+                    <Branch Type="Product Version" Name="1.1">
+                        <FullProductName ProductID="CVRF1.1-PID-0004">Cisco WRVS4400N Wireless-N Gigabit Security Router version 1.1</FullProductName>
+                    </Branch>
+                    <Branch Type="Product Version" Name="2.0">
+                        <FullProductName ProductID="CVRF1.1-PID-0005">Cisco WRVS4400N Wireless-N Gigabit Security Router version 2.0</FullProductName>
+                    </Branch>
+                    <Branch Type="Product Version" Name="2.0.2.1">
+                        <FullProductName ProductID="CVRF1.1-PID-0008">Cisco WRVS4400N Wireless-N Gigabit Security Router version 2.0.2.1</FullProductName>
+                    </Branch>
+                </Branch>
+            </Branch>
+        </Branch>
+    </ProductTree>
+    <Vulnerability Ordinal="1" xmlns="http://www.icasi.org/CVRF/schema/vuln/1.1">
+        <Title>Retrieval of the configuration file</Title>
+        <Notes>
+            <Note Type="Details" Ordinal="003" Title="Details" Audience="All">
+            The Cisco RVS4000 and WRVS4400N Gigabit Security Routers deliver high-speed network 
+            access and IPsec VPN capabilities for small businesses. They also provides firewall 
+            and intrusion prevention capabilities.
+            The Cisco RVS4000 and WRVS4400N Gigabit Security Routers contains a web management 
+            interface vulnerability:
+            Retrieval of the configuration file
+            If an administrator of the device has previously created a backup of the
+            configuration, using Administration --> Backup &amp; Restore --> Backup, it is 
+            possible for a remote unauthenticated user to access the backup configuration file.
+            This file contains all configuration parameters of the device, including the HTTP
+            authentication password and VPN pre-shared-keys (PSKs).
+            </Note>
+        </Notes>
+        <ReleaseDate>2011-05-25T00:00:00+00:00</ReleaseDate>
+        <Involvements>
+            <Involvement Party="Vendor" Status="Completed">
+                <Description>
+                Cisco has completed involvement in this vulnerability.
+                </Description>
+            </Involvement>
+        </Involvements>
+        <CVE>CVE-2011-1645</CVE>
+        <ProductStatuses>
+            <Status Type="Known Affected">
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Status>
+            <Status Type="First Fixed">
+                <ProductID>CVRF1.1-PID-0006</ProductID>
+                <ProductID>CVRF1.1-PID-0007</ProductID>
+                <ProductID>CVRF1.1-PID-0008</ProductID>
+            </Status>
+        </ProductStatuses>
+        <Threats>
+            <Threat Type="Impact">
+                <Description>
+                Successful exploitation of the vulnerability may result in execution of 
+                arbitrary commands on the device by an authenticated user or retrieval of
+                configuration files and private keys by an unauthenticated user.
+                The configuration files contain sensitive information in text, such as the HTTP
+                passwords and PSKs. The retrieval of the certificates may aid in further attacks.
+                </Description>
+            </Threat>
+        </Threats>
+        <CVSSScoreSets>
+            <ScoreSet>
+                <BaseScore>9.3</BaseScore>
+                <TemporalScore>7.7</TemporalScore>
+                <Vector>AV:N/AC:M/Au:N/C:C/I:C/A:C/E:F/RL:OF/RC:C/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND</Vector>
+            </ScoreSet>
+        </CVSSScoreSets>
+        <Remediations>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest 
+                software release, the first fixed version is 1.3.3.5.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414013&amp;flowid=787</URL>
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+            </Remediation>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 2.0.2.7.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414013&amp;flowid=787</URL>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+            </Remediation>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 2.0.2.1.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414016</URL>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Remediation>
+            <Remediation Type="Workaround">
+                <Description>
+                Disable remote management:
+                    Caution: Do not disable remote management if you manage the device via the WAN
+                    connection. Doing so will result in loss of management connectivity to the device.
+                    Remote Management is disabled by default. If it is enabled, administrators can
+                    disable it using the Firewall > Basic Settings screen. Change the setting for
+                    the field "Remote Management" to "Disabled".
+                    Disabling remote management limits the exposure of the vulnerabilities to those
+                    on the local LAN.
+                Limit remote management access to specific IP addresses:
+                    If remote management is required, harden the device so that it can be accessed
+                    only by certain IP addresses, rather than the default setting of "any". By
+                    entering the configuration screen at Firewall --> Basic Settings, an
+                    administrator can change the Remote IP address field to ensure only devices with
+                    the specified IP addresses can access the device.
+                Remove all backup configuration files from the device:
+                    Rebooting the device after performing a configuration backup, will remove the
+                    configuration file from the system so that it can not be retrieved by an
+                    unauthenticated user. 
+                </Description>
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Remediation>
+        </Remediations>
+    </Vulnerability>
+    <Vulnerability Ordinal="2" xmlns="http://www.icasi.org/CVRF/schema/vuln/1.1">
+        <Title>Root operating system arbitrary command injection by an authenticated attacker</Title>
+        <Notes>
+            <Note Type="Details" Ordinal="004" Title="Details" Audience="All">
+            The Cisco RVS4000 and WRVS4400N Gigabit Security Routers deliver high-speed network
+            access and IPsec VPN capabilities for small businesses. They also provides firewall and
+            intrusion prevention capabilities.
+            The Cisco RVS4000 and WRVS4400N Gigabit Security Routers contains a web management
+            interface vulnerability:
+            - Root operating system arbitrary command injection by an authenticated attacker
+            - A user who is authenticated to the device can inject arbitrary commands into the
+              underlying operating system with root privileges, via the ping test and traceroute test
+              parameters.
+            </Note>
+        </Notes>
+        <ReleaseDate>2011-05-25T00:00:00+00:00</ReleaseDate>
+        <Involvements>
+            <Involvement Party="Vendor" Status="Completed">
+                <Description>
+                Cisco has completed involvement in this vulnerability.
+                </Description>
+            </Involvement>
+        </Involvements>
+        <CVE>CVE-2011-1646</CVE>
+        <ProductStatuses>
+            <Status Type="Known Affected">
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Status>
+            <Status Type="First Fixed">
+                <ProductID>CVRF1.1-PID-0006</ProductID>
+                <ProductID>CVRF1.1-PID-0007</ProductID>
+                <ProductID>CVRF1.1-PID-0008</ProductID>
+            </Status>
+        </ProductStatuses>
+        <Threats>
+            <Threat Type="Impact">
+                <Description>
+                Successful exploitation of the vulnerability may result in execution of arbitrary
+                commands on the device by an authenticated user or retrieval of configuration files and
+                private keys by an unauthenticated user.
+                The configuration files contain sensitive information in text, such as the HTTP
+                passwords and PSKs. The retrieval of the certificates may aid in further attacks.
+                </Description>
+            </Threat>
+    	</Threats>
+        <CVSSScoreSets>
+            <ScoreSet>
+                <BaseScore>9.0</BaseScore>
+                <TemporalScore>7.4</TemporalScore>
+                <Vector>AV:N/AC:L/Au:S/C:C/I:C/A:C/E:F/RL:OF/RC:C/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND</Vector>
+            </ScoreSet>
+        </CVSSScoreSets>
+        <Remediations>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 1.3.3.5.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414013&amp;flowid=787</URL>
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+            </Remediation>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 2.0.2.7.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414013&amp;flowid=787</URL>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+            </Remediation>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 2.0.2.1.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414016</URL>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Remediation>
+            <Remediation Type="Workaround">
+                <Description>
+                Disable remote management:
+                    Caution: Do not disable remote management if you manage the device via the WAN
+                    connection. Doing so will result in loss of management connectivity to the device.
+                    Remote Management is disabled by default. If it is enabled, administrators can
+                    disable it using the Firewall > Basic Settings screen. Change the setting for
+                    the field "Remote Management" to "Disabled".
+                    Disabling remote management limits the exposure of the vulnerabilities to those
+                    on the local LAN.
+                Limit remote management access to specific IP addresses:
+                    If remote management is required, harden the device so that it can be accessed
+                    only by certain IP addresses, rather than the default setting of "any". By
+                    entering the configuration screen at Firewall --> Basic Settings, an
+                    administrator can change the Remote IP address field to ensure only devices with
+                    the specified IP addresses can access the device.
+                </Description>
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Remediation>
+        </Remediations>
+    </Vulnerability>
+    <Vulnerability Ordinal="3" xmlns="http://www.icasi.org/CVRF/schema/vuln/1.1">
+        <Title>Retrieval of admin SSL certificate private key</Title>
+        <Notes>
+            <Note Type="Details" Ordinal="005" Title="Details" Audience="All">
+            The Cisco RVS4000 and WRVS4400N Gigabit Security Routers deliver high-speed network access
+            and IPsec VPN capabilities for small businesses. They also provides firewall and intrusion
+            prevention capabilities.
+            The Cisco RVS4000 and WRVS4400N Gigabit Security Routers contains a web management
+            interface vulnerability:
+            - Retrieval of admin SSL certificate private key
+            - The admin SSL certificate private and public keys can be retrieved (used for Quick VPN)
+            by a remote unauthenticated user.
+            </Note>
+        </Notes>
+        <ReleaseDate>2011-05-25T00:00:00+00:00</ReleaseDate>
+        <Involvements>
+            <Involvement Party="Vendor" Status="Completed">
+                <Description>
+                Cisco has completed involvement in this vulnerability.
+                </Description>
+            </Involvement>
+        </Involvements>
+        <CVE>CVE-2011-1647</CVE>
+        <ProductStatuses>
+            <Status Type="Known Affected">
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Status>
+            <Status Type="First Fixed">
+                <ProductID>CVRF1.1-PID-0006</ProductID>
+                <ProductID>CVRF1.1-PID-0007</ProductID>
+                <ProductID>CVRF1.1-PID-0008</ProductID>
+            </Status>
+        </ProductStatuses>
+        <Threats>
+            <Threat Type="Impact">
+                <Description>
+                Successful exploitation of the vulnerability may result in execution of arbitrary
+                commands on the device by an authenticated user or retrieval of configuration files and
+                private keys by an unauthenticated user.
+                The configuration files contain sensitive information in text, such as the HTTP
+                passwords and PSKs. The retrieval of the certificates may aid in further attacks.
+                </Description>
+            </Threat>
+        </Threats>
+        <CVSSScoreSets>
+            <ScoreSet>
+                <BaseScore>5.0</BaseScore>
+                <TemporalScore>4.1</TemporalScore>
+                    <Vector>AV:N/AC:L/Au:N/C:P/I:N/A:N/E:F/RL:OF/RC:C/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND</Vector>
+            </ScoreSet>
+        </CVSSScoreSets>
+        <Remediations>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 1.3.3.5.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414013&amp;flowid=787</URL>
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+            </Remediation>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 2.0.2.7.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414013&amp;flowid=787</URL>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+            </Remediation>
+            <Remediation Type="Vendor Fix">
+                <Description>
+                The official fix from Cisco is to upgrade to the latest software release, the
+                first fixed version is 2.0.2.1.
+                In all cases, customers should exercise caution to be certain
+                the devices to be upgraded contain sufficient memory and that
+                current hardware and software configurations will continue to
+                be supported properly by the new release. If the information is
+                not clear, contact the Cisco Small Business Support Center or
+                your contracted maintenance provider for assistance.
+                </Description>
+                <Entitlement>
+                Cisco has released free software updates that address this vulnerability. Prior
+                to deploying software, customers should consult their maintenance provider or
+                check the software for feature set compatibility and known issues specific to
+                their environment.
+                Customers may only install and expect support for the feature sets they have
+                purchased. By installing, downloading, accessing or otherwise using such
+                software upgrades, customers agree to be bound by the terms of Cisco's software
+                license terms found at
+                http://www.cisco.com/en/US/docs/general/warranty/English/EU1KEN_.html ,
+                or as otherwise set forth at Cisco.com Downloads at
+                http://www.cisco.com/public/sw-center/sw-usingswc.shtml .
+                Do not contact psirt@cisco.com or security-alert@cisco.com for software upgrades.
+                Customers should obtain upgraded software through their regular update channels.
+                For most customers, this means that upgrades should be obtained through the
+                Software Center on Cisco's worldwide website at http://www.cisco.com
+                If the information is not clear, please contact the Cisco Small Business Support
+                Center or your contracted maintenance provider for assistance. Small Business
+                Support Center contacts are as follows.
+                    +1 866 606 1866 (toll free from within North America)
+                    +1 408 418 1866 (toll call from anywhere in the world)
+                Customers should have their product serial number available.
+                Refer to http://www.cisco.com/en/US/support/tsd_cisco_small_business_support_center_contacts.html
+                for additional support contact information, including localized telephone
+                numbers, and instructions and e-mail addresses for use in various languages.
+                </Entitlement>
+                <URL>http://www.cisco.com/cisco/software/type.html?mdfid=282414016</URL>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Remediation>
+            <Remediation Type="Workaround">
+                <Description>
+                Disable remote management:
+                    Caution: Do not disable remote management if you manage the device via the WAN
+                    connection. Doing so will result in loss of management connectivity to the device.
+                    Remote Management is disabled by default. If it is enabled, administrators can
+                    disable it using the Firewall > Basic Settings screen. Change the setting for
+                    the field "Remote Management" to "Disabled".
+                    Disabling remote management limits the exposure of the vulnerabilities to those
+                    on the local LAN.
+                Limit remote management access to specific IP addresses:
+                    If remote management is required, harden the device so that it can be accessed
+                    only by certain IP addresses, rather than the default setting of "any". By
+                    entering the configuration screen at Firewall --> Basic Settings, an
+                    administrator can change the Remote IP address field to ensure only devices with
+                    the specified IP addresses can access the device.
+                </Description>
+                <ProductID>CVRF1.1-PID-0001</ProductID>
+                <ProductID>CVRF1.1-PID-0002</ProductID>
+                <ProductID>CVRF1.1-PID-0003</ProductID>
+                <ProductID>CVRF1.1-PID-0004</ProductID>
+                <ProductID>CVRF1.1-PID-0005</ProductID>
+            </Remediation>
+        </Remediations>
+    </Vulnerability>
+</cvrfdoc>
