@@ -1,0 +1,112 @@
+---
+title: "TC CSAF Issue Processing Workflow Proposal"
+author: "Stefan Hagen"
+date: "2016-11-26"
+output: pdf_document
+references:
+- id: ODataBP2012
+  title: Best Practices for Issue Handling
+  author:
+  - family: Handl
+    given: Ralf
+  - family: Jeyaraman
+    given: Ram
+  container-title: OASIS Open Data Protocol (OData) TC
+  URL: 'http://bit.ly/odata_best_pract_issues'
+  type: article-journal
+  issued:
+    year: 2012
+    month: 9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Proposal - "Best Practices for Issue Handling"
+
+Based on the positive experiences from issue processing e.g. in the OData TC [@ODataBP2012], I hereby propose the below workflow for issues processing to streamline the committee work, maximize transparency and ensure progress for the work products on standards track. 
+
+## Diagram - Finite States & Annotated Transitions
+
+```{r, out.height = "400px", out.align = "center", echo = FALSE}
+knitr::include_graphics("tc_flow.png")
+```
+
+**Figure 1**: Annotated Issue Processing Workflow (proposed)
+
+
+# Symbols and General Concepts
+
+The six predefined OASIS TC JIRA issue states are displayed as nodes in **Figure 1**. 
+
+These are: **New**, **Deferred**, **Open**, **Resolved**, **Applied**, and **Closed**.
+
+The states are annotated by color and shape to convey the following assumptions:
+
+* **New**, **Deferred** (as a "delayed **New**") and **Closed** as initial and final states respectively, usually mark begin and end of active work phases. 
+* The states **Open**, **Resolved** and **Applied** are surrounded by polygons (with resp. 7, 4, and 3 faces matching the "connecting" edges) as the work progressing the issues will be concentrated while they are in these states.
+
+* The "special" coloring shared by both **Deferred** and **Resolved** indicates the assumption, that the work should be organized in such a way, that the time spent in these states is minimized.
+
+Transitions depicted by directed lines connecting the state nodes in the graph are also annotated by linestyle (color and stroke).
+
+The driving actions are attached as verbs to the corresponding edges in **Figure 1**..
+
+The states **Open**, **Resolved** and **Applied** stand out as special, due to the expected high work density "around" these three.
+
+The general "real work"" flow is expected along the following path: Issue created as **New**, via **Open**, **Resolved**, and **Applied** directly to **Closed**.
+Edges with solid line stroke represent more probable transitions, while dashed ones are considered less abundant, and dotted ones even more rare.
+
+In case these infrequent transitions - marked as dashed or dotted lines in **Figure 1** - are often triggered during future processing, this might indicate problems in either quality of issues, processing capacity, processing quality, or planning and might lead to changes in these recommendation as update after initial approval. 
+
+In addition to the general best practices proposed in this document, it is generally advisable to support the editors with a more specific script or check list assistance for the application phase, because applying resolved issues involves a lot of mechanic. As this depends on the work patterns of the acting editor and the formats and tools used for the work products, this is unfortunately not generally possible, but instead needs specific objects to find and formulate such a "script" of maximal supportive steps leading to minimal overhead. Ideally this is a fully automated transaction like workflow, but in practice more often than not a simple check list. This should be provided and documented once the specifics are all set for the CSAF TC.
+
+Experience and common sense suggest two guidelines:
+
+1. Focus on the four main issues states: **New**, **Open**, **Resolved** and **Applied**.
+2. **Fast Track** - to offer a fast lane for trivial or minor fixes to optimize the editorial throughput without risking major unintended change.
+
+These two guidelines are used for structuring the presentation of best practices for issue processing in standards track work product development which is described in the next section (main proposal).
+
+\newpage
+
+# Best Practices for Issue Handling
+
+In the following subsections essential expectations and processing hints are documented. 
+These are ordered by the main expected work flow (happy path) and grouped by state (excluding the Deferred and Closed states).
+
+### State: New 
+
+Any TC member can create a new issue. 
+Issue SHOULD contain a concrete proposal on how to solve the issue.
+New issues are discussed in TC meetings and either opened (accepted by the TC), closed (not accepted by TC), or deferred (with a reason to be documented by the TC). 
+Based on the TC decision they will be opened or closed by the editors.
+
+### State: Open
+
+Discuss in issue comments, TC meetings or on the TC's mailing list until a proposal is agreed upon and capture the main discussion points in issue comments independent of selected discussion channel.
+The proposal MUST be ready for direct application depending on the nature of the proposal. When in doubt, proposers should consult the editors.
+Editors decide if the proposal is sufficient for them and move the issue to Proposed. This is accomplished by adding a tag "[Proposed]" to the Environment field of the issue. **NOTE**: Issues can be queried based on that tag.
+If no proposal can be achieved, the issue can be discussed in TC meetings and be deferred or closed.
+
+### State: Open + Environment == [Proposed]
+
+Proposed issues are discussed in TC meetings and either re-opened (further discussion needed) or moved to **Resolved** by editors (upon approval of the proposed resolution by the TC). 
+When moved to **Resolved**, a link to the meeting minutes accepting the proposal is added in the Proposal field.
+
+### State: Resolved 
+
+Editors apply resolved issues to a new intermediate version of the targeted work product, add a link to this version to the issue, remove the tag "[Proposed]" from the Environment field and move the issue to **Applied**.
+
+### State: Applied
+
+Applied issues are discussed in TC meetings and either reverted back to **Resolved** (if there are errors in the application of the resolution) or moved forward to **Closed**, by the editors. 
+When closed, a link to the meeting minutes accepting the changed document is added to the Resolution field.
+
+## Fast Track Issues with priority in (Trivial, Minor)
+
+Editors of affected work products can propagate issue directly to **Resolved**, so they can schedule application optimally.
+
+# Informative References
+

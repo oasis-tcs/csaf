@@ -1,0 +1,31 @@
+digraph tc_wf {
+	node [margin=0 fontname=Cambria fontsize=32 style=unfilled]
+	node [fontcolor=gray42 shape=plaintext rank=1]
+	NEW
+	node [fontcolor=indigo rank=1]
+	DEFERRED
+	node [color=grey fontcolor=red shape=septagon]
+	OPEN 
+	node [color=grey fontcolor=indigo shape=box]
+	RESOLVED
+	node [color=grey fontcolor=darkgreen shape=invtriangle]
+	APPLIED
+	node [fontcolor=black shape=plaintext]
+	CLOSED
+	/* Topology */
+	{rank = same; NEW; DEFERRED;}
+	OPEN -> RESOLVED [ label="Resolve\n[Proposed]" color=darkgreen fontcolor=darkgreen weight=1 ]
+	OPEN -> DEFERRED [ label=Defer color=red fontcolor=red style=dashed weight=1 ]	
+	OPEN -> CLOSED [ label=Close color=darkgreen fontcolor=darkgreen style=dashed weight=1 ]	
+	RESOLVED -> APPLIED [ label="Apply\nResolution" color=darkgreen fontcolor=darkgreen weight=1 ]	
+	RESOLVED -> OPEN [ label="Reject\nRes." color=red fontcolor=red style=dashed constraint=true weight=1 ]	
+	NEW -> OPEN [ label=Open color=darkgreen fontcolor=darkgreen constraint=true weight=1 ]	
+	NEW -> CLOSED [ label=" Close" color=cadetblue fontcolor=cadetblue style=dashed weight=1 ]	
+	NEW -> DEFERRED [ label=Defer color=cadetblue fontcolor=cadetblue style=dashed constraint=true weight=1 ]
+	DEFERRED -> OPEN [ label=Open color=darkgreen fontcolor=darkgreen style=dashed weight=1 ]	
+	APPLIED -> CLOSED [ label=Close color=darkgreen fontcolor=darkgreen weight=1 ]	
+	APPLIED -> RESOLVED [ label="Reject\nChg." color=red fontcolor=red style=dashed constraint=true weight=1 ]	
+	/* Worst case ... */
+	{rank = LR; OPEN; CLOSED;}
+	CLOSED -> OPEN [ label="Re-\nopen" color=red fontcolor=red style=dotted constraint=true weight=1 ]
+}

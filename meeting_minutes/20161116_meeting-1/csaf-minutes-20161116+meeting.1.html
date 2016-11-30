@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Common Security Advisory Framework (CSAF) TC Inaugural Meeting #1 Nov 16, 2016</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='f986ce5cdd976f5d46c69db66dbfaeb9173e8a19aec434541b54c26b95c3e346a7a547af2c5281ea4302ef3532238095de9617cc7a6c9c84fb102b065b6e5958' -->
+</head>
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Common Security Advisory Framework (CSAF) TC Inaugural Meeting #1 Nov 16, 2016</h1>
+<p>Acting chair: Omar</p>
+<pre>Chat transcript from room: csaf
+From 2016-11-16 19:03 UTC until 19:42 UTC
+</pre>
+
+<h2>1. Call to Order and Welcome</h2>
+<p>Omar Santos called the meeting to order @ 1:03 EST (18:03 UTC).</p>
+
+<h2>2. Volunteer for Note Taking</h2>
+<p>Lou Ronnau did take notes and Stefan Hagen added participation info and uploaded to kavi/meetings.</p>
+
+<h2>3. The meeting agenda was reviewed</h2>
+<p>Agenda approved unchanged as published.</p>
+
+<h2>4. Roll call</h2>
+<p>A roll call was taken,and also recorded on the OASIS meeting calendar</p>
+<h3>4.1 Members present</h3>
+<pre>
+    Adam Montville (Center for Internet Security (CIS))
+    Allan Thomson (LookingGlass)
+    Art MANION (Carnegie Mellon University)
+    Aukjan van Belkum (EclecticIQ)
+    Bernd Grobauer (Siemens AG)
+    Beth Pumo (Kaiser Permanente)
+    Chet Ensign (OASIS)
+    Chok Poh (Oracle)
+    Duncan Sparrell (sFractal Consulting LLC)
+    Feng Cao (Oracle)
+    Greg Scott (Cryptsoft Pty Ltd.)
+    Jamison Day (LookingGlass)
+    Jason Masters (TELUS)
+    Jessica Fitzgerald-McKay (National Security Agency)
+    Karen Scarfone (Individual)
+    Lawrence Lamers (VMware, Inc.)
+    Lothar Braun (Siemans AG) 
+    Louis Ronnau (Cisco Systems)
+    Mark Clancy (Soltra)
+    Mark-David McLaughlin (Cisco Systems)
+    Nicole Gong (Mitre Corporation)
+    Omar Santos (Cisco Systems)
+    Paul Patrick (FireEye, Inc.)
+    Rich Reybok (ServiceNow)
+    Richard Struse (DHS Office of Cybersecurity and Communicat...)
+    Ritwik Ghoshal (Oracle)
+    Robert Coderre (VeriSign
+    Rupert Wimmer (Siemans AG) 
+    Sanjiv Kalkar (Individual)
+    Sarah Kelley (Center for Internet Security (CIS))
+    Stefan Hagen (Individual)
+    Tony Cox (Cryptsoft Pty Ltd.)
+    Vincent Danen (Red Hat)
+</pre>
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=43634">normative attendance sheet for this meeting (event_id=43634)</a>.</p>
+
+<h2>5. Nominations for Chair/Co-Chairs.</h2>
+<p>There were two nominations for chairperson, <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/email/archives/201611/msg00002.html" rel="noopener noreferrer" target="_blank">Omar Santos</a> and <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/email/archives/201611/msg00003.html" rel="noopener noreferrer" target="_blank">Richard Struse</a>. </p>
+
+<h2>6. Election of Chair or Co-Chairs</h2>
+<p>After Richard Struse withdrew his name from consideration, Omar Santos was elected TC chair without objection.</p>
+<p>Note: From here on Omar Santos was acting chair.</p>
+
+<h2>7. Welcome from OASIS Staff</h2>
+<p>Chet Ensign presented an overview of how to work with OASIS and the OASIS document production lifecycle and how to make contributions to the technical committee. Roberts rules of order will be followed in the CSAF TC.</p>
+
+<h2>8. Quick overview of Charter and Discussion of Contributed Work</h2>
+<p>Omar provided a brief review of the committee charter and spoke about the <a href="http://www.icasi.org/icasi-transfers-development-of-security-open-standard-to-oasis/" rel="noopener noreferrer" target="_blank">ICASI press release announcing the movement of the CVRF work to the CSAF TC</a></p>
+<p>Duncan Sparrell asked about changes to the charter if required, there is a process for modifying the charter.</p>
+
+<h2>9. Assignment of Other Responsibilities</h2>
+<p>Stefan Hagen was nominated for committee secretary and elected without objection.</p>
+
+<h2>10. Confirmation of Ongoing Meeting Schedule</h2>
+<p>Omar mentioned the Doodle created for choosing the best time for a standing monthly TC meeting, this Doodle will be closed in two weeks.</p>
+<p><b>Update after the meeting</b>: Mail with subject "<a href="https://www.oasis-open.org/apps/org/workgroup/csaf/email/archives/201611/msg00008.html" rel="noopener noreferrer" target="_blank">Monthly CSAF TC Meetings</a>" has been sent to the list.</p>
+
+<h2>11. Selection of Version Control System and Seeding with Contribution</h2>
+<p>Omar suggested that the previous work from the CVRF 1.1 spec be moved into a Github repository, there were also no objections and Richard Struse also voiced his recommendation to use Github.</p>
+<p>Chet will follow-up with the chair on the repository creation.</p>
+
+<h2>12. Any other business</h2>
+<p>The chair opened the floor for questions, there were none.</p>
+
+<p>The meeting was adjourned at 1:42 EST (18:42 UTC).</p>
+
+</div>
+</body>
+</html>
+
+
+
+
