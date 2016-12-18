@@ -7,7 +7,7 @@
  xmlns:dc="http://purl.org/dc/elements/1.1/"
  xmlns:cpe-lang="http://cpe.mitre.org/language/2.0"
  xmlns:cvssv2="http://scap.nist.gov/schema/cvss-v2/1.0"
- xmlns:cvssv3="https://www.first.org/cvss-v3/1.0" 
+ xmlns:cvssv3="https://www.first.org/cvss-v3/1.0"
  xmlns:scap-core="http://scap.nist.gov/schema/scap-core/1.0"
  id="CVRFProductDictionary"
  targetNamespace="http://www.icasi.org/CVRF/schema/prod/1.2"
@@ -30,7 +30,8 @@
     <xs:documentation xml:lang="en">This is the XML schema for the Common Vulnerability Reporting Framework's Product model.  For more information, see the CVRF whitepaper.</xs:documentation>
     <xs:appinfo>
       <dc:creator>XXX XXX  &lt;xxx.xxxx@xxxx.com&gt;</dc:creator>
-      <dc:date>2015-12-28</dc:date>
+      <dc:contributor>Feng Cao; feng.cao@oracle.com</dc:contributor>
+      <dc:date>2016-12-18</dc:date>
       <dc:subject>CVRF Product Dictionary</dc:subject>
       <version>1.2</version>
     </xs:appinfo>
