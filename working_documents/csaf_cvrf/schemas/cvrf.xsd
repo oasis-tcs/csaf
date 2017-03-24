@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   CSAF CVRF Version 1.2
-  OASIS Committee Specification Draft 01 tentative editor revision 2017-03-10
-  10 March 2017
+  OASIS Committee Specification Draft 01 tentative editor revision 2017-03-14
+  24 March 2017
   Copyright (c) OASIS Open 2017. All Rights Reserved.
   Source: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csd01/schemas/
 -->
@@ -29,12 +29,13 @@
   <!-- ============================ SCHEMA INFORMATION =============================== -->
   <!-- =============================================================================== -->
   <xs:annotation>
-    <xs:documentation xml:lang="en">This is the XML schema for the main frame model of the OASIS
-      CSAF TC's CVRF (Common Vulnerability Reporting Framework).</xs:documentation>
+    <xs:documentation xml:lang="en">This is the XML schema for the main frame model of the 
+      OASIS Common Security Advisory Framework (CSAF) TC's  
+      CVRF (Common Vulnerability Reporting Framework).</xs:documentation>
     <xs:appinfo>
       <dc:contributor>Feng Cao &lt;feng.cao@oracle.com></dc:contributor>
-      <dc:contributor>Stefan Hagen; &lt;stefan@hagen.link></dc:contributor>
-      <dc:date>2017-03-10</dc:date>
+      <dc:contributor>Stefan Hagen &lt;stefan@hagen.link></dc:contributor>
+      <dc:date>2017-03-24</dc:date>
       <dc:subject>CSAF CVRF main frame model</dc:subject>
       <version>1.2</version>
     </xs:appinfo>
@@ -71,8 +72,8 @@
   </xs:simpleType>
   <xs:simpleType name="cvrfVersion">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Floating point number representing the CVRF specification
-        version</xs:documentation>
+      <xs:documentation xml:lang="en">Floating point number representing the CSAF CVRF
+        specification version</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:float">
       <xs:pattern value="[0-9]+\.[0-9]{1,3}"/>
@@ -83,7 +84,7 @@
   <!-- =============================================================================== -->
   <xs:element name="cvrfdoc">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Root element of a CVRF document.</xs:documentation>
+      <xs:documentation xml:lang="en">Root element of a CSAF CVRF document.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -113,7 +114,7 @@
         <xs:element name="DocumentPublisher" minOccurs="1" maxOccurs="1">
           <xs:annotation>
             <xs:documentation xml:lang="en">A container holding all information about the publisher
-              of the CVRF document.</xs:documentation>
+              of the CSAF CVRF document.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
@@ -158,7 +159,7 @@
         <xs:element name="DocumentTracking" minOccurs="1" maxOccurs="1">
           <xs:annotation>
             <xs:documentation xml:lang="en">The Document Tracking meta-container contains all of the
-              attributes necessary to track a CVRF document.</xs:documentation>
+              attributes necessary to track a CSAF CVRF document.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
@@ -275,7 +276,7 @@
                     <xs:element name="Engine" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation xml:lang="en">The name and version of the engine that
-                          generated the CVRF document.</xs:documentation>
+                          generated the CSAF CVRF document.</xs:documentation>
                       </xs:annotation>
                       <xs:complexType>
                         <xs:simpleContent>
@@ -285,7 +286,7 @@
                     </xs:element>
                     <xs:element name="Date" type="xs:dateTime" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation xml:lang="en">The date the CVRF document was
+                        <xs:documentation xml:lang="en">The date the CSAF CVRF document was
                           generated.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
@@ -298,8 +299,8 @@
         <xs:element name="DocumentNotes" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation xml:lang="en">The Document Notes text contains all of the individual
-              notes necessary to provide different types of low-level discussions of a CVRF document
-              to various audiences.</xs:documentation>
+              notes necessary to provide different types of low-level discussions of a CSAF CVRF 
+              document to various audiences.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
@@ -345,7 +346,7 @@
         <xs:element name="DocumentDistribution" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation xml:lang="en">The Document Distribution string should contain details
-              on constraints, if any, about sharing this CVRF Document with additional
+              on constraints, if any, about sharing this CSAF CVRF Document with additional
               recipients.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
@@ -383,7 +384,7 @@
             <xs:sequence>
               <xs:element name="Reference" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation xml:lang="en">Related documents to the CVRF
+                  <xs:documentation xml:lang="en">Related documents to the CSAF CVRF
                     document.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>

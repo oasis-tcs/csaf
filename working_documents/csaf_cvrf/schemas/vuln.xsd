@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   CSAF CVRF Version 1.2
-  OASIS Committee Specification Draft 01 tentative editor revision 2017-03-10
-  10 March 2017
+  OASIS Committee Specification Draft 01 tentative editor revision 2017-03-14
+  24 March 2017
   Copyright (c) OASIS Open 2017. All Rights Reserved.
   Source: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csd01/schemas/
 -->
@@ -37,14 +37,16 @@
   <!-- ============================ SCHEMA INFORMATION =============================== -->
   <!-- =============================================================================== -->
   <xs:annotation>
-    <xs:documentation xml:lang="en">This is the XML schema for the Vulnerability sub model of the
-      OASIS CSAF TC's CVRF (Common Vulnerability Reporting Framework).</xs:documentation>
+    <xs:documentation xml:lang="en">This is the XML schema for the Vulnerability 
+      sub model of the OASIS Common Security Advisory Framework (CSAF) TC's 
+      CVRF (Common Vulnerability Reporting Framework).</xs:documentation>
     <xs:appinfo>
-      <dc:contributor>Art Manion; &lt;amanion@cert.org></dc:contributor>
+      <dc:contributor>Art Manion &lt;amanion@cert.org></dc:contributor>
       <dc:contributor>Feng Cao &lt;feng.cao@oracle.com></dc:contributor>
-      <dc:contributor>Stefan Hagen; &lt;stefan@hagen.link></dc:contributor>
-      <dc:date>2017-03-10</dc:date>
-      <dc:subject>CVRF Vulnerability sub model</dc:subject>
+      <dc:contributor>Stefan Hagen &lt;stefan@hagen.link></dc:contributor>
+      <dc:contributor>Troy Fridley &lt;trfridle@cisco.com></dc:contributor>
+      <dc:date>2017-03-24</dc:date>
+      <dc:subject>CSAF CVRF Vulnerability sub model</dc:subject>
       <version>1.2</version>
     </xs:appinfo>
   </xs:annotation>
@@ -119,6 +121,15 @@
     </xs:annotation>
     <xs:restriction base="xs:token">
       <xs:maxLength value="76"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="cvssVectorV3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">String representing the components needed to compute the
+        various CVSS version 3 scores which can be longer than v2 scores (up to 138 characters).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:maxLength value="140"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="AffectedStatusEnumType">
@@ -572,7 +583,7 @@
                           10.0.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="VectorV3" type="vuln:cvssVector" minOccurs="0" maxOccurs="1">
+                    <xs:element name="VectorV3" type="vuln:cvssVectorV3" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation xml:lang="en">The CVSS Vector string is the official
                           notation that contains all of the values used to compute the Base,
@@ -762,7 +773,7 @@
       <xs:attribute name="Ordinal" type="xs:positiveInteger" use="required">
         <xs:annotation>
           <xs:documentation xml:lang="en">Locally significant numeric value to track vulnerabilities
-            within a CVRF document. This enables vulnerabilities to be referenced from elsewhere
+            within a CSAF CVRF document. This enables vulnerabilities to be referenced from elsewhere
             inside the document (often at the document-level)</xs:documentation>
         </xs:annotation>
       </xs:attribute>
