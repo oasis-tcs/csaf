@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Common Security Advisory Framework (CSAF) TC Meeting #4 Feb 22, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='e011fa2417412e839980dcf81d8e60777e0917337f251552a93c820580c7bbc80a1dccb0b91be89fe5a9cfed4c0db042ed508cd3c4bd0a86e12857f69a50adc4' -->
+</head>
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Common Security Advisory Framework (CSAF) TC Meeting #4 Feb 22, 2017</h1>
+<p>Acting chair: Omar</p>
+<pre>Chat transcript from room: csaf
+From 2017-02-22 18:07 UTC until 19:08 UTC
+</pre>
+
+<h2>1. Call to Order and Welcome</h2>
+<p>Omar Santos called the meeting to order @ 1:07 EST (18:07 UTC).</p>
+
+<h2>2. Roll call</h2>
+<p>A roll call was taken,and also recorded on the OASIS meeting calendar</p>
+<p>All particiapnts are kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page<br>
+or directly visit the per event direct "record my attendace link": <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44453&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44453&amp;confirmed=1</a>.
+<br>Thanks</p>
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44453">normative attendance sheet for this meeting (event_id=44453)</a>.</p>
+<h3>2.1 Participants</h3>
+<h4>2.1.1 Voting Members Present</h4>
+<pre>
+Adam Montville (CIS)
+Allan Thomson (LookingGlass)
+Art Manion (Carnegie Mellon University)
+Beth Pumo (Kaiser Permanente)
+Duncan Sparrell (sFractal Consulting LLC)
+Feng Cao (Oracle)
+Harold Booth (NIST)
+Jamison Day (LookingGlass)
+Karen Scarfone (Individual)
+Lothar Braun (Siemens AG)
+Omar Santos (Cisco Systems)
+Paul Patrick (FireEye, Inc.)
+Sarah Kelley (CIS)
+Stefan Hagen (Individual)
+Vincent Danen (Red Hat)
+</pre>
+<h4>2.1.2 Members Present</h4>
+<p class="note">Note: While the default rule requires attendance at 3 of the 5 most recent meetings, only 2 meetings have been held thus far. Voting members must have attended at least 2 of the last 2 meetings. The following members will gain voting rights after the next meeting, in case of participation.</p>
+<pre>
+Bret Jordan (Symantec Corp.)
+Bruce Rich (Cryptsoft Pty Ltd.)
+David Waltermire (NIST)
+Denny Page (TIBCO Software Inc.)
+Eric Johnson (TIBCO Software Inc.)
+Jerome Athias (Individual)
+Jonathan Bitle (Kaiser Permanente)
+Patrick Maroney (Wapack Labs LLC)
+Peter Allor (IBM)
+Phillip Boles (FireEye, Inc.)
+Zach Turk (Microsoft)
+</pre>
+<h4>2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<p>None</p>
+<h3>2.2 Voting Right Changes Effective After The Meeting</h3>
+<h4>2.2.1 Members that Gained Voting Rights</h4>
+<pre>
+Bret Jordan (Symantec Corp.)
+Bruce Rich (Cryptsoft Pty Ltd.)
+David Waltermire (NIST)
+Patrick Maroney (Wapack Labs LLC)
+Phillip Boles (FireEye, Inc.)
+Jonathan Bitle (Kaiser Permanente)
+</pre>
+<h4>2.2.2 Members that Lost Voting Rights</h4>
+<pre>
+Sarah Kelley (CIS) - (left the group)
+</pre>
+
+<h2>3. The meeting agenda was reviewed</h2>
+<p>Agenda approved unchanged as published.</p>
+
+<h2>4. Approval of Minutes from Previous Meeting #3 (2017-01-25)</h2>
+<p>Meeting minutes of <a href="https://www.oasis-open.org/committees/download.php/59880/csaf-minutes-20170125-meeting-3.html" rel="noopener noreferrer" target="_blank">Monthly TC Meeting #3 on 2017-01-25</a>.</p>
+<p>Minutes approved unchanged as published.</p>
+
+<h2>5. Status of Current Activities and Contributions</h2>
+
+<p>Omar: Topic CVRF 1.2 candidate - not much discussion / feedback observed</p>
+<p>Feng: Mentions still open questions</p>
+<p>Omar: Asks, if the namespace questions block moving forward with CVRF to enable CVSv3</p>
+<p>Harold: Doubts, that we can add backward compatibility, as we regardless have to make a breaking change</p>
+<p>Lothar: Shares this result and thinks, it is to decide, just how breaking the change should be.</p>
+<p>Feng: States, that the namespace will refer to an OASIS CVRF 1.2 URL instead of an ICASI URL (as in v1.1)</p>
+
+<p><b>Peter</b>: I <b>move</b> to bootstrap the CVSSv3 capability, by adding the CVRF 1.2 with a namespace URL hosted at OASIS to trigger the change for the clients of the schema. <b>Jamison</b> seconds.</p>
+<p>Omar: No objections unanimous consent, the motion carries</p>
+
+<p>Omar: Asks for suggestion for where to best present the schema ...</p>
+<p>Allen: Wonders, if anything else, than OASIS website is reasonable?</p>
+<p>Stefan: Adds, that this is the place, for the schema URL, any marketing or other non-normative secondary documents can go elsewhere, but the classical XML schema URL will be determined by OASIS staff upon issue submittal.</p>
+
+<p><b>All</b> agree to go for the OASIS website (standard process)</p>
+
+<p>Omar: Next topic Review and Release Timeframe</p>
+<p>Omar: Asks on members view on march aas next milestone</p>
+
+<p><b>All</b> agree to love March</p>
+
+<p>Omar: Volunteers to work on the dictionary of elements update</p>
+<p>Stefan: Dito on additional documentation</p>
+<p>Stefan: Announcement and documentation will take additional coordination with OASIS and member companies</p>
+
+<p>Omar: Kindly asks for a date, when we target as publication date - would be end of March be OK?</p>
+<p>Peter: Asks if there is anything technical to be done, before progressing further (thus that has to fit inside the time window until end of March)</p>
+
+<p><b>All</b> discuss procedures</p>
+
+<p>Stefan: States, that there is the process that progresses up to OASIS standard</p>
+<p>Stefan: If we just progress the schema as an artefact as a committee document, we can always store this as public accessible with the status draft. The committee draft as such needs more blessing, as we vote on it, then we can submit to public review (ticket for OASIS staff). OASIS standard needs wider member vote and also abouut a year</p>
+<p>Bret: States, that for IPR lock in the artefacts need CS status (which needs review phase and thus 30 days minimum but realistically 45 days after publication of CSD as the staff may need some time to process the submittal ticket.</p>
+<p>Stefan: Notes, that publicly available are the artefacts al the time and thus we can offer as service to the community a fast patch to offer CVSSv3 to the community - but the "true" URL is blessed only (with IPR lock in) when CSD and CS stage have been accomplished.</p>
+
+<p>Omar: Asks, if we can interpret the CVRF 1.2 as an updated contribution, we might be faster</p>
+<p>Bret: States, that from his experiences with STIX and TAXII minor changes - there is no real fast track</p>
+<p>Bret: Suggests to adhere as usual to <a href="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess</a></p>
+<p>Bret: Informs on the full majority vote necessary for committee specification level (45 days needed approx.)</p>
+<p>Bret and Stefan: Agree that if we go for a CSD it is easy and fast: at the moment the artefacts are frozen, we can start a ballot (even by motion via email) then two weeks later, the outcome (majority yes needed etc. we can request publication by OASIS on the original OASIS website</p>
+
+<p>Peter: Asks Omar, if we are ready and Bret asks for the state of transformation from ICASI into OASIS work product.</p>
+
+<p>Stefan: The officers of the TC can submit for a work product starting doc, and then we will receive the namespaces etc.</p>
+
+<p>Stefan: Asks if editors are already named? These would be good to be named upon request of the work product templates ...</p>
+
+<p>Omar: Asks for editor volunteers</p>
+<p>Stefan: Volunteers as editor</p>
+<p>No objection unanimous consent</p>
+
+<p><b>All</b> discuss the timeline in the light of the changes and formalities needed</p>
+
+<p>Art: Asks for the history behind CVSSv3 in relation to CVRF</p>
+<p>Peter: States, that ICASI stated it was agreed, that this TC could update CVRF from 1.1 as 1.2 by updating from CVSSv2 to CVSSv3</p>
+
+<p><b>All</b> discuss if it would be faster, to request a new contribution from ICASI (that would update the contribution to a new one containing an CVSSv3)</p>
+
+<p>Art: I'll suggest that we need a list of artifacts and one/two editors per artifact<br>
+1. CSAF 1.2 XML<br>
+2. Document in OASIS format describing CSAF use and all the terms/fields<br>
+3. ?</p>
+
+<p>Stefan: The current consideration is to kindly expect ICASI to submit an updated CVRF1.2 with the CVSSv3 update contained - as it did receive the CVRF 1.1 contribution</p>
+<p>David: Suggests to decide if we want to publish CVRF1.2 as committee specification draft (CSD) or to receive an updated contribution (only)</p>
+<p>Peter: Would prefer the CSD (no matter, how we get it)</p>
+<p>Harold: I am afraid I missed the opportunity to mention concerns... I have one suggested change: line 456 in vuln.xsd should be (to not require CVSSv3): </p>
+<pre>
+&lt;xs:element name="ScoreSetV3" minOccurs="0" maxOccurs="unbounded"> 
+</pre>
+<p>Lothar: Also thinks, that if it is possible to receive a CVRF v1.2 from ICASI would be OK, to give the TC more time to concentrate on version 2.0</p>
+<p>Stefan: (To Harold's change request): I do not think the artefacts are frozen yet ...</p>
+
+<p><b>All</b> restate, that no matter where the namespace will be hosted, this will be a different one, as CVRF 1.2 will be incompatible with CVRF 1.1</p>
+
+<p>Stefan: Meeting time reminder</p>
+<p>Omar: Asks if there is a motion?</p>
+
+<p>Eric: Thinks that doing it inside the TC would be equally fast compared with another external contribution, as anyhow we need to transform it; but we would be better of internally handling it, as at anytime we can share the state</p>
+<p>Stefan: Seconds this</p>
+<p><b>Stefan</b>: I <b>move</b> we progress the schema inside the TC. <b>Peter</b> seconds.</p>
+<p>Omar: No objections, unanimous consent the motion carries</p>
+
+<p>Omar: Calls to action over the established channels to put the remaining time into good use</p>
+
+<h2>6. Next Meetings</h2>
+<h3>6.1 Next Meeting</h3>
+<p>Next Meeting #5 will be on Wednesday, March 29, 2017</p>
+<pre>
+Wednesday, 29 March 2017, 01:00pm to 02:00pm EST (UTC-5)
+  - i.e. 2017-03-29 19:00 to 20:00 CEST (UTC+2)
+</pre>
+<p>Event page: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44454" rel="noopener noreferrer" target="_blank">Meeting Id 44454</a></p>
+<p>Self-Registration link (available from approx. 15 minutes before meeting start): <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44454&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44454&amp;confirmed=1</a></p>
+
+<h3>6.2 Other Subsequent Meetings</h3>
+<p>All meetings monthly on last Wednesday during:</p>
+<pre>
+01:00pm to 02:00pm EST (UTC-5)
+  - 19:00 to 20:00 CEST (UTC+2)
+</pre>
+
+<ul>
+<li><span style="font-family: monospace;">Meeting #6 on Wed, 26 Apr 2017</span>: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44455" rel="noopener noreferrer" target="_blank">Event page of meeting id 44455</a></li>
+<li><span style="font-family: monospace;">Meeting #7 on Wed, 31 May 2017</span>: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44456" rel="noopener noreferrer" target="_blank">Event page of meeting id 44456</a></li>
+<li><span style="font-family: monospace;">Meeting #8 on Wed, 28 Jun 2017</span>: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44457" rel="noopener noreferrer" target="_blank">Event page of meeting id 44457</a></li>
+<li><span style="font-family: monospace;">Meeting #9 on Wed, 26 Jul 2017</span>: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44458" rel="noopener noreferrer" target="_blank">Event page of meeting id 44458</a></li>
+</ul>
+
+<h2>7. Any other business</h2>
+<p>The chair opened the floor for questions, there were none.</p>
+
+<h2>8. Adjourn</h2>
+<p>The meeting was adjourned at 02:08 EST (20:08 UTC).</p>
+
+</div>
+</body>
+</html>
+
+
+
+
