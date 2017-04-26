@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Common Security Advisory Framework (CSAF) TC Meeting #6 Apr 26, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='7d7adf3d719ea21db5f66b6ad1be7ecdde1c74c1376bb1b3848537d2d0b73c6fc6d555cf9ed85530e845249bb29c7c018be88ee2f346a25e9d95addce8164cc0' -->
+</head>
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Common Security Advisory Framework (CSAF) TC Meeting #6 Apr 26, 2017</h1>
+<p>Acting chair: Omar</p>
+<pre>Chat transcript from room: csaf
+From 2017-04-26 17:02 UTC until 18:54 UTC
+</pre>
+
+<h2>1. Call to Order and Welcome</h2>
+<p>Omar: Called the meeting to order @ 1:02 EST (17:02 UTC).</p>
+
+<h2>2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44455&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44455&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44455">normative attendance sheet for this meeting (event_id=44455)</a>.</p>
+<h3>2.1 Participants</h3>
+<h4>2.1.1 Voting Members Present</h4>
+<pre>
+Art Manion (Carnegie Mellon University)
+Beth Pumo (Kaiser Permanente)
+Chok Poh (Oracle)
+Denny Page (TIBCO Software Inc.)
+Eric Johnson (TIBCO Software Inc.)
+Feng Cao (Oracle)
+Harold Booth (NIST)
+Jamison Day (LookingGlass)
+Jonathan Bitle (Kaiser Permanente)
+Lothar Braun (Siemens AG)
+Louis Ronnau (Cisco Systems)
+Omar Santos (Cisco Systems)
+Paul Patrick (FireEye, Inc.)
+Phillip Boles (FireEye, Inc.)
+Ritwik Ghoshal (Oracle)
+Stefan Hagen (Individual)
+Vincent Danen (Red Hat)
+Zach Turk (Microsoft)
+</pre>
+<h4>2.1.2 Members Present</h4>
+<p class="note">Note: While the default rule requires attendance at 3 of the 5 most recent meetings, only 4 meetings have been held before this meeting. Voting members must have attended at least 2 of the last 4 meetings.</p>
+<pre>
+Jared Semrau (FireEye, Inc.)
+Masato Terada (Hitachi, Ltd.)
+Patrick Maroney (Wapack Labs LLC)
+Sean Barnum (Mitre Corporation)
+Troy Fridley (Cisco Systems)
+</pre>
+<h4>2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<p>None</p>
+<h3>2.2 Voting Right Changes Effective After The Meeting</h3>
+<h4>2.2.1 Members who gained Voting Rights</h4>
+<pre>
+Jared Semrau (FireEye, Inc.)
+Masato Terada (Hitachi, Ltd.)
+Patrick Maroney (Wapack Labs LLC)
+Troy Fridley (Cisco Systems)
+</pre>
+<h4>2.2.2 Members who lost Voting Rights</h4>
+<pre>
+Aukjan van Belkum (EclecticIQ)
+Allan Thomson, (LookingGlass)
+Duncan Sparrell (sFractal Consulting LLC)
+Karen Scarfone (Individual) - Status changed to Persistent Non-Voting Member
+</pre>
+
+<h2>3. The meeting agenda was reviewed</h2>
+<p>Agenda approved unchanged as published</p>
+
+<h2>4. Approval of Minutes from Previous Meeting #5 (2017-03-29)</h2>
+<p>Meeting minutes of <a href="https://www.oasis-open.org/committees/download.php/60592/csaf-minutes-20170329-meeting-5.html" rel="noopener noreferrer" target="_blank">Monthly TC Meeting #5 on 2017-03-29</a>.</p>
+<p><b>Harold</b> moves to approve. <b>Lou</b> seconds.
+<p>Denny and Eric achieve voting rights after meeting #5 - the OASIS tools do indicate otherwise. We will amend the minutes accordingly and Stefan will correct the roster.</p>
+<p>Stefan: Given this is changed in the minutes do we have a motion to approve?</p>
+<p>The amendment is seconded</p>
+<p>Motion carries as ammended</p>
+<p>Zach Turk also should be augmented then to voting member status.</p>
+<p>All three are now updated in roster management</p>
+
+<p>Minutes approved amended as above</p>
+<p><b>Update</b>: Link to <a href="https://www.oasis-open.org/committees/download.php/60611/csaf-minutes-20170329-meeting-5.html" rel="noopener noreferrer" target="_blank">Amended minutes of Monthly TC Meeting #5 on 2017-03-29</a>
+
+<h2>5. Status of current activities and contributions</h2>
+<p>Skipped as this topic was handled centered around CSAF-28 in the next topic.</p>
+
+<h2>6. Current Open JIRA Issues</h2>
+<h3>6.1 <a href="https://issues.oasis-open.org/browse/CSAF-28" rel="noopener noreferrer" target="_blank">CSAF-28</a> - Proposal for CVSS future embrace</h3>
+<p>Stefan walks through the proposal</p>
+<p>All discuss the uniqueness constraint on the product id (D) in the proposal</p>
+<p>Troy explains the uniqueness</p>
+<p>Troy explains every vuln relates to only one product (so you do not have contradicting vulns per product</p>
+<p>Troy suggests to enforce the constraints per versioned score set (thus allowing also v2 and v3 to target the same product id)</p>
+<p>Omar understands, that we have to allow some flexibility in the cardinalities of the version scores.</p>
+<p><b>Denny</b> moves to allow 0 or 1 scrore sets per CVSS version. <b>Harold</b> seconds.</p>
+<p>Omar: Unanimous consent, the motion carries</p>
+
+<p>Feng suggests (based on the mail he sent) to change only minimally in v1.2 (and keep the private scale type for v2.0)</p>
+<p>Stefan suggests to then reference cvssv3 for 0 - 10</p>
+<p>All discuss the proposal in CSAF-28</p>
+<p>Eric asks if the members of the TC think, the version 1.2 shall accomplish become a OASIS spec fast similar to 1.1 but supporting cvss v3 and thinks xml schema use to embed future compatibility is hard.</p>
+<p>Troy accepts A.1 (from CSAF-28 proposal), but A.2 might be to far reaching</p>
+<p>Harold is in favor to stay within narrow scope</p>
+<p><b>Stefan</b> I <b>move</b> to implement CSAF-28 but without the private type for cvssScoreType for the next working draft revision</p>
+<p>Harold suggests to also remove D</p>
+<p><b>Stefan</b> I <b>move</b> to implement CSAF-28 but without the private type for cvssScoreType and without the uniqueness constraint (D) for the next working draft revision</p>
+<p>All discuss</p>
+<p><b>Stefan</b> I <b>move</b> to implement CSAF-28 but without the private type for cvssScoreType and with the uniqueness constraint (D)changed, so it targets v2 and v3 scores separately thus will allow one unique v2 and one unique v3 score per product id  for the next working draft revision</p>
+<p>Feng suggests to instead not implement CSAF-28, but instead amend Feng V2 V3 explicit variant with an additional constraint to accommodate for v2/v3 uniqueness and Harold is OK</p>
+<p>Harold suggests to relax the cardinalities on the v3 score set to allow for 0 occurrences, and to have upper bound of 1 instead of unbounded for v2 and v3</p>
+<p>Feng suggests to keep unbounded</p>
+<p>Harold concurs with that</p>
+<p><b>Stefan</b> I <b>move</b> to keep the existing schema as discussed above with two changes: One is adding a V2 constraint on productID and TWO is relax the minOccur ov ScoreSetV3 from 1 to 0. <b>Vincent</b> seconds.</p>
+<p>Omar: No objections, unanimous consent the motion carries</p>
+
+<h2>7. Next Steps</h2>
+<p>Stefan plans to provide in two weeks time an updated working draft revision available for inspection by the members and subsequent vote in the end of may meeting</p>
+<p>Omar offers help in case the two weeks timeframe is too short, so we can ensure to vote next meeting</p>
+
+<h2>8. Next Meetings</h2>
+<h3>8.1 Next Meeting</h3>
+<p>Next Meeting #7 will be on Wednesday, May 31, 2017</p>
+<pre>
+Wednesday, 31 May 2017, 01:00pm to 02:00pm EST (UTC-5)
+  - i.e. 2017-05-31 19:00 to 20:00 CEST (UTC+2)
+</pre>
+<p>Event page: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44456" rel="noopener noreferrer" target="_blank">Meeting Id 44456</a></p>
+<blockquote>
+<p>Self-Registration link (available from approx. 15 minutes before meeting start):<br> <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44456&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44456&amp;confirmed=1</a></p>
+</blockquote>
+
+<h3>8.2 Other Subsequent Meetings</h3>
+<p>All meetings monthly on last Wednesday during:</p>
+<pre>
+01:00pm to 02:00pm EST (UTC-5)
+  - 19:00 to 20:00 CEST (UTC+2)
+</pre>
+
+<ul>
+<li><span style="font-family: monospace;">Meeting #8 on Wed, 28 Jun 2017</span>: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44457" rel="noopener noreferrer" target="_blank">Event page of meeting id 44457</a></li>
+<li><span style="font-family: monospace;">Meeting #9 on Wed, 26 Jul 2017</span>: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44458" rel="noopener noreferrer" target="_blank">Event page of meeting id 44458</a></li>
+</ul>
+
+<h2>9. Any other business</h2>
+<p>The chair opened the floor for questions.</p>
+<p>Eric: Asks if there are use case documents available for the 2.0 work or if it is in the issues?</p>
+<p>Omar: Confirms in the issues only</p>
+<p>No other business</p>
+
+<h2>10. Adjourn</h2>
+<p>The meeting was adjourned at 01:54 EST (17:54 UTC).</p>
+
+</div>
+</body>
+</html>
