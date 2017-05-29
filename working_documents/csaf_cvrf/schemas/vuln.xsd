@@ -2,7 +2,7 @@
 <!--
   CSAF CVRF Version 1.2
   OASIS Committee Specification Draft 01 Working Draft 01
-  29 March 2017
+  24 May 2017
   Copyright (c) OASIS Open 2017. All Rights Reserved.
   Source: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csd01/schemas/
 -->
@@ -37,15 +37,16 @@
   <!-- ============================ SCHEMA INFORMATION =============================== -->
   <!-- =============================================================================== -->
   <xs:annotation>
-    <xs:documentation xml:lang="en">This is the XML schema for the Vulnerability 
-      sub model of the OASIS Common Security Advisory Framework (CSAF) TC's 
+    <xs:documentation xml:lang="en">This is the XML schema for the Vulnerability
+      sub model of the OASIS Common Security Advisory Framework (CSAF) TC's
       CVRF (Common Vulnerability Reporting Framework).</xs:documentation>
     <xs:appinfo>
-      <dc:contributor>Art Manion &lt;amanion@cert.org></dc:contributor>
-      <dc:contributor>Feng Cao &lt;feng.cao@oracle.com></dc:contributor>
-      <dc:contributor>Stefan Hagen &lt;stefan@hagen.link></dc:contributor>
-      <dc:contributor>Troy Fridley &lt;trfridle@cisco.com></dc:contributor>
-      <dc:date>2017-03-29</dc:date>
+      <dc:contributor>Art Manion (amanion@cert.org)</dc:contributor>
+      <dc:contributor>Feng Cao (feng.cao@oracle.com)</dc:contributor>
+      <dc:contributor>Harold Booth (harold.booth@nist.gov)</dc:contributor>
+      <dc:contributor>Stefan Hagen (stefan@hagen.link)</dc:contributor>
+      <dc:contributor>Troy Fridley (trfridle@cisco.com)</dc:contributor>
+      <dc:date>2017-05-24</dc:date>
       <dc:subject>CSAF CVRF Vulnerability sub model</dc:subject>
       <version>1.2</version>
     </xs:appinfo>
@@ -786,10 +787,18 @@
       <xs:selector xpath=".//vuln:ProductStatuses/vuln:Status/vuln:ProductID"/>
       <xs:field xpath="."/>
     </xs:unique>
-    <xs:unique name="UniqueScoreSetProductID">
+    <xs:unique name="UniqueScoreSetV2ProductID">
       <xs:annotation>
         <xs:documentation xml:lang="en">This is to ensure that each CVSS score set mentions a given
-          ProductID only one.</xs:documentation>
+          ProductID only one per CVSS version 2.</xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath=".//vuln:CVSSScoreSets/vuln:ScoreSetV2/vuln:ProductID"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+    <xs:unique name="UniqueScoreSetV3ProductID">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">This is to ensure that each CVSS score set mentions a given
+          ProductID only one per CVSS version 3.</xs:documentation>
       </xs:annotation>
       <xs:selector xpath=".//vuln:CVSSScoreSets/vuln:ScoreSetV3/vuln:ProductID"/>
       <xs:field xpath="."/>
