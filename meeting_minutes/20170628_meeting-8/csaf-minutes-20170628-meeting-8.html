@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Common Security Advisory Framework (CSAF) TC Meeting #8 June 28, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='c3fd66ccea86c7386ce4eb7b3dbb57e7c95a8f965dd000333c4d6d429739c4caff380804e10f68039d12b930e68fbbb6f27870a789c6ea778214feededa85e4d' -->
+</head>
+
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Common Security Advisory Framework (CSAF) TC Meeting #8 June 28, 2017</h1>
+<p>Acting chair: Omar</p>
+<pre>Chat transcript from room: csaf
+From 2017-06-28 17:02 UTC until 17:16 UTC
+</pre>
+
+<h2>1. Call to Order and Welcome</h2>
+<p>Omar: Called the meeting to order @ 1:02 EDT (17:02 UTC).</p>
+
+<h2>2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44457&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44457&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44457">normative attendance sheet for this meeting (event_id=44457)</a>.</p>
+<h3>2.1 Participants</h3>
+<h4>2.1.1 Voting Members Present</h4>
+<pre>
+Art Manion (Carnegie Mellon University)
+Beth Pumo (Kaiser Permanente)
+Chok Poh (Oracle)
+Denny Page (TIBCO Software Inc.)
+Harold Booth (NIST)
+Jamison Day (LookingGlass)
+Jared Semrau (FireEye, Inc.)
+Lothar Braun (Siemens AG)
+Louis Ronnau (Cisco Systems)
+Masato Terada (Hitachi, Ltd.)
+Omar Santos (Cisco Systems)
+Phillip Boles (FireEye, Inc.)
+Stefan Hagen (Individual)
+Troy Fridley (Cisco Systems)
+Vincent Danen (Red Hat)
+Zach Turk (Microsoft)
+</pre>
+<h4>2.1.2 Members Present</h4>
+<pre>
+Adam Montville (CIS)
+Allan Thomson (LookingGlass)
+Bruce Rich (Cryptsoft Pty Ltd.)
+Jerome Athias (Individual)
+Patrick Gannon (Thrivaca)
+</pre>
+<h4>2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<pre>
+None
+</pre>
+<h3>2.2 Voting Right Changes Effective After The Meeting</h3>
+<h4>2.2.1 Members who gained Voting Rights</h4>
+<pre>
+None
+</pre>
+<h4>2.2.2 Members who lost Voting Rights</h4>
+<pre>
+None
+</pre>
+
+<h2>3. The meeting agenda was reviewed</h2>
+<p><b>Beth</b> moves to approve the agenda, <b>Lothar</b> seconds.</p>
+<p>Unanimous consent, the motion carries, agenda approved unchanged as published.</p>
+
+<h2>4. Approval of Minutes from Previous Meeting #7 (2017-05-31)</h2>
+<p>Meeting minutes of <a href="https://www.oasis-open.org/committees/download.php/60890/csaf-minutes-20170531-meeting-7.html" rel="noopener noreferrer" target="_blank">Monthly TC Meeting #7 on 2017-05-31</a>.</p>
+<p><b>Lou</b> moves to approve unchanged as published. <b>Troy</b> seconds.
+<p>Unanimous consent, the motion carries, minutes approved unchanged as published.</p>
+
+<h2>5. Congratulations! - CSAF is the winner of this year's "Outstanding New Initiative" at the OASIS Open Standards Cup.</h2>
+<p>Omar: Congratulates again everyone for enabling the win in the "Outstanding new initiative" category of the "OASIS Standards Cup"</p>
+<p>Omar: Adds, that it was great to meet some of the members in person during the Borderless conference in NYC</p>
+
+<h2>6. Status of the CSD01 WD01 / PR01 candidate</h2>
+<p>30 days public review will end on 2017-07-20 (30 days from 2017-06-20), first week over and no comments received so far.</p>
+
+<h2>7. Current Open JIRA Issues</h2>
+<p>Omar: Suggests to consider the existing open JIRA issues to start work on future topics.</p>
+<p>Omar: Opens the table in case someone wants to discuss any of these</p>
+
+<h2>8. Next Steps</h2>
+<p>Lothar: Has a question w.r.t. progress after public review?</p>
+<p>Omar: Shortly explains that there are some procedural steps after review</p>
+<p>Stefan: Adds, that the wrap-up of the comments collected (e.g. of the TAB) and if these are only editorial (i.e. not touching the factual content described) we could 1) progress further to CS01 (which Stefan suggests) and then 2) prepare statements of use to support final submittal as OASIS Standard and we should start collecting candidates for such a statement submittal</p>
+<p>Lothar: Asks, if version 1.2 or version 2.0 should be subject to this usages statements?</p>
+<p>Stefan: Explains that v2.0 is not the case and offers  -if there is interest - sample statements of use, and added that these statements are to his knowledge mostly stating, that some org claims use of CSD01 (that versions spec) and to what approximate extend (if applicable) - so no promised public product, or public offering, also non-commercial implementations / usages count, like university etc.</p>
+<p>Omar: Added, that he is confident, that as CVRF v1.1 has many uses a "simple update of implementations" may be all that is needed, to enable an organization to submit such a statement</p>
+
+<h2>9. Next Meetings</h2>
+<h3>9.1 Next Meeting</h3>
+<p>Next Meeting #8 will be on Wednesday, Jun 28, 2017</p>
+<pre>
+Wednesday, 26 Jul 2017, 01:00pm to 02:00pm EDT (UTC-5)
+  - i.e. 2017-07-26 19:00 to 20:00 CEST (UTC+2)
+</pre>
+<p>Event page: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=44458" rel="noopener noreferrer" target="_blank">Meeting Id 44458</a></p>
+<blockquote>
+<p>Self-Registration link (available from approx. 15 minutes before meeting start):<br> <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44458&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=44458&amp;confirmed=1</a></p>
+</blockquote>
+
+<h3>9.2 Other Subsequent Meetings</h3>
+<p>All meetings monthly on last Wednesday during:</p>
+<pre>
+01:00pm to 02:00pm EDT (UTC-5)
+  - 19:00 to 20:00 CEST (UTC+2)
+</pre>
+
+
+<h2>10. Any other business</h2>
+<p>No other business</p>
+
+<h2>11. Adjourn</h2>
+<p><b>Jamison</b> <b>moves</b> to adjourn. <b>Danny</b> seconds.</p>
+<p>The meeting was adjourned at 01:16 EDT (17:16 UTC).</p>
+
+</div>
+</body>
+</html>
