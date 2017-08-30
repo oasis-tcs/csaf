@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CSAF CVRF Version 1.2
-  OASIS Committee Specification Draft 01 Working Draft 01
-  24 May 2017
-  Copyright (c) OASIS Open 2017. All Rights Reserved.
-  Source: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csd01/schemas/
+     CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2 
+     Committee Specification Draft 01 / Public Review Draft 01
+     31 May 2017
+     Copyright (c) OASIS Open 2017.
+     Source: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/
+     Latest version of the specification: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html
+     TC IPR Statement: https://www.oasis-open.org/committees/csaf/ipr.php
 -->
 <xs:schema xmlns:prod="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/prod"
   xmlns:cvrf-common="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/common"

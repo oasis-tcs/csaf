@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CSAF CVRF Version 1.2
-  OASIS Committee Specification Draft 01 Working Draft 01
-  24 May 2017
-  Copyright (c) OASIS Open 2017. All Rights Reserved.
-  Source: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csd01/schemas/
+     CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2 
+     Committee Specification Draft 01 / Public Review Draft 01
+     31 May 2017
+     Copyright (c) OASIS Open 2017.
+     Source: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/
+     Latest version of the specification: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html
+     TC IPR Statement: https://www.oasis-open.org/committees/csaf/ipr.php
 -->
 <xs:schema id="CVRFDictionary"
   targetNamespace="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/cvrf"
@@ -51,7 +53,7 @@
     <xs:restriction base="xs:normalizedString">
       <xs:enumeration value="Draft">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Pre-release, intended for issuing party’s internal use
+          <xs:documentation xml:lang="en">Pre-release, intended for issuing partys internal use
             only, or possibly used externally when the party is seeking feedback or indicating its
             intentions regarding a specific issue.</xs:documentation>
         </xs:annotation>
@@ -92,7 +94,7 @@
           <xs:annotation>
             <xs:documentation xml:lang="en">A definitive canonical name for the document, providing
               enough descriptive content to differentiate from other similar documents, ideally
-              providing a unique “handle”.</xs:documentation>
+              providing a unique handle.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:simpleContent>
