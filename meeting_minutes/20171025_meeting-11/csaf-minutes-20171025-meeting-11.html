@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Common Security Advisory Framework (CSAF) TC Meeting #11 October 25, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='0fdea3f7cfbcb411310de010e4539d686900db36e65fc2dbef5e741855cefb7423317349cc723351bcec7ff2f943beda4cc4fdf5a6f38b5af76fb64a5e956512' -->
+</head>
+
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Common Security Advisory Framework (CSAF) TC Meeting #11 October 25, 2017</h1>
+<p>Acting chair: Omar</p>
+<pre>Chat transcript from room: csaf
+From 2017-10-25 17:11 UTC until 17:46 UTC
+</pre>
+
+<h2 id="1">1. Call to Order and Welcome</h2>
+<p>Omar: Called the meeting to order @ 1:11 EDT (17:11 UTC).</p>
+
+<h2 id="2">2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was <b>not</b> reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46128&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46128&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=46128">normative attendance sheet for this meeting (event_id=46128)</a>.</p>
+<h3 id="2.1">2.1 Participants</h3>
+<h4 id="2.1.1">2.1.1 Voting Members Present</h4>
+
+<pre>
+Beth Pumo (Kaiser Permanente) 
+Chok Poh (Oracle)
+Eric Johnson (TIBCO Software Inc.) 
+Feng Cao (Oracle)
+Jared Semrau (FireEye, Inc.) 
+Louis Ronnau (Cisco Systems)
+Omar Santos (Cisco Systems)
+Stefan Hagen (Individual)
+Vincent Danen (Red Hat)
+Zach Turk (Microsoft)
+</pre>
+<h4 id="2.1.2">2.1.2 Members Present</h4>
+<pre>
+None
+</pre>
+<h4 id="2.1.3">2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<pre>
+Eric Betts (VMware, Inc.)
+</pre>
+<h3 id="2.2">2.2 Voting Right Changes Effective After The Meeting</h3>
+<h4 id="2.2.1">2.2.1 Members who gained Voting Rights</h4>
+<pre>
+None
+</pre>
+<h4 id="2.2.2">2.2.2 Members who lost Voting Rights</h4>
+<pre>
+Ritwik Ghoshal (Oracle)
+</pre>
+
+<h2 id="3">3. No quorum was reached</h2>
+<p>Omar: We discussed the need to coordinate better with the CVE Automation Working Group efforts at MITRE.</p>
+<p>Omar will submit a JIRA case to track this.</p>
+<p>Omar: Everyone on the call agreed that CVRF/CSAF should migrate from XML into a data model that can then be changed into any format (i.e., JSON, XML, etc)... perhaps YAML</p>
+<p>Omar: Update from Omar regarding the Open Repository is now active: https://github.com/oasis-open/csaf-documentation  -- the new documentation website will be started within a week from today.</p>
+<p>Omar: Stefan and Omar have started to update the CVRF parser and it is very close to be in compliance with CVRF 1.2 - CVRF Parser (Util) Update: https://github.com/CiscoPSIRT/cvrf-util</p>
+<p>Omar: this code will be transferred and contributed to OASIS within the next 2 weeks</p>
+[19:46] Omar Santos: Meeting adjourned at 1:43pm EST
+
+
+<h2 id="4">4. Next Meetings</h2>
+<h3 id="4.1">4.1 Next Meeting</h3>
+<p>Next Meeting #12 will be on Wednesday, November 29, 2017</p>
+<pre>
+Wednesday, 29 Nov 2017, 01:00pm to 02:00pm ET
+  - i.e. 2017-11-29 19:00 to 20:00 CET (UTC+1)
+</pre>
+<p>Event page: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=46129" rel="noopener noreferrer" target="_blank">Meeting Id 46129</a></p>
+<blockquote>
+<p>Self-Registration link (available from approx. 15 minutes before meeting start):<br> <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46129&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46129&amp;confirmed=1</a></p>
+</blockquote>
+
+<h3 id="4.2">4.2 Other Subsequent Meetings</h3>
+<p>All meetings monthly on last Wednesday during:</p>
+<pre>
+01:00pm to 02:00pm ET
+  - 19:00 to 20:00 CET (UTC+2)
+</pre>
+
+
+<h2 id="5">5. Any other business</h2>
+<p>No other business</p>
+
+<h2 id="6">6. Adjourn</h2>
+<p>The meeting was adjourned at 01:43 EDT (17:43 UTC).</p>
+
+</div>
+</body>
+</html>
