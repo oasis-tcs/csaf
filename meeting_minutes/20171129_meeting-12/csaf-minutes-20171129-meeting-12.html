@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OASIS Common Security Advisory Framework (CSAF) TC Meeting #12 November 29, 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{-webkit-font-smoothing:antialiased;font-family:Cambria,Arial,Verdana,sans-serif;margin:0} body {margin-left:2%}
+body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;/*word-wrap:break-word*/}
+h1,h2,h3,h4,h5,h6{line-height:1.5em}
+a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}
+a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}dd{margin-bottom:1em}
+li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}.poetry
+pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}
+.poetry pre code{font-family:Georgia,Garamond,serif!important}
+sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}
+p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}p{margin:0.7ex 2.0em}pre{margin-left:4em;}
+p.note{font-size:75%}
+.code-like{font-family:monospace;font-size:120%!important}
+@media print{body{overflow:auto}
+#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}
+@media screen{/*::selection{background:rgba(157,193,200,.5)}*/.inverted{background:#333}
+.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th{color:#eee!important}
+.inverted a{color:#fff;text-decoration:underline}#wrapper{padding:20px}.inverted #wrapper{background:#333}}
+</style>
+<!-- # grep -v excluding_those_lines __file__ |shasum -a 512 -->
+<!-- sha512_excluding_those_lines='1e663ee380809b8290f7febd79c6341182c5ad594e594dbeeb61407db2e01a59ad19c9328963d2bc15a096a941c745a0437de45ae93ce0979399d8bad83bd47c' -->
+</head>
+
+<body class="normal">
+  <div id="wrapper">
+<h1>OASIS Common Security Advisory Framework (CSAF) TC Meeting #12 November 29, 2017</h1>
+<p>Acting chair: Omar</p>
+<pre>Chat transcript from room: csaf
+From 2017-11-29 17:00 UTC until 17:39 UTC
+</pre>
+
+<h2 id="1">1. Call to Order and Welcome</h2>
+<p>Omar: Called the meeting to order @ 1:00 EST (17:00 UTC).</p>
+
+<h2 id="2">2. Roll call</h2>
+<p>All participants recorded their attendance on the OASIS meeting calendar - <b>quorum</b> was <b>not</b> reached.
+<blockquote>
+<p>All participants were kindly encouraged to registrate themselves to optimize the use of the shared time during the meeting in one of two ways:<br>
+Either click the link with the text "Register my attendance" on the top of the event page or directly visit the per event direct "record my attendace link":
+<br><a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46129&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46129&amp;confirmed=1</a>, Thanks</p>
+</blockquote>
+
+<p>Details cf. <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=46129">normative attendance sheet for this meeting (event_id=46129)</a>.</p>
+<h3 id="2.1">2.1 Participants</h3>
+<h4 id="2.1.1">2.1.1 Voting Members Present</h4>
+
+<pre>
+Beth Pumo (Kaiser Permanente) 
+Jamison Day (LookingGlass)
+Jared Semrau (FireEye, Inc.) 
+Jonathan Bitle (Kaiser Permanente)
+Louis Ronnau (Cisco Systems)
+Omar Santos (Cisco Systems)
+Paul Patrick (FireEye, Inc.)
+Phillip Boles (FireEye, Inc.)
+Stefan Hagen (Individual)
+Troy Fridley (Cisco Systems)
+Vincent Danen (Red Hat)
+Zach Turk (Microsoft)
+</pre>
+<h4 id="2.1.2">2.1.2 Members Present</h4>
+<pre>
+Sean Barnum	(FireEye, Inc.)
+</pre>
+<h4 id="2.1.3">2.1.3 Observers present</h4>
+<p class="note">Note: Observers of this committee that are ready to become Members should follow the specific instructions displayed the <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/" rel="noopener noreferrer" target="_blank">OASIS Open Notices</a> tab.</p>
+<pre>
+Eric Betts (VMware, Inc.)
+</pre>
+<p>Guests:</p>
+<pre>
+Mike Gorski (Cisco Systems)
+</pre>
+<h3 id="2.2">2.2 Voting Right Changes Effective After The Meeting</h3>
+<h4 id="2.2.1">2.2.1 Members who gained Voting Rights</h4>
+<pre>
+None
+</pre>
+<h4 id="2.2.2">2.2.2 Members who lost Voting Rights</h4>
+<pre>
+Art Manion (Carnegie Mellon University)
+Bruce Rich (Cryptsoft Pty Ltd.)
+Denny Page (TIBCO Software Inc.)
+Harold Booth (NIST)
+Kent Landfield (McAfee)
+Lothar Braun (Siemens AG)
+Masato Terada (Hitachi, Ltd.)
+Mel Llaguno (Synopsys)
+</pre>
+
+
+[15:59] Stefan Hagen: Note: Members participating at the "Borderless Cyber Conference and Technical Symposium" / 6-8 Dec 2017 / Prague could come together and discuss or code there - please contact Stefan Hagen if visiting. Thanks.
+[18:17] anonymous morphed into Omar Santos
+
+*  Approval of Agenda
+*  Approval of Minutes from Previous Meeting #11 URL = https://www.oasis-open.org/apps/org/workgroup/csaf/download.php/61488/csaf-minutes-20170830-meeting-11.html 
+*  CSAF documentation website (draft) is now active: 
+* Website: https://oasis-open.github.io/csaf-documentation/ 
+* Source code: https://github.com/oasis-open/csaf-documentation  
+*  CSAF 2.0 Data Model Documentation and Sandbox: https://github.com/oasis-tcs/csaf/tree/master/sandbox/csaf_2.0 
+*  CVE Automation WG overlap and potential translation tool.
+*  CVRF Parser (util) update and discussion to move to a new open repository: https://github.com/CiscoPSIRT/cvrf-util 
+*  Next steps
+*  Adjourn
+[18:33] Omar Santos: In addition, we should discuss the plan for the meeting in December, since it falls right in between the Christmas and New Year's holidays (December 27th). The options are: have a meeting earlier (i.e., 20th), later (i.e., Jan 3) or skip December.
+[18:49] Stefan Hagen: H4Q::Voting Members: 3 of 23 (13%) (used for quorum calculation)
+[18:49] Stefan Hagen: i.e. Omar, Stefan, and Troy ...
+[18:53] Stefan Hagen: H4Q::Voting Members: 4 of 23 (17%) (used for quorum calculation) - Beth registered
+[18:58] anonymous morphed into Jared Semrau
+[19:03] anonymous morphed into Sean Barnum
+[19:03] Stefan Hagen: H4Q::Voting Members: 8 of 23 (34%) (used for quorum calculation)
+[19:03] anonymous morphed into Zach Turk (Microsoft)
+[19:04] Stefan Hagen: H4Q::Voting Members: 9 of 23 (39%) (used for quorum calculation)
+[19:08] Stefan Hagen: H4Q::Voting Members: 11 of 23 (47%) (used for quorum calculation)
+[19:13] Stefan Hagen: H4Q::Voting Members: 11 of 23 (47%) (used for quorum calculation)
+[19:17] Stefan Hagen: H4Q::Voting Members: 11 of 23 (47%) (used for quorum calculation)
+[19:23] anonymous morphed into Jamison M. Day
+[19:24] Stefan Hagen: H4Q::Voting Members: 12 of 23 (52%) (used for quorum calculation)
+[19:24] Stefan Hagen: We are quorate 
+[19:36] Omar Santos: Lou moved the approval of the agenda, Troy seconds, no discussions/concerns, agenda approved
+[19:37] Omar Santos: Lou moved the approval of the meeting minutes (for the previous meeting meeting #11), Jonathan seconds, no discussions/concerns, meeting minutes approved
+
+<h2 id="3">3. Approval of Agenda</h2>
+<p>Agenda approved</p>
+
+<h2 id="4">4. Approval of Minutes from Previous Meetings</h2>
+<ul>
+	<li><a href="https://www.oasis-open.org/committees/download.php/61796/csaf-minutes-20170927-meeting-10.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61796/csaf-minutes-20170927-meeting-10.html</a></li>
+	<li><a href="https://www.oasis-open.org/committees/download.php/61948/csaf-minutes-20171025-meeting-11.html" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/committees/download.php/61948/csaf-minutes-20171025-meeting-11.html</a></li>
+</ul>
+<p>Previous minutes approved unchanged as published</p>
+
+
+<h2 id="5">5. CSAF documentation website (draft) is now active:</h2>
+<p>Website: <a href="https://oasis-open.github.io/csaf-documentation/" rel="noopener noreferrer" target="_blank">https://oasis-open.github.io/csaf-documentation/</a></p> 
+<p>Source code: <a href="https://github.com/oasis-open/csaf-documentation" rel="noopener noreferrer" target="_blank">https://github.com/oasis-open/csaf-documentation</a></p>  
+
+<h2 id="6">6. CSAF 2.0 Data Model Documentation and Sandbox:</h2>
+<p><a href="https://github.com/oasis-tcs/csaf/tree/master/sandbox/csaf_2.0" rel="noopener noreferrer" target="_blank">https://github.com/oasis-tcs/csaf/tree/master/sandbox/csaf_2.0</a></p> 
+<p>All discuss the use of the CSAF 2.0 sandbox and JIRA to continue to document a base data model for CSAF 2.0 including examples in JSON, as well as document /track any further enhancements via JIRA</p>
+
+<h2 id="7">7. CVE Automation WG overlap and potential translation tool.</h2>
+<p>All discuss, but nothing noted</p>
+
+<h2 id="8">8. CVRF Parser (util) update and discussion to move to a new open repository</h2>
+<p><a href="https://github.com/CiscoPSIRT/cvrf-util" rel="noopener noreferrer" target="_blank">https://github.com/CiscoPSIRT/cvrf-util</a></p> 
+<p>Troy moves for the approval of the new open repository for CVRF parser and tools, Lou seconds, no discussions/concerns, new repository approved</p>
+<p>Omar suggested the creation of an open repository to host the CVRF parser, Troy and Omar volunteered to be the initial maintainers</p>
+<p>Omar will work with OASIS staff to get it created</p>
+
+<h2 id="9">9. Next steps</h2>
+<p>Omar: Cisco will start supporting CSAF CVRF 1.2 starting next week.</p>
+<p>RedHat is also planning to start supporting CSAF CVRF 1.2 in a few months.</p>
+
+<h2 id="10">10. Next Meetings</h2>
+<p>All discussed the plan for the meeting in December, since it falls right in between the Christmas and New Year's holidays (December 27th). The options were: have a meeting earlier (i.e., 20th), later (i.e., Jan 3) or skip December.</p>
+<p>Vincent moved to skip the December meeting, Lou seconds, no discussions/concerns, there will not be a monthly meeting in December</p>
+
+<h3 id="4.1">4.1 Next Meeting</h3>
+<p>Next Meeting #13 will be on Wednesday, January 31, 2018</p>
+<pre>
+Wednesday, 31 Jan 2018, 01:00pm to 02:00pm ET
+  - i.e. 2018-01-31 19:00 to 20:00 CET (UTC+1)
+</pre>
+<p>Event page: <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/event.php?event_id=46130" rel="noopener noreferrer" target="_blank">Meeting Id 46130</a></p>
+<blockquote>
+<p>Self-Registration link (available from approx. 15 minutes before meeting start):<br> <a href="https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46130&confirmed=1" rel="noopener noreferrer" target="_blank">https://www.oasis-open.org/apps/org/workgroup/csaf/record_my_attendance.php?event_id=46130&amp;confirmed=1</a></p>
+</blockquote>
+
+<h3 id="4.2">4.2 Other Subsequent Meetings</h3>
+<p>All meetings monthly on last Wednesday during:</p>
+<pre>
+01:00pm to 02:00pm ET
+  - 19:00 to 20:00 CET (UTC+1)
+</pre>
+
+
+<h2 id="11">11. Any other business</h2>
+<p>No other business</p>
+
+<h2 id="12">12. Adjourn</h2>
+<p>The meeting was adjourned at 01:39 EST (18:39 UTC).</p>
+
+</div>
+</body>
+</html>
