@@ -1,0 +1,556 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vulnerability Report",
+  "description": "Representation of vulnerability information as a JSON document.",
+  "type": "object",
+  "definitions": {
+    "branch_branches_t": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/branch_branches_t"
+          }
+        }
+      }
+    },
+    "branch_product_t": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "full_product_name": {
+          "$ref": "#/definitions/full_product_name_t"
+        }
+      }
+    },
+    "cvss_v3_score_t": {
+      "type": "string",
+      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
+    },
+    "cvss_v3_vector_t": {
+      "type": "string",
+      "maxLength": 133
+    },
+    "date_t": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "full_product_name_t": {
+      "type": "object",
+      "required": [
+        "product_id",
+        "text"
+      ],
+      "properties": {
+        "product_id": {
+          "$ref": "#/definitions/non_empty_string_t"
+        },
+        "text": {
+          "$ref": "#/definitions/non_empty_string_t"
+        },
+        "cpe": {
+          "$ref": "#/definitions/non_empty_string_t"
+        }
+      }
+    },
+    "non_empty_string_t": {
+      "type": "string",
+      "minLength": 1
+    },
+    "note_type_t": {
+      "enum": [
+        "description",
+        "details",
+        "faq",
+        "general",
+        "legal disclaimer",
+        "other",
+        "summary"
+      ]
+    },
+    "note_t": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "ordinal": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/note_type_t"
+        },
+        "text": {
+          "$ref": "#/definitions/non_empty_string_t"
+        }
+      },
+      "required": [
+        "ordinal",
+        "type",
+        "text"
+      ]
+    },
+    "notes_t": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/note_t"
+      }
+    },
+    "products_t": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "reference_t": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "description": {
+          "$ref": "#/definitions/str_option_t"
+        }
+      },
+      "required": [
+        "url",
+        "description"
+      ]
+    },
+    "references_t": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/reference_t"
+      }
+    },
+    "reference_type_t": {
+      "enum": [
+        "self",
+        "external"
+      ]
+    },
+    "revision_t": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "$ref": "#/definitions/version_type_t"
+        },
+        "date": {
+          "$ref": "#/definitions/date_t"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "date",
+        "description"
+      ]
+    },
+    "status_t": {
+      "enum": [
+        "draft",
+        "final",
+        "interim"
+      ]
+    },
+    "str_option_t": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/non_empty_string_t"
+        },
+        {
+          "$ref": "#/definitions/str_with_lang_t"
+        }
+      ]
+    },
+    "str_with_lang_t": {
+      "type": "object",
+      "properties": {
+        "lang": {
+          "type": "string"
+        },
+        "text": {
+          "$ref": "#/definitions/non_empty_string_t"
+        }
+      }
+    },
+    "version_type_t": {
+      "type": "string",
+      "pattern": "(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}"
+    },
+    "vulnerability_t": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "acknowledgments",
+          "cve",
+          "cvss_score_sets",
+          "discovery_date",
+          "id",
+          "involvements",
+          "ordinal",
+          "notes",
+          "product_status",
+          "references",
+          "release_date",
+          "remediations",
+          "threats",
+          "title"
+        ]
+      },
+      "required": [
+        "ordinal"
+      ],
+      "properties": {
+        "acknowledgments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/non_empty_string_t"
+                }
+              },
+              "organization": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/non_empty_string_t"
+                }
+              },
+              "description": {
+                "$ref": "#/definitions/non_empty_string_t"
+              },
+              "urls": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          }
+        },
+        "cve": {
+          "type": "string",
+          "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$"
+        },
+        "cwe": {
+          "type": "object",
+          "properties": {
+            
+          }
+        },
+        "cvss_score_sets": {
+          "type": "object",
+          "properties": {
+            "score_set_v3": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "base_score_v3": {
+                    "$ref": "#/definitions/cvss_v3_score_t"
+                  },
+                  "environmental_score_v3": {
+                    "$ref": "#/definitions/cvss_v3_score_t"
+                  },
+                  "temporal_score_v3": {
+                    "$ref": "#/definitions/cvss_v3_score_t"
+                  },
+                  "vector_v3": {
+                    "$ref": "#/definitions/cvss_v3_vector_t"
+                  },
+                  "product_id": {
+                    "$ref": "#/definitions/products_t"
+                  }
+                },
+                "required": [
+                  "base_score_v3"
+                ]
+              }
+            }
+          }
+        },
+        "discovery_date": {
+          "$ref": "#/definitions/date_t"
+        },
+        "id": {
+          "type": "object",
+          "properties": {
+            "system_name": {
+              "$ref": "#/definitions/non_empty_string_t"
+            },
+            "text": {
+              "$ref": "#/definitions/non_empty_string_t"
+            }
+          },
+          "required": [
+            "system_name",
+            "text"
+          ]
+        },
+        "involvements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "party",
+              "status"
+            ],
+            "properties": {
+              "description": {
+                "$ref": "#/definitions/non_empty_string_t"
+              },
+              "party": {
+                "enum": [
+                  "coordinator",
+                  "discoverer",
+                  "other",
+                  "user",
+                  "vendor"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "completed",
+                  "contact accepted",
+                  "disputed",
+                  "in progress",
+                  "not contacted",
+                  "open"
+                ]
+              }
+            }
+          }
+        },
+        "notes": {
+          "$ref": "#/definitions/notes_t"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "product_status": {
+          "type": "object",
+          "properties": {
+            "fixed": {
+              "$ref": "#/definitions/products_t"
+            },
+            "first_affected": {
+              "$ref": "#/definitions/products_t"
+            },
+            "known_affected": {
+              "$ref": "#/definitions/products_t"
+            },
+            "known_not_affected": {
+              "$ref": "#/definitions/products_t"
+            },
+            "first_fixed": {
+              "$ref": "#/definitions/products_t"
+            },
+            "recommended": {
+              "$ref": "#/definitions/products_t"
+            },
+            "last_affected": {
+              "$ref": "#/definitions/products_t"
+            }
+          }
+        },
+        "references": {
+          "$ref": "#/definitions/references_t"
+        },
+        "release_date": {
+          "$ref": "#/definitions/date_t"
+        },
+        "remediations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "description"
+            ],
+            "properties": {
+              "description": {
+                "$ref": "#/definitions/str_option_t"
+              },
+              "entitlements": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/non_empty_string_t"
+                }
+              },
+              "product_ids": {
+                "$ref": "#/definitions/products_t"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "threats": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "description"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "impact",
+                  "exploit status",
+                  "target set"
+                ]
+              },
+              "description": {
+                "$ref": "#/definitions/non_empty_string_t"
+              },
+              "date": {
+                "$ref": "#/definitions/date_t"
+              },
+              "product_ids": {
+                "$ref": "#/definitions/products_t"
+              },
+              "group_ids": {
+                "$ref": "#/definitions/products_t"
+              }
+            }
+          }
+        },
+        "title": {
+          "$ref": "#/definitions/non_empty_string_t"
+        }
+      }
+    }
+  },
+  "required": [
+    "document_title",
+    "document_publisher",
+    "document_type",
+    "document_tracking"
+  ],
+  "properties": {
+    "document_title": {
+      "$ref": "#/definitions/str_option_t"
+    },
+    "document_type": {
+      "$ref": "#/definitions/non_empty_string_t"
+    },
+    "document_publisher": {
+      "type": "object",
+      "properties": {
+        "contact_details": {
+          "type": "string"
+        },
+        "issuing_authority": {
+          "type": "string"
+        },
+        "vendor_id": {
+          "type": "string"
+        }
+      }
+    },
+    "document_tracking": {
+      "type": "object",
+      "properties": {
+        "current_release_date": {
+          "$ref": "#/definitions/date_t"
+        },
+        "generator": {
+          "type": "object",
+          "properties": {
+            "engine": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "identification": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "aliases": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/non_empty_string_t"
+              }
+            }
+          }
+        },
+        "initial_release_date": {
+          "$ref": "#/definitions/date_t"
+        },
+        "revision_history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/revision_t"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/status_t"
+        },
+        "version": {
+          "$ref": "#/definitions/version_type_t"
+        }
+      }
+    },
+    "product_tree": {
+      "$comment": "Currently only supports branch_t and full_product_name_t children of product_tree",
+      "properties": {
+        "branch": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/branch_branches_t"
+          }
+        },
+        "full_product_name": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/full_product_name_t"
+          }
+        }
+      }
+    },
+    "document_notes": {
+      "$ref": "#/definitions/notes_t"
+    },
+    "document_references": {
+      "$ref": "#/definitions/references_t"
+    },
+    "document_distribution": {
+      "$ref": "#/definitions/str_option_t"
+    },
+    "vulnerabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/vulnerability_t"
+      }
+    }
+  }
+}
