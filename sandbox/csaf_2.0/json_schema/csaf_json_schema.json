@@ -445,78 +445,95 @@
     }
   },
   "required": [
-    "document_title",
-    "document_publisher",
-    "document_type",
-    "document_tracking"
+    "document"
   ],
   "properties": {
-    "document_title": {
-      "$ref": "#/definitions/str_option_t"
-    },
-    "document_type": {
-      "$ref": "#/definitions/non_empty_string_t"
-    },
-    "document_publisher": {
+    "document": {
       "type": "object",
+      "required": [
+        "title",
+        "publisher",
+        "type",
+        "tracking"
+      ],
       "properties": {
-        "contact_details": {
-          "type": "string"
+        "distribution": {
+          "$ref": "#/definitions/str_option_t"
         },
-        "issuing_authority": {
-          "type": "string"
+        "notes": {
+          "$ref": "#/definitions/notes_t"
         },
-        "vendor_id": {
-          "type": "string"
-        }
-      }
-    },
-    "document_tracking": {
-      "type": "object",
-      "properties": {
-        "current_release_date": {
-          "$ref": "#/definitions/date_t"
-        },
-        "generator": {
+        "publisher": {
           "type": "object",
           "properties": {
-            "engine": {
+            "contact_details": {
               "type": "string"
             },
-            "date": {
-              "type": "string",
-              "format": "date-time"
+            "issuing_authority": {
+              "type": "string"
+            },
+            "vendor_id": {
+              "type": "string"
             }
           }
         },
-        "identification": {
+        "references": {
+          "$ref": "#/definitions/references_t"
+        },
+        "title": {
+          "$ref": "#/definitions/str_option_t"
+        },
+        "tracking": {
           "type": "object",
           "properties": {
-            "id": {
-              "type": "string"
+            "current_release_date": {
+              "$ref": "#/definitions/date_t"
             },
-            "aliases": {
+            "generator": {
+              "type": "object",
+              "properties": {
+                "engine": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            },
+            "identification": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "aliases": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/non_empty_string_t"
+                  }
+                }
+              }
+            },
+            "initial_release_date": {
+              "$ref": "#/definitions/date_t"
+            },
+            "revision_history": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/non_empty_string_t"
+                "$ref": "#/definitions/revision_t"
               }
+            },
+            "status": {
+              "$ref": "#/definitions/status_t"
+            },
+            "version": {
+              "$ref": "#/definitions/version_type_t"
             }
           }
         },
-        "initial_release_date": {
-          "$ref": "#/definitions/date_t"
-        },
-        "revision_history": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/revision_t"
-          }
-        },
-        "status": {
-          "$ref": "#/definitions/status_t"
-        },
-        "version": {
-          "$ref": "#/definitions/version_type_t"
+        "type": {
+          "$ref": "#/definitions/non_empty_string_t"
         }
       }
     },
@@ -536,15 +553,6 @@
           }
         }
       }
-    },
-    "document_notes": {
-      "$ref": "#/definitions/notes_t"
-    },
-    "document_references": {
-      "$ref": "#/definitions/references_t"
-    },
-    "document_distribution": {
-      "$ref": "#/definitions/str_option_t"
     },
     "vulnerabilities": {
       "type": "array",
