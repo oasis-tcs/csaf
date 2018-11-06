@@ -1,7 +1,7 @@
 
 # Done
 
-- json field names are lowercase and separated by "_"
+- json field names are lowercase and separated by "\_"
 - "#text" replaced with just "text"
 - "product_tree" really is an array of branches or full products.
 
@@ -11,9 +11,9 @@ Formatting: Start a new line after every brace or bracket. Indent with each brac
 
 Naming: Lowercase names with underscores separating words for properties ("snake_eyes").
 
-Naming: Shared definitions end with "_t", as in "non_empty_string_t".
+Naming: Shared definitions end with "\_t", as in "non_empty_string_t".
 
-Naming: Shared definitions of arrays end use a plural noun form, such as "notes_t".
+Naming: Shared definitions of arrays use a plural noun form, such as "notes_t".
 
 Ordering: Properties and definitions are listed alphabetically. Enumerations are listed alphabetically.
 

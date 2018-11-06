@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Vulnerability Report",
-  "description": "Representation of vulnerability information as a JSON document.",
+  "title": "Common Security Advisory Framework Schema",
+  "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
   "definitions": {
     "branch_branches_t": {
@@ -65,6 +65,10 @@
         }
       }
     },
+    "lang_t": {
+        "type": "string",
+        "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+    },
     "non_empty_string_t": {
       "type": "string",
       "minLength": 1
@@ -122,7 +126,7 @@
           "type": "string"
         },
         "description": {
-          "$ref": "#/definitions/str_option_t"
+            "$ref": "#/definitions/non_empty_string_t"
         }
       },
       "required": [
@@ -167,27 +171,6 @@
         "final",
         "interim"
       ]
-    },
-    "str_option_t": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/non_empty_string_t"
-        },
-        {
-          "$ref": "#/definitions/str_with_lang_t"
-        }
-      ]
-    },
-    "str_with_lang_t": {
-      "type": "object",
-      "properties": {
-        "lang": {
-          "type": "string"
-        },
-        "text": {
-          "$ref": "#/definitions/non_empty_string_t"
-        }
-      }
     },
     "version_type_t": {
       "type": "string",
@@ -254,7 +237,7 @@
         "cwe": {
           "type": "object",
           "properties": {
-            
+
           }
         },
         "cvss_score_sets": {
@@ -389,7 +372,7 @@
             ],
             "properties": {
               "description": {
-                "$ref": "#/definitions/str_option_t"
+                  "$ref": "#/definitions/non_empty_string_t"
               },
               "entitlements": {
                 "type": "array",
@@ -450,6 +433,7 @@
   "properties": {
     "document": {
       "type": "object",
+      "description": "Captures the meta-data about this particular set of security advisories.",
       "required": [
         "title",
         "publisher",
@@ -458,7 +442,13 @@
       ],
       "properties": {
         "distribution": {
-          "$ref": "#/definitions/str_option_t"
+            "$ref": "#/definitions/non_empty_string_t"
+        },
+        "lang": {
+          "$ref": "#/definitions/lang_t"
+        },
+        "source_lang": {
+          "$ref": "#/definitions/lang_t"
         },
         "notes": {
           "$ref": "#/definitions/notes_t"
@@ -481,7 +471,7 @@
           "$ref": "#/definitions/references_t"
         },
         "title": {
-          "$ref": "#/definitions/str_option_t"
+            "$ref": "#/definitions/non_empty_string_t"
         },
         "tracking": {
           "type": "object",
