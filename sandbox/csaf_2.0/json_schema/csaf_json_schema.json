@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Vulnerability Report",
+  "title": "Security Advisory Title",
   "description": "Representation of vulnerability information as a JSON document.",
   "type": "object",
   "definitions": {
