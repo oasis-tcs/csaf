@@ -9,11 +9,11 @@
      TC IPR Statement: https://www.oasis-open.org/committees/csaf/ipr.php
 -->
 <xs:schema id="CVRFDictionary"
-  targetNamespace="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/cvrf"
-  xmlns:cvrf="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/cvrf"
-  xmlns:vuln="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/vuln"
-  xmlns:prod="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/prod"
-  xmlns:cvrf-common="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/common"
+  targetNamespace="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/"
+  xmlns:cvrf="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/cvrf.xsd"
+  xmlns:vuln="hhttp://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/vuln.xsd"
+  xmlns:prod="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/prod.xsd"
+  xmlns:cvrf-common="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/common.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/"
   elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2">
   <!-- =============================================================================== -->
@@ -22,11 +22,11 @@
   <xs:import namespace="http://purl.org/dc/elements/1.1/"
     schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd"/>
   <xs:import namespace="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/vuln"
-    schemaLocation="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/vuln.xsd"/>
+    schemaLocation="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/vuln.xsd"/>
   <xs:import namespace="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/common"
-    schemaLocation="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/common.xsd"/>
+    schemaLocation="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/common.xsd"/>
   <xs:import namespace="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/prod"
-    schemaLocation="http://docs.oasis-open.org/csaf/ns/csaf-cvrf/v1.2/prod.xsd"/>
+    schemaLocation="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/prod.xsd"/>
   <!-- =============================================================================== -->
   <!-- ============================ SCHEMA INFORMATION =============================== -->
   <!-- =============================================================================== -->
