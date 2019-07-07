@@ -11,7 +11,7 @@
 <xs:schema id="CVRFDictionary"
   targetNamespace="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/"
   xmlns:cvrf="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/cvrf.xsd"
-  xmlns:vuln="hhttp://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/vuln.xsd"
+  xmlns:vuln="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/vuln.xsd"
   xmlns:prod="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/prod.xsd"
   xmlns:cvrf-common="http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/schemas/common.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/"
