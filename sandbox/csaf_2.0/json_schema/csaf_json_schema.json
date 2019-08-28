@@ -78,7 +78,8 @@
             "type": "string"
           },
           "ordinal": {
-            "type": "string"
+            "type": "integer",
+            "minimum": 1
           },
           "type": {
             "title": "The type or kind of note",
@@ -110,7 +111,8 @@
     "products_t": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "uniqueItems": true
     },
@@ -339,6 +341,7 @@
           "enum": [
             "acknowledgments",
             "cve",
+            "cwe",
             "cvss_score_sets",
             "discovery_date",
             "id",
@@ -349,6 +352,7 @@
             "references",
             "release_date",
             "remediations",
+            "system_name",
             "threats",
             "title"
           ]
@@ -406,7 +410,14 @@
           "cwe": {
             "type": "object",
             "properties": {
-
+              "id": {
+                "type": "string",
+                "pattern": "^CWE-[1-9]\\d{0,5}$"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           },
           "cvss_score_sets": {
@@ -569,6 +580,11 @@
                 }
               }
             }
+          },
+          "system_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "For the 'id' property, indicates the name of the vulnerability tracking or numbering system."
           },
           "threats": {
             "type": "array",
