@@ -1,26 +1,27 @@
 
 # Done
 
-- json field names are lowercase and separated by "_"
+- json field names are lowercase and separated by "\_"
 - "#text" replaced with just "text"
 - "product_tree" really is an array of branches or full products.
 
 # Design
 
-Formatting: Start a new line after every brace or bracket. Indent with each brace or bracket.
+- Formatting: Start a new line after every brace or bracket. Indent with each brace or bracket.
 
-Naming: Lowercase names with underscores separating words for properties ("snake_eyes").
+- Naming: Lowercase names with underscores separating words for properties ("snake_eyes").
 
-Naming: Shared definitions end with "_t", as in "non_empty_string_t".
+Naming: Shared definitions end with "\_t", as in "non_empty_string_t".
 
-Naming: Shared definitions of arrays end use a plural noun form, such as "notes_t".
+Naming: Shared definitions of arrays use a plural noun form, such as "notes_t".
 
-Ordering: Properties and definitions are listed alphabetically. Enumerations are listed alphabetically.
 
-More than one: Whenever there's the opportunity for more than one value,
+- Ordering: Properties and definitions are listed alphabetically. Enumerations are listed alphabetically.
+
+- More than one: Whenever there's the opportunity for more than one value,
 the schema specifically does not support having just one. That is, always [{}], not just {}.
 
-Extensibility: the "propertyNames" feature of JSON schema prevents future extension, and is only used where
+- Extensibility: the "propertyNames" feature of JSON schema prevents future extension, and is only used where
 no extensibility is ever intended.
 
 # Comments
@@ -65,13 +66,13 @@ In one of the files, we have "document_title" as a string, and the other as an o
 ## Revision History Simplification
 
 Currently have
-  /document_tracking/revision_history/revision[]
+ ` /document_tracking/revision_history/revision[]`
 Why not just have
-  /document_tracking/revision_history[]
+  `/document_tracking/revision_history[]`
 
 ## Conversion created "#text" nodes
 
-I renamed the "#text" nodes to "text", but they should be named even better than that.
+I renamed the `"#text` nodes to `text`, but they should be named even better than that.
 
 # Redesign
 
@@ -86,7 +87,7 @@ property.
 In CVRF, the "ProductStatuses" element contains an array of Status elements which contain a type and a list of products.
 
 Suggestion for JSON format:
-
+```
 product_status : {
   "fixed": [],
   "first_affected": [],
@@ -96,9 +97,11 @@ product_status : {
   "recommended": [],
   "last_affected": []
 }
-
+```
 # Questions
 
 ## Examples in the schema?
 
-JSON Schema allows for examples. Do we want to put examples in? Or leave that to the specification document?
+JSON Schema allows for examples. 
+Do we want to put examples in?
+Or leave that to the specification document?

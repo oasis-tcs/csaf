@@ -1,9 +1,7 @@
 {
   "document": {
-    "title": {
-      "lang": "en",
-      "text": "Red Hat Bug Fix Advisory: Red Hat OpenShift Container Platform 3.9 RPM Release Advisory"
-    },
+    "lang": "en",
+    "title": "Red Hat Bug Fix Advisory: Red Hat OpenShift Container Platform 3.9 RPM Release Advisory",
     "type": "Security Advisory",
     "publisher": {
       "contact_details": "secalert@redhat.com",
@@ -33,29 +31,23 @@
       {
         "title": "Topic",
         "ordinal": "1",
-        "lang": "en",
         "type": "summary",
         "text": "Red Hat OpenShift Container Platform 3.9, which fixes several bugs and includes various enhancements, is now available."
       },
       {
         "title": "Details",
         "ordinal": "2",
-        "lang": "en",
         "type": "general",
         "text": "Red Hat OpenShift Container Platform is the company's cloud computing\nPlatform-as-a-Service (PaaS) solution designed for on-premise or private cloud deployments.\n\nThe OpenShift Container Platform 3.9 Release Notes provide information about new features, bug fixes, and known issues:\n\nhttps://docs.openshift.com/container-platform/3.9/release_notes/ocp_3_9_release_notes.html\n\nThis advisory contains the RPM packages for this release. See the following\nadvisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHBA-2018:0490"
       },
       {
         "title": "Terms of Use",
         "ordinal": "3",
-        "lang": "en",
         "type": "legal disclaimer",
         "text": "Please see https://www.redhat.com/footer/terms-of-use.html"
       }
     ],
-    "distribution": {
-      "lang": "en",
-      "text": "Copyright © 2018 Red Hat, Inc. All rights reserved."
-    },
+    "distribution": "Copyright © 2018 Red Hat, Inc. All rights reserved.",
     "references": [
       {
         "url": "https://access.redhat.com/errata/RHBA-2018:0489",
@@ -8679,10 +8671,7 @@
       ],
       "remediations": [
         {
-          "description": {
-            "lang": "en",
-            "text": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html"
-          },
+          "description": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html",
           "url": "https://access.redhat.com/errata/RHBA-2018:0489"
         }
       ],
@@ -8698,7 +8687,6 @@
         {
           "title": "Vulnerability Description",
           "ordinal": "1",
-          "lang": "en",
           "type": "general",
           "text": "atomic-openshift: cluster-reader can escalate to creating builds via webhooks in any project"
         }
@@ -9153,10 +9141,7 @@
       ],
       "remediations": [
         {
-          "description": {
-            "lang": "en",
-            "text": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html"
-          },
+          "description": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html",
           "url": "https://access.redhat.com/errata/RHBA-2018:0489"
         }
       ],
