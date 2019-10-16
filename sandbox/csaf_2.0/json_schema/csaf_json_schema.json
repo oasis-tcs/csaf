@@ -4,6 +4,45 @@
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
   "definitions": {
+    "acknowledgment_t": {
+      "type": "object",
+      "properties": {
+        "names": {
+          "type": "array",
+          "title": "Names of entities being recognized",
+          "description": "Typically the name of a person belonging to an organization",
+          "examples": ["Johann Sebastian Bach", "Albert Einstein"],
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "organizations": {
+          "type": "array",
+          "title": "List of contributing organizations",
+          "description": "The list of contributing organizations",
+          "examples": ["US-CERT", "Talos", "Google Project Zero"],
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "description": {
+          "title": "Description of the acknowledgment",
+          "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
+          "examples": ["First analysis of Coordinated Multi-Stream Attack (CMSA)"],
+          "type": "string",
+          "minLength": 1
+      },
+        "urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
     "branch_branches_t": {
       "type": "object",
       "properties": {
@@ -13,11 +52,14 @@
         "type": {
           "type": "string"
         },
-        "branch": {
+        "branches": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/branch_branches_t"
           }
+        },
+        "product": {
+          "$ref": "#/definitions/full_product_name_t"
         }
       }
     },
@@ -39,7 +81,7 @@
       "type": "object",
       "required": [
         "product_id",
-        "text"
+        "name"
       ],
       "properties": {
         "product_id": {
@@ -49,7 +91,7 @@
           "type": "string",
           "minLength": 1
         },
-        "text": {
+        "name": {
           "title": "Textual description of the product",
           "description": "The value of a Full Product Name element should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
           "examples": ["Microsoft Host Integration Server 2006 Service Pack 1", "Cisco AnyConnect Secure Mobility Client 2.3.185"],
@@ -74,6 +116,9 @@
       "items": {
         "type": "object",
         "properties": {
+          "audience": {
+            "type": "string"
+          },
           "title": {
             "type": "string"
           },
@@ -121,14 +166,20 @@
       "items": {
         "type": "object",
         "properties": {
-          "url": {
-            "type": "string"
-          },
           "description": {
             "title": "Description of reference",
             "description": "What does this reference refer to?",
             "type": "string",
             "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "self",
+              "external"
+            ]
+          },
+          "url": {
+            "type": "string"
           }
         },
         "required": [
@@ -136,12 +187,6 @@
           "description"
         ]
         }
-    },
-    "reference_type_t": {
-      "enum": [
-        "self",
-        "external"
-      ]
     }
   },
   "required": [
@@ -159,6 +204,23 @@
         "tracking"
       ],
       "properties": {
+        "acknowledgments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/acknowledgment_t"
+          }
+        },
+        "aggregate_severity" : {
+          "type": "object",
+          "properties": {
+            "namespace": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
         "distribution": {
           "title": "Rules for sharing document",
           "description": "Describe any constraints on how this document might be shared.",
@@ -200,6 +262,15 @@
               "description": "The name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.",
               "type": "string",
               "minLength": 1
+            },
+            "type": {
+              "enum": [
+                "coordinator",
+                "discoverer",
+                "other",
+                "user",
+                "vendor"
+              ]
             },
             "vendor_id": {
               "title": "Vendor releasing the document",
@@ -319,16 +390,70 @@
       "$comment": "Currently only supports branch_t and full_product_name_t children of product_tree",
       "type": "object",
       "properties": {
-        "branch": {
+        "branches": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/branch_branches_t"
           }
         },
-        "full_product_name": {
+        "full_product_names": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/full_product_name_t"
+          }
+        },
+        "product_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "group_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "product_ids": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "full_product_names": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/full_product_name_t"
+                }
+              },
+              "product_reference": {
+                "type": "string",
+                "minLength": 1      
+              },
+              "relates_to_product_reference": {
+                "type": "string",
+                "minLength": 1      
+              },
+              "relationship_type": {
+                "enum": [
+                  "default_component_of",
+                  "optional_component_of",
+                  "external_component_of",
+                  "installed_on",
+                  "installed_with"
+                ]
+              }
+            }
           }
         }
       }
@@ -364,43 +489,7 @@
           "acknowledgments": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "array",
-                  "title": "Name of entity being recognized",
-                  "description": "Typically the name of a person belonging to an organization",
-                  "examples": ["Johann Sebastian Bach", "Albert Einstein"],
-                  "items": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "organization": {
-                  "type": "array",
-                  "title": "List of contributing organizations",
-                  "description": "The list of contributing organizations",
-                  "examples": ["US-CERT", "Talos", "Google Project Zero"],
-                  "items": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "description": {
-                  "title": "Description of the acknowledgment",
-                  "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
-                  "examples": ["First analysis of Coordinated Multi-Stream Attack (CMSA)"],
-                  "type": "string",
-                  "minLength": 1
-              },
-                "urls": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                }
-              }
+              "$ref": "#/definitions/acknowledgment_t"
             }
           },
           "cve": {
