@@ -122,10 +122,6 @@
           "title": {
             "type": "string"
           },
-          "ordinal": {
-            "type": "integer",
-            "minimum": 1
-          },
           "type": {
             "title": "The type or kind of note",
             "description": "Choice of what kind of note this is.",
@@ -147,7 +143,6 @@
           }
         },
         "required": [
-          "ordinal",
           "type",
           "text"
         ]
@@ -462,29 +457,6 @@
       "type": "array",
       "items": {
         "type": "object",
-        "propertyNames": {
-          "enum": [
-            "acknowledgments",
-            "cve",
-            "cwe",
-            "cvss_score_sets",
-            "discovery_date",
-            "id",
-            "involvements",
-            "ordinal",
-            "notes",
-            "product_status",
-            "references",
-            "release_date",
-            "remediations",
-            "system_name",
-            "threats",
-            "title"
-          ]
-        },
-        "required": [
-          "ordinal"
-        ],
         "properties": {
           "acknowledgments": {
             "type": "array",
@@ -503,16 +475,16 @@
                 "type": "string",
                 "pattern": "^CWE-[1-9]\\d{0,5}$"
               },
-              "text": {
+              "description": {
                 "type": "string",
                 "minLength": 1
               }
             }
           },
-          "cvss_score_sets": {
+          "scores": {
             "type": "object",
             "properties": {
-              "score_set_v3": {
+              "cvss_v30": {
                 "type": "array",
                 "items": {
                   "type": "object",
@@ -533,12 +505,42 @@
                       "type": "string",
                       "maxLength": 133
                     },
-                    "product_id": {
+                    "product_ids": {
                       "$ref": "#/definitions/products_t"
                     }
                   },
                   "required": [
                     "base_score_v3"
+                  ]
+                }
+              },
+              "cvss_v20": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "base_score_v2": {
+                      "type": "string",
+                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
+                    },
+                    "environmental_score_v2": {
+                      "type": "string",
+                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
+                    },
+                    "temporal_score_v2": {
+                      "type": "string",
+                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
+                    },
+                    "vector_v2": {
+                      "type": "string",
+                      "maxLength": 133
+                    },
+                    "product_ids": {
+                      "$ref": "#/definitions/products_t"
+                    }
+                  },
+                  "required": [
+                    "base_score_v2"
                   ]
                 }
               }
@@ -603,10 +605,6 @@
           "notes": {
             "$ref": "#/definitions/notes_t"
           },
-          "ordinal": {
-            "type": "integer",
-            "minimum": 1
-          },
           "product_status": {
             "type": "object",
             "properties": {
@@ -649,6 +647,10 @@
                 "description"
               ],
               "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date-time"
+                },
                 "description": {
                   "type": "string",
                   "minLength": 1
@@ -660,8 +662,20 @@
                     "minLength": 1
                   }
                 },
+                "group_ids": {
+                  "$ref": "#/definitions/products_t"
+                },
                 "product_ids": {
                   "$ref": "#/definitions/products_t"
+                },
+                "type": {
+                  "enum": [
+                    "workaround",
+                    "mitigation",
+                    "vendor_fix",
+                    "none_available",
+                    "will_not_fix"
+                  ]
                 },
                 "url": {
                   "type": "string",
