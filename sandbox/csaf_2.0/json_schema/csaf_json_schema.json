@@ -482,67 +482,17 @@
             }
           },
           "scores": {
-            "type": "object",
-            "properties": {
-              "cvss_v30": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "base_score_v3": {
-                      "type": "string",
-                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
-                    },
-                    "environmental_score_v3": {
-                      "type": "string",
-                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
-                    },
-                    "temporal_score_v3": {
-                      "type": "string",
-                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
-                    },
-                    "vector_v3": {
-                      "type": "string",
-                      "maxLength": 133
-                    },
-                    "product_ids": {
-                      "$ref": "#/definitions/products_t"
-                    }
-                  },
-                  "required": [
-                    "base_score_v3"
-                  ]
-                }
-              },
+            "type": "array",
+            "items": {
+              "product_ids": "#/definitions/products_t",
               "cvss_v20": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "base_score_v2": {
-                      "type": "string",
-                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
-                    },
-                    "environmental_score_v2": {
-                      "type": "string",
-                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
-                    },
-                    "temporal_score_v2": {
-                      "type": "string",
-                      "pattern": "^(10\\.0)|([0-9])\\.([0-9])$"
-                    },
-                    "vector_v2": {
-                      "type": "string",
-                      "maxLength": 133
-                    },
-                    "product_ids": {
-                      "$ref": "#/definitions/products_t"
-                    }
-                  },
-                  "required": [
-                    "base_score_v2"
-                  ]
-                }
+                "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
+              },
+              "cvss_v30": {
+                "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+              },
+              "cvss_v31": {
+                "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
               }
             }
           },
