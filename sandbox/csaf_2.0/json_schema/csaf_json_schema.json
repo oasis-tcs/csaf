@@ -291,7 +291,9 @@
           "required": [
             "current_release_date",
             "id",
-            "initial_release_date"
+            "initial_release_date",
+            "revision_history",
+            "version"
           ],
           "properties": {
             "id": {
