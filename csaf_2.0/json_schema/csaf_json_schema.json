@@ -622,6 +622,9 @@
                   "$ref": "#/definitions/products_t"
                 },
                 "restart_required": {
+                  "title": "Restart required by remediation",
+                  "description": "The field specifies whether this remediation requires a restart of the vulnerable component to become effective.",
+                  "examples": [true, false],
                   "type": "boolean"
                 },
                 "type": {
