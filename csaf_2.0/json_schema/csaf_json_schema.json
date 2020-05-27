@@ -621,6 +621,9 @@
                 "product_ids": {
                   "$ref": "#/definitions/products_t"
                 },
+                "restart_required": {
+                  "type": "boolean"
+                },
                 "type": {
                   "enum": [
                     "workaround",
