@@ -219,9 +219,22 @@
         "distribution": {
           "title": "Rules for sharing document",
           "description": "Describe any constraints on how this document might be shared.",
-          "examples": ["Share only on a need-to-know-basis only.", "Distribute freely.", "Copyright 2019, Example Company, All Rights Reserved."],
-          "type": "string",
-          "minLength": 1
+          "type": "object",
+          "properties": {
+            "tlp": {
+              "title": "Traffic Light Protocol (TLP)",
+              "description": "Provides the TLP classification of the document.",
+              "type": "string",
+              "enum": ["RED", "AMBER", "GREEN", "WHITE"]
+            },
+            "text": {
+              "title": "Description",
+              "description": "Provides a textual description of additional constraints.",
+              "examples": ["Share only on a need-to-know-basis only.", "Distribute freely.", "Copyright 2019, Example Company, All Rights Reserved."],
+              "type": "string",
+              "minLength": 1
+            }
+          }
         },
         "lang": {
           "title": "Document language",
