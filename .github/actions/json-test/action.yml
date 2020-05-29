@@ -1,0 +1,13 @@
+name: 'JSON Schema Tests'
+description: 'Perform automated JSON schema tests'
+inputs:
+  test-type:
+    description: 'Which test should be executed -- normal|intensive'
+    required: true
+    default: 'normal'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.test-type }}
+
