@@ -12,7 +12,8 @@ RUN apt-get update -q \
  && apt-get install -y --no-install-recommends -qq \
     python3 \
     python3-jsonschema \
-    python3-simplejson
+    python3-simplejson \
+    python3-jsonpath-rw
 
 COPY entrypoint.sh /
 
