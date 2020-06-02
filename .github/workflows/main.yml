@@ -11,4 +11,3 @@ jobs:
       id: json-test
       uses: ./.github/actions/json-test
       with:
-        test-type: 'normal'
