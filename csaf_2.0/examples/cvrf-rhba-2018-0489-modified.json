@@ -30,19 +30,16 @@
     "notes": [
       {
         "title": "Topic",
-        "ordinal": "1",
         "type": "summary",
         "text": "Red Hat OpenShift Container Platform 3.9, which fixes several bugs and includes various enhancements, is now available."
       },
       {
         "title": "Details",
-        "ordinal": "2",
         "type": "general",
         "text": "Red Hat OpenShift Container Platform is the company's cloud computing\nPlatform-as-a-Service (PaaS) solution designed for on-premise or private cloud deployments.\n\nThe OpenShift Container Platform 3.9 Release Notes provide information about new features, bug fixes, and known issues:\n\nhttps://docs.openshift.com/container-platform/3.9/release_notes/ocp_3_9_release_notes.html\n\nThis advisory contains the RPM packages for this release. See the following\nadvisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHBA-2018:0490"
       },
       {
         "title": "Terms of Use",
-        "ordinal": "3",
         "type": "legal disclaimer",
         "text": "Please see https://www.redhat.com/footer/terms-of-use.html"
       }
@@ -8211,11 +8208,9 @@
   },
   "vulnerabilities": [
     {
-      "ordinal": 1,
       "notes": [
         {
           "title": "Vulnerability Description",
-          "ordinal": "1",
           "lang": "en",
           "type": "general",
           "text": "atomic-openshift: image import whitelist can be bypassed by creating an imagestream or using oc tag"
@@ -8682,11 +8677,9 @@
       ]
     },
     {
-      "ordinal": 2,
       "notes": [
         {
           "title": "Vulnerability Description",
-          "ordinal": "1",
           "type": "general",
           "text": "atomic-openshift: cluster-reader can escalate to creating builds via webhooks in any project"
         }
