@@ -8211,7 +8211,6 @@
       "notes": [
         {
           "title": "Vulnerability Description",
-          "lang": "en",
           "type": "general",
           "text": "atomic-openshift: image import whitelist can be bypassed by creating an imagestream or using oc tag"
         }
