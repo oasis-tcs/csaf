@@ -225,7 +225,12 @@
               "title": "Traffic Light Protocol (TLP)",
               "description": "Provides the TLP classification of the document.",
               "type": "string",
-              "enum": ["RED", "AMBER", "GREEN", "WHITE"]
+              "enum": [
+                "RED",
+                "AMBER",
+                "GREEN",
+                "WHITE"
+              ]
             },
             "text": {
               "title": "Description",
