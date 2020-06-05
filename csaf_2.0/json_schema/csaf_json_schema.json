@@ -623,9 +623,35 @@
                 },
                 "restart_required": {
                   "title": "Restart required by remediation",
-                  "description": "The field specifies whether this remediation requires a restart of the vulnerable component to become effective.",
-                  "examples": [true, false],
-                  "type": "boolean"
+                  "description": "Provides information on type of restart is required by this remediation to become effective.",
+                  "type": "object",
+                  "required": [
+                    "type"
+                  ],
+                  "properties": {
+                    "type": {
+                      "title": "Type of restart",
+                      "description": "Specifies what type of restart is required by this remediation to become effective.",
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "vulnerable_component",
+                        "service",
+                        "parent",
+                        "dependencies",
+                        "connected",
+                        "machine",
+                        "zone",
+                        "system"
+                      ]
+                    },
+                    "description": {
+                      "title": "Additional restart information",
+                      "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
                 },
                 "type": {
                   "enum": [
