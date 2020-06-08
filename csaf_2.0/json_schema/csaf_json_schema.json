@@ -275,6 +275,9 @@
               "minLength": 1
             },
             "type": {
+              "title": "Type of publisher",
+              "description": "Provides information about the type of publisher releasing the document.",
+              "type": "string",
               "enum": [
                 "coordinator",
                 "discoverer",
