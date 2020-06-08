@@ -257,6 +257,9 @@
         },
         "publisher": {
           "type": "object",
+          "required": [
+            "type"
+          ],
           "properties": {
             "contact_details": {
               "type": "string",
