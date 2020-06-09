@@ -159,6 +159,8 @@
     "references_t": {
       "type": "array",
       "items": {
+        "title": "Reference",
+        "description": "Holds any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.",
         "type": "object",
         "properties": {
           "description": {
