@@ -168,6 +168,7 @@
             "minLength": 1
           },
           "type": {
+            "default": "external",
             "enum": [
               "self",
               "external"
