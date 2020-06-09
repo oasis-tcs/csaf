@@ -168,7 +168,10 @@
             "minLength": 1
           },
           "type": {
+            "title": "Type of Reference",
+            "description": "Indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource",
             "default": "external",
+            "type": "string",
             "enum": [
               "self",
               "external"
