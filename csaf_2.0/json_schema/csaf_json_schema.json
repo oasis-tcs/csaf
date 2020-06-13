@@ -666,10 +666,13 @@
               ],
               "properties": {
                 "type": {
+                  "title": "Type of the threat",
+                  "description": "Categorizes the threat according to the rules of the specification.",
+                  "type": "string",
                   "enum": [
                     "impact",
-                    "exploit status",
-                    "target set"
+                    "exploit_status",
+                    "target_set"
                   ]
                 },
                 "description": {
