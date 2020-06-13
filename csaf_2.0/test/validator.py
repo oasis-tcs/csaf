@@ -18,4 +18,5 @@ with open(json_input, 'r') as f:
     input_data = f.read()
     input_obj = json.loads(input_data)
 
-jsonschema.validate(input_obj, schema)
+
+jsonschema.validate(input_obj, schema, format_checker=jsonschema.draft7_format_checker)
