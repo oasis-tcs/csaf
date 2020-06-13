@@ -13,8 +13,12 @@ RUN apt-get update -q \
     python3 \
     python3-jsonschema \
     python3-simplejson \
-    python3-jsonpath-rw
-RUN pip3 install jsonschema[format]
+    python3-jsonpath-rw \
+    python3-pip \
+    python3-setuptools \
+    python3-wheel
+
+RUN pip3 install jsonschema[format] --upgrade
 
 COPY entrypoint.sh /
 
