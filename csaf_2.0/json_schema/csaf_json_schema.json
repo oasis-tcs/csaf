@@ -610,7 +610,8 @@
             "items": {
               "type": "object",
               "required": [
-                "description"
+                "description",
+                "type"
               ],
               "properties": {
                 "date": {
