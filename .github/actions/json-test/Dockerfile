@@ -14,6 +14,7 @@ RUN apt-get update -q \
     python3-jsonschema \
     python3-simplejson \
     python3-jsonpath-rw
+RUN pip3 install jsonschema[format]
 
 COPY entrypoint.sh /
 
