@@ -44,6 +44,8 @@
       }
     },
     "branch_branches_t": {
+      "title": "Branch",
+      "description": "Is a part of the hierarchical structure of the product tree.",
       "type": "object",
       "required": [
         "name",
@@ -51,9 +53,15 @@
       ],
       "properties": {
         "name": {
-          "type": "string"
+          "title": "Name of the branch",
+          "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
+          "examples": ["Microsoft", "Siemens", "Windows", "Office", "SIMATIC", "10", "365", "PCS 7"],
+          "type": "string",
+          "minLength": 1
         },
         "type": {
+          "title": "Type of the branch",
+          "description": "Describes the characteristics of the labeled branch.",
           "type": "string",
           "enum": [
             "architecture",
