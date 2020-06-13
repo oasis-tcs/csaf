@@ -636,6 +636,9 @@
                   "$ref": "#/definitions/products_t"
                 },
                 "type": {
+                  "title": "Type of remediation",
+                  "description": "Specifies the type which this remediation belongs to.",
+                  "type": "string",
                   "enum": [
                     "workaround",
                     "mitigation",
