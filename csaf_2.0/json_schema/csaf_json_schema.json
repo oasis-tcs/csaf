@@ -45,6 +45,10 @@
     },
     "branch_branches_t": {
       "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
       "properties": {
         "name": {
           "type": "string"
