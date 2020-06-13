@@ -608,6 +608,8 @@
             "type": "array",
             "minItems": 1,
             "items": {
+              "title": "Remedation",
+              "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
                 "description",
@@ -619,12 +621,16 @@
                   "format": "date-time"
                 },
                 "description": {
+                  "title": "Description of the remediation",
+                  "description": "Contains a thorough human-readable discussion of the remediation.",
                   "type": "string",
                   "minLength": 1
                 },
                 "entitlements": {
                   "type": "array",
                   "items": {
+                    "title": "Entitlement of the remediation",
+                    "description": "Contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.",
                     "type": "string",
                     "minLength": 1
                   }
@@ -636,7 +642,7 @@
                   "$ref": "#/definitions/products_t"
                 },
                 "type": {
-                  "title": "Type of remediation",
+                  "title": "Type of the remediation",
                   "description": "Specifies the type which this remediation belongs to.",
                   "type": "string",
                   "enum": [
@@ -648,6 +654,8 @@
                   ]
                 },
                 "url": {
+                  "title": "URL to the remediation",
+                  "description": "Contains the URL where to obtain the remediation.",
                   "type": "string",
                   "format": "uri"
                 }
