@@ -54,7 +54,20 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "architecture",
+            "host_name",
+            "language",
+            "legacy",
+            "patch_level",
+            "product_family",
+            "product_name",
+            "product_version",
+            "service_pack",
+            "specification",
+            "vendor"
+          ]
         },
         "branches": {
           "type": "array",
