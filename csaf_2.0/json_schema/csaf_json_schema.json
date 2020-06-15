@@ -159,6 +159,8 @@
     "references_t": {
       "type": "array",
       "items": {
+        "title": "Reference",
+        "description": "Holds any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.",
         "type": "object",
         "properties": {
           "description": {
@@ -168,13 +170,20 @@
             "minLength": 1
           },
           "type": {
+            "title": "Type of reference",
+            "description": "Indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.",
+            "default": "external",
+            "type": "string",
             "enum": [
               "self",
               "external"
             ]
           },
           "url": {
-            "type": "string"
+            "title": "URL of reference",
+            "description": "Provides the URL for the reference.",
+            "type": "string",
+            "format": "uri"
           }
         },
         "required": [
