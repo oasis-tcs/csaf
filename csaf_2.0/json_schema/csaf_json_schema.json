@@ -85,11 +85,7 @@
       ],
       "properties": {
         "product_id": {
-          "title": "Reference token for product instance",
-          "description": "Token required to identify a full_product_name so that it can be referred to from other parts in the document. There is no predefined or required format for the product_id as long as it uniquely identifies a product in the context of the current document.",
-          "examples": ["CVRFPID-0004", "CVRFPID-0008"],
-          "type": "string",
-          "minLength": 1
+          "$ref": "#/definitions/product_id_t"
         },
         "name": {
           "title": "Textual description of the product",
@@ -151,10 +147,16 @@
     "products_t": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 1
+        "$ref": "#/definitions/product_id_t"
       },
       "uniqueItems": true
+    },
+    "product_id_t": {
+      "title": "Reference token for product instance",
+      "description": "Token required to identify a full_product_name so that it can be referred to from other parts in the document. There is no predefined or required format for the product_id as long as it uniquely identifies a product in the context of the current document.",
+      "examples": ["CVRFPID-0004", "CVRFPID-0008"],
+      "type": "string",
+      "minLength": 1
     },
     "references_t": {
       "type": "array",
@@ -444,8 +446,7 @@
                 "type": "array",
                 "minItems": 2,
                 "items": {
-                  "type": "string",
-                  "minLength": 1
+                  "$ref": "#/definitions/product_id_t"
                 }
               }
             }
