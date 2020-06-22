@@ -145,6 +145,8 @@
       }
     },
     "products_t": {
+      "title": "List of product_ids",
+      "description": "Specifies a list of product_ids to give context to the parent item.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/product_id_t"
@@ -443,6 +445,8 @@
                 "minLength": 1
               },
               "product_ids": {
+                "title": "List of product_ids",
+                "description": "Lists the product_ids of those products which known as one group in the document.",
                 "type": "array",
                 "minItems": 2,
                 "items": {
