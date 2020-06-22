@@ -107,6 +107,15 @@
         }
       }
     },
+    "groups_t": {
+      "title": "List of group_ids",
+      "description": "Specifies a list of group_ids to give context to the parent item.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/group_id_t"
+      },
+      "uniqueItems": true
+    },
     "group_id_t": {
       "title": "Reference token for product group instance",
       "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the group_id as long as it uniquely identifies a group in the context of the current document.",
@@ -650,7 +659,7 @@
                   }
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/definitions/groups_t"
                 },
                 "product_ids": {
                   "$ref": "#/definitions/products_t"
@@ -704,7 +713,7 @@
                   "$ref": "#/definitions/products_t"
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/definitions/groups_t"
                 }
               }
             }
