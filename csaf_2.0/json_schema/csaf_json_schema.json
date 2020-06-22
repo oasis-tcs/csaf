@@ -107,6 +107,13 @@
         }
       }
     },
+    "group_id_t": {
+      "title": "Reference token for product group instance",
+      "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the group_id as long as it uniquely identifies a group in the context of the current document.",
+      "examples": ["CSAFGID-0001", "CSAFGID-0002", "CSAFGID-0020"],
+      "type": "string",
+      "minLength": 1
+    },
     "lang_t": {
         "type": "string",
         "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
@@ -437,8 +444,7 @@
                 "type": "string"
               },
               "group_id": {
-                "type": "string",
-                "minLength": 1
+                "$ref": "#/definitions/group_id_t"
               },
               "product_ids": {
                 "type": "array",
