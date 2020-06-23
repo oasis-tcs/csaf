@@ -130,7 +130,7 @@
               "details",
               "faq",
               "general",
-              "legal disclaimer",
+              "legal_disclaimer",
               "other",
               "summary"
             ]
@@ -573,10 +573,10 @@
                 "status": {
                   "enum": [
                     "completed",
-                    "contact accepted",
+                    "contact_accepted",
                     "disputed",
-                    "in progress",
-                    "not contacted",
+                    "in_progress",
+                    "not_contacted",
                     "open"
                   ]
                 }
@@ -682,8 +682,8 @@
                 "type": {
                   "enum": [
                     "impact",
-                    "exploit status",
-                    "target set"
+                    "exploit_status",
+                    "target_set"
                   ]
                 },
                 "description": {
