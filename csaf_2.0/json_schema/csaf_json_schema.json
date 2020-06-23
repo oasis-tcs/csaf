@@ -210,6 +210,7 @@
       "title": "Document level meta-data",
       "description": "Captures the meta-data about this document describing a particular set of security advisories.",
       "required": [
+        "csaf_version",
         "title",
         "publisher",
         "type",
@@ -232,6 +233,12 @@
               "type": "string"
             }
           }
+        },
+        "csaf_version": {
+          "title": "CSAF version",
+          "description": "Gives the version of the CSAF specification which the document was generated for.",
+          "type": "string",
+          "enum": ["2.0"]
         },
         "distribution": {
           "title": "Rules for sharing document",
