@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  json-test_job:
+    runs-on: ubuntu-latest
+    name: Test JSON schema
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+    - name: Perform direct JSON schema test
+      id: json-test
+      uses: ./.github/actions/json-test
+    - name: Upload strict JSON schema artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: strict_schema.json
