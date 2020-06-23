@@ -432,6 +432,10 @@
           "type": "array",
           "items": {
             "type": "object",
+            "required": [
+              "group_id",
+              "product_ids"
+            ],
             "properties": {
               "description": {
                 "type": "string"
