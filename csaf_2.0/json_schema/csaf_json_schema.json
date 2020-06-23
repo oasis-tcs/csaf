@@ -191,6 +191,13 @@
           "description"
         ]
         }
+    },
+    "version_t": {
+      "title": "Version",
+      "description": "Sepcifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major.minor.patch.build' version.",
+      "examples": ["1", "0.9", "1.4.3", "2.40.0.320002"],
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$"
     }
   },
   "required": [
@@ -371,9 +378,7 @@
                 "type": "object",
                 "properties": {
                   "number": {
-                    "$comment": "*version_type*",
-                    "type": "string",
-                    "pattern": "(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}"
+                    "$ref": "#/definitions/version_t"
                   },
                   "date": {
                     "title": "Date of the revision",
@@ -400,9 +405,7 @@
               ]
             },
             "version": {
-              "$comment": "*version_type*",
-              "type": "string",
-              "pattern": "(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}"
+              "$ref": "#/definitions/version_t"
             }
           }
         },
