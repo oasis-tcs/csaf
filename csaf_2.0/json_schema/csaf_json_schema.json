@@ -123,14 +123,15 @@
             "type": "string"
           },
           "type": {
-            "title": "The type or kind of note",
+            "title": "Note type",
             "description": "Choice of what kind of note this is.",
+            "type": "string",
             "enum": [
               "description",
               "details",
               "faq",
               "general",
-              "legal disclaimer",
+              "legal_disclaimer",
               "other",
               "summary"
             ]
@@ -398,6 +399,9 @@
               }
             },
             "status": {
+              "title": "Document status",
+              "description": "Defines the draft status of the document.",
+              "type": "string",
               "enum": [
                 "draft",
                 "final",
@@ -474,6 +478,9 @@
                 "minLength": 1      
               },
               "relationship_type": {
+                "title": "Relationship type",
+                "description": "Defines the type of relationship for the referenced component.",
+                "type": "string",
                 "enum": [
                   "default_component_of",
                   "optional_component_of",
@@ -565,6 +572,9 @@
                   "minLength": 1
                 },
                 "party": {
+                  "title": "Party type",
+                  "description": "Defines the type of the involved party.",
+                  "type": "string",
                   "enum": [
                     "coordinator",
                     "discoverer",
@@ -574,12 +584,15 @@
                   ]
                 },
                 "status": {
+                  "title": "Party status",
+                  "description": "Defines contact status of the involved party.",
+                  "type": "string",
                   "enum": [
                     "completed",
-                    "contact accepted",
+                    "contact_accepted",
                     "disputed",
-                    "in progress",
-                    "not contacted",
+                    "in_progress",
+                    "not_contacted",
                     "open"
                   ]
                 }
