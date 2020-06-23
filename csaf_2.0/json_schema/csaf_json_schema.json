@@ -689,19 +689,27 @@
             "type": "array",
             "minItems": 1,
             "items": {
+              "title": "Threat",
+              "description": "Contains the vulnerability kinetic information. This information can change as the vulnerability ages and new information becomes available.",
               "type": "object",
               "required": [
-                "description"
+                "description",
+                "type"
               ],
               "properties": {
                 "type": {
+                  "title": "Type of the threat",
+                  "description": "Categorizes the threat according to the rules of the specification.",
+                  "type": "string",
                   "enum": [
                     "impact",
-                    "exploit status",
-                    "target set"
+                    "exploit_status",
+                    "target_set"
                   ]
                 },
                 "description": {
+                  "title": "Description of the threat",
+                  "description": "Represents a thorough human-readable discussion of the threat.",
                   "type": "string",
                   "minLength": 1
                 },
