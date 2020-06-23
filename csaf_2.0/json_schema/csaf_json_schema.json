@@ -431,6 +431,8 @@
         "product_groups": {
           "type": "array",
           "items": {
+            "title": "Product group",
+            "description": "Defines a new logical group of products that can then be referred to in other parts of the document to address a group of products with a single identifier.",
             "type": "object",
             "required": [
               "group_id",
@@ -438,7 +440,11 @@
             ],
             "properties": {
               "description": {
-                "type": "string"
+                "title": "Description of the product group",
+                "description": "Gives a short, optional description of the group.",
+                "examples": ["The x64 versions of the operating system.", "Products supporting Modbus."],
+                "type": "string",
+                "minLength": 1
               },
               "group_id": {
                 "type": "string",
