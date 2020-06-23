@@ -125,6 +125,7 @@
           "type": {
             "title": "The type or kind of note",
             "description": "Choice of what kind of note this is.",
+            "type": "string",
             "enum": [
               "description",
               "details",
@@ -393,6 +394,7 @@
               }
             },
             "status": {
+              "type": "string",
               "enum": [
                 "draft",
                 "final",
@@ -471,6 +473,7 @@
                 "minLength": 1      
               },
               "relationship_type": {
+                "type": "string",
                 "enum": [
                   "default_component_of",
                   "optional_component_of",
@@ -562,6 +565,7 @@
                   "minLength": 1
                 },
                 "party": {
+                  "type": "string",
                   "enum": [
                     "coordinator",
                     "discoverer",
@@ -571,6 +575,7 @@
                   ]
                 },
                 "status": {
+                  "type": "string",
                   "enum": [
                     "completed",
                     "contact_accepted",
@@ -680,6 +685,7 @@
               ],
               "properties": {
                 "type": {
+                  "type": "string",
                   "enum": [
                     "impact",
                     "exploit_status",
