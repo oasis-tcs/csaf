@@ -5,7 +5,8 @@
     "type": "Security Advisory",
     "publisher": {
       "contact_details": "secalert@redhat.com",
-      "issuing_authority": "Red Hat Product Security"
+      "issuing_authority": "Red Hat Product Security",
+      "type": "vendor"
     },
     "tracking": {
       "identification": {
