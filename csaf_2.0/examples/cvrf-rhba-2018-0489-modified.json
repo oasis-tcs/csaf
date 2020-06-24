@@ -40,7 +40,7 @@
       },
       {
         "title": "Terms of Use",
-        "type": "legal disclaimer",
+        "type": "legal_disclaimer",
         "text": "Please see https://www.redhat.com/footer/terms-of-use.html"
       }
     ],
