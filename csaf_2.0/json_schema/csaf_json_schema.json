@@ -88,20 +88,6 @@
         }
       }
     },
-    "branch_product_t": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "full_product_name": {
-          "$ref": "#/definitions/full_product_name_t"
-        }
-      }
-    },
     "full_product_name_t": {
       "type": "object",
       "required": [
