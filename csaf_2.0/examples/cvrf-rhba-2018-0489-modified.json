@@ -45,7 +45,9 @@
         "text": "Please see https://www.redhat.com/footer/terms-of-use.html"
       }
     ],
-    "distribution": "Copyright © 2018 Red Hat, Inc. All rights reserved.",
+    "distribution": {
+      "text": "Copyright © 2018 Red Hat, Inc. All rights reserved."
+    },
     "references": [
       {
         "url": "https://access.redhat.com/errata/RHBA-2018:0489",
