@@ -116,8 +116,11 @@
       }
     },
     "lang_t": {
-        "type": "string",
-        "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+      "title": "Language type",
+      "description": "Identifies a language, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
+      "examples": ["de", "en", "fr", "frc", "jp"],
+      "type": "string",
+      "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
     },
     "notes_t": {
       "type": "array",
@@ -298,17 +301,13 @@
         },
         "lang": {
           "title": "Document language",
-          "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
-          "examples": ["en", "fr", "frc"],
-          "type": "string",
-          "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+          "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.",
+          "$ref": "#/definitions/lang_t"
         },
         "source_lang": {
           "title": "Original translation",
-          "description": "If this copy of the document is a translation, from which language was this document translated? Uses IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registryrepresentation.",
-          "examples": ["jp", "en"],
-          "type": "string",
-          "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+          "description": "If this copy of the document is a translation, from which language was this document translated?",
+          "$ref": "#/definitions/lang_t"
         },
         "notes": {
           "$ref": "#/definitions/notes_t",
