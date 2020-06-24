@@ -169,6 +169,22 @@
       },
       "uniqueItems": true
     },
+    "product_groups_t": {
+      "title": "List of product_group_ids",
+      "description": "Specifies a list of product_group_ids to give context to the parent item.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/product_group_id_t"
+      },
+      "uniqueItems": true
+    },
+    "product_group_id_t": {
+      "title": "Reference token for product group instance",
+      "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the product_group_id as long as it uniquely identifies a group in the context of the current document.",
+      "examples": ["CSAFGID-0001", "CSAFGID-0002", "CSAFGID-0020"],
+      "type": "string",
+      "minLength": 1
+    },
     "product_id_t": {
       "title": "Reference token for product instance",
       "description": "Token required to identify a full_product_name so that it can be referred to from other parts in the document. There is no predefined or required format for the product_id as long as it uniquely identifies a product in the context of the current document.",
@@ -486,8 +502,7 @@
                 "type": "string"
               },
               "group_id": {
-                "type": "string",
-                "minLength": 1
+                "$ref": "#/definitions/product_group_id_t"
               },
               "product_ids": {
                 "title": "List of product_ids",
@@ -708,7 +723,7 @@
                   }
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/definitions/product_groups_t"
                 },
                 "product_ids": {
                   "$ref": "#/definitions/products_t"
@@ -807,7 +822,7 @@
                   "$ref": "#/definitions/products_t"
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/definitions/product_groups_t"
                 }
               }
             }
