@@ -9,9 +9,7 @@
       "type": "vendor"
     },
     "tracking": {
-      "identification": {
-        "id": "RHBA-2018:0489"
-      },
+      "id": "RHBA-2018:0489",
       "status": "final",
       "version": "1",
       "revision_history": [
