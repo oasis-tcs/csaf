@@ -468,12 +468,10 @@
                 }
               },
               "product_reference": {
-                "type": "string",
-                "minLength": 1      
+                "$ref": "#/definitions/product_id_t"     
               },
               "relates_to_product_reference": {
-                "type": "string",
-                "minLength": 1      
+                "$ref": "#/definitions/product_id_t"    
               },
               "relationship_type": {
                 "enum": [
