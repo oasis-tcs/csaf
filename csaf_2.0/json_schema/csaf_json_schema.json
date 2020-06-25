@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
   "title": "Common Security Advisory Framework",
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
@@ -44,13 +45,38 @@
       }
     },
     "branch_branches_t": {
+      "title": "Branch",
+      "description": "Is a part of the hierarchical structure of the product tree.",
       "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
       "properties": {
         "name": {
-          "type": "string"
+          "title": "Name of the branch",
+          "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
+          "examples": ["Microsoft", "Siemens", "Windows", "Office", "SIMATIC", "10", "365", "PCS 7"],
+          "type": "string",
+          "minLength": 1
         },
         "type": {
-          "type": "string"
+          "title": "Type of the branch",
+          "description": "Describes the characteristics of the labeled branch.",
+          "type": "string",
+          "enum": [
+            "architecture",
+            "host_name",
+            "language",
+            "legacy",
+            "patch_level",
+            "product_family",
+            "product_name",
+            "product_version",
+            "service_pack",
+            "specification",
+            "vendor"
+          ]
         },
         "branches": {
           "type": "array",
@@ -63,20 +89,6 @@
         }
       }
     },
-    "branch_product_t": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "full_product_name": {
-          "$ref": "#/definitions/full_product_name_t"
-        }
-      }
-    },
     "full_product_name_t": {
       "type": "object",
       "required": [
@@ -85,11 +97,7 @@
       ],
       "properties": {
         "product_id": {
-          "title": "Reference token for product instance",
-          "description": "Token required to identify a full_product_name so that it can be referred to from other parts in the document. There is no predefined or required format for the product_id as long as it uniquely identifies a product in the context of the current document.",
-          "examples": ["CVRFPID-0004", "CVRFPID-0008"],
-          "type": "string",
-          "minLength": 1
+          "$ref": "#/definitions/product_id_t"
         },
         "name": {
           "title": "Textual description of the product",
@@ -108,8 +116,11 @@
       }
     },
     "lang_t": {
-        "type": "string",
-        "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+      "title": "Language type",
+      "description": "Identifies a language, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
+      "examples": ["de", "en", "fr", "frc", "jp"],
+      "type": "string",
+      "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
     },
     "notes_t": {
       "type": "array",
@@ -123,14 +134,15 @@
             "type": "string"
           },
           "type": {
-            "title": "The type or kind of note",
+            "title": "Note type",
             "description": "Choice of what kind of note this is.",
+            "type": "string",
             "enum": [
               "description",
               "details",
               "faq",
               "general",
-              "legal disclaimer",
+              "legal_disclaimer",
               "other",
               "summary"
             ]
@@ -149,16 +161,42 @@
       }
     },
     "products_t": {
+      "title": "List of product_ids",
+      "description": "Specifies a list of product_ids to give context to the parent item.",
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 1
+        "$ref": "#/definitions/product_id_t"
       },
       "uniqueItems": true
+    },
+    "product_groups_t": {
+      "title": "List of product_group_ids",
+      "description": "Specifies a list of product_group_ids to give context to the parent item.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/product_group_id_t"
+      },
+      "uniqueItems": true
+    },
+    "product_group_id_t": {
+      "title": "Reference token for product group instance",
+      "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the product_group_id as long as it uniquely identifies a group in the context of the current document.",
+      "examples": ["CSAFGID-0001", "CSAFGID-0002", "CSAFGID-0020"],
+      "type": "string",
+      "minLength": 1
+    },
+    "product_id_t": {
+      "title": "Reference token for product instance",
+      "description": "Token required to identify a full_product_name so that it can be referred to from other parts in the document. There is no predefined or required format for the product_id as long as it uniquely identifies a product in the context of the current document.",
+      "examples": ["CVRFPID-0004", "CVRFPID-0008"],
+      "type": "string",
+      "minLength": 1
     },
     "references_t": {
       "type": "array",
       "items": {
+        "title": "Reference",
+        "description": "Holds any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.",
         "type": "object",
         "properties": {
           "description": {
@@ -168,13 +206,20 @@
             "minLength": 1
           },
           "type": {
+            "title": "Type of reference",
+            "description": "Indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.",
+            "default": "external",
+            "type": "string",
             "enum": [
               "self",
               "external"
             ]
           },
           "url": {
-            "type": "string"
+            "title": "URL of reference",
+            "description": "Provides the URL for the reference.",
+            "type": "string",
+            "format": "uri"
           }
         },
         "required": [
@@ -182,6 +227,13 @@
           "description"
         ]
         }
+    },
+    "version_t": {
+      "title": "Version",
+      "description": "Sepcifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major.minor.patch.build' version.",
+      "examples": ["1", "0.9", "1.4.3", "2.40.0.320002"],
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$"
     }
   },
   "required": [
@@ -193,6 +245,7 @@
       "title": "Document level meta-data",
       "description": "Captures the meta-data about this document describing a particular set of security advisories.",
       "required": [
+        "csaf_version",
         "title",
         "publisher",
         "type",
@@ -216,26 +269,61 @@
             }
           }
         },
+        "csaf_version": {
+          "title": "CSAF version",
+          "description": "Gives the version of the CSAF specification which the document was generated for.",
+          "type": "string",
+          "enum": ["2.0"]
+        },
         "distribution": {
           "title": "Rules for sharing document",
           "description": "Describe any constraints on how this document might be shared.",
-          "examples": ["Share only on a need-to-know-basis only.", "Distribute freely.", "Copyright 2019, Example Company, All Rights Reserved."],
-          "type": "string",
-          "minLength": 1
+          "type": "object",
+          "properties": {
+            "tlp": {
+              "title": "Traffic Light Protocol (TLP)",
+              "description": "Provides the TLP classification of the document.",
+              "type": "string",
+              "enum": [
+                "RED",
+                "AMBER",
+                "GREEN",
+                "WHITE"
+              ]
+            },
+            "text": {
+              "title": "Description",
+              "description": "Provides a textual description of additional constraints.",
+              "examples": ["Share only on a need-to-know-basis only.", "Distribute freely.", "Copyright 2019, Example Company, All Rights Reserved."],
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "dependencies": {
+            "tlp": {
+              "properties": {
+                "url": {
+                  "title": "URL of TLP version",
+                  "description": "Provides a URL where to find the textual description of the TLP version which is used in this document. Default is the URL to the definition by FIRST.",
+                  "default": "https://www.first.org/tlp/",
+                  "examples": ["https://www.first.org/tlp/", "https://www.us-cert.gov/tlp", "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf"],
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": ["url"]
+            }
+          }
         },
         "lang": {
           "title": "Document language",
-          "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
-          "examples": ["en", "fr", "frc"],
-          "type": "string",
-          "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+          "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.",
+          "$ref": "#/definitions/lang_t"
         },
         "source_lang": {
           "title": "Original translation",
-          "description": "If this copy of the document is a translation, from which language was this document translated? Uses IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registryrepresentation.",
-          "examples": ["jp", "en"],
-          "type": "string",
-          "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+          "description": "If this copy of the document is a translation, from which language was this document translated?",
+          "$ref": "#/definitions/lang_t"
         },
         "notes": {
           "$ref": "#/definitions/notes_t",
@@ -244,6 +332,9 @@
         },
         "publisher": {
           "type": "object",
+          "required": [
+            "type"
+          ],
           "properties": {
             "contact_details": {
               "type": "string",
@@ -259,6 +350,9 @@
               "minLength": 1
             },
             "type": {
+              "title": "Type of publisher",
+              "description": "Provides information about the type of publisher releasing the document.",
+              "type": "string",
               "enum": [
                 "coordinator",
                 "discoverer",
@@ -291,7 +385,10 @@
           "required": [
             "current_release_date",
             "id",
-            "initial_release_date"
+            "initial_release_date",
+            "revision_history",
+            "status",
+            "version"
           ],
           "properties": {
             "id": {
@@ -340,9 +437,7 @@
                 "type": "object",
                 "properties": {
                   "number": {
-                    "$comment": "*version_type*",
-                    "type": "string",
-                    "pattern": "(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}"
+                    "$ref": "#/definitions/version_t"
                   },
                   "date": {
                     "title": "Date of the revision",
@@ -362,6 +457,9 @@
               }
             },
             "status": {
+              "title": "Document status",
+              "description": "Defines the draft status of the document.",
+              "type": "string",
               "enum": [
                 "draft",
                 "final",
@@ -369,9 +467,7 @@
               ]
             },
             "version": {
-              "$comment": "*version_type*",
-              "type": "string",
-              "pattern": "(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}"
+              "$ref": "#/definitions/version_t"
             }
           }
         },
@@ -400,21 +496,31 @@
         "product_groups": {
           "type": "array",
           "items": {
+            "title": "Product group",
+            "description": "Defines a new logical group of products that can then be referred to in other parts of the document to address a group of products with a single identifier.",
             "type": "object",
+            "required": [
+              "group_id",
+              "product_ids"
+            ],
             "properties": {
               "description": {
-                "type": "string"
-              },
-              "group_id": {
+                "title": "Description of the product group",
+                "description": "Gives a short, optional description of the group.",
+                "examples": ["The x64 versions of the operating system.", "Products supporting Modbus."],
                 "type": "string",
                 "minLength": 1
               },
+              "group_id": {
+                "$ref": "#/definitions/product_group_id_t"
+              },
               "product_ids": {
+                "title": "List of product_ids",
+                "description": "Lists the product_ids of those products which known as one group in the document.",
                 "type": "array",
                 "minItems": 2,
                 "items": {
-                  "type": "string",
-                  "minLength": 1
+                  "$ref": "#/definitions/product_id_t"
                 }
               }
             }
@@ -432,14 +538,15 @@
                 }
               },
               "product_reference": {
-                "type": "string",
-                "minLength": 1      
+                "$ref": "#/definitions/product_id_t"     
               },
               "relates_to_product_reference": {
-                "type": "string",
-                "minLength": 1      
+                "$ref": "#/definitions/product_id_t"    
               },
               "relationship_type": {
+                "title": "Relationship type",
+                "description": "Defines the type of relationship for the referenced component.",
+                "type": "string",
                 "enum": [
                   "default_component_of",
                   "optional_component_of",
@@ -531,6 +638,9 @@
                   "minLength": 1
                 },
                 "party": {
+                  "title": "Party type",
+                  "description": "Defines the type of the involved party.",
+                  "type": "string",
                   "enum": [
                     "coordinator",
                     "discoverer",
@@ -540,12 +650,15 @@
                   ]
                 },
                 "status": {
+                  "title": "Party status",
+                  "description": "Defines contact status of the involved party.",
+                  "type": "string",
                   "enum": [
                     "completed",
-                    "contact accepted",
+                    "contact_accepted",
                     "disputed",
-                    "in progress",
-                    "not contacted",
+                    "in_progress",
+                    "not_contacted",
                     "open"
                   ]
                 }
@@ -592,9 +705,12 @@
             "type": "array",
             "minItems": 1,
             "items": {
+              "title": "Remedation",
+              "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
-                "description"
+                "description",
+                "type"
               ],
               "properties": {
                 "date": {
@@ -602,23 +718,62 @@
                   "format": "date-time"
                 },
                 "description": {
+                  "title": "Description of the remediation",
+                  "description": "Contains a thorough human-readable discussion of the remediation.",
                   "type": "string",
                   "minLength": 1
                 },
                 "entitlements": {
                   "type": "array",
                   "items": {
+                    "title": "Entitlement of the remediation",
+                    "description": "Contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.",
                     "type": "string",
                     "minLength": 1
                   }
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/definitions/product_groups_t"
                 },
                 "product_ids": {
                   "$ref": "#/definitions/products_t"
                 },
+                "restart_required": {
+                  "title": "Restart required by remediation",
+                  "description": "Provides information on type of restart is required by this remediation to become effective.",
+                  "type": "object",
+                  "required": [
+                    "type"
+                  ],
+                  "properties": {
+                    "type": {
+                      "title": "Type of restart",
+                      "description": "Specifies what type of restart is required by this remediation to become effective.",
+                      "type": "string",
+                      "enum": [
+                        "none",
+                        "vulnerable_component",
+                        "service",
+                        "parent",
+                        "dependencies",
+                        "connected",
+                        "machine",
+                        "zone",
+                        "system"
+                      ]
+                    },
+                    "description": {
+                      "title": "Additional restart information",
+                      "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
                 "type": {
+                  "title": "Type of the remediation",
+                  "description": "Specifies the type which this remediation belongs to.",
+                  "type": "string",
                   "enum": [
                     "workaround",
                     "mitigation",
@@ -628,6 +783,8 @@
                   ]
                 },
                 "url": {
+                  "title": "URL to the remediation",
+                  "description": "Contains the URL where to obtain the remediation.",
                   "type": "string",
                   "format": "uri"
                 }
@@ -643,19 +800,27 @@
             "type": "array",
             "minItems": 1,
             "items": {
+              "title": "Threat",
+              "description": "Contains the vulnerability kinetic information. This information can change as the vulnerability ages and new information becomes available.",
               "type": "object",
               "required": [
-                "description"
+                "description",
+                "type"
               ],
               "properties": {
                 "type": {
+                  "title": "Type of the threat",
+                  "description": "Categorizes the threat according to the rules of the specification.",
+                  "type": "string",
                   "enum": [
                     "impact",
-                    "exploit status",
-                    "target set"
+                    "exploit_status",
+                    "target_set"
                   ]
                 },
                 "description": {
+                  "title": "Description of the threat",
+                  "description": "Represents a thorough human-readable discussion of the threat.",
                   "type": "string",
                   "minLength": 1
                 },
@@ -667,7 +832,7 @@
                   "$ref": "#/definitions/products_t"
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/definitions/product_groups_t"
                 }
               }
             }
