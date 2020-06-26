@@ -678,24 +678,38 @@
             "minProperties": 1,
             "properties": {
               "fixed": {
+                "title": "Fixed",
+                "description": "This version contains a fix for the vulnerability but may not be the recommended fixed version.",
                 "$ref": "#/definitions/products_t"
               },
               "first_affected": {
+                "title": "First affected",
+                "description": "This is first version of the affected release known to be affected by the vulnerability.",
                 "$ref": "#/definitions/products_t"
               },
               "known_affected": {
+                "title": "Known affected",
+                "description": "This version is known to be affected by the vulnerability.",
                 "$ref": "#/definitions/products_t"
               },
               "known_not_affected": {
+                "title": "Known not affected",
+                "description": "This version is known not to be affected by the vulnerability.",
                 "$ref": "#/definitions/products_t"
               },
               "first_fixed": {
+                "title": "First fixed",
+                "description": "This version contains the first fix for the vulnerability but may not be the recommended fixed version.",
                 "$ref": "#/definitions/products_t"
               },
               "recommended": {
+                "title": "Recommended",
+                "description": "This version has a fix for the vulnerability and is the vendor-recommended version for fixing the vulnerability.",
                 "$ref": "#/definitions/products_t"
               },
               "last_affected": {
+                "title": "Last affected",
+                "description": "This is the last version in a release train known to be affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.",
                 "$ref": "#/definitions/products_t"
               }
             }
