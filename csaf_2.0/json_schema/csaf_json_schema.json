@@ -532,6 +532,8 @@
         "relationships": {
           "type": "array",
           "items": {
+            "title": "Relationship",
+            "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
             "type": "object",
             "properties": {
               "full_product_names": {
