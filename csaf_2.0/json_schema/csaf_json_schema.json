@@ -673,6 +673,7 @@
           },
           "product_status": {
             "type": "object",
+            "minProperties": 1,
             "properties": {
               "fixed": {
                 "$ref": "#/definitions/products_t"
