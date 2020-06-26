@@ -501,18 +501,21 @@
       "properties": {
         "branches": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/branch_branches_t"
           }
         },
         "full_product_names": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/full_product_name_t"
           }
         },
         "product_groups": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "title": "Product group",
             "description": "Defines a new logical group of products that can then be referred to in other parts of the document to address a group of products with a single identifier.",
