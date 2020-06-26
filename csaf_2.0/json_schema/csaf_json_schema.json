@@ -408,7 +408,8 @@
               "title": "Unique identifier for the document",
               "description": "The ID is a simple label that provides for a wide range of numbering values, types, and schemes. Its value SHOULD be assigned and maintained by the original document issuing authority.",
               "examples": ["Example Company - 2019-YH3234", "RHBA-2019:0024", "cisco-sa-20190513-secureboot"],
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "aliases": {
               "type": "array",
