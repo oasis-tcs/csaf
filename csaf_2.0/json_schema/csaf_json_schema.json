@@ -38,11 +38,11 @@
           "minLength": 1
         },
         "urls": {
-          "title": "URL of acknowledgment",
-          "description": "Contains the URL or location of the reference to be acknowledged.",
           "type": "array",
           "minItems": 1,
           "items": {
+            "title": "URL of acknowledgment",
+            "description": "Contains the URL or location of the reference to be acknowledged.",
             "type": "string",
             "format": "uri"
           }
