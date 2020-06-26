@@ -183,6 +183,7 @@
       "title": "List of product_group_ids",
       "description": "Specifies a list of product_group_ids to give context to the parent item.",
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "#/definitions/product_group_id_t"
       },
