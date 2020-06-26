@@ -128,10 +128,12 @@
         "type": "object",
         "properties": {
           "audience": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "type": {
             "title": "Note type",
