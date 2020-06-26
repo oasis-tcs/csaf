@@ -571,6 +571,7 @@
       "type": "array",
       "items": {
         "type": "object",
+        "minProperties": 1,
         "properties": {
           "acknowledgments": {
             "type": "array",
