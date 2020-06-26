@@ -656,6 +656,8 @@
             "type": "array",
             "minItems": 1,
             "items": {
+              "title": "Involvement",
+              "description": "Is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.",
               "type": "object",
               "required": [
                 "party",
