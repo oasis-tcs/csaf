@@ -280,6 +280,7 @@
           "title": "Rules for sharing document",
           "description": "Describe any constraints on how this document might be shared.",
           "type": "object",
+          "minProperties": 1,
           "properties": {
             "text": {
               "title": "Description",
