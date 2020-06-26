@@ -587,6 +587,8 @@
       "type": "array",
       "minItems": 1,
       "items": {
+        "title": "Vulnerability",
+        "description": "Is a container for the aggregation of all fields that are related to a single vulnerability in the document.",
         "type": "object",
         "properties": {
           "acknowledgments": {
