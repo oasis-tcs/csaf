@@ -48,6 +48,8 @@
       "title": "Branch",
       "description": "Is a part of the hierarchical structure of the product tree.",
       "type": "object",
+      "maxProperties": 3,
+      "minProperties": 3,
       "required": [
         "name",
         "type"
