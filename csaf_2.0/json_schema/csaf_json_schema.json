@@ -617,6 +617,7 @@
           },
           "scores": {
             "type": "array",
+            "minItems": 1, 
             "items": {
               "product_ids": "#/definitions/products_t",
               "cvss_v20": {
