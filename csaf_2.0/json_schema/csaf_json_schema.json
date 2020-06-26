@@ -270,10 +270,12 @@
           "type": "object",
           "properties": {
             "namespace": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "text": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             }
           }
         },
