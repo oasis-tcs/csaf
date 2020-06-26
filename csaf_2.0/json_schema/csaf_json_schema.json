@@ -280,28 +280,32 @@
           "description": "Describe any constraints on how this document might be shared.",
           "type": "object",
           "properties": {
-            "tlp": {
-              "title": "Traffic Light Protocol (TLP)",
-              "description": "Provides the TLP classification of the document.",
-              "type": "string",
-              "enum": [
-                "RED",
-                "AMBER",
-                "GREEN",
-                "WHITE"
-              ]
-            },
             "text": {
               "title": "Description",
               "description": "Provides a textual description of additional constraints.",
               "examples": ["Share only on a need-to-know-basis only.", "Distribute freely.", "Copyright 2019, Example Company, All Rights Reserved."],
               "type": "string",
               "minLength": 1
-            }
-          },
-          "dependencies": {
+            },
             "tlp": {
+              "title": "Traffic Light Protocol (TLP)",
+              "description": "Provides details about the TLP classification of the document.",
+              "type": "object",
+              "required": [
+                "label"
+              ],
               "properties": {
+                "label": {
+                  "title": "Label of TLP",
+                  "description": "Provides the TLP label of the document.",
+                  "type": "string",
+                  "enum": [
+                    "RED",
+                    "AMBER",
+                    "GREEN",
+                    "WHITE"
+                  ]
+                },
                 "url": {
                   "title": "URL of TLP version",
                   "description": "Provides a URL where to find the textual description of the TLP version which is used in this document. Default is the URL to the definition by FIRST.",
@@ -310,8 +314,7 @@
                   "type": "string",
                   "format": "uri"
                 }
-              },
-              "required": ["url"]
+              }
             }
           }
         },
