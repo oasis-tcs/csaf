@@ -271,7 +271,7 @@
           "properties": {
             "namespace": {
               "type": "string",
-              "minLength": 1
+              "format": "uri"
             },
             "text": {
               "type": "string",
