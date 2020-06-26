@@ -415,6 +415,7 @@
             },
             "aliases": {
               "type": "array",
+              "minItems": 1,
               "items": {
                 "type": "string",
                 "title": "Alternate name",
@@ -449,6 +450,7 @@
             },
             "revision_history": {
               "type": "array",
+              "minItems": 1,
               "items": {
                 "type": "object",
                 "properties": {
