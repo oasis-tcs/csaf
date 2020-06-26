@@ -267,7 +267,10 @@
             "text": {
               "type": "string"
             }
-          }
+          },
+          "required": [
+            "text"
+          ]
         },
         "csaf_version": {
           "title": "CSAF version",
