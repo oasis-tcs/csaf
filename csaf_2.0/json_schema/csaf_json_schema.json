@@ -486,6 +486,7 @@
     "product_tree": {
       "$comment": "Currently only supports branch_t and full_product_name_t children of product_tree",
       "type": "object",
+      "minProperties": 1,
       "properties": {
         "branches": {
           "type": "array",
