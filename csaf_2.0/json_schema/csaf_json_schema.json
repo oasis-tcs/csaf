@@ -266,13 +266,15 @@
             "namespace": {
               "title": "Namespace of aggregate severity",
               "description": "Points to the namespace so referenced.",
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "text": {
               "title": "Text of aggregate severity",
               "description": "Provides a severity which s independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).",
               "examples": ["Moderate", "Important", "Critical"],
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             }
           },
           "required": [
