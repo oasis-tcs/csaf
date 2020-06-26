@@ -420,6 +420,7 @@
             },
             "generator": {
               "type": "object",
+              "minProperties": 1,
               "properties": {
                 "engine": {
                   "type": "string"
