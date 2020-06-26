@@ -558,7 +558,12 @@
                   "installed_with"
                 ]
               }
-            }
+            },
+            "required": [
+              "product_reference",
+              "relates_to_product_reference",
+              "relationship_type"
+            ]
           }
         }
       }
