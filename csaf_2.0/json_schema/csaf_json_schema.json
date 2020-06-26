@@ -431,7 +431,8 @@
               "type": "object",
               "properties": {
                 "engine": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "date": {
                   "type": "string",
