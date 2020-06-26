@@ -9,20 +9,22 @@
       "type": "object",
       "properties": {
         "names": {
-          "type": "array",
           "title": "Names of entities being recognized",
           "description": "Typically the name of a person belonging to an organization",
           "examples": ["Johann Sebastian Bach", "Albert Einstein"],
+          "type": "array",
+          "minItems": 1,
           "items": {
             "type": "string",
             "minLength": 1
           }
         },
         "organizations": {
-          "type": "array",
           "title": "List of contributing organizations",
           "description": "The list of contributing organizations",
           "examples": ["US-CERT", "Talos", "Google Project Zero"],
+          "type": "array",
+          "minItems": 1,
           "items": {
             "type": "string",
             "minLength": 1
@@ -37,6 +39,7 @@
       },
         "urls": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "type": "string",
             "format": "uri"
