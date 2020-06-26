@@ -132,6 +132,8 @@
       "type": "array",
       "minItems": 1,
       "items": {
+        "title": "Note",
+        "description": "Is a place to put all manner of text blobs related to the current context.",
         "type": "object",
         "properties": {
           "audience": {
