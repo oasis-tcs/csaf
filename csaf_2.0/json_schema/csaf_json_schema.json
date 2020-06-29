@@ -760,6 +760,8 @@
             "type": "object",
             "properties": {
               "system_name": {
+                "title": "System name",
+                "description": "Indicates the name of the vulnerability tracking or numbering system.",
                 "type": "string",
                 "minLength": 1
               },
