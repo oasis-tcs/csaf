@@ -7,6 +7,7 @@
   "definitions": {
     "acknowledgment_t": {
       "type": "object",
+      "minProperties": 1,
       "properties": {
         "names": {
           "type": "array",
@@ -291,6 +292,7 @@
           "title": "Rules for sharing document",
           "description": "Describe any constraints on how this document might be shared.",
           "type": "object",
+          "minProperties": 1,
           "properties": {
             "text": {
               "title": "Description",
@@ -430,6 +432,7 @@
             },
             "generator": {
               "type": "object",
+              "minProperties": 1,
               "properties": {
                 "engine": {
                   "type": "string"
@@ -495,6 +498,7 @@
     "product_tree": {
       "$comment": "Currently only supports branch_t and full_product_name_t children of product_tree",
       "type": "object",
+      "minProperties": 1,
       "properties": {
         "branches": {
           "type": "array",
@@ -586,6 +590,7 @@
       "type": "array",
       "items": {
         "type": "object",
+        "minProperties": 1,
         "properties": {
           "acknowledgments": {
             "type": "array",
