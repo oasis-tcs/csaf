@@ -164,10 +164,18 @@
         "type": "object",
         "properties": {
           "audience": {
-            "type": "string"
+            "title": "Audience of note",
+            "description": "Indicate who is intended to read it.",
+            "examples": ["all", "executives", "operational management and system administrators", "safety engineers"],
+            "type": "string",
+            "minLength": 1
           },
           "title": {
-            "type": "string"
+            "title": "Title of note",
+            "description": "Provides a concise description of what is contained in the text of the note.",
+            "examples": ["Details", "Executive summary", "Technical summary", "Impact on safety systems"],
+            "type": "string",
+            "minLength": 1
           },
           "type": {
             "title": "Note type",
@@ -475,12 +483,9 @@
             "id": {
               "title": "Unique identifier for the document",
               "description": "The ID is a simple label that provides for a wide range of numbering values, types, and schemes. Its value SHOULD be assigned and maintained by the original document issuing authority.",
-              "examples": [
-                "Example Company - 2019-YH3234",
-                "RHBA-2019:0024",
-                "cisco-sa-20190513-secureboot"
-              ],
-              "type": "string"
+              "examples": ["Example Company - 2019-YH3234", "RHBA-2019:0024", "cisco-sa-20190513-secureboot"],
+              "type": "string",
+              "minLength": 1
             },
             "aliases": {
               "type": "array",
@@ -506,7 +511,8 @@
               "minProperties": 1,
               "properties": {
                 "engine": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "date": {
                   "type": "string",
@@ -536,7 +542,8 @@
                     "format": "date-time"
                   },
                   "description": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   }
                 },
                 "required": [
