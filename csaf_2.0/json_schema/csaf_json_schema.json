@@ -748,6 +748,11 @@
               },
               "last_affected": {
                 "$ref": "#/definitions/products_t"
+              },
+              "under_investigation": {
+                "title": "Under investigation",
+                "description": "It is not known yet whether this version is or is not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.",
+                "$ref": "#/definitions/products_t"
               }
             }
           },
