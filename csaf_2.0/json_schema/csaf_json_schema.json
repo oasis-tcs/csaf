@@ -573,12 +573,8 @@
             "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
             "type": "object",
             "properties": {
-              "full_product_names": {
-                "type": "array",
-                "minItems": 1,
-                "items": {
-                  "$ref": "#/definitions/full_product_name_t"
-                }
+              "full_product_name": {
+                "$ref": "#/definitions/full_product_name_t"
               },
               "product_reference": {
                 "$ref": "#/definitions/product_id_t"     
