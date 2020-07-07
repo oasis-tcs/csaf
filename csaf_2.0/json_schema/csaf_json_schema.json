@@ -12,9 +12,10 @@
         "names": {
           "title": "Names of entities being recognized",
           "description": "Typically the name of a person belonging to an organization",
-          "examples": ["Johann Sebastian Bach", "Albert Einstein"],
-          "type": "array",
-          "minItems": 1,
+          "examples": [
+            "Johann Sebastian Bach",
+            "Albert Einstein"
+          ],
           "items": {
             "type": "string",
             "minLength": 1
@@ -23,9 +24,11 @@
         "organizations": {
           "title": "List of contributing organizations",
           "description": "The list of contributing organizations",
-          "examples": ["US-CERT", "Talos", "Google Project Zero"],
-          "type": "array",
-          "minItems": 1,
+          "examples": [
+            "US-CERT",
+            "Talos",
+            "Google Project Zero"
+          ],
           "items": {
             "type": "string",
             "minLength": 1
@@ -34,7 +37,9 @@
         "description": {
           "title": "Description of the acknowledgment",
           "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
-          "examples": ["First analysis of Coordinated Multi-Stream Attack (CMSA)"],
+          "examples": [
+            "First analysis of Coordinated Multi-Stream Attack (CMSA)"
+          ],
           "type": "string",
           "minLength": 1
         },
@@ -64,7 +69,16 @@
         "name": {
           "title": "Name of the branch",
           "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
-          "examples": ["Microsoft", "Siemens", "Windows", "Office", "SIMATIC", "10", "365", "PCS 7"],
+          "examples": [
+            "Microsoft",
+            "Siemens",
+            "Windows",
+            "Office",
+            "SIMATIC",
+            "10",
+            "365",
+            "PCS 7"
+          ],
           "type": "string",
           "minLength": 1
         },
@@ -111,7 +125,10 @@
         "name": {
           "title": "Textual description of the product",
           "description": "The value of a Full Product Name element should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
-          "examples": ["Microsoft Host Integration Server 2006 Service Pack 1", "Cisco AnyConnect Secure Mobility Client 2.3.185"],
+          "examples": [
+            "Microsoft Host Integration Server 2006 Service Pack 1",
+            "Cisco AnyConnect Secure Mobility Client 2.3.185"
+          ],
           "type": "string",
           "minLength": 1
         },
@@ -120,6 +137,7 @@
           "title": "Common Platform Enumeration representation",
           "description": "The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.",
           "type": "string",
+          "pattern": "^(?i)cpe:(/|\\d+\\.\\d+)[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*$",
           "minLength": 1
         }
       }
@@ -127,7 +145,13 @@
     "lang_t": {
       "title": "Language type",
       "description": "Identifies a language, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
-      "examples": ["de", "en", "fr", "frc", "jp"],
+      "examples": [
+        "de",
+        "en",
+        "fr",
+        "frc",
+        "jp"
+      ],
       "type": "string",
       "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
     },
@@ -195,14 +219,21 @@
     "product_group_id_t": {
       "title": "Reference token for product group instance",
       "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the product_group_id as long as it uniquely identifies a group in the context of the current document.",
-      "examples": ["CSAFGID-0001", "CSAFGID-0002", "CSAFGID-0020"],
+      "examples": [
+        "CSAFGID-0001",
+        "CSAFGID-0002",
+        "CSAFGID-0020"
+      ],
       "type": "string",
       "minLength": 1
     },
     "product_id_t": {
       "title": "Reference token for product instance",
       "description": "Token required to identify a full_product_name so that it can be referred to from other parts in the document. There is no predefined or required format for the product_id as long as it uniquely identifies a product in the context of the current document.",
-      "examples": ["CVRFPID-0004", "CVRFPID-0008"],
+      "examples": [
+        "CVRFPID-0004",
+        "CVRFPID-0008"
+      ],
       "type": "string",
       "minLength": 1
     },
@@ -241,12 +272,17 @@
           "url",
           "description"
         ]
-        }
+      }
     },
     "version_t": {
       "title": "Version",
       "description": "Sepcifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major.minor.patch.build' version.",
-      "examples": ["1", "0.9", "1.4.3", "2.40.0.320002"],
+      "examples": [
+        "1",
+        "0.9",
+        "1.4.3",
+        "2.40.0.320002"
+      ],
       "type": "string",
       "pattern": "^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$"
     }
@@ -301,7 +337,9 @@
           "title": "CSAF version",
           "description": "Gives the version of the CSAF specification which the document was generated for.",
           "type": "string",
-          "enum": ["2.0"]
+          "enum": [
+            "2.0"
+          ]
         },
         "distribution": {
           "title": "Rules for sharing document",
@@ -312,7 +350,11 @@
             "text": {
               "title": "Description",
               "description": "Provides a textual description of additional constraints.",
-              "examples": ["Share only on a need-to-know-basis only.", "Distribute freely.", "Copyright 2019, Example Company, All Rights Reserved."],
+              "examples": [
+                "Share only on a need-to-know-basis only.",
+                "Distribute freely.",
+                "Copyright 2019, Example Company, All Rights Reserved."
+              ],
               "type": "string",
               "minLength": 1
             },
@@ -339,7 +381,10 @@
                   "title": "URL of TLP version",
                   "description": "Provides a URL where to find the textual description of the TLP version which is used in this document. Default is the URL to the definition by FIRST.",
                   "default": "https://www.first.org/tlp/",
-                  "examples": ["https://www.us-cert.gov/tlp", "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf"],
+                  "examples": [
+                    "https://www.us-cert.gov/tlp",
+                    "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf"
+                  ],
                   "type": "string",
                   "format": "uri"
                 }
@@ -372,7 +417,9 @@
               "type": "string",
               "title": "How to contact",
               "description": "Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.",
-              "examples": ["Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact."],
+              "examples": [
+                "Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact."
+              ],
               "minLength": 1
             },
             "issuing_authority": {
@@ -407,8 +454,10 @@
         "title": {
           "title": "Title of this document",
           "description": "This SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.",
-          "examples": ["Example Company Cross-Site-Scripting Vulnerability in Example Generator",
-            "Cisco IPv6 Crafted Packet Denial of Service Vulnerability"],
+          "examples": [
+            "Example Company Cross-Site-Scripting Vulnerability in Example Generator",
+            "Cisco IPv6 Crafted Packet Denial of Service Vulnerability"
+          ],
           "type": "string",
           "minLength": 1
         },
@@ -426,7 +475,11 @@
             "id": {
               "title": "Unique identifier for the document",
               "description": "The ID is a simple label that provides for a wide range of numbering values, types, and schemes. Its value SHOULD be assigned and maintained by the original document issuing authority.",
-              "examples": ["Example Company - 2019-YH3234", "RHBA-2019:0024", "cisco-sa-20190513-secureboot"],
+              "examples": [
+                "Example Company - 2019-YH3234",
+                "RHBA-2019:0024",
+                "cisco-sa-20190513-secureboot"
+              ],
               "type": "string"
             },
             "aliases": {
@@ -436,13 +489,15 @@
                 "type": "string",
                 "title": "Alternate name",
                 "description": "Alternate names for the same vulnerability.",
-                "examples": ["CVE-2019-12345"],
+                "examples": [
+                  "CVE-2019-12345"
+                ],
                 "minLength": 1
               }
             },
             "current_release_date": {
               "title": "Current release date",
-              "description" : "The date of the current revision of this document was released",
+              "description": "The date of the current revision of this document was released",
               "type": "string",
               "format": "date-time"
             },
@@ -546,7 +601,10 @@
               "description": {
                 "title": "Description of the product group",
                 "description": "Gives a short, optional description of the group.",
-                "examples": ["The x64 versions of the operating system.", "Products supporting Modbus."],
+                "examples": [
+                  "The x64 versions of the operating system.",
+                  "Products supporting Modbus."
+                ],
                 "type": "string",
                 "minLength": 1
               },
@@ -581,10 +639,10 @@
                 }
               },
               "product_reference": {
-                "$ref": "#/definitions/product_id_t"     
+                "$ref": "#/definitions/product_id_t"
               },
               "relates_to_product_reference": {
-                "$ref": "#/definitions/product_id_t"    
+                "$ref": "#/definitions/product_id_t"
               },
               "relationship_type": {
                 "title": "Relationship type",
@@ -643,19 +701,49 @@
           },
           "scores": {
             "type": "array",
-            "minItems": 1, 
-            "items": {
-              "product_ids": "#/definitions/products_t",
-              "cvss_v20": {
-                "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
-              },
-              "cvss_v30": {
-                "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
-              },
-              "cvss_v31": {
-                "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+            "minItems": 1,
+            "items": [
+              {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                      "$ref": "#/definitions/products_t",
+                      "examples": [
+                        "CVRFID_123",
+                        "CSAFID_0815"
+                      ],
+                      "default": ""
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "cvss_v20": {
+                        "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "cvss_v30": {
+                        "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "cvss_v31": {
+                        "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                      }
+                    }
+                  }
+                ]
               }
-            }
+            ]
           },
           "discovery_date": {
             "type": "string",
