@@ -7,9 +7,9 @@
   "definitions": {
     "acknowledgment_t": {
       "type": "object",
+      "minProperties": 1,
       "properties": {
         "names": {
-          "type": "array",
           "title": "Names of entities being recognized",
           "description": "Typically the name of a person belonging to an organization",
           "examples": [
@@ -22,7 +22,6 @@
           }
         },
         "organizations": {
-          "type": "array",
           "title": "List of contributing organizations",
           "description": "The list of contributing organizations",
           "examples": [
@@ -46,7 +45,10 @@
         },
         "urls": {
           "type": "array",
+          "minItems": 1,
           "items": {
+            "title": "URL of acknowledgment",
+            "description": "Contains the URL or location of the reference to be acknowledged.",
             "type": "string",
             "format": "uri"
           }
@@ -57,6 +59,8 @@
       "title": "Branch",
       "description": "Is a part of the hierarchical structure of the product tree.",
       "type": "object",
+      "maxProperties": 3,
+      "minProperties": 3,
       "required": [
         "name",
         "type"
@@ -98,6 +102,7 @@
         },
         "branches": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/branch_branches_t"
           }
@@ -152,7 +157,10 @@
     },
     "notes_t": {
       "type": "array",
+      "minItems": 1,
       "items": {
+        "title": "Note",
+        "description": "Is a place to put all manner of text blobs related to the current context.",
         "type": "object",
         "properties": {
           "audience": {
@@ -192,6 +200,7 @@
       "title": "List of product_ids",
       "description": "Specifies a list of product_ids to give context to the parent item.",
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "#/definitions/product_id_t"
       },
@@ -201,6 +210,7 @@
       "title": "List of product_group_ids",
       "description": "Specifies a list of product_group_ids to give context to the parent item.",
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "#/definitions/product_group_id_t"
       },
@@ -229,6 +239,7 @@
     },
     "references_t": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "title": "Reference",
         "description": "Holds any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.",
@@ -294,20 +305,33 @@
       "properties": {
         "acknowledgments": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/acknowledgment_t"
           }
         },
-        "aggregate_severity": {
+        "aggregate_severity" : {
+          "title": "Aggregate severity",
+          "description": "Is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.",
           "type": "object",
           "properties": {
             "namespace": {
-              "type": "string"
+              "title": "Namespace of aggregate severity",
+              "description": "Points to the namespace so referenced.",
+              "type": "string",
+              "format": "uri"
             },
             "text": {
-              "type": "string"
+              "title": "Text of aggregate severity",
+              "description": "Provides a severity which s independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).",
+              "examples": ["Moderate", "Important", "Critical"],
+              "type": "string",
+              "minLength": 1
             }
-          }
+          },
+          "required": [
+            "text"
+          ]
         },
         "csaf_version": {
           "title": "CSAF version",
@@ -321,6 +345,7 @@
           "title": "Rules for sharing document",
           "description": "Describe any constraints on how this document might be shared.",
           "type": "object",
+          "minProperties": 1,
           "properties": {
             "text": {
               "title": "Description",
@@ -459,6 +484,7 @@
             },
             "aliases": {
               "type": "array",
+              "minItems": 1,
               "items": {
                 "type": "string",
                 "title": "Alternate name",
@@ -477,6 +503,7 @@
             },
             "generator": {
               "type": "object",
+              "minProperties": 1,
               "properties": {
                 "engine": {
                   "type": "string"
@@ -495,6 +522,7 @@
             },
             "revision_history": {
               "type": "array",
+              "minItems": 1,
               "items": {
                 "type": "object",
                 "properties": {
@@ -542,21 +570,25 @@
     "product_tree": {
       "$comment": "Currently only supports branch_t and full_product_name_t children of product_tree",
       "type": "object",
+      "minProperties": 1,
       "properties": {
         "branches": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/branch_branches_t"
           }
         },
         "full_product_names": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/full_product_name_t"
           }
         },
         "product_groups": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "title": "Product group",
             "description": "Defines a new logical group of products that can then be referred to in other parts of the document to address a group of products with a single identifier.",
@@ -593,11 +625,15 @@
         },
         "relationships": {
           "type": "array",
+          "minItems": 1,
           "items": {
+            "title": "Relationship",
+            "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
             "type": "object",
             "properties": {
               "full_product_names": {
                 "type": "array",
+                "minItems": 1,
                 "items": {
                   "$ref": "#/definitions/full_product_name_t"
                 }
@@ -620,18 +656,28 @@
                   "installed_with"
                 ]
               }
-            }
+            },
+            "required": [
+              "product_reference",
+              "relates_to_product_reference",
+              "relationship_type"
+            ]
           }
         }
       }
     },
     "vulnerabilities": {
       "type": "array",
+      "minItems": 1,
       "items": {
+        "title": "Vulnerability",
+        "description": "Is a container for the aggregation of all fields that are related to a single vulnerability in the document.",
         "type": "object",
+        "minProperties": 1,
         "properties": {
           "acknowledgments": {
             "type": "array",
+            "minItems": 1,
             "items": {
               "$ref": "#/definitions/acknowledgment_t"
             }
@@ -655,7 +701,7 @@
           },
           "scores": {
             "type": "array",
-            "minItems": 0,
+            "minItems": 1,
             "items": [
               {
                 "anyOf": [
@@ -722,7 +768,10 @@
           },
           "involvements": {
             "type": "array",
+            "minItems": 1,
             "items": {
+              "title": "Involvement",
+              "description": "Is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.",
               "type": "object",
               "required": [
                 "party",
@@ -821,6 +870,7 @@
                 },
                 "entitlements": {
                   "type": "array",
+                  "minItems": 1,
                   "items": {
                     "title": "Entitlement of the remediation",
                     "description": "Contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.",
