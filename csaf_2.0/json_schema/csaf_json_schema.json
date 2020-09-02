@@ -416,6 +416,8 @@
           "description": "Notes about this set of vulnerabilities should be added here."
         },
         "publisher": {
+          "title": "Publisher",
+          "description": "Provides information about the publisher of the document.",
           "type": "object",
           "required": [
             "type"
@@ -423,7 +425,7 @@
           "properties": {
             "contact_details": {
               "type": "string",
-              "title": "How to contact",
+              "title": "Contact details",
               "description": "Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.",
               "examples": [
                 "Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact."
@@ -431,7 +433,7 @@
               "minLength": 1
             },
             "issuing_authority": {
-              "title": "What authority",
+              "title": "Issuing authority",
               "description": "The name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.",
               "type": "string",
               "minLength": 1
