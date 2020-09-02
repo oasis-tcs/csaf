@@ -509,6 +509,9 @@
             "generator": {
               "type": "object",
               "minProperties": 1,
+              "required": [
+                "engine"
+              ],
               "properties": {
                 "engine": {
                   "type": "string",
