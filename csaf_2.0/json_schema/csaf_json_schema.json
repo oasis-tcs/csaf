@@ -507,14 +507,27 @@
               "format": "date-time"
             },
             "generator": {
+              "title": "Document generator",
+              "description": "It is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.",
               "type": "object",
-              "minProperties": 1,
+              "required": [
+                "engine"
+              ],
               "properties": {
                 "engine": {
+                  "title": "Engine of document generation",
+                  "description": "This string SHOULD represent the name of the engine that generated the CSAF document, and MAY additionally refer to its version.",
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "examples": [
+                    "TVCE",
+                    "Red Hat rhsa-to-cvrf 2.1",
+                    "CMPFA Core Converter CVRF->CSAF Version 0.6"
+                  ]
                 },
                 "date": {
+                  "title": "Date of document generation",
+                  "description": "This SHOULD be the current date that the document was generated. Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released, this field MAY be different from the Initial Release Date and Current Release Date.",
                   "type": "string",
                   "format": "date-time"
                 }
