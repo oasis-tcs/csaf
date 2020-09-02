@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 00 Month 2020
+## 02 September 2020
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -17,6 +17,8 @@ Omar Santos (osantos@cisco.com), [Cisco](https://cisco.com/)
 #### Editors:
 Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
+
+In Memory of Eric Johnson, TIBCO Software inc., an active member of the OASIS CSAF Committee.
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
@@ -155,138 +157,6 @@ All other text is normative unless otherwise labeled e.g. like:
 Non-normative Comment:
 >This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or common pitfalls learned from implementer or operator experience and often given including the rationale.
 
-## 1.6 Some markdown usage examples
-
-**Text.**
-
-Note that text paragraphs in markdown should be separated by a blank line between them -
-
-Otherwise the separate paragraphs will be joined together when the HTML is generated.
-Even if the text appears to be separate lines in the markdown source.
-
-To avoid having the usual vertical space between paragraphs,  
-append two or more space characters (or space-backslash) to the end of the lines  
-which will generate an HTML break tag instead of a new paragraph tag \
-(as demonstrated here).
-
-### 1.6.1 Figures and Captions
-
-FIGURE EXAMPLE:
-<note caption is best placed ABOVE figure, so a hyperlink to it will actually display the figure, instead of rendering the figure off the screen above the caption. The same placement should be used for table captions>
-
-###### Figure 1 -- Title of Figure
-![image-label should be meaningful](images/image_0.png) (this image is missing)
-
-###### Figure 2 -- OpenC2 Message Exchange
-![message exchange](images/image_1.png)
-
-
-### 1.6.2 Tables
-
-#### 1.6.2.1 Basic Table
-**Table 1-1. Table Label**
-
-| Item | Description |
-| :--- | :--- |
-| Item 1 | Something<br>(second line) |
-| Item 2 | Something |
-| Item 3 | Something<br>(second line) |
-| Item 4 | text |
-
-#### 1.6.2.2 Table with Three Columns and Some Bold Text
-text.
-
-| Title 1 | Title 2 | title 3 |
-| :--- | :--- | :--- |
-| something | something | something else that is a long string of text that **might** need to wrap around inside the table box and will just continue until the column divider is reached |
-| something | something | something |
-
-#### 1.6.2.3 Table with a caption which can be referenced
-
-###### Table 1-5. See reference label construction
-
-| Name | Description |
-| :--- | :--- |
-| **content** | Message body as specified by content_type and msg_type. |
-
-Here is a reference to the table caption:
-Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction) 
-
-
-### 1.6.3 Lists
-
-Bulleted list:
-* bullet item 1.
-* **Bold** bullet item 2.
-* bullet item 3.
-* bullet item 4.
-
-Indented or multi-level bullet list - add two spaces per level before bullet character (* or -):
-* main bullet type
-  * Example second bullet
-    * See third level
-      * fourth level
-
-Numbered list:
-1. item 1
-2. item 2
-3. item 3
-
-Left-justified list without bullets or numbers:
-To list multiple items without full paragraph breaks between items, add space-backslash after each item except the last.
-
-### 1.6.4 Reference Label Construction
-
-REFERENCES and ANCHORS
-- in markdown source, format the Reference tags as level 6 headings like: `###### [RFC2119]`
-###### [RFC2119]
-Bradner, S., "Key words ..."
-
-- reference text has to be on a separate line below the tag
-
-- format cross-references (citations of the references) like: `see [[RFC2119](#rfc2119)]`  
-"see [[RFC2119](#rfc2119)]"  
-(note the outer square brackets in markdown will appear in the visible HTML text)
-
-- The text in the Reference tag (following ###### ) will become an HTML anchor using the following conversion rules:  
--- punctuation marks will be dropped (including "[" )  
--- leading white spaces will be dropped  
--- upper case will be converted to lower  
--- spaces between letters will be converted to a single hyphen
-
-- The same HTML anchor construction rules apply to cross-references and to section headings.  
--- Thus, a section heading like "## 1.3 Normative References"  
--- becomes an anchor in HTML like `<a href="#13-normative-references">`  
--- referenced in the markdown like: see [Section 1.3](#13-normative-references)  
--- (in markdown: `"see [Section 1.3](#13-normative-references"`)  
--- similar HTML anchors are also used in constructing the TOC
-
-### 1.6.5 Code Blocks
-
-Text to appear as an indented code block with grey background and monospace font - use three back-ticks before and after the code block).
-
-Note the actual backticks will not appear in the HTML format. If it's necessary to display visible backticks, place a back-slash before them like: \``` .
-
-```
-{   
-    "target": {
-        "x_kmip_2.0": {
-            {"kmip_type": "json"},
-            {"operation": "RekeyKeyPair"},
-            {"name": "publicWebKey11DEC2017"}
-        }
-    }
-}
-```
-
-Text to be highlighted as code can also be surrounded by a single "backtick" character: 
-`code text`
-
-## 1.7 Page Breaks
-Add horizontal rule lines where page breaks are desired in the PDF - before each major section
-- insert the line rules in markdown by inserting 3 or more hyphens on a line by themselves:  ---
-- place these before each main section in markdown (usually "#" - which generates the HTML `<h1>` tag)
-
 -------
 
 # 2 Design Considerations
@@ -344,47 +214,9 @@ Delegation to industry best practices technologies is used in referencing schema
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/ 
 
-### 2.1.1 Level 3 Heading
-text.
-
-#### 2.1.1.1 Level 4 Heading
-text.
-
-##### 2.1.1.1.1 Level 5 Heading
-This is the deepest level, because six # gets transformed into a Reference tag.
-
-
-## 2.2 Next Heading
-text.
-
 -------
 
-# 3 Safety, Security, and Data Protection Considerations
-(Note: OASIS strongly recommends that Technical Committees consider issues that might affect safety, security, privacy, and/or data protection in implementations of their specification and document them for implementers and adopters. For some purposes, you may find it required, e.g. if you apply for IANA registration.
-
-While it may not be immediately obvious how your specification might make systems vulnerable to attack, most specifications, because they involve communications between systems, message formats, or system settings, open potential channels for exploit. For example, IETF [[RFC3552](#rfc3552)] lists “eavesdropping, replay, message insertion, deletion, modification, and man-in-the-middle” as well as potential denial of service attacks as threats that must be considered and, if appropriate, addressed in IETF RFCs.
-
-In addition to considering and describing foreseeable risks, this section should include guidance on how implementers and adopters can protect against these risks.
-
-We encourage editors and TC members concerned with this subject to read _Guidelines for Writing RFC Text on Security Considerations_, IETF [[RFC3552](#rfc3552)], for more information.
-
-Remove this note before submitting for publication.)
-
--------
-
-# 4 Conformance
-(Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
-For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
-
-See "Guidelines to Writing Conformance Clauses":  
-http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
-
-Remove this note before submitting for publication.)
-
-
--------
-
-# 5 Schema Elements
+# 3 Schema Elements
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
@@ -405,9 +237,9 @@ Types and properties together provide the vocabulary for the domain specific lan
 
 The single mandatory property is the document. The optional two additional properties are product_tree and vulnerabilities.
 
-## Definitions
+## 3.1 Definitions
 
-### Acknowledgment Type
+### 3.1.1 Acknowledgment Type
 
 Acknowledgement (`acknowledgment_t`) type instances acknowledge contributions by describing those that contributed. The value type is object with 1 to 4 properties. The properties are: names, organizations, description, and urls.
 
@@ -430,7 +262,7 @@ Acknowledgement (`acknowledgment_t`) type instances acknowledge contributions by
       }
     },
 
-#### Acknowledgment Type - Names
+#### 3.1.1.1 Acknowledgment Type - Names
 
 Names of entities being recognized is typically the name of a person belonging to an organization. Value type is string with 1 or more characters.
 
@@ -439,7 +271,7 @@ Examples:
     Johann Sebastian Bach
     Albert Einstein
 
-#### Acknowledgment Type - Organizations
+#### 3.1.1.2 Acknowledgment Type - Organizations
 
 List of contributing organizations. The list of contributing organizations. Value type is string with 1 or more characters.
 
@@ -449,7 +281,7 @@ Examples:
     Talos
     Google Project Zero
 
-#### Acknowledgment Type - Description
+#### 3.1.1.3 Acknowledgment Type - Description
 
 Description of the acknowledgment SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. Value type is string with 1 or more characters.
 
@@ -457,11 +289,11 @@ Example:
 
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 
-#### Acknowledgment Type - URLs
+#### 3.1.1.4 Acknowledgment Type - URLs
 
 URL of acknowledgment contains the URL or location of the reference to be acknowledged. Value type is string with format URI.
 
-### Branch Type
+### 3.1.2 Branch Type
 
 Branch is a part of the hierarchical structure of the product tree. Value type is object with 3 Properties. The properties name and type are mandatory. In addition the object contains either a branches or a product. 
 
@@ -483,7 +315,7 @@ Branch is a part of the hierarchical structure of the product tree. Value type i
       }
     },
 
-#### Branch Type - Name
+#### 3.1.2.1 Branch Type - Name
 
 Name of the branch contains the canonical descriptor or 'friendly name' of the branch. Value type string with 1 character or more.
 
@@ -498,7 +330,7 @@ Examples:
     365
     PCS 7
 
-#### Branch Type - Type
+#### 3.1.2.2 Branch Type - Type
 
 Type of the branch describes the characteristics of the labeled branch. Value type is string enum. Valid values are:
 
@@ -522,7 +354,7 @@ Branches have the value type array with 1 or more items of the Branch type (`bra
 
 Product has the value type Full Product Name (`full_product_name_t`).
 
-### Full Product Name Type
+### 3.1.3 Full Product Name Type
 
 Full Product Name (`full_product_name_t`) has value type object with 3 properties. The properties product_id and name are mandatory. In addition the object may contain a CPE identifier as value of the cpe property.
 
@@ -560,7 +392,7 @@ Common Platform Enumeration representation. The Common Platform Enumeration (CPE
 
     ^(?i)cpe:(/|\\d+\\.\\d+)[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*$
 
-### Language Type
+### 3.1.4 Language Type
 
 Language type identifies a language, corresponding to IETF BCP 47 / RFC 5646. 
 
@@ -578,7 +410,7 @@ Examples:
     frc
     jp
 
-### Notes Type
+### 3.1.5 Notes Type
 
 Notes type (`notes_t`) is array with 1 or more items of type Note. Value type of every such Note item is object with the mandatory properties type and text. A note may provide the additional properties audience and title.
 
@@ -661,15 +493,15 @@ Note type. Choice of what kind of note this is. Value type is string enum. Valid
 
 Note contents are the contents of the note. Content varies depending on type. Value type is string with 1 or more characters.
 
-### Products Type
+### 3.1.6 Products Type
 
 List of Product IDs (`product_ids`) specifies a list of `product_ids` to give context to the parent item. Value type is array with 1 or more unque items (set) of type Product ID (`product_id_t`)
 
-### Product Groups Type
+### 3.1.7 Product Groups Type
 
 List of Product Group ID (`product_group_ids`) specifies a list of `product_group_ids` to give context to the parent item. Value type is array with 1 or more unque items (set) of type Product Group ID (`product_group_id_t`)
 
-### Product Group ID Type
+### 3.1.8 Product Group ID Type
 
 The Product Group ID Type (`product_group_id_t`) is a reference token for product group instances. Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a group in the context of the current document. Value type is string with 1 or more characters.
 
@@ -679,7 +511,7 @@ Examples:
     CSAFGID-0002
     CSAFGID-0020
 
-### Product ID Type
+### 3.1.9 Product ID Type
 
 The Product ID Type (`product_id_t`) is a reference token for product instances. Token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document. Value type is string with 1 or more characters.
 
@@ -688,7 +520,7 @@ Examples:
     CVRFPID-0004
     CVRFPID-0008
 
-### References Type
+### 3.1.10 References Type
 
 The References (`references_t`) type provides a list of Reference objects. Value type is array with 1 or more items. 
 
@@ -725,7 +557,7 @@ The default value for `type` is:
 
 The URL of reference (`url`) provides the URL for the reference. Value type is string with format `uri`.
 
-### Version Type
+### 3.1.11 Version Type
 
 The Version (`version_t`) type specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major.minor.patch.build' version. Value type is string matching the regular expression pattern:
 
@@ -739,9 +571,9 @@ Examples:
     1.4.3
     2.40.0.320002
 
-## Properties
+## 3.2 Properties
 
-### Document Property
+### 3.2.1 Document Property
 
 Document level meta-data captures the meta-data about this document describing a particular set of security advisories. Value type is object with the 5 mandatory properties csaf_version, title, publisher, type, and tracking. 
 In addition, the document object may provide the 7 optional properties acknowledgments, aggregate_severity, distribution, lang, source_lang, notes, and references. 
@@ -1092,7 +924,7 @@ Version has the value type Version (`version_t`).
       "minLength": 1
     }
 
-### Product Tree Property
+### 3.2.2 Product Tree Property
 
 Product Tree has value type object with 1 or more properties. The properties are branches, full_product_names, product_groups, and relationships.
 
@@ -1228,7 +1060,7 @@ Product Tree has value type object with 1 or more properties. The properties are
     },
 
 
-### Vulnerabilities Property
+### 3.2.3 Vulnerabilities Property
 
 Vulnerabilities represents a list of all relevant vulnerability information items. Value type is array with 1 or more objects representing vulnerabilities and providing 1 or more properties.
 
@@ -1640,6 +1472,30 @@ Release Date has value type string of format date-time.
 
 Title has value type string with 1 or more characters.
 
+# 3 Safety, Security, and Data Protection Considerations
+(Note: OASIS strongly recommends that Technical Committees consider issues that might affect safety, security, privacy, and/or data protection in implementations of their specification and document them for implementers and adopters. For some purposes, you may find it required, e.g. if you apply for IANA registration.
+
+While it may not be immediately obvious how your specification might make systems vulnerable to attack, most specifications, because they involve communications between systems, message formats, or system settings, open potential channels for exploit. For example, IETF [[RFC3552](#rfc3552)] lists “eavesdropping, replay, message insertion, deletion, modification, and man-in-the-middle” as well as potential denial of service attacks as threats that must be considered and, if appropriate, addressed in IETF RFCs.
+
+In addition to considering and describing foreseeable risks, this section should include guidance on how implementers and adopters can protect against these risks.
+
+We encourage editors and TC members concerned with this subject to read _Guidelines for Writing RFC Text on Security Considerations_, IETF [[RFC3552](#rfc3552)], for more information.
+
+Remove this note before submitting for publication.)
+
+-------
+
+# 4 Conformance
+(Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
+For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
+
+See "Guidelines to Writing Conformance Clauses":  
+http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
+
+Remove this note before submitting for publication.)
+
+
+-------
 # Appendix A. Acknowledgments
 
 (Note: A Work Product approved by the TC must include a list of people who participated in the development of the Work Product. This is generally done by collecting the list of names in this appendix. This list shall be initially compiled by the Chair, and any Member of the TC may add or remove their names from the list by request.  
@@ -1731,4 +1587,3 @@ Zach | Turk | Microsoft
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
 | specname-v1.0-wd01 | yyyy-mm-dd | Editor Name | Initial working draft |
-
