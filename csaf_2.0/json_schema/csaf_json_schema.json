@@ -416,6 +416,8 @@
           "description": "Notes about this set of vulnerabilities should be added here."
         },
         "publisher": {
+          "title": "Publisher",
+          "description": "Provides information about the publisher of the document.",
           "type": "object",
           "required": [
             "type"
