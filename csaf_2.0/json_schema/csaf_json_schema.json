@@ -331,7 +331,7 @@
             },
             "text": {
               "title": "Text of aggregate severity",
-              "description": "Provides a severity which s independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).",
+              "description": "Provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).",
               "examples": ["Moderate", "Important", "Critical"],
               "type": "string",
               "minLength": 1
