@@ -265,8 +265,8 @@
             "default": "external",
             "type": "string",
             "enum": [
-              "self",
-              "external"
+              "external",
+              "self"
             ]
           },
           "url": {
