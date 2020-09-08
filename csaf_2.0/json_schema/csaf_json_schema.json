@@ -237,13 +237,13 @@
     "product_group_id_t": {
       "title": "Reference token for product group instance",
       "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the product_group_id as long as it uniquely identifies a group in the context of the current document.",
+      "type": "string",
+      "minLength": 1,
       "examples": [
         "CSAFGID-0001",
         "CSAFGID-0002",
         "CSAFGID-0020"
-      ],
-      "type": "string",
-      "minLength": 1
+      ]
     },
     "product_id_t": {
       "title": "Reference token for product instance",
