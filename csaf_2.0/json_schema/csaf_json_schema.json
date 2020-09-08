@@ -37,11 +37,11 @@
         "description": {
           "title": "Description of the acknowledgment",
           "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "First analysis of Coordinated Multi-Stream Attack (CMSA)"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "urls": {
           "type": "array",
