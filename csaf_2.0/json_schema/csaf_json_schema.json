@@ -644,12 +644,12 @@
               "description": {
                 "title": "Description of the product group",
                 "description": "Gives a short, optional description of the group.",
+                "type": "string",
+                "minLength": 1,
                 "examples": [
                   "The x64 versions of the operating system.",
                   "Products supporting Modbus."
-                ],
-                "type": "string",
-                "minLength": 1
+                ]
               },
               "group_id": {
                 "$ref": "#/definitions/product_group_id_t"
