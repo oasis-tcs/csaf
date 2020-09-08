@@ -162,20 +162,34 @@
         "title": "Note",
         "description": "Is a place to put all manner of text blobs related to the current context.",
         "type": "object",
+        "required": [
+          "type",
+          "text"
+        ],
         "properties": {
           "audience": {
             "title": "Audience of note",
             "description": "Indicate who is intended to read it.",
-            "examples": ["all", "executives", "operational management and system administrators", "safety engineers"],
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "examples": [
+              "all",
+              "executives",
+              "operational management and system administrators",
+              "safety engineers"
+            ]
           },
           "title": {
             "title": "Title of note",
             "description": "Provides a concise description of what is contained in the text of the note.",
-            "examples": ["Details", "Executive summary", "Technical summary", "Impact on safety systems"],
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "examples": [
+              "Details",
+              "Executive summary",
+              "Technical summary",
+              "Impact on safety systems"
+            ]
           },
           "type": {
             "title": "Note type",
@@ -197,11 +211,7 @@
             "type": "string",
             "minLength": 1
           }
-        },
-        "required": [
-          "type",
-          "text"
-        ]
+        }
       }
     },
     "products_t": {
