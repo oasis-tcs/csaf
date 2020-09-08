@@ -264,6 +264,10 @@
         "title": "Reference",
         "description": "Holds any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.",
         "type": "object",
+        "required": [
+          "url",
+          "description"
+        ],
         "properties": {
           "description": {
             "title": "Description of reference",
@@ -274,8 +278,8 @@
           "type": {
             "title": "Type of reference",
             "description": "Indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.",
-            "default": "external",
             "type": "string",
+            "default": "external",
             "enum": [
               "external",
               "self"
@@ -287,11 +291,7 @@
             "type": "string",
             "format": "uri"
           }
-        },
-        "required": [
-          "url",
-          "description"
-        ]
+        }
       }
     },
     "version_t": {
