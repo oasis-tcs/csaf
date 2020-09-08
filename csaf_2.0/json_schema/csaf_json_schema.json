@@ -37,11 +37,11 @@
         "description": {
           "title": "Description of the acknowledgment",
           "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "First analysis of Coordinated Multi-Stream Attack (CMSA)"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "urls": {
           "type": "array",
@@ -69,6 +69,8 @@
         "name": {
           "title": "Name of the branch",
           "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "Microsoft",
             "Siemens",
@@ -78,9 +80,7 @@
             "10",
             "365",
             "PCS 7"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "type": {
           "title": "Type of the branch",
@@ -125,12 +125,12 @@
         "name": {
           "title": "Textual description of the product",
           "description": "The value of a Full Product Name element should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "Microsoft Host Integration Server 2006 Service Pack 1",
             "Cisco AnyConnect Secure Mobility Client 2.3.185"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "cpe": {
           "$comment": "TODO: This should have a full regular expression to enforce CPE syntax.",
@@ -145,15 +145,15 @@
     "lang_t": {
       "title": "Language type",
       "description": "Identifies a language, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
+      "type": "string",
+      "pattern": "^[a-zA-Z]{2,3}(-.+)?$",
       "examples": [
         "de",
         "en",
         "fr",
         "frc",
         "jp"
-      ],
-      "type": "string",
-      "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+      ]
     },
     "notes_t": {
       "type": "array",
@@ -162,20 +162,34 @@
         "title": "Note",
         "description": "Is a place to put all manner of text blobs related to the current context.",
         "type": "object",
+        "required": [
+          "type",
+          "text"
+        ],
         "properties": {
           "audience": {
             "title": "Audience of note",
             "description": "Indicate who is intended to read it.",
-            "examples": ["all", "executives", "operational management and system administrators", "safety engineers"],
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "examples": [
+              "all",
+              "executives",
+              "operational management and system administrators",
+              "safety engineers"
+            ]
           },
           "title": {
             "title": "Title of note",
             "description": "Provides a concise description of what is contained in the text of the note.",
-            "examples": ["Details", "Executive summary", "Technical summary", "Impact on safety systems"],
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "examples": [
+              "Details",
+              "Executive summary",
+              "Technical summary",
+              "Impact on safety systems"
+            ]
           },
           "type": {
             "title": "Note type",
@@ -197,11 +211,7 @@
             "type": "string",
             "minLength": 1
           }
-        },
-        "required": [
-          "type",
-          "text"
-        ]
+        }
       }
     },
     "products_t": {
@@ -209,41 +219,41 @@
       "description": "Specifies a list of product_ids to give context to the parent item.",
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
       "items": {
         "$ref": "#/definitions/product_id_t"
-      },
-      "uniqueItems": true
+      }      
     },
     "product_groups_t": {
       "title": "List of product_group_ids",
       "description": "Specifies a list of product_group_ids to give context to the parent item.",
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
       "items": {
         "$ref": "#/definitions/product_group_id_t"
-      },
-      "uniqueItems": true
+      }
     },
     "product_group_id_t": {
       "title": "Reference token for product group instance",
       "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the product_group_id as long as it uniquely identifies a group in the context of the current document.",
+      "type": "string",
+      "minLength": 1,
       "examples": [
         "CSAFGID-0001",
         "CSAFGID-0002",
         "CSAFGID-0020"
-      ],
-      "type": "string",
-      "minLength": 1
+      ]
     },
     "product_id_t": {
       "title": "Reference token for product instance",
       "description": "Token required to identify a full_product_name so that it can be referred to from other parts in the document. There is no predefined or required format for the product_id as long as it uniquely identifies a product in the context of the current document.",
+      "type": "string",
+      "minLength": 1,
       "examples": [
         "CVRFPID-0004",
         "CVRFPID-0008"
-      ],
-      "type": "string",
-      "minLength": 1
+      ]
     },
     "references_t": {
       "title": "List of references",
@@ -254,6 +264,10 @@
         "title": "Reference",
         "description": "Holds any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.",
         "type": "object",
+        "required": [
+          "url",
+          "description"
+        ],
         "properties": {
           "description": {
             "title": "Description of reference",
@@ -264,8 +278,8 @@
           "type": {
             "title": "Type of reference",
             "description": "Indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.",
-            "default": "external",
             "type": "string",
+            "default": "external",
             "enum": [
               "external",
               "self"
@@ -277,24 +291,20 @@
             "type": "string",
             "format": "uri"
           }
-        },
-        "required": [
-          "url",
-          "description"
-        ]
+        }
       }
     },
     "version_t": {
       "title": "Version",
       "description": "Specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major[.minor[.patch[.build]]]' version.",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$",
       "examples": [
         "1",
         "0.9",
         "1.4.3",
         "2.40.0.320002"
-      ],
-      "type": "string",
-      "pattern": "^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$"
+      ]
     }
   },
   "required": [
@@ -302,9 +312,9 @@
   ],
   "properties": {
     "document": {
-      "type": "object",
       "title": "Document level meta-data",
       "description": "Captures the meta-data about this document describing a particular set of security advisories.",
+      "type": "object",
       "required": [
         "csaf_version",
         "title",
@@ -337,9 +347,13 @@
             "text": {
               "title": "Text of aggregate severity",
               "description": "Provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).",
-              "examples": ["Moderate", "Important", "Critical"],
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "examples": [
+                "Moderate",
+                "Important",
+                "Critical"
+              ]
             }
           }
         },
@@ -360,13 +374,13 @@
             "text": {
               "title": "Description",
               "description": "Provides a textual description of additional constraints.",
+              "type": "string",
+              "minLength": 1,
               "examples": [
                 "Share only on a need-to-know-basis only.",
                 "Distribute freely.",
                 "Copyright 2019, Example Company, All Rights Reserved."
-              ],
-              "type": "string",
-              "minLength": 1
+              ]
             },
             "tlp": {
               "title": "Traffic Light Protocol (TLP)",
@@ -390,13 +404,14 @@
                 "url": {
                   "title": "URL of TLP version",
                   "description": "Provides a URL where to find the textual description of the TLP version which is used in this document. Default is the URL to the definition by FIRST.",
+
+                  "type": "string",
                   "default": "https://www.first.org/tlp/",
+                  "format": "uri",
                   "examples": [
                     "https://www.us-cert.gov/tlp",
                     "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf"
-                  ],
-                  "type": "string",
-                  "format": "uri"
+                  ]
                 }
               }
             }
@@ -413,9 +428,9 @@
           "$ref": "#/definitions/lang_t"
         },
         "notes": {
-          "$ref": "#/definitions/notes_t",
           "title": "Notes associated with the whole document.",
-          "description": "Notes about this set of vulnerabilities should be added here."
+          "description": "Notes about this set of vulnerabilities should be added here.",
+          "$ref": "#/definitions/notes_t"
         },
         "publisher": {
           "title": "Publisher",
@@ -426,13 +441,13 @@
           ],
           "properties": {
             "contact_details": {
-              "type": "string",
               "title": "Contact details",
               "description": "Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.",
+              "type": "string",
+              "minLength": 1,
               "examples": [
                 "Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact."
-              ],
-              "minLength": 1
+              ]
             },
             "issuing_authority": {
               "title": "Issuing authority",
@@ -466,12 +481,12 @@
         "title": {
           "title": "Title of this document",
           "description": "This SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "Example Company Cross-Site-Scripting Vulnerability in Example Generator",
             "Cisco IPv6 Crafted Packet Denial of Service Vulnerability"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "tracking": {
           "type": "object",
@@ -487,21 +502,25 @@
             "id": {
               "title": "Unique identifier for the document",
               "description": "The ID is a simple label that provides for a wide range of numbering values, types, and schemes. Its value SHOULD be assigned and maintained by the original document issuing authority.",
-              "examples": ["Example Company - 2019-YH3234", "RHBA-2019:0024", "cisco-sa-20190513-secureboot"],
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "examples": [
+                "Example Company - 2019-YH3234",
+                "RHBA-2019:0024",
+                "cisco-sa-20190513-secureboot"
+              ]
             },
             "aliases": {
               "type": "array",
               "minItems": 1,
               "items": {
-                "type": "string",
                 "title": "Alternate name",
                 "description": "Alternate names for the same vulnerability.",
+                "type": "string",
+                "minLength": 1,
                 "examples": [
                   "CVE-2019-12345"
-                ],
-                "minLength": 1
+                ]
               }
             },
             "current_release_date": {
@@ -548,6 +567,11 @@
               "minItems": 1,
               "items": {
                 "type": "object",
+                "required": [
+                  "number",
+                  "date",
+                  "description"
+                ],
                 "properties": {
                   "number": {
                     "$ref": "#/definitions/version_t"
@@ -562,12 +586,7 @@
                     "type": "string",
                     "minLength": 1
                   }
-                },
-                "required": [
-                  "number",
-                  "date",
-                  "description"
-                ]
+                }
               }
             },
             "status": {
@@ -625,12 +644,12 @@
               "description": {
                 "title": "Description of the product group",
                 "description": "Gives a short, optional description of the group.",
+                "type": "string",
+                "minLength": 1,
                 "examples": [
                   "The x64 versions of the operating system.",
                   "Products supporting Modbus."
-                ],
-                "type": "string",
-                "minLength": 1
+                ]
               },
               "group_id": {
                 "$ref": "#/definitions/product_group_id_t"
@@ -654,6 +673,11 @@
             "title": "Relationship",
             "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
             "type": "object",
+            "required": [
+              "product_reference",
+              "relates_to_product_reference",
+              "relationship_type"
+            ],
             "properties": {
               "full_product_names": {
                 "type": "array",
@@ -680,12 +704,7 @@
                   "installed_with"
                 ]
               }
-            },
-            "required": [
-              "product_reference",
-              "relates_to_product_reference",
-              "relationship_type"
-            ]
+            }
           }
         }
       }
@@ -734,11 +753,11 @@
                     "minItems": 0,
                     "items": {
                       "$ref": "#/definitions/products_t",
+                      "default": "",
                       "examples": [
                         "CVRFID_123",
                         "CSAFID_0815"
-                      ],
-                      "default": ""
+                      ]
                     }
                   },
                   {
@@ -775,6 +794,10 @@
           },
           "id": {
             "type": "object",
+            "required": [
+              "system_name",
+              "text"
+            ],
             "properties": {
               "system_name": {
                 "title": "System name",
@@ -786,11 +809,7 @@
                 "type": "string",
                 "minLength": 1
               }
-            },
-            "required": [
-              "system_name",
-              "text"
-            ]
+            }
           },
           "involvements": {
             "type": "array",
