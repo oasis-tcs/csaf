@@ -481,12 +481,12 @@
         "title": {
           "title": "Title of this document",
           "description": "This SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "Example Company Cross-Site-Scripting Vulnerability in Example Generator",
             "Cisco IPv6 Crafted Packet Denial of Service Vulnerability"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "tracking": {
           "type": "object",
