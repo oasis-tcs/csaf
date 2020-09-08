@@ -125,12 +125,12 @@
         "name": {
           "title": "Textual description of the product",
           "description": "The value of a Full Product Name element should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "Microsoft Host Integration Server 2006 Service Pack 1",
             "Cisco AnyConnect Secure Mobility Client 2.3.185"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "cpe": {
           "$comment": "TODO: This should have a full regular expression to enforce CPE syntax.",
