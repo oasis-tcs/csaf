@@ -312,9 +312,9 @@
   ],
   "properties": {
     "document": {
-      "type": "object",
       "title": "Document level meta-data",
       "description": "Captures the meta-data about this document describing a particular set of security advisories.",
+      "type": "object",
       "required": [
         "csaf_version",
         "title",
