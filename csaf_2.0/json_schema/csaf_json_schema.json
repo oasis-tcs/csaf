@@ -69,6 +69,8 @@
         "name": {
           "title": "Name of the branch",
           "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
+          "type": "string",
+          "minLength": 1,
           "examples": [
             "Microsoft",
             "Siemens",
@@ -78,9 +80,7 @@
             "10",
             "365",
             "PCS 7"
-          ],
-          "type": "string",
-          "minLength": 1
+          ]
         },
         "type": {
           "title": "Type of the branch",
