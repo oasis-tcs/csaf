@@ -441,13 +441,13 @@
           ],
           "properties": {
             "contact_details": {
-              "type": "string",
               "title": "Contact details",
               "description": "Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.",
+              "type": "string",
+              "minLength": 1,
               "examples": [
                 "Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact."
-              ],
-              "minLength": 1
+              ]
             },
             "issuing_authority": {
               "title": "Issuing authority",
