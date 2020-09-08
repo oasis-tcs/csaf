@@ -428,9 +428,9 @@
           "$ref": "#/definitions/lang_t"
         },
         "notes": {
-          "$ref": "#/definitions/notes_t",
           "title": "Notes associated with the whole document.",
-          "description": "Notes about this set of vulnerabilities should be added here."
+          "description": "Notes about this set of vulnerabilities should be added here.",
+          "$ref": "#/definitions/notes_t"
         },
         "publisher": {
           "title": "Publisher",
