@@ -753,11 +753,11 @@
                     "minItems": 0,
                     "items": {
                       "$ref": "#/definitions/products_t",
+                      "default": "",
                       "examples": [
                         "CVRFID_123",
                         "CSAFID_0815"
-                      ],
-                      "default": ""
+                      ]
                     }
                   },
                   {
