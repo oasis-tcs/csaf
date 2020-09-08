@@ -145,15 +145,15 @@
     "lang_t": {
       "title": "Language type",
       "description": "Identifies a language, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
+      "type": "string",
+      "pattern": "^[a-zA-Z]{2,3}(-.+)?$",
       "examples": [
         "de",
         "en",
         "fr",
         "frc",
         "jp"
-      ],
-      "type": "string",
-      "pattern": "^[a-zA-Z]{2,3}(-.+)?$"
+      ]
     },
     "notes_t": {
       "type": "array",
