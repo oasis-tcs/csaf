@@ -502,21 +502,25 @@
             "id": {
               "title": "Unique identifier for the document",
               "description": "The ID is a simple label that provides for a wide range of numbering values, types, and schemes. Its value SHOULD be assigned and maintained by the original document issuing authority.",
-              "examples": ["Example Company - 2019-YH3234", "RHBA-2019:0024", "cisco-sa-20190513-secureboot"],
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "examples": [
+                "Example Company - 2019-YH3234",
+                "RHBA-2019:0024",
+                "cisco-sa-20190513-secureboot"
+              ]
             },
             "aliases": {
               "type": "array",
               "minItems": 1,
               "items": {
-                "type": "string",
                 "title": "Alternate name",
                 "description": "Alternate names for the same vulnerability.",
+                "type": "string",
+                "minLength": 1,
                 "examples": [
                   "CVE-2019-12345"
-                ],
-                "minLength": 1
+                ]
               }
             },
             "current_release_date": {
@@ -563,6 +567,11 @@
               "minItems": 1,
               "items": {
                 "type": "object",
+                "required": [
+                  "number",
+                  "date",
+                  "description"
+                ],
                 "properties": {
                   "number": {
                     "$ref": "#/definitions/version_t"
@@ -577,12 +586,7 @@
                     "type": "string",
                     "minLength": 1
                   }
-                },
-                "required": [
-                  "number",
-                  "date",
-                  "description"
-                ]
+                }
               }
             },
             "status": {
