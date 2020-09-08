@@ -794,6 +794,10 @@
           },
           "id": {
             "type": "object",
+            "required": [
+              "system_name",
+              "text"
+            ],
             "properties": {
               "system_name": {
                 "title": "System name",
@@ -805,11 +809,7 @@
                 "type": "string",
                 "minLength": 1
               }
-            },
-            "required": [
-              "system_name",
-              "text"
-            ]
+            }
           },
           "involvements": {
             "type": "array",
