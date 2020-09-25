@@ -775,6 +775,8 @@
             }
           },
           "cve": {
+            "title": "CVE",
+            "description": "Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.",
             "type": "string",
             "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$"
           },
