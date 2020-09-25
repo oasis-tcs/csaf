@@ -743,9 +743,13 @@
             }
           },
           "scores": {
+            "title": "List of scores",
+            "description": "contains score objects for the currrent vulnerability.",
             "type": "array",
             "minItems": 1,
             "items": {
+              "title": "Score",
+              "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
               "type": "object",
               "minItems": 2,
               "required": [
