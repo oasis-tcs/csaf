@@ -127,6 +127,8 @@
       }
     },
     "full_product_name_t": {
+      "title": "Full product name",
+      "description": "Specifies information about the product and assigns the product_id.",
       "type": "object",
       "required": [
         "product_id",
@@ -138,7 +140,7 @@
         },
         "name": {
           "title": "Textual description of the product",
-          "description": "The value of a Full Product Name element should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
+          "description": "The value should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
           "type": "string",
           "minLength": 1,
           "examples": [
