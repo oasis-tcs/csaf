@@ -745,48 +745,27 @@
           "scores": {
             "type": "array",
             "minItems": 1,
-            "items": [
-              {
-                "anyOf": [
-                  {
-                    "type": "array",
-                    "minItems": 0,
-                    "items": {
-                      "$ref": "#/definitions/products_t",
-                      "default": "",
-                      "examples": [
-                        "CVRFID_123",
-                        "CSAFID_0815"
-                      ]
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "cvss_v20": {
-                        "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "cvss_v30": {
-                        "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "cvss_v31": {
-                        "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
-                      }
-                    }
-                  }
-                ]
+            "items": {
+              "type": "object",
+              "minItems": 2,
+              "required": [
+                "products"
+              ],
+              "properties": {
+                "products": {
+                  "$ref": "#/definitions/products_t"
+                },
+                "cvss_v20": {
+                  "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
+                },
+                "cvss_v30": {
+                  "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+                },
+                "cvss_v31": {
+                  "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                }
               }
-            ]
+            }
           },
           "discovery_date": {
             "type": "string",
