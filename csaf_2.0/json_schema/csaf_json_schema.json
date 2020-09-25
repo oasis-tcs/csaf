@@ -172,6 +172,8 @@
       ]
     },
     "notes_t": {
+      "title": "List of notes",
+      "description": "Contains notes which are specific to the current context.",
       "type": "array",
       "minItems": 1,
       "items": {
