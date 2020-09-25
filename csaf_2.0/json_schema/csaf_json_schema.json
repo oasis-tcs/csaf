@@ -977,6 +977,8 @@
             "$ref": "#/definitions/references_t"
           },
           "release_date": {
+            "title": "Release date",
+            "description": "Holds the date and time the vulnerability was originally released into the wild.",
             "type": "string",
             "format": "date-time"
           },
