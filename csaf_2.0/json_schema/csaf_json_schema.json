@@ -846,6 +846,8 @@
             "format": "date-time"
           },
           "id": {
+            "title": "ID",
+            "description": "Gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).",
             "type": "object",
             "required": [
               "system_name",
@@ -856,11 +858,19 @@
                 "title": "System name",
                 "description": "Indicates the name of the vulnerability tracking or numbering system.",
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "examples": [
+                  "Cisco Bug ID"
+                ]
               },
               "text": {
+                "title": "Text",
+                "description": "Is unique label or tracking ID for the vulnerability (if such information exists).",
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "examples": [
+                  "CSCso66472"
+                ]
               }
             }
           },
