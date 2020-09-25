@@ -917,7 +917,7 @@
             "type": "array",
             "minItems": 1,
             "items": {
-              "title": "Remedation",
+              "title": "Remediation",
               "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
