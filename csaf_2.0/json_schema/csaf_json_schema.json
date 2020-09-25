@@ -875,6 +875,8 @@
             }
           },
           "involvements": {
+            "title": "List of involvements",
+            "description": "Contains a list of involvements.",
             "type": "array",
             "minItems": 1,
             "items": {
@@ -887,6 +889,8 @@
               ],
               "properties": {
                 "description": {
+                  "title": "Description of involvement",
+                  "description": "Contains additional context regarding what is going on.",
                   "type": "string",
                   "minLength": 1
                 },
