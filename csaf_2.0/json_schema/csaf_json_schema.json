@@ -6,6 +6,8 @@
   "type": "object",
   "definitions": {
     "acknowledgment_t": {
+      "title": "Acknowledgement",
+      "description": "Acknowledges contributions by describing those that contributed.",
       "type": "object",
       "minProperties": 1,
       "properties": {
