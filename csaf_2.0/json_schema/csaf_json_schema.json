@@ -633,8 +633,15 @@
           }
         },
         "type": {
+          "title": "Document type",
+          "description": "Defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.",
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "examples": [
+            "Security Advisory",
+            "Security Notice",
+            "Vulnerability Report"
+          ]
         }
       }
     },
