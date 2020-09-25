@@ -766,6 +766,8 @@
         "minProperties": 1,
         "properties": {
           "acknowledgments": {
+            "title": "List of acknowledgements",
+            "description": "Contains a list of acknowledgement elements.",
             "type": "array",
             "minItems": 1,
             "items": {
