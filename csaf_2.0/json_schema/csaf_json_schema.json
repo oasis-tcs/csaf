@@ -1125,6 +1125,8 @@
             }
           },
           "title": {
+            "title": "Title",
+            "description": "Gives the document producer the ability to apply a canonical name or title to the vulnerability.",
             "type": "string",
             "minLength": 1
           }
