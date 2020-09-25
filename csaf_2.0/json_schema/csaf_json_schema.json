@@ -113,6 +113,8 @@
           ]
         },
         "branches": {
+          "title": "List of branches",
+          "description": "Contains branch element as children of the current element.",
           "type": "array",
           "minItems": 1,
           "items": {
