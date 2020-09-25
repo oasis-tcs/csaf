@@ -424,7 +424,6 @@
                 "url": {
                   "title": "URL of TLP version",
                   "description": "Provides a URL where to find the textual description of the TLP version which is used in this document. Default is the URL to the definition by FIRST.",
-
                   "type": "string",
                   "default": "https://www.first.org/tlp/",
                   "format": "uri",
@@ -509,6 +508,8 @@
           ]
         },
         "tracking": {
+          "title": "Tracking",
+          "description": "Is a container designated to hold all management attributes necessary to track a CSAF document as a whole.",
           "type": "object",
           "required": [
             "current_release_date",
@@ -531,11 +532,14 @@
               ]
             },
             "aliases": {
+              "title": "Aliases",
+              "description": "Contains a list of alternate names for the same document.",
               "type": "array",
               "minItems": 1,
+              "uniqueItems": true,
               "items": {
                 "title": "Alternate name",
-                "description": "Alternate names for the same vulnerability.",
+                "description": "Specifies a non-empty string that represents a distinct optional alternative ID used to refer to the document.",
                 "type": "string",
                 "minLength": 1,
                 "examples": [
@@ -551,7 +555,7 @@
             },
             "generator": {
               "title": "Document generator",
-              "description": "It is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.",
+              "description": "Is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.",
               "type": "object",
               "required": [
                 "engine"
@@ -583,6 +587,8 @@
               "format": "date-time"
             },
             "revision_history": {
+              "title": "Revision history",
+              "description": "Contains all the information elements required to track the evolution of a CSAF document.",
               "type": "array",
               "minItems": 1,
               "items": {
@@ -603,6 +609,8 @@
                     "format": "date-time"
                   },
                   "description": {
+                    "title": "Description of the revision",
+                    "description": "Holds a single non-empty string representing a short description of the changes.",
                     "type": "string",
                     "minLength": 1
                   }
