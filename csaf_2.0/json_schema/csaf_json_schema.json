@@ -755,6 +755,8 @@
       }
     },
     "vulnerabilities": {
+      "title": "Vulnerabilities",
+      "description": "Represents a list of all relevant vulnerability information items.",
       "type": "array",
       "minItems": 1,
       "items": {
