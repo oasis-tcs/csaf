@@ -840,6 +840,8 @@
             ]
           },
           "discovery_date": {
+            "title": "Discovery date",
+            "description": "Holds the date and time the vulnerability was originally discovered.",
             "type": "string",
             "format": "date-time"
           },
