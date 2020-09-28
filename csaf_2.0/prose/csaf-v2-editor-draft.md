@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 02 September 2020
+## 28 September 2020
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -58,9 +58,9 @@ https://docs.oasis-open.org/tc-name/wp-abbrev-xxxxx/v1.0/wp-abbrev-xxxxx-v1.0.ht
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
-**[short-title-v1.0]**
+**[csaf-v2.0]**
 
-_Specification Title Version 1.0_. Edited by Dany Page and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
+_CSAF Common Vulnerability Reporting Framework Version 2.00_. Edited by Langley Rock and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
 
 -------
 
@@ -96,13 +96,19 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 The text in this section may all be replaced, but the following three sections (1.1, 1.2, and 1.3) are required for OASIS publications. Section 1.1 (IPR Policy) must not be changed by the TC. Section 1.2 (Terminology) may be modified to include other terminology-related information used in this specification. Section 1.3 (Normative References) should be modified to include additional references, as needed. Section 1.4 (Non-Normative References) is not required, but should be modified to include additional references, as needed.
 
-Here is a customized command line which will generate HTML from this markdown file (named openc2-file.md):
+Here is a customized command line which will generate HTML from this markdown file (named prose/csaf-v2-editor-draft.md):
 
-pandoc -f gfm -t html openc2-file.md -c styles/markdown-styles-v1.7.3.css --toc --toc-depth=5 -s -o openc2-file.html --metadata title="Title of Specification Version 1.0"
+    $ pandoc -f gfm -t html prose/csaf-v2-editor-draft.md -c static/styles/markdown-styles-v1.7.3-patched.css \
+    --toc --toc-depth=4 -s -o csaf.html --metadata title="CSAF Common Vulnerability Reporting Framework Version 2.0"
 
 OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
 
-This also requires the presence of a .css file containing the HTML styles (like styles/markdown-styles-v1.7.3.css).
+This also requires the presence of a .css file containing the HTML styles (like styles/markdown-styles-v1.7.3-patched.css).
+
+Fixes in the css (shall) address:
+* blockquotes shall maintain constant indentation
+* code blocks shall expose block rectangle (not per line width right margin) - still unpatched
+* Logo and title page shall not be within the table of content (manually removal required currently - maybe addressable by processor options or markup changes)
 
 Note this command generates a Table of Contents (TOC) in HTML which is located at the top of the HTML document, and which requires additional editing in order to be published in the expected OASIS style. This editing will be handled by OASIS staff during publication.
 A TC may use other ways to generate HTML from markdown, which may generate a TOC in a different way.
@@ -113,7 +119,140 @@ This specification is provided under the [Non-Assertion](https://www.oasis-open.
 ## 1.2 Terminology
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 [[RFC2119](#rfc2119)] and [[RFC8174](#rfc8174)] when, and only when, they appear in all capitals, as shown here.
 
+For purposes of this document, the following terms and definitions apply:
+
+**advisory**: reporting item that describes a condition present in an artifact and that requires action by the consumers
+
+**advisory document**: artifact in which an analysis tool reports a result
+
+**advisory management system**: software system that consumes the documents produced by analysis tools, produces advisories that enable engineering ad operating organizations to assess the quality of these software artifacts at a point in time, and performs functions such as filing security advisories and displaying information about individual advisories.  **Note**: An advisory management system can interact with a document viewer to display information about individual advisories.
+
+**advisory matching**: process of determining whether two advisories are targeting the same products and conditions
+
+**artifact**: sequence of bytes addressable via a URI.  _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed via an HTTP request; an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
+
+**converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
+
+**CSAF consumer**: program that reads and interprets a CSAF document
+
+**CSAF document**: document in the format defined by this document
+
+**CSAF post-processor**: CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
+
+**CSAF producer**: program that emits output in the CSAF format
+
+**direct producer**: analysis tool which acts as a CSAF producer
+
+**document**: output file produced by an analysis tool, which enumerates the results produced by the tool
+
+**(document) viewer**: CSAF consumer that reads a document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs
+
+**driver**: tool component containing an analysis tool’s or converter’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis rules
+
+**embedded link**: syntactic construct which enables a message string to refer to a location mentioned in the document
+
+**empty array**: array that contains no elements, and so has a length of 0
+
+**empty object**: object that contains no properties
+
+**empty string**: string that contains no characters, and so has a length of 0
+
+**(end) user**: person who uses the information in a document to investigate, triage, or resolve results
+
+**engineering system**: software analysis environment within which analysis tools execute.  **Note**: An engineering system might include a build system, a source control system, a result management system, a bug tracking system, a test execution system, and so on.
+
+**extension**: tool component other than the driver (for example, a plugin, a configuration file, or a taxonomy)
+
+**external property file**: file containing the values of one or more externalized properties
+
+**externalizable property**: property that can be contained in an external property file
+
+**externalized property**: property stored outside of the CSAF document to which it logically belongs
+
+**false positive**: result which an end user decides does not actually represent a problem
+
+**fingerprint**: stable value that can be used by a result management system to uniquely identify a result over time, even if a relevant artifact is modified
+
+**formatted message**: message string which contains formatting information such as Markdown formatting characters
+
+**fully qualified logical name**: string that fully identifies the programmatic construct specified by a logical location, typically by means of a hierarchical identifier.
+
+**hierarchical string**: string in the format &lt;component>{/&lt;component>}*
+
+**line**: contiguous sequence of characters, starting either at the beginning of an artifact or immediately after a newline sequence, and ending at and including the nearest subsequent newline sequence, if one is present, or else extending to the end of the artifact
+
+**line (number)**: 1-based index of a line within a file.  **Note**: Abbreviated to "line" when there is no danger of ambiguity with "line" in the sense of a sequence of characters.
+
+**localizable**: subject to being translated from one natural language to another
+
+**message string**: human-readable string that conveys information relevant to an element in a CSAF document
+
+**nested artifact**: artifact that is contained within another artifact
+
+**newline sequence**: sequence of one or more characters representing the end of a line of text.  **Note**: Some systems represent a newline sequence with a single newline character; others represent it as a carriage return character followed by a newline character.
+
+**notification**: reporting item that describes a condition encountered by a tool during its execution
+
+**opaque**: neither human-readable nor machine-parsable into constituent parts
+
+**parent (artifact)**: artifact which contains one or more nested artifacts
+
+**plain text message**: message string which does not contain any formatting information
+
+**plugin**: tool component that defines additional rules
+
+**policy**: set of rule configurations that specify how results that violate the rules defined by a particular tool component are to be treated
+
+**problem**: result which indicates a condition that has the potential to detract from the quality of the program.  _Examples_: A security vulnerability, a deviation from contractual or legal requirements.
+
+**property**: attribute of an object consisting of a name and a value associated with the name
+
+**redactable property**: property that potentially contains sensitive information that a CSAF direct producer or a CSAF post-processor might wish to redact
+
+**reporting item**: unit of output produced by a tool, either a result or a notification
+
+**reporting configuration**: the subset of reporting metadata that a tool can configure at runtime, before performing its scan.  _Examples_: severity level, rank
+
+**repository** container for a related set of files in a version control system
+
+**taxonomy**: classification of analysis results into a set of categories
+
+**tag**: string that conveys additional information about the CSAF document element to which it applies
+
+**text artifact**: artifact considered as a sequence of characters organized into lines and columns
+
+**text region**: region representing a contiguous range of zero or more characters in a text artifact
+
+**tool component**: component of an analysis tool or converter, either its driver or an extension, consisting of one or more files
+
+**top-level artifact**: artifact which is not contained within any other artifact
+
+**translation**: rendering of a tool component's localizable strings into another language
+
+**triage**: decide whether a result indicates a problem that needs to be corrected
+
+**user**: see end user.
+
+**VCS**: version control system
+
+**viewer**: see document viewer.
+
+**web analysis tool**: analysis tool that models and analyzes the interaction between a web client and a server.
+
+
 ## 1.3 Normative References
+###### [JSON-Schema-Core]
+_JSON Schema: A Media Type for Describing JSON Documents_, draft-handrews-json-schema-02, September 2019, https://json-schema.org/draft/2019-09/json-schema-core.html.
+###### [JSON-Schema-Validation]
+_JSON Schema Validation: A Vocabulary for Structural Validation of JSON_, draft-handrews-json-schema-validation-02, September 2019, https://json-schema.org/draft/2019-09/json-schema-validation.html.
+###### [JSON-Hyper-Schema]
+_JSON Hyper-Schema: A Vocabulary for Hypermedia Annotation of JSON_, draft-handrews-json-schema-hyperschema-02, September 2019, https://json-schema.org/draft/2019-09/json-schema-hypermedia.html.
+###### [Relative-JSON-Pointers]
+_Relative JSON Pointers_, draft-handrews-relative-json-pointer-02, September 2019, https://json-schema.org/draft/2019-09/relative-json-pointer.html.
+###### [RFC2119]
+Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, March 1997. http://www.ietf.org/rfc/rfc2119.txt.
+###### [RFC8174]
+Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
 
 (Reference sources:
 For references to IETF RFCs, use the approved citation formats at:  
@@ -122,19 +261,61 @@ For references to W3C Recommendations, use the approved citation formats at:
 http://docs.oasis-open.org/templates/w3c-recommendations-list/w3c-recommendations-list.html.  
 Remove this note before submitting for publication.)
 
-###### [OpenC2-HTTPS-v1.0]
-_Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0_. Edited by David Lemire. Latest version: http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html
-###### [OpenC2-SLPF-v1.0]
-_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell, and Alex Everett. Latest version: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html
-###### [RFC2119]
-Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, http://www.rfc-editor.org/info/rfc2119.
-###### [RFC8174]
-Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
-
 ## 1.4 Non-Normative References
 
+###### [CPE23-N]
+_Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
+###### [CPE23-M]
+_Common Platform Enumeration: Naming Matching Specification Version 2.3_, M. Parmelee, H. Booth, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7696, August 2011,http://dx.doi.org/10.6028/NIST.IR.7696.
+###### [CPE23-D]
+_Common Platform Enumeration: Dictionary Specification Version 2.3_, P. Cichonski, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7697, August 2011, http://dx.doi.org/10.6028/NIST.IR.7697.
+###### [CPE23-A]
+_Common Platform Enumeration: Applicability Language Specification Version 2.3 (NISTIR 7698)_, D. Waltermire, P. Cichonski, K. Scarfone, Editors, NIST Interagency Report 7698, August 2011, http://dx.doi.org/10.6028/NIST.IR.7698.
+###### [CVE]
+_Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://cve.mitre.org/about/.
+###### [CVE-NF]
+_Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names - CVE ID Syntax Change_, MITRE, January 01, 2014, https://cve.mitre.org/cve/identifiers/syntaxchange.html.
+###### [CVRF-1-1]
+_The Common Vulnerability Reporting Framework (CVRF) Version 1.1_, M. Schiffman, Editor, May 2012, Internet Consortium for Advancement of Security on the Internet (ICASI), 
+http://www.icasi.org/the-common-vulnerability-reporting-framework-cvrf-v1-1/.
+###### [CVRF-v1.2]
+_CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. 13 September 2017. OASIS Committee Specification 01. http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/csaf-cvrf-v1.2-cs01.html. Latest version: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html.
+###### [CVSS2]
+_A Complete Guide to the Common Vulnerability Scoring System Version 2.0_, P. Mell, K. Scarfone, S. Romanosky, Editors, First.org, Inc., June 2007, https://www.first.org/cvss/cvss-v2-guide.pdf.
+###### [CVSS30]
+_Common Vulnerability Scoring System v3.0: Specification Document_, FIRST.Org, Inc., June 2019, https://www.first.org/cvss/v3.0/cvss-v30-specification_v1.9.pdf.
+###### [CVSS31]
+_Common Vulnerability Scoring System v3.1: Specification Document_, FIRST.Org, Inc., June 2019, https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf.
+###### [CWE]
+_Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2005, http://cwe.mitre.org/about/.
+###### [DCMI11]
+_DCMI Metadata Terms v1.1_, Dublin Core Metadata Initiative, DCMI Rec., June 14, 2012, http://dublincore.org/documents/2012/06/14/dcmi-terms/.
+Latest version available at http://dublincore.org/documents/dcmi-terms/.
+###### [GFMCMARK]
+_GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, https://github.com/github/cmark.
+###### [GFMENG]
+_GitHub Engineering: A formal spec for GitHub Flavored Markdown_, https://githubengineering.com/a-formal-spec-for-github-markdown/.
+###### [ISO8601]
+_Data elements and interchange formats — Information interchange — Representation of dates and times_, International Standard, ISO 8601:2004(E), December 1, 2004, https://www.iso.org/standard/40874.html.
+###### [ISO29147]
+_Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO 29147:2014(E), February 15, 2014,
+https://www.iso.org/standard/45170.html.
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
+###### [SCAP12]
+_The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
+http://dx.doi.org/10.6028/NIST.SP.800-126r2.
+###### [XML]
+_Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/. 
+Latest version available at http://www.w3.org/TR/xml.
+###### [XML-Schema-1]
+_W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn, D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, 
+http://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/. 
+Latest version available at http://www.w3.org/TR/xmlschema11-1/.
+###### [XML-Schema-2]
+_W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012, 
+http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. 
+Latest version available at http://www.w3.org/TR/xmlschema11-2/.
 
 ## 1.5 Typographical Conventions
 Keywords defined by this specification use this `monospaced` font.
@@ -155,6 +336,7 @@ All examples in this document are non-normative and informative only.
 All other text is normative unless otherwise labeled e.g. like:
 
 Non-normative Comment:
+
 >This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or common pitfalls learned from implementer or operator experience and often given including the rationale.
 
 -------
@@ -169,7 +351,7 @@ A security issue is not necessarily constraint to a problem statement, the focus
 This document is the definitive reference for the language elements of CSAF version 2.0. The encompassing JSON schema file noted in the Additional Artifacts section of the title page shall be taken as normative in the case a gap or an inconsistency in this explanatory document becomes evident.
 The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike. The section SCHEMA_SECTION_NUMBER Schema derives from the JSON schema itself as a service for the reader.
 
-« From a high-level perspective, any Security Advisory purported by a CSAF version 2.0 adhering JSON text document MUST provide the document member with at least the following five properties defined: `csaf_version`, `title`, `publisher`, `type`, and `tracking`. » [CSAF-2-1]
+« From a high-level perspective, any Security Advisory purported by a CSAF version 2.0 adhering JSON text document MUST provide the `document` member with at least the following five properties defined: `csaf_version`, `title`, `publisher`, `type`, and `tracking`. » [CSAF-2-1]
 
 This minimal required information set does not provide any useful information on products, vulnerabilities, or security advisories. Thus, any real-world Security Advisory will carry additional information as specified in SCHEMA_SECTION_NUMBER section Schema.
 
@@ -204,11 +386,11 @@ Delegation to industry best practices technologies is used in referencing schema
 * Platform Data:
   * Common Platform Enumeration (CPE) Version 2.3 [CPE23_A]
 * Vulnerability Scoring:
-  * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS3_1]
+  * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS31]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
-  * Common Vulnerability Scoring System (CVSS) Version 3.0 [CVSS3]
+  * Common Vulnerability Scoring System (CVSS) Version 3.0 [CVSS30]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.0.json
-  * Common Vulnerability Scoring System (CVSS) Version 2.0 [CVSS2][1]
+  * Common Vulnerability Scoring System (CVSS) Version 2.0 [CVSS2]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v2.0.json
 * Classfication for Document Distribution
   * Traffic Light Protocol (TLP)
@@ -220,9 +402,9 @@ Delegation to industry best practices technologies is used in referencing schema
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
-The CSAF schema Version 2.0 builds on the JSON Schema draft 07 rules.
+The CSAF schema Version 2.0 builds on the JSON Schema draft 2019-09 rules.
 
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "https://json-schema.org/draft/2019-09/schema"
 
 The schema identifier is (before publication):
 
@@ -235,36 +417,76 @@ The further documentation of the schema is organized via Definitions and Propert
 
 Types and properties together provide the vocabulary for the domain specific language supporting security advisories. 
 
-The single mandatory property is the document. The optional two additional properties are product_tree and vulnerabilities.
+The single mandatory property is `document`. 
+The optional two additional properties are `product_tree` and `vulnerabilities`.
 
 ## 3.1 Definitions
+The definitions (`$defs`) introduce the following domain specific types into the CSAF language: 
+Acknowledgement (`acknowledgement_t`), Branch Branches (`branch_branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`), Products (`products_t`), Product Groups (`product_groups_t`), Product Group ID (`product_group_id_t`), Product ID (`product_id_t`), References (`references_t`), and Version (`version_t`).  
+
+    "$defs": {
+        "acknowledgment_t": {
+            // ...
+        },
+        "branch_branches_t": {
+            // ...
+        },
+        "full_product_name_t": {
+            // ...
+        },
+        "lang_t": {
+            // ...
+        },
+        "notes_t": {
+            // ...
+        },
+        "products_t": {
+            // ...
+        },
+        "product_groups_t": {
+             // ...
+        },
+        "product_group_id_t": {
+            // ...
+        },
+        "product_id_t": {
+            // ...
+        },
+        "references_t": {
+            // ...
+        },
+        "version_t": {
+            // ...
+        }
+    },
 
 ### 3.1.1 Acknowledgment Type
-
-Acknowledgement (`acknowledgment_t`) type instances acknowledge contributions by describing those that contributed. The value type is object with 1 to 4 properties. The properties are: names, organizations, description, and urls.
+Acknowledgement (`acknowledgment_t`) type instances acknowledge contributions by describing those that contributed. 
+The value type is object with 1 to 4 properties. 
+The properties are: `names`, `organizations`, `description`, and `urls.
 
     "acknowledgment_t": {
-      "type": "object",
-      "minProperties": 1,
+      // ...
       "properties": {
         "names": {
-          // ...
+            // ...
         },
         "organizations": {
-          // ...
+            // ...
         },
         "description": {
-          // ...
+            // ...
         },
         "urls": {
-          // ...
+            // ...
         }
       }
     },
 
 #### 3.1.1.1 Acknowledgment Type - Names
 
-Names of entities being recognized is typically the name of a person belonging to an organization. Value type is string with 1 or more characters.
+List of acknowledged has value type `array` with 1 or more items holds the names of entities being recognized.
+Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person. 
 
 Examples:
 
@@ -273,7 +495,8 @@ Examples:
 
 #### 3.1.1.2 Acknowledgment Type - Organizations
 
-List of contributing organizations. The list of contributing organizations. Value type is string with 1 or more characters.
+List of contributing organizations has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
+Every such item of value type `string` with 1 or more characters represents the name of a single organization.
 
 Examples:
 
@@ -283,7 +506,7 @@ Examples:
 
 #### 3.1.1.3 Acknowledgment Type - Description
 
-Description of the acknowledgment SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. Value type is string with 1 or more characters.
+Description of the acknowledgment of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
 
 Example:
 
@@ -291,11 +514,14 @@ Example:
 
 #### 3.1.1.4 Acknowledgment Type - URLs
 
-URL of acknowledgment contains the URL or location of the reference to be acknowledged. Value type is string with format URI.
+List of URLs (`urls`) of acknowledgement is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
+Any URL of acknowledgment contains the URL or location of the reference to be acknowledged. 
+Value type is string with format URI (`uri`).
 
 ### 3.1.2 Branch Type
 
-Branch is a part of the hierarchical structure of the product tree. Value type is object with 3 Properties. The properties name and type are mandatory. In addition the object contains either a branches or a product. 
+Branch (`branch_branches_t`) with value type `object` with exactly 3 properties is a part of the hierarchical structure of the product tree. 
+The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
 
     "branch_branches_t": {
       // ...
@@ -317,7 +543,7 @@ Branch is a part of the hierarchical structure of the product tree. Value type i
 
 #### 3.1.2.1 Branch Type - Name
 
-Name of the branch contains the canonical descriptor or 'friendly name' of the branch. Value type string with 1 character or more.
+Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch. 
 
 Examples:
 
@@ -332,7 +558,8 @@ Examples:
 
 #### 3.1.2.2 Branch Type - Type
 
-Type of the branch describes the characteristics of the labeled branch. Value type is string enum. Valid values are:
+Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch. 
+Valid `enum` values are:
 
     architecture
     host_name
@@ -346,17 +573,17 @@ Type of the branch describes the characteristics of the labeled branch. Value ty
     specification
     vendor
 
-#### Branch Type - Branches
+#### 3.1.2.3 Branch Type - Branches
 
-Branches have the value type array with 1 or more items of the Branch type (`branch_branches_t`). 
+List of branches (`branches`) has the value type `array` providing 1 or more items of the Branch type (`branch_branches_t`). 
 
-#### Branch Type - Product
+#### 3.1.2.4 Branch Type - Product
 
 Product has the value type Full Product Name (`full_product_name_t`).
 
 ### 3.1.3 Full Product Name Type
-
-Full Product Name (`full_product_name_t`) has value type object with 3 properties. The properties product_id and name are mandatory. In addition the object may contain a CPE identifier as value of the cpe property.
+Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
+The properties `product_id` and `name` are required. The property `cpe` is optional.
 
     "full_product_name_t": {
       // ...
@@ -373,34 +600,36 @@ Full Product Name (`full_product_name_t`) has value type object with 3 propertie
       }
     },
 
-#### Full Product Name Type - Product ID
 
-Product ID has the value type Product ID (product_id_t).
+#### 3.1.3.1 Full Product Name Type - Product ID
 
-#### Full Product Name Type - Name
+Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
-Textual description of the product. The value of a Full Product Name element should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document. Value type is string with 1 or more characters.
+#### 3.1.3.2 Full Product Name Type - Name
+
+Textual description of the product (`name`) has value type `string` with 1 or more characters.
+The value should be the product's full canonical name, including version number and other attributes, as it would be used in a human-friendly document.
 
 Examples:
 
     Microsoft Host Integration Server 2006 Service Pack 1
     Cisco AnyConnect Secure Mobility Client 2.3.185
 
-#### Full Product Name Type - CPE
+#### 3.1.3.3 Full Product Name Type - CPE
 
-Common Platform Enumeration representation. The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. Value type is string with 1 or more characters matching the regular expression pattern:
+Common Platform Enumeration representation (`cpe`) of value type `string` with `pattern` (regular expression):
 
     ^(?i)cpe:(/|\\d+\\.\\d+)[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*$
 
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+
 ### 3.1.4 Language Type
-
-Language type identifies a language, corresponding to IETF BCP 47 / RFC 5646. 
-
-See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
-
-Value type is string with 2 or 3 characters matching the regular expression pattern:
+Language type (`lang_t`) has value type `string` with `pattern` (regular expression):
 
     ^[a-zA-Z]{2,3}(-.+)?$
+
+The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
+See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
 Examples:
 
@@ -411,34 +640,20 @@ Examples:
     jp
 
 ### 3.1.5 Notes Type
-
-Notes type (`notes_t`) is array with 1 or more items of type Note. Value type of every such Note item is object with the mandatory properties type and text. A note may provide the additional properties audience and title.
+List of notes (`notes_t`) of value type `array` with 1 or more items of type Note contains notes which are specific to the current context. 
 
     "notes_t": {
       // ..
       "items": {
         // ...
         "properties": {
-          "audience": {
-            // ...
-          },
-          "title": {
-            // ...
-          },
-          "type": {
-            // ...
-          },
-          "text": {
-            // ...
-          }
-        },
-        // ...
+          // ...
+        }
       }
     },
 
-#### Notes Type - Note
-
-Note is a place to put all manner of text blobs related to the current context. Value type is object with the 2 mandatory properties type and text as well as the 2 optional properties audience and title. 
+Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context. 
+A note `object` may provide the additional properties audience and title.
 
     "properties": {
       "audience": {
@@ -453,11 +668,9 @@ Note is a place to put all manner of text blobs related to the current context. 
       "text": {
         // ...
       }
-    },
+    }
 
-##### Notes Type - Note - Audience
-
-Audience of note indicates who is intended to read it. Value type is string with 1 or more characters.
+Audience of note (`audience`) of value type `string` with 1 or more characters indicates who is intended to read it.
 
 Examples:
 
@@ -466,9 +679,7 @@ Examples:
     operational management and system administrators
     safety engineers
 
-##### Notes Type - Note - Title
-
-Title of note provides a concise description of what is contained in the text of the note. Value type is string with 1 or more characters.
+Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
 
 Examples:
 
@@ -477,9 +688,8 @@ Examples:
     Technical summary
     Impact on safety systems
 
-##### Notes Type - Note - Type
-
-Note type. Choice of what kind of note this is. Value type is string enum. Valid values are:
+Note type (`type`) of value type `string` as `enum` indicates the choice of what kind of note this is. 
+Valid `enum` values are:
 
     description
     details
@@ -489,21 +699,36 @@ Note type. Choice of what kind of note this is. Value type is string enum. Valid
     other
     summary
 
-##### Notes Type - Note - Text
-
-Note contents are the contents of the note. Content varies depending on type. Value type is string with 1 or more characters.
+Note contents (`text`) of value type `string` 1 or more characters holds the contents of the note. Content varies depending on type.
 
 ### 3.1.6 Products Type
+List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
-List of Product IDs (`product_ids`) specifies a list of `product_ids` to give context to the parent item. Value type is array with 1 or more unque items (set) of type Product ID (`product_id_t`)
+    "products_t": {
+      // ...
+      "items": {
+        "$ref": "#/definitions/product_id_t"
+      }      
+    },
 
 ### 3.1.7 Product Groups Type
+List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item. 
 
-List of Product Group ID (`product_group_ids`) specifies a list of `product_group_ids` to give context to the parent item. Value type is array with 1 or more unque items (set) of type Product Group ID (`product_group_id_t`)
+    "product_groups_t": {
+      // ...
+      "items": {
+        "$ref": "#/definitions/product_group_id_t"
+      }
+    },
 
 ### 3.1.8 Product Group ID Type
+The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances. 
+The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
+There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a group in the context of the current document. 
 
-The Product Group ID Type (`product_group_id_t`) is a reference token for product group instances. Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a group in the context of the current document. Value type is string with 1 or more characters.
+    "product_group_id_t": {
+      // ...
+    },
 
 Examples:
 
@@ -512,8 +737,12 @@ Examples:
     CSAFGID-0020
 
 ### 3.1.9 Product ID Type
+The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances. 
+The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
 
-The Product ID Type (`product_id_t`) is a reference token for product instances. Token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document. Value type is string with 1 or more characters.
+    "product_id_t": {
+      // ...
+    },
 
 Examples:
 
@@ -521,48 +750,51 @@ Examples:
     CVRFPID-0008
 
 ### 3.1.10 References Type
-
-The References (`references_t`) type provides a list of Reference objects. Value type is array with 1 or more items. 
+List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects. 
 
     "references_t": {
       // ...
       "items": {
         // ...
         "properties": {
-          "description": {
-            // ...
-          },
-          "type": {
-            // ...
-          },
-          "url": {
-            // ...
-          }
-        },
+          // ...
+        }
       }
     },
 
-Any such item is a Reference that holds any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer. Value type is object with the 2 mandatory properties `url` and `description`. A third optional property `type` is available.
+Value type of every such Reference item is `object` with the mandatory properties `url` and `description` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer. 
+A reference `object` may provide the additional property `type`.
 
-The Description of reference (`description`) provides an anwser to the question: "What does this reference refer to?" and is of type string with 1 or more characters.
+    "properties": {
+      "description": {
+        // ...
+      },
+      "type": {
+        // ...
+      },
+      "url": {
+        // ...
+      }
+    }
 
-The Type of reference (`type`) indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource. Value type is string with a fixed value set (enum). The value set of the `type` enum is:
+Description of reference (`description`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
+Type of reference (`type`) of value type `string` as `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
+Valid `enum` values are:
+
+    external
     self
-    external
 
-The default value for `type` is:
+The default value for `type` is `external`.
 
-    external
-
-The URL of reference (`url`) provides the URL for the reference. Value type is string with format `uri`.
+URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
 
 ### 3.1.11 Version Type
-
-The Version (`version_t`) type specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major.minor.patch.build' version. Value type is string matching the regular expression pattern:
+The Version (`version_t`) type has value type `string` with `pattern` (regular expression):
 
     ^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$
 
+specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major.minor.patch.build' version.
 
 Examples:
 
@@ -573,10 +805,12 @@ Examples:
 
 ## 3.2 Properties
 
+These final three subsections document the three properties of a CSAF document. The single mandatory property `document`, as well as the optional properties `product_tree` and `vulnerabilities` in that order.
+
 ### 3.2.1 Document Property
 
-Document level meta-data captures the meta-data about this document describing a particular set of security advisories. Value type is object with the 5 mandatory properties csaf_version, title, publisher, type, and tracking. 
-In addition, the document object may provide the 7 optional properties acknowledgments, aggregate_severity, distribution, lang, source_lang, notes, and references. 
+Document level meta-data (`document`) of value type `object` with the 5 mandatory properties CSAF Version (`csaf_version`), Title (`title`), Publisher (`publisher`), Type (`type`), and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories. 
+In addition, the `document` object may provide the 7 optional properties Acknowledgments (`acknowledgments`), Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Source Language (`source_lang`), Notes (`notes`), and References (`references`). 
 
     "document": {
       // ...
@@ -620,19 +854,19 @@ In addition, the document object may provide the 7 optional properties acknowled
       }
     },
 
-#### Document Property - Acknowledgements
-
+#### 3.2.1.1 Document Property - Acknowledgements
+List of acknowledgements (`acknowledgemtns`) of value type `array` with 1 or more items of type Acknowledgement (`acknowledgment_t`) contains a list of acknowledgement elements.
+ 
     "acknowledgments": {
-      "type": "array",
-      "minItems": 1,
+      // ...
       "items": {
-        "$ref": "#/definitions/acknowledgment_t"
+        // ...
       }
     },
 
-#### Document Property - Aggregate Severity
+#### 3.2.1.2 Document Property - Aggregate Severity
 
-Aggregate severity is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures. Value type is object with 1 required property `text` and the optional property `namespace`.
+Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures. 
 
     "aggregate_severity" : {
       // ...
@@ -643,12 +877,12 @@ Aggregate severity is a vehicle that is provided by the document producer to con
         "text": {
           // ...
         }
-      },
+      }
     },
 
-The Namespace of aggregate severity (`namespace`) points to the namespace so referenced. Value type is string with format `uri`.
+The Namespace of aggregate severity (`namespace`) of value type `string` and format `uri` points to the namespace so referenced.
 
-The Text of aggregate severity (`text`) provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS). Value type is string with 1 or more characters.
+The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
 Examples:
 
@@ -656,15 +890,16 @@ Examples:
     Important
     Critical
 
-#### Document Property - CSAF Version
+#### 3.2.1.3 Document Property - CSAF Version
 
-CSAF version gives the version of the CSAF specification which the document was generated for. Value type is string enum. For this edition of the specification the single valid value is:
+CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for. 
+The single valid value for this `enum` is:
 
     2.0
 
-#### Document Property - Distribution
+#### 3.2.1.4 Document Property - Distribution
 
-Rules for sharing document describe any constraints on how this document might be shared. Value type is object with 1 or more properties.
+Rules for sharing document ( `distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol TLP (`tlp`) describes any constraints on how this document might be shared.
 
     "distribution": {
       // ...
@@ -678,9 +913,9 @@ Rules for sharing document describe any constraints on how this document might b
       }
     },
 
-##### Document Property - Distribution - Text
+##### 3.2.1.4.1 Document Property - Distribution - Text
 
-The Text member (`text`) value represents a description that provides a textual description of additional constraints. Value type is string with 1 or more characters.
+The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
 Examples:
 
@@ -688,18 +923,32 @@ Examples:
     Distribute freely.
     Copyright 2019, Example Company, All Rights Reserved.
 
-##### Document Property - Distribution - TLP
+##### 3.2.1.4.2 Document Property - Distribution - TLP
 
-Traffic Light Protocol (TLP) (`tlp`) type provides details about the TLP classification of the document. Value type is object with the required property `label` and the optional property `url`.
+Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and the optional property URL (`url`) provides details about the TLP classification of the document.
 
-The Label of TLP (`label`) provides the TLP label of the document. Value type is string with value from the set (enum):
+    "tlp": {
+      // ...
+      "properties": {
+        "label": {
+          // ...
+        },
+        "url": {
+          // ...
+        }
+      }
+    }
+
+The Label of TLP (`label`) with value type `string` and `enum` provides the TLP label of the document. 
+Valid values of the `enum` are:
 
     RED
     AMBER
     GREEN
     WHITE
 
-The URL of TLP version (`url`) provides a URL where to find the textual description of the TLP version which is useed in this document. Value type is string with format `uri`. Default value is the URL to the definition by FIRST. The default value is:
+The URL of TLP version (`url`) with value type `string` and format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. Default value is the URL to the definition by FIRST. 
+The default value is:
 
     https://www.first.org/tlp/
 
@@ -708,21 +957,22 @@ Examples:
     https://www.us-cert.gov/tlp
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf
 
-#### Document Property - Language
+#### 3.2.1.5 Document Property - Language
 
-Document language identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. Value type is the Language Type (lang_t).
+Document language (`lang`) of Language Type (`lang_t`) identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.
 
-#### Document Property - Source Language
+#### 3.2.1.6 Document Property - Source Language
 
-Original translation. If this copy of the document is a translation, from which language was this document translated? Value type is the Language Type (lang_t).
+Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
-#### Document Property - Notes
+#### 3.2.1.7 Document Property - Notes
 
-Notes associated with the whole document. Notes about this set of vulnerabilities should be added here. Value type is the Notes Type (notes_t).
+Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) holds notes about this set of vulnerabilities.
 
-#### Document Property - Publisher
+#### 3.2.1.8 Document Property - Publisher
 
-Publisher (`publisher`) has value type object and provides information on the publishing entity. The single required property is `type`. The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
+Publisher (`publisher`) has value type `object` with the mandatory property Type (`type`) and provides information on the publishing entity. 
+The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
 
     "publisher": {
       // ...
@@ -742,21 +992,22 @@ Publisher (`publisher`) has value type object and provides information on the pu
       }
     },
 
-##### Document Property - Publisher - Contact Details
+##### 3.2.1.8.1 Document Property - Publisher - Contact Details
 
-How to contact (`contact_details`)? Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses. Value type is string with 1 or more characters.
+Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
 Example:
 
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
 
-##### Document Property - Publisher - Issuing Authority
+##### 3.2.1.8.2 Document Property - Publisher - Issuing Authority
 
-What authority (`issuing_authority`)? The name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations. Value type is string with 1 or more characters.
+Issuing authority (`issuing_authority`) of value type `string`with 1 or more characters provides the name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### Document Property - Publisher - Type
+##### 3.2.1.8.3 Document Property - Publisher - Type
 
-The Type of publisher (`type`) provides information about the type of publisher releasing the document. Value type is string with fixed value set (enum). Thes values are:
+The Type of publisher (`type`) of type `string`and `enum` provides information about the type of publisher releasing the document. 
+The valid values are:
 
     coordinator
     discoverer
@@ -764,28 +1015,30 @@ The Type of publisher (`type`) provides information about the type of publisher 
     user
     vendor
 
-##### Document Property - Publisher - Vendor ID
+##### 3.2.1.8.4 Document Property - Publisher - Vendor ID
 
-The Vendor releasing the document (`vendor_id`). The Vendor ID is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF. Value type is string with 1 or more characters.
+The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
 
-#### Document Property - References
+#### 3.2.1.9 Document Property - References
+References (`references`) of References type (`references_t`).
 
     "references": {
-      "$ref": "#/definitions/references_t"
+      // ...
     },
 
-#### Document Property - Title
+#### 3.2.1.10 Document Property - Title
 
-Title of this document SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents. Value type is string with 1 or more characters.
+Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
 
 Examples:
 
     Example Company Cross-Site-Scripting Vulnerability in Example Generator
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
 
-#### Document Property - Tracking
+#### 3.2.1.11 Document Property - Tracking
 
-Tracking (`tracking`) provides attributes for tracking the evolution of the security advisory revisions. Value type is object with the six mandatory properties: `current_release_date`, `id`, `initial_release_date`, `revision_history`, `status`, and `version`. The two optional additional properties are `aliases` and `generator`.
+Tracking (`tracking`) of value type `object` with the six mandatory properties: Current Release Date (`current_release_date`), Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`), and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
+The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
 
     "tracking": {
       // ...
@@ -818,9 +1071,11 @@ Tracking (`tracking`) provides attributes for tracking the evolution of the secu
     },
 
 
-##### Document Property - Tracking - ID
+##### 3.2.1.11.1 Document Property - Tracking - ID
 
-Unique identifier for the document. The ID is a simple label that provides for a wide range of numbering values, types, and schemes. Its value SHOULD be assigned and maintained by the original document issuing authority. Value type is string with 1 or more characters.
+Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
+The ID is a simple label that provides for a wide range of numbering values, types, and schemes. 
+Its value SHOULD be assigned and maintained by the original document issuing authority.
 
 Examples:
 
@@ -828,58 +1083,62 @@ Examples:
     RHBA-2019:0024
     cisco-sa-20190513-secureboot
 
-##### Document Property - Tracking - Aliases
+##### 3.2.1.11.2 Document Property - Tracking - Aliases
+Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a list of alternate names for the same document.
 
     "aliases": {
-      "type": "array",
-      "minItems": 1,
+      // ...
       "items": {
-        "type": "string",
-        "title": "Alternate name",
-        "description": "Alternate names for the same vulnerability.",
-        "examples": [
-          "CVE-2019-12345"
-        ],
-        "minLength": 1
+        // ...
       }
     },
 
+Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a distinct optional alternative ID used to refer to the document.
 
-##### Document Property - Tracking - Current Release Date
+Example:
 
-Current release date is the date of the current revision of this document was released. Value type is string of format date-time.
+    CVE-2019-12345
+
+##### 3.2.1.11.3 Document Property - Tracking - Current Release Date
+
+Current release date (`current_release_date`) with value type `string` and format `date-time` holds the date when the current revision of this document was released.
 
 
-##### Document Property - Tracking - Generator
+##### 3.2.1.11.4 Document Property - Tracking - Generator
 
-The Generator (`generator`) describes the engine technically creating the security advisory. Value type is object with 1 or 2 properties. The properties are `engine` and `date`.
+Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and optional property Date (`date`) is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.. 
 
         "generator": {
-          "type": "object",
-          "minProperties": 1,
+          // ...
           "properties": {
             "engine": {
-              "type": "string",
-              "minLength": 1
+              // ...
             },
             "date": {
-              "type": "string",
-              "format": "date-time"
+              // ...
             }
           }
         },
 
-Engine (`engine`) is of type string with 1 or more characters.
+Engine of document generation (`engine`) of value type `string` with 1 or more characters SHOULD represent the name of the engine that generated the CSAF document, and MAY additionally refer to its version.
 
-Date (`date`) is of type string with format `date-time`.
+Examples:
 
-##### Document Property - Tracking - Initial Release Date
+    TVCE
+    Red Hat rhsa-to-cvrf 2.1
+    CMPFA Core Converter CVRF->CSAF Version 0.6
 
-Initial release date is the date that this document was first published. Value type is string of format date-time.
 
-##### Document Property - Tracking - Revision History
+Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated. 
+Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released, this field MAY be different from the Initial Release Date and Current Release Date.
 
-The Revision History (`revision_history`) provides a list of information items on revisions of the security advisory. The value type is array of with 1 or more items. The items are of type object with the three mandatory properties: `number`, `date`, and `description`. 
+##### 3.2.1.11.5 Document Property - Tracking - Initial Release Date
+
+Initial release date (`initial_release_date`) with value type `string` and format `date-time` holds the date when this document was first published.
+
+##### 3.2.1.11.6 Document Property - Tracking - Revision History
+
+The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries contains all the information elements required to track the evolution of a CSAF document. 
 
         "revision_history": {
           // ...
@@ -895,38 +1154,48 @@ The Revision History (`revision_history`) provides a list of information items o
               "description": {
                 // ...
               }
-            },
+            }
           }
         },
 
-The `number` is of value type Version (`version_t`). 
+Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Description (`description`). 
 
-The Date of the revision (`date`) states the date of the revision entry. Value type is strng with format `date-time`.
+The Number (`number`) has value type Version (`version_t`). 
 
-The Description (`description`) is of type string with 1 or more characters.
+The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
 
-##### Document Property - Tracking - Status
+The Description  of the revision (`description`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
 
-Document status (`status`) defines the draft status of the document. Value type is string with fixed value set (enum). The value MUST be one of the following:
+##### 3.2.1.11.7 Document Property - Tracking - Status
+
+Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
+The value MUST be one of the following:
 
     draft
     final
     interim
 
-##### Document Property - Tracking - Version
+##### 3.2.1.11.8 Document Property - Tracking - Version
 
 Version has the value type Version (`version_t`).
 
-#### Document Property - Type
+#### 3.2.1.12 Document Property - Type
+Document type (`type`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.
 
     "type": {
-      "type": "string",
-      "minLength": 1
+      // ...
     }
+
+Examples:
+
+    Security Advisory
+    Security Notice
+    Vulnerability Report
 
 ### 3.2.2 Product Tree Property
 
-Product Tree has value type object with 1 or more properties. The properties are branches, full_product_names, product_groups, and relationships.
+Product Tree (`product_tree`) has value type `object` with 1 or more properties is a container for all fully qualified product names that can be referenced elsewhere in the document. 
+The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`), and Relationships (`relationships`).
 
     "product_tree": {
       // ...
@@ -945,192 +1214,161 @@ Product Tree has value type object with 1 or more properties. The properties are
       }
     },
 
-#### Product Tree Property - Product Tree
+#### 3.2.2.1 Product Tree Property - Branches
+List of branches (`branches`) of value type `array` with 1 or more items of type `branch_branches_t` contains branch elements as children of the current element.
 
-    "product_tree": {
-      "$comment": "Currently only supports branch_t and full_product_name_t children of product_tree",
-      "type": "object",
-      "minProperties": 1,
-      "properties": {
+#### 3.2.2.2 Product Tree Property - Full Product Names
+List of full product names (`full_product_names`) of value type `array` with 1 or more items of type `full_product_name_t` contains a list of full product names.
 
-#### Product Tree Property - Branches
+#### 3.2.2.3 Product Tree Property - Product Groups
+List of product groups (`product_groups`) of value type `array` with 1 or more items of type `object` contains a list of product groups.
 
-        "branches": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/branch_branches_t"
-          }
-        },
-
-#### Product Tree Property - Full Product Names
-
-        "full_product_names": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/full_product_name_t"
-          }
-        },
-
-#### Product Tree Property - Product Groups
-
-        "product_groups": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "title": "Product group",
-            "description": "Defines a new logical group of products that can then be referred to in other parts of the document to address a group of products with a single identifier.",
-            "type": "object",
-            "required": [
-              "group_id",
-              "product_ids"
-            ],
-            "properties": {
-              "description": {
-                "title": "Description of the product group",
-                "description": "Gives a short, optional description of the group.",
-                "examples": [
-                  "The x64 versions of the operating system.",
-                  "Products supporting Modbus."
-                ],
-                "type": "string",
-                "minLength": 1
-              },
-              "group_id": {
-                "$ref": "#/definitions/product_group_id_t"
-              },
-              "product_ids": {
-                "title": "List of product_ids",
-                "description": "Lists the product_ids of those products which known as one group in the document.",
-                "type": "array",
-                "minItems": 2,
-                "items": {
-                  "$ref": "#/definitions/product_id_t"
-                }
-              }
-            }
-          }
-        },
-
-#### Product Tree Property - Relationships
-
-        "relationships": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "title": "Relationship",
-            "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
-            "type": "object",
-            "properties": {
-              "full_product_names": {
-                "type": "array",
-                "minItems": 1,
-                "items": {
-                  "$ref": "#/definitions/full_product_name_t"
-                }
-              },
-              "product_reference": {
-                "$ref": "#/definitions/product_id_t"
-              },
-              "relates_to_product_reference": {
-                "$ref": "#/definitions/product_id_t"
-              },
-              "relationship_type": {
-                "title": "Relationship type",
-                "description": "Defines the type of relationship for the referenced component.",
-                "type": "string",
-                "enum": [
-                  "default_component_of",
-                  "optional_component_of",
-                  "external_component_of",
-                  "installed_on",
-                  "installed_with"
-                ]
-              }
-            },
-            "required": [
-              "product_reference",
-              "relates_to_product_reference",
-              "relationship_type"
-            ]
+    "product_groups": {
+      // ...
+      "items": {
+        // ...
+        "properties": {
+          "description": {
+            // ...
+          },
+          "group_id": {
+            // ...
+          },
+          "product_ids": {
+            // ...
           }
         }
       }
     },
 
+The product group items are of value type `object` with the 2 mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and the optional Description (`description`) property.
 
-### 3.2.3 Vulnerabilities Property
+The description of the product group (`description`) of type `string` with 1 or more characters gives a short, optional description of the group.
 
-Vulnerabilities represents a list of all relevant vulnerability information items. Value type is array with 1 or more objects representing vulnerabilities and providing 1 or more properties.
+Examples:
 
-    "vulnerabilities": {
+    The x64 versions of the operating system.
+    Products supporting Modbus.
+
+Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
+
+List of Product IDs (`product_ids`) of value type array with 2 or more items of type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
+
+#### 3.2.2.4 Product Tree Property - Relationships
+List of relationships (`relationships`) of value type `array`with 1 or more items contains a list of relationships.
+
+    "relationships": {
+      // ...
       "items": {
         // ...
+        "properties": {
+          "full_product_names": {
+            // ...
+          },
+          "product_reference": {
+            // ...
+          },
+          "relates_to_product_reference": {
+            // ...
+          },
+          "relationship_type": {
+            // ...
+          }
+        }
       }
     }
 
-#### Vulnerabilities Property - Vulnerability
+The Relationship item is of value type `object` with the three mandatory properties Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`) as well as the optional property Full Product Names (`full_product_names`) establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
-Vulnerability is a container for the aggregation of all fields that are related to a single vulnerability in the document. Value type is object with 1 or more properties. Any vulnerability may provide the optional properties acknowledgments, cve, cwe, scores, discovery_date, id, involvements, notes, product_status, references, release_date, remediations, and title. 
+Full Product Names (`full_product_names`) of value type array with 1 or more items of Full Product Name type (`full_product_name_t`).
 
-    "acknowledgments": {
+Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
+
+Relates to Product Reference (`relates_to_product_reference`) holds also a Product ID (`product_id_t`) value.
+
+Relationship type (`relationship_type`) of value `string`and `enum` defines the type of relationship for the referenced component.
+The valid values are:
+
+    default_component_of
+    optional_component_of
+    external_component_of
+    installed_on
+    installed_with
+
+
+### 3.2.3 Vulnerabilities Property
+Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects representing vulnerabilities and providing 1 or more properties represents a list of all relevant vulnerability information items. 
+
+    "vulnerabilities": {
       // ...
-    },
-    "cve": {
-      // ...
-    },
-    "cwe": {
-      // ...
-    },
-    "scores": {
-      // ...
-    },
-    "discovery_date": {
-      // ...
-    },
-    "id": {
-      // ...
-    },
-    "involvements": {
-      // ...
-    },
-    "notes": {
-      // ...
-    },
-    "product_status": {
-      // ...
-    },
-    "references": {
-      // ...
-    },
-    "release_date": {
-      // ...
-    },
-    "remediations": {
-      // ...
-    },
-    "threats": {
-      // ...
-    },
-    "title": {
-      // ...
+      "items": {
+        // ...
+        "properties": {
+          "acknowledgments": {
+            // ...
+          },
+          "cve": {
+            // ...
+          },
+          "cwe": {
+            // ...
+          },
+          "scores": {
+            // ...
+          },
+          "discovery_date": {
+            // ...
+          },
+          "id": {
+            // ...
+          },
+          "involvements": {
+            // ...
+          },
+          "notes": {
+            // ...
+          },
+          "product_status": {
+            // ...
+          },
+          "references": {
+            // ...
+          },
+          "release_date": {
+            // ...
+          },
+          "remediations": {
+            // ...
+          },
+          "threats": {
+            // ...
+          },
+          "title": {
+            // ...
+          }
+        }
+      }
     }
 
-##### Vulnerabilities Property - Vulnerability - Acknowledgments
+#### 3.2.3.1 Vulnerabilities Property - Vulnerability
+Vulnerability ( `vulnerability`) of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document. 
+Any vulnerability may provide the optional properties Acknowledgements (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Scores (`scores`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Threats (`threats`),and Title (`title`). 
 
-Acknowledgments have value type array with 1 or more items of type Acknowledgement (acknowledgement_t).
+##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
+List of acknowledgements (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgement (`acknowledgement_t`) contains a list of acknowledgement elements.
 
-##### Vulnerabilities Property - Vulnerability - CVE
-
-CVE has value type string matching the regular expression pattern:
+##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
+CVE (`cve`) of value type `string` with `pattern` (regular expression):
 
     ^CVE-[0-9]{4}-[0-9]{4,}$
 
-##### Vulnerabilities Property - Vulnerability - CWE
+holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
+
+##### 3.2.3.1.3 Vulnerabilities Property - Vulnerability - CWE
+CWE (`cwe`) of value type `object` with the 2 optional properties ID (`id`) and Description (`description`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 
     "cwe": {
-      "type": "object",
+      // ...
       "properties": {
         "id": {
           "type": "string",
@@ -1143,47 +1381,47 @@ CVE has value type string matching the regular expression pattern:
       }
     },
 
-##### Vulnerabilities Property - Vulnerability - Scores
+The ID (`id`) has value type `string` with `pattern` (regular expression):
+
+    ^CWE-[1-9]\\d{0,5}$
+
+The Description (`description`) has value type `string` with 1 or more characters.
+
+##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Scores
+Scores (`scores`) of value type `array` with 1 or more items holds scores and referenced product ids.
 
     "scores": {
-      "type": "array",
-      "minItems": 1,
+      // ...
       "items": [
         {
           "anyOf": [
             {
-              "type": "array",
-              "minItems": 0,
+              // ...
               "items": {
-                "$ref": "#/definitions/products_t",
-                "examples": [
-                  "CVRFID_123",
-                  "CSAFID_0815"
-                ],
-                "default": ""
+                // ...
               }
             },
             {
-              "type": "object",
+              // ...
               "properties": {
                 "cvss_v20": {
-                  "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
+                  // ...
                 }
               }
             },
             {
-              "type": "object",
+              // ...
               "properties": {
                 "cvss_v30": {
-                  "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+                  // ...
                 }
               }
             },
             {
-              "type": "object",
+              // ...
               "properties": {
                 "cvss_v31": {
-                  "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                  // ...
                 }
               }
             }
@@ -1192,287 +1430,296 @@ CVE has value type string matching the regular expression pattern:
       ]
     },
 
-##### Vulnerabilities Property - Vulnerability - Discovery Date
+The items are any of the following four types:
 
-Discovery Date has value type string with format date-time.
+An `array`of zero or more Product IDs (`products_t`) with an empty string as default.
 
-##### Vulnerabilities Property - Vulnerability - ID
+Examples:
+
+    CVRFID_123
+    CSAFID_0815
+
+An `object` with the property CVSS v2.0 (`cvss_v20`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+
+An `object` with the property CVSS v3.0 (`cvss_v30`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json).
+
+An `object` with the property CVSS v3.1 (`cvss_v31`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+
+##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - Discovery Date
+Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
+
+##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - ID
+ID (`id`) of value type `object`with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
 
     "id": {
-      "type": "object",
+      // ...
       "properties": {
         "system_name": {
-          "title": "System name",
-          "description": "Indicates the name of the vulnerability tracking or numbering system.",
-          "type": "string",
-          "minLength": 1
+          // ...
         },
         "text": {
-          "type": "string",
-          "minLength": 1
+          // ...
         }
-      },
-      "required": [
-        "system_name",
-        "text"
-      ]
+      }
     },
 
-##### Vulnerabilities Property - Vulnerability - Involvements
+System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
+
+Example:
+
+    Cisco Bug ID
+
+Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
+
+Example:
+
+    CSCso66472
+
+##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Involvements
+List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
 
     "involvements": {
-      "type": "array",
-      "minItems": 1,
+      // ...
       "items": {
-        "title": "Involvement",
-        "description": "Is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.",
-        "type": "object",
-        "required": [
-          "party",
-          "status"
-        ],
+        // ...
         "properties": {
           "description": {
-            "type": "string",
-            "minLength": 1
+            // ...
           },
           "party": {
-            "title": "Party type",
-            "description": "Defines the type of the involved party.",
-            "type": "string",
-            "enum": [
-              "coordinator",
-              "discoverer",
-              "other",
-              "user",
-              "vendor"
-            ]
+            // ...
           },
           "status": {
-            "title": "Party status",
-            "description": "Defines contact status of the involved party.",
-            "type": "string",
-            "enum": [
-              "completed",
-              "contact_accepted",
-              "disputed",
-              "in_progress",
-              "not_contacted",
-              "open"
-            ]
+            // ...
           }
         }
       }
     },
 
-##### Vulnerabilities Property - Vulnerability - Notes
+Involvement (`involvement`) of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Description (`description`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process. 
 
-Notes have value type Notes (notes_t).
+Description of involvement ( `description`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
-##### Vulnerabilities Property - Vulnerability - Product Status
+Party type (`party`) of value type `string`and `enum` defines the type of the involved party.
+Valid values are:
 
-Product status contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability. Value type object with 1 or more properties.
+    coordinator
+    discoverer
+    other
+    user
+    vendor
+
+Party status (`status`) of value type `string`and `enum` defines contact status of the involved party.
+Valid values are:
+
+    completed
+    contact_accepted
+    disputed
+    in_progress
+    not_contacted
+    open
+
+##### 3.2.3.1.8 Vulnerabilities Property - Vulnerability - Notes
+Notes (`notes`) have value type Notes (notes_t).
+
+##### 3.2.3.1.9 Vulnerabilities Property - Vulnerability - Product Status
+Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability.
+The eight defined properties are Fixed (`fixed`), First fixed (`first_fixed`), Recommended (`recommended`), Known affected (`known_affected`), First affected (`first_affected`), Last affected (`last_affected`), Known not affected (`known_not_affected`), and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
 
     "product_status": {
-      "title": "Product status",
-      "description": "Contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability. ",
-      "type": "object",
-      "minProperties": 1,
+      // ...
       "properties": {
         "fixed": {
-          "title": "Fixed",
-          "description": "These versions contain a fix for the vulnerability but may not be the recommended fixed versions.",
-          "$ref": "#/definitions/products_t"
+          // ...
         },
         "first_fixed": {
-          "title": "First fixed",
-          "description": "These versions contain the first fix for the vulnerability but may not be the recommended fixed versions.",
-          "$ref": "#/definitions/products_t"
+          // ...
         },
         "recommended": {
-          "title": "Recommended",
-          "description": "These versions have a fix for the vulnerability and are the vendor-recommended versions for fixing the vulnerability.",
-          "$ref": "#/definitions/products_t"
+          // ...
         },
         "known_affected": {
-          "title": "Known affected",
-          "description": "These versions are known to be affected by the vulnerability.",
-          "$ref": "#/definitions/products_t"
+          // ...
         },
         "first_affected": {
-          "title": "First affected",
-          "description": "These are the first versions of the releases known to be affected by the vulnerability.",
-          "$ref": "#/definitions/products_t"
+          // ...
         },
         "last_affected": {
-          "title": "Last affected",
-          "description": "These are the last versions in a release train known to be affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.",
-          "$ref": "#/definitions/products_t"
+          // ...
         },
         "known_not_affected": {
-          "title": "Known not affected",
-          "description": "These versions are known not to be affected by the vulnerability.",
-          "$ref": "#/definitions/products_t"
+          // ...
         },
         "under_investigation": {
-          "title": "Under investigation",
-          "description": "It is not known yet whether this version is or is not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.",
-          "$ref": "#/definitions/products_t"
+          // ..
         }
       }
     },
 
-##### Vulnerabilities Property - Vulnerability - References
+Fixed (`fixed`) of value type Products (`products_t`) represents that these versions contain a fix for the vulnerability but may not be the recommended fixed versions.
 
-References have value type References (references_t).
+First fixed (`first_fixed`) of value type Products (`products_t`) represents that these versions contain the first fix for the vulnerability but may not be the recommended fixed versions.
 
-##### Vulnerabilities Property - Vulnerability - Release Date
+Recommended (`recommended`) of value type Products (`products_t`) represents that these versions have a fix for the vulnerability and are the vendor-recommended versions for fixing the vulnerability.
 
-Release Date has value type string of format date-time.
+Known affected (`known_affected`) of value type Products (`products_t`) represents that these versions are known to be affected by the vulnerability.
 
-##### Vulnerabilities Property - Vulnerability - Remediations
+First affected (`first_affected`) of value type Products (`products_t`) represents that these are the first versions of the releases known to be affected by the vulnerability.
+
+Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
+
+Known not affected (`known_not_affected`) of value type Products (`products_t`) represents that these versions are known not to be affected by the vulnerability.
+
+Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether this version is or is not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
+
+##### 3.2.3.1.10 Vulnerabilities Property - Vulnerability - References
+References (`references`) have value type References (`references_t`).
+
+##### 3.2.3.1.11 Vulnerabilities Property - Vulnerability - Release Date
+Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
+
+##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Remediations
+List of remediations (`remediations`) of value type `array`with 1 or more Remediation items of type `object` contains a list of remediations.
+Remediation of value type `object` with the 2 mandatory properties Description (`description`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
     "remediations": {
-      "type": "array",
-      "minItems": 1,
+      // ...
       "items": {
-        "title": "Remedation",
-        "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
-        "type": "object",
-        "required": [
-          "description",
-          "type"
-        ],
+        // ...
         "properties": {
           "date": {
-            "type": "string",
-            "format": "date-time"
+            // ...
           },
           "description": {
-            "title": "Description of the remediation",
-            "description": "Contains a thorough human-readable discussion of the remediation.",
-            "type": "string",
-            "minLength": 1
+            // ...
           },
           "entitlements": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "title": "Entitlement of the remediation",
-              "description": "Contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.",
-              "type": "string",
-              "minLength": 1
-            }
+            // ...
           },
           "group_ids": {
-            "$ref": "#/definitions/product_groups_t"
+            // ...
           },
           "product_ids": {
-            "$ref": "#/definitions/products_t"
+            // ...
           },
           "restart_required": {
-            "title": "Restart required by remediation",
-            "description": "Provides information on type of restart is required by this remediation to become effective.",
-            "type": "object",
-            "required": [
-              "type"
-            ],
+            // ...
             "properties": {
               "type": {
-                "title": "Type of restart",
-                "description": "Specifies what type of restart is required by this remediation to become effective.",
-                "type": "string",
-                "enum": [
-                  "none",
-                  "vulnerable_component",
-                  "service",
-                  "parent",
-                  "dependencies",
-                  "connected",
-                  "machine",
-                  "zone",
-                  "system"
-                ]
+                // ...
               },
               "description": {
-                "title": "Additional restart information",
-                "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
-                "type": "string",
-                "minLength": 1
+                // ...
               }
             }
           },
           "type": {
-            "title": "Type of the remediation",
-            "description": "Specifies the type which this remediation belongs to.",
-            "type": "string",
-            "enum": [
-              "workaround",
-              "mitigation",
-              "vendor_fix",
-              "none_available",
-              "will_not_fix"
-            ]
+            // ...
           },
           "url": {
-            "title": "URL to the remediation",
-            "description": "Contains the URL where to obtain the remediation.",
-            "type": "string",
-            "format": "uri"
+            // ...
           }
         }
       }
     },
 
-##### Vulnerabilities Property - Vulnerability - Threats
+Date of the remediation (`date`) of value type `string`with format `date-time` contains the date from which the remediation is available.
+
+Description of the remediation (`description`) of value type `string`with 1 or more characters contains a thorough human-readable discussion of the remediation.
+
+List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
+Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+
+Product IDs (`product_ids`) are of value type Products (`products_t`).
+
+Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Description (`description`) provides information on type of restart is required by this remediation to become effective.
+Type of restart (`type`) of value type `string`and `enum` specifies what type of restart is required by this remediation to become effective.
+Valid values are:
+
+    none
+    vulnerable_component
+    service
+    parent
+    dependencies
+    connected
+    machine
+    zone
+    system
+
+Additional restart information (`description`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
+
+Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
+Valid values are:
+
+    workaround
+    mitigation
+    vendor_fix
+    none_available
+    no_fix_planned
+
+
+URL (`url`) of value type `string`with format `uri` contains the URL where to obtain the remediation.
+
+##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
+List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
+A Threat item is of value type `object` with the two mandatory properties Description (`description`) and Type (`type`) and contains the vulnerability kinetic information. 
+This information can change as the vulnerability ages and new information becomes available.
+In addition, threat items may provide the three optional properties Date (`date`), Product IDs (`product_ids`) and Group IDs (`group_ids`). 
 
     "threats": {
-      "type": "array",
-      "minItems": 1,
+      // ...
       "items": {
-        "title": "Threat",
-        "description": "Contains the vulnerability kinetic information. This information can change as the vulnerability ages and new information becomes available.",
-        "type": "object",
-        "required": [
-          "description",
-          "type"
-        ],
+        // ...
         "properties": {
           "type": {
-            "title": "Type of the threat",
-            "description": "Categorizes the threat according to the rules of the specification.",
-            "type": "string",
-            "enum": [
-              "impact",
-              "exploit_status",
-              "target_set"
-            ]
+            // ...
           },
           "description": {
-            "title": "Description of the threat",
-            "description": "Represents a thorough human-readable discussion of the threat.",
-            "type": "string",
-            "minLength": 1
+            // ...
           },
           "date": {
-            "type": "string",
-            "format": "date-time"
+            // ...
           },
           "product_ids": {
-            "$ref": "#/definitions/products_t"
+            // ...
           },
           "group_ids": {
-            "$ref": "#/definitions/product_groups_t"
+            // ...
           }
         }
       }
     },
 
-##### Vulnerabilities Property - Vulnerability - Title
+Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
+Valid values are:
 
-Title has value type string with 1 or more characters.
+    impact
+    exploit_status
+    target_set
 
-# 3 Safety, Security, and Data Protection Considerations
+Description of the threat (`description`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
+
+Date of the threat (`date`) of value type `string`with format `date-time` contains the date when the assessment was done or the threat appeared.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`).
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+
+##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
+Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
+
+# 4 Safety, Security, and Data Protection Considerations
+For security reasons, CSAF producers and consumers SHALL adhere to the following:
+* CSAF producers SHALL NOT emit messages that contain HTML, even though all variants of Markdown permit it.
+* Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
+  **Note**: One example is the GitHub fork of the cmark Markdown processor [GFMCMARK].
+* To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
+CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
+
+
 (Note: OASIS strongly recommends that Technical Committees consider issues that might affect safety, security, privacy, and/or data protection in implementations of their specification and document them for implementers and adopters. For some purposes, you may find it required, e.g. if you apply for IANA registration.
 
 While it may not be immediately obvious how your specification might make systems vulnerable to attack, most specifications, because they involve communications between systems, message formats, or system settings, open potential channels for exploit. For example, IETF [[RFC3552](#rfc3552)] lists “eavesdropping, replay, message insertion, deletion, modification, and man-in-the-middle” as well as potential denial of service attacks as threats that must be considered and, if appropriate, addressed in IETF RFCs.
@@ -1485,7 +1732,66 @@ Remove this note before submitting for publication.)
 
 -------
 
-# 4 Conformance
+# 5 Conformance
+## 5.1 Conformance Targets
+This document defines requirements for the CSAF file format and for certain software components that interact with it. The entities ("conformance targets") for which this document defines requirements are:
+* **CSAF document**: A security advisory text document in the format defined by this document.
+* **CSAF producer**: A program which emits output in the CSAF format.
+* **Direct producer**: An analysis tool which acts as a CSAF producer.
+* **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+* **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
+* **CSAF consumer**: A program that reads and interprets a CSAF document.
+* **Viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
+* **Result management system**: A software system that consumes the documents produced by analysis tools, produces reports that enable engineering teams to assess the quality of their software artifacts at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual results.
+* **Engineering system**: A software development environment within which analysis tools execute. It might include a build system, a source control system, a result management system, a bug tracking system, a test execution system, and so on.
+The normative content in this document defines requirements for CSAF documents, except for those normative requirements that are explicitly designated as defining the behavior of another conformance target.
+
+## 5.2 Conformance Clause 1: CSAF document
+A text file satisfies the "CSAF document"”" conformance profile if:
+* It conforms to the syntax and semantics defined in section 3.
+
+## 5.3 Conformance Clause 2: CSAF producer
+A program satisfies the "CSAF producer" conformance profile if:
+* It produces output in the CSAF format, according to the semantics defined in section 3.
+* It satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
+
+## 5.4 Conformance Clause 3: Direct producer
+An analysis tool satisfies the "Direct producer" conformance profile if:
+* It satisfies the "CSAF producer" conformance profile.
+* It additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
+* It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
+
+## 5.5 Conformance Clause 4: Converter
+A converter satisfies the “Converter” conformance profile if:
+* It satisfies the "CSAF producer" conformance profile.
+* It additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
+* It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
+
+## 5.6 Conformance Clause 5: CSAF post-processor
+A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if:
+* It satisfies the "CSAF consumer" conformance profile.
+* It satisfies the "CSAF producer" conformance profile.
+* It additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
+
+## 5.7 Conformance Clause 6: CSAF consumer
+A consumer satisfies the "CSAF consumer" conformance profile if:
+* It reads CSAF documents and interprets them according to the semantics defined in section 3.
+* It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
+
+## 5.8 Conformance Clause 7: Viewer
+A viewer satisfies the "viewer" conformance profile if:
+* It satisfies the "CSAF consumer" conformance profile.
+* It additionally satisfies the normative requirements in section 3 that are designated as applying to viewers.
+
+## 5.9 Conformance Clause 8: Result management system
+A result management system satisfies the "result management system" conformance profile if:
+* It satisfies the "CSAF consumer" conformance profile.
+* It additionally satisfies the normative requirements in section 3 and Appendix B ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
+
+## 5.10 Conformance Clause 9: Engineering system
+An engineering system satisfies the "engineering system" conformance profile if:
+* It satisfies the normative requirements in section 3 that are designated as applying to engineering systems.
+
 (Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
 For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
 
@@ -1586,4 +1892,5 @@ Zach | Turk | Microsoft
 # Appendix B. Revision History
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| specname-v1.0-wd01 | yyyy-mm-dd | Editor Name | Initial working draft |
+| csaf-v2.0-wd20200927 | 2020-09-27 | Stefan Hagen | Initial working draft |
+
