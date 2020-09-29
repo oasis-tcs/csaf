@@ -781,15 +781,35 @@
             "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$"
           },
           "cwe": {
+            "title": "CWE",
+            "description": "Holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.",
             "type": "object",
+            "required": [
+              "id",
+              "name"
+            ],
             "properties": {
               "id": {
+                "title": "Weakness ID",
+                "description": "Holds the ID for the weakness associated.",
                 "type": "string",
-                "pattern": "^CWE-[1-9]\\d{0,5}$"
+                "pattern": "^CWE-[1-9]\\d{0,5}$",
+                "examples": [
+                  "CWE-79",
+                  "CWE-22",
+                  "CWE-352"
+                ]
               },
-              "description": {
+              "name": {
+                "title": "Weakness name",
+                "description": "Holds the full name of the weakness as given in the CWE specification.",
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "examples": [
+                  "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                  "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+                  "Cross-Site Request Forgery (CSRF)"
+                ]
               }
             }
           },
