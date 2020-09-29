@@ -289,7 +289,7 @@
         "properties": {
           "description": {
             "title": "Description of reference",
-            "description": "What does this reference refer to?",
+            "description": "Indicates what this reference refers to.",
             "type": "string",
             "minLength": 1
           },
@@ -392,7 +392,7 @@
           "minProperties": 1,
           "properties": {
             "text": {
-              "title": "Description",
+              "title": "Textual description",
               "description": "Provides a textual description of additional constraints.",
               "type": "string",
               "minLength": 1,
@@ -442,13 +442,13 @@
           "$ref": "#/definitions/lang_t"
         },
         "source_lang": {
-          "title": "Original translation",
-          "description": "If this copy of the document is a translation, from which language was this document translated?",
+          "title": "Source language",
+          "description": "If this copy of the document is a translation then the value of this property describes from which language this document was translated.",
           "$ref": "#/definitions/lang_t"
         },
         "notes": {
           "title": "Notes associated with the whole document.",
-          "description": "Notes about this set of vulnerabilities should be added here.",
+          "description": "Holds notes about this set of vulnerabilities.",
           "$ref": "#/definitions/notes_t"
         },
         "publisher": {
@@ -549,7 +549,7 @@
             },
             "current_release_date": {
               "title": "Current release date",
-              "description": "The date of the current revision of this document was released",
+              "description": "The date when the current revision of this document was released",
               "type": "string",
               "format": "date-time"
             },
@@ -582,7 +582,7 @@
             },
             "initial_release_date": {
               "title": "Initial release date",
-              "description": "The date that this document was first published.",
+              "description": "The date when this document was first published.",
               "type": "string",
               "format": "date-time"
             },
@@ -698,7 +698,7 @@
                 "$ref": "#/definitions/product_group_id_t"
               },
               "product_ids": {
-                "title": "List of product_ids",
+                "title": "List of Product IDs",
                 "description": "Lists the product_ids of those products which known as one group in the document.",
                 "type": "array",
                 "minItems": 2,
@@ -814,6 +814,8 @@
             }
           },
           "scores": {
+            "title": "Scores",
+            "description": "Holds scores and referenced product ids.",
             "type": "array",
             "minItems": 1,
             "items": [
