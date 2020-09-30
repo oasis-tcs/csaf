@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 28 September 2020
+## 29 September 2020
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -253,6 +253,8 @@ _Relative JSON Pointers_, draft-handrews-relative-json-pointer-02, September 201
 Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, March 1997. http://www.ietf.org/rfc/rfc2119.txt.
 ###### [RFC8174]
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
+###### [RFC8259]
+T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", RFC 8259, DOI 10.17487/RFC8259, December 2017, http://www.rfc-editor.org/info/rfc8259.
 
 (Reference sources:
 For references to IETF RFCs, use the approved citation formats at:  
@@ -302,6 +304,8 @@ _Information technology — Security techniques — Vulnerability disclosure_, I
 https://www.iso.org/standard/45170.html.
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
+###### [RFC7464]
+N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 8259, DOI 10.17487/RFC7464, February 2015, http://www.rfc-editor.org/info/rfc7464.
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
 http://dx.doi.org/10.6028/NIST.SP.800-126r2.
@@ -707,7 +711,7 @@ List of Product IDs (`products_t`) of value type `array` with 1 or more unique i
     "products_t": {
       // ...
       "items": {
-        "$ref": "#/definitions/product_id_t"
+        // ...
       }      
     },
 
@@ -717,7 +721,7 @@ List of Product Group ID (`product_groups_t`) of value type `array` with 1 or mo
     "product_groups_t": {
       // ...
       "items": {
-        "$ref": "#/definitions/product_group_id_t"
+        // ...
       }
     },
 
@@ -1365,27 +1369,40 @@ CVE (`cve`) of value type `string` with `pattern` (regular expression):
 holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
 ##### 3.2.3.1.3 Vulnerabilities Property - Vulnerability - CWE
-CWE (`cwe`) of value type `object` with the 2 optional properties ID (`id`) and Description (`description`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
+CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 
     "cwe": {
       // ...
       "properties": {
         "id": {
-          "type": "string",
-          "pattern": "^CWE-[1-9]\\d{0,5}$"
+          // ...
         },
-        "description": {
-          "type": "string",
-          "minLength": 1
+        "name": {
+          // ...
         }
       }
     },
 
-The ID (`id`) has value type `string` with `pattern` (regular expression):
+The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):
 
     ^CWE-[1-9]\\d{0,5}$
 
-The Description (`description`) has value type `string` with 1 or more characters.
+and holds the ID for the weakness associated.
+
+Examples:
+
+    CWE-79
+    CWE-22
+    CWE-352
+
+The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
+
+Examples:
+
+    Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+    Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+    Cross-Site Request Forgery (CSRF)
+
 
 ##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Scores
 Scores (`scores`) of value type `array` with 1 or more items holds scores and referenced product ids.
@@ -1712,7 +1729,13 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
 # 4 Safety, Security, and Data Protection Considerations
-For security reasons, CSAF producers and consumers SHALL adhere to the following:
+CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
+>Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
+>
+>Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's `eval()` function to parse most JSON texts (but not all; certain characters such as `U+2028 LINE SEPARATOR` and `U+2029 PARAGRAPH SEPARATOR` are legal in JSON but not JavaScript).  This generally constitutes an unacceptable security risk, since the text could contain executable code along with data declarations.  The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to that language's syntax.
+
+In addition, CSAF documents may be rendered by consumers in various human readable formats like HTML or PDF.
+Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 * CSAF producers SHALL NOT emit messages that contain HTML, even though all variants of Markdown permit it.
 * Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the cmark Markdown processor [GFMCMARK].
@@ -1892,5 +1915,5 @@ Zach | Turk | Microsoft
 # Appendix B. Revision History
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20200927 | 2020-09-27 | Stefan Hagen | Initial working draft |
+| csaf-v2.0-wd20200929 | 2020-09-29 | Stefan Hagen | Initial working draft |
 
