@@ -44,9 +44,9 @@
             ]
           }
         },
-        "description": {
-          "title": "Description of the acknowledgment",
-          "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
+        "details": {
+          "title": "Details of the acknowledgment",
+          "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.",
           "type": "string",
           "minLength": 1,
           "examples": [
@@ -284,11 +284,11 @@
         "type": "object",
         "required": [
           "url",
-          "description"
+          "details"
         ],
         "properties": {
-          "description": {
-            "title": "Description of reference",
+          "details": {
+            "title": "Details of the reference",
             "description": "Indicates what this reference refers to.",
             "type": "string",
             "minLength": 1
@@ -596,7 +596,7 @@
                 "required": [
                   "number",
                   "date",
-                  "description"
+                  "details"
                 ],
                 "properties": {
                   "number": {
@@ -608,8 +608,8 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "description": {
-                    "title": "Description of the revision",
+                  "details": {
+                    "title": "Details of the revision",
                     "description": "Holds a single non-empty string representing a short description of the changes.",
                     "type": "string",
                     "minLength": 1
@@ -684,8 +684,8 @@
               "product_ids"
             ],
             "properties": {
-              "description": {
-                "title": "Description of the product group",
+              "details": {
+                "title": "Details of the product group",
                 "description": "Gives a short, optional description of the group.",
                 "type": "string",
                 "minLength": 1,
@@ -906,8 +906,8 @@
                 "status"
               ],
               "properties": {
-                "description": {
-                  "title": "Description of involvement",
+                "details": {
+                  "title": "Details of the involvement",
                   "description": "Contains additional context regarding what is going on.",
                   "type": "string",
                   "minLength": 1
@@ -1010,7 +1010,7 @@
               "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
-                "description",
+                "discussion",
                 "type"
               ],
               "properties": {
@@ -1020,8 +1020,8 @@
                   "type": "string",
                   "format": "date-time"
                 },
-                "description": {
-                  "title": "Description of the remediation",
+                "discussion": {
+                  "title": "Discussion of the remediation",
                   "description": "Contains a thorough human-readable discussion of the remediation.",
                   "type": "string",
                   "minLength": 1
@@ -1068,7 +1068,7 @@
                         "system"
                       ]
                     },
-                    "description": {
+                    "details": {
                       "title": "Additional restart information",
                       "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
                       "type": "string",
@@ -1107,7 +1107,7 @@
               "description": "Contains the vulnerability kinetic information. This information can change as the vulnerability ages and new information becomes available.",
               "type": "object",
               "required": [
-                "description",
+                "discussion",
                 "type"
               ],
               "properties": {
@@ -1121,8 +1121,8 @@
                     "target_set"
                   ]
                 },
-                "description": {
-                  "title": "Description of the threat",
+                "discussion": {
+                  "title": "Discussion of the threat",
                   "description": "Represents a thorough human-readable discussion of the threat.",
                   "type": "string",
                   "minLength": 1
