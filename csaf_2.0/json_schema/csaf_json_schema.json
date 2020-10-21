@@ -67,62 +67,62 @@
         }
       }
     },
-    "branch_branches_t": {
-      "title": "Branch",
-      "description": "Is a part of the hierarchical structure of the product tree.",
-      "type": "object",
-      "maxProperties": 3,
-      "minProperties": 3,
-      "required": [
-        "name",
-        "type"
-      ],
-      "properties": {
-        "name": {
-          "title": "Name of the branch",
-          "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
-          "type": "string",
-          "minLength": 1,
-          "examples": [
-            "Microsoft",
-            "Siemens",
-            "Windows",
-            "Office",
-            "SIMATIC",
-            "10",
-            "365",
-            "PCS 7"
-          ]
-        },
-        "type": {
-          "title": "Type of the branch",
-          "description": "Describes the characteristics of the labeled branch.",
-          "type": "string",
-          "enum": [
-            "architecture",
-            "host_name",
-            "language",
-            "legacy",
-            "patch_level",
-            "product_family",
-            "product_name",
-            "product_version",
-            "service_pack",
-            "specification",
-            "vendor"
-          ]
-        },
-        "branches": {
-          "title": "List of branches",
-          "description": "Contains branch elements as children of the current element.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/branch_branches_t"
+    "branches_t": {
+      "title": "List of branches",
+      "description": "Contains branch elements as children of the current element.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "title": "Branch",
+        "description": "Is a part of the hierarchical structure of the product tree.",
+        "type": "object",
+        "maxProperties": 3,
+        "minProperties": 3,
+        "required": [
+          "name",
+          "type"
+        ],
+        "properties": {
+          "name": {
+            "title": "Name of the branch",
+            "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "Microsoft",
+              "Siemens",
+              "Windows",
+              "Office",
+              "SIMATIC",
+              "10",
+              "365",
+              "PCS 7"
+            ]
+          },
+          "type": {
+            "title": "Type of the branch",
+            "description": "Describes the characteristics of the labeled branch.",
+            "type": "string",
+            "enum": [
+              "architecture",
+              "host_name",
+              "language",
+              "legacy",
+              "patch_level",
+              "product_family",
+              "product_name",
+              "product_version",
+              "service_pack",
+              "specification",
+              "vendor"
+            ]
+          },
+          "branches": {
+            "$ref": "#/definitions/branches_t"
+          },
+          "product": {
+            "$ref": "#/definitions/full_product_name_t"
           }
-        },
-        "product": {
-          "$ref": "#/definitions/full_product_name_t"
         }
       }
     },
@@ -653,13 +653,7 @@
       "minProperties": 1,
       "properties": {
         "branches": {
-          "title": "List of branches",
-          "description": "Contains branch elements as children of the current element.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/branch_branches_t"
-          }
+          "$ref": "#/definitions/branches_t"
         },
         "full_product_names": {
           "title": "List of full product names",
