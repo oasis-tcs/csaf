@@ -5,64 +5,70 @@
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
   "definitions": {
-    "acknowledgment_t": {
-      "title": "Acknowledgement",
-      "description": "Acknowledges contributions by describing those that contributed.",
-      "type": "object",
-      "minProperties": 1,
-      "properties": {
-        "names": {
-          "title": "List of acknowledged names",
-          "description": "Contains the names of entities being recognized.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "title": "Name of entity being recognized",
-            "description": "Contains the name of a single person.",
+    "acknowledgments_t": {
+      "title": "List of acknowledgements",
+      "description": "Contains a list of acknowledgement elements.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "title": "Acknowledgement",
+        "description": "Acknowledges contributions by describing those that contributed.",
+        "type": "object",
+        "minProperties": 1,
+        "properties": {
+          "names": {
+            "title": "List of acknowledged names",
+            "description": "Contains the names of entities being recognized.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "title": "Name of entity being recognized",
+              "description": "Contains the name of a single person.",
+              "type": "string",
+              "minLength": 1,
+              "examples": [
+                "Johann Sebastian Bach",
+                "Albert Einstein"
+              ]
+            }
+          },
+          "organizations": {
+            "title": "List of contributing organizations",
+            "description": "Contains the names of contributing organizations being recognized.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "title": "Contributing organization",
+              "description": "Contains the name of a single organization.",
+              "type": "string",
+              "minLength": 1,
+              "examples": [
+                "CISA",
+                "Talos",
+                "Google Project Zero"
+              ]
+            }
+          },
+          "description": {
+            "title": "Description of the acknowledgment",
+            "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
             "type": "string",
             "minLength": 1,
             "examples": [
-              "Johann Sebastian Bach",
-              "Albert Einstein"
+              "First analysis of Coordinated Multi-Stream Attack (CMSA)"
             ]
-          }
-        },
-        "organizations": {
-          "title": "List of contributing organizations",
-          "description": "Contains the names of contributing organizations being recognized.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "title": "Contributing organization",
-            "description": "Contains the name of a single organization.",
-            "type": "string",
-            "minLength": 1,
-            "examples": [
-              "CISA",
-              "Talos",
-              "Google Project Zero"
-            ]
-          }
-        },
-        "description": {
-          "title": "Description of the acknowledgment",
-          "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties",
-          "type": "string",
-          "minLength": 1,
-          "examples": [
-            "First analysis of Coordinated Multi-Stream Attack (CMSA)"
-          ]
-        },
-        "urls": {
-          "title": "List of URLs",
-          "description": "Specifies a list of URLs or location of the reference to be acknowledged.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "title": "URL of acknowledgment",
-            "description": "Contains the URL or location of the reference to be acknowledged.",
-            "type": "string",
-            "format": "uri"
+          },
+          "urls": {
+            "title": "List of URLs",
+            "description": "Specifies a list of URLs or location of the reference to be acknowledged.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "title": "URL of acknowledgment",
+              "description": "Contains the URL or location of the reference to be acknowledged.",
+              "type": "string",
+              "format": "uri"
+            }
           }
         }
       }
@@ -342,13 +348,7 @@
       ],
       "properties": {
         "acknowledgments": {
-          "title": "List of acknowledgements",
-          "description": "Contains a list of acknowledgement elements.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/acknowledgment_t"
-          }
+          "$ref": "#/definitions/acknowledgments_t"
         },
         "aggregate_severity" : {
           "title": "Aggregate severity",
@@ -755,13 +755,7 @@
         "minProperties": 1,
         "properties": {
           "acknowledgments": {
-            "title": "List of acknowledgements",
-            "description": "Contains a list of acknowledgement elements.",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "$ref": "#/definitions/acknowledgment_t"
-            }
+            "$ref": "#/definitions/acknowledgments_t"
           },
           "cve": {
             "title": "CVE",
