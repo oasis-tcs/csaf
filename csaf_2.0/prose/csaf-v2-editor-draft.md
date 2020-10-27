@@ -305,7 +305,7 @@ https://www.iso.org/standard/45170.html.
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 ###### [RFC7464]
-N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 8259, DOI 10.17487/RFC7464, February 2015, http://www.rfc-editor.org/info/rfc7464.
+N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, http://www.rfc-editor.org/info/rfc7464.
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
 http://dx.doi.org/10.6028/NIST.SP.800-126r2.
