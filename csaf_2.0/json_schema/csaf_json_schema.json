@@ -6,12 +6,12 @@
   "type": "object",
   "definitions": {
     "acknowledgments_t": {
-      "title": "List of acknowledgements",
-      "description": "Contains a list of acknowledgement elements.",
+      "title": "List of acknowledgments",
+      "description": "Contains a list of acknowledgment elements.",
       "type": "array",
       "minItems": 1,
       "items": {
-        "title": "Acknowledgement",
+        "title": "Acknowledgment",
         "description": "Acknowledges contributions by describing those that contributed.",
         "type": "object",
         "minProperties": 1,
