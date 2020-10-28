@@ -49,8 +49,8 @@
               ]
             }
           },
-          "details": {
-            "title": "Details of the acknowledgment",
+          "summary": {
+            "title": "Summary of the acknowledgment",
             "description": "SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.",
             "type": "string",
             "minLength": 1,
@@ -290,11 +290,11 @@
         "type": "object",
         "required": [
           "url",
-          "details"
+          "summary"
         ],
         "properties": {
-          "details": {
-            "title": "Details of the reference",
+          "summary": {
+            "title": "Summary of the reference",
             "description": "Indicates what this reference refers to.",
             "type": "string",
             "minLength": 1
@@ -596,7 +596,7 @@
                 "required": [
                   "number",
                   "date",
-                  "details"
+                  "summary"
                 ],
                 "properties": {
                   "number": {
@@ -608,8 +608,8 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "details": {
-                    "title": "Details of the revision",
+                  "summary": {
+                    "title": "Summary of the revision",
                     "description": "Holds a single non-empty string representing a short description of the changes.",
                     "type": "string",
                     "minLength": 1
@@ -677,8 +677,8 @@
               "product_ids"
             ],
             "properties": {
-              "details": {
-                "title": "Details of the product group",
+              "summary": {
+                "title": "Summary of the product group",
                 "description": "Gives a short, optional description of the group.",
                 "type": "string",
                 "minLength": 1,
@@ -893,8 +893,8 @@
                 "status"
               ],
               "properties": {
-                "details": {
-                  "title": "Details of the involvement",
+                "summary": {
+                  "title": "Summary of the involvement",
                   "description": "Contains additional context regarding what is going on.",
                   "type": "string",
                   "minLength": 1
@@ -997,7 +997,7 @@
               "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
-                "discussion",
+                "details",
                 "type"
               ],
               "properties": {
@@ -1007,8 +1007,8 @@
                   "type": "string",
                   "format": "date-time"
                 },
-                "discussion": {
-                  "title": "Discussion of the remediation",
+                "details": {
+                  "title": "Details of the remediation",
                   "description": "Contains a thorough human-readable discussion of the remediation.",
                   "type": "string",
                   "minLength": 1
@@ -1094,7 +1094,7 @@
               "description": "Contains the vulnerability kinetic information. This information can change as the vulnerability ages and new information becomes available.",
               "type": "object",
               "required": [
-                "discussion",
+                "details",
                 "type"
               ],
               "properties": {
@@ -1108,8 +1108,8 @@
                     "target_set"
                   ]
                 },
-                "discussion": {
-                  "title": "Discussion of the threat",
+                "details": {
+                  "title": "Details of the threat",
                   "description": "Represents a thorough human-readable discussion of the threat.",
                   "type": "string",
                   "minLength": 1
