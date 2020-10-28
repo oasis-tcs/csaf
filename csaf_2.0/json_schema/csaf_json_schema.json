@@ -6,32 +6,42 @@
   "type": "object",
   "definitions": {
     "acknowledgment_t": {
+      "title": "Acknowledgement",
+      "description": "Acknowledges contributions by describing those that contributed.",
       "type": "object",
       "minProperties": 1,
       "properties": {
         "names": {
-          "title": "Names of entities being recognized",
-          "description": "Typically the name of a person belonging to an organization",
-          "examples": [
-            "Johann Sebastian Bach",
-            "Albert Einstein"
-          ],
+          "title": "List of acknowledged names",
+          "description": "Contains the names of entities being recognized.",
+          "type": "array",
+          "minItems": 1,
           "items": {
+            "title": "Name of entity being recognized",
+            "description": "Contains the name of a single person.",
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "examples": [
+              "Johann Sebastian Bach",
+              "Albert Einstein"
+            ]
           }
         },
         "organizations": {
           "title": "List of contributing organizations",
-          "description": "The list of contributing organizations",
-          "examples": [
-            "US-CERT",
-            "Talos",
-            "Google Project Zero"
-          ],
+          "description": "Contains the names of contributing organizations being recognized.",
+          "type": "array",
+          "minItems": 1,
           "items": {
+            "title": "Contributing organization",
+            "description": "Contains the name of a single organization.",
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "examples": [
+              "CISA",
+              "Talos",
+              "Google Project Zero"
+            ]
           }
         },
         "description": {
@@ -44,6 +54,8 @@
           ]
         },
         "urls": {
+          "title": "List of URLs",
+          "description": "Specifies a list of URLs or location of the reference to be acknowledged.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -101,6 +113,8 @@
           ]
         },
         "branches": {
+          "title": "List of branches",
+          "description": "Contains branch elements as children of the current element.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -113,6 +127,8 @@
       }
     },
     "full_product_name_t": {
+      "title": "Full product name",
+      "description": "Specifies information about the product and assigns the product_id.",
       "type": "object",
       "required": [
         "product_id",
@@ -124,7 +140,7 @@
         },
         "name": {
           "title": "Textual description of the product",
-          "description": "The value of a Full Product Name element should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
+          "description": "The value should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
           "type": "string",
           "minLength": 1,
           "examples": [
@@ -156,6 +172,8 @@
       ]
     },
     "notes_t": {
+      "title": "List of notes",
+      "description": "Contains notes which are specific to the current context.",
       "type": "array",
       "minItems": 1,
       "items": {
@@ -271,7 +289,7 @@
         "properties": {
           "description": {
             "title": "Description of reference",
-            "description": "What does this reference refer to?",
+            "description": "Indicates what this reference refers to.",
             "type": "string",
             "minLength": 1
           },
@@ -324,6 +342,8 @@
       ],
       "properties": {
         "acknowledgments": {
+          "title": "List of acknowledgements",
+          "description": "Contains a list of acknowledgement elements.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -372,7 +392,7 @@
           "minProperties": 1,
           "properties": {
             "text": {
-              "title": "Description",
+              "title": "Textual description",
               "description": "Provides a textual description of additional constraints.",
               "type": "string",
               "minLength": 1,
@@ -404,7 +424,6 @@
                 "url": {
                   "title": "URL of TLP version",
                   "description": "Provides a URL where to find the textual description of the TLP version which is used in this document. Default is the URL to the definition by FIRST.",
-
                   "type": "string",
                   "default": "https://www.first.org/tlp/",
                   "format": "uri",
@@ -423,13 +442,13 @@
           "$ref": "#/definitions/lang_t"
         },
         "source_lang": {
-          "title": "Original translation",
-          "description": "If this copy of the document is a translation, from which language was this document translated?",
+          "title": "Source language",
+          "description": "If this copy of the document is a translation then the value of this property describes from which language this document was translated.",
           "$ref": "#/definitions/lang_t"
         },
         "notes": {
           "title": "Notes associated with the whole document.",
-          "description": "Notes about this set of vulnerabilities should be added here.",
+          "description": "Holds notes about this set of vulnerabilities.",
           "$ref": "#/definitions/notes_t"
         },
         "publisher": {
@@ -489,6 +508,8 @@
           ]
         },
         "tracking": {
+          "title": "Tracking",
+          "description": "Is a container designated to hold all management attributes necessary to track a CSAF document as a whole.",
           "type": "object",
           "required": [
             "current_release_date",
@@ -511,11 +532,14 @@
               ]
             },
             "aliases": {
+              "title": "Aliases",
+              "description": "Contains a list of alternate names for the same document.",
               "type": "array",
               "minItems": 1,
+              "uniqueItems": true,
               "items": {
                 "title": "Alternate name",
-                "description": "Alternate names for the same vulnerability.",
+                "description": "Specifies a non-empty string that represents a distinct optional alternative ID used to refer to the document.",
                 "type": "string",
                 "minLength": 1,
                 "examples": [
@@ -525,13 +549,13 @@
             },
             "current_release_date": {
               "title": "Current release date",
-              "description": "The date of the current revision of this document was released",
+              "description": "The date when the current revision of this document was released",
               "type": "string",
               "format": "date-time"
             },
             "generator": {
               "title": "Document generator",
-              "description": "It is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.",
+              "description": "Is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.",
               "type": "object",
               "required": [
                 "engine"
@@ -558,11 +582,13 @@
             },
             "initial_release_date": {
               "title": "Initial release date",
-              "description": "The date that this document was first published.",
+              "description": "The date when this document was first published.",
               "type": "string",
               "format": "date-time"
             },
             "revision_history": {
+              "title": "Revision history",
+              "description": "Contains all the information elements required to track the evolution of a CSAF document.",
               "type": "array",
               "minItems": 1,
               "items": {
@@ -583,6 +609,8 @@
                     "format": "date-time"
                   },
                   "description": {
+                    "title": "Description of the revision",
+                    "description": "Holds a single non-empty string representing a short description of the changes.",
                     "type": "string",
                     "minLength": 1
                   }
@@ -605,17 +633,28 @@
           }
         },
         "type": {
+          "title": "Document type",
+          "description": "Defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.",
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "examples": [
+            "Security Advisory",
+            "Security Notice",
+            "Vulnerability Report"
+          ]
         }
       }
     },
     "product_tree": {
       "$comment": "Currently only supports branch_t and full_product_name_t children of product_tree",
+      "title": "Product tree",
+      "description": "Is a container for all fully qualified product names that can be referenced elsewhere in the document.",
       "type": "object",
       "minProperties": 1,
       "properties": {
         "branches": {
+          "title": "List of branches",
+          "description": "Contains branch elements as children of the current element.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -623,6 +662,8 @@
           }
         },
         "full_product_names": {
+          "title": "List of full product names",
+          "description": "Contains a list of full product names.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -630,6 +671,8 @@
           }
         },
         "product_groups": {
+          "title": "List of product groups",
+          "description": "Contains a list of product groups.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -655,7 +698,7 @@
                 "$ref": "#/definitions/product_group_id_t"
               },
               "product_ids": {
-                "title": "List of product_ids",
+                "title": "List of Product IDs",
                 "description": "Lists the product_ids of those products which known as one group in the document.",
                 "type": "array",
                 "minItems": 2,
@@ -667,6 +710,8 @@
           }
         },
         "relationships": {
+          "title": "List of relationships",
+          "description": "Contains a list of relationships.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -710,6 +755,8 @@
       }
     },
     "vulnerabilities": {
+      "title": "Vulnerabilities",
+      "description": "Represents a list of all relevant vulnerability information items.",
       "type": "array",
       "minItems": 1,
       "items": {
@@ -719,6 +766,8 @@
         "minProperties": 1,
         "properties": {
           "acknowledgments": {
+            "title": "List of acknowledgements",
+            "description": "Contains a list of acknowledgement elements.",
             "type": "array",
             "minItems": 1,
             "items": {
@@ -726,19 +775,41 @@
             }
           },
           "cve": {
+            "title": "CVE",
+            "description": "Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.",
             "type": "string",
             "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$"
           },
           "cwe": {
+            "title": "CWE",
+            "description": "Holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.",
             "type": "object",
+            "required": [
+              "id",
+              "name"
+            ],
             "properties": {
               "id": {
+                "title": "Weakness ID",
+                "description": "Holds the ID for the weakness associated.",
                 "type": "string",
-                "pattern": "^CWE-[1-9]\\d{0,5}$"
+                "pattern": "^CWE-[1-9]\\d{0,5}$",
+                "examples": [
+                  "CWE-79",
+                  "CWE-22",
+                  "CWE-352"
+                ]
               },
-              "description": {
+              "name": {
+                "title": "Weakness name",
+                "description": "Holds the full name of the weakness as given in the CWE specification.",
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "examples": [
+                  "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                  "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+                  "Cross-Site Request Forgery (CSRF)"
+                ]
               }
             }
           },
@@ -772,10 +843,14 @@
             }
           },
           "discovery_date": {
+            "title": "Discovery date",
+            "description": "Holds the date and time the vulnerability was originally discovered.",
             "type": "string",
             "format": "date-time"
           },
           "id": {
+            "title": "ID",
+            "description": "Gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).",
             "type": "object",
             "required": [
               "system_name",
@@ -786,15 +861,25 @@
                 "title": "System name",
                 "description": "Indicates the name of the vulnerability tracking or numbering system.",
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "examples": [
+                  "Cisco Bug ID"
+                ]
               },
               "text": {
+                "title": "Text",
+                "description": "Is unique label or tracking ID for the vulnerability (if such information exists).",
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "examples": [
+                  "CSCso66472"
+                ]
               }
             }
           },
           "involvements": {
+            "title": "List of involvements",
+            "description": "Contains a list of involvements.",
             "type": "array",
             "minItems": 1,
             "items": {
@@ -807,6 +892,8 @@
               ],
               "properties": {
                 "description": {
+                  "title": "Description of involvement",
+                  "description": "Contains additional context regarding what is going on.",
                   "type": "string",
                   "minLength": 1
                 },
@@ -893,14 +980,18 @@
             "$ref": "#/definitions/references_t"
           },
           "release_date": {
+            "title": "Release date",
+            "description": "Holds the date and time the vulnerability was originally released into the wild.",
             "type": "string",
             "format": "date-time"
           },
           "remediations": {
+            "title": "List of remediations",
+            "description": "Contains a list of remediations.",
             "type": "array",
             "minItems": 1,
             "items": {
-              "title": "Remedation",
+              "title": "Remediation",
               "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
@@ -909,6 +1000,8 @@
               ],
               "properties": {
                 "date": {
+                  "title": "Date of the remediation",
+                  "description": "Contains the date from which the remediation is available.",
                   "type": "string",
                   "format": "date-time"
                 },
@@ -919,6 +1012,8 @@
                   "minLength": 1
                 },
                 "entitlements": {
+                  "title": "List of entitlements",
+                  "description": "Contains a list of entitlements.",
                   "type": "array",
                   "minItems": 1,
                   "items": {
@@ -988,6 +1083,8 @@
             }
           },
           "threats": {
+            "title": "List of threats",
+            "description": "Contains information about a vulnerability that can change with time.",
             "type": "array",
             "minItems": 1,
             "items": {
@@ -1016,6 +1113,8 @@
                   "minLength": 1
                 },
                 "date": {
+                  "title": "Date of the threat",
+                  "description": "Contains the date when the assessment was done or the threat appeared.",
                   "type": "string",
                   "format": "date-time"
                 },
@@ -1029,6 +1128,8 @@
             }
           },
           "title": {
+            "title": "Title",
+            "description": "Gives the document producer the ability to apply a canonical name or title to the vulnerability.",
             "type": "string",
             "minLength": 1
           }
