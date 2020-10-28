@@ -759,14 +759,14 @@
                 "products": {
                   "$ref": "#/definitions/products_t"
                 },
-                "cvss_v20": {
+                "cvss_v2": {
                   "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
                 },
-                "cvss_v30": {
-                  "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
-                },
-                "cvss_v31": {
-                  "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                "cvss_v3": {
+                  "oneOf": [
+                    {"$ref": "https://www.first.org/cvss/cvss-v3.0.json"},
+                    {"$ref": "https://www.first.org/cvss/cvss-v3.1.json"}
+                  ]
                 }
               }
             }
