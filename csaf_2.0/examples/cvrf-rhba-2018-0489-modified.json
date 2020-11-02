@@ -17,7 +17,7 @@
         {
           "number": "1",
           "date": "2018-03-28T13:49:00Z",
-          "description": "Current version"
+          "summary": "Current version"
         }
       ],
       "initial_release_date": "2018-03-28T13:49:00Z",
@@ -50,1259 +50,1259 @@
     "references": [
       {
         "url": "https://access.redhat.com/errata/RHBA-2018:0489",
-        "description": "https://access.redhat.com/errata/RHBA-2018:0489"
+        "summary": "https://access.redhat.com/errata/RHBA-2018:0489"
       },
       {
         "url": "https://access.redhat.com/security/cve/CVE-2017-15137",
-        "description": "https://access.redhat.com/security/cve/CVE-2017-15137"
+        "summary": "https://access.redhat.com/security/cve/CVE-2017-15137"
       },
       {
         "url": "https://access.redhat.com/security/cve/CVE-2017-15138",
-        "description": "https://access.redhat.com/security/cve/CVE-2017-15138"
+        "summary": "https://access.redhat.com/security/cve/CVE-2017-15138"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1333030",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1333030"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1333030"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1378883",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1378883"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1378883"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1383707",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1383707"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1383707"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1396404",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1396404"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1396404"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1419801",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1419801"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1419801"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1430322",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1430322"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1430322"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1440892",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1440892"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1440892"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1463617",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1463617"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1463617"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1463844",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1463844"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1463844"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1464657",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1464657"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1464657"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1466216",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1466216"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1466216"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1467557",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1467557"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1467557"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1469411",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1469411"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1469411"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1480835",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1480835"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1480835"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1483579",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1483579"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1483579"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1488380",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1488380"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1488380"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1489603",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1489603"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1489603"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1491100",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1491100"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1491100"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1491717",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1491717"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1491717"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1493955",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1493955"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1493955"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1496256",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1496256"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1496256"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1496261",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1496261"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1496261"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1496758",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1496758"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1496758"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1497038",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1497038"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1497038"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1497408",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1497408"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1497408"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1500207",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1500207"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1500207"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1500225",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1500225"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1500225"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1500897",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1500897"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1500897"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1501254",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1501254"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1501254"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1502838",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1502838"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1502838"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1502850",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1502850"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1502850"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1502945",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1502945"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1502945"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1503260",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1503260"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1503260"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1503601",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1503601"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1503601"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1504075",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1504075"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1504075"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1504464",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1504464"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1504464"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1505558",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1505558"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1505558"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1505681",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1505681"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1505681"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1505796",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1505796"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1505796"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1506177",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1506177"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1506177"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1506651",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1506651"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1506651"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1506750",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1506750"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1506750"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1506866",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1506866"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1506866"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1507424",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1507424"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1507424"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1507469",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1507469"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1507469"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1507816",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1507816"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1507816"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508310",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508310"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508310"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508346",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508346"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508346"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508352",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508352"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508352"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508391",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508391"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508391"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508496",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508496"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508496"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508561",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508561"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508561"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508563",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508563"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508563"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508761",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508761"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508761"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1508781",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1508781"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1508781"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1509028",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1509028"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1509028"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1509082",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1509082"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1509082"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1509129",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1509129"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1509129"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1509661",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1509661"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1509661"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1509799",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1509799"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1509799"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1509853",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1509853"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1509853"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1510174",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1510174"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1510174"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1510178",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1510178"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1510178"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1510294",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1510294"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1510294"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1510486",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1510486"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1510486"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1510573",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1510573"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1510573"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1510786",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1510786"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1510786"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1510804",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1510804"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1510804"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1511097",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1511097"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1511097"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1511400",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1511400"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1511400"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1511576",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1511576"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1511576"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1511852",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1511852"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1511852"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1512473",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1512473"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1512473"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1512825",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1512825"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1512825"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1513706",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1513706"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1513706"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1513859",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1513859"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1513859"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1515058",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1515058"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1515058"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1515060",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1515060"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1515060"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1515527",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1515527"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1515527"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1515972",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1515972"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1515972"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1516569",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1516569"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1516569"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1517605",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1517605"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1517605"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1517875",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1517875"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1517875"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1518386",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1518386"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1518386"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1518502",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1518502"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1518502"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1518684",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1518684"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1518684"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1518912",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1518912"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1518912"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1519060",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1519060"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1519060"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1519193",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1519193"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1519193"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1519619",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1519619"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1519619"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1519991",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1519991"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1519991"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1521151",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1521151"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1521151"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1523142",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1523142"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1523142"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1523354",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1523354"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1523354"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1523534",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1523534"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1523534"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1523638",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1523638"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1523638"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1523681",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1523681"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1523681"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1524379",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1524379"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1524379"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1524707",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1524707"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1524707"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1524805",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1524805"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1524805"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1524883",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1524883"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1524883"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1525426",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1525426"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1525426"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1525817",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1525817"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1525817"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1525819",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1525819"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1525819"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1526887",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1526887"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1526887"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1526949",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1526949"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1526949"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1527210",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1527210"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1527210"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1527346",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1527346"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1527346"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1527602",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1527602"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1527602"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1527685",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1527685"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1527685"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1527689",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1527689"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1527689"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1528135",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1528135"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1528135"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1528548",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1528548"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1528548"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1528570",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1528570"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1528570"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1528613",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1528613"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1528613"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1529070",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1529070"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1529070"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1529083",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1529083"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1529083"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1529467",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1529467"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1529467"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1529473",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1529473"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1529473"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1529478",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1529478"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1529478"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1530162",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1530162"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1530162"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1530203",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1530203"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1530203"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1530366",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1530366"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1530366"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1530403",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1530403"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1530403"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1530924",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1530924"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1530924"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1531157",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1531157"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1531157"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1531511",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1531511"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1531511"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1531513",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1531513"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1531513"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1531558",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1531558"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1531558"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532060",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532060"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532060"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532149",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532149"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532149"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532512",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532512"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532512"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532936",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532936"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532936"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532942",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532942"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532942"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532955",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532955"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532955"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532960",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532960"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532960"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532966",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532966"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532966"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532967",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532967"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532967"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532972",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532972"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532972"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532975",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532975"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532975"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532981",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532981"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532981"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1532986",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1532986"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1532986"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533099",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533099"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533099"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533153",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533153"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533153"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533208",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533208"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533208"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533318",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533318"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533318"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533348",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533348"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533348"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533363",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533363"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533363"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533658",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533658"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533658"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533753",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533753"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533753"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1533818",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1533818"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1533818"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534316",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534316"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534316"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534320",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534320"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534320"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534467",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534467"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534467"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534514",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534514"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534514"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534715",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534715"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534715"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534720",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534720"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534720"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534858",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534858"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534858"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534879",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534879"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534879"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534883",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534883"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534883"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534895",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534895"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534895"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534922",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534922"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534922"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534933",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534933"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534933"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534955",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534955"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534955"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1534957",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1534957"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1534957"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535182",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535182"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535182"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535270",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535270"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535270"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535277",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535277"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535277"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535314",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535314"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535314"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535323",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535323"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535323"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535402",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535402"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535402"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535639",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535639"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535639"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535902",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535902"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535902"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535917",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535917"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535917"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535929",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535929"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535929"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535931",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535931"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535931"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535940",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535940"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535940"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1535976",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1535976"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1535976"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536088",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536088"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536088"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536217",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536217"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536217"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536253",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536253"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536253"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536289",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536289"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536289"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536362",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536362"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536362"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536629",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536629"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536629"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536659",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536659"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536659"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1536839",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1536839"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1536839"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537105",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537105"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537105"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537237",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537237"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537237"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537367",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537367"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537367"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537426",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537426"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537426"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537726",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537726"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537726"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537857",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537857"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537857"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537873",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537873"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537873"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537946",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537946"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537946"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1537955",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1537955"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1537955"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538044",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538044"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538044"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538048",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538048"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538048"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538216",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538216"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538216"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538321",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538321"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538321"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538389",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538389"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538389"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538445",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538445"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538445"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538452",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538452"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538452"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538581",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538581"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538581"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538722",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538722"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538722"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538732",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538732"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538732"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538806",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538806"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538806"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538922",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538922"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538922"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538943",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538943"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538943"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538960",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538960"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538960"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538969",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538969"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538969"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538974",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538974"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538974"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538986",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538986"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538986"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538988",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538988"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538988"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1538995",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1538995"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1538995"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539102",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539102"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539102"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539187",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539187"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539187"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539308",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539308"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539308"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539382",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539382"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539382"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539542",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539542"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539542"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539566",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539566"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539566"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539840",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539840"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539840"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539859",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539859"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539859"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539892",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539892"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539892"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1539987",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1539987"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1539987"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540039",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540039"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540039"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540080",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540080"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540080"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540462",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540462"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540462"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540487",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540487"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540487"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540490",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540490"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540490"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540521",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540521"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540521"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540526",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540526"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540526"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540729",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540729"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540729"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540785",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540785"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540785"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540812",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540812"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540812"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540822",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540822"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540822"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540840",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540840"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540840"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540842",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540842"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540842"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540846",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540846"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540846"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540848",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540848"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540848"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540866",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540866"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540866"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540912",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540912"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540912"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540916",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540916"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540916"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1540976",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1540976"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1540976"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1541247",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1541247"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1541247"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1541263",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1541263"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1541263"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1541265",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1541265"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1541265"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1541339",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1541339"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1541339"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1541461",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1541461"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1541461"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1541589",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1541589"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1541589"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1541946",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1541946"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1541946"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542099",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542099"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542099"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542238",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542238"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542238"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542324",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542324"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542324"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542397",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542397"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542397"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542406",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542406"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542406"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542612",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542612"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542612"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542669",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542669"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542669"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542781",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542781"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542781"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542855",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542855"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542855"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542861",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542861"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542861"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1542868",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1542868"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1542868"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543122",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543122"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543122"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543229",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543229"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543229"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543256",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543256"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543256"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543324",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543324"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543324"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543446",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543446"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543446"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543478",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543478"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543478"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543511",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543511"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543511"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543521",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543521"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543521"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543532",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543532"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543532"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543625",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543625"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543625"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543714",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543714"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543714"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543771",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543771"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543771"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543830",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543830"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543830"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1543869",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1543869"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1543869"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544027",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544027"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544027"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544083",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544083"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544083"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544207",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544207"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544207"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544360",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544360"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544360"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544387",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544387"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544387"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544645",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544645"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544645"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544657",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544657"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544657"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544815",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544815"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544815"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1544903",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1544903"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1544903"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1545011",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1545011"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1545011"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1545280",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1545280"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1545280"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1545828",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1545828"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1545828"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1546188",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1546188"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1546188"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1546293",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1546293"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1546293"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1546311",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1546311"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1546311"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1546365",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1546365"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1546365"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1546374",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1546374"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1546374"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1546854",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1546854"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1546854"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1547229",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1547229"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1547229"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1547284",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1547284"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1547284"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1547727",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1547727"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1547727"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1547898",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1547898"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1547898"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1547923",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1547923"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1547923"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1547944",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1547944"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1547944"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1548104",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1548104"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1548104"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1548485",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1548485"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1548485"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1548633",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1548633"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1548633"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1548641",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1548641"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1548641"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1548720",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1548720"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1548720"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1549491",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1549491"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1549491"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1549971",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1549971"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1549971"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1550140",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1550140"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1550140"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1550148",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1550148"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1550148"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1551775",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1551775"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1551775"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1552165",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1552165"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1552165"
       },
       {
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1552430",
-        "description": "https://bugzilla.redhat.com/show_bug.cgi?id=1552430"
+        "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1552430"
       }
     ]
   },
@@ -9094,20 +9094,20 @@
       },
       "threats": [
         {
-          "description": "Moderate",
+          "details": "Moderate",
           "type": "impact"
         }
       ],
       "remediations": [
         {
-          "description": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html",
+          "details": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html",
           "type": "vendor_fix",
           "url": "https://access.redhat.com/errata/RHBA-2018:0489"
         }
       ],
       "acknowledgments": [
         {
-          "description": "This issue was discovered by Ben Parees (Red Hat)."
+          "summary": "This issue was discovered by Ben Parees (Red Hat)."
         }
       ]
     },
@@ -9564,20 +9564,20 @@
       },
       "threats": [
         {
-          "description": "Moderate",
+          "details": "Moderate",
           "type": "impact"
         }
       ],
       "remediations": [
         {
-          "description": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html",
+          "details": "Before applying this update, ensure all previously released errata relevant to your system have been applied.\n\nFor instructions on new installations, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/install_config/install/planning.html\n\nFor instructions on how to properly upgrade existing clusters to OpenShift\nContainer Platform 3.9, see the following documentation:\n\nhttps://docs.openshift.com/container-platform/3.9/upgrading/index.html",
           "type": "vendor_fix",
           "url": "https://access.redhat.com/errata/RHBA-2018:0489"
         }
       ],
       "acknowledgments": [
         {
-          "description": "This issue was discovered by Jessica Forrester (Red Hat)."
+          "summary": "This issue was discovered by Jessica Forrester (Red Hat)."
         }
       ]
     }
