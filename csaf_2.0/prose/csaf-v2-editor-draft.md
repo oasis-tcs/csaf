@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 29 September 2020
+## 24 November 2020
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -426,13 +426,13 @@ The optional two additional properties are `product_tree` and `vulnerabilities`.
 
 ## 3.1 Definitions
 The definitions (`$defs`) introduce the following domain specific types into the CSAF language: 
-Acknowledgement (`acknowledgement_t`), Branch Branches (`branch_branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`), Products (`products_t`), Product Groups (`product_groups_t`), Product Group ID (`product_group_id_t`), Product ID (`product_id_t`), References (`references_t`), and Version (`version_t`).  
+Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`), Products (`products_t`), Product Groups (`product_groups_t`), Product Group ID (`product_group_id_t`), Product ID (`product_id_t`), References (`references_t`), and Version (`version_t`).  
 
     "$defs": {
-        "acknowledgment_t": {
+        "acknowledgments_t": {
             // ...
         },
-        "branch_branches_t": {
+        "branches_t": {
             // ...
         },
         "full_product_name_t": {
@@ -465,11 +465,11 @@ Acknowledgement (`acknowledgement_t`), Branch Branches (`branch_branches_t`), Fu
     },
 
 ### 3.1.1 Acknowledgment Type
-Acknowledgement (`acknowledgment_t`) type instances acknowledge contributions by describing those that contributed. 
-The value type is object with 1 to 4 properties. 
-The properties are: `names`, `organizations`, `description`, and `urls.
+List of Acknowledgments (`acknowledgments_t`) type instances of value type array with 1 or more elements contain a list of `Acknowledgment` elements.
+The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The properties are: `names`, `organizations`, `summary`, and `urls`.
 
-    "acknowledgment_t": {
+    "acknowledgments_t": {
       // ...
       "properties": {
         "names": {
@@ -504,13 +504,13 @@ Every such item of value type `string` with 1 or more characters represents the 
 
 Examples:
 
-    US-CERT
+    CISA
     Talos
     Google Project Zero
 
-#### 3.1.1.3 Acknowledgment Type - Description
+#### 3.1.1.3 Acknowledgment Type - Summary
 
-Description of the acknowledgment of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
+Summary of the acknowledgment of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
 
 Example:
 
@@ -518,16 +518,17 @@ Example:
 
 #### 3.1.1.4 Acknowledgment Type - URLs
 
-List of URLs (`urls`) of acknowledgement is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
+List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged. 
 Value type is string with format URI (`uri`).
 
 ### 3.1.2 Branch Type
 
-Branch (`branch_branches_t`) with value type `object` with exactly 3 properties is a part of the hierarchical structure of the product tree. 
+List of branches (`branches_t`) with value type `array` contains 1 or more `branch` elements as children of the current element.
+Every Branch (`branch`) holds exactly 3 properties and is a part of the hierarchical structure of the product tree. 
 The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
 
-    "branch_branches_t": {
+    "branches_t": {
       // ...
       "properties": {
         "name": {
@@ -544,6 +545,7 @@ The properties `name` and `type` are mandatory. In addition, the object contains
         }
       }
     },
+
 
 #### 3.1.2.1 Branch Type - Name
 
@@ -579,7 +581,7 @@ Valid `enum` values are:
 
 #### 3.1.2.3 Branch Type - Branches
 
-List of branches (`branches`) has the value type `array` providing 1 or more items of the Branch type (`branch_branches_t`). 
+List of branches (`branches`) has the value type `array` providing 1 or more items of the Branch type (`branches_t`). 
 
 #### 3.1.2.4 Branch Type - Product
 
@@ -604,7 +606,6 @@ The properties `product_id` and `name` are required. The property `cpe` is optio
       }
     },
 
-
 #### 3.1.3.1 Full Product Name Type - Product ID
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
@@ -621,7 +622,7 @@ Examples:
 
 #### 3.1.3.3 Full Product Name Type - CPE
 
-Common Platform Enumeration representation (`cpe`) of value type `string` with `pattern` (regular expression):
+Common Platform Enumeration representation (`cpe`) of value type `string` of 1 or more characters with `pattern` (regular expression):
 
     ^(?i)cpe:(/|\\d+\\.\\d+)[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*$
 
@@ -644,7 +645,8 @@ Examples:
     jp
 
 ### 3.1.5 Notes Type
-List of notes (`notes_t`) of value type `array` with 1 or more items of type Note contains notes which are specific to the current context. 
+List of notes (`notes_t`) of value type `array` with 1 or more items of type `Note` contains notes which are specific to the current context.
+
 
     "notes_t": {
       // ..
@@ -656,8 +658,9 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type Not
       }
     },
 
+
 Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context. 
-A note `object` may provide the additional properties audience and title.
+A note `object` may provide the additional properties `audience` and `title`.
 
     "properties": {
       "audience": {
@@ -766,11 +769,11 @@ List of references (`references_t`) of value type `array` with 1 or more items o
       }
     },
 
-Value type of every such Reference item is `object` with the mandatory properties `url` and `description` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer. 
+Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer. 
 A reference `object` may provide the additional property `type`.
 
     "properties": {
-      "description": {
+      "summary": {
         // ...
       },
       "type": {
@@ -781,7 +784,7 @@ A reference `object` may provide the additional property `type`.
       }
     }
 
-Description of reference (`description`) of value type `string` with 1 or more characters indicates what this reference refers to.
+Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
 Type of reference (`type`) of value type `string` as `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
 Valid `enum` values are:
@@ -798,7 +801,7 @@ The Version (`version_t`) type has value type `string` with `pattern` (regular e
 
     ^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$
 
-specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major.minor.patch.build' version.
+The `Version` specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major\[.minor\[.patch\[.build\]\]\]' version.
 
 Examples:
 
@@ -858,8 +861,8 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
       }
     },
 
-#### 3.2.1.1 Document Property - Acknowledgements
-List of acknowledgements (`acknowledgemtns`) of value type `array` with 1 or more items of type Acknowledgement (`acknowledgment_t`) contains a list of acknowledgement elements.
+#### 3.2.1.1 Document Property - Acknowledgments
+List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment (`acknowledgment_t`) contains a list of acknowledgment elements.
  
     "acknowledgments": {
       // ...
@@ -1155,20 +1158,20 @@ The Revision History (`revision_history`) with value type `array` of 1 or more R
               "date": {
                 // ...
               },
-              "description": {
+              "summary": {
                 // ...
               }
             }
           }
         },
 
-Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Description (`description`). 
+Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Summary (`summary`). 
 
 The Number (`number`) has value type Version (`version_t`). 
 
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
 
-The Description  of the revision (`description`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
+The Summary of the revision (`summary`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
 
 ##### 3.2.1.11.7 Document Property - Tracking - Status
 
@@ -1232,7 +1235,7 @@ List of product groups (`product_groups`) of value type `array` with 1 or more i
       "items": {
         // ...
         "properties": {
-          "description": {
+          "summary": {
             // ...
           },
           "group_id": {
@@ -1245,9 +1248,9 @@ List of product groups (`product_groups`) of value type `array` with 1 or more i
       }
     },
 
-The product group items are of value type `object` with the 2 mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and the optional Description (`description`) property.
+The product group items are of value type `object` with the 2 mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and the optional Summary (`summary`) property.
 
-The description of the product group (`description`) of type `string` with 1 or more characters gives a short, optional description of the group.
+The summary of the product group (`summary`) of type `string` with 1 or more characters gives a short, optional description of the group.
 
 Examples:
 
@@ -1356,10 +1359,10 @@ Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects
 
 #### 3.2.3.1 Vulnerabilities Property - Vulnerability
 Vulnerability ( `vulnerability`) of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document. 
-Any vulnerability may provide the optional properties Acknowledgements (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Scores (`scores`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Threats (`threats`),and Title (`title`). 
+Any vulnerability may provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Scores (`scores`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Threats (`threats`),and Title (`title`). 
 
 ##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
-List of acknowledgements (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgement (`acknowledgement_t`) contains a list of acknowledgement elements.
+List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment (`acknowledgment_t`) contains a list of acknowledgment elements.
 
 ##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
 CVE (`cve`) of value type `string` with `pattern` (regular expression):
@@ -1500,7 +1503,7 @@ List of involvements (`involvements`) of value type `array` with 1 or more items
       "items": {
         // ...
         "properties": {
-          "description": {
+          "summary": {
             // ...
           },
           "party": {
@@ -1513,9 +1516,9 @@ List of involvements (`involvements`) of value type `array` with 1 or more items
       }
     },
 
-Involvement (`involvement`) of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Description (`description`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process. 
+Involvement (`involvement`) of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process. 
 
-Description of involvement ( `description`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
+Summary of involvement ( `summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
 Party type (`party`) of value type `string`and `enum` defines the type of the involved party.
 Valid values are:
@@ -1597,7 +1600,7 @@ Release date (`release_date`) with value type `string` of format `date-time` hol
 
 ##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Remediations
 List of remediations (`remediations`) of value type `array`with 1 or more Remediation items of type `object` contains a list of remediations.
-Remediation of value type `object` with the 2 mandatory properties Description (`description`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Remediation of value type `object` with the 2 mandatory properties Summary (`summary`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
 In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
     "remediations": {
@@ -1608,7 +1611,7 @@ In addition, any Remediation may expose the six optional properties Date (`date`
           "date": {
             // ...
           },
-          "description": {
+          "details": {
             // ...
           },
           "entitlements": {
@@ -1626,7 +1629,7 @@ In addition, any Remediation may expose the six optional properties Date (`date`
               "type": {
                 // ...
               },
-              "description": {
+              "details": {
                 // ...
               }
             }
@@ -1643,7 +1646,7 @@ In addition, any Remediation may expose the six optional properties Date (`date`
 
 Date of the remediation (`date`) of value type `string`with format `date-time` contains the date from which the remediation is available.
 
-Description of the remediation (`description`) of value type `string`with 1 or more characters contains a thorough human-readable discussion of the remediation.
+Details of the remediation (`deatils`) of value type `string`with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
@@ -1652,7 +1655,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
-Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Description (`description`) provides information on type of restart is required by this remediation to become effective.
+Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
 Type of restart (`type`) of value type `string`and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
 
@@ -1666,7 +1669,7 @@ Valid values are:
     zone
     system
 
-Additional restart information (`description`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
+Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
 Valid values are:
@@ -1682,7 +1685,7 @@ URL (`url`) of value type `string`with format `uri` contains the URL where to ob
 
 ##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
-A Threat item is of value type `object` with the two mandatory properties Description (`description`) and Type (`type`) and contains the vulnerability kinetic information. 
+A Threat item is of value type `object` with the two mandatory properties Details (`deatils`) and Type (`type`) and contains the vulnerability kinetic information. 
 This information can change as the vulnerability ages and new information becomes available.
 In addition, threat items may provide the three optional properties Date (`date`), Product IDs (`product_ids`) and Group IDs (`group_ids`). 
 
@@ -1694,7 +1697,7 @@ In addition, threat items may provide the three optional properties Date (`date`
           "type": {
             // ...
           },
-          "description": {
+          "details": {
             // ...
           },
           "date": {
@@ -1717,7 +1720,7 @@ Valid values are:
     exploit_status
     target_set
 
-Description of the threat (`description`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
+Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
 
 Date of the threat (`date`) of value type `string`with format `date-time` contains the date when the assessment was done or the threat appeared.
 
