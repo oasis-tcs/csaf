@@ -478,7 +478,7 @@ The properties are: `names`, `organizations`, `summary`, and `urls`.
         "organizations": {
             // ...
         },
-        "description": {
+        "summary": {
             // ...
         },
         "urls": {
@@ -622,7 +622,7 @@ Examples:
 
 #### 3.1.3.3 Full Product Name Type - CPE
 
-Common Platform Enumeration representation (`cpe`) of value type `string` of 1 or more characters with `pattern` (regular expression):
+Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
     ^(?i)cpe:(/|\\d+\\.\\d+)[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*$
 
@@ -862,7 +862,7 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
     },
 
 #### 3.2.1.1 Document Property - Acknowledgments
-List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment (`acknowledgment_t`) contains a list of acknowledgment elements.
+List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
  
     "acknowledgments": {
       // ...
@@ -1362,7 +1362,7 @@ Vulnerability ( `vulnerability`) of value type `object` with 1 or more propertie
 Any vulnerability may provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Scores (`scores`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Threats (`threats`),and Title (`title`). 
 
 ##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
-List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment (`acknowledgment_t`) contains a list of acknowledgment elements.
+List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
 
 ##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
 CVE (`cve`) of value type `string` with `pattern` (regular expression):
@@ -1600,7 +1600,7 @@ Release date (`release_date`) with value type `string` of format `date-time` hol
 
 ##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Remediations
 List of remediations (`remediations`) of value type `array`with 1 or more Remediation items of type `object` contains a list of remediations.
-Remediation of value type `object` with the 2 mandatory properties Summary (`summary`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Remediation of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
 In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
     "remediations": {
@@ -1644,9 +1644,9 @@ In addition, any Remediation may expose the six optional properties Date (`date`
       }
     },
 
-Date of the remediation (`date`) of value type `string`with format `date-time` contains the date from which the remediation is available.
+Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-Details of the remediation (`deatils`) of value type `string`with 1 or more characters contains a thorough human-readable discussion of the remediation.
+Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
@@ -1656,7 +1656,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
-Type of restart (`type`) of value type `string`and `enum` specifies what type of restart is required by this remediation to become effective.
+Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
 
     none
@@ -1685,7 +1685,7 @@ URL (`url`) of value type `string`with format `uri` contains the URL where to ob
 
 ##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
-A Threat item is of value type `object` with the two mandatory properties Details (`deatils`) and Type (`type`) and contains the vulnerability kinetic information. 
+A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information. 
 This information can change as the vulnerability ages and new information becomes available.
 In addition, threat items may provide the three optional properties Date (`date`), Product IDs (`product_ids`) and Group IDs (`group_ids`). 
 
@@ -1722,7 +1722,7 @@ Valid values are:
 
 Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
 
-Date of the threat (`date`) of value type `string`with format `date-time` contains the date when the assessment was done or the threat appeared.
+Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
