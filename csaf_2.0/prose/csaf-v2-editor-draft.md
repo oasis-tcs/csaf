@@ -478,7 +478,7 @@ The properties are: `names`, `organizations`, `summary`, and `urls`.
         "organizations": {
             // ...
         },
-        "description": {
+        "summary": {
             // ...
         },
         "urls": {
