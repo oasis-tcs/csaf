@@ -527,32 +527,40 @@ List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged. 
 Value type is string with format URI (`uri`).
 
-### 3.1.2 Branch Type
+### 3.1.2 Branches Type
 
 List of branches (`branches_t`) with value type `array` contains 1 or more `branch` elements as children of the current element.
-Every Branch (`branch`) holds exactly 3 properties and is a part of the hierarchical structure of the product tree. 
-The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
 
     "branches_t": {
-      // ...
-      "properties": {
-        "name": {
-          // ...
-        },
-        "type": {
-          // ...
-        },
-        "branches": {
-          // ...
-        },
-        "product": {
-          // ...
+      //...
+      "items": {
+        // ...
+        "properties": {
+          "name": {
+            // ...
+          },
+          "type": {
+            // ...
+          },
+          "branches": {
+            // ...
+          },
+          "product": {
+            // ...
+          }
         }
       }
     },
 
 
-#### 3.1.2.1 Branch Type - Name
+#### 3.1.2.1 Branches Type - Branch Type
+
+Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree. 
+The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
+
+
+
+##### 3.1.2.1.1 Branches Type - Branch Type - Name
 
 Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch. 
 
@@ -567,7 +575,7 @@ Examples:
     365
     PCS 7
 
-#### 3.1.2.2 Branch Type - Type
+##### 3.1.2.1.2 Branches Type - Branch Type - Type
 
 Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch. 
 Valid `enum` values are:
@@ -584,11 +592,11 @@ Valid `enum` values are:
     specification
     vendor
 
-#### 3.1.2.3 Branch Type - Branches
+##### 3.1.2.1.3 Branches Type - Branch Type - Branches
 
-List of branches (`branches`) has the value type `array` providing 1 or more items of the Branch type (`branches_t`). 
+List of branches (`branches`) has the value type `branches_t`. 
 
-#### 3.1.2.4 Branch Type - Product
+##### 3.1.2.1.4 Branches Type - Branch Type - Product
 
 Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
