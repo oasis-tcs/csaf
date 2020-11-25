@@ -862,7 +862,7 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
     },
 
 #### 3.2.1.1 Document Property - Acknowledgments
-List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment (`acknowledgment_t`) contains a list of acknowledgment elements.
+List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
  
     "acknowledgments": {
       // ...
@@ -1362,7 +1362,7 @@ Vulnerability ( `vulnerability`) of value type `object` with 1 or more propertie
 Any vulnerability may provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Scores (`scores`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Threats (`threats`),and Title (`title`). 
 
 ##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
-List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment (`acknowledgment_t`) contains a list of acknowledgment elements.
+List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
 
 ##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
 CVE (`cve`) of value type `string` with `pattern` (regular expression):
