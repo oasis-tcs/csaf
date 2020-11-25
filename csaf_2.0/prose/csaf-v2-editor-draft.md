@@ -1600,7 +1600,7 @@ Release date (`release_date`) with value type `string` of format `date-time` hol
 
 ##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Remediations
 List of remediations (`remediations`) of value type `array`with 1 or more Remediation items of type `object` contains a list of remediations.
-Remediation of value type `object` with the 2 mandatory properties Summary (`summary`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Remediation of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
 In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
     "remediations": {
