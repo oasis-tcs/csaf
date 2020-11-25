@@ -464,30 +464,35 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
         }
     },
 
-### 3.1.1 Acknowledgment Type
+### 3.1.1 Acknowledgments Type
 List of Acknowledgments (`acknowledgments_t`) type instances of value type array with 1 or more elements contain a list of `Acknowledgment` elements.
-The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
-The properties are: `names`, `organizations`, `summary`, and `urls`.
 
     "acknowledgments_t": {
       // ...
-      "properties": {
-        "names": {
+      "items": {
+        // ...
+        "properties": {
+          "names": {
             // ...
-        },
-        "organizations": {
+          },
+          "organizations": {
             // ...
-        },
-        "summary": {
+          },
+          "summary": {
             // ...
-        },
-        "urls": {
+          },
+          "urls": {
             // ...
+          }
         }
       }
-    },
+    }
 
-#### 3.1.1.1 Acknowledgment Type - Names
+#### 3.1.1.1 Acknowledgments Type - Acknowledgment Type
+The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The properties are: `names`, `organizations`, `summary`, and `urls`.
+
+##### 3.1.1.1.1 Acknowledgments Type - Acknowledgment Type - Names
 
 List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person. 
@@ -497,7 +502,7 @@ Examples:
     Johann Sebastian Bach
     Albert Einstein
 
-#### 3.1.1.2 Acknowledgment Type - Organizations
+##### 3.1.1.1.2 Acknowledgments Type - Acknowledgment Type - Organizations
 
 List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of a single organization.
@@ -508,7 +513,7 @@ Examples:
     Talos
     Google Project Zero
 
-#### 3.1.1.3 Acknowledgment Type - Summary
+##### 3.1.1.1.3 Acknowledgments Type - Acknowledgment Type - Summary
 
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
 
@@ -516,7 +521,7 @@ Example:
 
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 
-#### 3.1.1.4 Acknowledgment Type - URLs
+##### 3.1.1.1.4 Acknowledgments Type - Acknowledgment Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged. 
