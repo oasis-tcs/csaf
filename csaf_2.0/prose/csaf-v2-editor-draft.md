@@ -1646,7 +1646,7 @@ In addition, any Remediation may expose the six optional properties Date (`date`
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-Details of the remediation (`deatils`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
+Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
@@ -1685,7 +1685,7 @@ URL (`url`) of value type `string`with format `uri` contains the URL where to ob
 
 ##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
-A Threat item is of value type `object` with the two mandatory properties Details (`deatils`) and Type (`type`) and contains the vulnerability kinetic information. 
+A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information. 
 This information can change as the vulnerability ages and new information becomes available.
 In addition, threat items may provide the three optional properties Date (`date`), Product IDs (`product_ids`) and Group IDs (`group_ids`). 
 
