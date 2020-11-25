@@ -622,7 +622,7 @@ Examples:
 
 #### 3.1.3.3 Full Product Name Type - CPE
 
-Common Platform Enumeration representation (`cpe`) of value type `string` of 1 or more characters with `pattern` (regular expression):
+Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
     ^(?i)cpe:(/|\\d+\\.\\d+)[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*$
 
