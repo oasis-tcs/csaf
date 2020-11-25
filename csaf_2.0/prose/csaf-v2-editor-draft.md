@@ -486,7 +486,7 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
           }
         }
       }
-    }
+    },
 
 #### 3.1.1.1 Acknowledgments Type - Acknowledgment Type
 The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
