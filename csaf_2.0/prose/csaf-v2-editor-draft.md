@@ -489,7 +489,7 @@ The properties are: `names`, `organizations`, `summary`, and `urls`.
 
 #### 3.1.1.1 Acknowledgment Type - Names
 
-List of acknowledged has value type `array` with 1 or more items holds the names of entities being recognized.
+List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person. 
 
 Examples:
@@ -499,7 +499,7 @@ Examples:
 
 #### 3.1.1.2 Acknowledgment Type - Organizations
 
-List of contributing organizations has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
+List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of a single organization.
 
 Examples:
@@ -510,7 +510,7 @@ Examples:
 
 #### 3.1.1.3 Acknowledgment Type - Summary
 
-Summary of the acknowledgment of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
+Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
 
 Example:
 
@@ -585,7 +585,7 @@ List of branches (`branches`) has the value type `array` providing 1 or more ite
 
 #### 3.1.2.4 Branch Type - Product
 
-Product has the value type Full Product Name (`full_product_name_t`).
+Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
 ### 3.1.3 Full Product Name Type
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
