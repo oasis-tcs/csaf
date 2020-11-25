@@ -1644,9 +1644,9 @@ In addition, any Remediation may expose the six optional properties Date (`date`
       }
     },
 
-Date of the remediation (`date`) of value type `string`with format `date-time` contains the date from which the remediation is available.
+Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-Details of the remediation (`deatils`) of value type `string`with 1 or more characters contains a thorough human-readable discussion of the remediation.
+Details of the remediation (`deatils`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
@@ -1656,7 +1656,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
-Type of restart (`type`) of value type `string`and `enum` specifies what type of restart is required by this remediation to become effective.
+Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
 
     none
@@ -1722,7 +1722,7 @@ Valid values are:
 
 Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
 
-Date of the threat (`date`) of value type `string`with format `date-time` contains the date when the assessment was done or the threat appeared.
+Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
