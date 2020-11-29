@@ -502,7 +502,7 @@ Examples:
     Johann Sebastian Bach
     Albert Einstein
 
-##### 3.1.1.1.2 Acknowledgments Type - Acknowledgment Type - Organizations
+##### 3.1.1.1.2 Acknowledgments - Acknowledgment Type - Organizations
 
 List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of a single organization.
