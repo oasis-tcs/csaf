@@ -553,7 +553,7 @@ List of branches (`branches_t`) with value type `array` contains 1 or more `bran
     },
 
 
-#### 3.1.2.1 Branches Type - Branch Type
+#### 3.1.2.1 Branches - Branch Type
 
 Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree. 
 The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
