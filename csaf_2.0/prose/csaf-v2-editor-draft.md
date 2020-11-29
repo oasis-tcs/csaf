@@ -575,7 +575,7 @@ Examples:
     365
     PCS 7
 
-##### 3.1.2.1.2 Branches Type - Branch Type - Type
+##### 3.1.2.1.2 Branches - Branch Type - Type
 
 Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch. 
 Valid `enum` values are:
