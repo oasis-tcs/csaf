@@ -596,7 +596,7 @@ Valid `enum` values are:
 
 List of branches (`branches`) has the value type `branches_t`. 
 
-##### 3.1.2.1.4 Branches Type - Branch Type - Product
+##### 3.1.2.1.4 Branches - Branch Type - Product
 
 Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
