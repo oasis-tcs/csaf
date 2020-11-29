@@ -492,7 +492,7 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
 The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
 The properties are: `names`, `organizations`, `summary`, and `urls`.
 
-##### 3.1.1.1.1 Acknowledgments Type - Acknowledgment Type - Names
+##### 3.1.1.1.1 Acknowledgments - Acknowledgment Type - Names
 
 List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person. 
