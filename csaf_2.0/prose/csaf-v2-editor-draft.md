@@ -521,7 +521,7 @@ Example:
 
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 
-##### 3.1.1.1.4 Acknowledgments Type - Acknowledgment Type - URLs
+##### 3.1.1.1.4 Acknowledgments - Acknowledgment Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged. 
