@@ -592,7 +592,7 @@ Valid `enum` values are:
     specification
     vendor
 
-##### 3.1.2.1.3 Branches Type - Branch Type - Branches
+##### 3.1.2.1.3 Branches - Branch Type - Branches
 
 List of branches (`branches`) has the value type `branches_t`. 
 
