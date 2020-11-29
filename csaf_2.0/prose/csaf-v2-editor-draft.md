@@ -513,7 +513,7 @@ Examples:
     Talos
     Google Project Zero
 
-##### 3.1.1.1.3 Acknowledgments Type - Acknowledgment Type - Summary
+##### 3.1.1.1.3 Acknowledgments - Acknowledgment Type - Summary
 
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
 
