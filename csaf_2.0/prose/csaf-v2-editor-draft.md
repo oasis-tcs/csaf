@@ -560,7 +560,7 @@ The properties `name` and `type` are mandatory. In addition, the object contains
 
 
 
-##### 3.1.2.1.1 Branches Type - Branch Type - Name
+##### 3.1.2.1.1 Branches - Branch Type - Name
 
 Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch. 
 
