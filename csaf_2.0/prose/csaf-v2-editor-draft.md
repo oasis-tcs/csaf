@@ -464,32 +464,37 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
         }
     },
 
-### 3.1.1 Acknowledgment Type
+### 3.1.1 Acknowledgments Type
 List of Acknowledgments (`acknowledgments_t`) type instances of value type array with 1 or more elements contain a list of `Acknowledgment` elements.
-The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
-The properties are: `names`, `organizations`, `summary`, and `urls`.
 
     "acknowledgments_t": {
       // ...
-      "properties": {
-        "names": {
+      "items": {
+        // ...
+        "properties": {
+          "names": {
             // ...
-        },
-        "organizations": {
+          },
+          "organizations": {
             // ...
-        },
-        "summary": {
+          },
+          "summary": {
             // ...
-        },
-        "urls": {
+          },
+          "urls": {
             // ...
+          }
         }
       }
     },
 
-#### 3.1.1.1 Acknowledgment Type - Names
+#### 3.1.1.1 Acknowledgments - Acknowledgment Type
+The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The properties are: `names`, `organizations`, `summary`, and `urls`.
 
-List of acknowledged has value type `array` with 1 or more items holds the names of entities being recognized.
+##### 3.1.1.1.1 Acknowledgments - Acknowledgment Type - Names
+
+List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person. 
 
 Examples:
@@ -497,9 +502,9 @@ Examples:
     Johann Sebastian Bach
     Albert Einstein
 
-#### 3.1.1.2 Acknowledgment Type - Organizations
+##### 3.1.1.1.2 Acknowledgments - Acknowledgment Type - Organizations
 
-List of contributing organizations has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
+List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of a single organization.
 
 Examples:
@@ -508,46 +513,54 @@ Examples:
     Talos
     Google Project Zero
 
-#### 3.1.1.3 Acknowledgment Type - Summary
+##### 3.1.1.1.3 Acknowledgments - Acknowledgment Type - Summary
 
-Summary of the acknowledgment of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
+Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
 
 Example:
 
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 
-#### 3.1.1.4 Acknowledgment Type - URLs
+##### 3.1.1.1.4 Acknowledgments - Acknowledgment Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged. 
 Value type is string with format URI (`uri`).
 
-### 3.1.2 Branch Type
+### 3.1.2 Branches Type
 
 List of branches (`branches_t`) with value type `array` contains 1 or more `branch` elements as children of the current element.
-Every Branch (`branch`) holds exactly 3 properties and is a part of the hierarchical structure of the product tree. 
-The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
 
     "branches_t": {
-      // ...
-      "properties": {
-        "name": {
-          // ...
-        },
-        "type": {
-          // ...
-        },
-        "branches": {
-          // ...
-        },
-        "product": {
-          // ...
+      //...
+      "items": {
+        // ...
+        "properties": {
+          "name": {
+            // ...
+          },
+          "type": {
+            // ...
+          },
+          "branches": {
+            // ...
+          },
+          "product": {
+            // ...
+          }
         }
       }
     },
 
 
-#### 3.1.2.1 Branch Type - Name
+#### 3.1.2.1 Branches - Branch Type
+
+Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree. 
+The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
+
+
+
+##### 3.1.2.1.1 Branches - Branch Type - Name
 
 Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch. 
 
@@ -562,7 +575,7 @@ Examples:
     365
     PCS 7
 
-#### 3.1.2.2 Branch Type - Type
+##### 3.1.2.1.2 Branches - Branch Type - Type
 
 Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch. 
 Valid `enum` values are:
@@ -579,13 +592,13 @@ Valid `enum` values are:
     specification
     vendor
 
-#### 3.1.2.3 Branch Type - Branches
+##### 3.1.2.1.3 Branches - Branch Type - Branches
 
-List of branches (`branches`) has the value type `array` providing 1 or more items of the Branch type (`branches_t`). 
+List of branches (`branches`) has the value type `branches_t`. 
 
-#### 3.1.2.4 Branch Type - Product
+##### 3.1.2.1.4 Branches - Branch Type - Product
 
-Product has the value type Full Product Name (`full_product_name_t`).
+Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
 ### 3.1.3 Full Product Name Type
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
@@ -1222,7 +1235,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
     },
 
 #### 3.2.2.1 Product Tree Property - Branches
-List of branches (`branches`) of value type `array` with 1 or more items of type `branch_branches_t` contains branch elements as children of the current element.
+List of branches (`branches`) of value type `branches_t`.
 
 #### 3.2.2.2 Product Tree Property - Full Product Names
 List of full product names (`full_product_names`) of value type `array` with 1 or more items of type `full_product_name_t` contains a list of full product names.
@@ -1919,4 +1932,3 @@ Zach | Turk | Microsoft
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
 | csaf-v2.0-wd20200929 | 2020-09-29 | Stefan Hagen | Initial working draft |
-
