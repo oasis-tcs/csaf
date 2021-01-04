@@ -1425,42 +1425,22 @@ Scores (`scores`) of value type `array` with 1 or more items holds scores and re
 
     "scores": {
       // ...
-      "items": [
-        {
-          "anyOf": [
-            {
+      "items": {
+        // ...
+        "properties": {
+          "products": {
+            // ...
+          },
+          "cvss_v2": {
+            // ...
+          },
+          "cvss_v3": {
+            "oneOf": [
               // ...
-              "items": {
-                // ...
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v20": {
-                  // ...
-                }
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v30": {
-                  // ...
-                }
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v31": {
-                  // ...
-                }
-              }
-            }
-          ]
+            ]
+          }
         }
-      ]
+      }
     },
 
 The items are any of the following four types:
