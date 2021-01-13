@@ -2,7 +2,7 @@
 ![OASIS Logo](http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg)
 -------
 
-# CSAF Common Vulnerability Reporting Framework Version 2.0
+# Common Security Advisory Framework Version 2.0
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
