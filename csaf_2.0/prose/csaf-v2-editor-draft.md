@@ -60,7 +60,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.0]**
 
-_CSAF Common Vulnerability Reporting Framework Version 2.00_. Edited by Langley Rock and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
+_CSAF Common Security Advisory Framework Version 2.00_. Edited by Langley Rock and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
 
 -------
 
@@ -99,7 +99,7 @@ The text in this section may all be replaced, but the following three sections (
 Here is a customized command line which will generate HTML from this markdown file (named prose/csaf-v2-editor-draft.md):
 
     $ pandoc -f gfm -t html prose/csaf-v2-editor-draft.md -c static/styles/markdown-styles-v1.7.3-patched.css \
-    --toc --toc-depth=4 -s -o csaf.html --metadata title="CSAF Common Vulnerability Reporting Framework Version 2.0"
+    --toc --toc-depth=4 -s -o csaf.html --metadata title="CSAF Common Security Advisory Framework Version 2.0"
 
 OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
 
