@@ -28,7 +28,7 @@ This prose specification is one component of a Work Product that also includes:
 
 #### Related work:
 This specification replaces or supersedes:
-* The Common Vulnerability Reporting Framework (CVRF) Version 1.2., http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
+* The CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2. http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
 
 This specification is related to:
 * Related specifications (include hyperlink, preferably to HTML format) \
