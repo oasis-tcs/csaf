@@ -818,8 +818,12 @@
                 },
                 "cvss_v3": {
                   "oneOf": [
-                    {"$ref": "https://www.first.org/cvss/cvss-v3.0.json"},
-                    {"$ref": "https://www.first.org/cvss/cvss-v3.1.json"}
+                    {
+                      "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+                    },
+                    {
+                      "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                    }
                   ]
                 }
               }

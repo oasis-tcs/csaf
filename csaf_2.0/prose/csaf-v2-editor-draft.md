@@ -1425,62 +1425,37 @@ Examples:
 
 
 ##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Scores
-Scores (`scores`) of value type `array` with 1 or more items holds scores and referenced product ids.
+List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
 
     "scores": {
       // ...
-      "items": [
-        {
-          "anyOf": [
-            {
-              // ...
-              "items": {
-                // ...
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v20": {
-                  // ...
-                }
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v30": {
-                  // ...
-                }
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v31": {
-                  // ...
-                }
-              }
-            }
-          ]
+      "items": {
+        // ...
         }
-      ]
+      }
     },
 
-The items are any of the following four types:
 
-An `array`of zero or more Product IDs (`products_t`) with an empty string as default.
+Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2` and `cvss_v3` specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item has at least 2 properties.
 
-Examples:
+        "properties": {
+          "products": {
+            // ...
+          },
+          "cvss_v2": {
+            // ...
+          },
+          "cvss_v3": {
+            "oneOf": [
+              // ...
+            ]
+          }
 
-    CVRFID_123
-    CSAFID_0815
+Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
-An `object` with the property CVSS v2.0 (`cvss_v20`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
 
-An `object` with the property CVSS v3.0 (`cvss_v30`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json).
-
-An `object` with the property CVSS v3.1 (`cvss_v31`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemes at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
 
 ##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - Discovery Date
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
