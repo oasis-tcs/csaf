@@ -1661,6 +1661,19 @@ Valid values are:
     zone
     system
 
+The values must be used as follows:
+- `none`: No restart required.
+- `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item) needs to be restarted.
+- `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
+- `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way to restart the vulnerable component or process values / context is only given at the start of the parent process.
+- `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted. This could be the case e.g. for a core service of a software.
+- `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication) to the vulnerable component need to be restarted.
+- `machine`: The machine on which the vulnerable component is installed on needs to be restarted. This is the value which should be used if an OS needs to be restarted. It is typically the case for OS upgrades.
+- `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted. This value might be useful for a remediation if no patch is available. If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at the same time and restart afterwards can leave one with a clean system.
+- `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted. This may include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
+
+
+
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
