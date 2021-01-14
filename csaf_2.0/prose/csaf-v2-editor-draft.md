@@ -2,7 +2,7 @@
 ![OASIS Logo](http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg)
 -------
 
-# CSAF Common Vulnerability Reporting Framework Version 2.0
+# Common Vulnerability Reporting Framework Version 2.0
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
@@ -28,14 +28,14 @@ This prose specification is one component of a Work Product that also includes:
 
 #### Related work:
 This specification replaces or supersedes:
-* The Common Vulnerability Reporting Framework (CVRF) Version 1.2., http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
+* The CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2. http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
 
 This specification is related to:
 * Related specifications (include hyperlink, preferably to HTML format) \
 `(remove "Related work" section or the "replaces" or "related" subsections if no entries)`
 
 #### Abstract:
-The CSAF Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the  language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
+The Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
 #### Status:
 This document was last revised or approved by the OASIS Common Security Advisory Framework (CSAF) TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
@@ -60,7 +60,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.0]**
 
-_CSAF Common Vulnerability Reporting Framework Version 2.00_. Edited by Langley Rock and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
+_Common Vulnerability Reporting Framework Version 2.00_. Edited by Langley Rock and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
 
 -------
 
@@ -99,7 +99,7 @@ The text in this section may all be replaced, but the following three sections (
 Here is a customized command line which will generate HTML from this markdown file (named prose/csaf-v2-editor-draft.md):
 
     $ pandoc -f gfm -t html prose/csaf-v2-editor-draft.md -c static/styles/markdown-styles-v1.7.3-patched.css \
-    --toc --toc-depth=4 -s -o csaf.html --metadata title="CSAF Common Vulnerability Reporting Framework Version 2.0"
+    --toc --toc-depth=4 -s -o csaf.html --metadata title="Common Vulnerability Reporting Framework Version 2.0"
 
 OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
 
