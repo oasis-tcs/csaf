@@ -1162,7 +1162,7 @@ Initial release date (`initial_release_date`) with value type `string` and forma
 
 ##### 3.2.1.11.6 Document Property - Tracking - Revision History
 
-The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries contains all the information elements required to track the evolution of a CSAF document. 
+The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one. 
 
         "revision_history": {
           // ...
@@ -1182,7 +1182,7 @@ The Revision History (`revision_history`) with value type `array` of 1 or more R
           }
         },
 
-Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Summary (`summary`). 
+Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Summary (`summary`). 
 
 The Number (`number`) has value type Version (`version_t`). 
 
