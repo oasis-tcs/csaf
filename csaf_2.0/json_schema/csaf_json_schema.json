@@ -614,7 +614,10 @@
                     "title": "Summary of the revision",
                     "description": "Holds a single non-empty string representing a short description of the changes.",
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "examples": [
+                      "Initial version."
+                    ]
                   }
                 }
               }
