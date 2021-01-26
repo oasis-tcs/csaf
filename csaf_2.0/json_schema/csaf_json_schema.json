@@ -588,10 +588,12 @@
             },
             "revision_history": {
               "title": "Revision history",
-              "description": "Contains all the information elements required to track the evolution of a CSAF document.",
+              "description": "Holds one revision item for each version of the CSAF document, including the initial one.",
               "type": "array",
               "minItems": 1,
               "items": {
+                "title": "Revision",
+                "description": "Contains all the information elements required to track the evolution of a CSAF document.",
                 "type": "object",
                 "required": [
                   "number",
