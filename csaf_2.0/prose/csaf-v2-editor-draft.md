@@ -770,8 +770,8 @@ The value is a token required to identify a `full_product_name` so that it can b
 
 Examples:
 
-    CVRFPID-0004
-    CVRFPID-0008
+    CSAFPID-0004
+    CSAFPID-0008
 
 ### 3.1.10 References Type
 List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects. 
