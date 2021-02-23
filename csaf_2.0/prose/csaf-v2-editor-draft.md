@@ -1286,7 +1286,7 @@ List of relationships (`relationships`) of value type `array` with 1 or more ite
       "items": {
         // ...
         "properties": {
-          "full_product_names": {
+          "full_product_name": {
             // ...
           },
           "product_reference": {
@@ -1302,7 +1302,7 @@ List of relationships (`relationships`) of value type `array` with 1 or more ite
       }
     }
 
-The Relationship item is of value type `object` with the four mandatory properties Full Product Name (`full_product_name`), Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`) establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
+The Relationship item is of value type `object` and has four mandatory properties: Full Product Name (`full_product_name`), Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
 Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
 
