@@ -275,8 +275,8 @@
       "type": "string",
       "minLength": 1,
       "examples": [
-        "CVRFPID-0004",
-        "CVRFPID-0008"
+        "CSAFPID-0004",
+        "CSAFPID-0008"
       ]
     },
     "references_t": {
