@@ -169,7 +169,6 @@
               "minLength": 5
             },
             "hashes": {
-              "$comment": "TODO: Array of objects (algorithm, value, optional name)",
               "title": "List of hashes",
               "description": "Contains a list of cryptographic hashes usable to identify files.",
               "type": "array",
@@ -188,7 +187,9 @@
                     "title": "Algorithm of the cryptographic hash",
                     "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
                     "type": "string",
-                    "enum": [
+                    "default": "SHA-3",
+                    "minLength": 1,
+                    "examples": [
                       "SHA-256",
                       "SHA-384",
                       "SHA-512",
