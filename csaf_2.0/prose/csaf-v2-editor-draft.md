@@ -8,7 +8,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 24 November 2020
+## 24 February 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -68,7 +68,7 @@ _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock and Ste
 -------
 
 ## Notices
-Copyright © OASIS Open 2020. All Rights Reserved.
+Copyright © OASIS Open 2021. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr) may be found at the OASIS website.
 
