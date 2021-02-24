@@ -252,7 +252,7 @@
               "type": "array",
               "minItems": 1,
               "items": {
-                "title": "Generic uris",
+                "title": "Generic uri",
                 "description": "Provides a generic extention point for any identifier which is either vendor-specific or derivated from a standard not yet supported.",
                 "type": "object",
                 "required": [
@@ -261,13 +261,13 @@
                 ],
                 "properties": {
                   "namespace": {
-                    "title": "Namespace of the other identifier",
+                    "title": "Namespace of the generic uri",
                     "description": "Should refer to a URL which provides the name and knownledge about the specification used or is the namespace in which these values are valid.",
                     "type": "string",
                     "format": "uri"
                   },
                   "uri": {
-                    "title": "identifier",
+                    "title": "URI",
                     "description": "Contains the identifier itself.",
                     "type": "string",
                     "format": "uri"
