@@ -1279,14 +1279,14 @@ Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 List of Product IDs (`product_ids`) of value type array with 2 or more items of type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
 
 #### 3.2.2.4 Product Tree Property - Relationships
-List of relationships (`relationships`) of value type `array`with 1 or more items contains a list of relationships.
+List of relationships (`relationships`) of value type `array` with 1 or more items contains a list of relationships.
 
     "relationships": {
       // ...
       "items": {
         // ...
         "properties": {
-          "full_product_names": {
+          "full_product_name": {
             // ...
           },
           "product_reference": {
@@ -1302,9 +1302,9 @@ List of relationships (`relationships`) of value type `array`with 1 or more item
       }
     }
 
-The Relationship item is of value type `object` with the three mandatory properties Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`) as well as the optional property Full Product Names (`full_product_names`) establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
+The Relationship item is of value type `object` and has four mandatory properties: Full Product Name (`full_product_name`), Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
-Full Product Names (`full_product_names`) of value type array with 1 or more items of Full Product Name type (`full_product_name_t`).
+Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
 
 Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
 
