@@ -2,7 +2,9 @@
 ![OASIS Logo](http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg)
 -------
 
-# CSAF Common Vulnerability Reporting Framework Version 2.0
+
+# Common Security Advisory Framework Version 2.0
+
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
@@ -28,14 +30,14 @@ This prose specification is one component of a Work Product that also includes:
 
 #### Related work:
 This specification replaces or supersedes:
-* The Common Vulnerability Reporting Framework (CVRF) Version 1.2., http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
+* The CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2. http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
 
 This specification is related to:
 * Related specifications (include hyperlink, preferably to HTML format) \
 `(remove "Related work" section or the "replaces" or "related" subsections if no entries)`
 
 #### Abstract:
-The CSAF Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the  language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
+The Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
 #### Status:
 This document was last revised or approved by the OASIS Common Security Advisory Framework (CSAF) TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
@@ -60,7 +62,8 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.0]**
 
-_CSAF Common Vulnerability Reporting Framework Version 2.00_. Edited by Langley Rock and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock and Stefan Hagen. 00 Month 2020. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
+
 
 -------
 
@@ -99,7 +102,8 @@ The text in this section may all be replaced, but the following three sections (
 Here is a customized command line which will generate HTML from this markdown file (named prose/csaf-v2-editor-draft.md):
 
     $ pandoc -f gfm -t html prose/csaf-v2-editor-draft.md -c static/styles/markdown-styles-v1.7.3-patched.css \
-    --toc --toc-depth=4 -s -o csaf.html --metadata title="CSAF Common Vulnerability Reporting Framework Version 2.0"
+    --toc --toc-depth=4 -s -o csaf.html --metadata title="Common Security Advisory Framework Version 2.0"
+
 
 OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
 
@@ -637,7 +641,7 @@ Examples:
 
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
-    ^(?i)cpe:(/|\\d+\\.\\d+)[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*:?[^:]*$
+    ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
 
@@ -766,8 +770,8 @@ The value is a token required to identify a `full_product_name` so that it can b
 
 Examples:
 
-    CVRFPID-0004
-    CVRFPID-0008
+    CSAFPID-0004
+    CSAFPID-0008
 
 ### 3.1.10 References Type
 List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects. 
@@ -1158,7 +1162,7 @@ Initial release date (`initial_release_date`) with value type `string` and forma
 
 ##### 3.2.1.11.6 Document Property - Tracking - Revision History
 
-The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries contains all the information elements required to track the evolution of a CSAF document. 
+The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one. 
 
         "revision_history": {
           // ...
@@ -1178,7 +1182,7 @@ The Revision History (`revision_history`) with value type `array` of 1 or more R
           }
         },
 
-Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Summary (`summary`). 
+Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Summary (`summary`). 
 
 The Number (`number`) has value type Version (`version_t`). 
 
@@ -1421,62 +1425,37 @@ Examples:
 
 
 ##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Scores
-Scores (`scores`) of value type `array` with 1 or more items holds scores and referenced product ids.
+List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
 
     "scores": {
       // ...
-      "items": [
-        {
-          "anyOf": [
-            {
-              // ...
-              "items": {
-                // ...
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v20": {
-                  // ...
-                }
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v30": {
-                  // ...
-                }
-              }
-            },
-            {
-              // ...
-              "properties": {
-                "cvss_v31": {
-                  // ...
-                }
-              }
-            }
-          ]
+      "items": {
+        // ...
         }
-      ]
+      }
     },
 
-The items are any of the following four types:
 
-An `array`of zero or more Product IDs (`products_t`) with an empty string as default.
+Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2` and `cvss_v3` specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item has at least 2 properties.
 
-Examples:
+        "properties": {
+          "products": {
+            // ...
+          },
+          "cvss_v2": {
+            // ...
+          },
+          "cvss_v3": {
+            "oneOf": [
+              // ...
+            ]
+          }
 
-    CVRFID_123
-    CSAFID_0815
+Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
-An `object` with the property CVSS v2.0 (`cvss_v20`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
 
-An `object` with the property CVSS v3.0 (`cvss_v30`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json).
-
-An `object` with the property CVSS v3.1 (`cvss_v31`) holding a value abiding by the schema at [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemes at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
 
 ##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - Discovery Date
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
@@ -1681,6 +1660,19 @@ Valid values are:
     machine
     zone
     system
+
+The values must be used as follows:
+- `none`: No restart required.
+- `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item) needs to be restarted.
+- `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
+- `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way to restart the vulnerable component or process values / context is only given at the start of the parent process.
+- `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted. This could be the case e.g. for a core service of a software.
+- `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication) to the vulnerable component need to be restarted.
+- `machine`: The machine on which the vulnerable component is installed on needs to be restarted. This is the value which should be used if an OS needs to be restarted. It is typically the case for OS upgrades.
+- `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted. This value might be useful for a remediation if no patch is available. If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at the same time and restart afterwards can leave one with a clean system.
+- `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted. This may include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
+
+
 
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 

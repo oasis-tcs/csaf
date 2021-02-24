@@ -1304,11 +1304,11 @@
         "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1552430",
         "summary": "https://bugzilla.redhat.com/show_bug.cgi?id=1552430"
       }
-    ]
-  },
-  "aggregate_severity": {
-    "namespace": "https://access.redhat.com/security/updates/classification/",
-    "text": "Moderate"
+    ],
+    "aggregate_severity": {
+      "namespace": "https://access.redhat.com/security/updates/classification/",
+      "text": "Moderate"
+    }
   },
   "product_tree": {
     "branches": [

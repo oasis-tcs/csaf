@@ -17,4 +17,7 @@ with open(json_schema, 'r') as f:
 for i in jsonpath_rw.parse("$..* where properties").find(schema):
     i.value['additionalProperties'] = False
 
+# Don't forget to add it at the root level
+schema['additionalProperties'] = False
+
 print(json.dumps(schema, sort_keys=True, indent=2))
