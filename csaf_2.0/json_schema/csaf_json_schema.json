@@ -198,7 +198,7 @@
                   },
                   "file": {
                     "title": "Filename",
-                    "description": "Contains the filename of the file which is identified by the hash value.",
+                    "description": "Contains the name of the file which is identified by the hash value.",
                     "type": "string",
                     "minLength": 1,
                     "examples": [
