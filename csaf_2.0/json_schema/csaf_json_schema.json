@@ -244,32 +244,32 @@
                 "minLength": 1
               }
             },
-            "x_other_ids": {
-              "title": "List of Extension: other identifiers",
+            "x_generic_uris": {
+              "$comment": "TODO: Add remark in prose which kind of uris might be used here / add examples.",
+              "title": "List of generic uris",
               "description": "Contains a list of identifiers which are either vendor-specific or derivated from a standard not yet supported.",
               "type": "array",
               "minItems": 1,
               "items": {
-                "title": "Extension: other identifier",
+                "title": "Generic uris",
                 "description": "Provides a generic extention point for any identifier which is either vendor-specific or derivated from a standard not yet supported.",
                 "type": "object",
                 "required": [
                   "namespace",
-                  "other_id"
+                  "uri"
                 ],
                 "properties": {
                   "namespace": {
-                    "$comment": "TODO: Add remark in prose that it",
                     "title": "Namespace of the other identifier",
                     "description": "Should refer to a URL which provides the name and knownledge about the specification used or is the namespace in which these values are valid.",
                     "type": "string",
                     "format": "uri"
                   },
-                  "other_id": {
-                    "title": "Other identifier",
+                  "uri": {
+                    "title": "identifier",
                     "description": "Contains the identifier itself.",
                     "type": "string",
-                    "minLength": 1
+                    "format": "uri"
                   }
                 }
               }
