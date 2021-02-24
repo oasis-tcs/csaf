@@ -168,9 +168,64 @@
               "pattern": "^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$",
               "minLength": 5
             },
+            "hashes": {
+              "$comment": "TODO: Array of objects (algorithm, value, optional name)",
+              "title": "List of hashes",
+              "description": "Contains a list of cryptographic hashes usable to identify files.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Cryptographic hash",
+                "description": "Contains all information to identify a file based on its cryptographic hash value.",
+                "type": "object",
+                "required": [
+                  "algorithm",
+                  "file",
+                  "value"
+                ],
+                "properties": {
+                  "algorithm": {
+                    "title": "Algorithm of the cryptographic hash",
+                    "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
+                    "type": "string",
+                    "enum": [
+                      "SHA-256",
+                      "SHA-384",
+                      "SHA-512",
+                      "SHA-3",
+                      "BLAKE3"
+                    ]
+                  },
+                  "file": {
+                    "title": "Filename",
+                    "description": "Contains the filename of the file which is identified by the hash value.",
+                    "type": "string",
+                    "minLength": 1,
+                    "examples": [
+                      "WINWORD.EXE",
+                      "msotadddin.dll",
+                      "sudoers.so"
+                    ]
+                  },
+                  "value": {
+                    "title": "Value of the cryptographic hash",
+                    "description": "Contains the cryptographic hash value.",
+                    "type": "string",
+                    "minLength": 64,
+                    "pattern": "^([0-9a-fA-F]){64,}$",
+                    "examples": [
+                      "4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc",
+                      "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c",
+                      "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3"
+                    ]
+                  }
+                }
+              }
+
+            },
             "purl": {
               "$comment": "TODO: This should have a full regular expression to enforce purl syntax.",
-              "title": "Common Platform Enumeration representation",
+              "title": "package URL representation",
               "description": "N/A",
               "type": "string",
               "pattern": "^pkg:",
