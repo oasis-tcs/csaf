@@ -700,6 +700,7 @@
                 "description": "Lists the product_ids of those products which known as one group in the document.",
                 "type": "array",
                 "minItems": 2,
+                "uniqueItems": true,
                 "items": {
                   "$ref": "#/definitions/product_id_t"
                 }
