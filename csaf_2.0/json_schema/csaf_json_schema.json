@@ -89,6 +89,9 @@
           "type"
         ],
         "properties": {
+          "branches": {
+            "$ref": "#/definitions/branches_t"
+          },
           "name": {
             "title": "Name of the branch",
             "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
@@ -104,6 +107,9 @@
               "365",
               "PCS 7"
             ]
+          },
+          "product": {
+            "$ref": "#/definitions/full_product_name_t"
           },
           "type": {
             "title": "Type of the branch",
@@ -122,12 +128,6 @@
               "specification",
               "vendor"
             ]
-          },
-          "branches": {
-            "$ref": "#/definitions/branches_t"
-          },
-          "product": {
-            "$ref": "#/definitions/full_product_name_t"
           }
         }
       }
