@@ -562,11 +562,13 @@ List of branches (`branches_t`) with value type `array` contains 1 or more `bran
 Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree. 
 The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property. 
 
+##### 3.1.2.1.1 Branches - Branch Type - Branches
 
+List of branches (`branches`) has the value type `branches_t`.
 
-##### 3.1.2.1.1 Branches - Branch Type - Name
+##### 3.1.2.1.2 Branches - Branch Type - Name
 
-Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch. 
+Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
 
 Examples:
 
@@ -579,9 +581,13 @@ Examples:
     365
     PCS 7
 
-##### 3.1.2.1.2 Branches - Branch Type - Type
+##### 3.1.2.1.3 Branches - Branch Type - Product
 
-Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch. 
+Product (`product`) has the value type Full Product Name (`full_product_name_t`).
+
+##### 3.1.2.1.4 Branches - Branch Type - Type
+
+Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
 
     architecture
@@ -595,14 +601,6 @@ Valid `enum` values are:
     service_pack
     specification
     vendor
-
-##### 3.1.2.1.3 Branches - Branch Type - Branches
-
-List of branches (`branches`) has the value type `branches_t`. 
-
-##### 3.1.2.1.4 Branches - Branch Type - Product
-
-Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
 ### 3.1.3 Full Product Name Type
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
