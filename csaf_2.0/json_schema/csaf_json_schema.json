@@ -187,8 +187,8 @@
         "description": "Is a place to put all manner of text blobs related to the current context.",
         "type": "object",
         "required": [
-          "type",
-          "text"
+          "text",
+          "type"
         ],
         "properties": {
           "audience": {
@@ -202,6 +202,12 @@
               "operational management and system administrators",
               "safety engineers"
             ]
+          },
+          "text": {
+            "title": "Note contents",
+            "description": "The contents of the note. Content varies depending on type.",
+            "type": "string",
+            "minLength": 1
           },
           "title": {
             "title": "Title of note",
@@ -228,12 +234,6 @@
               "other",
               "summary"
             ]
-          },
-          "text": {
-            "title": "Note contents",
-            "description": "The contents of the note. Content varies depending on type.",
-            "type": "string",
-            "minLength": 1
           }
         }
       }
