@@ -238,16 +238,6 @@
         }
       }
     },
-    "products_t": {
-      "title": "List of product_ids",
-      "description": "Specifies a list of product_ids to give context to the parent item.",
-      "type": "array",
-      "minItems": 1,
-      "uniqueItems": true,
-      "items": {
-        "$ref": "#/definitions/product_id_t"
-      }      
-    },
     "product_groups_t": {
       "title": "List of product_group_ids",
       "description": "Specifies a list of product_group_ids to give context to the parent item.",
@@ -278,6 +268,16 @@
         "CSAFPID-0004",
         "CSAFPID-0008"
       ]
+    },
+    "products_t": {
+      "title": "List of product_ids",
+      "description": "Specifies a list of product_ids to give context to the parent item.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/product_id_t"
+      }
     },
     "references_t": {
       "title": "List of references",
