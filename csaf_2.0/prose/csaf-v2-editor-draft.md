@@ -818,11 +818,12 @@ The default value for `type` is `external`.
 URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
 
 ### 3.1.11 Version Type
+
 The Version (`version_t`) type has value type `string` with `pattern` (regular expression):
 
     ^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$
 
-The `Version` specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major\[.minor\[.patch\[.build\]\]\]' version.
+The `version` specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major\[.minor\[.patch\[.build\]\]\]' version.
 
 Examples:
 
