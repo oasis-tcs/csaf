@@ -776,7 +776,8 @@ List of Product IDs (`products_t`) of value type `array` with 1 or more unique i
     },
 
 ### 3.1.10 References Type
-List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects. 
+
+List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects.
 
     "references_t": {
       // ...
@@ -788,7 +789,7 @@ List of references (`references_t`) of value type `array` with 1 or more items o
       }
     },
 
-Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer. 
+Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.
 A reference `object` may provide the additional property `type`.
 
     "properties": {
