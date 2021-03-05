@@ -723,16 +723,6 @@ Valid `enum` values are:
     other
     summary
 
-### 3.1.7 Product Groups Type
-List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item. 
-
-    "product_groups_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
-
 ### 3.1.8 Product Group ID Type
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances. 
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
@@ -747,6 +737,17 @@ Examples:
     CSAFGID-0001
     CSAFGID-0002
     CSAFGID-0020
+
+### 3.1.7 Product Groups Type
+
+List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
+
+    "product_groups_t": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
 
 ### 3.1.9 Product ID Type
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances. 
