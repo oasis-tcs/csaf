@@ -238,16 +238,6 @@
         }
       }
     },
-    "product_groups_t": {
-      "title": "List of product_group_ids",
-      "description": "Specifies a list of product_group_ids to give context to the parent item.",
-      "type": "array",
-      "minItems": 1,
-      "uniqueItems": true,
-      "items": {
-        "$ref": "#/definitions/product_group_id_t"
-      }
-    },
     "product_group_id_t": {
       "title": "Reference token for product group instance",
       "description": "Token required to identify a group of products so that it can be referred to from other parts in the document. There is no predefined or required format for the product_group_id as long as it uniquely identifies a group in the context of the current document.",
@@ -258,6 +248,16 @@
         "CSAFGID-0002",
         "CSAFGID-0020"
       ]
+    },
+    "product_groups_t": {
+      "title": "List of product_group_ids",
+      "description": "Specifies a list of product_group_ids to give context to the parent item.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/product_group_id_t"
+      }
     },
     "product_id_t": {
       "title": "Reference token for product instance",
