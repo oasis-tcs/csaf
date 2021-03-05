@@ -603,19 +603,20 @@ Valid `enum` values are:
     vendor
 
 ### 3.1.3 Full Product Name Type
+
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
-The properties `product_id` and `name` are required. The property `cpe` is optional.
+The properties `name` and `product_id` are required. The property `cpe` is optional.
 
     "full_product_name_t": {
       // ...
       "properties": {
-        "product_id": {
+        "cpe": {
           // ...
         },
         "name": {
           // ...
         },
-        "cpe": {
+        "product_id": {
           // ...
         }
       }
