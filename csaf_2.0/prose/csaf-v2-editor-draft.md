@@ -723,16 +723,6 @@ Valid `enum` values are:
     other
     summary
 
-### 3.1.6 Products Type
-List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
-
-    "products_t": {
-      // ...
-      "items": {
-        // ...
-      }      
-    },
-
 ### 3.1.7 Product Groups Type
 List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item. 
 
@@ -770,6 +760,17 @@ Examples:
 
     CSAFPID-0004
     CSAFPID-0008
+
+### 3.1.6 Products Type
+
+List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
+
+    "products_t": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
 
 ### 3.1.10 References Type
 List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects. 
