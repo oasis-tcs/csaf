@@ -660,8 +660,8 @@ Examples:
     jp
 
 ### 3.1.5 Notes Type
-List of notes (`notes_t`) of value type `array` with 1 or more items of type `Note` contains notes which are specific to the current context.
 
+List of notes (`notes_t`) of value type `array` with 1 or more items of type `Note` contains notes which are specific to the current context.
 
     "notes_t": {
       // ..
@@ -673,21 +673,20 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type `No
       }
     },
 
-
-Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context. 
+Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context.
 A note `object` may provide the additional properties `audience` and `title`.
 
     "properties": {
       "audience": {
         // ...
       },
+      "text": {
+        // ...
+      },
       "title": {
         // ...
       },
       "type": {
-        // ...
-      },
-      "text": {
         // ...
       }
     }
@@ -701,6 +700,8 @@ Examples:
     operational management and system administrators
     safety engineers
 
+Note contents (`text`) of value type `string` 1 or more characters holds the contents of the note. Content varies depending on type.
+
 Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
 
 Examples:
@@ -710,7 +711,7 @@ Examples:
     Technical summary
     Impact on safety systems
 
-Note type (`type`) of value type `string` as `enum` indicates the choice of what kind of note this is. 
+Note type (`type`) of value type `string` as `enum` indicates the choice of what kind of note this is.
 Valid `enum` values are:
 
     description
@@ -720,8 +721,6 @@ Valid `enum` values are:
     legal_disclaimer
     other
     summary
-
-Note contents (`text`) of value type `string` 1 or more characters holds the contents of the note. Content varies depending on type.
 
 ### 3.1.6 Products Type
 List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
