@@ -645,6 +645,7 @@ Examples:
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
 ### 3.1.4 Language Type
+
 Language type (`lang_t`) has value type `string` with `pattern` (regular expression):
 
     ^[a-zA-Z]{2,3}(-.+)?$
