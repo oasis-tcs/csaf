@@ -469,6 +469,7 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
     },
 
 ### 3.1.1 Acknowledgments Type
+
 List of Acknowledgments (`acknowledgments_t`) type instances of value type array with 1 or more elements contain a list of `Acknowledgment` elements.
 
     "acknowledgments_t": {
@@ -493,13 +494,14 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
     },
 
 #### 3.1.1.1 Acknowledgments - Acknowledgment Type
+
 The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
 The properties are: `names`, `organizations`, `summary`, and `urls`.
 
 ##### 3.1.1.1.1 Acknowledgments - Acknowledgment Type - Names
 
 List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person. 
+Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person.
 
 Examples:
 
@@ -519,7 +521,7 @@ Examples:
 
 ##### 3.1.1.1.3 Acknowledgments - Acknowledgment Type - Summary
 
-Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties. 
+Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.
 
 Example:
 
@@ -528,7 +530,7 @@ Example:
 ##### 3.1.1.1.4 Acknowledgments - Acknowledgment Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
-Any URL of acknowledgment contains the URL or location of the reference to be acknowledged. 
+Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
 
 ### 3.1.2 Branches Type
