@@ -1438,6 +1438,7 @@ Examples:
     Cross-Site Request Forgery (CSRF)
 
 ##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Discovery Date
+
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
 ##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - ID
