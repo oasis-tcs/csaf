@@ -1043,6 +1043,7 @@ The valid values are:
 The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
 
 #### 3.2.1.8 Document Property - References
+
 References (`references`) of References type (`references_t`).
 
     "references": {
