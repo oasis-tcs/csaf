@@ -1579,50 +1579,46 @@ References (`references`) have value type References (`references_t`).
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
 ##### 3.2.3.1.11 Vulnerabilities Property - Vulnerability - Remediations
-List of remediations (`remediations`) of value type `array`with 1 or more Remediation items of type `object` contains a list of remediations.
-Remediation of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
-In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
+
+List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of type `object` contains a list of remediations.
 
     "remediations": {
       // ...
       "items": {
         // ...
-        "properties": {
-          "date": {
-            // ...
-          },
-          "details": {
-            // ...
-          },
-          "entitlements": {
-            // ...
-          },
-          "group_ids": {
-            // ...
-          },
-          "product_ids": {
-            // ...
-          },
-          "restart_required": {
-            // ...
-            "properties": {
-              "type": {
-                // ...
-              },
-              "details": {
-                // ...
-              }
-            }
-          },
-          "type": {
-            // ...
-          },
-          "url": {
-            // ...
-          }
-        }
       }
     },
+
+Remediation of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+
+In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
+
+      "properties": {
+        "date": {
+          // ...
+        },
+        "details": {
+          // ...
+        },
+        "entitlements": {
+          // ...
+        },
+        "group_ids": {
+          // ...
+        },
+        "product_ids": {
+          // ...
+        },
+        "restart_required": {
+          // ...
+        },
+        "type": {
+          // ...
+        },
+        "url": {
+          // ...
+        }
+      }
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
@@ -1636,6 +1632,21 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
+
+      "restart_required": {
+        // ...
+        "properties": {
+          "details": {
+            // ...
+          },
+          "type": {
+            // ...
+          }
+        }
+      },
+
+Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
+
 Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
 
@@ -1650,19 +1661,16 @@ Valid values are:
     system
 
 The values must be used as follows:
-- `none`: No restart required.
-- `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item) needs to be restarted.
-- `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
-- `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way to restart the vulnerable component or process values / context is only given at the start of the parent process.
-- `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted. This could be the case e.g. for a core service of a software.
-- `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication) to the vulnerable component need to be restarted.
-- `machine`: The machine on which the vulnerable component is installed on needs to be restarted. This is the value which should be used if an OS needs to be restarted. It is typically the case for OS upgrades.
-- `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted. This value might be useful for a remediation if no patch is available. If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at the same time and restart afterwards can leave one with a clean system.
-- `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted. This may include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
-
-
-Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
+* `none`: No restart required.
+* `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item) needs to be restarted.
+* `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
+* `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way to restart the vulnerable component or process values / context is only given at the start of the parent process.
+* `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted. This could be the case e.g. for a core service of a software.
+* `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication) to the vulnerable component need to be restarted.
+* `machine`: The machine on which the vulnerable component is installed on needs to be restarted. This is the value which should be used if an OS needs to be restarted. It is typically the case for OS upgrades.
+* `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted. This value might be useful for a remediation if no patch is available. If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at the same time and restart afterwards can leave one with a clean system.
+* `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted. This may include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
 Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
 Valid values are:
@@ -1673,8 +1681,7 @@ Valid values are:
     none_available
     no_fix_planned
 
-
-URL (`url`) of value type `string`with format `uri` contains the URL where to obtain the remediation.
+URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
 ##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Scores
 
