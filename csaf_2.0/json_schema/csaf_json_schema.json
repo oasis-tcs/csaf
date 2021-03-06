@@ -1090,6 +1090,24 @@
                 "type"
               ],
               "properties": {
+                "date": {
+                  "title": "Date of the threat",
+                  "description": "Contains the date when the assessment was done or the threat appeared.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "details": {
+                  "title": "Details of the threat",
+                  "description": "Represents a thorough human-readable discussion of the threat.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "group_ids": {
+                  "$ref": "#/definitions/product_groups_t"
+                },
+                "product_ids": {
+                  "$ref": "#/definitions/products_t"
+                },
                 "type": {
                   "title": "Type of the threat",
                   "description": "Categorizes the threat according to the rules of the specification.",
@@ -1099,24 +1117,6 @@
                     "exploit_status",
                     "target_set"
                   ]
-                },
-                "details": {
-                  "title": "Details of the threat",
-                  "description": "Represents a thorough human-readable discussion of the threat.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "date": {
-                  "title": "Date of the threat",
-                  "description": "Contains the date when the assessment was done or the threat appeared.",
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "product_ids": {
-                  "$ref": "#/definitions/products_t"
-                },
-                "group_ids": {
-                  "$ref": "#/definitions/product_groups_t"
                 }
               }
             }
