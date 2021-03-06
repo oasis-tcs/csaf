@@ -803,39 +803,6 @@
               }
             }
           },
-          "scores": {
-            "title": "List of scores",
-            "description": "contains score objects for the currrent vulnerability.",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "title": "Score",
-              "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
-              "type": "object",
-              "minItems": 2,
-              "required": [
-                "products"
-              ],
-              "properties": {
-                "products": {
-                  "$ref": "#/definitions/products_t"
-                },
-                "cvss_v2": {
-                  "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
-                },
-                "cvss_v3": {
-                  "oneOf": [
-                    {
-                      "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
-                    },
-                    {
-                      "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
-                    }
-                  ]
-                }
-              }
-            }
-          },
           "discovery_date": {
             "title": "Discovery date",
             "description": "Holds the date and time the vulnerability was originally discovered.",
@@ -1052,6 +1019,39 @@
                       "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
                       "type": "string",
                       "minLength": 1
+                    }
+                  }
+                },
+                "scores": {
+                  "title": "List of scores",
+                  "description": "contains score objects for the currrent vulnerability.",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "title": "Score",
+                    "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
+                    "type": "object",
+                    "minItems": 2,
+                    "required": [
+                      "products"
+                    ],
+                    "properties": {
+                      "cvss_v2": {
+                        "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
+                      },
+                      "cvss_v3": {
+                        "oneOf": [
+                          {
+                            "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+                          },
+                          {
+                            "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                          }
+                        ]
+                      },
+                      "products": {
+                        "$ref": "#/definitions/products_t"
+                      }
                     }
                   }
                 },
