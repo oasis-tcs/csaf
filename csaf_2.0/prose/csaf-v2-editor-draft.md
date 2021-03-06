@@ -988,15 +988,11 @@ Examples:
 
 Document language (`lang`) of Language Type (`lang_t`) identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.
 
-#### 3.2.1.6 Document Property - Source Language
-
-Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
-
-#### 3.2.1.7 Document Property - Notes
+#### 3.2.1.6 Document Property - Notes
 
 Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) holds notes about this set of vulnerabilities.
 
-#### 3.2.1.8 Document Property - Publisher
+#### 3.2.1.7 Document Property - Publisher
 
 Publisher (`publisher`) has value type `object` with the mandatory property Type (`type`) and provides information on the publishing entity. 
 The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
@@ -1019,7 +1015,7 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
       }
     },
 
-##### 3.2.1.8.1 Document Property - Publisher - Contact Details
+##### 3.2.1.7.1 Document Property - Publisher - Contact Details
 
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
@@ -1027,11 +1023,11 @@ Example:
 
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
 
-##### 3.2.1.8.2 Document Property - Publisher - Issuing Authority
+##### 3.2.1.7.2 Document Property - Publisher - Issuing Authority
 
 Issuing authority (`issuing_authority`) of value type `string`with 1 or more characters provides the name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### 3.2.1.8.3 Document Property - Publisher - Type
+##### 3.2.1.7.3 Document Property - Publisher - Type
 
 The Type of publisher (`type`) of type `string`and `enum` provides information about the type of publisher releasing the document. 
 The valid values are:
@@ -1042,16 +1038,20 @@ The valid values are:
     user
     vendor
 
-##### 3.2.1.8.4 Document Property - Publisher - Vendor ID
+##### 3.2.1.7.4 Document Property - Publisher - Vendor ID
 
 The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
 
-#### 3.2.1.9 Document Property - References
+#### 3.2.1.8 Document Property - References
 References (`references`) of References type (`references_t`).
 
     "references": {
       // ...
     },
+
+#### 3.2.1.9 Document Property - Source Language
+
+Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
 #### 3.2.1.10 Document Property - Title
 
