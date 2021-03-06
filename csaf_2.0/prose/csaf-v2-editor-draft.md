@@ -1575,6 +1575,7 @@ Under investigation (`under_investigation`) of value type Products (`products_t`
 References (`references`) have value type References (`references_t`).
 
 ##### 3.2.3.1.10 Vulnerabilities Property - Vulnerability - Release Date
+
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
 ##### 3.2.3.1.11 Vulnerabilities Property - Vulnerability - Remediations
