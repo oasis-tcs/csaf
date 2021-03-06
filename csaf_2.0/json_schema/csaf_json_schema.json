@@ -682,16 +682,6 @@
               "product_ids"
             ],
             "properties": {
-              "summary": {
-                "title": "Summary of the product group",
-                "description": "Gives a short, optional description of the group.",
-                "type": "string",
-                "minLength": 1,
-                "examples": [
-                  "The x64 versions of the operating system.",
-                  "Products supporting Modbus."
-                ]
-              },
               "group_id": {
                 "$ref": "#/definitions/product_group_id_t"
               },
@@ -704,6 +694,16 @@
                 "items": {
                   "$ref": "#/definitions/product_id_t"
                 }
+              },
+              "summary": {
+                "title": "Summary of the product group",
+                "description": "Gives a short, optional description of the group.",
+                "type": "string",
+                "minLength": 1,
+                "examples": [
+                  "The x64 versions of the operating system.",
+                  "Products supporting Modbus."
+                ]
               }
             }
           }
