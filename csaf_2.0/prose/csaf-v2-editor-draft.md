@@ -994,7 +994,7 @@ Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) hol
 
 #### 3.2.1.7 Document Property - Publisher
 
-Publisher (`publisher`) has value type `object` with the mandatory property Type (`type`) and provides information on the publishing entity. 
+Publisher (`publisher`) has value type `object` with the mandatory property Type (`type`) and provides information on the publishing entity.
 The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
 
     "publisher": {
@@ -1025,11 +1025,11 @@ Example:
 
 ##### 3.2.1.7.2 Document Property - Publisher - Issuing Authority
 
-Issuing authority (`issuing_authority`) of value type `string`with 1 or more characters provides the name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.
+Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters provides the name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
 ##### 3.2.1.7.3 Document Property - Publisher - Type
 
-The Type of publisher (`type`) of type `string`and `enum` provides information about the type of publisher releasing the document. 
+The Type of publisher (`type`) of type `string` and `enum` provides information about the type of publisher releasing the document.
 The valid values are:
 
     coordinator
