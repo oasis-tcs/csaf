@@ -441,11 +441,6 @@
           "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.",
           "$ref": "#/definitions/lang_t"
         },
-        "source_lang": {
-          "title": "Source language",
-          "description": "If this copy of the document is a translation then the value of this property describes from which language this document was translated.",
-          "$ref": "#/definitions/lang_t"
-        },
         "notes": {
           "title": "Notes associated with the whole document.",
           "description": "Holds notes about this set of vulnerabilities.",
@@ -496,6 +491,11 @@
         },
         "references": {
           "$ref": "#/definitions/references_t"
+        },
+        "source_lang": {
+          "title": "Source language",
+          "description": "If this copy of the document is a translation then the value of this property describes from which language this document was translated.",
+          "$ref": "#/definitions/lang_t"
         },
         "title": {
           "title": "Title of this document",
