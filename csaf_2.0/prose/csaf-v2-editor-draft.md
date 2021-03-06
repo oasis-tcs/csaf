@@ -1470,12 +1470,18 @@ Example:
     CSCso66472
 
 ##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - Involvements
+
 List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
 
     "involvements": {
       // ...
       "items": {
         // ...
+      }
+    },
+
+Involvement (`involvement`) of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.
+
         "properties": {
           "summary": {
             // ...
@@ -1487,14 +1493,8 @@ List of involvements (`involvements`) of value type `array` with 1 or more items
             // ...
           }
         }
-      }
-    },
 
-Involvement (`involvement`) of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process. 
-
-Summary of involvement ( `summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
-
-Party type (`party`) of value type `string`and `enum` defines the type of the involved party.
+Party type (`party`) of value type `string` and `enum` defines the type of the involved party.
 Valid values are:
 
     coordinator
@@ -1512,6 +1512,8 @@ Valid values are:
     in_progress
     not_contacted
     open
+
+Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
 ##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Notes
 Notes (`notes`) have value type Notes (notes_t).
