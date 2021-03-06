@@ -926,7 +926,7 @@ The single valid value for this `enum` is:
 
 #### 3.2.1.4 Document Property - Distribution
 
-Rules for sharing document ( `distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol TLP (`tlp`) describes any constraints on how this document might be shared.
+Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol TLP (`tlp`) describes any constraints on how this document might be shared.
 
     "distribution": {
       // ...
@@ -966,7 +966,7 @@ Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory p
       }
     }
 
-The Label of TLP (`label`) with value type `string` and `enum` provides the TLP label of the document. 
+The Label of TLP (`label`) with value type `string` and `enum` provides the TLP label of the document.
 Valid values of the `enum` are:
 
     RED
@@ -974,7 +974,7 @@ Valid values of the `enum` are:
     GREEN
     WHITE
 
-The URL of TLP version (`url`) with value type `string` and format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. Default value is the URL to the definition by FIRST. 
+The URL of TLP version (`url`) with value type `string` and format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. Default value is the URL to the definition by FIRST.
 The default value is:
 
     https://www.first.org/tlp/
