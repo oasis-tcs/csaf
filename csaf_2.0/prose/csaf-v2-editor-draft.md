@@ -418,18 +418,19 @@ The schema identifier is (before publication):
 
     "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json"
 
-The further documentation of the schema is organized via Definitions and Properties. 
+The further documentation of the schema is organized via Definitions and Properties.
 
-* Definitions provide types that extend the JSON schema model 
+* Definitions provide types that extend the JSON schema model
 * Properties use these types to support assembling security advisories
 
-Types and properties together provide the vocabulary for the domain specific language supporting security advisories. 
+Types and properties together provide the vocabulary for the domain specific language supporting security advisories.
 
-The single mandatory property is `document`. 
+The single mandatory property is `document`.
 The optional two additional properties are `product_tree` and `vulnerabilities`.
 
 ## 3.1 Definitions
-The definitions (`$defs`) introduce the following domain specific types into the CSAF language: 
+
+The definitions (`$defs`) introduce the following domain specific types into the CSAF language:
 Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`), Products (`products_t`), Product Groups (`product_groups_t`), Product Group ID (`product_group_id_t`), Product ID (`product_id_t`), References (`references_t`), and Version (`version_t`).  
 
     "$defs": {
