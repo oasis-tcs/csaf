@@ -1271,7 +1271,7 @@ The product group items are of value type `object` with the 2 mandatory properti
       },
       "summary": {
         // ...
-      },
+      }
     }
 
 The summary of the product group (`summary`) of type `string` with 1 or more characters gives a short, optional description of the group.
