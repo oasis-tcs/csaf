@@ -1248,27 +1248,29 @@ List of branches (`branches`) of value type `branches_t`.
 List of full product names (`full_product_names`) of value type `array` with 1 or more items of type `full_product_name_t` contains a list of full product names.
 
 #### 3.2.2.3 Product Tree Property - Product Groups
+
 List of product groups (`product_groups`) of value type `array` with 1 or more items of type `object` contains a list of product groups.
 
     "product_groups": {
       // ...
       "items": {
         // ...
-        "properties": {
-          "summary": {
-            // ...
-          },
-          "group_id": {
-            // ...
-          },
-          "product_ids": {
-            // ...
-          }
-        }
       }
     },
 
 The product group items are of value type `object` with the 2 mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and the optional Summary (`summary`) property.
+
+    "properties": {
+      "group_id": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      },
+      "summary": {
+        // ...
+      },
+    }
 
 The summary of the product group (`summary`) of type `string` with 1 or more characters gives a short, optional description of the group.
 
