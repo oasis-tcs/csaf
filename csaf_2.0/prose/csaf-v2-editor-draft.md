@@ -1242,6 +1242,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
     },
 
 #### 3.2.2.1 Product Tree Property - Branches
+
 List of branches (`branches`) of value type `branches_t`.
 
 #### 3.2.2.2 Product Tree Property - Full Product Names
