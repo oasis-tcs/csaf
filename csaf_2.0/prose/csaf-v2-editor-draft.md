@@ -1442,7 +1442,8 @@ Examples:
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
 ##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - ID
-ID (`id`) of value type `object`with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
+
+ID (`id`) of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
 
     "id": {
       // ...
