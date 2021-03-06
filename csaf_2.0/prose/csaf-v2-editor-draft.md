@@ -1329,62 +1329,65 @@ The valid values are:
     installed_with
 
 ### 3.2.3 Vulnerabilities Property
-Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects representing vulnerabilities and providing 1 or more properties represents a list of all relevant vulnerability information items. 
+
+Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects representing vulnerabilities and providing 1 or more properties represents a list of all relevant vulnerability information items.
 
     "vulnerabilities": {
       // ...
       "items": {
         // ...
-        "properties": {
-          "acknowledgments": {
-            // ...
-          },
-          "cve": {
-            // ...
-          },
-          "cwe": {
-            // ...
-          },
-          "scores": {
-            // ...
-          },
-          "discovery_date": {
-            // ...
-          },
-          "id": {
-            // ...
-          },
-          "involvements": {
-            // ...
-          },
-          "notes": {
-            // ...
-          },
-          "product_status": {
-            // ...
-          },
-          "references": {
-            // ...
-          },
-          "release_date": {
-            // ...
-          },
-          "remediations": {
-            // ...
-          },
-          "threats": {
-            // ...
-          },
-          "title": {
-            // ...
-          }
-        }
       }
     }
 
 #### 3.2.3.1 Vulnerabilities Property - Vulnerability
-Vulnerability ( `vulnerability`) of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document. 
-Any vulnerability may provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Scores (`scores`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Threats (`threats`),and Title (`title`). 
+
+Vulnerability (`vulnerability`) of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
+Any vulnerability may provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
+
+    "properties": {
+      "acknowledgments": {
+        // ...
+      },
+      "cve": {
+        // ...
+      },
+      "cwe": {
+        // ...
+      },
+      "discovery_date": {
+        // ...
+      },
+      "id": {
+        // ...
+      },
+      "involvements": {
+        // ...
+      },
+      "notes": {
+        // ...
+      },
+      "product_status": {
+        // ...
+      },
+      "references": {
+        // ...
+      },
+      "release_date": {
+        // ...
+      },
+      "remediations": {
+        // ...
+      },
+      "scores": {
+        // ...
+      },
+      "threats": {
+        // ...
+      },
+      "title": {
+        // ...
+      }
+    }
 
 ##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
 List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
