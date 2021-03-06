@@ -852,12 +852,6 @@
                 "status"
               ],
               "properties": {
-                "summary": {
-                  "title": "Summary of the involvement",
-                  "description": "Contains additional context regarding what is going on.",
-                  "type": "string",
-                  "minLength": 1
-                },
                 "party": {
                   "title": "Party type",
                   "description": "Defines the type of the involved party.",
@@ -882,6 +876,12 @@
                     "not_contacted",
                     "open"
                   ]
+                },
+                "summary": {
+                  "title": "Summary of the involvement",
+                  "description": "Contains additional context regarding what is going on.",
+                  "type": "string",
+                  "minLength": 1
                 }
               }
             }
