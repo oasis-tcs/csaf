@@ -1516,6 +1516,7 @@ Valid values are:
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
 ##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Notes
+
 Notes (`notes`) have value type Notes (notes_t).
 
 ##### 3.2.3.1.8 Vulnerabilities Property - Vulnerability - Product Status
