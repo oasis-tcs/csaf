@@ -1402,6 +1402,7 @@ CVE (`cve`) of value type `string` with `pattern` (regular expression):
 holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
 ##### 3.2.3.1.3 Vulnerabilities Property - Vulnerability - CWE
+
 CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 
     "cwe": {
@@ -1435,7 +1436,6 @@ Examples:
     Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
     Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
     Cross-Site Request Forgery (CSRF)
-
 
 ##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Scores
 List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
