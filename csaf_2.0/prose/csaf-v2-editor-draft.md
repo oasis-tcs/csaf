@@ -1206,6 +1206,7 @@ The value MUST be one of the following:
 Version has the value type Version (`version_t`).
 
 #### 3.2.1.12 Document Property - Type
+
 Document type (`type`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.
 
     "type": {
