@@ -1022,39 +1022,6 @@
                     }
                   }
                 },
-                "scores": {
-                  "title": "List of scores",
-                  "description": "contains score objects for the currrent vulnerability.",
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "title": "Score",
-                    "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
-                    "type": "object",
-                    "minItems": 2,
-                    "required": [
-                      "products"
-                    ],
-                    "properties": {
-                      "cvss_v2": {
-                        "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
-                      },
-                      "cvss_v3": {
-                        "oneOf": [
-                          {
-                            "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
-                          },
-                          {
-                            "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
-                          }
-                        ]
-                      },
-                      "products": {
-                        "$ref": "#/definitions/products_t"
-                      }
-                    }
-                  }
-                },
                 "type": {
                   "title": "Type of the remediation",
                   "description": "Specifies the type which this remediation belongs to.",
@@ -1072,6 +1039,39 @@
                   "description": "Contains the URL where to obtain the remediation.",
                   "type": "string",
                   "format": "uri"
+                }
+              }
+            }
+          },
+          "scores": {
+            "title": "List of scores",
+            "description": "contains score objects for the currrent vulnerability.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "title": "Score",
+              "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
+              "type": "object",
+              "minItems": 2,
+              "required": [
+                "products"
+              ],
+              "properties": {
+                "cvss_v2": {
+                  "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
+                },
+                "cvss_v3": {
+                  "oneOf": [
+                    {
+                      "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+                    },
+                    {
+                      "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                    }
+                  ]
+                },
+                "products": {
+                  "$ref": "#/definitions/products_t"
                 }
               }
             }
