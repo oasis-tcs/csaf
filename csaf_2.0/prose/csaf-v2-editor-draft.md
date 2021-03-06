@@ -1766,6 +1766,7 @@ Valid values are:
     target_set
 
 ##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
+
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
 # 4 Safety, Security, and Data Protection Considerations
