@@ -1718,34 +1718,45 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
 ##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
+
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
-A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information. 
-This information can change as the vulnerability ages and new information becomes available.
-In addition, threat items may provide the three optional properties Date (`date`), Product IDs (`product_ids`) and Group IDs (`group_ids`). 
 
     "threats": {
       // ...
       "items": {
         // ...
-        "properties": {
-          "type": {
-            // ...
-          },
-          "details": {
-            // ...
-          },
-          "date": {
-            // ...
-          },
-          "product_ids": {
-            // ...
-          },
-          "group_ids": {
-            // ...
-          }
-        }
       }
     },
+
+A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information.
+This information can change as the vulnerability ages and new information becomes available.
+In addition, threat items may provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+
+    "properties": {
+      "date": {
+        // ...
+      },
+      "details": {
+        // ...
+      },
+      "group_ids": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      },
+      "type": {
+        // ...
+      }
+    }
+
+Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
+
+Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+
+Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
 Valid values are:
@@ -1753,14 +1764,6 @@ Valid values are:
     impact
     exploit_status
     target_set
-
-Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
-
-Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
-
-Product IDs (`product_ids`) are of value type Products (`products_t`).
-
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
 ##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
