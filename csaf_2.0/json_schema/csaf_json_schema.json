@@ -341,10 +341,10 @@
       "type": "object",
       "required": [
         "csaf_version",
-        "title",
         "publisher",
-        "type",
-        "tracking"
+        "title",
+        "tracking",
+        "type"
       ],
       "properties": {
         "acknowledgments": {
