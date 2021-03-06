@@ -1221,7 +1221,7 @@ Examples:
 
 ### 3.2.2 Product Tree Property
 
-Product Tree (`product_tree`) has value type `object` with 1 or more properties is a container for all fully qualified product names that can be referenced elsewhere in the document. 
+Product Tree (`product_tree`) has value type `object` with 1 or more properties is a container for all fully qualified product names that can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`), and Relationships (`relationships`).
 
     "product_tree": {
@@ -1238,6 +1238,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
         },
         "relationships": {
           // ...
+        }
       }
     },
 
