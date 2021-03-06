@@ -1390,6 +1390,7 @@ Any vulnerability may provide the optional properties Acknowledgments (`acknowle
     }
 
 ##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
+
 List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
 
 ##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
