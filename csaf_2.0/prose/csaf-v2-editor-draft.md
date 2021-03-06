@@ -1394,6 +1394,7 @@ Any vulnerability may provide the optional properties Acknowledgments (`acknowle
 List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
 
 ##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
+
 CVE (`cve`) of value type `string` with `pattern` (regular expression):
 
     ^CVE-[0-9]{4}-[0-9]{4,}$
