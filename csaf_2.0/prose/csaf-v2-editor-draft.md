@@ -1071,9 +1071,6 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
     "tracking": {
       // ...
       "properties": {
-        "id": {
-          // ...
-        },
         "aliases": {
           // ...
         },
@@ -1081,6 +1078,9 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
           // ...
         },
         "generator": {
+          // ...
+        },
+        "id": {
           // ...
         },
         "initial_release_date": {
@@ -1098,20 +1098,8 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
       }
     },
 
+##### 3.2.1.11.1 Document Property - Tracking - Aliases
 
-##### 3.2.1.11.1 Document Property - Tracking - ID
-
-Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
-The ID is a simple label that provides for a wide range of numbering values, types, and schemes. 
-Its value SHOULD be assigned and maintained by the original document issuing authority.
-
-Examples:
-
-    Example Company - 2019-YH3234
-    RHBA-2019:0024
-    cisco-sa-20190513-secureboot
-
-##### 3.2.1.11.2 Document Property - Tracking - Aliases
 Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a list of alternate names for the same document.
 
     "aliases": {
@@ -1127,26 +1115,28 @@ Example:
 
     CVE-2019-12345
 
-##### 3.2.1.11.3 Document Property - Tracking - Current Release Date
+##### 3.2.1.11.2 Document Property - Tracking - Current Release Date
 
 Current release date (`current_release_date`) with value type `string` and format `date-time` holds the date when the current revision of this document was released.
 
+##### 3.2.1.11.3 Document Property - Tracking - Generator
 
-##### 3.2.1.11.4 Document Property - Tracking - Generator
-
-Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and optional property Date (`date`) is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.. 
+Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and optional property Date (`date`) is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
         "generator": {
           // ...
           "properties": {
-            "engine": {
+            "date": {
               // ...
             },
-            "date": {
+            "engine": {
               // ...
             }
           }
         },
+
+Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated.
+Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released, this field MAY be different from the Initial Release Date and Current Release Date.
 
 Engine of document generation (`engine`) of value type `string` with 1 or more characters SHOULD represent the name of the engine that generated the CSAF document, and MAY additionally refer to its version.
 
@@ -1156,9 +1146,17 @@ Examples:
     Red Hat rhsa-to-cvrf 2.1
     CMPFA Core Converter CVRF->CSAF Version 0.6
 
+##### 3.2.1.11.4 Document Property - Tracking - ID
 
-Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated. 
-Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released, this field MAY be different from the Initial Release Date and Current Release Date.
+Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
+The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
+Its value SHOULD be assigned and maintained by the original document issuing authority.
+
+Examples:
+
+    Example Company - 2019-YH3234
+    RHBA-2019:0024
+    cisco-sa-20190513-secureboot
 
 ##### 3.2.1.11.5 Document Property - Tracking - Initial Release Date
 
@@ -1166,29 +1164,29 @@ Initial release date (`initial_release_date`) with value type `string` and forma
 
 ##### 3.2.1.11.6 Document Property - Tracking - Revision History
 
-The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one. 
+The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one.
 
         "revision_history": {
           // ...
           "items": {
-            "type": "object",
-            "properties": {
-              "number": {
-                // ...
-              },
-              "date": {
-                // ...
-              },
-              "summary": {
-                // ...
-              }
-            }
+            // ...
           }
         },
 
-Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Number (`number`), Date (`date`), and Summary (`summary`). 
+Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`).
 
-The Number (`number`) has value type Version (`version_t`). 
+        "properties": {
+          "date": {
+            // ...
+          },
+          "number": {
+            // ...
+          },
+          "summary": {
+            // ...
+          }
+        }
+The Number (`number`) has value type Version (`version_t`).
 
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
 
