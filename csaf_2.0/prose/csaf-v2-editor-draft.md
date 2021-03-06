@@ -1437,43 +1437,10 @@ Examples:
     Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
     Cross-Site Request Forgery (CSRF)
 
-##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Scores
-List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
-
-    "scores": {
-      // ...
-      "items": {
-        // ...
-        }
-      }
-    },
-
-
-Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2` and `cvss_v3` specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item has at least 2 properties.
-
-        "properties": {
-          "products": {
-            // ...
-          },
-          "cvss_v2": {
-            // ...
-          },
-          "cvss_v3": {
-            "oneOf": [
-              // ...
-            ]
-          }
-
-Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
-
-The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
-
-The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemes at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
-
-##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - Discovery Date
+##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Discovery Date
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - ID
+##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - ID
 ID (`id`) of value type `object`with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
 
     "id": {
@@ -1500,7 +1467,7 @@ Example:
 
     CSCso66472
 
-##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Involvements
+##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - Involvements
 List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
 
     "involvements": {
@@ -1544,10 +1511,10 @@ Valid values are:
     not_contacted
     open
 
-##### 3.2.3.1.8 Vulnerabilities Property - Vulnerability - Notes
+##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Notes
 Notes (`notes`) have value type Notes (notes_t).
 
-##### 3.2.3.1.9 Vulnerabilities Property - Vulnerability - Product Status
+##### 3.2.3.1.8 Vulnerabilities Property - Vulnerability - Product Status
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability.
 The eight defined properties are Fixed (`fixed`), First fixed (`first_fixed`), Recommended (`recommended`), Known affected (`known_affected`), First affected (`first_affected`), Last affected (`last_affected`), Known not affected (`known_not_affected`), and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
 
@@ -1597,13 +1564,13 @@ Known not affected (`known_not_affected`) of value type Products (`products_t`) 
 
 Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether this version is or is not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 
-##### 3.2.3.1.10 Vulnerabilities Property - Vulnerability - References
+##### 3.2.3.1.9 Vulnerabilities Property - Vulnerability - References
 References (`references`) have value type References (`references_t`).
 
-##### 3.2.3.1.11 Vulnerabilities Property - Vulnerability - Release Date
+##### 3.2.3.1.10 Vulnerabilities Property - Vulnerability - Release Date
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
-##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Remediations
+##### 3.2.3.1.11 Vulnerabilities Property - Vulnerability - Remediations
 List of remediations (`remediations`) of value type `array`with 1 or more Remediation items of type `object` contains a list of remediations.
 Remediation of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
 In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
@@ -1700,6 +1667,40 @@ Valid values are:
 
 
 URL (`url`) of value type `string`with format `uri` contains the URL where to obtain the remediation.
+
+##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Scores
+
+List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
+
+    "scores": {
+      // ...
+      "items": {
+        // ...
+        }
+      }
+    },
+
+Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2` and `cvss_v3` specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item has at least 2 properties.
+
+        "properties": {
+          "cvss_v2": {
+            // ...
+          },
+          "cvss_v3": {
+            "oneOf": [
+              // ...
+            ]
+          }
+          "products": {
+            // ...
+          }
+        }
+
+The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+
+The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemes at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+
+Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
 ##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
