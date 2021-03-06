@@ -998,6 +998,12 @@
                     "type"
                   ],
                   "properties": {
+                    "details": {
+                      "title": "Additional restart information",
+                      "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
+                      "type": "string",
+                      "minLength": 1
+                    },
                     "type": {
                       "title": "Type of restart",
                       "description": "Specifies what type of restart is required by this remediation to become effective.",
@@ -1013,12 +1019,6 @@
                         "zone",
                         "system"
                       ]
-                    },
-                    "details": {
-                      "title": "Additional restart information",
-                      "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
-                      "type": "string",
-                      "minLength": 1
                     }
                   }
                 },
