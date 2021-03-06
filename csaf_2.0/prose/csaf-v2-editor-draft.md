@@ -1246,6 +1246,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
 List of branches (`branches`) of value type `branches_t`.
 
 #### 3.2.2.2 Product Tree Property - Full Product Names
+
 List of full product names (`full_product_names`) of value type `array` with 1 or more items of type `full_product_name_t` contains a list of full product names.
 
 #### 3.2.2.3 Product Tree Property - Product Groups
