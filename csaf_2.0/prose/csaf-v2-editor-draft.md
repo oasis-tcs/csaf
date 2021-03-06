@@ -884,13 +884,11 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
     },
 
 #### 3.2.1.1 Document Property - Acknowledgments
+
 List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
- 
+
     "acknowledgments": {
       // ...
-      "items": {
-        // ...
-      }
     },
 
 #### 3.2.1.2 Document Property - Aggregate Severity
