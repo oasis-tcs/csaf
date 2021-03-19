@@ -1871,7 +1871,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * prefill CSAF documents based on values given in the configuration (see below)
   * create a new version of an existing CSAF document
   * checkout old versions of a CSAF document
-  * show diff between versions of a CSAF document
+  * show all differences between versions of a CSAF document
   * list all CSAF documents within the system
   * delete CSAF documents from the system
   * review CSAF documents in the system
@@ -1882,14 +1882,13 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * filter on all properties which it is required to search for
   * export of CSAF documents
   * show an autdit log for each CSAF document
+  * identify the latest version of CSAF documents with the same `/document/tracking/id`
+  * suggest a `/document/tracking/id` based on the given configuration.
+  * track of the version of CSAF documents automatically and increments for each change at least the patch_version.
+  * support the following workflows:
 
-* It must identify the latest version of CSAF documents with the same `/document/tracking/id`
-* It suggests a `/document/tracking/id` based on the given configuration.
-* It keeps track of the version of CSAF documents automatically and increments for each change at least the patch_version.
-* It must support the following workflows:
-
-  * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
-  * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
+    * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
+    * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
 
 * The publication may be immediately or at a given date/time.
 * The handling of date/time and version must be automated.
