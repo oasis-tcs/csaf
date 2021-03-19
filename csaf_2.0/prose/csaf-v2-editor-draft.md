@@ -1881,7 +1881,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * search for CSAF documents based on properties of `product_tree`
   * filter on all properties which it is required to search for
   * export of CSAF documents
-  * show an autdit log for each CSAF document
+  * show an audit log for each CSAF document
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
   * track of the version of CSAF documents automatically and increments for each change at least the patch_version.
