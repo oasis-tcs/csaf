@@ -1276,7 +1276,7 @@ Examples:
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
-List of Product IDs (`product_ids`) of value type array with 2 or more items of type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
+List of Product IDs (`product_ids`) of value type array with 2 or more unique items of type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
 
 #### 3.2.2.4 Product Tree Property - Relationships
 List of relationships (`relationships`) of value type `array` with 1 or more items contains a list of relationships.
