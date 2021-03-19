@@ -1811,6 +1811,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **Direct producer**: An analysis tool which acts as a CSAF producer.
 * **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
+* **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
 * **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
 * **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
@@ -1858,7 +1859,91 @@ A program satisfies the "CVRF CSAF converter" conformance profile if:
 * For all items of `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter shall discard the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * For all items of `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter must convert the first one into the `full_product_name`. It must also output a warning that information might be lost during conversion of product relationships.
 
-## 5.7 Conformance Clause 6: CSAF post-processor
+## 5.7 Conformance Clause 6: CSAF content management system
+
+A CSAF content management system satisfies the "CSAF content management system" conformance profile if:
+
+* It satisfies the "CSAF producer" conformance profile.
+* It satisfies the "CSAF viewer" conformance profile.
+* It provides at least the following management functions:
+
+  * create new CSAF documents
+  * prefill CSAF documents based on values given in the configuration (see below)
+  * create a new version of an existing CSAF document
+  * checkout old versions of a CSAF document
+  * show diff between versions of a CSAF document
+  * list all CSAF documents within the system
+  * delete CSAF documents from the system
+  * review CSAF documents in the system
+  * approve CSAF documents
+  * search for CSAF documents by values of required fields at `document`-level or their children within the system
+  * search for CSAF documents by values of `cve` within the system
+  * search for CSAF documents based on properties of `product_tree`
+  * filter on all properties which it is required to search for
+  * export of CSAF documents
+  * show an autdit log for each CSAF document
+
+* It must identify the latest version of CSAF documents with the same `/document/tracking/id`
+* It suggests a `/document/tracking/id` based on the given configuration.
+* It keeps track of the version of CSAF documents automatically and increments for each change at least the patch_version.
+* It must support the following workflows:
+
+  * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
+  * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
+
+* The publication may be immediately or at a given date/time.
+* The handling of date/time and version must be automated.
+* It must provide an API to retrieve all CSAF documents which are currently in the status published.
+* It should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
+* It must provide a user management and support at least the following roles:
+
+  * _Registered_: Able to see all published CSAF documents (but only in the published version).
+  * _Author_: inherits _Registered_ permissions and also can Create and Edit Own (mostly used for automated creation, see above)
+  * _Editor_: inherits _Author_ permissions and can Edit (mostly used in PSIRT)
+  * _Publisher_: inherits _Editor_ permissions and can Change state and Review any (mostly used as HEAD of PSIRT or team lead)
+  * _Reviewer_: inherits _Registered_ permissions and can Review advisories assigned to him (might be a subject matter expert or management)
+  * _Manager_: inherits _Publisher_ permissions and can Delete; User management up to _Publisher_
+  * _Administrator_: inherits _Manager_ permissions and can Change the configuration
+* It may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group. In this case, there must be a _Group configurator_ which is able to change the values which are used to prefill fields in new advisories for that group. He might also do the user management for the group up to a configured level.
+* It prefills the following fields in new CSAF documents with the values given below or based on the templates from configuration:
+
+  * `/document/csaf_version` with the value `2.0`
+  * `/document/language`
+  * `/document/notes`
+    * `legal_disclaimer` (Terms of use from the configuration)
+    * `general` (General Security recommendations from the configuration)
+  * `/document/tracking/current_release_date` with the current date
+  * `/document/tracking/generator` and children
+  * `/document/tracking/initial_release_date` with the current date
+  * `/document/tracking/revision_history`
+    * `date` with the current date
+    * `number` (based on the templates from configuration; default: 0.1)
+    * `summary` (based on the templates from configuration; default: "Initial version.")
+  * `/document/tracking/status` with `draft`
+  * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
+  * `/document/publisher` and children
+  * `/document/type` (based on the templates from configuration)
+
+* When updating an exsting CSAF document:
+  
+  * it prefills all fields which have be present in the existing CSAF document
+  * it adds a new item in `/document/tracking/revision_history[]`
+  * it updates the following fields with the values given below or based on the templates from configuration:
+  * `/document/csaf_version` with the value `2.0`
+  * `/document/language`
+  * `/document/notes`
+    * `legal_disclaimer` (Terms of use from the configuration)
+    * `general` (General Security recommendations from the configuration)
+  * `/document/tracking/current_release_date` with the current date
+  * `/document/tracking/generator` and children
+  * the new item in `/document/tracking/revision_history[]`
+    * `date` with the current date
+    * `number` (based on the templates from configuration; default: latest_patch_version + 1)
+  * `/document/tracking/status` with `draft`
+  * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
+  * `/document/publisher` and children
+
+## 5.8 Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if:
 
@@ -1866,7 +1951,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * It satisfies the "CSAF producer" conformance profile.
 * It additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-## 5.8 Conformance Clause 7: CSAF modifier
+## 5.9 Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if:
 
@@ -1878,7 +1963,7 @@ A program satisfies the "CSAF modifier" conformance profile if:
 * The modified document must not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * The modified document must include a reference to the original advisory as first element of the array `/document/references[]`.
 
-## 5.9 Conformance Clause 8: CSAF translator
+## 5.10 Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if:
 
@@ -1893,14 +1978,14 @@ A program satisfies the "CSAF translator" conformance profile if:
 * The translated document must include a reference to the original advisory as first element of the array `/document/references[]`.
 * It may insert translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
 
-## 5.10 Conformance Clause 9: CSAF consumer
+## 5.11 Conformance Clause 10: CSAF consumer
 
 A consumer satisfies the "CSAF consumer" conformance profile if:
 
 * It reads CSAF documents and interprets them according to the semantics defined in section 3.
 * It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-## 5.11 Conformance Clause 10: Viewer
+## 5.12 Conformance Clause 11: Viewer
 
 A viewer satisfies the "viewer" conformance profile if:
 
