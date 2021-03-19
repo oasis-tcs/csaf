@@ -1818,6 +1818,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
 * **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
+* **CSAF asset matching system**: A program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 
 ## 5.2 Conformance Clause 1: CSAF document
 
@@ -2015,6 +2016,23 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
   * sort on CVSS scores and `/document/aggregate_severity/text`
 * It must identify the latest version of CSAF documents with the same `/document/tracking/id`.
 * It must be able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
+
+## 5.14 Conformance Clause 13: CSAF asset matching system
+
+A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if:
+
+* It satisfies the "CSAF management system" conformance profile.
+* It is an asset database or connects to one.
+* It matches the CSAF documents within the system to the respective assets. This might be done with a probability which gives the end user the chance to broaden or narrow the results.
+* It provides for each product of the asset database a list of matched advisories.
+* It provides for each asset of the asset database a list of matched advisories.
+* It provides for each CSAF document a list of matched product of the asset database.
+* It provides for each CSAF document a list of matched asset of the asset database.
+* It provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all in the same status may be implemented.
+* It does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
+* It provides at least the following statistics:
+  * How many assets were match at that CSAF document
+  * How many of them are marked in which of the given status
 
 (Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
 For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
