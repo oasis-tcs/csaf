@@ -159,8 +159,128 @@
             "Cisco AnyConnect Secure Mobility Client 2.3.185"
           ]
         },
-        "product_id": {
-          "$ref": "#/definitions/product_id_t"
+        "product_identification_helper": {
+          "title": "Helper to identify the product",
+          "description": "Provides a least one method which aids in identifying the product in an asset database.",
+          "type": "object",
+          "minProperties": 1,
+          "properties": { 
+            "cpe": {
+              "$comment": "TODO: This should have a full regular expression to enforce CPE syntax.",
+              "title": "Common Platform Enumeration representation",
+              "description": "The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.",
+              "type": "string",
+              "pattern": "^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$",
+              "minLength": 5
+            },
+            "hashes": {
+              "title": "List of hashes",
+              "description": "Contains a list of cryptographic hashes usable to identify files.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Cryptographic hash",
+                "description": "Contains all information to identify a file based on its cryptographic hash value.",
+                "type": "object",
+                "required": [
+                  "algorithm",
+                  "file",
+                  "value"
+                ],
+                "properties": {
+                  "algorithm": {
+                    "title": "Algorithm of the cryptographic hash",
+                    "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
+                    "type": "string",
+                    "default": "SHA-3",
+                    "minLength": 1,
+                    "examples": [
+                      "SHA-256",
+                      "SHA-384",
+                      "SHA-512",
+                      "SHA-3",
+                      "BLAKE3"
+                    ]
+                  },
+                  "file": {
+                    "title": "Filename",
+                    "description": "Contains the name of the file which is identified by the hash value.",
+                    "type": "string",
+                    "minLength": 1,
+                    "examples": [
+                      "WINWORD.EXE",
+                      "msotadddin.dll",
+                      "sudoers.so"
+                    ]
+                  },
+                  "value": {
+                    "title": "Value of the cryptographic hash",
+                    "description": "Contains the cryptographic hash value.",
+                    "type": "string",
+                    "minLength": 64,
+                    "pattern": "^[0-9a-fA-F]{64,}$",
+                    "examples": [
+                      "4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc",
+                      "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c",
+                      "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3"
+                    ]
+                  }
+                }
+              }
+
+            },
+            "purl": {
+              "$comment": "TODO: This should have a full regular expression to enforce purl syntax.",
+              "title": "package URL representation",
+              "description": "The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.",
+              "type": "string",
+              "pattern": "^pkg:",
+              "minLength": 4
+            },
+            "serial_numbers": {
+              "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected or the serial numbers change during update.",
+              "title": "List of serial numbers",
+              "description": "Contains a list of parts or a full serial numbers.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Serial number",
+                "description": "Contains a part or a full serial number of the component to identify.",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "x_generic_uris": {
+              "$comment": "TODO: Add remark in prose which kind of uris might be used here / add examples.",
+              "title": "List of generic uris",
+              "description": "Contains a list of identifiers which are either vendor-specific or derivated from a standard not yet supported.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Generic uri",
+                "description": "Provides a generic extention point for any identifier which is either vendor-specific or derivated from a standard not yet supported.",
+                "type": "object",
+                "required": [
+                  "namespace",
+                  "uri"
+                ],
+                "properties": {
+                  "namespace": {
+                    "title": "Namespace of the generic uri",
+                    "description": "Should refer to a URL which provides the name and knownledge about the specification used or is the namespace in which these values are valid.",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "uri": {
+                    "title": "URI",
+                    "description": "Contains the identifier itself.",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
