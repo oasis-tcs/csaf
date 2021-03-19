@@ -1812,6 +1812,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
+* **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
 * **Viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
@@ -1864,14 +1865,26 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * It satisfies the "CSAF producer" conformance profile.
 * It additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-## 5.8 Conformance Clause 7: CSAF consumer
+## 5.8 Conformance Clause 7: CSAF modifier
+
+A program satisfies the "CSAF modifier" conformance profile if:
+
+* It satisfies the "CSAF post-processor" conformance profile.
+* It adds, deletes or modifies at least one property or object or value of a property.
+* It does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
+* It additionally satisfies the normative requirements given below.
+
+* The modified document must not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
+* The modified document must include a reference to the original advisory as first element of the array `/document/references[]`.
+
+## 5.9 Conformance Clause 8: CSAF consumer
 
 A consumer satisfies the "CSAF consumer" conformance profile if:
 
 * It reads CSAF documents and interprets them according to the semantics defined in section 3.
 * It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-## 5.9 Conformance Clause 8: Viewer
+## 5.10 Conformance Clause 9: Viewer
 
 A viewer satisfies the "viewer" conformance profile if:
 
