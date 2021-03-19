@@ -1720,6 +1720,7 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
+
 ##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
 
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
@@ -1800,50 +1801,80 @@ Remove this note before submitting for publication.)
 -------
 
 # 5 Conformance
+
 ## 5.1 Conformance Targets
+
 This document defines requirements for the CSAF file format and for certain software components that interact with it. The entities ("conformance targets") for which this document defines requirements are:
+
 * **CSAF document**: A security advisory text document in the format defined by this document.
 * **CSAF producer**: A program which emits output in the CSAF format.
 * **Direct producer**: An analysis tool which acts as a CSAF producer.
 * **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+* **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
 * **Viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
 ## 5.2 Conformance Clause 1: CSAF document
-A text file satisfies the "CSAF document"”" conformance profile if:
+
+A text file satisfies the "CSAF document" conformance profile if:
+
 * It conforms to the syntax and semantics defined in section 3.
 
 ## 5.3 Conformance Clause 2: CSAF producer
+
 A program satisfies the "CSAF producer" conformance profile if:
+
 * It produces output in the CSAF format, according to the semantics defined in section 3.
 * It satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
 ## 5.4 Conformance Clause 3: Direct producer
+
 An analysis tool satisfies the "Direct producer" conformance profile if:
+
 * It satisfies the "CSAF producer" conformance profile.
 * It additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
 ## 5.5 Conformance Clause 4: Converter
+
 A converter satisfies the “Converter” conformance profile if:
+
 * It satisfies the "CSAF producer" conformance profile.
 * It additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
 * It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-## 5.6 Conformance Clause 5: CSAF post-processor
+## 5.6 Conformance Clause 5: CVRF CSAF converter
+
+A program satisfies the "CVRF CSAF converter" conformance profile if:
+
+* It satisfies the "CSAF producer" conformance profile.
+* It takes only CVRF documents as input.
+* It additionally satisfies the normative requirements given below.
+
+* For all items of `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter must append all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
+* For all items of `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter shall discard the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
+* For all items of `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter must convert the first one into the `full_product_name`. It must also output a warning that information might be lost during conversion of product relationships.
+
+## 5.7 Conformance Clause 6: CSAF post-processor
+
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if:
+
 * It satisfies the "CSAF consumer" conformance profile.
 * It satisfies the "CSAF producer" conformance profile.
 * It additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-## 5.7 Conformance Clause 6: CSAF consumer
+## 5.8 Conformance Clause 7: CSAF consumer
+
 A consumer satisfies the "CSAF consumer" conformance profile if:
+
 * It reads CSAF documents and interprets them according to the semantics defined in section 3.
 * It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-## 5.8 Conformance Clause 7: Viewer
+## 5.9 Conformance Clause 8: Viewer
+
 A viewer satisfies the "viewer" conformance profile if:
+
 * It satisfies the "CSAF consumer" conformance profile.
 * It additionally satisfies the normative requirements in section 3 that are designated as applying to viewers.
 
