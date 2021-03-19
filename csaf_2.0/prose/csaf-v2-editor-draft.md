@@ -1816,7 +1816,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
 * **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
-* **Viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
+* **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
 ## 5.2 Conformance Clause 1: CSAF document
 
@@ -1985,12 +1985,16 @@ A consumer satisfies the "CSAF consumer" conformance profile if:
 * It reads CSAF documents and interprets them according to the semantics defined in section 3.
 * It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-## 5.12 Conformance Clause 11: Viewer
+## 5.12 Conformance Clause 11: CSAF viewer
 
-A viewer satisfies the "viewer" conformance profile if:
+A viewer satisfies the "CSAF viewer" conformance profile if:
 
 * It satisfies the "CSAF consumer" conformance profile.
-* It additionally satisfies the normative requirements in section 3 that are designated as applying to viewers.
+* It additionally satisfies the normative requirements given below.
+
+* For each CVSS-Score in `/vulnerabilities[]/scores[]`:
+  * It must prefer the `vector` it there is an inconsistency between the `vector' and any other sibling attribute.
+  * It should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
 (Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
 For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
