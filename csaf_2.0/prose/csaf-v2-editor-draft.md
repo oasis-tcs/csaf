@@ -1809,9 +1809,6 @@ This document defines requirements for the CSAF file format and for certain soft
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
 * **Viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
-* **Result management system**: A software system that consumes the documents produced by analysis tools, produces reports that enable engineering teams to assess the quality of their software artifacts at a point in time and to observe trends in the quality over time, and performs functions such as filing bugs and displaying information about individual results.
-* **Engineering system**: A software development environment within which analysis tools execute. It might include a build system, a source control system, a result management system, a bug tracking system, a test execution system, and so on.
-The normative content in this document defines requirements for CSAF documents, except for those normative requirements that are explicitly designated as defining the behavior of another conformance target.
 
 ## 5.2 Conformance Clause 1: CSAF document
 A text file satisfies the "CSAF document"”" conformance profile if:
@@ -1849,15 +1846,6 @@ A consumer satisfies the "CSAF consumer" conformance profile if:
 A viewer satisfies the "viewer" conformance profile if:
 * It satisfies the "CSAF consumer" conformance profile.
 * It additionally satisfies the normative requirements in section 3 that are designated as applying to viewers.
-
-## 5.9 Conformance Clause 8: Result management system
-A result management system satisfies the "result management system" conformance profile if:
-* It satisfies the "CSAF consumer" conformance profile.
-* It additionally satisfies the normative requirements in section 3 and Appendix B ("Use of fingerprints by result management systems") that are designated as applying to result management systems.
-
-## 5.10 Conformance Clause 9: Engineering system
-An engineering system satisfies the "engineering system" conformance profile if:
-* It satisfies the normative requirements in section 3 that are designated as applying to engineering systems.
 
 (Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
 For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
