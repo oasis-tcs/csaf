@@ -1813,6 +1813,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
 * **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
+* **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
 * **Viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
@@ -1877,14 +1878,29 @@ A program satisfies the "CSAF modifier" conformance profile if:
 * The modified document must not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * The modified document must include a reference to the original advisory as first element of the array `/document/references[]`.
 
-## 5.9 Conformance Clause 8: CSAF consumer
+## 5.9 Conformance Clause 8: CSAF translator
+
+A program satisfies the "CSAF translator" conformance profile if:
+
+* It satisfies the "CSAF post-processor" conformance profile.
+* It translates at least one value.
+* The translation must be of the same contents and form.
+* It additionally satisfies the normative requirements given below and does not add or remove other elements than required below.
+
+* The translated document must not have the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+* The `/document/lang` property must be present and set to the language of the translation.
+* The `/document/source_lang` must contain the language of the original document (and should only be set by CSAF tranlators).
+* The translated document must include a reference to the original advisory as first element of the array `/document/references[]`.
+* It may insert translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
+
+## 5.10 Conformance Clause 9: CSAF consumer
 
 A consumer satisfies the "CSAF consumer" conformance profile if:
 
 * It reads CSAF documents and interprets them according to the semantics defined in section 3.
 * It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-## 5.10 Conformance Clause 9: Viewer
+## 5.11 Conformance Clause 10: Viewer
 
 A viewer satisfies the "viewer" conformance profile if:
 
