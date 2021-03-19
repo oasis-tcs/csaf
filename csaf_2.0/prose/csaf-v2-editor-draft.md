@@ -1817,6 +1817,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
 * **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
+* **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 
 ## 5.2 Conformance Clause 1: CSAF document
 
@@ -1994,6 +1995,26 @@ A viewer satisfies the "CSAF viewer" conformance profile if:
 * For each CVSS-Score in `/vulnerabilities[]/scores[]`:
   * It must prefer the `vector` it there is an inconsistency between the `vector' and any other sibling attribute.
   * It should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
+
+## 5.13 Conformance Clause 12: CSAF management system
+
+A CSAF management system satisfies the "CSAF management system" conformance profile if:
+
+* It satisfies the "CSAF viewer" conformance profile.
+* It provides at least the following management functions:
+  * add new CSAF documents (e.g. from file system or URL) to the system
+  * list all CSAF documents within the system
+  * delete CSAF documents from the system
+  * comment on CSAF documents in the system
+  * mark CSAF documents as read in the system
+  * search for CSAF documents by values of required fields at `document`-level or their children within the system
+  * search for CSAF documents by values of `cve` within the system
+  * search for CSAF documents based on properties of `/product_tree`
+  * filter on all properties which it is required to search for
+  * sort on all properties which it is required to search for
+  * sort on CVSS scores and `/document/aggregate_severity/text`
+* It must identify the latest version of CSAF documents with the same `/document/tracking/id`.
+* It must be able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
 (Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
 For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
