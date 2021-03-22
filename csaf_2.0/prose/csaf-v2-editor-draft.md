@@ -8,7 +8,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 24 February 2021
+## 23 March 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -139,11 +139,15 @@ For purposes of this document, the following terms and definitions apply:
 
 **CSAF consumer**: program that reads and interprets a CSAF document
 
+**CSAF content whatever**: program that does something to a CSAF document - TODO(sthagen) Placeholder for the other conformance relevant roles introduced during discussions)
+
 **CSAF document**: document in the format defined by this document
 
 **CSAF post-processor**: CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 
 **CSAF producer**: program that emits output in the CSAF format
+
+**CSAF translator**: program that translates CSAF document human language parts from one language into another - TODO(sthagen) should be a terse summary of the longer role description in the role sub sections of conformance
 
 **direct producer**: analysis tool which acts as a CSAF producer
 
@@ -243,8 +247,10 @@ For purposes of this document, the following terms and definitions apply:
 
 **web analysis tool**: analysis tool that models and analyzes the interaction between a web client and a server.
 
+**XML**: eXtensible Markup Language - a format and specifically the format of predecessors of this standard namely CVRF 1.1 and CVRF 1.2
 
 ## 1.3 Normative References
+
 ###### [JSON-Schema-Core]
 _JSON Schema: A Media Type for Describing JSON Documents_, draft-handrews-json-schema-02, September 2019, https://json-schema.org/draft/2019-09/json-schema-core.html.
 ###### [JSON-Schema-Validation]
@@ -326,6 +332,7 @@ http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/.
 Latest version available at http://www.w3.org/TR/xmlschema11-2/.
 
 ## 1.5 Typographical Conventions
+
 Keywords defined by this specification use this `monospaced` font.
 ```
     Normative source code uses this paragraph style.
@@ -336,7 +343,7 @@ Some sections of this specification are illustrated with non-normative examples 
 
 *Examples:*
 ```
-    Non-normative examples also use this paragraph style but preceded by the text "Example(s).
+    Non-normative examples also use this paragraph style but preceded by the text "Example(s)".
 ```
 
 All examples in this document are non-normative and informative only.
