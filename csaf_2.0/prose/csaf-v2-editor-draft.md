@@ -97,7 +97,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 # 1 Introduction
 
-The text in this section may all be replaced, but the following three sections (1.1, 1.2, and 1.3) are required for OASIS publications. Section 1.1 (IPR Policy) must not be changed by the TC. Section 1.2 (Terminology) may be modified to include other terminology-related information used in this specification. Section 1.3 (Normative References) should be modified to include additional references, as needed. Section 1.4 (Non-Normative References) is not required, but should be modified to include additional references, as needed.
+The text in this section may all be replaced, but the following three sections (1.1, 1.2, and 1.3) are required for OASIS publications. Section 1.1 (IPR Policy) must not be changed by the TC. Section 1.2 (Terminology) may be modified to include other terminology-related information used in this specification. Section 1.3 (Normative References) should be modified to include additional references, as needed. Section 1.4 (Informative References) is not required, but should be modified to include additional references, as needed.
 
 Here is a customized command line which will generate HTML from this markdown file (named prose/csaf-v2-editor-draft.md):
 
@@ -137,17 +137,27 @@ For purposes of this document, the following terms and definitions apply:
 
 **converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
 
+**CSAF asset matching system**: program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+
 **CSAF consumer**: program that reads and interprets a CSAF document
 
-**CSAF content whatever**: program that does something to a CSAF document - TODO(sthagen) Placeholder for the other conformance relevant roles introduced during discussions)
+**CSAF content management system**: program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 
-**CSAF document**: document in the format defined by this document
+**CSAF document**: security advisory text document in the format defined by this document.
+
+**CSAF management system**: program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
+
+**CSAF modifier**: CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
 
 **CSAF post-processor**: CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 
 **CSAF producer**: program that emits output in the CSAF format
 
-**CSAF translator**: program that translates CSAF document human language parts from one language into another - TODO(sthagen) should be a terse summary of the longer role description in the role sub sections of conformance
+**CSAF translator**: CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
+
+**CSAF viewer**: CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
+
+**CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
 
 **direct producer**: analysis tool which acts as a CSAF producer
 
@@ -273,7 +283,7 @@ For references to W3C Recommendations, use the approved citation formats at:
 http://docs.oasis-open.org/templates/w3c-recommendations-list/w3c-recommendations-list.html.  
 Remove this note before submitting for publication.)
 
-## 1.4 Non-Normative References
+## 1.4 Informative References
 
 ###### [CPE23-N]
 _Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
@@ -343,14 +353,14 @@ Some sections of this specification are illustrated with non-normative examples 
 
 *Examples:*
 ```
-    Non-normative examples also use this paragraph style but preceded by the text "Example(s)".
+    Informative examples also use this paragraph style but preceded by the text "Example(s)".
 ```
 
-All examples in this document are non-normative and informative only.
+All examples in this document are informative only.
 
 All other text is normative unless otherwise labeled e.g. like:
 
-Non-normative Comment:
+Informative Comment:
 
 >This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or common pitfalls learned from implementer or operator experience and often given including the rationale.
 
@@ -359,7 +369,7 @@ Non-normative Comment:
 # 2 Design Considerations
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 
-Non-normative comment:
+Informative Comment:
 
 >The term Security Advisory as used in this document describes any notification of security issues in products of and by providers. Anyone providing a product is considered in this document as a vendor, i.e. developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 A security issue is not necessarily constraint to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of work-arounds is also considered part of the security issue.
@@ -1905,11 +1915,11 @@ CSAF documents are based on JSON, thus the security considerations of [RFC8259] 
 >
 >Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's `eval()` function to parse most JSON texts (but not all; certain characters such as `U+2028 LINE SEPARATOR` and `U+2029 PARAGRAPH SEPARATOR` are legal in JSON but not JavaScript).  This generally constitutes an unacceptable security risk, since the text could contain executable code along with data declarations.  The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to that language's syntax.
 
-In addition, CSAF documents may be rendered by consumers in various human readable formats like HTML or PDF.
+In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 * CSAF producers SHALL NOT emit messages that contain HTML, even though all variants of Markdown permit it.
 * Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
-  **Note**: One example is the GitHub fork of the cmark Markdown processor [GFMCMARK].
+  **Note**: One example is the GitHub fork of the `cmark` Markdown processor [GFMCMARK].
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
 
@@ -1928,9 +1938,27 @@ Remove this note before submitting for publication.)
 
 # 5 Conformance
 
+In the only subsection of this section, the conformance targets and clauses are listed.
+The clauses matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
+
+Informative Comments:
+
+>The order in which targets, and their corresponding clauses appear is somewhat arbitrarily as there is no natural order on such diverse roles participating in the document exchanging ecosystem.
+>
+>Except for the target **CSAF document** all other 12 targets span a taxonomy of the complex CSAF ecosystems existing in and between diverse security advisory generating, sharing, and consuming communities.
+>
+>In any case, there are no capabilities organized in increasing quality levels for targets because the security advisory sharing communities follow the chain link model.
+>Instead, a single minimum capability level for every target is given to maintain important goals of providing a common framework for security advisories:
+>* Fast production, sharing, and actionable consummation of security advisories
+>* Consistent end to end automation through collaborating and not competing "actors"
+>* Clear baseline across the communities per this specification
+>* Additional per community cooperative extensions which may flow back into future updates of this specification
+
+
 ## 5.1 Conformance Targets
 
-This document defines requirements for the CSAF file format and for certain software components that interact with it. The entities ("conformance targets") for which this document defines requirements are:
+This document defines requirements for the CSAF file format and for certain software components that interact with it.
+The entities ("conformance targets") for which this document defines requirements are:
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
 * **CSAF producer**: A program which emits output in the CSAF format.
@@ -1938,7 +1966,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
 * **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
-* **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
+* **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 * **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
 * **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
@@ -1946,48 +1974,52 @@ This document defines requirements for the CSAF file format and for certain soft
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 * **CSAF asset matching system**: A program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 
-## 5.2 Conformance Clause 1: CSAF document
+### 5.1.1 Conformance Clause 1: CSAF document
 
-A text file satisfies the "CSAF document" conformance profile if:
+A text file satisfies the "CSAF document" conformance profile if the text file:
 
-* It conforms to the syntax and semantics defined in section 3.
+* conforms to the syntax and semantics defined in section 3.
 
-## 5.3 Conformance Clause 2: CSAF producer
+### 5.1.2 Conformance Clause 2: CSAF producer
 
-A program satisfies the "CSAF producer" conformance profile if:
+A program satisfies the "CSAF producer" conformance profile if the program:
 
-* It produces output in the CSAF format, according to the semantics defined in section 3.
-* It satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
+* produces output in the CSAF format, according to the semantics defined in section 3.
+* satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-## 5.4 Conformance Clause 3: Direct producer
+### 5.1.3 Conformance Clause 3: Direct producer
 
-An analysis tool satisfies the "Direct producer" conformance profile if:
+An analysis tool satisfies the "Direct producer" conformance profile if the analysis tool:
 
-* It satisfies the "CSAF producer" conformance profile.
-* It additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
-* It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
+* satisfies the "CSAF producer" conformance profile.
+* additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
+* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-## 5.5 Conformance Clause 4: Converter
+### 5.1.4 Conformance Clause 4: Converter
 
-A converter satisfies the “Converter” conformance profile if:
+A converter satisfies the “Converter” conformance profile if the converter:
 
-* It satisfies the "CSAF producer" conformance profile.
-* It additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
-* It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
+* satisfies the "CSAF producer" conformance profile.
+* additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
+* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-## 5.6 Conformance Clause 5: CVRF CSAF converter
+### 5.1.5 Conformance Clause 5: CVRF CSAF converter
 
-A program satisfies the "CVRF CSAF converter" conformance profile if:
+A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
-* It satisfies the "CSAF producer" conformance profile.
-* It takes only CVRF documents as input.
-* It additionally satisfies the normative requirements given below.
+Firstly, the program:
 
-* For all items of `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter must append all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
-* For all items of `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter shall discard the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
-* For all items of `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter must convert the first one into the `full_product_name`. It must also output a warning that information might be lost during conversion of product relationships.
+* satisfies the "CSAF producer" conformance profile.
+* takes only CVRF documents as input.
+* additionally satisfies the normative requirements given below.
 
-## 5.7 Conformance Clause 6: CSAF content management system
+Secondly, the program for all items of:
+
+* `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
+* `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
+* `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition that converter outputs a warning that information might be lost during conversion of product relationships.
+
+### 5.1.6 Conformance Clause 6: CSAF content management system
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if:
 
@@ -2070,7 +2102,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
   * `/document/publisher` and children
 
-## 5.8 Conformance Clause 7: CSAF post-processor
+### 5.1.7 Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if:
 
@@ -2078,7 +2110,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * It satisfies the "CSAF producer" conformance profile.
 * It additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-## 5.9 Conformance Clause 8: CSAF modifier
+### 5.1.8 Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if:
 
@@ -2090,7 +2122,7 @@ A program satisfies the "CSAF modifier" conformance profile if:
 * The modified document must not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * The modified document must include a reference to the original advisory as first element of the array `/document/references[]`.
 
-## 5.10 Conformance Clause 9: CSAF translator
+### 5.1.9 Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if:
 
@@ -2105,14 +2137,14 @@ A program satisfies the "CSAF translator" conformance profile if:
 * The translated document must include a reference to the original advisory as first element of the array `/document/references[]`.
 * It may insert translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
 
-## 5.11 Conformance Clause 10: CSAF consumer
+### 5.1.10 Conformance Clause 10: CSAF consumer
 
 A consumer satisfies the "CSAF consumer" conformance profile if:
 
 * It reads CSAF documents and interprets them according to the semantics defined in section 3.
 * It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-## 5.12 Conformance Clause 11: CSAF viewer
+### 5.1.11 Conformance Clause 11: CSAF viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if:
 
@@ -2123,7 +2155,7 @@ A viewer satisfies the "CSAF viewer" conformance profile if:
   * It must prefer the `vector` it there is an inconsistency between the `vector' and any other sibling attribute.
   * It should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
-## 5.13 Conformance Clause 12: CSAF management system
+### 5.1.12 Conformance Clause 12: CSAF management system
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if:
 
@@ -2143,7 +2175,7 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 * It must identify the latest version of CSAF documents with the same `/document/tracking/id`.
 * It must be able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-## 5.14 Conformance Clause 13: CSAF asset matching system
+### 5.1.13 Conformance Clause 13: CSAF asset matching system
 
 A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if:
 
