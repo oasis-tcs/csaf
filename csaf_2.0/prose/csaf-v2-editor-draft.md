@@ -438,7 +438,9 @@ The optional two additional properties are `product_tree` and `vulnerabilities`.
 ## 3.1 Definitions
 
 The definitions (`$defs`) introduce the following domain specific types into the CSAF language:
-Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`), Products (`products_t`), Product Groups (`product_groups_t`), Product Group ID (`product_group_id_t`), Product ID (`product_id_t`), References (`references_t`), and Version (`version_t`).  
+Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`),
+Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`), Product ID (`product_id_t`), Products (`products_t`), References (`references_t`),
+and Version (`version_t`).
 
     "$defs": {
         "acknowledgments_t": {
@@ -456,16 +458,16 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
         "notes_t": {
             // ...
         },
-        "products_t": {
+        "product_group_id_t": {
             // ...
         },
         "product_groups_t": {
              // ...
         },
-        "product_group_id_t": {
+        "product_id_t": {
             // ...
         },
-        "product_id_t": {
+        "products_t": {
             // ...
         },
         "references_t": {
@@ -615,32 +617,24 @@ Valid `enum` values are:
 ### 3.1.3 Full Product Name Type
 
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
-The properties `name` and `product_id` are required. The property `cpe` is optional.
+The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
     "full_product_name_t": {
       // ...
       "properties": {
-        "cpe": {
-          // ...
-        },
         "name": {
           // ...
         },
         "product_id": {
           // ...
+        },
+        "product_identification_helper": {
+          // ...
         }
       }
     },
 
-#### 3.1.3.1 Full Product Name Type - CPE
-
-Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
-
-    ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
-
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
-
-#### 3.1.3.2 Full Product Name Type - Name
+#### 3.1.3.1 Full Product Name Type - Name
 
 Textual description of the product (`name`) has value type `string` with 1 or more characters.
 The value should be the product's full canonical name, including version number and other attributes, as it would be used in a human-friendly document.
@@ -650,9 +644,134 @@ Examples:
     Microsoft Host Integration Server 2006 Service Pack 1
     Cisco AnyConnect Secure Mobility Client 2.3.185
 
-#### 3.1.3.3 Full Product Name Type - Product ID
+#### 3.1.3.2 Full Product Name Type - Product ID
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
+
+#### 3.1.3.3 Full Product Name Type - Product Identification Helper
+
+Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
+Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris` one is mandatory.
+
+    "product_identification_helper": {
+      "title": "Helper to identify the product",
+      "description": "Provides at least one method which aids in identifying the product in an asset database.",
+      "type": "object",
+      "minProperties": 1,
+      "properties": { 
+        "cpe": {
+          // ...
+        },
+        "hashes": {
+          // ...
+        },
+        "purl": {
+          // ...
+        },
+        "serial_numbers": {
+          // ...
+        },
+        "x_generic_uris": {
+          // ...
+        }
+      }
+
+##### 3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE
+
+Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
+
+    ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
+
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+
+##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
+
+List of hashes representation (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
+
+A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.  
+Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
+
+The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
+The default value for `algorithm` is `SHA-3`.
+
+Examples:
+
+    SHA-256
+    SHA-384
+    SHA-512
+    SHA-3
+    BLAKE3
+
+The file representation (`file`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
+
+Examples:
+
+    WINWORD.EXE
+    msotadddin.dll
+    sudoers.so
+
+The Value of the cryptographic hash representation (`value`) of value type `string` of 64 or more characters with `pattern` (regular expression):
+
+    ^[0-9a-fA-F]{64,}$
+
+The Value of the cryptographic hash attribute ontains the cryptographic hash value.
+
+Examples:
+
+    4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc
+    9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
+    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
+
+##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
+
+The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
+
+    ^pkg:
+
+This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+
+##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
+
+The list of serial numbers representation (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or a full serial numbers.
+
+A list of serial numbers SHOULD only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.
+
+Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
+
+    "serial_numbers": {
+        //...  
+      "items": {
+        //...  
+      }
+    }
+
+
+##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Generic URIs
+
+List of generic URIs representation (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
+
+Any such Generic URI item of value type `object` provides the two mandatory properties `namespace` and URI (`uri`).
+
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+
+The namespace of the generic URI (`namespace`) of value type `string` and format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
+
+The URI (`uri`) of value type `string` and format `uri` contains the identifier itself.
+
+    "x_generic_uris": {
+        // ...
+      "items": {
+          // ...
+        "properties": {
+          "namespace": {
+            // ...
+          },
+          "uri": {
+           // ...
+           }
+        }
+      }
+    }  
 
 ### 3.1.4 Language Type
 
@@ -734,7 +853,7 @@ Valid `enum` values are:
     other
     summary
 
-### 3.1.8 Product Group ID Type
+### 3.1.6 Product Group ID Type
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
@@ -761,7 +880,7 @@ List of Product Group ID (`product_groups_t`) of value type `array` with 1 or mo
       }
     },
 
-### 3.1.9 Product ID Type
+### 3.1.8 Product ID Type
 
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances.
 The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
@@ -775,7 +894,7 @@ Examples:
     CSAFPID-0004
     CSAFPID-0008
 
-### 3.1.6 Products Type
+### 3.1.9 Products Type
 
 List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
