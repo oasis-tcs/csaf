@@ -97,25 +97,13 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 # 1 Introduction
 
-The text in this section may all be replaced, but the following three sections (1.1, 1.2, and 1.3) are required for OASIS publications. Section 1.1 (IPR Policy) must not be changed by the TC. Section 1.2 (Terminology) may be modified to include other terminology-related information used in this specification. Section 1.3 (Normative References) should be modified to include additional references, as needed. Section 1.4 (Informative References) is not required, but should be modified to include additional references, as needed.
-
-Here is a customized command line which will generate HTML from this markdown file (named prose/csaf-v2-editor-draft.md):
-
-    $ pandoc -f gfm -t html prose/csaf-v2-editor-draft.md -c static/styles/markdown-styles-v1.7.3-patched.css \
-    --toc --toc-depth=4 -s -o csaf.html --metadata title="Common Security Advisory Framework Version 2.0"
-
-
-OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
-
-This also requires the presence of a .css file containing the HTML styles (like styles/markdown-styles-v1.7.3-patched.css).
-
+!!Note to OASIS staff
+---------------------
 Fixes in the css (shall) address:
 * blockquotes shall maintain constant indentation
 * code blocks shall expose block rectangle (not per line width right margin) - still unpatched
 * Logo and title page shall not be within the table of content (manually removal required currently - maybe addressable by processor options or markup changes)
-
-Note this command generates a Table of Contents (TOC) in HTML which is located at the top of the HTML document, and which requires additional editing in order to be published in the expected OASIS style. This editing will be handled by OASIS staff during publication.
-A TC may use other ways to generate HTML from markdown, which may generate a TOC in a different way.
+---------------------
 
 ## 1.1 IPR Policy
 This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([https://www.oasis-open.org/committees/openc2/ipr.php](https://www.oasis-open.org/committees/openc2/ipr.php)).
@@ -275,13 +263,6 @@ Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14,
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
 ###### [RFC8259]
 T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", RFC 8259, DOI 10.17487/RFC8259, December 2017, http://www.rfc-editor.org/info/rfc8259.
-
-(Reference sources:
-For references to IETF RFCs, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/ietf-rfc-list/ietf-rfc-list.html.  
-For references to W3C Recommendations, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/w3c-recommendations-list/w3c-recommendations-list.html.  
-Remove this note before submitting for publication.)
 
 ## 1.4 Informative References
 
@@ -2021,11 +2002,11 @@ Secondly, the program for all items of:
 
 ### 5.1.6 Conformance Clause 6: CSAF content management system
 
-A CSAF content management system satisfies the "CSAF content management system" conformance profile if:
+A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
-* It satisfies the "CSAF producer" conformance profile.
-* It satisfies the "CSAF viewer" conformance profile.
-* It provides at least the following management functions:
+* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF viewer" conformance profile.
+* provides at least the following management functions:
 
   * create new CSAF documents
   * prefill CSAF documents based on values given in the configuration (see below)
@@ -2050,11 +2031,11 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
     * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
 
-* The publication may be immediately or at a given date/time.
-* The handling of date/time and version must be automated.
-* It must provide an API to retrieve all CSAF documents which are currently in the status published.
-* It should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
-* It must provide a user management and support at least the following roles:
+* publication may be immediately or at a given date/time.
+* handling of date/time and version is be automated.
+* provide an API to retrieve all CSAF documents which are currently in the status published.
+* should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
+* provide a user management and support at least the following roles:
 
   * _Registered_: Able to see all published CSAF documents (but only in the published version).
   * _Author_: inherits _Registered_ permissions and also can Create and Edit Own (mostly used for automated creation, see above)
@@ -2063,8 +2044,9 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * _Reviewer_: inherits _Registered_ permissions and can Review advisories assigned to him (might be a subject matter expert or management)
   * _Manager_: inherits _Publisher_ permissions and can Delete; User management up to _Publisher_
   * _Administrator_: inherits _Manager_ permissions and can Change the configuration
-* It may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group. In this case, there must be a _Group configurator_ which is able to change the values which are used to prefill fields in new advisories for that group. He might also do the user management for the group up to a configured level.
-* It prefills the following fields in new CSAF documents with the values given below or based on the templates from configuration:
+
+* may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group. In this case, there must be a _Group configurator_ which is able to change the values which are used to prefill fields in new advisories for that group. He might also do the user management for the group up to a configured level.
+* prefills the following fields in new CSAF documents with the values given below or based on the templates from configuration:
 
   * `/document/csaf_version` with the value `2.0`
   * `/document/language`
@@ -2085,82 +2067,94 @@ A CSAF content management system satisfies the "CSAF content management system" 
 
 * When updating an exsting CSAF document:
   
-  * it prefills all fields which have be present in the existing CSAF document
-  * it adds a new item in `/document/tracking/revision_history[]`
-  * it updates the following fields with the values given below or based on the templates from configuration:
-  * `/document/csaf_version` with the value `2.0`
-  * `/document/language`
-  * `/document/notes`
-    * `legal_disclaimer` (Terms of use from the configuration)
-    * `general` (General Security recommendations from the configuration)
-  * `/document/tracking/current_release_date` with the current date
-  * `/document/tracking/generator` and children
-  * the new item in `/document/tracking/revision_history[]`
-    * `date` with the current date
-    * `number` (based on the templates from configuration; default: latest_patch_version + 1)
-  * `/document/tracking/status` with `draft`
-  * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
-  * `/document/publisher` and children
+  * prefills all fields which have be present in the existing CSAF document
+  * adds a new item in `/document/tracking/revision_history[]`
+  * updates the following fields with the values given below or based on the templates from configuration:
+      * `/document/csaf_version` with the value `2.0`
+      * `/document/language`
+      * `/document/notes`
+        * `legal_disclaimer` (Terms of use from the configuration)
+        * `general` (General Security recommendations from the configuration)
+      * `/document/tracking/current_release_date` with the current date
+      * `/document/tracking/generator` and children
+      * the new item in `/document/tracking/revision_history[]`
+        * `date` with the current date
+        * `number` (based on the templates from configuration; default: latest_patch_version + 1)
+      * `/document/tracking/status` with `draft`
+      * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
+      * `/document/publisher` and children
 
 ### 5.1.7 Conformance Clause 7: CSAF post-processor
 
-A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if:
+A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
-* It satisfies the "CSAF consumer" conformance profile.
-* It satisfies the "CSAF producer" conformance profile.
-* It additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
+* satisfies the "CSAF consumer" conformance profile.
+* satisfies the "CSAF producer" conformance profile.
+* additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
 ### 5.1.8 Conformance Clause 8: CSAF modifier
 
-A program satisfies the "CSAF modifier" conformance profile if:
+A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
-* It satisfies the "CSAF post-processor" conformance profile.
-* It adds, deletes or modifies at least one property or object or value of a property.
-* It does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
-* It additionally satisfies the normative requirements given below.
+The program:
 
-* The modified document must not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
-* The modified document must include a reference to the original advisory as first element of the array `/document/references[]`.
+* satisfies the "CSAF post-processor" conformance profile.
+* adds, deletes or modifies at least one property or object or value of a property.
+* does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
+* satisfies the normative requirements given below.
+
+The resulting modified document:
+
+* does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
+* includes a reference to the original advisory as first element of the array `/document/references[]`.
 
 ### 5.1.9 Conformance Clause 9: CSAF translator
 
-A program satisfies the "CSAF translator" conformance profile if:
+A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
-* It satisfies the "CSAF post-processor" conformance profile.
-* It translates at least one value.
-* The translation must be of the same contents and form.
-* It additionally satisfies the normative requirements given below and does not add or remove other elements than required below.
+The program:
 
-* The translated document must not have the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
-* The `/document/lang` property must be present and set to the language of the translation.
-* The `/document/source_lang` must contain the language of the original document (and should only be set by CSAF tranlators).
-* The translated document must include a reference to the original advisory as first element of the array `/document/references[]`.
-* It may insert translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
+* satisfies the "CSAF post-processor" conformance profile.
+* translates at least one value.
+* preserves the same semantics and form across translations.
+* satisfies the normative requirements given below and does not add or remove other elements than required below.
+
+The resulting translated document:
+
+* has not the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+* provides the `/document/lang` property with a value matching the language of the translation.
+* provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF tranlators).
+* includes a reference to the original advisory as first element of the array `/document/references[]`.
+* may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
 
 ### 5.1.10 Conformance Clause 10: CSAF consumer
 
-A consumer satisfies the "CSAF consumer" conformance profile if:
+A consumer satisfies the "CSAF consumer" conformance profile if the consumer:
 
-* It reads CSAF documents and interprets them according to the semantics defined in section 3.
-* It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
+* reads CSAF documents and interprets them according to the semantics defined in section 3.
+* satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
 ### 5.1.11 Conformance Clause 11: CSAF viewer
 
-A viewer satisfies the "CSAF viewer" conformance profile if:
+A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
-* It satisfies the "CSAF consumer" conformance profile.
-* It additionally satisfies the normative requirements given below.
+The viewer:
 
-* For each CVSS-Score in `/vulnerabilities[]/scores[]`:
-  * It must prefer the `vector` it there is an inconsistency between the `vector' and any other sibling attribute.
-  * It should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
+* satisfies the "CSAF consumer" conformance profile.
+* satisfies the normative requirements given below.
+
+
+For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
+
+* preferably shows the `vector` if there is an inconsistency between the `vector' and any other sibling attribute.
+* should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
 ### 5.1.12 Conformance Clause 12: CSAF management system
 
-A CSAF management system satisfies the "CSAF management system" conformance profile if:
+A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
-* It satisfies the "CSAF viewer" conformance profile.
-* It provides at least the following management functions:
+* satisfies the "CSAF viewer" conformance profile.
+* provides at least the following management functions:
   * add new CSAF documents (e.g. from file system or URL) to the system
   * list all CSAF documents within the system
   * delete CSAF documents from the system
@@ -2172,40 +2166,27 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
   * filter on all properties which it is required to search for
   * sort on all properties which it is required to search for
   * sort on CVSS scores and `/document/aggregate_severity/text`
-* It must identify the latest version of CSAF documents with the same `/document/tracking/id`.
-* It must be able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
+* identifies the latest version of CSAF documents with the same `/document/tracking/id`.
+* is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
 ### 5.1.13 Conformance Clause 13: CSAF asset matching system
 
-A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if:
+A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
-* It satisfies the "CSAF management system" conformance profile.
-* It is an asset database or connects to one.
-* It matches the CSAF documents within the system to the respective assets. This might be done with a probability which gives the end user the chance to broaden or narrow the results.
-* It provides for each product of the asset database a list of matched advisories.
-* It provides for each asset of the asset database a list of matched advisories.
-* It provides for each CSAF document a list of matched product of the asset database.
-* It provides for each CSAF document a list of matched asset of the asset database.
-* It provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all in the same status may be implemented.
-* It does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
-* It provides at least the following statistics:
-  * How many assets were match at that CSAF document
-  * How many of them are marked in which of the given status
+* satisfies the "CSAF management system" conformance profile.
+* is an asset database or connects to one.
+* matches the CSAF documents within the system to the respective assets. This might be done with a probability which gives the end user the chance to broaden or narrow the results.
+* provides for each product of the asset database a list of matched advisories.
+* provides for each asset of the asset database a list of matched advisories.
+* provides for each CSAF document a list of matched product of the asset database.
+* provides for each CSAF document a list of matched asset of the asset database.
+* provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all in the same status may be implemented.
+* does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
+* provides at least the following statistics for the count of assets:
+  * matching that CSAF document at all
+  * marked with a given status
 
-(Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
-For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
-
-See "Guidelines to Writing Conformance Clauses":  
-http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
-
-Remove this note before submitting for publication.)
-
-
--------
 # Appendix A. Acknowledgments
-
-(Note: A Work Product approved by the TC must include a list of people who participated in the development of the Work Product. This is generally done by collecting the list of names in this appendix. This list shall be initially compiled by the Chair, and any Member of the TC may add or remove their names from the list by request.  
-Remove this note before submitting for publication.)
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
 
@@ -2292,4 +2273,4 @@ Zach | Turk | Microsoft
 # Appendix B. Revision History
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20200929 | 2020-09-29 | Stefan Hagen | Initial working draft |
+| csaf-v2.0-wd20210323 | 2021-03-23 | Stefan Hagen | Editor revision for TC review |
