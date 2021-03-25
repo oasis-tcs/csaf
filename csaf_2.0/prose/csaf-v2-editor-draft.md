@@ -8,7 +8,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 24 February 2021
+## 23 March 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -97,25 +97,13 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 # 1 Introduction
 
-The text in this section may all be replaced, but the following three sections (1.1, 1.2, and 1.3) are required for OASIS publications. Section 1.1 (IPR Policy) must not be changed by the TC. Section 1.2 (Terminology) may be modified to include other terminology-related information used in this specification. Section 1.3 (Normative References) should be modified to include additional references, as needed. Section 1.4 (Non-Normative References) is not required, but should be modified to include additional references, as needed.
-
-Here is a customized command line which will generate HTML from this markdown file (named prose/csaf-v2-editor-draft.md):
-
-    $ pandoc -f gfm -t html prose/csaf-v2-editor-draft.md -c static/styles/markdown-styles-v1.7.3-patched.css \
-    --toc --toc-depth=4 -s -o csaf.html --metadata title="Common Security Advisory Framework Version 2.0"
-
-
-OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
-
-This also requires the presence of a .css file containing the HTML styles (like styles/markdown-styles-v1.7.3-patched.css).
-
+!!Note to OASIS staff
+---------------------
 Fixes in the css (shall) address:
 * blockquotes shall maintain constant indentation
 * code blocks shall expose block rectangle (not per line width right margin) - still unpatched
 * Logo and title page shall not be within the table of content (manually removal required currently - maybe addressable by processor options or markup changes)
-
-Note this command generates a Table of Contents (TOC) in HTML which is located at the top of the HTML document, and which requires additional editing in order to be published in the expected OASIS style. This editing will be handled by OASIS staff during publication.
-A TC may use other ways to generate HTML from markdown, which may generate a TOC in a different way.
+---------------------
 
 ## 1.1 IPR Policy
 This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([https://www.oasis-open.org/committees/openc2/ipr.php](https://www.oasis-open.org/committees/openc2/ipr.php)).
@@ -137,13 +125,27 @@ For purposes of this document, the following terms and definitions apply:
 
 **converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
 
+**CSAF asset matching system**: program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+
 **CSAF consumer**: program that reads and interprets a CSAF document
 
-**CSAF document**: document in the format defined by this document
+**CSAF content management system**: program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
+
+**CSAF document**: security advisory text document in the format defined by this document.
+
+**CSAF management system**: program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
+
+**CSAF modifier**: CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
 
 **CSAF post-processor**: CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 
 **CSAF producer**: program that emits output in the CSAF format
+
+**CSAF translator**: CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
+
+**CSAF viewer**: CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
+
+**CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
 
 **direct producer**: analysis tool which acts as a CSAF producer
 
@@ -243,8 +245,10 @@ For purposes of this document, the following terms and definitions apply:
 
 **web analysis tool**: analysis tool that models and analyzes the interaction between a web client and a server.
 
+**XML**: eXtensible Markup Language - a format and specifically the format of predecessors of this standard namely CVRF 1.1 and CVRF 1.2
 
 ## 1.3 Normative References
+
 ###### [JSON-Schema-Core]
 _JSON Schema: A Media Type for Describing JSON Documents_, draft-handrews-json-schema-02, September 2019, https://json-schema.org/draft/2019-09/json-schema-core.html.
 ###### [JSON-Schema-Validation]
@@ -260,14 +264,7 @@ Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, 
 ###### [RFC8259]
 T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", RFC 8259, DOI 10.17487/RFC8259, December 2017, http://www.rfc-editor.org/info/rfc8259.
 
-(Reference sources:
-For references to IETF RFCs, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/ietf-rfc-list/ietf-rfc-list.html.  
-For references to W3C Recommendations, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/w3c-recommendations-list/w3c-recommendations-list.html.  
-Remove this note before submitting for publication.)
-
-## 1.4 Non-Normative References
+## 1.4 Informative References
 
 ###### [CPE23-N]
 _Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
@@ -326,6 +323,7 @@ http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/.
 Latest version available at http://www.w3.org/TR/xmlschema11-2/.
 
 ## 1.5 Typographical Conventions
+
 Keywords defined by this specification use this `monospaced` font.
 ```
     Normative source code uses this paragraph style.
@@ -336,14 +334,14 @@ Some sections of this specification are illustrated with non-normative examples 
 
 *Examples:*
 ```
-    Non-normative examples also use this paragraph style but preceded by the text "Example(s).
+    Informative examples also use this paragraph style but preceded by the text "Example(s)".
 ```
 
-All examples in this document are non-normative and informative only.
+All examples in this document are informative only.
 
 All other text is normative unless otherwise labeled e.g. like:
 
-Non-normative Comment:
+Informative Comment:
 
 >This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or common pitfalls learned from implementer or operator experience and often given including the rationale.
 
@@ -352,7 +350,7 @@ Non-normative Comment:
 # 2 Design Considerations
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 
-Non-normative comment:
+Informative Comment:
 
 >The term Security Advisory as used in this document describes any notification of security issues in products of and by providers. Anyone providing a product is considered in this document as a vendor, i.e. developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 A security issue is not necessarily constraint to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of work-arounds is also considered part of the security issue.
@@ -431,7 +429,9 @@ The optional two additional properties are `product_tree` and `vulnerabilities`.
 ## 3.1 Definitions
 
 The definitions (`$defs`) introduce the following domain specific types into the CSAF language:
-Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`), Products (`products_t`), Product Groups (`product_groups_t`), Product Group ID (`product_group_id_t`), Product ID (`product_id_t`), References (`references_t`), and Version (`version_t`).  
+Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`),
+Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`), Product ID (`product_id_t`), Products (`products_t`), References (`references_t`),
+and Version (`version_t`).
 
     "$defs": {
         "acknowledgments_t": {
@@ -449,16 +449,16 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
         "notes_t": {
             // ...
         },
-        "products_t": {
+        "product_group_id_t": {
             // ...
         },
         "product_groups_t": {
              // ...
         },
-        "product_group_id_t": {
+        "product_id_t": {
             // ...
         },
-        "product_id_t": {
+        "products_t": {
             // ...
         },
         "references_t": {
@@ -608,32 +608,24 @@ Valid `enum` values are:
 ### 3.1.3 Full Product Name Type
 
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
-The properties `name` and `product_id` are required. The property `cpe` is optional.
+The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
     "full_product_name_t": {
       // ...
       "properties": {
-        "cpe": {
-          // ...
-        },
         "name": {
           // ...
         },
         "product_id": {
           // ...
+        },
+        "product_identification_helper": {
+          // ...
         }
       }
     },
 
-#### 3.1.3.1 Full Product Name Type - CPE
-
-Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
-
-    ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
-
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
-
-#### 3.1.3.2 Full Product Name Type - Name
+#### 3.1.3.1 Full Product Name Type - Name
 
 Textual description of the product (`name`) has value type `string` with 1 or more characters.
 The value should be the product's full canonical name, including version number and other attributes, as it would be used in a human-friendly document.
@@ -643,9 +635,134 @@ Examples:
     Microsoft Host Integration Server 2006 Service Pack 1
     Cisco AnyConnect Secure Mobility Client 2.3.185
 
-#### 3.1.3.3 Full Product Name Type - Product ID
+#### 3.1.3.2 Full Product Name Type - Product ID
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
+
+#### 3.1.3.3 Full Product Name Type - Product Identification Helper
+
+Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
+Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris` one is mandatory.
+
+    "product_identification_helper": {
+      "title": "Helper to identify the product",
+      "description": "Provides at least one method which aids in identifying the product in an asset database.",
+      "type": "object",
+      "minProperties": 1,
+      "properties": { 
+        "cpe": {
+          // ...
+        },
+        "hashes": {
+          // ...
+        },
+        "purl": {
+          // ...
+        },
+        "serial_numbers": {
+          // ...
+        },
+        "x_generic_uris": {
+          // ...
+        }
+      }
+
+##### 3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE
+
+Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
+
+    ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
+
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+
+##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
+
+List of hashes representation (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
+
+A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.  
+Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
+
+The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
+The default value for `algorithm` is `SHA-3`.
+
+Examples:
+
+    SHA-256
+    SHA-384
+    SHA-512
+    SHA-3
+    BLAKE3
+
+The file representation (`file`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
+
+Examples:
+
+    WINWORD.EXE
+    msotadddin.dll
+    sudoers.so
+
+The Value of the cryptographic hash representation (`value`) of value type `string` of 64 or more characters with `pattern` (regular expression):
+
+    ^[0-9a-fA-F]{64,}$
+
+The Value of the cryptographic hash attribute ontains the cryptographic hash value.
+
+Examples:
+
+    4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc
+    9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
+    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
+
+##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
+
+The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
+
+    ^pkg:
+
+This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+
+##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
+
+The list of serial numbers representation (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or a full serial numbers.
+
+A list of serial numbers SHOULD only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.
+
+Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
+
+    "serial_numbers": {
+        //...  
+      "items": {
+        //...  
+      }
+    }
+
+
+##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Generic URIs
+
+List of generic URIs representation (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
+
+Any such Generic URI item of value type `object` provides the two mandatory properties `namespace` and URI (`uri`).
+
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+
+The namespace of the generic URI (`namespace`) of value type `string` and format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
+
+The URI (`uri`) of value type `string` and format `uri` contains the identifier itself.
+
+    "x_generic_uris": {
+        // ...
+      "items": {
+          // ...
+        "properties": {
+          "namespace": {
+            // ...
+          },
+          "uri": {
+           // ...
+           }
+        }
+      }
+    }  
 
 ### 3.1.4 Language Type
 
@@ -727,7 +844,7 @@ Valid `enum` values are:
     other
     summary
 
-### 3.1.8 Product Group ID Type
+### 3.1.6 Product Group ID Type
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
@@ -754,7 +871,7 @@ List of Product Group ID (`product_groups_t`) of value type `array` with 1 or mo
       }
     },
 
-### 3.1.9 Product ID Type
+### 3.1.8 Product ID Type
 
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances.
 The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
@@ -768,7 +885,7 @@ Examples:
     CSAFPID-0004
     CSAFPID-0008
 
-### 3.1.6 Products Type
+### 3.1.9 Products Type
 
 List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
@@ -1779,32 +1896,37 @@ CSAF documents are based on JSON, thus the security considerations of [RFC8259] 
 >
 >Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's `eval()` function to parse most JSON texts (but not all; certain characters such as `U+2028 LINE SEPARATOR` and `U+2029 PARAGRAPH SEPARATOR` are legal in JSON but not JavaScript).  This generally constitutes an unacceptable security risk, since the text could contain executable code along with data declarations.  The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to that language's syntax.
 
-In addition, CSAF documents may be rendered by consumers in various human readable formats like HTML or PDF.
+In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 * CSAF producers SHALL NOT emit messages that contain HTML, even though all variants of Markdown permit it.
 * Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
-  **Note**: One example is the GitHub fork of the cmark Markdown processor [GFMCMARK].
+  **Note**: One example is the GitHub fork of the `cmark` Markdown processor [GFMCMARK].
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
 
-
-(Note: OASIS strongly recommends that Technical Committees consider issues that might affect safety, security, privacy, and/or data protection in implementations of their specification and document them for implementers and adopters. For some purposes, you may find it required, e.g. if you apply for IANA registration.
-
-While it may not be immediately obvious how your specification might make systems vulnerable to attack, most specifications, because they involve communications between systems, message formats, or system settings, open potential channels for exploit. For example, IETF [[RFC3552](#rfc3552)] lists “eavesdropping, replay, message insertion, deletion, modification, and man-in-the-middle” as well as potential denial of service attacks as threats that must be considered and, if appropriate, addressed in IETF RFCs.
-
-In addition to considering and describing foreseeable risks, this section should include guidance on how implementers and adopters can protect against these risks.
-
-We encourage editors and TC members concerned with this subject to read _Guidelines for Writing RFC Text on Security Considerations_, IETF [[RFC3552](#rfc3552)], for more information.
-
-Remove this note before submitting for publication.)
-
--------
-
 # 5 Conformance
+
+In the only subsection of this section, the conformance targets and clauses are listed.
+The clauses matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
+
+Informative Comments:
+
+>The order in which targets, and their corresponding clauses appear is somewhat arbitrarily as there is no natural order on such diverse roles participating in the document exchanging ecosystem.
+>
+>Except for the target **CSAF document** all other 12 targets span a taxonomy of the complex CSAF ecosystems existing in and between diverse security advisory generating, sharing, and consuming communities.
+>
+>In any case, there are no capabilities organized in increasing quality levels for targets because the security advisory sharing communities follow the chain link model.
+>Instead, a single minimum capability level for every target is given to maintain important goals of providing a common framework for security advisories:
+>* Fast production, sharing, and actionable consummation of security advisories
+>* Consistent end to end automation through collaborating and not competing "actors"
+>* Clear baseline across the communities per this specification
+>* Additional per community cooperative extensions which may flow back into future updates of this specification
+
 
 ## 5.1 Conformance Targets
 
-This document defines requirements for the CSAF file format and for certain software components that interact with it. The entities ("conformance targets") for which this document defines requirements are:
+This document defines requirements for the CSAF file format and for certain software components that interact with it.
+The entities ("conformance targets") for which this document defines requirements are:
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
 * **CSAF producer**: A program which emits output in the CSAF format.
@@ -1812,7 +1934,7 @@ This document defines requirements for the CSAF file format and for certain soft
 * **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
 * **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
-* **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting security-sensitive elements.
+* **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 * **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
 * **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
@@ -1820,54 +1942,58 @@ This document defines requirements for the CSAF file format and for certain soft
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 * **CSAF asset matching system**: A program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 
-## 5.2 Conformance Clause 1: CSAF document
+### 5.1.1 Conformance Clause 1: CSAF document
 
-A text file satisfies the "CSAF document" conformance profile if:
+A text file satisfies the "CSAF document" conformance profile if the text file:
 
-* It conforms to the syntax and semantics defined in section 3.
+* conforms to the syntax and semantics defined in section 3.
 
-## 5.3 Conformance Clause 2: CSAF producer
+### 5.1.2 Conformance Clause 2: CSAF producer
 
-A program satisfies the "CSAF producer" conformance profile if:
+A program satisfies the "CSAF producer" conformance profile if the program:
 
-* It produces output in the CSAF format, according to the semantics defined in section 3.
-* It satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
+* produces output in the CSAF format, according to the semantics defined in section 3.
+* satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-## 5.4 Conformance Clause 3: Direct producer
+### 5.1.3 Conformance Clause 3: Direct producer
 
-An analysis tool satisfies the "Direct producer" conformance profile if:
+An analysis tool satisfies the "Direct producer" conformance profile if the analysis tool:
 
-* It satisfies the "CSAF producer" conformance profile.
-* It additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
-* It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
+* satisfies the "CSAF producer" conformance profile.
+* additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
+* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-## 5.5 Conformance Clause 4: Converter
+### 5.1.4 Conformance Clause 4: Converter
 
-A converter satisfies the “Converter” conformance profile if:
+A converter satisfies the “Converter” conformance profile if the converter:
 
-* It satisfies the "CSAF producer" conformance profile.
-* It additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
-* It does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
+* satisfies the "CSAF producer" conformance profile.
+* additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
+* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-## 5.6 Conformance Clause 5: CVRF CSAF converter
+### 5.1.5 Conformance Clause 5: CVRF CSAF converter
 
-A program satisfies the "CVRF CSAF converter" conformance profile if:
+A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
-* It satisfies the "CSAF producer" conformance profile.
-* It takes only CVRF documents as input.
-* It additionally satisfies the normative requirements given below.
+Firstly, the program:
 
-* For all items of `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter must append all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
-* For all items of `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter shall discard the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
-* For all items of `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter must convert the first one into the `full_product_name`. It must also output a warning that information might be lost during conversion of product relationships.
+* satisfies the "CSAF producer" conformance profile.
+* takes only CVRF documents as input.
+* additionally satisfies the normative requirements given below.
 
-## 5.7 Conformance Clause 6: CSAF content management system
+Secondly, the program for all items of:
 
-A CSAF content management system satisfies the "CSAF content management system" conformance profile if:
+* `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
+* `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
+* `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition that converter outputs a warning that information might be lost during conversion of product relationships.
 
-* It satisfies the "CSAF producer" conformance profile.
-* It satisfies the "CSAF viewer" conformance profile.
-* It provides at least the following management functions:
+### 5.1.6 Conformance Clause 6: CSAF content management system
+
+A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
+
+* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF viewer" conformance profile.
+* provides at least the following management functions:
 
   * create new CSAF documents
   * prefill CSAF documents based on values given in the configuration (see below)
@@ -1892,11 +2018,11 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
     * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
 
-* The publication may be immediately or at a given date/time.
-* The handling of date/time and version must be automated.
-* It must provide an API to retrieve all CSAF documents which are currently in the status published.
-* It should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
-* It must provide a user management and support at least the following roles:
+* publication may be immediately or at a given date/time.
+* handling of date/time and version is be automated.
+* provide an API to retrieve all CSAF documents which are currently in the status published.
+* should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
+* provide a user management and support at least the following roles:
 
   * _Registered_: Able to see all published CSAF documents (but only in the published version).
   * _Author_: inherits _Registered_ permissions and also can Create and Edit Own (mostly used for automated creation, see above)
@@ -1905,8 +2031,9 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * _Reviewer_: inherits _Registered_ permissions and can Review advisories assigned to him (might be a subject matter expert or management)
   * _Manager_: inherits _Publisher_ permissions and can Delete; User management up to _Publisher_
   * _Administrator_: inherits _Manager_ permissions and can Change the configuration
-* It may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group. In this case, there must be a _Group configurator_ which is able to change the values which are used to prefill fields in new advisories for that group. He might also do the user management for the group up to a configured level.
-* It prefills the following fields in new CSAF documents with the values given below or based on the templates from configuration:
+
+* may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group. In this case, there must be a _Group configurator_ which is able to change the values which are used to prefill fields in new advisories for that group. He might also do the user management for the group up to a configured level.
+* prefills the following fields in new CSAF documents with the values given below or based on the templates from configuration:
 
   * `/document/csaf_version` with the value `2.0`
   * `/document/language`
@@ -1927,82 +2054,94 @@ A CSAF content management system satisfies the "CSAF content management system" 
 
 * When updating an exsting CSAF document:
   
-  * it prefills all fields which have be present in the existing CSAF document
-  * it adds a new item in `/document/tracking/revision_history[]`
-  * it updates the following fields with the values given below or based on the templates from configuration:
-  * `/document/csaf_version` with the value `2.0`
-  * `/document/language`
-  * `/document/notes`
-    * `legal_disclaimer` (Terms of use from the configuration)
-    * `general` (General Security recommendations from the configuration)
-  * `/document/tracking/current_release_date` with the current date
-  * `/document/tracking/generator` and children
-  * the new item in `/document/tracking/revision_history[]`
-    * `date` with the current date
-    * `number` (based on the templates from configuration; default: latest_patch_version + 1)
-  * `/document/tracking/status` with `draft`
-  * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
-  * `/document/publisher` and children
+  * prefills all fields which have be present in the existing CSAF document
+  * adds a new item in `/document/tracking/revision_history[]`
+  * updates the following fields with the values given below or based on the templates from configuration:
+      * `/document/csaf_version` with the value `2.0`
+      * `/document/language`
+      * `/document/notes`
+        * `legal_disclaimer` (Terms of use from the configuration)
+        * `general` (General Security recommendations from the configuration)
+      * `/document/tracking/current_release_date` with the current date
+      * `/document/tracking/generator` and children
+      * the new item in `/document/tracking/revision_history[]`
+        * `date` with the current date
+        * `number` (based on the templates from configuration; default: latest_patch_version + 1)
+      * `/document/tracking/status` with `draft`
+      * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
+      * `/document/publisher` and children
 
-## 5.8 Conformance Clause 7: CSAF post-processor
+### 5.1.7 Conformance Clause 7: CSAF post-processor
 
-A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if:
+A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
-* It satisfies the "CSAF consumer" conformance profile.
-* It satisfies the "CSAF producer" conformance profile.
-* It additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
+* satisfies the "CSAF consumer" conformance profile.
+* satisfies the "CSAF producer" conformance profile.
+* additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-## 5.9 Conformance Clause 8: CSAF modifier
+### 5.1.8 Conformance Clause 8: CSAF modifier
 
-A program satisfies the "CSAF modifier" conformance profile if:
+A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
-* It satisfies the "CSAF post-processor" conformance profile.
-* It adds, deletes or modifies at least one property or object or value of a property.
-* It does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
-* It additionally satisfies the normative requirements given below.
+The program:
 
-* The modified document must not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
-* The modified document must include a reference to the original advisory as first element of the array `/document/references[]`.
+* satisfies the "CSAF post-processor" conformance profile.
+* adds, deletes or modifies at least one property or object or value of a property.
+* does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
+* satisfies the normative requirements given below.
 
-## 5.10 Conformance Clause 9: CSAF translator
+The resulting modified document:
 
-A program satisfies the "CSAF translator" conformance profile if:
+* does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
+* includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-* It satisfies the "CSAF post-processor" conformance profile.
-* It translates at least one value.
-* The translation must be of the same contents and form.
-* It additionally satisfies the normative requirements given below and does not add or remove other elements than required below.
+### 5.1.9 Conformance Clause 9: CSAF translator
 
-* The translated document must not have the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
-* The `/document/lang` property must be present and set to the language of the translation.
-* The `/document/source_lang` must contain the language of the original document (and should only be set by CSAF tranlators).
-* The translated document must include a reference to the original advisory as first element of the array `/document/references[]`.
-* It may insert translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
+A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
-## 5.11 Conformance Clause 10: CSAF consumer
+The program:
 
-A consumer satisfies the "CSAF consumer" conformance profile if:
+* satisfies the "CSAF post-processor" conformance profile.
+* translates at least one value.
+* preserves the same semantics and form across translations.
+* satisfies the normative requirements given below and does not add or remove other elements than required below.
 
-* It reads CSAF documents and interprets them according to the semantics defined in section 3.
-* It satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
+The resulting translated document:
 
-## 5.12 Conformance Clause 11: CSAF viewer
+* has not the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+* provides the `/document/lang` property with a value matching the language of the translation.
+* provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF tranlators).
+* includes a reference to the original advisory as first element of the array `/document/references[]`.
+* may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
 
-A viewer satisfies the "CSAF viewer" conformance profile if:
+### 5.1.10 Conformance Clause 10: CSAF consumer
 
-* It satisfies the "CSAF consumer" conformance profile.
-* It additionally satisfies the normative requirements given below.
+A consumer satisfies the "CSAF consumer" conformance profile if the consumer:
 
-* For each CVSS-Score in `/vulnerabilities[]/scores[]`:
-  * It must prefer the `vector` it there is an inconsistency between the `vector' and any other sibling attribute.
-  * It should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
+* reads CSAF documents and interprets them according to the semantics defined in section 3.
+* satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-## 5.13 Conformance Clause 12: CSAF management system
+### 5.1.11 Conformance Clause 11: CSAF viewer
 
-A CSAF management system satisfies the "CSAF management system" conformance profile if:
+A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
-* It satisfies the "CSAF viewer" conformance profile.
-* It provides at least the following management functions:
+The viewer:
+
+* satisfies the "CSAF consumer" conformance profile.
+* satisfies the normative requirements given below.
+
+
+For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
+
+* preferably shows the `vector` if there is an inconsistency between the `vector' and any other sibling attribute.
+* should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
+
+### 5.1.12 Conformance Clause 12: CSAF management system
+
+A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
+
+* satisfies the "CSAF viewer" conformance profile.
+* provides at least the following management functions:
   * add new CSAF documents (e.g. from file system or URL) to the system
   * list all CSAF documents within the system
   * delete CSAF documents from the system
@@ -2014,40 +2153,27 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
   * filter on all properties which it is required to search for
   * sort on all properties which it is required to search for
   * sort on CVSS scores and `/document/aggregate_severity/text`
-* It must identify the latest version of CSAF documents with the same `/document/tracking/id`.
-* It must be able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
+* identifies the latest version of CSAF documents with the same `/document/tracking/id`.
+* is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-## 5.14 Conformance Clause 13: CSAF asset matching system
+### 5.1.13 Conformance Clause 13: CSAF asset matching system
 
-A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if:
+A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
-* It satisfies the "CSAF management system" conformance profile.
-* It is an asset database or connects to one.
-* It matches the CSAF documents within the system to the respective assets. This might be done with a probability which gives the end user the chance to broaden or narrow the results.
-* It provides for each product of the asset database a list of matched advisories.
-* It provides for each asset of the asset database a list of matched advisories.
-* It provides for each CSAF document a list of matched product of the asset database.
-* It provides for each CSAF document a list of matched asset of the asset database.
-* It provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all in the same status may be implemented.
-* It does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
-* It provides at least the following statistics:
-  * How many assets were match at that CSAF document
-  * How many of them are marked in which of the given status
+* satisfies the "CSAF management system" conformance profile.
+* is an asset database or connects to one.
+* matches the CSAF documents within the system to the respective assets. This might be done with a probability which gives the end user the chance to broaden or narrow the results.
+* provides for each product of the asset database a list of matched advisories.
+* provides for each asset of the asset database a list of matched advisories.
+* provides for each CSAF document a list of matched product of the asset database.
+* provides for each CSAF document a list of matched asset of the asset database.
+* provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all in the same status may be implemented.
+* does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
+* provides at least the following statistics for the count of assets:
+  * matching that CSAF document at all
+  * marked with a given status
 
-(Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
-For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
-
-See "Guidelines to Writing Conformance Clauses":  
-http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
-
-Remove this note before submitting for publication.)
-
-
--------
 # Appendix A. Acknowledgments
-
-(Note: A Work Product approved by the TC must include a list of people who participated in the development of the Work Product. This is generally done by collecting the list of names in this appendix. This list shall be initially compiled by the Chair, and any Member of the TC may add or remove their names from the list by request.  
-Remove this note before submitting for publication.)
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
 
@@ -2134,4 +2260,4 @@ Zach | Turk | Microsoft
 # Appendix B. Revision History
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20200929 | 2020-09-29 | Stefan Hagen | Initial working draft |
+| csaf-v2.0-wd20210323 | 2021-03-23 | Stefan Hagen | Editor revision for TC review |

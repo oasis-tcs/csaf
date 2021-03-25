@@ -156,7 +156,7 @@
         },
         "product_identification_helper": {
           "title": "Helper to identify the product",
-          "description": "Provides a least one method which aids in identifying the product in an asset database.",
+          "description": "Provides at least one method which aids in identifying the product in an asset database.",
           "type": "object",
           "minProperties": 1,
           "properties": { 
@@ -232,27 +232,27 @@
               "minLength": 4
             },
             "serial_numbers": {
-              "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected or the serial numbers change during update.",
+              "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.",
               "title": "List of serial numbers",
-              "description": "Contains a list of parts or a full serial numbers.",
+              "description": "Contains a list of parts, or a full serial numbers.",
               "type": "array",
               "minItems": 1,
               "items": {
                 "title": "Serial number",
-                "description": "Contains a part or a full serial number of the component to identify.",
+                "description": "Contains a part, or a full serial number of the component to identify.",
                 "type": "string",
                 "minLength": 1
               }
             },
             "x_generic_uris": {
               "$comment": "TODO: Add remark in prose which kind of uris might be used here / add examples.",
-              "title": "List of generic uris",
-              "description": "Contains a list of identifiers which are either vendor-specific or derivated from a standard not yet supported.",
+              "title": "List of generic URIs",
+              "description": "Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.",
               "type": "array",
               "minItems": 1,
               "items": {
-                "title": "Generic uri",
-                "description": "Provides a generic extention point for any identifier which is either vendor-specific or derivated from a standard not yet supported.",
+                "title": "Generic UR",
+                "description": "Provides a generic extension point for any identifier which is either vendor-specific or derived from a standard not yet supported.",
                 "type": "object",
                 "required": [
                   "namespace",
@@ -260,8 +260,8 @@
                 ],
                 "properties": {
                   "namespace": {
-                    "title": "Namespace of the generic uri",
-                    "description": "Should refer to a URL which provides the name and knownledge about the specification used or is the namespace in which these values are valid.",
+                    "title": "Namespace of the generic URI",
+                    "description": "Refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.",
                     "type": "string",
                     "format": "uri"
                   },
