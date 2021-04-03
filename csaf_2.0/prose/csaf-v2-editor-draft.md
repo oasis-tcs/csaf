@@ -672,7 +672,7 @@ The Common Platform Enumeration (CPE) attribute refers to a method for naming pl
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
 
-List of `hashes` of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
+List of hashes (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
 
 A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.
 Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
