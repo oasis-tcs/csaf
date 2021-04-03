@@ -1159,7 +1159,7 @@
           },
           "scores": {
             "title": "List of scores",
-            "description": "contains score objects for the currrent vulnerability.",
+            "description": "contains score objects for the current vulnerability.",
             "type": "array",
             "minItems": 1,
             "items": {
