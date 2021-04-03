@@ -2100,7 +2100,7 @@ A program satisfies the "CSAF modifier" conformance profile if the program fulfi
 The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
-* adds, deletes or modifies at least one property or object or value of a property or item of an array.
+* adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
 * does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
