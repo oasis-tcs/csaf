@@ -251,7 +251,7 @@
               "type": "array",
               "minItems": 1,
               "items": {
-                "title": "Generic UR",
+                "title": "Generic URI",
                 "description": "Provides a generic extension point for any identifier which is either vendor-specific or derived from a standard not yet supported.",
                 "type": "object",
                 "required": [
@@ -1159,7 +1159,7 @@
           },
           "scores": {
             "title": "List of scores",
-            "description": "contains score objects for the currrent vulnerability.",
+            "description": "contains score objects for the current vulnerability.",
             "type": "array",
             "minItems": 1,
             "items": {

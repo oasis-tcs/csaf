@@ -243,8 +243,6 @@ For purposes of this document, the following terms and definitions apply:
 
 **viewer**: see document viewer.
 
-**web analysis tool**: analysis tool that models and analyzes the interaction between a web client and a server.
-
 **XML**: eXtensible Markup Language - a format and specifically the format of predecessors of this standard namely CVRF 1.1 and CVRF 1.2
 
 ## 1.3 Normative References
@@ -645,10 +643,7 @@ Helper to identify the product (`product_identification_helper`) of value type `
 Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris` one is mandatory.
 
     "product_identification_helper": {
-      "title": "Helper to identify the product",
-      "description": "Provides at least one method which aids in identifying the product in an asset database.",
-      "type": "object",
-      "minProperties": 1,
+      // ...
       "properties": { 
         "cpe": {
           // ...
@@ -677,10 +672,28 @@ The Common Platform Enumeration (CPE) attribute refers to a method for naming pl
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
 
-List of hashes representation (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
+List of hashes (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
 
-A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.  
+A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.
 Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
+
+    "hashes": {
+      // ...
+      "items": {
+        // ...
+        "properties": {
+          "algorithm": {
+            // ...
+          },
+          "file": {
+            // ...
+          },
+          "value": {
+            // ...
+          }
+        }
+      }
+    }
 
 The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `SHA-3`.
@@ -705,7 +718,7 @@ The Value of the cryptographic hash representation (`value`) of value type `stri
 
     ^[0-9a-fA-F]{64,}$
 
-The Value of the cryptographic hash attribute ontains the cryptographic hash value.
+The Value of the cryptographic hash attribute contains the cryptographic hash value.
 
 Examples:
 
@@ -723,7 +736,7 @@ This package URL (PURL) attribute refers to a method for reliably identifying an
 
 ##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers representation (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or a full serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or a full serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.
 
@@ -736,14 +749,15 @@ Any given serial number of value type `string` with at least 1 character represe
       }
     }
 
+If a part of a serial number of the component to identify is given it SHOULD begin with the first character of the serial number and stop at any point.
+Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Two `*` MUST NOT follow each other.
 
 ##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Generic URIs
 
-List of generic URIs representation (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
+List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
-Any such Generic URI item of value type `object` provides the two mandatory properties `namespace` and URI (`uri`).
-
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
 
 The namespace of the generic URI (`namespace`) of value type `string` and format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
 
@@ -1940,7 +1954,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF consumer**: A program that reads and interprets a CSAF document.
 * **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
-* **CSAF asset matching system**: A program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+* **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 
 ### 5.1.1 Conformance Clause 1: CSAF document
 
@@ -2086,7 +2100,7 @@ A program satisfies the "CSAF modifier" conformance profile if the program fulfi
 The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
-* adds, deletes or modifies at least one property or object or value of a property.
+* adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
 * does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
@@ -2116,7 +2130,7 @@ The resulting translated document:
 
 ### 5.1.10 Conformance Clause 10: CSAF consumer
 
-A consumer satisfies the "CSAF consumer" conformance profile if the consumer:
+A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
@@ -2133,7 +2147,7 @@ The viewer:
 
 For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 
-* preferably shows the `vector` if there is an inconsistency between the `vector' and any other sibling attribute.
+* preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 * should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
 ### 5.1.12 Conformance Clause 12: CSAF management system
@@ -2167,7 +2181,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides for each asset of the asset database a list of matched advisories.
 * provides for each CSAF document a list of matched product of the asset database.
 * provides for each CSAF document a list of matched asset of the asset database.
-* provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all in the same status may be implemented.
+* provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all at once may be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
