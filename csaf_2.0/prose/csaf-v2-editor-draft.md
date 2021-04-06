@@ -1651,7 +1651,7 @@ Valid values are:
     not_contacted
     open
 
-Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
+Summary of involvement (`summary`) of value type `string` with 1 or more characters contains optional additional context regarding what is going on.
 
 ##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Notes
 
@@ -1783,7 +1783,7 @@ Restart required by remediation (`restart_required`) of value type `object` with
         }
       },
 
-Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
+Optional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
