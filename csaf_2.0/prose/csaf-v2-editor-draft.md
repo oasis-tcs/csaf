@@ -302,7 +302,7 @@ _Data elements and interchange formats — Information interchange — Represent
 _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO 29147:2014(E), February 15, 2014,
 https://www.iso.org/standard/45170.html.
 ###### [PURL]
-_Package URL (PURL)_, Github Project, https://github.com/package-url/purl-spec
+_Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 ###### [RFC7464]
@@ -390,7 +390,7 @@ Proven and intended usage patterns from practice are given where possible.
 Delegation to industry best practices technologies is used in referencing schemas for:
 
 * Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [CPE23_A]
+  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-A]
 * Vulnerability Scoring:
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS31]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
@@ -645,7 +645,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 #### 3.1.3.3 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris`, at least one is MUST be given.
+Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris`, at least one MUST be provided.
 
     "product_identification_helper": {
       // ...
@@ -673,7 +673,7 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 
     ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
 
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+The Common Platform Enumeration (CPE) [CPE23-A] attribute refers to a method for naming platforms external to this specification.
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
 
@@ -733,11 +733,11 @@ Examples:
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
 
-The package URL (PURL) representation (`purl`) [PURL] is a `string` of 4 or more characters with `pattern` (regular expression):
+The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
 
     ^pkg:
 
-This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+This package URL (PURL) [PURL] attribute refers to a method for reliably identifying and locating software packages external to this specification.
 
 ##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
 
@@ -1024,7 +1024,7 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
 
 #### 3.2.1.1 Document Property - Acknowledgments
 
-List of acknowledgments (`acknowledgments_t`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
+List of acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements.
 
     "acknowledgments": {
       // ...
@@ -1651,7 +1651,7 @@ Valid values are:
     not_contacted
     open
 
-Summary of involvement (`summary`) of value type `string` with 1 or more characters contains optional additional context regarding what is going on.
+Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
 ##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Notes
 
@@ -1783,7 +1783,7 @@ Restart required by remediation (`restart_required`) of value type `object` with
         }
       },
 
-Optional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
+Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
