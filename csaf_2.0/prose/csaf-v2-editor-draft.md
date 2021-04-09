@@ -301,6 +301,8 @@ _Data elements and interchange formats — Information interchange — Represent
 ###### [ISO29147]
 _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO 29147:2014(E), February 15, 2014,
 https://www.iso.org/standard/45170.html.
+###### [PURL]
+_Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 ###### [RFC7464]
@@ -388,7 +390,7 @@ Proven and intended usage patterns from practice are given where possible.
 Delegation to industry best practices technologies is used in referencing schemas for:
 
 * Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [CPE23_A]
+  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-A]
 * Vulnerability Scoring:
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS31]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
@@ -396,6 +398,9 @@ Delegation to industry best practices technologies is used in referencing schema
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.0.json
   * Common Vulnerability Scoring System (CVSS) Version 2.0 [CVSS2]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v2.0.json
+* Vulnerability Classification
+  * Common Weakness Enumeration (CWE) [CWE]
+    * CWE List: http://cwe.mitre.org/data/index.html
 * Classfication for Document Distribution
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/ 
@@ -605,7 +610,7 @@ Valid `enum` values are:
 
 ### 3.1.3 Full Product Name Type
 
-Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product_id.
+Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
     "full_product_name_t": {
@@ -640,7 +645,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 #### 3.1.3.3 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris` one is mandatory.
+Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris`, at least one MUST be provided.
 
     "product_identification_helper": {
       // ...
@@ -668,7 +673,7 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 
     ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
 
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+The Common Platform Enumeration (CPE) [CPE23-A] attribute refers to a method for naming platforms external to this specification.
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
 
@@ -718,7 +723,7 @@ The Value of the cryptographic hash representation (`value`) of value type `stri
 
     ^[0-9a-fA-F]{64,}$
 
-The Value of the cryptographic hash attribute contains the cryptographic hash value.
+The Value of the cryptographic hash attribute contains the cryptographic hash value in hexadecimal representation.
 
 Examples:
 
@@ -732,13 +737,13 @@ The package URL (PURL) representation (`purl`) is a `string` of 4 or more charac
 
     ^pkg:
 
-This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+This package URL (PURL) [PURL] attribute refers to a method for reliably identifying and locating software packages external to this specification.
 
 ##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or a full serial numbers.
 
-A list of serial numbers SHOULD only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.
+A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
 
 Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
 
@@ -749,7 +754,7 @@ Any given serial number of value type `string` with at least 1 character represe
       }
     }
 
-If a part of a serial number of the component to identify is given it SHOULD begin with the first character of the serial number and stop at any point.
+If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
@@ -810,7 +815,7 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type `No
     },
 
 Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context.
-A note `object` may provide the additional properties `audience` and `title`.
+A Note `object` may provide the optional properties `audience` and `title`.
 
     "properties": {
       "audience": {
@@ -836,7 +841,7 @@ Examples:
     operational management and system administrators
     safety engineers
 
-Note contents (`text`) of value type `string` 1 or more characters holds the contents of the note. Content varies depending on type.
+Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
 
 Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
 
@@ -925,7 +930,7 @@ List of references (`references_t`) of value type `array` with 1 or more items o
     },
 
 Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.
-A reference `object` may provide the additional property `type`.
+A reference `object` may provide the optional property `type`.
 
     "properties": {
       "summary": {
@@ -1019,7 +1024,7 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
 
 #### 3.2.1.1 Document Property - Acknowledgments
 
-List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
+List of acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements.
 
     "acknowledgments": {
       // ...
@@ -1027,7 +1032,7 @@ List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more
 
 #### 3.2.1.2 Document Property - Aggregate Severity
 
-Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.
+Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and criticality with which the reported issues should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.
 
     "aggregate_severity": {
       // ...
@@ -1108,8 +1113,7 @@ Valid values of the `enum` are:
     GREEN
     WHITE
 
-The URL of TLP version (`url`) with value type `string` and format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. Default value is the URL to the definition by FIRST.
-The default value is:
+The URL of TLP version (`url`) with value type `string` and format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. The default value is the URL to the definition by FIRST:
 
     https://www.first.org/tlp/
 

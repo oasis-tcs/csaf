@@ -210,7 +210,7 @@
                   },
                   "value": {
                     "title": "Value of the cryptographic hash",
-                    "description": "Contains the cryptographic hash value.",
+                    "description": "Contains the cryptographic hash value in hexadecimal representation.",
                     "type": "string",
                     "minLength": 64,
                     "pattern": "^[0-9a-fA-F]{64,}$",
@@ -466,7 +466,7 @@
         },
         "aggregate_severity": {
           "title": "Aggregate severity",
-          "description": "Is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.",
+          "description": "Is a vehicle that is provided by the document producer to convey the urgency and criticality with which the reported issues should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.",
           "type": "object",
           "required": [
             "text"
