@@ -145,7 +145,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **CSAF viewer**: CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
-**CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
+**CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 
 **direct producer**: analysis tool which acts as a CSAF producer
 
@@ -741,7 +741,7 @@ This package URL (PURL) [PURL] attribute refers to a method for reliably identif
 
 ##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or a full serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or full serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
 
@@ -1950,7 +1950,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF producer**: A program which emits output in the CSAF format.
 * **Direct producer**: An analysis tool which acts as a CSAF producer.
 * **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
-* **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
+* **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 * **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 * **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
@@ -2070,7 +2070,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/publisher` and children
   * `/document/type` (based on the templates from configuration)
 
-* When updating an exsting CSAF document:
+* When updating an existing CSAF document:
   
   * prefills all fields which have be present in the existing CSAF document
   * adds a new item in `/document/tracking/revision_history[]`
@@ -2128,7 +2128,7 @@ The resulting translated document:
 
 * has not the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
-* provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF tranlators).
+* provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
 
