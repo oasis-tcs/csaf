@@ -990,6 +990,10 @@ Valid `enum` values are:
 
 The default value for `type` is `external`.
 
+The value `external` indicates, that this document is an external reference to a document or vulnerability in focus (depending on scope).
+
+The value `self` indicates, that this document is a reference to this same document or vulnerability (also depending on scope).
+
 URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
 
 ### 3.1.11 Version Type
