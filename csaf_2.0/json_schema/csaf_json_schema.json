@@ -853,10 +853,10 @@
                 "type": "string",
                 "enum": [
                   "default_component_of",
-                  "optional_component_of",
                   "external_component_of",
                   "installed_on",
-                  "installed_with"
+                  "installed_with",
+                  "optional_component_of"
                 ]
               }
             }
@@ -938,7 +938,8 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "Cisco Bug ID"
+                  "Cisco Bug ID",
+                  "GitHub Issue"
                 ]
               },
               "text": {
@@ -947,7 +948,8 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "CSCso66472"
+                  "CSCso66472",
+                  "oasis-tcs/csaf#210"
                 ]
               }
             }
@@ -1227,8 +1229,8 @@
                   "description": "Categorizes the threat according to the rules of the specification.",
                   "type": "string",
                   "enum": [
-                    "impact",
                     "exploit_status",
+                    "impact",
                     "target_set"
                   ]
                 }
