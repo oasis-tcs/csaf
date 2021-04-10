@@ -863,6 +863,20 @@ Valid `enum` values are:
     other
     summary
 
+The value `description` indicates the note is a description of something. The optional sibling property `title` MAY have more information in this case.
+
+The value `details` indicates the note is a low-level detailed discussion. The optional sibling property `title` MAY have more information in this case.
+
+The value `faq` indicates the note is a list of frequently asked questions.
+
+The value `general` indicates the note is a general, high-level note. The optional sibling property `title` MAY have more information in this case.
+
+The value `legal_disclaimer` indicates the note represents any possible legal discussion, including constraints, surrounding the document.
+
+The value `other` indicates the note is something that doesn’t fit the other categories. The optional sibling attribute `title` SHOULD have more information to indicate clearly what kind of note to expect in this case.
+
+The value `summary` indicates the note is a summary of something. The optional sibling property `title` MAY have more information in this case.
+
 ### 3.1.6 Product Group ID Type
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
