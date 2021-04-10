@@ -938,7 +938,8 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "Cisco Bug ID"
+                  "Cisco Bug ID",
+                  "GitHub Issue"
                 ]
               },
               "text": {
@@ -947,7 +948,8 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "CSCso66472"
+                  "CSCso66472",
+                  "oasis-tcs/csaf#210"
                 ]
               }
             }

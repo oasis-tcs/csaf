@@ -1666,12 +1666,23 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 Example:
 
     Cisco Bug ID
+    GitHub Issue
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
 Example:
 
     CSCso66472
+    oasis-tcs/csaf#210
+
+> General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
+>
+> * a Cisco bug ID,
+> * a GitHub Issue number,
+> * an ID from a Bugzilla system, or
+> * an ID from a public vulnerability database such as the X-Force Database.
+>
+> The ID may be a vendor-specific value but is not to be used to publish the CVE tracking numbers (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
 ##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - Involvements
 
