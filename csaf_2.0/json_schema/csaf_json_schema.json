@@ -1229,8 +1229,8 @@
                   "description": "Categorizes the threat according to the rules of the specification.",
                   "type": "string",
                   "enum": [
-                    "impact",
                     "exploit_status",
+                    "impact",
                     "target_set"
                   ]
                 }

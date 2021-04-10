@@ -2003,9 +2003,15 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
 Valid values are:
 
-    impact
     exploit_status
+    impact
     target_set
+
+The value `exploit_status` indicates, that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
+
+The value `exploit_status` indicates, that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
+
+The value `target_set` indicates, that the `details` field a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
 
 ##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
 
