@@ -1718,7 +1718,7 @@ Valid values are:
     user
     vendor
 
-Party status (`status`) of value type `string`and `enum` defines contact status of the involved party.
+Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
 
     completed
@@ -1727,6 +1727,22 @@ Valid values are:
     in_progress
     not_contacted
     open
+
+Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party’s involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress Involvement should eventually expect to issue a document as `disputed` or `completed`.
+
+> The two vulnerability involvement status states, `contact_accepted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
+
+The value `completed` indicates that the vendor asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the vendor about the vulnerability should be expected to be released.
+
+The value `contact_accepted` indicates that the document producer attempted to contact the affected vendor.
+
+The value `disputed` indicates that the vendor disputes the vulnerability report in its entirety. Vendors should indicate this status when they believe that a vulnerability report regarding their product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
+
+The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds, or patches may have been made available by the vendor, but more information or fixes may be released in the future. The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
+
+The value `not_contacted` indicates that the document producer has not attempted to make contact with the affected vendor.
+
+The value `open` is the default status. It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the vendor has acknowledged awareness of the vulnerability report. The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
