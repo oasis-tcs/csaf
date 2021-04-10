@@ -1176,6 +1176,16 @@ The valid values are:
     user
     vendor
 
+The value `coordinator` indicates individuals or organizations that manage a single vendor’s response or multiple vendors’ responses to a vulnerability, a security flaw, or an incident. This includes all Computer Emergency/Incident Response Teams (CERTs/CIRTs) or agents acting on the behalf of a researcher.
+
+The value `discoverer` indicates individuals or organizations that find vulnerabilities or security weaknesses. This includes all manner of researchers.
+
+The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers, language translators, and miscellaneous contributors.
+
+The value `user` indicates anyone using a vendor’s product.
+
+The value `vendor` indicates developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
+
 ##### 3.2.1.7.4 Document Property - Publisher - Vendor ID
 
 The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
