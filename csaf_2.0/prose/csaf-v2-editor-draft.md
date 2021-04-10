@@ -608,6 +608,28 @@ Valid `enum` values are:
     specification
     vendor
 
+The value `architecture` indicates the architecture for which the product is intended.
+
+The value `host_name` indicates the host name of a system/service.
+
+The value `language` indicates the language of the product.
+
+The value `legacy` indicates a nonspecific legacy entry.
+
+The value `patch_level` indicates the patch level of the product.
+
+The value `product_family` indicates the product family that the product falls into.
+
+The value `product_name` indicates the name of the product.
+
+The value `product_version` indicates the product version, can be numeric or some other descriptor.
+
+The value `service_pack` indicates the service pack of the product.
+
+The value `specification` indicates the specification such as a standard, best common practice, etc.
+
+The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
+
 ### 3.1.3 Full Product Name Type
 
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product ID.
