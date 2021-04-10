@@ -853,10 +853,10 @@
                 "type": "string",
                 "enum": [
                   "default_component_of",
-                  "optional_component_of",
                   "external_component_of",
                   "installed_on",
-                  "installed_with"
+                  "installed_with",
+                  "optional_component_of"
                 ]
               }
             }
