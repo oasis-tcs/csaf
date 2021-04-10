@@ -1389,6 +1389,12 @@ The value MUST be one of the following:
     final
     interim
 
+The value `draft` indicates, that this is a pre-release, intended for issuing party’s internal use only, or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
+
+The value `final` indicates, that the issuing party asserts the content is unlikely to change. “Final” status is an indication only, and does not preclude updates.
+
+The value `interim` indicates, that the issuing party asserts the content is unlikely to change.
+
 ##### 3.2.1.11.8 Document Property - Tracking - Version
 
 Version has the value type Version (`version_t`).
