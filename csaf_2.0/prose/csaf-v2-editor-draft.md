@@ -2045,7 +2045,7 @@ Informative Comments:
 >In any case, there are no capabilities organized in increasing quality levels for targets because the security advisory sharing communities follow the chain link model.
 >Instead, a single minimum capability level for every target is given to maintain important goals of providing a common framework for security advisories:
 >* Fast production, sharing, and actionable consummation of security advisories
->* Consistent end to end automation through collaborating and not competing "actors"
+>* Consistent end to end automation through collaborating actors
 >* Clear baseline across the communities per this specification
 >* Additional per-community cooperative extensions which may flow back into future updates of this specification
 
