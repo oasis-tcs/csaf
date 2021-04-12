@@ -2,9 +2,7 @@
 ![OASIS Logo](http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg)
 -------
 
-
 # Common Security Advisory Framework Version 2.0
-
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
@@ -24,15 +22,18 @@ In Memory of Eric Johnson, TIBCO Software inc., an active member of the OASIS CS
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
+
 * JSON schema: csaf.json
 * Other parts (list titles and/or file names)
 * `(Note: Any normative computer language definitions that are part of the Work Product, such as XML instances, schemas and Java(TM) code, including fragments of such, must be (a) well formed and valid, (b) provided in separate plain text files, (c) referenced from the Work Product; and (d) where any definition in these separate files disagrees with the definition found in the specification, the definition in the separate file prevails. Remove this note before submitting for publication.)`
 
 #### Related work:
 This specification replaces or supersedes:
+
 * The CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2. http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
 
 This specification is related to:
+
 * Related specifications (include hyperlink, preferably to HTML format) \
 `(remove "Related work" section or the "replaces" or "related" subsections if no entries)`
 
@@ -68,6 +69,7 @@ _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock and Ste
 -------
 
 ## Notices
+
 Copyright © OASIS Open 2021. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr) may be found at the OASIS website.
@@ -91,6 +93,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 -------
 
 # Table of Contents
+
 [[TOC will be inserted here]]
 
 -------
@@ -106,9 +109,11 @@ Fixes in the css (shall) address:
 ---------------------
 
 ## 1.1 IPR Policy
+
 This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([https://www.oasis-open.org/committees/openc2/ipr.php](https://www.oasis-open.org/committees/openc2/ipr.php)).
 
 ## 1.2 Terminology
+
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 [[RFC2119](#rfc2119)] and [[RFC8174](#rfc8174)] when, and only when, they appear in all capitals, as shown here.
 
 For purposes of this document, the following terms and definitions apply:
@@ -325,14 +330,17 @@ Latest version available at http://www.w3.org/TR/xmlschema11-2/.
 ## 1.5 Typographical Conventions
 
 Keywords defined by this specification use this `monospaced` font.
+
 ```
     Normative source code uses this paragraph style.
 ```
+
 Text following the special symbol («) – an opening Guillemet (or French quotation mark) – within this specification identifies conformance statements. Every conformance statement is separated from the following text with the special end symbol (») – a closing Guillemet, and has been assigned a reference that follows that end symbol in the format [CSAF-section#-local#].
 
 Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
 
 *Examples:*
+
 ```
     Informative examples also use this paragraph style but preceded by the text "Example(s)".
 ```
@@ -348,6 +356,7 @@ Informative Comment:
 -------
 
 # 2 Design Considerations
+
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 
 Informative Comment:
@@ -367,6 +376,7 @@ The display of the elements representing Product Tree and Vulnerability informat
 As the JSON format is not primarily targeting human readers but more programs parsing, validating and transforming no example is given in this introduction but instead examples derived from several real-world security advisories are stated in the non-normative Appendix E Complete Examples.
 
 ## 2.1 Construction Principles
+
 A Security Advisory defined as a CSAF document is the result of complex orchestration of many players and distinct and partially difficult to play schemas.
 
 The format chosen is [JSONSchema] which allows validation and delegation to sub schema providers. The latter aligns well with separation of concerns and shares the format family of information interchange utilized by the providers of product and vulnerability information which migrated from XML to JSON since the creation of CSAF CVRF version 1.2, the predecessor of this specification.
@@ -413,11 +423,15 @@ The CSAF schema describes how to represent security advisory information as a JS
 
 The CSAF schema Version 2.0 builds on the JSON Schema draft 2019-09 rules.
 
+```
     "$schema": "https://json-schema.org/draft/2019-09/schema"
+```
 
 The schema identifier is (before publication):
 
+```
     "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json"
+```
 
 The further documentation of the schema is organized via Definitions and Properties.
 
@@ -436,6 +450,7 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
 Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`), Product ID (`product_id_t`), Products (`products_t`), References (`references_t`),
 and Version (`version_t`).
 
+```
     "$defs": {
         "acknowledgments_t": {
             // ...
@@ -471,6 +486,7 @@ and Version (`version_t`).
             // ...
         }
     },
+```
 
 ### 3.1.1 Acknowledgments Type
 
@@ -651,6 +667,7 @@ The value `vendor` indicates the name of the vendor or manufacturer that makes t
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
+```
     "full_product_name_t": {
       // ...
       "properties": {
@@ -665,6 +682,7 @@ The properties `name` and `product_id` are required. The property `product_ident
         }
       }
     },
+```
 
 #### 3.1.3.1 Full Product Name Type - Name
 
@@ -673,8 +691,10 @@ The value should be the product's full canonical name, including version number 
 
 Examples:
 
+```
     Microsoft Host Integration Server 2006 Service Pack 1
     Cisco AnyConnect Secure Mobility Client 2.3.185
+```
 
 #### 3.1.3.2 Full Product Name Type - Product ID
 
@@ -685,6 +705,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
 Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris`, one is mandatory.
 
+```
     "product_identification_helper": {
       // ...
       "properties": { 
@@ -704,12 +725,15 @@ Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_g
           // ...
         }
       }
+```
 
 ##### 3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE
 
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
+```
     ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
+```
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-A] for details.
 
@@ -717,13 +741,19 @@ The Common Platform Enumeration (CPE) attribute refers to a method for naming pl
 
 List of hashes (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
 
-A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.
-Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
-
+```
     "hashes": {
       // ...
       "items": {
         // ...
+      }
+    }
+```
+
+A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.
+Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
+
+```
         "properties": {
           "algorithm": {
             // ...
@@ -735,45 +765,54 @@ Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`
             // ...
           }
         }
-      }
-    }
+```
 
 The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `SHA-3`.
 
 Examples:
 
+```
     SHA-256
     SHA-384
     SHA-512
     SHA-3
     BLAKE3
+```
 
 The file representation (`file`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
 
 Examples:
 
+```
     WINWORD.EXE
     msotadddin.dll
     sudoers.so
+```
 
 The Value of the cryptographic hash representation (`value`) of value type `string` of 64 or more characters with `pattern` (regular expression):
 
+```
     ^[0-9a-fA-F]{64,}$
+```
 
 The Value of the cryptographic hash attribute contains the cryptographic hash value in hexadecimal representation.
 
 Examples:
 
+```
     4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
+```
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
 
 The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
 
+```
     ^pkg:
+```
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
@@ -785,12 +824,14 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
 
 Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
 
+```
     "serial_numbers": {
         //...  
       "items": {
         //...  
       }
     }
+```
 
 If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
@@ -800,43 +841,52 @@ Two `*` MUST NOT follow each other.
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
+```
+    "x_generic_uris": {
+      // ...
+      "items": {
+        // ...
+      }
+    }  
+```
+
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
 
-The namespace of the generic URI (`namespace`) of value type `string` and format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
-
-The URI (`uri`) of value type `string` and format `uri` contains the identifier itself.
-
-    "x_generic_uris": {
-        // ...
-      "items": {
-          // ...
+```
         "properties": {
           "namespace": {
             // ...
           },
           "uri": {
-           // ...
-           }
+            // ...
+          }
         }
-      }
-    }  
+```
+
+The namespace of the generic URI (`namespace`) of value type `string` and format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
+
+The URI (`uri`) of value type `string` and format `uri` contains the identifier itself.
 
 ### 3.1.4 Language Type
 
 Language type (`lang_t`) has value type `string` with `pattern` (regular expression):
 
+```
     ^[a-zA-Z]{2,3}(-.+)?$
+```
 
 The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
 See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
 Examples:
 
+```
     de
     en
     fr
     frc
     jp
+```
 
 ### 3.1.5 Notes Type
 
@@ -928,51 +978,63 @@ The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 o
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
 There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a group in the context of the current document.
 
+```
     "product_group_id_t": {
       // ...
     },
+```
 
 Examples:
 
+```
     CSAFGID-0001
     CSAFGID-0002
     CSAFGID-0020
+```
 
 ### 3.1.7 Product Groups Type
 
 List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
 
+```
     "product_groups_t": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
 ### 3.1.8 Product ID Type
 
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances.
 The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
 
+```
     "product_id_t": {
       // ...
     },
+```
 
 Examples:
 
+```
     CSAFPID-0004
     CSAFPID-0008
+```
 
 ### 3.1.9 Products Type
 
 List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
+```
     "products_t": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
 ### 3.1.10 References Type
 
@@ -1027,16 +1089,20 @@ URL of reference (`url`) of value type `string` and format `uri` provides the UR
 
 The Version (`version_t`) type has value type `string` with `pattern` (regular expression):
 
+```
     ^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$
+```
 
 The `version` specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major\[.minor\[.patch\[.build\]\]\]' version.
 
 Examples:
 
+```
     1
     0.9
     1.4.3
     2.40.0.320002
+```
 
 ## 3.2 Properties
 
@@ -1047,6 +1113,7 @@ These final three subsections document the three properties of a CSAF document. 
 Document level meta-data (`document`) of value type `object` with the 5 mandatory properties CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`), Tracking (`tracking`), and Type (`type`) captures the meta-data about this document describing a particular set of security advisories.
 In addition, the `document` object may provide the 7 optional properties Acknowledgments (`acknowledgments`), Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`) References (`references`), and Source Language (`source_lang`).
 
+```
     "document": {
       // ...
       "properties": {
@@ -1088,19 +1155,23 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
         }
       }
     },
+```
 
 #### 3.2.1.1 Document Property - Acknowledgments
 
 List of acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements.
 
+```
     "acknowledgments": {
       // ...
     },
+```
 
 #### 3.2.1.2 Document Property - Aggregate Severity
 
 Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.
 
+```
     "aggregate_severity": {
       // ...
       "properties": {
@@ -1112,6 +1183,7 @@ Aggregate severity (`aggregate_severity`) of value type `object` with the mandat
         }
       }
     },
+```
 
 The Namespace of aggregate severity (`namespace`) of value type `string` and format `uri` points to the namespace so referenced.
 
@@ -1119,21 +1191,26 @@ The Text of aggregate severity (`text`) of value type `string` with 1 or more ch
 
 Examples:
 
+```
     Moderate
     Important
     Critical
+```
 
 #### 3.2.1.3 Document Property - CSAF Version
 
 CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
 The single valid value for this `enum` is:
 
+```
     2.0
+```
 
 #### 3.2.1.4 Document Property - Distribution
 
 Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol TLP (`tlp`) describes any constraints on how this document might be shared.
 
+```
     "distribution": {
       // ...
       "properties": {
@@ -1145,6 +1222,7 @@ Rules for sharing document (`distribution`) of value type `object` with at least
         }
       }
     },
+```
 
 ##### 3.2.1.4.1 Document Property - Distribution - Text
 
@@ -1152,14 +1230,17 @@ The Textual description (`text`) of value type `string` with 1 or more character
 
 Examples:
 
+```
     Share only on a need-to-know-basis only.
     Distribute freely.
     Copyright 2019, Example Company, All Rights Reserved.
+```
 
 ##### 3.2.1.4.2 Document Property - Distribution - TLP
 
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and the optional property URL (`url`) provides details about the TLP classification of the document.
 
+```
     "tlp": {
       // ...
       "properties": {
@@ -1171,23 +1252,30 @@ Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory p
         }
       }
     }
+```
 
 The Label of TLP (`label`) with value type `string` and `enum` provides the TLP label of the document.
 Valid values of the `enum` are:
 
+```
     RED
     AMBER
     GREEN
     WHITE
+```
 
 The URL of TLP version (`url`) with value type `string` and format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. The default value is the URL to the definition by FIRST:
 
+```
     https://www.first.org/tlp/
+```
 
 Examples:
 
+```
     https://www.us-cert.gov/tlp
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf
+```
 
 #### 3.2.1.5 Document Property - Language
 
@@ -1202,6 +1290,7 @@ Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) hol
 Publisher (`publisher`) has value type `object` with the mandatory property Type (`type`) and provides information on the publishing entity.
 The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
 
+```
     "publisher": {
       // ...
       "properties": {
@@ -1219,6 +1308,7 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
         }
       }
     },
+```
 
 ##### 3.2.1.7.1 Document Property - Publisher - Contact Details
 
@@ -1226,7 +1316,9 @@ Contact details (`contact_details`) of value type `string` with 1 or more charac
 
 Example:
 
+```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
+```
 
 ##### 3.2.1.7.2 Document Property - Publisher - Issuing Authority
 
@@ -1237,11 +1329,13 @@ Issuing authority (`issuing_authority`) of value type `string` with 1 or more ch
 The Type of publisher (`type`) of type `string` and `enum` provides information about the type of publisher releasing the document.
 The valid values are:
 
+```
     coordinator
     discoverer
     other
     user
     vendor
+```
 
 The value `coordinator` indicates individuals or organizations that manage a single vendor’s response or multiple vendors’ responses to a vulnerability, a security flaw, or an incident. This includes all Computer Emergency/Incident Response Teams (CERTs/CIRTs) or agents acting on the behalf of a researcher.
 
@@ -1261,9 +1355,11 @@ The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or
 
 References (`references`) of References type (`references_t`).
 
+```
     "references": {
       // ...
     },
+```
 
 #### 3.2.1.9 Document Property - Source Language
 
@@ -1275,14 +1371,17 @@ Title of this document (`title`) of value type `string` with 1 or more character
 
 Examples:
 
+```
     Example Company Cross-Site-Scripting Vulnerability in Example Generator
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
+```
 
 #### 3.2.1.11 Document Property - Tracking
 
 Tracking (`tracking`) of value type `object` with the six mandatory properties: Current Release Date (`current_release_date`), Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`), and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
 
+```
     "tracking": {
       // ...
       "properties": {
@@ -1312,23 +1411,28 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
         }
       }
     },
+```
 
 ##### 3.2.1.11.1 Document Property - Tracking - Aliases
 
 Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a list of alternate names for the same document.
 
+```
     "aliases": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
 Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a distinct optional alternative ID used to refer to the document.
 
 Example:
 
+```
     CVE-2019-12345
+```
 
 ##### 3.2.1.11.2 Document Property - Tracking - Current Release Date
 
@@ -1338,6 +1442,7 @@ Current release date (`current_release_date`) with value type `string` and forma
 
 Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and optional property Date (`date`) is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
+```
         "generator": {
           // ...
           "properties": {
@@ -1349,6 +1454,7 @@ Document Generator (`generator`) of value type `object` with mandatory property 
             }
           }
         },
+```
 
 Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated.
 Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released, this field MAY be different from the Initial Release Date and Current Release Date.
@@ -1357,9 +1463,11 @@ Engine of document generation (`engine`) of value type `string` with 1 or more c
 
 Examples:
 
+```
     TVCE
     Red Hat rhsa-to-cvrf 2.1
     CMPFA Core Converter CVRF->CSAF Version 0.6
+```
 
 ##### 3.2.1.11.4 Document Property - Tracking - ID
 
@@ -1369,9 +1477,11 @@ Its value SHOULD be assigned and maintained by the original document issuing aut
 
 Examples:
 
+```
     Example Company - 2019-YH3234
     RHBA-2019:0024
     cisco-sa-20190513-secureboot
+```
 
 ##### 3.2.1.11.5 Document Property - Tracking - Initial Release Date
 
@@ -1381,15 +1491,18 @@ Initial release date (`initial_release_date`) with value type `string` and forma
 
 The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one.
 
+```
         "revision_history": {
           // ...
           "items": {
             // ...
           }
         },
+```
 
 Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`).
 
+```
         "properties": {
           "date": {
             // ...
@@ -1401,6 +1514,8 @@ Each Revision contains all the information elements required to track the evolut
             // ...
           }
         }
+```
+
 The Number (`number`) has value type Version (`version_t`).
 
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
@@ -1412,9 +1527,11 @@ The Summary of the revision (`summary`) of value type `string` with 1 or more ch
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
 The value MUST be one of the following:
 
+```
     draft
     final
     interim
+```
 
 The value `draft` indicates, that this is a pre-release, intended for issuing party’s internal use only, or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
 
@@ -1430,21 +1547,26 @@ Version has the value type Version (`version_t`).
 
 Document type (`type`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.
 
+```
     "type": {
       // ...
     }
+```
 
 Examples:
 
+```
     Security Advisory
     Security Notice
     Vulnerability Report
+```
 
 ### 3.2.2 Product Tree Property
 
 Product Tree (`product_tree`) has value type `object` with 1 or more properties is a container for all fully qualified product names that can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`), and Relationships (`relationships`).
 
+```
     "product_tree": {
       // ...
       "properties": {
@@ -1462,6 +1584,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
         }
       }
     },
+```
 
 #### 3.2.2.1 Product Tree Property - Branches
 
@@ -2143,6 +2266,7 @@ Informative Comments:
 >
 >In any case, there are no capabilities organized in increasing quality levels for targets because the security advisory sharing communities follow the chain link model.
 >Instead, a single minimum capability level for every target is given to maintain important goals of providing a common framework for security advisories:
+>
 >* Fast production, sharing, and actionable consummation of security advisories
 >* Consistent end to end automation through collaborating actors
 >* Clear baseline across the communities per this specification
@@ -2282,19 +2406,19 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * prefills all fields which have be present in the existing CSAF document
   * adds a new item in `/document/tracking/revision_history[]`
   * updates the following fields with the values given below or based on the templates from configuration:
-      * `/document/csaf_version` with the value `2.0`
-      * `/document/language`
-      * `/document/notes`
-        * `legal_disclaimer` (Terms of use from the configuration)
-        * `general` (General Security recommendations from the configuration)
-      * `/document/tracking/current_release_date` with the current date
-      * `/document/tracking/generator` and children
-      * the new item in `/document/tracking/revision_history[]`
-        * `date` with the current date
-        * `number` (based on the templates from configuration; default: latest_patch_version + 1)
-      * `/document/tracking/status` with `draft`
-      * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
-      * `/document/publisher` and children
+    * `/document/csaf_version` with the value `2.0`
+    * `/document/language`
+    * `/document/notes`
+      * `legal_disclaimer` (Terms of use from the configuration)
+      * `general` (General Security recommendations from the configuration)
+    * `/document/tracking/current_release_date` with the current date
+    * `/document/tracking/generator` and children
+    * the new item in `/document/tracking/revision_history[]`
+      * `date` with the current date
+      * `number` (based on the templates from configuration; default: latest_patch_version + 1)
+    * `/document/tracking/status` with `draft`
+    * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
+    * `/document/publisher` and children
 
 ### 5.1.7 Conformance Clause 7: CSAF post-processor
 
@@ -2354,7 +2478,6 @@ The viewer:
 
 * satisfies the "CSAF consumer" conformance profile.
 * satisfies the normative requirements given below.
-
 
 For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 
@@ -2417,18 +2540,18 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
-Adam | Montville | CIS                                          
-Allan | Thomson | LookingGlass                            
-Anthony | Berglas | Cryptsoft Pty Ltd.                    
-Art | Manion | Carnegie Mellon University              
-Aukjan | van Belkum | EclecticIQ                           
-Ben | Sooter | Electric Power Research Institute     
-Bernd | Grobauer | Siemens AG                             
-Beth | Pumo | Kaiser Permanente                          
-Bret | Jordan | Symantec Corp.                             
-Bruce | Rich | Cryptsoft Pty Ltd.                            
-Chet | Ensign | OASIS                                          
-Chok | Poh | Oracle                                              
+Adam | Montville | CIS
+Allan | Thomson | LookingGlass
+Anthony | Berglas | Cryptsoft Pty Ltd.
+Art | Manion | Carnegie Mellon University
+Aukjan | van Belkum | EclecticIQ
+Ben | Sooter | Electric Power Research Institute
+Bernd | Grobauer | Siemens AG
+Beth | Pumo | Kaiser Permanente
+Bret | Jordan | Symantec Corp.
+Bruce | Rich | Cryptsoft Pty Ltd.
+Chet | Ensign | OASIS
+Chok | Poh | Oracle
 Chris | Rouland | Individual
 David | Waltermire | NIST
 Denny | Page | TIBCO Software Inc.
@@ -2483,6 +2606,7 @@ Zach | Turk | Microsoft
 -------
 
 # Appendix B. Revision History
+
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
 | csaf-v2.0-wd20210323 | 2021-03-23 | Stefan Hagen | Editor revision for TC review |
