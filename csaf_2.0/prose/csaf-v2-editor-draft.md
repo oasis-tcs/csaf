@@ -1722,7 +1722,7 @@ Party status (`status`) of value type `string` and `enum` defines contact status
 Valid values are:
 
     completed
-    contact_accepted
+    contact_attempted
     disputed
     in_progress
     not_contacted
@@ -1734,7 +1734,7 @@ Each status is mutually exclusive - only one status is valid for a particular vu
 
 The value `completed` indicates that the vendor asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the vendor about the vulnerability should be expected to be released.
 
-The value `contact_accepted` indicates that the document producer attempted to contact the affected vendor.
+The value `contact_attempted` indicates that the document producer attempted to contact the affected vendor.
 
 The value `disputed` indicates that the vendor disputes the vulnerability report in its entirety. Vendors should indicate this status when they believe that a vulnerability report regarding their product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
 
