@@ -986,7 +986,7 @@
                   "type": "string",
                   "enum": [
                     "completed",
-                    "contact_accepted",
+                    "contact_attempted",
                     "disputed",
                     "in_progress",
                     "not_contacted",
