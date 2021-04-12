@@ -1576,18 +1576,19 @@ The value `optional_component_of` indicates that the entity labeled with one Pro
 
 Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects representing vulnerabilities and providing 1 or more properties represents a list of all relevant vulnerability information items.
 
+```
     "vulnerabilities": {
       // ...
       "items": {
         // ...
       }
     }
+```
 
-#### 3.2.3.1 Vulnerabilities Property - Vulnerability
-
-Vulnerability (`vulnerability`) of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
+The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
 Any vulnerability may provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
 
+```
     "properties": {
       "acknowledgments": {
         // ...
@@ -1632,23 +1633,27 @@ Any vulnerability may provide the optional properties Acknowledgments (`acknowle
         // ...
       }
     }
+```
 
-##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
+#### 3.2.3.1 Vulnerabilities Property - Acknowledgments
 
 List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
 
-##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
+#### 3.2.3.2 Vulnerabilities Property - CVE
 
 CVE (`cve`) of value type `string` with `pattern` (regular expression):
 
+```
     ^CVE-[0-9]{4}-[0-9]{4,}$
+```
 
 holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
-##### 3.2.3.1.3 Vulnerabilities Property - Vulnerability - CWE
+#### 3.2.3.3 Vulnerabilities Property - CWE
 
 CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [CWE].
 
+```
     "cwe": {
       // ...
       "properties": {
@@ -1660,35 +1665,43 @@ CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (
         }
       }
     },
+```
 
 The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):
 
+```
     ^CWE-[1-9]\\d{0,5}$
+```
 
 and holds the ID for the weakness associated.
 
 Examples:
 
+```
     CWE-79
     CWE-22
     CWE-352
+```
 
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
 
 Examples:
 
+```
     Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
     Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
     Cross-Site Request Forgery (CSRF)
+```
 
-##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Discovery Date
+#### 3.2.3.4 Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - ID
+#### 3.2.3.5 Vulnerabilities Property - ID
 
 ID (`id`) of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
 
+```
     "id": {
       // ...
       "properties": {
@@ -1700,20 +1713,25 @@ ID (`id`) of value type `object` with the two mandatory properties System Name (
         }
       }
     },
+```
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
 Example:
 
+```
     Cisco Bug ID
     GitHub Issue
+```
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
 Example:
 
+```
     CSCso66472
     oasis-tcs/csaf#210
+```
 
 > General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
 >
@@ -1786,15 +1804,16 @@ The value `open` is the default status. It doesn’t indicate anything about the
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
-##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Notes
+#### 3.2.3.7 Vulnerabilities Property - Notes
 
-Notes (`notes`) have value type Notes (notes_t).
+Notes (`notes`) have value type Notes (`notes_t`).
 
-##### 3.2.3.1.8 Vulnerabilities Property - Vulnerability - Product Status
+#### 3.2.3.8 Vulnerabilities Property - Product Status
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability.
 The eight defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),  Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`), and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
 
+```
     "product_status": {
       // ...
       "properties": {
@@ -1824,6 +1843,7 @@ The eight defined properties are First affected (`first_affected`), First fixed 
         }
       }
     },
+```
 
 First affected (`first_affected`) of value type Products (`products_t`) represents that these are the first versions of the releases known to be affected by the vulnerability.
 
@@ -1841,11 +1861,11 @@ Recommended (`recommended`) of value type Products (`products_t`) represents tha
 
 Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether this version is or is not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 
-##### 3.2.3.1.9 Vulnerabilities Property - Vulnerability - References
+#### 3.2.3.9 Vulnerabilities Property - References
 
 References (`references`) have value type References (`references_t`).
 
-##### 3.2.3.1.10 Vulnerabilities Property - Vulnerability - Release Date
+#### 3.2.3.10 Vulnerabilities Property - Release Date
 
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
@@ -2053,7 +2073,7 @@ The value `impact` indicates, that the `details` field contains an assessment of
 
 The value `target_set` indicates, that the `details` field a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
 
-##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
+#### 3.2.3.14 Vulnerabilities Property - Title
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
