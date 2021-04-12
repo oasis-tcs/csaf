@@ -243,7 +243,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **viewer**: see document viewer.
 
-**XML**: eXtensible Markup Language - a format and specifically the format of predecessors of this standard namely CVRF 1.1 and CVRF 1.2
+**XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
 
 ## 1.3 Normative References
 
@@ -2104,17 +2104,18 @@ Valid values are:
     target_set
 ```
 
-The value `exploit_status` indicates, that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
+The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
 The value `impact` indicates, that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
 
-The value `target_set` indicates, that the `details` field a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
+The value `target_set` indicates that the `details` field contains a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
 
 #### 3.2.3.14 Vulnerabilities Property - Title
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
 # 4 Safety, Security, and Data Protection Considerations
+
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
 >
@@ -2122,6 +2123,7 @@ CSAF documents are based on JSON, thus the security considerations of [RFC8259] 
 
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
+
 * CSAF producers SHALL NOT emit messages that contain HTML, even though all variants of Markdown permit it.
 * Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the `cmark` Markdown processor [GFMCMARK].
@@ -2144,8 +2146,7 @@ Informative Comments:
 >* Fast production, sharing, and actionable consummation of security advisories
 >* Consistent end to end automation through collaborating and not competing "actors"
 >* Clear baseline across the communities per this specification
->* Additional per community cooperative extensions which may flow back into future updates of this specification
-
+>* Additional per-community cooperative extensions which may flow back into future updates of this specification
 
 ## 5.1 Conformance Targets
 
@@ -2332,11 +2333,11 @@ The program:
 
 The resulting translated document:
 
-* has not the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+* does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they may use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
-* may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
+* may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
 ### 5.1.10 Conformance Clause 10: CSAF consumer
 
@@ -2391,7 +2392,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides for each asset of the asset database a list of matched advisories.
 * provides for each CSAF document a list of matched product of the asset database.
 * provides for each CSAF document a list of matched asset of the asset database.
-* provides for each vulnerability within a CSAF document the option to mark matched asset of the asset database as "not remediated", "remediation in progress", "remediation done". A switch to mark all at once may be implemented.
+* provides for each vulnerability within a CSAF document the option to mark a matched asset in the asset database as "not remediated", "remediation in progress", or "remediation done". A switch to mark all assets at once may be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
