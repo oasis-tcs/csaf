@@ -1877,21 +1877,24 @@ References (`references`) have value type References (`references_t`).
 
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
-##### 3.2.3.1.11 Vulnerabilities Property - Vulnerability - Remediations
+#### 3.2.3.11 Vulnerabilities Property - Remediations
 
 List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of type `object` contains a list of remediations.
 
+```
     "remediations": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
-Remediation of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Every Remediation item of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
 
 In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
+```
       "properties": {
         "date": {
           // ...
@@ -1918,12 +1921,23 @@ In addition, any Remediation may expose the six optional properties Date (`date`
           // ...
         }
       }
+```
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
 Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
+
+```
+                "entitlements": {
+                  // ....
+                  "items": {
+                    // ...
+                  }
+                },
+```
+
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
@@ -1932,6 +1946,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
 
+```
       "restart_required": {
         // ...
         "properties": {
@@ -1943,12 +1958,14 @@ Restart required by remediation (`restart_required`) of value type `object` with
           }
         }
       },
+```
 
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
 
+```
     none
     vulnerable_component
     service
@@ -1958,6 +1975,7 @@ Valid values are:
     machine
     zone
     system
+```
 
 The values must be used as follows:
 
@@ -1974,11 +1992,13 @@ The values must be used as follows:
 Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
 Valid values are:
 
+```
     workaround
     mitigation
     vendor_fix
     none_available
     no_fix_planned
+```
 
 The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that can be used to avoid exposure to the vulnerability. There may be none, one, or more workarounds available. This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
 
