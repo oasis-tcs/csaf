@@ -1475,15 +1475,18 @@ List of full product names (`full_product_names`) of value type `array` with 1 o
 
 List of product groups (`product_groups`) of value type `array` with 1 or more items of type `object` contains a list of product groups.
 
+```
     "product_groups": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
 The product group items are of value type `object` with the 2 mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and the optional Summary (`summary`) property.
 
+```
     "properties": {
       "group_id": {
         // ...
@@ -1495,13 +1498,16 @@ The product group items are of value type `object` with the 2 mandatory properti
         // ...
       }
     }
+```
 
 The summary of the product group (`summary`) of type `string` with 1 or more characters gives a short, optional description of the group.
 
 Examples:
 
+```
     The x64 versions of the operating system.
     Products supporting Modbus.
+```
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
