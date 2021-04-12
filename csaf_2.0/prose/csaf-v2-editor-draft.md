@@ -2034,7 +2034,7 @@ CSAF consumers that are not prepared to deal with the security implications of f
 # 5 Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
-The clauses matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
+The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
 
 Informative Comments:
 
