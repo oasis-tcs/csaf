@@ -2011,7 +2011,7 @@ The value `exploit_status` indicates that the `details` field contains a descrip
 
 The value `impact` indicates, that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
 
-The value `target_set` indicates, that the `details` field a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
+The value `target_set` indicates that the `details` field contains a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
 
 ##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
 
