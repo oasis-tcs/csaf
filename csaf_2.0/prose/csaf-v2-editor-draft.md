@@ -1990,7 +1990,7 @@ Last affected (`last_affected`) of value type Products (`products_t`) represents
 
 Recommended (`recommended`) of value type Products (`products_t`) represents that these versions have a fix for the vulnerability and are the vendor-recommended versions for fixing the vulnerability.
 
-Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether this version is or is not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
+Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 
 #### 3.2.3.9 Vulnerabilities Property - References
 
@@ -2169,11 +2169,11 @@ Value type of every such Score item is `object` with the mandatory property `pro
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
 
-The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemes at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
-##### 3.2.3.1.13 Vulnerabilities Property - Threats
+#### 3.2.3.13 Vulnerabilities Property - Threats
 
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
 
