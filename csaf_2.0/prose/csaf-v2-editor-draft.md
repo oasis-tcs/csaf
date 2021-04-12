@@ -978,19 +978,20 @@ List of Product IDs (`products_t`) of value type `array` with 1 or more unique i
 
 List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects.
 
+```
     "references_t": {
       // ...
       "items": {
         // ...
-        "properties": {
-          // ...
         }
       }
     },
+```
 
 Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.
 A reference `object` may provide the optional property `type`.
 
+```
     "properties": {
       "summary": {
         // ...
@@ -1002,14 +1003,17 @@ A reference `object` may provide the optional property `type`.
         // ...
       }
     }
+```
 
 Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
 Type of reference (`type`) of value type `string` as `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
 Valid `enum` values are:
 
+```
     external
     self
+```
 
 The default value for `type` is `external`.
 
