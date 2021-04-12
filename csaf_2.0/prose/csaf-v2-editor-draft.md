@@ -695,7 +695,7 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 
     ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
 
-The Common Platform Enumeration (CPE) [CPE23-A] attribute refers to a method for naming platforms external to this specification.
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-A] for details.
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
 
