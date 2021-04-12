@@ -614,7 +614,7 @@ The value `host_name` indicates the host name of a system/service.
 
 The value `language` indicates the language of the product.
 
-The value `legacy` indicates a nonspecific legacy entry.
+The value `legacy` indicates an entry that has reached its end of life.
 
 The value `patch_level` indicates the patch level of the product.
 
