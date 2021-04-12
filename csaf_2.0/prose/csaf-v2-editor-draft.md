@@ -1517,15 +1517,18 @@ List of Product IDs (`product_ids`) of value type array with 2 or more unique it
 
 List of relationships (`relationships`) of value type `array` with 1 or more items contains a list of relationships.
 
+```
     "relationships": {
       // ...
       "items": {
         // ...
       }
     }
+```
 
 The Relationship item is of value type `object` and has four mandatory properties: Full Product Name (`full_product_name`), Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
+```
     "properties": {
       "full_product_name": {
         // ...
@@ -1540,6 +1543,8 @@ The Relationship item is of value type `object` and has four mandatory propertie
         // ...
       }
     }
+```
+
 Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
 
 Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
@@ -1549,11 +1554,13 @@ Relates to Product Reference (`relates_to_product_reference`) holds also a Produ
 Relationship type (`relationship_type`) of value `string` and `enum` defines the type of relationship for the referenced component.
 The valid values are:
 
+```
     default_component_of
     external_component_of
     installed_on
     installed_with
     optional_component_of
+```
 
 The value `default_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is a default component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 
