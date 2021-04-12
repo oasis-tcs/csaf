@@ -1742,19 +1742,22 @@ Example:
 >
 > The ID may be a vendor-specific value but is not to be used to publish the CVE tracking numbers (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
-##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - Involvements
+#### 3.2.3.6 Vulnerabilities Property - Involvements
 
 List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
 
+```
     "involvements": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
-Involvement (`involvement`) of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.
+Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.
 
+```
         "properties": {
           "summary": {
             // ...
@@ -1766,29 +1769,34 @@ Involvement (`involvement`) of value type `object` with the 2 mandatory properti
             // ...
           }
         }
+```
 
 Party type (`party`) of value type `string` and `enum` defines the type of the involved party.
 Valid values are:
 
+```
     coordinator
     discoverer
     other
     user
     vendor
+```
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
 
+```
     completed
     contact_attempted
     disputed
     in_progress
     not_contacted
     open
+```
 
 Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party’s involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress Involvement should eventually expect to issue a document as `disputed` or `completed`.
 
-> The two vulnerability involvement status states, `contact_accepted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
+> The two vulnerability involvement status states, `contact_attempted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
 
 The value `completed` indicates that the vendor asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the vendor about the vulnerability should be expected to be released.
 
