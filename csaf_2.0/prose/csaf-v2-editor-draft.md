@@ -243,7 +243,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **viewer**: see document viewer.
 
-**XML**: eXtensible Markup Language - a format and specifically the format of predecessors of this standard namely CVRF 1.1 and CVRF 1.2
+**XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
 
 ## 1.3 Normative References
 
