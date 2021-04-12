@@ -2047,7 +2047,7 @@ Informative Comments:
 >* Fast production, sharing, and actionable consummation of security advisories
 >* Consistent end to end automation through collaborating and not competing "actors"
 >* Clear baseline across the communities per this specification
->* Additional per community cooperative extensions which may flow back into future updates of this specification
+>* Additional per-community cooperative extensions which may flow back into future updates of this specification
 
 
 ## 5.1 Conformance Targets
