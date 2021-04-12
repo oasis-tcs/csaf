@@ -550,10 +550,19 @@ Value type is string with format URI (`uri`).
 
 List of branches (`branches_t`) with value type `array` contains 1 or more `branch` elements as children of the current element.
 
+```
     "branches_t": {
       //...
       "items": {
         // ...
+      }
+    },
+```
+
+Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree.
+The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property.
+
+```
         "properties": {
           "branches": {
             // ...
@@ -569,24 +578,19 @@ List of branches (`branches_t`) with value type `array` contains 1 or more `bran
             // ...
           }
         }
-      }
-    },
+```
 
-#### 3.1.2.1 Branches - Branch Type
-
-Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree.
-The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property.
-
-##### 3.1.2.1.1 Branches - Branch Type - Branches
+#### 3.1.2.1 Branches Type - Branches
 
 List of branches (`branches`) has the value type `branches_t`.
 
-##### 3.1.2.1.2 Branches - Branch Type - Name
+#### 3.1.2.2 Branches Type - Name
 
 Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
 
 Examples:
 
+```
     Microsoft
     Siemens
     Windows
@@ -595,16 +599,18 @@ Examples:
     10
     365
     PCS 7
+```
 
-##### 3.1.2.1.3 Branches - Branch Type - Product
+#### 3.1.2.3 Branches Type - Product
 
 Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
-##### 3.1.2.1.4 Branches - Branch Type - Type
+#### 3.1.2.4 Branches Type - Type
 
 Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
 
+```
     architecture
     host_name
     language
@@ -616,6 +622,7 @@ Valid `enum` values are:
     service_pack
     specification
     vendor
+```
 
 The value `architecture` indicates the architecture for which the product is intended.
 
