@@ -145,7 +145,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **CSAF viewer**: CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
-**CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
+**CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 
 **direct producer**: analysis tool which acts as a CSAF producer
 
@@ -608,6 +608,28 @@ Valid `enum` values are:
     specification
     vendor
 
+The value `architecture` indicates the architecture for which the product is intended.
+
+The value `host_name` indicates the host name of a system/service.
+
+The value `language` indicates the language of the product.
+
+The value `legacy` indicates a nonspecific legacy entry.
+
+The value `patch_level` indicates the patch level of the product.
+
+The value `product_family` indicates the product family that the product falls into.
+
+The value `product_name` indicates the name of the product.
+
+The value `product_version` indicates the product version, can be numeric or some other descriptor.
+
+The value `service_pack` indicates the service pack of the product.
+
+The value `specification` indicates the specification such as a standard, best common practice, etc.
+
+The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
+
 ### 3.1.3 Full Product Name Type
 
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product ID.
@@ -645,7 +667,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 #### 3.1.3.3 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris`, at least one MUST be provided.
+Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris`, one is mandatory.
 
     "product_identification_helper": {
       // ...
@@ -737,11 +759,11 @@ The package URL (PURL) representation (`purl`) is a `string` of 4 or more charac
 
     ^pkg:
 
-This package URL (PURL) [PURL] attribute refers to a method for reliably identifying and locating software packages external to this specification.
+This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
 ##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or a full serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or full serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
 
@@ -863,6 +885,20 @@ Valid `enum` values are:
     other
     summary
 
+The value `description` indicates the note is a description of something. The optional sibling property `title` MAY have more information in this case.
+
+The value `details` indicates the note is a low-level detailed discussion. The optional sibling property `title` MAY have more information in this case.
+
+The value `faq` indicates the note is a list of frequently asked questions.
+
+The value `general` indicates the note is a general, high-level note. The optional sibling property `title` MAY have more information in this case.
+
+The value `legal_disclaimer` indicates the note represents any possible legal discussion, including constraints, surrounding the document.
+
+The value `other` indicates the note is something that doesn’t fit the other categories. The optional sibling attribute `title` SHOULD have more information to indicate clearly what kind of note to expect in this case.
+
+The value `summary` indicates the note is a summary of something. The optional sibling property `title` MAY have more information in this case.
+
 ### 3.1.6 Product Group ID Type
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
@@ -954,6 +990,10 @@ Valid `enum` values are:
 
 The default value for `type` is `external`.
 
+The value `external` indicates, that this document is an external reference to a document or vulnerability in focus (depending on scope).
+
+The value `self` indicates, that this document is a reference to this same document or vulnerability (also depending on scope).
+
 URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
 
 ### 3.1.11 Version Type
@@ -1032,7 +1072,7 @@ List of acknowledgments (`acknowledgments`) of value type `acknowledgments_t` co
 
 #### 3.2.1.2 Document Property - Aggregate Severity
 
-Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and criticality with which the reported issues should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.
+Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.
 
     "aggregate_severity": {
       // ...
@@ -1175,6 +1215,16 @@ The valid values are:
     other
     user
     vendor
+
+The value `coordinator` indicates individuals or organizations that manage a single vendor’s response or multiple vendors’ responses to a vulnerability, a security flaw, or an incident. This includes all Computer Emergency/Incident Response Teams (CERTs/CIRTs) or agents acting on the behalf of a researcher.
+
+The value `discoverer` indicates individuals or organizations that find vulnerabilities or security weaknesses. This includes all manner of researchers.
+
+The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers, language translators, and miscellaneous contributors.
+
+The value `user` indicates anyone using a vendor’s product.
+
+The value `vendor` indicates developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 
 ##### 3.2.1.7.4 Document Property - Publisher - Vendor ID
 
@@ -1339,6 +1389,12 @@ The value MUST be one of the following:
     final
     interim
 
+The value `draft` indicates, that this is a pre-release, intended for issuing party’s internal use only, or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
+
+The value `final` indicates, that the issuing party asserts the content is unlikely to change. “Final” status is an indication only, and does not preclude updates.
+
+The value `interim` indicates, that the issuing party asserts the content is unlikely to change.
+
 ##### 3.2.1.11.8 Document Property - Tracking - Version
 
 Version has the value type Version (`version_t`).
@@ -1461,10 +1517,20 @@ Relationship type (`relationship_type`) of value `string` and `enum` defines the
 The valid values are:
 
     default_component_of
-    optional_component_of
     external_component_of
     installed_on
     installed_with
+    optional_component_of
+
+The value `default_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is a default component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
+
+The value `external_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an external component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
+
+The value `installed_on` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is installed on a platform entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
+
+The value `installed_with` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is installed alongside an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
+
+The value `optional_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an optional component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 
 ### 3.2.3 Vulnerabilities Property
 
@@ -1541,7 +1607,7 @@ holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking num
 
 ##### 3.2.3.1.3 Vulnerabilities Property - Vulnerability - CWE
 
-CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
+CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [CWE].
 
     "cwe": {
       // ...
@@ -1600,12 +1666,23 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 Example:
 
     Cisco Bug ID
+    GitHub Issue
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
 Example:
 
     CSCso66472
+    oasis-tcs/csaf#210
+
+> General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
+>
+> * a Cisco bug ID,
+> * a GitHub Issue number,
+> * an ID from a Bugzilla system, or
+> * an ID from a public vulnerability database such as the X-Force Database.
+>
+> The ID may be a vendor-specific value but is not to be used to publish the CVE tracking numbers (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
 ##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - Involvements
 
@@ -1641,15 +1718,31 @@ Valid values are:
     user
     vendor
 
-Party status (`status`) of value type `string`and `enum` defines contact status of the involved party.
+Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
 
     completed
-    contact_accepted
+    contact_attempted
     disputed
     in_progress
     not_contacted
     open
+
+Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party’s involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress Involvement should eventually expect to issue a document as `disputed` or `completed`.
+
+> The two vulnerability involvement status states, `contact_accepted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
+
+The value `completed` indicates that the vendor asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the vendor about the vulnerability should be expected to be released.
+
+The value `contact_attempted` indicates that the document producer attempted to contact the affected vendor.
+
+The value `disputed` indicates that the vendor disputes the vulnerability report in its entirety. Vendors should indicate this status when they believe that a vulnerability report regarding their product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
+
+The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds, or patches may have been made available by the vendor, but more information or fixes may be released in the future. The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
+
+The value `not_contacted` indicates that the document producer has not attempted to make contact with the affected vendor.
+
+The value `open` is the default status. It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the vendor has acknowledged awareness of the vulnerability report. The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
@@ -1819,6 +1912,16 @@ Valid values are:
     none_available
     no_fix_planned
 
+The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that can be used to avoid exposure to the vulnerability. There may be none, one, or more workarounds available. This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
+
+The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product. Mitigations may include using devices or access controls external to the affected product. Mitigations may or may not be issued by the original author of the affected product, and they may or may not be officially sanctioned by the document producer.
+
+The value `vendor_fix` indicates that the remediation contains information about an official fix that is issued by the original author of the affected product. Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
+
+The value `none_available` indicates that there is currently no fix available. The description should contain details about why there is no fix.
+
+The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description should contain details about why there will be no fix issued.
+
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
 ##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Scores
@@ -1900,9 +2003,15 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
 Valid values are:
 
-    impact
     exploit_status
+    impact
     target_set
+
+The value `exploit_status` indicates, that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
+
+The value `exploit_status` indicates, that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
+
+The value `target_set` indicates, that the `details` field a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
 
 ##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
 
@@ -1925,7 +2034,7 @@ CSAF consumers that are not prepared to deal with the security implications of f
 # 5 Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
-The clauses matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
+The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
 
 Informative Comments:
 
@@ -1950,7 +2059,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF producer**: A program which emits output in the CSAF format.
 * **Direct producer**: An analysis tool which acts as a CSAF producer.
 * **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
-* **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a vaild CSAF document.
+* **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 * **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 * **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties. The output is a valid CSAF document.
@@ -2070,7 +2179,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/publisher` and children
   * `/document/type` (based on the templates from configuration)
 
-* When updating an exsting CSAF document:
+* When updating an existing CSAF document:
   
   * prefills all fields which have be present in the existing CSAF document
   * adds a new item in `/document/tracking/revision_history[]`
@@ -2128,7 +2237,7 @@ The resulting translated document:
 
 * has not the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
-* provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF tranlators).
+* provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
 
