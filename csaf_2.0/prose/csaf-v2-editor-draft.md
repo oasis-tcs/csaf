@@ -2235,7 +2235,7 @@ The program:
 
 The resulting translated document:
 
-* has not the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and add an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses an CSAF translator to publish his advisories in multiple languages he may use the combination of original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+* does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they may use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
