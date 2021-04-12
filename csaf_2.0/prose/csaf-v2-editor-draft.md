@@ -842,19 +842,19 @@ Examples:
 
 List of notes (`notes_t`) of value type `array` with 1 or more items of type `Note` contains notes which are specific to the current context.
 
+```
     "notes_t": {
       // ..
       "items": {
         // ...
-        "properties": {
-          // ...
-        }
       }
     },
+```
 
 Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context.
 A Note `object` may provide the optional properties `audience` and `title`.
 
+```
     "properties": {
       "audience": {
         // ...
@@ -869,15 +869,18 @@ A Note `object` may provide the optional properties `audience` and `title`.
         // ...
       }
     }
+```
 
 Audience of note (`audience`) of value type `string` with 1 or more characters indicates who is intended to read it.
 
 Examples:
 
+```
     all
     executives
     operational management and system administrators
     safety engineers
+```
 
 Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
 
@@ -885,14 +888,17 @@ Title of note (`title`) of value type `string` with 1 or more characters provide
 
 Examples:
 
+```
     Details
     Executive summary
     Technical summary
     Impact on safety systems
+```
 
 Note type (`type`) of value type `string` as `enum` indicates the choice of what kind of note this is.
 Valid `enum` values are:
 
+```
     description
     details
     faq
@@ -900,6 +906,7 @@ Valid `enum` values are:
     legal_disclaimer
     other
     summary
+```
 
 The value `description` indicates the note is a description of something. The optional sibling property `title` MAY have more information in this case.
 
