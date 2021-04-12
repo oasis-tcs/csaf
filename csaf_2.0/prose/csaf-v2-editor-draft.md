@@ -476,10 +476,19 @@ and Version (`version_t`).
 
 List of Acknowledgments (`acknowledgments_t`) type instances of value type array with 1 or more elements contain a list of `Acknowledgment` elements.
 
+```
     "acknowledgments_t": {
       // ...
       "items": {
         // ...
+      }
+    },
+```
+
+The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The properties are: `names`, `organizations`, `summary`, and `urls`.
+
+```
         "properties": {
           "names": {
             // ...
@@ -494,44 +503,44 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
             // ...
           }
         }
-      }
-    },
+```
 
-#### 3.1.1.1 Acknowledgments - Acknowledgment Type
-
-The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
-The properties are: `names`, `organizations`, `summary`, and `urls`.
-
-##### 3.1.1.1.1 Acknowledgments - Acknowledgment Type - Names
+#### 3.1.1.1 Acknowledgments Type - Names
 
 List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person.
 
 Examples:
 
+```
     Johann Sebastian Bach
     Albert Einstein
+```
 
-##### 3.1.1.1.2 Acknowledgments - Acknowledgment Type - Organizations
+#### 3.1.1.2 Acknowledgments Type - Organizations
 
 List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of a single organization.
 
 Examples:
 
+```
     CISA
     Talos
     Google Project Zero
+```
 
-##### 3.1.1.1.3 Acknowledgments - Acknowledgment Type - Summary
+##### 3.1.1.3 Acknowledgments Type - Summary
 
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.
 
 Example:
 
+```
     First analysis of Coordinated Multi-Stream Attack (CMSA)
+```
 
-##### 3.1.1.1.4 Acknowledgments - Acknowledgment Type - URLs
+##### 3.1.1.4 Acknowledgments Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
@@ -541,10 +550,19 @@ Value type is string with format URI (`uri`).
 
 List of branches (`branches_t`) with value type `array` contains 1 or more `branch` elements as children of the current element.
 
+```
     "branches_t": {
       //...
       "items": {
         // ...
+      }
+    },
+```
+
+Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree.
+The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property.
+
+```
         "properties": {
           "branches": {
             // ...
@@ -560,24 +578,19 @@ List of branches (`branches_t`) with value type `array` contains 1 or more `bran
             // ...
           }
         }
-      }
-    },
+```
 
-#### 3.1.2.1 Branches - Branch Type
-
-Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree.
-The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property.
-
-##### 3.1.2.1.1 Branches - Branch Type - Branches
+#### 3.1.2.1 Branches Type - Branches
 
 List of branches (`branches`) has the value type `branches_t`.
 
-##### 3.1.2.1.2 Branches - Branch Type - Name
+#### 3.1.2.2 Branches Type - Name
 
 Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
 
 Examples:
 
+```
     Microsoft
     Siemens
     Windows
@@ -586,16 +599,18 @@ Examples:
     10
     365
     PCS 7
+```
 
-##### 3.1.2.1.3 Branches - Branch Type - Product
+#### 3.1.2.3 Branches Type - Product
 
 Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
-##### 3.1.2.1.4 Branches - Branch Type - Type
+#### 3.1.2.4 Branches Type - Type
 
 Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
 
+```
     architecture
     host_name
     language
@@ -607,6 +622,7 @@ Valid `enum` values are:
     service_pack
     specification
     vendor
+```
 
 The value `architecture` indicates the architecture for which the product is intended.
 
@@ -826,19 +842,19 @@ Examples:
 
 List of notes (`notes_t`) of value type `array` with 1 or more items of type `Note` contains notes which are specific to the current context.
 
+```
     "notes_t": {
       // ..
       "items": {
         // ...
-        "properties": {
-          // ...
-        }
       }
     },
+```
 
 Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context.
 A Note `object` may provide the optional properties `audience` and `title`.
 
+```
     "properties": {
       "audience": {
         // ...
@@ -853,15 +869,18 @@ A Note `object` may provide the optional properties `audience` and `title`.
         // ...
       }
     }
+```
 
 Audience of note (`audience`) of value type `string` with 1 or more characters indicates who is intended to read it.
 
 Examples:
 
+```
     all
     executives
     operational management and system administrators
     safety engineers
+```
 
 Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
 
@@ -869,14 +888,17 @@ Title of note (`title`) of value type `string` with 1 or more characters provide
 
 Examples:
 
+```
     Details
     Executive summary
     Technical summary
     Impact on safety systems
+```
 
 Note type (`type`) of value type `string` as `enum` indicates the choice of what kind of note this is.
 Valid `enum` values are:
 
+```
     description
     details
     faq
@@ -884,6 +906,7 @@ Valid `enum` values are:
     legal_disclaimer
     other
     summary
+```
 
 The value `description` indicates the note is a description of something. The optional sibling property `title` MAY have more information in this case.
 
@@ -955,19 +978,20 @@ List of Product IDs (`products_t`) of value type `array` with 1 or more unique i
 
 List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects.
 
+```
     "references_t": {
       // ...
       "items": {
         // ...
-        "properties": {
-          // ...
         }
       }
     },
+```
 
 Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.
 A reference `object` may provide the optional property `type`.
 
+```
     "properties": {
       "summary": {
         // ...
@@ -979,14 +1003,17 @@ A reference `object` may provide the optional property `type`.
         // ...
       }
     }
+```
 
 Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
 Type of reference (`type`) of value type `string` as `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
 Valid `enum` values are:
 
+```
     external
     self
+```
 
 The default value for `type` is `external`.
 
@@ -1448,15 +1475,18 @@ List of full product names (`full_product_names`) of value type `array` with 1 o
 
 List of product groups (`product_groups`) of value type `array` with 1 or more items of type `object` contains a list of product groups.
 
+```
     "product_groups": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
 The product group items are of value type `object` with the 2 mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and the optional Summary (`summary`) property.
 
+```
     "properties": {
       "group_id": {
         // ...
@@ -1468,13 +1498,16 @@ The product group items are of value type `object` with the 2 mandatory properti
         // ...
       }
     }
+```
 
 The summary of the product group (`summary`) of type `string` with 1 or more characters gives a short, optional description of the group.
 
 Examples:
 
+```
     The x64 versions of the operating system.
     Products supporting Modbus.
+```
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
@@ -1484,15 +1517,18 @@ List of Product IDs (`product_ids`) of value type array with 2 or more unique it
 
 List of relationships (`relationships`) of value type `array` with 1 or more items contains a list of relationships.
 
+```
     "relationships": {
       // ...
       "items": {
         // ...
       }
     }
+```
 
 The Relationship item is of value type `object` and has four mandatory properties: Full Product Name (`full_product_name`), Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
+```
     "properties": {
       "full_product_name": {
         // ...
@@ -1507,6 +1543,8 @@ The Relationship item is of value type `object` and has four mandatory propertie
         // ...
       }
     }
+```
+
 Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
 
 Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
@@ -1516,11 +1554,13 @@ Relates to Product Reference (`relates_to_product_reference`) holds also a Produ
 Relationship type (`relationship_type`) of value `string` and `enum` defines the type of relationship for the referenced component.
 The valid values are:
 
+```
     default_component_of
     external_component_of
     installed_on
     installed_with
     optional_component_of
+```
 
 The value `default_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is a default component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 
@@ -1536,18 +1576,19 @@ The value `optional_component_of` indicates that the entity labeled with one Pro
 
 Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects representing vulnerabilities and providing 1 or more properties represents a list of all relevant vulnerability information items.
 
+```
     "vulnerabilities": {
       // ...
       "items": {
         // ...
       }
     }
+```
 
-#### 3.2.3.1 Vulnerabilities Property - Vulnerability
-
-Vulnerability (`vulnerability`) of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
+The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
 Any vulnerability may provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
 
+```
     "properties": {
       "acknowledgments": {
         // ...
@@ -1592,23 +1633,27 @@ Any vulnerability may provide the optional properties Acknowledgments (`acknowle
         // ...
       }
     }
+```
 
-##### 3.2.3.1.1 Vulnerabilities Property - Vulnerability - Acknowledgments
+#### 3.2.3.1 Vulnerabilities Property - Acknowledgments
 
 List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
 
-##### 3.2.3.1.2 Vulnerabilities Property - Vulnerability - CVE
+#### 3.2.3.2 Vulnerabilities Property - CVE
 
 CVE (`cve`) of value type `string` with `pattern` (regular expression):
 
+```
     ^CVE-[0-9]{4}-[0-9]{4,}$
+```
 
 holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
-##### 3.2.3.1.3 Vulnerabilities Property - Vulnerability - CWE
+#### 3.2.3.3 Vulnerabilities Property - CWE
 
 CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [CWE].
 
+```
     "cwe": {
       // ...
       "properties": {
@@ -1620,35 +1665,43 @@ CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (
         }
       }
     },
+```
 
 The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):
 
+```
     ^CWE-[1-9]\\d{0,5}$
+```
 
 and holds the ID for the weakness associated.
 
 Examples:
 
+```
     CWE-79
     CWE-22
     CWE-352
+```
 
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
 
 Examples:
 
+```
     Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
     Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
     Cross-Site Request Forgery (CSRF)
+```
 
-##### 3.2.3.1.4 Vulnerabilities Property - Vulnerability - Discovery Date
+#### 3.2.3.4 Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-##### 3.2.3.1.5 Vulnerabilities Property - Vulnerability - ID
+#### 3.2.3.5 Vulnerabilities Property - ID
 
 ID (`id`) of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
 
+```
     "id": {
       // ...
       "properties": {
@@ -1660,20 +1713,25 @@ ID (`id`) of value type `object` with the two mandatory properties System Name (
         }
       }
     },
+```
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
 Example:
 
+```
     Cisco Bug ID
     GitHub Issue
+```
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
 Example:
 
+```
     CSCso66472
     oasis-tcs/csaf#210
+```
 
 > General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
 >
@@ -1684,19 +1742,22 @@ Example:
 >
 > The ID may be a vendor-specific value but is not to be used to publish the CVE tracking numbers (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
-##### 3.2.3.1.6 Vulnerabilities Property - Vulnerability - Involvements
+#### 3.2.3.6 Vulnerabilities Property - Involvements
 
 List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
 
+```
     "involvements": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
-Involvement (`involvement`) of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.
+Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.
 
+```
         "properties": {
           "summary": {
             // ...
@@ -1708,29 +1769,34 @@ Involvement (`involvement`) of value type `object` with the 2 mandatory properti
             // ...
           }
         }
+```
 
 Party type (`party`) of value type `string` and `enum` defines the type of the involved party.
 Valid values are:
 
+```
     coordinator
     discoverer
     other
     user
     vendor
+```
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
 
+```
     completed
     contact_attempted
     disputed
     in_progress
     not_contacted
     open
+```
 
 Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party’s involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress Involvement should eventually expect to issue a document as `disputed` or `completed`.
 
-> The two vulnerability involvement status states, `contact_accepted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
+> The two vulnerability involvement status states, `contact_attempted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
 
 The value `completed` indicates that the vendor asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the vendor about the vulnerability should be expected to be released.
 
@@ -1746,15 +1812,16 @@ The value `open` is the default status. It doesn’t indicate anything about the
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
-##### 3.2.3.1.7 Vulnerabilities Property - Vulnerability - Notes
+#### 3.2.3.7 Vulnerabilities Property - Notes
 
-Notes (`notes`) have value type Notes (notes_t).
+Notes (`notes`) have value type Notes (`notes_t`).
 
-##### 3.2.3.1.8 Vulnerabilities Property - Vulnerability - Product Status
+#### 3.2.3.8 Vulnerabilities Property - Product Status
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability.
 The eight defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),  Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`), and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
 
+```
     "product_status": {
       // ...
       "properties": {
@@ -1784,6 +1851,7 @@ The eight defined properties are First affected (`first_affected`), First fixed 
         }
       }
     },
+```
 
 First affected (`first_affected`) of value type Products (`products_t`) represents that these are the first versions of the releases known to be affected by the vulnerability.
 
@@ -1801,29 +1869,32 @@ Recommended (`recommended`) of value type Products (`products_t`) represents tha
 
 Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether this version is or is not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 
-##### 3.2.3.1.9 Vulnerabilities Property - Vulnerability - References
+#### 3.2.3.9 Vulnerabilities Property - References
 
 References (`references`) have value type References (`references_t`).
 
-##### 3.2.3.1.10 Vulnerabilities Property - Vulnerability - Release Date
+#### 3.2.3.10 Vulnerabilities Property - Release Date
 
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
-##### 3.2.3.1.11 Vulnerabilities Property - Vulnerability - Remediations
+#### 3.2.3.11 Vulnerabilities Property - Remediations
 
 List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of type `object` contains a list of remediations.
 
+```
     "remediations": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
-Remediation of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Every Remediation item of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
 
 In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
+```
       "properties": {
         "date": {
           // ...
@@ -1850,12 +1921,23 @@ In addition, any Remediation may expose the six optional properties Date (`date`
           // ...
         }
       }
+```
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
 Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
+
+```
+                "entitlements": {
+                  // ....
+                  "items": {
+                    // ...
+                  }
+                },
+```
+
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
@@ -1864,6 +1946,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
 
+```
       "restart_required": {
         // ...
         "properties": {
@@ -1875,12 +1958,14 @@ Restart required by remediation (`restart_required`) of value type `object` with
           }
         }
       },
+```
 
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
 Valid values are:
 
+```
     none
     vulnerable_component
     service
@@ -1890,6 +1975,7 @@ Valid values are:
     machine
     zone
     system
+```
 
 The values must be used as follows:
 
@@ -1906,11 +1992,13 @@ The values must be used as follows:
 Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
 Valid values are:
 
+```
     workaround
     mitigation
     vendor_fix
     none_available
     no_fix_planned
+```
 
 The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that can be used to avoid exposure to the vulnerability. There may be none, one, or more workarounds available. This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
 
@@ -1924,10 +2012,11 @@ The value `no_fix_planned` indicates that there is no fix for the vulnerability 
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
-##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Scores
+#### 3.2.3.12 Vulnerabilities Property - Scores
 
 List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
 
+```
     "scores": {
       // ...
       "items": {
@@ -1935,9 +2024,11 @@ List of scores (`scores`) of value type `array` with 1 or more items of type sco
         }
       }
     },
+```
 
 Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2` and `cvss_v3` specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item has at least 2 properties.
 
+```
         "properties": {
           "cvss_v2": {
             // ...
@@ -1951,6 +2042,7 @@ Value type of every such Score item is `object` with the mandatory property `pro
             // ...
           }
         }
+```
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
 
@@ -1958,22 +2050,24 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
-
-##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
+##### 3.2.3.1.13 Vulnerabilities Property - Threats
 
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
 
+```
     "threats": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
 A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, threat items may provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
+```
     "properties": {
       "date": {
         // ...
@@ -1991,6 +2085,7 @@ In addition, threat items may provide the three optional properties Date (`date`
         // ...
       }
     }
+```
 
 Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
 
@@ -2003,9 +2098,11 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
 Valid values are:
 
+```
     exploit_status
     impact
     target_set
+```
 
 The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
@@ -2013,11 +2110,12 @@ The value `impact` indicates, that the `details` field contains an assessment of
 
 The value `target_set` indicates that the `details` field contains a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
 
-##### 3.2.3.1.14 Vulnerabilities Property - Vulnerability - Title
+#### 3.2.3.14 Vulnerabilities Property - Title
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
 # 4 Safety, Security, and Data Protection Considerations
+
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
 >
@@ -2025,6 +2123,7 @@ CSAF documents are based on JSON, thus the security considerations of [RFC8259] 
 
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
+
 * CSAF producers SHALL NOT emit messages that contain HTML, even though all variants of Markdown permit it.
 * Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the `cmark` Markdown processor [GFMCMARK].
@@ -2048,7 +2147,6 @@ Informative Comments:
 >* Consistent end to end automation through collaborating actors
 >* Clear baseline across the communities per this specification
 >* Additional per-community cooperative extensions which may flow back into future updates of this specification
-
 
 ## 5.1 Conformance Targets
 
