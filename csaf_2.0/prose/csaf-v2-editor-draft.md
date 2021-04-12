@@ -759,7 +759,7 @@ The package URL (PURL) representation (`purl`) is a `string` of 4 or more charac
 
     ^pkg:
 
-This package URL (PURL) [PURL] attribute refers to a method for reliably identifying and locating software packages external to this specification.
+This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
 ##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
 
