@@ -2239,7 +2239,7 @@ The resulting translated document:
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
-* may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original urls as references at the end.
+* may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
 ### 5.1.10 Conformance Clause 10: CSAF consumer
 
