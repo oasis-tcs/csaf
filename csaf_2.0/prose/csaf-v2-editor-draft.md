@@ -2012,10 +2012,11 @@ The value `no_fix_planned` indicates that there is no fix for the vulnerability 
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
-##### 3.2.3.1.12 Vulnerabilities Property - Vulnerability - Scores
+#### 3.2.3.12 Vulnerabilities Property - Scores
 
 List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
 
+```
     "scores": {
       // ...
       "items": {
@@ -2023,9 +2024,11 @@ List of scores (`scores`) of value type `array` with 1 or more items of type sco
         }
       }
     },
+```
 
 Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2` and `cvss_v3` specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item has at least 2 properties.
 
+```
         "properties": {
           "cvss_v2": {
             // ...
@@ -2039,6 +2042,7 @@ Value type of every such Score item is `object` with the mandatory property `pro
             // ...
           }
         }
+```
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
 
