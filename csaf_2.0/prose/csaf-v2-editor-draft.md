@@ -2050,22 +2050,24 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
-
-##### 3.2.3.1.13 Vulnerabilities Property - Vulnerability - Threats
+##### 3.2.3.1.13 Vulnerabilities Property - Threats
 
 List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
 
+```
     "threats": {
       // ...
       "items": {
         // ...
       }
     },
+```
 
 A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, threat items may provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
+```
     "properties": {
       "date": {
         // ...
@@ -2083,6 +2085,7 @@ In addition, threat items may provide the three optional properties Date (`date`
         // ...
       }
     }
+```
 
 Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
 
@@ -2095,9 +2098,11 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
 Valid values are:
 
+```
     exploit_status
     impact
     target_set
+```
 
 The value `exploit_status` indicates, that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
