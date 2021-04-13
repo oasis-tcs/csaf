@@ -1333,6 +1333,7 @@ The valid values are:
     coordinator
     discoverer
     other
+    translator
     user
     vendor
 ```
@@ -1341,7 +1342,9 @@ The value `coordinator` indicates individuals or organizations that manage a sin
 
 The value `discoverer` indicates individuals or organizations that find vulnerabilities or security weaknesses. This includes all manner of researchers.
 
-The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers, language translators, and miscellaneous contributors.
+The value `translator` indicates individuals or organizations that translate CSAF documents. This includes all manner of language translators, also those who work for the party issuing the original advisory.
+
+The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers, and miscellaneous contributors.
 
 The value `user` indicates anyone using a vendor’s product.
 
