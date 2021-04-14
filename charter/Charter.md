@@ -19,7 +19,7 @@
 
 4. Deliverables
 
-    The TC will make substantive additions and other changes to the CSAF CVRF 1.2 input specification to create and maintain the CSAF specification (Version 2.0 and later) to correct errors and evolve capabilities based on requirements and capabilities identified by OASIS TC members. The TC will rename the framework to more closely align to the primary use (e.g., Common Security Advisory Framework - CSAF). Deliverables will include a major revision of the framework. In addition to the specification deliverables, the TC may deliver supporting documentation and open source tooling on an ongoing basis in support of the TC's published standard(s). The TC expects to produce a major revision of the framework within 3 months of its next meeting after approving the charter.
+    The TC will make substantive additions and other changes to the CSAF CVRF 1.2 input specification to create and maintain the CSAF specification (Version 2.0 and later) to correct errors and evolve capabilities based on requirements and capabilities identified by OASIS TC members. The TC will rename the framework to more closely align to the primary use (e.g., Common Security Advisory Framework - CSAF). Deliverables will include a major revision of the framework. In addition to the specification deliverables, the TC may deliver supporting documentation and open source tooling on an ongoing basis in support of the TC's published standard(s). The TC aims to produce major revisions of the framework to support the advisory sharing communities.
 
 5. IPR Mode
 
