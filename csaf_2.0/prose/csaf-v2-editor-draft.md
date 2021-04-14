@@ -1348,6 +1348,7 @@ The valid values are:
     coordinator
     discoverer
     other
+    translator
     user
     vendor
 ```
@@ -1356,7 +1357,9 @@ The value `coordinator` indicates individuals or organizations that manage a sin
 
 The value `discoverer` indicates individuals or organizations that find vulnerabilities or security weaknesses. This includes all manner of researchers.
 
-The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers, language translators, and miscellaneous contributors.
+The value `translator` indicates individuals or organizations that translate CSAF documents. This includes all manner of language translators, also those who work for the party issuing the original advisory.
+
+The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers, and miscellaneous contributors.
 
 The value `user` indicates anyone using a vendor’s product.
 
@@ -1380,6 +1383,7 @@ References (`references`) of References type (`references_t`).
 
 Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
+The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/type`.
 #### 3.2.1.10 Document Property - Title
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
@@ -2476,6 +2480,7 @@ The resulting translated document:
 * does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they may use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
+* has the value `translator` set in `/document/publisher/type`
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 

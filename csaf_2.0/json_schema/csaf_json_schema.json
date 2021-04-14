@@ -603,6 +603,7 @@
                 "coordinator",
                 "discoverer",
                 "other",
+                "translator",
                 "user",
                 "vendor"
               ]
