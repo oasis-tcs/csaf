@@ -17,6 +17,8 @@
 
     The TC will develop format specifications for structured, machine-readable security vulnerability-related security advisories under the OASIS TC process, with the goal of submitting them at the appropriate time to the membership of the organization for consideration as an OASIS Standard. Other contributions will be accepted for consideration without any prejudice or restrictions and evaluated based on technical merit insofar as they conform to this charter.
 
+    The TC emphasizes the importance of an actionable advisory culture and contributes to the end to end automation of the process. Besides including this into the specifications, the TC may produce and publish tooling. This includes but is not limited to tools to parse CSAF documents, validate, generate or consume them. The TC will encourage the community to provide missing tools.
+
 4. Deliverables
 
     The TC will make substantive additions and other changes to the CSAF CVRF 1.2 input specification to create and maintain the CSAF specification (Version 2.0 and later) to correct errors and evolve capabilities based on requirements and capabilities identified by OASIS TC members. The TC will rename the framework to more closely align to the primary use (e.g., Common Security Advisory Framework - CSAF). Deliverables will include a major revision of the framework. In addition to the specification deliverables, the TC may deliver supporting documentation and open source tooling on an ongoing basis in support of the TC's published standard(s). The TC aims to produce major revisions of the framework to support the advisory sharing communities.
