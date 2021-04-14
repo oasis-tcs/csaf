@@ -6,7 +6,7 @@
     "csaf_version": "2.0",
     "publisher": {
       "contact_details": "secalert@redhat.com",
-      "issuing_authority": "Red Hat Product Security",
+      "name": "Red Hat Product Security",
       "type": "vendor"
     },
     "tracking": {
