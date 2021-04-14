@@ -565,6 +565,7 @@
           "description": "Provides information about the publisher of the document.",
           "type": "object",
           "required": [
+            "name",
             "type"
           ],
           "properties": {
@@ -579,9 +580,20 @@
             },
             "issuing_authority": {
               "title": "Issuing authority",
-              "description": "The name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.",
+              "description": "Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.",
               "type": "string",
               "minLength": 1
+            },
+            "name": {
+              "title": "Name of publisher",
+              "description": "Contains the name of the issuing party.",
+              "type": "string",
+              "minLength": 1,
+              "examples": [
+                "BSI",
+                "Cisco PSIRT",
+                "Siemens ProductCERT"
+              ]
             },
             "type": {
               "title": "Type of publisher",

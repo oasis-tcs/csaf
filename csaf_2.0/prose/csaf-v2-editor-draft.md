@@ -1287,7 +1287,7 @@ Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) hol
 
 #### 3.2.1.7 Document Property - Publisher
 
-Publisher (`publisher`) has value type `object` with the mandatory property Type (`type`) and provides information on the publishing entity.
+Publisher (`publisher`) has value type `object` with the mandatory properties Name (`name`) and Type (`type`) and provides information on the publishing entity.
 The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
 
 ```
@@ -1300,6 +1300,9 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
         "issuing_authority": {
           // ...
         },
+        "name": {
+          // ...
+        }
         "type": {
           // ...
         },
@@ -1322,9 +1325,21 @@ Example:
 
 ##### 3.2.1.7.2 Document Property - Publisher - Issuing Authority
 
-Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters provides the name of the issuing party and their authority to release the document, in particular, the party's constituency and responsibilities or other obligations.
+Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### 3.2.1.7.3 Document Property - Publisher - Type
+##### 3.2.1.7.3 Document Property - Publisher - Name
+
+The Name of publisher (`name`) of type `string` contains the name of the issuing party.
+
+Example:
+
+```
+     BSI
+     Cisco PSIRT
+     Siemens ProductCERT
+```
+
+##### 3.2.1.7.4 Document Property - Publisher - Type
 
 The Type of publisher (`type`) of type `string` and `enum` provides information about the type of publisher releasing the document.
 The valid values are:
@@ -1347,7 +1362,7 @@ The value `user` indicates anyone using a vendor’s product.
 
 The value `vendor` indicates developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.1.7.4 Document Property - Publisher - Vendor ID
+##### 3.2.1.7.5 Document Property - Publisher - Vendor ID
 
 The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
 
@@ -2332,6 +2347,7 @@ Firstly, the program:
 
 Secondly, the program for all items of:
 
+* `/document/publisher/name`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If both values are present, the program should prefer the latter one.
 * `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
 * `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition that converter outputs a warning that information might be lost during conversion of product relationships.
