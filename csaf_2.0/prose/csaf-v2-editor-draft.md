@@ -502,14 +502,14 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
 ```
 
 The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
-The properties are: `names`, `organizations`, `summary`, and `urls`.
+The properties are: `names`, `organization`, `summary`, and `urls`.
 
 ```
         "properties": {
           "names": {
             // ...
           },
-          "organizations": {
+          "organization": {
             // ...
           },
           "summary": {
@@ -533,10 +533,9 @@ Examples:
     Albert Einstein
 ```
 
-#### 3.1.1.2 Acknowledgments Type - Organizations
+#### 3.1.1.2 Acknowledgments Type - Organization
 
-List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of a single organization.
+The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of the contributing organization being recognized.
 
 Examples:
 
@@ -561,6 +560,39 @@ Example:
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
+
+##### 3.1.1.5 Acknowledgments Type - Example
+
+```
+"acknowledgments": [
+  {
+    "names": [
+      "Johann Sebastian Bach",
+      "Georg Philipp Telemann",
+      "Georg Friedrich Händel"
+    ],
+    "organization": "Baroque composers",
+    "summary": "wonderful music"
+  },
+  {
+    "organization": "CISA"
+    "summary": "coordination efforts",
+    "urls": [
+      "https://cisa.gov"
+    ]
+  },
+  {
+    "organization": "BSI",
+    "summary": "assistance in coordination"
+  },
+  {
+    "names": [
+      "Antonio Vivaldi"
+    ],
+    "summary": "influencing other composers"
+  },
+]
+```
 
 ### 3.1.2 Branches Type
 

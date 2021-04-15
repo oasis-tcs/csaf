@@ -32,22 +32,16 @@
               ]
             }
           },
-          "organizations": {
-            "title": "List of contributing organizations",
-            "description": "Contains the names of contributing organizations being recognized.",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "title": "Contributing organization",
-              "description": "Contains the name of a single organization.",
-              "type": "string",
-              "minLength": 1,
-              "examples": [
-                "CISA",
-                "Talos",
-                "Google Project Zero"
-              ]
-            }
+          "organization": {
+            "title": "Contributing organization",
+            "description": "Contains the name of a contributing organization being recognized.",
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "CISA",
+              "Talos",
+              "Google Project Zero"
+            ]
           },
           "summary": {
             "title": "Summary of the acknowledgment",

@@ -9107,6 +9107,10 @@
       ],
       "acknowledgments": [
         {
+          "names": [
+            "Ben Parees"
+          ],
+          "organization": "Red Hat",
           "summary": "This issue was discovered by Ben Parees (Red Hat)."
         }
       ]
@@ -9577,6 +9581,10 @@
       ],
       "acknowledgments": [
         {
+          "names": [
+            "Jessica Forrester"
+          ],
+          "organization": "Red Hat",
           "summary": "This issue was discovered by Jessica Forrester (Red Hat)."
         }
       ]
