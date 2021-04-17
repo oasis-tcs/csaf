@@ -563,6 +563,8 @@ Value type is string with format URI (`uri`).
 
 ##### 3.1.1.5 Acknowledgments Type - Example
 
+Example:
+
 ```
 "acknowledgments": [
   {
