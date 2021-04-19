@@ -502,14 +502,14 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
 ```
 
 The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
-The properties are: `names`, `organizations`, `summary`, and `urls`.
+The properties are: `names`, `organization`, `summary`, and `urls`.
 
 ```
         "properties": {
           "names": {
             // ...
           },
-          "organizations": {
+          "organization": {
             // ...
           },
           "summary": {
@@ -533,10 +533,9 @@ Examples:
     Albert Einstein
 ```
 
-#### 3.1.1.2 Acknowledgments Type - Organizations
+#### 3.1.1.2 Acknowledgments Type - Organization
 
-List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of a single organization.
+The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of the contributing organization being recognized.
 
 Examples:
 
@@ -561,6 +560,49 @@ Example:
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
+
+##### 3.1.1.5 Acknowledgments Type - Example
+
+Example:
+
+```
+"acknowledgments": [
+  {
+    "names": [
+      "Johann Sebastian Bach",
+      "Georg Philipp Telemann",
+      "Georg Friedrich Händel"
+    ],
+    "organization": "Baroque composers",
+    "summary": "wonderful music"
+  },
+  {
+    "organization": "CISA"
+    "summary": "coordination efforts",
+    "urls": [
+      "https://cisa.gov"
+    ]
+  },
+  {
+    "organization": "BSI",
+    "summary": "assistance in coordination"
+  },
+  {
+    "names": [
+      "Antonio Vivaldi"
+    ],
+    "summary": "influencing other composers"
+  },
+]
+```
+The example above should lead to the following outcome in a human-readable advisory:
+
+> We thank the following parties for their efforts:
+> 
+> * Johann Sebastian Bach, Georg Philipp Telemann, Georg Friedrich Händel from Baroque composers for wonderful music
+> * CISA for coordination efforts (see: https://cisa.gov)
+> * BSI for assistance in coordination
+> * Antonio Vivaldi for influencing other composers
 
 ### 3.1.2 Branches Type
 
@@ -2351,10 +2393,11 @@ Firstly, the program:
 
 Secondly, the program for all items of:
 
+* `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If both values are present, the program should prefer the latter one.
 * `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
 * `/vulernabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
-* `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition that converter outputs a warning that information might be lost during conversion of product relationships.
+* `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition the converter outputs a warning that information might be lost during conversion of product relationships.
 
 ### 5.1.6 Conformance Clause 6: CSAF content management system
 
