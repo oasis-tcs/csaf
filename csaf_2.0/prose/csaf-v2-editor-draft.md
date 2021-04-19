@@ -1152,8 +1152,8 @@ These final three subsections document the three properties of a CSAF document. 
 
 ### 3.2.1 Document Property
 
-Document level meta-data (`document`) of value type `object` with the 5 mandatory properties CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`), Tracking (`tracking`), and Type (`type`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object may provide the 7 optional properties Acknowledgments (`acknowledgments`), Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`) References (`references`), and Source Language (`source_lang`).
+Document level meta-data (`document`) of value type `object` with the 5 mandatory properties Category (`category`), CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`), and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
+In addition, the `document` object may provide the 7 optional properties Acknowledgments (`acknowledgments`), Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`), References (`references`), and Source Language (`source_lang`).
 
 ```
     "document": {
@@ -1163,6 +1163,9 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
           // ...
         },
         "aggregate_severity" : {
+          // ...
+        },
+        "category": {
           // ...
         },
         "csaf_version": {
@@ -1190,9 +1193,6 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
           // ...
         },
         "tracking": {
-          // ...
-        },
-        "type": {
           // ...
         }
       }
@@ -1239,7 +1239,25 @@ Examples:
     Critical
 ```
 
-#### 3.2.1.3 Document Property - CSAF Version
+#### 3.2.1.3 Document Property - Category
+
+Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
+
+```
+    "category": {
+      // ...
+    }
+```
+
+Examples:
+
+```
+    Security Advisory
+    Security Notice
+    Vulnerability Report
+```
+
+#### 3.2.1.4 Document Property - CSAF Version
 
 CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
 The single valid value for this `enum` is:
@@ -1248,7 +1266,7 @@ The single valid value for this `enum` is:
     2.0
 ```
 
-#### 3.2.1.4 Document Property - Distribution
+#### 3.2.1.5 Document Property - Distribution
 
 Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol TLP (`tlp`) describes any constraints on how this document might be shared.
 
@@ -1266,7 +1284,7 @@ Rules for sharing document (`distribution`) of value type `object` with at least
     },
 ```
 
-##### 3.2.1.4.1 Document Property - Distribution - Text
+##### 3.2.1.5.1 Document Property - Distribution - Text
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
@@ -1278,7 +1296,7 @@ Examples:
     Copyright 2019, Example Company, All Rights Reserved.
 ```
 
-##### 3.2.1.4.2 Document Property - Distribution - TLP
+##### 3.2.1.5.2 Document Property - Distribution - TLP
 
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and the optional property URL (`url`) provides details about the TLP classification of the document.
 
@@ -1319,15 +1337,15 @@ Examples:
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf
 ```
 
-#### 3.2.1.5 Document Property - Language
+#### 3.2.1.6 Document Property - Language
 
 Document language (`lang`) of Language Type (`lang_t`) identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.
 
-#### 3.2.1.6 Document Property - Notes
+#### 3.2.1.7 Document Property - Notes
 
 Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) holds notes about this set of vulnerabilities.
 
-#### 3.2.1.7 Document Property - Publisher
+#### 3.2.1.8 Document Property - Publisher
 
 Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`) and Name (`name`) and provides information on the publishing entity.
 The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
@@ -1355,7 +1373,7 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
     },
 ```
 
-##### 3.2.1.7.1 Document Property - Publisher - Category
+##### 3.2.1.8.1 Document Property - Publisher - Category
 
 The Category of publisher (`category`) of type `string` and `enum` provides information about the category of publisher releasing the document.
 The valid values are:
@@ -1381,7 +1399,7 @@ The value `user` indicates anyone using a vendor’s product.
 
 The value `vendor` indicates developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.1.7.2 Document Property - Publisher - Contact Details
+##### 3.2.1.8.2 Document Property - Publisher - Contact Details
 
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
@@ -1391,11 +1409,11 @@ Example:
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
 ```
 
-##### 3.2.1.7.3 Document Property - Publisher - Issuing Authority
+##### 3.2.1.8.3 Document Property - Publisher - Issuing Authority
 
 Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### 3.2.1.7.4 Document Property - Publisher - Name
+##### 3.2.1.8.4 Document Property - Publisher - Name
 
 The Name of publisher (`name`) of type `string` contains the name of the issuing party.
 
@@ -1407,11 +1425,11 @@ Example:
      Siemens ProductCERT
 ```
 
-##### 3.2.1.7.5 Document Property - Publisher - Vendor ID
+##### 3.2.1.8.5 Document Property - Publisher - Vendor ID
 
 The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
 
-#### 3.2.1.8 Document Property - References
+#### 3.2.1.9 Document Property - References
 
 References (`references`) of References type (`references_t`).
 
@@ -1421,12 +1439,13 @@ References (`references`) of References type (`references_t`).
     },
 ```
 
-#### 3.2.1.9 Document Property - Source Language
+#### 3.2.1.10 Document Property - Source Language
 
 Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
 The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/type`.
-#### 3.2.1.10 Document Property - Title
+
+#### 3.2.1.11 Document Property - Title
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
 
@@ -1437,7 +1456,7 @@ Examples:
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
 ```
 
-#### 3.2.1.11 Document Property - Tracking
+#### 3.2.1.12 Document Property - Tracking
 
 Tracking (`tracking`) of value type `object` with the six mandatory properties: Current Release Date (`current_release_date`), Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`), and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
@@ -1474,7 +1493,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
     },
 ```
 
-##### 3.2.1.11.1 Document Property - Tracking - Aliases
+##### 3.2.1.12.1 Document Property - Tracking - Aliases
 
 Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a list of alternate names for the same document.
 
@@ -1495,11 +1514,11 @@ Example:
     CVE-2019-12345
 ```
 
-##### 3.2.1.11.2 Document Property - Tracking - Current Release Date
+##### 3.2.1.12.2 Document Property - Tracking - Current Release Date
 
 Current release date (`current_release_date`) with value type `string` and format `date-time` holds the date when the current revision of this document was released.
 
-##### 3.2.1.11.3 Document Property - Tracking - Generator
+##### 3.2.1.12.3 Document Property - Tracking - Generator
 
 Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and optional property Date (`date`) is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
@@ -1530,7 +1549,7 @@ Examples:
     CMPFA Core Converter CVRF->CSAF Version 0.6
 ```
 
-##### 3.2.1.11.4 Document Property - Tracking - ID
+##### 3.2.1.12.4 Document Property - Tracking - ID
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
@@ -1544,11 +1563,11 @@ Examples:
     cisco-sa-20190513-secureboot
 ```
 
-##### 3.2.1.11.5 Document Property - Tracking - Initial Release Date
+##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
 Initial release date (`initial_release_date`) with value type `string` and format `date-time` holds the date when this document was first published.
 
-##### 3.2.1.11.6 Document Property - Tracking - Revision History
+##### 3.2.1.12.6 Document Property - Tracking - Revision History
 
 The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one.
 
@@ -1583,7 +1602,7 @@ The Date of the revision (`date`) of value type `string` with format `date-time`
 
 The Summary of the revision (`summary`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
 
-##### 3.2.1.11.7 Document Property - Tracking - Status
+##### 3.2.1.12.7 Document Property - Tracking - Status
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
 The value MUST be one of the following:
@@ -1600,27 +1619,9 @@ The value `final` indicates, that the issuing party asserts the content is unlik
 
 The value `interim` indicates, that the issuing party asserts the content is unlikely to change.
 
-##### 3.2.1.11.8 Document Property - Tracking - Version
+##### 3.2.1.12.8 Document Property - Tracking - Version
 
 Version has the value type Version (`version_t`).
-
-#### 3.2.1.12 Document Property - Type
-
-Document type (`type`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.
-
-```
-    "type": {
-      // ...
-    }
-```
-
-Examples:
-
-```
-    Security Advisory
-    Security Notice
-    Vulnerability Report
-```
 
 ### 3.2.2 Product Tree Property
 
