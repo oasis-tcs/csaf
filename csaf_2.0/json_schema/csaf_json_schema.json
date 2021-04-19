@@ -79,12 +79,30 @@
         "maxProperties": 3,
         "minProperties": 3,
         "required": [
-          "name",
-          "type"
+          "category",
+          "name"
         ],
         "properties": {
           "branches": {
             "$ref": "#/definitions/branches_t"
+          },
+          "category": {
+            "title": "Category of the branch",
+            "description": "Describes the characteristics of the labeled branch.",
+            "type": "string",
+            "enum": [
+              "architecture",
+              "host_name",
+              "language",
+              "legacy",
+              "patch_level",
+              "product_family",
+              "product_name",
+              "product_version",
+              "service_pack",
+              "specification",
+              "vendor"
+            ]
           },
           "name": {
             "title": "Name of the branch",
@@ -104,24 +122,6 @@
           },
           "product": {
             "$ref": "#/definitions/full_product_name_t"
-          },
-          "type": {
-            "title": "Type of the branch",
-            "description": "Describes the characteristics of the labeled branch.",
-            "type": "string",
-            "enum": [
-              "architecture",
-              "host_name",
-              "language",
-              "legacy",
-              "patch_level",
-              "product_family",
-              "product_name",
-              "product_version",
-              "service_pack",
-              "specification",
-              "vendor"
-            ]
           }
         }
       }
@@ -295,8 +295,8 @@
         "description": "Is a place to put all manner of text blobs related to the current context.",
         "type": "object",
         "required": [
-          "text",
-          "type"
+          "category",
+          "text"
         ],
         "properties": {
           "audience": {
@@ -309,6 +309,20 @@
               "executives",
               "operational management and system administrators",
               "safety engineers"
+            ]
+          },
+          "category": {
+            "title": "Note category",
+            "description": "Choice of what kind of note this is.",
+            "type": "string",
+            "enum": [
+              "description",
+              "details",
+              "faq",
+              "general",
+              "legal_disclaimer",
+              "other",
+              "summary"
             ]
           },
           "text": {
@@ -327,20 +341,6 @@
               "Executive summary",
               "Technical summary",
               "Impact on safety systems"
-            ]
-          },
-          "type": {
-            "title": "Note type",
-            "description": "Choice of what kind of note this is.",
-            "type": "string",
-            "enum": [
-              "description",
-              "details",
-              "faq",
-              "general",
-              "legal_disclaimer",
-              "other",
-              "summary"
             ]
           }
         }
@@ -401,14 +401,8 @@
           "url"
         ],
         "properties": {
-          "summary": {
-            "title": "Summary of the reference",
-            "description": "Indicates what this reference refers to.",
-            "type": "string",
-            "minLength": 1
-          },
-          "type": {
-            "title": "Type of reference",
+          "category": {
+            "title": "Category of reference",
             "description": "Indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.",
             "type": "string",
             "default": "external",
@@ -416,6 +410,12 @@
               "external",
               "self"
             ]
+          },
+          "summary": {
+            "title": "Summary of the reference",
+            "description": "Indicates what this reference refers to.",
+            "type": "string",
+            "minLength": 1
           },
           "url": {
             "title": "URL of reference",
@@ -448,11 +448,11 @@
       "description": "Captures the meta-data about this document describing a particular set of security advisories.",
       "type": "object",
       "required": [
+        "category",
         "csaf_version",
         "publisher",
         "title",
-        "tracking",
-        "type"
+        "tracking"
       ],
       "properties": {
         "acknowledgments": {
@@ -484,6 +484,17 @@
               ]
             }
           }
+        },
+        "category": {
+          "title": "Document category",
+          "description": "Defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "Security Advisory",
+            "Security Notice",
+            "Vulnerability Report"
+          ]
         },
         "csaf_version": {
           "title": "CSAF version",
@@ -559,10 +570,23 @@
           "description": "Provides information about the publisher of the document.",
           "type": "object",
           "required": [
-            "name",
-            "type"
+            "category",
+            "name"
           ],
           "properties": {
+            "category": {
+              "title": "Category of publisher",
+              "description": "Provides information about the category of publisher releasing the document.",
+              "type": "string",
+              "enum": [
+                "coordinator",
+                "discoverer",
+                "other",
+                "translator",
+                "user",
+                "vendor"
+              ]
+            },
             "contact_details": {
               "title": "Contact details",
               "description": "Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.",
@@ -587,19 +611,6 @@
                 "BSI",
                 "Cisco PSIRT",
                 "Siemens ProductCERT"
-              ]
-            },
-            "type": {
-              "title": "Type of publisher",
-              "description": "Provides information about the type of publisher releasing the document.",
-              "type": "string",
-              "enum": [
-                "coordinator",
-                "discoverer",
-                "other",
-                "translator",
-                "user",
-                "vendor"
               ]
             },
             "vendor_id": {
@@ -757,17 +768,6 @@
               "$ref": "#/definitions/version_t"
             }
           }
-        },
-        "type": {
-          "title": "Document type",
-          "description": "Defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.",
-          "type": "string",
-          "minLength": 1,
-          "examples": [
-            "Security Advisory",
-            "Security Notice",
-            "Vulnerability Report"
-          ]
         }
       }
     },
@@ -839,24 +839,15 @@
             "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
             "type": "object",
             "required": [
+              "category",
               "full_product_name",
               "product_reference",
-              "relates_to_product_reference",
-              "relationship_type"
+              "relates_to_product_reference"
             ],
             "properties": {
-              "full_product_name": {
-                "$ref": "#/definitions/full_product_name_t"
-              },
-              "product_reference": {
-                "$ref": "#/definitions/product_id_t"
-              },
-              "relates_to_product_reference": {
-                "$ref": "#/definitions/product_id_t"
-              },
-              "relationship_type": {
-                "title": "Relationship type",
-                "description": "Defines the type of relationship for the referenced component.",
+              "category": {
+                "title": "Relationship category",
+                "description": "Defines the category of relationship for the referenced component.",
                 "type": "string",
                 "enum": [
                   "default_component_of",
@@ -865,6 +856,15 @@
                   "installed_with",
                   "optional_component_of"
                 ]
+              },
+              "full_product_name": {
+                "$ref": "#/definitions/full_product_name_t"
+              },
+              "product_reference": {
+                "$ref": "#/definitions/product_id_t"
+              },
+              "relates_to_product_reference": {
+                "$ref": "#/definitions/product_id_t"
               }
             }
           }
@@ -1079,10 +1079,22 @@
               "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
-                "details",
-                "type"
+                "category",
+                "details"
               ],
               "properties": {
+                "category": {
+                  "title": "Category of the remediation",
+                  "description": "Specifies the category which this remediation belongs to.",
+                  "type": "string",
+                  "enum": [
+                    "workaround",
+                    "mitigation",
+                    "vendor_fix",
+                    "none_available",
+                    "no_fix_planned"
+                  ]
+                },
                 "date": {
                   "title": "Date of the remediation",
                   "description": "Contains the date from which the remediation is available.",
@@ -1115,21 +1127,15 @@
                 },
                 "restart_required": {
                   "title": "Restart required by remediation",
-                  "description": "Provides information on type of restart is required by this remediation to become effective.",
+                  "description": "Provides information on category of restart is required by this remediation to become effective.",
                   "type": "object",
                   "required": [
-                    "type"
+                    "category"
                   ],
                   "properties": {
-                    "details": {
-                      "title": "Additional restart information",
-                      "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "type": {
-                      "title": "Type of restart",
-                      "description": "Specifies what type of restart is required by this remediation to become effective.",
+                    "category": {
+                      "title": "Category of restart",
+                      "description": "Specifies what category of restart is required by this remediation to become effective.",
                       "type": "string",
                       "enum": [
                         "none",
@@ -1142,20 +1148,14 @@
                         "zone",
                         "system"
                       ]
+                    },
+                    "details": {
+                      "title": "Additional restart information",
+                      "description": "Provides additional information for the restart. This can include details on procedures, scope or impact.",
+                      "type": "string",
+                      "minLength": 1
                     }
                   }
-                },
-                "type": {
-                  "title": "Type of the remediation",
-                  "description": "Specifies the type which this remediation belongs to.",
-                  "type": "string",
-                  "enum": [
-                    "workaround",
-                    "mitigation",
-                    "vendor_fix",
-                    "none_available",
-                    "no_fix_planned"
-                  ]
                 },
                 "url": {
                   "title": "URL to the remediation",
@@ -1209,10 +1209,20 @@
               "description": "Contains the vulnerability kinetic information. This information can change as the vulnerability ages and new information becomes available.",
               "type": "object",
               "required": [
-                "details",
-                "type"
+                "category",
+                "details"
               ],
               "properties": {
+                "category": {
+                  "title": "Category of the threat",
+                  "description": "Categorizes the threat according to the rules of the specification.",
+                  "type": "string",
+                  "enum": [
+                    "exploit_status",
+                    "impact",
+                    "target_set"
+                  ]
+                },
                 "date": {
                   "title": "Date of the threat",
                   "description": "Contains the date when the assessment was done or the threat appeared.",
@@ -1230,16 +1240,6 @@
                 },
                 "product_ids": {
                   "$ref": "#/definitions/products_t"
-                },
-                "type": {
-                  "title": "Type of the threat",
-                  "description": "Categorizes the threat according to the rules of the specification.",
-                  "type": "string",
-                  "enum": [
-                    "exploit_status",
-                    "impact",
-                    "target_set"
-                  ]
                 }
               }
             }
