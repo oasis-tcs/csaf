@@ -1329,13 +1329,16 @@ Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) hol
 
 #### 3.2.1.7 Document Property - Publisher
 
-Publisher (`publisher`) has value type `object` with the mandatory properties Name (`name`) and Type (`type`) and provides information on the publishing entity.
+Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`) and Name (`name`) and provides information on the publishing entity.
 The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
 
 ```
     "publisher": {
       // ...
       "properties": {
+        "category": {
+          // ...
+        },
         "contact_details": {
           // ...
         },
@@ -1345,9 +1348,6 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
         "name": {
           // ...
         }
-        "type": {
-          // ...
-        },
         "vendor_id": {
           // ...
         }
@@ -1355,35 +1355,9 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
     },
 ```
 
-##### 3.2.1.7.1 Document Property - Publisher - Contact Details
+##### 3.2.1.7.1 Document Property - Publisher - Category
 
-Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
-
-Example:
-
-```
-    Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
-```
-
-##### 3.2.1.7.2 Document Property - Publisher - Issuing Authority
-
-Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
-
-##### 3.2.1.7.3 Document Property - Publisher - Name
-
-The Name of publisher (`name`) of type `string` contains the name of the issuing party.
-
-Example:
-
-```
-     BSI
-     Cisco PSIRT
-     Siemens ProductCERT
-```
-
-##### 3.2.1.7.4 Document Property - Publisher - Type
-
-The Type of publisher (`type`) of type `string` and `enum` provides information about the type of publisher releasing the document.
+The Category of publisher (`category`) of type `string` and `enum` provides information about the category of publisher releasing the document.
 The valid values are:
 
 ```
@@ -1406,6 +1380,32 @@ The value `other` indicates a catchall for everyone else. Currently this include
 The value `user` indicates anyone using a vendor’s product.
 
 The value `vendor` indicates developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
+
+##### 3.2.1.7.2 Document Property - Publisher - Contact Details
+
+Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
+
+Example:
+
+```
+    Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
+```
+
+##### 3.2.1.7.3 Document Property - Publisher - Issuing Authority
+
+Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
+
+##### 3.2.1.7.4 Document Property - Publisher - Name
+
+The Name of publisher (`name`) of type `string` contains the name of the issuing party.
+
+Example:
+
+```
+     BSI
+     Cisco PSIRT
+     Siemens ProductCERT
+```
 
 ##### 3.2.1.7.5 Document Property - Publisher - Vendor ID
 
