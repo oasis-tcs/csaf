@@ -1079,10 +1079,22 @@
               "description": "Specifies details on how to handle (and presumably, fix) a vulnerability.",
               "type": "object",
               "required": [
-                "details",
-                "type"
+                "category",
+                "details"
               ],
               "properties": {
+                "category": {
+                  "title": "Category of the remediation",
+                  "description": "Specifies the category which this remediation belongs to.",
+                  "type": "string",
+                  "enum": [
+                    "workaround",
+                    "mitigation",
+                    "vendor_fix",
+                    "none_available",
+                    "no_fix_planned"
+                  ]
+                },
                 "date": {
                   "title": "Date of the remediation",
                   "description": "Contains the date from which the remediation is available.",
@@ -1144,18 +1156,6 @@
                       "minLength": 1
                     }
                   }
-                },
-                "type": {
-                  "title": "Type of the remediation",
-                  "description": "Specifies the type which this remediation belongs to.",
-                  "type": "string",
-                  "enum": [
-                    "workaround",
-                    "mitigation",
-                    "vendor_fix",
-                    "none_available",
-                    "no_fix_planned"
-                  ]
                 },
                 "url": {
                   "title": "URL to the remediation",
