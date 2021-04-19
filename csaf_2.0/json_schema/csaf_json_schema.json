@@ -86,6 +86,24 @@
           "branches": {
             "$ref": "#/definitions/branches_t"
           },
+          "category": {
+            "title": "Category of the branch",
+            "description": "Describes the characteristics of the labeled branch.",
+            "type": "string",
+            "enum": [
+              "architecture",
+              "host_name",
+              "language",
+              "legacy",
+              "patch_level",
+              "product_family",
+              "product_name",
+              "product_version",
+              "service_pack",
+              "specification",
+              "vendor"
+            ]
+          },
           "name": {
             "title": "Name of the branch",
             "description": "Contains the canonical descriptor or 'friendly name' of the branch.",
@@ -104,24 +122,6 @@
           },
           "product": {
             "$ref": "#/definitions/full_product_name_t"
-          },
-          "type": {
-            "title": "Type of the branch",
-            "description": "Describes the characteristics of the labeled branch.",
-            "type": "string",
-            "enum": [
-              "architecture",
-              "host_name",
-              "language",
-              "legacy",
-              "patch_level",
-              "product_family",
-              "product_name",
-              "product_version",
-              "service_pack",
-              "specification",
-              "vendor"
-            ]
           }
         }
       }
