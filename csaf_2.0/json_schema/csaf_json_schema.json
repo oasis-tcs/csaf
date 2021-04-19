@@ -839,24 +839,15 @@
             "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
             "type": "object",
             "required": [
+              "category",
               "full_product_name",
               "product_reference",
-              "relates_to_product_reference",
-              "relationship_type"
+              "relates_to_product_reference"
             ],
             "properties": {
-              "full_product_name": {
-                "$ref": "#/definitions/full_product_name_t"
-              },
-              "product_reference": {
-                "$ref": "#/definitions/product_id_t"
-              },
-              "relates_to_product_reference": {
-                "$ref": "#/definitions/product_id_t"
-              },
-              "relationship_type": {
-                "title": "Relationship type",
-                "description": "Defines the type of relationship for the referenced component.",
+              "category": {
+                "title": "Relationship category",
+                "description": "Defines the category of relationship for the referenced component.",
                 "type": "string",
                 "enum": [
                   "default_component_of",
@@ -865,6 +856,15 @@
                   "installed_with",
                   "optional_component_of"
                 ]
+              },
+              "full_product_name": {
+                "$ref": "#/definitions/full_product_name_t"
+              },
+              "product_reference": {
+                "$ref": "#/definitions/product_id_t"
+              },
+              "relates_to_product_reference": {
+                "$ref": "#/definitions/product_id_t"
               }
             }
           }
