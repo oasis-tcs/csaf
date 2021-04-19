@@ -448,11 +448,11 @@
       "description": "Captures the meta-data about this document describing a particular set of security advisories.",
       "type": "object",
       "required": [
+        "category",
         "csaf_version",
         "publisher",
         "title",
-        "tracking",
-        "type"
+        "tracking"
       ],
       "properties": {
         "acknowledgments": {
@@ -484,6 +484,17 @@
               ]
             }
           }
+        },
+        "category": {
+          "title": "Document category",
+          "description": "Defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "Security Advisory",
+            "Security Notice",
+            "Vulnerability Report"
+          ]
         },
         "csaf_version": {
           "title": "CSAF version",
@@ -757,17 +768,6 @@
               "$ref": "#/definitions/version_t"
             }
           }
-        },
-        "type": {
-          "title": "Document type",
-          "description": "Defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.",
-          "type": "string",
-          "minLength": 1,
-          "examples": [
-            "Security Advisory",
-            "Security Notice",
-            "Vulnerability Report"
-          ]
         }
       }
     },
