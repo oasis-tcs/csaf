@@ -2135,10 +2135,10 @@ Restart required by remediation (`restart_required`) of value type `object` with
       "restart_required": {
         // ...
         "properties": {
-          "details": {
+          "category": {
             // ...
-          },
-          "type": {
+          }
+          "details": {
             // ...
           }
         }
