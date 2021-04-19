@@ -1209,10 +1209,20 @@
               "description": "Contains the vulnerability kinetic information. This information can change as the vulnerability ages and new information becomes available.",
               "type": "object",
               "required": [
-                "details",
-                "type"
+                "category",
+                "details"
               ],
               "properties": {
+                "category": {
+                  "title": "Category of the threat",
+                  "description": "Categorizes the threat according to the rules of the specification.",
+                  "type": "string",
+                  "enum": [
+                    "exploit_status",
+                    "impact",
+                    "target_set"
+                  ]
+                },
                 "date": {
                   "title": "Date of the threat",
                   "description": "Contains the date when the assessment was done or the threat appeared.",
@@ -1230,16 +1240,6 @@
                 },
                 "product_ids": {
                   "$ref": "#/definitions/products_t"
-                },
-                "type": {
-                  "title": "Type of the threat",
-                  "description": "Categorizes the threat according to the rules of the specification.",
-                  "type": "string",
-                  "enum": [
-                    "exploit_status",
-                    "impact",
-                    "target_set"
-                  ]
                 }
               }
             }
