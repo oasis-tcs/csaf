@@ -595,10 +595,11 @@ Example:
   },
 ]
 ```
+
 The example above should lead to the following outcome in a human-readable advisory:
 
 > We thank the following parties for their efforts:
-> 
+>
 > * Johann Sebastian Bach, Georg Philipp Telemann, Georg Friedrich Händel from Baroque composers for wonderful music
 > * CISA for coordination efforts (see: https://cisa.gov)
 > * BSI for assistance in coordination
@@ -606,7 +607,7 @@ The example above should lead to the following outcome in a human-readable advis
 
 ### 3.1.2 Branches Type
 
-List of branches (`branches_t`) with value type `array` contains 1 or more `branch` elements as children of the current element.
+List of branches (`branches_t`) with value type `array` contains 1 or more branch elements as children of the current element.
 
 ```
     "branches_t": {
@@ -618,21 +619,20 @@ List of branches (`branches_t`) with value type `array` contains 1 or more `bran
 ```
 
 Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree.
-The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property.
+The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
 
 ```
         "properties": {
           "branches": {
             // ...
           },
+          "category": {
+            // ...
+          },
           "name": {
             // ...
           },
-          
           "product": {
-            // ...
-          },
-          "type": {
             // ...
           }
         }
@@ -642,30 +642,9 @@ The properties `name` and `type` are mandatory. In addition, the object contains
 
 List of branches (`branches`) has the value type `branches_t`.
 
-#### 3.1.2.2 Branches Type - Name
+#### 3.1.2.2 Branches Type - Category
 
-Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
-
-Examples:
-
-```
-    Microsoft
-    Siemens
-    Windows
-    Office
-    SIMATIC
-    10
-    365
-    PCS 7
-```
-
-#### 3.1.2.3 Branches Type - Product
-
-Product (`product`) has the value type Full Product Name (`full_product_name_t`).
-
-#### 3.1.2.4 Branches Type - Type
-
-Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch.
+Category of the branch (`category`) of value type `string` as `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
 
 ```
@@ -703,6 +682,27 @@ The value `service_pack` indicates the service pack of the product.
 The value `specification` indicates the specification such as a standard, best common practice, etc.
 
 The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
+
+#### 3.1.2.3 Branches Type - Name
+
+Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
+
+Examples:
+
+```
+    Microsoft
+    Siemens
+    Windows
+    Office
+    SIMATIC
+    10
+    365
+    PCS 7
+```
+
+#### 3.1.2.4 Branches Type - Product
+
+Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
 ### 3.1.3 Full Product Name Type
 
