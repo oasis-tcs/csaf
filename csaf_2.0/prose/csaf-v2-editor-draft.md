@@ -2129,7 +2129,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
-Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
+Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
 
 ```
       "restart_required": {
@@ -2145,9 +2145,7 @@ Restart required by remediation (`restart_required`) of value type `object` with
       },
 ```
 
-Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
-
-Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
+Category of restart (`category`) of value type `string` and `enum` specifies what category of restart is required by this remediation to become effective.
 Valid values are:
 
 ```
@@ -2173,6 +2171,8 @@ The values must be used as follows:
 * `machine`: The machine on which the vulnerable component is installed on needs to be restarted. This is the value which should be used if an OS needs to be restarted. It is typically the case for OS upgrades.
 * `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted. This value might be useful for a remediation if no patch is available. If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at the same time and restart afterwards can leave one with a clean system.
 * `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted. This may include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
+
+Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
 Valid values are:
