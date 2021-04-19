@@ -559,10 +559,23 @@
           "description": "Provides information about the publisher of the document.",
           "type": "object",
           "required": [
-            "name",
-            "type"
+            "category",
+            "name"
           ],
           "properties": {
+            "category": {
+              "title": "Category of publisher",
+              "description": "Provides information about the category of publisher releasing the document.",
+              "type": "string",
+              "enum": [
+                "coordinator",
+                "discoverer",
+                "other",
+                "translator",
+                "user",
+                "vendor"
+              ]
+            },
             "contact_details": {
               "title": "Contact details",
               "description": "Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.",
@@ -587,19 +600,6 @@
                 "BSI",
                 "Cisco PSIRT",
                 "Siemens ProductCERT"
-              ]
-            },
-            "type": {
-              "title": "Type of publisher",
-              "description": "Provides information about the type of publisher releasing the document.",
-              "type": "string",
-              "enum": [
-                "coordinator",
-                "discoverer",
-                "other",
-                "translator",
-                "user",
-                "vendor"
               ]
             },
             "vendor_id": {
