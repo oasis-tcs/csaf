@@ -79,8 +79,8 @@
         "maxProperties": 3,
         "minProperties": 3,
         "required": [
-          "name",
-          "type"
+          "category",
+          "name"
         ],
         "properties": {
           "branches": {
@@ -295,8 +295,8 @@
         "description": "Is a place to put all manner of text blobs related to the current context.",
         "type": "object",
         "required": [
-          "text",
-          "type"
+          "category",
+          "text"
         ],
         "properties": {
           "audience": {
@@ -401,14 +401,8 @@
           "url"
         ],
         "properties": {
-          "summary": {
-            "title": "Summary of the reference",
-            "description": "Indicates what this reference refers to.",
-            "type": "string",
-            "minLength": 1
-          },
-          "type": {
-            "title": "Type of reference",
+          "category": {
+            "title": "Category of reference",
             "description": "Indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.",
             "type": "string",
             "default": "external",
@@ -416,6 +410,12 @@
               "external",
               "self"
             ]
+          },
+          "summary": {
+            "title": "Summary of the reference",
+            "description": "Indicates what this reference refers to.",
+            "type": "string",
+            "minLength": 1
           },
           "url": {
             "title": "URL of reference",
