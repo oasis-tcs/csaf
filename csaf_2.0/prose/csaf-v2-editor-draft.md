@@ -2248,12 +2248,15 @@ List of threats (`threats`) of value type `array` with 1 or more items of `objec
     },
 ```
 
-A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information.
+A Threat item is of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) and contains the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, threat items may provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```
     "properties": {
+      "category": {
+        // ...
+      }
       "date": {
         // ...
       },
@@ -2265,22 +2268,11 @@ In addition, threat items may provide the three optional properties Date (`date`
       },
       "product_ids": {
         // ...
-      },
-      "type": {
-        // ...
       }
     }
 ```
 
-Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
-
-Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
-
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
-
-Product IDs (`product_ids`) are of value type Products (`products_t`).
-
-Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
+Category of the threat (`category`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
 Valid values are:
 
 ```
@@ -2291,9 +2283,17 @@ Valid values are:
 
 The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
-The value `impact` indicates, that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
+The value `impact` indicates that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
 
 The value `target_set` indicates that the `details` field contains a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
+
+Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
+
+Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+
+Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 #### 3.2.3.14 Vulnerabilities Property - Title
 
