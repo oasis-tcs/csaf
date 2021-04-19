@@ -1711,10 +1711,13 @@ List of relationships (`relationships`) of value type `array` with 1 or more ite
     }
 ```
 
-The Relationship item is of value type `object` and has four mandatory properties: Full Product Name (`full_product_name`), Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
+The Relationship item is of value type `object` and has four mandatory properties: Relationship category (`category`), Full Product Name (`full_product_name`), Product Reference (`product_reference`), and Relates to Product Reference (`relates_to_product_reference`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
 ```
     "properties": {
+      "category": {
+        // ...
+      },
       "full_product_name": {
         // ...
       },
@@ -1723,20 +1726,11 @@ The Relationship item is of value type `object` and has four mandatory propertie
       },
       "relates_to_product_reference": {
         // ...
-      },
-      "relationship_type": {
-        // ...
       }
     }
 ```
 
-Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
-
-Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
-
-Relates to Product Reference (`relates_to_product_reference`) holds also a Product ID (`product_id_t`) value.
-
-Relationship type (`relationship_type`) of value `string` and `enum` defines the type of relationship for the referenced component.
+Relationship category (`category`) of value `string` and `enum` defines the category of relationship for the referenced component.
 The valid values are:
 
 ```
@@ -1756,6 +1750,12 @@ The value `installed_on` indicates that the entity labeled with one Product ID (
 The value `installed_with` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is installed alongside an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 
 The value `optional_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an optional component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
+
+Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
+
+Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
+
+Relates to Product Reference (`relates_to_product_reference`) holds also a Product ID (`product_id_t`) value.
 
 ### 3.2.3 Vulnerabilities Property
 
