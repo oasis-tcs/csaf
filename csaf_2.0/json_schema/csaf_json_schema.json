@@ -311,6 +311,20 @@
               "safety engineers"
             ]
           },
+          "category": {
+            "title": "Note category",
+            "description": "Choice of what kind of note this is.",
+            "type": "string",
+            "enum": [
+              "description",
+              "details",
+              "faq",
+              "general",
+              "legal_disclaimer",
+              "other",
+              "summary"
+            ]
+          },
           "text": {
             "title": "Note contents",
             "description": "The contents of the note. Content varies depending on type.",
@@ -327,20 +341,6 @@
               "Executive summary",
               "Technical summary",
               "Impact on safety systems"
-            ]
-          },
-          "type": {
-            "title": "Note type",
-            "description": "Choice of what kind of note this is.",
-            "type": "string",
-            "enum": [
-              "description",
-              "details",
-              "faq",
-              "general",
-              "legal_disclaimer",
-              "other",
-              "summary"
             ]
           }
         }
