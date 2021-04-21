@@ -1727,11 +1727,11 @@
         }
       },
       {
-        "name": "jenkins-plugin-branches-api-0:2.0.9-10.el7",
+        "name": "jenkins-plugin-branch-api-0:2.0.9-10.el7",
         "category": "product_version",
         "product": {
-          "product_id": "jenkins-plugin-branches-api-0:2.0.9-10.el7",
-          "name": "jenkins-plugin-branches-api-2.0.9-10.el7.src.rpm"
+          "product_id": "jenkins-plugin-branch-api-0:2.0.9-10.el7",
+          "name": "jenkins-plugin-branch-api-2.0.9-10.el7.src.rpm"
         }
       },
       {
@@ -1839,11 +1839,11 @@
         }
       },
       {
-        "name": "jenkins-plugin-github-branches-source-0:2.0.5-1.el7",
+        "name": "jenkins-plugin-github-branch-source-0:2.0.5-1.el7",
         "category": "product_version",
         "product": {
-          "product_id": "jenkins-plugin-github-branches-source-0:2.0.5-1.el7",
-          "name": "jenkins-plugin-github-branches-source-2.0.5-1.el7.src.rpm"
+          "product_id": "jenkins-plugin-github-branch-source-0:2.0.5-1.el7",
+          "name": "jenkins-plugin-github-branch-source-2.0.5-1.el7.src.rpm"
         }
       },
       {
@@ -2231,11 +2231,11 @@
         }
       },
       {
-        "name": "jenkins-plugin-workflow-multibranches-0:2.14-10.el7",
+        "name": "jenkins-plugin-workflow-multibranch-0:2.14-10.el7",
         "category": "product_version",
         "product": {
-          "product_id": "jenkins-plugin-workflow-multibranches-0:2.14-10.el7",
-          "name": "jenkins-plugin-workflow-multibranches-2.14-10.el7.src.rpm"
+          "product_id": "jenkins-plugin-workflow-multibranch-0:2.14-10.el7",
+          "name": "jenkins-plugin-workflow-multibranch-2.14-10.el7.src.rpm"
         }
       },
       {
@@ -2351,10 +2351,10 @@
         }
       },
       {
-        "name": "nodejs-align-name-0:0.1.3-2.el7aos",
+        "name": "nodejs-align-text-0:0.1.3-2.el7aos",
         "category": "product_version",
         "product": {
-          "product_id": "nodejs-align-name-0:0.1.3-2.el7aos",
+          "product_id": "nodejs-align-text-0:0.1.3-2.el7aos",
           "name": "nodejs-align-text-0.1.3-2.el7aos.src.rpm"
         }
       },
