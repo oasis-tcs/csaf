@@ -1155,7 +1155,7 @@ Examples:
 
 #### 3.1.11.1 Version Type - Integer versioning
 
-Integer versioning increments for each version where the `/document/status` is `final` the version number by one. The regular expression for this type is:
+Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one. The regular expression for this type is:
 
 ```
 ^(0|[1-9][0-9]*)$
@@ -1165,7 +1165,7 @@ The following rules apply:
 
 1. Once a versioned document has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version.
 2. Version zero (0) is for initial development before the `initial_release_date`. The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
-3. Version 1 defines the initial public release. Each new version where `/document/status` is `final` has a version number incremented by one.
+3. Version 1 defines the initial public release. Each new version where `/document/tracking/status` is `final` has a version number incremented by one.
 4. Pre-release versions (document status `draft`) MUST carry the new version number. Sole exception is before the initial release (see rule 2). The combination of document status `draft` and version 1 MAY be used to indicate that the content is unlikely to change.
 5. Build metadata is never included in the version.
 6. Precedence MUST be calculate by integer comparison.
@@ -1204,7 +1204,7 @@ The goal of this structure is to provide additional information to the end user 
 
    It MAY also include minor and patch level changes. Patch and minor version MUST be reset to 0 when major version is incremented.
 8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version. Examples: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92, 1.0.0-x-y-z.–
-9. Pre-release MUST NOT be included if `/document/status` is `final`.
+9. Pre-release MUST NOT be included if `/document/tracking/status` is `final`.
 10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence. Thus two versions that differ only in the build metadata, have the same precedence. Examples: 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85, 1.0.0+21AF26D3—-117B344092BD.
 11. Precedence refers to how versions are compared to each other when ordered.
 
