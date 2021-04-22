@@ -2428,10 +2428,12 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
   * track of the version of CSAF documents automatically and increments for each change at least the patch_version.
+  * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in the configuration (default: 3 weeks)
+  * suggest to publish a new version of the CSAF document with the document status `final` if the document status was `interim` and no new release has be done during the the given threshold in the configuration (default: 6 weeks)
   * support the following workflows:
 
-    * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
-    * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
+    * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it, the approval for publication can be requested; if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration) and the advisory is provided for publication (manual or time-based)
+    * "Update Advisory": open an existing advisory, create new revision & change content, request a review, provide review comments or approve it, resolve review comments; if the review approved it, the approval for publication can be requested; if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration) and the advisory is provided for publication (manual or time-based)
 
 * publication may be immediately or at a given date/time.
 * handling of date/time and version is be automated.
