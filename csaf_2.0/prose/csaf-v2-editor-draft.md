@@ -1613,11 +1613,13 @@ The value MUST be one of the following:
     interim
 ```
 
-The value `draft` indicates, that this is a pre-release, intended for issuing party’s internal use only, or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
+The value `draft` indicates, that this is a pre-release, intended for issuing party's internal use only, or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
 
-The value `final` indicates, that the issuing party asserts the content is unlikely to change. “Final” status is an indication only, and does not preclude updates.
+The value `final` indicates, that the issuing party asserts the content is unlikely to change. “Final” status is an indication only, and does not preclude updates. This SHOULD be used if the issuing party no, slow or few changes.
 
-The value `interim` indicates, that the issuing party asserts the content is unlikely to change.
+The value `interim` indicates, that the issuing party asserts expect rapid updates. This SHOULD be used if the expected rate of release for this document is significant higher than for other documents. Once the rate slows down it MUST be changed to `final`. This may be done in a patch version.
+
+> This is extremly useful for downstream vendors to constantly inform the end users about ongoing investigation. It can be used as an indication to pull the CSAF document more frequently.
 
 ##### 3.2.1.12.8 Document Property - Tracking - Version
 
