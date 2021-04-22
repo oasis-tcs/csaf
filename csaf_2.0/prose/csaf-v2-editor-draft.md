@@ -501,7 +501,7 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
     },
 ```
 
-The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The value type of Acknowledgment is `object` with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
 ```
@@ -1431,7 +1431,7 @@ The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or
 
 #### 3.2.1.9 Document Property - References
 
-References (`references`) of References type (`references_t`).
+References (`references`) of References Type (`references_t`).
 
 ```
     "references": {
@@ -2237,7 +2237,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.13 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of type `object` representing Threats contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
