@@ -2520,14 +2520,14 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * show an audit log for each CSAF document
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
-  * track of the version of CSAF documents automatically and increments for each change at least the patch_version.
+  * track of the version of CSAF documents automatically and increment according to the versioning scheme (see also subsections of 3.1.11) selected in the configuration.
   * support the following workflows:
 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
     * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
 
 * publication may be immediately or at a given date/time.
-* handling of date/time and version is be automated.
+* handling of date/time and version is automated.
 * provide an API to retrieve all CSAF documents which are currently in the status published.
 * should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
 * provide a user management and support at least the following roles:
@@ -2553,7 +2553,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/tracking/initial_release_date` with the current date
   * `/document/tracking/revision_history`
     * `date` with the current date
-    * `number` (based on the templates from configuration; default: 0.1)
+    * `number` (based on the templates according to the versioning scheme configured)
     * `summary` (based on the templates from configuration; default: "Initial version.")
   * `/document/tracking/status` with `draft`
   * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
@@ -2574,7 +2574,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/generator` and children
     * the new item in `/document/tracking/revision_history[]`
       * `date` with the current date
-      * `number` (based on the templates from configuration; default: latest_patch_version + 1)
+      * `number` (based on the templates according to the versioning scheme configured)
     * `/document/tracking/status` with `draft`
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
