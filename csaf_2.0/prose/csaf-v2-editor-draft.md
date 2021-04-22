@@ -316,7 +316,7 @@ N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
 http://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SemVer]
-Preston-Werner, T. "Semantic Versioning 2.0.0", June 2013, https://semver.org/.
+_Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/. 
 Latest version available at http://www.w3.org/TR/xml.
