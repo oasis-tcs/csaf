@@ -2301,11 +2301,52 @@ Title (`title`) has value type `string` with 1 or more characters and gives the 
 
 # 4 Tests
 
-The following three subsections list a number of tests which all will have a short description and an example which breaks the test.
+The following three subsections list a number of tests which all will have a short description and an example which fails the test.
 
 ## 4.1 Mandatory Tests
 
 Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a test failure as an error.
+
+### 4.1.1 Missing Definition of Product ID
+
+For each element of type `/definitions/product_id_t` which are not inside a Full Product Name (`full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/definitions/products_t`.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/product_groups[]/product_ids[]
+  /product_tree/relationships[]/product_reference
+  /product_tree/relationships[]/relates_to_product_reference
+  /vulnerabilities[]/product_status/first_affected[]
+  /vulnerabilities[]/product_status/first_fixed[]
+  /vulnerabilities[]/product_status/fixed[]
+  /vulnerabilities[]/product_status/known_affected[]
+  /vulnerabilities[]/product_status/known_not_affected[]
+  /vulnerabilities[]/product_status/last_affected[]
+  /vulnerabilities[]/product_status/recommended[]
+  /vulnerabilities[]/product_status/under_investigation[]
+  /vulnerabilities[]/remediations[]/product_ids[]
+  /vulnerabilities[]/scores[]/products[]
+  /vulnerabilities[]/threats[]/product_ids[]
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-0001",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ]
+      }
+    ]
+  }
+```
+
+> Neither `CSAFPID-9080700` nor `CSAFPID-9080701` were defined in the `product_tree`.
 
 ## 4.2 Optional Tests
 
