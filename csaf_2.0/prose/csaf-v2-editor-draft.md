@@ -2775,6 +2775,32 @@ Example which fails the test:
 
 > The first item has a higher version number than the second.
 
+### 4.1.14 Translator
+
+It must be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
+
+The relevant path for this test is:
+
+```
+    /document/source_lang
+```
+
+Example which fails the test:
+
+```
+  "document": {
+    // ...
+    "publisher": {
+      "category": "translator",
+      "name": "CSAF TC Translator"
+    },
+    // ...
+    "source_lang": ""
+  }
+```
+
+> The element `source_lang` is present but not set.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
