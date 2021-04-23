@@ -2674,6 +2674,38 @@ Example which fails the test:
 
 > Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.
 
+### 4.1.10 Inconsistent CVSS
+
+It must be tested that the given CVSS properties do not contratict the CVSS vector.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/scores[]/cvss_v2
+  /vulnerabilities[]/scores[]/cvss_v3
+```
+
+Example which fails the test:
+
+```
+  "cvss_v3": {
+    "version": "3.1",
+    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+    "baseScore": 9.8,
+    "baseSeverity": "CRITICAL",
+    "attackVector": "LOCAL",
+    "attackComplexity": "LOW",
+    "privilegesRequired": "NONE",
+    "userInteraction": "NONE",
+    "scope": "CHANGED",
+    "confidentialityImpact": "HIGH",
+    "integrityImpact": "HIGH",
+    "availabilityImpact": "LOW"
+  }
+```
+
+> The values in CVSS vector differs from values of the properties `attackVector`, `scope` and `availabilityImpact`.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
