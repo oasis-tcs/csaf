@@ -2779,6 +2779,35 @@ Example which fails the test:
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
 
+### 4.2.1 Unused Definition of Product ID
+
+For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/product/product_id
+  /product_tree/full_product_names[]/product_id
+  /product_tree/relationships[]/full_product_name/product_id
+```
+
+A program might suggest and implement a quick fix: Remove the defined but unused element.
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  }
+```
+
+> `CSAFPID-9080700` was defined but never used.
+
 ## 4.3 Informative Test
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
