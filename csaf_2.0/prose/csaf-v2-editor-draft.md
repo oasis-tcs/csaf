@@ -2299,6 +2299,22 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
+# 4 Tests
+
+The following three subsections list a number of tests which all will have a short description and an example which breaks the test.
+
+## 4.1 Mandatory Tests
+
+Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a test failure as an error.
+
+## 4.2 Optional Tests
+
+Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
+
+## 4.3 Informative Test
+
+Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
+
 # 4 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
