@@ -2567,6 +2567,59 @@ Example which fails the test:
 
 > `CSAFPID-9080700` is a member of the two contradicting groups "Affected" and "Not affected".
 
+### 4.1.7 Multiple Scores with same Version per Product
+
+It must be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/scores[]
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "scores": [
+        {
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL"
+          }
+        },
+        {
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM"
+          }
+        }
+      ]
+    }
+  ]
+```
+
+> Two CVSSv3.1 scores are given for `CSAFPID-9080700`.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
