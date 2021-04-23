@@ -2643,6 +2643,37 @@ Example which fails the test:
 
 > The required element `baseSeverity` is missing.
 
+### 4.1.9 Invalid CVSS computation
+
+It must be tested that the given CVSS object has the values computed correctly according to the definition.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/scores[]/cvss_v2/baseScore
+  /vulnerabilities[]/scores[]/cvss_v2/temporalScore
+  /vulnerabilities[]/scores[]/cvss_v2/environmentalScore
+  /vulnerabilities[]/scores[]/cvss_v3/baseScore
+  /vulnerabilities[]/scores[]/cvss_v3/baseSeverity
+  /vulnerabilities[]/scores[]/cvss_v3/temporalScore
+  /vulnerabilities[]/scores[]/cvss_v3/temporalSeverity
+  /vulnerabilities[]/scores[]/cvss_v3/environmentalScore
+  /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
+```
+
+Example which fails the test:
+
+```
+  "cvss_v3": {
+    "version": "3.1",
+    "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+    "baseScore": 10.0,
+    "baseSeverity": "LOW"
+  }
+```
+
+> Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
