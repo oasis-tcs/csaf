@@ -2706,6 +2706,27 @@ Example which fails the test:
 
 > The values in CVSS vector differs from values of the properties `attackVector`, `scope` and `availabilityImpact`.
 
+### 4.1.11 CWE
+
+It must be tested that given CWE exists and is valid.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/cwe
+```
+
+Example which fails the test:
+
+```
+  "cwe": {
+    "id": "CWE-79",
+    "name": "Improper Input Validation"
+  }
+```
+
+> The `CWE-79` exists. However, its name is `Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')`.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
