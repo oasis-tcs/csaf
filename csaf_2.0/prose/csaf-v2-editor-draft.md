@@ -2588,7 +2588,7 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 5, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section 6, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
