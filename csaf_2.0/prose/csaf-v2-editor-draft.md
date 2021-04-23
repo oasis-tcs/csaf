@@ -2301,7 +2301,7 @@ Title (`title`) has value type `string` with 1 or more characters and gives the 
 
 # 4 Tests
 
-The following three subsections list a number of tests which all will have a short description and an example which fails the test.
+The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
 
 ## 4.1 Mandatory Tests
 
@@ -2336,7 +2336,7 @@ Example which fails the test:
   "product_tree": {
     "product_groups": [
       {
-        "group_id": "CSAFGID-0001",
+        "group_id": "CSAFGID-1020300",
         "product_ids": [
           "CSAFPID-9080700",
           "CSAFPID-9080701"
@@ -2416,6 +2416,45 @@ Example which fails the test:
 ```
 
 > `CSAFPID-9080701` refers to itself - this is a circular definition.
+
+### 4.1.4 Missing Definition of Product Group ID
+
+For each element of type `/definitions/product_group_id_t` which are not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/definitions/product_groups_t`.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/remediations[]/group_ids
+  /vulnerabilities[]/threats[]/group_ids
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "Reliable exploits integrated in Metasploit.",
+          "group_ids": [
+            "CSAFGID-1020301"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> `CSAFGID-1020301` was not defined in the Product Tree.
 
 ## 4.2 Optional Tests
 
