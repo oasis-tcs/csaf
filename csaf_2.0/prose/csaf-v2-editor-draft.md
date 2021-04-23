@@ -2309,7 +2309,7 @@ Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a 
 
 ### 4.1.1 Missing Definition of Product ID
 
-For each element of type `/definitions/product_id_t` which are not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/definitions/products_t`.
+For each element of type `/definitions/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/definitions/products_t`.
 
 The relevant paths for this test are:
 
@@ -2419,7 +2419,7 @@ Example which fails the test:
 
 ### 4.1.4 Missing Definition of Product Group ID
 
-For each element of type `/definitions/product_group_id_t` which are not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/definitions/product_groups_t`.
+For each element of type `/definitions/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/definitions/product_groups_t`.
 
 The relevant paths for this test are:
 
@@ -2455,6 +2455,55 @@ Example which fails the test:
 ```
 
 > `CSAFGID-1020301` was not defined in the Product Tree.
+
+### 4.1.5 Multiple Definition of Product Group ID
+
+For each Product Group ID (type `/definitions/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it must be tested that the `group_id` was not already defined within the same document.
+
+The relevant paths for this test are:
+
+```
+    /product_tree/product_groups[]/group_id
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      },
+      {
+        "product_id": "CSAFPID-9080702",
+        "name": "Product C"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-1020300",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ]
+      },
+      {
+        "group_id": "CSAFGID-1020300",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080702"
+        ]
+      }
+    ]
+  }
+```
+
+> `CSAFGID-1020300` was defined twice.
 
 ## 4.2 Optional Tests
 
