@@ -2727,6 +2727,25 @@ Example which fails the test:
 
 > The `CWE-79` exists. However, its name is `Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')`.
 
+### 4.1.12 Language
+
+For each element of type `/definitions/language_t` it must be tested that the language code is valid and exists.
+
+The relevant paths for this test are:
+
+```
+  /document/lang
+  /document/source_lang
+```
+
+Example which fails the test:
+
+```
+  "lang": "TG"
+```
+
+> `TG` is not a valid language. It is the subtag for the region "Togo".
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
