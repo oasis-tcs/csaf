@@ -2746,6 +2746,35 @@ Example which fails the test:
 
 > `TG` is not a valid language. It is the subtag for the region "Togo".
 
+### 4.1.13 Revision History
+
+It must be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history
+```
+
+Example which fails the test:
+
+```
+  "revision_history": [
+        {
+      "date": "2021-04-22T10:00:00.000Z",
+      "number": "2",
+      "summary": "Second version."
+    },
+    {
+      "date": "2021-04-23T10:00:00.000Z",
+      "number": "1",
+      "summary": "Initial version."
+    }
+  ]
+```
+
+> The first item has a higher version number than the second.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
