@@ -2907,6 +2907,42 @@ Example which fails the test:
 
 > `CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.
 
+### 4.2.3 Missing Score
+
+For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected it must be tested that a score object exists which covers this product.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/known_affected[]
+  /vulnerabilities[]/product_status/last_affected[]
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "first_affected": [
+          "CSAFPID-9080700"
+        ]
+      }
+    }
+  ]
+```
+
+> `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
+
 ## 4.3 Informative Test
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
