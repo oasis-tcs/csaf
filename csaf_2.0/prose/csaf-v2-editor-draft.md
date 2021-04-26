@@ -503,7 +503,7 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
     },
 ```
 
-The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The value type of Acknowledgment is `object` with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
 ```
@@ -1523,7 +1523,7 @@ The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or
 
 #### 3.2.1.9 Document Property - References
 
-References (`references`) of References type (`references_t`).
+References (`references`) of References Type (`references_t`).
 
 ```
     "references": {
@@ -1535,7 +1535,7 @@ References (`references`) of References type (`references_t`).
 
 Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
-The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/type`.
+The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/category`.
 
 #### 3.2.1.11 Document Property - Title
 
@@ -1707,11 +1707,13 @@ The value MUST be one of the following:
     interim
 ```
 
-The value `draft` indicates, that this is a pre-release, intended for issuing party’s internal use only, or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
+The value `draft` indicates, that this is a pre-release, intended for issuing party's internal use only, or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
 
-The value `final` indicates, that the issuing party asserts the content is unlikely to change. “Final” status is an indication only, and does not preclude updates.
+The value `final` indicates, that the issuing party asserts the content is unlikely to change. “Final” status is an indication only, and does not preclude updates. This SHOULD be used if the issuing party expects no, slow or few changes.
 
-The value `interim` indicates, that the issuing party asserts the content is unlikely to change.
+The value `interim` indicates, that the issuing party expects rapid updates. This SHOULD be used if the expected rate of release for this document is significant higher than for other documents. Once the rate slows down it MUST be changed to `final`. This may be done in a patch version.
+
+> This is extremly useful for downstream vendors to constantly inform the end users about ongoing investigation. It can be used as an indication to pull the CSAF document more frequently.
 
 ##### 3.2.1.12.8 Document Property - Tracking - Version
 
@@ -2331,7 +2333,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.13 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of type `object` representing Threats contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
@@ -2521,10 +2523,12 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
   * track of the version of CSAF documents automatically and increment according to the versioning scheme (see also subsections of 3.1.11) selected in the configuration.
+  * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in the configuration (default: 3 weeks)
+  * suggest to publish a new version of the CSAF document with the document status `final` if the document status was `interim` and no new release has be done during the the given threshold in the configuration (default: 6 weeks)
   * support the following workflows:
 
-    * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the advisory is provided for publication (interim -> final)
-    * "Update Advisory": open an existing advisory, create new revision & change content (interim), request a review, provide review comments or approve it, resolve review comments; if the review approved it (draft->interim), the approval for publication can be requested; if granted (manual or time-based) the updated advisory is provided for publication (interim -> final)
+    * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it, the approval for publication can be requested; if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration) and the advisory is provided for publication (manual or time-based)
+    * "Update Advisory": open an existing advisory, create new revision & change content, request a review, provide review comments or approve it, resolve review comments; if the review approved it, the approval for publication can be requested; if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration) and the advisory is provided for publication (manual or time-based)
 
 * publication may be immediately or at a given date/time.
 * handling of date/time and version is automated.
@@ -2558,7 +2562,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/tracking/status` with `draft`
   * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
   * `/document/publisher` and children
-  * `/document/type` (based on the templates from configuration)
+  * `/document/category` (based on the templates from configuration)
 
 * When updating an existing CSAF document:
   
@@ -2619,7 +2623,7 @@ The resulting translated document:
 * does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they may use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
-* has the value `translator` set in `/document/publisher/type`
+* has the value `translator` set in `/document/publisher/category`
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
