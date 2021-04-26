@@ -2931,6 +2931,7 @@ The entities ("conformance targets") for which this document defines requirement
 A text file satisfies the "CSAF document" conformance profile if the text file:
 
 * conforms to the syntax and semantics defined in section 3.
+* does not fail any mandatory test defined in section 4.1.
 
 ### 6.1.2 Conformance Clause 2: CSAF producer
 
