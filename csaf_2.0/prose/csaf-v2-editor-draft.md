@@ -2760,7 +2760,7 @@ Example which fails the test:
 
 ```
   "revision_history": [
-        {
+    {
       "date": "2021-04-22T10:00:00.000Z",
       "number": "2",
       "summary": "Second version."
@@ -2867,6 +2867,45 @@ Example which fails the test:
 ```
 
 > `CSAFPID-9080700` was defined but never used.
+
+### 4.2.2 Missing Remediation
+
+For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
+
+> The remediation might be of the category `none_available`.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/known_affected[]
+  /vulnerabilities[]/product_status/last_affected[]
+  /vulnerabilities[]/product_status/under_investigation[]
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "last_affected": [
+          "CSAFPID-9080700"
+        ]
+      }
+    }
+  ]
+```
+
+> `CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.
 
 ## 4.3 Informative Test
 
