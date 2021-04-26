@@ -2672,4 +2672,4 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210323 | 2021-03-23 | Stefan Hagen | Editor revision for TC review |
+| csaf-v2.0-wd20210426 | 2021-04-26 | Stefan Hagen | Editor revision for TC review |
