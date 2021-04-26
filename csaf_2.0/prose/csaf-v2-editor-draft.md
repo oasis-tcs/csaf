@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 23 March 2021
+## 26 April 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -156,8 +156,6 @@ For purposes of this document, the following terms and definitions apply:
 
 **document**: output file produced by an analysis tool, which enumerates the results produced by the tool
 
-**(document) viewer**: CSAF consumer that reads a document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs
-
 **driver**: tool component containing an analysis tool’s or converter’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis rules
 
 **embedded link**: syntactic construct which enables a message string to refer to a location mentioned in the document
@@ -246,7 +244,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **VCS**: version control system
 
-**viewer**: see document viewer.
+**viewer**: see CSAF viewer.
 
 **XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
 
