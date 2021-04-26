@@ -2937,7 +2937,7 @@ A text file satisfies the "CSAF document" conformance profile if the text file:
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the semantics defined in section 3.
+* produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
 ### 6.1.3 Conformance Clause 3: Direct producer
