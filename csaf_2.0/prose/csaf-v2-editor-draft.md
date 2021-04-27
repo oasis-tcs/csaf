@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 23 March 2021
+## 26 April 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -156,8 +156,6 @@ For purposes of this document, the following terms and definitions apply:
 
 **document**: output file produced by an analysis tool, which enumerates the results produced by the tool
 
-**(document) viewer**: CSAF consumer that reads a document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs
-
 **driver**: tool component containing an analysis tool’s or converter’s primary executable, which controls the tool’s or converter’s execution, and which in the case of an analysis tool typically defines a set of analysis rules
 
 **embedded link**: syntactic construct which enables a message string to refer to a location mentioned in the document
@@ -246,7 +244,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **VCS**: version control system
 
-**viewer**: see document viewer.
+**viewer**: see CSAF viewer.
 
 **XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
 
@@ -366,7 +364,7 @@ A security issue is not necessarily constraint to a problem statement, the focus
 This document is the definitive reference for the language elements of CSAF version 2.0. The encompassing JSON schema file noted in the Additional Artifacts section of the title page shall be taken as normative in the case a gap or an inconsistency in this explanatory document becomes evident.
 The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike. The section SCHEMA_SECTION_NUMBER Schema derives from the JSON schema itself as a service for the reader.
 
-« From a high-level perspective, any Security Advisory purported by a CSAF version 2.0 adhering JSON text document MUST provide the `document` member with at least the following five properties defined: `csaf_version`, `title`, `publisher`, `type`, and `tracking`. » [CSAF-2-1]
+« From a high-level perspective, any Security Advisory purported by a CSAF version 2.0 adhering JSON text document MUST provide the `document` member with at least the following five properties defined: `category`, `csaf_version`, `title`, `publisher`, and `tracking`. » [CSAF-2-1]
 
 This minimal required information set does not provide any useful information on products, vulnerabilities, or security advisories. Thus, any real-world Security Advisory will carry additional information as specified in SCHEMA_SECTION_NUMBER section Schema.
 
@@ -501,15 +499,15 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type array
     },
 ```
 
-The value type of `Acknowledgment` is object with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
-The properties are: `names`, `organizations`, `summary`, and `urls`.
+The value type of Acknowledgment is `object` with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The properties are: `names`, `organization`, `summary`, and `urls`.
 
 ```
         "properties": {
           "names": {
             // ...
           },
-          "organizations": {
+          "organization": {
             // ...
           },
           "summary": {
@@ -533,10 +531,9 @@ Examples:
     Albert Einstein
 ```
 
-#### 3.1.1.2 Acknowledgments Type - Organizations
+#### 3.1.1.2 Acknowledgments Type - Organization
 
-List of contributing organizations (`organizations`) has value type `array` with 1 or more items holds the names of contributing organizations being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of a single organization.
+The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of the contributing organization being recognized.
 
 Examples:
 
@@ -562,9 +559,53 @@ List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
 
+##### 3.1.1.5 Acknowledgments Type - Example
+
+Example:
+
+```
+"acknowledgments": [
+  {
+    "names": [
+      "Johann Sebastian Bach",
+      "Georg Philipp Telemann",
+      "Georg Friedrich Händel"
+    ],
+    "organization": "Baroque composers",
+    "summary": "wonderful music"
+  },
+  {
+    "organization": "CISA"
+    "summary": "coordination efforts",
+    "urls": [
+      "https://cisa.gov"
+    ]
+  },
+  {
+    "organization": "BSI",
+    "summary": "assistance in coordination"
+  },
+  {
+    "names": [
+      "Antonio Vivaldi"
+    ],
+    "summary": "influencing other composers"
+  },
+]
+```
+
+The example above should lead to the following outcome in a human-readable advisory:
+
+> We thank the following parties for their efforts:
+>
+> * Johann Sebastian Bach, Georg Philipp Telemann, Georg Friedrich Händel from Baroque composers for wonderful music
+> * CISA for coordination efforts (see: https://cisa.gov)
+> * BSI for assistance in coordination
+> * Antonio Vivaldi for influencing other composers
+
 ### 3.1.2 Branches Type
 
-List of branches (`branches_t`) with value type `array` contains 1 or more `branch` elements as children of the current element.
+List of branches (`branches_t`) with value type `array` contains 1 or more branch elements as children of the current element.
 
 ```
     "branches_t": {
@@ -576,21 +617,20 @@ List of branches (`branches_t`) with value type `array` contains 1 or more `bran
 ```
 
 Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree.
-The properties `name` and `type` are mandatory. In addition, the object contains either a `branches` or a `product` property.
+The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
 
 ```
         "properties": {
           "branches": {
             // ...
           },
+          "category": {
+            // ...
+          },
           "name": {
             // ...
           },
-          
           "product": {
-            // ...
-          },
-          "type": {
             // ...
           }
         }
@@ -600,30 +640,9 @@ The properties `name` and `type` are mandatory. In addition, the object contains
 
 List of branches (`branches`) has the value type `branches_t`.
 
-#### 3.1.2.2 Branches Type - Name
+#### 3.1.2.2 Branches Type - Category
 
-Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
-
-Examples:
-
-```
-    Microsoft
-    Siemens
-    Windows
-    Office
-    SIMATIC
-    10
-    365
-    PCS 7
-```
-
-#### 3.1.2.3 Branches Type - Product
-
-Product (`product`) has the value type Full Product Name (`full_product_name_t`).
-
-#### 3.1.2.4 Branches Type - Type
-
-Type of the branch (`type`) of value type `string` as `enum` describes the characteristics of the labeled branch.
+Category of the branch (`category`) of value type `string` as `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
 
 ```
@@ -661,6 +680,27 @@ The value `service_pack` indicates the service pack of the product.
 The value `specification` indicates the specification such as a standard, best common practice, etc.
 
 The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
+
+#### 3.1.2.3 Branches Type - Name
+
+Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
+
+Examples:
+
+```
+    Microsoft
+    Siemens
+    Windows
+    Office
+    SIMATIC
+    10
+    365
+    PCS 7
+```
+
+#### 3.1.2.4 Branches Type - Product
+
+Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
 ### 3.1.3 Full Product Name Type
 
@@ -901,7 +941,7 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type `No
     },
 ```
 
-Value type of every such Note item is `object` with the mandatory properties `type` and `text` providing a place to put all manner of text blobs related to the current context.
+Value type of every such Note item is `object` with the mandatory properties `category` and `text` providing a place to put all manner of text blobs related to the current context.
 A Note `object` may provide the optional properties `audience` and `title`.
 
 ```
@@ -909,13 +949,13 @@ A Note `object` may provide the optional properties `audience` and `title`.
       "audience": {
         // ...
       },
+      "category": {
+        // ...
+      },
       "text": {
         // ...
       },
       "title": {
-        // ...
-      },
-      "type": {
         // ...
       }
     }
@@ -932,20 +972,7 @@ Examples:
     safety engineers
 ```
 
-Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
-
-Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
-
-Examples:
-
-```
-    Details
-    Executive summary
-    Technical summary
-    Impact on safety systems
-```
-
-Note type (`type`) of value type `string` as `enum` indicates the choice of what kind of note this is.
+Note category (`category`) of value type `string` as `enum` indicates the choice of what kind of note this is.
 Valid `enum` values are:
 
 ```
@@ -971,6 +998,19 @@ The value `legal_disclaimer` indicates the note represents any possible legal di
 The value `other` indicates the note is something that doesn’t fit the other categories. The optional sibling attribute `title` SHOULD have more information to indicate clearly what kind of note to expect in this case.
 
 The value `summary` indicates the note is a summary of something. The optional sibling property `title` MAY have more information in this case.
+
+Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
+
+Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
+
+Examples:
+
+```
+    Details
+    Executive summary
+    Technical summary
+    Impact on safety systems
+```
 
 ### 3.1.6 Product Group ID Type
 
@@ -1051,14 +1091,14 @@ List of references (`references_t`) of value type `array` with 1 or more items o
 ```
 
 Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.
-A reference `object` may provide the optional property `type`.
+A reference `object` may provide the optional property `category`.
 
 ```
     "properties": {
-      "summary": {
+      "category": {
         // ...
       },
-      "type": {
+      "summary": {
         // ...
       },
       "url": {
@@ -1067,9 +1107,7 @@ A reference `object` may provide the optional property `type`.
     }
 ```
 
-Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
-
-Type of reference (`type`) of value type `string` as `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
+Category of reference (`category`) of value type `string` as `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
 Valid `enum` values are:
 
 ```
@@ -1077,11 +1115,13 @@ Valid `enum` values are:
     self
 ```
 
-The default value for `type` is `external`.
+The default value for `category` is `external`.
 
 The value `external` indicates, that this document is an external reference to a document or vulnerability in focus (depending on scope).
 
 The value `self` indicates, that this document is a reference to this same document or vulnerability (also depending on scope).
+
+Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
 URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
 
@@ -1110,8 +1150,8 @@ These final three subsections document the three properties of a CSAF document. 
 
 ### 3.2.1 Document Property
 
-Document level meta-data (`document`) of value type `object` with the 5 mandatory properties CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`), Tracking (`tracking`), and Type (`type`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object may provide the 7 optional properties Acknowledgments (`acknowledgments`), Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`) References (`references`), and Source Language (`source_lang`).
+Document level meta-data (`document`) of value type `object` with the 5 mandatory properties Category (`category`), CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`), and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
+In addition, the `document` object may provide the 7 optional properties Acknowledgments (`acknowledgments`), Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`), References (`references`), and Source Language (`source_lang`).
 
 ```
     "document": {
@@ -1121,6 +1161,9 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
           // ...
         },
         "aggregate_severity" : {
+          // ...
+        },
+        "category": {
           // ...
         },
         "csaf_version": {
@@ -1148,9 +1191,6 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
           // ...
         },
         "tracking": {
-          // ...
-        },
-        "type": {
           // ...
         }
       }
@@ -1197,7 +1237,25 @@ Examples:
     Critical
 ```
 
-#### 3.2.1.3 Document Property - CSAF Version
+#### 3.2.1.3 Document Property - Category
+
+Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
+
+```
+    "category": {
+      // ...
+    }
+```
+
+Examples:
+
+```
+    Security Advisory
+    Security Notice
+    Vulnerability Report
+```
+
+#### 3.2.1.4 Document Property - CSAF Version
 
 CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
 The single valid value for this `enum` is:
@@ -1206,7 +1264,7 @@ The single valid value for this `enum` is:
     2.0
 ```
 
-#### 3.2.1.4 Document Property - Distribution
+#### 3.2.1.5 Document Property - Distribution
 
 Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol TLP (`tlp`) describes any constraints on how this document might be shared.
 
@@ -1224,7 +1282,7 @@ Rules for sharing document (`distribution`) of value type `object` with at least
     },
 ```
 
-##### 3.2.1.4.1 Document Property - Distribution - Text
+##### 3.2.1.5.1 Document Property - Distribution - Text
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
@@ -1236,7 +1294,7 @@ Examples:
     Copyright 2019, Example Company, All Rights Reserved.
 ```
 
-##### 3.2.1.4.2 Document Property - Distribution - TLP
+##### 3.2.1.5.2 Document Property - Distribution - TLP
 
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and the optional property URL (`url`) provides details about the TLP classification of the document.
 
@@ -1277,23 +1335,26 @@ Examples:
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf
 ```
 
-#### 3.2.1.5 Document Property - Language
+#### 3.2.1.6 Document Property - Language
 
 Document language (`lang`) of Language Type (`lang_t`) identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.
 
-#### 3.2.1.6 Document Property - Notes
+#### 3.2.1.7 Document Property - Notes
 
 Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) holds notes about this set of vulnerabilities.
 
-#### 3.2.1.7 Document Property - Publisher
+#### 3.2.1.8 Document Property - Publisher
 
-Publisher (`publisher`) has value type `object` with the mandatory properties Name (`name`) and Type (`type`) and provides information on the publishing entity.
+Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`) and Name (`name`) and provides information on the publishing entity.
 The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
 
 ```
     "publisher": {
       // ...
       "properties": {
+        "category": {
+          // ...
+        },
         "contact_details": {
           // ...
         },
@@ -1303,9 +1364,6 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
         "name": {
           // ...
         }
-        "type": {
-          // ...
-        },
         "vendor_id": {
           // ...
         }
@@ -1313,35 +1371,9 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
     },
 ```
 
-##### 3.2.1.7.1 Document Property - Publisher - Contact Details
+##### 3.2.1.8.1 Document Property - Publisher - Category
 
-Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
-
-Example:
-
-```
-    Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
-```
-
-##### 3.2.1.7.2 Document Property - Publisher - Issuing Authority
-
-Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
-
-##### 3.2.1.7.3 Document Property - Publisher - Name
-
-The Name of publisher (`name`) of type `string` contains the name of the issuing party.
-
-Example:
-
-```
-     BSI
-     Cisco PSIRT
-     Siemens ProductCERT
-```
-
-##### 3.2.1.7.4 Document Property - Publisher - Type
-
-The Type of publisher (`type`) of type `string` and `enum` provides information about the type of publisher releasing the document.
+The Category of publisher (`category`) of type `string` and `enum` provides information about the category of publisher releasing the document.
 The valid values are:
 
 ```
@@ -1365,13 +1397,39 @@ The value `user` indicates anyone using a vendor’s product.
 
 The value `vendor` indicates developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.1.7.5 Document Property - Publisher - Vendor ID
+##### 3.2.1.8.2 Document Property - Publisher - Contact Details
+
+Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
+
+Example:
+
+```
+    Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
+```
+
+##### 3.2.1.8.3 Document Property - Publisher - Issuing Authority
+
+Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
+
+##### 3.2.1.8.4 Document Property - Publisher - Name
+
+The Name of publisher (`name`) of type `string` contains the name of the issuing party.
+
+Example:
+
+```
+     BSI
+     Cisco PSIRT
+     Siemens ProductCERT
+```
+
+##### 3.2.1.8.5 Document Property - Publisher - Vendor ID
 
 The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
 
-#### 3.2.1.8 Document Property - References
+#### 3.2.1.9 Document Property - References
 
-References (`references`) of References type (`references_t`).
+References (`references`) of References Type (`references_t`).
 
 ```
     "references": {
@@ -1379,12 +1437,13 @@ References (`references`) of References type (`references_t`).
     },
 ```
 
-#### 3.2.1.9 Document Property - Source Language
+#### 3.2.1.10 Document Property - Source Language
 
 Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
-The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/type`.
-#### 3.2.1.10 Document Property - Title
+The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/category`.
+
+#### 3.2.1.11 Document Property - Title
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
 
@@ -1395,7 +1454,7 @@ Examples:
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
 ```
 
-#### 3.2.1.11 Document Property - Tracking
+#### 3.2.1.12 Document Property - Tracking
 
 Tracking (`tracking`) of value type `object` with the six mandatory properties: Current Release Date (`current_release_date`), Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`), and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
@@ -1432,7 +1491,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
     },
 ```
 
-##### 3.2.1.11.1 Document Property - Tracking - Aliases
+##### 3.2.1.12.1 Document Property - Tracking - Aliases
 
 Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a list of alternate names for the same document.
 
@@ -1453,11 +1512,11 @@ Example:
     CVE-2019-12345
 ```
 
-##### 3.2.1.11.2 Document Property - Tracking - Current Release Date
+##### 3.2.1.12.2 Document Property - Tracking - Current Release Date
 
 Current release date (`current_release_date`) with value type `string` and format `date-time` holds the date when the current revision of this document was released.
 
-##### 3.2.1.11.3 Document Property - Tracking - Generator
+##### 3.2.1.12.3 Document Property - Tracking - Generator
 
 Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and optional property Date (`date`) is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
@@ -1488,7 +1547,7 @@ Examples:
     CMPFA Core Converter CVRF->CSAF Version 0.6
 ```
 
-##### 3.2.1.11.4 Document Property - Tracking - ID
+##### 3.2.1.12.4 Document Property - Tracking - ID
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
@@ -1502,11 +1561,11 @@ Examples:
     cisco-sa-20190513-secureboot
 ```
 
-##### 3.2.1.11.5 Document Property - Tracking - Initial Release Date
+##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
 Initial release date (`initial_release_date`) with value type `string` and format `date-time` holds the date when this document was first published.
 
-##### 3.2.1.11.6 Document Property - Tracking - Revision History
+##### 3.2.1.12.6 Document Property - Tracking - Revision History
 
 The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one.
 
@@ -1541,7 +1600,7 @@ The Date of the revision (`date`) of value type `string` with format `date-time`
 
 The Summary of the revision (`summary`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
 
-##### 3.2.1.11.7 Document Property - Tracking - Status
+##### 3.2.1.12.7 Document Property - Tracking - Status
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
 The value MUST be one of the following:
@@ -1558,27 +1617,9 @@ The value `final` indicates, that the issuing party asserts the content is unlik
 
 The value `interim` indicates, that the issuing party asserts the content is unlikely to change.
 
-##### 3.2.1.11.8 Document Property - Tracking - Version
+##### 3.2.1.12.8 Document Property - Tracking - Version
 
 Version has the value type Version (`version_t`).
-
-#### 3.2.1.12 Document Property - Type
-
-Document type (`type`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the type of document.
-
-```
-    "type": {
-      // ...
-    }
-```
-
-Examples:
-
-```
-    Security Advisory
-    Security Notice
-    Vulnerability Report
-```
 
 ### 3.2.2 Product Tree Property
 
@@ -1668,10 +1709,13 @@ List of relationships (`relationships`) of value type `array` with 1 or more ite
     }
 ```
 
-The Relationship item is of value type `object` and has four mandatory properties: Full Product Name (`full_product_name`), Product Reference (`product_reference`), Relates to Product Reference (`relates_to_product_reference`), and Relationship Type (`relationship_type`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
+The Relationship item is of value type `object` and has four mandatory properties: Relationship category (`category`), Full Product Name (`full_product_name`), Product Reference (`product_reference`), and Relates to Product Reference (`relates_to_product_reference`). The Relationship item establishes a link between two existing `full_product_name_t` elements, allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
 ```
     "properties": {
+      "category": {
+        // ...
+      },
       "full_product_name": {
         // ...
       },
@@ -1680,20 +1724,11 @@ The Relationship item is of value type `object` and has four mandatory propertie
       },
       "relates_to_product_reference": {
         // ...
-      },
-      "relationship_type": {
-        // ...
       }
     }
 ```
 
-Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
-
-Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
-
-Relates to Product Reference (`relates_to_product_reference`) holds also a Product ID (`product_id_t`) value.
-
-Relationship type (`relationship_type`) of value `string` and `enum` defines the type of relationship for the referenced component.
+Relationship category (`category`) of value `string` and `enum` defines the category of relationship for the referenced component.
 The valid values are:
 
 ```
@@ -1713,6 +1748,12 @@ The value `installed_on` indicates that the entity labeled with one Product ID (
 The value `installed_with` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is installed alongside an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 
 The value `optional_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an optional component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
+
+Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
+
+Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
+
+Relates to Product Reference (`relates_to_product_reference`) holds also a Product ID (`product_id_t`) value.
 
 ### 3.2.3 Vulnerabilities Property
 
@@ -2032,12 +2073,15 @@ List of remediations (`remediations`) of value type `array` with 1 or more Remed
     },
 ```
 
-Every Remediation item of value type `object` with the 2 mandatory properties Details (`details`) and Type (`type`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
 
 In addition, any Remediation may expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
 ```
       "properties": {
+        "category": {
+          // ...
+        },
         "date": {
           // ...
         },
@@ -2056,14 +2100,32 @@ In addition, any Remediation may expose the six optional properties Date (`date`
         "restart_required": {
           // ...
         },
-        "type": {
-          // ...
-        },
         "url": {
           // ...
         }
       }
 ```
+
+Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
+Valid values are:
+
+```
+    workaround
+    mitigation
+    vendor_fix
+    none_available
+    no_fix_planned
+```
+
+The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that can be used to avoid exposure to the vulnerability. There may be none, one, or more workarounds available. This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
+
+The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product. Mitigations may include using devices or access controls external to the affected product. Mitigations may or may not be issued by the original author of the affected product, and they may or may not be officially sanctioned by the document producer.
+
+The value `vendor_fix` indicates that the remediation contains information about an official fix that is issued by the original author of the affected product. Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
+
+The value `none_available` indicates that there is currently no fix available. The description should contain details about why there is no fix.
+
+The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description should contain details about why there will be no fix issued.
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
@@ -2086,25 +2148,23 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
-Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Type (`type`) and the optional property Details (`details`) provides information on type of restart is required by this remediation to become effective.
+Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
 
 ```
       "restart_required": {
         // ...
         "properties": {
-          "details": {
+          "category": {
             // ...
-          },
-          "type": {
+          }
+          "details": {
             // ...
           }
         }
       },
 ```
 
-Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
-
-Type of restart (`type`) of value type `string` and `enum` specifies what type of restart is required by this remediation to become effective.
+Category of restart (`category`) of value type `string` and `enum` specifies what category of restart is required by this remediation to become effective.
 Valid values are:
 
 ```
@@ -2131,26 +2191,7 @@ The values must be used as follows:
 * `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted. This value might be useful for a remediation if no patch is available. If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at the same time and restart afterwards can leave one with a clean system.
 * `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted. This may include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
-Type of the remediation (`type`) of value type `string` and `enum` specifies the type which this remediation belongs to.
-Valid values are:
-
-```
-    workaround
-    mitigation
-    vendor_fix
-    none_available
-    no_fix_planned
-```
-
-The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that can be used to avoid exposure to the vulnerability. There may be none, one, or more workarounds available. This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
-
-The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product. Mitigations may include using devices or access controls external to the affected product. Mitigations may or may not be issued by the original author of the affected product, and they may or may not be officially sanctioned by the document producer.
-
-The value `vendor_fix` indicates that the remediation contains information about an official fix that is issued by the original author of the affected product. Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
-
-The value `none_available` indicates that there is currently no fix available. The description should contain details about why there is no fix.
-
-The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description should contain details about why there will be no fix issued.
+Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
@@ -2194,7 +2235,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.13 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of `object` type representing Threats contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of type `object` representing Threats contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
@@ -2205,12 +2246,15 @@ List of threats (`threats`) of value type `array` with 1 or more items of `objec
     },
 ```
 
-A Threat item is of value type `object` with the two mandatory properties Details (`details`) and Type (`type`) and contains the vulnerability kinetic information.
+A Threat item is of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) and contains the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, threat items may provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```
     "properties": {
+      "category": {
+        // ...
+      }
       "date": {
         // ...
       },
@@ -2222,22 +2266,11 @@ In addition, threat items may provide the three optional properties Date (`date`
       },
       "product_ids": {
         // ...
-      },
-      "type": {
-        // ...
       }
     }
 ```
 
-Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
-
-Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
-
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
-
-Product IDs (`product_ids`) are of value type Products (`products_t`).
-
-Type of the threat (`type`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
+Category of the threat (`category`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
 Valid values are:
 
 ```
@@ -2248,9 +2281,17 @@ Valid values are:
 
 The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
-The value `impact` indicates, that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
+The value `impact` indicates that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
 
 The value `target_set` indicates that the `details` field contains a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
+
+Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
+
+Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+
+Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 #### 3.2.3.14 Vulnerabilities Property - Title
 
@@ -2351,10 +2392,11 @@ Firstly, the program:
 
 Secondly, the program for all items of:
 
+* `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If both values are present, the program should prefer the latter one.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
-* `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition that converter outputs a warning that information might be lost during conversion of product relationships.
+* `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 
 ### 5.1.6 Conformance Clause 6: CSAF content management system
 
@@ -2419,7 +2461,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/tracking/status` with `draft`
   * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
   * `/document/publisher` and children
-  * `/document/type` (based on the templates from configuration)
+  * `/document/category` (based on the templates from configuration)
 
 * When updating an existing CSAF document:
   
@@ -2480,7 +2522,7 @@ The resulting translated document:
 * does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It should not use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they may use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and should only be set by CSAF translators).
-* has the value `translator` set in `/document/publisher/type`
+* has the value `translator` set in `/document/publisher/category`
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
@@ -2630,4 +2672,4 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210323 | 2021-03-23 | Stefan Hagen | Editor revision for TC review |
+| csaf-v2.0-wd20210426 | 2021-04-26 | Stefan Hagen | Editor revision for TC review |
