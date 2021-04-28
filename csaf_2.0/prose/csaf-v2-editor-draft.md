@@ -315,6 +315,8 @@ N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
 http://dx.doi.org/10.6028/NIST.SP.800-126r2.
+###### [SemVer]
+_Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/. 
 Latest version available at http://www.w3.org/TR/xml.
@@ -1132,10 +1134,15 @@ URL of reference (`url`) of value type `string` and format `uri` provides the UR
 The Version (`version_t`) type has value type `string` with `pattern` (regular expression):
 
 ```
-    ^(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,3}$
+    ^(0|[1-9][0-9]*)|(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
 ```
 
-The `version` specifies a version string with a simple hierarchical counter model to denote clearly the evolution of the content of the document. Format must be understood as 'major\[.minor\[.patch\[.build\]\]\]' version.
+The `version` specifies a version string. There are two options how it can be used:
+
+* semantic versioning (preferred; according to the rules below)
+* integer versioning
+
+A CSAF document MUST use only one versioning system.
 
 Examples:
 
@@ -1145,6 +1152,91 @@ Examples:
     1.4.3
     2.40.0.320002
 ```
+
+#### 3.1.11.1 Version Type - Integer versioning
+
+Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one. The regular expression for this type is:
+
+```
+^(0|[1-9][0-9]*)$
+```
+
+The following rules apply:
+
+1. Once a versioned document has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version.
+2. Version zero (0) is for initial development before the `initial_release_date`. The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
+3. Version 1 defines the initial public release. Each new version where `/document/tracking/status` is `final` has a version number incremented by one.
+4. Pre-release versions (document status `draft`) MUST carry the new version number. Sole exception is before the initial release (see rule 2). The combination of document status `draft` and version 1 MAY be used to indicate that the content is unlikely to change.
+5. Build metadata is never included in the version.
+6. Precedence MUST be calculate by integer comparison.
+
+#### 3.1.11.2 Version Type - Semantic versioning
+
+Semantic versioning derived the rules from [SemVer]. The regular expression for this type is:
+
+```
+^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+```
+
+The goal of this structure is to provide additional information to the end user whether a new comparison with the asset database is needed. The "public API" in regards to CSAF is the CSAF document with its structure and content. This results in the following rules:
+
+1. A normal version number MUST take the form X.Y.Z where X, Y, and Z are non-negative integers, and MUST NOT contain leading zeroes. X is the major version, Y is the minor version, and Z is the patch version. Each element MUST increase numerically. For instance: 1.9.0 -> 1.10.0 -> 1.11.0.
+2. Once a versioned document has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version.
+3. Major version zero (0.y.z) is for initial development before the `initial_release_date`. The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
+4. Version 1.0.0 defines the initial public release. The way in which the version number is incremented after this release is dependent on the content and structure of the document and how it changes.
+5. Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards compatible bug fixes are introduced. A bug fix is defined as an internal change that fixes incorrect behavior.
+
+   > In the context of the document this is the case  e.g. for spelling mistakes.
+
+6. Minor version Y (x.Y.z | x > 0) MUST be incremented if the content of an existing element changes except for those which are covert through rule 7. It MUST be incremented if substantial new information are introduced or new elements are provided. It MAY include patch level changes. Patch version MUST be reset to 0 when minor version is incremented.
+7. Major version X (X.y.z | X > 0) MUST be incremented if a new comparison with the end user's asset database is required. This includes:
+
+   * changes (adding, removing elements or modifying content) in `/product_tree` or elements which contain `/product_tree` in their path
+   * adding or removing items of `/vulnerabilities`
+   * adding or removing elements in:
+     * `/vulnerabilities[]/product_status/first_affected`
+     * `/vulnerabilities[]/product_status/known_affected`
+     * `/vulnerabilities[]/product_status/last_affected`
+   * removing elements from:
+     * `/vulnerabilities[]/product_status/first_fixed`
+     * `/vulnerabilities[]/product_status/fixed`
+     * `/vulnerabilities[]/product_status/known_not_affected`
+
+   It MAY also include minor and patch level changes. Patch and minor version MUST be reset to 0 when major version is incremented.
+8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version. Examples: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92, 1.0.0-x-y-z.–
+9. Pre-release MUST NOT be included if `/document/tracking/status` is `final`.
+10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence. Thus two versions that differ only in the build metadata, have the same precedence. Examples: 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85, 1.0.0+21AF26D3—-117B344092BD.
+11. Precedence refers to how versions are compared to each other when ordered.
+
+    1. Precedence MUST be calculated by separating the version into major, minor, patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
+    2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows: Major, minor, and patch versions are always compared numerically.
+
+       Example:
+
+       ```
+       1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
+       ```
+
+    3. When major, minor, and patch are equal, a pre-release version has lower precedence than a normal version:
+
+       Example:
+
+       ```
+       1.0.0-alpha < 1.0.0
+       ```
+
+    4. Precedence for two pre-release versions with the same major, minor, and patch version MUST be determined by comparing each dot separated identifier from left to right until a difference is found as follows:
+
+       1. Identifiers consisting of only digits are compared numerically.
+       2. Identifiers with letters or hyphens are compared lexically in ASCII sort order.
+       3. Numeric identifiers always have lower precedence than non-numeric identifiers.
+       4. A larger set of pre-release fields has a higher precedence than a smaller set, if all of the preceding identifiers are equal.
+
+    Example:
+
+     ```
+     1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
+     ```
 
 ## 3.2 Properties
 
@@ -1601,6 +1693,8 @@ The Number (`number`) has value type Version (`version_t`).
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
 
 The Summary of the revision (`summary`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
+
+Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from the document if the document status is `final`. Versions of the document which are pre-release SHALL NOT have its own revision item. All changes MUST be tracked in the item for the next release version. Build metadata SHOULD NOT be included in the `number` of any revision item.
 
 ##### 3.2.1.12.7 Document Property - Tracking - Status
 
@@ -2396,6 +2490,7 @@ Firstly, the program:
 
 Secondly, the program for all items of:
 
+* type `/definitions/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/definitions/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If both values are present, the program should prefer the latter one.
 * `/vulernabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
@@ -2427,7 +2522,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * show an audit log for each CSAF document
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
-  * track of the version of CSAF documents automatically and increments for each change at least the patch_version.
+  * track of the version of CSAF documents automatically and increment according to the versioning scheme (see also subsections of 3.1.11) selected in the configuration.
   * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was `interim` and no new release has be done during the the given threshold in the configuration (default: 6 weeks)
   * support the following workflows:
@@ -2436,7 +2531,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * "Update Advisory": open an existing advisory, create new revision & change content, request a review, provide review comments or approve it, resolve review comments; if the review approved it, the approval for publication can be requested; if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration) and the advisory is provided for publication (manual or time-based)
 
 * publication may be immediately or at a given date/time.
-* handling of date/time and version is be automated.
+* handling of date/time and version is automated.
 * provide an API to retrieve all CSAF documents which are currently in the status published.
 * should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
 * provide a user management and support at least the following roles:
@@ -2462,7 +2557,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/tracking/initial_release_date` with the current date
   * `/document/tracking/revision_history`
     * `date` with the current date
-    * `number` (based on the templates from configuration; default: 0.1)
+    * `number` (based on the templates according to the versioning scheme configured)
     * `summary` (based on the templates from configuration; default: "Initial version.")
   * `/document/tracking/status` with `draft`
   * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
@@ -2483,7 +2578,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/generator` and children
     * the new item in `/document/tracking/revision_history[]`
       * `date` with the current date
-      * `number` (based on the templates from configuration; default: latest_patch_version + 1)
+      * `number` (based on the templates according to the versioning scheme configured)
     * `/document/tracking/status` with `draft`
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
