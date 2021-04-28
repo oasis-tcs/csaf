@@ -168,50 +168,66 @@
               "type": "array",
               "minItems": 1,
               "items": {
-                "title": "Cryptographic hash",
-                "description": "Contains all information to identify a file based on its cryptographic hash value.",
+                "title": "Cryptographic hashes",
+                "description": "Contains all information to identify a file based on its cryptographic hash values.",
                 "type": "object",
                 "required": [
-                  "algorithm",
-                  "file",
-                  "value"
+                  "file_hashes",
+                  "file_name"
                 ],
                 "properties": {
-                  "algorithm": {
-                    "title": "Algorithm of the cryptographic hash",
-                    "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
-                    "type": "string",
-                    "default": "SHA-3",
-                    "minLength": 1,
-                    "examples": [
-                      "SHA-256",
-                      "SHA-384",
-                      "SHA-512",
-                      "SHA-3",
-                      "BLAKE3"
-                    ]
+                  "file_hashes": {
+                    "title": "List of file hashes",
+                    "description": "Contains a list of cryptographic hashes for this file.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "title": "File hash",
+                      "description": "Contains one hash value and algorithm of the file to be identified.",
+                      "type": "object",
+                      "required": [
+                        "algorithm",
+                        "value"
+                      ],
+                      "properties": {
+                        "algorithm": {
+                          "title": "Algorithm of the cryptographic hash",
+                          "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
+                          "type": "string",
+                          "default": "SHA-3",
+                          "minLength": 1,
+                          "examples": [
+                            "SHA-256",
+                            "SHA-384",
+                            "SHA-512",
+                            "SHA-3",
+                            "BLAKE3"
+                          ]
+                        },
+                        "value": {
+                          "title": "Value of the cryptographic hash",
+                          "description": "Contains the cryptographic hash value in hexadecimal representation.",
+                          "type": "string",
+                          "minLength": 64,
+                          "pattern": "^[0-9a-fA-F]{64,}$",
+                          "examples": [
+                            "4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc",
+                            "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c",
+                            "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3"
+                          ]
+                        }
+                      }
+                    }
                   },
-                  "file": {
+                  "file_name": {
                     "title": "Filename",
-                    "description": "Contains the name of the file which is identified by the hash value.",
+                    "description": "Contains the name of the file which is identified by the hash values.",
                     "type": "string",
                     "minLength": 1,
                     "examples": [
                       "WINWORD.EXE",
                       "msotadddin.dll",
                       "sudoers.so"
-                    ]
-                  },
-                  "value": {
-                    "title": "Value of the cryptographic hash",
-                    "description": "Contains the cryptographic hash value in hexadecimal representation.",
-                    "type": "string",
-                    "minLength": 64,
-                    "pattern": "^[0-9a-fA-F]{64,}$",
-                    "examples": [
-                      "4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc",
-                      "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c",
-                      "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3"
                     ]
                   }
                 }
