@@ -792,15 +792,36 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
     }
 ```
 
-A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.
-Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
+Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
+Any cryptographic hashes object has the 2 mandatory properties `file_hashes` and `file_name`.
+
+```
+        "properties": {
+          "file_hashes": {
+            // ...
+          },
+          "file_name": {
+            // ...
+          }
+        }
+```
+
+List of file hashes (`file_hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes for this file.
+
+```
+    "file_hashes": {
+      // ...
+      "items": {
+        // ...
+      }
+    }
+```
+
+Each File hash of value type `object` contains one hash value and algorithm of the file to be identified. Any File hash object has the 2 mandatory properties `algorithm` and `value`.
 
 ```
         "properties": {
           "algorithm": {
-            // ...
-          },
-          "file": {
             // ...
           },
           "value": {
@@ -822,16 +843,6 @@ Examples:
     BLAKE3
 ```
 
-The file representation (`file`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
-
-Examples:
-
-```
-    WINWORD.EXE
-    msotadddin.dll
-    sudoers.so
-```
-
 The Value of the cryptographic hash representation (`value`) of value type `string` of 64 or more characters with `pattern` (regular expression):
 
 ```
@@ -846,6 +857,16 @@ Examples:
     4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
+```
+
+The file name representation (`file_name`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
+
+Examples:
+
+```
+    WINWORD.EXE
+    msotadddin.dll
+    sudoers.so
 ```
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
