@@ -304,6 +304,8 @@ _Data elements and interchange formats — Information interchange — Represent
 ###### [ISO29147]
 _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO 29147:2014(E), February 15, 2014,
 https://www.iso.org/standard/45170.html.
+###### [OPENSSL]
+_GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 ###### [PURL]
 _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
@@ -316,15 +318,13 @@ http://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SemVer]
 _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [XML]
-_Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/. 
+_Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at http://www.w3.org/TR/xml.
 ###### [XML-Schema-1]
-_W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn, D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, 
-http://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/. 
+_W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn, D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, http://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/.
 Latest version available at http://www.w3.org/TR/xmlschema11-1/.
 ###### [XML-Schema-2]
-_W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012, 
-http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. 
+_W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012, http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/.
 Latest version available at http://www.w3.org/TR/xmlschema11-2/.
 
 ## 1.5 Typographical Conventions
@@ -792,15 +792,36 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
     }
 ```
 
-A cryptographic hash of value type `object` contains a list of cryptographic hashes usable to identify files.
-Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`, and `value`.
+Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
+Any cryptographic hashes object has the 2 mandatory properties `file_hashes` and `filename`.
+
+```
+        "properties": {
+          "file_hashes": {
+            // ...
+          },
+          "filename": {
+            // ...
+          }
+        }
+```
+
+List of file hashes (`file_hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes for this file.
+
+```
+    "file_hashes": {
+      // ...
+      "items": {
+        // ...
+      }
+    }
+```
+
+Each File hash of value type `object` contains one hash value and algorithm of the file to be identified. Any File hash object has the 2 mandatory properties `algorithm` and `value`.
 
 ```
         "properties": {
           "algorithm": {
-            // ...
-          },
-          "file": {
             // ...
           },
           "value": {
@@ -810,32 +831,39 @@ Any cryptographic hash object has the 3 mandatory properties `algorithm`, `file`
 ```
 
 The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
-The default value for `algorithm` is `SHA-3`.
+The default value for `algorithm` is `sha256`.
 
 Examples:
 
 ```
-    SHA-256
-    SHA-384
-    SHA-512
-    SHA-3
-    BLAKE3
+      sha256
+      sha384
+      sha512
+      sha3-512
+      blake2b512
 ```
 
-The file representation (`file`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
+These values are derived from the currently supported digests OpenSSL [OPENSSL]. Leading dashs were removed.
 
-Examples:
+> The command `openssl dgst -list` (Version 1.1.1f from 2020-03-31) outputs the following:
+>
+>```
+>  Supported digests:
+>  -blake2b512                -blake2s256                -md4                      
+>  -md5                       -md5-sha1                  -ripemd                   
+>  -ripemd160                 -rmd160                    -sha1                     
+>  -sha224                    -sha256                    -sha3-224                 
+>  -sha3-256                  -sha3-384                  -sha3-512                 
+>  -sha384                    -sha512                    -sha512-224               
+>  -sha512-256                -shake128                  -shake256                 
+>  -sm3                       -ssl3-md5                  -ssl3-sha1                
+>  -whirlpool
+>```
+
+The Value of the cryptographic hash representation (`value`) of value type `string` of 32 or more characters with `pattern` (regular expression):
 
 ```
-    WINWORD.EXE
-    msotadddin.dll
-    sudoers.so
-```
-
-The Value of the cryptographic hash representation (`value`) of value type `string` of 64 or more characters with `pattern` (regular expression):
-
-```
-    ^[0-9a-fA-F]{64,}$
+    ^[0-9a-fA-F]{32,}$
 ```
 
 The Value of the cryptographic hash attribute contains the cryptographic hash value in hexadecimal representation.
@@ -847,6 +875,18 @@ Examples:
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
 ```
+
+The filename representation (`filename`) of type `string` with one or more characters contains the name of the file which is identified by the hash values.
+
+Examples:
+
+```
+    WINWORD.EXE
+    msotadddin.dll
+    sudoers.so
+```
+
+If the value of the hash matches and the filename does not, a user should prefer the hash value. In such cases, the filename should be used as informational property.
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
 
