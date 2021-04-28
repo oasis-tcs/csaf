@@ -173,7 +173,7 @@
                 "type": "object",
                 "required": [
                   "file_hashes",
-                  "file_name"
+                  "filename"
                 ],
                 "properties": {
                   "file_hashes": {
@@ -219,7 +219,7 @@
                       }
                     }
                   },
-                  "file_name": {
+                  "filename": {
                     "title": "Filename",
                     "description": "Contains the name of the file which is identified by the hash values.",
                     "type": "string",

@@ -793,14 +793,14 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
 ```
 
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
-Any cryptographic hashes object has the 2 mandatory properties `file_hashes` and `file_name`.
+Any cryptographic hashes object has the 2 mandatory properties `file_hashes` and `filename`.
 
 ```
         "properties": {
           "file_hashes": {
             // ...
           },
-          "file_name": {
+          "filename": {
             // ...
           }
         }
@@ -859,7 +859,7 @@ Examples:
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
 ```
 
-The file name representation (`file_name`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
+The filename representation (`filename`) of type `string` with one or more characters contains the name of the file which is identified by the hash value.
 
 Examples:
 
@@ -868,6 +868,8 @@ Examples:
     msotadddin.dll
     sudoers.so
 ```
+
+If the value of the hash matches and the filename does not, a user should prefer the hash value. In such cases, the filename should be used as informational property.
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
 
