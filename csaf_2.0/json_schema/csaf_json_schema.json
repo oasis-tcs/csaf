@@ -208,8 +208,8 @@
                           "title": "Value of the cryptographic hash",
                           "description": "Contains the cryptographic hash value in hexadecimal representation.",
                           "type": "string",
-                          "minLength": 64,
-                          "pattern": "^[0-9a-fA-F]{64,}$",
+                          "minLength": 32,
+                          "pattern": "^[0-9a-fA-F]{32,}$",
                           "examples": [
                             "4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc",
                             "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c",
