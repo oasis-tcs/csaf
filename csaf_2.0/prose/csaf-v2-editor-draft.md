@@ -831,17 +831,34 @@ Each File hash of value type `object` contains one hash value and algorithm of t
 ```
 
 The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
-The default value for `algorithm` is `SHA-3`.
+The default value for `algorithm` is `sha256`.
 
 Examples:
 
 ```
-    SHA-256
-    SHA-384
-    SHA-512
-    SHA-3
-    BLAKE3
+      sha256
+      sha384
+      sha512
+      sha3-512
+      blake2b512
 ```
+
+These values are derived from the currently supported digests OpenSSL. Leading dashs were removed.
+
+> The command `openssl dgst -list` (Version 1.1.1f from 2020-03-31) outputs the following:
+>
+>```
+>  Supported digests:
+>  -blake2b512                -blake2s256                -md4                      
+>  -md5                       -md5-sha1                  -ripemd                   
+>  -ripemd160                 -rmd160                    -sha1                     
+>  -sha224                    -sha256                    -sha3-224                 
+>  -sha3-256                  -sha3-384                  -sha3-512                 
+>  -sha384                    -sha512                    -sha512-224               
+>  -sha512-256                -shake128                  -shake256                 
+>  -sm3                       -ssl3-md5                  -ssl3-sha1                
+>  -whirlpool
+>```
 
 The Value of the cryptographic hash representation (`value`) of value type `string` of 32 or more characters with `pattern` (regular expression):
 

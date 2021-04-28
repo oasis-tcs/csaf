@@ -194,14 +194,14 @@
                           "title": "Algorithm of the cryptographic hash",
                           "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
                           "type": "string",
-                          "default": "SHA-3",
+                          "default": "sha256",
                           "minLength": 1,
                           "examples": [
-                            "SHA-256",
-                            "SHA-384",
-                            "SHA-512",
-                            "SHA-3",
-                            "BLAKE3"
+                            "sha256",
+                            "sha384",
+                            "sha512",
+                            "sha3-512",
+                            "blake2b512"
                           ]
                         },
                         "value": {
