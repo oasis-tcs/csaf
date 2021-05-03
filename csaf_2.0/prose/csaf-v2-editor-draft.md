@@ -1172,10 +1172,10 @@ URL of reference (`url`) of value type `string` and format `uri` provides the UR
 The Version (`version_t`) type has value type `string` with `pattern` (regular expression):
 
 ```
-    ^(0|[1-9][0-9]*)|(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+    ^(0|[1-9][0-9]*)$|^((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)$
 ```
 
-The `version` specifies a version string. There are two options how it can be used:
+The version specifies a version string to denote clearly the evolution of the content of the document. There are two options how it can be used:
 
 * semantic versioning (preferred; according to the rules below)
 * integer versioning
@@ -1186,9 +1186,10 @@ Examples:
 
 ```
     1
-    0.9
+    4
+    0.9.0
     1.4.3
-    2.40.0.320002
+    2.40.0+21AF26D3
 ```
 
 #### 3.1.11.1 Version Type - Integer versioning
@@ -1213,7 +1214,7 @@ The following rules apply:
 Semantic versioning derived the rules from [SemVer]. The regular expression for this type is:
 
 ```
-^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+^((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)$
 ```
 
 The goal of this structure is to provide additional information to the end user whether a new comparison with the asset database is needed. The "public API" in regards to CSAF is the CSAF document with its structure and content. This results in the following rules:
