@@ -3184,6 +3184,30 @@ Example which fails the test:
 
 > `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
 
+### 4.2.4 Build Metadata in Revision History
+
+For each item in revision history it must be tested that `number` does not include build metadata.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history[]/number
+```
+
+Example which fails the test:
+
+```
+    "revision_history": [
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1.0.0+exp.sha.ac00785",
+        "summary": "Initial version."
+      }
+    ]
+```
+
+> The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
+
 ## 4.3 Informative Test
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
