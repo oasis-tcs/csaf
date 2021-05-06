@@ -3054,6 +3054,28 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that indicates that this is pre-release.
 
+### 4.1.19 Non-draft Document Version
+
+It must be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/version
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "status": "interim",
+      "version": "1.0.0-alpha"
+    }
+```
+
+> The document status is `interim` but the document version contains the pre-release part `-alpha`.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
