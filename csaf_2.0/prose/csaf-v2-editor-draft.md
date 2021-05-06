@@ -3341,6 +3341,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
   * track of the version of CSAF documents automatically and increment according to the versioning scheme (see also subsections of 3.1.11) selected in the configuration.
+  * check that the document version is set correctly based on the changes in comparison to the previous version (see also subsections of 3.1.11).
   * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was `interim` and no new release has be done during the the given threshold in the configuration (default: 6 weeks)
   * support the following workflows:
