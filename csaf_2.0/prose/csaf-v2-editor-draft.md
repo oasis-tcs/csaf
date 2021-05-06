@@ -2881,7 +2881,7 @@ Example which fails the test:
 
 > `TG` is not a valid language. It is the subtag for the region "Togo".
 
-### 4.1.13 Revision History
+### 4.1.13 Sorted Revision History
 
 It must be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
 
@@ -2990,6 +2990,40 @@ Example which fails the test:
 ```
 
 > The `/document/tracking/version` is `0.9.5` but the document status is `final`.
+
+### 4.1.17 Released Revision History
+
+It must be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history[]/number
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "revision_history": [
+        {
+          "date": "2021-04-17T10:00:00.000Z",
+          "number": "0",
+          "summary": "First draft"
+        },
+        {
+          "date": "2021-05-06T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+```
+
+> The document status is `final` but the revision history includes an item which has `0` as value for `number`.
 
 ## 4.2 Optional Tests
 
