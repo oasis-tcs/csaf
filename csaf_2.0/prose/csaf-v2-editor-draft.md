@@ -2936,7 +2936,7 @@ Example which fails the test:
 
 > The element `source_lang` is present but not set.
 
-### 4.1.15 Document Version
+### 4.1.15 Latest Document Version
 
 It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison.
 
@@ -2949,26 +2949,47 @@ The relevant path for this test is:
 Example which fails the test:
 
 ```
-"tracking": {
-  // ...
-      "revision_history": [
-        {
-          "date": "2021-04-23T10:00:00.000Z",
-          "number": "1",
-          "summary": "Initial version."
-        },
-        {
-          "date": "2021-04-23T1100:00.000Z",
-          "number": "2",
-          "summary": "Second version."
-        }
-      ],
-      
-      "version": "1",
-}
+  "tracking": {
+    // ...
+    "revision_history": [
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-04-23T1100:00.000Z",
+        "number": "2",
+        "summary": "Second version."
+      }
+    ],
+    "version": "1"
+  }
 ```
 
 > The value of `number` of the last item after sorting is `2`. However, the document version is `1`.
+
+### 4.1.16 Document Status Draft
+
+It must be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/status
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "status": "final",
+      "version": "0.9.5"
+    }
+```
+
+> The `/document/tracking/version` is `0.9.5` but the document status is `final`.
 
 ## 4.2 Optional Tests
 
