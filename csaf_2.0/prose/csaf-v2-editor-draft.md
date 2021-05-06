@@ -3076,6 +3076,35 @@ Example which fails the test:
 
 > The document status is `interim` but the document version contains the pre-release part `-alpha`.
 
+### 4.1.20 Missing Item in Revision History
+
+It must be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history
+```
+
+Example which fails the test:
+
+```
+  "revision_history": [
+    {
+      "date": "2021-04-22T10:00:00.000Z",
+      "number": "1",
+      "summary": "Initial version."
+    },
+    {
+      "date": "2021-04-23T10:00:00.000Z",
+      "number": "3",
+      "summary": "Some other changes."
+    }
+  ]
+```
+
+> The item for version `2` is missing.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
