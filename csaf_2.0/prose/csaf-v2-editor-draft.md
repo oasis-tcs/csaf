@@ -3025,6 +3025,35 @@ Example which fails the test:
 
 > The document status is `final` but the revision history includes an item which has `0` as value for `number`.
 
+### 4.1.18 Revision History Entries for Pre-release Versions
+
+It must be tested that no item of the revision history has a `number` which includes pre-release information.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history[]/number
+```
+
+Example which fails the test:
+
+```
+    "revision_history": [
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1.0.0-rc",
+        "summary": "Release Candidate for initial version."
+      },
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1.0.0",
+        "summary": "Initial version."
+      }
+    ]
+```
+
+> The revision history contains an item which has a `number` that indicates that this is pre-release.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
