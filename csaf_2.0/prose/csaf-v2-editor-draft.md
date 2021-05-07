@@ -2881,7 +2881,7 @@ Example which fails the test:
 
 > `TG` is not a valid language. It is the subtag for the region "Togo".
 
-### 4.1.13 Revision History
+### 4.1.13 Sorted Revision History
 
 It must be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
 
@@ -2936,7 +2936,7 @@ Example which fails the test:
 
 > The element `source_lang` is present but not set.
 
-### 4.1.15 Document Version
+### 4.1.15 Latest Document Version
 
 It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison.
 
@@ -2949,26 +2949,190 @@ The relevant path for this test is:
 Example which fails the test:
 
 ```
-"tracking": {
-  // ...
-      "revision_history": [
-        {
-          "date": "2021-04-23T10:00:00.000Z",
-          "number": "1",
-          "summary": "Initial version."
-        },
-        {
-          "date": "2021-04-23T1100:00.000Z",
-          "number": "2",
-          "summary": "Second version."
-        }
-      ],
-      
-      "version": "1",
-}
+  "tracking": {
+    // ...
+    "revision_history": [
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-04-23T1100:00.000Z",
+        "number": "2",
+        "summary": "Second version."
+      }
+    ],
+    "version": "1"
+  }
 ```
 
 > The value of `number` of the last item after sorting is `2`. However, the document version is `1`.
+
+### 4.1.16 Document Status Draft
+
+It must be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/status
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "status": "final",
+      "version": "0.9.5"
+    }
+```
+
+> The `/document/tracking/version` is `0.9.5` but the document status is `final`.
+
+### 4.1.17 Released Revision History
+
+It must be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history[]/number
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "revision_history": [
+        {
+          "date": "2021-04-17T10:00:00.000Z",
+          "number": "0",
+          "summary": "First draft"
+        },
+        {
+          "date": "2021-05-06T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+```
+
+> The document status is `final` but the revision history includes an item which has `0` as value for `number`.
+
+### 4.1.18 Revision History Entries for Pre-release Versions
+
+It must be tested that no item of the revision history has a `number` which includes pre-release information.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history[]/number
+```
+
+Example which fails the test:
+
+```
+    "revision_history": [
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1.0.0-rc",
+        "summary": "Release Candidate for initial version."
+      },
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1.0.0",
+        "summary": "Initial version."
+      }
+    ]
+```
+
+> The revision history contains an item which has a `number` that indicates that this is pre-release.
+
+### 4.1.19 Non-draft Document Version
+
+It must be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/version
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "status": "interim",
+      "version": "1.0.0-alpha"
+    }
+```
+
+> The document status is `interim` but the document version contains the pre-release part `-alpha`.
+
+### 4.1.20 Missing Item in Revision History
+
+It must be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history
+```
+
+Example which fails the test:
+
+```
+  "revision_history": [
+    {
+      "date": "2021-04-22T10:00:00.000Z",
+      "number": "1",
+      "summary": "Initial version."
+    },
+    {
+      "date": "2021-04-23T10:00:00.000Z",
+      "number": "3",
+      "summary": "Some other changes."
+    }
+  ]
+```
+
+> The item for version `2` is missing.
+
+### 4.1.21 Multiple Definition in Revision History
+
+It must be tested that items of the revision history do not contain the same version number.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history
+```
+
+Example which fails the test:
+
+```
+  "revision_history": [
+    {
+      "date": "2021-04-22T10:00:00.000Z",
+      "number": "1",
+      "summary": "Initial version."
+    },
+    {
+      "date": "2021-04-23T10:00:00.000Z",
+      "number": "1",
+      "summary": "Some other changes."
+    }
+  ]
+```
+
+> The revision history contains two items with the version number `1`.
 
 ## 4.2 Optional Tests
 
@@ -3077,6 +3241,30 @@ Example which fails the test:
 ```
 
 > `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
+
+### 4.2.4 Build Metadata in Revision History
+
+For each item in revision history it must be tested that `number` does not include build metadata.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/revision_history[]/number
+```
+
+Example which fails the test:
+
+```
+    "revision_history": [
+      {
+        "date": "2021-04-23T10:00:00.000Z",
+        "number": "1.0.0+exp.sha.ac00785",
+        "summary": "Initial version."
+      }
+    ]
+```
+
+> The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
 ## 4.3 Informative Test
 
@@ -3211,6 +3399,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
   * track of the version of CSAF documents automatically and increment according to the versioning scheme (see also subsections of 3.1.11) selected in the configuration.
+  * check that the document version is set correctly based on the changes in comparison to the previous version (see also subsections of 3.1.11).
   * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was `interim` and no new release has be done during the the given threshold in the configuration (default: 6 weeks)
   * support the following workflows:
