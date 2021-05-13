@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
   "title": "Common Security Advisory Framework",
   "description": "Representation of security advisory information as a JSON document.",
