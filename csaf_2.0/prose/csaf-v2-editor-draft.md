@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 26 April 2021
+## 21 May 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -3663,4 +3663,4 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210426 | 2021-04-26 | Stefan Hagen | Editor revision for TC review |
+| csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen | Editor revision for TC review |
