@@ -1688,7 +1688,7 @@ Examples:
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
-Its value SHOULD be assigned and maintained by the original document issuing authority.
+Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organisation.
 
 Examples:
 
