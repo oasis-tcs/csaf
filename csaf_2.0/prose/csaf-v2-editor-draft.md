@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 26 April 2021
+## 21 May 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -1058,7 +1058,7 @@ Examples:
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
-There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a group in the context of the current document.
+There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a product group in the context of the current document.
 
 ```
     "product_group_id_t": {
@@ -1073,6 +1073,8 @@ Examples:
     CSAFGID-0002
     CSAFGID-0020
 ```
+
+> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
 
 ### 3.1.7 Product Groups Type
 
@@ -1090,7 +1092,7 @@ List of Product Group ID (`product_groups_t`) of value type `array` with 1 or mo
 ### 3.1.8 Product ID Type
 
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances.
-The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
+The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
 
 ```
     "product_id_t": {
@@ -1104,6 +1106,8 @@ Examples:
     CSAFPID-0004
     CSAFPID-0008
 ```
+
+> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
 
 ### 3.1.9 Products Type
 
@@ -1684,7 +1688,7 @@ Examples:
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
-Its value SHOULD be assigned and maintained by the original document issuing authority.
+Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organisation.
 
 Examples:
 
@@ -3663,4 +3667,4 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210426 | 2021-04-26 | Stefan Hagen | Editor revision for TC review |
+| csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen | Editor revision for TC review |
