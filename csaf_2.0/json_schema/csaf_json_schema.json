@@ -241,6 +241,18 @@
               "pattern": "^pkg:",
               "minLength": 4
             },
+            "sbom_urls": {
+              "title": "List of SBOM URLs",
+              "description": "Contains a list of URLs where SBOMs for this product can be retrieved.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "SBOM URL",
+                "description": "Contains a URL of one SBOM for this product.",
+                "type": "string",
+                "format": "uri"
+              }
+            },
             "serial_numbers": {
               "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.",
               "title": "List of serial numbers",
