@@ -3289,7 +3289,7 @@ Informatiove tests provide insights in common mistakes and bad practices. They M
 
 # 5 Distributing CSAF documents
 
-This section lists requirements and roles defined for distribution CSAF documents. The first subsection provides all requriements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
+This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requriements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
 
 ## 5.1 Requirements
 
