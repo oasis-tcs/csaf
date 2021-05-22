@@ -132,11 +132,17 @@ For purposes of this document, the following terms and definitions apply:
 
 **CSAF asset matching system**: program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 
+**CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+
 **CSAF consumer**: program that reads and interprets a CSAF document
 
 **CSAF content management system**: program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 
 **CSAF document**: security advisory text document in the format defined by this document.
+
+**CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+
+**CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
 **CSAF management system**: program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 
