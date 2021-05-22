@@ -3353,6 +3353,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 * **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
 
 ### 6.1.1 Conformance Clause 1: CSAF document
 
@@ -3611,6 +3612,13 @@ A program satisfies the "CSAF basic validator" conformance profile if the progra
 
 * reads documents and performs a check against the JSON schema.
 * performs all mandatory tests as given in section 4.1.
+
+### 6.1.15 Conformance Clause 14: CSAF extended validator
+
+A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
+
+* satisfies the "CSAF basic validator" conformance profile.
+* additionally performs all optional tests as given in section 4.2.
 
 # Appendix A. Acknowledgments
 
