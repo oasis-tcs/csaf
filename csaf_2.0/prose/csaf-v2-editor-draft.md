@@ -3289,7 +3289,7 @@ Informatiove tests provide insights in common mistakes and bad practices. They M
 
 # 5 Distributing CSAF documents
 
-This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requriements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
+This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
 
 ## 5.1 Requirements
 
@@ -3301,11 +3301,11 @@ The document is a valid CSAF document (cf. Conformance clause 1).
 
 ### 5.1.2 Requirement 2: Filename
 
-The CSAF document has a filename which was determined according to the rules in section 3 (cf. section 3.2.1.12.4).
+The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
 
 ### 5.1.3 Requirement 3: TLS
 
-The CSAF document is retrievable from a website which uses TLS. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
+The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
 
 ### 5.1.4 Requirement 4: TLP:WHITE
 
@@ -3317,7 +3317,7 @@ This does not exclude that such a document is also available in an access protec
 
 ## 5.2 Roles
 
-In this subsection, the requirements from the previous subsection are combined to named sets which are called roles. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
+This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
 
 ### 5.2.1 Role: CSAF publisher
 
