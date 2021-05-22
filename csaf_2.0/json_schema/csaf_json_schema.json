@@ -985,7 +985,7 @@
             "minItems": 1,
             "items": {
               "title": "Involvement",
-              "description": "Is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.",
+              "description": "Is a container, that allows the document producers to comment on the level of involvement (or engagement) of themselves or third parties in the vulnerability identification, scoping, and remediation process.",
               "type": "object",
               "required": [
                 "party",
@@ -999,8 +999,8 @@
                   "format": "date-time"
                 },
                 "party": {
-                  "title": "Party type",
-                  "description": "Defines the type of the involved party.",
+                  "title": "Party category",
+                  "description": "Defines the category of the involved party.",
                   "type": "string",
                   "enum": [
                     "coordinator",
