@@ -992,6 +992,12 @@
                 "status"
               ],
               "properties": {
+                "date": {
+                  "title": "Date of involvement",
+                  "description": "Holds the date and time of the involvement entry.",
+                  "type": "string",
+                  "format": "date-time"
+                },
                 "party": {
                   "title": "Party type",
                   "description": "Defines the type of the involved party.",
