@@ -3693,3 +3693,288 @@ Zach | Turk | Microsoft
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
 | csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen | Editor revision for TC review |
+
+# Appendix C. Guidance on the Size of CSAF Documents
+
+The TC carefully considered all aspects in regard to suggesting size limits for CSAF documents. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the eosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+
+All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below. All _CSAF producers_ should not produce CSAF documents which exceed those limits.
+
+> If you come across a case where these limits are exceeded, please provide feedback to the TC.
+
+## File size
+
+A CSAF document should be smaller than 15.9 MB.
+
+## Array length
+
+An array should not have more than:
+
+* 10 000 items for
+  * `/document/acknowledgments`
+  * `/document/acknowledgments[]/names`
+  * `/document/acknowledgments[]/urls`
+  * `/document/tracking/aliases`
+  * `/product_tree/branches[]/product/product_identification_helper/hashes`
+  * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/branches[]/branches[]/product/product_identification_helper/x_generic_uris`
+  * `/product_tree/full_product_names[]/product_identification_helper/hashes`
+  * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris`
+  * `/vulnerabilities[]/acknowledgments`
+  * `/vulnerabilities[]/acknowledgments[]/names`
+  * `/vulnerabilities[]/acknowledgments[]/urls`
+  * `/vulnerabilities[]/id/system_name`
+  * `/vulnerabilities[]/id/text`
+  * `/vulnerabilities[]/remediations[]/entitlements`
+
+* 40 000 items for
+  * `/document/notes`
+  * `/document/references`
+  * `/vulnerabilities[]/involvements`
+  * `/vulnerabilities[]/notes`
+  * `/vulnerabilities[]/references`
+
+* 100 000 for
+  * `/document/tracking/revision_history`
+  * `/product_tree/branches`
+  * `/product_tree(/branches[])*/branches`
+  * `/product_tree/branches[]/product/product_identification_helper/serial_numbers`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers`
+  * `/product_tree/full_product_names`
+  * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers`
+  * `/product_tree/product_groups[]/product_ids`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers`
+  * `/vulnerabilities`
+
+* 10 000 000 for
+  * `/product_tree/relationships`
+  * `/product_tree/product_groups`
+  * `/vulnerabilities[]/remediations[]/group_ids`
+
+* 100 000 000 for
+  * `/vulnerabilities[]/product_status/first_affected`
+  * `/vulnerabilities[]/product_status/first_fixed`
+  * `/vulnerabilities[]/product_status/fixed`
+  * `/vulnerabilities[]/product_status/known_affected`
+  * `/vulnerabilities[]/product_status/known_not_affected`
+  * `/vulnerabilities[]/product_status/last_affected`
+  * `/vulnerabilities[]/product_status/recommended`
+  * `/vulnerabilities[]/product_status/under_investigation`
+  * `/vulnerabilities[]/remediations`
+  * `/vulnerabilities[]/remediations[]/product_ids`
+  * `/vulnerabilities[]/scores`
+  * `/vulnerabilities[]/scores[]/products`
+  * `/vulnerabilities[]/threats`
+  * `/vulnerabilities[]/threats[]/group_ids`
+  * `/vulnerabilities[]/threats[]/product_ids`
+
+## String length
+
+A string should not have a length greater than:
+
+* 1000 for
+  * `/document/acknowledgments[]/names[]`
+  * `/document/acknowledgments[]/organization`
+  * `/document/aggregate_severity/text`
+  * `/document/category`
+  * `/document/lang`
+  * `/document/notes[]/audience`
+  * `/document/notes[]/title`
+  * `/document/publisher/name`
+  * `/document/publisher/vendor_id`
+  * `/document/source_lang`
+  * `/document/title`
+  * `/document/tracking/aliases[]`
+  * `/document/tracking/generator/engine`
+  * `/document/tracking/id`
+  * `/document/tracking/revision_history[]/number`
+  * `/document/tracking/version`
+  * `/product_tree/branches[]/name`
+  * `/product_tree/branches[]/product/name`
+  * `/product_tree/branches[]/product/product_id`
+  * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes[]/algorithm`
+  * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes[]/value`
+  * `/product_tree/branches[]/product/product_identification_helper/hashes[]/filename`
+  * `/product_tree/branches[]/product/product_identification_helper/serial_numbers[]`
+  * `/product_tree/branches[](/branches[])*/name`
+  * `/product_tree/branches[](/branches[])*/product/name`
+  * `/product_tree/branches[](/branches[])*/product/product_id`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/algorithm`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/value`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/filename`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers[]`
+  * `/product_tree/full_product_names[]/name`
+  * `/product_tree/full_product_names[]/product_id`
+  * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/algorithm`
+  * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value`
+  * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/filename`
+  * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers[]`
+  * `/product_tree/product_groups[]/group_id`
+  * `/product_tree/product_groups[]/product_ids[]`
+  * `/product_tree/relationships[]/full_product_name/name`
+  * `/product_tree/relationships[]/full_product_name/product_id`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/filename`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers[]`
+  * `/product_tree/relationships[]/product_reference`
+  * `/product_tree/relationships[]/relates_to_product_reference`
+  * `/vulnerabilities[]/acknowledgments[]/names[]`
+  * `/vulnerabilities[]/acknowledgments[]/organization`
+  * `/vulnerabilities[]/cve`
+  * `/vulnerabilities[]/cwe/id`
+  * `/vulnerabilities[]/cwe/name`
+  * `/vulnerabilities[]/notes[]/audience`
+  * `/vulnerabilities[]/notes[]/title`
+  * `/vulnerabilities[]/product_status/first_affected[]`
+  * `/vulnerabilities[]/product_status/first_fixed[]`
+  * `/vulnerabilities[]/product_status/fixed[]`
+  * `/vulnerabilities[]/product_status/known_affected[]`
+  * `/vulnerabilities[]/product_status/known_not_affected[]`
+  * `/vulnerabilities[]/product_status/last_affected[]`
+  * `/vulnerabilities[]/product_status/recommended[]`
+  * `/vulnerabilities[]/product_status/under_investigation[]`
+  * `/vulnerabilities[]/remediations[]/group_ids[]`
+  * `/vulnerabilities[]/remediations[]/product_ids[]`
+  * `/vulnerabilities[]/scores[]/cvss_v2/vectorString`
+  * `/vulnerabilities[]/scores[]/cvss_v3/vectorString`
+  * `/vulnerabilities[]/scores[]/products[]`
+  * `/vulnerabilities[]/threats[]/group_ids[]`
+  * `/vulnerabilities[]/threats[]/product_ids[]`
+  * `/vulnerabilities[]/title`
+
+* 10 000 for
+  * `/document/acknowledgments[]/summary`
+  * `/document/distribution/text`
+  * `/document/publisher/contact_details`
+  * `/document/publisher/issuing_authority`
+  * `/document/references[]/summary`
+  * `/document/tracking/revision_history[]/summary`
+  * `/product_tree/branches[]/product/product_identification_helper/cpe`
+  * `/product_tree/branches[]/product/product_identification_helper/purl`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/cpe`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/purl`
+  * `/product_tree/full_product_names[]/product_identification_helper/cpe`
+  * `/product_tree/full_product_names[]/product_identification_helper/purl`
+  * `/product_tree/product_groups[]/summary`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/cpe`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/purl`
+  * `/vulnerabilities[]/acknowledgments[]/summary`
+  * `/vulnerabilities[]/involvements[]/summary`
+  * `/vulnerabilities[]/references[]/summary`
+  * `/vulnerabilities[]/remediations[]/entitlements[]`
+
+* 30 000 for
+  * `/document/notes[]/text`
+  * `/vulnerabilities[]/notes[]/text`
+
+* 250 000 for
+  * `/vulnerabilities[]/remediations[]/details`
+  * `/vulnerabilities[]/remediations[]/restart_required/details`
+  * `/vulnerabilities[]/threats[]/details`
+
+## URI length
+
+A string with format `uri` should not have a length greater than 20000. This applies for:
+
+* `/document/acknowledgments[]/urls[]`
+* `/document/aggregate_severity/namespace`
+* `/document/distribution/tlp/url`
+* `/document/references[]/url`
+* `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
+* `/vulnerabilities[]/acknowledgments[]/urls[]`
+* `/vulnerabilities[]/references[]/url`
+* `/vulnerabilities[]/remediations[]/url`
+
+## Enum
+
+A string which is an enum has a fixed maximum length given by its longest value.
+
+> Later versions of CSAF migth add, modify or delete possible value. Therefore, this sizes should not be implemented as fixed limits.
+
+It seems to be save to assume that the length of each value is not greater than 50. This applies for:
+
+* `/document/csaf_version`
+* `/document/distribution/tlp/label`
+* `/document/notes[]/category`
+* `/document/publisher/category`
+* `/document/references[]/category`
+* `/document/tracking/status`
+* `/product_tree/branches[]/category`
+* `/product_tree/branches[](/branches[])*/category`
+* `/product_tree/relationships[]/category`
+* `/vulnerabilities[]/involvements[]/party`
+* `/vulnerabilities[]/involvements[]/status`
+* `/vulnerabilities[]/notes[]/category`
+* `/vulnerabilities[]/references[]/category`
+* `/vulnerabilities[]/remediations[]/category`
+* `/vulnerabilities[]/remediations[]/restart_required/category`
+* `/vulnerabilities[]/scores[]/cvss_v2/version`
+* `/vulnerabilities[]/scores[]/cvss_v2/accessVector`
+* `/vulnerabilities[]/scores[]/cvss_v2/accessComplexity`
+* `/vulnerabilities[]/scores[]/cvss_v2/authentication`
+* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v2/integrityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v2/availabilityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v2/exploitability`
+* `/vulnerabilities[]/scores[]/cvss_v2/remediationLevel`
+* `/vulnerabilities[]/scores[]/cvss_v2/reportConfidence`
+* `/vulnerabilities[]/scores[]/cvss_v2/collateralDamagePotential`
+* `/vulnerabilities[]/scores[]/cvss_v2/targetDistribution`
+* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityRequirement`
+* `/vulnerabilities[]/scores[]/cvss_v2/integrityRequirement`
+* `/vulnerabilities[]/scores[]/cvss_v2/availabilityRequirement`
+* `/vulnerabilities[]/scores[]/cvss_v3/version`
+* `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
+* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
+* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
+* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
+* `/vulnerabilities[]/scores[]/cvss_v3/scope`
+* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v3/baseSeverity`
+* `/vulnerabilities[]/scores[]/cvss_v3/exploitCodeMaturity`
+* `/vulnerabilities[]/scores[]/cvss_v3/remediationLevel`
+* `/vulnerabilities[]/scores[]/cvss_v3/reportConfidence`
+* `/vulnerabilities[]/scores[]/cvss_v3/temporalSeverity`
+* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityRequirement`
+* `/vulnerabilities[]/scores[]/cvss_v3/integrityRequirement`
+* `/vulnerabilities[]/scores[]/cvss_v3/availabilityRequirement`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackVector`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackComplexity`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedPrivilegesRequired`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedUserInteraction`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedScope`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedConfidentialityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedIntegrityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAvailabilityImpact`
+* `/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity`
+* `/vulnerabilities[]/threats[]/category`
+
+## Date
+
+This applies for:
+
+* `/document/tracking/current_release_date`
+* `/document/tracking/generator/date`
+* `/document/tracking/initial_release_date`
+* `/document/tracking/revision_history[]/date`
+* `/vulnerabilities[]/discovery_date`
+* `/vulnerabilities[]/release_date`
+* `/vulnerabilities[]/remediations[]/date`
+* `/vulnerabilities[]/threats[]/date`
