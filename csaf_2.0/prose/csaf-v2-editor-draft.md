@@ -3310,6 +3310,32 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
+### 4.2.5 Missing Date in Involvements
+
+For each item in the list of involvements it must be tested that it includes the property `date`.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/involvements
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "involvements": [
+        {
+          "party": "vendor",
+          "status": "in_progress"
+        }
+      ]
+    }
+```
+
+> The list of involements contains an item which does not contain the property `date`.
+
 ## 4.3 Informative Test
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
