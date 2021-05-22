@@ -3614,6 +3614,8 @@ A program satisfies the "CSAF basic validator" conformance profile if the progra
 * reads documents and performs a check against the JSON schema.
 * performs all mandatory tests as given in section 4.1.
 
+A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
+
 ### 6.1.15 Conformance Clause 15: CSAF extended validator
 
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
@@ -3621,12 +3623,16 @@ A CSAF basic validator satisfies the "CSAF extended validator" conformance profi
 * satisfies the "CSAF basic validator" conformance profile.
 * additionally performs all optional tests as given in section 4.2.
 
+A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
+
 ### 6.1.16 Conformance Clause 16: CSAF full validator
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
 * additionally performs all informative tests as given in section 4.3.
+
+A CSAF full validator may provide an additional function to only run one or more selected informative tests.
 
 # Appendix A. Acknowledgments
 
