@@ -1694,6 +1694,23 @@ Examples:
     cisco-sa-20190513-secureboot
 ```
 
+This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
+
+1. The value `/document/tracking/id` is converted into lower case.
+2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
+   * Lower case ASCII letters (0x61 - 0x7A)
+   * digits (0x30 - 0x39)
+   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
+3. The file extension `.json` MUST be appended.
+
+Examples:
+
+```
+    example_company_-_2019-yh3234.json
+    rhba-2019_0024.json
+    cisco-sa-20190513-secureboot.json
+```
+
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
 Initial release date (`initial_release_date`) with value type `string` and format `date-time` holds the date when this document was first published.
