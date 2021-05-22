@@ -3319,6 +3319,13 @@ This does not exclude that such a document is also available in an access protec
 
 In this subsection, the requirements from the previous subsection are combined to named sets which are called roles. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
 
+### 5.2.1 Role: CSAF publisher
+
+A distributing party satisfies the "CSAF publisher" role if the party:
+
+* satisfies the requirements 1 to 4.
+* distributes only CSAF documents on behalf of its own.
+
 # 6 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
