@@ -3352,6 +3352,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+* **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
 
 ### 6.1.1 Conformance Clause 1: CSAF document
 
@@ -3603,6 +3604,13 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
   * marked with a given status
+
+### 6.1.14 Conformance Clause 14: CSAF basic validator
+
+A program satisfies the "CSAF basic validator" conformance profile if the program:
+
+* reads documents and performs a check against the JSON schema.
+* performs all mandatory tests as given in section 4.1.
 
 # Appendix A. Acknowledgments
 
