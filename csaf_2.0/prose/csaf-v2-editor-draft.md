@@ -128,13 +128,15 @@ For purposes of this document, the following terms and definitions apply:
 
 **artifact**: sequence of bytes addressable via a URI.  _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed via an HTTP request; an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
-**converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
-
 **CSAF asset matching system**: program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 
 **CSAF consumer**: program that reads and interprets a CSAF document
 
 **CSAF content management system**: program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
+
+**CSAF converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
+
+**CSAF direct producer**: analysis tool which acts as a CSAF producer
 
 **CSAF document**: security advisory text document in the format defined by this document.
 
@@ -151,8 +153,6 @@ For purposes of this document, the following terms and definitions apply:
 **CSAF viewer**: CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
 **CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
-
-**direct producer**: analysis tool which acts as a CSAF producer
 
 **document**: output file produced by an analysis tool, which enumerates the results produced by the tool
 
@@ -3343,8 +3343,8 @@ The entities ("conformance targets") for which this document defines requirement
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
 * **CSAF producer**: A program which emits output in the CSAF format.
-* **Direct producer**: An analysis tool which acts as a CSAF producer.
-* **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+* **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
+* **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 * **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
@@ -3369,17 +3369,17 @@ A program satisfies the "CSAF producer" conformance profile if the program:
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-### 6.1.3 Conformance Clause 3: Direct producer
+### 6.1.3 Conformance Clause 3: CSAF direct producer
 
-An analysis tool satisfies the "Direct producer" conformance profile if the analysis tool:
+An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 6.1.4 Conformance Clause 4: Converter
+### 6.1.4 Conformance Clause 4: CSAF converter
 
-A converter satisfies the “Converter” conformance profile if the converter:
+A converter satisfies the “CSAF converter” conformance profile if the converter:
 
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
