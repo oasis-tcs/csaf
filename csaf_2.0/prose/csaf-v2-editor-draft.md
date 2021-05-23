@@ -2079,7 +2079,7 @@ List of involvements (`involvements`) of value type `array` with 1 or more items
     },
 ```
 
-Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container, hat allows the document producers to comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to disclose the coordination timeline. The tuple of `party`, `status` and `date` MUST be unique within `involvements`.
+Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container, hat allows the document producers to comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to disclose the coordination timeline. The ordered tuple of the values of `party`, `status` and `date` (if present) SHALL be unique within `involvements`.
 
 ```
         "properties": {
