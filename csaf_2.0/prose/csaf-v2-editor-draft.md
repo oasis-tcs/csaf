@@ -3692,11 +3692,11 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen | Editor revision for TC review |
+| csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen and Thomas Schmidt| Editor revision for TC review |
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
-The TC carefully considered all aspects in regard to suggesting size limits for CSAF documents. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the eosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the eosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
 All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below. All _CSAF producers_ should not produce CSAF documents which exceed those limits.
 
@@ -3704,7 +3704,9 @@ All _CSAF consumers_ should be able to process CSAF documents which comply with 
 
 ## File size
 
-A CSAF document should be smaller than 15.9 MB.
+A CSAF document in the specified JSON format encoded in UTF-8 should be not lager than 15 MB.
+
+>At least one database technology in wide use for storing such documents rejects instances when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integres and small strings may incur more overhead in the BSOn format than in JSON. In addition, the BSON format adds lebgth information for the entries inside the document which adds to the size when storing CSAF document content in a BSON format.
 
 ## Array length
 
@@ -3882,7 +3884,7 @@ A string should not have a length greater than:
 
 ## URI length
 
-A string with format `uri` should not have a length greater than 20000. This applies for:
+A string with format `uri` should not have a length greater than 20000. This applies to:
 
 * `/document/acknowledgments[]/urls[]`
 * `/document/aggregate_severity/namespace`
@@ -3906,7 +3908,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 
 > Later versions of CSAF migth add, modify or delete possible value. Therefore, this sizes should not be implemented as fixed limits.
 
-It seems to be save to assume that the length of each value is not greater than 50. This applies for:
+It seems to be safe to assume that the length of each value is not greater than 50. This applies to:
 
 * `/document/csaf_version`
 * `/document/distribution/tlp/label`
@@ -3968,7 +3970,7 @@ It seems to be save to assume that the length of each value is not greater than 
 
 ## Date
 
-This applies for:
+The maxima length of strings representing a temporal value is given by the format specifier. This applies to:
 
 * `/document/tracking/current_release_date`
 * `/document/tracking/generator/date`
