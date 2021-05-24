@@ -130,6 +130,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **CSAF asset matching system**: program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
 
+**CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+
 **CSAF consumer**: program that reads and interprets a CSAF document
 
 **CSAF content management system**: program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
@@ -139,6 +141,10 @@ For purposes of this document, the following terms and definitions apply:
 **CSAF direct producer**: analysis tool which acts as a CSAF producer
 
 **CSAF document**: security advisory text document in the format defined by this document.
+
+**CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+
+**CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
 **CSAF management system**: program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 
@@ -3354,6 +3360,9 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+* **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
 ### 6.1.1 Conformance Clause 1: CSAF document
 
@@ -3605,6 +3614,33 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
   * marked with a given status
+
+### 6.1.14 Conformance Clause 14: CSAF basic validator
+
+A program satisfies the "CSAF basic validator" conformance profile if the program:
+
+* reads documents and performs a check against the JSON schema.
+* performs all mandatory tests as given in section 4.1.
+
+A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
+
+### 6.1.15 Conformance Clause 15: CSAF extended validator
+
+A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
+
+* satisfies the "CSAF basic validator" conformance profile.
+* additionally performs all optional tests as given in section 4.2.
+
+A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
+
+### 6.1.16 Conformance Clause 16: CSAF full validator
+
+A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
+
+* satisfies the "CSAF basic validator" conformance profile.
+* additionally performs all informative tests as given in section 4.3.
+
+A CSAF full validator may provide an additional function to only run one or more selected informative tests.
 
 # Appendix A. Acknowledgments
 
