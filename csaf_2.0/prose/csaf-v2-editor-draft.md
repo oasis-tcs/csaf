@@ -3970,7 +3970,7 @@ It seems to be safe to assume that the length of each value is not greater than 
 
 ## Date
 
-The maxima length of strings representing a temporal value is given by the format specifier. This applies to:
+The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
 * `/document/tracking/current_release_date`
 * `/document/tracking/generator/date`
