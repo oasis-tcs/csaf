@@ -128,15 +128,23 @@ For purposes of this document, the following terms and definitions apply:
 
 **artifact**: sequence of bytes addressable via a URI.  _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed via an HTTP request; an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
-**converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
-
 **CSAF asset matching system**: program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+
+**CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
 
 **CSAF consumer**: program that reads and interprets a CSAF document
 
 **CSAF content management system**: program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 
+**CSAF converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
+
+**CSAF direct producer**: analysis tool which acts as a CSAF producer
+
 **CSAF document**: security advisory text document in the format defined by this document.
+
+**CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+
+**CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
 **CSAF management system**: program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 
@@ -151,8 +159,6 @@ For purposes of this document, the following terms and definitions apply:
 **CSAF viewer**: CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
 **CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
-
-**direct producer**: analysis tool which acts as a CSAF producer
 
 **document**: output file produced by an analysis tool, which enumerates the results produced by the tool
 
@@ -267,14 +273,16 @@ T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", R
 
 ## 1.4 Informative References
 
-###### [CPE23-N]
-_Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
-###### [CPE23-M]
-_Common Platform Enumeration: Naming Matching Specification Version 2.3_, M. Parmelee, H. Booth, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7696, August 2011,http://dx.doi.org/10.6028/NIST.IR.7696.
-###### [CPE23-D]
-_Common Platform Enumeration: Dictionary Specification Version 2.3_, P. Cichonski, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7697, August 2011, http://dx.doi.org/10.6028/NIST.IR.7697.
 ###### [CPE23-A]
 _Common Platform Enumeration: Applicability Language Specification Version 2.3 (NISTIR 7698)_, D. Waltermire, P. Cichonski, K. Scarfone, Editors, NIST Interagency Report 7698, August 2011, http://dx.doi.org/10.6028/NIST.IR.7698.
+###### [CPE23-D]
+_Common Platform Enumeration: Dictionary Specification Version 2.3_, P. Cichonski, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7697, August 2011, http://dx.doi.org/10.6028/NIST.IR.7697.
+###### [CPE23-M]
+_Common Platform Enumeration: Naming Matching Specification Version 2.3_, M. Parmelee, H. Booth, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7696, August 2011,http://dx.doi.org/10.6028/NIST.IR.7696.
+
+###### [CPE23-N]
+_Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
+
 ###### [CVE]
 _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://cve.mitre.org/about/.
 ###### [CVE-NF]
@@ -395,12 +403,12 @@ Wherever possible repetition of data has been replaced by linkage through ID ele
 
 A dictionary like presentation of all defined schema elements is given in the section SCHEMASECTIONNUMBER Schema. Any expected relations to other elements (linkage) is described there. This linking relies on setting attribute values accordingly (mostly guided by industry best practice and conventions) and thus implies, that any deep validation on a semantic level is to be ensured by the producer and consumer of CSAF documents. It is out of scope for this specification.
 
-Proven and intended usage patterns from practice are given where possible. 
+Proven and intended usage patterns from practice are given where possible.
 
 Delegation to industry best practices technologies is used in referencing schemas for:
 
 * Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-A]
+  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-N]
 * Vulnerability Scoring:
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS31]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
@@ -413,7 +421,7 @@ Delegation to industry best practices technologies is used in referencing schema
     * CWE List: http://cwe.mitre.org/data/index.html
 * Classfication for Document Distribution
   * Traffic Light Protocol (TLP)
-    * Default Definition: https://www.first.org/tlp/ 
+    * Default Definition: https://www.first.org/tlp/
 
 -------
 
@@ -777,7 +785,7 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
     ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
 ```
 
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-A] for details.
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-N] for details.
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
 
@@ -3341,8 +3349,8 @@ The entities ("conformance targets") for which this document defines requirement
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
 * **CSAF producer**: A program which emits output in the CSAF format.
-* **Direct producer**: An analysis tool which acts as a CSAF producer.
-* **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+* **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
+* **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 * **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
@@ -3352,6 +3360,9 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+* **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
 ### 6.1.1 Conformance Clause 1: CSAF document
 
@@ -3367,17 +3378,17 @@ A program satisfies the "CSAF producer" conformance profile if the program:
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-### 6.1.3 Conformance Clause 3: Direct producer
+### 6.1.3 Conformance Clause 3: CSAF direct producer
 
-An analysis tool satisfies the "Direct producer" conformance profile if the analysis tool:
+An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 6.1.4 Conformance Clause 4: Converter
+### 6.1.4 Conformance Clause 4: CSAF converter
 
-A converter satisfies the “Converter” conformance profile if the converter:
+A converter satisfies the “CSAF converter” conformance profile if the converter:
 
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
@@ -3603,6 +3614,33 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
   * marked with a given status
+
+### 6.1.14 Conformance Clause 14: CSAF basic validator
+
+A program satisfies the "CSAF basic validator" conformance profile if the program:
+
+* reads documents and performs a check against the JSON schema.
+* performs all mandatory tests as given in section 4.1.
+
+A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
+
+### 6.1.15 Conformance Clause 15: CSAF extended validator
+
+A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
+
+* satisfies the "CSAF basic validator" conformance profile.
+* additionally performs all optional tests as given in section 4.2.
+
+A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
+
+### 6.1.16 Conformance Clause 16: CSAF full validator
+
+A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
+
+* satisfies the "CSAF basic validator" conformance profile.
+* additionally performs all informative tests as given in section 4.3.
+
+A CSAF full validator may provide an additional function to only run one or more selected informative tests.
 
 # Appendix A. Acknowledgments
 
