@@ -16,7 +16,8 @@ Omar Santos (osantos@cisco.com), [Cisco](https://cisco.com/)
 
 #### Editors:
 Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
-Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
+Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
+Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
 In Memory of Eric Johnson, TIBCO Software inc., an active member of the OASIS CSAF Committee.
 
@@ -1706,6 +1707,23 @@ Examples:
     cisco-sa-20190513-secureboot
 ```
 
+This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
+
+1. The value `/document/tracking/id` is converted into lower case.
+2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
+   * Lower case ASCII letters (0x61 - 0x7A)
+   * digits (0x30 - 0x39)
+   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
+3. The file extension `.json` MUST be appended.
+
+Examples:
+
+```
+    example_company_-_2019-yh3234.json
+    rhba-2019_0024.json
+    cisco-sa-20190513-secureboot.json
+```
+
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
 Initial release date (`initial_release_date`) with value type `string` and format `date-time` holds the date when this document was first published.
@@ -3307,7 +3325,46 @@ Example which fails the test:
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
 
-# 5 Safety, Security, and Data Protection Considerations
+# 5 Distributing CSAF documents
+
+This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
+
+## 5.1 Requirements
+
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance.
+
+### 5.1.1 Requirement 1: Valid CSAF document
+
+The document is a valid CSAF document (cf. Conformance clause 1).
+
+### 5.1.2 Requirement 2: Filename
+
+The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
+
+### 5.1.3 Requirement 3: TLS
+
+The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
+
+### 5.1.4 Requirement 4: TLP:WHITE
+
+If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
+
+This does not exclude that such a document is also available in an access protected customer portal. However, there MUST be one copy of the document available for people without access to the portal.
+
+> Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
+
+## 5.2 Roles
+
+This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
+
+### 5.2.1 Role: CSAF publisher
+
+A distributing party satisfies the "CSAF publisher" role if the party:
+
+* satisfies the requirements 1 to 4.
+* distributes only CSAF documents on behalf of its own.
+
+# 6 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
@@ -3323,7 +3380,7 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
 
-# 6 Conformance
+# 7 Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -3342,7 +3399,7 @@ Informative Comments:
 >* Clear baseline across the communities per this specification
 >* Additional per-community cooperative extensions which may flow back into future updates of this specification
 
-## 6.1 Conformance Targets
+## 7.1 Conformance Targets
 
 This document defines requirements for the CSAF file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
@@ -3364,21 +3421,21 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
-### 6.1.1 Conformance Clause 1: CSAF document
+### 7.1.1 Conformance Clause 1: CSAF document
 
 A text file satisfies the "CSAF document" conformance profile if the text file:
 
 * conforms to the syntax and semantics defined in section 3.
 * does not fail any mandatory test defined in section 4.1.
 
-### 6.1.2 Conformance Clause 2: CSAF producer
+### 7.1.2 Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-### 6.1.3 Conformance Clause 3: CSAF direct producer
+### 7.1.3 Conformance Clause 3: CSAF direct producer
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
@@ -3386,7 +3443,7 @@ An analysis tool satisfies the "CSAF direct producer" conformance profile if the
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 6.1.4 Conformance Clause 4: CSAF converter
+### 7.1.4 Conformance Clause 4: CSAF converter
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
@@ -3394,7 +3451,7 @@ A converter satisfies the “CSAF converter” conformance profile if the conver
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-### 6.1.5 Conformance Clause 5: CVRF CSAF converter
+### 7.1.5 Conformance Clause 5: CVRF CSAF converter
 
 A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
@@ -3413,7 +3470,7 @@ Secondly, the program for all items of:
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 
-### 6.1.6 Conformance Clause 6: CSAF content management system
+### 7.1.6 Conformance Clause 6: CSAF content management system
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
@@ -3500,7 +3557,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### 6.1.7 Conformance Clause 7: CSAF post-processor
+### 7.1.7 Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
@@ -3508,7 +3565,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-### 6.1.8 Conformance Clause 8: CSAF modifier
+### 7.1.8 Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3516,7 +3573,7 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 6, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section 7, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -3524,7 +3581,7 @@ The resulting modified document:
 * does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### 6.1.9 Conformance Clause 9: CSAF translator
+### 7.1.9 Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3544,14 +3601,14 @@ The resulting translated document:
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
-### 6.1.10 Conformance Clause 10: CSAF consumer
+### 7.1.10 Conformance Clause 10: CSAF consumer
 
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-### 6.1.11 Conformance Clause 11: CSAF viewer
+### 7.1.11 Conformance Clause 11: CSAF viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
@@ -3565,7 +3622,7 @@ For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 * should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
-### 6.1.12 Conformance Clause 12: CSAF management system
+### 7.1.12 Conformance Clause 12: CSAF management system
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
@@ -3585,7 +3642,7 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 * identifies the latest version of CSAF documents with the same `/document/tracking/id`.
 * is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-### 6.1.13 Conformance Clause 13: CSAF asset matching system
+### 7.1.13 Conformance Clause 13: CSAF asset matching system
 
 A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
@@ -3615,7 +3672,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
   * matching that CSAF document at all
   * marked with a given status
 
-### 6.1.14 Conformance Clause 14: CSAF basic validator
+### 7.1.14 Conformance Clause 14: CSAF basic validator
 
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
@@ -3624,7 +3681,7 @@ A program satisfies the "CSAF basic validator" conformance profile if the progra
 
 A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
 
-### 6.1.15 Conformance Clause 15: CSAF extended validator
+### 7.1.15 Conformance Clause 15: CSAF extended validator
 
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
@@ -3633,11 +3690,11 @@ A CSAF basic validator satisfies the "CSAF extended validator" conformance profi
 
 A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
 
-### 6.1.16 Conformance Clause 16: CSAF full validator
+### 7.1.16 Conformance Clause 16: CSAF full validator
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
-* satisfies the "CSAF basic validator" conformance profile.
+* satisfies the "CSAF extended validator" conformance profile.
 * additionally performs all informative tests as given in section 4.3.
 
 A CSAF full validator may provide an additional function to only run one or more selected informative tests.
