@@ -2193,11 +2193,11 @@ Fixed (`fixed`) of value type Products (`products_t`) represents that these vers
 
 Known affected (`known_affected`) of value type Products (`products_t`) represents that these versions are known to be affected by the vulnerability. Actions are recommended to remediate or address this vulnerability.
 
-> This could include learning more about the vulnerability and context, and/or making a risk-based decision. See `/vulnerabilities[]/remediations`, `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats` for more details.
+> This could include for instance learning more about the vulnerability and context, and/or making a risk-based decision to patch or apply defense-in-depth measures. See `/vulnerabilities[]/remediations`, `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats` for more details.
 
 Known not affected (`known_not_affected`) of value type Products (`products_t`) represents that these versions are known not to be affected by the vulnerability. No remediation is required regarding this vulnerability.
 
-> This could be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist, or other factors.
+> This could for instance be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist, or other factors.
 See `/vulnerabilities[]/threats` in category `impact` for more details.
 
 Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
