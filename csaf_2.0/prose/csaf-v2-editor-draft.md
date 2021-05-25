@@ -16,7 +16,8 @@ Omar Santos (osantos@cisco.com), [Cisco](https://cisco.com/)
 
 #### Editors:
 Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
-Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
+Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
+Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
 In Memory of Eric Johnson, TIBCO Software inc., an active member of the OASIS CSAF Committee.
 
