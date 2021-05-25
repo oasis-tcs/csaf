@@ -3944,67 +3944,67 @@ A string with format `uri` should not have a length greater than 20000. This app
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
-> Later versions of CSAF migth add, modify or delete possible value. Therefore, this sizes should not be implemented as fixed limits.
+> Later versions of CSAF migth add, modify or delete possible value which could change the longest value. Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
 
 It seems to be safe to assume that the length of each value is not greater than 50. This applies to:
 
-* `/document/csaf_version`
-* `/document/distribution/tlp/label`
-* `/document/notes[]/category`
-* `/document/publisher/category`
-* `/document/references[]/category`
-* `/document/tracking/status`
-* `/product_tree/branches[]/category`
-* `/product_tree/branches[](/branches[])*/category`
-* `/product_tree/relationships[]/category`
-* `/vulnerabilities[]/involvements[]/party`
-* `/vulnerabilities[]/involvements[]/status`
-* `/vulnerabilities[]/notes[]/category`
-* `/vulnerabilities[]/references[]/category`
-* `/vulnerabilities[]/remediations[]/category`
-* `/vulnerabilities[]/remediations[]/restart_required/category`
-* `/vulnerabilities[]/scores[]/cvss_v2/version`
-* `/vulnerabilities[]/scores[]/cvss_v2/accessVector`
-* `/vulnerabilities[]/scores[]/cvss_v2/accessComplexity`
-* `/vulnerabilities[]/scores[]/cvss_v2/authentication`
-* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v2/integrityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v2/availabilityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v2/exploitability`
-* `/vulnerabilities[]/scores[]/cvss_v2/remediationLevel`
-* `/vulnerabilities[]/scores[]/cvss_v2/reportConfidence`
-* `/vulnerabilities[]/scores[]/cvss_v2/collateralDamagePotential`
-* `/vulnerabilities[]/scores[]/cvss_v2/targetDistribution`
-* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityRequirement`
-* `/vulnerabilities[]/scores[]/cvss_v2/integrityRequirement`
-* `/vulnerabilities[]/scores[]/cvss_v2/availabilityRequirement`
-* `/vulnerabilities[]/scores[]/cvss_v3/version`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
-* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
-* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
-* `/vulnerabilities[]/scores[]/cvss_v3/scope`
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/baseSeverity`
-* `/vulnerabilities[]/scores[]/cvss_v3/exploitCodeMaturity`
-* `/vulnerabilities[]/scores[]/cvss_v3/remediationLevel`
-* `/vulnerabilities[]/scores[]/cvss_v3/reportConfidence`
-* `/vulnerabilities[]/scores[]/cvss_v3/temporalSeverity`
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityRequirement`
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityRequirement`
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityRequirement`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackVector`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackComplexity`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedPrivilegesRequired`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedUserInteraction`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedScope`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedConfidentialityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedIntegrityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAvailabilityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity`
-* `/vulnerabilities[]/threats[]/category`
+* `/document/csaf_version` (3)
+* `/document/distribution/tlp/label` (5)
+* `/document/notes[]/category` (16)
+* `/document/publisher/category` (11)
+* `/document/references[]/category` (8)
+* `/document/tracking/status` (7)
+* `/product_tree/branches[]/category` (15)
+* `/product_tree/branches[](/branches[])*/category` (15)
+* `/product_tree/relationships[]/category` (21)
+* `/vulnerabilities[]/involvements[]/party` (11)
+* `/vulnerabilities[]/involvements[]/status` (17)
+* `/vulnerabilities[]/notes[]/category` (16)
+* `/vulnerabilities[]/references[]/category` (8)
+* `/vulnerabilities[]/remediations[]/category` (14)
+* `/vulnerabilities[]/remediations[]/restart_required/category` (20)
+* `/vulnerabilities[]/scores[]/cvss_v2/version` (3)
+* `/vulnerabilities[]/scores[]/cvss_v2/accessVector` (16)
+* `/vulnerabilities[]/scores[]/cvss_v2/accessComplexity` (6)
+* `/vulnerabilities[]/scores[]/cvss_v2/authentication` (8)
+* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityImpact` (8)
+* `/vulnerabilities[]/scores[]/cvss_v2/integrityImpact` (8)
+* `/vulnerabilities[]/scores[]/cvss_v2/availabilityImpact` (8)
+* `/vulnerabilities[]/scores[]/cvss_v2/exploitability` (16)
+* `/vulnerabilities[]/scores[]/cvss_v2/remediationLevel` (13)
+* `/vulnerabilities[]/scores[]/cvss_v2/reportConfidence` (14)
+* `/vulnerabilities[]/scores[]/cvss_v2/collateralDamagePotential` (11)
+* `/vulnerabilities[]/scores[]/cvss_v2/targetDistribution` (11)
+* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v2/integrityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v2/availabilityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/version` (3)
+* `/vulnerabilities[]/scores[]/cvss_v3/attackVector` (16)
+* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity` (4)
+* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired` (4)
+* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction` (8)
+* `/vulnerabilities[]/scores[]/cvss_v3/scope` (9)
+* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v3/baseSeverity` (8)
+* `/vulnerabilities[]/scores[]/cvss_v3/exploitCodeMaturity` (16)
+* `/vulnerabilities[]/scores[]/cvss_v3/remediationLevel` (13)
+* `/vulnerabilities[]/scores[]/cvss_v3/reportConfidence` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/temporalSeverity` (8)
+* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/integrityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/availabilityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackVector` (16)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackComplexity` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedPrivilegesRequired` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedUserInteraction` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedScope` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedConfidentialityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedIntegrityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAvailabilityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity` (8)
+* `/vulnerabilities[]/threats[]/category` (14)
 
 ## Date
 
