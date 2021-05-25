@@ -3693,7 +3693,7 @@ A CSAF extended validator may provide an additional function to only run one or 
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
-* satisfies the "CSAF basic validator" conformance profile.
+* satisfies the "CSAF extended validator" conformance profile.
 * additionally performs all informative tests as given in section 4.3.
 
 A CSAF full validator may provide an additional function to only run one or more selected informative tests.
