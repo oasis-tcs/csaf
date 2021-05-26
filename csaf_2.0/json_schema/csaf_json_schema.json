@@ -233,6 +233,19 @@
                 }
               }
             },
+            "product_numbers": {
+              "$comment": "TODO: Add remark in prose that this should only be used if relationships are used (to decouple hard- and software), or the product numbers change during update.",
+              "title": "List of product numbers",
+              "description": "Contains a list of parts, or full product numbers.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Product number",
+                "description": "Contains a part, or a full product number which is used in the ordering process to identify the component.",
+                "type": "string",
+                "minLength": 1
+              }
+            },
             "purl": {
               "$comment": "TODO: This should have a full regular expression to enforce purl syntax.",
               "title": "package URL representation",
