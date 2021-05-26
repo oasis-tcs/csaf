@@ -250,6 +250,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **VCS**: version control system
 
+**vendor**: the community, individual, or organization that created or maintains a product (including open source software and hardware providers)
+
 **viewer**: see CSAF viewer.
 
 **XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
