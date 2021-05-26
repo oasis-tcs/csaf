@@ -279,10 +279,8 @@ _Common Platform Enumeration: Applicability Language Specification Version 2.3 (
 _Common Platform Enumeration: Dictionary Specification Version 2.3_, P. Cichonski, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7697, August 2011, http://dx.doi.org/10.6028/NIST.IR.7697.
 ###### [CPE23-M]
 _Common Platform Enumeration: Naming Matching Specification Version 2.3_, M. Parmelee, H. Booth, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7696, August 2011,http://dx.doi.org/10.6028/NIST.IR.7696.
-
 ###### [CPE23-N]
 _Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
-
 ###### [CVE]
 _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://cve.mitre.org/about/.
 ###### [CVE-NF]
@@ -3352,6 +3350,116 @@ This does not exclude that such a document is also available in an access protec
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
 
+### 5.1.5 Requirement 5: security.txt
+
+In the security.txt there MUST at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]).
+
+> At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
+
+Examples:
+
+```
+CSAF: https://domain.tld/security/data/csaf/
+CSAF: https://psirt.domain.tld/advisories/csaf/
+CSAF: https://domain.tld/security/csaf/csaf-service.json
+```
+
+### 5.1.6 Requirement 6: DNS path
+
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the ROLIE service document or a directory with CSAF files.
+
+### 5.1.7 Requirement 7: One folder per year
+
+The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
+
+Examples:
+
+```
+2021
+2020
+```
+
+### 5.1.8 Requirement 8: index.txt
+
+The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+
+Examples:
+
+```
+2020/example_company_-_2020-yh4711.json
+2019/example_company_-_2019-yh3234.json
+2018/example_company_-_2018-yh2312.json
+```
+
+> This can be used to download all CSAF documents.
+
+### 5.1.9 Requirement 9: changes.csv
+
+The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the latter one.
+
+Examples:
+
+```
+2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
+2018/example_company_-_2018-yh2312.json, "2020-07-01T10:09:01Z"
+2019/example_company_-_2019-yh3234.json, "2019-04-17T15:08:41Z"
+2018/example_company_-_2018-yh2312.json, "2019-03-01T06:01:00Z"
+```
+
+### 5.1.10 Requirement 10: Directory listings
+
+Directory listing SHALL be enabled to support manual navigation.
+
+### 5.1.11 Requirement 11: ROLIE service document
+
+The ROLIE service document MUST conform with [RFC8322].
+
+**TODO: Provide Example**
+
+### 5.1.12 Requirement 12: ROLIE category document
+
+Each ROLIE category document MUST conform with [RFC8322].
+
+**TODO: Provide Example**
+
+### 5.1.13 Requirement 13: TLP:AMBER and TLP:RED
+
+CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
+
+### 5.1.14 Requirement 14: Redirects
+
+Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
+
+> Reasoning: Clients, as e.g. `curl`, do not follow any other kind of redirects.
+
+### 5.1.15 Requirement 15: Integrity
+
+All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3) to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
+
+MD5 and SHA1 SHOULD NOT be used.
+
+Example:
+
+```
+File name of CSAF document: example_company_-_2019-yh3234.json
+File name of hash file: example_company_-_2019-yh3234.json.sha512
+```
+
+### 5.1.16 Requirement 16: Signatures
+
+All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
+
+Example:
+
+```
+File name of CSAF document: example_company_-_2019-yh3234.json
+File name of signature file: example_company_-_2019-yh3234.json.asc
+```
+
+### 5.1.17 Requirement 17: Public PGP Key
+
+The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a publc key server.  
+
 ## 5.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
@@ -3360,8 +3468,32 @@ This subsection groups the requirements from the previous subsection into named 
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
-* satisfies the requirements 1 to 4.
+* satisfies the requirements 1 to 4 in section 5.1.
 * distributes only CSAF documents on behalf of its own.
+
+### 5.2.2 Role: CSAF provider
+
+A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the following three groups of requirements:
+
+Firstly, the party:
+
+* satisfies the "CSAF publisher" role profile.
+* additionally satisfies the requirements 13 and 14 in section 5.1
+
+Secondly, the party:
+
+* satisfies the requirements 5 or 6 in section 5.1.
+
+Thirdly, the party:
+
+* satisfies the requirements 7 to 10 in section 5.1 or requirements 11 to 12 in section 5.1.
+
+### 5.2.3 Role: CSAF trusted provider
+
+A CSAF provider satisfies the "CSAF trusted provider" role if the party:
+
+* satisfies the "CSAF provider" role profile.
+* additionally satisfies the requirements 15 to 17 in section 5.1.
 
 # 6 Safety, Security, and Data Protection Considerations
 
