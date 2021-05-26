@@ -2133,7 +2133,7 @@ The value `completed` indicates that the party asserts that investigation of the
 
 The value `contact_attempted` indicates that the document producer attempted to contact the party.
 
-The value `disputed` indicates that the party disputes the vulnerability report in its entirety. A party should indicate this status when they believe that a vulnerability report regarding a product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
+The value `disputed` indicates that the party disputes the vulnerability report in its entirety. This status should be used when the party believes that a vulnerability report regarding a product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
 
 The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds, or patches may have been made available by the party, but more information or fixes may be released in the future. The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
 
