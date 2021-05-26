@@ -896,7 +896,30 @@ Examples:
 
 If the value of the hash matches and the filename does not, a user should prefer the hash value. In such cases, the filename should be used as informational property.
 
-##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
+##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Product numbers
+
+The list of product numbers (`product_numbers`) of value type `array` with 1 or more items contains a list of parts, or full product numbers.
+
+A list of product numbers SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the product numbers change during update. In the latter case the remediations SHALL include the new product number is or a description how it can be obtained.
+
+> The use of the list of relationships in the first case is important. Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
+
+```
+    "product_numbers": {
+        //...  
+      "items": {
+        //...  
+      }
+    }
+```
+
+Any given product number of value type `string` with at least 1 character represents a part, or a full product number of the component to identify.
+
+If a part of a product number of the component to identify is given, it SHOULD begin with the first character of the product number and stop at any point.
+Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Two `*` MUST NOT follow each other.
+
+##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - PURL
 
 The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
 
@@ -906,7 +929,7 @@ The package URL (PURL) representation (`purl`) is a `string` of 4 or more charac
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
-##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
+##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or full serial numbers.
 
@@ -927,7 +950,7 @@ If a part of a serial number of the component to identify is given, it SHOULD be
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Generic URIs
+##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Generic URIs
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
