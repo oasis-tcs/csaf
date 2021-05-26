@@ -2105,11 +2105,11 @@ List of involvements (`involvements`) of value type `array` with 1 or more items
     },
 ```
 
-Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.
+Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container that allows the document producers to comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to disclose the coordination timeline. The ordered tuple of the values of `party`, `status` and `date` (if present) SHALL be unique within `involvements`.
 
 ```
         "properties": {
-          "summary": {
+          "date": {
             // ...
           },
           "party": {
@@ -2117,11 +2117,16 @@ Every Involvement item of value type `object` with the 2 mandatory properties Pa
           },
           "status": {
             // ...
-          }
+          },
+          "summary": {
+            // ...
+          },
         }
 ```
 
-Party type (`party`) of value type `string` and `enum` defines the type of the involved party.
+Date of involvement (`date`) of value type `string` with format `date-time` holds the date and time of the involvement entry.
+
+Party category (`party`) of value type `string` and `enum` defines the category of the involved party.
 Valid values are:
 
 ```
@@ -2131,6 +2136,8 @@ Valid values are:
     user
     vendor
 ```
+
+These values follow the same definitions as given for the publisher category (cf. section 3.2.1.8.1).
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
@@ -2144,21 +2151,21 @@ Valid values are:
     open
 ```
 
-Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party’s involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress Involvement should eventually expect to issue a document as `disputed` or `completed`.
+Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party's involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress involvement should eventually expect to issue a document containing only the party statuses `disputed` or `completed`.
 
 > The two vulnerability involvement status states, `contact_attempted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
 
-The value `completed` indicates that the vendor asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the vendor about the vulnerability should be expected to be released.
+The value `completed` indicates that the party asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the party about the vulnerability should be expected to be released.
 
-The value `contact_attempted` indicates that the document producer attempted to contact the affected vendor.
+The value `contact_attempted` indicates that the document producer attempted to contact the party.
 
-The value `disputed` indicates that the vendor disputes the vulnerability report in its entirety. Vendors should indicate this status when they believe that a vulnerability report regarding their product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
+The value `disputed` indicates that the party disputes the vulnerability report in its entirety. This status should be used when the party believes that a vulnerability report regarding a product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
 
-The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds, or patches may have been made available by the vendor, but more information or fixes may be released in the future. The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
+The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds, or patches may have been made available by the party, but more information or fixes may be released in the future. The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
 
-The value `not_contacted` indicates that the document producer has not attempted to make contact with the affected vendor.
+The value `not_contacted` indicates that the document producer has not attempted to make contact with the party.
 
-The value `open` is the default status. It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the vendor has acknowledged awareness of the vulnerability report. The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
+The value `open` is the default status. It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the party has acknowledged awareness of the vulnerability report. The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
@@ -3189,6 +3196,39 @@ Example which fails the test:
 
 > The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
 
+### 4.1.23 Multiple Definition in Involvements
+
+It must be tested that items of the list of involements do not contain the tuple of `party` and `status` more than once at any `date`.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/involvements
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "involvements": [
+        {
+          "date": "2021-04-23T10:00:00.000Z",
+          "party": "vendor",
+          "status": "in_progress"
+        },
+        {
+          "date": "2021-04-23T10:00:00.000Z",
+          "party": "vendor",
+          "status": "in_progress",
+          "summary": "The vendor has released a mitigation and is working to fully resolve the issue."
+        }
+      ]
+    }
+```
+
+> The list of involements contains two items with the same tuple `party`, `status` and `date`.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
@@ -3320,6 +3360,32 @@ Example which fails the test:
 ```
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
+
+### 4.2.5 Missing Date in Involvements
+
+For each item in the list of involvements it must be tested that it includes the property `date`.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/involvements
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "involvements": [
+        {
+          "party": "vendor",
+          "status": "in_progress"
+        }
+      ]
+    }
+```
+
+> The list of involements contains an item which does not contain the property `date`.
 
 ## 4.3 Informative Test
 
@@ -3777,7 +3843,6 @@ Thomas | Schreck | Siemens AG
 Tim | Hudson | Cryptsoft Pty Ltd.
 Tony | Cox | Cryptsoft Pty Ltd.
 Trey | Darley | "Kingfisher Operations, sprl"
-Troy | Fridley | Cisco Systems
 Vincent | Danen | Red Hat
 Zach | Turk | Microsoft
 
