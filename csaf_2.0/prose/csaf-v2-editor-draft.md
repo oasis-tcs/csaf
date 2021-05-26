@@ -220,6 +220,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **problem**: result which indicates a condition that has the potential to detract from the quality of the program.  _Examples_: A security vulnerability, a deviation from contractual or legal requirements.
 
+**product**: is any deliverable (e.g. software, hardware, specification,...) which can be referred to with a name. This applies regardless of the origin, the license model, or the mode of distribution of the deliverable.
+
 **property**: attribute of an object consisting of a name and a value associated with the name
 
 **redactable property**: property that potentially contains sensitive information that a CSAF direct producer or a CSAF post-processor might wish to redact
