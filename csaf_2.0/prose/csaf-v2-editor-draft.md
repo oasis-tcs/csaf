@@ -907,13 +907,28 @@ The package URL (PURL) representation (`purl`) is a `string` of 4 or more charac
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
-##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - Serial Numbers
+##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - SBOM URLs
+
+The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains a list of URLs where SBOMs for this product can be retrieved.
+
+> The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
+
+Any given SBOM URL of value type `string` and format `uri` contains a URL of one SBOM for this product.
+
+```
+    "sbom_urls": {
+        //...  
+      "items": {
+        //...  
+      }
+    }
+```
+
+##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or full serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
-
-Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
 
 ```
     "serial_numbers": {
@@ -924,11 +939,13 @@ Any given serial number of value type `string` with at least 1 character represe
     }
 ```
 
+Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
+
 If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Generic URIs
+##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Generic URIs
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
