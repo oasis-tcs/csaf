@@ -3442,7 +3442,16 @@ Example:
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
-File name of hash file: example_company_-_2019-yh3234.json.sha512
+File name of SHA-256 hash file: example_company_-_2019-yh3234.json.sha256
+File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
+```
+
+The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
+
+Example:
+
+```
+ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
 ```
 
 ### 5.1.16 Requirement 16: Signatures
