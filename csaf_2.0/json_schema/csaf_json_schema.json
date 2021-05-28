@@ -241,6 +241,18 @@
               "pattern": "^pkg:",
               "minLength": 4
             },
+            "sbom_urls": {
+              "title": "List of SBOM URLs",
+              "description": "Contains a list of URLs where SBOMs for this product can be retrieved.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "SBOM URL",
+                "description": "Contains a URL of one SBOM for this product.",
+                "type": "string",
+                "format": "uri"
+              }
+            },
             "serial_numbers": {
               "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.",
               "title": "List of serial numbers",
@@ -995,18 +1007,25 @@
             "description": "Contains a list of involvements.",
             "type": "array",
             "minItems": 1,
+            "uniqueItems": true,
             "items": {
               "title": "Involvement",
-              "description": "Is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.",
+              "description": "Is a container, that allows the document producers to comment on the level of involvement (or engagement) of themselves or third parties in the vulnerability identification, scoping, and remediation process.",
               "type": "object",
               "required": [
                 "party",
                 "status"
               ],
               "properties": {
+                "date": {
+                  "title": "Date of involvement",
+                  "description": "Holds the date and time of the involvement entry.",
+                  "type": "string",
+                  "format": "date-time"
+                },
                 "party": {
-                  "title": "Party type",
-                  "description": "Defines the type of the involved party.",
+                  "title": "Party category",
+                  "description": "Defines the category of the involved party.",
                   "type": "string",
                   "enum": [
                     "coordinator",

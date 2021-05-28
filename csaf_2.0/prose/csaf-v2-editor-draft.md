@@ -16,7 +16,8 @@ Omar Santos (osantos@cisco.com), [Cisco](https://cisco.com/)
 
 #### Editors:
 Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
-Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
+Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
+Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
 In Memory of Eric Johnson, TIBCO Software inc., an active member of the OASIS CSAF Committee.
 
@@ -768,6 +769,9 @@ Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, `skus` a
         "purl": {
           // ...
         },
+        "sbom_urls": {
+          // ...
+        },
         "serial_numbers": {
           // ...
         },
@@ -899,7 +903,7 @@ Examples:
 
 If the value of the hash matches and the filename does not, a user should prefer the hash value. In such cases, the filename should be used as informational property.
 
-##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - PURL
+##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
 
 The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
 
@@ -909,13 +913,28 @@ The package URL (PURL) representation (`purl`) is a `string` of 4 or more charac
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
+##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - SBOM URLs
+
+The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains a list of URLs where SBOMs for this product can be retrieved.
+
+> The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
+
+```
+    "sbom_urls": {
+        //...
+      "items": {
+        //...
+      }
+    }
+```
+
+Any given SBOM URL of value type `string` and format `uri` contains a URL of one SBOM for this product.
+
 ##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more items contains a list of parts, or full serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
-
-Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
 
 ```
     "serial_numbers": {
@@ -926,11 +945,13 @@ Any given serial number of value type `string` with at least 1 character represe
     }
 ```
 
+Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
+
 If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - SKUs
+##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - SKUs
 
 The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of parts, or full stock keeping units.
 
@@ -955,7 +976,7 @@ If a part of a stock keeping unit of the component to identify is given, it SHOU
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Generic URIs
+##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - Generic URIs
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
@@ -1734,6 +1755,23 @@ Examples:
     cisco-sa-20190513-secureboot
 ```
 
+This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
+
+1. The value `/document/tracking/id` is converted into lower case.
+2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
+   * Lower case ASCII letters (0x61 - 0x7A)
+   * digits (0x30 - 0x39)
+   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
+3. The file extension `.json` MUST be appended.
+
+Examples:
+
+```
+    example_company_-_2019-yh3234.json
+    rhba-2019_0024.json
+    cisco-sa-20190513-secureboot.json
+```
+
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
 Initial release date (`initial_release_date`) with value type `string` and format `date-time` holds the date when this document was first published.
@@ -2115,11 +2153,11 @@ List of involvements (`involvements`) of value type `array` with 1 or more items
     },
 ```
 
-Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the optional property Summary (`summary`) is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.
+Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container that allows the document producers to comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to disclose the coordination timeline. The ordered tuple of the values of `party`, `status` and `date` (if present) SHALL be unique within `involvements`.
 
 ```
         "properties": {
-          "summary": {
+          "date": {
             // ...
           },
           "party": {
@@ -2127,11 +2165,16 @@ Every Involvement item of value type `object` with the 2 mandatory properties Pa
           },
           "status": {
             // ...
-          }
+          },
+          "summary": {
+            // ...
+          },
         }
 ```
 
-Party type (`party`) of value type `string` and `enum` defines the type of the involved party.
+Date of involvement (`date`) of value type `string` with format `date-time` holds the date and time of the involvement entry.
+
+Party category (`party`) of value type `string` and `enum` defines the category of the involved party.
 Valid values are:
 
 ```
@@ -2141,6 +2184,8 @@ Valid values are:
     user
     vendor
 ```
+
+These values follow the same definitions as given for the publisher category (cf. section 3.2.1.8.1).
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
@@ -2154,21 +2199,21 @@ Valid values are:
     open
 ```
 
-Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party’s involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress Involvement should eventually expect to issue a document as `disputed` or `completed`.
+Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages, a party's involvement could move from state to state. However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether. It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress involvement should eventually expect to issue a document containing one of the statuses `disputed` or `completed` as the latest one.
 
 > The two vulnerability involvement status states, `contact_attempted` and `not_contacted` are intended for use by document producers other than vendors (such as research or coordinating entities).
 
-The value `completed` indicates that the vendor asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the vendor about the vulnerability should be expected to be released.
+The value `completed` indicates that the party asserts that investigation of the vulnerability is complete. No additional information, fixes, or documentation from the party about the vulnerability should be expected to be released.
 
-The value `contact_attempted` indicates that the document producer attempted to contact the affected vendor.
+The value `contact_attempted` indicates that the document producer attempted to contact the party.
 
-The value `disputed` indicates that the vendor disputes the vulnerability report in its entirety. Vendors should indicate this status when they believe that a vulnerability report regarding their product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
+The value `disputed` indicates that the party disputes the vulnerability report in its entirety. This status should be used when the party believes that a vulnerability report regarding a product is completely inaccurate (that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
 
-The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds, or patches may have been made available by the vendor, but more information or fixes may be released in the future. The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
+The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds, or patches may have been made available by the party, but more information or fixes may be released in the future. The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
 
-The value `not_contacted` indicates that the document producer has not attempted to make contact with the affected vendor.
+The value `not_contacted` indicates that the document producer has not attempted to make contact with the party.
 
-The value `open` is the default status. It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the vendor has acknowledged awareness of the vulnerability report. The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
+The value `open` is the default status. It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the party has acknowledged awareness of the vulnerability report. The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
@@ -3199,6 +3244,39 @@ Example which fails the test:
 
 > The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
 
+### 4.1.23 Multiple Definition in Involvements
+
+It must be tested that items of the list of involements do not contain the tuple of `party` and `status` more than once at any `date`.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/involvements
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "involvements": [
+        {
+          "date": "2021-04-23T10:00:00.000Z",
+          "party": "vendor",
+          "status": "in_progress"
+        },
+        {
+          "date": "2021-04-23T10:00:00.000Z",
+          "party": "vendor",
+          "status": "in_progress",
+          "summary": "The vendor has released a mitigation and is working to fully resolve the issue."
+        }
+      ]
+    }
+```
+
+> The list of involements contains two items with the same tuple `party`, `status` and `date`.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
@@ -3331,11 +3409,76 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
+### 4.2.5 Missing Date in Involvements
+
+For each item in the list of involvements it must be tested that it includes the property `date`.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/involvements
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "involvements": [
+        {
+          "party": "vendor",
+          "status": "in_progress"
+        }
+      ]
+    }
+```
+
+> The list of involements contains an item which does not contain the property `date`.
+
 ## 4.3 Informative Test
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
 
-# 5 Safety, Security, and Data Protection Considerations
+# 5 Distributing CSAF documents
+
+This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
+
+## 5.1 Requirements
+
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance.
+
+### 5.1.1 Requirement 1: Valid CSAF document
+
+The document is a valid CSAF document (cf. Conformance clause 1).
+
+### 5.1.2 Requirement 2: Filename
+
+The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
+
+### 5.1.3 Requirement 3: TLS
+
+The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
+
+### 5.1.4 Requirement 4: TLP:WHITE
+
+If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
+
+This does not exclude that such a document is also available in an access protected customer portal. However, there MUST be one copy of the document available for people without access to the portal.
+
+> Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
+
+## 5.2 Roles
+
+This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
+
+### 5.2.1 Role: CSAF publisher
+
+A distributing party satisfies the "CSAF publisher" role if the party:
+
+* satisfies the requirements 1 to 4.
+* distributes only CSAF documents on behalf of its own.
+
+# 6 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
@@ -3351,7 +3494,7 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
 
-# 6 Conformance
+# 7 Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -3370,7 +3513,7 @@ Informative Comments:
 >* Clear baseline across the communities per this specification
 >* Additional per-community cooperative extensions which may flow back into future updates of this specification
 
-## 6.1 Conformance Targets
+## 7.1 Conformance Targets
 
 This document defines requirements for the CSAF file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
@@ -3392,21 +3535,21 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
-### 6.1.1 Conformance Clause 1: CSAF document
+### 7.1.1 Conformance Clause 1: CSAF document
 
 A text file satisfies the "CSAF document" conformance profile if the text file:
 
 * conforms to the syntax and semantics defined in section 3.
 * does not fail any mandatory test defined in section 4.1.
 
-### 6.1.2 Conformance Clause 2: CSAF producer
+### 7.1.2 Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-### 6.1.3 Conformance Clause 3: CSAF direct producer
+### 7.1.3 Conformance Clause 3: CSAF direct producer
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
@@ -3414,7 +3557,7 @@ An analysis tool satisfies the "CSAF direct producer" conformance profile if the
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 6.1.4 Conformance Clause 4: CSAF converter
+### 7.1.4 Conformance Clause 4: CSAF converter
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
@@ -3422,7 +3565,7 @@ A converter satisfies the “CSAF converter” conformance profile if the conver
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-### 6.1.5 Conformance Clause 5: CVRF CSAF converter
+### 7.1.5 Conformance Clause 5: CVRF CSAF converter
 
 A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
@@ -3441,7 +3584,7 @@ Secondly, the program for all items of:
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 
-### 6.1.6 Conformance Clause 6: CSAF content management system
+### 7.1.6 Conformance Clause 6: CSAF content management system
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
@@ -3528,7 +3671,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### 6.1.7 Conformance Clause 7: CSAF post-processor
+### 7.1.7 Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
@@ -3536,7 +3679,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-### 6.1.8 Conformance Clause 8: CSAF modifier
+### 7.1.8 Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3544,7 +3687,7 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 6, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section 7, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -3552,7 +3695,7 @@ The resulting modified document:
 * does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### 6.1.9 Conformance Clause 9: CSAF translator
+### 7.1.9 Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3572,14 +3715,14 @@ The resulting translated document:
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
-### 6.1.10 Conformance Clause 10: CSAF consumer
+### 7.1.10 Conformance Clause 10: CSAF consumer
 
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-### 6.1.11 Conformance Clause 11: CSAF viewer
+### 7.1.11 Conformance Clause 11: CSAF viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
@@ -3593,7 +3736,7 @@ For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 * should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
-### 6.1.12 Conformance Clause 12: CSAF management system
+### 7.1.12 Conformance Clause 12: CSAF management system
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
@@ -3613,7 +3756,7 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 * identifies the latest version of CSAF documents with the same `/document/tracking/id`.
 * is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-### 6.1.13 Conformance Clause 13: CSAF asset matching system
+### 7.1.13 Conformance Clause 13: CSAF asset matching system
 
 A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
@@ -3643,7 +3786,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
   * matching that CSAF document at all
   * marked with a given status
 
-### 6.1.14 Conformance Clause 14: CSAF basic validator
+### 7.1.14 Conformance Clause 14: CSAF basic validator
 
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
@@ -3652,7 +3795,7 @@ A program satisfies the "CSAF basic validator" conformance profile if the progra
 
 A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
 
-### 6.1.15 Conformance Clause 15: CSAF extended validator
+### 7.1.15 Conformance Clause 15: CSAF extended validator
 
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
@@ -3661,11 +3804,11 @@ A CSAF basic validator satisfies the "CSAF extended validator" conformance profi
 
 A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
 
-### 6.1.16 Conformance Clause 16: CSAF full validator
+### 7.1.16 Conformance Clause 16: CSAF full validator
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
-* satisfies the "CSAF basic validator" conformance profile.
+* satisfies the "CSAF extended validator" conformance profile.
 * additionally performs all informative tests as given in section 4.3.
 
 A CSAF full validator may provide an additional function to only run one or more selected informative tests.
@@ -3748,7 +3891,6 @@ Thomas | Schreck | Siemens AG
 Tim | Hudson | Cryptsoft Pty Ltd.
 Tony | Cox | Cryptsoft Pty Ltd.
 Trey | Darley | "Kingfisher Operations, sprl"
-Troy | Fridley | Cisco Systems
 Vincent | Danen | Red Hat
 Zach | Turk | Microsoft
 
