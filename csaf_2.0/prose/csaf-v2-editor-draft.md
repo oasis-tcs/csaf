@@ -754,7 +754,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 #### 3.1.3.3 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, `skus` and `x_generic_uris`, one is mandatory.
+Of the given seven properties `cpe`, `hashes`, `purl`, `sbom_urls`, `serial_numbers`, `skus` and `x_generic_uris`, one is mandatory.
 
 ```
     "product_identification_helper": {
