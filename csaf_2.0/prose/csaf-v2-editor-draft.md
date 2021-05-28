@@ -3790,7 +3790,7 @@ Zach | Turk | Microsoft
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
-The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the eosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
 All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below. All _CSAF producers_ should not produce CSAF documents which exceed those limits.
 
