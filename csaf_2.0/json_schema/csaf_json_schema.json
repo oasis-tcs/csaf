@@ -233,18 +233,6 @@
                 }
               }
             },
-            "product_numbers": {
-              "title": "List of product numbers",
-              "description": "Contains a list of parts, or full product numbers.",
-              "type": "array",
-              "minItems": 1,
-              "items": {
-                "title": "Product number",
-                "description": "Contains a part, or a full product number which is used in the ordering process to identify the component.",
-                "type": "string",
-                "minLength": 1
-              }
-            },
             "purl": {
               "$comment": "TODO: This should have a full regular expression to enforce purl syntax.",
               "title": "package URL representation",
@@ -262,6 +250,18 @@
               "items": {
                 "title": "Serial number",
                 "description": "Contains a part, or a full serial number of the component to identify.",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "skus": {
+              "title": "List of stock keeping units",
+              "description": "Contains a list of parts, or full stock keeping units.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Stock keeping unit",
+                "description": "Contains a part, or a full stock keeping unit (SKU) which is used in the ordering process to identify the component.",
                 "type": "string",
                 "minLength": 1
               }
