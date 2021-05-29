@@ -3798,7 +3798,7 @@ All _CSAF consumers_ should be able to process CSAF documents which comply with 
 
 ## File size
 
-A CSAF document in the specified JSON format encoded in UTF-8 SHOULD NOT be lager than 15 MB.
+A CSAF document in the specified JSON format encoded in UTF-8 SHOULD be smaller than 15 MB.
 
 > At least one database technology in wide use for storing CSAF documents rejects insert attempts when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integers and small strings may incur more overhead in the BSON format than in JSON. In addition, the BSON format adds length information for the entries inside the document, which adds to the size when storing CSAF document content in a BSON format.
 
