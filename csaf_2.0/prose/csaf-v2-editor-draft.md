@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 26 April 2021
+## 21 May 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -128,15 +128,23 @@ For purposes of this document, the following terms and definitions apply:
 
 **artifact**: sequence of bytes addressable via a URI.  _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed via an HTTP request; an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
-**converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
-
 **CSAF asset matching system**: program that connects to or is asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+
+**CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
 
 **CSAF consumer**: program that reads and interprets a CSAF document
 
 **CSAF content management system**: program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 
+**CSAF converter**: CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
+
+**CSAF direct producer**: analysis tool which acts as a CSAF producer
+
 **CSAF document**: security advisory text document in the format defined by this document.
+
+**CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+
+**CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
 **CSAF management system**: program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 
@@ -151,8 +159,6 @@ For purposes of this document, the following terms and definitions apply:
 **CSAF viewer**: CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 
 **CVRF CSAF converter**: CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
-
-**direct producer**: analysis tool which acts as a CSAF producer
 
 **document**: output file produced by an analysis tool, which enumerates the results produced by the tool
 
@@ -214,6 +220,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **problem**: result which indicates a condition that has the potential to detract from the quality of the program.  _Examples_: A security vulnerability, a deviation from contractual or legal requirements.
 
+**product**: is any deliverable (e.g. software, hardware, specification,...) which can be referred to with a name. This applies regardless of the origin, the license model, or the mode of distribution of the deliverable.
+
 **property**: attribute of an object consisting of a name and a value associated with the name
 
 **redactable property**: property that potentially contains sensitive information that a CSAF direct producer or a CSAF post-processor might wish to redact
@@ -244,6 +252,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **VCS**: version control system
 
+**vendor**: the community, individual, or organization that created or maintains a product (including open source software and hardware providers)
+
 **viewer**: see CSAF viewer.
 
 **XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
@@ -267,14 +277,16 @@ T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", R
 
 ## 1.4 Informative References
 
-###### [CPE23-N]
-_Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
-###### [CPE23-M]
-_Common Platform Enumeration: Naming Matching Specification Version 2.3_, M. Parmelee, H. Booth, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7696, August 2011,http://dx.doi.org/10.6028/NIST.IR.7696.
-###### [CPE23-D]
-_Common Platform Enumeration: Dictionary Specification Version 2.3_, P. Cichonski, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7697, August 2011, http://dx.doi.org/10.6028/NIST.IR.7697.
 ###### [CPE23-A]
 _Common Platform Enumeration: Applicability Language Specification Version 2.3 (NISTIR 7698)_, D. Waltermire, P. Cichonski, K. Scarfone, Editors, NIST Interagency Report 7698, August 2011, http://dx.doi.org/10.6028/NIST.IR.7698.
+###### [CPE23-D]
+_Common Platform Enumeration: Dictionary Specification Version 2.3_, P. Cichonski, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7697, August 2011, http://dx.doi.org/10.6028/NIST.IR.7697.
+###### [CPE23-M]
+_Common Platform Enumeration: Naming Matching Specification Version 2.3_, M. Parmelee, H. Booth, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7696, August 2011,http://dx.doi.org/10.6028/NIST.IR.7696.
+
+###### [CPE23-N]
+_Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
+
 ###### [CVE]
 _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://cve.mitre.org/about/.
 ###### [CVE-NF]
@@ -395,12 +407,12 @@ Wherever possible repetition of data has been replaced by linkage through ID ele
 
 A dictionary like presentation of all defined schema elements is given in the section SCHEMASECTIONNUMBER Schema. Any expected relations to other elements (linkage) is described there. This linking relies on setting attribute values accordingly (mostly guided by industry best practice and conventions) and thus implies, that any deep validation on a semantic level is to be ensured by the producer and consumer of CSAF documents. It is out of scope for this specification.
 
-Proven and intended usage patterns from practice are given where possible. 
+Proven and intended usage patterns from practice are given where possible.
 
 Delegation to industry best practices technologies is used in referencing schemas for:
 
 * Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-A]
+  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-N]
 * Vulnerability Scoring:
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS31]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
@@ -413,7 +425,7 @@ Delegation to industry best practices technologies is used in referencing schema
     * CWE List: http://cwe.mitre.org/data/index.html
 * Classfication for Document Distribution
   * Traffic Light Protocol (TLP)
-    * Default Definition: https://www.first.org/tlp/ 
+    * Default Definition: https://www.first.org/tlp/
 
 -------
 
@@ -777,7 +789,7 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
     ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
 ```
 
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-A] for details.
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-N] for details.
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
 
@@ -1058,7 +1070,7 @@ Examples:
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
-There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a group in the context of the current document.
+There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a product group in the context of the current document.
 
 ```
     "product_group_id_t": {
@@ -1073,6 +1085,8 @@ Examples:
     CSAFGID-0002
     CSAFGID-0020
 ```
+
+> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
 
 ### 3.1.7 Product Groups Type
 
@@ -1090,7 +1104,7 @@ List of Product Group ID (`product_groups_t`) of value type `array` with 1 or mo
 ### 3.1.8 Product ID Type
 
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances.
-The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product Group ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
+The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
 
 ```
     "product_id_t": {
@@ -1104,6 +1118,8 @@ Examples:
     CSAFPID-0004
     CSAFPID-0008
 ```
+
+> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
 
 ### 3.1.9 Products Type
 
@@ -1221,7 +1237,7 @@ The goal of this structure is to provide additional information to the end user 
 
 1. A normal version number MUST take the form X.Y.Z where X, Y, and Z are non-negative integers, and MUST NOT contain leading zeroes. X is the major version, Y is the minor version, and Z is the patch version. Each element MUST increase numerically. For instance: 1.9.0 -> 1.10.0 -> 1.11.0.
 2. Once a versioned document has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version.
-3. Major version zero (0.y.z) is for initial development before the `initial_release_date`. The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
+3. Major version zero (0.y.z) is for initial development before the `initial_release_date`. The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable. Changes which would increment the major version according to rule 7 are tracked in this stage with (0.y.z) by incrementing the minor version y instead. Changes that would increment the minor or patch version according to rule 6 or 5 are both tracked in this stage with (0.y.z) by incrementing the patch version z instead.
 4. Version 1.0.0 defines the initial public release. The way in which the version number is incremented after this release is dependent on the content and structure of the document and how it changes.
 5. Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards compatible bug fixes are introduced. A bug fix is defined as an internal change that fixes incorrect behavior.
 
@@ -1670,21 +1686,49 @@ Document Generator (`generator`) of value type `object` with mandatory property 
 Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated.
 Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released, this field MAY be different from the Initial Release Date and Current Release Date.
 
-Engine of document generation (`engine`) of value type `string` with 1 or more characters SHOULD represent the name of the engine that generated the CSAF document, and MAY additionally refer to its version.
+Engine of document generation (`engine`) of value type `object` with mandatory property Engine name (`name`) and optional property Engine version (`version`) contains information about the engine that generated the CSAF document.
+
+```
+        "engine": {
+          // ...
+          "properties": {
+            "name": {
+              // ...
+            },
+            "version": {
+              // ...
+            }
+          }
+        },
+```
+
+Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
 Examples:
 
 ```
+    Red Hat rhsa-to-cvrf
+    Secvisogram
     TVCE
-    Red Hat rhsa-to-cvrf 2.1
-    CMPFA Core Converter CVRF->CSAF Version 0.6
+```
+
+Engine version (`version`) of value type `string` with 1 or more characters contains the version of the engine that generated the CSAF document.
+
+> Although it is not formally required, the TC suggests to use a versioning which compatible wth Semantic Versioning as described in the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
+
+Examples:
+
+```
+    0.6.0
+    2
+    1.0.0-beta+exp.sha.a1c44f85
 ```
 
 ##### 3.2.1.12.4 Document Property - Tracking - ID
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
-Its value SHOULD be assigned and maintained by the original document issuing authority.
+Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organisation.
 
 Examples:
 
@@ -1692,6 +1736,23 @@ Examples:
     Example Company - 2019-YH3234
     RHBA-2019:0024
     cisco-sa-20190513-secureboot
+```
+
+This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
+
+1. The value `/document/tracking/id` is converted into lower case.
+2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
+   * Lower case ASCII letters (0x61 - 0x7A)
+   * digits (0x30 - 0x39)
+   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
+3. The file extension `.json` MUST be appended.
+
+Examples:
+
+```
+    example_company_-_2019-yh3234.json
+    rhba-2019_0024.json
+    cisco-sa-20190513-secureboot.json
 ```
 
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
@@ -2179,9 +2240,14 @@ First fixed (`first_fixed`) of value type Products (`products_t`) represents tha
 
 Fixed (`fixed`) of value type Products (`products_t`) represents that these versions contain a fix for the vulnerability but may not be the recommended fixed versions.
 
-Known affected (`known_affected`) of value type Products (`products_t`) represents that these versions are known to be affected by the vulnerability.
+Known affected (`known_affected`) of value type Products (`products_t`) represents that these versions are known to be affected by the vulnerability. Actions are recommended to remediate or address this vulnerability.
 
-Known not affected (`known_not_affected`) of value type Products (`products_t`) represents that these versions are known not to be affected by the vulnerability.
+> This could include for instance learning more about the vulnerability and context, and/or making a risk-based decision to patch or apply defense-in-depth measures. See `/vulnerabilities[]/remediations`, `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats` for more details.
+
+Known not affected (`known_not_affected`) of value type Products (`products_t`) represents that these versions are known not to be affected by the vulnerability. No remediation is required regarding this vulnerability.
+
+> This could for instance be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist, or other factors.
+See `/vulnerabilities[]/threats` in category `impact` for more details.
 
 Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
 
@@ -2418,7 +2484,7 @@ Valid values are:
 
 The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known. This knowledge can range from information privately held among a very small group to an issue that has been described to the public at a major conference or is being widely exploited globally. For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric. However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
-The value `impact` indicates that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
+The value `impact` indicates that the `details` field contains an assessment of the impact on the user or the target set if the vulnerability is successfully exploited or a description why it cannot be exploited. If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics. These metrics measure how a vulnerability detracts from the three core security properties of an information system: Confidentiality, Integrity, and Availability.
 
 The value `target_set` indicates that the `details` field contains a description of the currently known victim population in whatever terms are appropriate. Such terms may include: operating system platform, types of products, user segments, and geographic distribution.
 
@@ -3134,6 +3200,31 @@ Example which fails the test:
 
 > The revision history contains two items with the version number `1`.
 
+### 4.1.22 Multiple Use of Same CVE
+
+It must be tested that a CVE is not used in multiple vulnerability items.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/cve
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2017-0145"
+    },
+    {
+      "cve": "CVE-2017-0145"
+    }
+  ]
+```
+
+> The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
@@ -3270,7 +3361,46 @@ Example which fails the test:
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
 
-# 5 Safety, Security, and Data Protection Considerations
+# 5 Distributing CSAF documents
+
+This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
+
+## 5.1 Requirements
+
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance.
+
+### 5.1.1 Requirement 1: Valid CSAF document
+
+The document is a valid CSAF document (cf. Conformance clause 1).
+
+### 5.1.2 Requirement 2: Filename
+
+The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
+
+### 5.1.3 Requirement 3: TLS
+
+The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
+
+### 5.1.4 Requirement 4: TLP:WHITE
+
+If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
+
+This does not exclude that such a document is also available in an access protected customer portal. However, there MUST be one copy of the document available for people without access to the portal.
+
+> Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
+
+## 5.2 Roles
+
+This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
+
+### 5.2.1 Role: CSAF publisher
+
+A distributing party satisfies the "CSAF publisher" role if the party:
+
+* satisfies the requirements 1 to 4.
+* distributes only CSAF documents on behalf of its own.
+
+# 6 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
@@ -3286,7 +3416,7 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
 
-# 6 Conformance
+# 7 Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -3305,15 +3435,15 @@ Informative Comments:
 >* Clear baseline across the communities per this specification
 >* Additional per-community cooperative extensions which may flow back into future updates of this specification
 
-## 6.1 Conformance Targets
+## 7.1 Conformance Targets
 
 This document defines requirements for the CSAF file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
 * **CSAF producer**: A program which emits output in the CSAF format.
-* **Direct producer**: An analysis tool which acts as a CSAF producer.
-* **Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+* **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
+* **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 * **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 * **CSAF content management system**: A program that is able to create, review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
 * **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
@@ -3323,38 +3453,41 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains, and allows an end user to view each result in the context of the artifact in which it occurs.
 * **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required by CSAF management system as well as matching them to assets of the asset database.
+* **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
-### 6.1.1 Conformance Clause 1: CSAF document
+### 7.1.1 Conformance Clause 1: CSAF document
 
 A text file satisfies the "CSAF document" conformance profile if the text file:
 
 * conforms to the syntax and semantics defined in section 3.
 * does not fail any mandatory test defined in section 4.1.
 
-### 6.1.2 Conformance Clause 2: CSAF producer
+### 7.1.2 Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-### 6.1.3 Conformance Clause 3: Direct producer
+### 7.1.3 Conformance Clause 3: CSAF direct producer
 
-An analysis tool satisfies the "Direct producer" conformance profile if the analysis tool:
+An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 6.1.4 Conformance Clause 4: Converter
+### 7.1.4 Conformance Clause 4: CSAF converter
 
-A converter satisfies the “Converter” conformance profile if the converter:
+A converter satisfies the “CSAF converter” conformance profile if the converter:
 
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-### 6.1.5 Conformance Clause 5: CVRF CSAF converter
+### 7.1.5 Conformance Clause 5: CVRF CSAF converter
 
 A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
@@ -3373,7 +3506,7 @@ Secondly, the program for all items of:
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 
-### 6.1.6 Conformance Clause 6: CSAF content management system
+### 7.1.6 Conformance Clause 6: CSAF content management system
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
@@ -3460,7 +3593,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### 6.1.7 Conformance Clause 7: CSAF post-processor
+### 7.1.7 Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
@@ -3468,7 +3601,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-### 6.1.8 Conformance Clause 8: CSAF modifier
+### 7.1.8 Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3476,7 +3609,7 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 6, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section 7, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -3484,7 +3617,7 @@ The resulting modified document:
 * does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### 6.1.9 Conformance Clause 9: CSAF translator
+### 7.1.9 Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3504,14 +3637,14 @@ The resulting translated document:
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
-### 6.1.10 Conformance Clause 10: CSAF consumer
+### 7.1.10 Conformance Clause 10: CSAF consumer
 
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-### 6.1.11 Conformance Clause 11: CSAF viewer
+### 7.1.11 Conformance Clause 11: CSAF viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
@@ -3525,7 +3658,7 @@ For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 * should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
-### 6.1.12 Conformance Clause 12: CSAF management system
+### 7.1.12 Conformance Clause 12: CSAF management system
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
@@ -3545,7 +3678,7 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 * identifies the latest version of CSAF documents with the same `/document/tracking/id`.
 * is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-### 6.1.13 Conformance Clause 13: CSAF asset matching system
+### 7.1.13 Conformance Clause 13: CSAF asset matching system
 
 A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
@@ -3574,6 +3707,33 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
   * marked with a given status
+
+### 7.1.14 Conformance Clause 14: CSAF basic validator
+
+A program satisfies the "CSAF basic validator" conformance profile if the program:
+
+* reads documents and performs a check against the JSON schema.
+* performs all mandatory tests as given in section 4.1.
+
+A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
+
+### 7.1.15 Conformance Clause 15: CSAF extended validator
+
+A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
+
+* satisfies the "CSAF basic validator" conformance profile.
+* additionally performs all optional tests as given in section 4.2.
+
+A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
+
+### 7.1.16 Conformance Clause 16: CSAF full validator
+
+A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
+
+* satisfies the "CSAF basic validator" conformance profile.
+* additionally performs all informative tests as given in section 4.3.
+
+A CSAF full validator may provide an additional function to only run one or more selected informative tests.
 
 # Appendix A. Acknowledgments
 
@@ -3663,4 +3823,4 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210426 | 2021-04-26 | Stefan Hagen | Editor revision for TC review |
+| csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen | Editor revision for TC review |
