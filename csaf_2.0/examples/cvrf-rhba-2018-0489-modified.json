@@ -23,8 +23,11 @@
       "initial_release_date": "2018-03-28T13:49:00Z",
       "current_release_date": "2018-03-28T13:49:00Z",
       "generator": {
-        "engine": "Red Hat rhsa-to-cvrf 2.1",
-        "date": "2018-04-11T19:24:01Z"
+        "date": "2018-04-11T19:24:01Z",
+        "engine": {
+          "name": "Red Hat rhsa-to-cvrf",
+          "version": "2.1"
+        }
       }
     },
     "notes": [

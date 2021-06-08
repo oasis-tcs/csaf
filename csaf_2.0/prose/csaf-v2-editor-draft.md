@@ -1686,14 +1686,42 @@ Document Generator (`generator`) of value type `object` with mandatory property 
 Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated.
 Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released, this field MAY be different from the Initial Release Date and Current Release Date.
 
-Engine of document generation (`engine`) of value type `string` with 1 or more characters SHOULD represent the name of the engine that generated the CSAF document, and MAY additionally refer to its version.
+Engine of document generation (`engine`) of value type `object` with mandatory property Engine name (`name`) and optional property Engine version (`version`) contains information about the engine that generated the CSAF document.
+
+```
+        "engine": {
+          // ...
+          "properties": {
+            "name": {
+              // ...
+            },
+            "version": {
+              // ...
+            }
+          }
+        },
+```
+
+Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
 Examples:
 
 ```
+    Red Hat rhsa-to-cvrf
+    Secvisogram
     TVCE
-    Red Hat rhsa-to-cvrf 2.1
-    CMPFA Core Converter CVRF->CSAF Version 0.6
+```
+
+Engine version (`version`) of value type `string` with 1 or more characters contains the version of the engine that generated the CSAF document.
+
+> Although it is not formally required, the TC suggests to use a versioning which compatible wth Semantic Versioning as described in the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
+
+Examples:
+
+```
+    0.6.0
+    2
+    1.0.0-beta+exp.sha.a1c44f85
 ```
 
 ##### 3.2.1.12.4 Document Property - Tracking - ID
