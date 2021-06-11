@@ -758,7 +758,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 #### 3.1.3.3 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_generic_uris`, one is mandatory.
+Of the given seven properties `cpe`, `hashes`, `purl`, `sbom_urls`, `serial_numbers`, `skus` and `x_generic_uris`, one is mandatory.
 
 ```
     "product_identification_helper": {
@@ -773,7 +773,13 @@ Of the given five properties `cpe`, `hashes`, `purl`, `serial_numbers`, and `x_g
         "purl": {
           // ...
         },
+        "sbom_urls": {
+          // ...
+        },
         "serial_numbers": {
+          // ...
+        },
+        "skus": {
           // ...
         },
         "x_generic_uris": {
@@ -917,16 +923,16 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
 
 > The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
 
-Any given SBOM URL of value type `string` and format `uri` contains a URL of one SBOM for this product.
-
 ```
     "sbom_urls": {
-        //...  
+        //...
       "items": {
-        //...  
+        //...
       }
     }
 ```
+
+Any given SBOM URL of value type `string` and format `uri` contains a URL of one SBOM for this product.
 
 ##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Serial Numbers
 
@@ -936,9 +942,9 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
 
 ```
     "serial_numbers": {
-        //...  
+        //...
       "items": {
-        //...  
+        //...
       }
     }
 ```
@@ -949,7 +955,32 @@ If a part of a serial number of the component to identify is given, it SHOULD be
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Generic URIs
+##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - SKUs
+
+The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of parts, or full stock keeping units.
+
+A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
+
+> The use of the list of relationships in the first case is important. Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
+
+```
+    "skus": {
+        //...  
+      "items": {
+        //...  
+      }
+    }
+```
+
+Any given stock keeping unit of value type `string` with at least 1 character represents a part, or a full stock keeping unit (SKU) of the component to identify.
+
+> Sometimes this is also called "item number", "article number" or "product number".
+
+If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of the stock keeping unit and stop at any point.
+Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Two `*` MUST NOT follow each other.
+
+##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - Generic URIs
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
