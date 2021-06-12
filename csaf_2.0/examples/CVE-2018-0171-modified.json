@@ -4,10 +4,11 @@
     "category": "Cisco Security Advisory",
     "csaf_version": "2.0",
     "publisher": {
+      "category": "vendor",
       "contact_details": "Emergency Support:\n+1 877 228 7302 (toll-free within North America)\n+1 408 525 6532 (International direct-dial)\nNon-emergency Support:\nEmail: psirt@cisco.com\nSupport requests that are received via e-mail are typically acknowledged within 48 hours.",
       "issuing_authority": "Cisco product security incident response is the responsibility of the Cisco Product Security Incident Response Team (PSIRT). The Cisco PSIRT is a dedicated, global team that manages the receipt, investigation, and public reporting of security vulnerability information that is related to Cisco products and networks. The on-call Cisco PSIRT works 24x7 with Cisco customers, independent security researchers, consultants, industry organizations, and other vendors to identify possible security issues with Cisco products and networks.\nMore information can be found in Cisco Security Vulnerability Policy available at http://www.cisco.com/web/about/security/psirt/security_vulnerability_policy.html",
       "name": "Cisco PSIRT",
-      "category": "vendor"
+      "namespace": "https://www.cisco.com"
     },
     "tracking": {
       "id": "cisco-sa-20180328-smi2",
