@@ -1543,8 +1543,8 @@ Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) hol
 
 #### 3.2.1.8 Document Property - Publisher
 
-Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`) and Name (`name`) and provides information on the publishing entity.
-The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
+Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`), Name (`name`) and Namespace (`namespace`) and provides information on the publishing entity.
+The 2 other optional properties are: `contact_details` and `issuing_authority`.
 
 ```
     "publisher": {
@@ -1562,7 +1562,7 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
         "name": {
           // ...
         }
-        "vendor_id": {
+        "namespace": {
           // ...
         }
       }
@@ -1621,9 +1621,25 @@ Example:
      Siemens ProductCERT
 ```
 
-##### 3.2.1.8.5 Document Property - Publisher - Vendor ID
+##### 3.2.1.8.5 Document Property - Publisher - Namesapce
 
-The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
+The Namespace of publisher (`namesapce`) of value type `string` and format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
+
+An issuing party can choose any URL which fulfills the requirements state above. It is not required that the URL delivers any content. If an issuing party has chosen a URL it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
+
+If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with an incremented (patch) version which has no other changes than:
+
+* the new publisher information
+* the updated revision history
+* the updated item in `/document/references[]` which points to the new version of the CSAF document
+* an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
+
+Example:
+
+```
+    http://www.example.com
+    https://csaf.io
+```
 
 #### 3.2.1.9 Document Property - References
 
@@ -1786,6 +1802,8 @@ Examples:
     RHBA-2019:0024
     cisco-sa-20190513-secureboot
 ```
+
+> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
 
 This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
 
