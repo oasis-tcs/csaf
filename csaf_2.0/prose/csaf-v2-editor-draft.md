@@ -3636,11 +3636,14 @@ Secondly, the program for all items of:
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in
 
-  1. the configuration of the program,
-  2. the corresponding environment variable or
-  3. the corresponding argument
+  1. the corresponding argument from the command line,
+  2. the config file specified on the command line,
+  3. the corresponding environment variable,
+  4. the local configuration of the program,
+  5. the user configuration of the program or
+  6. the system configuration of the program.
 
-  the program was invoked with. If more than one of these value is present, the program should prefer the one with the highest number in the list.
+  If more than one of these value is present, the program should prefer the one with the lowest number in the list above.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
