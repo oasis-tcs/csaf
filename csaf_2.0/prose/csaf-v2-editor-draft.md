@@ -1621,9 +1621,9 @@ Example:
      Siemens ProductCERT
 ```
 
-##### 3.2.1.8.5 Document Property - Publisher - Namesapce
+##### 3.2.1.8.5 Document Property - Publisher - Namespace
 
-The Namespace of publisher (`namesapce`) of value type `string` and format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
+The Namespace of publisher (`namespace`) of value type `string` and format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
 
 An issuing party can choose any URL which fulfills the requirements state above. It is not required that the URL delivers any content. If an issuing party has chosen a URL it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
 
