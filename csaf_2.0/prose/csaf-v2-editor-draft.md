@@ -3553,6 +3553,33 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Lists for each product its status in regard to the vulnerability.
 * The value of `/document/category` SHALL be `Security Advisory`.
 
+## 5.5 Profile 5: VEX
+
+This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is not affected.
+
+**TODO**: Add a reference, add a definition.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * at least one of
+    * `/vulnerabilities[]/product_status/fixed`
+    * `/vulnerabilities[]/product_status/known_affected`
+    * `/vulnerabilities[]/product_status/known_not_affected`
+    * `/vulnerabilities[]/product_status/under_investigation`
+  * at least one of
+    * `/vulnerabilities[]/cve`
+    * `/vulnerabilities[]/id`
+  * `/vulnerabilities[]/notes`
+    > Provides details about the vulnerability.
+* For each item in
+  * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
+  * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
+  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information is available.
+* The value of `/document/category` SHALL be `VEX`.
+
 # 6 Distributing CSAF documents
 
 This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
