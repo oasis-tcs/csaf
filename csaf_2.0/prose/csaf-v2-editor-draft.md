@@ -1439,6 +1439,8 @@ Examples:
 
 Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
+> It is directly related to the profiles defined in section 5.
+
 ```
     "category": {
       // ...
@@ -1448,9 +1450,10 @@ Document category (`category`) with value type `string` of 1 or more characters 
 Examples:
 
 ```
+    Example Company Security Notice
+    Generic CSAF
     Security Advisory
-    Security Notice
-    Vulnerability Report
+    VEX
 ```
 
 #### 3.2.1.4 Document Property - CSAF Version

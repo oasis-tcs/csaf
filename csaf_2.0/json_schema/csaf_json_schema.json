@@ -532,9 +532,10 @@
           "type": "string",
           "minLength": 1,
           "examples": [
+            "Example Company Security Notice",
+            "Generic CSAF",
             "Security Advisory",
-            "Security Notice",
-            "Vulnerability Report"
+            "VEX"
           ]
         },
         "csaf_version": {
