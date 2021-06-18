@@ -3484,7 +3484,7 @@ CSAF documents do not have many required fields as they can be used for differen
 
 This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfies any other profile. Furthermore, it is the foundation all other profiles are build on.
 
-A CSAF document SHALL fulfill the following requirements to satisfy the profile:
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Generic CSAF":
 
 * The following elements must exist and be valid:
   * `/document/category`
@@ -3502,6 +3502,22 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile:
 * The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile. To explicitly select the use of this profile the value `Generic CSAF` MAY be used.
 
 An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. The value `Example Company Security Advisory` in `/document/category` uses the profile `Generic CSAF`.
+
+## 5.2 Profile 2: Security incident response
+
+This profile SHOULD be used to provide a response to a security breach or incident. This MAY also be used to convey information about an incident that is unrelated to the issuing party's own products or infrastructure.
+
+> Example Company might use a CSAF document satisfying this profile to respond to a security incident at ACME Inc. and the implications on its own products and infrastructure.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+    > Without at least one note item with information about response to the event referred to this doesn't provide any useful information.
+  * `/document/references`
+    > here should be a `reference` (link) to a document or website which provides more details about the incident.
+* The value of `/document/category` SHALL be `Security incident response`.
 
 # 6 Distributing CSAF documents
 
