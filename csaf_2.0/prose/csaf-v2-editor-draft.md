@@ -3523,7 +3523,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 This profile SHOULD be used to provide information which are **not related to a vulnerability** but e.g. a misconfiguration.
 
- CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
 
 * The following elements must exist and be valid:
   * all elements required by the profile "Generic CSAF".
@@ -3535,6 +3535,21 @@ This profile SHOULD be used to provide information which are **not related to a 
 * The element `/vulnerabilities` MUST NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
 
 If the `/product_tree` exists, a user MUST assume that all products mentioned are affected.
+
+## 5.4 Profile 4: Security Advisory
+
+This profile SHOULD be used to provide information which are related to vulnerabilities and corresponding remediations.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities[]/notes`
+    > Provides details about the vulnerability.
+  * `/vulnerabilities[]/product_status`
+    > Lists for each product its status in regard to the vulnerability.
+* The value of `/document/category` SHALL be `Security Advisory`.
 
 # 6 Distributing CSAF documents
 
