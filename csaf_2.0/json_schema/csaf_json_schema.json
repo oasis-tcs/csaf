@@ -241,6 +241,18 @@
               "pattern": "^pkg:",
               "minLength": 4
             },
+            "sbom_urls": {
+              "title": "List of SBOM URLs",
+              "description": "Contains a list of URLs where SBOMs for this product can be retrieved.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "SBOM URL",
+                "description": "Contains a URL of one SBOM for this product.",
+                "type": "string",
+                "format": "uri"
+              }
+            },
             "serial_numbers": {
               "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.",
               "title": "List of serial numbers",
@@ -250,6 +262,18 @@
               "items": {
                 "title": "Serial number",
                 "description": "Contains a part, or a full serial number of the component to identify.",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "skus": {
+              "title": "List of stock keeping units",
+              "description": "Contains a list of parts, or full stock keeping units.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Stock keeping unit",
+                "description": "Contains a part, or a full stock keeping unit (SKU) which is used in the ordering process to identify the component.",
                 "type": "string",
                 "minLength": 1
               }
@@ -707,14 +731,35 @@
                 },
                 "engine": {
                   "title": "Engine of document generation",
-                  "description": "This string SHOULD represent the name of the engine that generated the CSAF document, and MAY additionally refer to its version.",
-                  "type": "string",
-                  "minLength": 1,
-                  "examples": [
-                    "TVCE",
-                    "Red Hat rhsa-to-cvrf 2.1",
-                    "CMPFA Core Converter CVRF->CSAF Version 0.6"
-                  ]
+                  "description": "Contains information about the engine that generated the CSAF document.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "title": "Engine name",
+                      "description": "Represents the name of the engine that generated the CSAF document.",
+                      "type": "string",
+                      "minLength": 1,
+                      "examples": [
+                        "Red Hat rhsa-to-cvrf",
+                        "Secvisogram",
+                        "TVCE"
+                      ]
+                    },
+                    "version": {
+                      "title": "Engine version",
+                      "description": "Contains the version of the engine that generated the CSAF document.",
+                      "type": "string",
+                      "minLength": 1,
+                      "examples": [
+                        "0.6.0",
+                        "2",
+                        "1.0.0-beta+exp.sha.a1c44f85"
+                      ]
+                    }
+                  }
                 }
               }
             },
@@ -983,18 +1028,25 @@
             "description": "Contains a list of involvements.",
             "type": "array",
             "minItems": 1,
+            "uniqueItems": true,
             "items": {
               "title": "Involvement",
-              "description": "Is a container, that allows the document producers to comment on their level of Involvement (or engagement) in the vulnerability identification, scoping, and remediation process.",
+              "description": "Is a container, that allows the document producers to comment on the level of involvement (or engagement) of themselves or third parties in the vulnerability identification, scoping, and remediation process.",
               "type": "object",
               "required": [
                 "party",
                 "status"
               ],
               "properties": {
+                "date": {
+                  "title": "Date of involvement",
+                  "description": "Holds the date and time of the involvement entry.",
+                  "type": "string",
+                  "format": "date-time"
+                },
                 "party": {
-                  "title": "Party type",
-                  "description": "Defines the type of the involved party.",
+                  "title": "Party category",
+                  "description": "Defines the category of the involved party.",
                   "type": "string",
                   "enum": [
                     "coordinator",
