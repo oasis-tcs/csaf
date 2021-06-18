@@ -3516,8 +3516,25 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Without at least one note item with information about response to the event referred to this doesn't provide any useful information.
   * `/document/references`
-    > here should be a `reference` (link) to a document or website which provides more details about the incident.
+    > There should be a `reference` (link) to a document or website which provides more details about the incident.
 * The value of `/document/category` SHALL be `Security incident response`.
+
+## 5.3 Profile 3: Informational Advisory
+
+This profile SHOULD be used to provide information which are **not related to a vulnerability** but e.g. a misconfiguration.
+
+ CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+    > Without at least one note item with information about the "issue" which is the topic of the advisory it is useless.
+  * `/document/references`
+    > There should be a `reference` (link) to a document or website which provides more details about the issue or its remediation (if possible). This could be a link to a hardening guide, a manual, best practices or any other helpful information.
+* The value of `/document/category` SHALL be `Informational Advisory`.
+* The element `/vulnerabilities` MUST NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
+
+If the `/product_tree` exists, a user MUST assume that all products mentioned are affected.
 
 # 6 Distributing CSAF documents
 
