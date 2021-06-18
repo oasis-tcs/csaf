@@ -3476,27 +3476,54 @@ Example which fails the test:
 
 Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
 
-# 5 Distributing CSAF documents
+# 5 Profiles
+
+CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case and therefore a certain document category each subsection defines a profile. It also provides insights into the purpose of the profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+
+## 5.1 Profile 1: Generic CSAF
+
+This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfies any other profile. Furthermore, it is the foundation all other profiles are build on.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile:
+
+* The following elements must exist and be valid:
+  * `/document/category`
+  * `/document/publisher/category`
+  * `/document/publisher/name`
+  * `/document/title`
+  * `/document/tracking/current_release_date`
+  * `/document/tracking/id`
+  * `/document/tracking/initial_release_date`
+  * `/document/tracking/revision_history[]/date`
+  * `/document/tracking/revision_history[]/number`
+  * `/document/tracking/revision_history[]/summary`
+  * `/document/tracking/status`
+  * `/document/tracking/version`
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile. To explicitly select the use of this profile the value `Generic CSAF` MAY be used.
+
+An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. The value `Example Company Security Advisory` in `/document/category` uses the profile `Generic CSAF`.
+
+# 6 Distributing CSAF documents
 
 This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
 
-## 5.1 Requirements
+## 6.1 Requirements
 
 The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance.
 
-### 5.1.1 Requirement 1: Valid CSAF document
+### 6.1.1 Requirement 1: Valid CSAF document
 
 The document is a valid CSAF document (cf. Conformance clause 1).
 
-### 5.1.2 Requirement 2: Filename
+### 6.1.2 Requirement 2: Filename
 
 The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
 
-### 5.1.3 Requirement 3: TLS
+### 6.1.3 Requirement 3: TLS
 
 The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
 
-### 5.1.4 Requirement 4: TLP:WHITE
+### 6.1.4 Requirement 4: TLP:WHITE
 
 If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
 
@@ -3504,20 +3531,16 @@ This does not exclude that such a document is also available in an access protec
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
 
-## 5.2 Roles
+## 6.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
 
-### 5.2.1 Role: CSAF publisher
+### 6.2.1 Role: CSAF publisher
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
 * satisfies the requirements 1 to 4.
 * distributes only CSAF documents on behalf of its own.
-
-# 6 Profiles
-
-CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case and therefore a certain document category each subsection defines a profile. It also provides insights into the purpose of the profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
 
 # 7 Safety, Security, and Data Protection Considerations
 
@@ -3582,6 +3605,7 @@ A text file satisfies the "CSAF document" conformance profile if the text file:
 
 * conforms to the syntax and semantics defined in section 3.
 * does not fail any mandatory test defined in section 4.1.
+* satisfies at least one profile defined in section 5.
 
 ### 8.1.2 Conformance Clause 2: CSAF producer
 
