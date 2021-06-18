@@ -3813,15 +3813,19 @@ An array should not have more than:
   * `/document/tracking/aliases`
   * `/product_tree/branches[]/product/product_identification_helper/hashes`
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/branches[]/product/product_identification_helper/sbom_urls`
   * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes`
-  * `/product_tree/branches[]/branches[]/product/product_identification_helper/x_generic_uris`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/full_product_names[]/product_identification_helper/sbom_urls`
   * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris`
   * `/vulnerabilities[]/acknowledgments`
   * `/vulnerabilities[]/acknowledgments[]/names`
@@ -3842,11 +3846,15 @@ An array should not have more than:
   * `/product_tree/branches`
   * `/product_tree(/branches[])*/branches`
   * `/product_tree/branches[]/product/product_identification_helper/serial_numbers`
+  * `/product_tree/branches[]/product/product_identification_helper/skus`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/skus`
   * `/product_tree/full_product_names`
   * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers`
+  * `/product_tree/full_product_names[]/product_identification_helper/skus`
   * `/product_tree/product_groups[]/product_ids`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus`
   * `/vulnerabilities`
 
 * 10 000 000 for
@@ -3888,7 +3896,8 @@ A string should not have a length greater than:
   * `/document/source_lang`
   * `/document/title`
   * `/document/tracking/aliases[]`
-  * `/document/tracking/generator/engine`
+  * `/document/tracking/generator/engine/name`
+  * `/document/tracking/generator/engine/version`
   * `/document/tracking/id`
   * `/document/tracking/revision_history[]/number`
   * `/document/tracking/version`
@@ -3899,6 +3908,7 @@ A string should not have a length greater than:
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/filename`
   * `/product_tree/branches[]/product/product_identification_helper/serial_numbers[]`
+  * `/product_tree/branches[]/product/product_identification_helper/skus[]`
   * `/product_tree/branches[](/branches[])*/name`
   * `/product_tree/branches[](/branches[])*/product/name`
   * `/product_tree/branches[](/branches[])*/product/product_id`
@@ -3906,12 +3916,14 @@ A string should not have a length greater than:
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/filename`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers[]`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/skus[]`
   * `/product_tree/full_product_names[]/name`
   * `/product_tree/full_product_names[]/product_id`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/filename`
   * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers[]`
+  * `/product_tree/full_product_names[]/product_identification_helper/skus[]`
   * `/product_tree/product_groups[]/group_id`
   * `/product_tree/product_groups[]/product_ids[]`
   * `/product_tree/relationships[]/full_product_name/name`
@@ -3920,6 +3932,7 @@ A string should not have a length greater than:
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/filename`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers[]`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus[]`
   * `/product_tree/relationships[]/product_reference`
   * `/product_tree/relationships[]/relates_to_product_reference`
   * `/vulnerabilities[]/acknowledgments[]/names[]`
@@ -3984,12 +3997,16 @@ A string with format `uri` should not have a length greater than 20000. This app
 * `/document/aggregate_severity/namespace`
 * `/document/distribution/tlp/url`
 * `/document/references[]/url`
+* `/product_tree/branches[]/product/product_identification_helper/sbom_urls[]`
 * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls[]`
 * `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/full_product_names[]/product_identification_helper/sbom_urls[]`
 * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls[]`
 * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
 * `/vulnerabilities[]/acknowledgments[]/urls[]`
@@ -4072,5 +4089,6 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/revision_history[]/date`
 * `/vulnerabilities[]/discovery_date`
 * `/vulnerabilities[]/release_date`
+* `/vulnerabilities[]/involvements[]/date`
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
