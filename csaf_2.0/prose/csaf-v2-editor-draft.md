@@ -1456,9 +1456,9 @@ Examples:
 
 ```
     Example Company Security Notice
-    Generic CSAF
-    Security Advisory
-    VEX
+    generic_csaf
+    security_advisory
+    vex
 ```
 
 #### 3.2.1.4 Document Property - CSAF Version
@@ -3507,11 +3507,11 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/revision_history[]/summary`
   * `/document/tracking/status`
   * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile. To explicitly select the use of this profile the value `Generic CSAF` MAY be used.
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile. To explicitly select the use of this profile the value `generic_csaf` MAY be used.
 
-An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This should be done if the issuing party is able or unwilling to use the value `Generic CSAF`, e.g. due to legal or cooperate identity reasons.
+An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This should be done if the issuing party is able or unwilling to use the value `generic_csaf`, e.g. due to legal or cooperate identity reasons.
 
-> The value `Example Company Security Advisory` in `/document/category` uses the profile `Generic CSAF`. This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
+> The value `Example Company Security Advisory` in `/document/category` uses the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
 
 ## 5.2 Profile 2: Security incident response
 
@@ -3527,7 +3527,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Without at least one note item with information about response to the event referred to this doesn't provide any useful information.
   * `/document/references`
     > There should be a `reference` (link) to a document or website which provides more details about the incident.
-* The value of `/document/category` SHALL be `Security incident response`.
+* The value of `/document/category` SHALL be `security_incident_response`.
 
 ## 5.3 Profile 3: Informational Advisory
 
@@ -3541,7 +3541,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Without at least one note item with information about the "issue" which is the topic of the advisory it is useless.
   * `/document/references`
     > There should be a `reference` (link) to a document or website which provides more details about the issue or its remediation (if possible). This could be a link to a hardening guide, a manual, best practices or any other helpful information.
-* The value of `/document/category` SHALL be `Informational Advisory`.
+* The value of `/document/category` SHALL be `informational_advisory`.
 * The element `/vulnerabilities` MUST NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
 
 If the `/product_tree` exists, a user MUST assume that all products mentioned are affected.
@@ -3559,7 +3559,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
     > Lists for each product its status in regard to the vulnerability.
-* The value of `/document/category` SHALL be `Security Advisory`.
+* The value of `/document/category` SHALL be `security_advisory`.
 
 ## 5.5 Profile 5: VEX
 
@@ -3584,7 +3584,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information is available.
-* The value of `/document/category` SHALL be `VEX`.
+* The value of `/document/category` SHALL be `vex`.
 
 # 6 Distributing CSAF documents
 

@@ -533,9 +533,9 @@
           "minLength": 1,
           "examples": [
             "Example Company Security Notice",
-            "Generic CSAF",
-            "Security Advisory",
-            "VEX"
+            "generic_csaf",
+            "security_advisory",
+            "vex"
           ]
         },
         "csaf_version": {
