@@ -255,6 +255,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **vendor**: the community, individual, or organization that created or maintains a product (including open source software and hardware providers)
 
+**VEX**: Vulnerability Exploitability eXchange - enables a supplier or other party to assert whether or not a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.
+
 **viewer**: see CSAF viewer.
 
 **XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
@@ -330,6 +332,9 @@ _The Technical Specification for the Security Content Automation Protocol (SCAP)
 http://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SemVer]
 _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
+###### [VEX]
+_Vulnerability Exploitability eXchange (VEX) - Overview and Concepts_, Draft version 0.3, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 06 June 2021,
+TODO: add the link.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at http://www.w3.org/TR/xml.
@@ -3558,9 +3563,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 ## 5.5 Profile 5: VEX
 
-This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is not affected.
-
-**TODO**: Add a reference, add a definition.
+This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is not affected. See [VEX] for details.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
