@@ -3485,7 +3485,7 @@ CSAF documents do not have many required fields as they can be used for differen
 
 ## 5.1 Profile 1: Generic CSAF
 
-This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfies any other profile. Furthermore, it is the foundation all other profiles are build on.
+This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfy any other profile. Furthermore, it is the foundation all other profiles are build on.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Generic CSAF":
 
