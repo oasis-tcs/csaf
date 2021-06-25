@@ -3412,13 +3412,13 @@ Directory listing SHALL be enabled to support manual navigation.
 
 ### 5.1.11 Requirement 11: ROLIE service document
 
-The ROLIE service document MUST conform with [RFC8322].
+The ROLIE service document MUST be a JSON file that conforms with [RFC8322].
 
 **TODO: Provide Example**
 
 ### 5.1.12 Requirement 12: ROLIE category document
 
-Each ROLIE category document MUST conform with [RFC8322].
+Each ROLIE category document MUST be a JSON file that conforms with [RFC8322].
 
 **TODO: Provide Example**
 
