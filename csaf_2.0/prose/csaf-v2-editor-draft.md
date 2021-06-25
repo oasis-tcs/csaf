@@ -3328,7 +3328,7 @@ This section lists requirements and roles defined for distributing CSAF document
 
 ## 5.1 Requirements
 
-The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance.
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled - the sets are defined in section 5.2.
 
 ### 5.1.1 Requirement 1: Valid CSAF document
 
