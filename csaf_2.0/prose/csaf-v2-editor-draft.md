@@ -3585,7 +3585,7 @@ A text file satisfies the "CSAF document" conformance profile if the text file:
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
-* satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
+* satisfies those normative requirements in section 3 and 6 that are designated as applying to CSAF producers.
 
 ### 7.1.3 Conformance Clause 3: CSAF direct producer
 
@@ -3758,7 +3758,7 @@ The resulting translated document:
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
-* satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
+* satisfies those normative requirements in section 3 and 6 that are designated as applying to CSAF consumers.
 
 ### 7.1.11 Conformance Clause 11: CSAF viewer
 
