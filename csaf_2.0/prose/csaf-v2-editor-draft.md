@@ -3526,9 +3526,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements must exist and be valid:
   * all elements required by the profile "Generic CSAF".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
-    > Without at least one note item with information about response to the event referred to this doesn't provide any useful information.
+    > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
   * `/document/references`
-    > There should be a `reference` (link) to a document or website which provides more details about the incident.
+    > This should be used to refer to one or more documents or websites which provides more details about the incident.
 * The value of `/document/category` SHALL be `security_incident_response`.
 
 ## 5.3 Profile 3: Informational Advisory
@@ -3540,13 +3540,13 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements must exist and be valid:
   * all elements required by the profile "Generic CSAF".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
-    > Without at least one note item with information about the "issue" which is the topic of the advisory it is useless.
+    > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
   * `/document/references`
-    > There should be a `reference` (link) to a document or website which provides more details about the issue or its remediation (if possible). This could be a link to a hardening guide, a manual, best practices or any other helpful information.
+    > This should be used to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
 * The value of `/document/category` SHALL be `informational_advisory`.
-* The element `/vulnerabilities` MUST NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
+* The element `/vulnerabilities` SHALL NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
 
-If the `/product_tree` exists, a user MUST assume that all products mentioned are affected.
+If the element `/product_tree` exists, a user MUST assume that all products mentioned are affected.
 
 ## 5.4 Profile 4: Security Advisory
 
