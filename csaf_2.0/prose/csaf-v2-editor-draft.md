@@ -321,6 +321,8 @@ N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
 http://dx.doi.org/10.6028/NIST.SP.800-126r2.
+###### [SECURITY-TXT]
+Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org/.
 ###### [SemVer]
 _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [XML]
@@ -3352,7 +3354,7 @@ This does not exclude that such a document is also available in an access protec
 
 ### 5.1.5 Requirement 5: security.txt
 
-In the security.txt there MUST be at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]).
+In the security.txt there MUST be at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
 
