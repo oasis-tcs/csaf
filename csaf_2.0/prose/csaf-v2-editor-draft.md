@@ -3395,7 +3395,7 @@ Examples:
 
 ### 5.1.9 Requirement 9: changes.csv
 
-The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the latter one.
+The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
 Examples:
 
