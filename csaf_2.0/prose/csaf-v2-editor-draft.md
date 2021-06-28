@@ -3550,7 +3550,7 @@ If the element `/product_tree` exists, a user MUST assume that all products ment
 
 ## 5.4 Profile 4: Security Advisory
 
-This profile SHOULD be used to provide information which are related to vulnerabilities and corresponding remediations.
+This profile SHOULD be used to provide information which is related to vulnerabilities and corresponding remediations.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
 
@@ -3560,12 +3560,12 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
-    > Lists for each product its status in regard to the vulnerability.
+    > Lists each product's status in regard to the vulnerability.
 * The value of `/document/category` SHALL be `security_advisory`.
 
 ## 5.5 Profile 5: VEX
 
-This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is not affected. See [VEX] for details.
+This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [VEX] for details.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
