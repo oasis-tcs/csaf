@@ -3507,11 +3507,13 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/revision_history[]/summary`
   * `/document/tracking/status`
   * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile. To explicitly select the use of this profile the value `generic_csaf` MAY be used.
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
+
+> Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
 
 An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This should be done if the issuing party is able or unwilling to use the value `generic_csaf`, e.g. due to legal or cooperate identity reasons.
 
-> The value `Example Company Security Advisory` in `/document/category` uses the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
+> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
 
 ## 5.2 Profile 2: Security incident response
 
