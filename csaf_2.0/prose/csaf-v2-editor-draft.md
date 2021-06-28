@@ -3585,7 +3585,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * For each item in
   * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
-  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information is available.
+  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information as stated above is available according to its product status.
 * The value of `/document/category` SHALL be `vex`.
 
 # 6 Distributing CSAF documents
