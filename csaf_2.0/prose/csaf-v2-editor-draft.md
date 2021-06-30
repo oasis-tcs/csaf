@@ -3941,6 +3941,8 @@ Zach | Turk | Microsoft
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
+This appendix provides informative guidance on the size of CSAF documents.
+
 The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
 All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below. All _CSAF producers_ should not produce CSAF documents which exceed those limits.
@@ -3949,7 +3951,7 @@ All _CSAF consumers_ should be able to process CSAF documents which comply with 
 
 ## File size
 
-A CSAF document in the specified JSON format encoded in UTF-8 SHOULD be smaller than 15 MB.
+A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 15 MB.
 
 > At least one database technology in wide use for storing CSAF documents rejects insert attempts when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integers and small strings may incur more overhead in the BSON format than in JSON. In addition, the BSON format adds length information for the entries inside the document, which adds to the size when storing CSAF document content in a BSON format.
 
