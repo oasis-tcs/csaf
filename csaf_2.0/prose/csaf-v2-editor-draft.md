@@ -1550,8 +1550,8 @@ Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) hol
 
 #### 3.2.1.8 Document Property - Publisher
 
-Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`) and Name (`name`) and provides information on the publishing entity.
-The 3 other optional properties are: `contact_details`, `issuing_authority`, and `vendor_id`.
+Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`), Name (`name`) and Namespace (`namespace`) and provides information on the publishing entity.
+The 2 other optional properties are: `contact_details` and `issuing_authority`.
 
 ```
     "publisher": {
@@ -1569,7 +1569,7 @@ The 3 other optional properties are: `contact_details`, `issuing_authority`, and
         "name": {
           // ...
         }
-        "vendor_id": {
+        "namespace": {
           // ...
         }
       }
@@ -1628,9 +1628,25 @@ Example:
      Siemens ProductCERT
 ```
 
-##### 3.2.1.8.5 Document Property - Publisher - Vendor ID
+##### 3.2.1.8.5 Document Property - Publisher - Namespace
 
-The Vendor releasing the document (`vendor_id`) of value type `string` with 1 or more characters provides the Vendor ID which is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.
+The Namespace of publisher (`namespace`) of value type `string` and format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
+
+An issuing party can choose any URL which fulfills the requirements state above. It is not required that the URL delivers any content. If an issuing party has chosen a URL it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
+
+If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with an incremented (patch) version which has no other changes than:
+
+* the new publisher information
+* the updated revision history
+* the updated item in `/document/references[]` which points to the new version of the CSAF document
+* an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
+
+Example:
+
+```
+    http://www.example.com
+    https://csaf.io
+```
 
 #### 3.2.1.9 Document Property - References
 
@@ -1793,6 +1809,8 @@ Examples:
     RHBA-2019:0024
     cisco-sa-20190513-secureboot
 ```
+
+> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
 
 This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
 
@@ -3821,11 +3839,11 @@ Firstly, the program:
 * takes only CVRF documents as input.
 * additionally satisfies the normative requirements given below.
 
-Secondly, the program for all items of:
+Secondly, the program fulfills the following for all items of:
 
 * type `/definitions/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/definitions/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
-* `/document/publisher/name`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If both values are present, the program should prefer the latter one.
+* `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
