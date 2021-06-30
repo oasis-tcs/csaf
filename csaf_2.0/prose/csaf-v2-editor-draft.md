@@ -3414,27 +3414,84 @@ Directory listing SHALL be enabled to support manual navigation.
 
 ### 5.1.11 Requirement 11: ROLIE service document
 
-The ROLIE service document MUST be a JSON file that conforms with [RFC8322].
+Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
 **TODO: Provide Example**
 
-### 5.1.12 Requirement 12: ROLIE category document
+### 5.1.12 Requirement 12: ROLIE feed
 
-Each ROLIE category document MUST be a JSON file that conforms with [RFC8322].
+All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
+
+* TLP:WHITE
+* TLP:GREEN
+* unlabeled
+
+MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
+
+Example:
+
+```
+{
+  "feed": {
+    "id": "example-csaf-feed-tlp-white",
+    "title": "Example CSAF feed (TLP:WHITE)",
+    "link": [
+      {
+        "rel": "self",
+        "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
+      }
+    ],
+    "category": {
+      "scheme": "urn:ietf:params:rolie:category:information-type",
+      "term": "security advisory"
+    },
+    "updated": "2021-01-01T12:00Z",
+    "entry": [
+      {
+        "id": "2020-ESA-001",
+        "title": "Example Security Advisory 001",
+        "link": [
+          {
+            "rel": "self",
+            "href": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
+          }
+        ],
+        "published": "2021-01-01T11:00Z",
+        "updated": "2021-01-01T12:00Z",
+        "summary": {
+          "content": "Vulnerabilities fixed in ABC 0.0.1"
+        },
+        "content": {
+          "type": "application/json",
+          "src": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
+        },
+        "format": {
+          "schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
+          "version": "2.0"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 5.1.13 Requirement 13: ROLIE category document
+
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
 **TODO: Provide Example**
 
-### 5.1.13 Requirement 13: TLP:AMBER and TLP:RED
+### 5.1.14 Requirement 14: TLP:AMBER and TLP:RED
 
 CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
-### 5.1.14 Requirement 14: Redirects
+### 5.1.15 Requirement 15: Redirects
 
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
 
 > Reasoning: Clients, as e.g. `curl`, do not follow any other kind of redirects.
 
-### 5.1.15 Requirement 15: Integrity
+### 5.1.16 Requirement 16: Integrity
 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3) to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
@@ -3456,7 +3513,7 @@ Example:
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
 ```
 
-### 5.1.16 Requirement 16: Signatures
+### 5.1.17 Requirement 17: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
@@ -3467,7 +3524,7 @@ File name of CSAF document: example_company_-_2019-yh3234.json
 File name of signature file: example_company_-_2019-yh3234.json.asc
 ```
 
-### 5.1.17 Requirement 17: Public PGP Key
+### 5.1.18 Requirement 18: Public PGP Key
 
 The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a publc key server.  
 
@@ -3489,7 +3546,7 @@ A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the fo
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 13 and 14 in section 5.1
+* additionally satisfies the requirements 14 and 15 in section 5.1.
 
 Secondly, the party:
 
@@ -3497,14 +3554,14 @@ Secondly, the party:
 
 Thirdly, the party:
 
-* satisfies the requirements 7 to 10 in section 5.1 or requirements 11 to 12 in section 5.1.
+* satisfies the requirements 7 to 10 in section 5.1 or requirements 11 to 13 in section 5.1.
 
 ### 5.2.3 Role: CSAF trusted provider
 
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-* additionally satisfies the requirements 15 to 17 in section 5.1.
+* additionally satisfies the requirements 16 to 18 in section 5.1.
 
 # 6 Safety, Security, and Data Protection Considerations
 
