@@ -613,7 +613,8 @@
           "type": "object",
           "required": [
             "category",
-            "name"
+            "name",
+            "namespace"
           ],
           "properties": {
             "category": {
@@ -655,11 +656,15 @@
                 "Siemens ProductCERT"
               ]
             },
-            "vendor_id": {
-              "title": "Vendor releasing the document",
-              "description": "Vendor ID is a unique identifier (OID) that a vendor uses as issued by FIRST under the auspices of IETF.",
+            "namespace": {
+              "title": "Namespace of publisher",
+              "description": "Contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party.",
               "type": "string",
-              "minLength": 1
+              "format": "uri",
+              "examples": [
+                "https://www.example.com",
+                "https://csaf.io"
+              ]
             }
           }
         },
