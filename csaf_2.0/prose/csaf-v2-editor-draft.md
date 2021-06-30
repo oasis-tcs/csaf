@@ -284,10 +284,8 @@ _Common Platform Enumeration: Applicability Language Specification Version 2.3 (
 _Common Platform Enumeration: Dictionary Specification Version 2.3_, P. Cichonski, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7697, August 2011, http://dx.doi.org/10.6028/NIST.IR.7697.
 ###### [CPE23-M]
 _Common Platform Enumeration: Naming Matching Specification Version 2.3_, M. Parmelee, H. Booth, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7696, August 2011,http://dx.doi.org/10.6028/NIST.IR.7696.
-
 ###### [CPE23-N]
 _Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, http://dx.doi.org/10.6028/NIST.IR.7695.
-
 ###### [CVE]
 _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://cve.mitre.org/about/.
 ###### [CVE-NF]
@@ -333,6 +331,8 @@ N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
 http://dx.doi.org/10.6028/NIST.SP.800-126r2.
+###### [SECURITY-TXT]
+Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org/.
 ###### [SemVer]
 _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [SPDX22]
@@ -3489,7 +3489,7 @@ This section lists requirements and roles defined for distributing CSAF document
 
 ## 5.1 Requirements
 
-The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance.
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled - the sets are defined in section 5.2.
 
 ### 5.1.1 Requirement 1: Valid CSAF document
 
@@ -3511,6 +3511,184 @@ This does not exclude that such a document is also available in an access protec
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
 
+### 5.1.5 Requirement 5: security.txt
+
+In the security.txt there MUST be at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
+
+> At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
+
+Examples:
+
+```
+CSAF: https://domain.tld/security/data/csaf/
+CSAF: https://psirt.domain.tld/advisories/csaf/
+CSAF: https://domain.tld/security/csaf/csaf-service.json
+```
+
+### 5.1.6 Requirement 6: DNS path
+
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the ROLIE service document or a directory with CSAF files.
+
+### 5.1.7 Requirement 7: One folder per year
+
+The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
+
+Examples:
+
+```
+2021
+2020
+```
+
+### 5.1.8 Requirement 8: index.txt
+
+The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+
+Examples:
+
+```
+2020/example_company_-_2020-yh4711.json
+2019/example_company_-_2019-yh3234.json
+2018/example_company_-_2018-yh2312.json
+```
+
+> This can be used to download all CSAF documents.
+
+### 5.1.9 Requirement 9: changes.csv
+
+The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
+
+Examples:
+
+```
+2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
+2018/example_company_-_2018-yh2312.json, "2020-07-01T10:09:01Z"
+2019/example_company_-_2019-yh3234.json, "2019-04-17T15:08:41Z"
+2018/example_company_-_2018-yh2312.json, "2019-03-01T06:01:00Z"
+```
+
+### 5.1.10 Requirement 10: Directory listings
+
+Directory listing SHALL be enabled to support manual navigation.
+
+### 5.1.11 Requirement 11: ROLIE service document
+
+Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
+
+**TODO: Provide Example**
+
+### 5.1.12 Requirement 12: ROLIE feed
+
+All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
+
+* TLP:WHITE
+* TLP:GREEN
+* unlabeled
+
+MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
+
+Example:
+
+```
+{
+  "feed": {
+    "id": "example-csaf-feed-tlp-white",
+    "title": "Example CSAF feed (TLP:WHITE)",
+    "link": [
+      {
+        "rel": "self",
+        "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
+      }
+    ],
+    "category": {
+      "scheme": "urn:ietf:params:rolie:category:information-type",
+      "term": "security advisory"
+    },
+    "updated": "2021-01-01T12:00Z",
+    "entry": [
+      {
+        "id": "2020-ESA-001",
+        "title": "Example Security Advisory 001",
+        "link": [
+          {
+            "rel": "self",
+            "href": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
+          }
+        ],
+        "published": "2021-01-01T11:00Z",
+        "updated": "2021-01-01T12:00Z",
+        "summary": {
+          "content": "Vulnerabilities fixed in ABC 0.0.1"
+        },
+        "content": {
+          "type": "application/json",
+          "src": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
+        },
+        "format": {
+          "schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
+          "version": "2.0"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 5.1.13 Requirement 13: ROLIE category document
+
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
+
+**TODO: Provide Example**
+
+### 5.1.14 Requirement 14: TLP:AMBER and TLP:RED
+
+CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
+
+An issuing party MAY agree with the receipients to use any kind of secured drop at the receipients' side to avoid putting them on their own website. However, it mUST be ensured that the documents are still access protected.
+
+### 5.1.15 Requirement 15: Redirects
+
+Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
+
+> Reasoning: Clients, as e.g. `curl`, do not follow any other kind of redirects.
+
+### 5.1.16 Requirement 16: Integrity
+
+All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3) to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
+
+MD5 and SHA1 SHOULD NOT be used.
+
+Example:
+
+```
+File name of CSAF document: example_company_-_2019-yh3234.json
+File name of SHA-256 hash file: example_company_-_2019-yh3234.json.sha256
+File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
+```
+
+The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
+
+Example:
+
+```
+ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
+```
+
+### 5.1.17 Requirement 17: Signatures
+
+All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
+
+Example:
+
+```
+File name of CSAF document: example_company_-_2019-yh3234.json
+File name of signature file: example_company_-_2019-yh3234.json.asc
+```
+
+### 5.1.18 Requirement 18: Public PGP Key
+
+The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a publc key server.  
+
 ## 5.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
@@ -3519,8 +3697,32 @@ This subsection groups the requirements from the previous subsection into named 
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
-* satisfies the requirements 1 to 4.
+* satisfies the requirements 1 to 4 in section 5.1.
 * distributes only CSAF documents on behalf of its own.
+
+### 5.2.2 Role: CSAF provider
+
+A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the following three groups of requirements:
+
+Firstly, the party:
+
+* satisfies the "CSAF publisher" role profile.
+* additionally satisfies the requirements 14 and 15 in section 5.1.
+
+Secondly, the party:
+
+* satisfies the requirements 5 or 6 in section 5.1.
+
+Thirdly, the party:
+
+* satisfies the requirements 7 to 10 in section 5.1 or requirements 11 to 13 in section 5.1.
+
+### 5.2.3 Role: CSAF trusted provider
+
+A CSAF provider satisfies the "CSAF trusted provider" role if the party:
+
+* satisfies the "CSAF provider" role profile.
+* additionally satisfies the requirements 16 to 18 in section 5.1.
 
 # 6 Safety, Security, and Data Protection Considerations
 
