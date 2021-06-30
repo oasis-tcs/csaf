@@ -3816,7 +3816,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc
 
 ### 6.1.18 Requirement 18: Public PGP Key
 
-The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a publc key server.  
+The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
 
 ## 6.2 Roles
 
