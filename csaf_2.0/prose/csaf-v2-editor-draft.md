@@ -4150,6 +4150,7 @@ A string with format `uri` should not have a length greater than 20000. This app
 * `/document/aggregate_severity/namespace`
 * `/document/distribution/tlp/url`
 * `/document/references[]/url`
+* `/document/publisher/namespace`
 * `/product_tree/branches[]/product/product_identification_helper/sbom_urls[]`
 * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri`
