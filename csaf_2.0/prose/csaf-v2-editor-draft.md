@@ -3863,11 +3863,12 @@ CSAF documents are based on JSON, thus the security considerations of [RFC8259] 
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 
-* CSAF producers SHALL NOT emit messages that contain HTML, even though all variants of Markdown permit it.
+* CSAF producers SHOULD NOT emit messages that contain HTML, even though all variants of Markdown permit it. To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer, e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
 * Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the `cmark` Markdown processor [GFMCMARK].
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
-CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
+CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code. Moreover, it SHALL be treated as unsafe (user) input.
+  > Additional, supporting mitigation measures like retrieving only CSAF documents from trusted sources and check their integrity and signature before parsing the document SHOULD be in place to reduce the risk further.
 
 # 8 Conformance
 
@@ -3923,7 +3924,7 @@ A text file satisfies the "CSAF document" conformance profile if the text file:
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
-* satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
+* satisfies those normative requirements in section 3 and 6 that are designated as applying to CSAF producers.
 
 ### 8.1.3 Conformance Clause 3: CSAF direct producer
 
@@ -4096,7 +4097,7 @@ The resulting translated document:
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
-* satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
+* satisfies those normative requirements in section 3 and 6 that are designated as applying to CSAF consumers.
 
 ### 8.1.11 Conformance Clause 11: CSAF viewer
 
