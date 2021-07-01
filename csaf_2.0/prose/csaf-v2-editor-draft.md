@@ -255,6 +255,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **vendor**: the community, individual, or organization that created or maintains a product (including open source software and hardware providers)
 
+**VEX**: Vulnerability Exploitability eXchange - enables a supplier or other party to assert whether or not a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.
+
 **viewer**: see CSAF viewer.
 
 **XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
@@ -304,7 +306,7 @@ _Common Vulnerability Scoring System v3.1: Specification Document_, FIRST.Org, I
 ###### [CWE]
 _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2005, http://cwe.mitre.org/about/.
 ###### [CYCLONEDX13]
-_CycloneDX Software Bill-of-Material Specification JSON schema version 1.3_, cyclonedx.org, May 2021, https://github.com/CycloneDX/specification/blob/1.3/schema/bom-1.3.schema.json. 
+_CycloneDX Software Bill-of-Material Specification JSON schema version 1.3_, cyclonedx.org, May 2021, https://github.com/CycloneDX/specification/blob/1.3/schema/bom-1.3.schema.json.
 ###### [DCMI11]
 _DCMI Metadata Terms v1.1_, Dublin Core Metadata Initiative, DCMI Rec., June 14, 2012, http://dublincore.org/documents/2012/06/14/dcmi-terms/.
 Latest version available at http://dublincore.org/documents/dcmi-terms/.
@@ -329,14 +331,16 @@ Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Conside
 ###### [RFC7464]
 N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, http://www.rfc-editor.org/info/rfc7464.
 ###### [SCAP12]
-_The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, 
-http://dx.doi.org/10.6028/NIST.SP.800-126r2.
+_The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, http://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SECURITY-TXT]
 Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org/.
 ###### [SemVer]
 _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [SPDX22]
 _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, https://spdx.github.io/spdx-spec/.
+###### [VEX]
+_Vulnerability Exploitability eXchange (VEX) - Overview and Concepts_, Draft version 0.3, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 06 June 2021,
+TODO: add the link.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at http://www.w3.org/TR/xml.
@@ -1446,6 +1450,8 @@ Examples:
 
 Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
+> It is directly related to the profiles defined in section 5.
+
 ```
     "category": {
       // ...
@@ -1455,9 +1461,10 @@ Document category (`category`) with value type `string` of 1 or more characters 
 Examples:
 
 ```
-    Security Advisory
-    Security Notice
-    Vulnerability Report
+    Example Company Security Notice
+    generic_csaf
+    security_advisory
+    vex
 ```
 
 #### 3.2.1.4 Document Property - CSAF Version
@@ -3499,29 +3506,133 @@ Example which fails the test:
 
 ## 4.3 Informative Test
 
-Informatiove tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
+Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
 
-# 5 Distributing CSAF documents
+# 5 Profiles
+
+CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+
+## 5.1 Profile 1: Generic CSAF
+
+This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfy any other profile. Furthermore, it is the foundation all other profiles are build on.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Generic CSAF":
+
+* The following elements must exist and be valid:
+  * `/document/category`
+  * `/document/publisher/category`
+  * `/document/publisher/name`
+  * `/document/title`
+  * `/document/tracking/current_release_date`
+  * `/document/tracking/id`
+  * `/document/tracking/initial_release_date`
+  * `/document/tracking/revision_history[]/date`
+  * `/document/tracking/revision_history[]/number`
+  * `/document/tracking/revision_history[]/summary`
+  * `/document/tracking/status`
+  * `/document/tracking/version`
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
+
+> Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
+
+An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This should be done if the issuing party is able or unwilling to use the value `generic_csaf`, e.g. due to legal or cooperate identity reasons.
+
+> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
+
+## 5.2 Profile 2: Security incident response
+
+This profile SHOULD be used to provide a response to a security breach or incident. This MAY also be used to convey information about an incident that is unrelated to the issuing party's own products or infrastructure.
+
+> Example Company might use a CSAF document satisfying this profile to respond to a security incident at ACME Inc. and the implications on its own products and infrastructure.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+    > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
+  * `/document/references`
+    > This should be used to refer to one or more documents or websites which provides more details about the incident.
+* The value of `/document/category` SHALL be `security_incident_response`.
+
+## 5.3 Profile 3: Informational Advisory
+
+This profile SHOULD be used to provide information which are **not related to a vulnerability** but e.g. a misconfiguration.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+    > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
+  * `/document/references`
+    > This should be used to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
+* The value of `/document/category` SHALL be `informational_advisory`.
+* The element `/vulnerabilities` SHALL NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
+
+If the element `/product_tree` exists, a user MUST assume that all products mentioned are affected.
+
+## 5.4 Profile 4: Security Advisory
+
+This profile SHOULD be used to provide information which is related to vulnerabilities and corresponding remediations.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities[]/notes`
+    > Provides details about the vulnerability.
+  * `/vulnerabilities[]/product_status`
+    > Lists each product's status in regard to the vulnerability.
+* The value of `/document/category` SHALL be `security_advisory`.
+
+## 5.5 Profile 5: VEX
+
+This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [VEX] for details.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * at least one of
+    * `/vulnerabilities[]/product_status/fixed`
+    * `/vulnerabilities[]/product_status/known_affected`
+    * `/vulnerabilities[]/product_status/known_not_affected`
+    * `/vulnerabilities[]/product_status/under_investigation`
+  * at least one of
+    * `/vulnerabilities[]/cve`
+    * `/vulnerabilities[]/id`
+  * `/vulnerabilities[]/notes`
+    > Provides details about the vulnerability.
+* For each item in
+  * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
+  * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
+  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless whether that is referenced through the Product ID or a Product Group ID.
+* The value of `/document/category` SHALL be `vex`.
+
+# 6 Distributing CSAF documents
 
 This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
 
-## 5.1 Requirements
+## 6.1 Requirements
 
 The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled - the sets are defined in section 5.2.
 
-### 5.1.1 Requirement 1: Valid CSAF document
+### 6.1.1 Requirement 1: Valid CSAF document
 
 The document is a valid CSAF document (cf. Conformance clause 1).
 
-### 5.1.2 Requirement 2: Filename
+### 6.1.2 Requirement 2: Filename
 
 The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
 
-### 5.1.3 Requirement 3: TLS
+### 6.1.3 Requirement 3: TLS
 
 The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
 
-### 5.1.4 Requirement 4: TLP:WHITE
+### 6.1.4 Requirement 4: TLP:WHITE
 
 If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
 
@@ -3529,7 +3640,7 @@ This does not exclude that such a document is also available in an access protec
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
 
-### 5.1.5 Requirement 5: security.txt
+### 6.1.5 Requirement 5: security.txt
 
 In the security.txt there MUST be at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
@@ -3543,11 +3654,11 @@ CSAF: https://psirt.domain.tld/advisories/csaf/
 CSAF: https://domain.tld/security/csaf/csaf-service.json
 ```
 
-### 5.1.6 Requirement 6: DNS path
+### 6.1.6 Requirement 6: DNS path
 
 The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the ROLIE service document or a directory with CSAF files.
 
-### 5.1.7 Requirement 7: One folder per year
+### 6.1.7 Requirement 7: One folder per year
 
 The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
@@ -3558,7 +3669,7 @@ Examples:
 2020
 ```
 
-### 5.1.8 Requirement 8: index.txt
+### 6.1.8 Requirement 8: index.txt
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
@@ -3572,7 +3683,7 @@ Examples:
 
 > This can be used to download all CSAF documents.
 
-### 5.1.9 Requirement 9: changes.csv
+### 6.1.9 Requirement 9: changes.csv
 
 The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
@@ -3585,17 +3696,17 @@ Examples:
 2018/example_company_-_2018-yh2312.json, "2019-03-01T06:01:00Z"
 ```
 
-### 5.1.10 Requirement 10: Directory listings
+### 6.1.10 Requirement 10: Directory listings
 
 Directory listing SHALL be enabled to support manual navigation.
 
-### 5.1.11 Requirement 11: ROLIE service document
+### 6.1.11 Requirement 11: ROLIE service document
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
 **TODO: Provide Example**
 
-### 5.1.12 Requirement 12: ROLIE feed
+### 6.1.12 Requirement 12: ROLIE feed
 
 All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
 
@@ -3652,25 +3763,25 @@ Example:
 }
 ```
 
-### 5.1.13 Requirement 13: ROLIE category document
+### 6.1.13 Requirement 13: ROLIE category document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
 **TODO: Provide Example**
 
-### 5.1.14 Requirement 14: TLP:AMBER and TLP:RED
+### 6.1.14 Requirement 14: TLP:AMBER and TLP:RED
 
 CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the receipients to use any kind of secured drop at the receipients' side to avoid putting them on their own website. However, it mUST be ensured that the documents are still access protected.
 
-### 5.1.15 Requirement 15: Redirects
+### 6.1.15 Requirement 15: Redirects
 
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
 
 > Reasoning: Clients, as e.g. `curl`, do not follow any other kind of redirects.
 
-### 5.1.16 Requirement 16: Integrity
+### 6.1.16 Requirement 16: Integrity
 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3) to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
@@ -3692,7 +3803,7 @@ Example:
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
 ```
 
-### 5.1.17 Requirement 17: Signatures
+### 6.1.17 Requirement 17: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
@@ -3703,46 +3814,46 @@ File name of CSAF document: example_company_-_2019-yh3234.json
 File name of signature file: example_company_-_2019-yh3234.json.asc
 ```
 
-### 5.1.18 Requirement 18: Public PGP Key
+### 6.1.18 Requirement 18: Public PGP Key
 
-The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a publc key server.  
+The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
 
-## 5.2 Roles
+## 6.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
 
-### 5.2.1 Role: CSAF publisher
+### 6.2.1 Role: CSAF publisher
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
-* satisfies the requirements 1 to 4 in section 5.1.
+* satisfies the requirements 1 to 4 in section 6.1.
 * distributes only CSAF documents on behalf of its own.
 
-### 5.2.2 Role: CSAF provider
+### 6.2.2 Role: CSAF provider
 
 A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the following three groups of requirements:
 
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 14 and 15 in section 5.1.
+* additionally satisfies the requirements 14 and 15 in section 6.1.
 
 Secondly, the party:
 
-* satisfies the requirements 5 or 6 in section 5.1.
+* satisfies the requirements 5 or 6 in section 6.1.
 
 Thirdly, the party:
 
-* satisfies the requirements 7 to 10 in section 5.1 or requirements 11 to 13 in section 5.1.
+* satisfies the requirements 7 to 10 in section 6.1 or requirements 11 to 13 in section 6.1.
 
-### 5.2.3 Role: CSAF trusted provider
+### 6.2.3 Role: CSAF trusted provider
 
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-* additionally satisfies the requirements 16 to 18 in section 5.1.
+* additionally satisfies the requirements 16 to 18 in section 6.1.
 
-# 6 Safety, Security, and Data Protection Considerations
+# 7 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
@@ -3758,7 +3869,7 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages.
 
-# 7 Conformance
+# 8 Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -3777,7 +3888,7 @@ Informative Comments:
 >* Clear baseline across the communities per this specification
 >* Additional per-community cooperative extensions which may flow back into future updates of this specification
 
-## 7.1 Conformance Targets
+## 8.1 Conformance Targets
 
 This document defines requirements for the CSAF file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
@@ -3799,21 +3910,22 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
-### 7.1.1 Conformance Clause 1: CSAF document
+### 8.1.1 Conformance Clause 1: CSAF document
 
 A text file satisfies the "CSAF document" conformance profile if the text file:
 
 * conforms to the syntax and semantics defined in section 3.
 * does not fail any mandatory test defined in section 4.1.
+* satisfies at least one profile defined in section 5.
 
-### 7.1.2 Conformance Clause 2: CSAF producer
+### 8.1.2 Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF producers.
 
-### 7.1.3 Conformance Clause 3: CSAF direct producer
+### 8.1.3 Conformance Clause 3: CSAF direct producer
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
@@ -3821,7 +3933,7 @@ An analysis tool satisfies the "CSAF direct producer" conformance profile if the
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 7.1.4 Conformance Clause 4: CSAF converter
+### 8.1.4 Conformance Clause 4: CSAF converter
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
@@ -3829,7 +3941,7 @@ A converter satisfies the “CSAF converter” conformance profile if the conver
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-### 7.1.5 Conformance Clause 5: CVRF CSAF converter
+### 8.1.5 Conformance Clause 5: CVRF CSAF converter
 
 A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
@@ -3848,7 +3960,7 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 
-### 7.1.6 Conformance Clause 6: CSAF content management system
+### 8.1.6 Conformance Clause 6: CSAF content management system
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
@@ -3935,7 +4047,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### 7.1.7 Conformance Clause 7: CSAF post-processor
+### 8.1.7 Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
@@ -3943,7 +4055,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-### 7.1.8 Conformance Clause 8: CSAF modifier
+### 8.1.8 Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3951,7 +4063,7 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 7, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section 8, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -3959,7 +4071,7 @@ The resulting modified document:
 * does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### 7.1.9 Conformance Clause 9: CSAF translator
+### 8.1.9 Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -3979,14 +4091,14 @@ The resulting translated document:
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
-### 7.1.10 Conformance Clause 10: CSAF consumer
+### 8.1.10 Conformance Clause 10: CSAF consumer
 
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
 * satisfies those normative requirements in section 3 that are designated as applying to CSAF consumers.
 
-### 7.1.11 Conformance Clause 11: CSAF viewer
+### 8.1.11 Conformance Clause 11: CSAF viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
@@ -4000,7 +4112,7 @@ For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 * should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
-### 7.1.12 Conformance Clause 12: CSAF management system
+### 8.1.12 Conformance Clause 12: CSAF management system
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
@@ -4020,7 +4132,7 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 * identifies the latest version of CSAF documents with the same `/document/tracking/id`.
 * is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-### 7.1.13 Conformance Clause 13: CSAF asset matching system
+### 8.1.13 Conformance Clause 13: CSAF asset matching system
 
 A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
@@ -4050,7 +4162,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
   * matching that CSAF document at all
   * marked with a given status
 
-### 7.1.14 Conformance Clause 14: CSAF basic validator
+### 8.1.14 Conformance Clause 14: CSAF basic validator
 
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
@@ -4059,7 +4171,7 @@ A program satisfies the "CSAF basic validator" conformance profile if the progra
 
 A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
 
-### 7.1.15 Conformance Clause 15: CSAF extended validator
+### 8.1.15 Conformance Clause 15: CSAF extended validator
 
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
@@ -4068,7 +4180,7 @@ A CSAF basic validator satisfies the "CSAF extended validator" conformance profi
 
 A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
 
-### 7.1.16 Conformance Clause 16: CSAF full validator
+### 8.1.16 Conformance Clause 16: CSAF full validator
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 

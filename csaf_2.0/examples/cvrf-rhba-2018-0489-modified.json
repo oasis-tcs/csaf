@@ -2,7 +2,7 @@
   "document": {
     "lang": "en",
     "title": "Red Hat Bug Fix Advisory: Red Hat OpenShift Container Platform 3.9 RPM Release Advisory",
-    "category": "Security Advisory",
+    "category": "security_advisory",
     "csaf_version": "2.0",
     "publisher": {
       "category": "vendor",
