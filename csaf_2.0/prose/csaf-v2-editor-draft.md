@@ -3663,6 +3663,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/category`
   * `/document/publisher/category`
   * `/document/publisher/name`
+  * `/document/publisher/namespace`
   * `/document/title`
   * `/document/tracking/current_release_date`
   * `/document/tracking/id`
