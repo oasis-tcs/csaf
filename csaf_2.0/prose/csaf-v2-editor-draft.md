@@ -3346,6 +3346,33 @@ Example which fails the test:
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
 
+### 4.1.24 Prohibited Document Category Name
+
+It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
+
+The relevant path for this test is:
+
+```
+  /document/category
+```
+
+Examples for currently prohibited values:
+
+```
+  Informational Advisory
+  security-incident-response
+  Security      Advisory
+  veX
+```
+
+Example which fails the test:
+
+```
+  "category": "Security_Incident_Response"
+```
+
+> The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
@@ -3601,7 +3628,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/revision_history[]/summary`
   * `/document/tracking/status`
   * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
 
 > Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
 
