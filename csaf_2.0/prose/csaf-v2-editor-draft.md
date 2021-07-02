@@ -3478,7 +3478,41 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
-### 4.2.5 Missing Date in Involvements
+### 4.2.5 Older Initial Release Date than Revision History
+
+It must be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/initial_release_date
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "initial_release_date": "2021-04-22T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-05-06T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-05-23T1100:00.000Z",
+          "number": "2",
+          "summary": "Second version."
+        }
+      ],
+      // ...
+    }
+```
+
+> The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of the oldest item in Revision History.
+
+### 4.2.6 Missing Date in Involvements
 
 For each item in the list of involvements it must be tested that it includes the property `date`.
 
