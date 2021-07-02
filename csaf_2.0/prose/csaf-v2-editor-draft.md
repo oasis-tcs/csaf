@@ -3354,6 +3354,8 @@ Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. F
 
 For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
 
+This test SHALL be skipped for CSAF documents conforming the profile "Informational Advisory".
+
 The relevant paths for this test are:
 
 ```
@@ -3383,7 +3385,7 @@ Example which fails the test:
 
 For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
 
-> The remediation might be of the category `none_available`.
+> The remediation might be of the category `none_available` or `no_fixed_planned`.
 
 The relevant paths for this test are:
 
