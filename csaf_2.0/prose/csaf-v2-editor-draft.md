@@ -3514,7 +3514,41 @@ Example which fails the test:
 
 > The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of the oldest item in Revision History.
 
-### 4.2.6 Missing Date in Involvements
+### 4.2.6 Older Current Release Date than Revision History
+
+It must be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/current_release_date
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      "current_release_date": "2021-05-06T10:00:00.000Z",
+      // ...
+      "revision_history": [
+        {
+          "date": "2021-05-06T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-05-23T1100:00.000Z",
+          "number": "2",
+          "summary": "Second version."
+        }
+      ],
+      // ...
+    }
+```
+
+> The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of the newest item in Revision History.
+
+### 4.2.7 Missing Date in Involvements
 
 For each item in the list of involvements it must be tested that it includes the property `date`.
 
