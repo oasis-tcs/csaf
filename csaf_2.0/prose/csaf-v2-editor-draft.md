@@ -3346,6 +3346,77 @@ Example which fails the test:
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
 
+### 4.1.24 Multiple Use of Same Hash Algorithm
+
+It must be tested that the same hash algorithm is not used multiple times in one item of hashes.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes
+  /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes
+  /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A"
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "sha256",
+                  "value": "026a37919b182ef7c63791e82c9645e2f897a3f0b73c7a6028c7febf62e93838"
+                },
+                {
+                  "algorithm": "sha256",
+                  "value": "0a853ce2337f0608489ac596a308dc5b7b19d35a52b10bf31261586ac368b175"
+                }
+              ],
+              "filename": "product_a.so"
+            }
+          ]
+         }
+      }
+    ]
+  }
+```
+
+> The hash algorithm `sha256` is used two times in one item of hashes.
+
+### 4.1.25 Prohibited Document Category Name
+
+It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
+
+The relevant path for this test is:
+
+```
+  /document/category
+```
+
+Examples for currently prohibited values:
+
+```
+  Informational Advisory
+  security-incident-response
+  Security      Advisory
+  veX
+```
+
+Example which fails the test:
+
+```
+  "category": "Security_Incident_Response"
+```
+
+> The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
+
 ## 4.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
@@ -3353,6 +3424,8 @@ Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. F
 ### 4.2.1 Unused Definition of Product ID
 
 For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
+
+This test SHALL be skipped for CSAF documents conforming the profile "Informational Advisory".
 
 The relevant paths for this test are:
 
@@ -3383,7 +3456,7 @@ Example which fails the test:
 
 For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
 
-> The remediation might be of the category `none_available`.
+> The remediation might be of the category `none_available` or `no_fixed_planned`.
 
 The relevant paths for this test are:
 
@@ -3478,7 +3551,75 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
-### 4.2.5 Missing Date in Involvements
+### 4.2.5 Older Initial Release Date than Revision History
+
+It must be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/initial_release_date
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      // ...
+      "initial_release_date": "2021-04-22T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-05-06T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-05-23T1100:00.000Z",
+          "number": "2",
+          "summary": "Second version."
+        }
+      ],
+      // ...
+    }
+```
+
+> The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of the oldest item in Revision History.
+
+### 4.2.6 Older Current Release Date than Revision History
+
+It must be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
+
+The relevant path for this test is:
+
+```
+    /document/tracking/current_release_date
+```
+
+Example which fails the test:
+
+```
+    "tracking": {
+      "current_release_date": "2021-05-06T10:00:00.000Z",
+      // ...
+      "revision_history": [
+        {
+          "date": "2021-05-06T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-05-23T1100:00.000Z",
+          "number": "2",
+          "summary": "Second version."
+        }
+      ],
+      // ...
+    }
+```
+
+> The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of the newest item in Revision History.
+
+### 4.2.7 Missing Date in Involvements
 
 For each item in the list of involvements it must be tested that it includes the property `date`.
 
@@ -3522,6 +3663,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/category`
   * `/document/publisher/category`
   * `/document/publisher/name`
+  * `/document/publisher/namespace`
   * `/document/title`
   * `/document/tracking/current_release_date`
   * `/document/tracking/id`
@@ -3531,7 +3673,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/revision_history[]/summary`
   * `/document/tracking/status`
   * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
 
 > Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
 
