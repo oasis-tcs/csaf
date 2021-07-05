@@ -2,12 +2,13 @@
   "document": {
     "lang": "en",
     "title": "Red Hat Bug Fix Advisory: Red Hat OpenShift Container Platform 3.9 RPM Release Advisory",
-    "category": "Security Advisory",
+    "category": "security_advisory",
     "csaf_version": "2.0",
     "publisher": {
+      "category": "vendor",
       "contact_details": "secalert@redhat.com",
       "name": "Red Hat Product Security",
-      "category": "vendor"
+      "namespace": "https://www.redhat.com"
     },
     "tracking": {
       "id": "RHBA-2018:0489",
