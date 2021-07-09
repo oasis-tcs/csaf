@@ -4031,6 +4031,69 @@ Example which fails the test:
 
 > The `category` is `self` and a request to that URL does not resolve with a status code less than 400.
 
+### 4.3.8 Spell check
+
+If the document language is given it must be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` should not be tested if the CSAF document does not use the profile "Generic CSAF".
+
+The relevant paths for this test are:
+
+```
+  /document/acknowledgments[]/names[]
+  /document/acknowledgments[]/organization
+  /document/acknowledgments[]/summary
+  /document/aggregate_severity/text
+  /document/category
+  /document/distribution/text
+  /document/notes[]/audience
+  /document/notes[]/text
+  /document/notes[]/title
+  /document/publisher/issuing_authority
+  /document/publisher/name
+  /document/references[]/summary
+  /document/title
+  /document/tracking/aliases[]
+  /document/tracking/generator/engine/name
+  /document/tracking/revision_history[]/summary
+  /product_tree/branches[](/branches[])*/name
+  /product_tree/branches[](/branches[])*/product/name
+  /product_tree/branches[]/name
+  /product_tree/branches[]/product/name
+  /product_tree/full_product_names[]/name
+  /product_tree/product_groups[]/summary
+  /product_tree/relationships[]/full_product_name/name
+  /vulnerabilities[]/acknowledgments[]/names[]
+  /vulnerabilities[]/acknowledgments[]/organization
+  /vulnerabilities[]/acknowledgments[]/summary
+  /vulnerabilities[]/involvements[]/summary
+  /vulnerabilities[]/notes[]/audience
+  /vulnerabilities[]/notes[]/text
+  /vulnerabilities[]/notes[]/title
+  /vulnerabilities[]/references[]/summary
+  /vulnerabilities[]/remediations[]/details
+  /vulnerabilities[]/remediations[]/entitlements[]
+  /vulnerabilities[]/remediations[]/restart_required/details
+  /vulnerabilities[]/threats[]/details
+  /vulnerabilities[]/title
+```
+
+Example which fails the test:
+
+```
+  "document": {
+    // ...
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Secruity researchers found multiple vulnerabilities in XYZ."
+      }
+    ],
+    // ...
+  }
+```
+
+> There is a spelling mistake in `Secruity`.
+
 # 5 Profiles
 
 CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
