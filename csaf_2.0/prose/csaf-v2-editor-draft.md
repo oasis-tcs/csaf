@@ -3962,6 +3962,49 @@ Example which fails the test:
 
 > The length of the hash value is only 32 characters long.
 
+### 4.3.6 Use of non-self referencing URLs Failing to Resolve
+
+For each URL which is not in the category `self` it must be tested that it resolves with a HTTP status code less than 400.
+
+> This test does not apply for any item in an array of type `references_t` with the category `self`.
+
+The relevant paths for this test are:
+
+```
+  /document/acknowledgments[]/urls[]
+  /document/aggregate_severity/namespace
+  /document/distribution/tlp/url
+  /document/references[]/url
+  /document/publisher/namespace
+  /product_tree/branches[]/product/product_identification_helper/sbom_urls[]
+  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace
+  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls[]
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri
+  /product_tree/full_product_names[]/product_identification_helper/sbom_urls[]
+  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace
+  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri
+  /product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls[]
+  /product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace
+  /product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri
+  /vulnerabilities[]/acknowledgments[]/urls[]
+  /vulnerabilities[]/references[]/url
+  /vulnerabilities[]/remediations[]/url
+```
+
+Example which fails the test:
+
+```
+  "references": [
+  {
+    "summary": "A URL that does not resolve with HTTP status code < 400",
+    "url": "http://example.invalid"
+  }
+```
+
+> The `category` is not set and therefore threated as its default value `external`. A request to that URL does not resolve with a status code less than 400.
+
 # 5 Profiles
 
 CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
