@@ -1478,7 +1478,7 @@ The single valid value for this `enum` is:
 
 #### 3.2.1.5 Document Property - Distribution
 
-Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol TLP (`tlp`) describes any constraints on how this document might be shared.
+Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol (TLP) (`tlp`) describes any constraints on how this document might be shared.
 
 ```
     "distribution": {
@@ -1493,6 +1493,8 @@ Rules for sharing document (`distribution`) of value type `object` with at least
       }
     },
 ```
+
+If both values are present, the TLP information SHOULD be preferred as this aids in automation.
 
 ##### 3.2.1.5.1 Document Property - Distribution - Text
 
