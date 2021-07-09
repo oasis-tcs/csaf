@@ -2909,7 +2909,7 @@ Example which fails the test:
   ]
 ```
 
-> Two CVSSv3.1 scores are given for `CSAFPID-9080700`.
+> Two CVSS v3.1 scores are given for `CSAFPID-9080700`.
 
 ### 4.1.8 Invalid CVSS
 
@@ -3789,6 +3789,51 @@ Example which fails the test:
 ## 4.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
+
+### 4.3.1 Use of CVSS v2 as the only Scoring System
+
+For each item in the list of scores which contains the `cvss_v2` object it must be tested that is not the only scoring item present. The test SHALL pass if a second scoring object is available.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/scores
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "scores": [
+        {
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "cvss_v2": {
+            "version": "2.0",
+            "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+            "baseScore": 10
+          }
+        }
+      ]
+    }
+  ]
+```
+
+> There is only a CVSS v2 score given for `CSAFPID-9080700`.
+
+Recommendation:
+
+It is recommended to (also) use the CVSS v3.1.
 
 # 5 Profiles
 
