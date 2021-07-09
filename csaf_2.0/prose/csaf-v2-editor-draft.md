@@ -4005,6 +4005,32 @@ Example which fails the test:
 
 > The `category` is not set and therefore threated as its default value `external`. A request to that URL does not resolve with a status code less than 400.
 
+### 4.3.7 Use of self referencing URLs Failing to Resolve
+
+For each item in an array of type `references_t` with the category `self` it must be tested that the URL referenced resolves with a HTTP status code less than 400. 
+
+> This test will most likely fail if the CSAF document is in a status before the initial release.
+
+The relevant paths for this test are:
+
+```
+  /document/references[]/url
+  /vulnerabilities[]/references[]/url
+```
+
+Example which fails the test:
+
+```
+  "references": [
+  {
+    "category": "self",
+    "summary": "A URL that does not resolve with HTTP status code < 400",
+    "url": "http://example.invalid"
+  }
+```
+
+> The `category` is `self` and a request to that URL does not resolve with a status code less than 400.
+
 # 5 Profiles
 
 CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
