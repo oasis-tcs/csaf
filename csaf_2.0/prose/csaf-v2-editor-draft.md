@@ -3758,6 +3758,32 @@ Example which fails the test:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
+### 4.2.10 Missing TLP label
+
+It must be tested that `/document/distribution/tlp/label` is present and valid.
+
+> TLP labels support the machine-readability and automated distribution.
+
+The relevant path for this test is:
+
+```
+  /document/distribution/tlp/label
+```
+
+Example which fails the test:
+
+```
+  "document": {
+    // ...
+    "distribution": {
+      "text": "Distribute freely."
+    },
+    // ...
+  }
+```
+
+> The CSAF document has no TLP label.
+
 ## 4.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
