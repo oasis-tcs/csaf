@@ -2934,6 +2934,8 @@ Example which fails the test:
 
 > The required element `baseSeverity` is missing.
 
+> A tool MAY implement add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on the values given in `vectorString` as quick fix.
+
 ### 4.1.9 Invalid CVSS computation
 
 It must be tested that the given CVSS object has the values computed correctly according to the definition.
@@ -2964,6 +2966,8 @@ Example which fails the test:
 ```
 
 > Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.
+
+> A tool MAY implement setting the correct values as computed according to the specification as quick fix.
 
 ### 4.1.10 Inconsistent CVSS
 
@@ -2996,6 +3000,8 @@ Example which fails the test:
 ```
 
 > The values in CVSS vector differs from values of the properties `attackVector`, `scope` and `availabilityImpact`.
+
+> A tool MAY implement setting the values from the `vectorString` as quick fix.
 
 ### 4.1.11 CWE
 
@@ -3482,6 +3488,8 @@ Example which fails the test:
 ```
 
 > `CSAFPID-9080700` was defined but never used.
+
+> A tool MAY implement the removal of the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
 
 ### 4.2.2 Missing Remediation
 
@@ -4527,8 +4535,13 @@ A program satisfies the "CSAF basic validator" conformance profile if the progra
 
 * reads documents and performs a check against the JSON schema.
 * performs all mandatory tests as given in section 4.1.
+* does not change the CSAF documents.
 
-A CSAF basic validator may provide an additional function to only run one or more selected mandatory tests.
+A CSAF basic validator may provide one or more additional functions:
+
+* Only run one or more selected mandatory tests.
+* Apply quick fixes as specified in the standard.
+* Apply additional quick fixes as implemented by the vendor.
 
 ### 8.1.15 Conformance Clause 15: CSAF extended validator
 
