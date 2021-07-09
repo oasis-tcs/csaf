@@ -3899,6 +3899,29 @@ Recommendation:
 
 It is recommended to provide a CVE number to support the users efforts to find more details about a vulnerability and potentially track it through multiple advisories. If no CVE exists for that vulnerability, it is recommended to get one assigned.
 
+### 4.3.4 Missing CWE
+
+It must be tested that the CWE is given.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwe
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2019-0708",
+      "title": "BlueKeep"
+    }
+  ]
+```
+
+> The CWE number is not given.
+
 # 5 Profiles
 
 CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
