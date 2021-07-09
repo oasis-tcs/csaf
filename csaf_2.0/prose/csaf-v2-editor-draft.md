@@ -3835,6 +3835,36 @@ Recommendation:
 
 It is recommended to (also) use the CVSS v3.1.
 
+### 4.3.2 Use of CVSS v3.0
+
+For each item in the list of scores which contains the `cvss_v3` object it must be tested that CVSS v3.0 is not used.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/scores[]/cvss_v3/version
+  /vulnerabilities[]/scores[]/cvss_v3/vectorString
+```
+
+Example which fails the test:
+
+```
+  "cvss_v3": {
+    "version": "3.0",
+    "vectorString": "CVSS:3.0/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+    "baseScore": 6.5,
+    "baseSeverity": "MEDIUM"
+  }
+```
+
+> The CVSS v3.0 is used.
+
+Recommendation:
+
+It is recommended to upgrade to CVSS v3.1.
+
+> A tool MAY implement the recommendation as quick fix. However, it SHALL recompute the `baseScore` and `baseSeverity`.
+
 # 5 Profiles
 
 CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
