@@ -3716,6 +3716,48 @@ Example which fails the test:
 
 > The hash algorithm `md5` is used in one item of hashes without being accompanied by a second hash algorithm.
 
+### 4.2.9 Use of SHA-1 as the only Hash Algorithm
+
+It must be tested that the hash algorithm `sha1` is not the only one present.
+
+> Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash. This will allow users to double check the results.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes
+  /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes
+  /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A"
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "sha1",
+                  "value": "e067035314dd8673fe1c9fc6b01414fe0950fdc4"
+                }
+              ],
+              "filename": "product_a.so"
+            }
+          ]
+         }
+      }
+    ]
+  }
+```
+
+> The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
+
 ## 4.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
