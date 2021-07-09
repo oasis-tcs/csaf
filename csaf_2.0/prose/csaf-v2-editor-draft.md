@@ -2967,7 +2967,7 @@ Example which fails the test:
 
 > Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.
 
-> A tool MAY implement setting the correct values as computed according to the specification as quick fix.
+> A tool MAY set the correct values as computed according to the specification as quick fix.
 
 ### 4.1.10 Inconsistent CVSS
 
@@ -3001,7 +3001,7 @@ Example which fails the test:
 
 > The values in CVSS vector differs from values of the properties `attackVector`, `scope` and `availabilityImpact`.
 
-> A tool MAY implement setting the values from the `vectorString` as quick fix.
+> A tool MAY overwrite contradicting values according to the `vectorString` as quick fix.
 
 ### 4.1.11 CWE
 
@@ -3489,7 +3489,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` was defined but never used.
 
-> A tool MAY implement the removal of the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
+> A tool MAY remove of the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
 
 ### 4.2.2 Missing Remediation
 
@@ -3871,7 +3871,7 @@ Recommendation:
 
 It is recommended to upgrade to CVSS v3.1.
 
-> A tool MAY implement the recommendation as quick fix. However, it SHALL recompute the `baseScore` and `baseSeverity`.
+> A tool MAY implement the recommendation as quick fix. However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`. The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if the necessary fields for computing their value are present and set.
 
 ### 4.3.3 Missing CVE
 
@@ -4007,7 +4007,7 @@ Example which fails the test:
 
 ### 4.3.7 Use of self referencing URLs Failing to Resolve
 
-For each item in an array of type `references_t` with the category `self` it must be tested that the URL referenced resolves with a HTTP status code less than 400. 
+For each item in an array of type `references_t` with the category `self` it must be tested that the URL referenced resolves with a HTTP status code less than 400.
 
 > This test will most likely fail if the CSAF document is in a status before the initial release.
 
