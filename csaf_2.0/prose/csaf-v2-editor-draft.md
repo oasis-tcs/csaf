@@ -3035,7 +3035,36 @@ Example which fails the test:
 
 > `TG` is not a valid language. It is the subtag for the region "Togo".
 
-### 4.1.13 Sorted Revision History
+### 4.1.13 PURL
+
+It must be tested that given PURL is valid.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/purl
+  /product_tree/full_product_names[]/product_identification_helper/purl
+  /product_tree/relationships[]/full_product_name/product_identification_helper/purl
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A"
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "purl": "pkg:ExampleLibrary.Common@4.2.1337"
+      }
+    ]
+  }
+```
+
+> A type is always required in a purl.
+
+### 4.1.14 Sorted Revision History
 
 It must be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
 
@@ -3064,7 +3093,7 @@ Example which fails the test:
 
 > The first item has a higher version number than the second.
 
-### 4.1.14 Translator
+### 4.1.15 Translator
 
 It must be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
 
@@ -3090,7 +3119,7 @@ Example which fails the test:
 
 > The element `source_lang` is present but not set.
 
-### 4.1.15 Latest Document Version
+### 4.1.16 Latest Document Version
 
 It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison.
 
@@ -3123,7 +3152,7 @@ Example which fails the test:
 
 > The value of `number` of the last item after sorting is `2`. However, the document version is `1`.
 
-### 4.1.16 Document Status Draft
+### 4.1.17 Document Status Draft
 
 It must be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
 
@@ -3145,7 +3174,7 @@ Example which fails the test:
 
 > The `/document/tracking/version` is `0.9.5` but the document status is `final`.
 
-### 4.1.17 Released Revision History
+### 4.1.18 Released Revision History
 
 It must be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
 
@@ -3179,7 +3208,7 @@ Example which fails the test:
 
 > The document status is `final` but the revision history includes an item which has `0` as value for `number`.
 
-### 4.1.18 Revision History Entries for Pre-release Versions
+### 4.1.19 Revision History Entries for Pre-release Versions
 
 It must be tested that no item of the revision history has a `number` which includes pre-release information.
 
@@ -3208,7 +3237,7 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that indicates that this is pre-release.
 
-### 4.1.19 Non-draft Document Version
+### 4.1.20 Non-draft Document Version
 
 It must be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
 
@@ -3230,7 +3259,7 @@ Example which fails the test:
 
 > The document status is `interim` but the document version contains the pre-release part `-alpha`.
 
-### 4.1.20 Missing Item in Revision History
+### 4.1.21 Missing Item in Revision History
 
 It must be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version.
 
@@ -3259,7 +3288,7 @@ Example which fails the test:
 
 > The item for version `2` is missing.
 
-### 4.1.21 Multiple Definition in Revision History
+### 4.1.22 Multiple Definition in Revision History
 
 It must be tested that items of the revision history do not contain the same version number.
 
@@ -3288,7 +3317,7 @@ Example which fails the test:
 
 > The revision history contains two items with the version number `1`.
 
-### 4.1.22 Multiple Use of Same CVE
+### 4.1.23 Multiple Use of Same CVE
 
 It must be tested that a CVE is not used in multiple vulnerability items.
 
@@ -3313,7 +3342,7 @@ Example which fails the test:
 
 > The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
 
-### 4.1.23 Multiple Definition in Involvements
+### 4.1.24 Multiple Definition in Involvements
 
 It must be tested that items of the list of involements do not contain the tuple of `party` and `status` more than once at any `date`.
 
@@ -3346,7 +3375,7 @@ Example which fails the test:
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
 
-### 4.1.24 Multiple Use of Same Hash Algorithm
+### 4.1.25 Multiple Use of Same Hash Algorithm
 
 It must be tested that the same hash algorithm is not used multiple times in one item of hashes.
 
@@ -3390,7 +3419,7 @@ Example which fails the test:
 
 > The hash algorithm `sha256` is used two times in one item of hashes.
 
-### 4.1.25 Prohibited Document Category Name
+### 4.1.26 Prohibited Document Category Name
 
 It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
 
