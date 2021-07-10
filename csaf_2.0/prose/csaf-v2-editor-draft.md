@@ -2637,7 +2637,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
   * `/document/references`
-    > This should be used to refer to one or more documents or websites which provides more details about the incident.
+    > This should be used to refer to one or more documents or websites which provides more details about the incident. The `category` for such references SHOULD be `external`.
 * The value of `/document/category` SHALL be `security_incident_response`.
 
 ## 4.3 Profile 3: Informational Advisory
@@ -3590,6 +3590,30 @@ Example which fails the test:
 ```
 
 > The document notes do not contain an item which has a `category` of `description`, `details`, `general` or `summary`.
+
+#### 5.1.27.2 Document References
+
+It must be tested that at least one item in `/document/references` exists that has links to an `external` source.
+
+The relevant path for this test is:
+
+```
+  /document/references
+```
+
+Example which fails the test:
+
+```
+  "references": [
+    {
+      "category": "self",
+      "summary": "The canonical URL.",
+      "url": "https://example.com/security/data/csaf/2021/ESA-2021-0002.json"
+    }
+  ]
+```
+
+> The document references do not contain any item which has the category `external`.
 
 ## 5.2 Optional Tests
 
