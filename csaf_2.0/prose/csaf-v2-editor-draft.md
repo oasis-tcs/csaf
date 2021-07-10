@@ -4297,7 +4297,7 @@ Example which fails the test:
 
 ### 5.2.11 Missing Canonical URL
 
-It must be tested that the CSAF document has canonical URL.
+It must be tested that the CSAF document has a anonical URL.
 
 > To implement this test it is demeeded sufficient that one item in `/document/references` fulfills all of the following:
 >
