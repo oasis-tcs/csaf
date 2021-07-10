@@ -4259,7 +4259,7 @@ The CSAF document has a filename according to the rules in section 3 (cf. sectio
 
 ### 6.1.3 Requirement 3: TLS
 
-The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
+The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport when crossing organizational boundaries to maintain the chain of custody.
 
 ### 6.1.4 Requirement 4: TLP:WHITE
 
