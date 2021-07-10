@@ -3750,6 +3750,37 @@ Example which fails the test:
 
 > The vulnerability item has no `product_status` element.
 
+#### 5.1.27.7 VEX Product Status
+
+For each item of `/vulnerabilities` it must be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
+
+The relevant value for `/document/category` is:
+
+```
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status
+```
+
+Example which fails the test:
+
+```
+  "product_status": {
+    "first_fixed": [
+      // ...
+    ],
+    "recommended": [
+      // ...
+    ]
+  }
+```
+
+> None of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
+
 ## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
