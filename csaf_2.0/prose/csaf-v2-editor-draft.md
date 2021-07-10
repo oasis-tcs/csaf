@@ -3722,6 +3722,34 @@ Example which fails the test:
 
 > The vulnerability item has no `notes` element.
 
+#### 5.1.27.6 Product Status
+
+For each item of `/vulnerabilities` it must be tested that the element `product_status` exists.
+
+The relevant value for `/document/category` is:
+
+```
+  security_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "title": "A vulnerability item without a product status"
+    }
+  ]
+```
+
+> The vulnerability item has no `product_status` element.
+
 ## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
