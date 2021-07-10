@@ -2709,6 +2709,10 @@ Examples:
 
 If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
 
+## 5.3 Sorting
+
+The keys within a CSAF document SHOULD be sorted alphabetically.
+
 # 6 Tests
 
 The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
