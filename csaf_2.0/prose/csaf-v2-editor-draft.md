@@ -1450,7 +1450,7 @@ Examples:
 
 Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
-> It is directly related to the profiles defined in section 5.
+> It is directly related to the profiles defined in section 4.
 
 ```
     "category": {
@@ -2590,15 +2590,120 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
-# 4 Tests
+# 4 Profiles
+
+CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+
+## 4.1 Profile 1: Generic CSAF
+
+This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfy any other profile. Furthermore, it is the foundation all other profiles are build on.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Generic CSAF":
+
+* The following elements must exist and be valid:
+  * `/document/category`
+  * `/document/publisher/category`
+  * `/document/publisher/name`
+  * `/document/publisher/namespace`
+  * `/document/title`
+  * `/document/tracking/current_release_date`
+  * `/document/tracking/id`
+  * `/document/tracking/initial_release_date`
+  * `/document/tracking/revision_history[]/date`
+  * `/document/tracking/revision_history[]/number`
+  * `/document/tracking/revision_history[]/summary`
+  * `/document/tracking/status`
+  * `/document/tracking/version`
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
+
+> Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
+
+An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This should be done if the issuing party is able or unwilling to use the value `generic_csaf`, e.g. due to legal or cooperate identity reasons.
+
+> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
+
+## 4.2 Profile 2: Security incident response
+
+This profile SHOULD be used to provide a response to a security breach or incident. This MAY also be used to convey information about an incident that is unrelated to the issuing party's own products or infrastructure.
+
+> Example Company might use a CSAF document satisfying this profile to respond to a security incident at ACME Inc. and the implications on its own products and infrastructure.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+    > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
+  * `/document/references`
+    > This should be used to refer to one or more documents or websites which provides more details about the incident.
+* The value of `/document/category` SHALL be `security_incident_response`.
+
+## 4.3 Profile 3: Informational Advisory
+
+This profile SHOULD be used to provide information which are **not related to a vulnerability** but e.g. a misconfiguration.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+    > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
+  * `/document/references`
+    > This should be used to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
+* The value of `/document/category` SHALL be `informational_advisory`.
+* The element `/vulnerabilities` SHALL NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
+
+If the element `/product_tree` exists, a user MUST assume that all products mentioned are affected.
+
+## 4.4 Profile 4: Security Advisory
+
+This profile SHOULD be used to provide information which is related to vulnerabilities and corresponding remediations.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities[]/notes`
+    > Provides details about the vulnerability.
+  * `/vulnerabilities[]/product_status`
+    > Lists each product's status in regard to the vulnerability.
+* The value of `/document/category` SHALL be `security_advisory`.
+
+## 4.5 Profile 5: VEX
+
+This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [VEX] for details.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
+
+* The following elements must exist and be valid:
+  * all elements required by the profile "Generic CSAF".
+  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * at least one of
+    * `/vulnerabilities[]/product_status/fixed`
+    * `/vulnerabilities[]/product_status/known_affected`
+    * `/vulnerabilities[]/product_status/known_not_affected`
+    * `/vulnerabilities[]/product_status/under_investigation`
+  * at least one of
+    * `/vulnerabilities[]/cve`
+    * `/vulnerabilities[]/id`
+  * `/vulnerabilities[]/notes`
+    > Provides details about the vulnerability.
+* For each item in
+  * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
+  * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
+  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless whether that is referenced through the Product ID or a Product Group ID.
+* The value of `/document/category` SHALL be `vex`.
+
+# 5 Tests
 
 The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
 
-## 4.1 Mandatory Tests
+## 5.1 Mandatory Tests
 
 Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a test failure as an error.
 
-### 4.1.1 Missing Definition of Product ID
+### 5.1.1 Missing Definition of Product ID
 
 For each element of type `/definitions/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/definitions/products_t`.
 
@@ -2639,7 +2744,7 @@ Example which fails the test:
 
 > Neither `CSAFPID-9080700` nor `CSAFPID-9080701` were defined in the `product_tree`.
 
-### 4.1.2 Multiple Definition of Product ID
+### 5.1.2 Multiple Definition of Product ID
 
 For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` was not already defined within the same document.
 
@@ -2670,7 +2775,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` was defined twice.
 
-### 4.1.3 Circular Definition of Product ID
+### 5.1.3 Circular Definition of Product ID
 
 For each new defined Product ID (type `/definitions/product_id_t`) in items of relationships (`/product_tree/relationships`) it must be tested that the `product_id` does not end up in a cirle.
 
@@ -2708,7 +2813,7 @@ Example which fails the test:
 
 > `CSAFPID-9080701` refers to itself - this is a circular definition.
 
-### 4.1.4 Missing Definition of Product Group ID
+### 5.1.4 Missing Definition of Product Group ID
 
 For each element of type `/definitions/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/definitions/product_groups_t`.
 
@@ -2747,7 +2852,7 @@ Example which fails the test:
 
 > `CSAFGID-1020301` was not defined in the Product Tree.
 
-### 4.1.5 Multiple Definition of Product Group ID
+### 5.1.5 Multiple Definition of Product Group ID
 
 For each Product Group ID (type `/definitions/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it must be tested that the `group_id` was not already defined within the same document.
 
@@ -2796,7 +2901,7 @@ Example which fails the test:
 
 > `CSAFGID-1020300` was defined twice.
 
-### 4.1.6 Contradicting Product Status
+### 5.1.6 Contradicting Product Status
 
 It must be tested that the same Product ID is not member of contradicting product status groups.
 
@@ -2858,7 +2963,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` is a member of the two contradicting groups "Affected" and "Not affected".
 
-### 4.1.7 Multiple Scores with same Version per Product
+### 5.1.7 Multiple Scores with same Version per Product
 
 It must be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
 
@@ -2911,7 +3016,7 @@ Example which fails the test:
 
 > Two CVSS v3.1 scores are given for `CSAFPID-9080700`.
 
-### 4.1.8 Invalid CVSS
+### 5.1.8 Invalid CVSS
 
 It must be tested that the given CVSS object is valid according to the referenced schema.
 
@@ -2936,7 +3041,7 @@ Example which fails the test:
 
 > A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on the values given in `vectorString` as quick fix.
 
-### 4.1.9 Invalid CVSS computation
+### 5.1.9 Invalid CVSS computation
 
 It must be tested that the given CVSS object has the values computed correctly according to the definition.
 
@@ -2969,7 +3074,7 @@ Example which fails the test:
 
 > A tool MAY set the correct values as computed according to the specification as quick fix.
 
-### 4.1.10 Inconsistent CVSS
+### 5.1.10 Inconsistent CVSS
 
 It must be tested that the given CVSS properties do not contratict the CVSS vector.
 
@@ -3003,7 +3108,7 @@ Example which fails the test:
 
 > A tool MAY overwrite contradicting values according to the `vectorString` as quick fix.
 
-### 4.1.11 CWE
+### 5.1.11 CWE
 
 It must be tested that given CWE exists and is valid.
 
@@ -3024,7 +3129,7 @@ Example which fails the test:
 
 > The `CWE-79` exists. However, its name is `Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')`.
 
-### 4.1.12 Language
+### 5.1.12 Language
 
 For each element of type `/definitions/language_t` it must be tested that the language code is valid and exists.
 
@@ -3043,7 +3148,7 @@ Example which fails the test:
 
 > `TG` is not a valid language. It is the subtag for the region "Togo".
 
-### 4.1.13 PURL
+### 5.1.13 PURL
 
 It must be tested that given PURL is valid.
 
@@ -3072,7 +3177,7 @@ Example which fails the test:
 
 > Any valid purl has a type component.
 
-### 4.1.14 Sorted Revision History
+### 5.1.14 Sorted Revision History
 
 It must be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
 
@@ -3101,7 +3206,7 @@ Example which fails the test:
 
 > The first item has a higher version number than the second.
 
-### 4.1.15 Translator
+### 5.1.15 Translator
 
 It must be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
 
@@ -3127,7 +3232,7 @@ Example which fails the test:
 
 > The element `source_lang` is present but not set.
 
-### 4.1.16 Latest Document Version
+### 5.1.16 Latest Document Version
 
 It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison.
 
@@ -3160,7 +3265,7 @@ Example which fails the test:
 
 > The value of `number` of the last item after sorting is `2`. However, the document version is `1`.
 
-### 4.1.17 Document Status Draft
+### 5.1.17 Document Status Draft
 
 It must be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
 
@@ -3182,7 +3287,7 @@ Example which fails the test:
 
 > The `/document/tracking/version` is `0.9.5` but the document status is `final`.
 
-### 4.1.18 Released Revision History
+### 5.1.18 Released Revision History
 
 It must be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
 
@@ -3216,7 +3321,7 @@ Example which fails the test:
 
 > The document status is `final` but the revision history includes an item which has `0` as value for `number`.
 
-### 4.1.19 Revision History Entries for Pre-release Versions
+### 5.1.19 Revision History Entries for Pre-release Versions
 
 It must be tested that no item of the revision history has a `number` which includes pre-release information.
 
@@ -3245,7 +3350,7 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that indicates that this is pre-release.
 
-### 4.1.20 Non-draft Document Version
+### 5.1.20 Non-draft Document Version
 
 It must be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
 
@@ -3267,7 +3372,7 @@ Example which fails the test:
 
 > The document status is `interim` but the document version contains the pre-release part `-alpha`.
 
-### 4.1.21 Missing Item in Revision History
+### 5.1.21 Missing Item in Revision History
 
 It must be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version.
 
@@ -3296,7 +3401,7 @@ Example which fails the test:
 
 > The item for version `2` is missing.
 
-### 4.1.22 Multiple Definition in Revision History
+### 5.1.22 Multiple Definition in Revision History
 
 It must be tested that items of the revision history do not contain the same version number.
 
@@ -3325,7 +3430,7 @@ Example which fails the test:
 
 > The revision history contains two items with the version number `1`.
 
-### 4.1.23 Multiple Use of Same CVE
+### 5.1.23 Multiple Use of Same CVE
 
 It must be tested that a CVE is not used in multiple vulnerability items.
 
@@ -3350,7 +3455,7 @@ Example which fails the test:
 
 > The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
 
-### 4.1.24 Multiple Definition in Involvements
+### 5.1.24 Multiple Definition in Involvements
 
 It must be tested that items of the list of involements do not contain the tuple of `party` and `status` more than once at any `date`.
 
@@ -3383,7 +3488,7 @@ Example which fails the test:
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
 
-### 4.1.25 Multiple Use of Same Hash Algorithm
+### 5.1.25 Multiple Use of Same Hash Algorithm
 
 It must be tested that the same hash algorithm is not used multiple times in one item of hashes.
 
@@ -3427,7 +3532,7 @@ Example which fails the test:
 
 > The hash algorithm `sha256` is used two times in one item of hashes.
 
-### 4.1.26 Prohibited Document Category Name
+### 5.1.26 Prohibited Document Category Name
 
 It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
 
@@ -3454,11 +3559,11 @@ Example which fails the test:
 
 > The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
 
-## 4.2 Optional Tests
+## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
 
-### 4.2.1 Unused Definition of Product ID
+### 5.2.1 Unused Definition of Product ID
 
 For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
 
@@ -3491,7 +3596,7 @@ Example which fails the test:
 
 > A tool MAY remove of the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
 
-### 4.2.2 Missing Remediation
+### 5.2.2 Missing Remediation
 
 For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
 
@@ -3530,7 +3635,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.
 
-### 4.2.3 Missing Score
+### 5.2.3 Missing Score
 
 For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected it must be tested that a score object exists which covers this product.
 
@@ -3566,7 +3671,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
 
-### 4.2.4 Build Metadata in Revision History
+### 5.2.4 Build Metadata in Revision History
 
 For each item in revision history it must be tested that `number` does not include build metadata.
 
@@ -3590,7 +3695,7 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
-### 4.2.5 Older Initial Release Date than Revision History
+### 5.2.5 Older Initial Release Date than Revision History
 
 It must be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
 
@@ -3624,7 +3729,7 @@ Example which fails the test:
 
 > The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of the oldest item in Revision History.
 
-### 4.2.6 Older Current Release Date than Revision History
+### 5.2.6 Older Current Release Date than Revision History
 
 It must be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
 
@@ -3658,7 +3763,7 @@ Example which fails the test:
 
 > The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of the newest item in Revision History.
 
-### 4.2.7 Missing Date in Involvements
+### 5.2.7 Missing Date in Involvements
 
 For each item in the list of involvements it must be tested that it includes the property `date`.
 
@@ -3684,7 +3789,7 @@ Example which fails the test:
 
 > The list of involements contains an item which does not contain the property `date`.
 
-### 4.2.8 Use of MD5 as the only Hash Algorithm
+### 5.2.8 Use of MD5 as the only Hash Algorithm
 
 It must be tested that the hash algorithm `md5` is not the only one present.
 
@@ -3726,7 +3831,7 @@ Example which fails the test:
 
 > The hash algorithm `md5` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 4.2.9 Use of SHA-1 as the only Hash Algorithm
+### 5.2.9 Use of SHA-1 as the only Hash Algorithm
 
 It must be tested that the hash algorithm `sha1` is not the only one present.
 
@@ -3768,7 +3873,7 @@ Example which fails the test:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 4.2.10 Missing TLP label
+### 5.2.10 Missing TLP label
 
 It must be tested that `/document/distribution/tlp/label` is present and valid.
 
@@ -3794,11 +3899,11 @@ Example which fails the test:
 
 > The CSAF document has no TLP label.
 
-## 4.3 Informative Test
+## 5.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
 
-### 4.3.1 Use of CVSS v2 as the only Scoring System
+### 5.3.1 Use of CVSS v2 as the only Scoring System
 
 For each item in the list of scores which contains the `cvss_v2` object it must be tested that is not the only scoring item present. The test SHALL pass if a second scoring object is available.
 
@@ -3843,7 +3948,7 @@ Recommendation:
 
 It is recommended to (also) use the CVSS v3.1.
 
-### 4.3.2 Use of CVSS v3.0
+### 5.3.2 Use of CVSS v3.0
 
 For each item in the list of scores which contains the `cvss_v3` object it must be tested that CVSS v3.0 is not used.
 
@@ -3873,7 +3978,7 @@ It is recommended to upgrade to CVSS v3.1.
 
 > A tool MAY implement the recommendation as quick fix. However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`. The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if the necessary fields for computing their value are present and set.
 
-### 4.3.3 Missing CVE
+### 5.3.3 Missing CVE
 
 It must be tested that the CVE number is given.
 
@@ -3899,7 +4004,7 @@ Recommendation:
 
 It is recommended to provide a CVE number to support the users efforts to find more details about a vulnerability and potentially track it through multiple advisories. If no CVE exists for that vulnerability, it is recommended to get one assigned.
 
-### 4.3.4 Missing CWE
+### 5.3.4 Missing CWE
 
 It must be tested that the CWE is given.
 
@@ -3922,7 +4027,7 @@ Example which fails the test:
 
 > The CWE number is not given.
 
-### 4.3.5 Use of Short Hash
+### 5.3.5 Use of Short Hash
 
 It must be tested that the length of the hash value is not shorter than 64 characters.
 
@@ -3962,7 +4067,7 @@ Example which fails the test:
 
 > The length of the hash value is only 32 characters long.
 
-### 4.3.6 Use of non-self referencing URLs Failing to Resolve
+### 5.3.6 Use of non-self referencing URLs Failing to Resolve
 
 For each URL which is not in the category `self` it must be tested that it resolves with a HTTP status code less than 400.
 
@@ -4005,7 +4110,7 @@ Example which fails the test:
 
 > The `category` is not set and therefore threated as its default value `external`. A request to that URL does not resolve with a status code less than 400.
 
-### 4.3.7 Use of self referencing URLs Failing to Resolve
+### 5.3.7 Use of self referencing URLs Failing to Resolve
 
 For each item in an array of type `references_t` with the category `self` it must be tested that the URL referenced resolves with a HTTP status code less than 400.
 
@@ -4031,7 +4136,7 @@ Example which fails the test:
 
 > The `category` is `self` and a request to that URL does not resolve with a status code less than 400.
 
-### 4.3.8 Spell check
+### 5.3.8 Spell check
 
 If the document language is given it must be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` should not be tested if the CSAF document does not use the profile "Generic CSAF".
 
@@ -4093,111 +4198,6 @@ Example which fails the test:
 ```
 
 > There is a spelling mistake in `Secruity`.
-
-# 5 Profiles
-
-CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
-
-## 5.1 Profile 1: Generic CSAF
-
-This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfy any other profile. Furthermore, it is the foundation all other profiles are build on.
-
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Generic CSAF":
-
-* The following elements must exist and be valid:
-  * `/document/category`
-  * `/document/publisher/category`
-  * `/document/publisher/name`
-  * `/document/publisher/namespace`
-  * `/document/title`
-  * `/document/tracking/current_release_date`
-  * `/document/tracking/id`
-  * `/document/tracking/initial_release_date`
-  * `/document/tracking/revision_history[]/date`
-  * `/document/tracking/revision_history[]/number`
-  * `/document/tracking/revision_history[]/summary`
-  * `/document/tracking/status`
-  * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
-
-> Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
-
-An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This should be done if the issuing party is able or unwilling to use the value `generic_csaf`, e.g. due to legal or cooperate identity reasons.
-
-> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
-
-## 5.2 Profile 2: Security incident response
-
-This profile SHOULD be used to provide a response to a security breach or incident. This MAY also be used to convey information about an incident that is unrelated to the issuing party's own products or infrastructure.
-
-> Example Company might use a CSAF document satisfying this profile to respond to a security incident at ACME Inc. and the implications on its own products and infrastructure.
-
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
-
-* The following elements must exist and be valid:
-  * all elements required by the profile "Generic CSAF".
-  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
-    > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
-  * `/document/references`
-    > This should be used to refer to one or more documents or websites which provides more details about the incident.
-* The value of `/document/category` SHALL be `security_incident_response`.
-
-## 5.3 Profile 3: Informational Advisory
-
-This profile SHOULD be used to provide information which are **not related to a vulnerability** but e.g. a misconfiguration.
-
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
-
-* The following elements must exist and be valid:
-  * all elements required by the profile "Generic CSAF".
-  * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
-    > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
-  * `/document/references`
-    > This should be used to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
-* The value of `/document/category` SHALL be `informational_advisory`.
-* The element `/vulnerabilities` SHALL NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
-
-If the element `/product_tree` exists, a user MUST assume that all products mentioned are affected.
-
-## 5.4 Profile 4: Security Advisory
-
-This profile SHOULD be used to provide information which is related to vulnerabilities and corresponding remediations.
-
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
-
-* The following elements must exist and be valid:
-  * all elements required by the profile "Generic CSAF".
-  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
-  * `/vulnerabilities[]/notes`
-    > Provides details about the vulnerability.
-  * `/vulnerabilities[]/product_status`
-    > Lists each product's status in regard to the vulnerability.
-* The value of `/document/category` SHALL be `security_advisory`.
-
-## 5.5 Profile 5: VEX
-
-This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [VEX] for details.
-
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
-
-* The following elements must exist and be valid:
-  * all elements required by the profile "Generic CSAF".
-  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
-  * at least one of
-    * `/vulnerabilities[]/product_status/fixed`
-    * `/vulnerabilities[]/product_status/known_affected`
-    * `/vulnerabilities[]/product_status/known_not_affected`
-    * `/vulnerabilities[]/product_status/under_investigation`
-  * at least one of
-    * `/vulnerabilities[]/cve`
-    * `/vulnerabilities[]/id`
-  * `/vulnerabilities[]/notes`
-    > Provides details about the vulnerability.
-* For each item in
-  * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
-  * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
-  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless whether that is referenced through the Product ID or a Product Group ID.
-* The value of `/document/category` SHALL be `vex`.
 
 # 6 Distributing CSAF documents
 
@@ -4503,15 +4503,15 @@ The entities ("conformance targets") for which this document defines requirement
 A text file satisfies the "CSAF document" conformance profile if the text file:
 
 * conforms to the syntax and semantics defined in section 3.
-* does not fail any mandatory test defined in section 4.1.
-* satisfies at least one profile defined in section 5.
+* satisfies at least one profile defined in section 4.
+* does not fail any mandatory test defined in section 5.1.
 
 ### 8.1.2 Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST not fail any mandatory test defined in section 4.1.
-* satisfies those normative requirements in section 3 and 6 that are designated as applying to CSAF producers.
+* produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST satisfies at least one profile defined in section 4 and MUST NOT not fail any mandatory test defined in section 5.1.
+* satisfies those normative requirements in section 3 and 7 that are designated as applying to CSAF producers.
 
 ### 8.1.3 Conformance Clause 3: CSAF direct producer
 
@@ -4684,7 +4684,7 @@ The resulting translated document:
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
-* satisfies those normative requirements in section 3 and 6 that are designated as applying to CSAF consumers.
+* satisfies those normative requirements in section 3 and 7 that are designated as applying to CSAF consumers.
 
 ### 8.1.11 Conformance Clause 11: CSAF viewer
 
@@ -4755,7 +4755,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
-* performs all mandatory tests as given in section 4.1.
+* performs all mandatory tests as given in section 5.1.
 * does not change the CSAF documents.
 
 A CSAF basic validator may provide one or more additional functions:
@@ -4769,7 +4769,7 @@ A CSAF basic validator may provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section 4.2.
+* additionally performs all optional tests as given in section 5.2.
 
 A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
 
@@ -4778,7 +4778,7 @@ A CSAF extended validator may provide an additional function to only run one or 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section 4.3.
+* additionally performs all informative tests as given in section 5.3.
 
 A CSAF full validator may provide an additional function to only run one or more selected informative tests.
 
