@@ -5049,7 +5049,6 @@ A string should not have a length greater than:
   * `/document/notes[]/audience`
   * `/document/notes[]/title`
   * `/document/publisher/name`
-  * `/document/publisher/vendor_id`
   * `/document/source_lang`
   * `/document/title`
   * `/document/tracking/aliases[]`
