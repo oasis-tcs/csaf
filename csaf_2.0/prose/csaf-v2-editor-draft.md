@@ -3695,7 +3695,7 @@ Example which fails the test:
 
 #### 5.1.27.5 Vulnerability Notes
 
-For each item of `/vulnerabilities` it must be tested that the element `notes` exists.
+For each item in `/vulnerabilities` it must be tested that the element `notes` exists.
 
 The relevant values for `/document/category` are:
 
@@ -3724,7 +3724,7 @@ Example which fails the test:
 
 #### 5.1.27.6 Product Status
 
-For each item of `/vulnerabilities` it must be tested that the element `product_status` exists.
+For each item in `/vulnerabilities` it must be tested that the element `product_status` exists.
 
 The relevant value for `/document/category` is:
 
@@ -3752,7 +3752,7 @@ Example which fails the test:
 
 #### 5.1.27.7 VEX Product Status
 
-For each item of `/vulnerabilities` it must be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
+For each item in `/vulnerabilities` it must be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
 
 The relevant value for `/document/category` is:
 
@@ -3760,10 +3760,13 @@ The relevant value for `/document/category` is:
   vex
 ```
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status
+  /vulnerabilities[]/product_status/fixed
+  /vulnerabilities[]/product_status/known_affected
+  /vulnerabilities[]/product_status/known_not_affected
+  /vulnerabilities[]/product_status/under_investigation
 ```
 
 Example which fails the test:
@@ -3783,7 +3786,7 @@ Example which fails the test:
 
 #### 5.1.27.8 Vulnerability ID
 
-For each item of `/vulnerabilities` it must be tested that at least one of the elements `cve` or `id` is present.
+For each item in `/vulnerabilities` it must be tested that at least one of the elements `cve` or `id` is present.
 
 The relevant value for `/document/category` is:
 
@@ -3791,10 +3794,11 @@ The relevant value for `/document/category` is:
   vex
 ```
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```
-  /vulnerabilities
+  /vulnerabilities[]/cve
+  /vulnerabilities[]/id
 ```
 
 Example which fails the test:
@@ -3808,6 +3812,7 @@ Example which fails the test:
 ```
 
 > None of the elements `cve` or `id` is present.
+
 
 ## 5.2 Optional Tests
 
