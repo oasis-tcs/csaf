@@ -3661,6 +3661,38 @@ Example which fails the test:
 
 > A tool MAY change the `/document/category` to `generic_csaf` as a quick fix.
 
+#### 5.1.27.4 Product Tree
+
+It must be tested that the element `/product_tree` exists.
+
+The relevant values for `/document/category` are:
+
+```
+  security_advisory
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /product_tree
+```
+
+Example which fails the test:
+
+```
+  {
+    "document": {
+      // ...
+    },
+    "vulnerabilities": [
+      // ...
+    ]
+  }
+```
+
+> The element `/product_tree` does not exist.
+
 ## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
