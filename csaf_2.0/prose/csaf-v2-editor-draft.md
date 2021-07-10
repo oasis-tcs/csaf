@@ -4500,7 +4500,7 @@ The entities ("conformance targets") for which this document defines requirement
 
 ### 8.1.1 Conformance Clause 1: CSAF document
 
-A text file satisfies the "CSAF document" conformance profile if the text file:
+A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
 * conforms to the syntax and semantics defined in section 3.
 * satisfies at least one profile defined in section 4.
