@@ -4281,7 +4281,7 @@ An issuing party MAY agree with the recipients to use any kind of secured drop a
 
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
 
-> Reasoning: Clients, as e.g. `curl`, do not follow any other kind of redirects.
+> Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
 ### 6.1.7 Requirement 7: security.txt
 
