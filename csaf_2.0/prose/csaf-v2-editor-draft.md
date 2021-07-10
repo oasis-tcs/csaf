@@ -3563,13 +3563,22 @@ Example which fails the test:
 
 > The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
 
-### 5.1.27 Security incident response profile
+### 5.1.27 Profile Tests
 
-This subsubsection structures the tests for the profile "Security incident response". Therefore, all of the following tests SHOULD be skipped if the document category is not `security_incident_response`.
+This subsubsection structures the tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+
+> An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests. This results in one virtual test per profile.
 
 #### 5.1.27.1 Document Notes
 
 It must be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
+
+The relevant values for `/document/category` are:
+
+```
+  security_incident_response
+  informational_advisory
+```
 
 The relevant path for this test is:
 
@@ -3594,6 +3603,13 @@ Example which fails the test:
 #### 5.1.27.2 Document References
 
 It must be tested that at least one item in `/document/references` exists that has links to an `external` source.
+
+The relevant values for `/document/category` are:
+
+```
+  security_incident_response
+  informational_advisory
+```
 
 The relevant path for this test is:
 
