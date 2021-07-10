@@ -2705,6 +2705,10 @@ Examples:
   cisco-sa-20190513-secureboot.json
 ```
 
+## 5.2 Separation in Data Strean
+
+If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
+
 # 6 Tests
 
 The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
