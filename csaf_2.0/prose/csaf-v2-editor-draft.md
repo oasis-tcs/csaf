@@ -3901,6 +3901,46 @@ Example which fails the test:
 
 > The CSAF document has no TLP label.
 
+### 5.2.11 Missing Canonical URL
+
+It must be tested that the CSAF document has canonical URL.
+
+> To implement this test it is demeeded sufficient that one item in `/document/references` fulfills all of the following:
+>
+> * It has the category `self`.
+> * The `url` starts with `https://`.
+> * The `url` ends with the valid filename for the CSAF document according to the rules in section 3 (cf. section 3.2.1.12.4).
+
+The relevant path for this test is:
+
+```
+  /document/references
+```
+
+Example which fails the test:
+
+```
+  "document": {
+    // ...
+    "references": [
+    {
+      "category": "self",
+      "summary": "A non-canonical URL.",
+      "url": "https://example.com/security/data/csaf/2021/ESA-2021-0001_1.json"
+    },
+    // ...
+    "tracking": {
+      // ...
+      "id": "ESA-2021-0001",
+      // ...
+      "version": "1"
+    },
+    // ...
+  }
+```
+
+> The only element where the `category` is `self` has a URL that does not fulfill the requirement of a valid filename for a CSAF document.
+
 ## 5.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
