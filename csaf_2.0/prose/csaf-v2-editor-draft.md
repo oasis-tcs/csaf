@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 21 May 2021
+## 10 July 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -273,6 +273,8 @@ _JSON Hyper-Schema: A Vocabulary for Hypermedia Annotation of JSON_, draft-handr
 _Relative JSON Pointers_, draft-handrews-relative-json-pointer-02, September 2019, https://json-schema.org/draft/2019-09/relative-json-pointer.html.
 ###### [RFC2119]
 Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, March 1997. http://www.ietf.org/rfc/rfc2119.txt.
+###### [RFC7464]
+Williams, N., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, https://www.rfc-editor.org/info/rfc7464.
 ###### [RFC8174]
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
 ###### [RFC8259]
@@ -329,9 +331,7 @@ _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 ###### [RFC7231]
-Fielding, R. and J. Reschke, "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, https://www.rfc-editor.org/info/rfc7231.
-###### [RFC7464]
-N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, http://www.rfc-editor.org/info/rfc7464.
+Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, https://www.rfc-editor.org/info/rfc7231.
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, http://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SECURITY-TXT]
@@ -1643,7 +1643,7 @@ Example:
 
 The Namespace of publisher (`namespace`) of value type `string` and format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
 
-An issuing party can choose any URL which fulfills the requirements state above. It is not required that the URL delivers any content. If an issuing party has chosen a URL it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
+An issuing party can choose any URL which fulfills the requirements state above. The URL MAY be dereferenceable. If an issuing party has chosen a URL, it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
 
 If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with an incremented (patch) version which has no other changes than:
 
@@ -1655,7 +1655,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 Example:
 
 ```
-    http://www.example.com
+    https://www.example.com
     https://csaf.io
 ```
 
@@ -1823,22 +1823,7 @@ Examples:
 
 > The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
 
-This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
-
-1. The value `/document/tracking/id` is converted into lower case.
-2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
-   * Lower case ASCII letters (0x61 - 0x7A)
-   * digits (0x30 - 0x39)
-   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
-3. The file extension `.json` MUST be appended.
-
-Examples:
-
-```
-    example_company_-_2019-yh3234.json
-    rhba-2019_0024.json
-    cisco-sa-20190513-secureboot.json
-```
+This value is also used to determine the filename for the CSAF document (cf. section 5.1).
 
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
@@ -2698,15 +2683,46 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless whether that is referenced through the Product ID or a Product Group ID.
 * The value of `/document/category` SHALL be `vex`.
 
-# 5 Tests
+# 5 Additional Conventions
+
+This section provides additional rules for handling CSAF documents.
+
+## 5.1 Filename
+
+The following rules MUST be applied to determine the filename for the CSAF document:
+
+1. The value `/document/tracking/id` is converted into lower case.
+2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
+   * Lower case ASCII letters (0x61 - 0x7A)
+   * digits (0x30 - 0x39)
+   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
+3. The file extension `.json` MUST be appended.
+
+Examples:
+
+```
+  example_company_-_2019-yh3234.json
+  rhba-2019_0024.json
+  cisco-sa-20190513-secureboot.json
+```
+
+## 5.2 Separation in Data Strean
+
+If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
+
+## 5.3 Sorting
+
+The keys within a CSAF document SHOULD be sorted alphabetically.
+
+# 6 Tests
 
 The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
 
-## 5.1 Mandatory Tests
+## 6.1 Mandatory Tests
 
 Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a test failure as an error.
 
-### 5.1.1 Missing Definition of Product ID
+### 6.1.1 Missing Definition of Product ID
 
 For each element of type `/definitions/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/definitions/products_t`.
 
@@ -2747,7 +2763,7 @@ Example which fails the test:
 
 > Neither `CSAFPID-9080700` nor `CSAFPID-9080701` were defined in the `product_tree`.
 
-### 5.1.2 Multiple Definition of Product ID
+### 6.1.2 Multiple Definition of Product ID
 
 For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` was not already defined within the same document.
 
@@ -2778,11 +2794,11 @@ Example which fails the test:
 
 > `CSAFPID-9080700` was defined twice.
 
-### 5.1.3 Circular Definition of Product ID
+### 6.1.3 Circular Definition of Product ID
 
 For each new defined Product ID (type `/definitions/product_id_t`) in items of relationships (`/product_tree/relationships`) it must be tested that the `product_id` does not end up in a cirle.
 
-The relevant path for this test it:
+The relevant path for this test is:
 
 ```
   /product_tree/relationships[]/full_product_name/product_id
@@ -2816,7 +2832,7 @@ Example which fails the test:
 
 > `CSAFPID-9080701` refers to itself - this is a circular definition.
 
-### 5.1.4 Missing Definition of Product Group ID
+### 6.1.4 Missing Definition of Product Group ID
 
 For each element of type `/definitions/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/definitions/product_groups_t`.
 
@@ -2855,7 +2871,7 @@ Example which fails the test:
 
 > `CSAFGID-1020301` was not defined in the Product Tree.
 
-### 5.1.5 Multiple Definition of Product Group ID
+### 6.1.5 Multiple Definition of Product Group ID
 
 For each Product Group ID (type `/definitions/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it must be tested that the `group_id` was not already defined within the same document.
 
@@ -2904,7 +2920,7 @@ Example which fails the test:
 
 > `CSAFGID-1020300` was defined twice.
 
-### 5.1.6 Contradicting Product Status
+### 6.1.6 Contradicting Product Status
 
 It must be tested that the same Product ID is not member of contradicting product status groups.
 
@@ -2966,7 +2982,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` is a member of the two contradicting groups "Affected" and "Not affected".
 
-### 5.1.7 Multiple Scores with same Version per Product
+### 6.1.7 Multiple Scores with same Version per Product
 
 It must be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
 
@@ -3019,7 +3035,7 @@ Example which fails the test:
 
 > Two CVSS v3.1 scores are given for `CSAFPID-9080700`.
 
-### 5.1.8 Invalid CVSS
+### 6.1.8 Invalid CVSS
 
 It must be tested that the given CVSS object is valid according to the referenced schema.
 
@@ -3044,7 +3060,7 @@ Example which fails the test:
 
 > A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on the values given in `vectorString` as quick fix.
 
-### 5.1.9 Invalid CVSS computation
+### 6.1.9 Invalid CVSS computation
 
 It must be tested that the given CVSS object has the values computed correctly according to the definition.
 
@@ -3077,7 +3093,7 @@ Example which fails the test:
 
 > A tool MAY set the correct values as computed according to the specification as quick fix.
 
-### 5.1.10 Inconsistent CVSS
+### 6.1.10 Inconsistent CVSS
 
 It must be tested that the given CVSS properties do not contratict the CVSS vector.
 
@@ -3111,7 +3127,7 @@ Example which fails the test:
 
 > A tool MAY overwrite contradicting values according to the `vectorString` as quick fix.
 
-### 5.1.11 CWE
+### 6.1.11 CWE
 
 It must be tested that given CWE exists and is valid.
 
@@ -3132,7 +3148,7 @@ Example which fails the test:
 
 > The `CWE-79` exists. However, its name is `Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')`.
 
-### 5.1.12 Language
+### 6.1.12 Language
 
 For each element of type `/definitions/language_t` it must be tested that the language code is valid and exists.
 
@@ -3151,7 +3167,7 @@ Example which fails the test:
 
 > `TG` is not a valid language. It is the subtag for the region "Togo".
 
-### 5.1.13 PURL
+### 6.1.13 PURL
 
 It must be tested that given PURL is valid.
 
@@ -3180,7 +3196,7 @@ Example which fails the test:
 
 > Any valid purl has a type component.
 
-### 5.1.14 Sorted Revision History
+### 6.1.14 Sorted Revision History
 
 It must be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
 
@@ -3209,7 +3225,7 @@ Example which fails the test:
 
 > The first item has a higher version number than the second.
 
-### 5.1.15 Translator
+### 6.1.15 Translator
 
 It must be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
 
@@ -3235,7 +3251,7 @@ Example which fails the test:
 
 > The element `source_lang` is present but not set.
 
-### 5.1.16 Latest Document Version
+### 6.1.16 Latest Document Version
 
 It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison.
 
@@ -3268,7 +3284,7 @@ Example which fails the test:
 
 > The value of `number` of the last item after sorting is `2`. However, the document version is `1`.
 
-### 5.1.17 Document Status Draft
+### 6.1.17 Document Status Draft
 
 It must be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
 
@@ -3290,7 +3306,7 @@ Example which fails the test:
 
 > The `/document/tracking/version` is `0.9.5` but the document status is `final`.
 
-### 5.1.18 Released Revision History
+### 6.1.18 Released Revision History
 
 It must be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
 
@@ -3324,7 +3340,7 @@ Example which fails the test:
 
 > The document status is `final` but the revision history includes an item which has `0` as value for `number`.
 
-### 5.1.19 Revision History Entries for Pre-release Versions
+### 6.1.19 Revision History Entries for Pre-release Versions
 
 It must be tested that no item of the revision history has a `number` which includes pre-release information.
 
@@ -3353,7 +3369,7 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that indicates that this is pre-release.
 
-### 5.1.20 Non-draft Document Version
+### 6.1.20 Non-draft Document Version
 
 It must be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
 
@@ -3375,7 +3391,7 @@ Example which fails the test:
 
 > The document status is `interim` but the document version contains the pre-release part `-alpha`.
 
-### 5.1.21 Missing Item in Revision History
+### 6.1.21 Missing Item in Revision History
 
 It must be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version.
 
@@ -3404,7 +3420,7 @@ Example which fails the test:
 
 > The item for version `2` is missing.
 
-### 5.1.22 Multiple Definition in Revision History
+### 6.1.22 Multiple Definition in Revision History
 
 It must be tested that items of the revision history do not contain the same version number.
 
@@ -3433,7 +3449,7 @@ Example which fails the test:
 
 > The revision history contains two items with the version number `1`.
 
-### 5.1.23 Multiple Use of Same CVE
+### 6.1.23 Multiple Use of Same CVE
 
 It must be tested that a CVE is not used in multiple vulnerability items.
 
@@ -3458,7 +3474,7 @@ Example which fails the test:
 
 > The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
 
-### 5.1.24 Multiple Definition in Involvements
+### 6.1.24 Multiple Definition in Involvements
 
 It must be tested that items of the list of involements do not contain the tuple of `party` and `status` more than once at any `date`.
 
@@ -3491,7 +3507,7 @@ Example which fails the test:
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
 
-### 5.1.25 Multiple Use of Same Hash Algorithm
+### 6.1.25 Multiple Use of Same Hash Algorithm
 
 It must be tested that the same hash algorithm is not used multiple times in one item of hashes.
 
@@ -3535,7 +3551,7 @@ Example which fails the test:
 
 > The hash algorithm `sha256` is used two times in one item of hashes.
 
-### 5.1.26 Prohibited Document Category Name
+### 6.1.26 Prohibited Document Category Name
 
 It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
 
@@ -3564,13 +3580,13 @@ Example which fails the test:
 
 > The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
 
-### 5.1.27 Profile Tests
+### 6.1.27 Profile Tests
 
 This subsubsection structures the tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
 > An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests. This results in one virtual test per profile.
 
-#### 5.1.27.1 Document Notes
+#### 6.1.27.1 Document Notes
 
 It must be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
 
@@ -3601,7 +3617,7 @@ Example which fails the test:
 
 > The document notes do not contain an item which has a `category` of `description`, `details`, `general` or `summary`.
 
-#### 5.1.27.2 Document References
+#### 6.1.27.2 Document References
 
 It must be tested that at least one item in `/document/references` exists that has links to an `external` source.
 
@@ -3632,7 +3648,7 @@ Example which fails the test:
 
 > The document references do not contain any item which has the category `external`.
 
-#### 5.1.27.3 Vulnerabilities
+#### 6.1.27.3 Vulnerabilities
 
 It must be tested that the element `/vulnerabilities` does not exist.
 
@@ -3662,7 +3678,7 @@ Example which fails the test:
 
 > A tool MAY change the `/document/category` to `generic_csaf` as a quick fix.
 
-#### 5.1.27.4 Product Tree
+#### 6.1.27.4 Product Tree
 
 It must be tested that the element `/product_tree` exists.
 
@@ -3694,7 +3710,7 @@ Example which fails the test:
 
 > The element `/product_tree` does not exist.
 
-#### 5.1.27.5 Vulnerability Notes
+#### 6.1.27.5 Vulnerability Notes
 
 For each item in `/vulnerabilities` it must be tested that the element `notes` exists.
 
@@ -3723,7 +3739,7 @@ Example which fails the test:
 
 > The vulnerability item has no `notes` element.
 
-#### 5.1.27.6 Product Status
+#### 6.1.27.6 Product Status
 
 For each item in `/vulnerabilities` it must be tested that the element `product_status` exists.
 
@@ -3751,7 +3767,7 @@ Example which fails the test:
 
 > The vulnerability item has no `product_status` element.
 
-#### 5.1.27.7 VEX Product Status
+#### 6.1.27.7 VEX Product Status
 
 For each item in `/vulnerabilities` it must be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
 
@@ -3785,7 +3801,7 @@ Example which fails the test:
 
 > None of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
 
-#### 5.1.27.8 Vulnerability ID
+#### 6.1.27.8 Vulnerability ID
 
 For each item in `/vulnerabilities` it must be tested that at least one of the elements `cve` or `id` is present.
 
@@ -3814,7 +3830,7 @@ Example which fails the test:
 
 > None of the elements `cve` or `id` is present.
 
-#### 5.1.27.9 Impact Statement
+#### 6.1.27.9 Impact Statement
 
 For each item in `/vulnerabilities[]/product_status/known_not_affected` it must be tested that a corresponding impact statement exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact`.
 
@@ -3884,7 +3900,7 @@ Example which fails the test:
 > There is no impact statement for `CSAFPID-9080702`.
 > Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
-#### 5.1.27.10 Action Statement
+#### 6.1.27.10 Action Statement
 
 For each item in `/vulnerabilities[]/product_status/known_affected` it must be tested that a corresponding action statement exist in `/vulnerabilities[]/remediations`.
 
@@ -3955,11 +3971,11 @@ Example which fails the test:
 > There is no action statement for `CSAFPID-9080702`.
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
-## 5.2 Optional Tests
+## 6.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
 
-### 5.2.1 Unused Definition of Product ID
+### 6.2.1 Unused Definition of Product ID
 
 For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
 
@@ -3992,7 +4008,7 @@ Example which fails the test:
 
 > A tool MAY remove of the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
 
-### 5.2.2 Missing Remediation
+### 6.2.2 Missing Remediation
 
 For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
 
@@ -4031,7 +4047,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.
 
-### 5.2.3 Missing Score
+### 6.2.3 Missing Score
 
 For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected it must be tested that a score object exists which covers this product.
 
@@ -4067,7 +4083,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
 
-### 5.2.4 Build Metadata in Revision History
+### 6.2.4 Build Metadata in Revision History
 
 For each item in revision history it must be tested that `number` does not include build metadata.
 
@@ -4091,7 +4107,7 @@ Example which fails the test:
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
-### 5.2.5 Older Initial Release Date than Revision History
+### 6.2.5 Older Initial Release Date than Revision History
 
 It must be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
 
@@ -4125,7 +4141,7 @@ Example which fails the test:
 
 > The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of the oldest item in Revision History.
 
-### 5.2.6 Older Current Release Date than Revision History
+### 6.2.6 Older Current Release Date than Revision History
 
 It must be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
 
@@ -4159,7 +4175,7 @@ Example which fails the test:
 
 > The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of the newest item in Revision History.
 
-### 5.2.7 Missing Date in Involvements
+### 6.2.7 Missing Date in Involvements
 
 For each item in the list of involvements it must be tested that it includes the property `date`.
 
@@ -4185,7 +4201,7 @@ Example which fails the test:
 
 > The list of involements contains an item which does not contain the property `date`.
 
-### 5.2.8 Use of MD5 as the only Hash Algorithm
+### 6.2.8 Use of MD5 as the only Hash Algorithm
 
 It must be tested that the hash algorithm `md5` is not the only one present.
 
@@ -4227,7 +4243,7 @@ Example which fails the test:
 
 > The hash algorithm `md5` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 5.2.9 Use of SHA-1 as the only Hash Algorithm
+### 6.2.9 Use of SHA-1 as the only Hash Algorithm
 
 It must be tested that the hash algorithm `sha1` is not the only one present.
 
@@ -4269,7 +4285,7 @@ Example which fails the test:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 5.2.10 Missing TLP label
+### 6.2.10 Missing TLP label
 
 It must be tested that `/document/distribution/tlp/label` is present and valid.
 
@@ -4295,7 +4311,7 @@ Example which fails the test:
 
 > The CSAF document has no TLP label.
 
-### 5.2.11 Missing Canonical URL
+### 6.2.11 Missing Canonical URL
 
 It must be tested that the CSAF document has a anonical URL.
 
@@ -4303,7 +4319,7 @@ It must be tested that the CSAF document has a anonical URL.
 >
 > * It has the category `self`.
 > * The `url` starts with `https://`.
-> * The `url` ends with the valid filename for the CSAF document according to the rules in section 3 (cf. section 3.2.1.12.4).
+> * The `url` ends with the valid filename for the CSAF document according to the rules in section 5.1.
 
 The relevant path for this test is:
 
@@ -4336,11 +4352,35 @@ Example which fails the test:
 
 > The only element where the `category` is `self` has a URL that does not fulfill the requirement of a valid filename for a CSAF document.
 
-## 5.3 Informative Test
+### 6.2.12 Sorting
+
+It must be tested that all keys in a CSAF document are sorted alphabetically.
+
+The relevant path for this test is:
+
+```
+  /
+```
+
+Example which fails the test:
+
+```
+  "document": {
+    "csaf_version": "2.0",
+    "category": "generic_csaf",
+    // ...
+  }
+```
+
+> The key `csaf_version` is not at the right place.
+
+> A tool MAY sort the keys as a quick fix.
+
+## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
 
-### 5.3.1 Use of CVSS v2 as the only Scoring System
+### 6.3.1 Use of CVSS v2 as the only Scoring System
 
 For each item in the list of scores which contains the `cvss_v2` object it must be tested that is not the only scoring item present. The test SHALL pass if a second scoring object is available.
 
@@ -4385,7 +4425,7 @@ Recommendation:
 
 It is recommended to (also) use the CVSS v3.1.
 
-### 5.3.2 Use of CVSS v3.0
+### 6.3.2 Use of CVSS v3.0
 
 For each item in the list of scores which contains the `cvss_v3` object it must be tested that CVSS v3.0 is not used.
 
@@ -4415,7 +4455,7 @@ It is recommended to upgrade to CVSS v3.1.
 
 > A tool MAY upgrade to CVSS v3.1 as quick fix. However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`. The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if the necessary fields for computing their value are present and set.
 
-### 5.3.3 Missing CVE
+### 6.3.3 Missing CVE
 
 It must be tested that the CVE number is given.
 
@@ -4441,7 +4481,7 @@ Recommendation:
 
 It is recommended to provide a CVE number to support the users efforts to find more details about a vulnerability and potentially track it through multiple advisories. If no CVE exists for that vulnerability, it is recommended to get one assigned.
 
-### 5.3.4 Missing CWE
+### 6.3.4 Missing CWE
 
 It must be tested that the CWE is given.
 
@@ -4464,7 +4504,7 @@ Example which fails the test:
 
 > The CWE number is not given.
 
-### 5.3.5 Use of Short Hash
+### 6.3.5 Use of Short Hash
 
 It must be tested that the length of the hash value is not shorter than 64 characters.
 
@@ -4504,7 +4544,7 @@ Example which fails the test:
 
 > The length of the hash value is only 32 characters long.
 
-### 5.3.6 Use of non-self referencing URLs Failing to Resolve
+### 6.3.6 Use of non-self referencing URLs Failing to Resolve
 
 For each URL which is not in the category `self` it must be tested that it resolves with a HTTP status code from the 2xx (Successful) or 3xx (Redirection) class.
 
@@ -4541,13 +4581,13 @@ Example which fails the test:
   "references": [
   {
     "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "http://example.invalid"
+    "url": "https://example.invalid"
   }
 ```
 
-> The `category` is not set and therefore threated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
+> The `category` is not set and therefore treated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### 5.3.7 Use of self referencing URLs Failing to Resolve
+### 6.3.7 Use of self referencing URLs Failing to Resolve
 
 For each item in an array of type `references_t` with the category `self` it must be tested that the URL referenced resolves with a HTTP status code less than 400.
 
@@ -4567,13 +4607,13 @@ Example which fails the test:
   {
     "category": "self",
     "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "http://example.invalid"
+    "url": "https://example.invalid"
   }
 ```
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### 5.3.8 Spell check
+### 6.3.8 Spell check
 
 If the document language is given it must be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` should not be tested if the CSAF document does not use the profile "Generic CSAF".
 
@@ -4636,27 +4676,27 @@ Example which fails the test:
 
 > There is a spelling mistake in `Secruity`.
 
-# 6 Distributing CSAF documents
+# 7 Distributing CSAF documents
 
 This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
 
-## 6.1 Requirements
+## 7.1 Requirements
 
-The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled - the sets are defined in section 6.2.
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled to conform to this specification - the sets of requirements per conformance clause are defined in section 7.2.
 
-### 6.1.1 Requirement 1: Valid CSAF document
+### 7.1.1 Requirement 1: Valid CSAF document
 
 The document is a valid CSAF document (cf. Conformance clause 1).
 
-### 6.1.2 Requirement 2: Filename
+### 7.1.2 Requirement 2: Filename
 
-The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
+The CSAF document has a filename according to the rules in section 5.1.
 
-### 6.1.3 Requirement 3: TLS
+### 7.1.3 Requirement 3: TLS
 
 The CSAF document is retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport.
 
-### 6.1.4 Requirement 4: TLP:WHITE
+### 7.1.4 Requirement 4: TLP:WHITE
 
 If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
 
@@ -4664,7 +4704,7 @@ This does not exclude that such a document is also available in an access protec
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
 
-### 6.1.5 Requirement 5: security.txt
+### 7.1.5 Requirement 5: security.txt
 
 In the security.txt there MUST be at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
@@ -4678,11 +4718,11 @@ CSAF: https://psirt.domain.tld/advisories/csaf/
 CSAF: https://domain.tld/security/csaf/csaf-service.json
 ```
 
-### 6.1.6 Requirement 6: DNS path
+### 7.1.6 Requirement 6: DNS path
 
 The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the ROLIE service document or a directory with CSAF files.
 
-### 6.1.7 Requirement 7: One folder per year
+### 7.1.7 Requirement 7: One folder per year
 
 The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
@@ -4693,7 +4733,7 @@ Examples:
 2020
 ```
 
-### 6.1.8 Requirement 8: index.txt
+### 7.1.8 Requirement 8: index.txt
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
@@ -4707,7 +4747,7 @@ Examples:
 
 > This can be used to download all CSAF documents.
 
-### 6.1.9 Requirement 9: changes.csv
+### 7.1.9 Requirement 9: changes.csv
 
 The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
@@ -4720,17 +4760,17 @@ Examples:
 2018/example_company_-_2018-yh2312.json, "2019-03-01T06:01:00Z"
 ```
 
-### 6.1.10 Requirement 10: Directory listings
+### 7.1.10 Requirement 10: Directory listings
 
 Directory listing SHALL be enabled to support manual navigation.
 
-### 6.1.11 Requirement 11: ROLIE service document
+### 7.1.11 Requirement 11: ROLIE service document
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
 **TODO: Provide Example**
 
-### 6.1.12 Requirement 12: ROLIE feed
+### 7.1.12 Requirement 12: ROLIE feed
 
 All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
 
@@ -4787,25 +4827,25 @@ Example:
 }
 ```
 
-### 6.1.13 Requirement 13: ROLIE category document
+### 7.1.13 Requirement 13: ROLIE category document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
 **TODO: Provide Example**
 
-### 6.1.14 Requirement 14: TLP:AMBER and TLP:RED
+### 7.1.14 Requirement 14: TLP:AMBER and TLP:RED
 
 CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the receipients to use any kind of secured drop at the receipients' side to avoid putting them on their own website. However, it mUST be ensured that the documents are still access protected.
 
-### 6.1.15 Requirement 15: Redirects
+### 7.1.15 Requirement 15: Redirects
 
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
 
 > Reasoning: Clients, as e.g. `curl`, do not follow any other kind of redirects.
 
-### 6.1.16 Requirement 16: Integrity
+### 7.1.16 Requirement 16: Integrity
 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3) to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
@@ -4827,7 +4867,7 @@ Example:
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
 ```
 
-### 6.1.17 Requirement 17: Signatures
+### 7.1.17 Requirement 17: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
@@ -4838,46 +4878,46 @@ File name of CSAF document: example_company_-_2019-yh3234.json
 File name of signature file: example_company_-_2019-yh3234.json.asc
 ```
 
-### 6.1.18 Requirement 18: Public PGP Key
+### 7.1.18 Requirement 18: Public PGP Key
 
 The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
 
-## 6.2 Roles
+## 7.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
 
-### 6.2.1 Role: CSAF publisher
+### 7.2.1 Role: CSAF publisher
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
-* satisfies the requirements 1 to 4 in section 6.1.
+* satisfies the requirements 1 to 4 in section 7.1.
 * distributes only CSAF documents on behalf of its own.
 
-### 6.2.2 Role: CSAF provider
+### 7.2.2 Role: CSAF provider
 
 A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the following three groups of requirements:
 
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 14 and 15 in section 6.1.
+* additionally satisfies the requirements 14 and 15 in section 7.1.
 
 Secondly, the party:
 
-* satisfies the requirements 5 or 6 in section 6.1.
+* satisfies the requirements 5 or 6 in section 7.1.
 
 Thirdly, the party:
 
-* satisfies the requirements 7 to 10 in section 6.1 or requirements 11 to 13 in section 6.1.
+* satisfies the requirements 7 to 10 in section 7.1 or requirements 11 to 13 in section 7.1.
 
-### 6.2.3 Role: CSAF trusted provider
+### 7.2.3 Role: CSAF trusted provider
 
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-* additionally satisfies the requirements 16 to 18 in section 6.1.
+* additionally satisfies the requirements 16 to 18 in section 7.1.
 
-# 7 Safety, Security, and Data Protection Considerations
+# 8 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
@@ -4894,7 +4934,7 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code. Moreover, it SHALL be treated as unsafe (user) input.
   > Additional, supporting mitigation measures like retrieving only CSAF documents from trusted sources and check their integrity and signature before parsing the document SHOULD be in place to reduce the risk further.
 
-# 8 Conformance
+# 9 Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -4913,7 +4953,7 @@ Informative Comments:
 > * Clear baseline across the communities per this specification
 > * Additional per-community cooperative extensions which may flow back into future updates of this specification
 
-## 8.1 Conformance Targets
+## 9.1 Conformance Targets
 
 This document defines requirements for the CSAF file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
@@ -4935,22 +4975,22 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 
-### 8.1.1 Conformance Clause 1: CSAF document
+### 9.1.1 Conformance Clause 1: CSAF document
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
 * conforms to the syntax and semantics defined in section 3.
 * satisfies at least one profile defined in section 4.
-* does not fail any mandatory test defined in section 5.1.
+* does not fail any mandatory test defined in section 6.1.
 
-### 8.1.2 Conformance Clause 2: CSAF producer
+### 9.1.2 Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the conformance profile "CSAF document" .
-* satisfies those normative requirements in section 3 and 7 that are designated as applying to CSAF producers.
+* satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF producers.
 
-### 8.1.3 Conformance Clause 3: CSAF direct producer
+### 9.1.3 Conformance Clause 3: CSAF direct producer
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
@@ -4958,7 +4998,7 @@ An analysis tool satisfies the "CSAF direct producer" conformance profile if the
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 8.1.4 Conformance Clause 4: CSAF converter
+### 9.1.4 Conformance Clause 4: CSAF converter
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
@@ -4966,7 +5006,7 @@ A converter satisfies the “CSAF converter” conformance profile if the conver
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-### 8.1.5 Conformance Clause 5: CVRF CSAF converter
+### 9.1.5 Conformance Clause 5: CVRF CSAF converter
 
 A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
@@ -4985,7 +5025,7 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
 * `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 
-### 8.1.6 Conformance Clause 6: CSAF content management system
+### 9.1.6 Conformance Clause 6: CSAF content management system
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
@@ -5072,7 +5112,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### 8.1.7 Conformance Clause 7: CSAF post-processor
+### 9.1.7 Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
@@ -5080,7 +5120,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-### 8.1.8 Conformance Clause 8: CSAF modifier
+### 9.1.8 Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -5088,7 +5128,7 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 8, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section 9, are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -5096,7 +5136,7 @@ The resulting modified document:
 * does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It should not use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### 8.1.9 Conformance Clause 9: CSAF translator
+### 9.1.9 Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -5116,14 +5156,14 @@ The resulting translated document:
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * may contain translations for elements in arrays of `references_t` after the first element. However, it must keep the original URLs as references at the end.
 
-### 8.1.10 Conformance Clause 10: CSAF consumer
+### 9.1.10 Conformance Clause 10: CSAF consumer
 
 A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
-* satisfies those normative requirements in section 3 and 7 that are designated as applying to CSAF consumers.
+* satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF consumers.
 
-### 8.1.11 Conformance Clause 11: CSAF viewer
+### 9.1.11 Conformance Clause 11: CSAF viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
@@ -5137,7 +5177,7 @@ For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 * should prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
-### 8.1.12 Conformance Clause 12: CSAF management system
+### 9.1.12 Conformance Clause 12: CSAF management system
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
@@ -5157,7 +5197,7 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 * identifies the latest version of CSAF documents with the same `/document/tracking/id`.
 * is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-### 8.1.13 Conformance Clause 13: CSAF asset matching system
+### 9.1.13 Conformance Clause 13: CSAF asset matching system
 
 A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
@@ -5187,12 +5227,12 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
   * matching that CSAF document at all
   * marked with a given status
 
-### 8.1.14 Conformance Clause 14: CSAF basic validator
+### 9.1.14 Conformance Clause 14: CSAF basic validator
 
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
-* performs all mandatory tests as given in section 5.1.
+* performs all mandatory tests as given in section 6.1.
 * does not change the CSAF documents.
 
 A CSAF basic validator may provide one or more additional functions:
@@ -5201,21 +5241,21 @@ A CSAF basic validator may provide one or more additional functions:
 * Apply quick fixes as specified in the standard.
 * Apply additional quick fixes as implemented by the vendor.
 
-### 8.1.15 Conformance Clause 15: CSAF extended validator
+### 9.1.15 Conformance Clause 15: CSAF extended validator
 
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section 5.2.
+* additionally performs all optional tests as given in section 6.2.
 
 A CSAF extended validator may provide an additional function to only run one or more selected optional tests.
 
-### 8.1.16 Conformance Clause 16: CSAF full validator
+### 9.1.16 Conformance Clause 16: CSAF full validator
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section 5.3.
+* additionally performs all informative tests as given in section 6.3.
 
 A CSAF full validator may provide an additional function to only run one or more selected informative tests.
 
@@ -5306,13 +5346,13 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen and Thomas Schmidt| Editor revision for TC review |
+| csaf-v2.0-wd20210710-dev | 2021-07-10 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review |
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
 This appendix provides informative guidance on the size of CSAF documents.
 
-The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with the result that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
 All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below. All _CSAF producers_ should not produce CSAF documents which exceed those limits.
 
