@@ -4205,7 +4205,7 @@ This section lists requirements and roles defined for distributing CSAF document
 
 ## 6.1 Requirements
 
-The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled - the sets are defined in section 5.2.
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled - the sets are defined in section 6.2.
 
 ### 6.1.1 Requirement 1: Valid CSAF document
 
@@ -4464,17 +4464,17 @@ The clauses, matching the targets one to one, are listed in separate sub-subsect
 
 Informative Comments:
 
->The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is no natural order on such diverse roles participating in the document exchanging ecosystem.
+> The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
->Except for the target **CSAF document**, all other 12 targets span a taxonomy of the complex CSAF ecosystems existing in and between diverse security advisory generating, sharing, and consuming communities.
+> Except for the target **CSAF document**, all other 15 targets span a taxonomy of the complex CSAF ecosystems existing in and between diverse security advisory generating, sharing, and consuming communities.
 >
->In any case, there are no capabilities organized in increasing quality levels for targets because the security advisory sharing communities follow the chain link model.
->Instead, a single minimum capability level for every target is given to maintain important goals of providing a common framework for security advisories:
+> In any case, there are no capabilities organized in increasing quality levels for targets because the security advisory sharing communities follow the chain link model.
+> Instead, a single minimum capability level for every target is given to maintain important goals of providing a common framework for security advisories:
 >
->* Fast production, sharing, and actionable consumption of security advisories
->* Consistent end to end automation through collaborating actors
->* Clear baseline across the communities per this specification
->* Additional per-community cooperative extensions which may flow back into future updates of this specification
+> * Fast production, sharing, and actionable consumption of security advisories
+> * Consistent end to end automation through collaborating actors
+> * Clear baseline across the communities per this specification
+> * Additional per-community cooperative extensions which may flow back into future updates of this specification
 
 ## 8.1 Conformance Targets
 
