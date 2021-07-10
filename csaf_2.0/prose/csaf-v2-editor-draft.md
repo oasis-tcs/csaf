@@ -4317,11 +4317,12 @@ Example which fails the test:
   "document": {
     // ...
     "references": [
-    {
-      "category": "self",
-      "summary": "A non-canonical URL.",
-      "url": "https://example.com/security/data/csaf/2021/ESA-2021-0001_1.json"
-    },
+      {
+        "category": "self",
+        "summary": "A non-canonical URL.",
+        "url": "https://example.com/security/data/csaf/2021/ESA-2021-0001_1.json"
+      }
+    ],
     // ...
     "tracking": {
       // ...
