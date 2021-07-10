@@ -4295,15 +4295,31 @@ CSAF: https://psirt.domain.tld/advisories/csaf/
 CSAF: https://domain.tld/security/csaf/csaf-service.json
 ```
 
-### 6.1.8 Requirement 8: Well-known path
+### 6.1.8 Requirement 8: Well-known URL for Service Document
 
-The URL path `.well-known/csaf/` serves directly the ROLIE service document or a directory with CSAF files.
+The URL path `/.well-known/csaf-service.json` under the main domain of the issuing authority serves directly the ROLIE service document according to requirement 15. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-### 6.1.9 Requirement 9: DNS path
+Example:
+
+```
+  https://www.example.com/.well-known/csaf-service.json
+```
+
+### 6.1.9 Requirement 9: Well-known URL for directory
+
+The URL path `/.well-known/csaf/` under the main domain of the issuing authority serves a directory with CSAF files according to requirement 11 to 14. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
+
+Example:
+
+```
+  https://www.example.com/.well-known/csaf/
+```
+
+### 6.1.10 Requirement 10: DNS path
 
 The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the ROLIE service document or a directory with CSAF files.
 
-### 6.1.10 Requirement 10: One folder per year
+### 6.1.11 Requirement 11: One folder per year
 
 The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
@@ -4314,7 +4330,7 @@ Examples:
 2020
 ```
 
-### 6.1.11 Requirement 11: index.txt
+### 6.1.12 Requirement 12: index.txt
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
@@ -4328,7 +4344,7 @@ Examples:
 
 > This can be used to download all CSAF documents.
 
-### 6.1.12 Requirement 12: changes.csv
+### 6.1.13 Requirement 13: changes.csv
 
 The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
@@ -4341,17 +4357,17 @@ Examples:
 2018/example_company_-_2018-yh2312.json, "2019-03-01T06:01:00Z"
 ```
 
-### 6.1.13 Requirement 13: Directory listings
+### 6.1.14 Requirement 14: Directory listings
 
 Directory listing SHALL be enabled to support manual navigation.
 
-### 6.1.14 Requirement 14: ROLIE service document
+### 6.1.15 Requirement 15: ROLIE service document
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
 **TODO: Provide Example**
 
-### 6.1.15 Requirement 15: ROLIE feed
+### 6.1.16 Requirement 16: ROLIE feed
 
 All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
 
@@ -4408,13 +4424,13 @@ Example:
 }
 ```
 
-### 6.1.16 Requirement 16: ROLIE category document
+### 6.1.17 Requirement 17: ROLIE category document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
 **TODO: Provide Example**
 
-### 6.1.17 Requirement 17: Integrity
+### 6.1.18 Requirement 18: Integrity
 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3) to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
@@ -4436,7 +4452,7 @@ Example:
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
 ```
 
-### 6.1.18 Requirement 18: Signatures
+### 6.1.19 Requirement 19: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
@@ -4447,7 +4463,7 @@ File name of CSAF document: example_company_-_2019-yh3234.json
 File name of signature file: example_company_-_2019-yh3234.json.asc
 ```
 
-### 6.1.19 Requirement 19: Public PGP Key
+### 6.1.20 Requirement 20: Public PGP Key
 
 The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
 
@@ -4473,18 +4489,20 @@ Firstly, the party:
 
 Secondly, the party:
 
-* satisfies the requirements 7, 8 or 9 in section 6.1.
+* satisfies at least one of the requirements 7 to 10 in section 6.1.
 
 Thirdly, the party:
 
-* satisfies the requirements 10 to 13 in section 6.1 or requirements 14 to 16 in section 6.1.
+* satisfies the requirements 11 to 14 in section 6.1 or requirements 15 to 17 in section 6.1.
+
+> If the party satisfies requirement 8, it MUST also satisfy requirements 15 to 17. If it satisfies requirement 9, it MUST also satisfy requirements 11 to 14.
 
 ### 6.2.3 Role: CSAF trusted provider
 
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-* additionally satisfies the requirements 17 to 19 in section 6.1.
+* additionally satisfies the requirements 18 to 20 in section 6.1.
 
 # 7 Safety, Security, and Data Protection Considerations
 
