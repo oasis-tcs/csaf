@@ -3631,6 +3631,36 @@ Example which fails the test:
 
 > The document references do not contain any item which has the category `external`.
 
+#### 5.1.27.3 Vulnerabilities
+
+It must be tested that the element `/vulnerabilities` does not exist.
+
+The relevant value for `/document/category` is:
+
+```
+  informational_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "title": "A vulnerability item that SHALL NOT exist"
+    }
+  ]
+```
+
+> The element `/vulnerabilities` exists.
+
+> A tool MAY change the `/document/category` to `generic_csaf` as a quick fix.
+
 ## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
