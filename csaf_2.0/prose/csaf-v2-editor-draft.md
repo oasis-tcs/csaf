@@ -4502,7 +4502,7 @@ The entities ("conformance targets") for which this document defines requirement
 
 ### 8.1.1 Conformance Clause 1: CSAF document
 
-A text file satisfies the "CSAF document" conformance profile if the text file:
+A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
 * conforms to the syntax and semantics defined in section 3.
 * satisfies at least one profile defined in section 4.
@@ -4512,7 +4512,7 @@ A text file satisfies the "CSAF document" conformance profile if the text file:
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the syntax and semantics defined in section 3. The output MUST satisfies at least one profile defined in section 4 and MUST NOT not fail any mandatory test defined in section 5.1.
+* produces output in the CSAF format, according to the conformance profile "CSAF document" .
 * satisfies those normative requirements in section 3 and 7 that are designated as applying to CSAF producers.
 
 ### 8.1.3 Conformance Clause 3: CSAF direct producer
