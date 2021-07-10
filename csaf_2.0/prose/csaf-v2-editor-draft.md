@@ -3070,7 +3070,7 @@ Example which fails the test:
   }
 ```
 
-> A type is always required in a purl.
+> Any valid purl has a type component.
 
 ### 4.1.14 Sorted Revision History
 
