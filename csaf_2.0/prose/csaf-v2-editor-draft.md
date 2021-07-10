@@ -4287,7 +4287,7 @@ This section lists requirements and roles defined for distributing CSAF document
 
 ## 7.1 Requirements
 
-The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled - the sets are defined in section 7.2.
+The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled to conform to this specification - the sets of requirements per conformance clause are defined in section 7.2.
 
 ### 7.1.1 Requirement 1: Valid CSAF document
 
