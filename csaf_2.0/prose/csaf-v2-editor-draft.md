@@ -3538,6 +3538,8 @@ Example which fails the test:
 
 It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
 
+> This is the only test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
+
 The relevant path for this test is:
 
 ```
