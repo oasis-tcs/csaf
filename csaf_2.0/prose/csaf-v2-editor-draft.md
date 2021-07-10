@@ -328,6 +328,8 @@ _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.
 _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
+###### [RFC7231]
+Fielding, R. and J. Reschke, "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, <https://www.rfc-editor.org/info/rfc7231>.
 ###### [RFC7464]
 N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, http://www.rfc-editor.org/info/rfc7464.
 ###### [SCAP12]
@@ -4069,9 +4071,9 @@ Example which fails the test:
 
 ### 5.3.6 Use of non-self referencing URLs Failing to Resolve
 
-For each URL which is not in the category `self` it must be tested that it resolves with a HTTP status code less than 400.
+For each URL which is not in the category `self` it must be tested that it resolves with a HTTP status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-> This test does not apply for any item in an array of type `references_t` with the category `self`.
+> This test does not apply for any item in an array of type `references_t` with the category `self`. For details about the HTTP status code classes see [RFC7231].
 
 The relevant paths for this test are:
 
@@ -4103,18 +4105,18 @@ Example which fails the test:
 ```
   "references": [
   {
-    "summary": "A URL that does not resolve with HTTP status code < 400",
+    "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
     "url": "http://example.invalid"
   }
 ```
 
-> The `category` is not set and therefore threated as its default value `external`. A request to that URL does not resolve with a status code less than 400.
+> The `category` is not set and therefore threated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
 ### 5.3.7 Use of self referencing URLs Failing to Resolve
 
 For each item in an array of type `references_t` with the category `self` it must be tested that the URL referenced resolves with a HTTP status code less than 400.
 
-> This test will most likely fail if the CSAF document is in a status before the initial release.
+> This test will most likely fail if the CSAF document is in a status before the initial release. For details about the HTTP status code classes see [RFC7231].
 
 The relevant paths for this test are:
 
@@ -4129,12 +4131,12 @@ Example which fails the test:
   "references": [
   {
     "category": "self",
-    "summary": "A URL that does not resolve with HTTP status code < 400",
+    "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
     "url": "http://example.invalid"
   }
 ```
 
-> The `category` is `self` and a request to that URL does not resolve with a status code less than 400.
+> The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
 ### 5.3.8 Spell check
 
