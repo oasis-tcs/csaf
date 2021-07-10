@@ -3976,7 +3976,7 @@ Recommendation:
 
 It is recommended to upgrade to CVSS v3.1.
 
-> A tool MAY implement the recommendation as quick fix. However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`. The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if the necessary fields for computing their value are present and set.
+> A tool MAY upgrade to CVSS v3.1 as quick fix. However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`. The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if the necessary fields for computing their value are present and set.
 
 ### 5.3.3 Missing CVE
 
