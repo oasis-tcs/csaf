@@ -3563,6 +3563,34 @@ Example which fails the test:
 
 > The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
 
+### 5.1.27 Security incident response profile
+
+This subsubsection structures the tests for the profile "Security incident response". Therefore, all of the following tests SHOULD be skipped if the document category is not `security_incident_response`.
+
+#### 5.1.27.1 Document Notes
+
+It must be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+Example which fails the test:
+
+```
+  "notes": [
+    {
+      "category": "legal_disclaimer",
+      "text": "The CSAF document is provided to You \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind.",
+      "title": "Terms of Use"
+    }
+  ]
+```
+
+> The document notes do not contain an item which has a `category` of `description`, `details`, `general` or `summary`.
+
 ## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
