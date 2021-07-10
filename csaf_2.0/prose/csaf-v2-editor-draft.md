@@ -3693,6 +3693,35 @@ Example which fails the test:
 
 > The element `/product_tree` does not exist.
 
+#### 5.1.27.5 Vulnerability Notes
+
+For each item of `/vulnerabilities` it must be tested that the element `notes` exists.
+
+The relevant values for `/document/category` are:
+
+```
+  security_advisory
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/notes
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "title": "A vulnerability item without a note"
+    }
+  ]
+```
+
+> The vulnerability item has no `notes` element.
+
 ## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
