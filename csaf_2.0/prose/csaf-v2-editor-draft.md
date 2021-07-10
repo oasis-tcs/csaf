@@ -2934,7 +2934,7 @@ Example which fails the test:
 
 > The required element `baseSeverity` is missing.
 
-> A tool MAY implement add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on the values given in `vectorString` as quick fix.
+> A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on the values given in `vectorString` as quick fix.
 
 ### 4.1.9 Invalid CVSS computation
 
