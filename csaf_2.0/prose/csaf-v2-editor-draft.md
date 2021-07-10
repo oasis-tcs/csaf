@@ -3957,6 +3957,30 @@ Example which fails the test:
 
 > The only element where the `category` is `self` has a URL that does not fulfill the requirement of a valid filename for a CSAF document.
 
+### 6.2.12 Sorting
+
+It must be tested that all keys in a CSAF document are sorted alphabetically.
+
+The relevant path for this test is:
+
+```
+  /
+```
+
+Example which fails the test:
+
+```
+  "document": {
+    "csaf_version": "2.0",
+    "category": "generic_csaf",
+    // ...
+  }
+```
+
+> The key `csaf_version` is not at the right place.
+
+> A tool MAY sort the keys as a quick fix.
+
 ## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
