@@ -1823,22 +1823,7 @@ Examples:
 
 > The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
 
-This value is also used to define the filename for the CSAF document. The following rules MUST be applied to determine the filename for the CSAF document:
-
-1. The value `/document/tracking/id` is converted into lower case.
-2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
-   * Lower case ASCII letters (0x61 - 0x7A)
-   * digits (0x30 - 0x39)
-   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
-3. The file extension `.json` MUST be appended.
-
-Examples:
-
-```
-    example_company_-_2019-yh3234.json
-    rhba-2019_0024.json
-    cisco-sa-20190513-secureboot.json
-```
+This value is also used to determine the filename for the CSAF document (cf. section 5.1).
 
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
@@ -2698,6 +2683,27 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The value of `/document/category` SHALL be `vex`.
 
 # 5 Additional Conventions
+
+This section provides additional rules for handling CSAF documents.
+
+## 5.1 Filename
+
+The following rules MUST be applied to determine the filename for the CSAF document:
+
+1. The value `/document/tracking/id` is converted into lower case.
+2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
+   * Lower case ASCII letters (0x61 - 0x7A)
+   * digits (0x30 - 0x39)
+   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
+3. The file extension `.json` MUST be appended.
+
+Examples:
+
+```
+  example_company_-_2019-yh3234.json
+  rhba-2019_0024.json
+  cisco-sa-20190513-secureboot.json
+```
 
 # 6 Tests
 
@@ -3911,7 +3917,7 @@ It must be tested that the CSAF document has canonical URL.
 >
 > * It has the category `self`.
 > * The `url` starts with `https://`.
-> * The `url` ends with the valid filename for the CSAF document according to the rules in section 3 (cf. section 3.2.1.12.4).
+> * The `url` ends with the valid filename for the CSAF document according to the rules in section 5.1.
 
 The relevant path for this test is:
 
@@ -4257,7 +4263,7 @@ The document is a valid CSAF document (cf. Conformance clause 1).
 
 ### 7.1.2 Requirement 2: Filename
 
-The CSAF document has a filename according to the rules in section 3 (cf. section 3.2.1.12.4).
+The CSAF document has a filename according to the rules in section 5.1.
 
 ### 7.1.3 Requirement 3: TLS
 
