@@ -3883,6 +3883,77 @@ Example which fails the test:
 > There is no impact statement for `CSAFPID-9080702`.
 > Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
+#### 5.1.27.10 Action Statement
+
+For each item in `/vulnerabilities[]/product_status/known_affected` it must be tested that a corresponding action statement exist in `/vulnerabilities[]/remediations`.
+
+The relevant value for `/document/category` is:
+
+```
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/remediations
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      },
+      {
+        "product_id": "CSAFPID-9080702",
+        "name": "Product C"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-0001",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ],
+        "summary": "EOL products"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      // ...
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "no_fix_planned",
+          "details": "These products are end-of-life. Therefore, no fix will be provided.",
+          "group_ids": [
+            "CSAFGID-0001"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> There is no action statement for `CSAFPID-9080702`.
+> Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
+
 ## 5.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
