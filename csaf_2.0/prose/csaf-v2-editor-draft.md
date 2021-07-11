@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 21 May 2021
+## 10 July 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -273,6 +273,8 @@ _JSON Hyper-Schema: A Vocabulary for Hypermedia Annotation of JSON_, draft-handr
 _Relative JSON Pointers_, draft-handrews-relative-json-pointer-02, September 2019, https://json-schema.org/draft/2019-09/relative-json-pointer.html.
 ###### [RFC2119]
 Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, March 1997. http://www.ietf.org/rfc/rfc2119.txt.
+###### [RFC7464]
+Williams, N., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, https://www.rfc-editor.org/info/rfc7464.
 ###### [RFC8174]
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
 ###### [RFC8259]
@@ -329,9 +331,7 @@ _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 ###### [RFC7231]
-Fielding, R. and J. Reschke, "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, https://www.rfc-editor.org/info/rfc7231.
-###### [RFC7464]
-N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, http://www.rfc-editor.org/info/rfc7464.
+Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, https://www.rfc-editor.org/info/rfc7231.
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, http://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SECURITY-TXT]
@@ -1643,7 +1643,7 @@ Example:
 
 The Namespace of publisher (`namespace`) of value type `string` and format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
 
-An issuing party can choose any URL which fulfills the requirements state above. It is not required that the URL delivers any content. If an issuing party has chosen a URL it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
+An issuing party can choose any URL which fulfills the requirements state above. The URL MAY be dereferenceable. If an issuing party has chosen a URL, it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
 
 If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with an incremented (patch) version which has no other changes than:
 
@@ -1655,7 +1655,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 Example:
 
 ```
-    http://www.example.com
+    https://www.example.com
     https://csaf.io
 ```
 
@@ -4186,11 +4186,11 @@ Example which fails the test:
   "references": [
   {
     "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "http://example.invalid"
+    "url": "https://example.invalid"
   }
 ```
 
-> The `category` is not set and therefore threated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
+> The `category` is not set and therefore treated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
 ### 6.3.7 Use of self referencing URLs Failing to Resolve
 
@@ -4212,7 +4212,7 @@ Example which fails the test:
   {
     "category": "self",
     "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "http://example.invalid"
+    "url": "https://example.invalid"
   }
 ```
 
@@ -4951,13 +4951,13 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210521 | 2021-05-21 | Stefan Hagen and Thomas Schmidt| Editor revision for TC review |
+| csaf-v2.0-wd20210710-dev | 2021-07-10 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review |
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
 This appendix provides informative guidance on the size of CSAF documents.
 
-The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification. It was decided that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with the result that hard limits should not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
 All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below. All _CSAF producers_ should not produce CSAF documents which exceed those limits.
 
