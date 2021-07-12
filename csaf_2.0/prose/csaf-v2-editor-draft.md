@@ -4528,6 +4528,8 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 > * https://psirt.domain.tld/advisories/aggregator/csaf/aggregator.json
 > * https://domain.tld/security/aggregator/csaf/aggregator.json
 
+The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
+
 ### 7.1.22 Requirement 22: Two disjoint issuing parties
 
 The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers) or one CSAF publisher and one CSAF provider (including CSAF trusted provider).

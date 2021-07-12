@@ -14,6 +14,7 @@
   },
   "required": [
     "canonical_url",
+    "last_updated",
     "list_on_CSAF_aggregators",
     "mirror_on_CSAF_aggregators",
     "metadata_version",
@@ -122,6 +123,12 @@
           }
         }
       }
+    },
+    "last_updated": {
+      "title": "Last updated",
+      "description": "Holds the date and time when the document was last updated.",
+      "type": "string",
+      "format": "date-time"
     },
     "list_on_CSAF_aggregators": {
       "title": "List on CSAF aggregators",

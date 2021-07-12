@@ -8,7 +8,8 @@
     "aggregator",
     "aggregator_version",
     "canonical_url",
-    "csaf_providers"
+    "csaf_providers",
+    "last_updated"
   ],
   "properties": {
     "aggregator": {
@@ -165,6 +166,12 @@
   
         }
       }
+    },
+    "last_updated": {
+      "title": "Last updated",
+      "description": "Holds the date and time when the document was last updated.",
+      "type": "string",
+      "format": "date-time"
     }
   }
 
