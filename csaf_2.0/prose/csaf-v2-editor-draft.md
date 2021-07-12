@@ -4966,16 +4966,16 @@ Example:
 
 ```
   {
-    "aggregator":{
+    "aggregator": {
       "category": "lister",
-      "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example.com, or via our website at https://www.example.com/security/csaf/aggregator/contact.",
+      "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
       "issuing_authority": "This service is provided as it is. It is free for everybody.",
       "name": "Example Aggrgator",
-      "namespace": "https://aggregator.example.com"
+      "namespace": "https://aggregator.example"
     },
     "aggregator_version": "2.0",
-    "canonical_url": "https://www.example.com/.well-known/csaf-aggregator/aggregator.json",
-    "csaf_providers":[
+    "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
+    "csaf_providers": [
       {
         "metadata": {
           "last_updated": "2021-07-12T20:20:56.169Z",
@@ -4992,9 +4992,9 @@ Example:
           "publisher": {
             "category": "coordinator",
             "name": "Example Coordinator CERT",
-            "namespace": "https://cert.example.net"
+            "namespace": "https://cert.example"
           },
-          "url": "https://cert.example.net/advisories/csaf/provider-metadata.json"
+          "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         }
       }
     ],
