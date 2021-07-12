@@ -4962,6 +4962,40 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
 
+Example: 
+
+```
+  {
+    "aggregator":{
+      "category": "lister",
+      "contact_details": "Aggregator can be reached at contact_us@aggregator.example.com, or via our website at https://www.example.com/security/csaf/aggregator/contact.",
+      "issuing_authority": "This service is provided as it is. It is free for everybody.",
+      "name": "Example Aggrgator",
+      "namespace": "https://aggregator.example.com"
+    },
+    "aggregator_version": "2.0",
+    "canonical_url": "https://www.example.com/.well-known/csaf-aggregator/aggregator.json",
+    "csaf_providers":[
+      {
+        "metadata": {
+          
+        },
+        "mirrors":[
+        ]
+      }
+    ],
+    "csaf_publishers":[
+      {
+        "metadata":,
+        "mirrors":[
+        ],
+        "update_interval":"on notification by CSAF publisher"
+      }
+    ],
+    "last_updated":""
+  }
+```
+
 ### 7.1.22 Requirement 22: Two disjoint issuing parties
 
 The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers) or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
