@@ -4338,6 +4338,8 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
+**TODO: Point to a place where options and fields are described in details**
+
 ### 7.1.8 Requirement 8: security.txt
 
 In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
@@ -4517,13 +4519,36 @@ The public part of the PGP key used to sign the CSAF documents MUST be available
 
 ### 7.1.21 Requirement 21: List of CSAF providers
 
-The file `aggregator.json` MUST be present and valid.
+The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
+
+> Suggested locations to store the `aggregator.json` are:
+>
+> * https://www.example.com/.well-known/csaf-aggregator/aggregator.json
+> * https://domain.tld/security/data/aggregator/csaf/aggregator.json
+> * https://psirt.domain.tld/advisories/aggregator/csaf/aggregator.json
+> * https://domain.tld/security/aggregator/csaf/aggregator.json
+
+### 7.1.22 Requirement 22: Two disjoint issuing parties
+
+The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers) or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
+
+### 7.1.23 Requirement 23: Mirror
+
+The CSAF documents for each issuing party that is mirrored MUST be in a different folder. The folder name SHOULD be retrieved from the name of the issuing authority. This folders MUST be adjacent to the `aggregator.json` (requirement 21). Each such folder MUST at least:
+
+* provide a `provider-metadata.json` for the current issuing party.
+* provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
 
 ## 7.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
 
 The roles "CSAF publisher", "CSAF provider", and "CSAF trusted provider" are intended directly for issuing parties and form the first group. The second group consists of the roles "CSAF lister" and "CSAF aggregator". They collect data from the afore-mentioned issuing parties of the first group and provide them in a single place to aid in automation. Parties of the second group can also issue their own advisories. However, they MUST follow the rules for the first group for that.
+
+Both, a CSAF lister and a CSAF aggregator, decide based on their own rules which issuing parties to list respectively to mirror. However, an issuing party may apply to be listed or mirrored.
+
+> Issuing parties MUST indicate through the value `false` in `list_on_CSAF_aggregators` if they do not want to be listed.
+> Issuing parties MUST indicate through the value `false` in `mirror_on_CSAF_aggregators` if they do not want to be mirrored.
 
 ### 7.2.1 Role: CSAF publisher
 
@@ -4562,12 +4587,23 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 21 in section 7.1.
+* satisfies the requirements 21 and 22 in section 7.1.
 * uses the value `lister` for `/aggregator/category`.
-* lists at least two CSAF providers (including CSAF trusted providers) or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
 * does not list any mirror pointing to a domain under its own control.
 
-> The purpose of this role is to provide a list of URLs where to find CSAF documents.
+> The purpose of this role is to provide a list of URLs where to find CSAF documents. It is not assumed that the list will be complete.
+
+### 7.2.5 Role: CSAF aggregator
+
+A distributing party satisfies the "CSAF aggregator" role if the party:
+
+* satisfies the requirements 21 to 23 in section 7.1.
+* uses the value `aggregator` for `/aggregator/category`.
+* lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
+
+> The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
+> CSAF aggregators can be provided for free or as a paid service.
+> To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
 
 # 8 Safety, Security, and Data Protection Considerations
 

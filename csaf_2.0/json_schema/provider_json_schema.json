@@ -14,7 +14,8 @@
   },
   "required": [
     "canonical_url",
-    "list_on_CSAF_aggregators_light",
+    "list_on_CSAF_aggregators",
+    "mirror_on_CSAF_aggregators",
     "metadata_version",
     "publisher"
   ],
@@ -122,15 +123,9 @@
         }
       }
     },
-    "files_on_CSAF_aggregators": {
-      "title": "Files on CSAF aggregators",
-      "description": "Decides whether also the CSAF documents can be provided by a CSAF aggregator.",
-      "type": "boolean",
-      "default": true
-    },
-    "list_on_CSAF_aggregators_light": {
-      "title": "List on CSAF aggregators light",
-      "description": "Decides whether this file should be linked in the list of a CSAF aggregator light.",
+    "list_on_CSAF_aggregators": {
+      "title": "List on CSAF aggregators",
+      "description": "Decides whether this file should be linked in the list of a CSAF aggregator.",
       "type": "boolean",
       "default": true
     },
@@ -141,6 +136,12 @@
       "enum": [
         "2.0"
       ]
+    },
+    "mirror_on_CSAF_aggregators": {
+      "title": "Mirror on CSAF aggregators",
+      "description": "Decides whether the CSAF documents can be mirrored and provided by a CSAF aggregator.",
+      "type": "boolean",
+      "default": true
     },
     "publisher": {
       "title": "Publisher",
