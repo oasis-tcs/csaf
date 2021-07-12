@@ -4740,10 +4740,10 @@ Example: Minimal with ROLIE document
 ```
   {
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
-    "distributions":[
+    "distributions": [
       {
         "rolie":{
-          "feeds":[
+          "feeds": [
             {
               "summary":"All TLP:WHITE advisories of Example Company.",
               "tlp_label": "WHITE",
@@ -4757,13 +4757,13 @@ Example: Minimal with ROLIE document
     "list_on_CSAF_aggregators": true,
     "metadata_version": "2.0",
     "mirror_on_CSAF_aggregators": true,
-    "pgp_keys":[
+    "pgp_keys": [
       {
         "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
         "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
       }
     ],
-    "publisher":{
+    "publisher": {
       "category": "vendor",
       "name": "Example Company ProductCERT",
       "namespace":"https://psirt.example.com"
@@ -4962,13 +4962,13 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
 
-Example: 
+Example:
 
 ```
   {
     "aggregator":{
       "category": "lister",
-      "contact_details": "Aggregator can be reached at contact_us@aggregator.example.com, or via our website at https://www.example.com/security/csaf/aggregator/contact.",
+      "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example.com, or via our website at https://www.example.com/security/csaf/aggregator/contact.",
       "issuing_authority": "This service is provided as it is. It is free for everybody.",
       "name": "Example Aggrgator",
       "namespace": "https://aggregator.example.com"
@@ -4978,21 +4978,27 @@ Example:
     "csaf_providers":[
       {
         "metadata": {
-          
+          "last_updated": "2021-07-12T20:20:56.169Z",
+          "publisher": {
+            "category": "vendor",
+            "name": "Example Company ProductCERT",
+            "namespace": "https://psirt.example.com"
+          },
+          "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         },
-        "mirrors":[
-        ]
+        {
+        "metadata": {
+          "last_updated": "2021-07-12T21:35:38.000Z",
+          "publisher": {
+            "category": "coordinator",
+            "name": "Example Coordinator CERT",
+            "namespace": "https://cert.example.net"
+          },
+          "url": "https://cert.example.net/advisories/csaf/provider-metadata.json"
+        }
       }
     ],
-    "csaf_publishers":[
-      {
-        "metadata":,
-        "mirrors":[
-        ],
-        "update_interval":"on notification by CSAF publisher"
-      }
-    ],
-    "last_updated":""
+    "last_updated":"2021-07-12T22:35:38.978Z"
   }
 ```
 
