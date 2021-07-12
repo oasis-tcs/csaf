@@ -4340,6 +4340,42 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 
 **TODO: Point to a place where options and fields are described in details**
 
+Example: Minimal with ROLIE document
+
+```
+  {
+    "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
+    "distributions":[
+      {
+        "rolie":{
+          "feeds":[
+            {
+              "summary":"All TLP:WHITE advisories of Example Company.",
+              "tlp_label": "WHITE",
+              "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
+            }
+          ]
+        }
+      }
+    ],
+    "last_updated": "2021-07-12T20:20:56.169Z",
+    "list_on_CSAF_aggregators": true,
+    "metadata_version": "2.0",
+    "mirror_on_CSAF_aggregators": true,
+    "publisher":{
+      "category": "vendor",
+      "name": "Example Company ProductCERT",
+      "namespace":"https://psirt.example.com"
+    }
+    "pgp_keys":[
+      {
+        "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
+        "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
+      }
+    ]
+  }
+```
+
 ### 7.1.8 Requirement 8: security.txt
 
 In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
