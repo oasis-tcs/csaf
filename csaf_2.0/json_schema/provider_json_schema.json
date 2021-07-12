@@ -5,6 +5,20 @@
   "description": "Representation of metadata information of a CSAF provider as a JSON document.",
   "type": "object",
   "definitions": {
+    "json_url_t": {
+      "title": "JSON URL type",
+      "description": "Contains a URL of a JSON file.",
+      "type": "string",
+      "format": "uri",
+      "pattern": "\\.json$"
+    },
+    "provider_url_t": {
+      "title": "Provider URL type",
+      "description": "Contains a URL of a provider-metadata.json.",
+      "type": "string",
+      "format": "uri",
+      "pattern": "/provider\\-metadata\\.json$"
+    },
     "url_t": {
       "title": "Generic URL type",
       "description": "Contains a URL.",
@@ -25,7 +39,7 @@
     "canonical_url": {
       "title": "Canonical URL",
       "description": "Contains the URL for this document.",
-      "$ref": "#/definitions/url_t"
+      "$ref": "#/definitions/provider_url_t"
     },
     "distributions": {
       "title": "List of Distribution",
@@ -62,7 +76,7 @@
                 "items": {
                   "title": "ROLIE category document URL",
                   "description": "Contains a URL of a ROLIE category document.",
-                  "$ref": "#/definitions/url_t"
+                  "$ref": "#/definitions/json_url_t"
                 }
               },
               "feeds": {
@@ -103,7 +117,7 @@
                     "url": {
                       "title": "URL of the feed",
                       "description": "Contains the URL of the feed.",
-                      "$ref": "#/definitions/url_t"
+                      "$ref": "#/definitions/json_url_t"
                     }
                   }
                 },
@@ -116,7 +130,7 @@
                   "items": {
                     "title": "ROLIE service document URL",
                     "description": "Contains a URL of a ROLIE service document.",
-                    "$ref": "#/definitions/url_t"
+                    "$ref": "#/definitions/json_url_t"
                   }
                 }
               }
