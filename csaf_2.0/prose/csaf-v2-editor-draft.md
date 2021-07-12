@@ -4325,43 +4325,47 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
-### 7.1.7 Requirement 7: security.txt
+### 7.1.7 Requirement 7: provider-metadata.json
 
-In the security.txt there MUST be at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
+The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the advisories of the issuing party.
+
+> This information is used to collect the data for CSAF aggregators.
+> It is suggested to put the file `provider-metadata.json` adjacent to the ROLIE feed documents (requirement x) or in the main directory adjacent to the year folders (requirement x) and the index.txt (requirement x).
+> Suggested locations to store the `provider-metadata.json` are:
+>
+> * https://www.example.com/.well-known/csaf/provider-metadata.json
+> * https://domain.tld/security/data/csaf/provider-metadata.json
+> * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
+> * https://domain.tld/security/csaf/provider-metadata.json
+
+### 7.1.8 Requirement 8: security.txt
+
+In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
 
 Examples:
 
 ```
-CSAF: https://domain.tld/security/data/csaf/
-CSAF: https://psirt.domain.tld/advisories/csaf/
-CSAF: https://domain.tld/security/csaf/csaf-service.json
+CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
+CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
+CSAF: https://domain.tld/security/csaf/provider-metadata.json
+CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-### 7.1.8 Requirement 8: Well-known URL for Service Document
+### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json
 
-The URL path `/.well-known/csaf-service.json` under the main domain of the issuing authority serves directly the ROLIE service document according to requirement 15. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
+The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
 Example:
 
 ```
-  https://www.example.com/.well-known/csaf-service.json
-```
-
-### 7.1.9 Requirement 9: Well-known URL for directory
-
-The URL path `/.well-known/csaf/` under the main domain of the issuing authority serves a directory with CSAF files according to requirement 11 to 14. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
-
-Example:
-
-```
-  https://www.example.com/.well-known/csaf/
+  https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
 ### 7.1.10 Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the ROLIE service document or a directory with CSAF files.
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year
 
@@ -4405,15 +4409,9 @@ Examples:
 
 Directory listing SHALL be enabled to support manual navigation.
 
-### 7.1.15 Requirement 15: ROLIE service document
+### 7.1.15 Requirement 15: ROLIE feed
 
-Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
-
-**TODO: Provide Example**
-
-### 7.1.16 Requirement 16: ROLIE feed
-
-All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
+Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
 
 * TLP:WHITE
 * TLP:GREEN
@@ -4467,6 +4465,12 @@ Example:
   }
 }
 ```
+
+### 7.1.16 Requirement 16: ROLIE service document
+
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
+
+**TODO: Provide Example**
 
 ### 7.1.17 Requirement 17: ROLIE category document
 
@@ -4529,17 +4533,17 @@ A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the fo
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 5 and 6 in section 7.1.
+* additionally satisfies the requirements 5 to 7 in section 7.1.
 
 Secondly, the party:
 
-* satisfies at least one of the requirements 7 to 10 in section 7.1.
+* satisfies at least one of the requirements 8 to 10 in section 7.1.
 
 Thirdly, the party:
 
 * satisfies the requirements 11 to 14 in section 6.1 or requirements 15 to 17 in section 7.1.
 
-> If the party satisfies requirement 8, it MUST also satisfy requirements 15 to 17. If it satisfies requirement 9, it MUST also satisfy requirements 11 to 14.
+> If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17. This is recommended. If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
 
 ### 7.2.3 Role: CSAF trusted provider
 
