@@ -4968,10 +4968,10 @@ Example:
   {
     "aggregator": {
       "category": "lister",
-      "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
+      "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
       "issuing_authority": "This service is provided as it is. It is free for everybody.",
-      "name": "Example Aggrgator",
-      "namespace": "https://aggregator.example"
+      "name": "Example CSAF Lister",
+      "namespace": "https://lister.example"
     },
     "aggregator_version": "2.0",
     "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
@@ -4985,8 +4985,9 @@ Example:
             "namespace": "https://psirt.example.com"
           },
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
-        },
-        {
+        }
+      },
+      {
         "metadata": {
           "last_updated": "2021-07-12T21:35:38.000Z",
           "publisher": {
@@ -5012,6 +5013,53 @@ The CSAF documents for each issuing party that is mirrored MUST be in a differen
 
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
+
+Example:
+
+```
+  {
+    "aggregator": {
+      "category": "aggregator",
+      "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
+      "issuing_authority": "This service is provided as it is. It is free for everybody.",
+      "name": "Example Aggregator",
+      "namespace": "https://aggregator.example"
+    },
+    "aggregator_version": "2.0",
+    "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
+    "csaf_providers": [
+      {
+        "metadata": {
+          "last_updated": "2021-07-12T20:20:56.169Z",
+          "publisher": {
+            "category": "vendor",
+            "name": "Example Company ProductCERT",
+            "namespace": "https://psirt.example.com"
+          },
+          "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
+        },
+        "mirrors": [
+          "https://aggregator.example/.well-known/csaf-aggregator/Example_Company_ProductCERT/provider-metadata.json"
+        ]
+      },
+      {
+        "metadata": {
+          "last_updated": "2021-07-12T21:35:38.000Z",
+          "publisher": {
+            "category": "coordinator",
+            "name": "Example Coordinator CERT",
+            "namespace": "https://cert.example"
+          },
+          "url": "https://cert.example/advisories/csaf/provider-metadata.json"
+        },
+        "mirrors": [
+          "https://aggregator.example/.well-known/csaf-aggregator/Example_Coordinator_CERT/provider-metadata.json"
+        ]
+      }
+    ],
+    "last_updated":"2021-07-12T22:35:38.978Z"
+  }
+```
 
 ## 7.2 Roles
 
