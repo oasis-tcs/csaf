@@ -4515,9 +4515,15 @@ File name of signature file: example_company_-_2019-yh3234.json.asc
 
 The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
 
+### 7.1.21 Requirement 21: List of CSAF providers
+
+The file `aggregator.json` MUST be present and valid.
+
 ## 7.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
+
+The roles "CSAF publisher", "CSAF provider", and "CSAF trusted provider" are intended directly for issuing parties and form the first group. The second group consists of the roles "CSAF lister" and "CSAF aggregator". They collect data from the afore-mentioned issuing parties of the first group and provide them in a single place to aid in automation. Parties of the second group can also issue their own advisories. However, they MUST follow the rules for the first group for that.
 
 ### 7.2.1 Role: CSAF publisher
 
@@ -4550,8 +4556,18 @@ Thirdly, the party:
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-
 * additionally satisfies the requirements 18 to 20 in section 7.1.
+
+### 7.2.4 Role: CSAF lister
+
+A distributing party satisfies the "CSAF lister" role if the party:
+
+* satisfies the requirements 21 in section 7.1.
+* uses the value `lister` for `/aggregator/category`.
+* lists at least two CSAF providers (including CSAF trusted providers) or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
+* does not list any mirror pointing to a domain under its own control.
+
+> The purpose of this role is to provide a list of URLs where to find CSAF documents.
 
 # 8 Safety, Security, and Data Protection Considerations
 
