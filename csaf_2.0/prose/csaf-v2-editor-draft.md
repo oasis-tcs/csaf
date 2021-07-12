@@ -2622,7 +2622,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
   * `/document/references`
-    > This should be used to refer to one or more documents or websites which provides more details about the incident.
+    > This should be used to refer to one or more documents or websites which provides more details about the incident. The `category` for such references SHOULD be `external`.
 * The value of `/document/category` SHALL be `security_incident_response`.
 
 ## 4.3 Profile 3: Informational Advisory
@@ -2679,6 +2679,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * For each item in
   * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
+    > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless whether that is referenced through the Product ID or a Product Group ID.
 * The value of `/document/category` SHALL be `vex`.
 
@@ -3554,6 +3555,8 @@ Example which fails the test:
 
 It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
 
+> This is the only test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
+
 The relevant path for this test is:
 
 ```
@@ -3576,6 +3579,397 @@ Example which fails the test:
 ```
 
 > The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
+
+### 6.1.27 Profile Tests
+
+This subsubsection structures the tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+
+> An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests. This results in one virtual test per profile.
+
+#### 6.1.27.1 Document Notes
+
+It must be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
+
+The relevant values for `/document/category` are:
+
+```
+  security_incident_response
+  informational_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+Example which fails the test:
+
+```
+  "notes": [
+    {
+      "category": "legal_disclaimer",
+      "text": "The CSAF document is provided to You \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind.",
+      "title": "Terms of Use"
+    }
+  ]
+```
+
+> The document notes do not contain an item which has a `category` of `description`, `details`, `general` or `summary`.
+
+#### 6.1.27.2 Document References
+
+It must be tested that at least one item in `/document/references` exists that has links to an `external` source.
+
+The relevant values for `/document/category` are:
+
+```
+  security_incident_response
+  informational_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /document/references
+```
+
+Example which fails the test:
+
+```
+  "references": [
+    {
+      "category": "self",
+      "summary": "The canonical URL.",
+      "url": "https://example.com/security/data/csaf/2021/ESA-2021-0002.json"
+    }
+  ]
+```
+
+> The document references do not contain any item which has the category `external`.
+
+#### 6.1.27.3 Vulnerabilities
+
+It must be tested that the element `/vulnerabilities` does not exist.
+
+The relevant value for `/document/category` is:
+
+```
+  informational_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "title": "A vulnerability item that SHALL NOT exist"
+    }
+  ]
+```
+
+> The element `/vulnerabilities` exists.
+
+> A tool MAY change the `/document/category` to `generic_csaf` as a quick fix.
+
+#### 6.1.27.4 Product Tree
+
+It must be tested that the element `/product_tree` exists.
+
+The relevant values for `/document/category` are:
+
+```
+  security_advisory
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /product_tree
+```
+
+Example which fails the test:
+
+```
+  {
+    "document": {
+      // ...
+    },
+    "vulnerabilities": [
+      // ...
+    ]
+  }
+```
+
+> The element `/product_tree` does not exist.
+
+#### 6.1.27.5 Vulnerability Notes
+
+For each item in `/vulnerabilities` it must be tested that the element `notes` exists.
+
+The relevant values for `/document/category` are:
+
+```
+  security_advisory
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/notes
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "title": "A vulnerability item without a note"
+    }
+  ]
+```
+
+> The vulnerability item has no `notes` element.
+
+#### 6.1.27.6 Product Status
+
+For each item in `/vulnerabilities` it must be tested that the element `product_status` exists.
+
+The relevant value for `/document/category` is:
+
+```
+  security_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "title": "A vulnerability item without a product status"
+    }
+  ]
+```
+
+> The vulnerability item has no `product_status` element.
+
+#### 6.1.27.7 VEX Product Status
+
+For each item in `/vulnerabilities` it must be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
+
+The relevant value for `/document/category` is:
+
+```
+  vex
+```
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/product_status/fixed
+  /vulnerabilities[]/product_status/known_affected
+  /vulnerabilities[]/product_status/known_not_affected
+  /vulnerabilities[]/product_status/under_investigation
+```
+
+Example which fails the test:
+
+```
+  "product_status": {
+    "first_fixed": [
+      // ...
+    ],
+    "recommended": [
+      // ...
+    ]
+  }
+```
+
+> None of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
+
+#### 6.1.27.8 Vulnerability ID
+
+For each item in `/vulnerabilities` it must be tested that at least one of the elements `cve` or `id` is present.
+
+The relevant value for `/document/category` is:
+
+```
+  vex
+```
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/cve
+  /vulnerabilities[]/id
+```
+
+Example which fails the test:
+
+```
+  "vulnerabilities": [
+    {
+      "title": "A vulnerability item without a CVE or ID"
+    }
+  ]
+```
+
+> None of the elements `cve` or `id` is present.
+
+#### 6.1.27.9 Impact Statement
+
+For each item in `/vulnerabilities[]/product_status/known_not_affected` it must be tested that a corresponding impact statement exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact`.
+
+The relevant value for `/document/category` is:
+
+```
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/threats
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      },
+      {
+        "product_id": "CSAFPID-9080702",
+        "name": "Product C"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-0001",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      // ...
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ]
+      },
+      "threats": [
+        {
+          "category": "impact",
+          "details": "The vulnerable code is not present in these products.",
+          "group_ids": [
+            "CSAFGID-0001"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> There is no impact statement for `CSAFPID-9080702`.
+> Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
+
+#### 6.1.27.10 Action Statement
+
+For each item in `/vulnerabilities[]/product_status/known_affected` it must be tested that a corresponding action statement exist in `/vulnerabilities[]/remediations`.
+
+The relevant value for `/document/category` is:
+
+```
+  vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/remediations
+```
+
+Example which fails the test:
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      },
+      {
+        "product_id": "CSAFPID-9080702",
+        "name": "Product C"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-0001",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ],
+        "summary": "EOL products"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      // ...
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "no_fix_planned",
+          "details": "These products are end-of-life. Therefore, no fix will be provided.",
+          "group_ids": [
+            "CSAFGID-0001"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> There is no action statement for `CSAFPID-9080702`.
+> Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 ## 6.2 Optional Tests
 
@@ -3919,7 +4313,7 @@ Example which fails the test:
 
 ### 6.2.11 Missing Canonical URL
 
-It must be tested that the CSAF document has canonical URL.
+It must be tested that the CSAF document has a anonical URL.
 
 > To implement this test it is demeeded sufficient that one item in `/document/references` fulfills all of the following:
 >
@@ -3939,11 +4333,12 @@ Example which fails the test:
   "document": {
     // ...
     "references": [
-    {
-      "category": "self",
-      "summary": "A non-canonical URL.",
-      "url": "https://example.com/security/data/csaf/2021/ESA-2021-0001_1.json"
-    },
+      {
+        "category": "self",
+        "summary": "A non-canonical URL.",
+        "url": "https://example.com/security/data/csaf/2021/ESA-2021-0001_1.json"
+      }
+    ],
     // ...
     "tracking": {
       // ...
