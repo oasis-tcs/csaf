@@ -4362,17 +4362,18 @@ Example: Minimal with ROLIE document
     "list_on_CSAF_aggregators": true,
     "metadata_version": "2.0",
     "mirror_on_CSAF_aggregators": true,
-    "publisher":{
-      "category": "vendor",
-      "name": "Example Company ProductCERT",
-      "namespace":"https://psirt.example.com"
-    }
     "pgp_keys":[
       {
         "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
         "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
       }
-    ]
+    ],
+    "publisher":{
+      "category": "vendor",
+      "name": "Example Company ProductCERT",
+      "namespace":"https://psirt.example.com"
+    },
+    "role": "csaf_trusted_provider"
   }
 ```
 

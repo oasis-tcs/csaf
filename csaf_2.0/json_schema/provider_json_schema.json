@@ -18,7 +18,8 @@
     "list_on_CSAF_aggregators",
     "mirror_on_CSAF_aggregators",
     "metadata_version",
-    "publisher"
+    "publisher",
+    "role"
   ],
   "properties": {
     "canonical_url": {
@@ -150,11 +151,6 @@
       "type": "boolean",
       "default": true
     },
-    "publisher": {
-      "title": "Publisher",
-      "description": "Provides information about the publisher of the CSAF documents in this repository.",
-      "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json#/properties/document/publisher"
-    },
     "pgp_keys": {
       "title": "List of PGP keys",
       "description": "Contains a list of pgp keys used to sign CSAF documents.",
@@ -182,6 +178,22 @@
           }
         }
       }
+    },
+    "publisher": {
+      "title": "Publisher",
+      "description": "Provides information about the publisher of the CSAF documents in this repository.",
+      "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json#/properties/document/publisher"
+    },
+    "role": {
+      "title": "Role of the issuing party",
+      "description": "Contains the role of the issuing party according to section 7 in the CSAF standard.",
+      "type": "string",
+      "default": "csaf_provider",
+      "enum": [
+        "csaf_publisher",
+        "csaf_provider",
+        "csaf_trusted_provider"
+      ]
     }
   }
 }
