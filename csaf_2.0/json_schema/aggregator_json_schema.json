@@ -4,6 +4,41 @@
   "title": "CSAF aggregator",
   "description": "Representation of information where to find CSAF providers as a JSON document.",
   "type": "object",
+  "definitions": {
+    "metadata_t": {
+      "title": "CSAF issuing party metadata.",
+      "description": "Contains the metadata of a single CSAF issuing party.",
+      "type": "object",
+      "required": [
+        "last_updated",
+        "publisher",
+        "url"
+      ],
+      "properties": {
+        "last_updated": {
+          "title": "Last updated",
+          "description": "Holds the date and time when this entry was last updated.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "publisher": {
+          "title": "Publisher",
+          "description": "Provides information about the issuing party for this entry.",
+          "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json#/properties/publisher"
+        },
+        "role": {
+          "title": "Role of the issuing party",
+          "description": "Contains the role of the issuing party according to section 7 in the CSAF standard.",
+          "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json#/properties/role"
+        },
+        "url": {
+          "title": "URL of the metadata",
+          "description": "Contains the URL of the provider-metadata.json for that entry.",
+          "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json#/properties/canonical_url"
+        }
+      }
+    }
+  },
   "required": [
     "aggregator",
     "aggregator_version",
@@ -99,7 +134,7 @@
           "metadata": {
             "title": "CSAF provider metadata.",
             "description": "Contains the metadata of a single CSAF provider.",
-            "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json"
+            "$ref": "#/definitions/metadata_t"
           },
           "mirrors": {
             "title": "List of mirrors",
@@ -136,7 +171,7 @@
           "metadata": {
             "title": "CSAF publisher metadata.",
             "description": "Contains the metadata of a single CSAF publisher extracted from one of its CSAF documents.",
-            "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json"
+            "$ref": "#/definitions/metadata_t"
           },
           "mirrors": {
             "title": "List of mirrors",
@@ -174,5 +209,4 @@
       "format": "date-time"
     }
   }
-
 }
