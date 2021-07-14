@@ -1245,6 +1245,8 @@ The value `external` indicates, that this document is an external reference to a
 
 The value `self` indicates, that this document is a reference to this same document or vulnerability (also depending on scope).
 
+> This includes links to documents with the same content but different file format (e.g. advisories as PDF or HTML).
+
 Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
 URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
