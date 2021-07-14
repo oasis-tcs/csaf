@@ -20,7 +20,8 @@ RUN apt-get update -q \
     git
 
 #RUN pip3 install jsonschema[format] --upgrade
-RUN pip3 install git+https://github.com/anexia-it/jsonschema@draft2020-12
+RUN pip3 install --upgrade pip \
+ && pip3 install git+https://github.com/anexia-it/jsonschema@draft2020-12#egg=jsonschema[format]
 
 COPY entrypoint.sh /
 
