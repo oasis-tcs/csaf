@@ -16,7 +16,8 @@ RUN apt-get update -q \
     python3-jsonpath-rw \
     python3-pip \
     python3-setuptools \
-    python3-wheel
+    python3-wheel \
+    git
 
 #RUN pip3 install jsonschema[format] --upgrade
 RUN pip3 install git+https://github.com/anexia-it/jsonschema@draft2020-12
