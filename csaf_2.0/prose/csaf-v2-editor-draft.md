@@ -1245,6 +1245,8 @@ The value `external` indicates, that this document is an external reference to a
 
 The value `self` indicates, that this document is a reference to this same document or vulnerability (also depending on scope).
 
+> This includes links to documents with the same content but different file format (e.g. advisories as PDF or HTML).
+
 Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
 URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
@@ -3993,8 +3995,6 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-A program might suggest and implement a quick fix: Remove the defined but unused element.
-
 Example which fails the test:
 
 ```
@@ -4010,7 +4010,7 @@ Example which fails the test:
 
 > `CSAFPID-9080700` was defined but never used.
 
-> A tool MAY remove of the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
+> A tool MAY remove the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
 
 ### 6.2.2 Missing Remediation
 
