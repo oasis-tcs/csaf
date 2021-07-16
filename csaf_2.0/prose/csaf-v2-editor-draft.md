@@ -4722,9 +4722,10 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 ### 7.1.7 Requirement 7: provider-metadata.json
 
-The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the advisories of the issuing party.
+The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party.
 
-> This information is used to collect the data for CSAF aggregators.
+> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consitency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAf documents.
+>
 > It is suggested to put the file `provider-metadata.json` adjacent to the ROLIE feed documents (requirement 15) or in the main directory adjacent to the year folders (requirement 14), `changes.csv` (requirement 13) and the `index.txt` (requirement 12).
 > Suggested locations to store the `provider-metadata.json` are:
 >
