@@ -11,14 +11,14 @@ ARG DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update -q \
  && apt-get install -y --no-install-recommends -qq \
     python3 \
-    python3-jsonschema \
     python3-simplejson \
     python3-jsonpath-rw \
     python3-pip \
     python3-setuptools \
     python3-wheel
 
-RUN pip3 install jsonschema[format] --upgrade
+RUN pip3 install --upgrade pip \
+ && pip3 install git+https://github.com/anexia-it/jsonschema@draft2020-12#egg=jsonschema[format]
 
 COPY entrypoint.sh /
 
