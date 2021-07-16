@@ -234,10 +234,10 @@
               }
             },
             "purl": {
-              "$comment": "TODO: This should have a full regular expression to enforce purl syntax.",
               "title": "package URL representation",
               "description": "The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.",
               "type": "string",
+              "format": "uri",
               "pattern": "^pkg:",
               "minLength": 4
             },
