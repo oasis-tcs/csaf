@@ -451,10 +451,10 @@ Delegation to industry best practices technologies is used in referencing schema
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
-The CSAF schema Version 2.0 builds on the JSON Schema draft 2019-09 rules.
+The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
 
 ```
-    "$schema": "https://json-schema.org/draft/2019-09/schema"
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
 ```
 
 The schema identifier is (before publication):
@@ -2730,7 +2730,7 @@ Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a 
 
 ### 6.1.1 Missing Definition of Product ID
 
-For each element of type `/definitions/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/definitions/products_t`.
+For each element of type `/$defs/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/$defs/products_t`.
 
 The relevant paths for this test are:
 
@@ -2771,7 +2771,7 @@ Example which fails the test:
 
 ### 6.1.2 Multiple Definition of Product ID
 
-For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` was not already defined within the same document.
+For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it must be tested that the `product_id` was not already defined within the same document.
 
 The relevant paths for this test are:
 
@@ -2802,7 +2802,7 @@ Example which fails the test:
 
 ### 6.1.3 Circular Definition of Product ID
 
-For each new defined Product ID (type `/definitions/product_id_t`) in items of relationships (`/product_tree/relationships`) it must be tested that the `product_id` does not end up in a cirle.
+For each new defined Product ID (type `/$defs/product_id_t`) in items of relationships (`/product_tree/relationships`) it must be tested that the `product_id` does not end up in a cirle.
 
 The relevant path for this test is:
 
@@ -2840,7 +2840,7 @@ Example which fails the test:
 
 ### 6.1.4 Missing Definition of Product Group ID
 
-For each element of type `/definitions/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/definitions/product_groups_t`.
+For each element of type `/$defs/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/$defs/product_groups_t`.
 
 The relevant paths for this test are:
 
@@ -2879,7 +2879,7 @@ Example which fails the test:
 
 ### 6.1.5 Multiple Definition of Product Group ID
 
-For each Product Group ID (type `/definitions/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it must be tested that the `group_id` was not already defined within the same document.
+For each Product Group ID (type `/$defs/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it must be tested that the `group_id` was not already defined within the same document.
 
 The relevant path for this test is:
 
@@ -3156,7 +3156,7 @@ Example which fails the test:
 
 ### 6.1.12 Language
 
-For each element of type `/definitions/language_t` it must be tested that the language code is valid and exists.
+For each element of type `/$defs/language_t` it must be tested that the language code is valid and exists.
 
 The relevant paths for this test are:
 
@@ -3983,7 +3983,7 @@ Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. F
 
 ### 6.2.1 Unused Definition of Product ID
 
-For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
+For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
 
 This test SHALL be skipped for CSAF documents conforming the profile "Informational Advisory".
 
@@ -4014,7 +4014,7 @@ Example which fails the test:
 
 ### 6.2.2 Missing Remediation
 
-For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
+For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
 
 > The remediation might be of the category `none_available` or `no_fixed_planned`.
 
@@ -4053,7 +4053,7 @@ Example which fails the test:
 
 ### 6.2.3 Missing Score
 
-For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected it must be tested that a score object exists which covers this product.
+For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it must be tested that a score object exists which covers this product.
 
 The relevant paths for this test are:
 
@@ -5045,7 +5045,7 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
-* type `/definitions/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/definitions/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
+* type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
