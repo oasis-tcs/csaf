@@ -238,8 +238,8 @@
               "description": "The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.",
               "type": "string",
               "format": "uri",
-              "pattern": "^pkg:",
-              "minLength": 4
+              "pattern": "^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+",
+              "minLength": 7
             },
             "sbom_urls": {
               "title": "List of SBOM URLs",
