@@ -17,7 +17,7 @@
       "description": "Contains a URL of a provider-metadata.json.",
       "type": "string",
       "format": "uri",
-      "pattern": "/provider\\-metadata\\.json$"
+      "pattern": "/provider-metadata\\.json$"
     },
     "url_t": {
       "title": "Generic URL type",
