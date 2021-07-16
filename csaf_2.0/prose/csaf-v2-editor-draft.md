@@ -330,6 +330,8 @@ _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.
 _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
+###### [RFC3986]
+Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, DOI 10.17487/RFC3986, January 2005, https://www.rfc-editor.org/info/rfc3986.
 ###### [RFC7231]
 Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, https://www.rfc-editor.org/info/rfc7231.
 ###### [RFC7464]
@@ -926,11 +928,14 @@ If the value of the hash matches and the filename does not, a user should prefer
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
 
-The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
+The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
-    ^pkg:
+    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
 ```
+
+> The given pattern does not completely evaluate whether a PURL is valid according to the [PURL] specification. It provides a more generic approach and general guidance to enable forward compatibility.
+> CSAF uses only the canonical form of PURL to conform with section 3.3 of [RFC3986]. Therefore, URLs starting with `pkg://` are considered invalid.
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
@@ -3194,13 +3199,13 @@ Example which fails the test:
         "name": "Product A"
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
-          "purl": "pkg:ExampleLibrary.Common@4.2.1337"
+          "purl": "pkg:maven/@1.3.4"
       }
     ]
   }
 ```
 
-> Any valid purl has a type component.
+> Any valid purl has a name component.
 
 ### 6.1.14 Sorted Revision History
 
