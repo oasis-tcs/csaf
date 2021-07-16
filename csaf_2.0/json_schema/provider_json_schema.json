@@ -52,7 +52,6 @@
         "description": "Contains the information of a used distribution mechanism.",
         "type": "object",
         "minProperties": 1,
-        "maxProperties": 1,
         "properties": {
           "directory_url": {
             "title": "Directory URL",
