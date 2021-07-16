@@ -451,10 +451,10 @@ Delegation to industry best practices technologies is used in referencing schema
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
-The CSAF schema Version 2.0 builds on the JSON Schema draft 2019-09 rules.
+The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
 
 ```
-    "$schema": "https://json-schema.org/draft/2019-09/schema"
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
 ```
 
 The schema identifier is (before publication):
@@ -559,8 +559,8 @@ Every such item of value type `string` with 1 or more characters represents the 
 Examples:
 
 ```
-    Johann Sebastian Bach
     Albert Einstein
+    Johann Sebastian Bach
 ```
 
 #### 3.1.1.2 Acknowledgments Type - Organization
@@ -571,8 +571,8 @@ Examples:
 
 ```
     CISA
-    Talos
     Google Project Zero
+    Talos
 ```
 
 ##### 3.1.1.3 Acknowledgments Type - Summary
@@ -720,14 +720,14 @@ Name of the branch (`name`) of value type string with 1 character or more contai
 Examples:
 
 ```
-    Microsoft
-    Siemens
-    Windows
-    Office
-    SIMATIC
     10
     365
+    Microsoft
+    Office
     PCS 7
+    SIMATIC
+    Siemens
+    Windows
 ```
 
 #### 3.1.2.4 Branches Type - Product
@@ -764,8 +764,8 @@ The value should be the product's full canonical name, including version number 
 Examples:
 
 ```
-    Microsoft Host Integration Server 2006 Service Pack 1
     Cisco AnyConnect Secure Mobility Client 2.3.185
+    Microsoft Host Integration Server 2006 Service Pack 1
 ```
 
 #### 3.1.3.2 Full Product Name Type - Product ID
@@ -872,11 +872,11 @@ The default value for `algorithm` is `sha256`.
 Examples:
 
 ```
+      blake2b512
       sha256
+      sha3-512
       sha384
       sha512
-      sha3-512
-      blake2b512
 ```
 
 These values are derived from the currently supported digests OpenSSL [OPENSSL]. Leading dashs were removed.
@@ -907,9 +907,9 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
 Examples:
 
 ```
+    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
     4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
-    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
 ```
 
 The filename representation (`filename`) of type `string` with one or more characters contains the name of the file which is identified by the hash values.
@@ -1245,6 +1245,8 @@ The value `external` indicates, that this document is an external reference to a
 
 The value `self` indicates, that this document is a reference to this same document or vulnerability (also depending on scope).
 
+> This includes links to documents with the same content but different file format (e.g. advisories as PDF or HTML).
+
 Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
 URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
@@ -1447,9 +1449,9 @@ The Text of aggregate severity (`text`) of value type `string` with 1 or more ch
 Examples:
 
 ```
-    Moderate
-    Important
     Critical
+    Important
+    Moderate
 ```
 
 #### 3.2.1.3 Document Property - Category
@@ -1509,9 +1511,9 @@ The Textual description (`text`) of value type `string` with 1 or more character
 Examples:
 
 ```
-    Share only on a need-to-know-basis only.
+    Copyright 2021, Example Company, All Rights Reserved.
     Distribute freely.
-    Copyright 2019, Example Company, All Rights Reserved.
+    Share only on a need-to-know-basis only.
 ```
 
 ##### 3.2.1.5.2 Document Property - Distribution - TLP
@@ -1536,9 +1538,9 @@ The Label of TLP (`label`) with value type `string` and `enum` provides the TLP 
 Valid values of the `enum` are:
 
 ```
-    RED
     AMBER
     GREEN
+    RED
     WHITE
 ```
 
@@ -1659,8 +1661,8 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 Example:
 
 ```
-    https://www.example.com
     https://csaf.io
+    https://www.example.com
 ```
 
 #### 3.2.1.9 Document Property - References
@@ -1686,8 +1688,8 @@ Title of this document (`title`) of value type `string` with 1 or more character
 Examples:
 
 ```
-    Example Company Cross-Site-Scripting Vulnerability in Example Generator
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
+    Example Company Cross-Site-Scripting Vulnerability in Example Generator
 ```
 
 #### 3.2.1.12 Document Property - Tracking
@@ -1807,8 +1809,8 @@ Examples:
 
 ```
     0.6.0
-    2
     1.0.0-beta+exp.sha.a1c44f85
+    2
 ```
 
 ##### 3.2.1.12.4 Document Property - Tracking - ID
@@ -1960,8 +1962,8 @@ The summary of the product group (`summary`) of type `string` with 1 or more cha
 Examples:
 
 ```
-    The x64 versions of the operating system.
     Products supporting Modbus.
+    The x64 versions of the operating system.
 ```
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
@@ -2133,9 +2135,9 @@ and holds the ID for the weakness associated.
 Examples:
 
 ```
-    CWE-79
     CWE-22
     CWE-352
+    CWE-79
 ```
 
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
@@ -2143,9 +2145,9 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
 Examples:
 
 ```
-    Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
-    Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
     Cross-Site Request Forgery (CSRF)
+    Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+    Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
 ```
 
 #### 3.2.3.4 Vulnerabilities Property - Discovery Date
@@ -2394,11 +2396,11 @@ Category of the remediation (`category`) of value type `string` and `enum` speci
 Valid values are:
 
 ```
-    workaround
     mitigation
-    vendor_fix
-    none_available
     no_fix_planned
+    none_available
+    vendor_fix
+    workaround
 ```
 
 The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that can be used to avoid exposure to the vulnerability. There may be none, one, or more workarounds available. This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
@@ -2452,15 +2454,15 @@ Category of restart (`category`) of value type `string` and `enum` specifies wha
 Valid values are:
 
 ```
-    none
-    vulnerable_component
-    service
-    parent
-    dependencies
     connected
+    dependencies
     machine
-    zone
+    none
+    parent
+    service
     system
+    vulnerable_component
+    zone
 ```
 
 The values must be used as follows:
@@ -2728,7 +2730,7 @@ Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a 
 
 ### 6.1.1 Missing Definition of Product ID
 
-For each element of type `/definitions/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/definitions/products_t`.
+For each element of type `/$defs/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it must be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/$defs/products_t`.
 
 The relevant paths for this test are:
 
@@ -2769,7 +2771,7 @@ Example which fails the test:
 
 ### 6.1.2 Multiple Definition of Product ID
 
-For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` was not already defined within the same document.
+For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it must be tested that the `product_id` was not already defined within the same document.
 
 The relevant paths for this test are:
 
@@ -2800,7 +2802,7 @@ Example which fails the test:
 
 ### 6.1.3 Circular Definition of Product ID
 
-For each new defined Product ID (type `/definitions/product_id_t`) in items of relationships (`/product_tree/relationships`) it must be tested that the `product_id` does not end up in a cirle.
+For each new defined Product ID (type `/$defs/product_id_t`) in items of relationships (`/product_tree/relationships`) it must be tested that the `product_id` does not end up in a cirle.
 
 The relevant path for this test is:
 
@@ -2838,7 +2840,7 @@ Example which fails the test:
 
 ### 6.1.4 Missing Definition of Product Group ID
 
-For each element of type `/definitions/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/definitions/product_groups_t`.
+For each element of type `/$defs/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it must be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/$defs/product_groups_t`.
 
 The relevant paths for this test are:
 
@@ -2877,7 +2879,7 @@ Example which fails the test:
 
 ### 6.1.5 Multiple Definition of Product Group ID
 
-For each Product Group ID (type `/definitions/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it must be tested that the `group_id` was not already defined within the same document.
+For each Product Group ID (type `/$defs/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it must be tested that the `group_id` was not already defined within the same document.
 
 The relevant path for this test is:
 
@@ -3154,7 +3156,7 @@ Example which fails the test:
 
 ### 6.1.12 Language
 
-For each element of type `/definitions/language_t` it must be tested that the language code is valid and exists.
+For each element of type `/$defs/language_t` it must be tested that the language code is valid and exists.
 
 The relevant paths for this test are:
 
@@ -3981,7 +3983,7 @@ Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. F
 
 ### 6.2.1 Unused Definition of Product ID
 
-For each Product ID (type `/definitions/product_id_t`) in Full Product Name elements (type: `/definitions/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
+For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it must be tested that the `product_id` is referenced somewhere within the same document.
 
 This test SHALL be skipped for CSAF documents conforming the profile "Informational Advisory".
 
@@ -3992,8 +3994,6 @@ The relevant paths for this test are:
   /product_tree/full_product_names[]/product_id
   /product_tree/relationships[]/full_product_name/product_id
 ```
-
-A program might suggest and implement a quick fix: Remove the defined but unused element.
 
 Example which fails the test:
 
@@ -4010,11 +4010,11 @@ Example which fails the test:
 
 > `CSAFPID-9080700` was defined but never used.
 
-> A tool MAY remove of the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
+> A tool MAY remove the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
 
 ### 6.2.2 Missing Remediation
 
-For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
+For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected and Under investigation it must be tested that a remediation exists.
 
 > The remediation might be of the category `none_available` or `no_fixed_planned`.
 
@@ -4053,7 +4053,7 @@ Example which fails the test:
 
 ### 6.2.3 Missing Score
 
-For each Product ID (type `/definitions/product_id_t`) in the Product Status groups Affected it must be tested that a score object exists which covers this product.
+For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it must be tested that a score object exists which covers this product.
 
 The relevant paths for this test are:
 
@@ -5229,7 +5229,7 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
-* type `/definitions/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/definitions/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
+* type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
