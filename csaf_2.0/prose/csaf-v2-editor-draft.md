@@ -5094,7 +5094,7 @@ Secondly, the party:
 
 Thirdly, the party:
 
-* satisfies the requirements 11 to 14 in section 6.1 or requirements 15 to 17 in section 7.1.
+* satisfies the requirements 11 to 14 in section 7.1 or requirements 15 to 17 in section 7.1.
 
 > If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17. This is recommended. If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
 
