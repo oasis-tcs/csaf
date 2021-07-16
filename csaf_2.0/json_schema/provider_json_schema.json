@@ -49,7 +49,7 @@
       "uniqueItems": true,
       "items": {
         "title": "Distribution",
-        "description": "Contains the information of used this distribution mechanism.",
+        "description": "Contains the information of a used distribution mechanism.",
         "type": "object",
         "minProperties": 1,
         "maxProperties": 1,
