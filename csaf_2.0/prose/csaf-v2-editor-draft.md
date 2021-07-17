@@ -559,8 +559,8 @@ Every such item of value type `string` with 1 or more characters represents the 
 Examples:
 
 ```
-    Johann Sebastian Bach
     Albert Einstein
+    Johann Sebastian Bach
 ```
 
 #### 3.1.1.2 Acknowledgments Type - Organization
@@ -571,8 +571,8 @@ Examples:
 
 ```
     CISA
-    Talos
     Google Project Zero
+    Talos
 ```
 
 ##### 3.1.1.3 Acknowledgments Type - Summary
@@ -720,14 +720,14 @@ Name of the branch (`name`) of value type string with 1 character or more contai
 Examples:
 
 ```
-    Microsoft
-    Siemens
-    Windows
-    Office
-    SIMATIC
     10
     365
+    Microsoft
+    Office
     PCS 7
+    SIMATIC
+    Siemens
+    Windows
 ```
 
 #### 3.1.2.4 Branches Type - Product
@@ -764,8 +764,8 @@ The value should be the product's full canonical name, including version number 
 Examples:
 
 ```
-    Microsoft Host Integration Server 2006 Service Pack 1
     Cisco AnyConnect Secure Mobility Client 2.3.185
+    Microsoft Host Integration Server 2006 Service Pack 1
 ```
 
 #### 3.1.3.2 Full Product Name Type - Product ID
@@ -872,11 +872,11 @@ The default value for `algorithm` is `sha256`.
 Examples:
 
 ```
+      blake2b512
       sha256
+      sha3-512
       sha384
       sha512
-      sha3-512
-      blake2b512
 ```
 
 These values are derived from the currently supported digests OpenSSL [OPENSSL]. Leading dashs were removed.
@@ -907,9 +907,9 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
 Examples:
 
 ```
+    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
     4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
-    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
 ```
 
 The filename representation (`filename`) of type `string` with one or more characters contains the name of the file which is identified by the hash values.
@@ -1449,9 +1449,9 @@ The Text of aggregate severity (`text`) of value type `string` with 1 or more ch
 Examples:
 
 ```
-    Moderate
-    Important
     Critical
+    Important
+    Moderate
 ```
 
 #### 3.2.1.3 Document Property - Category
@@ -1511,9 +1511,9 @@ The Textual description (`text`) of value type `string` with 1 or more character
 Examples:
 
 ```
-    Share only on a need-to-know-basis only.
+    Copyright 2021, Example Company, All Rights Reserved.
     Distribute freely.
-    Copyright 2019, Example Company, All Rights Reserved.
+    Share only on a need-to-know-basis only.
 ```
 
 ##### 3.2.1.5.2 Document Property - Distribution - TLP
@@ -1661,8 +1661,8 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 Example:
 
 ```
-    https://www.example.com
     https://csaf.io
+    https://www.example.com
 ```
 
 #### 3.2.1.9 Document Property - References
@@ -1688,8 +1688,8 @@ Title of this document (`title`) of value type `string` with 1 or more character
 Examples:
 
 ```
-    Example Company Cross-Site-Scripting Vulnerability in Example Generator
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
+    Example Company Cross-Site-Scripting Vulnerability in Example Generator
 ```
 
 #### 3.2.1.12 Document Property - Tracking
@@ -1809,8 +1809,8 @@ Examples:
 
 ```
     0.6.0
-    2
     1.0.0-beta+exp.sha.a1c44f85
+    2
 ```
 
 ##### 3.2.1.12.4 Document Property - Tracking - ID
@@ -1962,8 +1962,8 @@ The summary of the product group (`summary`) of type `string` with 1 or more cha
 Examples:
 
 ```
-    The x64 versions of the operating system.
     Products supporting Modbus.
+    The x64 versions of the operating system.
 ```
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
@@ -2135,9 +2135,9 @@ and holds the ID for the weakness associated.
 Examples:
 
 ```
-    CWE-79
     CWE-22
     CWE-352
+    CWE-79
 ```
 
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
@@ -2145,9 +2145,9 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
 Examples:
 
 ```
-    Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
-    Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
     Cross-Site Request Forgery (CSRF)
+    Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+    Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
 ```
 
 #### 3.2.3.4 Vulnerabilities Property - Discovery Date
