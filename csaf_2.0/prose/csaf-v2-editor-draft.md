@@ -1538,9 +1538,9 @@ The Label of TLP (`label`) with value type `string` and `enum` provides the TLP 
 Valid values of the `enum` are:
 
 ```
-    RED
     AMBER
     GREEN
+    RED
     WHITE
 ```
 
@@ -2396,11 +2396,11 @@ Category of the remediation (`category`) of value type `string` and `enum` speci
 Valid values are:
 
 ```
-    workaround
     mitigation
-    vendor_fix
-    none_available
     no_fix_planned
+    none_available
+    vendor_fix
+    workaround
 ```
 
 The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that can be used to avoid exposure to the vulnerability. There may be none, one, or more workarounds available. This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
@@ -2454,15 +2454,15 @@ Category of restart (`category`) of value type `string` and `enum` specifies wha
 Valid values are:
 
 ```
-    none
-    vulnerable_component
-    service
-    parent
-    dependencies
     connected
+    dependencies
     machine
-    zone
+    none
+    parent
+    service
     system
+    vulnerable_component
+    zone
 ```
 
 The values must be used as follows:

@@ -576,9 +576,9 @@
                   "description": "Provides the TLP label of the document.",
                   "type": "string",
                   "enum": [
-                    "RED",
                     "AMBER",
                     "GREEN",
+                    "RED",
                     "WHITE"
                   ]
                 },
@@ -1163,11 +1163,11 @@
                   "description": "Specifies the category which this remediation belongs to.",
                   "type": "string",
                   "enum": [
-                    "workaround",
                     "mitigation",
-                    "vendor_fix",
+                    "no_fix_planned",
                     "none_available",
-                    "no_fix_planned"
+                    "vendor_fix",
+                    "workaround"
                   ]
                 },
                 "date": {
@@ -1213,15 +1213,15 @@
                       "description": "Specifies what category of restart is required by this remediation to become effective.",
                       "type": "string",
                       "enum": [
-                        "none",
-                        "vulnerable_component",
-                        "service",
-                        "parent",
-                        "dependencies",
                         "connected",
+                        "dependencies",
                         "machine",
-                        "zone",
-                        "system"
+                        "none",
+                        "parent",
+                        "service",
+                        "system",
+                        "vulnerable_component",
+                        "zone"
                       ]
                     },
                     "details": {
