@@ -1,10 +1,10 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
   "title": "Common Security Advisory Framework",
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
-  "definitions": {
+  "$defs": {
     "acknowledgments_t": {
       "title": "List of acknowledgments",
       "description": "Contains a list of acknowledgment elements.",
@@ -84,7 +84,7 @@
         ],
         "properties": {
           "branches": {
-            "$ref": "#/definitions/branches_t"
+            "$ref": "#/$defs/branches_t"
           },
           "category": {
             "title": "Category of the branch",
@@ -121,7 +121,7 @@
             ]
           },
           "product": {
-            "$ref": "#/definitions/full_product_name_t"
+            "$ref": "#/$defs/full_product_name_t"
           }
         }
       }
@@ -146,14 +146,14 @@
           ]
         },
         "product_id": {
-          "$ref": "#/definitions/product_id_t"
+          "$ref": "#/$defs/product_id_t"
         },
         "product_identification_helper": {
           "title": "Helper to identify the product",
           "description": "Provides at least one method which aids in identifying the product in an asset database.",
           "type": "object",
           "minProperties": 1,
-          "properties": { 
+          "properties": {
             "cpe": {
               "$comment": "TODO: This should have a full regular expression to enforce CPE syntax.",
               "title": "Common Platform Enumeration representation",
@@ -404,7 +404,7 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "$ref": "#/definitions/product_group_id_t"
+        "$ref": "#/$defs/product_group_id_t"
       }
     },
     "product_id_t": {
@@ -424,7 +424,7 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "$ref": "#/definitions/product_id_t"
+        "$ref": "#/$defs/product_id_t"
       }
     },
     "references_t": {
@@ -497,7 +497,7 @@
       ],
       "properties": {
         "acknowledgments": {
-          "$ref": "#/definitions/acknowledgments_t"
+          "$ref": "#/$defs/acknowledgments_t"
         },
         "aggregate_severity": {
           "title": "Aggregate severity",
@@ -600,12 +600,12 @@
         "lang": {
           "title": "Document language",
           "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.",
-          "$ref": "#/definitions/lang_t"
+          "$ref": "#/$defs/lang_t"
         },
         "notes": {
           "title": "Notes associated with the whole document.",
           "description": "Holds notes about this set of vulnerabilities.",
-          "$ref": "#/definitions/notes_t"
+          "$ref": "#/$defs/notes_t"
         },
         "publisher": {
           "title": "Publisher",
@@ -669,12 +669,12 @@
           }
         },
         "references": {
-          "$ref": "#/definitions/references_t"
+          "$ref": "#/$defs/references_t"
         },
         "source_lang": {
           "title": "Source language",
           "description": "If this copy of the document is a translation then the value of this property describes from which language this document was translated.",
-          "$ref": "#/definitions/lang_t"
+          "$ref": "#/$defs/lang_t"
         },
         "title": {
           "title": "Title of this document",
@@ -808,7 +808,7 @@
                     "format": "date-time"
                   },
                   "number": {
-                    "$ref": "#/definitions/version_t"
+                    "$ref": "#/$defs/version_t"
                   },
                   "summary": {
                     "title": "Summary of the revision",
@@ -833,7 +833,7 @@
               ]
             },
             "version": {
-              "$ref": "#/definitions/version_t"
+              "$ref": "#/$defs/version_t"
             }
           }
         }
@@ -846,7 +846,7 @@
       "minProperties": 1,
       "properties": {
         "branches": {
-          "$ref": "#/definitions/branches_t"
+          "$ref": "#/$defs/branches_t"
         },
         "full_product_names": {
           "title": "List of full product names",
@@ -854,7 +854,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/full_product_name_t"
+            "$ref": "#/$defs/full_product_name_t"
           }
         },
         "product_groups": {
@@ -872,7 +872,7 @@
             ],
             "properties": {
               "group_id": {
-                "$ref": "#/definitions/product_group_id_t"
+                "$ref": "#/$defs/product_group_id_t"
               },
               "product_ids": {
                 "title": "List of Product IDs",
@@ -881,7 +881,7 @@
                 "minItems": 2,
                 "uniqueItems": true,
                 "items": {
-                  "$ref": "#/definitions/product_id_t"
+                  "$ref": "#/$defs/product_id_t"
                 }
               },
               "summary": {
@@ -926,13 +926,13 @@
                 ]
               },
               "full_product_name": {
-                "$ref": "#/definitions/full_product_name_t"
+                "$ref": "#/$defs/full_product_name_t"
               },
               "product_reference": {
-                "$ref": "#/definitions/product_id_t"
+                "$ref": "#/$defs/product_id_t"
               },
               "relates_to_product_reference": {
-                "$ref": "#/definitions/product_id_t"
+                "$ref": "#/$defs/product_id_t"
               }
             }
           }
@@ -951,7 +951,7 @@
         "minProperties": 1,
         "properties": {
           "acknowledgments": {
-            "$ref": "#/definitions/acknowledgments_t"
+            "$ref": "#/$defs/acknowledgments_t"
           },
           "cve": {
             "title": "CVE",
@@ -1085,7 +1085,7 @@
             }
           },
           "notes": {
-            "$ref": "#/definitions/notes_t"
+            "$ref": "#/$defs/notes_t"
           },
           "product_status": {
             "title": "Product status",
@@ -1096,47 +1096,47 @@
               "first_affected": {
                 "title": "First affected",
                 "description": "These are the first versions of the releases known to be affected by the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "first_fixed": {
                 "title": "First fixed",
                 "description": "These versions contain the first fix for the vulnerability but may not be the recommended fixed versions.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "fixed": {
                 "title": "Fixed",
                 "description": "These versions contain a fix for the vulnerability but may not be the recommended fixed versions.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "known_affected": {
                 "title": "Known affected",
                 "description": "These versions are known to be affected by the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "known_not_affected": {
                 "title": "Known not affected",
                 "description": "These versions are known not to be affected by the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "last_affected": {
                 "title": "Last affected",
                 "description": "These are the last versions in a release train known to be affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "recommended": {
                 "title": "Recommended",
                 "description": "These versions have a fix for the vulnerability and are the vendor-recommended versions for fixing the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "under_investigation": {
                 "title": "Under investigation",
                 "description": "It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               }
             }
           },
           "references": {
-            "$ref": "#/definitions/references_t"
+            "$ref": "#/$defs/references_t"
           },
           "release_date": {
             "title": "Release date",
@@ -1195,10 +1195,10 @@
                   }
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/product_groups_t"
+                  "$ref": "#/$defs/product_groups_t"
                 },
                 "product_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/$defs/products_t"
                 },
                 "restart_required": {
                   "title": "Restart required by remediation",
@@ -1269,7 +1269,7 @@
                   ]
                 },
                 "products": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/$defs/products_t"
                 }
               }
             }
@@ -1311,10 +1311,10 @@
                   "minLength": 1
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/product_groups_t"
+                  "$ref": "#/$defs/product_groups_t"
                 },
                 "product_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/$defs/products_t"
                 }
               }
             }
