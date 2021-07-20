@@ -27,8 +27,8 @@
               "type": "string",
               "minLength": 1,
               "examples": [
-                "Johann Sebastian Bach",
-                "Albert Einstein"
+                "Albert Einstein",
+                "Johann Sebastian Bach"
               ]
             }
           },
@@ -39,8 +39,8 @@
             "minLength": 1,
             "examples": [
               "CISA",
-              "Talos",
-              "Google Project Zero"
+              "Google Project Zero",
+              "Talos"
             ]
           },
           "summary": {
@@ -110,14 +110,14 @@
             "type": "string",
             "minLength": 1,
             "examples": [
-              "Microsoft",
-              "Siemens",
-              "Windows",
-              "Office",
-              "SIMATIC",
               "10",
               "365",
-              "PCS 7"
+              "Microsoft",
+              "Office",
+              "PCS 7",
+              "SIMATIC",
+              "Siemens",
+              "Windows"
             ]
           },
           "product": {
@@ -141,8 +141,8 @@
           "type": "string",
           "minLength": 1,
           "examples": [
-            "Microsoft Host Integration Server 2006 Service Pack 1",
-            "Cisco AnyConnect Secure Mobility Client 2.3.185"
+            "Cisco AnyConnect Secure Mobility Client 2.3.185",
+            "Microsoft Host Integration Server 2006 Service Pack 1"
           ]
         },
         "product_id": {
@@ -197,11 +197,11 @@
                           "default": "sha256",
                           "minLength": 1,
                           "examples": [
+                            "blake2b512",
                             "sha256",
-                            "sha384",
-                            "sha512",
                             "sha3-512",
-                            "blake2b512"
+                            "sha384",
+                            "sha512"
                           ]
                         },
                         "value": {
@@ -211,9 +211,9 @@
                           "minLength": 32,
                           "pattern": "^[0-9a-fA-F]{32,}$",
                           "examples": [
+                            "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3",
                             "4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc",
-                            "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c",
-                            "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3"
+                            "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c"
                           ]
                         }
                       }
@@ -519,9 +519,9 @@
               "type": "string",
               "minLength": 1,
               "examples": [
-                "Moderate",
+                "Critical",
                 "Important",
-                "Critical"
+                "Moderate"
               ]
             }
           }
@@ -558,9 +558,9 @@
               "type": "string",
               "minLength": 1,
               "examples": [
-                "Share only on a need-to-know-basis only.",
+                "Copyright 2021, Example Company, All Rights Reserved.",
                 "Distribute freely.",
-                "Copyright 2019, Example Company, All Rights Reserved."
+                "Share only on a need-to-know-basis only."
               ]
             },
             "tlp": {
@@ -576,9 +576,9 @@
                   "description": "Provides the TLP label of the document.",
                   "type": "string",
                   "enum": [
-                    "RED",
                     "AMBER",
                     "GREEN",
+                    "RED",
                     "WHITE"
                   ]
                 },
@@ -662,8 +662,8 @@
               "type": "string",
               "format": "uri",
               "examples": [
-                "https://www.example.com",
-                "https://csaf.io"
+                "https://csaf.io",
+                "https://www.example.com"
               ]
             }
           }
@@ -682,8 +682,8 @@
           "type": "string",
           "minLength": 1,
           "examples": [
-            "Example Company Cross-Site-Scripting Vulnerability in Example Generator",
-            "Cisco IPv6 Crafted Packet Denial of Service Vulnerability"
+            "Cisco IPv6 Crafted Packet Denial of Service Vulnerability",
+            "Example Company Cross-Site-Scripting Vulnerability in Example Generator"
           ]
         },
         "tracking": {
@@ -761,8 +761,8 @@
                       "minLength": 1,
                       "examples": [
                         "0.6.0",
-                        "2",
-                        "1.0.0-beta+exp.sha.a1c44f85"
+                        "1.0.0-beta+exp.sha.a1c44f85",
+                        "2"
                       ]
                     }
                   }
@@ -890,8 +890,8 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "The x64 versions of the operating system.",
-                  "Products supporting Modbus."
+                  "Products supporting Modbus.",
+                  "The x64 versions of the operating system."
                 ]
               }
             }
@@ -974,9 +974,9 @@
                 "type": "string",
                 "pattern": "^CWE-[1-9]\\d{0,5}$",
                 "examples": [
-                  "CWE-79",
                   "CWE-22",
-                  "CWE-352"
+                  "CWE-352",
+                  "CWE-79"
                 ]
               },
               "name": {
@@ -985,9 +985,9 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                  "Cross-Site Request Forgery (CSRF)",
                   "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
-                  "Cross-Site Request Forgery (CSRF)"
+                  "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
                 ]
               }
             }
@@ -1163,11 +1163,11 @@
                   "description": "Specifies the category which this remediation belongs to.",
                   "type": "string",
                   "enum": [
-                    "workaround",
                     "mitigation",
-                    "vendor_fix",
+                    "no_fix_planned",
                     "none_available",
-                    "no_fix_planned"
+                    "vendor_fix",
+                    "workaround"
                   ]
                 },
                 "date": {
@@ -1213,15 +1213,15 @@
                       "description": "Specifies what category of restart is required by this remediation to become effective.",
                       "type": "string",
                       "enum": [
-                        "none",
-                        "vulnerable_component",
-                        "service",
-                        "parent",
-                        "dependencies",
                         "connected",
+                        "dependencies",
                         "machine",
-                        "zone",
-                        "system"
+                        "none",
+                        "parent",
+                        "service",
+                        "system",
+                        "vulnerable_component",
+                        "zone"
                       ]
                     },
                     "details": {
