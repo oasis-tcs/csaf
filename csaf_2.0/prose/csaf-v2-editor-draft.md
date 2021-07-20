@@ -2824,13 +2824,13 @@ Example which fails the test:
     ],
     "relationships": [
       {
-        "category": "installed_on"
+        "category": "installed_on",
         "full_product_name": {
           "name": "Product B",
           "product_id": "CSAFPID-9080701"
         },
         "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701",
+        "relates_to_product_reference": "CSAFPID-9080701"
       }
     ]
   }
