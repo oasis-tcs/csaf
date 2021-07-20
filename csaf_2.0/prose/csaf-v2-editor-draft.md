@@ -3101,7 +3101,7 @@ Example which fails the test:
 
 ### 6.1.10 Inconsistent CVSS
 
-It must be tested that the given CVSS properties do not contratict the CVSS vector.
+It must be tested that the given CVSS properties do not contradict the CVSS vector.
 
 The relevant paths for this test are:
 
