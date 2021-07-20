@@ -3191,10 +3191,11 @@ Example which fails the test:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "purl": "pkg:ExampleLibrary.Common@4.2.1337"
+        }
       }
     ]
   }
