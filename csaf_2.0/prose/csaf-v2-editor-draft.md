@@ -3171,10 +3171,10 @@ The relevant paths for this test are:
 Example which fails the test:
 
 ```
-  "lang": "TG"
+  "lang": "EZ"
 ```
 
-> `TG` is not a valid language. It is the subtag for the region "Togo".
+> `EZ` is not a valid language. It is the subtag for the region "Eurozone".
 
 ### 6.1.13 PURL
 
