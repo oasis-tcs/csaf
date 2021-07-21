@@ -4804,10 +4804,10 @@ Directory listing SHALL be enabled to support manual navigation.
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
-**Example 100:**
+*Example 100:*
 
 ``` 
-TODO: Provide EXAMPLE 99 for ROLIE service document
+TODO: Provide EXAMPLE 100 for ROLIE service document
 ```
 
 ### 7.1.16 Requirement 16: ROLIE feed
@@ -4874,7 +4874,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
 *Example 102:*
 
 ``` 
-TODO: Provide EXAMPLE 101 for ROLIE category document
+TODO: Provide EXAMPLE 102 for ROLIE category document
 ```
 
 ### 7.1.18 Requirement 18: Integrity
