@@ -2174,7 +2174,7 @@ ID (`id`) of value type `object` with the two mandatory properties System Name (
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Example 34*:
+*Example 34:*
 
 ```
     Cisco Bug ID
@@ -2183,7 +2183,7 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Example 35*:
+*Example 35:*
 
 ```
     CSCso66472
@@ -2704,7 +2704,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
 3. The file extension `.json` MUST be appended.
 
-Examples:
+*Examples 36:*
 
 ```
   example_company_-_2019-yh3234.json
@@ -2751,7 +2751,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/product_ids[]
 ```
 
-*Example 36 which fails the test:*
+*Example 37 which fails the test:*
 
 ```
   "product_tree": {
@@ -2781,7 +2781,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 37 which fails the test:*
+*Example 38 which fails the test:*
 
 ```
   "product_tree": {
@@ -2812,7 +2812,7 @@ The relevant path for this test is:
 
 > As this can be quite complex a program for large CSAF documents, a program could check first whether a Product ID defined in a relationship item is used as `product_reference` or `relates_to_product_reference`. Only for those which fulfill this condition it is necessary to run the full check following the references.
 
-*Example 38 which fails the test:*
+*Example 39 which fails the test:*
 
 ```
   "product_tree": {
@@ -2849,7 +2849,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/group_ids
 ```
 
-*Example 39 which fails the test:*
+*Example 40 which fails the test:*
 
 ```
   "product_tree": {
@@ -2887,7 +2887,7 @@ The relevant path for this test is:
     /product_tree/product_groups[]/group_id
 ```
 
-*Example 40 which fails the test:*
+*Example 41 which fails the test:*
 
 ```
   "product_tree": {
@@ -2961,7 +2961,7 @@ Contradiction groups are:
 
 > Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group, i.e. if it was discoveres that fixed versions introduce a more severe vulnerability.
 
-*Example 41 which fails the test:*
+*Example 42 which fails the test:*
 
 ```
   "product_tree": {
@@ -2998,7 +2998,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores[]
 ```
 
-*Example 42 which fails the test:*
+*Example 43 which fails the test:*
 
 ```
   "product_tree": {
@@ -3052,7 +3052,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3
 ```
 
-*Example 43 which fails the test:*
+*Example 44 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3084,7 +3084,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
 ```
 
-*Example 44 which fails the test:*
+*Example 45 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3110,7 +3110,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3
 ```
 
-*Example 45 which fails the test:*
+*Example 46 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3143,7 +3143,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cwe
 ```
 
-*Example 46 which fails the test:*
+*Example 47 which fails the test:*
 
 ```
   "cwe": {
@@ -3165,7 +3165,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 47 which fails the test:*
+*Example 48 which fails the test:*
 
 ```
   "lang": "TG"
@@ -3185,7 +3185,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/purl
 ```
 
-*Example 48 which fails the test:*
+*Example 49 which fails the test:*
 
 ```
   "product_tree": {
@@ -3212,7 +3212,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 49 which fails the test:*
+*Example 50 which fails the test:*
 
 ```
   "revision_history": [
@@ -3241,7 +3241,7 @@ The relevant path for this test is:
     /document/source_lang
 ```
 
-*Example 50 which fails the test:*
+*Example 51 which fails the test:*
 
 ```
   "document": {
@@ -3267,7 +3267,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 51 which fails the test:*
+*Example 52 which fails the test:*
 
 ```
   "tracking": {
@@ -3300,7 +3300,7 @@ The relevant path for this test is:
     /document/tracking/status
 ```
 
-*Example 52 which fails the test:*
+*Example 53 which fails the test:*
 
 ```
     "tracking": {
@@ -3322,7 +3322,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 53 which fails the test:*
+*Example 54 which fails the test:*
 
 ```
     "tracking": {
@@ -3356,7 +3356,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 54 which fails the test:*
+*Example 55 which fails the test:*
 
 ```
     "revision_history": [
@@ -3385,7 +3385,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 55 which fails the test:*
+*Example 56 which fails the test:*
 
 ```
     "tracking": {
@@ -3407,7 +3407,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 56 which fails the test:*
+*Example 57 which fails the test:*
 
 ```
   "revision_history": [
@@ -3436,7 +3436,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 57 which fails the test:*
+*Example 58 which fails the test:*
 
 ```
   "revision_history": [
@@ -3465,7 +3465,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cve
 ```
 
-*Example 58 which fails the test:*
+*Example 59 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3490,7 +3490,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 59 which fails the test:*
+*Example 60 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3525,7 +3525,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 60 which fails the test:*
+*Example 61 which fails the test:*
 
 ```
   "product_tree": {
@@ -3569,7 +3569,7 @@ The relevant path for this test is:
   /document/category
 ```
 
-*Examples 61 for currently prohibited values:*
+*Examples 62 for currently prohibited values:*
 
 ```
   Informational Advisory
@@ -3578,7 +3578,7 @@ The relevant path for this test is:
   veX
 ```
 
-*Example 62 which fails the test:*
+*Example 63 which fails the test:*
 
 ```
   "category": "Security_Incident_Response"
@@ -3609,7 +3609,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 63 which fails the test:*
+*Example 64 which fails the test:*
 
 ```
   "notes": [
@@ -3640,7 +3640,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 64 which fails the test:*
+*Example 65 which fails the test:*
 
 ```
   "references": [
@@ -3670,7 +3670,7 @@ The relevant path for this test is:
   /vulnerabilities
 ```
 
-*Example 65 which fails the test:*
+*Example 66 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3701,7 +3701,7 @@ The relevant path for this test is:
   /product_tree
 ```
 
-*Example 66 which fails the test:*
+*Example 67 which fails the test:*
 
 ```
   {
@@ -3733,7 +3733,7 @@ The relevant path for this test is:
   /vulnerabilities[]/notes
 ```
 
-*Example 67 which fails the test:*
+*Example 68 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3761,7 +3761,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 68 which fails the test:*
+*Example 69 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3792,7 +3792,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation
 ```
 
-*Example 69 which fails the test:*
+*Example 70 which fails the test:*
 
 ```
   "product_status": {
@@ -3824,7 +3824,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/id
 ```
 
-*Example 70 which fails the test:*
+*Example 71 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3852,7 +3852,7 @@ The relevant path for this test is:
   /vulnerabilities[]/threats
 ```
 
-*Example 71 which fails the test:*
+*Example 72 which fails the test:*
 
 ```
   "product_tree": {
@@ -3922,7 +3922,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations
 ```
 
-*Example 72 which fails the test:*
+*Example 73 which fails the test:*
 
 ```
   "product_tree": {
@@ -3995,7 +3995,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 73 which fails the test:*
+*Example 74 which fails the test:*
 
 ```
   "product_tree": {
@@ -4027,7 +4027,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation[]
 ```
 
-*Example 74 which fails the test:*
+*Example 75 which fails the test:*
 
 ```
   "product_tree": {
@@ -4063,7 +4063,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
 ```
 
-*Example 75 which fails the test:*
+*Example 76 which fails the test:*
 
 ```
   "product_tree": {
@@ -4097,7 +4097,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 76 which fails the test:*
+*Example 77 which fails the test:*
 
 ```
     "revision_history": [
@@ -4121,7 +4121,7 @@ The relevant path for this test is:
     /document/tracking/initial_release_date
 ```
 
-*Example 77 which fails the test:*
+*Example 78 which fails the test:*
 
 ```
     "tracking": {
@@ -4155,7 +4155,7 @@ The relevant path for this test is:
     /document/tracking/current_release_date
 ```
 
-*Example 78 which fails the test:*
+*Example 79 which fails the test:*
 
 ```
     "tracking": {
@@ -4189,7 +4189,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 79 which fails the test:*
+*Example 80 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4219,7 +4219,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 80 which fails the test:*
+*Example 81 which fails the test:*
 
 ```
   "product_tree": {
@@ -4261,7 +4261,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 81 which fails the test:*
+*Example 82 which fails the test:*
 
 ```
   "product_tree": {
@@ -4301,7 +4301,7 @@ The relevant path for this test is:
   /document/distribution/tlp/label
 ```
 
-*Example 82 which fails the test:*
+*Example 83 which fails the test:*
 
 ```
   "document": {
@@ -4331,7 +4331,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 83 which fails the test:*
+*Example 84 which fails the test:*
 
 ```
   "document": {
@@ -4366,7 +4366,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 84 which fails the test:*
+*Example 85 which fails the test:*
 
 ```
   "document": {
@@ -4394,7 +4394,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores
 ```
 
-*Example 85 which fails the test:*
+*Example 86 which fails the test:*
 
 ```
   "product_tree": {
@@ -4440,7 +4440,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/vectorString
 ```
 
-*Example 86 which fails the test:*
+*Example 87 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -4469,7 +4469,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 87 which fails the test:*
+*Example 88 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4495,7 +4495,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 88 which fails the test:*
+*Example 89 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4520,7 +4520,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 89 which fails the test*:
+*Example 90 which fails the test*:
 
 ```
   "product_tree": {
@@ -4579,7 +4579,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 90 which fails the test:*
+*Example 91 which fails the test:*
 
 ```
   "references": [
@@ -4604,7 +4604,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 91 which fails the test:*
+*Example 92 which fails the test:*
 
 ```
   "references": [
@@ -4662,7 +4662,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 92 which fails the test:*
+*Example 93 which fails the test:*
 
 ```
   "document": {
@@ -4726,7 +4726,7 @@ In the security.txt there MUST be at least one field `CSAF` which points to eith
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
 
-*Examples 93:*
+*Examples 94:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/
@@ -4738,7 +4738,7 @@ CSAF: https://domain.tld/security/csaf/csaf-service.json
 
 The URL path `/.well-known/csaf-service.json` under the main domain of the issuing authority serves directly the ROLIE service document according to requirement 15. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-*Example 94:*
+*Example 95:*
 
 ```
   https://www.example.com/.well-known/csaf-service.json
@@ -4748,7 +4748,7 @@ The URL path `/.well-known/csaf-service.json` under the main domain of the issui
 
 The URL path `/.well-known/csaf/` under the main domain of the issuing authority serves a directory with CSAF files according to requirement 11 to 14. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-*Example 95:*
+*Example 96:*
 
 ```
   https://www.example.com/.well-known/csaf/
@@ -4762,7 +4762,7 @@ The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver whic
 
 The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
-*Examples 96:*
+*Examples 97:*
 
 ```
 2021
@@ -4773,7 +4773,7 @@ The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 97:*
+*Examples 98:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -4787,7 +4787,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 98:*
+*Examples 99:*
 
 ```
 2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
@@ -4804,7 +4804,7 @@ Directory listing SHALL be enabled to support manual navigation.
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
-**Example 99:**
+**Example 100:**
 
 ``` 
 TODO: Provide EXAMPLE 99 for ROLIE service document
@@ -4820,7 +4820,7 @@ All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed
 
 MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
 
-*Example 100:*
+*Example 101:*
 
 ```
 {
@@ -4871,7 +4871,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
-**Example 101:**
+*Example 102:*
 
 ``` 
 TODO: Provide EXAMPLE 101 for ROLIE category document
@@ -4883,7 +4883,7 @@ All CSAF documents SHALL have at least one hash file computed with a secure cryp
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 102:*
+*Example 103:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -4893,7 +4893,7 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
 
 The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 103:*
+*Example 104:*
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
@@ -4903,7 +4903,7 @@ ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_compan
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
-*Example 104:*
+*Example 105:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
