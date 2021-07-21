@@ -3332,12 +3332,12 @@ The relevant path for this test is:
       // ...
       "revision_history": [
         {
-          "date": "2021-04-17T10:00:00.000Z",
+          "date": "2021-05-17T10:00:00.000Z",
           "number": "0",
           "summary": "First draft"
         },
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2021-07-21T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         }
