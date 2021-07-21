@@ -3249,10 +3249,11 @@ The relevant path for this test is:
     // ...
     "publisher": {
       "category": "translator",
-      "name": "CSAF TC Translator"
+      "name": "CSAF TC Translator",
+      "namespace": "https://csaf.io/translator"
     },
+    "source_lang": "",
     // ...
-    "source_lang": ""
   }
 ```
 
