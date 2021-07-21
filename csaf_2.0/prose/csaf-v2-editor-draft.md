@@ -556,7 +556,7 @@ The properties are: `names`, `organization`, `summary`, and `urls`.
 List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person.
 
-*Examples 1*:
+*Examples 1:*
 
 ```
     Albert Einstein
@@ -567,7 +567,7 @@ Every such item of value type `string` with 1 or more characters represents the 
 
 The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of the contributing organization being recognized.
 
-*Examples 2*:
+*Examples 2:*
 
 ```
     CISA
@@ -579,7 +579,7 @@ The contributing organization (`organization`) has value type `string` with 1 or
 
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.
 
-*Example 3*:
+*Example 3:*
 
 ```
     First analysis of Coordinated Multi-Stream Attack (CMSA)
@@ -593,7 +593,7 @@ Value type is string with format URI (`uri`).
 
 ##### 3.1.1.5 Acknowledgments Type - Example
 
-*Example 4*:
+*Example 4:*
 
 ```
 "acknowledgments": [
@@ -717,7 +717,7 @@ The value `vendor` indicates the name of the vendor or manufacturer that makes t
 
 Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
 
-*Examples 5*:
+*Examples 5:*
 
 ```
     10
@@ -761,7 +761,7 @@ The properties `name` and `product_id` are required. The property `product_ident
 Textual description of the product (`name`) has value type `string` with 1 or more characters.
 The value should be the product's full canonical name, including version number and other attributes, as it would be used in a human-friendly document.
 
-*Examples 6*:
+*Examples 6:*
 
 ```
     Cisco AnyConnect Secure Mobility Client 2.3.185
@@ -869,7 +869,7 @@ Each File hash of value type `object` contains one hash value and algorithm of t
 The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 
-*Examples 7*:
+*Examples 7:*
 
 ```
       blake2b512
@@ -904,7 +904,7 @@ The Value of the cryptographic hash representation (`value`) of value type `stri
 
 The Value of the cryptographic hash attribute contains the cryptographic hash value in hexadecimal representation.
 
-*Examples 8*:
+*Examples 8:*
 
 ```
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
@@ -914,7 +914,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
 
 The filename representation (`filename`) of type `string` with one or more characters contains the name of the file which is identified by the hash values.
 
-*Examples 9*:
+*Examples 9:*
 
 ```
     WINWORD.EXE
@@ -1038,7 +1038,7 @@ Language type (`lang_t`) has value type `string` with `pattern` (regular express
 The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
 See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
-*Examples 10*:
+*Examples 10:*
 
 ```
     de
@@ -1083,7 +1083,7 @@ A Note `object` may provide the optional properties `audience` and `title`.
 
 Audience of note (`audience`) of value type `string` with 1 or more characters indicates who is intended to read it.
 
-*Examples 11*:
+*Examples 11:*
 
 ```
     all
@@ -1123,7 +1123,7 @@ Note contents (`text`) of value type `string` with 1 or more characters holds th
 
 Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
 
-*Examples 12*:
+*Examples 12:*
 
 ```
     Details
@@ -1144,7 +1144,7 @@ There is no predefined or required format for the Product Group ID (`product_gro
     },
 ```
 
-*Examples 13*:
+*Examples 13:*
 
 ```
     CSAFGID-0001
@@ -1178,7 +1178,7 @@ The value is a token required to identify a `full_product_name` so that it can b
     },
 ```
 
-*Examples 14*:
+*Examples 14:*
 
 ```
     CSAFPID-0004
@@ -1266,7 +1266,7 @@ The version specifies a version string to denote clearly the evolution of the co
 
 A CSAF document MUST use only one versioning system.
 
-*Examples 15*:
+*Examples 15:*
 
 ```
     1
@@ -1334,7 +1334,7 @@ The goal of this structure is to provide additional information to the end user 
     1. Precedence MUST be calculated by separating the version into major, minor, patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows: Major, minor, and patch versions are always compared numerically.
 
-       *Example 16*:
+       *Example 16:*
 
        ```
        1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
@@ -1342,7 +1342,7 @@ The goal of this structure is to provide additional information to the end user 
 
     3. When major, minor, and patch are equal, a pre-release version has lower precedence than a normal version:
 
-       *Example 17*:
+       *Example 17:*
 
        ```
        1.0.0-alpha < 1.0.0
@@ -1446,7 +1446,7 @@ The Namespace of aggregate severity (`namespace`) of value type `string` and for
 
 The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
-*Examples 19*:
+*Examples 19:*
 
 ```
     Critical
@@ -1508,7 +1508,7 @@ If both values are present, the TLP information SHOULD be preferred as this aids
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
-*Examples 21*:
+*Examples 21:*
 
 ```
     Copyright 2021, Example Company, All Rights Reserved.
@@ -1550,7 +1550,7 @@ The URL of TLP version (`url`) with value type `string` and format `uri` provide
     https://www.first.org/tlp/
 ```
 
-*Examples 22*:
+*Examples 22:*
 
 ```
     https://www.us-cert.gov/tlp
@@ -1623,7 +1623,7 @@ The value `vendor` indicates developers or maintainers of information system pro
 
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
-*Example 23*:
+*Example 23:*
 
 ```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
@@ -1637,7 +1637,7 @@ Issuing authority (`issuing_authority`) of value type `string` with 1 or more ch
 
 The Name of publisher (`name`) of type `string` contains the name of the issuing party.
 
-*Example 24*:
+*Example 24:*
 
 ```
      BSI
@@ -1658,7 +1658,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 * the updated item in `/document/references[]` which points to the new version of the CSAF document
 * an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Example 25*:
+*Example 25:*
 
 ```
     https://csaf.io
@@ -1685,7 +1685,7 @@ The property MUST be present and set for any CSAF document with the value `trans
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
 
-*Examples 26*:
+*Examples 26:*
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
@@ -1744,7 +1744,7 @@ Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) 
 
 Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a distinct optional alternative ID used to refer to the document.
 
-*Example 27*:
+*Example 27:*
 
 ```
     CVE-2019-12345
@@ -1793,7 +1793,7 @@ Engine of document generation (`engine`) of value type `object` with mandatory p
 
 Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 28*:
+*Examples 28:*
 
 ```
     Red Hat rhsa-to-cvrf
@@ -1805,7 +1805,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 
 > Although it is not formally required, the TC suggests to use a versioning which compatible wth Semantic Versioning as described in the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 29*:
+*Examples 29:*
 
 ```
     0.6.0
@@ -1819,7 +1819,7 @@ Unique identifier for the document (`id`) of value type `string` with 1 or more 
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organisation.
 
-*Examples 30*:
+*Examples 30:*
 
 ```
     Example Company - 2019-YH3234
@@ -1959,7 +1959,7 @@ The product group items are of value type `object` with the 2 mandatory properti
 
 The summary of the product group (`summary`) of type `string` with 1 or more characters gives a short, optional description of the group.
 
-*Examples 31:
+*Examples 31:*
 
 ```
     Products supporting Modbus.
@@ -2132,7 +2132,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 and holds the ID for the weakness associated.
 
-*Examples 32*:
+*Examples 32:*
 
 ```
     CWE-22
@@ -2142,7 +2142,7 @@ and holds the ID for the weakness associated.
 
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
 
-*Examples 33*:
+*Examples 33:*
 
 ```
     Cross-Site Request Forgery (CSRF)
