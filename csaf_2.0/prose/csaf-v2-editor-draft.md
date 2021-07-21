@@ -3413,18 +3413,18 @@ The relevant path for this test is:
 *Example 57 which fails the test:*
 
 ```
-  "revision_history": [
-    {
-      "date": "2021-04-22T10:00:00.000Z",
-      "number": "1",
-      "summary": "Initial version."
-    },
-    {
-      "date": "2021-07-21T10:00:00.000Z",
-      "number": "3",
-      "summary": "Some other changes."
-    }
-  ]
+    "revision_history": [
+      {
+        "date": "2021-04-22T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-07-21T10:00:00.000Z",
+        "number": "3",
+        "summary": "Some other changes."
+      }
+    ]
 ```
 
 > The item for version `2` is missing.
@@ -3442,18 +3442,18 @@ The relevant path for this test is:
 *Example 58 which fails the test:*
 
 ```
-  "revision_history": [
-    {
-      "date": "2021-04-22T10:00:00.000Z",
-      "number": "1",
-      "summary": "Initial version."
-    },
-    {
-      "date": "2021-04-23T10:00:00.000Z",
-      "number": "1",
-      "summary": "Some other changes."
-    }
-  ]
+   "revision_history": [
+      {
+        "date": "2021-07-20T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-07-21T10:00:00.000Z",
+        "number": "1",
+        "summary": "Some other changes."
+      }
+    ]
 ```
 
 > The revision history contains two items with the version number `1`.
