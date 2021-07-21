@@ -2824,13 +2824,13 @@ Example which fails the test:
     ],
     "relationships": [
       {
-        "category": "installed_on"
+        "category": "installed_on",
         "full_product_name": {
           "name": "Product B",
           "product_id": "CSAFPID-9080701"
         },
         "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701",
+        "relates_to_product_reference": "CSAFPID-9080701"
       }
     ]
   }
@@ -3101,7 +3101,7 @@ Example which fails the test:
 
 ### 6.1.10 Inconsistent CVSS
 
-It must be tested that the given CVSS properties do not contratict the CVSS vector.
+It must be tested that the given CVSS properties do not contradict the CVSS vector.
 
 The relevant paths for this test are:
 
@@ -3191,10 +3191,11 @@ Example which fails the test:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "purl": "pkg:ExampleLibrary.Common@4.2.1337"
+        }
       }
     ]
   }
