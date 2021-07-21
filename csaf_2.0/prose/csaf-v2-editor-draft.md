@@ -1039,7 +1039,7 @@ The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
 See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
 > CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they SHOULD not be used to ensure readability across the ecosystem.
-> It is recommended to follow the conventions for the capitalization of some of the subtags even though it is not mandatory as some implementations might strictly check on the registered subtags in a case sensitive manner.
+> It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
 Examples:
 
