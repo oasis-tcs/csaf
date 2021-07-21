@@ -3512,6 +3512,7 @@ The relevant path for this test is:
         }
       ]
     }
+  ]
 ```
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
