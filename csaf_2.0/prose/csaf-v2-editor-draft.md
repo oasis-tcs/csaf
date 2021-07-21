@@ -3176,6 +3176,8 @@ The relevant paths for this test are:
 
 > `EZ` is not a valid language. It is the subtag for the region "Eurozone".
 
+> For any deprecated subtag, a tool MAY replace it with its preferred value as a quick fix.
+
 ### 6.1.13 PURL
 
 It must be tested that given PURL is valid.
