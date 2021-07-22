@@ -195,7 +195,7 @@
     "publisher": {
       "title": "Publisher",
       "description": "Provides information about the publisher of the CSAF documents in this repository.",
-      "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json#/properties/document/publisher"
+      "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json#/properties/document/properties/publisher"
     },
     "role": {
       "title": "Role of the issuing party",
