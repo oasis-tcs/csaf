@@ -932,9 +932,13 @@
                 "$ref": "#/$defs/full_product_name_t"
               },
               "product_reference": {
+                "title": "Product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.",
                 "$ref": "#/$defs/product_id_t"
               },
               "relates_to_product_reference": {
+                "title": "Relates to product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
                 "$ref": "#/$defs/product_id_t"
               }
             }

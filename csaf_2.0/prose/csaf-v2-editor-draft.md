@@ -2034,9 +2034,9 @@ The value `optional_component_of` indicates that the entity labeled with one Pro
 
 Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
 
-Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
+Product Reference (`product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.
 
-Relates to Product Reference (`relates_to_product_reference`) holds also a Product ID (`product_id_t`) value.
+Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.
 
 ### 3.2.3 Vulnerabilities Property
 
