@@ -604,8 +604,8 @@
           "$ref": "#/$defs/lang_t"
         },
         "notes": {
-          "title": "Notes associated with the whole document.",
-          "description": "Holds notes about this set of vulnerabilities.",
+          "title": "Document notes",
+          "description": "Holds notes associated with the whole document.",
           "$ref": "#/$defs/notes_t"
         },
         "publisher": {

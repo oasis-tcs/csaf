@@ -1566,7 +1566,7 @@ Document language (`lang`) of Language Type (`lang_t`) identifies the language u
 
 #### 3.2.1.7 Document Property - Notes
 
-Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) holds notes about this set of vulnerabilities.
+Document notes (`notes`) of Notes Type (`notes_t`) holds notes associated with the whole document.
 
 #### 3.2.1.8 Document Property - Publisher
 
