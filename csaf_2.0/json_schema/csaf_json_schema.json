@@ -1143,6 +1143,8 @@
             }
           },
           "references": {
+            "title": "Vulnerability references",
+            "description": "Holds a list of references associated with this vulnerability item.",
             "$ref": "#/$defs/references_t"
           },
           "release_date": {

@@ -2361,7 +2361,13 @@ Under investigation (`under_investigation`) of value type Products (`products_t`
 
 #### 3.2.3.9 Vulnerabilities Property - References
 
-References (`references`) have value type References (`references_t`).
+Vulnerability references (`references`) of References Type (`references_t`) holds a list of references associated with this vulnerability item.
+
+```
+    "references": {
+      // ...
+    },
+```
 
 #### 3.2.3.10 Vulnerabilities Property - Release Date
 
