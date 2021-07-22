@@ -1057,7 +1057,7 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type `No
 
 ```
     "notes_t": {
-      // ..
+      // ...
       "items": {
         // ...
       }
@@ -1567,6 +1567,12 @@ Document language (`lang`) of Language Type (`lang_t`) identifies the language u
 #### 3.2.1.7 Document Property - Notes
 
 Document notes (`notes`) of Notes Type (`notes_t`) holds notes associated with the whole document.
+
+```
+    "notes": {
+      // ...
+    },
+```
 
 #### 3.2.1.8 Document Property - Publisher
 
@@ -2287,7 +2293,13 @@ Summary of involvement (`summary`) of value type `string` with 1 or more charact
 
 #### 3.2.3.7 Vulnerabilities Property - Notes
 
-Notes (`notes`) have value type Notes (`notes_t`).
+Vulnerability notes (`notes`) of Notes Type (`notes_t`) holds notes associated with this vulnerability item.
+
+```
+    "notes": {
+      // ...
+    },
+```
 
 #### 3.2.3.8 Vulnerabilities Property - Product Status
 

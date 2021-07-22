@@ -1090,6 +1090,8 @@
             }
           },
           "notes": {
+            "title": "Vulnerability notes",
+            "description": "Holds notes associated with this vulnerability item.",
             "$ref": "#/$defs/notes_t"
           },
           "product_status": {
