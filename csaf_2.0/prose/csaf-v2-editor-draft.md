@@ -1670,7 +1670,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 
 #### 3.2.1.9 Document Property - References
 
-References (`references`) of References Type (`references_t`).
+Document references (`references`) of References Type (`references_t`) holds a list of references associated with the whole document.
 
 ```
     "references": {

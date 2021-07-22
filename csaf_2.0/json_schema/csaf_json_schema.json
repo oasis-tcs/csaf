@@ -670,6 +670,8 @@
           }
         },
         "references": {
+          "title": "Document references",
+          "description": "Holds a list of references associated with the whole document.",
           "$ref": "#/$defs/references_t"
         },
         "source_lang": {
