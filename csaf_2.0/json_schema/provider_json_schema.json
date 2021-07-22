@@ -119,18 +119,18 @@
                       "$ref": "#/$defs/json_url_t"
                     }
                   }
-                },
-                "services": {
-                  "title": "List of ROLIE service document URLs",
-                  "description": "Contains a list of URLs which contain ROLIE service documents.",
-                  "type": "array",
-                  "minItems": 1,
-                  "uniqueItems": true,
-                  "items": {
-                    "title": "ROLIE service document URL",
-                    "description": "Contains a URL of a ROLIE service document.",
-                    "$ref": "#/$defs/json_url_t"
-                  }
+                }
+              },
+              "services": {
+                "title": "List of ROLIE service document URLs",
+                "description": "Contains a list of URLs which contain ROLIE service documents.",
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "title": "ROLIE service document URL",
+                  "description": "Contains a URL of a ROLIE service document.",
+                  "$ref": "#/$defs/json_url_t"
                 }
               }
             }
