@@ -1032,11 +1032,14 @@ The URI (`uri`) of value type `string` and format `uri` contains the identifier 
 Language type (`lang_t`) has value type `string` with `pattern` (regular expression):
 
 ```
-    ^[a-zA-Z]{2,3}(-.+)?$
+    ^(([A-Za-z]{2,3}(-[A-Za-z]{3}(-[A-Za-z]{3}){0,2})?|[A-Za-z]{4,8})(-[A-Za-z]{4})?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-[A-WY-Za-wy-z0-9](-[A-Za-z0-9]{2,8})+)*(-[Xx](-[A-Za-z0-9]{1,8})+)?|[Xx](-[A-Za-z0-9]{1,8})+|[Ii]-[Dd][Ee][Ff][Aa][Uu][Ll][Tt]|[Ii]-[Mm][Ii][Nn][Gg][Oo])$
 ```
 
 The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
 See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
+
+> CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they SHOULD not be used to ensure readability across the ecosystem.
+> It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
 *Examples 10:*
 
@@ -2824,13 +2827,13 @@ The relevant path for this test is:
     ],
     "relationships": [
       {
-        "category": "installed_on"
+        "category": "installed_on",
         "full_product_name": {
           "name": "Product B",
           "product_id": "CSAFPID-9080701"
         },
         "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701",
+        "relates_to_product_reference": "CSAFPID-9080701"
       }
     ]
   }
@@ -3101,7 +3104,7 @@ The relevant paths for this test are:
 
 ### 6.1.10 Inconsistent CVSS
 
-It must be tested that the given CVSS properties do not contratict the CVSS vector.
+It must be tested that the given CVSS properties do not contradict the CVSS vector.
 
 The relevant paths for this test are:
 
@@ -3168,10 +3171,12 @@ The relevant paths for this test are:
 *Example 48 which fails the test:*
 
 ```
-  "lang": "TG"
+  "lang": "EZ"
 ```
 
-> `TG` is not a valid language. It is the subtag for the region "Togo".
+> `EZ` is not a valid language. It is the subtag for the region "Eurozone".
+
+> For any deprecated subtag, a tool MAY replace it with its preferred value as a quick fix.
 
 ### 6.1.13 PURL
 
@@ -3191,10 +3196,11 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "purl": "pkg:ExampleLibrary.Common@4.2.1337"
+        }
       }
     ]
   }
@@ -3217,12 +3223,12 @@ The relevant path for this test is:
 ```
   "revision_history": [
     {
-      "date": "2021-04-22T10:00:00.000Z",
+      "date": "2021-07-22T10:00:00.000Z",
       "number": "2",
       "summary": "Second version."
     },
     {
-      "date": "2021-04-23T10:00:00.000Z",
+      "date": "2021-07-23T10:00:00.000Z",
       "number": "1",
       "summary": "Initial version."
     }
@@ -3248,10 +3254,11 @@ The relevant path for this test is:
     // ...
     "publisher": {
       "category": "translator",
-      "name": "CSAF TC Translator"
+      "name": "CSAF TC Translator",
+      "namespace": "https://csaf.io/translator"
     },
+    "source_lang": "",
     // ...
-    "source_lang": ""
   }
 ```
 
@@ -3274,16 +3281,17 @@ The relevant path for this test is:
     // ...
     "revision_history": [
       {
-        "date": "2021-04-23T10:00:00.000Z",
+        "date": "2021-07-21T09:00:00.000Z",
         "number": "1",
         "summary": "Initial version."
       },
       {
-        "date": "2021-04-23T1100:00.000Z",
+        "date": "2021-07-21T10:00:00.000Z",
         "number": "2",
         "summary": "Second version."
       }
     ],
+    // ...
     "version": "1"
   }
 ```
@@ -3329,12 +3337,12 @@ The relevant path for this test is:
       // ...
       "revision_history": [
         {
-          "date": "2021-04-17T10:00:00.000Z",
+          "date": "2021-05-17T10:00:00.000Z",
           "number": "0",
           "summary": "First draft"
         },
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2021-07-21T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         }
@@ -3410,18 +3418,18 @@ The relevant path for this test is:
 *Example 57 which fails the test:*
 
 ```
-  "revision_history": [
-    {
-      "date": "2021-04-22T10:00:00.000Z",
-      "number": "1",
-      "summary": "Initial version."
-    },
-    {
-      "date": "2021-04-23T10:00:00.000Z",
-      "number": "3",
-      "summary": "Some other changes."
-    }
-  ]
+    "revision_history": [
+      {
+        "date": "2021-04-22T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-07-21T10:00:00.000Z",
+        "number": "3",
+        "summary": "Some other changes."
+      }
+    ]
 ```
 
 > The item for version `2` is missing.
@@ -3439,18 +3447,18 @@ The relevant path for this test is:
 *Example 58 which fails the test:*
 
 ```
-  "revision_history": [
-    {
-      "date": "2021-04-22T10:00:00.000Z",
-      "number": "1",
-      "summary": "Initial version."
-    },
-    {
-      "date": "2021-04-23T10:00:00.000Z",
-      "number": "1",
-      "summary": "Some other changes."
-    }
-  ]
+   "revision_history": [
+      {
+        "date": "2021-07-20T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-07-21T10:00:00.000Z",
+        "number": "1",
+        "summary": "Some other changes."
+      }
+    ]
 ```
 
 > The revision history contains two items with the version number `1`.
@@ -3509,6 +3517,7 @@ The relevant path for this test is:
         }
       ]
     }
+  ]
 ```
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
@@ -3531,7 +3540,7 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "hashes": [
@@ -3647,7 +3656,7 @@ The relevant path for this test is:
     {
       "category": "self",
       "summary": "The canonical URL.",
-      "url": "https://example.com/security/data/csaf/2021/ESA-2021-0002.json"
+      "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2_0-2021-6-1-27-02-01.json"
     }
   ]
 ```
@@ -4317,7 +4326,7 @@ The relevant path for this test is:
 
 ### 6.2.11 Missing Canonical URL
 
-It must be tested that the CSAF document has a anonical URL.
+It must be tested that the CSAF document has a canonical URL.
 
 > To implement this test it is demeeded sufficient that one item in `/document/references` fulfills all of the following:
 >
@@ -4915,7 +4924,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
 *Example 101:*
 
 ```
-TODO: Provide EXAMPLE 100 for ROLIE service document
+TODO: Provide EXAMPLE 101 for ROLIE service document
 ```
 
 ### 7.1.17 Requirement 17: ROLIE category document
