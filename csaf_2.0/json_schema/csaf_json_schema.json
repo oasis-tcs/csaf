@@ -496,8 +496,8 @@
       ],
       "properties": {
         "acknowledgments": {
-          "title": "List of document acknowledgments",
-          "description": "Contains a list of acknowledgment elements for the document.",
+          "title": "Document acknowledgments",
+          "description": "Contains a list of acknowledgment elements associated with the whole document.",
           "$ref": "#/$defs/acknowledgments_t"
         },
         "aggregate_severity": {
@@ -954,8 +954,8 @@
         "minProperties": 1,
         "properties": {
           "acknowledgments": {
-            "title": "List of vulnerability acknowledgments",
-            "description": "Contains a list of acknowledgment elements for this vulnerability item.",
+            "title": "Vulnerability acknowledgments",
+            "description": "Contains a list of acknowledgment elements associated with this vulnerability item.",
             "$ref": "#/$defs/acknowledgments_t"
           },
           "cve": {

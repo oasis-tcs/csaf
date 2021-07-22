@@ -1419,7 +1419,7 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
 
 #### 3.2.1.1 Document Property - Acknowledgments
 
-List of document acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements for the document.
+Document acknowledgments (`acknowledgments`) of Acknowledgments Type (`acknowledgments_t`) contains a list of acknowledgment elements associated with the whole document.
 
 ```
     "acknowledgments": {
@@ -2097,7 +2097,13 @@ Any vulnerability may provide the optional properties Acknowledgments (`acknowle
 
 #### 3.2.3.1 Vulnerabilities Property - Acknowledgments
 
-List of vulnerability acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements for this vulnerability item.
+Vulnerability acknowledgments (`acknowledgments`) of Acknowledgments Type (`acknowledgments_t`) contains a list of acknowledgment elements associated with this vulnerability item.
+
+```
+    "acknowledgments": {
+      // ...
+    },
+```
 
 #### 3.2.3.2 Vulnerabilities Property - CVE
 
