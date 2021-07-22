@@ -4736,7 +4736,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 
 **TODO: Point to a place where options and fields are described in details**
 
-*Examples 94: Minimal with ROLIE document*
+*Examples 94 Minimal with ROLIE document:*
 
 ```
   {
