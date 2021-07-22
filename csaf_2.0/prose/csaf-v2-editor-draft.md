@@ -4720,43 +4720,94 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
-### 7.1.7 Requirement 7: security.txt
+### 7.1.7 Requirement 7: provider-metadata.json
 
-In the security.txt there MUST be at least one field `CSAF` which points to either the ROLIE service document or a directory with CSAF files. If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
+The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator should display over any individual `publisher` values in the CSAF documents themselves.
+
+> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consitency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAf documents.
+>
+> It is suggested to put the file `provider-metadata.json` adjacent to the ROLIE feed documents (requirement 15) or in the main directory adjacent to the year folders (requirement 14), `changes.csv` (requirement 13) and the `index.txt` (requirement 12).
+> Suggested locations to store the `provider-metadata.json` are:
+>
+> * https://www.example.com/.well-known/csaf/provider-metadata.json
+> * https://domain.tld/security/data/csaf/provider-metadata.json
+> * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
+> * https://domain.tld/security/csaf/provider-metadata.json
+
+**TODO: Point to a place where options and fields are described in details**
+
+*Examples 94 Minimal with ROLIE document:*
+
+```
+  {
+    "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
+    "distributions": [
+      {
+        "rolie":{
+          "feeds": [
+            {
+              "summary":"All TLP:WHITE advisories of Example Company.",
+              "tlp_label": "WHITE",
+              "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
+            }
+          ]
+        }
+      }
+    ],
+    "last_updated": "2021-07-12T20:20:56.169Z",
+    "list_on_CSAF_aggregators": true,
+    "metadata_version": "2.0",
+    "mirror_on_CSAF_aggregators": true,
+    "pgp_keys": [
+      {
+        "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
+        "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "name": "Example Company ProductCERT",
+      "namespace":"https://psirt.example.com"
+    },
+    "role": "csaf_trusted_provider"
+  }
+```
+
+If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.json`, an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`. If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
+
+```
+    "list_on_CSAF_aggregators": true,
+    "mirror_on_CSAF_aggregators": false
+```
+
+### 7.1.8 Requirement 8: security.txt
+
+In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
-
-*Examples 94:*
-
-```
-CSAF: https://domain.tld/security/data/csaf/
-CSAF: https://psirt.domain.tld/advisories/csaf/
-CSAF: https://domain.tld/security/csaf/csaf-service.json
-```
-
-### 7.1.8 Requirement 8: Well-known URL for Service Document
-
-The URL path `/.well-known/csaf-service.json` under the main domain of the issuing authority serves directly the ROLIE service document according to requirement 15. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
 *Example 95:*
 
 ```
-  https://www.example.com/.well-known/csaf-service.json
+CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
+CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
+CSAF: https://domain.tld/security/csaf/provider-metadata.json
+CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-### 7.1.9 Requirement 9: Well-known URL for directory
+### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json
 
-The URL path `/.well-known/csaf/` under the main domain of the issuing authority serves a directory with CSAF files according to requirement 11 to 14. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
+The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
 *Example 96:*
 
 ```
-  https://www.example.com/.well-known/csaf/
+  https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
 ### 7.1.10 Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the ROLIE service document or a directory with CSAF files.
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year
 
@@ -4800,19 +4851,9 @@ The file changes.csv must contain the filename as well as the value of `/documen
 
 Directory listing SHALL be enabled to support manual navigation.
 
-### 7.1.15 Requirement 15: ROLIE service document
+### 7.1.15 Requirement 15: ROLIE feed
 
-Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. The ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
-
-*Example 100:*
-
-``` 
-TODO: Provide EXAMPLE 100 for ROLIE service document
-```
-
-### 7.1.16 Requirement 16: ROLIE feed
-
-All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
+Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
 
 * TLP:WHITE
 * TLP:GREEN
@@ -4820,7 +4861,7 @@ All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed
 
 MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
 
-*Example 101:*
+*Example 100:*
 
 ```
 {
@@ -4867,13 +4908,23 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 }
 ```
 
+### 7.1.16 Requirement 16: ROLIE service document
+
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
+
+*Example 101:*
+
+```
+TODO: Provide EXAMPLE 100 for ROLIE service document
+```
+
 ### 7.1.17 Requirement 17: ROLIE category document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
 *Example 102:*
 
-``` 
+```
 TODO: Provide EXAMPLE 102 for ROLIE category document
 ```
 
@@ -4914,9 +4965,128 @@ File name of signature file: example_company_-_2019-yh3234.json.asc
 
 The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
 
+### 7.1.21 Requirement 21: List of CSAF providers
+
+The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
+
+> Suggested locations to store the `aggregator.json` are:
+>
+> * https://www.example.com/.well-known/csaf-aggregator/aggregator.json
+> * https://domain.tld/security/data/aggregator/csaf/aggregator.json
+> * https://psirt.domain.tld/advisories/aggregator/csaf/aggregator.json
+> * https://domain.tld/security/aggregator/csaf/aggregator.json
+
+The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
+
+Example:
+
+```
+  {
+    "aggregator": {
+      "category": "lister",
+      "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
+      "issuing_authority": "This service is provided as it is. It is free for everybody.",
+      "name": "Example CSAF Lister",
+      "namespace": "https://lister.example"
+    },
+    "aggregator_version": "2.0",
+    "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
+    "csaf_providers": [
+      {
+        "metadata": {
+          "last_updated": "2021-07-12T20:20:56.169Z",
+          "publisher": {
+            "category": "vendor",
+            "name": "Example Company ProductCERT",
+            "namespace": "https://psirt.example.com"
+          },
+          "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
+        }
+      },
+      {
+        "metadata": {
+          "last_updated": "2021-07-12T21:35:38.000Z",
+          "publisher": {
+            "category": "coordinator",
+            "name": "Example Coordinator CERT",
+            "namespace": "https://cert.example"
+          },
+          "url": "https://cert.example/advisories/csaf/provider-metadata.json"
+        }
+      }
+    ],
+    "last_updated":"2021-07-12T22:35:38.978Z"
+  }
+```
+
+### 7.1.22 Requirement 22: Two disjoint issuing parties
+
+The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers) or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
+
+### 7.1.23 Requirement 23: Mirror
+
+The CSAF documents for each issuing party that is mirrored MUST be in a different folder. The folder name SHOULD be retrieved from the name of the issuing authority. This folders MUST be adjacent to the `aggregator.json` (requirement 21). Each such folder MUST at least:
+
+* provide a `provider-metadata.json` for the current issuing party.
+* provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
+
+Example:
+
+```
+  {
+    "aggregator": {
+      "category": "aggregator",
+      "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
+      "issuing_authority": "This service is provided as it is. It is free for everybody.",
+      "name": "Example Aggregator",
+      "namespace": "https://aggregator.example"
+    },
+    "aggregator_version": "2.0",
+    "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
+    "csaf_providers": [
+      {
+        "metadata": {
+          "last_updated": "2021-07-12T20:20:56.169Z",
+          "publisher": {
+            "category": "vendor",
+            "name": "Example Company ProductCERT",
+            "namespace": "https://psirt.example.com"
+          },
+          "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
+        },
+        "mirrors": [
+          "https://aggregator.example/.well-known/csaf-aggregator/Example_Company_ProductCERT/provider-metadata.json"
+        ]
+      },
+      {
+        "metadata": {
+          "last_updated": "2021-07-12T21:35:38.000Z",
+          "publisher": {
+            "category": "coordinator",
+            "name": "Example Coordinator CERT",
+            "namespace": "https://cert.example"
+          },
+          "url": "https://cert.example/advisories/csaf/provider-metadata.json"
+        },
+        "mirrors": [
+          "https://aggregator.example/.well-known/csaf-aggregator/Example_Coordinator_CERT/provider-metadata.json"
+        ]
+      }
+    ],
+    "last_updated":"2021-07-12T22:35:38.978Z"
+  }
+```
+
 ## 7.2 Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their supplieres to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
+
+The roles "CSAF publisher", "CSAF provider", and "CSAF trusted provider" are intended directly for issuing parties and form the first group. The second group consists of the roles "CSAF lister" and "CSAF aggregator". They collect data from the aforementioned issuing parties of the first group and provide them in a single place to aid in automation. Parties of the second group can also issue their own advisories. However, they MUST follow the rules for the first group for that.
+
+Both, a CSAF lister and a CSAF aggregator, decide based on their own rules which issuing parties to list respectively to mirror. However, an issuing party may apply to be listed or mirrored.
+
+> Issuing parties MUST indicate through the value `false` in `list_on_CSAF_aggregators` if they do not want to be listed.
+> Issuing parties MUST indicate through the value `false` in `mirror_on_CSAF_aggregators` if they do not want to be mirrored.
 
 ### 7.2.1 Role: CSAF publisher
 
@@ -4932,25 +5102,46 @@ A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the fo
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 5 and 6 in section 7.1.
+* additionally satisfies the requirements 5 to 7 in section 7.1.
 
 Secondly, the party:
 
-* satisfies at least one of the requirements 7 to 10 in section 7.1.
+* satisfies at least one of the requirements 8 to 10 in section 7.1.
 
 Thirdly, the party:
 
-* satisfies the requirements 11 to 14 in section 6.1 or requirements 15 to 17 in section 7.1.
+* satisfies the requirements 11 to 14 in section 7.1 or requirements 15 to 17 in section 7.1.
 
-> If the party satisfies requirement 8, it MUST also satisfy requirements 15 to 17. If it satisfies requirement 9, it MUST also satisfy requirements 11 to 14.
+> If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17. If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
 
 ### 7.2.3 Role: CSAF trusted provider
 
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-
 * additionally satisfies the requirements 18 to 20 in section 7.1.
+
+### 7.2.4 Role: CSAF lister
+
+A distributing party satisfies the "CSAF lister" role if the party:
+
+* satisfies the requirements 21 and 22 in section 7.1.
+* uses the value `lister` for `/aggregator/category`.
+* does not list any mirror pointing to a domain under its own control.
+
+> The purpose of this role is to provide a list of URLs where to find CSAF documents. It is not assumed that the list will be complete.
+
+### 7.2.5 Role: CSAF aggregator
+
+A distributing party satisfies the "CSAF aggregator" role if the party:
+
+* satisfies the requirements 21 to 23 in section 7.1.
+* uses the value `aggregator` for `/aggregator/category`.
+* lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
+
+> The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
+> CSAF aggregators can be provided for free or as a paid service.
+> To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
 
 # 8 Safety, Security, and Data Protection Considerations
 
