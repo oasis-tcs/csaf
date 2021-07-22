@@ -3073,6 +3073,8 @@ The relevant paths for this test are:
 
 It must be tested that the given CVSS object has the values computed correctly according to the definition.
 
+> The `vectorString` SHOULD take precedence.
+
 The relevant paths for this test are:
 
 ```
