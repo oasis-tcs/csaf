@@ -1,10 +1,10 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
   "title": "Common Security Advisory Framework",
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
-  "definitions": {
+  "$defs": {
     "acknowledgments_t": {
       "title": "List of acknowledgments",
       "description": "Contains a list of acknowledgment elements.",
@@ -27,8 +27,8 @@
               "type": "string",
               "minLength": 1,
               "examples": [
-                "Johann Sebastian Bach",
-                "Albert Einstein"
+                "Albert Einstein",
+                "Johann Sebastian Bach"
               ]
             }
           },
@@ -39,8 +39,8 @@
             "minLength": 1,
             "examples": [
               "CISA",
-              "Talos",
-              "Google Project Zero"
+              "Google Project Zero",
+              "Talos"
             ]
           },
           "summary": {
@@ -84,7 +84,7 @@
         ],
         "properties": {
           "branches": {
-            "$ref": "#/definitions/branches_t"
+            "$ref": "#/$defs/branches_t"
           },
           "category": {
             "title": "Category of the branch",
@@ -110,18 +110,18 @@
             "type": "string",
             "minLength": 1,
             "examples": [
-              "Microsoft",
-              "Siemens",
-              "Windows",
-              "Office",
-              "SIMATIC",
               "10",
               "365",
-              "PCS 7"
+              "Microsoft",
+              "Office",
+              "PCS 7",
+              "SIMATIC",
+              "Siemens",
+              "Windows"
             ]
           },
           "product": {
-            "$ref": "#/definitions/full_product_name_t"
+            "$ref": "#/$defs/full_product_name_t"
           }
         }
       }
@@ -141,19 +141,19 @@
           "type": "string",
           "minLength": 1,
           "examples": [
-            "Microsoft Host Integration Server 2006 Service Pack 1",
-            "Cisco AnyConnect Secure Mobility Client 2.3.185"
+            "Cisco AnyConnect Secure Mobility Client 2.3.185",
+            "Microsoft Host Integration Server 2006 Service Pack 1"
           ]
         },
         "product_id": {
-          "$ref": "#/definitions/product_id_t"
+          "$ref": "#/$defs/product_id_t"
         },
         "product_identification_helper": {
           "title": "Helper to identify the product",
           "description": "Provides at least one method which aids in identifying the product in an asset database.",
           "type": "object",
           "minProperties": 1,
-          "properties": { 
+          "properties": {
             "cpe": {
               "$comment": "TODO: This should have a full regular expression to enforce CPE syntax.",
               "title": "Common Platform Enumeration representation",
@@ -197,11 +197,11 @@
                           "default": "sha256",
                           "minLength": 1,
                           "examples": [
+                            "blake2b512",
                             "sha256",
-                            "sha384",
-                            "sha512",
                             "sha3-512",
-                            "blake2b512"
+                            "sha384",
+                            "sha512"
                           ]
                         },
                         "value": {
@@ -211,9 +211,9 @@
                           "minLength": 32,
                           "pattern": "^[0-9a-fA-F]{32,}$",
                           "examples": [
+                            "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3",
                             "4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc",
-                            "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c",
-                            "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3"
+                            "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c"
                           ]
                         }
                       }
@@ -254,7 +254,6 @@
               }
             },
             "serial_numbers": {
-              "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.",
               "title": "List of serial numbers",
               "description": "Contains a list of parts, or full serial numbers.",
               "type": "array",
@@ -316,7 +315,7 @@
       "title": "Language type",
       "description": "Identifies a language, corresponding to IETF BCP 47 / RFC 5646. See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
       "type": "string",
-      "pattern": "^[a-zA-Z]{2,3}(-.+)?$",
+      "pattern": "^(([A-Za-z]{2,3}(-[A-Za-z]{3}(-[A-Za-z]{3}){0,2})?|[A-Za-z]{4,8})(-[A-Za-z]{4})?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-[A-WY-Za-wy-z0-9](-[A-Za-z0-9]{2,8})+)*(-[Xx](-[A-Za-z0-9]{1,8})+)?|[Xx](-[A-Za-z0-9]{1,8})+|[Ii]-[Dd][Ee][Ff][Aa][Uu][Ll][Tt]|[Ii]-[Mm][Ii][Nn][Gg][Oo])$",
       "examples": [
         "de",
         "en",
@@ -404,7 +403,7 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "$ref": "#/definitions/product_group_id_t"
+        "$ref": "#/$defs/product_group_id_t"
       }
     },
     "product_id_t": {
@@ -424,7 +423,7 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "$ref": "#/definitions/product_id_t"
+        "$ref": "#/$defs/product_id_t"
       }
     },
     "references_t": {
@@ -497,7 +496,9 @@
       ],
       "properties": {
         "acknowledgments": {
-          "$ref": "#/definitions/acknowledgments_t"
+          "title": "Document acknowledgments",
+          "description": "Contains a list of acknowledgment elements associated with the whole document.",
+          "$ref": "#/$defs/acknowledgments_t"
         },
         "aggregate_severity": {
           "title": "Aggregate severity",
@@ -519,9 +520,9 @@
               "type": "string",
               "minLength": 1,
               "examples": [
-                "Moderate",
+                "Critical",
                 "Important",
-                "Critical"
+                "Moderate"
               ]
             }
           }
@@ -558,9 +559,9 @@
               "type": "string",
               "minLength": 1,
               "examples": [
-                "Share only on a need-to-know-basis only.",
+                "Copyright 2021, Example Company, All Rights Reserved.",
                 "Distribute freely.",
-                "Copyright 2019, Example Company, All Rights Reserved."
+                "Share only on a need-to-know-basis only."
               ]
             },
             "tlp": {
@@ -576,9 +577,9 @@
                   "description": "Provides the TLP label of the document.",
                   "type": "string",
                   "enum": [
-                    "RED",
                     "AMBER",
                     "GREEN",
+                    "RED",
                     "WHITE"
                   ]
                 },
@@ -600,12 +601,12 @@
         "lang": {
           "title": "Document language",
           "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.",
-          "$ref": "#/definitions/lang_t"
+          "$ref": "#/$defs/lang_t"
         },
         "notes": {
-          "title": "Notes associated with the whole document.",
-          "description": "Holds notes about this set of vulnerabilities.",
-          "$ref": "#/definitions/notes_t"
+          "title": "Document notes",
+          "description": "Holds notes associated with the whole document.",
+          "$ref": "#/$defs/notes_t"
         },
         "publisher": {
           "title": "Publisher",
@@ -662,19 +663,21 @@
               "type": "string",
               "format": "uri",
               "examples": [
-                "https://www.example.com",
-                "https://csaf.io"
+                "https://csaf.io",
+                "https://www.example.com"
               ]
             }
           }
         },
         "references": {
-          "$ref": "#/definitions/references_t"
+          "title": "Document references",
+          "description": "Holds a list of references associated with the whole document.",
+          "$ref": "#/$defs/references_t"
         },
         "source_lang": {
           "title": "Source language",
           "description": "If this copy of the document is a translation then the value of this property describes from which language this document was translated.",
-          "$ref": "#/definitions/lang_t"
+          "$ref": "#/$defs/lang_t"
         },
         "title": {
           "title": "Title of this document",
@@ -682,8 +685,8 @@
           "type": "string",
           "minLength": 1,
           "examples": [
-            "Example Company Cross-Site-Scripting Vulnerability in Example Generator",
-            "Cisco IPv6 Crafted Packet Denial of Service Vulnerability"
+            "Cisco IPv6 Crafted Packet Denial of Service Vulnerability",
+            "Example Company Cross-Site-Scripting Vulnerability in Example Generator"
           ]
         },
         "tracking": {
@@ -761,8 +764,8 @@
                       "minLength": 1,
                       "examples": [
                         "0.6.0",
-                        "2",
-                        "1.0.0-beta+exp.sha.a1c44f85"
+                        "1.0.0-beta+exp.sha.a1c44f85",
+                        "2"
                       ]
                     }
                   }
@@ -808,7 +811,7 @@
                     "format": "date-time"
                   },
                   "number": {
-                    "$ref": "#/definitions/version_t"
+                    "$ref": "#/$defs/version_t"
                   },
                   "summary": {
                     "title": "Summary of the revision",
@@ -833,7 +836,7 @@
               ]
             },
             "version": {
-              "$ref": "#/definitions/version_t"
+              "$ref": "#/$defs/version_t"
             }
           }
         }
@@ -846,7 +849,7 @@
       "minProperties": 1,
       "properties": {
         "branches": {
-          "$ref": "#/definitions/branches_t"
+          "$ref": "#/$defs/branches_t"
         },
         "full_product_names": {
           "title": "List of full product names",
@@ -854,7 +857,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/full_product_name_t"
+            "$ref": "#/$defs/full_product_name_t"
           }
         },
         "product_groups": {
@@ -872,7 +875,7 @@
             ],
             "properties": {
               "group_id": {
-                "$ref": "#/definitions/product_group_id_t"
+                "$ref": "#/$defs/product_group_id_t"
               },
               "product_ids": {
                 "title": "List of Product IDs",
@@ -881,7 +884,7 @@
                 "minItems": 2,
                 "uniqueItems": true,
                 "items": {
-                  "$ref": "#/definitions/product_id_t"
+                  "$ref": "#/$defs/product_id_t"
                 }
               },
               "summary": {
@@ -890,8 +893,8 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "The x64 versions of the operating system.",
-                  "Products supporting Modbus."
+                  "Products supporting Modbus.",
+                  "The x64 versions of the operating system."
                 ]
               }
             }
@@ -926,13 +929,17 @@
                 ]
               },
               "full_product_name": {
-                "$ref": "#/definitions/full_product_name_t"
+                "$ref": "#/$defs/full_product_name_t"
               },
               "product_reference": {
-                "$ref": "#/definitions/product_id_t"
+                "title": "Product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.",
+                "$ref": "#/$defs/product_id_t"
               },
               "relates_to_product_reference": {
-                "$ref": "#/definitions/product_id_t"
+                "title": "Relates to product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
+                "$ref": "#/$defs/product_id_t"
               }
             }
           }
@@ -951,7 +958,9 @@
         "minProperties": 1,
         "properties": {
           "acknowledgments": {
-            "$ref": "#/definitions/acknowledgments_t"
+            "title": "Vulnerability acknowledgments",
+            "description": "Contains a list of acknowledgment elements associated with this vulnerability item.",
+            "$ref": "#/$defs/acknowledgments_t"
           },
           "cve": {
             "title": "CVE",
@@ -974,9 +983,9 @@
                 "type": "string",
                 "pattern": "^CWE-[1-9]\\d{0,5}$",
                 "examples": [
-                  "CWE-79",
                   "CWE-22",
-                  "CWE-352"
+                  "CWE-352",
+                  "CWE-79"
                 ]
               },
               "name": {
@@ -985,9 +994,9 @@
                 "type": "string",
                 "minLength": 1,
                 "examples": [
-                  "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                  "Cross-Site Request Forgery (CSRF)",
                   "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
-                  "Cross-Site Request Forgery (CSRF)"
+                  "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
                 ]
               }
             }
@@ -1085,7 +1094,9 @@
             }
           },
           "notes": {
-            "$ref": "#/definitions/notes_t"
+            "title": "Vulnerability notes",
+            "description": "Holds notes associated with this vulnerability item.",
+            "$ref": "#/$defs/notes_t"
           },
           "product_status": {
             "title": "Product status",
@@ -1096,47 +1107,49 @@
               "first_affected": {
                 "title": "First affected",
                 "description": "These are the first versions of the releases known to be affected by the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "first_fixed": {
                 "title": "First fixed",
                 "description": "These versions contain the first fix for the vulnerability but may not be the recommended fixed versions.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "fixed": {
                 "title": "Fixed",
                 "description": "These versions contain a fix for the vulnerability but may not be the recommended fixed versions.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "known_affected": {
                 "title": "Known affected",
                 "description": "These versions are known to be affected by the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "known_not_affected": {
                 "title": "Known not affected",
                 "description": "These versions are known not to be affected by the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "last_affected": {
                 "title": "Last affected",
                 "description": "These are the last versions in a release train known to be affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "recommended": {
                 "title": "Recommended",
                 "description": "These versions have a fix for the vulnerability and are the vendor-recommended versions for fixing the vulnerability.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               },
               "under_investigation": {
                 "title": "Under investigation",
                 "description": "It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.",
-                "$ref": "#/definitions/products_t"
+                "$ref": "#/$defs/products_t"
               }
             }
           },
           "references": {
-            "$ref": "#/definitions/references_t"
+            "title": "Vulnerability references",
+            "description": "Holds a list of references associated with this vulnerability item.",
+            "$ref": "#/$defs/references_t"
           },
           "release_date": {
             "title": "Release date",
@@ -1163,11 +1176,11 @@
                   "description": "Specifies the category which this remediation belongs to.",
                   "type": "string",
                   "enum": [
-                    "workaround",
                     "mitigation",
-                    "vendor_fix",
+                    "no_fix_planned",
                     "none_available",
-                    "no_fix_planned"
+                    "vendor_fix",
+                    "workaround"
                   ]
                 },
                 "date": {
@@ -1195,10 +1208,10 @@
                   }
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/product_groups_t"
+                  "$ref": "#/$defs/product_groups_t"
                 },
                 "product_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/$defs/products_t"
                 },
                 "restart_required": {
                   "title": "Restart required by remediation",
@@ -1213,15 +1226,15 @@
                       "description": "Specifies what category of restart is required by this remediation to become effective.",
                       "type": "string",
                       "enum": [
-                        "none",
-                        "vulnerable_component",
-                        "service",
-                        "parent",
-                        "dependencies",
                         "connected",
+                        "dependencies",
                         "machine",
-                        "zone",
-                        "system"
+                        "none",
+                        "parent",
+                        "service",
+                        "system",
+                        "vulnerable_component",
+                        "zone"
                       ]
                     },
                     "details": {
@@ -1250,7 +1263,7 @@
               "title": "Score",
               "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
               "type": "object",
-              "minItems": 2,
+              "minProperties": 2,
               "required": [
                 "products"
               ],
@@ -1269,7 +1282,7 @@
                   ]
                 },
                 "products": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/$defs/products_t"
                 }
               }
             }
@@ -1311,10 +1324,10 @@
                   "minLength": 1
                 },
                 "group_ids": {
-                  "$ref": "#/definitions/product_groups_t"
+                  "$ref": "#/$defs/product_groups_t"
                 },
                 "product_ids": {
-                  "$ref": "#/definitions/products_t"
+                  "$ref": "#/$defs/products_t"
                 }
               }
             }
