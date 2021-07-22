@@ -1419,7 +1419,7 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
 
 #### 3.2.1.1 Document Property - Acknowledgments
 
-List of acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements.
+List of document acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements for the document.
 
 ```
     "acknowledgments": {

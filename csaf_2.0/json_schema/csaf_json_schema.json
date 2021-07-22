@@ -496,6 +496,8 @@
       ],
       "properties": {
         "acknowledgments": {
+          "title": "List of document acknowledgments",
+          "description": "Contains a list of acknowledgment elements for the document.",
           "$ref": "#/$defs/acknowledgments_t"
         },
         "aggregate_severity": {
