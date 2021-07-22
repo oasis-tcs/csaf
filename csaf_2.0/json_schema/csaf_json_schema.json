@@ -254,7 +254,6 @@
               }
             },
             "serial_numbers": {
-              "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.",
               "title": "List of serial numbers",
               "description": "Contains a list of parts, or full serial numbers.",
               "type": "array",
