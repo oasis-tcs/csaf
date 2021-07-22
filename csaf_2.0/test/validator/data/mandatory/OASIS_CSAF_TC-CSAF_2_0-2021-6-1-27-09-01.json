@@ -1,0 +1,72 @@
+{
+  "document": {
+    "category": "vex",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory test: Impact Statement (failing example 1)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-27-09-01",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      },
+      {
+        "product_id": "CSAFPID-9080702",
+        "name": "Product C"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-0001",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2017-0145",
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ]
+      },
+      "threats": [
+        {
+          "category": "impact",
+          "details": "The vulnerable code is not present in these products.",
+          "group_ids": [
+            "CSAFGID-0001"
+          ]
+        }
+      ]
+    }
+  ]
+}

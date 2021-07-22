@@ -2824,13 +2824,13 @@ The relevant path for this test is:
     ],
     "relationships": [
       {
-        "category": "installed_on"
+        "category": "installed_on",
         "full_product_name": {
           "name": "Product B",
           "product_id": "CSAFPID-9080701"
         },
         "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701",
+        "relates_to_product_reference": "CSAFPID-9080701"
       }
     ]
   }
@@ -3101,7 +3101,7 @@ The relevant paths for this test are:
 
 ### 6.1.10 Inconsistent CVSS
 
-It must be tested that the given CVSS properties do not contratict the CVSS vector.
+It must be tested that the given CVSS properties do not contradict the CVSS vector.
 
 The relevant paths for this test are:
 
@@ -3191,10 +3191,11 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "purl": "pkg:ExampleLibrary.Common@4.2.1337"
+        }
       }
     ]
   }
@@ -3217,12 +3218,12 @@ The relevant path for this test is:
 ```
   "revision_history": [
     {
-      "date": "2021-04-22T10:00:00.000Z",
+      "date": "2021-07-22T10:00:00.000Z",
       "number": "2",
       "summary": "Second version."
     },
     {
-      "date": "2021-04-23T10:00:00.000Z",
+      "date": "2021-07-23T10:00:00.000Z",
       "number": "1",
       "summary": "Initial version."
     }
@@ -3248,10 +3249,11 @@ The relevant path for this test is:
     // ...
     "publisher": {
       "category": "translator",
-      "name": "CSAF TC Translator"
+      "name": "CSAF TC Translator",
+      "namespace": "https://csaf.io/translator"
     },
+    "source_lang": "",
     // ...
-    "source_lang": ""
   }
 ```
 
@@ -3274,16 +3276,17 @@ The relevant path for this test is:
     // ...
     "revision_history": [
       {
-        "date": "2021-04-23T10:00:00.000Z",
+        "date": "2021-07-21T09:00:00.000Z",
         "number": "1",
         "summary": "Initial version."
       },
       {
-        "date": "2021-04-23T1100:00.000Z",
+        "date": "2021-07-21T10:00:00.000Z",
         "number": "2",
         "summary": "Second version."
       }
     ],
+    // ...
     "version": "1"
   }
 ```
@@ -3329,12 +3332,12 @@ The relevant path for this test is:
       // ...
       "revision_history": [
         {
-          "date": "2021-04-17T10:00:00.000Z",
+          "date": "2021-05-17T10:00:00.000Z",
           "number": "0",
           "summary": "First draft"
         },
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2021-07-21T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         }
@@ -3410,18 +3413,18 @@ The relevant path for this test is:
 *Example 57 which fails the test:*
 
 ```
-  "revision_history": [
-    {
-      "date": "2021-04-22T10:00:00.000Z",
-      "number": "1",
-      "summary": "Initial version."
-    },
-    {
-      "date": "2021-04-23T10:00:00.000Z",
-      "number": "3",
-      "summary": "Some other changes."
-    }
-  ]
+    "revision_history": [
+      {
+        "date": "2021-04-22T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-07-21T10:00:00.000Z",
+        "number": "3",
+        "summary": "Some other changes."
+      }
+    ]
 ```
 
 > The item for version `2` is missing.
@@ -3439,18 +3442,18 @@ The relevant path for this test is:
 *Example 58 which fails the test:*
 
 ```
-  "revision_history": [
-    {
-      "date": "2021-04-22T10:00:00.000Z",
-      "number": "1",
-      "summary": "Initial version."
-    },
-    {
-      "date": "2021-04-23T10:00:00.000Z",
-      "number": "1",
-      "summary": "Some other changes."
-    }
-  ]
+   "revision_history": [
+      {
+        "date": "2021-07-20T10:00:00.000Z",
+        "number": "1",
+        "summary": "Initial version."
+      },
+      {
+        "date": "2021-07-21T10:00:00.000Z",
+        "number": "1",
+        "summary": "Some other changes."
+      }
+    ]
 ```
 
 > The revision history contains two items with the version number `1`.
@@ -3509,6 +3512,7 @@ The relevant path for this test is:
         }
       ]
     }
+  ]
 ```
 
 > The list of involements contains two items with the same tuple `party`, `status` and `date`.
@@ -3531,7 +3535,7 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "hashes": [
@@ -3647,7 +3651,7 @@ The relevant path for this test is:
     {
       "category": "self",
       "summary": "The canonical URL.",
-      "url": "https://example.com/security/data/csaf/2021/ESA-2021-0002.json"
+      "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2_0-2021-6-1-27-02-01.json"
     }
   ]
 ```
