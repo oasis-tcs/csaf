@@ -25,6 +25,7 @@ validate() {
 
 SCHEMA=$ORIG_SCHEMA
 validate csaf_2.0/examples/aggregator/example-01-aggregator.json
+validate csaf_2.0/examples/aggregator/example-02-aggregator.json
  
 echo -n "Generating strict schema ... "
 python3 $STRICT_GENERATOR $ORIG_SCHEMA > $AGGREGATOR_STRICT_SCHEMA
@@ -32,5 +33,6 @@ echo done
 
 SCHEMA=$AGGREGATOR_STRICT_SCHEMA
 validate csaf_2.0/examples/aggregator/example-01-aggregator.json
+validate csaf_2.0/examples/aggregator/example-02-aggregator.json
 
 exit $FAIL
