@@ -4907,10 +4907,12 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
         "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
       }
     ],
-    "category": {
-      "scheme": "urn:ietf:params:rolie:category:information-type",
-      "term": "csaf"
-    },
+    "category": [ 
+      {
+        "scheme": "urn:ietf:params:rolie:category:information-type",
+        "term": "csaf"
+      }
+    ],
     "updated": "2021-01-01T12:00Z",
     "entry": [
       {
