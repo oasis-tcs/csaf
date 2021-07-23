@@ -4909,7 +4909,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
     ],
     "category": {
       "scheme": "urn:ietf:params:rolie:category:information-type",
-      "term": "security advisory"
+      "term": "csaf"
     },
     "updated": "2021-01-01T12:00Z",
     "entry": [
