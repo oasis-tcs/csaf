@@ -4340,13 +4340,9 @@ The relevant path for this test is:
 *Example 83 which fails the test:*
 
 ```
-  "document": {
-    // ...
     "distribution": {
       "text": "Distribute freely."
-    },
-    // ...
-  }
+    }
 ```
 
 > The CSAF document has no TLP label.
