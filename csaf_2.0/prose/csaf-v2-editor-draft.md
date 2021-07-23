@@ -4639,11 +4639,12 @@ The relevant paths for this test are:
 *Example 92 which fails the test:*
 
 ```
-  "references": [
-  {
-    "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "https://example.invalid"
-  }
+    "references": [
+      {
+        "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
+        "url": "https://example.invalid"
+      }
+    ]
 ```
 
 > The `category` is not set and therefore treated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
