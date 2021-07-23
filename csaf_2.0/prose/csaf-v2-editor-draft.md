@@ -4948,7 +4948,25 @@ The use and therefore the existence of ROLIE category document is optional. If i
 *Example 101:*
 
 ```
-TODO: Provide EXAMPLE 101 for ROLIE service document
+  {
+    "service": {
+      "workspace": [
+        {
+          "title": "Public CSAF feed",
+          "collection": {
+            "title": "Example CSAF feed (TLP:WHITE)",
+            "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
+            "categories": [
+              {
+                "scheme": "urn:ietf:params:rolie:category:information-type",
+                "term": "csaf"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
 ```
 
 ### 7.1.17 Requirement 17: ROLIE category document
