@@ -4583,7 +4583,7 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "hashes": [
@@ -4597,7 +4597,7 @@ The relevant paths for this test are:
               "filename": "product_a.so"
             }
           ]
-         }
+        }
       }
     ]
   }
