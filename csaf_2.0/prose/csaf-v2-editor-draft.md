@@ -4953,16 +4953,18 @@ The use and therefore the existence of ROLIE category document is optional. If i
       "workspace": [
         {
           "title": "Public CSAF feed",
-          "collection": {
-            "title": "Example CSAF feed (TLP:WHITE)",
-            "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
-            "categories": [
-              {
-                "scheme": "urn:ietf:params:rolie:category:information-type",
-                "term": "csaf"
-              }
-            ]
-          }
+          "collection": [
+            {
+              "title": "Example CSAF feed (TLP:WHITE)",
+              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
+              "categories": [
+                {
+                  "scheme": "urn:ietf:params:rolie:category:information-type",
+                  "term": "csaf"
+                }
+              ]
+            }
+          ]
         }
       ]
     }
