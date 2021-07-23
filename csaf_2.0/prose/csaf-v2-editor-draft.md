@@ -1057,7 +1057,7 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type `No
 
 ```
     "notes_t": {
-      // ..
+      // ...
       "items": {
         // ...
       }
@@ -1419,7 +1419,7 @@ In addition, the `document` object may provide the 7 optional properties Acknowl
 
 #### 3.2.1.1 Document Property - Acknowledgments
 
-List of acknowledgments (`acknowledgments`) of value type `acknowledgments_t` contains a list of acknowledgment elements.
+Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of acknowledgment elements associated with the whole document.
 
 ```
     "acknowledgments": {
@@ -1562,11 +1562,17 @@ The URL of TLP version (`url`) with value type `string` and format `uri` provide
 
 #### 3.2.1.6 Document Property - Language
 
-Document language (`lang`) of Language Type (`lang_t`) identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.
+Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.
 
 #### 3.2.1.7 Document Property - Notes
 
-Notes (`notes`) associated with the whole document of Notes Type (`notes_t`) holds notes about this set of vulnerabilities.
+Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
+
+```
+    "notes": {
+      // ...
+    },
+```
 
 #### 3.2.1.8 Document Property - Publisher
 
@@ -1598,7 +1604,7 @@ The 2 other optional properties are: `contact_details` and `issuing_authority`.
 
 ##### 3.2.1.8.1 Document Property - Publisher - Category
 
-The Category of publisher (`category`) of type `string` and `enum` provides information about the category of publisher releasing the document.
+The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of publisher releasing the document.
 The valid values are:
 
 ```
@@ -1638,7 +1644,7 @@ Issuing authority (`issuing_authority`) of value type `string` with 1 or more ch
 
 ##### 3.2.1.8.4 Document Property - Publisher - Name
 
-The Name of publisher (`name`) of type `string` contains the name of the issuing party.
+The Name of publisher (`name`) of value type `string` contains the name of the issuing party.
 
 *Example 24:*
 
@@ -1670,7 +1676,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 
 #### 3.2.1.9 Document Property - References
 
-References (`references`) of References Type (`references_t`).
+Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
 ```
     "references": {
@@ -1680,7 +1686,7 @@ References (`references`) of References Type (`references_t`).
 
 #### 3.2.1.10 Document Property - Source Language
 
-Source language (`source_lang`) of Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
+Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
 The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/category`.
 
@@ -1960,7 +1966,7 @@ The product group items are of value type `object` with the 2 mandatory properti
     }
 ```
 
-The summary of the product group (`summary`) of type `string` with 1 or more characters gives a short, optional description of the group.
+The summary of the product group (`summary`) of value type `string` with 1 or more characters gives a short, optional description of the group.
 
 *Examples 31:*
 
@@ -1971,7 +1977,7 @@ The summary of the product group (`summary`) of type `string` with 1 or more cha
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
-List of Product IDs (`product_ids`) of value type array with 2 or more unique items of type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
+List of Product IDs (`product_ids`) of value type array with 2 or more unique items of value type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
 
 #### 3.2.2.4 Product Tree Property - Relationships
 
@@ -2028,9 +2034,9 @@ The value `optional_component_of` indicates that the entity labeled with one Pro
 
 Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
 
-Product Reference (`product_reference`) holds a Product ID (`product_id_t`) value.
+Product Reference (`product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.
 
-Relates to Product Reference (`relates_to_product_reference`) holds also a Product ID (`product_id_t`) value.
+Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.
 
 ### 3.2.3 Vulnerabilities Property
 
@@ -2097,7 +2103,13 @@ Any vulnerability may provide the optional properties Acknowledgments (`acknowle
 
 #### 3.2.3.1 Vulnerabilities Property - Acknowledgments
 
-List of acknowledgments (`acknowledgments`) of value type `array` with 1 or more items of type Acknowledgment contains a list of acknowledgment elements.
+Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of acknowledgment elements associated with this vulnerability item.
+
+```
+    "acknowledgments": {
+      // ...
+    },
+```
 
 #### 3.2.3.2 Vulnerabilities Property - CVE
 
@@ -2281,7 +2293,13 @@ Summary of involvement (`summary`) of value type `string` with 1 or more charact
 
 #### 3.2.3.7 Vulnerabilities Property - Notes
 
-Notes (`notes`) have value type Notes (`notes_t`).
+Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
+
+```
+    "notes": {
+      // ...
+    },
+```
 
 #### 3.2.3.8 Vulnerabilities Property - Product Status
 
@@ -2343,7 +2361,13 @@ Under investigation (`under_investigation`) of value type Products (`products_t`
 
 #### 3.2.3.9 Vulnerabilities Property - References
 
-References (`references`) have value type References (`references_t`).
+Vulnerability references (`references`) of value type References Type (`references_t`) holds a list of references associated with this vulnerability item.
+
+```
+    "references": {
+      // ...
+    },
+```
 
 #### 3.2.3.10 Vulnerabilities Property - Release Date
 
