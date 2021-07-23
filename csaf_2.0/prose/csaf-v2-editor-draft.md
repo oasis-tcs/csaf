@@ -4978,7 +4978,16 @@ The use and therefore the existence of ROLIE category document is optional. If i
 *Example 102:*
 
 ```
-TODO: Provide EXAMPLE 102 for ROLIE category document
+  {
+    "categories": [
+      {
+        "term": "Example Company Product A"
+      },
+      {
+        "term": "Example Company Product B"
+      }
+    ]
+  }
 ```
 
 ### 7.1.18 Requirement 18: Integrity
