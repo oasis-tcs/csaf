@@ -1250,7 +1250,7 @@
               "title": "Score",
               "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
               "type": "object",
-              "minItems": 2,
+              "minProperties": 2,
               "required": [
                 "products"
               ],
