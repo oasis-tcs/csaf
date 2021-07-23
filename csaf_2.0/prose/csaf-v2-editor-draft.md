@@ -4372,13 +4372,13 @@ The relevant path for this test is:
       {
         "category": "self",
         "summary": "A non-canonical URL.",
-        "url": "https://example.com/security/data/csaf/2021/ESA-2021-0001_1.json"
+        "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01_1.json"
       }
     ],
     // ...
     "tracking": {
       // ...
-      "id": "ESA-2021-0001",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01",
       // ...
       "version": "1"
     },
