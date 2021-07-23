@@ -4665,12 +4665,13 @@ The relevant paths for this test are:
 *Example 93 which fails the test:*
 
 ```
-  "references": [
-  {
-    "category": "self",
-    "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "https://example.invalid"
-  }
+    "references": [
+      {
+        "category": "self",
+        "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
+        "url": "https://example.invalid"
+      }
+    ]
 ```
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
