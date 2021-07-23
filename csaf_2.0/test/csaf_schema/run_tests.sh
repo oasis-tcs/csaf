@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ORIG_SCHEMA=csaf_2.0/json_schema/csaf_json_schema.json 
-STRICT_SCHEMA=strict_schema.json
-VALIDATOR=csaf_2.0/test/csaf_schema/validator.py
+STRICT_SCHEMA=csaf_strict_schema.json
+VALIDATOR=csaf_2.0/test/validator.py
 STRICT_GENERATOR=csaf_2.0/test/generate_strict_schema.py
 
 FAIL=0
