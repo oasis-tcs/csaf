@@ -155,7 +155,6 @@
           "minProperties": 1,
           "properties": {
             "cpe": {
-              "$comment": "TODO: This should have a full regular expression to enforce CPE syntax.",
               "title": "Common Platform Enumeration representation",
               "description": "The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.",
               "type": "string",
@@ -278,7 +277,6 @@
               }
             },
             "x_generic_uris": {
-              "$comment": "TODO: Add remark in prose which kind of uris might be used here / add examples.",
               "title": "List of generic URIs",
               "description": "Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.",
               "type": "array",
