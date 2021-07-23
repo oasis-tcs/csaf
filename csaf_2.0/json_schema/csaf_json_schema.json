@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
   "title": "Common Security Advisory Framework",
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
@@ -254,7 +254,6 @@
               }
             },
             "serial_numbers": {
-              "$comment": "TODO: Add remark in prose that this should only be used if a certain range of serial numbers with a software version is affected, or the serial numbers change during update.",
               "title": "List of serial numbers",
               "description": "Contains a list of parts, or full serial numbers.",
               "type": "array",
@@ -497,6 +496,8 @@
       ],
       "properties": {
         "acknowledgments": {
+          "title": "Document acknowledgments",
+          "description": "Contains a list of acknowledgment elements associated with the whole document.",
           "$ref": "#/$defs/acknowledgments_t"
         },
         "aggregate_severity": {
@@ -603,8 +604,8 @@
           "$ref": "#/$defs/lang_t"
         },
         "notes": {
-          "title": "Notes associated with the whole document.",
-          "description": "Holds notes about this set of vulnerabilities.",
+          "title": "Document notes",
+          "description": "Holds notes associated with the whole document.",
           "$ref": "#/$defs/notes_t"
         },
         "publisher": {
@@ -669,6 +670,8 @@
           }
         },
         "references": {
+          "title": "Document references",
+          "description": "Holds a list of references associated with the whole document.",
           "$ref": "#/$defs/references_t"
         },
         "source_lang": {
@@ -929,9 +932,13 @@
                 "$ref": "#/$defs/full_product_name_t"
               },
               "product_reference": {
+                "title": "Product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.",
                 "$ref": "#/$defs/product_id_t"
               },
               "relates_to_product_reference": {
+                "title": "Relates to product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
                 "$ref": "#/$defs/product_id_t"
               }
             }
@@ -951,6 +958,8 @@
         "minProperties": 1,
         "properties": {
           "acknowledgments": {
+            "title": "Vulnerability acknowledgments",
+            "description": "Contains a list of acknowledgment elements associated with this vulnerability item.",
             "$ref": "#/$defs/acknowledgments_t"
           },
           "cve": {
@@ -1085,6 +1094,8 @@
             }
           },
           "notes": {
+            "title": "Vulnerability notes",
+            "description": "Holds notes associated with this vulnerability item.",
             "$ref": "#/$defs/notes_t"
           },
           "product_status": {
@@ -1136,6 +1147,8 @@
             }
           },
           "references": {
+            "title": "Vulnerability references",
+            "description": "Holds a list of references associated with this vulnerability item.",
             "$ref": "#/$defs/references_t"
           },
           "release_date": {
@@ -1250,7 +1263,7 @@
               "title": "Score",
               "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
               "type": "object",
-              "minItems": 2,
+              "minProperties": 2,
               "required": [
                 "products"
               ],
