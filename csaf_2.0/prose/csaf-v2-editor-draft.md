@@ -4236,6 +4236,7 @@ The relevant path for this test is:
         }
       ]
     }
+  ]
 ```
 
 > The list of involements contains an item which does not contain the property `date`.
