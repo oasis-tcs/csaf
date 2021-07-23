@@ -4391,7 +4391,32 @@ The relevant path for this test is:
 
 > The only element where the `category` is `self` has a URL that does not fulfill the requirement of a valid filename for a CSAF document.
 
-### 6.2.12 Sorting
+### 6.2.12 Missing Document Language
+
+It must be tested that the document language is present and set.
+
+The relevant path for this test is:
+
+```
+  /document/lang
+```
+
+*Example 85 which fails the test:*
+
+```
+  "document": {
+    "category": "generic_csaf",
+    "csaf_version": "2.0",
+    "publisher": {
+      // ...
+    },
+    // ...
+  }
+```
+
+> The document laguange is not defined.
+
+### 6.2.13 Sorting
 
 It must be tested that all keys in a CSAF document are sorted alphabetically.
 
@@ -4401,7 +4426,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 85 which fails the test:*
+*Example 86 which fails the test:*
 
 ```
   "document": {
@@ -4429,7 +4454,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores
 ```
 
-*Example 86 which fails the test:*
+*Example 87 which fails the test:*
 
 ```
   "product_tree": {
@@ -4475,7 +4500,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/vectorString
 ```
 
-*Example 87 which fails the test:*
+*Example 88 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -4504,7 +4529,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 88 which fails the test:*
+*Example 89 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4530,7 +4555,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 89 which fails the test:*
+*Example 90 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4555,7 +4580,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 90 which fails the test*:
+*Example 91 which fails the test*:
 
 ```
   "product_tree": {
@@ -4614,7 +4639,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 91 which fails the test:*
+*Example 92 which fails the test:*
 
 ```
   "references": [
@@ -4639,7 +4664,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 92 which fails the test:*
+*Example 93 which fails the test:*
 
 ```
   "references": [
@@ -4697,7 +4722,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 93 which fails the test:*
+*Example 94 which fails the test:*
 
 ```
   "document": {
@@ -4771,7 +4796,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 
 **TODO: Point to a place where options and fields are described in details**
 
-*Examples 94 Minimal with ROLIE document:*
+*Examples 95 Minimal with ROLIE document:*
 
 ```
   {
@@ -4821,7 +4846,7 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
 
-*Example 95:*
+*Example 96:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -4834,7 +4859,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-*Example 96:*
+*Example 97:*
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -4848,7 +4873,7 @@ The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver whic
 
 The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
-*Examples 97:*
+*Examples 98:*
 
 ```
 2021
@@ -4859,7 +4884,7 @@ The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 98:*
+*Examples 99:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -4873,7 +4898,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 99:*
+*Examples 100:*
 
 ```
 2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
@@ -4896,7 +4921,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease
 
 MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
 
-*Example 100:*
+*Example 101:*
 
 ```
 {
@@ -4947,7 +4972,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
-*Example 101:*
+*Example 102:*
 
 ```
 TODO: Provide EXAMPLE 101 for ROLIE service document
@@ -4957,7 +4982,7 @@ TODO: Provide EXAMPLE 101 for ROLIE service document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
-*Example 102:*
+*Example 103:*
 
 ```
 TODO: Provide EXAMPLE 102 for ROLIE category document
@@ -4969,7 +4994,7 @@ All CSAF documents SHALL have at least one hash file computed with a secure cryp
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 103:*
+*Example 104:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -4979,7 +5004,7 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
 
 The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 104:*
+*Example 105:*
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
@@ -4989,7 +5014,7 @@ ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_compan
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
-*Example 105:*
+*Example 106:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -5013,7 +5038,7 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
 
-Example:
+*Example 107:*
 
 ```
   {
@@ -5065,7 +5090,7 @@ The CSAF documents for each issuing party that is mirrored MUST be in a differen
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
 
-Example:
+*Example 108:*
 
 ```
   {
