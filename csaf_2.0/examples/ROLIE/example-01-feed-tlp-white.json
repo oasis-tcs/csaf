@@ -33,7 +33,7 @@
           "src": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
         },
         "format": {
-          "schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
+          "schema": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
           "version": "2.0"
         }
       }
