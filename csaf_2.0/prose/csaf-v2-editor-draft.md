@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 20 July 2021
+## 23 July 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -460,7 +460,7 @@ The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
 The schema identifier is (before publication):
 
 ```
-    "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json"
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json"
 ```
 
 The further documentation of the schema is organized via Definitions and Properties.
@@ -4755,7 +4755,7 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 ### 7.1.7 Requirement 7: provider-metadata.json
 
-The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator should display over any individual `publisher` values in the CSAF documents themselves.
+The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator should display over any individual `publisher` values in the CSAF documents themselves.
 
 > This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consitency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAf documents.
 >
@@ -5020,7 +5020,7 @@ The public part of the PGP key used to sign the CSAF documents MUST be available
 
 ### 7.1.21 Requirement 21: List of CSAF providers
 
-The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
+The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
 
 > Suggested locations to store the `aggregator.json` are:
 >
@@ -5625,7 +5625,7 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210720-dev | 2021-07-20 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review |
+| csaf-v2.0-wd20210723-dev | 2021-07-23 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
