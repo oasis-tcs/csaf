@@ -5544,7 +5544,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides for each CSAF document a list of matched asset of the asset database.
 * provides for each vulnerability within a CSAF document the option to mark a matched asset in the asset database as "not remediated", "remediation in progress", or "remediation done". A switch to mark all assets at once may be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section 3).
+* detects the usage semantic version (as described in section 3.1.11.2).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF document
