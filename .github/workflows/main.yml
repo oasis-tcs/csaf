@@ -16,4 +16,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: |
-          ./*_strict_schema.json
+          csaf_strict_schema.json
+          provider_strict_schema.json
+          aggregator_strict_schema.json
