@@ -1,4 +1,6 @@
 
 meeting_minutes/.DS_Store
 .DS_Store
-strict_schema.json
+*_strict_schema.json
+official-cpe-dictionary_v2.3.*
+official-cpe-dictionary_v2.2.*
