@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 10 July 2021
+## 24 July 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -364,8 +364,6 @@ Keywords defined by this specification use this `monospaced` font.
 ```
     Normative source code uses this paragraph style.
 ```
-
-Text following the special symbol («) – an opening Guillemet (or French quotation mark) – within this specification identifies conformance statements. Every conformance statement is separated from the following text with the special end symbol (») – a closing Guillemet, and has been assigned a reference that follows that end symbol in the format [CSAF-section#-local#].
 
 Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
 
@@ -5373,7 +5371,7 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210710-dev | 2021-07-10 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review |
+| csaf-v2.0-wd20210724-dev | 2021-07-24 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review |
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
