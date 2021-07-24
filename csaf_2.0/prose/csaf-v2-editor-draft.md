@@ -5043,7 +5043,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 
 ### 7.1.16 Requirement 16: ROLIE service document
 
-The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
+The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
 *Example 105:*
 
@@ -5079,14 +5079,16 @@ The use and therefore the existence of ROLIE category document is optional. If i
 
 ```
   {
-    "categories": [
-      {
-        "term": "Example Company Product A"
-      },
-      {
-        "term": "Example Company Product B"
-      }
-    ]
+    "categories": {
+      "category": [
+        {
+            "term": "Example Company Product A"
+        },
+        {
+            "term": "Example Company Product B"
+        }
+      ]
+    }
   }
 ```
 
