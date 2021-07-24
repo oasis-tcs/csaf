@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 23 July 2021
+## 24 July 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -365,11 +365,9 @@ Keywords defined by this specification use this `monospaced` font.
     Normative source code uses this paragraph style.
 ```
 
-Text following the special symbol («) – an opening Guillemet (or French quotation mark) – within this specification identifies conformance statements. Every conformance statement is separated from the following text with the special end symbol (») – a closing Guillemet, and has been assigned a reference that follows that end symbol in the format [CSAF-section#-local#].
-
 Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
 
-*Examples 42:*
+*Examples 4321:*
 
 ```
     Informative examples also use this paragraph style but preceded by the text "Example(s)".
@@ -1329,15 +1327,36 @@ The goal of this structure is to provide additional information to the end user 
      * `/vulnerabilities[]/product_status/known_not_affected`
 
    It MAY also include minor and patch level changes. Patch and minor version MUST be reset to 0 when major version is incremented.
-8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version. Examples: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92, 1.0.0-x-y-z.–
+8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version.
+
+   *Examples 16:*
+
+   ```
+   1.0.0-0.3.7
+   1.0.0-alpha
+   1.0.0-alpha.1
+   1.0.0-x-y-z.–
+   1.0.0-x.7.z.92
+   ```
+
 9. Pre-release MUST NOT be included if `/document/tracking/status` is `final`.
-10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence. Thus two versions that differ only in the build metadata, have the same precedence. Examples: 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85, 1.0.0+21AF26D3—-117B344092BD.
+10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence. Thus two versions that differ only in the build metadata, have the same precedence.
+
+    *Examples 17:*
+
+    ```
+    1.0.0+20130313144700
+    1.0.0+21AF26D3—-117B344092BD
+    1.0.0-alpha+001
+    1.0.0-beta+exp.sha.5114f85
+    ```
+
 11. Precedence refers to how versions are compared to each other when ordered.
 
     1. Precedence MUST be calculated by separating the version into major, minor, patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows: Major, minor, and patch versions are always compared numerically.
 
-       *Example 16:*
+       *Example 18:*
 
        ```
        1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
@@ -1345,7 +1364,7 @@ The goal of this structure is to provide additional information to the end user 
 
     3. When major, minor, and patch are equal, a pre-release version has lower precedence than a normal version:
 
-       *Example 17:*
+       *Example 19:*
 
        ```
        1.0.0-alpha < 1.0.0
@@ -1358,11 +1377,11 @@ The goal of this structure is to provide additional information to the end user 
        3. Numeric identifiers always have lower precedence than non-numeric identifiers.
        4. A larger set of pre-release fields has a higher precedence than a smaller set, if all of the preceding identifiers are equal.
 
-    *Example 18*:
+       *Example 20:*
 
-     ```
-     1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
-     ```
+       ```
+       1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
+       ```
 
 ## 3.2 Properties
 
@@ -1449,7 +1468,7 @@ The Namespace of aggregate severity (`namespace`) of value type `string` and for
 
 The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
-*Examples 19:*
+*Examples 21:*
 
 ```
     Critical
@@ -1469,7 +1488,7 @@ Document category (`category`) with value type `string` of 1 or more characters 
     }
 ```
 
-*Examples 20*:
+*Examples 22*:
 
 ```
     Example Company Security Notice
@@ -1511,7 +1530,7 @@ If both values are present, the TLP information SHOULD be preferred as this aids
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
-*Examples 21:*
+*Examples 23:*
 
 ```
     Copyright 2021, Example Company, All Rights Reserved.
@@ -1553,7 +1572,7 @@ The URL of TLP version (`url`) with value type `string` and format `uri` provide
     https://www.first.org/tlp/
 ```
 
-*Examples 22:*
+*Examples 24:*
 
 ```
     https://www.us-cert.gov/tlp
@@ -1632,7 +1651,7 @@ The value `vendor` indicates developers or maintainers of information system pro
 
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
-*Example 23:*
+*Example 25:*
 
 ```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
@@ -1646,7 +1665,7 @@ Issuing authority (`issuing_authority`) of value type `string` with 1 or more ch
 
 The Name of publisher (`name`) of value type `string` contains the name of the issuing party.
 
-*Example 24:*
+*Example 26:*
 
 ```
      BSI
@@ -1667,7 +1686,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 * the updated item in `/document/references[]` which points to the new version of the CSAF document
 * an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Example 25:*
+*Example 27:*
 
 ```
     https://csaf.io
@@ -1694,7 +1713,7 @@ The property MUST be present and set for any CSAF document with the value `trans
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
 
-*Examples 26:*
+*Examples 28:*
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
@@ -1753,7 +1772,7 @@ Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) 
 
 Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a distinct optional alternative ID used to refer to the document.
 
-*Example 27:*
+*Example 29:*
 
 ```
     CVE-2019-12345
@@ -1802,7 +1821,7 @@ Engine of document generation (`engine`) of value type `object` with mandatory p
 
 Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 28:*
+*Examples 30:*
 
 ```
     Red Hat rhsa-to-cvrf
@@ -1814,7 +1833,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 
 > Although it is not formally required, the TC suggests to use a versioning which compatible wth Semantic Versioning as described in the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 29:*
+*Examples 31:*
 
 ```
     0.6.0
@@ -1828,7 +1847,7 @@ Unique identifier for the document (`id`) of value type `string` with 1 or more 
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organisation.
 
-*Examples 30:*
+*Examples 32:*
 
 ```
     Example Company - 2019-YH3234
@@ -1968,7 +1987,7 @@ The product group items are of value type `object` with the 2 mandatory properti
 
 The summary of the product group (`summary`) of value type `string` with 1 or more characters gives a short, optional description of the group.
 
-*Examples 31:*
+*Examples 33:*
 
 ```
     Products supporting Modbus.
@@ -2040,7 +2059,7 @@ Product Reference (`product_reference`) of value type Product ID (`product_id_t`
 
 Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.
 
-*Example 32:*
+*Example 34:*
 
 ```
   "product_tree": {
@@ -2179,7 +2198,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 and holds the ID for the weakness associated.
 
-*Examples 32:*
+*Examples 35:*
 
 ```
     CWE-22
@@ -2189,7 +2208,7 @@ and holds the ID for the weakness associated.
 
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
 
-*Examples 33:*
+*Examples 36:*
 
 ```
     Cross-Site Request Forgery (CSRF)
@@ -2221,7 +2240,7 @@ ID (`id`) of value type `object` with the two mandatory properties System Name (
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Example 34:*
+*Example 37:*
 
 ```
     Cisco Bug ID
@@ -2230,7 +2249,7 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Example 35:*
+*Example 38:*
 
 ```
     CSCso66472
@@ -2763,7 +2782,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
 3. The file extension `.json` MUST be appended.
 
-*Examples 36:*
+*Examples 39:*
 
 ```
   example_company_-_2019-yh3234.json
@@ -2810,7 +2829,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/product_ids[]
 ```
 
-*Example 37 which fails the test:*
+*Example 40 which fails the test:*
 
 ```
   "product_tree": {
@@ -2840,7 +2859,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 38 which fails the test:*
+*Example 41 which fails the test:*
 
 ```
   "product_tree": {
@@ -2871,7 +2890,7 @@ The relevant path for this test is:
 
 > As this can be quite complex a program for large CSAF documents, a program could check first whether a Product ID defined in a relationship item is used as `product_reference` or `relates_to_product_reference`. Only for those which fulfill this condition it is necessary to run the full check following the references.
 
-*Example 39 which fails the test:*
+*Example 42 which fails the test:*
 
 ```
   "product_tree": {
@@ -2908,7 +2927,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/group_ids
 ```
 
-*Example 40 which fails the test:*
+*Example 43 which fails the test:*
 
 ```
   "product_tree": {
@@ -2946,7 +2965,7 @@ The relevant path for this test is:
     /product_tree/product_groups[]/group_id
 ```
 
-*Example 41 which fails the test:*
+*Example 44 which fails the test:*
 
 ```
   "product_tree": {
@@ -3020,7 +3039,7 @@ Contradiction groups are:
 
 > Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group, i.e. if it was discoveres that fixed versions introduce a more severe vulnerability.
 
-*Example 42 which fails the test:*
+*Example 45 which fails the test:*
 
 ```
   "product_tree": {
@@ -3057,7 +3076,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores[]
 ```
 
-*Example 43 which fails the test:*
+*Example 46 which fails the test:*
 
 ```
   "product_tree": {
@@ -3111,7 +3130,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3
 ```
 
-*Example 44 which fails the test:*
+*Example 47 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3145,7 +3164,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
 ```
 
-*Example 45 which fails the test:*
+*Example 48 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3171,7 +3190,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3
 ```
 
-*Example 46 which fails the test:*
+*Example 49 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3204,7 +3223,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cwe
 ```
 
-*Example 47 which fails the test:*
+*Example 50 which fails the test:*
 
 ```
   "cwe": {
@@ -3226,7 +3245,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 48 which fails the test:*
+*Example 51 which fails the test:*
 
 ```
   "lang": "EZ"
@@ -3248,7 +3267,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/purl
 ```
 
-*Example 49 which fails the test:*
+*Example 52 which fails the test:*
 
 ```
   "product_tree": {
@@ -3276,7 +3295,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 50 which fails the test:*
+*Example 53 which fails the test:*
 
 ```
   "revision_history": [
@@ -3305,7 +3324,7 @@ The relevant path for this test is:
     /document/source_lang
 ```
 
-*Example 51 which fails the test:*
+*Example 54 which fails the test:*
 
 ```
   "document": {
@@ -3332,7 +3351,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 52 which fails the test:*
+*Example 55 which fails the test:*
 
 ```
   "tracking": {
@@ -3366,7 +3385,7 @@ The relevant path for this test is:
     /document/tracking/status
 ```
 
-*Example 53 which fails the test:*
+*Example 56 which fails the test:*
 
 ```
     "tracking": {
@@ -3388,7 +3407,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 54 which fails the test:*
+*Example 57 which fails the test:*
 
 ```
     "tracking": {
@@ -3422,7 +3441,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 55 which fails the test:*
+*Example 58 which fails the test:*
 
 ```
     "revision_history": [
@@ -3451,7 +3470,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 56 which fails the test:*
+*Example 59 which fails the test:*
 
 ```
     "tracking": {
@@ -3473,7 +3492,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 57 which fails the test:*
+*Example 60 which fails the test:*
 
 ```
     "revision_history": [
@@ -3502,7 +3521,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 58 which fails the test:*
+*Example 61 which fails the test:*
 
 ```
    "revision_history": [
@@ -3531,7 +3550,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cve
 ```
 
-*Example 59 which fails the test:*
+*Example 62 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3556,7 +3575,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 60 which fails the test:*
+*Example 63 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3592,7 +3611,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 61 which fails the test:*
+*Example 64 which fails the test:*
 
 ```
   "product_tree": {
@@ -3636,7 +3655,7 @@ The relevant path for this test is:
   /document/category
 ```
 
-*Examples 62 for currently prohibited values:*
+*Examples 65 for currently prohibited values:*
 
 ```
   Informational Advisory
@@ -3645,7 +3664,7 @@ The relevant path for this test is:
   veX
 ```
 
-*Example 63 which fails the test:*
+*Example 66 which fails the test:*
 
 ```
   "category": "Security_Incident_Response"
@@ -3676,7 +3695,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 64 which fails the test:*
+*Example 67 which fails the test:*
 
 ```
   "notes": [
@@ -3707,7 +3726,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 65 which fails the test:*
+*Example 68 which fails the test:*
 
 ```
   "references": [
@@ -3737,7 +3756,7 @@ The relevant path for this test is:
   /vulnerabilities
 ```
 
-*Example 66 which fails the test:*
+*Example 69 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3768,7 +3787,7 @@ The relevant path for this test is:
   /product_tree
 ```
 
-*Example 67 which fails the test:*
+*Example 70 which fails the test:*
 
 ```
   {
@@ -3800,7 +3819,7 @@ The relevant path for this test is:
   /vulnerabilities[]/notes
 ```
 
-*Example 68 which fails the test:*
+*Example 71 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3828,7 +3847,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 69 which fails the test:*
+*Example 72 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3859,7 +3878,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation
 ```
 
-*Example 70 which fails the test:*
+*Example 73 which fails the test:*
 
 ```
   "product_status": {
@@ -3891,7 +3910,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/id
 ```
 
-*Example 71 which fails the test:*
+*Example 74 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3919,7 +3938,7 @@ The relevant path for this test is:
   /vulnerabilities[]/threats
 ```
 
-*Example 72 which fails the test:*
+*Example 75 which fails the test:*
 
 ```
   "product_tree": {
@@ -3989,7 +4008,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations
 ```
 
-*Example 73 which fails the test:*
+*Example 76 which fails the test:*
 
 ```
   "product_tree": {
@@ -4062,7 +4081,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 74 which fails the test:*
+*Example 77 which fails the test:*
 
 ```
   "product_tree": {
@@ -4094,7 +4113,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation[]
 ```
 
-*Example 75 which fails the test:*
+*Example 78 which fails the test:*
 
 ```
   "product_tree": {
@@ -4130,7 +4149,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
 ```
 
-*Example 76 which fails the test:*
+*Example 79 which fails the test:*
 
 ```
   "product_tree": {
@@ -4164,7 +4183,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 77 which fails the test:*
+*Example 80 which fails the test:*
 
 ```
     "revision_history": [
@@ -4188,7 +4207,7 @@ The relevant path for this test is:
     /document/tracking/initial_release_date
 ```
 
-*Example 78 which fails the test:*
+*Example 81 which fails the test:*
 
 ```
     "tracking": {
@@ -4222,7 +4241,7 @@ The relevant path for this test is:
     /document/tracking/current_release_date
 ```
 
-*Example 79 which fails the test:*
+*Example 82 which fails the test:*
 
 ```
     "tracking": {
@@ -4256,7 +4275,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 80 which fails the test:*
+*Example 83 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4287,7 +4306,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 81 which fails the test:*
+*Example 84 which fails the test:*
 
 ```
   "product_tree": {
@@ -4329,7 +4348,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 82 which fails the test:*
+*Example 85 which fails the test:*
 
 ```
   "product_tree": {
@@ -4369,7 +4388,7 @@ The relevant path for this test is:
   /document/distribution/tlp/label
 ```
 
-*Example 83 which fails the test:*
+*Example 86 which fails the test:*
 
 ```
     "distribution": {
@@ -4395,7 +4414,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 84 which fails the test:*
+*Example 87 which fails the test:*
 
 ```
   "document": {
@@ -4430,7 +4449,7 @@ The relevant path for this test is:
   /document/lang
 ```
 
-*Example 85 which fails the test:*
+*Example 88 which fails the test:*
 
 ```
   "document": {
@@ -4455,7 +4474,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 86 which fails the test:*
+*Example 89 which fails the test:*
 
 ```
   "document": {
@@ -4483,7 +4502,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores
 ```
 
-*Example 87 which fails the test:*
+*Example 90 which fails the test:*
 
 ```
   "product_tree": {
@@ -4529,7 +4548,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/vectorString
 ```
 
-*Example 88 which fails the test:*
+*Example 91 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -4558,7 +4577,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 89 which fails the test:*
+*Example 92 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4584,7 +4603,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 90 which fails the test:*
+*Example 93 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4609,7 +4628,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 91 which fails the test*:
+*Example 94 which fails the test*:
 
 ```
   "product_tree": {
@@ -4668,7 +4687,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 92 which fails the test:*
+*Example 95 which fails the test:*
 
 ```
     "references": [
@@ -4694,7 +4713,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 93 which fails the test:*
+*Example 96 which fails the test:*
 
 ```
     "references": [
@@ -4753,7 +4772,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 94 which fails the test:*
+*Example 97 which fails the test:*
 
 ```
   "document": {
@@ -4825,9 +4844,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-**TODO: Point to a place where options and fields are described in details**
-
-*Examples 95 Minimal with ROLIE document:*
+*Examples 98 Minimal with ROLIE document:*
 
 ```
   {
@@ -4877,7 +4894,7 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
 
-*Example 96:*
+*Example 99:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -4890,7 +4907,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-*Example 97:*
+*Example 100:*
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -4904,7 +4921,7 @@ The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver whic
 
 The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
-*Examples 98:*
+*Examples 101:*
 
 ```
 2021
@@ -4915,7 +4932,7 @@ The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 99:*
+*Examples 102:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -4929,7 +4946,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 100:*
+*Examples 103:*
 
 ```
 2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
@@ -4952,7 +4969,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease
 
 MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
 
-*Example 101:*
+*Example 104:*
 
 ```
 {
@@ -5003,7 +5020,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
-*Example 102:*
+*Example 105:*
 
 ```
 TODO: Provide EXAMPLE 101 for ROLIE service document
@@ -5013,7 +5030,7 @@ TODO: Provide EXAMPLE 101 for ROLIE service document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
-*Example 103:*
+*Example 106:*
 
 ```
 TODO: Provide EXAMPLE 102 for ROLIE category document
@@ -5025,7 +5042,7 @@ All CSAF documents SHALL have at least one hash file computed with a secure cryp
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 104:*
+*Example 107:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -5035,7 +5052,7 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
 
 The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 105:*
+*Example 108:*
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
@@ -5045,7 +5062,7 @@ ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_compan
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
-*Example 106:*
+*Example 109:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -5069,7 +5086,7 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
 
-*Example 107:*
+*Example 110:*
 
 ```
   {
@@ -5121,7 +5138,7 @@ The CSAF documents for each issuing party that is mirrored MUST be in a differen
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
 
-*Example 108:*
+*Example 111:*
 
 ```
   {
@@ -5663,7 +5680,7 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210723-dev | 2021-07-23 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
+| csaf-v2.0-wd20210724-dev | 2021-07-24 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
