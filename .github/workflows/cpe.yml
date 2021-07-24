@@ -6,8 +6,11 @@ jobs:
   cpe-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v2
       with:
         node-version: '14'
-    - run: ./csaf_2.0/test/cpe/run_tests.sh
+    - name: Perform CPE Dictionary Test
+      run: ./csaf_2.0/test/cpe/run_tests.sh
