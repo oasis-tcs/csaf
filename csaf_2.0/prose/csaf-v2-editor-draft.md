@@ -2011,6 +2011,8 @@ The Relationship item is of value type `object` and has four mandatory propertie
     }
 ```
 
+> The situation where a need for declaring a Relationship arises, is given when a product is e.g. vulnerable only when installed together with another, or to describe operating system components.
+
 Relationship category (`category`) of value `string` and `enum` defines the category of relationship for the referenced component.
 The valid values are:
 
@@ -2037,6 +2039,36 @@ Full Product Name (`full_product_name`) of value type Full Product Name type (`f
 Product Reference (`product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.
 
 Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.
+
+*Example 32:*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-908070601",
+        "name": "Cisco AnyConnect Secure Mobility Client 4.9.04053"
+      },
+      {
+        "product_id": "CSAFPID-908070602",
+        "name": "Microsoft Windows"
+      }
+    ],
+    "relationships": [
+      {
+        "product_reference": "CSAFPID-908070601",
+        "category": "installed_on",
+        "relates_to_product_reference": "CSAFPID-908070602",
+        "full_product_name": {
+          "product_id": "CSAFPID-908070603",
+          "name": "Cisco AnyConnect Secure Mobility Client 2.3.185 installed on Microsoft Windows"
+        }
+      }
+    ]
+  }
+```
+
+> The product `Cisco AnyConnect Secure Mobility Client 4.9.04053"` (Product ID: `CSAFPID-908070601`) and the product `Microsoft Windows` (Product ID: `CSAFPID-908070602`) form together a new product with the separate Product ID `CSAFPID-908070603`. The latter one can be used to refer to that combination in other parts of the CSAF document. In example 32, it might be the case that `Cisco AnyConnect Secure Mobility Client 4.9.04053"` is only vulnerable when installed on `Microsoft Windows`.
 
 ### 3.2.3 Vulnerabilities Property
 
