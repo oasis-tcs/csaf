@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 20 July 2021
+## 23 July 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -460,7 +460,7 @@ The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
 The schema identifier is (before publication):
 
 ```
-    "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json"
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json"
 ```
 
 The further documentation of the schema is organized via Definitions and Properties.
@@ -2011,6 +2011,8 @@ The Relationship item is of value type `object` and has four mandatory propertie
     }
 ```
 
+> The situation where a need for declaring a Relationship arises, is given when a product is e.g. vulnerable only when installed together with another, or to describe operating system components.
+
 Relationship category (`category`) of value `string` and `enum` defines the category of relationship for the referenced component.
 The valid values are:
 
@@ -2037,6 +2039,36 @@ Full Product Name (`full_product_name`) of value type Full Product Name type (`f
 Product Reference (`product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.
 
 Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.
+
+*Example 32:*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-908070601",
+        "name": "Cisco AnyConnect Secure Mobility Client 4.9.04053"
+      },
+      {
+        "product_id": "CSAFPID-908070602",
+        "name": "Microsoft Windows"
+      }
+    ],
+    "relationships": [
+      {
+        "product_reference": "CSAFPID-908070601",
+        "category": "installed_on",
+        "relates_to_product_reference": "CSAFPID-908070602",
+        "full_product_name": {
+          "product_id": "CSAFPID-908070603",
+          "name": "Cisco AnyConnect Secure Mobility Client 2.3.185 installed on Microsoft Windows"
+        }
+      }
+    ]
+  }
+```
+
+> The product `Cisco AnyConnect Secure Mobility Client 4.9.04053"` (Product ID: `CSAFPID-908070601`) and the product `Microsoft Windows` (Product ID: `CSAFPID-908070602`) form together a new product with the separate Product ID `CSAFPID-908070603`. The latter one can be used to refer to that combination in other parts of the CSAF document. In example 32, it might be the case that `Cisco AnyConnect Secure Mobility Client 4.9.04053"` is only vulnerable when installed on `Microsoft Windows`.
 
 ### 3.2.3 Vulnerabilities Property
 
@@ -3096,6 +3128,8 @@ The relevant paths for this test are:
 ### 6.1.9 Invalid CVSS computation
 
 It must be tested that the given CVSS object has the values computed correctly according to the definition.
+
+> The `vectorString` SHOULD take precedence.
 
 The relevant paths for this test are:
 
@@ -4167,7 +4201,7 @@ The relevant path for this test is:
           "summary": "Initial version."
         },
         {
-          "date": "2021-05-23T1100:00.000Z",
+          "date": "2021-07-21T11:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
@@ -4201,7 +4235,7 @@ The relevant path for this test is:
           "summary": "Initial version."
         },
         {
-          "date": "2021-05-23T1100:00.000Z",
+          "date": "2021-07-21T11:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
@@ -4234,6 +4268,7 @@ The relevant path for this test is:
         }
       ]
     }
+  ]
 ```
 
 > The list of involements contains an item which does not contain the property `date`.
@@ -4258,7 +4293,7 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "hashes": [
@@ -4272,7 +4307,7 @@ The relevant paths for this test are:
               "filename": "product_a.so"
             }
           ]
-         }
+        }
       }
     ]
   }
@@ -4300,7 +4335,7 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "hashes": [
@@ -4314,7 +4349,7 @@ The relevant paths for this test are:
               "filename": "product_a.so"
             }
           ]
-         }
+        }
       }
     ]
   }
@@ -4337,13 +4372,9 @@ The relevant path for this test is:
 *Example 83 which fails the test:*
 
 ```
-  "document": {
-    // ...
     "distribution": {
       "text": "Distribute freely."
-    },
-    // ...
-  }
+    }
 ```
 
 > The CSAF document has no TLP label.
@@ -4373,13 +4404,13 @@ The relevant path for this test is:
       {
         "category": "self",
         "summary": "A non-canonical URL.",
-        "url": "https://example.com/security/data/csaf/2021/ESA-2021-0001_1.json"
+        "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01_1.json"
       }
     ],
     // ...
     "tracking": {
       // ...
-      "id": "ESA-2021-0001",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01",
       // ...
       "version": "1"
     },
@@ -4389,7 +4420,32 @@ The relevant path for this test is:
 
 > The only element where the `category` is `self` has a URL that does not fulfill the requirement of a valid filename for a CSAF document.
 
-### 6.2.12 Sorting
+### 6.2.12 Missing Document Language
+
+It must be tested that the document language is present and set.
+
+The relevant path for this test is:
+
+```
+  /document/lang
+```
+
+*Example 85 which fails the test:*
+
+```
+  "document": {
+    "category": "generic_csaf",
+    "csaf_version": "2.0",
+    "publisher": {
+      // ...
+    },
+    // ...
+  }
+```
+
+> The document laguange is not defined.
+
+### 6.2.13 Sorting
 
 It must be tested that all keys in a CSAF document are sorted alphabetically.
 
@@ -4399,7 +4455,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 85 which fails the test:*
+*Example 86 which fails the test:*
 
 ```
   "document": {
@@ -4427,7 +4483,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores
 ```
 
-*Example 86 which fails the test:*
+*Example 87 which fails the test:*
 
 ```
   "product_tree": {
@@ -4473,7 +4529,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/vectorString
 ```
 
-*Example 87 which fails the test:*
+*Example 88 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -4502,7 +4558,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 88 which fails the test:*
+*Example 89 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4528,7 +4584,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 89 which fails the test:*
+*Example 90 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4553,13 +4609,13 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 90 which fails the test*:
+*Example 91 which fails the test*:
 
 ```
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A"
+        "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "hashes": [
@@ -4573,7 +4629,7 @@ The relevant paths for this test are:
               "filename": "product_a.so"
             }
           ]
-         }
+        }
       }
     ]
   }
@@ -4612,14 +4668,15 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 91 which fails the test:*
+*Example 92 which fails the test:*
 
 ```
-  "references": [
-  {
-    "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "https://example.invalid"
-  }
+    "references": [
+      {
+        "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
+        "url": "https://example.invalid"
+      }
+    ]
 ```
 
 > The `category` is not set and therefore treated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
@@ -4637,15 +4694,16 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 92 which fails the test:*
+*Example 93 which fails the test:*
 
 ```
-  "references": [
-  {
-    "category": "self",
-    "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
-    "url": "https://example.invalid"
-  }
+    "references": [
+      {
+        "category": "self",
+        "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
+        "url": "https://example.invalid"
+      }
+    ]
 ```
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
@@ -4695,7 +4753,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 93 which fails the test:*
+*Example 94 which fails the test:*
 
 ```
   "document": {
@@ -4755,7 +4813,7 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 ### 7.1.7 Requirement 7: provider-metadata.json
 
-The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator should display over any individual `publisher` values in the CSAF documents themselves.
+The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator should display over any individual `publisher` values in the CSAF documents themselves.
 
 > This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consitency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAf documents.
 >
@@ -4769,7 +4827,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 
 **TODO: Point to a place where options and fields are described in details**
 
-*Examples 94 Minimal with ROLIE document:*
+*Examples 95 Minimal with ROLIE document:*
 
 ```
   {
@@ -4819,7 +4877,7 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
 
-*Example 95:*
+*Example 96:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -4832,7 +4890,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-*Example 96:*
+*Example 97:*
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -4846,7 +4904,7 @@ The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver whic
 
 The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
-*Examples 97:*
+*Examples 98:*
 
 ```
 2021
@@ -4857,7 +4915,7 @@ The CSAF documents must be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 98:*
+*Examples 99:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -4871,7 +4929,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv must contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines must be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 99:*
+*Examples 100:*
 
 ```
 2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
@@ -4894,7 +4952,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease
 
 MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
 
-*Example 100:*
+*Example 101:*
 
 ```
 {
@@ -4945,7 +5003,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
-*Example 101:*
+*Example 102:*
 
 ```
 TODO: Provide EXAMPLE 101 for ROLIE service document
@@ -4955,7 +5013,7 @@ TODO: Provide EXAMPLE 101 for ROLIE service document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
 
-*Example 102:*
+*Example 103:*
 
 ```
 TODO: Provide EXAMPLE 102 for ROLIE category document
@@ -4967,7 +5025,7 @@ All CSAF documents SHALL have at least one hash file computed with a secure cryp
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 103:*
+*Example 104:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -4977,7 +5035,7 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
 
 The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 104:*
+*Example 105:*
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
@@ -4987,7 +5045,7 @@ ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_compan
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension.
 
-*Example 105:*
+*Example 106:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -5000,7 +5058,7 @@ The public part of the PGP key used to sign the CSAF documents MUST be available
 
 ### 7.1.21 Requirement 21: List of CSAF providers
 
-The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
+The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
 
 > Suggested locations to store the `aggregator.json` are:
 >
@@ -5011,7 +5069,7 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
 
-Example:
+*Example 107:*
 
 ```
   {
@@ -5063,7 +5121,7 @@ The CSAF documents for each issuing party that is mirrored MUST be in a differen
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
 
-Example:
+*Example 108:*
 
 ```
   {
@@ -5278,11 +5336,11 @@ Firstly, the program:
 Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
-* `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one cvrf:Organization instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
+* `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
-* `/vulnerabilities[]/scores[]`: If there are CVSSv3.0 and CVSSv3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSSv3.0 information and provide in CSAF only the CVSSv3.1 information.
-* `/product_tree/relationships[]`: If more than one prod:FullProductName instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
+* `/vulnerabilities[]/scores[]`: If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
+* `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 
 ### 9.1.6 Conformance Clause 6: CSAF content management system
 
@@ -5605,7 +5663,7 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210720-dev | 2021-07-20 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review |
+| csaf-v2.0-wd20210723-dev | 2021-07-23 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
 
 # Appendix C. Guidance on the Size of CSAF Documents
 

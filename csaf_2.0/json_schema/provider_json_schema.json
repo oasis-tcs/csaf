@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/provider_json_schema.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json",
   "title": "CSAF provider metadata",
   "description": "Representation of metadata information of a CSAF provider as a JSON document.",
   "type": "object",
@@ -177,12 +177,11 @@
         ],
         "properties": {
           "fingerprint": {
-            "$comment": "TODO: Check length",
             "title": "Fingerprint of the key",
             "description": "Contains the fingerprint of the pgp key.",
             "type": "string",
-            "minLength": 32,
-            "pattern": "^[0-9a-fA-F]{32,}$"
+            "minLength": 40,
+            "pattern": "^[0-9a-fA-F]{40,}$"
           },
           "url": {
             "title": "URL of the key",
@@ -195,7 +194,7 @@
     "publisher": {
       "title": "Publisher",
       "description": "Provides information about the publisher of the CSAF documents in this repository.",
-      "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json#/properties/document/properties/publisher"
+      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json#/properties/document/properties/publisher"
     },
     "role": {
       "title": "Role of the issuing party",
