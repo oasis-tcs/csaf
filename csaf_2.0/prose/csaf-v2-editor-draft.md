@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 24 July 2021
+## 25 July 2021
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -24,19 +24,21 @@ In Memory of Eric Johnson, TIBCO Software inc., an active member of the OASIS CS
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* JSON schema: csaf.json
-* Other parts (list titles and/or file names)
-* `(Note: Any normative computer language definitions that are part of the Work Product, such as XML instances, schemas and Java(TM) code, including fragments of such, must be (a) well formed and valid, (b) provided in separate plain text files, (c) referenced from the Work Product; and (d) where any definition in these separate files disagrees with the definition found in the specification, the definition in the separate file prevails. Remove this note before submitting for publication.)`
+* Aggregator JSON schema: [aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/aggregator_json_schema.json)
+* CSAF JSON schema: [csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf_json_schema.json)
+* Provider JSON schema: [provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/provider_json_schema.json)
 
 #### Related work:
 This specification replaces or supersedes:
 
-* The CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2. http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
+* The CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2. https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
 
-This specification is related to:
+#### Declared JSON namespaces:
 
-* Related specifications (include hyperlink, preferably to HTML format) \
-`(remove "Related work" section or the "replaces" or "related" subsections if no entries)`
+* [https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json)
+
 
 #### Abstract:
 The Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
@@ -52,10 +54,10 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 
 #### URI patterns:
 Initial publication URI:  
-https://docs.oasis-open.org/tc-name/wp-abbrev-xxxxx/v1.0/csd01/wp-abbrev-xxxxx-v1.0-csd01.html
+https://docs.oasis-open.org/tc-name/wp-abbrev-xxxxx/v2.0/csd01/wp-abbrev-xxxxx-v2.0-csd01.html
 
 Permanent "Latest version" URI:  
-https://docs.oasis-open.org/tc-name/wp-abbrev-xxxxx/v1.0/wp-abbrev-xxxxx-v1.0.html
+https://docs.oasis-open.org/tc-name/wp-abbrev-xxxxx/v2.0/wp-abbrev-xxxxx-v2.0.html
 
 (Note: Publication URIs are managed by OASIS TC Administration; please don't modify.)
 
@@ -64,7 +66,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.0]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock and Stefan Hagen. 00 Month 2021. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 25 July 2021. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
 
 
 -------
@@ -330,6 +332,8 @@ _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.
 _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
+###### [RFC3986]
+Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, DOI 10.17487/RFC3986, January 2005, https://www.rfc-editor.org/info/rfc3986.
 ###### [RFC7231]
 Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, https://www.rfc-editor.org/info/rfc7231.
 ###### [RFC7464]
@@ -924,11 +928,14 @@ If the value of the hash matches and the filename does not, a user should prefer
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
 
-The package URL (PURL) representation (`purl`) is a `string` of 4 or more characters with `pattern` (regular expression):
+The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
-    ^pkg:
+    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
 ```
+
+> The given pattern does not completely evaluate whether a PURL is valid according to the [PURL] specification. It provides a more generic approach and general guidance to enable forward compatibility.
+> CSAF uses only the canonical form of PURL to conform with section 3.3 of [RFC3986]. Therefore, URLs starting with `pkg://` are considered invalid.
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
@@ -2470,6 +2477,8 @@ In addition, any Remediation may expose the six optional properties Date (`date`
       }
 ```
 
+##### 3.2.3.11.1 Vulnerabilities Property - Remediations - Category
+
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:
 
@@ -2491,9 +2500,15 @@ The value `none_available` indicates that there is currently no fix available. T
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description should contain details about why there will be no fix issued.
 
+##### 3.2.3.11.2 Vulnerabilities Property - Remediations - Date
+
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
+##### 3.2.3.11.3 Vulnerabilities Property - Remediations - Details
+
 Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
+
+##### 3.2.3.11.4 Vulnerabilities Property - Remediations - Entitlements
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
 
@@ -2508,9 +2523,15 @@ List of entitlements (`entitlements`) of value type `array` with 1 or more items
 
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
 
+##### 3.2.3.11.5 Vulnerabilities Property - Remediations - Group IDs
+
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
+##### 3.2.3.11.6 Vulnerabilities Property - Remediations - Product IDs
+
 Product IDs (`product_ids`) are of value type Products (`products_t`).
+
+##### 3.2.3.11.7 Vulnerabilities Property - Remediations - Restart Required
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
 
@@ -2556,6 +2577,8 @@ The values must be used as follows:
 * `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted. This may include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
+
+##### 3.2.3.11.8 Vulnerabilities Property - Remediations - URL
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
@@ -3276,14 +3299,14 @@ The relevant paths for this test are:
         "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
-          "purl": "pkg:ExampleLibrary.Common@4.2.1337"
+          "purl": "pkg:maven/@1.3.4"
         }
       }
     ]
   }
 ```
 
-> Any valid purl has a type component.
+> Any valid purl has a name component.
 
 ### 6.1.14 Sorted Revision History
 
@@ -5680,7 +5703,7 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210724-dev | 2021-07-24 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
+| csaf-v2.0-wd20210725-dev | 2021-07-25 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
 
 # Appendix C. Guidance on the Size of CSAF Documents
 

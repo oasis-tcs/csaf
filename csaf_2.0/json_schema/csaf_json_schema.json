@@ -233,12 +233,12 @@
               }
             },
             "purl": {
-              "$comment": "TODO: This should have a full regular expression to enforce purl syntax.",
               "title": "package URL representation",
               "description": "The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.",
               "type": "string",
-              "pattern": "^pkg:",
-              "minLength": 4
+              "format": "uri",
+              "pattern": "^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+",
+              "minLength": 7
             },
             "sbom_urls": {
               "title": "List of SBOM URLs",
