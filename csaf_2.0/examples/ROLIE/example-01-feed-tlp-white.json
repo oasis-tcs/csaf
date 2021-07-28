@@ -22,7 +22,7 @@
         "link": [
           {
             "rel": "self",
-            "href": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
+            "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
           }
         ],
         "published": "2021-01-01T11:00Z",
