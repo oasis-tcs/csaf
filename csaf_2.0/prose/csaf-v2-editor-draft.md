@@ -4995,50 +4995,50 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 *Example 104:*
 
 ```
-{
-  "feed": {
-    "id": "example-csaf-feed-tlp-white",
-    "title": "Example CSAF feed (TLP:WHITE)",
-    "link": [
-      {
-        "rel": "self",
-        "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
-      }
-    ],
-    "category": [ 
-      {
-        "scheme": "urn:ietf:params:rolie:category:information-type",
-        "term": "csaf"
-      }
-    ],
-    "updated": "2021-01-01T12:00Z",
-    "entry": [
-      {
-        "id": "2020-ESA-001",
-        "title": "Example Security Advisory 001",
-        "link": [
-          {
-            "rel": "self",
-            "href": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
-          }
-        ],
-        "published": "2021-01-01T11:00Z",
-        "updated": "2021-01-01T12:00Z",
-        "summary": {
-          "content": "Vulnerabilities fixed in ABC 0.0.1"
-        },
-        "content": {
-          "type": "application/json",
-          "src": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
-        },
-        "format": {
-          "schema": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
-          "version": "2.0"
+  {
+    "feed": {
+      "id": "example-csaf-feed-tlp-white",
+      "title": "Example CSAF feed (TLP:WHITE)",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
         }
-      }
-    ]
+      ],
+      "category": [ 
+        {
+          "scheme": "urn:ietf:params:rolie:category:information-type",
+          "term": "csaf"
+        }
+      ],
+      "updated": "2021-01-01T12:00Z",
+      "entry": [
+        {
+          "id": "2020-ESA-001",
+          "title": "Example Security Advisory 001",
+          "link": [
+            {
+              "rel": "self",
+              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+            }
+          ],
+          "published": "2021-01-01T11:00Z",
+          "updated": "2021-01-01T12:00Z",
+          "summary": {
+            "content": "Vulnerabilities fixed in ABC 0.0.1"
+          },
+          "content": {
+            "type": "application/json",
+            "src": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+          },
+          "format": {
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
+            "version": "2.0"
+          }
+        }
+      ]
+    }
   }
-}
 ```
 
 ### 7.1.16 Requirement 16: ROLIE service document
