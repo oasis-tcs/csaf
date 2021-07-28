@@ -5057,12 +5057,14 @@ The use and therefore the existence of ROLIE service document is optional. If it
             {
               "title": "Example CSAF feed (TLP:WHITE)",
               "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
-              "categories": [
-                {
-                  "scheme": "urn:ietf:params:rolie:category:information-type",
-                  "term": "csaf"
-                }
-              ]
+              "categories": {
+                "category": [
+                  {
+                    "scheme": "urn:ietf:params:rolie:category:information-type",
+                    "term": "csaf"
+                  }
+                ]
+              }
             }
           ]
         }
