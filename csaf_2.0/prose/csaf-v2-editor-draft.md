@@ -4995,58 +4995,82 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 *Example 104:*
 
 ```
-{
-  "feed": {
-    "id": "example-csaf-feed-tlp-white",
-    "title": "Example CSAF feed (TLP:WHITE)",
-    "link": [
-      {
-        "rel": "self",
-        "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
-      }
-    ],
-    "category": {
-      "scheme": "urn:ietf:params:rolie:category:information-type",
-      "term": "security advisory"
-    },
-    "updated": "2021-01-01T12:00Z",
-    "entry": [
-      {
-        "id": "2020-ESA-001",
-        "title": "Example Security Advisory 001",
-        "link": [
-          {
-            "rel": "self",
-            "href": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
-          }
-        ],
-        "published": "2021-01-01T11:00Z",
-        "updated": "2021-01-01T12:00Z",
-        "summary": {
-          "content": "Vulnerabilities fixed in ABC 0.0.1"
-        },
-        "content": {
-          "type": "application/json",
-          "src": "https://psirt.domain.tld/advisories/csaf/2020/ESA-001.json"
-        },
-        "format": {
-          "schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/json_schema/csaf_json_schema.json",
-          "version": "2.0"
+  {
+    "feed": {
+      "id": "example-csaf-feed-tlp-white",
+      "title": "Example CSAF feed (TLP:WHITE)",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
         }
-      }
-    ]
+      ],
+      "category": [ 
+        {
+          "scheme": "urn:ietf:params:rolie:category:information-type",
+          "term": "csaf"
+        }
+      ],
+      "updated": "2021-01-01T12:00Z",
+      "entry": [
+        {
+          "id": "2020-ESA-001",
+          "title": "Example Security Advisory 001",
+          "link": [
+            {
+              "rel": "self",
+              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+            }
+          ],
+          "published": "2021-01-01T11:00Z",
+          "updated": "2021-01-01T12:00Z",
+          "summary": {
+            "content": "Vulnerabilities fixed in ABC 0.0.1"
+          },
+          "content": {
+            "type": "application/json",
+            "src": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+          },
+          "format": {
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
+            "version": "2.0"
+          }
+        }
+      ]
+    }
   }
-}
 ```
 
 ### 7.1.16 Requirement 16: ROLIE service document
 
-The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
+The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
 *Example 105:*
 
 ```
-TODO: Provide EXAMPLE 101 for ROLIE service document
+  {
+    "service": {
+      "workspace": [
+        {
+          "title": "Public CSAF feed",
+          "collection": [
+            {
+              "title": "Example CSAF feed (TLP:WHITE)",
+              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
+              "categories": {
+                "category": [
+                  {
+                    "scheme": "urn:ietf:params:rolie:category:information-type",
+                    "term": "csaf"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
 ```
 
 ### 7.1.17 Requirement 17: ROLIE category document
@@ -5056,7 +5080,18 @@ The use and therefore the existence of ROLIE category document is optional. If i
 *Example 106:*
 
 ```
-TODO: Provide EXAMPLE 102 for ROLIE category document
+  {
+    "categories": {
+      "category": [
+        {
+            "term": "Example Company Product A"
+        },
+        {
+            "term": "Example Company Product B"
+        }
+      ]
+    }
+  }
 ```
 
 ### 7.1.18 Requirement 18: Integrity
