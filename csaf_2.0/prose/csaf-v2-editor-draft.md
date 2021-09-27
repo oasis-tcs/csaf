@@ -404,8 +404,6 @@ This minimal required information set does not provide any useful information on
 Care has been taken, to design the containers for product and vulnerability information to support fine-grained mapping of security advisories onto product and vulnerability and minimize data duplication through referencing.
 The display of the elements representing Product Tree and Vulnerability information has been placed in the sections named accordingly.
 
-As the JSON format is not primarily targeting human readers but more programs parsing, validating and transforming no example is given in this introduction but instead examples derived from several real-world security advisories are stated in the non-normative Appendix E Complete Examples.
-
 ## 2.1 Construction Principles
 
 A Security Advisory defined as a CSAF document is the result of complex orchestration of many players and distinct and partially difficult to play schemas.
