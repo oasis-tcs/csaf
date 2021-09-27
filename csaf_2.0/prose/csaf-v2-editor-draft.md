@@ -3369,7 +3369,7 @@ The relevant path for this test is:
 
 ### 6.1.16 Latest Document Version
 
-It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison.
+It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison. Any pre-release part is also ignored if the document status is `draft`.
 
 The relevant path for this test is:
 
