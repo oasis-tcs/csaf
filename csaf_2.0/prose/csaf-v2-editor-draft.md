@@ -3094,7 +3094,7 @@ Contradiction groups are:
 
 ### 6.1.7 Multiple Scores with same Version per Product
 
-It must be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
+For each item in `/vulnerabilities` it must be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
 
 The relevant path for this test is:
 
