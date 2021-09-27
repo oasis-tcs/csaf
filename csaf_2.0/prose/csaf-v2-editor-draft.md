@@ -456,7 +456,7 @@ The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
     "$schema": "https://json-schema.org/draft/2020-12/schema"
 ```
 
-The schema identifier is (before publication):
+The schema identifier is:
 
 ```
     "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json"
