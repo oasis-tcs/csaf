@@ -2809,9 +2809,9 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 *Examples 39:*
 
 ```
+  cisco-sa-20190513-secureboot.json
   example_company_-_2019-yh3234.json
   rhba-2019_0024.json
-  cisco-sa-20190513-secureboot.json
 ```
 
 ## 5.2 Separation in Data Strean
