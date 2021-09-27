@@ -3593,7 +3593,7 @@ The relevant path for this test is:
 
 ### 6.1.24 Multiple Definition in Involvements
 
-It must be tested that items of the list of involements do not contain the tuple of `party` and `status` more than once at any `date`.
+It must be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
 
 The relevant path for this test is:
 
@@ -3623,7 +3623,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The list of involements contains two items with the same tuple `party`, `status` and `date`.
+> The list of involvements contains two items with the same tuple `party`, `status` and `date`.
 
 ### 6.1.25 Multiple Use of Same Hash Algorithm
 
