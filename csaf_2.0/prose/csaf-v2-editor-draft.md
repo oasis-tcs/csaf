@@ -4316,7 +4316,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The list of involements contains an item which does not contain the property `date`.
+> The list of involvements contains an item which does not contain the property `date`.
 
 ### 6.2.8 Use of MD5 as the only Hash Algorithm
 
