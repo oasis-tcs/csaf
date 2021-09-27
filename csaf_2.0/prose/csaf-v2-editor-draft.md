@@ -4947,7 +4947,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 
 ### 7.1.10 Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year
 
