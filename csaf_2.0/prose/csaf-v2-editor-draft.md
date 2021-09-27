@@ -3032,7 +3032,7 @@ The relevant path for this test is:
 
 ### 6.1.6 Contradicting Product Status
 
-It must be tested that the same Product ID is not member of contradicting product status groups.
+For each item in `/vulnerabilities` it must be tested that the same Product ID is not member of contradicting product status groups. The sets formed by the contradicting groups within one vulnerability item must be pairwise disjoint.
 
 Contradiction groups are:
 
