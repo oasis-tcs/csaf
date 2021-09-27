@@ -3365,7 +3365,7 @@ The relevant path for this test is:
   }
 ```
 
-> The element `source_lang` is present but not set.
+> The required element `source_lang` is missing.
 
 ### 6.1.16 Latest Document Version
 
