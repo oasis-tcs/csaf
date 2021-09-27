@@ -5,9 +5,9 @@
 
 # Common Security Advisory Framework Version 2.0
 
-## Committee Specification Draft 01
+## Committee Specification 01
 
-## 05 August 2021
+## 27 September 2021
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.md (Authoritative) \
@@ -33,7 +33,7 @@ Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
-In Memory of Eric Johnson, TIBCO Software Inc., an active member of the OASIS CSAF Committee.
+In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Committee.
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
@@ -5791,7 +5791,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210725-dev | 2021-07-25 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
+| csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CS for public review|
 
 -------
 
