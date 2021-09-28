@@ -3610,7 +3610,7 @@ The relevant path for this test is:
         {
           "date": "2021-04-23T10:00:00.000Z",
           "party": "vendor",
-          "status": "in_progress"
+          "status": "completed"
         },
         {
           "date": "2021-04-23T10:00:00.000Z",
