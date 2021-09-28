@@ -3359,7 +3359,8 @@ The relevant path for this test is:
       "category": "translator",
       "name": "CSAF TC Translator",
       "namespace": "https://csaf.io/translator"
-    }
+    },
+    "title": "Mandatory test: Translator (failing example 1)",
     // ...
   }
 ```
