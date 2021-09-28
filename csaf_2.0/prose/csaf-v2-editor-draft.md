@@ -3671,7 +3671,16 @@ The relevant paths for this test are:
 
 ### 6.1.26 Prohibited Document Category Name
 
-It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
+It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace. This test does only apply for CSAF documents with the profile "Generic CSAF". Therefore, it must be skipped if the document category matches one of the values defined for the profile other than "Generic CSAF".
+
+> For CSAF 2.0, the test must be skipped for the following values in `/document/category`:
+>
+> ```
+>   security_incident_response
+>   informational_advisory
+>   security_advisory
+>   vex
+> ```
 
 > This is the only test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
 
