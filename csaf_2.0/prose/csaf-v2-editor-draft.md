@@ -3623,7 +3623,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The list of involvements contains two items with the same tuple `party`, `status` and `date`.
+> The list of involvements contains two items with the same tuple `party` and `date`.
 
 ### 6.1.25 Multiple Use of Same Hash Algorithm
 
