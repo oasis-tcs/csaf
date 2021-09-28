@@ -397,9 +397,9 @@ Informative Comment:
 >The term Security Advisory as used in this document describes any notification of security issues in products of and by providers. Anyone providing a product is considered in this document as a vendor, i.e. developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 A security issue is not necessarily constraint to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of work-arounds is also considered part of the security issue.
 This document is the definitive reference for the language elements of CSAF version 2.0. The encompassing JSON schema file noted in the Additional Artifacts section of the title page shall be taken as normative in the case a gap or an inconsistency in this explanatory document becomes evident.
-The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike. The section SCHEMA_SECTION_NUMBER Schema derives from the JSON schema itself as a service for the reader.
+The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike. The section 3 Schema elements derives from the JSON schema itself as a service for the reader.
 
-This minimal required information set does not provide any useful information on products, vulnerabilities, or security advisories. Thus, any real-world Security Advisory will carry additional information as specified in SCHEMA_SECTION_NUMBER section Schema.
+This minimal required information set does not provide any useful information on products, vulnerabilities, or security advisories. Thus, any real-world Security Advisory will carry additional information as specified in section 3 Schema elements.
 
 Care has been taken, to design the containers for product and vulnerability information to support fine-grained mapping of security advisories onto product and vulnerability and minimize data duplication through referencing.
 The display of the elements representing Product Tree and Vulnerability information has been placed in the sections named accordingly.
@@ -3623,7 +3623,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The list of involvements contains two items with the same tuple `party`, `status` and `date`.
+> The list of involvements contains two items with the same tuple `party` and `date`.
 
 ### 6.1.25 Multiple Use of Same Hash Algorithm
 
@@ -5682,6 +5682,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 |David | Waltermire | NIST|
 |Denny | Page | TIBCO Software Inc.|
 |Duncan | Sparrell | sFractal Consulting LLC|
+|Eric | Johnson | TIBCO Software Inc.|
 |Ethan | Rahn | Arista Networks|
 |Feng | Cao | Oracle|
 |Greg | Scott | Cryptsoft Pty Ltd.|
