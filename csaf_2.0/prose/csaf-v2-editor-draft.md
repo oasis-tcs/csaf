@@ -5682,6 +5682,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 |David | Waltermire | NIST|
 |Denny | Page | TIBCO Software Inc.|
 |Duncan | Sparrell | sFractal Consulting LLC|
+|Eric | Johnson | TIBCO Software Inc.|
 |Ethan | Rahn | Arista Networks|
 |Feng | Cao | Oracle|
 |Greg | Scott | Cryptsoft Pty Ltd.|
