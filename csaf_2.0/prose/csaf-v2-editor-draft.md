@@ -3510,7 +3510,7 @@ The relevant path for this test is:
 
 ### 6.1.21 Missing Item in Revision History
 
-It must be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version.
+It must be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version. It must also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or a Major version of 0 or 1 in the case of semantic versioning.
 
 The relevant path for this test is:
 
