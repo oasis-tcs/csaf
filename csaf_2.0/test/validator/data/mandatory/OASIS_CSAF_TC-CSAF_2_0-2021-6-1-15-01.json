@@ -7,7 +7,6 @@
       "name": "OASIS CSAF TC Translator",
       "namespace": "https://csaf.io/translator"
     },
-    "source_lang": "",
     "title": "Mandatory test: Translator (failing example 1)",
     "tracking": {
       "current_release_date": "2021-07-21T10:00:00.000Z",

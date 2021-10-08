@@ -1,37 +1,54 @@
 
-![OASIS Logo](http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg)
+![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
+
 -------
 
 # Common Security Advisory Framework Version 2.0
 
-## Committee Specification Draft 01 /<br>Public Review Draft 01
+## Committee Specification 01
 
-## 25 July 2021
+## 27 September 2021
+
+#### This stage:
+https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.html \
+https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.pdf
+
+#### Previous stage:
+N/A
+
+#### Latest stage:
+https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html \
+https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.pdf
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
 
 #### Chair:
-Omar Santos (osantos@cisco.com), [Cisco](https://cisco.com/)
+Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/)
 
 #### Editors:
 Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
-In Memory of Eric Johnson, TIBCO Software inc., an active member of the OASIS CSAF Committee.
+In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Committee.
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: [aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/aggregator_json_schema.json)
-* CSAF JSON schema: [csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf_json_schema.json)
-* Provider JSON schema: [provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/provider_json_schema.json)
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/aggregator_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json.
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/csaf_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json.
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/provider_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json.
 
 #### Related work:
 This specification replaces or supersedes:
 
-* The CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2. https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csprd01/csaf-cvrf-v1.2-csprd01.html
+* _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. Latest stage:  https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html
 
 #### Declared JSON namespaces:
 
@@ -44,29 +61,20 @@ This specification replaces or supersedes:
 The Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
 #### Status:
-This document was last revised or approved by the OASIS Common Security Advisory Framework (CSAF) TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
+This document was last revised or approved by the OASIS Common Security Advisory Framework (CSAF) TC on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical.
 
-TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at https://www.oasis-open.org/committees/openc2/.
+TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at https://www.oasis-open.org/committees/csaf/.
 
-This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the OASIS IPR Policy, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/openc2/ipr.php).
+This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the OASIS IPR Policy, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/csaf/ipr.php).
 
 Note that any machine-readable content ([Computer Language Definitions](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsCompLang)) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
-
-#### URI patterns:
-Initial publication URI:  
-https://docs.oasis-open.org/tc-name/wp-abbrev-xxxxx/v2.0/csd01/wp-abbrev-xxxxx-v2.0-csd01.html
-
-Permanent "Latest version" URI:  
-https://docs.oasis-open.org/tc-name/wp-abbrev-xxxxx/v2.0/wp-abbrev-xxxxx-v2.0.html
-
-(Note: Publication URIs are managed by OASIS TC Administration; please don't modify.)
 
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
 **[csaf-v2.0]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 25 July 2021. OASIS Committee Specification Draft 01 / Public Review Draft 01. this-version.html. Latest version: latest-version.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 05 August 2021. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 
 -------
@@ -103,17 +111,10 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 # 1 Introduction
 
-!!Note to OASIS staff
----------------------
-Fixes in the css (shall) address:
-* blockquotes shall maintain constant indentation
-* code blocks shall expose block rectangle (not per line width right margin) - still unpatched
-* Logo and title page shall not be within the table of content (manually removal required currently - maybe addressable by processor options or markup changes)
----------------------
 
 ## 1.1 IPR Policy
 
-This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([https://www.oasis-open.org/committees/openc2/ipr.php](https://www.oasis-open.org/committees/openc2/ipr.php)).
+This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([https://www.oasis-open.org/committees/csaf/ipr.php](https://www.oasis-open.org/committees/csaf/ipr.php)).
 
 ## 1.2 Terminology
 
@@ -349,8 +350,8 @@ _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [SPDX22]
 _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, https://spdx.github.io/spdx-spec/.
 ###### [VEX]
-_Vulnerability Exploitability eXchange (VEX) - Overview and Concepts_, Draft version 0.3, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 06 June 2021,
-TODO: add the link.
+_Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021,
+https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, http://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at http://www.w3.org/TR/xml.
@@ -396,16 +397,12 @@ Informative Comment:
 >The term Security Advisory as used in this document describes any notification of security issues in products of and by providers. Anyone providing a product is considered in this document as a vendor, i.e. developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 A security issue is not necessarily constraint to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of work-arounds is also considered part of the security issue.
 This document is the definitive reference for the language elements of CSAF version 2.0. The encompassing JSON schema file noted in the Additional Artifacts section of the title page shall be taken as normative in the case a gap or an inconsistency in this explanatory document becomes evident.
-The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike. The section SCHEMA_SECTION_NUMBER Schema derives from the JSON schema itself as a service for the reader.
+The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike. The section 3 Schema elements derives from the JSON schema itself as a service for the reader.
 
-« From a high-level perspective, any Security Advisory purported by a CSAF version 2.0 adhering JSON text document MUST provide the `document` member with at least the following five properties defined: `category`, `csaf_version`, `title`, `publisher`, and `tracking`. » [CSAF-2-1]
-
-This minimal required information set does not provide any useful information on products, vulnerabilities, or security advisories. Thus, any real-world Security Advisory will carry additional information as specified in SCHEMA_SECTION_NUMBER section Schema.
+This minimal required information set does not provide any useful information on products, vulnerabilities, or security advisories. Thus, any real-world Security Advisory will carry additional information as specified in section 3 Schema elements.
 
 Care has been taken, to design the containers for product and vulnerability information to support fine-grained mapping of security advisories onto product and vulnerability and minimize data duplication through referencing.
 The display of the elements representing Product Tree and Vulnerability information has been placed in the sections named accordingly.
-
-As the JSON format is not primarily targeting human readers but more programs parsing, validating and transforming no example is given in this introduction but instead examples derived from several real-world security advisories are stated in the non-normative Appendix E Complete Examples.
 
 ## 2.1 Construction Principles
 
@@ -459,7 +456,7 @@ The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
     "$schema": "https://json-schema.org/draft/2020-12/schema"
 ```
 
-The schema identifier is (before publication):
+The schema identifier is:
 
 ```
     "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json"
@@ -2285,7 +2282,7 @@ List of involvements (`involvements`) of value type `array` with 1 or more items
     },
 ```
 
-Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container that allows the document producers to comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to convey the disclosure timeline. The ordered tuple of the values of `party`, `status` and `date` (if present) SHALL be unique within `involvements`.
+Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container that allows the document producers to comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to convey the disclosure timeline. The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
 
 ```
         "properties": {
@@ -2684,6 +2681,8 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
+-------
+
 # 4 Profiles
 
 CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
@@ -2787,8 +2786,10 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
     > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
-  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless whether that is referenced through the Product ID or a Product Group ID.
+  > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless of whether that is referenced through the Product ID or a Product Group ID.
 * The value of `/document/category` SHALL be `vex`.
+
+-------
 
 # 5 Additional Conventions
 
@@ -2808,9 +2809,9 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 *Examples 39:*
 
 ```
+  cisco-sa-20190513-secureboot.json
   example_company_-_2019-yh3234.json
   rhba-2019_0024.json
-  cisco-sa-20190513-secureboot.json
 ```
 
 ## 5.2 Separation in Data Strean
@@ -2820,6 +2821,8 @@ If multiple CSAF documents are transported via a data stream in a sequence witho
 ## 5.3 Sorting
 
 The keys within a CSAF document SHOULD be sorted alphabetically.
+
+-------
 
 # 6 Tests
 
@@ -3029,7 +3032,7 @@ The relevant path for this test is:
 
 ### 6.1.6 Contradicting Product Status
 
-It must be tested that the same Product ID is not member of contradicting product status groups.
+For each item in `/vulnerabilities` it must be tested that the same Product ID is not member of contradicting product status groups. The sets formed by the contradicting groups within one vulnerability item must be pairwise disjoint.
 
 Contradiction groups are:
 
@@ -3091,7 +3094,7 @@ Contradiction groups are:
 
 ### 6.1.7 Multiple Scores with same Version per Product
 
-It must be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
+For each item in `/vulnerabilities` it must be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
 
 The relevant path for this test is:
 
@@ -3357,16 +3360,16 @@ The relevant path for this test is:
       "name": "CSAF TC Translator",
       "namespace": "https://csaf.io/translator"
     },
-    "source_lang": "",
+    "title": "Mandatory test: Translator (failing example 1)",
     // ...
   }
 ```
 
-> The element `source_lang` is present but not set.
+> The required element `source_lang` is missing.
 
 ### 6.1.16 Latest Document Version
 
-It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison.
+It must be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison. Any pre-release part is also ignored if the document status is `draft`.
 
 The relevant path for this test is:
 
@@ -3469,7 +3472,7 @@ The relevant path for this test is:
 ```
     "revision_history": [
       {
-        "date": "2021-04-23T10:00:00.000Z",
+        "date": "2021-04-22T10:00:00.000Z",
         "number": "1.0.0-rc",
         "summary": "Release Candidate for initial version."
       },
@@ -3590,7 +3593,7 @@ The relevant path for this test is:
 
 ### 6.1.24 Multiple Definition in Involvements
 
-It must be tested that items of the list of involements do not contain the tuple of `party` and `status` more than once at any `date`.
+It must be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
 
 The relevant path for this test is:
 
@@ -3607,7 +3610,7 @@ The relevant path for this test is:
         {
           "date": "2021-04-23T10:00:00.000Z",
           "party": "vendor",
-          "status": "in_progress"
+          "status": "completed"
         },
         {
           "date": "2021-04-23T10:00:00.000Z",
@@ -3620,7 +3623,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The list of involements contains two items with the same tuple `party`, `status` and `date`.
+> The list of involvements contains two items with the same tuple `party` and `date`.
 
 ### 6.1.25 Multiple Use of Same Hash Algorithm
 
@@ -3668,7 +3671,16 @@ The relevant paths for this test are:
 
 ### 6.1.26 Prohibited Document Category Name
 
-It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace.
+It must be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace. This test does only apply for CSAF documents with the profile "Generic CSAF". Therefore, it must be skipped if the document category matches one of the values defined for the profile other than "Generic CSAF".
+
+> For CSAF 2.0, the test must be skipped for the following values in `/document/category`:
+>
+> ```
+>   security_incident_response
+>   informational_advisory
+>   security_advisory
+>   vex
+> ```
 
 > This is the only test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
 
@@ -4313,7 +4325,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The list of involements contains an item which does not contain the property `date`.
+> The list of involvements contains an item which does not contain the property `date`.
 
 ### 6.2.8 Use of MD5 as the only Hash Algorithm
 
@@ -4813,6 +4825,8 @@ The relevant paths for this test are:
 
 > There is a spelling mistake in `Secruity`.
 
+-------
+
 # 7 Distributing CSAF documents
 
 This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
@@ -4938,7 +4952,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 
 ### 7.1.10 Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which either serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year
 
@@ -5309,6 +5323,8 @@ A distributing party satisfies the "CSAF aggregator" role if the party:
 > CSAF aggregators can be provided for free or as a paid service.
 > To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
 
+-------
+
 # 8 Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
@@ -5325,6 +5341,8 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code. Moreover, it SHALL be treated as unsafe (user) input.
   > Additional, supporting mitigation measures like retrieving only CSAF documents from trusted sources and check their integrity and signature before parsing the document SHOULD be in place to reduce the risk further.
+
+-------
 
 # 9 Conformance
 
@@ -5651,6 +5669,8 @@ A CSAF extended validator satisfies the "CSAF full validator" conformance profil
 
 A CSAF full validator may provide an additional function to only run one or more selected informative tests.
 
+-------
+
 # Appendix A. Acknowledgments
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
@@ -5659,10 +5679,53 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
-Participated | in meetings | Something Company
-Alex | Amirnovman | Company B
-Kris | Anderman | Mini Micro
-Darren | Anstman | Big Networks
+|Alexandre | Dulaunoy | CIRCL|
+|Anthony | Berglas | Cryptsoft Pty Ltd.|
+|Art | MANION | Carnegie Mellon University|
+|Aukjan | van Belkum | EclecticIQ|
+|Ben | Sooter | Electric Power Research Institute (EPRI)|
+|Bernd | Grobauer | Siemens AG|
+|Bruce | Rich | Cryptsoft Pty Ltd.|
+|Chok | Poh | Oracle|
+|Dan | West | Microsoft|
+|David | Waltermire | NIST|
+|Denny | Page | TIBCO Software Inc.|
+|Duncan | Sparrell | sFractal Consulting LLC|
+|Eric | Johnson | TIBCO Software Inc.|
+|Ethan | Rahn | Arista Networks|
+|Feng | Cao | Oracle|
+|Greg | Scott | Cryptsoft Pty Ltd.|
+|Harold | Booth | NIST|
+|Jason | Masters | TELUS|
+|Jennifer | Victor | Dell|
+|Jessica | Fitzgerald-McKay | National Security Agency|
+|Jonathan | Bitle | Kaiser Permanente|
+|Justin | Corlett | Cryptsoft Pty Ltd.|
+|Kazuo | Noguchi | Hitachi, Ltd.|
+|Kent | Landfield | McAfee|
+|Langley | Rock | Red Hat|
+|Martin | Prpic | Red Hat|
+|Masato | Terada | Hitachi, Ltd.|
+|Mike | Gorski | Cisco Systems|
+|Nicole | Parrish | Mitre Corporation|
+|Omar | Santos | Cisco Systems|
+|Patrick | Maroney | AT&T|
+|Rhonda | Levy | Cisco Systems|
+|Richard | Struse | Mitre Corporation|
+|Ritwik | Ghoshal | Oracle|
+|Robert | Coderre | Accenture|
+|Robert | Keith | Accenture|
+|Stefan | Hagen | Individual|
+|Tania | Ward | Dell|
+|Ted | Bedwell | Cisco Systems|
+|Thomas | Proell | Siemens AG|
+|Thomas | Schmidt | Federal Office for Information Security (BSI) Germany|
+|Tim | Hudson | Cryptsoft Pty Ltd.|
+|Tobias | Limmer | Siemens AG|
+|Tony | Cox | Cryptsoft Pty Ltd.|
+|Vincent | Danen | Red Hat|
+|Will | Rideout | Arista Networks|
+|Xiaoyu | Ge | Huawei Technologies Co., Ltd.|
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of the previous version (CVRF v1.2) of this specification and their contributions are gratefully acknowledged:
 
@@ -5670,67 +5733,67 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
-Adam | Montville | CIS
-Allan | Thomson | LookingGlass
-Anthony | Berglas | Cryptsoft Pty Ltd.
-Art | Manion | Carnegie Mellon University
-Aukjan | van Belkum | EclecticIQ
-Ben | Sooter | Electric Power Research Institute
-Bernd | Grobauer | Siemens AG
-Beth | Pumo | Kaiser Permanente
-Bret | Jordan | Symantec Corp.
-Bruce | Rich | Cryptsoft Pty Ltd.
-Chet | Ensign | OASIS
-Chok | Poh | Oracle
-Chris | Rouland | Individual
-David | Waltermire | NIST
-Denny | Page | TIBCO Software Inc.
-Doron | Shiloach | IBM
-Duncan | Sparrell | sFractal Consulting LLC
-Eric | Johnson | TIBCO Software Inc.
-Feng | Cao | Oracle
-Greg | Reaume | TELUS
-Greg | Scott | Cryptsoft Pty Ltd.
-Harold | Booth | NIST
-Jamison | Day | LookingGlass
-Jared | Semrau | "FireEye, Inc."
-Jason | Masters | TELUS
-Jerome | Athias | Individual
-Jessica | Fitzgerald-McKay | National Security Agency
-Jonathan | Bitle | Kaiser Permanente
-Justin | Corlett | Cryptsoft Pty Ltd.
-Karen | Scarfone | Individual
-Kazuo | Noguchi | "Hitachi, Ltd."
-Kent | Landfield | McAfee
-Lothar | Braun | Siemens AG
-Louis | Ronnau | Cisco Systems
-Mark | Davidson | NC4
-Mark-David | McLaughlin | Cisco Systems
-Masato | Terada | "Hitachi, Ltd."
-Masood | Nasir | TELUS
-Nicole | Gong | Mitre Corporation
-Omar | Santos | Cisco Systems
-Patrick | Maroney | Wapack Labs LLC
-Paul | Patrick | "FireEye, Inc."
-Peter | Allor | IBM
-Phillip | Boles | "FireEye, Inc."
-Ravi | Balupari | Netskope
-Rich | Reybok | ServiceNow
-Richard | Struse | DHS Office of Cybersecurity and Communications (CS&C)
-Ritwik | Ghoshal | Oracle
-Robert | Coderre | VeriSign
-Robin | Cover | OASIS
-Rupert | Wimmer | Siemens AG
-Sanjiv | Kalkar | Individual
-Sean | Barnum | Mitre Corporation
-Stefan | Hagen | Individual
-Ted | Bedwell | Cisco Systems
-Thomas | Schreck | Siemens AG
-Tim | Hudson | Cryptsoft Pty Ltd.
-Tony | Cox | Cryptsoft Pty Ltd.
-Trey | Darley | "Kingfisher Operations, sprl"
-Vincent | Danen | Red Hat
-Zach | Turk | Microsoft
+|Adam | Montville | CIS|
+|Allan | Thomson | LookingGlass|
+|Anthony | Berglas | Cryptsoft Pty Ltd.|
+|Art | Manion | Carnegie Mellon University|
+|Aukjan | van Belkum | EclecticIQ|
+|Ben | Sooter | Electric Power Research Institute|
+|Bernd | Grobauer | Siemens AG|
+|Beth | Pumo | Kaiser Permanente|
+|Bret | Jordan | Symantec Corp.|
+|Bruce | Rich | Cryptsoft Pty Ltd.|
+|Chet | Ensign | OASIS|
+|Chok | Poh | Oracle|
+|Chris | Rouland | Individual|
+|David | Waltermire | NIST|
+|Denny | Page | TIBCO Software Inc.|
+|Doron | Shiloach | IBM|
+|Duncan | Sparrell | sFractal Consulting LLC|
+|Eric | Johnson | TIBCO Software Inc.|
+|Feng | Cao | Oracle|
+|Greg | Reaume | TELUS|
+|Greg | Scott | Cryptsoft Pty Ltd.|
+|Harold | Booth | NIST|
+|Jamison | Day | LookingGlass|
+|Jared | Semrau | "FireEye, Inc."|
+|Jason | Masters | TELUS|
+|Jerome | Athias | Individual|
+|Jessica | Fitzgerald-McKay | National Security Agency|
+|Jonathan | Bitle | Kaiser Permanente|
+|Justin | Corlett | Cryptsoft Pty Ltd.|
+|Karen | Scarfone | Individual|
+|Kazuo | Noguchi | "Hitachi, Ltd."|
+|Kent | Landfield | McAfee|
+|Lothar | Braun | Siemens AG|
+|Louis | Ronnau | Cisco Systems|
+|Mark | Davidson | NC4|
+|Mark-David | McLaughlin | Cisco Systems|
+|Masato | Terada | "Hitachi, Ltd."|
+|Masood | Nasir | TELUS|
+|Nicole | Gong | Mitre Corporation|
+|Omar | Santos | Cisco Systems|
+|Patrick | Maroney | Wapack Labs LLC|
+|Paul | Patrick | "FireEye, Inc."|
+|Peter | Allor | IBM|
+|Phillip | Boles | "FireEye, Inc."|
+|Ravi | Balupari | Netskope|
+|Rich | Reybok | ServiceNow|
+|Richard | Struse | DHS Office of Cybersecurity and Communications (CS&C)|
+|Ritwik | Ghoshal | Oracle|
+|Robert | Coderre | VeriSign|
+|Robin | Cover | OASIS|
+|Rupert | Wimmer | Siemens AG|
+|Sanjiv | Kalkar | Individual|
+|Sean | Barnum | Mitre Corporation|
+|Stefan | Hagen | Individual|
+|Ted | Bedwell | Cisco Systems|
+|Thomas | Schreck | Siemens AG|
+|Tim | Hudson | Cryptsoft Pty Ltd.|
+|Tony | Cox | Cryptsoft Pty Ltd.|
+|Trey | Darley | "Kingfisher Operations, sprl"|
+|Vincent | Danen | Red Hat|
+|Zach | Turk | Microsoft|
 
 -------
 
@@ -5738,7 +5801,9 @@ Zach | Turk | Microsoft
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20210725-dev | 2021-07-25 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD for public review|
+| csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CS for public review|
+
+-------
 
 # Appendix C. Guidance on the Size of CSAF Documents
 
@@ -5750,13 +5815,13 @@ All _CSAF consumers_ should be able to process CSAF documents which comply with 
 
 > If you come across a case where these limits are exceeded, please provide feedback to the TC.
 
-## File size
+## C.1 File size
 
 A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 15 MB.
 
 > At least one database technology in wide use for storing CSAF documents rejects insert attempts when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integers and small strings may incur more overhead in the BSON format than in JSON. In addition, the BSON format adds length information for the entries inside the document, which adds to the size when storing CSAF document content in a BSON format.
 
-## Array length
+## C.2 Array length
 
 An array should not have more than:
 
@@ -5833,7 +5898,7 @@ An array should not have more than:
   * `/vulnerabilities[]/threats[]/group_ids`
   * `/vulnerabilities[]/threats[]/product_ids`
 
-## String length
+## C.3 String length
 
 A string should not have a length greater than:
 
@@ -5942,7 +6007,7 @@ A string should not have a length greater than:
   * `/vulnerabilities[]/remediations[]/restart_required/details`
   * `/vulnerabilities[]/threats[]/details`
 
-## URI length
+## C.4 URI length
 
 A string with format `uri` should not have a length greater than 20000. This applies to:
 
@@ -5967,7 +6032,7 @@ A string with format `uri` should not have a length greater than 20000. This app
 * `/vulnerabilities[]/references[]/url`
 * `/vulnerabilities[]/remediations[]/url`
 
-## Enum
+## C.5 Enum
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
@@ -6033,7 +6098,7 @@ It seems to be safe to assume that the length of each value is not greater than 
 * `/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity` (8)
 * `/vulnerabilities[]/threats[]/category` (14)
 
-## Date
+## C.6 Date
 
 The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
