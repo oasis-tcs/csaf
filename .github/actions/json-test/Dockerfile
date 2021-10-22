@@ -17,8 +17,7 @@ RUN apt-get update -q \
     python3-setuptools \
     python3-wheel
 
-RUN pip3 install --upgrade pip \
- && pip3 install jsonschema[format]
+RUN pip3 install jsonschema[format]
 
 COPY entrypoint.sh /
 
