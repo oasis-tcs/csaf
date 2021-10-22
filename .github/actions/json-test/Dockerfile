@@ -10,7 +10,6 @@ ARG DEBIAN_FRONTEND="noninteractive"
 # install all necessary software components
 RUN apt-get update -q \
  && apt-get install -y --no-install-recommends -qq \
-    git \
     python3 \
     python3-simplejson \
     python3-jsonpath-rw \
