@@ -19,7 +19,7 @@ RUN apt-get update -q \
     python3-wheel
 
 RUN pip3 install --upgrade pip \
- && pip3 install git+https://github.com/anexia-it/jsonschema@draft2020-12#egg=jsonschema[format]
+ && pip3 install jsonschema[format]
 
 COPY entrypoint.sh /
 
