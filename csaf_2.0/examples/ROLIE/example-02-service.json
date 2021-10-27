@@ -31,8 +31,8 @@
                   "term": "csaf"
                 },
                 {
-                  "scheme": "urn:ietf:params:rolie:category:information-type",
-                  "term": "tlp-amber"
+                  "scheme": "https://www.first.org/tlp/",
+                  "term": "AMBER"
                 }
               ]
             }
@@ -47,8 +47,8 @@
                   "term": "csaf"
                 },
                 {
-                  "scheme": "urn:ietf:params:rolie:category:information-type",
-                  "term": "tlp-red"
+                  "scheme": "https://www.first.org/tlp/",
+                  "term": "RED"
                 }
               ]
             }
