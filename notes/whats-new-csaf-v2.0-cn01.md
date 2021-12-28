@@ -344,15 +344,18 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `document.csaf_version`: Gives the version of the CSAF specification which the document was generated for.
 * `document.distribution.tlp`: Provides details about the TLP classification of the document.
 * `document.lang`: Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. Previously, this was done through `xml:lang` attributes per element.
+* `document.publisher.name`: Contains the name of the issuing party. Previously, this was included in `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `document.publisher.namespace`: Contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. It replaces the `//cvrf:DocumentPublisher/@VendorID`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 
 ## E.2 Changed elements
 
 * `document.acknowledgments[].organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
-* 
+* `document.publisher.issuing_authority`: Name of the issuing party is now a separate field.
 
 ## E.3 Obsolete CVRF elements
 
 * `//cvrf:Note/@Ordinal`
+* `//cvrf:DocumentPublisher/@VendorID`
 
 ## E.4 Mapped elements
 
@@ -385,3 +388,9 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.notes[i].category` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Type` |  |
 | `document.notes[i].text` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/text()` |  |
 | `document.notes[].title` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Title` |  |
+| `document.publisher` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher` |  |
+| `document.publisher.category` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/@Type` |  |
+| `document.publisher.contact_details` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:ContactDetails/text()` |  |
+| `document.publisher.issuing_authority` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()` | see E.2 |
+| `document.publisher.name` |  | see E.1 |
+| `document.publisher.namespace` |  | see E.1 |
