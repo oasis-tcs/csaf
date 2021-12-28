@@ -346,6 +346,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `document.lang`: Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. Previously, this was done through `xml:lang` attributes per element.
 * `document.publisher.name`: Contains the name of the issuing party. Previously, this was included in `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `document.publisher.namespace`: Contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. It replaces the `//cvrf:DocumentPublisher/@VendorID`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `document.source_lang`: If this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
 ## E.2 Changed elements
 
@@ -399,3 +400,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.references[i].category` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/@Type` |  |
 | `document.references[i].summary` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:Description/text()` |  |
 | `document.references[].url` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:URL/text()` |  |
+| `document.source_lang` |  | see E.1 |
