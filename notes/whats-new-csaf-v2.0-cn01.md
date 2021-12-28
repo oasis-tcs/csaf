@@ -704,3 +704,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].threats[j].group_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:GroupID[k+1]/text()` |  |
 | `vulnerabilities[i].threats[j].product_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:ProductID` | |
 | `vulnerabilities[i].threats[j].product_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:ProductID[k+1]/text()` |  |
+| `vulnerabilities[i].title` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Title/text()` |  |
