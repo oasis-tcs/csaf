@@ -613,3 +613,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].product_status.recommended[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Recommended"]/vuln:ProductID[j+1]` |  |
 | `vulnerabilities[i].product_status.under_investigation` | | see E.1 |
 | `vulnerabilities[i].product_status.under_investigation[]` | | see E.1 |
+| `vulnerabilities[i].references` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References` | |
+| `vulnerabilities[i].references[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]` | |
+| `vulnerabilities[i].references[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/@Type` | |
+| `vulnerabilities[i].references[j].summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:Description/text()` | |
+| `vulnerabilities[i].references[j].url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:URL/text()` | |
