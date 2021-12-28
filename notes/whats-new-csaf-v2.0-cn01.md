@@ -358,7 +358,6 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `product_tree.*.product.product_identification_helper.x_generic_uris`: Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 * `vulnerabilities[].involvements[].date`: Holds the date and time of the involvement entry.
 * `vulnerabilities[i].product_status.under_investigation`: It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
-* `vulnerabilities[].remediations[].date`: Contains the date from which the remediation is available.
 * `vulnerabilities[].remediations[].restart_required`: Provides information on category of restart is required by this remediation to become effective.
 * `vulnerabilities[].scores[]`: Specifies information about (at least one) score of the vulnerability and for which products the given value applies. Previously, products where directly tied to the `vuln:ScoreSetV2` or `vuln:ScoreSetV3`.
 * `vulnerabilities[].scores[].cvss_v2.*`: Additional elements were introduced through the use of the FIRST CVSSv2 schema.
@@ -628,7 +627,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].remediations` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations` | |
 | `vulnerabilities[i].remediations[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]` | |
 | `vulnerabilities[i].remediations[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/@Type` | |
-| `vulnerabilities[i].remediations[j].date` |  | see E.1 |
+| `vulnerabilities[i].remediations[j].date` |  | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/@Date` |
 | `vulnerabilities[i].remediations[j].details` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Description/text()` | |
 | `vulnerabilities[i].remediations[j].entitlements` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Entitlement` | |
 | `vulnerabilities[i].remediations[j].entitlements[]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Entitlement[k+1]/text()` | |
