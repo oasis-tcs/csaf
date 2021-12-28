@@ -360,7 +360,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 
 ## E.2 Changed elements
 
-* `document.acknowledgments[].organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `*.acknowledgments[].organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `document.publisher.issuing_authority`: Name of the issuing party is now a separate field. See E.1
 * `document.tracking.generator.engine.name`: Version of the engine is now a separate field. See E.1
 * `document.tracking.revision_history[].number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
@@ -371,6 +371,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 
 * `//cvrf:Note/@Ordinal`
 * `//cvrf:DocumentPublisher/@VendorID`
+* `//vuln:Vulnerability/@Ordinal`
 
 ## E.4 Mapped elements
 
@@ -563,3 +564,13 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `product_tree.relationships[i].full_product_name.product_identification_helper.x_generic_uris[].uri` |  | see parent |
 | `product_tree.relationships[i].product_reference` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@ProductReference` |  |
 | `product_tree.relationships[i].relates_to_product_reference` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@RelatesToProductReference` |  |
+| `vulnerabilities` | `/cvrf:cvrfdoc/vuln:Vulnerability` | |
+| `vulnerabilities[i]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]` | |
+| `vulnerabilities[i].acknowledgments` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments` | |
+| `vulnerabilities[i].acknowledgments[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]` | |
+| `vulnerabilities[i].acknowledgments[j].names` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Name` | |
+| `vulnerabilities[i].acknowledgments[j].names[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Name[k+1]/text()`  | |
+| `vulnerabilities[i].acknowledgments[j].organization` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Organization[1]/text()` | see E.2 |
+| `vulnerabilities[i].acknowledgments[j].summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Description/text()` | |
+| `vulnerabilities[i].acknowledgments[j].urls` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:URL`| |
+| `vulnerabilities[i].acknowledgments[j].urls[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:URL[k+1]/text()` | |
