@@ -347,11 +347,16 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `document.publisher.name`: Contains the name of the issuing party. Previously, this was included in `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `document.publisher.namespace`: Contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. It replaces the `//cvrf:DocumentPublisher/@VendorID`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `document.source_lang`: If this copy of the document is a translation then the value of this property describes from which language this document was translated.
+* `document.tracking.generator.engine`: Contains information about the engine that generated the CSAF document. This was introduced as intermediate level to group `name` and `version` of `engine` logically. In a CVRF-CSAF conversion, the converter SHOULD replace this objects according to its own values.
+* `document.tracking.generator.engine.version`: Contains the version of the engine that generated the CSAF document. Previously, this was part of the `cvrf:Engine` element.
 
 ## E.2 Changed elements
 
 * `document.acknowledgments[].organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
-* `document.publisher.issuing_authority`: Name of the issuing party is now a separate field.
+* `document.publisher.issuing_authority`: Name of the issuing party is now a separate field. See E.1
+* `document.tracking.generator.engine.name`: Version of the engine is now a separate field. See E.1
+* `document.tracking.revision_history[].number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `document.tracking.version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 
 ## E.3 Obsolete CVRF elements
 
@@ -402,3 +407,21 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.references[].url` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:URL/text()` |  |
 | `document.source_lang` |  | see E.1 |
 | `document.title` | `/cvrf:cvrfdoc/cvrf:DocumentTitle/text()` |  |
+| `document.tracking` | `/cvrf:cvrfdoc/cvrf:DocumentTracking` |  |
+| `document.tracking.aliases` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:Alias` | |
+| `document.tracking.aliases[i]` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:Alias[i+1]/text()` |  |
+| `document.tracking.current_release_date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:CurrentReleaseDate/text()` | |
+| `document.tracking.generator` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator` |  |
+| `document.tracking.generator.date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator/cvrf:Date/text()` |  |
+| `document.tracking.generator.engine` |  | see E.1 |
+| `document.tracking.generator.engine.name` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator/cvrf:Engine/text()` | see E.2 |
+| `document.tracking.generator.engine.version` |  | see E.1 |
+| `document.tracking.id` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:ID/text()` |  |
+| `document.tracking.initial_release_date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:InitialReleaseDate/text()` |  |
+| `document.tracking.revision_history` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory` |  |
+| `document.tracking.revision_history[i]` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]` |  |
+| `document.tracking.revision_history[].date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Date/text()` |  |
+| `document.tracking.revision_history[].number` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Number/text()` | see E.2 |
+| `document.tracking.revision_history[].summary` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Description/text()` |  |
+| `document.tracking.status` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Status/text()` |  |
+| `document.tracking.version` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Version/text()` | see E.2 |
