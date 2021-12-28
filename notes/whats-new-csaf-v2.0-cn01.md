@@ -340,9 +340,10 @@ This informative appendix provides a mapping by path between the elements in CSA
 
 ## E.1 Newly introduced elements
 
-* `document`: Groups the document-level metadata elements. Previously, in namespace `cvrf`.
+* `document`: Groups the document-level metadata elements. Previously, these elements were grouped through the namespace `cvrf`.
 * `document.csaf_version`: Gives the version of the CSAF specification which the document was generated for.
 * `document.distribution.tlp`: Provides details about the TLP classification of the document.
+* `document.lang`: Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. Previously, this was done through `xml:lang` attributes per element.
 
 ## E.2 Changed elements
 
@@ -373,3 +374,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.distribution.tlp` |  | see E.1 |
 | `document.distribution.tlp.label` |  | see parent |
 | `document.distribution.tlp.url` |  | see parent |
+| `document.lang` |  | see E.1 |
