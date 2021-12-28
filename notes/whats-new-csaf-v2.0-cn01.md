@@ -578,3 +578,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].cwe` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE` | |
 | `vulnerabilities[i].cwe.id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/@ID` |  |
 | `vulnerabilities[i].cwe.name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/text()` |  |
+| `vulnerabilities[i].discovery_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:DiscoveryDate/text()` | |
