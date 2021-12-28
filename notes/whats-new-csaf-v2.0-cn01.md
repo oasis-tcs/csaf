@@ -358,6 +358,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `product_tree.*.product.product_identification_helper.x_generic_uris`: Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 * `vulnerabilities[].involvements[].date`: Holds the date and time of the involvement entry.
 * `vulnerabilities[i].product_status.under_investigation`: It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
+* `vulnerabilities[].remediations[].date`: Contains the date from which the remediation is available.
+* `vulnerabilities[].remediations[].restart_required`: Provides information on category of restart is required by this remediation to become effective. 
 
 ## E.2 Changed elements
 
@@ -618,4 +620,19 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].references[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/@Type` | |
 | `vulnerabilities[i].references[j].summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:Description/text()` | |
 | `vulnerabilities[i].references[j].url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:URL/text()` | |
-| `vulnerabilities[i].release_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ReleaseDate/text()` | |
+| `vulnerabilities[i].release_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ReleaseDate/text()` |  |
+| `vulnerabilities[i].remediations` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations` | |
+| `vulnerabilities[i].remediations[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]` | |
+| `vulnerabilities[i].remediations[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/@Type` | |
+| `vulnerabilities[i].remediations[j].date` |  | see E.1 |
+| `vulnerabilities[i].remediations[j].details` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Description/text()` | |
+| `vulnerabilities[i].remediations[j].entitlements` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Entitlement` | |
+| `vulnerabilities[i].remediations[j].entitlements[]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Entitlement[k+1]/text()` | |
+| `vulnerabilities[i].remediations[j].group_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:GroupID` | |
+| `vulnerabilities[i].remediations[j].group_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:GroupID[k+1]/text()` |  |
+| `vulnerabilities[i].remediations[j].product_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:ProductID` | |
+| `vulnerabilities[i].remediations[j].product_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:ProductID[k+1]/text()` |  |
+| `vulnerabilities[i].remediations[j].restart_required` |  | see E.1 |
+| `vulnerabilities[i].remediations[j].restart_required.category` |  | see parent |
+| `vulnerabilities[i].remediations[j].restart_required.details` |  | see parent |
+| `vulnerabilities[i].remediations[].url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:URL/text()` |  |
