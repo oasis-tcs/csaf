@@ -394,3 +394,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.publisher.issuing_authority` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()` | see E.2 |
 | `document.publisher.name` |  | see E.1 |
 | `document.publisher.namespace` |  | see E.1 |
+| `document.references` | `/cvrf:cvrfdoc/cvrf:DocumentReferences` |  |
+| `document.references[i]` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]` |  |
+| `document.references[i].category` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/@Type` |  |
+| `document.references[i].summary` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:Description/text()` |  |
+| `document.references[].url` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:URL/text()` |  |
