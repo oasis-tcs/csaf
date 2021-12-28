@@ -365,3 +365,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.aggregate_severity` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity` |  |
 | `document.aggregate_severity.namespace` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/@Namespace` |  |
 | `document.aggregate_severity.text` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/text()` |  |
+| `document.category` | `/cvrf:cvrfdoc/cvrf:DocumentType/text()` |  |
