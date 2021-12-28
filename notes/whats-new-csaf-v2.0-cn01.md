@@ -357,6 +357,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `product_tree.*.product.product_identification_helper.skus`: Contains a list of parts, or full stock keeping units.
 * `product_tree.*.product.product_identification_helper.x_generic_uris`: Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 * `vulnerabilities[].involvements[].date`: Holds the date and time of the involvement entry.
+* `vulnerabilities[i].product_status.under_investigation`: It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 
 ## E.2 Changed elements
 
@@ -595,3 +596,20 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].notes[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Type` | |
 | `vulnerabilities[i].notes[j].text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/text()` |  |
 | `vulnerabilities[i].notes[j].title` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Title` |  |
+| `vulnerabilities[i].product_status` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses` | |
+| `vulnerabilities[i].product_status.first_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Affected"]` | |
+| `vulnerabilities[i].product_status.first_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Affected"]/vuln:ProductID[j+1]` |  |
+| `vulnerabilities[i].product_status.first_fixed` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Fixed"]` | |
+| `vulnerabilities[i].product_status.first_fixed[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Fixed"]/vuln:ProductID[j+1]` |  |
+| `vulnerabilities[i].product_status.fixed` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Fixed"]` | |
+| `vulnerabilities[i].product_status.fixed[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Fixed"]/vuln:ProductID[j+1]` |  |
+| `vulnerabilities[i].product_status.known_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Affected"]` | |
+| `vulnerabilities[i].product_status.known_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Affected"]/vuln:ProductID[j+1]` |  |
+| `vulnerabilities[i].product_status.known_not_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Not Affected"]`| |
+| `vulnerabilities[i].product_status.known_not_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Not Affected"]/vuln:ProductID[j+1]` |  |
+| `vulnerabilities[i].product_status.last_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Last Affected"]` | |
+| `vulnerabilities[i].product_status.last_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Last Affected"]/vuln:ProductID[j+1]` |  |
+| `vulnerabilities[i].product_status.recommended` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Recommended"]` |  |
+| `vulnerabilities[i].product_status.recommended[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Recommended"]/vuln:ProductID[j+1]` |  |
+| `vulnerabilities[i].product_status.under_investigation` | | see E.1 |
+| `vulnerabilities[i].product_status.under_investigation[]` | | see E.1 |
