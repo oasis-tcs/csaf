@@ -366,6 +366,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 ## E.2 Changed elements
 
 * `*.acknowledgments[].organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `document.publisher.category`: The possible values have been extended.
 * `document.publisher.issuing_authority`: Name of the issuing party is now a separate field. See E.1
 * `document.tracking.generator.engine.name`: Version of the engine is now a separate field. See E.1
 * `document.tracking.revision_history[].number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
@@ -412,7 +413,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.notes[i].text` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/text()` |  |
 | `document.notes[].title` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Title` |  |
 | `document.publisher` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher` |  |
-| `document.publisher.category` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/@Type` |  |
+| `document.publisher.category` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/@Type` | see E.2 |
 | `document.publisher.contact_details` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:ContactDetails/text()` |  |
 | `document.publisher.issuing_authority` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()` | see E.2 |
 | `document.publisher.name` |  | see E.1 |
