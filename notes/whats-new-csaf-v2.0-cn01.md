@@ -349,6 +349,14 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `document.source_lang`: If this copy of the document is a translation then the value of this property describes from which language this document was translated.
 * `document.tracking.generator.engine`: Contains information about the engine that generated the CSAF document. This was introduced as intermediate level to group `name` and `version` of `engine` logically. In a CVRF-CSAF conversion, the converter SHOULD replace this objects according to its own values.
 * `document.tracking.generator.engine.version`: Contains the version of the engine that generated the CSAF document. Previously, this was part of the `cvrf:Engine` element.
+* `product_tree.*.product.product_identification_helper`: Provides at least one method which aids in identifying the product in an asset database. It was introduced to group different ways to identify a product.
+* `product_tree.*.product.product_identification_helper.hashes`: Contains a list of cryptographic hashes usable to identify files.
+* `product_tree.*.product.product_identification_helper.purl`: The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+* `product_tree.*.product.product_identification_helper.sbom_urls`: Contains a list of URLs where SBOMs for this product can be retrieved.
+* `product_tree.*.product.product_identification_helper.serial_numbers`: Contains a list of parts, or full serial numbers.
+* `product_tree.*.product.product_identification_helper.skus`: Contains a list of parts, or full stock keeping units.
+* `product_tree.*.product.product_identification_helper.x_generic_uris`: Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
+*
 
 ## E.2 Changed elements
 
@@ -425,3 +433,74 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.tracking.revision_history[].summary` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Description/text()` |  |
 | `document.tracking.status` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Status/text()` |  |
 | `document.tracking.version` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Version/text()` | see E.2 |
+| `product_tree` | `/cvrf:cvrfdoc/prod:ProductTree` |  |
+| `product_tree.branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch` |  |
+| `product_tree.branches[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]` |  |
+| `product_tree.branches[i].branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch` |  |
+| `product_tree.branches[i].branches[j]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]` |  |
+| `product_tree.branches[i].branches[j].branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch` |  |
+| `product_tree.branches[i].branches[j].branches[k]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]` |  |
+| `product_tree.branches[i].branches[j].branches[k].branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch` | |
+| `product_tree.branches[i].branches[j].branches[k].branches[l]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]` |  |
+| `product_tree.branches[i].branches[j].branches[k].branches[l].category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Type` |  |
+| `product_tree.branches[i].branches[j].branches[k].branches[l].name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Name` |  |
+| `product_tree.branches[i].branches[j].branches[k].category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Type` | |
+| `product_tree.branches[i].branches[j].branches[k].name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Name` |  |
+| `product_tree.branches[i].branches[j].branches[k].product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName` | |
+| `product_tree.branches[i].branches[j].branches[k].product.name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/text()` |  |
+| `product_tree.branches[i].branches[j].branches[k].product.product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/@ProductID` |  |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper` |  | See E.1 |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper.cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/@CPE` |  |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper.hashes` |  | See E.1 |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper.purl` |  | See E.1 |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper.sbom_urls` |  | See E.1 |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper.serial_numbers` | | See E.1 |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper.skus` | | See E.1 |
+| `product_tree.branches[i].branches[j].branches[k].product.product_identification_helper.x_generic_uris` | | See E.1 |
+| `product_tree.branches[i].branches[j].category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Type` | |
+| `product_tree.branches[i].branches[j].name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Name` |  |
+| `product_tree.branches[i].branches[j].product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName` | |
+| `product_tree.branches[i].branches[j].product.name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/text()` |  |
+| `product_tree.branches[i].branches[j].product.product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/@ProductID` |  |
+| `product_tree.branches[i].branches[j].product.product_identification_helper` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/@CPE` | |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.hashes` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.hashes[]` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.hashes[].file_hashes` | | see parent |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.hashes[].filename` |  | see parent |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.purl` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.sbom_urls` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.sbom_urls[]` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.serial_numbers` | | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.serial_numbers[]` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.skus` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.skus[]` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.x_generic_uris` | | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.x_generic_uris[]` |  | See E.1 |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.x_generic_uris[].namespace` |  | see parent |
+| `product_tree.branches[i].branches[j].product.product_identification_helper.x_generic_uris[].uri` |  | see parent |
+| `product_tree.branches[i].category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Type` |  |
+| `product_tree.branches[i].name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Name` |  |
+| `product_tree.branches[i].product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName` | |
+| `product_tree.branches[i].product.name` |  `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/text()` |  |
+| `product_tree.branches[i].product.product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/@ProductID` |  |
+| `product_tree.branches[i].product.product_identification_helper` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/@CPE` |  |
+| `product_tree.branches[i].product.product_identification_helper.hashes` | | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.hashes[]` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.hashes[].file_hashes` | | see parent |
+| `product_tree.branches[i].product.product_identification_helper.hashes[].file_hashes[]` |  | see parent |
+| `product_tree.branches[i].product.product_identification_helper.hashes[].file_hashes[].algorithm` |  | see parent |
+| `product_tree.branches[i].product.product_identification_helper.hashes[].file_hashes[].value` |  | see parent |
+| `product_tree.branches[i].product.product_identification_helper.hashes[].filename` |  | see parent |
+| `product_tree.branches[i].product.product_identification_helper.purl` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.sbom_urls` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.sbom_urls[]` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.serial_numbers` | | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.serial_numbers[]` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.skus` | | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.skus[]` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.x_generic_uris` | | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.x_generic_uris[]` |  | See E.1 |
+| `product_tree.branches[i].product.product_identification_helper.x_generic_uris[].namespace` |  | see parent |
+| `product_tree.branches[i].product.product_identification_helper.x_generic_uris[].uri` |  | see parent |
