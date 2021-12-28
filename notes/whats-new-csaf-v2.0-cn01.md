@@ -350,7 +350,11 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `document.acknowledgments[].organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * 
 
-## E.3 Mapped elements
+## E.3 Obsolete CVRF elements
+
+* `//cvrf:Note/@Ordinal`
+
+## E.4 Mapped elements
 
 | CSAF Attribute                                                          | CSAF CVRF 1.2 Path                                                                                                                                                                                                                                                                                                                                                                             | Note                                                                                                                                                                                          |
 | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -375,3 +379,9 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.distribution.tlp.label` |  | see parent |
 | `document.distribution.tlp.url` |  | see parent |
 | `document.lang` |  | see E.1 |
+| `document.notes` | `/cvrf:cvrfdoc/cvrf:DocumentNotes` |  |
+| `document.notes[i]` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]` |  |
+| `document.notes[i].audience` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Audience` |  |
+| `document.notes[i].category` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Type` |  |
+| `document.notes[i].text` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/text()` |  |
+| `document.notes[].title` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Title` |  |
