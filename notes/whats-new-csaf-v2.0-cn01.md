@@ -504,3 +504,27 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `product_tree.branches[i].product.product_identification_helper.x_generic_uris[]` |  | See E.1 |
 | `product_tree.branches[i].product.product_identification_helper.x_generic_uris[].namespace` |  | see parent |
 | `product_tree.branches[i].product.product_identification_helper.x_generic_uris[].uri` |  | see parent |
+| `product_tree.full_product_names` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName` | |
+| `product_tree.full_product_names[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]` | |
+| `product_tree.full_product_names[i].name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]/text()` |  |
+| `product_tree.full_product_names[i].product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]/@ProductID` |  |
+| `product_tree.full_product_names[i].product_identification_helper` |  | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]/@CPE` | |
+| `product_tree.full_product_names[i].product_identification_helper.hashes` | | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.hashes[]` |  | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.hashes[].file_hashes` | | see parent |
+| `product_tree.full_product_names[i].product_identification_helper.hashes[].file_hashes[]` |  | see parent |
+| `product_tree.full_product_names[i].product_identification_helper.hashes[].file_hashes[].algorithm` |  | see parent |
+| `product_tree.full_product_names[i].product_identification_helper.hashes[].file_hashes[].value` |  | see parent |
+| `product_tree.full_product_names[i].product_identification_helper.hashes[].filename` |  | see parent |
+| `product_tree.full_product_names[i].product_identification_helper.purl` |  | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.sbom_urls` | | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.sbom_urls[]` |  | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.serial_numbers` | | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.serial_numbers[]` | | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.skus` | | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.skus[]` |  | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.x_generic_uris` | | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.x_generic_uris[]` |  | See E.1 |
+| `product_tree.full_product_names[i].product_identification_helper.x_generic_uris[].namespace` |  | see parent |
+| `product_tree.full_product_names[i].product_identification_helper.x_generic_uris[].uri` |  | see parent |
