@@ -357,8 +357,11 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.acknowledgments` | `/cvrf:cvrfdoc/cvrf:Acknowledgments` | |
 | `document.acknowledgments[i]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]` | |
 | `document.acknowledgments[i].names` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Name`| |
-| `document.acknowledgments[i].names[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Name[j+1].text()` |  |
-| `document.acknowledgments[i].organization` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Organization[1].text()` | see E.2 |
-| `document.acknowledgments[i].summary` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Description.text()` |  |
+| `document.acknowledgments[i].names[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Name[j+1]/text()` |  |
+| `document.acknowledgments[i].organization` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Organization[1]/text()` | see E.2 |
+| `document.acknowledgments[i].summary` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Description/text()` |  |
 | `document.acknowledgments[i].urls` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:URL` |  |
-| `document.acknowledgments[i].urls[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:URL[j+1].text()` | |
+| `document.acknowledgments[i].urls[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:URL[j+1]/text()` | |
+| `document.aggregate_severity` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity` |  |
+| `document.aggregate_severity.namespace` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/@Namespace` |  |
+| `document.aggregate_severity.text` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/text()` |  |
