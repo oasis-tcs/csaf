@@ -356,7 +356,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `product_tree.*.product.product_identification_helper.serial_numbers`: Contains a list of parts, or full serial numbers.
 * `product_tree.*.product.product_identification_helper.skus`: Contains a list of parts, or full stock keeping units.
 * `product_tree.*.product.product_identification_helper.x_generic_uris`: Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
-*
+* `vulnerabilities[].involvements[].date`: Holds the date and time of the involvement entry.
 
 ## E.2 Changed elements
 
@@ -582,3 +582,9 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID` | |
 | `vulnerabilities[i].id.system_name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/@SystemName` |  |
 | `vulnerabilities[i].id.text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/text()` |  |
+| `vulnerabilities[i].involvements` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements` |  |
+| `vulnerabilities[i].involvements[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]` | |
+| `vulnerabilities[i].involvements[j].date` |  | see E.1 |
+| `vulnerabilities[i].involvements[j].party` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/@Party` | |
+| `vulnerabilities[i].involvements[j].status` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/@Status` | |
+| `vulnerabilities[i].involvements[j].summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/vuln:Description/text()` | |
