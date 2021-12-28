@@ -342,6 +342,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 
 * `document`: Groups the document-level metadata elements. Previously, in namespace `cvrf`.
 * `document.csaf_version`: Gives the version of the CSAF specification which the document was generated for.
+* `document.distribution.tlp`: Provides details about the TLP classification of the document.
 
 ## E.2 Changed elements
 
@@ -367,3 +368,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.aggregate_severity.text` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/text()` |  |
 | `document.category` | `/cvrf:cvrfdoc/cvrf:DocumentType/text()` |  |
 | `document.csaf_version` |  | see E.1 |
+| `document.distribution` | `/cvrf:cvrfdoc/cvrf:DocumentDistribution` |  |
+| `document.distribution.text` | `/cvrf:cvrfdoc/cvrf:DocumentDistribution/text()`  |  |
+| `document.distribution.tlp` |  | see E.1 |
+| `document.distribution.tlp.label` |  | see parent |
+| `document.distribution.tlp.url` |  | see parent |
