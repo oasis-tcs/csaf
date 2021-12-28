@@ -372,6 +372,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `//cvrf:Note/@Ordinal`
 * `//cvrf:DocumentPublisher/@VendorID`
 * `//vuln:Vulnerability/@Ordinal`
+* `//vuln:Note/@Ordinal`
 
 ## E.4 Mapped elements
 
@@ -588,3 +589,9 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].involvements[j].party` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/@Party` | |
 | `vulnerabilities[i].involvements[j].status` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/@Status` | |
 | `vulnerabilities[i].involvements[j].summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/vuln:Description/text()` | |
+| `vulnerabilities[i].notes` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes` | |
+| `vulnerabilities[i].notes[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]` | |
+| `vulnerabilities[i].notes[j].audience` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Audience` |  |
+| `vulnerabilities[i].notes[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Type` | |
+| `vulnerabilities[i].notes[j].text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/text()` |  |
+| `vulnerabilities[i].notes[j].title` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Title` |  |
