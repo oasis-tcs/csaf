@@ -341,7 +341,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 ## E.1 Newly introduced elements
 
 * `document`: Groups the document-level metadata elements. Previously, in namespace `cvrf`.
-*
+* `document.csaf_version`: Gives the version of the CSAF specification which the document was generated for.
 
 ## E.2 Changed elements
 
@@ -366,3 +366,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.aggregate_severity.namespace` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/@Namespace` |  |
 | `document.aggregate_severity.text` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/text()` |  |
 | `document.category` | `/cvrf:cvrfdoc/cvrf:DocumentType/text()` |  |
+| `document.csaf_version` |  | see E.1 |
