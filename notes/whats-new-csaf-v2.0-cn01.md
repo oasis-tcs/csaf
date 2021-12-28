@@ -401,3 +401,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `document.references[i].summary` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:Description/text()` |  |
 | `document.references[].url` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:URL/text()` |  |
 | `document.source_lang` |  | see E.1 |
+| `document.title` | `/cvrf:cvrfdoc/cvrf:DocumentTitle/text()` |  |
