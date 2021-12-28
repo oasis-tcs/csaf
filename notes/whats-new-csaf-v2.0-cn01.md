@@ -359,7 +359,10 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `vulnerabilities[].involvements[].date`: Holds the date and time of the involvement entry.
 * `vulnerabilities[i].product_status.under_investigation`: It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 * `vulnerabilities[].remediations[].date`: Contains the date from which the remediation is available.
-* `vulnerabilities[].remediations[].restart_required`: Provides information on category of restart is required by this remediation to become effective. 
+* `vulnerabilities[].remediations[].restart_required`: Provides information on category of restart is required by this remediation to become effective.
+* `vulnerabilities[].scores[]`: Specifies information about (at least one) score of the vulnerability and for which products the given value applies. Previously, products where directly tied to the `vuln:ScoreSetV2` or `vuln:ScoreSetV3`.
+* `vulnerabilities[].scores[].cvss_v2.*`: Additional elements were introduced through the use of the FIRST CVSSv2 schema.
+* `vulnerabilities[].scores[].cvss_v3.*`: Additional elements were introduced through the use of the FIRST CVSSv3 schemas.
 
 ## E.2 Changed elements
 
@@ -369,6 +372,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `document.tracking.revision_history[].number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `document.tracking.version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `product_tree.relationships[i].full_product_name`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `vulnerabilities[].scores[]`: See conversion rules in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter). **Note:** As the way changed how products are tied to score values, score values from `vuln:ScoreSetV2` and `vuln:ScoreSetV3` SHOULD be joined if the address the same product set. Therefore, the number of score elements can be different from `Count(vuln:ScoreSetV2 or vuln:ScoreSetV3)`.
 
 ## E.3 Obsolete CVRF elements
 
@@ -636,3 +640,58 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].remediations[j].restart_required.category` |  | see parent |
 | `vulnerabilities[i].remediations[j].restart_required.details` |  | see parent |
 | `vulnerabilities[i].remediations[].url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:URL/text()` |  |
+| `vulnerabilities[i].scores` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets` |  |
+| `vulnerabilities[i].scores[]` |  | see E.1, E.2 |
+| `vulnerabilities[i].scores[n].cvss_v2` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[k]` | see E.2 |
+| `vulnerabilities[i].scores[n].cvss_v2.version` |  | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.vectorString` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:VectorV2/text()` | |
+| `vulnerabilities[i].scores[n].cvss_v2.accessVector` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.accessComplexity` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.authentication` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.confidentialityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.integrityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.availabilityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.baseScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:BaseScoreV2/text()` | |
+| `vulnerabilities[i].scores[n].cvss_v2.exploitability` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.remediationLevel` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.reportConfidence` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.temporalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:TemporalScoreV2/text()` | |
+| `vulnerabilities[i].scores[n].cvss_v2.collateralDamagePotential` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.targetDistribution` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.confidentialityRequirement` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.integrityRequirement` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.availabilityRequirement` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v2.environmentalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:EnvironmentalScoreV2/text()` | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]` | see E.2 |
+| `vulnerabilities[i].scores[n].cvss_v3.version` |  | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.vectorString` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:VectorV3/text()` | |
+| `vulnerabilities[i].scores[n].cvss_v3.attackVector` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.attackComplexity` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.privilegesRequired` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.userInteraction` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.scope` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.confidentialityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.integrityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.availabilityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.baseScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:BaseScoreV3/text()` | |
+| `vulnerabilities[i].scores[n].cvss_v3.baseSeverity` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.exploitCodeMaturity` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.remediationLevel` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.reportConfidence` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.temporalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:TemporalScoreV3/text()` | |
+| `vulnerabilities[i].scores[n].cvss_v3.temporalSeverity` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.confidentialityRequirement` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.integrityRequirement` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.availabilityRequirement` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedAttackVector` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedAttackComplexity` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedPrivilegesRequired` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedUserInteraction` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedScope` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedConfidentialityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedIntegrityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.modifiedAvailabilityImpact` | | see E.1 |
+| `vulnerabilities[i].scores[n].cvss_v3.environmentalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:EnvironmentalScoreV3/text()` | |
+| `vulnerabilities[i].scores[n].cvss_v3.environmentalSeverity` | | see E.1 |
+| `vulnerabilities[i].scores[n].products` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:ProductID` or `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:ProductID` | see E.2 |
+| `vulnerabilities[i].scores[n].products[l]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:ProductID[l+1]/text()` or `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:ProductID[l+1]/text()` | see E.2 |
