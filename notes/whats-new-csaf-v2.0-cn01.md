@@ -365,6 +365,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `document.tracking.generator.engine.name`: Version of the engine is now a separate field. See E.1
 * `document.tracking.revision_history[].number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `document.tracking.version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `product_tree.relationships[i].full_product_name`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 
 ## E.3 Obsolete CVRF elements
 
@@ -534,3 +535,31 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `product_tree.product_groups[i].product_ids` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:ProductID` | |
 | `product_tree.product_groups[i].product_ids[j]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:ProductID[j+1]/text()` |  |
 | `product_tree.product_groups[i].summary` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:Description/text()` |  |
+| `product_tree.relationships` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship` | |
+| `product_tree.relationships[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]` | |
+| `product_tree.relationships[i].category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@RelationType` | |
+| `product_tree.relationships[i].full_product_name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]` | See E.2 |
+| `product_tree.relationships[i].full_product_name.name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]/text()` | See E.2 |
+| `product_tree.relationships[i].full_product_name.product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]/@ProductID` | See E.2 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]/@CPE` | See E.2 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.hashes` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.hashes[]` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.hashes[].file_hashes` |  | see parent |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.hashes[].file_hashes[]` |  | see parent |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.hashes[].file_hashes[].algorithm` |  | see parent |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.hashes[].file_hashes[].value` |  | see parent |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.hashes[].filename` | | see parent |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.purl` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.sbom_urls` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.sbom_urls[]` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.serial_numbers` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.serial_numbers[]` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.skus` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.skus[]` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.x_generic_uris` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.x_generic_uris[]` |  | See E.1 |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.x_generic_uris[].namespace` |  | see parent |
+| `product_tree.relationships[i].full_product_name.product_identification_helper.x_generic_uris[].uri` |  | see parent |
+| `product_tree.relationships[i].product_reference` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@ProductReference` |  |
+| `product_tree.relationships[i].relates_to_product_reference` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@RelatesToProductReference` |  |
