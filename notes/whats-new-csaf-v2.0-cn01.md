@@ -340,6 +340,25 @@ This informative appendix provides a mapping by path between the elements in CSA
 
 ## E.1 Newly introduced elements
 
+* `document`: Groups the document-level metadata elements. Previously, in namespace `cvrf`.
+*
+
 ## E.2 Changed elements
 
+* `document.acknowledgments[].organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* 
+
 ## E.3 Mapped elements
+
+| CSAF Attribute                                                          | CSAF CVRF 1.2 Path                                                                                                                                                                                                                                                                                                                                                                             | Note                                                                                                                                                                                          |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.` | `/cvrf:cvrfdoc` | |
+| `document` |  | see E.1 |
+| `document.acknowledgments` | `/cvrf:cvrfdoc/cvrf:Acknowledgments` | |
+| `document.acknowledgments[i]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]` | |
+| `document.acknowledgments[i].names` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Name`| |
+| `document.acknowledgments[i].names[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Name[j+1].text()` |  |
+| `document.acknowledgments[i].organization` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Organization[1].text()` | see E.2 |
+| `document.acknowledgments[i].summary` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Description.text()` |  |
+| `document.acknowledgments[i].urls` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:URL` |  |
+| `document.acknowledgments[i].urls[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:URL[j+1].text()` | |
