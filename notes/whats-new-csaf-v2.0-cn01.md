@@ -618,3 +618,4 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].references[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/@Type` | |
 | `vulnerabilities[i].references[j].summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:Description/text()` | |
 | `vulnerabilities[i].references[j].url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:URL/text()` | |
+| `vulnerabilities[i].release_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ReleaseDate/text()` | |
