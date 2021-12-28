@@ -575,3 +575,6 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].acknowledgments[j].urls` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:URL`| |
 | `vulnerabilities[i].acknowledgments[j].urls[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:URL[k+1]/text()` | |
 | `vulnerabilities[i].cve` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVE/text()` | |
+| `vulnerabilities[i].cwe` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE` | |
+| `vulnerabilities[i].cwe.id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/@ID` |  |
+| `vulnerabilities[i].cwe.name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/text()` |  |
