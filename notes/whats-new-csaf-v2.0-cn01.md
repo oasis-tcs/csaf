@@ -528,3 +528,9 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `product_tree.full_product_names[i].product_identification_helper.x_generic_uris[]` |  | See E.1 |
 | `product_tree.full_product_names[i].product_identification_helper.x_generic_uris[].namespace` |  | see parent |
 | `product_tree.full_product_names[i].product_identification_helper.x_generic_uris[].uri` |  | see parent |
+| `product_tree.product_groups` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups` | |
+| `product_tree.product_groups[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]` | |
+| `product_tree.product_groups[i].group_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/@GroupID` |  |
+| `product_tree.product_groups[i].product_ids` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:ProductID` | |
+| `product_tree.product_groups[i].product_ids[j]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:ProductID[j+1]/text()` |  |
+| `product_tree.product_groups[i].summary` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:Description/text()` |  |
