@@ -695,3 +695,12 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `vulnerabilities[i].scores[n].cvss_v3.environmentalSeverity` | | see E.1 |
 | `vulnerabilities[i].scores[n].products` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:ProductID` or `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:ProductID` | see E.2 |
 | `vulnerabilities[i].scores[n].products[l]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:ProductID[l+1]/text()` or `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:ProductID[l+1]/text()` | see E.2 |
+| `vulnerabilities[i].threats` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats` | |
+| `vulnerabilities[i].threats[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]` | |
+| `vulnerabilities[i].threats[j].category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/@Type` | |
+| `vulnerabilities[i].threats[j].date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/@Date` | |
+| `vulnerabilities[i].threats[j].details` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:Description/text()` | |
+| `vulnerabilities[i].threats[j].group_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:GroupID` | |
+| `vulnerabilities[i].threats[j].group_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:GroupID[k+1]/text()` |  |
+| `vulnerabilities[i].threats[j].product_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:ProductID` | |
+| `vulnerabilities[i].threats[j].product_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:ProductID[k+1]/text()` |  |
