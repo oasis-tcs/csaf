@@ -333,3 +333,375 @@ The limited permissions granted above are perpetual and will not be revoked by O
 This document and the information contained herein is provided on an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 
 The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see https://www.oasis-open.org/policies-guidelines/trademark for above guidance.
+
+# Appendix E. Mapping
+
+This informative appendix provides a mapping by path between the elements in CSAF CVRF 1.2 and CSAF 2.0. It is intended to aid in the transition to CSAF 2.0.
+
+## E.1 Newly introduced elements
+
+* `/document`: Groups the document-level metadata elements. Previously, these elements were grouped through the namespace `cvrf`.
+* `/document/csaf_version`: Gives the version of the CSAF specification which the document was generated for.
+* `/document/distribution/tlp`: Provides details about the TLP classification of the document.
+* `/document/lang`: Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. Previously, this was done through `xml:lang` attributes per element.
+* `/document/publisher/name`: Contains the name of the issuing party. Previously, this was included in `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/document/publisher/namespace`: Contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. It replaces the `//cvrf:DocumentPublisher/@VendorID`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/document/source_lang`: If this copy of the document is a translation then the value of this property describes from which language this document was translated.
+* `/document/tracking/generator/engine`: Contains information about the engine that generated the CSAF document. This was introduced as intermediate level to group `name` and `version` of `engine` logically. In a CVRF-CSAF conversion, the converter SHOULD replace this objects according to its own values.
+* `/document/tracking/generator/engine/version`: Contains the version of the engine that generated the CSAF document. Previously, this was part of the `cvrf:Engine` element.
+* `/product_tree/*/product/product_identification_helper`: Provides at least one method which aids in identifying the product in an asset database. It was introduced to group different ways to identify a product/
+* `/product_tree/*/product/product_identification_helper/hashes`: Contains a list of cryptographic hashes usable to identify files.
+* `/product_tree/*/product/product_identification_helper/purl`: The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+* `/product_tree/*/product/product_identification_helper/sbom_urls`: Contains a list of URLs where SBOMs for this product can be retrieved.
+* `/product_tree/*/product/product_identification_helper/serial_numbers`: Contains a list of parts, or full serial numbers.
+* `/product_tree/*/product/product_identification_helper/skus`: Contains a list of parts, or full stock keeping units.
+* `/product_tree/*/product/product_identification_helper/x_generic_uris`: Contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
+* `/vulnerabilities[]/involvements[]/date`: Holds the date and time of the involvement entry.
+* `/vulnerabilities[]/product_status/under_investigation`: It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
+* `/vulnerabilities[]/remediations[]/restart_required`: Provides information on category of restart is required by this remediation to become effective.
+* `/vulnerabilities[]/scores[]`: Specifies information about (at least one) score of the vulnerability and for which products the given value applies. Previously, products where directly tied to the `vuln:ScoreSetV2` or `vuln:ScoreSetV3`.
+* `/vulnerabilities[]/scores[]/cvss_v2/*`: Additional elements were introduced through the use of the FIRST CVSSv2 schema.
+* `/vulnerabilities[]/scores[]/cvss_v3/*`: Additional elements were introduced through the use of the FIRST CVSSv3 schemas.
+
+## E.2 Changed elements
+
+* `*/acknowledgments[]/organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/document/publisher/category`: The possible values have been extended.
+* `/document/publisher/issuing_authority`: Name of the issuing party is now a separate field. See E.1
+* `/document/tracking/generator/engine/name`: Version of the engine is now a separate field. See E.1
+* `/document/tracking/revision_history[]/number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/document/tracking/version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/product_tree/relationships[]/full_product_name`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/vulnerabilities[]/scores[]`: See conversion rules in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter). **Note:** As the way changed how products are tied to score values, score values from `vuln:ScoreSetV2` and `vuln:ScoreSetV3` SHOULD be joined if the address the same product set. Therefore, the number of score elements can be different from `Count(vuln:ScoreSetV2 or vuln:ScoreSetV3)`.
+
+## E.3 Obsolete CVRF elements
+
+* `//cvrf:Note/@Ordinal`
+* `//cvrf:DocumentPublisher/@VendorID`
+* `//vuln:Vulnerability/@Ordinal`
+* `//vuln:Note/@Ordinal`
+
+## E.4 Mapped elements
+
+| CSAF Attribute                                                          | CSAF CVRF 1.2 Path                                                                                                                                                                                                                                                                                                                                                                             | Note                                                                                                                                                                                          |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/` | `/cvrf:cvrfdoc` | |
+| `/document` |  | see E.1 |
+| `/document/acknowledgments` | `/cvrf:cvrfdoc/cvrf:Acknowledgments` | |
+| `/document/acknowledgments[i]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]` | |
+| `/document/acknowledgments[i]/names` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Name`| |
+| `/document/acknowledgments[i]/names[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Name[j+1]/text()` |  |
+| `/document/acknowledgments[i]/organization` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Organization[1]/text()` | see E.2 |
+| `/document/acknowledgments[i]/summary` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:Description/text()` |  |
+| `/document/acknowledgments[i]/urls` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:URL` |  |
+| `/document/acknowledgments[i]/urls[j]` | `/cvrf:cvrfdoc/cvrf:Acknowledgments/cvrf:Acknowledgment[i+1]/cvrf:URL[j+1]/text()` | |
+| `/document/aggregate_severity` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity` |  |
+| `/document/aggregate_severity/namespace` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/@Namespace` |  |
+| `/document/aggregate_severity/text` | `/cvrf:cvrfdoc/cvrf:AggregateSeverity/text()` |  |
+| `/document/category` | `/cvrf:cvrfdoc/cvrf:DocumentType/text()` |  |
+| `/document/csaf_version` |  | see E.1 |
+| `/document/distribution` | `/cvrf:cvrfdoc/cvrf:DocumentDistribution` |  |
+| `/document/distribution/text` | `/cvrf:cvrfdoc/cvrf:DocumentDistribution/text()`  |  |
+| `/document/distribution/tlp` |  | see E.1 |
+| `/document/distribution/tlp/label` |  | see parent |
+| `/document/distribution/tlp/url` |  | see parent |
+| `/document/lang` |  | see E.1 |
+| `/document/notes` | `/cvrf:cvrfdoc/cvrf:DocumentNotes` |  |
+| `/document/notes[i]` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]` |  |
+| `/document/notes[i]/audience` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Audience` |  |
+| `/document/notes[i]/category` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Type` |  |
+| `/document/notes[i]/text` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/text()` |  |
+| `/document/notes[]/title` | `/cvrf:cvrfdoc/cvrf:DocumentNotes/cvrf:Note[i+1]/@Title` |  |
+| `/document/publisher` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher` |  |
+| `/document/publisher/category` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/@Type` | see E.2 |
+| `/document/publisher/contact_details` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:ContactDetails/text()` |  |
+| `/document/publisher/issuing_authority` | `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()` | see E.2 |
+| `/document/publisher/name` |  | see E.1 |
+| `/document/publisher/namespace` |  | see E.1 |
+| `/document/references` | `/cvrf:cvrfdoc/cvrf:DocumentReferences` |  |
+| `/document/references[i]` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]` |  |
+| `/document/references[i]/category` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/@Type` |  |
+| `/document/references[i]/summary` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:Description/text()` |  |
+| `/document/references[]/url` | `/cvrf:cvrfdoc/cvrf:DocumentReferences/cvrf:Reference[i+1]/cvrf:URL/text()` |  |
+| `/document/source_lang` |  | see E.1 |
+| `/document/title` | `/cvrf:cvrfdoc/cvrf:DocumentTitle/text()` |  |
+| `/document/tracking` | `/cvrf:cvrfdoc/cvrf:DocumentTracking` |  |
+| `/document/tracking/aliases` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:Alias` | |
+| `/document/tracking/aliases[i]` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:Alias[i+1]/text()` |  |
+| `/document/tracking/current_release_date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:CurrentReleaseDate/text()` | |
+| `/document/tracking/generator` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator` |  |
+| `/document/tracking/generator/date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator/cvrf:Date/text()` |  |
+| `/document/tracking/generator/engine` |  | see E.1 |
+| `/document/tracking/generator/engine/name` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator/cvrf:Engine/text()` | see E.2 |
+| `/document/tracking/generator/engine/version` |  | see E.1 |
+| `/document/tracking/id` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:ID/text()` |  |
+| `/document/tracking/initial_release_date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:InitialReleaseDate/text()` |  |
+| `/document/tracking/revision_history` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory` |  |
+| `/document/tracking/revision_history[i]` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]` |  |
+| `/document/tracking/revision_history[]/date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Date/text()` |  |
+| `/document/tracking/revision_history[]/number` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Number/text()` | see E.2 |
+| `/document/tracking/revision_history[]/summary` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Description/text()` |  |
+| `/document/tracking/status` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Status/text()` |  |
+| `/document/tracking/version` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Version/text()` | see E.2 |
+| `/product_tree` | `/cvrf:cvrfdoc/prod:ProductTree` |  |
+| `/product_tree/branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch` |  |
+| `/product_tree/branches[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]` |  |
+| `/product_tree/branches[i]/branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch` |  |
+| `/product_tree/branches[i]/branches[j]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]` |  |
+| `/product_tree/branches[i]/branches[j]/branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch` | |
+| `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Type` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Name` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Type` | |
+| `/product_tree/branches[i]/branches[j]/branches[k]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Name` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName` | |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/text()` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/@ProductID` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/@CPE` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/hashes` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/purl` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/sbom_urls` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/serial_numbers` | | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/skus` | | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/x_generic_uris` | | see E.1 |
+| `/product_tree/branches[i]/branches[j]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Type` | |
+| `/product_tree/branches[i]/branches[j]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Name` |  |
+| `/product_tree/branches[i]/branches[j]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName` | |
+| `/product_tree/branches[i]/branches[j]/product/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/text()` |  |
+| `/product_tree/branches[i]/branches[j]/product/product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/@ProductID` |  |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/@CPE` | |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]/file_hashes` | | see parent |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/purl` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/sbom_urls` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/sbom_urls[]` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/serial_numbers` | | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/serial_numbers[]` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/skus` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/skus[]` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris` | | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]/namespace` |  | see parent |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]/uri` |  | see parent |
+| `/product_tree/branches[i]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Type` |  |
+| `/product_tree/branches[i]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Name` |  |
+| `/product_tree/branches[i]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName` | |
+| `/product_tree/branches[i]/product/name` |  `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/text()` |  |
+| `/product_tree/branches[i]/product/product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/@ProductID` |  |
+| `/product_tree/branches[i]/product/product_identification_helper` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/@CPE` |  |
+| `/product_tree/branches[i]/product/product_identification_helper/hashes` | | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/hashes[]` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes` | | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes[]` |  | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/purl` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/sbom_urls` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/sbom_urls[]` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/serial_numbers` | | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/serial_numbers[]` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/skus` | | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/skus[]` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/x_generic_uris` | | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/x_generic_uris[]` |  | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/x_generic_uris[]/namespace` |  | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/x_generic_uris[]/uri` |  | see parent |
+| `/product_tree/full_product_names` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName` | |
+| `/product_tree/full_product_names[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]` | |
+| `/product_tree/full_product_names[i]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]/text()` |  |
+| `/product_tree/full_product_names[i]/product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]/@ProductID` |  |
+| `/product_tree/full_product_names[i]/product_identification_helper` |  | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:FullProductName[i+1]/@CPE` | |
+| `/product_tree/full_product_names[i]/product_identification_helper/hashes` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/hashes[]` |  | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes` | | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes[]` |  | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/purl` |  | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/sbom_urls` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/sbom_urls[]` |  | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/serial_numbers` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/serial_numbers[]` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/skus` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/skus[]` |  | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/x_generic_uris` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/x_generic_uris[]` |  | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/x_generic_uris[]/namespace` |  | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/x_generic_uris[]/uri` |  | see parent |
+| `/product_tree/product_groups` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups` | |
+| `/product_tree/product_groups[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]` | |
+| `/product_tree/product_groups[i]/group_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/@GroupID` |  |
+| `/product_tree/product_groups[i]/product_ids` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:ProductID` | |
+| `/product_tree/product_groups[i]/product_ids[j]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:ProductID[j+1]/text()` |  |
+| `/product_tree/product_groups[i]/summary` | `/cvrf:cvrfdoc/prod:ProductTree/prod:ProductGroups/prod:Group[i+1]/prod:Description/text()` |  |
+| `/product_tree/relationships` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship` | |
+| `/product_tree/relationships[i]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]` | |
+| `/product_tree/relationships[i]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@RelationType` | |
+| `/product_tree/relationships[i]/full_product_name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]` | see E.2 |
+| `/product_tree/relationships[i]/full_product_name/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]/text()` | see E.2 |
+| `/product_tree/relationships[i]/full_product_name/product_id` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]/@ProductID` | see E.2 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/prod:FullProductName[1]/@CPE` | see E.2 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes` |  | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes[]` |  | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/filename` | | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/purl` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/sbom_urls` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/sbom_urls[]` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/serial_numbers` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/serial_numbers[]` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/skus` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/skus[]` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/x_generic_uris` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/x_generic_uris[]` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/x_generic_uris[]/namespace` |  | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/x_generic_uris[]/uri` |  | see parent |
+| `/product_tree/relationships[i]/product_reference` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@ProductReference` |  |
+| `/product_tree/relationships[i]/relates_to_product_reference` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Relationship[i+1]/@RelatesToProductReference` |  |
+| `/vulnerabilities` | `/cvrf:cvrfdoc/vuln:Vulnerability` | |
+| `/vulnerabilities[i]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]` | |
+| `/vulnerabilities[i]/acknowledgments` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments` | |
+| `/vulnerabilities[i]/acknowledgments[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]` | |
+| `/vulnerabilities[i]/acknowledgments[j]/names` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Name` | |
+| `/vulnerabilities[i]/acknowledgments[j]/names[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Name[k+1]/text()`  | |
+| `/vulnerabilities[i]/acknowledgments[j]/organization` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Organization[1]/text()` | see E.2 |
+| `/vulnerabilities[i]/acknowledgments[j]/summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:Description/text()` | |
+| `/vulnerabilities[i]/acknowledgments[j]/urls` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:URL`| |
+| `/vulnerabilities[i]/acknowledgments[j]/urls[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Acknowledgments/vuln:Acknowledgment[j+1]/vuln:URL[k+1]/text()` | |
+| `/vulnerabilities[i]/cve` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVE/text()` | |
+| `/vulnerabilities[i]/cwe` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE` | |
+| `/vulnerabilities[i]/cwe/id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/@ID` |  |
+| `/vulnerabilities[i]/cwe/name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/text()` |  |
+| `/vulnerabilities[i]/discovery_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:DiscoveryDate/text()` | |
+| `/vulnerabilities[i]/id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID` | |
+| `/vulnerabilities[i]/id/system_name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/@SystemName` |  |
+| `/vulnerabilities[i]/id/text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/text()` |  |
+| `/vulnerabilities[i]/involvements` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements` |  |
+| `/vulnerabilities[i]/involvements[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]` | |
+| `/vulnerabilities[i]/involvements[j]/date` |  | see E.1 |
+| `/vulnerabilities[i]/involvements[j]/party` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/@Party` | |
+| `/vulnerabilities[i]/involvements[j]/status` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/@Status` | |
+| `/vulnerabilities[i]/involvements[j]/summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]/vuln:Description/text()` | |
+| `/vulnerabilities[i]/notes` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes` | |
+| `/vulnerabilities[i]/notes[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]` | |
+| `/vulnerabilities[i]/notes[j]/audience` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Audience` |  |
+| `/vulnerabilities[i]/notes[j]/category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Type` | |
+| `/vulnerabilities[i]/notes[j]/text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/text()` |  |
+| `/vulnerabilities[i]/notes[j]/title` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Notes/vuln:Note[j+1]/@Title` |  |
+| `/vulnerabilities[i]/product_status` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses` | |
+| `/vulnerabilities[i]/product_status/first_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Affected"]` | |
+| `/vulnerabilities[i]/product_status/first_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Affected"]/vuln:ProductID[j+1]` |  |
+| `/vulnerabilities[i]/product_status/first_fixed` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Fixed"]` | |
+| `/vulnerabilities[i]/product_status/first_fixed[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="First Fixed"]/vuln:ProductID[j+1]` |  |
+| `/vulnerabilities[i]/product_status/fixed` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Fixed"]` | |
+| `/vulnerabilities[i]/product_status/fixed[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Fixed"]/vuln:ProductID[j+1]` |  |
+| `/vulnerabilities[i]/product_status/known_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Affected"]` | |
+| `/vulnerabilities[i]/product_status/known_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Affected"]/vuln:ProductID[j+1]` |  |
+| `/vulnerabilities[i]/product_status/known_not_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Not Affected"]`| |
+| `/vulnerabilities[i]/product_status/known_not_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Known Not Affected"]/vuln:ProductID[j+1]` |  |
+| `/vulnerabilities[i]/product_status/last_affected` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Last Affected"]` | |
+| `/vulnerabilities[i]/product_status/last_affected[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Last Affected"]/vuln:ProductID[j+1]` |  |
+| `/vulnerabilities[i]/product_status/recommended` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Recommended"]` |  |
+| `/vulnerabilities[i]/product_status/recommended[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ProductStatuses/vuln:Status[@Type="Recommended"]/vuln:ProductID[j+1]` |  |
+| `/vulnerabilities[i]/product_status/under_investigation` | | see E.1 |
+| `/vulnerabilities[i]/product_status/under_investigation[]` | | see E.1 |
+| `/vulnerabilities[i]/references` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References` | |
+| `/vulnerabilities[i]/references[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]` | |
+| `/vulnerabilities[i]/references[j]/category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/@Type` | |
+| `/vulnerabilities[i]/references[j]/summary` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:Description/text()` | |
+| `/vulnerabilities[i]/references[j]/url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:URL/text()` | |
+| `/vulnerabilities[i]/release_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ReleaseDate/text()` |  |
+| `/vulnerabilities[i]/remediations` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations` | |
+| `/vulnerabilities[i]/remediations[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]` | |
+| `/vulnerabilities[i]/remediations[j]/category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/@Type` | |
+| `/vulnerabilities[i]/remediations[j]/date` |  | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/@Date` |
+| `/vulnerabilities[i]/remediations[j]/details` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Description/text()` | |
+| `/vulnerabilities[i]/remediations[j]/entitlements` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Entitlement` | |
+| `/vulnerabilities[i]/remediations[j]/entitlements[]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Entitlement[k+1]/text()` | |
+| `/vulnerabilities[i]/remediations[j]/group_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:GroupID` | |
+| `/vulnerabilities[i]/remediations[j]/group_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:GroupID[k+1]/text()` |  |
+| `/vulnerabilities[i]/remediations[j]/product_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:ProductID` | |
+| `/vulnerabilities[i]/remediations[j]/product_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:ProductID[k+1]/text()` |  |
+| `/vulnerabilities[i]/remediations[j]/restart_required` |  | see E.1 |
+| `/vulnerabilities[i]/remediations[j]/restart_required/category` |  | see parent |
+| `/vulnerabilities[i]/remediations[j]/restart_required/details` |  | see parent |
+| `/vulnerabilities[i]/remediations[]/url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:URL/text()` |  |
+| `/vulnerabilities[i]/scores` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets` |  |
+| `/vulnerabilities[i]/scores[]` |  | see E.1, E.2 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[k]` | see E.2 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/version` |  | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/vectorString` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:VectorV2/text()` | |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/accessVector` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/accessComplexity` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/authentication` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/confidentialityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/integrityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/availabilityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/baseScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:BaseScoreV2/text()` | |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/exploitability` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/remediationLevel` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/reportConfidence` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/temporalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:TemporalScoreV2/text()` | |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/collateralDamagePotential` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/targetDistribution` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/confidentialityRequirement` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/integrityRequirement` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/availabilityRequirement` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v2/environmentalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:EnvironmentalScoreV2/text()` | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]` | see E.2 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/version` |  | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/vectorString` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:VectorV3/text()` | |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/attackVector` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/attackComplexity` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/privilegesRequired` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/userInteraction` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/scope` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/confidentialityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/integrityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/availabilityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/baseScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:BaseScoreV3/text()` | |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/baseSeverity` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/exploitCodeMaturity` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/remediationLevel` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/reportConfidence` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/temporalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:TemporalScoreV3/text()` | |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/temporalSeverity` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/confidentialityRequirement` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/integrityRequirement` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/availabilityRequirement` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedAttackVector` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedAttackComplexity` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedPrivilegesRequired` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedUserInteraction` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedScope` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedConfidentialityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedIntegrityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/modifiedAvailabilityImpact` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/environmentalScore` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:EnvironmentalScoreV3/text()` | |
+| `/vulnerabilities[i]/scores[n]/cvss_v3/environmentalSeverity` | | see E.1 |
+| `/vulnerabilities[i]/scores[n]/products` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:ProductID` or `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:ProductID` | see E.2 |
+| `/vulnerabilities[i]/scores[n]/products[l]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV2[j]/vuln:ProductID[l+1]/text()` or `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CVSSScoreSets/vuln:ScoreSetV3[k]/vuln:ProductID[l+1]/text()` | see E.2 |
+| `/vulnerabilities[i]/threats` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats` | |
+| `/vulnerabilities[i]/threats[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]` | |
+| `/vulnerabilities[i]/threats[j]/category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/@Type` | |
+| `/vulnerabilities[i]/threats[j]/date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/@Date` | |
+| `/vulnerabilities[i]/threats[j]/details` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:Description/text()` | |
+| `/vulnerabilities[i]/threats[j]/group_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:GroupID` | |
+| `/vulnerabilities[i]/threats[j]/group_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:GroupID[k+1]/text()` |  |
+| `/vulnerabilities[i]/threats[j]/product_ids` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:ProductID` | |
+| `/vulnerabilities[i]/threats[j]/product_ids[k]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Threats/vuln:Threat[j+1]/vuln:ProductID[k+1]/text()` |  |
+| `/vulnerabilities[i]/title` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Title/text()` |  |
