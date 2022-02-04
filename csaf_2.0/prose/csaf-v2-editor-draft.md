@@ -2224,13 +2224,22 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-#### 3.2.3.5 Vulnerabilities Property - ID
+#### 3.2.3.5 Vulnerabilities Property - IDs
 
-ID (`id`) of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
+List of IDs (`ids`) of value type `array` with one or more ID items of type `object` gives the document producer a place to publish unique labels or tracking IDs for the vulnerability (if such information exists).
 
 ```
-    "id": {
+    "ids": {
       // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single unique label or tracking ID for the vulnerability.
+
+```
       "properties": {
         "system_name": {
           // ...
@@ -2239,7 +2248,6 @@ ID (`id`) of value type `object` with the two mandatory properties System Name (
           // ...
         }
       }
-    },
 ```
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
