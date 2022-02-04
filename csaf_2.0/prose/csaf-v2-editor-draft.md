@@ -5441,6 +5441,7 @@ Secondly, the program fulfills the following for all items of:
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given, the CVRF CSAF converter converts the first one into `cwe`. In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
+* `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
 * `/vulnerabilities[]/scores[]`: If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
 

@@ -372,6 +372,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/document/tracking/revision_history[]/number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/tracking/version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/product_tree/relationships[]/full_product_name`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/vulnerabilities[]/ids`: The IDs element was changed into an array to be able to contain multiple IDs. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/vulnerabilities[]/remediations[]/category`: The CVRF CSAF Vulnerability Remediation Type `Will Not Fix` was renamed into `no_fix_planned`.
 * `/vulnerabilities[]/scores[]`: See conversion rules in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter). **Note:** As the way changed how products are tied to score values, score values from `vuln:ScoreSetV2` and `vuln:ScoreSetV3` SHOULD be joined if the address the same product set. Therefore, the number of score elements can be different from `Count(vuln:ScoreSetV2 or vuln:ScoreSetV3)`.
 
@@ -588,9 +589,10 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/vulnerabilities[i]/cwe/id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/@ID` |  |
 | `/vulnerabilities[i]/cwe/name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/text()` |  |
 | `/vulnerabilities[i]/discovery_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:DiscoveryDate/text()` | |
-| `/vulnerabilities[i]/id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID` | |
-| `/vulnerabilities[i]/id/system_name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/@SystemName` |  |
-| `/vulnerabilities[i]/id/text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/text()` |  |
+| `/vulnerabilities[i]/ids` |  | see E.2 |
+| `/vulnerabilities[i]/ids[0]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID` | |
+| `/vulnerabilities[i]/ids[0]/system_name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/@SystemName` |  |
+| `/vulnerabilities[i]/ids[0]/text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/text()` |  |
 | `/vulnerabilities[i]/involvements` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements` |  |
 | `/vulnerabilities[i]/involvements[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]` | |
 | `/vulnerabilities[i]/involvements[j]/date` |  | see E.1 |
