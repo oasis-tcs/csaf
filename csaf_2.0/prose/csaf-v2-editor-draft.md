@@ -4903,7 +4903,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
     "list_on_CSAF_aggregators": true,
     "metadata_version": "2.0",
     "mirror_on_CSAF_aggregators": true,
-    "pgp_keys": [
+    "public_openpgp_keys": [
       {
         "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
         "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
