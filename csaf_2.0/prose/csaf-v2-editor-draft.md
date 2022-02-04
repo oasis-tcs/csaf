@@ -5145,6 +5145,8 @@ File name of signature file: example_company_-_2019-yh3234.json.asc
 
 The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
 
+> For example, the public part of the OpenPGP key could be placed in a directory `openpgp` adjacent to the `provider-metadata.json`.
+
 ### 7.1.21 Requirement 21: List of CSAF providers
 
 The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
