@@ -5141,9 +5141,9 @@ File name of CSAF document: example_company_-_2019-yh3234.json
 File name of signature file: example_company_-_2019-yh3234.json.asc
 ```
 
-### 7.1.20 Requirement 20: Public PGP Key
+### 7.1.20 Requirement 20: Public OpenPGP Key
 
-The public part of the PGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.  
+The public part of the OpenPGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.
 
 ### 7.1.21 Requirement 21: List of CSAF providers
 
