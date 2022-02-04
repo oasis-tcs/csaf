@@ -2226,7 +2226,7 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 
 #### 3.2.3.5 Vulnerabilities Property - IDs
 
-List of IDs (`ids`) of value type `array` with one or more ID items of type `object` gives the document producer a place to publish unique labels or tracking IDs for the vulnerability (if such information exists).
+List of IDs (`ids`) of value type `array` with one or more unique ID items of type `object` gives the document producer a place to publish unique labels or tracking IDs for the vulnerability (if such information exists).
 
 ```
     "ids": {

@@ -1010,6 +1010,7 @@
             "description": "Gives the document producer a place to publish unique labels or tracking IDs for the vulnerability (if such information exists).",
             "type": "array",
             "minItems": 1,
+            "uniqueItems": true,
             "items": {
               "title": "ID",
               "description": "Contains a single unique label or tracking ID for the vulnerability.",
