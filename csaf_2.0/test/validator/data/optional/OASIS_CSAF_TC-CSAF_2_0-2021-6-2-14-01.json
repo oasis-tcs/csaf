@@ -8,7 +8,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Optional test: Language (failing example 1)",
+    "title": "Optional test: Use of Private Language (failing example 1)",
     "tracking": {
       "current_release_date": "2021-07-21T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-14-01",
