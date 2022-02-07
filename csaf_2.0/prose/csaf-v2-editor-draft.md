@@ -2697,6 +2697,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 * The following elements must exist and be valid:
   * `/document/category`
+  * `/document/csaf_version`
   * `/document/publisher/category`
   * `/document/publisher/name`
   * `/document/publisher/namespace`
