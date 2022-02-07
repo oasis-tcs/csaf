@@ -4544,7 +4544,7 @@ The relevant paths for this test are:
 
 > The language code `qtx` is reserved for private use.
 
-> A tool MAY remove such subtag.
+> A tool MAY remove such subtag as a quick fix.
 
 ### 6.2.14 Use of Default Language
 
@@ -4565,7 +4565,7 @@ The relevant paths for this test are:
 
 > The language code `i-default` is used.
 
-> A tool MAY remove such element.
+> A tool MAY remove such element as a quick fix.
 
 ## 6.3 Informative Test
 
