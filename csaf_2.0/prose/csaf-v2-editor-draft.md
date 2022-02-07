@@ -1715,6 +1715,8 @@ Source language (`source_lang`) of value type Language Type (`lang_t`) identifie
 
 The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/category`. The property SHALL NOT be present if the document was not translated.
 
+> If an issuing party publishes a CSAF document with the same content in more than one language, one of these documents SHOULD be deemed the "original", the other ones SHOULD be considered translations from the "original". The issuing party can retain its original publisher information including the `category`. However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
+
 #### 3.2.1.11 Document Property - Title
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
