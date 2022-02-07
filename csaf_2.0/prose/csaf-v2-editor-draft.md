@@ -4905,7 +4905,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
     "list_on_CSAF_aggregators": true,
     "metadata_version": "2.0",
     "mirror_on_CSAF_aggregators": true,
-    "pgp_keys": [
+    "public_openpgp_keys": [
       {
         "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
         "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
@@ -5146,6 +5146,8 @@ File name of signature file: example_company_-_2019-yh3234.json.asc
 ### 7.1.20 Requirement 20: Public OpenPGP Key
 
 The public part of the OpenPGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.
+
+> For example, the public part of the OpenPGP key could be placed in a directory `openpgp` adjacent to the `provider-metadata.json`.
 
 ### 7.1.21 Requirement 21: List of CSAF providers
 

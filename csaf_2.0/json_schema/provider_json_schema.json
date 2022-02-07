@@ -164,13 +164,13 @@
       "type": "boolean",
       "default": true
     },
-    "pgp_keys": {
-      "title": "List of PGP keys",
-      "description": "Contains a list of pgp keys used to sign CSAF documents.",
+    "public_openpgp_keys": {
+      "title": "List of public OpenPGP keys",
+      "description": "Contains a list of OpenPGP keys used to sign CSAF documents.",
       "type": "array",
       "items": {
         "title": "PGP keys",
-        "description": "Contains all information about a pgp keys used to sign CSAF documents.",
+        "description": "Contains all information about an OpenPGP key used to sign CSAF documents.",
         "type": "object",
         "required": [
           "url"
@@ -178,7 +178,7 @@
         "properties": {
           "fingerprint": {
             "title": "Fingerprint of the key",
-            "description": "Contains the fingerprint of the pgp key.",
+            "description": "Contains the fingerprint of the OpenPGP key.",
             "type": "string",
             "minLength": 40,
             "pattern": "^[0-9a-fA-F]{40,}$"
