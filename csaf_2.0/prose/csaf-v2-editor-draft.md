@@ -1713,7 +1713,7 @@ Document references (`references`) of value type References Type (`references_t`
 
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
-The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/category`.
+The property MUST be present and set for any CSAF document with the value `translator` in `/document/publisher/category`. The property SHALL NOT be present if the document was not translated.
 
 #### 3.2.1.11 Document Property - Title
 
@@ -4099,6 +4099,34 @@ The relevant path for this test is:
 
 > There is no action statement for `CSAFPID-9080702`.
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
+
+#### 6.1.28 Translation
+
+It must be tested that the given source language and document language are not the same.
+
+The relevant path for this test is:
+
+```
+  /document/lang
+  /document/source_lang
+```
+
+*Example XYZ which fails the test:*
+
+```
+"document": {
+    // ...
+    "lang": "en-US",
+    // ...
+    "source_lang": "en-US",
+    // ...
+  }
+```
+
+> The document language and the source language have the same value `en-US`.
+> Note: A translation from `en-US` to `en-GB` would valid.
+
+> A tool MAY remove the source language as quick fix.
 
 ## 6.2 Optional Tests
 
