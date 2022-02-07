@@ -4546,6 +4546,27 @@ The relevant paths for this test are:
 
 > A tool MAY remove such subtag.
 
+### 6.2.14 Use of Default Language
+
+For each element of type `/$defs/language_t` it must be tested that the language code is not `i-default`.
+
+The relevant paths for this test are:
+
+```
+  /document/lang
+  /document/source_lang
+```
+
+*Example XYZ which fails the test:*
+
+```
+  "lang": "i-default"
+```
+
+> The language code `i-default` is used.
+
+> A tool MAY remove such element.
+
 ## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests may include information about recommended usage. A program MUST handle a test failure as a information.
