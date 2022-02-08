@@ -237,6 +237,7 @@
               "description": "Contains a list of parts, or full model numbers.",
               "type": "array",
               "minItems": 1,
+              "uniqueItems": true,
               "items": {
                 "title": "Model number",
                 "description": "Contains a part, or a full model number of the component to identify.",

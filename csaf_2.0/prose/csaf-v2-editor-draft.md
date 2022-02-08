@@ -930,7 +930,7 @@ If the value of the hash matches and the filename does not, a user should prefer
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Model Numbers
 
-The list of models (`model_numbers`) of value type `array` with 1 or more items contains a list of parts, or full model numbers.
+The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full model numbers.
 
 A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected, or the model numbers change during update.
 
