@@ -2226,7 +2226,7 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 
 #### 3.2.3.5 Vulnerabilities Property - IDs
 
-List of IDs (`ids`) of value type `array` with one or more unique ID items of type `object` gives the document producer a place to publish unique labels or tracking IDs for the vulnerability (if such information exists).
+List of IDs (`ids`) of value type `array` with one or more unique ID items of type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
 
 ```
     "ids": {
@@ -2787,7 +2787,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     * `/vulnerabilities[]/product_status/under_investigation`
   * at least one of
     * `/vulnerabilities[]/cve`
-    * `/vulnerabilities[]/id`
+    * `/vulnerabilities[]/ids`
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
 * For each item in
@@ -3938,7 +3938,7 @@ The relevant paths for this test are:
 
 #### 6.1.27.8 Vulnerability ID
 
-For each item in `/vulnerabilities` it must be tested that at least one of the elements `cve` or `id` is present.
+For each item in `/vulnerabilities` it must be tested that at least one of the elements `cve` or `ids` is present.
 
 The relevant value for `/document/category` is:
 
@@ -3950,7 +3950,7 @@ The relevant paths for this test are:
 
 ```
   /vulnerabilities[]/cve
-  /vulnerabilities[]/id
+  /vulnerabilities[]/ids
 ```
 
 *Example 74 which fails the test:*
@@ -3963,7 +3963,7 @@ The relevant paths for this test are:
   ]
 ```
 
-> None of the elements `cve` or `id` is present.
+> None of the elements `cve` or `ids` is present.
 
 #### 6.1.27.9 Impact Statement
 
