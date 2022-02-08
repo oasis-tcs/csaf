@@ -4126,7 +4126,7 @@ The relevant path for this test is:
 ```
 
 > The document language and the source language have the same value `en-US`.
-> Note: A translation from `en-US` to `en-GB` would valid.
+> Note: A translation from `en-US` to `en-GB` would pass the test.
 
 > A tool MAY remove the source language as quick fix.
 
