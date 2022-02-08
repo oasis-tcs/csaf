@@ -1007,7 +1007,7 @@
           },
           "ids": {
             "title": "List of IDs",
-            "description": "Gives the document producer a place to publish unique labels or tracking IDs for the vulnerability (if such information exists).",
+            "description": "Represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).",
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
