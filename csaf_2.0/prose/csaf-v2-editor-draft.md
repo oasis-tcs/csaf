@@ -2264,13 +2264,22 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-#### 3.2.3.5 Vulnerabilities Property - ID
+#### 3.2.3.5 Vulnerabilities Property - IDs
 
-ID (`id`) of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) gives the document producer a place to publish a unique label or tracking ID for the vulnerability (if such information exists).
+List of IDs (`ids`) of value type `array` with one or more unique ID items of type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
 
 ```
-    "id": {
+    "ids": {
       // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single unique label or tracking ID for the vulnerability.
+
+```
       "properties": {
         "system_name": {
           // ...
@@ -2279,7 +2288,6 @@ ID (`id`) of value type `object` with the two mandatory properties System Name (
           // ...
         }
       }
-    },
 ```
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
@@ -2820,7 +2828,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     * `/vulnerabilities[]/product_status/under_investigation`
   * at least one of
     * `/vulnerabilities[]/cve`
-    * `/vulnerabilities[]/id`
+    * `/vulnerabilities[]/ids`
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
 * For each item in
@@ -3971,7 +3979,7 @@ The relevant paths for this test are:
 
 #### 6.1.27.8 Vulnerability ID
 
-For each item in `/vulnerabilities` it must be tested that at least one of the elements `cve` or `id` is present.
+For each item in `/vulnerabilities` it must be tested that at least one of the elements `cve` or `ids` is present.
 
 The relevant value for `/document/category` is:
 
@@ -3983,7 +3991,7 @@ The relevant paths for this test are:
 
 ```
   /vulnerabilities[]/cve
-  /vulnerabilities[]/id
+  /vulnerabilities[]/ids
 ```
 
 *Example 74 which fails the test:*
@@ -3996,7 +4004,7 @@ The relevant paths for this test are:
   ]
 ```
 
-> None of the elements `cve` or `id` is present.
+> None of the elements `cve` or `ids` is present.
 
 #### 6.1.27.9 Impact Statement
 
@@ -5546,6 +5554,7 @@ Secondly, the program fulfills the following for all items of:
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given, the CVRF CSAF converter converts the first one into `cwe`. In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
+* `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
 * `/vulnerabilities[]/scores[]`: If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
 
@@ -5963,8 +5972,7 @@ An array should not have more than:
   * `/vulnerabilities[]/acknowledgments`
   * `/vulnerabilities[]/acknowledgments[]/names`
   * `/vulnerabilities[]/acknowledgments[]/urls`
-  * `/vulnerabilities[]/id/system_name`
-  * `/vulnerabilities[]/id/text`
+  * `/vulnerabilities[]/ids`
   * `/vulnerabilities[]/remediations[]/entitlements`
 
 * 40 000 items for
@@ -6072,6 +6080,8 @@ A string should not have a length greater than:
   * `/vulnerabilities[]/cve`
   * `/vulnerabilities[]/cwe/id`
   * `/vulnerabilities[]/cwe/name`
+  * `/vulnerabilities[]/ids[]/system_name`
+  * `/vulnerabilities[]/ids[]/text`
   * `/vulnerabilities[]/notes[]/audience`
   * `/vulnerabilities[]/notes[]/title`
   * `/vulnerabilities[]/product_status/first_affected[]`
