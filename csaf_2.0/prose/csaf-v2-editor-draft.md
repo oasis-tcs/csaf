@@ -4600,7 +4600,7 @@ The relevant paths for this test are:
 
 ## 6.2.16 Missing Product Identification Helper
 
-For each element of type `/$defs/full_product_name_t` it must be tested that it includes the property `product_identification_helper` and at least one Product Identification Helper is provided.
+For each element of type `/$defs/full_product_name_t` it must be tested that it includes the property `product_identification_helper`.
 
 The relevant paths for this test are:
 
