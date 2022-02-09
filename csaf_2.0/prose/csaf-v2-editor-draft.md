@@ -776,7 +776,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 #### 3.1.3.3 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given seven properties `cpe`, `hashes`, `purl`, `sbom_urls`, `serial_numbers`, `skus` and `x_generic_uris`, one is mandatory.
+Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus` and `x_generic_uris`, one is mandatory.
 
 ```
     "product_identification_helper": {
@@ -786,6 +786,9 @@ Of the given seven properties `cpe`, `hashes`, `purl`, `sbom_urls`, `serial_numb
           // ...
         },
         "hashes": {
+          // ...
+        },
+        "model_numbers": {
           // ...
         },
         "purl": {
@@ -925,7 +928,40 @@ The filename representation (`filename`) of type `string` with one or more chara
 
 If the value of the hash matches and the filename does not, a user should prefer the hash value. In such cases, the filename should be used as informational property.
 
-##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - PURL
+##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Model Numbers
+
+The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full model numbers.
+
+A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected, or the model numbers change during update.
+
+This can also be used to identify hardware. If necessary, the software, or any other related part, SHALL be bind to that via a product relationship.
+
+```
+    "model_numbers": {
+        //...
+      "items": {
+        //...
+      }
+    }
+```
+
+Any given model number of value type `string` with at least 1 character represents a part, or a full model number of the component to identify.
+
+> The terms "model", "model number" and "model variant" are mostly used synonymousls. Often it is abbreviated as "MN", M/N" or "model no.".
+
+If a part of a model number of the component to identify is given, it SHOULD begin with the first character of the semodelrial number and stop at any point.
+Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Two `*` MUST NOT follow each other.
+
+*Examples XYZ:*
+
+```
+    6RA8096-4MV62-0AA0
+    6RA801?-??V62-0AA0
+    IC25T060ATCS05-0
+```
+
+##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - PURL
 
 The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
@@ -938,7 +974,7 @@ The package URL (PURL) representation (`purl`) is a `string` of 7 or more charac
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
-##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - SBOM URLs
+##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs
 
 The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains a list of URLs where SBOMs for this product can be retrieved.
 
@@ -955,7 +991,7 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
 
 Any given SBOM URL of value type `string` and format `uri` contains a URL of one SBOM for this product.
 
-##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - Serial Numbers
+##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full serial numbers.
 
@@ -976,7 +1012,7 @@ If a part of a serial number of the component to identify is given, it SHOULD be
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - SKUs
+##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - SKUs
 
 The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of parts, or full stock keeping units.
 
@@ -1001,7 +1037,7 @@ If a part of a stock keeping unit of the component to identify is given, it SHOU
 Characters which should not be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - Generic URIs
+##### 3.1.3.3.8 Full Product Name Type - Product Identification Helper - Generic URIs
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
