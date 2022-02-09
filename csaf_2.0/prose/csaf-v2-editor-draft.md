@@ -4621,7 +4621,7 @@ The relevant paths for this test are:
 
 > A tool MAY remove such subtag as a quick fix.
 
-### 6.2.14 Use of Default Language
+### 6.2.15 Use of Default Language
 
 For each element of type `/$defs/language_t` it must be tested that the language code is not `i-default`.
 
@@ -4641,6 +4641,31 @@ The relevant paths for this test are:
 > The language code `i-default` is used.
 
 > A tool MAY remove such element as a quick fix.
+
+## 6.2.16 Missing Product Identification Helper
+
+For each element of type `/$defs/full_product_name_t` it must be tested that it includes the property `product_identification_helper`.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/product
+  /product_tree/full_product_names[]
+  /product_tree/relationships[]/full_product_name
+```
+
+*Example XYZ which fails the test:*
+
+```
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+```
+
+> The product `CSAFPID-9080700` does not provide any Product Identification Helper at all.
 
 ## 6.3 Informative Test
 
