@@ -4161,7 +4161,7 @@ The relevant path for this test is:
 *Example XYZ which fails the test:*
 
 ```
-"document": {
+  "document": {
     // ...
     "lang": "en-US",
     // ...
@@ -4174,6 +4174,31 @@ The relevant path for this test is:
 > Note: A translation from `en-US` to `en-GB` would pass the test.
 
 > A tool MAY remove the source language as quick fix.
+
+#### 6.1.29 Remediation without product reference
+
+For each item in `/vulnerabilities[]/remediations` it must be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/remediations[]
+```
+
+*Example XYZ which fails the test:*
+
+```
+      "remediations": [
+        {
+          "category": "no_fix_planned",
+          "details": "These products are end-of-life. Therefore, no fix will be provided."
+        }
+      ]
+```
+
+> The given remediation does not specify to which products it should be applied.
+
+> A tool MAY add all affected products from this vulnerability to the remediation as quick fix.
 
 ## 6.2 Optional Tests
 
