@@ -1920,11 +1920,14 @@ The Revision History (`revision_history`) with value type `array` of 1 or more R
         },
 ```
 
-Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`).
+Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`). In addition, a Revision may expose the optional property `legacy_version`.
 
 ```
         "properties": {
           "date": {
+            // ...
+          },
+          "legacy_version": {
             // ...
           },
           "number": {
@@ -1936,9 +1939,13 @@ Each Revision contains all the information elements required to track the evolut
         }
 ```
 
-The Number (`number`) has value type Version (`version_t`).
-
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
+
+Legacy version of the revision (`legacy_version`) of value type `string` contains the version string used in an existing document with the same content.
+
+> This SHOULD be used to aid in the mapping between existing (human-readable) documents which might use a different version scheme and CSAF documents with the same content. It is recommended, to use the CSAF revision number to describe the revision history for any new human-readable equivalent.
+
+The Number (`number`) has value type Version (`version_t`).
 
 The Summary of the revision (`summary`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
 
