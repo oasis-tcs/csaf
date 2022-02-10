@@ -669,6 +669,9 @@ The properties `name` and `category` are mandatory. In addition, the object cont
         }
 ```
 
+> `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and enables grouping for simpler referencing. As an example, the structure may use the following levels: `vendor` -> `product_family` -> `product_name` -> `product_version`.
+> It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support the identification and matching of products on the consumer side.
+
 #### 3.1.2.1 Branches Type - Branches
 
 List of branches (`branches`) has the value type `branches_t`.
