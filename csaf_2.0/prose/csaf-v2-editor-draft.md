@@ -669,6 +669,9 @@ The properties `name` and `category` are mandatory. In addition, the object cont
         }
 ```
 
+> `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and enables grouping for simpler referencing. As an example, the structure may use the following levels: `vendor` -> `product_family` -> `product_name` -> `product_version`.
+> It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support the identification and matching of products on the consumer side.
+
 #### 3.1.2.1 Branches Type - Branches
 
 List of branches (`branches`) has the value type `branches_t`.
@@ -4995,6 +4998,47 @@ The relevant paths for this test are:
 ```
 
 > There is a spelling mistake in `Secruity`.
+
+## 6.3.9 Branch Categories
+
+For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it must be tested that anchestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that order starting with the Product tree node.
+
+> Other branch categories can be upfront, inbetween or after the aforementioned without making the test invalid.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches
+```
+
+*Example XYZ which fails the test:*
+
+```
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Example Company",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "Product A",
+            "branches": [
+              {
+                "category": "patch_level",
+                "name": "91",
+                "product": {
+                  "product_id": "CSAFPID-0002",
+                  "name": "Example Company Product A Update 91"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+```
+
+> The product `CSAFPID-9080700` does not have any anchestor with the branch category `product_version`.
 
 -------
 
