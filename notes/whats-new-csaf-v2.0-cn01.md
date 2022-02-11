@@ -349,6 +349,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/document/source_lang`: If this copy of the document is a translation then the value of this property describes from which language this document was translated.
 * `/document/tracking/generator/engine`: Contains information about the engine that generated the CSAF document. This was introduced as intermediate level to group `name` and `version` of `engine` logically. In a CVRF-CSAF conversion, the converter SHOULD replace this objects according to its own values.
 * `/document/tracking/generator/engine/version`: Contains the version of the engine that generated the CSAF document. Previously, this was part of the `cvrf:Engine` element.
+* `/document/tracking/revision_history[]/legacy_version`: Contains the version string used in an existing document with the same content.
 * `/product_tree/*/product/product_identification_helper`: Provides at least one method which aids in identifying the product in an asset database. It was introduced to group different ways to identify a product/
 * `/product_tree/*/product/product_identification_helper/hashes`: Contains a list of cryptographic hashes usable to identify files.
 * `/product_tree/*/product/product_identification_helper/model_numbers`: Contains a list of parts, or full model numbers.
@@ -441,9 +442,10 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/document/tracking/initial_release_date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:InitialReleaseDate/text()` |  |
 | `/document/tracking/revision_history` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory` |  |
 | `/document/tracking/revision_history[i]` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]` |  |
-| `/document/tracking/revision_history[]/date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Date/text()` |  |
-| `/document/tracking/revision_history[]/number` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Number/text()` | see E.2 |
-| `/document/tracking/revision_history[]/summary` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Description/text()` |  |
+| `/document/tracking/revision_history[i]/date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Date/text()` |  |
+| `/document/tracking/revision_history[i]/legacy_version` | | see E.1 |
+| `/document/tracking/revision_history[i]/number` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Number/text()` | see E.2 |
+| `/document/tracking/revision_history[i]/summary` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Description/text()` |  |
 | `/document/tracking/status` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Status/text()` |  |
 | `/document/tracking/version` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Version/text()` | see E.2 |
 | `/product_tree` | `/cvrf:cvrfdoc/prod:ProductTree` |  |

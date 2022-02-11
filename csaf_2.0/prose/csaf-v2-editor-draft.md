@@ -1923,11 +1923,14 @@ The Revision History (`revision_history`) with value type `array` of 1 or more R
         },
 ```
 
-Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`).
+Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`). In addition, a Revision may expose the optional property `legacy_version`.
 
 ```
         "properties": {
           "date": {
+            // ...
+          },
+          "legacy_version": {
             // ...
           },
           "number": {
@@ -1939,9 +1942,13 @@ Each Revision contains all the information elements required to track the evolut
         }
 ```
 
-The Number (`number`) has value type Version (`version_t`).
-
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
+
+Legacy version of the revision (`legacy_version`) of value type `string` contains the version string used in an existing document with the same content.
+
+> This SHOULD be used to aid in the mapping between existing (human-readable) documents which might use a different version scheme and CSAF documents with the same content. It is recommended, to use the CSAF revision number to describe the revision history for any new human-readable equivalent.
+
+The Number (`number`) has value type Version (`version_t`).
 
 The Summary of the revision (`summary`) of value type `string` with 1 or more characters holds a single non-empty string representing a short description of the changes.
 
@@ -5645,7 +5652,7 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
-* type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document.
+* type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match must be calculated by the original values used in the CVRF document. If this conversion was applied, for each Revision the original value of `cvrf:Number` MUST be set as `legacy_version` in the convertered document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition, the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
