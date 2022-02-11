@@ -351,6 +351,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/document/tracking/generator/engine/version`: Contains the version of the engine that generated the CSAF document. Previously, this was part of the `cvrf:Engine` element.
 * `/product_tree/*/product/product_identification_helper`: Provides at least one method which aids in identifying the product in an asset database. It was introduced to group different ways to identify a product/
 * `/product_tree/*/product/product_identification_helper/hashes`: Contains a list of cryptographic hashes usable to identify files.
+* `/product_tree/*/product/product_identification_helper/model_numbers`: Contains a list of parts, or full model numbers.
 * `/product_tree/*/product/product_identification_helper/purl`: The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
 * `/product_tree/*/product/product_identification_helper/sbom_urls`: Contains a list of URLs where SBOMs for this product can be retrieved.
 * `/product_tree/*/product/product_identification_helper/serial_numbers`: Contains a list of parts, or full serial numbers.
@@ -464,6 +465,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/@CPE` |  |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/hashes` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/model_numbers` | | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/serial_numbers` | | see E.1 |
@@ -480,6 +482,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]/file_hashes` | | see parent |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/model_numbers` | | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/model_numbers[]` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/sbom_urls[]` |  | see E.1 |
@@ -505,6 +509,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
 | `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
 | `/product_tree/branches[i]/product/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/model_numbers` | | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/model_numbers[]` |  | see E.1 |
 | `/product_tree/branches[i]/product/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/branches[i]/product/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/branches[i]/product/product_identification_helper/sbom_urls[]` |  | see E.1 |
@@ -529,6 +535,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
 | `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
 | `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/model_numbers` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/model_numbers[]` | | see E.1 |
 | `/product_tree/full_product_names[i]/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/full_product_names[i]/product_identification_helper/sbom_urls` | | see E.1 |
 | `/product_tree/full_product_names[i]/product_identification_helper/sbom_urls[]` |  | see E.1 |
@@ -561,6 +569,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/filename` | | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/model_numbers` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/model_numbers[]` |  | see E.1 |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/sbom_urls[]` |  | see E.1 |
