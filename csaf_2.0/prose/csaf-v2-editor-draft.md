@@ -5724,7 +5724,7 @@ Secondly, the program fulfills the following for all items of:
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
         ```
 
-    4. Retrieve the CVSS version from a config value, which defaults to `3.0`. (As the spec only mentions 3.0.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
+    4. Retrieve the CVSS version from a config value, which defaults to `3.0`. (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
 
 ### 9.1.6 Conformance Clause 6: CSAF content management system
 
