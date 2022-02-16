@@ -5589,6 +5589,8 @@ The retrieving process executes in two phases: Finding the `provider-metadata.js
 3. Checking the DNS path (requirement 10 in section 7.1)
 4. Select one or more `provider-metadata.json` to use.
 
+> The term "checking" used in the listing above SHOULD be understood as follows: Try to access the resource and test whether the response provides an expected result as defined in the requirement in section 7.1. If that is the case, the step was successful - otherwise not.
+
 The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional `provider-metadata.json`. The third step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving its location from an `aggregator.json` (requirement 21 in section 7.1) of a CSAF lister or CSAF aggregator.
