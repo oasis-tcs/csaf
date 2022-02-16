@@ -5076,7 +5076,7 @@ The relevant paths for this test are:
 
 # 7 Distributing CSAF documents
 
-This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher". The last section provides specific rules on the order for retrieving CSAF documents.
+This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher". The last section provides specific rules for the process of retrieving CSAF documents.
 
 ## 7.1 Requirements
 
@@ -5601,7 +5601,8 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
 
 1. Parse the `provider-metadata.json` to determine whether the directory-based (requirements 11 to 14 in section 7.1) or ROLIE-based distribution (requirements 15 to 17 in section 7.1) is used. If both are present, the ROLIE information SHOULD be preferred.
 2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section 7.1) SHOULD be retrieved together with the CSAF document. They MUST be checked before further processing the CSAF document.
-3. Check whether the CSAF document is valid.
+3. Test the CSAF document against the schema.
+4. Execute mandatory test on the CSAF document.
 
 -------
 
