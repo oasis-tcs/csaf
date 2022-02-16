@@ -5685,7 +5685,7 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/scores[]`:
   * If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`. If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this score element.
-  * If a `vectorString` is missing, the CVRF CSAF converter outputs an error that the CVSS element could not be converted as the CVSS vector was missing. A CVRF CSAF converter MAY implement a config option to delete such elements.
+  * If a `vectorString` is missing, the CVRF CSAF converter outputs an error that the CVSS element could not be converted as the CVSS vector was missing. A CVRF CSAF converter MAY offer a configuration option to delete such elements.
   * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
   * To determine, which minor version of CVSS v3 is used, the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
