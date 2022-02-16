@@ -5187,7 +5187,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-> An issuing party MAY advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organisational structure through merges or aquisitions. It is strongly recommended NOT to do this. If it is inevitable, this SHOULD be a temporary solution. If one of the URLs fulfills requirement 9, this SHOULD be used as the first CSAF entry.
+> An issuing party MAY advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organizational structure through merges or aquisitions. It is strongly recommended NOT to do this. If it is inevitable, this SHOULD be a temporary solution. If one of the URLs fulfills requirement 9, this SHOULD be used as the first CSAF entry.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json
 
@@ -5576,9 +5576,9 @@ A distributing party satisfies the "CSAF aggregator" role if the party:
 
 ## 7.3 Retrieving rules
 
-The retrieving process splits up into two parts: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
+The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
 
-> A retrieving party MAY choose to do the first part only when adding new or updating distributing parties. However, it is recommended to check regulary whether new information is available.
+> A retrieving party MAY choose to do the first phase only when adding new or updating distributing parties. However, it is recommended to check regulary whether new information is available.
 
 ### 7.3.1 Finding provider-metadata.json
 
@@ -5589,9 +5589,9 @@ The retrieving process splits up into two parts: Finding the `provider-metadata.
 3. Checking the DNS path (requirement 10 in section 7.1)
 4. Select one or more `provider-metadata.json` to use.
 
-The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional `provider-metadata.json`. The thrid step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
+The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional `provider-metadata.json`. The third step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
 
-**Indirect locating**: An retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving its location from an `aggregator.json` (requirement 21 in section 7.1) of a CSAF lister or CSAF aggregator.
+**Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving its location from an `aggregator.json` (requirement 21 in section 7.1) of a CSAF lister or CSAF aggregator.
 
 ### 7.3.2 Retrieving CSAF documents
 
