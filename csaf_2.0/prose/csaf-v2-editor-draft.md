@@ -5684,6 +5684,7 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given, the CVRF CSAF converter converts the first one into `cwe`. In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/scores[]`:
+  * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to the rules of the applicable CVSS standard.
   * If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`. If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this score element.
   * If a `vectorString` is missing, the CVRF CSAF converter outputs an error that the CVSS element could not be converted as the CVSS vector was missing. A CVRF CSAF converter MAY offer a configuration option to delete such elements.
   * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
