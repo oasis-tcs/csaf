@@ -5076,7 +5076,7 @@ The relevant paths for this test are:
 
 # 7 Distributing CSAF documents
 
-This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher".
+This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher". The last section provides specific rules on the order for retrieving CSAF documents.
 
 ## 7.1 Requirements
 
@@ -5186,6 +5186,8 @@ CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/csaf/provider-metadata.json
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
+
+> An issuing party MAY advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organisational structure through merges or aquisitions. It is strongly recommended NOT to do this. If it is inevitable, this SHOULD be a temporary solution. If one of the URLs fulfills requirement 9, this SHOULD be used as the first CSAF entry.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json
 
@@ -5571,6 +5573,33 @@ A distributing party satisfies the "CSAF aggregator" role if the party:
 > The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
 > CSAF aggregators can be provided for free or as a paid service.
 > To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
+
+## 7.3 Retrieving rules
+
+The retrieving process splits up into two parts: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
+
+> A retrieving party MAY choose to do the first part only when adding new or updating distributing parties. However, it is recommended to check regulary whether new information is available.
+
+### 7.3.1 Finding provider-metadata.json
+
+**Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json` (requirement 7 in section 7.1) based on the main domain of the issuing party:
+
+1. Checking the Well-known URL (requirement 9 in section 7.1)
+2. Checking the security.txt (requirement 8 in section 7.1)
+3. Checking the DNS path (requirement 10 in section 7.1)
+4. Select one or more `provider-metadata.json` to use.
+
+The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional `provider-metadata.json`. The thrid step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
+
+**Indirect locating**: An retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving its location from an `aggregator.json` (requirement 21 in section 7.1) of a CSAF lister or CSAF aggregator.
+
+### 7.3.2 Retrieving CSAF documents
+
+Given a `provider-metadata.json`, the following process SHOULD be used to retrieve CSAF documents:
+
+1. Parse the `provider-metadata.json` to determine whether the directory-based (requirements 11 to 14 in section 7.1) or ROLIE-based distribution (requirements 15 to 17 in section 7.1) is used. If both are present, the ROLIE information SHOULD be preferred.
+2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section 7.1) SHOULD be retrieved together with the CSAF document. They MUST be checked before further processing the CSAF document.
+3. Check whether the CSAF document is valid.
 
 -------
 
