@@ -373,6 +373,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/document/tracking/generator/engine/name`: Version of the engine is now a separate field. See E.1
 * `/document/tracking/revision_history[]/number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/tracking/version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/product_tree/*/branches[]/category`: The values `Realm` and `Resource` have been removed. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/product_tree/relationships[]/full_product_name`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/vulnerabilities[]/ids`: The IDs element was changed into an array to be able to contain multiple IDs. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/vulnerabilities[]/remediations[]/category`: The CVRF CSAF Vulnerability Remediation Type `Will Not Fix` was renamed into `no_fix_planned`.
@@ -457,9 +458,9 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/branches[k]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]` |  |
 | `/product_tree/branches[i]/branches[j]/branches[k]/branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch` | |
 | `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]` |  |
-| `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Type` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Name` |  |
-| `/product_tree/branches[i]/branches[j]/branches[k]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Type` | |
+| `/product_tree/branches[i]/branches[j]/branches[k]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Name` |  |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName` | |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/text()` |  |
@@ -473,7 +474,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/serial_numbers` | | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/skus` | | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/x_generic_uris` | | see E.1 |
-| `/product_tree/branches[i]/branches[j]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Type` | |
+| `/product_tree/branches[i]/branches[j]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/branches[j]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Name` |  |
 | `/product_tree/branches[i]/branches[j]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName` | |
 | `/product_tree/branches[i]/branches[j]/product/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/text()` |  |
@@ -497,7 +498,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]/namespace` |  | see parent |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]/uri` |  | see parent |
-| `/product_tree/branches[i]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Type` |  |
+| `/product_tree/branches[i]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Name` |  |
 | `/product_tree/branches[i]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName` | |
 | `/product_tree/branches[i]/product/name` |  `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/text()` |  |
