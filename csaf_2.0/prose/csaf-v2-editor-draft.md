@@ -5696,7 +5696,26 @@ Secondly, the program fulfills the following for all items of:
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
         ```
 
-    2. Retrieve the CVSS version from the CVSS namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the namespace. If more than one CVSS namespace is present and the element is not clearly defined via the namespace, this step MUST be skipped without a decision.
+    2. Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
+
+        *Example XYZ:*
+
+        ```
+          xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
+          <!-- -->
+          <cvssv31:ScoreSetV3>
+        ```
+
+        is handled the same as 
+
+        *Example XYZ:*
+
+        ```
+          <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
+        ```
+
+    
+    3. Retrieve the CVSS version from the CVSS namespace given in the root element, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the global namespace. If more than one CVSS namespace is present and the element is not clearly defined via the namespace, this step MUST be skipped without a decision.
 
         *Example XYZ:*
 
@@ -5704,7 +5723,7 @@ Secondly, the program fulfills the following for all items of:
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
         ```
 
-    3. Retrieve the CVSS version from a config value, which defaults to `3.0`. (As the spec only mentions 3.0.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
+    4. Retrieve the CVSS version from a config value, which defaults to `3.0`. (As the spec only mentions 3.0.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
 
 ### 9.1.6 Conformance Clause 6: CSAF content management system
 
