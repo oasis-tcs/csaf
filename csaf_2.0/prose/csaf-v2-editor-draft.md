@@ -2875,7 +2875,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
   rhba-2019_0024.json
 ```
 
-> It is currently consider best practice to indicate that a CSAF document is invalid by inserting `_invalid` into the filename in front of the file extension.
+> It is currently considered best practice to indicate that a CSAF document is invalid by inserting `_invalid` into the filename in front of the file extension.
 
 *Examples XYZ:*
 
