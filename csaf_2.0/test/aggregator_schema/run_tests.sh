@@ -6,6 +6,7 @@ CSAF_STRICT_SCHEMA=csaf_strict_schema.json
 PROVIDER_STRICT_SCHEMA=provider_strict_schema.json
 VALIDATOR=csaf_2.0/test/validator.py
 STRICT_GENERATOR=csaf_2.0/test/generate_strict_schema.py
+TESTPATH=csaf_2.0/examples/aggregator/*.json
 
 FAIL=0
 
@@ -23,20 +24,22 @@ validate() {
 
 }
 
+
+test_all() {
+  for i in `ls -1 $TESTPATH`
+  do
+    validate $i
+  done
+} 
+
 SCHEMA=$ORIG_SCHEMA
-for i in `ls -1 csaf_2.0/examples/aggregator/*.json`
-do
-  validate $i
-done
+test_all
  
 echo -n "Generating strict schema ... "
 python3 $STRICT_GENERATOR $ORIG_SCHEMA > $AGGREGATOR_STRICT_SCHEMA
 echo done
 
 SCHEMA=$AGGREGATOR_STRICT_SCHEMA
-for i in `ls -1 csaf_2.0/examples/aggregator/*.json`
-do
-  validate $i
-done
+test_all
 
 exit $FAIL
