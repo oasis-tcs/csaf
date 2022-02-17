@@ -23,13 +23,19 @@ validate() {
 }
 
 SCHEMA=$ORIG_SCHEMA
-validate csaf_2.0/examples/provider-metadata/example-01-provider-metadata.json
+for i in `ls -1 csaf_2.0/examples/provider-metadata/*.json`
+do
+  validate $i
+done
  
 echo -n "Generating strict schema ... "
 python3 $STRICT_GENERATOR $ORIG_SCHEMA > $PROVIDER_STRICT_SCHEMA
 echo done
 
 SCHEMA=$PROVIDER_STRICT_SCHEMA
-validate csaf_2.0/examples/provider-metadata/example-01-provider-metadata.json
+for i in `ls -1 csaf_2.0/examples/provider-metadata/*.json`
+do
+  validate $i
+done
 
 exit $FAIL
