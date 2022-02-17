@@ -4212,6 +4212,43 @@ The relevant path for this test is:
 
 > A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
 
+#### 6.1.30 Integer and Semantic Versioning
+
+It must be tested that all elements of type `/$defs/version_t` follow the same versioning system. Integer versioning and semantic versioning SHALL NOT occur within the same document.
+
+The relevant paths for this test are:
+
+```
+  /document/tracking/revision_history[]/number
+  /document/tracking/version
+```
+
+*Example XYZ which fails the test:*
+
+```
+    "tracking": {
+      // ...
+      "revision_history": [
+        {
+          "date": "2021-07-21T09:00:00.000Z",
+          "number": "1.0.0",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "2",
+          "summary": "Second version."
+        }
+      ],
+      // ...
+      "version": "2"
+    }
+```
+
+> The document started with semantic versioning (`1.0.0`) and switched to integer versioning (`2`).
+
+> A tool MAY assign all items their corresponding value according to integer versioning as a quick fix. In such case, the old `number` SHOULD be stored in `legacy_version`.
+
 ## 6.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
