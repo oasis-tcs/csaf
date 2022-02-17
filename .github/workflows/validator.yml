@@ -10,6 +10,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Prepare environment
       run: |
+        apt-get remove jsonschema
         apt-get update -q && apt-get install -y --no-install-recommends -qq \
           python3 \
           python3-simplejson \
