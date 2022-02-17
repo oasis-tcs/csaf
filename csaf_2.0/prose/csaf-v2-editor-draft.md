@@ -4214,7 +4214,7 @@ The relevant path for this test is:
 
 #### 6.1.30 Integer and Semantic Versioning
 
-It must be tested that all elements of type `/$defs/version_t` follow the same versioning system. Integer versioning and semantic versioning SHALL NOT occur within the same document.
+It must be tested that all elements of type `/$defs/version_t` follow either integer versioning or semantic versioning homogeneously within the same document.
 
 The relevant paths for this test are:
 
