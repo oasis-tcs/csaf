@@ -5514,8 +5514,8 @@ The roles "CSAF publisher", "CSAF provider", and "CSAF trusted provider" are int
 
 Both, a CSAF lister and a CSAF aggregator, decide based on their own rules which issuing parties to list respectively to mirror. However, an issuing party may apply to be listed or mirrored.
 
-> Issuing parties MUST indicate through the value `false` in `list_on_CSAF_aggregators` if they do not want to be listed.
-> Issuing parties MUST indicate through the value `false` in `mirror_on_CSAF_aggregators` if they do not want to be mirrored.
+Issuing parties MUST indicate through the value `false` in `list_on_CSAF_aggregators` if they do not want to be listed.
+Issuing parties MUST indicate through the value `false` in `mirror_on_CSAF_aggregators` if they do not want to be mirrored.
 
 ### 7.2.1 Role: CSAF publisher
 
