@@ -2875,6 +2875,16 @@ The following rules MUST be applied to determine the filename for the CSAF docum
   rhba-2019_0024.json
 ```
 
+> It is currently considered best practice to indicate that a CSAF document is invalid by inserting `_invalid` into the filename in front of the file extension.
+
+*Examples XYZ:*
+
+```
+  cisco-sa-20190513-secureboot_invalid.json
+  example_company_-_2019-yh3234_invalid.json
+  rhba-2019_0024_invalid.json
+```
+
 ## 5.2 Separation in Data Strean
 
 If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
