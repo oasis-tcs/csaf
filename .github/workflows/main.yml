@@ -9,9 +9,25 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@master
-    - name: Perform direct JSON schemas test
-      id: json-test
-      uses: ./.github/actions/json-test
+    - name: Prepare environment
+      run: |
+        sudo apt-get remove python3-jsonschema
+        sudo apt-get update -q && sudo apt-get install -y --no-install-recommends -qq \
+          python3 \
+          python3-simplejson \
+          python3-jsonpath-rw \
+          python3-pip \
+          python3-setuptools \
+          python3-wheel
+        pip3 install jsonschema[format]
+    - name: Check jsonschema version
+      run: jsonschema --version
+    - name: Test examples against CSAF schema
+      run: ./csaf_2.0/test/csaf_schema/run_tests.sh
+    - name: Test examples against Provider Metadata schema
+      run: ./csaf_2.0/test/provider_schema/run_tests.sh
+    - name: Test examples against Aggregator schema
+      run: ./csaf_2.0/test/aggregator_schema/run_tests.sh
     - name: Upload strict JSON schema artifact
       uses: actions/upload-artifact@v2
       with:
