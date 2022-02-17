@@ -5187,7 +5187,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-> An issuing party MAY advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organizational structure through merges or aquisitions. It is strongly recommended NOT to do this. If it is inevitable, this SHOULD be a temporary solution. If one of the URLs fulfills requirement 9, this SHOULD be used as the first CSAF entry.
+It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organizational structure through merges or aquisitions. However, this SHOULD NOT be done and removed as soon as possible. If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json
 
@@ -5578,7 +5578,7 @@ A distributing party satisfies the "CSAF aggregator" role if the party:
 
 The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
 
-> A retrieving party MAY choose to do the first phase only when adding new or updating distributing parties. However, it is recommended to check regulary whether new information is available.
+> A retrieving party SHOULD do the first phase every time. Based on the setup and use case of the retrieving party it MAY choose to do it less often, e.g. only when adding new or updating distributing parties. In that case, it SHOULD to check regulary whether new information is available.
 
 ### 7.3.1 Finding provider-metadata.json
 
@@ -5602,7 +5602,7 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
 1. Parse the `provider-metadata.json` to determine whether the directory-based (requirements 11 to 14 in section 7.1) or ROLIE-based distribution (requirements 15 to 17 in section 7.1) is used. If both are present, the ROLIE information SHOULD be preferred.
 2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section 7.1) SHOULD be retrieved together with the CSAF document. They MUST be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
-4. Execute mandatory test on the CSAF document.
+4. Execute mandatory tests on the CSAF document.
 
 -------
 
