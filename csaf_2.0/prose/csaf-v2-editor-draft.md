@@ -5458,6 +5458,10 @@ The public part of the OpenPGP key used to sign the CSAF documents MUST be avail
 
 > For example, the public part of the OpenPGP key could be placed in a directory `openpgp` adjacent to the `provider-metadata.json`.
 
+The OpenPGP key SHOULD have a strength that is considered secure.
+
+> Guidance on OpenPGP key strength can be retrieved from technical guidelines of competent authorities.
+
 ### 7.1.21 Requirement 21: List of CSAF providers
 
 The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
