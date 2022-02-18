@@ -5155,7 +5155,7 @@ CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they ar
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it mUST be ensured that the documents are still access protected.
 
-### 7.1.6 Requirement 6: Redirects
+### 7.1.6 Requirement 6: No Redirects
 
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
 
