@@ -6304,6 +6304,7 @@ A string should not have a length greater than:
   * `/document/tracking/generator/engine/name`
   * `/document/tracking/generator/engine/version`
   * `/document/tracking/id`
+  * `/document/tracking/revision_history[]/legacy_version`
   * `/document/tracking/revision_history[]/number`
   * `/document/tracking/version`
   * `/product_tree/branches[]/name`
