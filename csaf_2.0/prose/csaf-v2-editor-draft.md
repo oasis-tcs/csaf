@@ -5766,8 +5766,48 @@ Secondly, the program fulfills the following for all items of:
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given, the CVRF CSAF converter converts the first one into `cwe`. In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
-* `/vulnerabilities[]/scores[]`: If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`.
-* `/vulnerabilities[]/scores[]`: If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
+* `/vulnerabilities[]/scores[]`:
+  * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to the rules of the applicable CVSS standard.
+  * If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`. If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this score element.
+  * If a `vectorString` is missing, the CVRF CSAF converter outputs an error that the CVSS element could not be converted as the CVSS vector was missing. A CVRF CSAF converter MAY offer a configuration option to delete such elements.
+  * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
+  * To determine, which minor version of CVSS v3 is used, the CVRF CSAF converter uses the following steps:
+    1. Retrieve the CVSS version from the CVSS vector, if present.
+
+        *Example XYZ:*
+
+        ```
+          CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
+        ```
+
+    2. Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
+
+        *Example XYZ:*
+
+        ```
+          xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
+          <!-- -->
+          <cvssv31:ScoreSetV3>
+        ```
+
+        is handled the same as 
+
+        *Example XYZ:*
+
+        ```
+          <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
+        ```
+
+    
+    3. Retrieve the CVSS version from the CVSS namespace given in the root element, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the global namespace. If more than one CVSS namespace is present and the element is not clearly defined via the namespace, this step MUST be skipped without a decision.
+
+        *Example XYZ:*
+
+        ```
+          xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
+        ```
+
+    4. Retrieve the CVSS version from a config value, which defaults to `3.0`. (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
 
 ### 9.1.6 Conformance Clause 6: CSAF content management system
 

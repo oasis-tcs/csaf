@@ -363,7 +363,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/vulnerabilities[]/remediations[]/restart_required`: Provides information on category of restart is required by this remediation to become effective.
 * `/vulnerabilities[]/scores[]`: Specifies information about (at least one) score of the vulnerability and for which products the given value applies. Previously, products where directly tied to the `vuln:ScoreSetV2` or `vuln:ScoreSetV3`.
 * `/vulnerabilities[]/scores[]/cvss_v2/*`: Additional elements were introduced through the use of the FIRST CVSSv2 schema.
-* `/vulnerabilities[]/scores[]/cvss_v3/*`: Additional elements were introduced through the use of the FIRST CVSSv3 schemas.
+* `/vulnerabilities[]/scores[]/cvss_v3/*`: Additional elements were introduced through the use of the FIRST CVSSv3 schemas. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 
 ## E.2 Changed elements
 
