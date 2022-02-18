@@ -5397,7 +5397,46 @@ The use and therefore the existence of ROLIE service document is optional. If it
 
 ### 7.1.17 Requirement 17: ROLIE category document
 
-The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. It should be used for to further dissects CSAF documents by their document categories.
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
+
+* document category
+* document language
+* values of the branch category within the Product Tree including but not limited to
+  * `vendor`
+  * `product_family`
+  * `product_name`
+  * `product_version`
+* type of product
+
+  *Example XYZ:*
+
+  ```
+    CPU
+    Firewall
+    Monitor
+    PLC
+    Printer
+    Router
+    Sensor
+    Server
+  ```
+
+* areas or sectors, the products are used in
+
+  *Example XYZ:*
+
+  ```
+    Chemical
+    Commercial
+    Communication
+    Critical Manufacturing
+    Dams
+    Energy
+    Healthcare
+    Water
+  ```
+
+* any other categorization useful to the consumers
 
 *Example 106:*
 
