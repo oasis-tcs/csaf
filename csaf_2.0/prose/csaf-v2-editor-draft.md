@@ -5394,7 +5394,7 @@ The use and therefore the existence of ROLIE service document is optional. If it
 
 ### 7.1.17 Requirement 17: ROLIE category document
 
-The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. ROLIE categories SHOULD be used for to further dissects CSAF documents by one or more of the following criteria:
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
 * document category
 * document language
