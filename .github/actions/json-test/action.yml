@@ -1,6 +1,0 @@
-name: 'JSON Schema Tests'
-description: 'Perform automated JSON schema tests'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-
