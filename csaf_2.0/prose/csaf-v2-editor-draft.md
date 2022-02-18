@@ -5328,6 +5328,14 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
             {
               "rel": "self",
               "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+            },
+            {
+              "rel": "hash",
+              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.sha512"
+            },
+            {
+              "rel": "signature",
+              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.asc"
             }
           ],
           "published": "2021-01-01T11:00Z",
@@ -5348,6 +5356,9 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
     }
   }
 ```
+
+Any existing hash file (requirement 18) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link` having the `rel` value of `hash`.
+Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link` having the `rel` value of `signature`.
 
 ### 7.1.16 Requirement 16: ROLIE service document
 
@@ -5424,6 +5435,8 @@ The file content SHALL start with the first byte of the hexadecimal hash value. 
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
 ```
 
+If a ROLIE feed exists, each hash file MUST be listed in it as described in requirement 15.
+
 ### 7.1.19 Requirement 19: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [RFC4880] for more details.
@@ -5434,6 +5447,8 @@ All CSAF documents SHALL have at least one OpenPGP signature file which is provi
 File name of CSAF document: example_company_-_2019-yh3234.json
 File name of signature file: example_company_-_2019-yh3234.json.asc
 ```
+
+If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
 
 ### 7.1.20 Requirement 20: Public OpenPGP Key
 
