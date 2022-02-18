@@ -2857,10 +2857,11 @@ This section provides additional rules for handling CSAF documents.
 The following rules MUST be applied to determine the filename for the CSAF document:
 
 1. The value `/document/tracking/id` is converted into lower case.
-2. Each character which is not part of one of the following groups MUST be replaced by an underscore (`_`):
+2. Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (`_`):
    * Lower case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
-   * special characters: `+` (0x2B), `-` (0x2D), `_` (0x5F)
+   * special characters: `+` (0x2B), `-` (0x2D)
+   > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations where the conversion rule might lead to multiple consequtive underscores. As a result, a `/document/tracking/id` with the value  `2022_#01-A` is converted into `2022_01-A` instead of `2022__01-A`.
 3. The file extension `.json` MUST be appended.
 
 *Examples 39:*
