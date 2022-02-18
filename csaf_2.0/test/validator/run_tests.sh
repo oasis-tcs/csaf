@@ -24,7 +24,7 @@ validate() {
 }
 
 test_all() {
-  for i in `ls -1 ${TESTPATH} | grep -v $EXCLUDE`
+  for i in $(ls -1 ${TESTPATH} | grep -v $EXCLUDE)
   do
     validate $i
   done
