@@ -12,32 +12,32 @@ FAIL=0
 cd `dirname $0`/../../..
 
 validate() {
-  echo -n "Testing file $1 against schema $SCHEMA ... "
-  if python3 $VALIDATOR $SCHEMA $1; then
-    echo SUCCESS
+  printf "%s" "Testing file $1 against schema ${SCHEMA} ... "
+  if python3 ${VALIDATOR} ${SCHEMA} $1; then
+    printf "%s\n" SUCCESS
   else
-    echo FAILED
+    printf "%s\n" FAILED
     FAIL=1
   fi
 
 }
 
 test_all() {
-  for i in `ls -1 $TESTPATH`
+  for i in ${TESTPATH}
   do
     validate $i
   done
 } 
 
-SCHEMA=$ORIG_SCHEMA
+SCHEMA=${ORIG_SCHEMA}
 test_all
 
  
-echo -n "Generating strict schema ... "
-python3 $STRICT_GENERATOR $ORIG_SCHEMA > $STRICT_SCHEMA
-echo done
+printf "%s" "Generating strict schema ... "
+python3 "${STRICT_GENERATOR}" "${ORIG_SCHEMA}" > "${STRICT_SCHEMA}"
+printf "%s\n" "done"
 
-SCHEMA=$STRICT_SCHEMA
+SCHEMA=${STRICT_SCHEMA}
 test_all
 
-exit $FAIL
+exit ${FAIL}
