@@ -5859,11 +5859,11 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments; if the review approved it, the approval for publication can be requested; if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration) and the advisory is provided for publication (manual or time-based)
     * "Update Advisory": open an existing advisory, create new revision & change content, request a review, provide review comments or approve it, resolve review comments; if the review approved it, the approval for publication can be requested; if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration) and the advisory is provided for publication (manual or time-based)
 
-* publication may be immediately or at a given date/time.
-* handling of date/time and version is automated.
-* provide an API to retrieve all CSAF documents which are currently in the status published.
-* should provide an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
-* provide a user management and support at least the following roles:
+* offers both: publication immediately or at a given date/time.
+* automates handling of date/time and version.
+* provides an API to retrieve all CSAF documents which are currently in the status published.
+* optionally provides an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
+* provides a user management and support at least the following roles:
 
   * _Registered_: Able to see all published CSAF documents (but only in the published version).
   * _Author_: inherits _Registered_ permissions and also can Create and Edit Own (mostly used for automated creation, see above)
