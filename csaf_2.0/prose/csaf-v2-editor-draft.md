@@ -2863,7 +2863,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    * special characters: `+` (0x2B), `-` (0x2D)
    > The regex `[^+\-a-z0-9]+` can be used to find a character sequence which has to be replaced by an underscore.
    >
-   > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations where the conversion rule might lead to multiple consequtive underscores. As a result, a `/document/tracking/id` with the value  `2022_#01-a` is converted into `2022_01-a` instead of `2022__01-a`.
+   > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations where the conversion rule might lead to multiple consequtive underscores. As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 3. The file extension `.json` MUST be appended.
 
 *Examples 39:*
