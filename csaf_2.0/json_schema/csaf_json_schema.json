@@ -788,6 +788,7 @@
               "title": "Unique identifier for the document",
               "description": "The ID is a simple label that provides for a wide range of numbering values, types, and schemes. Its value SHOULD be assigned and maintained by the original document issuing authority.",
               "type": "string",
+              "pattern": "^[\\S](.*[\\S])?$",
               "minLength": 1,
               "examples": [
                 "Example Company - 2019-YH3234",
