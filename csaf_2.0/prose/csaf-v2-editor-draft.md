@@ -297,8 +297,7 @@ _Common Vulnerability and Exposures (CVE) – The Standard for Information Secur
 ###### [CVE-NF]
 _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names - CVE ID Syntax Change_, MITRE, January 01, 2014, https://cve.mitre.org/cve/identifiers/syntaxchange.html.
 ###### [CVRF-1-1]
-_The Common Vulnerability Reporting Framework (CVRF) Version 1.1_, M. Schiffman, Editor, May 2012, Internet Consortium for Advancement of Security on the Internet (ICASI), 
-http://www.icasi.org/the-common-vulnerability-reporting-framework-cvrf-v1-1/.
+_The Common Vulnerability Reporting Framework (CVRF) Version 1.1_, M. Schiffman, Editor, May 2012, Internet Consortium for Advancement of Security on the Internet (ICASI), http://www.icasi.org/the-common-vulnerability-reporting-framework-cvrf-v1-1/.
 ###### [CVRF-v1.2]
 _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. 13 September 2017. OASIS Committee Specification 01. http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/csaf-cvrf-v1.2-cs01.html. Latest version: http://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html.
 ###### [CVSS2]
@@ -392,7 +391,7 @@ All other text is normative unless otherwise labeled e.g. like the following inf
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 
 The term Security Advisory as used in this document describes any notification of security issues in products of and by providers. Anyone providing a product is considered in this document as a vendor, i.e. developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
-A security issue is not necessarily constraint to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of work-arounds is also considered part of the security issue.
+A security issue is not necessarily constraint to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of workarounds is also considered part of the security issue.
 This document is the definitive reference for the language elements of CSAF version 2.0. The encompassing JSON schema file noted in the Additional Artifacts section of the title page SHALL be taken as normative in the case a gap or an inconsistency in this explanatory document becomes evident.
 The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike.
 
@@ -437,7 +436,7 @@ Delegation to industry best practices technologies is used in referencing schema
 * Vulnerability Classification
   * Common Weakness Enumeration (CWE) [CWE]
     * CWE List: http://cwe.mitre.org/data/index.html
-* Classfication for Document Distribution
+* Classification for Document Distribution
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/
 
@@ -883,7 +882,7 @@ The default value for `algorithm` is `sha256`.
       sha512
 ```
 
-These values are derived from the currently supported digests OpenSSL [OPENSSL]. Leading dashs were removed.
+These values are derived from the currently supported digests OpenSSL [OPENSSL]. Leading dashes were removed.
 
 > The command `openssl dgst -list` (Version 1.1.1f from 2020-03-31) outputs the following:
 >
@@ -947,7 +946,7 @@ This can also be used to identify hardware. If necessary, the software, or any o
 
 Any given model number of value type `string` with at least 1 character represents a part, or a full model number of the component to identify.
 
-> The terms "model", "model number" and "model variant" are mostly used synonymousls. Often it is abbreviated as "MN", M/N" or "model no.".
+> The terms "model", "model number" and "model variant" are mostly used synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
 
 If a part of a model number of the component to identify is given, it SHOULD begin with the first character of the model number and stop at any point.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
@@ -1889,7 +1888,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
-Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organisation.
+Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organization.
 
 *Examples 32:*
 
@@ -1968,7 +1967,7 @@ The value `final` indicates, that the issuing party asserts the content is unlik
 
 The value `interim` indicates, that the issuing party expects rapid updates. This SHOULD be used if the expected rate of release for this document is significant higher than for other documents. Once the rate slows down it MUST be changed to `final`. This MAY be done in a patch version.
 
-> This is extremly useful for downstream vendors to constantly inform the end users about ongoing investigation. It can be used as an indication to pull the CSAF document more frequently.
+> This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation. It can be used as an indication to pull the CSAF document more frequently.
 
 ##### 3.2.1.12.8 Document Property - Tracking - Version
 
@@ -2862,7 +2861,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    * special characters: `+` (0x2B), `-` (0x2D)
    > The regex `[^+\-a-z0-9]+` can be used to find a character sequence which has to be replaced by an underscore. However, it SHALL NOT be applied before completing the first step.
    >
-   > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations where the conversion rule might lead to multiple consequtive underscores. As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
+   > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations where the conversion rule might lead to multiple consecutive underscores. As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 3. The file extension `.json` MUST be appended.
 
 *Examples 39:*
@@ -2975,7 +2974,7 @@ The relevant paths for this test are:
 
 ### 6.1.3 Circular Definition of Product ID
 
-For each new defined Product ID (type `/$defs/product_id_t`) in items of relationships (`/product_tree/relationships`) it MUST be tested that the `product_id` does not end up in a cirle.
+For each new defined Product ID (type `/$defs/product_id_t`) in items of relationships (`/product_tree/relationships`) it MUST be tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:
 
@@ -3132,7 +3131,7 @@ Contradiction groups are:
   /vulnerabilities[]/product_status/under_investigation[]
   ```
 
-> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group, i.e. if it was discoveres that fixed versions introduce a more severe vulnerability.
+> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group, i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
 *Example 45 which fails the test:*
 
@@ -4596,7 +4595,7 @@ The relevant path for this test is:
 
 It MUST be tested that the CSAF document has a canonical URL.
 
-> To implement this test it is demeeded sufficient that one item in `/document/references` fulfills all of the following:
+> To implement this test it is deemed sufficient that one item in `/document/references` fulfills all of the following:
 >
 > * It has the category `self`.
 > * The `url` starts with `https://`.
@@ -4656,7 +4655,7 @@ The relevant path for this test is:
   }
 ```
 
-> The document laguange is not defined.
+> The document language is not defined.
 
 ### 6.2.13 Sorting
 
@@ -5080,9 +5079,9 @@ The relevant paths for this test are:
 
 ## 6.3.9 Branch Categories
 
-For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it MUST be tested that anchestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that order starting with the Product tree node.
+For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it MUST be tested that ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that order starting with the Product tree node.
 
-> Other branch categories can be upfront, inbetween or after the aforementioned without making the test invalid.
+> Other branch categories can be upfront, in between or after the aforementioned without making the test invalid.
 
 The relevant paths for this test are:
 
@@ -5117,7 +5116,7 @@ The relevant paths for this test are:
     ]
 ```
 
-> The product `CSAFPID-9080700` does not have any anchestor with the branch category `product_version`.
+> The product `CSAFPID-9080700` does not have any ancestor with the branch category `product_version`.
 
 -------
 
@@ -5234,7 +5233,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organizational structure through merges or aquisitions. However, this SHOULD NOT be done and removed as soon as possible. If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
+It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organizational structure through merges or acquisitions. However, this SHOULD NOT be done and removed as soon as possible. If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json
 
@@ -5644,7 +5643,7 @@ A distributing party satisfies the "CSAF aggregator" role if the party:
 
 The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
 
-> A retrieving party SHOULD do the first phase every time. Based on the setup and use case of the retrieving party it MAY choose to do it less often, e.g. only when adding new or updating distributing parties. In that case, it SHOULD to check regulary whether new information is available.
+> A retrieving party SHOULD do the first phase every time. Based on the setup and use case of the retrieving party it MAY choose to do it less often, e.g. only when adding new or updating distributing parties. In that case, it SHOULD to check regularly whether new information is available.
 
 ### 7.3.1 Finding provider-metadata.json
 
@@ -5776,7 +5775,7 @@ Firstly, the program:
 Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`, the CVRF CSAF converter replaces those with the category `product_name`. In addition, the converter outputs a warning that that those types do not exist in CSAF and have been replaced with the category `product_name`.
-* type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match MUST be calculated by the original values used in the CVRF document. If this conversion was applied, for each Revision the original value of `cvrf:Number` MUST be set as `legacy_version` in the convertered document.
+* type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match MUST be calculated by the original values used in the CVRF document. If this conversion was applied, for each Revision the original value of `cvrf:Number` MUST be set as `legacy_version` in the converted document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition, the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/lang`: If one or more CVRF element containing an `xml:lang` attribute exist and contain the exact same value, the CVRF CSAF converter converts this value into `lang`. If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be determined and possibly a document with multiple languages was produced. In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
 * `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
@@ -5807,7 +5806,7 @@ Secondly, the program fulfills the following for all items of:
           <cvssv31:ScoreSetV3>
         ```
 
-        is handled the same as 
+        is handled the same as
 
         *Example XYZ:*
 
@@ -5815,7 +5814,7 @@ Secondly, the program fulfills the following for all items of:
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
         ```
 
-    
+
     3. Retrieve the CVSS version from the CVSS namespace given in the root element, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the global namespace. If more than one CVSS namespace is present and the element is not clearly defined via the namespace, this step MUST be skipped without a decision.
 
         *Example XYZ:*
@@ -5959,7 +5958,7 @@ The resulting translated document:
 
 ### 9.1.10 Conformance Clause 10: CSAF consumer
 
-A proccessor satisfies the "CSAF consumer" conformance profile if the processor:
+A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
 * satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF consumers.
