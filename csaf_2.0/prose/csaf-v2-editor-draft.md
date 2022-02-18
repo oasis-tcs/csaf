@@ -1895,6 +1895,9 @@ Unique identifier for the document (`id`) of value type `string` with 1 or more 
 ```
 
 Unique identifier for the document holds the Identifier.
+
+> It SHALL NOT start or end with a white space and SHALL NOT contain a line break.
+
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organisation.
 
