@@ -2884,7 +2884,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
   rhba-2019_0024_invalid.json
 ```
 
-## 5.2 Separation in Data Strean
+## 5.2 Separation in Data Stream
 
 If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
 
@@ -5470,7 +5470,7 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 > * https://psirt.domain.tld/advisories/aggregator/csaf/aggregator.json
 > * https://domain.tld/security/aggregator/csaf/aggregator.json
 
-The file `aggregator.json` SHOULD only list the latest version of the metadata of a CASF provider.
+The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
 *Example 110:*
 
