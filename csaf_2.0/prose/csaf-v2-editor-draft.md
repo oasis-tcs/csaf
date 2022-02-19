@@ -4175,7 +4175,7 @@ The relevant path for this test is:
 > There is no action statement for `CSAFPID-9080702`.
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
-#### 6.1.28 Translation
+### 6.1.28 Translation
 
 It MUST be tested that the given source language and document language are not the same.
 
@@ -4203,7 +4203,7 @@ The relevant path for this test is:
 
 > A tool MAY remove the source language as quick fix.
 
-#### 6.1.29 Remediation without product reference
+### 6.1.29 Remediation without product reference
 
 For each item in `/vulnerabilities[]/remediations` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
@@ -4228,7 +4228,7 @@ The relevant path for this test is:
 
 > A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
 
-#### 6.1.30 Integer and Semantic Versioning
+### 6.1.30 Integer and Semantic Versioning
 
 It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or semantic versioning homogeneously within the same document.
 
