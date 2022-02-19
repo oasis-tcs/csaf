@@ -768,7 +768,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges. The value of MUST obey to exactly one of the following options:
 
-1. VEersion Range Specifier (vers)
+1. Version Range Specifier (vers)
 
     > vers is an upcoming standard to address the problem of version ranges. Its specifications is available at [VERS].
 
