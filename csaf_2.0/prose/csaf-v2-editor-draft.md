@@ -2782,8 +2782,8 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * all elements required by the profile "Generic CSAF".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
-  * `/document/references`
-    > This SHOULD be used to refer to one or more documents or websites which provides more details about the incident. The `category` for such references SHOULD be `external`.
+  * `/document/references` with at least one item which has a `category` of `external`
+    > The intended use for this field is to refer to one or more documents or websites which provides more details about the incident.
 * The value of `/document/category` SHALL be `security_incident_response`.
 
 ## 4.3 Profile 3: Informational Advisory
@@ -2796,8 +2796,8 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * all elements required by the profile "Generic CSAF".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
-  * `/document/references`
-    > This SHOULD be used to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
+  * `/document/references` with at least one item which has a `category` of `external`
+    > The intended use for this field is to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
 * The value of `/document/category` SHALL be `informational_advisory`.
 * The element `/vulnerabilities` SHALL NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
 
@@ -3741,7 +3741,7 @@ The relevant paths for this test are:
 
 It MUST be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace. This test does only apply for CSAF documents with the profile "Generic CSAF". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "Generic CSAF".
 
-> For CSAF 2.0, the test MUST be skipped for the following values in `/document/category`:
+> For CSAF 2.0, the test must be skipped for the following values in `/document/category`:
 >
 > ```
 >   security_incident_response
@@ -3750,7 +3750,7 @@ It MUST be tested that the document category is not equal to the (case insensiti
 >   vex
 > ```
 
-> This is the only test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
+This is the only mandatory test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
 
 The relevant path for this test is:
 
@@ -4489,7 +4489,7 @@ The relevant path for this test is:
 
 It MUST be tested that the hash algorithm `md5` is not the only one present.
 
-> Since collision attacks exist for MD5 such value SHOULD be accompanied by a second cryptographically stronger hash. This will allow users to double check the results.
+> Since collision attacks exist for MD5 such value should be accompanied by a second cryptographically stronger hash. This will allow users to double check the results.
 
 The relevant paths for this test are:
 
@@ -4531,7 +4531,7 @@ The relevant paths for this test are:
 
 It MUST be tested that the hash algorithm `sha1` is not the only one present.
 
-> Since collision attacks exist for SHA-1 such value SHOULD be accompanied by a second cryptographically stronger hash. This will allow users to double check the results.
+> Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash. This will allow users to double check the results.
 
 The relevant paths for this test are:
 
@@ -6022,7 +6022,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
     * when a new asset is inserted (for this asset)
     * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
     > These also apply if more than one CSAF document or asset was added. To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
-  > Manually and automatically triggered runs SHOULD not be pooled.
+  * Manually and automatically triggered runs SHOULD not be pooled.
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
   * marked with a given status
@@ -6428,7 +6428,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
-> Later versions of CSAF might add, modify or delete possible value which could change the longest value. Therefore, this sizes SHOULD NOT be implemented as fixed limits if forward compatibility is desired.
+> Later versions of CSAF might add, modify or delete possible value which could change the longest value. Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
 
 It seems to be safe to assume that the length of each value is not greater than 50. This applies to:
 
