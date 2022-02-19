@@ -4336,6 +4336,42 @@ The relevant paths for this test are:
 
 > A tool MAY assign all items their corresponding value according to integer versioning as a quick fix. In such case, the old `number` SHOULD be stored in `legacy_version`.
 
+### 6.1.31 Version Range in Product Version
+
+For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
+
+> To implement this test it is deemed sufficient that the value of `name` does not contain any of the following strings:
+>
+> ```
+>   <
+>   <=
+>   >
+>   >=
+>   all versions
+>   later
+>   prior
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "prior to 4.2",
+                // ...
+              }
+            ]
+```
+
+> The version range `prior to 4.2` is given for the branch category `product_version`.
+
 ## 6.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
