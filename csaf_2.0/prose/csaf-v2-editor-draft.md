@@ -770,7 +770,7 @@ If adjacent property `category` has the value `product_version_range`, the value
 
 1. Version Range Specifier (vers)
 
-    > vers is an upcoming standard to address the problem of version ranges. Its specifications is available at [VERS].
+    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [VERS].
 
     vers MUST be used in its canonical form. To convey the term "all versions" the special string `vers:all/*` MUST be used.
 
