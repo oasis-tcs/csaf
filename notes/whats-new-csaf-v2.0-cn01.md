@@ -370,6 +370,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `*/acknowledgments[]/organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/publisher/category`: The possible values have been extended.
 * `/document/publisher/issuing_authority`: Name of the issuing party is now a separate field. See E.1
+* `/document/tracking/id`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/tracking/generator/engine/name`: Version of the engine is now a separate field. See E.1
 * `/document/tracking/revision_history[]/number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/tracking/version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
@@ -439,7 +440,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/document/tracking/generator/engine` |  | see E.1 |
 | `/document/tracking/generator/engine/name` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator/cvrf:Engine/text()` | see E.2 |
 | `/document/tracking/generator/engine/version` |  | see E.1 |
-| `/document/tracking/id` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:ID/text()` |  |
+| `/document/tracking/id` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:ID/text()` |  see E.2 |
 | `/document/tracking/initial_release_date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:InitialReleaseDate/text()` |  |
 | `/document/tracking/revision_history` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory` |  |
 | `/document/tracking/revision_history[i]` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]` |  |
