@@ -686,6 +686,7 @@ Valid `enum` values are:
     product_family
     product_name
     product_version
+    product_version_range
     service_pack
     specification
     vendor
@@ -705,7 +706,17 @@ The value `product_family` indicates the product family that the product falls i
 
 The value `product_name` indicates the name of the product.
 
-The value `product_version` indicates the product version, can be numeric or some other descriptor.
+The value `product_version` indicates exactly a single version of the product. It can be numeric or some other descriptor. It MUST NOT contain version ranges of any kind.
+
+*Examples XYZ:*
+
+```
+    10
+    17.4
+    v3
+```
+
+The value `product_version_range` indicates a range of versions for the product. It can be numeric or some other descriptor.
 
 The value `service_pack` indicates the service pack of the product.
 
