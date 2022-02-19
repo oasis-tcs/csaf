@@ -737,6 +737,8 @@ Name of the branch (`name`) of value type string with 1 character or more contai
 
 A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is part of the product version as given by the vendor.
 
+##### 3.1.2.3.1 Branches Type - Name under Product Version
+
 If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
 
 *Examples XYZ for `name` when using `product_version`:*
@@ -753,14 +755,16 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 ```
     8.0.0 - 8.0.1
-    All versions < V3.0.29
-    V3.0, V4.0, V4.1, V4.2
-    4.2 and prior
     8.1.5 and later
     <= 2
+    prior to 4.2
+    All versions < V3.0.29
+    V3.0, V4.0, V4.1, V4.2
 ```
 
 > All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
+
+##### 3.1.2.3.2 Branches Type - Name under Product Version Range
 
 If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges. The value of MUST obey to exactly one of the following options:
 
@@ -791,10 +795,10 @@ If adjacent property `category` has the value `product_version_range`, the value
     *Examples XYZ for `name` when using `product_version_range` with vls:*
 
     ```
+        <=2
+        <4.2
         <V3.0.29
-        <=4.2
         >=8.1.5
-        <= 2
     ```
 
 #### 3.1.2.4 Branches Type - Product
