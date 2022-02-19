@@ -156,6 +156,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **CSAF post-processor**: CSAF producer that transforms an existing CSAF document into a new CSAF document, for example, by removing or redacting elements according to sharing policies.
 
+**CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required by CSAF management system as well as matching them to SBOM components of the SBOM database.
+
 **CSAF producer**: program that emits output in the CSAF format
 
 **CSAF translator**: CSAF post-processor which takes a CSAF document as input and translates values of properties into another language. The output is a valid CSAF document.
@@ -5353,7 +5355,7 @@ Informative Comments:
 
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 15 targets span a taxonomy of the complex CSAF ecosystems existing in and between diverse security advisory generating, sharing, and consuming communities.
+> Except for the target **CSAF document**, all other 16 targets span a taxonomy of the complex CSAF ecosystems existing in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because the security advisory sharing communities follow the chain link model.
 > Instead, a single minimum capability level for every target is given to maintain important goals of providing a common framework for security advisories:
@@ -5384,6 +5386,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
 * **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
+* **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required by CSAF management system as well as matching them to SBOM components of the SBOM database.
 
 ### 9.1.1 Conformance Clause 1: CSAF document
 
@@ -5668,6 +5671,37 @@ A CSAF extended validator satisfies the "CSAF full validator" conformance profil
 * additionally performs all informative tests as given in section 6.3.
 
 A CSAF full validator may provide an additional function to only run one or more selected informative tests.
+
+### 9.1.17 Conformance Clause 17: CSAF SBOM matching system
+
+A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformance profile if the SBOM matching system:
+
+* satisfies the "CSAF management system" conformance profile.
+* is an SBOM database or connects to one.
+  > A repository or any other location that can be queried for SBOMs and their content is also considered an SBOM database.
+* matches the CSAF documents within the system to the respective SBOM components. This might be done with a probability which gives the user the chance to broaden or narrow the results. The process of matching is also referred to as "run of the SBOM matching module".
+* provides for each SBOM of the SBOM database a list of matched advisories.
+* provides for each SBOM component of the SBOM database a list of matched advisories.
+* provides for each CSAF document a list of matched SBOMs of the SBOM database.
+* provides for each CSAF document a list of matched SBOM components of the SBOM database.
+* provides for each vulnerability within a CSAF document the option to mark a matched SBOM component in the SBOM database as "not remediated", "remediation in progress", or "remediation done". A switch to mark all SBOM component at once MAY be implemented.
+* does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
+* detects the usage semantic version (as described in section 3.1.11.2).
+* is able to trigger a run of the asset matching module:
+  * manually:
+    * per CSAF document
+    * per list of CSAF documents
+    * per SBOM component
+    * per list of SBOM components
+  * automatically:
+    * when a new CSAF document is inserted (for this CSAF document)
+    * when a new SBOM component is inserted (for this SBOM component)
+    * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
+    > These also apply if more than one CSAF document or SBOM component was added. To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
+  > Manually and automatically triggered runs should not be pooled.
+* provides at least the following statistics for the count of SBOM component:
+  * matching that CSAF document at all
+  * marked with a given status
 
 -------
 
