@@ -4891,6 +4891,36 @@ The relevant paths for this test are:
 
 > A tool MAY set such element as value for the `cve` property as a quick fix, if that didn't exist before. Alternatively, it MAY remove such element as a quick fix.
 
+### 6.2.18 Product Version Range without vers
+
+For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that the value of `name` conforms the vers specification.
+
+> To implement this test it is deemed sufficient that the value of `name` matches the following regex:
+>
+> ```
+>   ^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": ">4.2",
+                // ...
+              }
+            ]
+```
+
+> The version range `>4.2` is a valid vsl but not valid according to the vers specification.
+
 ## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests MAY include information about recommended usage. A program MUST handle a test failure as a information.
