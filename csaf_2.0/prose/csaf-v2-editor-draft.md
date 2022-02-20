@@ -5,9 +5,9 @@
 
 # Common Security Advisory Framework Version 2.0
 
-## Committee Specification 01
+## Committee Specification Draft 02
 
-## 27 September 2021
+## 23 February 2022
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.md (Authoritative) \
@@ -81,7 +81,7 @@ _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan
 
 ## Notices
 
-Copyright © OASIS Open 2021. All Rights Reserved.
+Copyright © OASIS Open 2022. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr) may be found at the OASIS website.
 
@@ -6240,7 +6240,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20220219-dev | 2022-02-19 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CS for public review|
+| csaf-v2.0-wd20220219-dev | 2022-02-19 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD02 for public review|
 
 -------
 
