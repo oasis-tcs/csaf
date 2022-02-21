@@ -261,6 +261,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **viewer**: see CSAF viewer.
 
+**vulnerability**: functional behavior of a product or service that violates an implicit or explicit security policy (conforming to ISO/IEC 29147 [ISO29147])
+
 **XML**: eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
 
 ## 1.3 Normative References
@@ -323,8 +325,8 @@ _Data elements and interchange formats — Information interchange — Represent
 _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015,
 https://www.iso.org/standard/65666.html.
 ###### [ISO29147]
-_Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO 29147:2014(E), February 15, 2014,
-https://www.iso.org/standard/45170.html.
+_Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018,
+https://www.iso.org/standard/72311.html.
 ###### [OPENSSL]
 _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 ###### [PURL]
