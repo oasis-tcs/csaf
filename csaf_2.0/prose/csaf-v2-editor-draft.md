@@ -683,7 +683,6 @@ Valid `enum` values are:
     architecture
     host_name
     language
-    legacy
     patch_level
     product_family
     product_name
@@ -698,8 +697,6 @@ The value `architecture` indicates the architecture for which the product is int
 The value `host_name` indicates the host name of a system/service.
 
 The value `language` indicates the language of the product.
-
-The value `legacy` indicates an entry that has reached its end of life.
 
 The value `patch_level` indicates the patch level of the product.
 
@@ -739,12 +736,15 @@ Product (`product`) has the value type Full Product Name (`full_product_name_t`)
 ### 3.1.3 Full Product Name Type
 
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product ID.
-The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
+The properties `name` and `product_id` are required. The properties `lifecycle_state` and `product_identification_helper` are optional.
 
 ```
     "full_product_name_t": {
       // ...
       "properties": {
+        "lifecycle_state": {
+          // ...
+        },        
         "name": {
           // ...
         },
@@ -758,7 +758,32 @@ The properties `name` and `product_id` are required. The property `product_ident
     },
 ```
 
-#### 3.1.3.1 Full Product Name Type - Name
+#### 3.1.3.1 Full Product Name Type - Lifecycle State
+
+State of the lifecycle (`lifecycle_state`) of value type `string` as `enum` describes in which state of the lifecycle the product is. The default value for `lifecycle_state` is `feature_maintenance`.
+Valid `enum` values are:
+
+```
+    decommission
+    design
+    feature_maintenance
+    implementation
+    security_maintenance
+    specification
+    verification_validation
+```
+
+The values must be used as follows:
+
+* `specification`: The requirements for the product are currently gathered.
+* `design`: In this state, the architecture and design decisions for the product are currently set.
+* `implementation`: The product is currently being implemented. It has not been delivered to any customer.
+* `verification_validation`: The product has been implemented but is not in production yet. It is currently tested, whether the implementation is correct. Usually, factory and site acceptance tests are in this state.
+* `feature_maintenance`: This is the default state. The product is fully supported in terms of new features and security updates.
+* `security_maintenance`: The product still receives updates and patches for security vulnerabilites but no new features will be added.
+* `decommission`: The product is not supported anymore. This is sometimes also called "End of life" or "End of Support".
+
+#### 3.1.3.2 Full Product Name Type - Name
 
 Textual description of the product (`name`) has value type `string` with 1 or more characters.
 The value SHOULD be the product's full canonical name, including version number and other attributes, as it would be used in a human-friendly document.
@@ -770,11 +795,11 @@ The value SHOULD be the product's full canonical name, including version number 
     Microsoft Host Integration Server 2006 Service Pack 1
 ```
 
-#### 3.1.3.2 Full Product Name Type - Product ID
+#### 3.1.3.3 Full Product Name Type - Product ID
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
-#### 3.1.3.3 Full Product Name Type - Product Identification Helper
+#### 3.1.3.4 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
 Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus` and `x_generic_uris`, one is mandatory.
@@ -810,7 +835,7 @@ Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_ur
       }
 ```
 
-##### 3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE
+##### 3.1.3.4.1 Full Product Name Type - Product Identification Helper - CPE
 
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
@@ -820,7 +845,7 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-N] for details.
 
-##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
+##### 3.1.3.4.2 Full Product Name Type - Product Identification Helper - Hashes
 
 List of hashes (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
 
@@ -929,7 +954,7 @@ The filename representation (`filename`) of type `string` with one or more chara
 
 If the value of the hash matches and the filename does not, a user SHOULD prefer the hash value. In such cases, the filename SHOULD be used as informational property.
 
-##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Model Numbers
+##### 3.1.3.4.3 Full Product Name Type - Product Identification Helper - Model Numbers
 
 The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full model numbers.
 
@@ -962,7 +987,7 @@ Two `*` MUST NOT follow each other.
     IC25T060ATCS05-0
 ```
 
-##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - PURL
+##### 3.1.3.4.4 Full Product Name Type - Product Identification Helper - PURL
 
 The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
@@ -975,7 +1000,7 @@ The package URL (PURL) representation (`purl`) is a `string` of 7 or more charac
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
-##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs
+##### 3.1.3.4.5 Full Product Name Type - Product Identification Helper - SBOM URLs
 
 The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains a list of URLs where SBOMs for this product can be retrieved.
 
@@ -992,7 +1017,7 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
 
 Any given SBOM URL of value type `string` and format `uri` contains a URL of one SBOM for this product.
 
-##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
+##### 3.1.3.4.6 Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full serial numbers.
 
@@ -1013,7 +1038,7 @@ If a part of a serial number of the component to identify is given, it SHOULD be
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - SKUs
+##### 3.1.3.4.7 Full Product Name Type - Product Identification Helper - SKUs
 
 The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of parts, or full stock keeping units.
 
@@ -1038,7 +1063,7 @@ If a part of a stock keeping unit of the component to identify is given, it SHOU
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.8 Full Product Name Type - Product Identification Helper - Generic URIs
+##### 3.1.3.4.8 Full Product Name Type - Product Identification Helper - Generic URIs
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 

@@ -94,7 +94,6 @@
               "architecture",
               "host_name",
               "language",
-              "legacy",
               "patch_level",
               "product_family",
               "product_name",
@@ -135,6 +134,21 @@
         "product_id"
       ],
       "properties": {
+        "lifecycle_state": {
+          "title": "State of the lifecycle",
+          "description": "Describes in which state of the lifecycle the product is.",
+          "type": "string",
+          "default": "feature_maintenance",
+          "enum": [
+            "decommission",
+            "design",
+            "feature_maintenance",
+            "implementation",
+            "security_maintenance",
+            "specification",
+            "verification_validation"
+          ]
+        },
         "name": {
           "title": "Textual description of the product",
           "description": "The value should be the product’s full canonical name, including version number and other attributes, as it would be used in a human-friendly document.",
