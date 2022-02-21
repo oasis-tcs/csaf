@@ -783,6 +783,36 @@ The values must be used as follows:
 * `security_maintenance`: The product still receives updates and patches for security vulnerabilites but no new features will be added.
 * `decommission`: The product is not supported anymore. This is sometimes also called "End of life" or "End of Support".
 
+*Examples XYZ: Default, fully supported*
+
+```
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A",
+        "lifecycle_state": "feature_maintenance"
+      }
+```
+
+*Examples XYZ: only security updates, but no feature updates anymore*
+
+```
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B",
+        "lifecycle_state": "security_maintenance"
+      }
+```
+
+*Examples XYZ: not longer supported*
+
+```
+      {
+        "product_id": "CSAFPID-9080702",
+        "name": "Product C",
+        "lifecycle_state": "decommission"
+      }
+```
+
 #### 3.1.3.2 Full Product Name Type - Name
 
 Textual description of the product (`name`) has value type `string` with 1 or more characters.
