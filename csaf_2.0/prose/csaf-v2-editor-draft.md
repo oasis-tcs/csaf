@@ -2299,7 +2299,7 @@ List of flags (`flags`) of value type `array` with 1 or more items of type `obje
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to this vulnerability as a single machine readable flag.
 For example, this could be a machine readable justification code why a product is not affected.
 
-> These flags MAY be used to decide in an automated fashion which actions to take.
+> These flags enable the receiving party to automate the selection of actions to take.
 
 In addition, any Flag items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
