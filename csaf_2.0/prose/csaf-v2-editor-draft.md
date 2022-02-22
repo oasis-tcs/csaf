@@ -4103,7 +4103,7 @@ The relevant paths for this test are:
 
 #### 6.1.27.9 Impact Statement
 
-For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact`.
+For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/flags`or `/vulnerabilities[]/threats`. For the latter one, the `category` value for such a statement MUST be `impact`.
 
 The relevant value for `/document/category` is:
 
@@ -4114,6 +4114,7 @@ The relevant value for `/document/category` is:
 The relevant path for this test is:
 
 ```
+  /vulnerabilities[]/flags
   /vulnerabilities[]/threats
 ```
 
@@ -4331,6 +4332,28 @@ The relevant paths for this test are:
 > The document started with semantic versioning (`1.0.0`) and switched to integer versioning (`2`).
 
 > A tool MAY assign all items their corresponding value according to integer versioning as a quick fix. In such case, the old `number` SHOULD be stored in `legacy_version`.
+
+### 6.1.XYZ Flag without product reference
+
+For each item in `/vulnerabilities[]/flags` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/flags[]
+```
+
+*Example XYZ which fails the test:*
+
+```
+      "flags": [
+        {
+          "label": "component_not_present"
+        }
+      ]
+```
+
+> The given flag does not specify to which products it should be applied.
 
 ## 6.2 Optional Tests
 
