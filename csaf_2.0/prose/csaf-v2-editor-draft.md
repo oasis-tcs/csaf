@@ -312,9 +312,6 @@ _Common Vulnerability Scoring System v3.1: Specification Document_, FIRST.Org, I
 _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2005, http://cwe.mitre.org/about/.
 ###### [CYCLONEDX13]
 _CycloneDX Software Bill-of-Material Specification JSON schema version 1.3_, cyclonedx.org, May 2021, https://github.com/CycloneDX/specification/blob/1.3/schema/bom-1.3.schema.json.
-###### [DCMI11]
-_DCMI Metadata Terms v1.1_, Dublin Core Metadata Initiative, DCMI Rec., June 14, 2012, https://dublincore.org/documents/2012/06/14/dcmi-terms/.
-Latest version available at https://dublincore.org/documents/dcmi-terms/.
 ###### [GFMCMARK]
 _GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, https://github.com/github/cmark.
 ###### [GFMENG]
