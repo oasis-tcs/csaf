@@ -2163,7 +2163,7 @@ Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects
 ```
 
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
-Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
+Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), IDs (`ids`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -2179,7 +2179,7 @@ Any vulnerability MAY provide the optional properties Acknowledgments (`acknowle
       "discovery_date": {
         // ...
       },
-      "id": {
+      "ids": {
         // ...
       },
       "involvements": {
@@ -2683,7 +2683,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.13 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of type `object` representing Threats contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of type `object` contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
@@ -2694,9 +2694,9 @@ List of threats (`threats`) of value type `array` with 1 or more items of type `
     },
 ```
 
-A Threat item is of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) and contains the vulnerability kinetic information.
+Every Threat item of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) contains the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
-In addition, threat items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
 ```
     "properties": {
@@ -4204,7 +4204,7 @@ The relevant path for this test is:
 
 > A tool MAY remove the source language as quick fix.
 
-### 6.1.29 Remediation without product reference
+### 6.1.29 Remediation without Product Reference
 
 For each item in `/vulnerabilities[]/remediations` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
