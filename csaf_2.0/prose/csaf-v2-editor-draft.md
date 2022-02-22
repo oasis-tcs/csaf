@@ -393,7 +393,7 @@ All other text is normative unless otherwise labeled e.g. like the following inf
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 
 The term Security Advisory as used in this document describes any notification of security issues in products of and by providers. Anyone providing a product is considered in this document as a vendor, i.e. developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
-A security issue is not necessarily constraint to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of workarounds is also considered part of the security issue.
+A security issue is not necessarily constrained to a problem statement, the focus of the term is on the security aspect impacting (or not impacting) specific product-platform-version combinations. Information on presence or absence of workarounds is also considered part of the security issue.
 This document is the definitive reference for the language elements of CSAF version 2.0. The encompassing JSON schema file noted in the Additional Artifacts section of the title page SHALL be taken as normative in the case a gap or an inconsistency in this explanatory document becomes evident.
 The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself. The information contained aims to be more descriptive and complete. Where applicable, common conventions are stated and known common issues in usage are pointed out informatively to support implementers of document producers and consumers alike.
 
@@ -442,7 +442,7 @@ Delegation to industry best practices technologies is used in referencing schema
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/
 
-Section 4 defined profiles which are used to ensure a common understanding which fields are required in a use case. Additional conventions are stated in section 5. The tests given in section 6 support CSAF producers and consumers to verify rules from the specification which can not be tested by the schema. Section 7 states how to distribute and where to find CSAF documents. Safety, Security and Data Protection are considered in section 8. Finally, a set of conformance targets describes tools in the ecosystem.
+Section 4 defined profiles that are used to ensure a common understanding of which fields are required in a given use case. Additional conventions are stated in section 5. The tests given in section 6 support CSAF producers and consumers to verify rules from the specification which can not be tested by the schema. Section 7 states how to distribute and where to find CSAF documents. Safety, Security and Data Protection are considered in section 8. Finally, a set of conformance targets describes tools in the ecosystem.
 
 -------
 
@@ -777,7 +777,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 #### 3.1.3.3 Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus` and `x_generic_uris`, one is mandatory.
+Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus`, and `x_generic_uris`, one is mandatory.
 
 ```
     "product_identification_helper": {
@@ -2750,7 +2750,7 @@ Title (`title`) has value type `string` with 1 or more characters and gives the 
 
 # 4 Profiles
 
-CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding which fields are required in a use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
 
 ## 4.1 Profile 1: Generic CSAF
 
@@ -5092,7 +5092,7 @@ The relevant paths for this test are:
 
 For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it MUST be tested that ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that order starting with the Product tree node.
 
-> Other branch categories can be upfront, in between or after the aforementioned without making the test invalid.
+> Other branch categories can be used before, after or between the aforementioned branch categories without making the test invalid.
 
 The relevant paths for this test are:
 
