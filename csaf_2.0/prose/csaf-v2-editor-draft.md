@@ -7,15 +7,17 @@
 
 ## Committee Specification 01
 
-## 27 September 2021
+## 12 November 2021
 
 #### This stage:
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.pdf
+
+#### Previous stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.html \
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.pdf
-
-#### Previous stage:
-N/A
 
 #### Latest stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.md (Authoritative) \
@@ -38,11 +40,11 @@ In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems bo
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/aggregator_json_schema.json. \
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/aggregator_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/csaf_json_schema.json. \
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/csaf_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/provider_json_schema.json. \
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/provider_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json.
 
 #### Related work:
@@ -74,7 +76,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.0]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 05 August 2021. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 12 November 2021. OASIS Committee Specification 01. https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 
 -------
