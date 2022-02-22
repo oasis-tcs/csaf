@@ -2683,7 +2683,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.13 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of type `object` representing Threats contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of type `object` contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
@@ -2694,9 +2694,9 @@ List of threats (`threats`) of value type `array` with 1 or more items of type `
     },
 ```
 
-A Threat item is of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) and contains the vulnerability kinetic information.
+Every Threat item of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) contains the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
-In addition, threat items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
 ```
     "properties": {
