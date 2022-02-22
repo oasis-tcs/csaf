@@ -1520,7 +1520,13 @@ The Text of aggregate severity (`text`) of value type `string` with 1 or more ch
 
 #### 3.2.1.3 Document Property - Category
 
-Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
+Document category (`category`) with value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+Document category defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
 > It is directly related to the profiles defined in section 4.
 
@@ -1533,10 +1539,10 @@ Document category (`category`) with value type `string` of 1 or more characters 
 *Examples 22*:
 
 ```
+    csaf_base
+    csaf_security_advisory
+    csaf_vex
     Example Company Security Notice
-    generic_csaf
-    security_advisory
-    vex
 ```
 
 #### 3.2.1.4 Document Property - CSAF Version
