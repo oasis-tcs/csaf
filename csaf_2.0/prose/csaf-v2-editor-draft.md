@@ -351,6 +351,8 @@ _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux F
 ###### [VEX]
 _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021,
 https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf
+##### [VEX-Just]
+_An overview of the VEX flags_, TBA
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at https://www.w3.org/TR/xml.
@@ -2161,7 +2163,7 @@ Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects
 ```
 
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
-Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
+Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), Flags (`flags`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -2175,6 +2177,9 @@ Any vulnerability MAY provide the optional properties Acknowledgments (`acknowle
         // ...
       },
       "discovery_date": {
+        // ...
+      },
+      "flags": {
         // ...
       },
       "id": {
@@ -2277,6 +2282,69 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
 #### 3.2.3.4 Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
+
+#### 3.2.3.XYZ Vulnerabilities Property - Flags
+
+List of flags (`flags`) of value type `array` with 1 or more items of type `object` contains a list of machine readable flags.
+
+```
+    "flags": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to this vulnerability as a single machine readable flag.
+For example, this could be a machine readable justification code why a product is not affected.
+
+> These flags MAY be used to decide in an automated fashion which actions to take.
+
+In addition, any Flag items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+
+```
+    "properties": {
+      "date": {
+        // ...
+      },
+      "group_ids": {
+        // ...
+      },
+      "label": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      }
+    }
+```
+
+Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+
+Label of the flag (`label`) of value type `string` as `enum` specifies the machine readable label. Valid `enum` values are:
+
+```
+    component_not_present
+    inline_mitigations_already_exist
+    vulnerable_code_cannot_be_controlled_by_adversary
+    vulnerable_code_not_in_execute_path
+    vulnerable_code_not_present
+```
+
+The given values reflect the VEX not affected justifications. See [VEX-Just] for more details. The values MUST be used as follows:
+
+* `component_not_present`: The software is not affected because the vulnerable component is not in the product.
+* `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+  > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options) the specific code causing the vulnerability is not present in the component.
+* `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code. However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
+* `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code, including non-anticipated states of the product.
+  > Many products contain additional components that are not used or executed by the application.
+* `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 #### 3.2.3.5 Vulnerabilities Property - IDs
 

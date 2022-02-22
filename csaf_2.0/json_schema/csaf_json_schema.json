@@ -1025,6 +1025,46 @@
             "type": "string",
             "format": "date-time"
           },
+          "flags": {
+            "title": "List of flags",
+            "description": "Contains a list of machine readable flags.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "title": "Flag",
+              "description": "Contains product specific information in regard to this vulnerability as a single machine readable flag.",
+              "type": "object",
+              "required": [
+                "label"
+              ],
+              "properties": {
+                "date": {
+                  "title": "Date of the flag",
+                  "description": "Contains the date when assessment was done or the flag was assigned.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "group_ids": {
+                  "$ref": "#/$defs/product_groups_t"
+                },
+                "label": {
+                  "title": "Label of the flag",
+                  "description": "Specifies the machine readable label.",
+                  "type": "string",
+                  "enum": [
+                    "component_not_present",
+                    "inline_mitigations_already_exist",
+                    "vulnerable_code_cannot_be_controlled_by_adversary",
+                    "vulnerable_code_not_in_execute_path",
+                    "vulnerable_code_not_present"
+                  ]
+                },
+                "product_ids": {
+                  "$ref": "#/$defs/products_t"
+                }
+              }
+            }
+          },
           "ids": {
             "title": "List of IDs",
             "description": "Represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).",
