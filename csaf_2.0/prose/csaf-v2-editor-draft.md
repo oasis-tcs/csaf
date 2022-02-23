@@ -2755,7 +2755,15 @@ Title (`title`) has value type `string` with 1 or more characters and gives the 
 
 # 4 Profiles
 
-CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. The following rules apply:
+
+1. Each CSAF document MUST conform the **CSAF Base** profile.
+2. Each profile extends the base profile **CSAF Base** - directly or indirect through another profile from the standard - by making additional fields from the standard mandatory. A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends.
+3. Any optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the standard.
+5. Values of `/document/category` that do not match any of the values defined in section 4 of this standard SHALL be validated against the **CSAF Base** profile.
+6. Local or private profiles MAY exist and tools MAY choose to support them.
+7. If an official profile and a private profile exists, tools SHALL validate against the first one.
 
 ## 4.1 Profile 1: Generic CSAF
 
