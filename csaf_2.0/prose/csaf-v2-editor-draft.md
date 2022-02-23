@@ -3771,9 +3771,9 @@ This test does only apply for CSAF documents with the profile "CSAF Base". There
 >
 > ```
 >   csaf_base
->   csaf_informational_advisory
->   csaf_security_advisory 
 >   csaf_security_incident_response
+>   csaf_informational_advisory
+>   csaf_security_advisory
 >   csaf_vex
 > ```
 
@@ -3817,8 +3817,8 @@ It MUST be tested that at least one item in `/document/notes` exists which has a
 The relevant values for `/document/category` are:
 
 ```
-  security_incident_response
-  informational_advisory
+  csaf_security_incident_response
+  csaf_informational_advisory
 ```
 
 The relevant path for this test is:
@@ -3848,8 +3848,8 @@ It MUST be tested that at least one item in `/document/references` exists that h
 The relevant values for `/document/category` are:
 
 ```
-  security_incident_response
-  informational_advisory
+  csaf_security_incident_response
+  csaf_informational_advisory
 ```
 
 The relevant path for this test is:
@@ -3879,7 +3879,7 @@ It MUST be tested that the element `/vulnerabilities` does not exist.
 The relevant value for `/document/category` is:
 
 ```
-  informational_advisory
+  csaf_informational_advisory
 ```
 
 The relevant path for this test is:
@@ -3909,8 +3909,8 @@ It MUST be tested that the element `/product_tree` exists.
 The relevant values for `/document/category` are:
 
 ```
-  security_advisory
-  vex
+  csaf_security_advisory
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -3941,8 +3941,8 @@ For each item in `/vulnerabilities` it MUST be tested that the element `notes` e
 The relevant values for `/document/category` are:
 
 ```
-  security_advisory
-  vex
+  csaf_security_advisory
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -3970,7 +3970,7 @@ For each item in `/vulnerabilities` it MUST be tested that the element `product_
 The relevant value for `/document/category` is:
 
 ```
-  security_advisory
+  csaf_security_advisory
 ```
 
 The relevant path for this test is:
@@ -3998,7 +3998,7 @@ For each item in `/vulnerabilities` it MUST be tested that at least one of the e
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant paths for this test are:
@@ -4032,7 +4032,7 @@ For each item in `/vulnerabilities` it MUST be tested that at least one of the e
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant paths for this test are:
@@ -4061,7 +4061,7 @@ For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST 
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -4131,7 +4131,7 @@ For each item in `/vulnerabilities[]/product_status/known_affected` it MUST be t
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -5045,7 +5045,7 @@ The relevant paths for this test are:
 
 ### 6.3.8 Spell check
 
-If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "Generic CSAF".
+If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
 
