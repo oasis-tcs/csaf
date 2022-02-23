@@ -3817,8 +3817,8 @@ It MUST be tested that at least one item in `/document/notes` exists which has a
 The relevant values for `/document/category` are:
 
 ```
-  csaf_security_incident_response
   csaf_informational_advisory
+  csaf_security_incident_response
 ```
 
 The relevant path for this test is:
@@ -3848,8 +3848,8 @@ It MUST be tested that at least one item in `/document/references` exists that h
 The relevant values for `/document/category` are:
 
 ```
-  csaf_security_incident_response
   csaf_informational_advisory
+  csaf_security_incident_response
 ```
 
 The relevant path for this test is:
