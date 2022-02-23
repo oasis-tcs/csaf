@@ -1,6 +1,6 @@
 {
   "document": {
-    "category": "security_incident_response",
+    "category": "csaf_security_incident_response",
     "csaf_version": "2.0",
     "notes": [
       {

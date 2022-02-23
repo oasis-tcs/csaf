@@ -1591,7 +1591,13 @@ The Text of aggregate severity (`text`) of value type `string` with 1 or more ch
 
 #### 3.2.1.3 Document Property - Category
 
-Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
+Document category (`category`) with value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+Document category defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
 > It is directly related to the profiles defined in section 4.
 
@@ -1604,10 +1610,10 @@ Document category (`category`) with value type `string` of 1 or more characters 
 *Examples 22*:
 
 ```
+    csaf_base
+    csaf_security_advisory
+    csaf_vex
     Example Company Security Notice
-    generic_csaf
-    security_advisory
-    vex
 ```
 
 #### 3.2.1.4 Document Property - CSAF Version
@@ -2820,13 +2826,21 @@ Title (`title`) has value type `string` with 1 or more characters and gives the 
 
 # 4 Profiles
 
-CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. The following rules apply:
 
-## 4.1 Profile 1: Generic CSAF
+1. Each CSAF document MUST conform the **CSAF Base** profile.
+2. Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional fields from the standard mandatory. A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends.
+3. Any optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the CSAF standard.
+5. Values of `/document/category` that do not match any of the values defined in section 4 of this standard SHALL be validated against the "CSAF Base" profile.
+6. Local or private profiles MAY exist and tools MAY choose to support them.
+7. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
+
+## 4.1 Profile 1: CSAF Base
 
 This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfy any other profile. Furthermore, it is the foundation all other profiles are build on.
 
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Generic CSAF":
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "CSAF Base":
 
 * The following elements MUST exist and be valid:
   * `/document/category`
@@ -2843,13 +2857,13 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/revision_history[]/summary`
   * `/document/tracking/status`
   * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor to the (case insensitive) name of any other profile from the standard. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `csaf_base` SHOULD be used.
 
-> Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
+> Neither `CSAF Security Advisory` nor `csaf security advisory` are valid values for `/document/category`.
 
-An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This SHOULD be done if the issuing party is able or unwilling to use the value `generic_csaf`, e.g. due to legal or cooperate identity reasons.
+An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. In this case, the (case insensitive) string "CSAF" MUST be removed from the value. This SHOULD be done if the issuing party is unable or unwilling to use the value `csaf_base`, e.g. due to legal or cooperate identity reasons.
 
-> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
+> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "CSAF Base". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "CSAF Base" might change.
 
 ## 4.2 Profile 2: Security incident response
 
@@ -2860,12 +2874,12 @@ This profile SHOULD be used to provide a response to a security breach or incide
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
   * `/document/references` with at least one item which has a `category` of `external`
     > The intended use for this field is to refer to one or more documents or websites which provides more details about the incident.
-* The value of `/document/category` SHALL be `security_incident_response`.
+* The value of `/document/category` SHALL be `csaf_security_incident_response`.
 
 ## 4.3 Profile 3: Informational Advisory
 
@@ -2874,12 +2888,12 @@ This profile SHOULD be used to provide information which are **not related to a 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
   * `/document/references` with at least one item which has a `category` of `external`
     > The intended use for this field is to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
-* The value of `/document/category` SHALL be `informational_advisory`.
+* The value of `/document/category` SHALL be `csaf_informational_advisory`.
 * The element `/vulnerabilities` SHALL NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
 
 If the element `/product_tree` exists, a user MUST assume that all products mentioned are affected.
@@ -2891,13 +2905,13 @@ This profile SHOULD be used to provide information which is related to vulnerabi
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
     > Lists each product's status in regard to the vulnerability.
-* The value of `/document/category` SHALL be `security_advisory`.
+* The value of `/document/category` SHALL be `csaf_security_advisory`.
 
 ## 4.5 Profile 5: VEX
 
@@ -2906,7 +2920,7 @@ This profile SHOULD be used to provide information of the "Vulnerability Exploit
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   * at least one of
     * `/vulnerabilities[]/product_status/fixed`
@@ -2923,7 +2937,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
     > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless of whether that is referenced through the Product ID or a Product Group ID.
-* The value of `/document/category` SHALL be `vex`.
+* The value of `/document/category` SHALL be `csaf_vex`.
 
 -------
 
@@ -3820,18 +3834,21 @@ The relevant paths for this test are:
 
 ### 6.1.26 Prohibited Document Category Name
 
-It MUST be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace. This test does only apply for CSAF documents with the profile "Generic CSAF". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "Generic CSAF".
+It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or value of any other profile than "CSAF Base". Any occurrences of dash, whitespace, and underscore characters are removed from the values on both sides before the match. Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
+
+This test does only apply for CSAF documents with the profile "CSAF Base". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
 
 > For CSAF 2.0, the test must be skipped for the following values in `/document/category`:
 >
 > ```
->   security_incident_response
->   informational_advisory
->   security_advisory
->   vex
+>   csaf_base
+>   csaf_security_incident_response
+>   csaf_informational_advisory
+>   csaf_security_advisory
+>   csaf_vex
 > ```
 
-This is the only mandatory test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
+This is the only mandatory test related to the profile "CSAF Base" as the required fields SHALL be checked by validating the JSON schema.
 
 The relevant path for this test is:
 
@@ -3842,10 +3859,12 @@ The relevant path for this test is:
 *Examples 65 for currently prohibited values:*
 
 ```
+  Csaf_a
   Informational Advisory
   security-incident-response
   Security      Advisory
   veX
+  V_eX
 ```
 
 *Example 66 which fails the test:*
@@ -3869,8 +3888,8 @@ It MUST be tested that at least one item in `/document/notes` exists which has a
 The relevant values for `/document/category` are:
 
 ```
-  security_incident_response
-  informational_advisory
+  csaf_informational_advisory
+  csaf_security_incident_response
 ```
 
 The relevant path for this test is:
@@ -3900,8 +3919,8 @@ It MUST be tested that at least one item in `/document/references` exists that h
 The relevant values for `/document/category` are:
 
 ```
-  security_incident_response
-  informational_advisory
+  csaf_informational_advisory
+  csaf_security_incident_response
 ```
 
 The relevant path for this test is:
@@ -3931,7 +3950,7 @@ It MUST be tested that the element `/vulnerabilities` does not exist.
 The relevant value for `/document/category` is:
 
 ```
-  informational_advisory
+  csaf_informational_advisory
 ```
 
 The relevant path for this test is:
@@ -3961,8 +3980,8 @@ It MUST be tested that the element `/product_tree` exists.
 The relevant values for `/document/category` are:
 
 ```
-  security_advisory
-  vex
+  csaf_security_advisory
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -3993,8 +4012,8 @@ For each item in `/vulnerabilities` it MUST be tested that the element `notes` e
 The relevant values for `/document/category` are:
 
 ```
-  security_advisory
-  vex
+  csaf_security_advisory
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -4022,7 +4041,7 @@ For each item in `/vulnerabilities` it MUST be tested that the element `product_
 The relevant value for `/document/category` is:
 
 ```
-  security_advisory
+  csaf_security_advisory
 ```
 
 The relevant path for this test is:
@@ -4050,7 +4069,7 @@ For each item in `/vulnerabilities` it MUST be tested that at least one of the e
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant paths for this test are:
@@ -4084,7 +4103,7 @@ For each item in `/vulnerabilities` it MUST be tested that at least one of the e
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant paths for this test are:
@@ -4113,7 +4132,7 @@ For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST 
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -4183,7 +4202,7 @@ For each item in `/vulnerabilities[]/product_status/known_affected` it MUST be t
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -5163,7 +5182,7 @@ The relevant paths for this test are:
 
 ### 6.3.8 Spell check
 
-If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "Generic CSAF".
+If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
 
