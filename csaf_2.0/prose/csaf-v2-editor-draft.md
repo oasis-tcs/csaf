@@ -4195,7 +4195,7 @@ The relevant paths for this test are:
 
 #### 6.1.27.9 Impact Statement
 
-For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/flags`or `/vulnerabilities[]/threats`. For the latter one, the `category` value for such a statement MUST be `impact`.
+For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/flags` or `/vulnerabilities[]/threats`. For the latter one, the `category` value for such a statement MUST be `impact`.
 
 The relevant value for `/document/category` is:
 
