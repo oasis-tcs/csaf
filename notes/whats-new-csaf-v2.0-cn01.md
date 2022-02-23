@@ -603,6 +603,14 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/vulnerabilities[i]/cwe/id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/@ID` |  |
 | `/vulnerabilities[i]/cwe/name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/text()` |  |
 | `/vulnerabilities[i]/discovery_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:DiscoveryDate/text()` | |
+| `/vulnerabilities[i]/flags` |  | see E.1 |
+| `/vulnerabilities[i]/flags[]` |  | see E.1 |
+| `/vulnerabilities[i]/flags[]/date` |  | see parent  |
+| `/vulnerabilities[i]/flags[]/label` |  | see parent |
+| `/vulnerabilities[i]/flags[]/group_ids` | | see parent  |
+| `/vulnerabilities[i]/flags[]/group_ids[]` |  | see parent  |
+| `/vulnerabilities[i]/flags[]/product_ids` |  | see parent  |
+| `/vulnerabilities[i]/flags[]/product_ids[]` |  | see parent  |
 | `/vulnerabilities[i]/ids` |  | see E.2 |
 | `/vulnerabilities[i]/ids[0]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID` | |
 | `/vulnerabilities[i]/ids[0]/system_name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/@SystemName` |  |

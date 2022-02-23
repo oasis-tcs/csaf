@@ -6412,6 +6412,9 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/remediations[]/group_ids`
 
 * 100 000 000 for
+  * `/vulnerabilities[]/flags`
+  * `/vulnerabilities[]/flags[]/group_ids`
+  * `/vulnerabilities[]/flags[]/product_ids`
   * `/vulnerabilities[]/product_status/first_affected`
   * `/vulnerabilities[]/product_status/first_fixed`
   * `/vulnerabilities[]/product_status/fixed`
@@ -6489,6 +6492,8 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/cve`
   * `/vulnerabilities[]/cwe/id`
   * `/vulnerabilities[]/cwe/name`
+  * `/vulnerabilities[]/flags[]/group_ids[]`
+  * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
   * `/vulnerabilities[]/notes[]/audience`
@@ -6582,6 +6587,7 @@ It seems to be safe to assume that the length of each value is not greater than 
 * `/product_tree/branches[]/category` (15)
 * `/product_tree/branches[](/branches[])*/category` (15)
 * `/product_tree/relationships[]/category` (21)
+* `/vulnerabilities[]/flags[]/label` (49)
 * `/vulnerabilities[]/involvements[]/party` (11)
 * `/vulnerabilities[]/involvements[]/status` (17)
 * `/vulnerabilities[]/notes[]/category` (16)
@@ -6640,6 +6646,7 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/initial_release_date`
 * `/document/tracking/revision_history[]/date`
 * `/vulnerabilities[]/discovery_date`
+* `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/release_date`
 * `/vulnerabilities[]/involvements[]/date`
 * `/vulnerabilities[]/remediations[]/date`
