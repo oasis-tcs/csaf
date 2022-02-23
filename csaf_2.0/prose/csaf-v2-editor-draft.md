@@ -689,6 +689,7 @@ Valid `enum` values are:
     product_family
     product_name
     product_version
+    product_version_range
     service_pack
     specification
     vendor
@@ -708,7 +709,11 @@ The value `product_family` indicates the product family that the product falls i
 
 The value `product_name` indicates the name of the product.
 
-The value `product_version` indicates the product version, can be numeric or some other descriptor.
+The value `product_version` indicates exactly a single version of the product. The value of the adjacent `name` property can be numeric or some other descriptor. However, it MUST NOT contain version ranges of any kind.
+
+> It is recommended to enumerate versions wherever possible. Nevertheless, the TC understands that this is sometimes impossible. To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced. See next section for details.
+
+The value `product_version_range` indicates a range of versions for the product. The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
 
 The value `service_pack` indicates the service pack of the product.
 
@@ -732,6 +737,72 @@ Name of the branch (`name`) of value type string with 1 character or more contai
     Siemens
     Windows
 ```
+
+A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is part of the product version as given by the vendor.
+
+##### 3.1.2.3.1 Branches Type - Name under Product Version
+
+If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
+
+*Examples XYZ for `name` when using `product_version`:*
+
+```
+    10
+    17.4
+    v3
+```
+
+> The `product_version` is the easiest way for users to determine whether their version is meant (provided that the given ancestors in the product tree matched): If both version strings are the same, it is a match - otherwise not. Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
+
+*Examples XYZ for `name` when using `product_version` which are invalid:*
+
+```
+    8.0.0 - 8.0.1
+    8.1.5 and later
+    <= 2
+    prior to 4.2
+    All versions < V3.0.29
+    V3.0, V4.0, V4.1, V4.2
+```
+
+> All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
+
+##### 3.1.2.3.2 Branches Type - Name under Product Version Range
+
+If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges. The value of MUST obey to exactly one of the following options:
+
+1. Version Range Specifier (vers)
+
+    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [VERS].
+
+    vers MUST be used in its canonical form. To convey the term "all versions" the special string `vers:all/*` MUST be used.
+
+    *Examples XYZ for `name` when using `product_version_range` with vers:*
+
+    ```
+        vers:gem/>=2.2.0|!= 2.2.1|<2.3.0
+        vers:npm/1.2.3|>=2.0.0|<5.0.0
+        vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1
+        vers:tomee/>=8.0.0-M1|<=8.0.1
+    ```
+
+    > Through the definitions of the vers specification a user can compute whether a given version is in a given range.
+
+2. Vers-like Specifier (vls)
+
+    This option uses only the `<version-constraint>` part from the vers specification. It MUST not have an URI nor the `<versioning-scheme>` part. It is a fallback option and SHOULD NOT be used unless really necessary.
+    > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+
+    Tools MAY support this on best effort basis.
+
+    *Examples XYZ for `name` when using `product_version_range` with vls:*
+
+    ```
+        <=2
+        <4.2
+        <V3.0.29
+        >=8.1.5
+    ```
 
 #### 3.1.2.4 Branches Type - Product
 
@@ -1522,7 +1593,13 @@ The Text of aggregate severity (`text`) of value type `string` with 1 or more ch
 
 #### 3.2.1.3 Document Property - Category
 
-Document category (`category`) with value type `string` of 1 or more characters defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
+Document category (`category`) with value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+Document category defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
 > It is directly related to the profiles defined in section 4.
 
@@ -1535,10 +1612,10 @@ Document category (`category`) with value type `string` of 1 or more characters 
 *Examples 22*:
 
 ```
+    csaf_base
+    csaf_security_advisory
+    csaf_vex
     Example Company Security Notice
-    generic_csaf
-    security_advisory
-    vex
 ```
 
 #### 3.2.1.4 Document Property - CSAF Version
@@ -2817,13 +2894,21 @@ Title (`title`) has value type `string` with 1 or more characters and gives the 
 
 # 4 Profiles
 
-CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. Each profile extends the generic profile **Generic CSAF** making additional fields from the standard mandatory. Any other optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. The following rules apply:
 
-## 4.1 Profile 1: Generic CSAF
+1. Each CSAF document MUST conform the **CSAF Base** profile.
+2. Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional fields from the standard mandatory. A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends.
+3. Any optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
+4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the CSAF standard.
+5. Values of `/document/category` that do not match any of the values defined in section 4 of this standard SHALL be validated against the "CSAF Base" profile.
+6. Local or private profiles MAY exist and tools MAY choose to support them.
+7. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
+
+## 4.1 Profile 1: CSAF Base
 
 This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfy any other profile. Furthermore, it is the foundation all other profiles are build on.
 
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Generic CSAF":
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "CSAF Base":
 
 * The following elements MUST exist and be valid:
   * `/document/category`
@@ -2840,13 +2925,13 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/revision_history[]/summary`
   * `/document/tracking/status`
   * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor the (case insensitive) name of any other profile. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `generic_csaf` SHOULD be used.
+* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor to the (case insensitive) name of any other profile from the standard. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value `csaf_base` SHOULD be used.
 
-> Neither `Security Advisory` nor `security advisory` are valid values for `/document/category`.
+> Neither `CSAF Security Advisory` nor `csaf security advisory` are valid values for `/document/category`.
 
-An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. This SHOULD be done if the issuing party is able or unwilling to use the value `generic_csaf`, e.g. due to legal or cooperate identity reasons.
+An issuing party might choose to set `/document/publisher/name` in front of a value that is intended to only be used by another profile to state that the CSAF document does not use the profile associated with this value. In this case, the (case insensitive) string "CSAF" MUST be removed from the value. This SHOULD be done if the issuing party is unable or unwilling to use the value `csaf_base`, e.g. due to legal or cooperate identity reasons.
 
-> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "Generic CSAF". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "Generic CSAF" might change.
+> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "CSAF Base". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "CSAF Base" might change.
 
 ## 4.2 Profile 2: Security incident response
 
@@ -2857,12 +2942,12 @@ This profile SHOULD be used to provide a response to a security breach or incide
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide any useful information.
   * `/document/references` with at least one item which has a `category` of `external`
     > The intended use for this field is to refer to one or more documents or websites which provides more details about the incident.
-* The value of `/document/category` SHALL be `security_incident_response`.
+* The value of `/document/category` SHALL be `csaf_security_incident_response`.
 
 ## 4.3 Profile 3: Informational Advisory
 
@@ -2871,12 +2956,12 @@ This profile SHOULD be used to provide information which are **not related to a 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
     > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
   * `/document/references` with at least one item which has a `category` of `external`
     > The intended use for this field is to refer to one or more documents or websites which provide more details about the issue or its remediation (if possible). This could be a hardening guide, a manual, best practices or any other helpful information.
-* The value of `/document/category` SHALL be `informational_advisory`.
+* The value of `/document/category` SHALL be `csaf_informational_advisory`.
 * The element `/vulnerabilities` SHALL NOT exist. If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile, e.g. "Security Advisory".
 
 If the element `/product_tree` exists, a user MUST assume that all products mentioned are affected.
@@ -2888,13 +2973,13 @@ This profile SHOULD be used to provide information which is related to vulnerabi
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
     > Lists each product's status in regard to the vulnerability.
-* The value of `/document/category` SHALL be `security_advisory`.
+* The value of `/document/category` SHALL be `csaf_security_advisory`.
 
 ## 4.5 Profile 5: VEX
 
@@ -2903,7 +2988,7 @@ This profile SHOULD be used to provide information of the "Vulnerability Exploit
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
 * The following elements MUST exist and be valid:
-  * all elements required by the profile "Generic CSAF".
+  * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   * at least one of
     * `/vulnerabilities[]/product_status/fixed`
@@ -2920,7 +3005,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
     > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless of whether that is referenced through the Product ID or a Product Group ID.
-* The value of `/document/category` SHALL be `vex`.
+* The value of `/document/category` SHALL be `csaf_vex`.
 
 -------
 
@@ -3817,18 +3902,21 @@ The relevant paths for this test are:
 
 ### 6.1.26 Prohibited Document Category Name
 
-It MUST be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace. This test does only apply for CSAF documents with the profile "Generic CSAF". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "Generic CSAF".
+It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or value of any other profile than "CSAF Base". Any occurrences of dash, whitespace, and underscore characters are removed from the values on both sides before the match. Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
+
+This test does only apply for CSAF documents with the profile "CSAF Base". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
 
 > For CSAF 2.0, the test must be skipped for the following values in `/document/category`:
 >
 > ```
->   security_incident_response
->   informational_advisory
->   security_advisory
->   vex
+>   csaf_base
+>   csaf_security_incident_response
+>   csaf_informational_advisory
+>   csaf_security_advisory
+>   csaf_vex
 > ```
 
-This is the only mandatory test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
+This is the only mandatory test related to the profile "CSAF Base" as the required fields SHALL be checked by validating the JSON schema.
 
 The relevant path for this test is:
 
@@ -3839,10 +3927,12 @@ The relevant path for this test is:
 *Examples 65 for currently prohibited values:*
 
 ```
+  Csaf_a
   Informational Advisory
   security-incident-response
   Security      Advisory
   veX
+  V_eX
 ```
 
 *Example 66 which fails the test:*
@@ -3866,8 +3956,8 @@ It MUST be tested that at least one item in `/document/notes` exists which has a
 The relevant values for `/document/category` are:
 
 ```
-  security_incident_response
-  informational_advisory
+  csaf_informational_advisory
+  csaf_security_incident_response
 ```
 
 The relevant path for this test is:
@@ -3897,8 +3987,8 @@ It MUST be tested that at least one item in `/document/references` exists that h
 The relevant values for `/document/category` are:
 
 ```
-  security_incident_response
-  informational_advisory
+  csaf_informational_advisory
+  csaf_security_incident_response
 ```
 
 The relevant path for this test is:
@@ -3928,7 +4018,7 @@ It MUST be tested that the element `/vulnerabilities` does not exist.
 The relevant value for `/document/category` is:
 
 ```
-  informational_advisory
+  csaf_informational_advisory
 ```
 
 The relevant path for this test is:
@@ -3958,8 +4048,8 @@ It MUST be tested that the element `/product_tree` exists.
 The relevant values for `/document/category` are:
 
 ```
-  security_advisory
-  vex
+  csaf_security_advisory
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -3990,8 +4080,8 @@ For each item in `/vulnerabilities` it MUST be tested that the element `notes` e
 The relevant values for `/document/category` are:
 
 ```
-  security_advisory
-  vex
+  csaf_security_advisory
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -4019,7 +4109,7 @@ For each item in `/vulnerabilities` it MUST be tested that the element `product_
 The relevant value for `/document/category` is:
 
 ```
-  security_advisory
+  csaf_security_advisory
 ```
 
 The relevant path for this test is:
@@ -4047,7 +4137,7 @@ For each item in `/vulnerabilities` it MUST be tested that at least one of the e
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant paths for this test are:
@@ -4081,7 +4171,7 @@ For each item in `/vulnerabilities` it MUST be tested that at least one of the e
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant paths for this test are:
@@ -4110,7 +4200,7 @@ For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST 
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -4181,7 +4271,7 @@ For each item in `/vulnerabilities[]/product_status/known_affected` it MUST be t
 The relevant value for `/document/category` is:
 
 ```
-  vex
+  csaf_vex
 ```
 
 The relevant path for this test is:
@@ -4335,7 +4425,43 @@ The relevant paths for this test are:
 
 > A tool MAY assign all items their corresponding value according to integer versioning as a quick fix. In such case, the old `number` SHOULD be stored in `legacy_version`.
 
-### 6.1.XYZ Flag without product reference
+### 6.1.31 Version Range in Product Version
+
+For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
+
+> To implement this test it is deemed sufficient that the value of `name` does not contain any of the following strings:
+>
+> ```
+>   <
+>   <=
+>   >
+>   >=
+>   all versions
+>   later
+>   prior
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "prior to 4.2",
+                // ...
+              }
+            ]
+```
+
+> The version range `prior to 4.2` is given for the branch category `product_version`.
+
+### 6.1.32 Flag without Product Reference
 
 For each item in `/vulnerabilities[]/flags` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
@@ -4876,6 +5002,36 @@ The relevant paths for this test are:
 
 > A tool MAY set such element as value for the `cve` property as a quick fix, if that didn't exist before. Alternatively, it MAY remove such element as a quick fix.
 
+### 6.2.18 Product Version Range without vers
+
+For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that the value of `name` conforms the vers specification.
+
+> To implement this test it is deemed sufficient that the value of `name` matches the following regex:
+>
+> ```
+>   ^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": ">4.2",
+                // ...
+              }
+            ]
+```
+
+> The version range `>4.2` is a valid vsl but not valid according to the vers specification.
+
 ## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests MAY include information about recommended usage. A program MUST handle a test failure as a information.
@@ -5117,7 +5273,7 @@ The relevant paths for this test are:
 
 ### 6.3.8 Spell check
 
-If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "Generic CSAF".
+If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
 
@@ -5218,6 +5374,56 @@ The relevant paths for this test are:
 ```
 
 > The product `CSAFPID-9080700` does not have any ancestor with the branch category `product_version`.
+
+### 6.3.10 Usage of Product Version Range
+
+For each element of type `/$defs/branches_t` it MUST be tested that the `category` is not `product_version_range`.
+
+> It is usually hard decide for machines whether a product version matches a product version ranges. Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/category
+```
+
+*Example XYZ which fails the test:*
+
+```
+                "category": "product_version_range",
+```
+
+> The category `product_version_range` was used.
+
+### 6.3.11 Usage of V as Version Indicator
+
+For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not start with `v` or `V` before the version.
+
+> To implement this test it is deemed sufficient that the value of `name` does not match the following regex:
+>
+> ```
+>   ^[vV][0-9].*$
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "v4.2",
+                // ...
+              }
+            ]
+```
+
+> The product version starts with a `v`.
 
 -------
 
@@ -6394,14 +6600,18 @@ An array SHOULD NOT have more than:
   * `/document/tracking/revision_history`
   * `/product_tree/branches`
   * `/product_tree(/branches[])*/branches`
+  * `/product_tree/branches[]/product/product_identification_helper/model_numbers`
   * `/product_tree/branches[]/product/product_identification_helper/serial_numbers`
   * `/product_tree/branches[]/product/product_identification_helper/skus`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/model_numbers`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/skus`
   * `/product_tree/full_product_names`
+  * `/product_tree/full_product_names[]/product_identification_helper/model_numbers`
   * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers`
   * `/product_tree/full_product_names[]/product_identification_helper/skus`
   * `/product_tree/product_groups[]/product_ids`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/model_numbers`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus`
   * `/vulnerabilities`
@@ -6459,6 +6669,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/filename`
+  * `/product_tree/branches[]/product/product_identification_helper/model_numbers[]`
   * `/product_tree/branches[]/product/product_identification_helper/serial_numbers[]`
   * `/product_tree/branches[]/product/product_identification_helper/skus[]`
   * `/product_tree/branches[](/branches[])*/name`
@@ -6467,6 +6678,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/filename`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/model_numbers[]`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers[]`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/skus[]`
   * `/product_tree/full_product_names[]/name`
@@ -6474,6 +6686,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/filename`
+  * `/product_tree/full_product_names[]/product_identification_helper/model_numbers[]`
   * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers[]`
   * `/product_tree/full_product_names[]/product_identification_helper/skus[]`
   * `/product_tree/product_groups[]/group_id`
@@ -6483,6 +6696,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/filename`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/model_numbers[]`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers[]`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus[]`
   * `/product_tree/relationships[]/product_reference`
