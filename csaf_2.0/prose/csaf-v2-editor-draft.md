@@ -687,6 +687,7 @@ Valid `enum` values are:
     product_family
     product_name
     product_version
+    product_version_range
     service_pack
     specification
     vendor
@@ -706,7 +707,11 @@ The value `product_family` indicates the product family that the product falls i
 
 The value `product_name` indicates the name of the product.
 
-The value `product_version` indicates the product version, can be numeric or some other descriptor.
+The value `product_version` indicates exactly a single version of the product. The value of the adjacent `name` property can be numeric or some other descriptor. However, it MUST NOT contain version ranges of any kind.
+
+> It is recommended to enumerate versions wherever possible. Nevertheless, the TC understands that this is sometimes impossible. To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced. See next section for details.
+
+The value `product_version_range` indicates a range of versions for the product. The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
 
 The value `service_pack` indicates the service pack of the product.
 
@@ -730,6 +735,72 @@ Name of the branch (`name`) of value type string with 1 character or more contai
     Siemens
     Windows
 ```
+
+A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is part of the product version as given by the vendor.
+
+##### 3.1.2.3.1 Branches Type - Name under Product Version
+
+If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
+
+*Examples XYZ for `name` when using `product_version`:*
+
+```
+    10
+    17.4
+    v3
+```
+
+> The `product_version` is the easiest way for users to determine whether their version is meant (provided that the given ancestors in the product tree matched): If both version strings are the same, it is a match - otherwise not. Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
+
+*Examples XYZ for `name` when using `product_version` which are invalid:*
+
+```
+    8.0.0 - 8.0.1
+    8.1.5 and later
+    <= 2
+    prior to 4.2
+    All versions < V3.0.29
+    V3.0, V4.0, V4.1, V4.2
+```
+
+> All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
+
+##### 3.1.2.3.2 Branches Type - Name under Product Version Range
+
+If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges. The value of MUST obey to exactly one of the following options:
+
+1. Version Range Specifier (vers)
+
+    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [VERS].
+
+    vers MUST be used in its canonical form. To convey the term "all versions" the special string `vers:all/*` MUST be used.
+
+    *Examples XYZ for `name` when using `product_version_range` with vers:*
+
+    ```
+        vers:gem/>=2.2.0|!= 2.2.1|<2.3.0
+        vers:npm/1.2.3|>=2.0.0|<5.0.0
+        vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1
+        vers:tomee/>=8.0.0-M1|<=8.0.1
+    ```
+
+    > Through the definitions of the vers specification a user can compute whether a given version is in a given range.
+
+2. Vers-like Specifier (vls)
+
+    This option uses only the `<version-constraint>` part from the vers specification. It MUST not have an URI nor the `<versioning-scheme>` part. It is a fallback option and SHOULD NOT be used unless really necessary.
+    > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+
+    Tools MAY support this on best effort basis.
+
+    *Examples XYZ for `name` when using `product_version_range` with vls:*
+
+    ```
+        <=2
+        <4.2
+        <V3.0.29
+        >=8.1.5
+    ```
 
 #### 3.1.2.4 Branches Type - Product
 
@@ -4266,6 +4337,42 @@ The relevant paths for this test are:
 
 > A tool MAY assign all items their corresponding value according to integer versioning as a quick fix. In such case, the old `number` SHOULD be stored in `legacy_version`.
 
+### 6.1.31 Version Range in Product Version
+
+For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
+
+> To implement this test it is deemed sufficient that the value of `name` does not contain any of the following strings:
+>
+> ```
+>   <
+>   <=
+>   >
+>   >=
+>   all versions
+>   later
+>   prior
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "prior to 4.2",
+                // ...
+              }
+            ]
+```
+
+> The version range `prior to 4.2` is given for the branch category `product_version`.
+
 ## 6.2 Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
@@ -4785,6 +4892,36 @@ The relevant paths for this test are:
 
 > A tool MAY set such element as value for the `cve` property as a quick fix, if that didn't exist before. Alternatively, it MAY remove such element as a quick fix.
 
+### 6.2.18 Product Version Range without vers
+
+For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that the value of `name` conforms the vers specification.
+
+> To implement this test it is deemed sufficient that the value of `name` matches the following regex:
+>
+> ```
+>   ^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": ">4.2",
+                // ...
+              }
+            ]
+```
+
+> The version range `>4.2` is a valid vsl but not valid according to the vers specification.
+
 ## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests MAY include information about recommended usage. A program MUST handle a test failure as a information.
@@ -5127,6 +5264,56 @@ The relevant paths for this test are:
 ```
 
 > The product `CSAFPID-9080700` does not have any ancestor with the branch category `product_version`.
+
+### 6.3.10 Usage of Product Version Range
+
+For each element of type `/$defs/branches_t` it MUST be tested that the `category` is not `product_version_range`.
+
+> It is usually hard decide for machines whether a product version matches a product version ranges. Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/category
+```
+
+*Example XYZ which fails the test:*
+
+```
+                "category": "product_version_range",
+```
+
+> The category `product_version_range` was used.
+
+### 6.3.11 Usage of V as Version Indicator
+
+For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not start with `v` or `V` before the version.
+
+> To implement this test it is deemed sufficient that the value of `name` does not match the following regex:
+>
+> ```
+>   ^[vV][0-9].*$
+> ```
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example XYZ which fails the test:*
+
+```
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "v4.2",
+                // ...
+              }
+            ]
+```
+
+> The product version starts with a `v`.
 
 -------
 
