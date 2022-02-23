@@ -10,12 +10,14 @@
 ## 23 February 2022
 
 #### This stage:
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.pdf
+
+#### Previous stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.html \
 https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.pdf
-
-#### Previous stage:
-N/A
 
 #### Latest stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.md (Authoritative) \
@@ -38,11 +40,11 @@ In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems bo
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/aggregator_json_schema.json. \
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/aggregator_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/csaf_json_schema.json. \
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/csaf_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/schemas/provider_json_schema.json. \
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/provider_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json.
 
 #### Related work:
@@ -74,7 +76,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.0]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 05 August 2021. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 12 November 2021. OASIS Committee Specification 01. https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 
 -------
@@ -2163,7 +2165,7 @@ Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects
 ```
 
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
-Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), Flags (`flags`), ID (`id`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
+Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -2182,7 +2184,7 @@ Any vulnerability MAY provide the optional properties Acknowledgments (`acknowle
       "flags": {
         // ...
       },
-      "id": {
+      "ids": {
         // ...
       },
       "involvements": {
@@ -2749,7 +2751,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.13 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of type `object` representing Threats contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of type `object` contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
@@ -2760,9 +2762,9 @@ List of threats (`threats`) of value type `array` with 1 or more items of type `
     },
 ```
 
-A Threat item is of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) and contains the vulnerability kinetic information.
+Every Threat item of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) contains the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
-In addition, threat items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
 ```
     "properties": {
