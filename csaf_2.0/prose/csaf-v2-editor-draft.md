@@ -353,6 +353,8 @@ _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux F
 ###### [VEX]
 _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021,
 https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf
+##### [VEX-Just]
+_An overview of the VEX flags_, TBA
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at https://www.w3.org/TR/xml.
@@ -2240,7 +2242,7 @@ Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects
 ```
 
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to a single vulnerability in the document.
-Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), IDs (`ids`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
+Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`), Scores (`scores`), Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -2254,6 +2256,9 @@ Any vulnerability MAY provide the optional properties Acknowledgments (`acknowle
         // ...
       },
       "discovery_date": {
+        // ...
+      },
+      "flags": {
         // ...
       },
       "ids": {
@@ -2356,6 +2361,69 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
 #### 3.2.3.4 Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
+
+#### 3.2.3.XYZ Vulnerabilities Property - Flags
+
+List of flags (`flags`) of value type `array` with 1 or more items of type `object` contains a list of machine readable flags.
+
+```
+    "flags": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to this vulnerability as a single machine readable flag.
+For example, this could be a machine readable justification code why a product is not affected.
+
+> These flags enable the receiving party to automate the selection of actions to take.
+
+In addition, any Flag items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+
+```
+    "properties": {
+      "date": {
+        // ...
+      },
+      "group_ids": {
+        // ...
+      },
+      "label": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      }
+    }
+```
+
+Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+
+Label of the flag (`label`) of value type `string` as `enum` specifies the machine readable label. Valid `enum` values are:
+
+```
+    component_not_present
+    inline_mitigations_already_exist
+    vulnerable_code_cannot_be_controlled_by_adversary
+    vulnerable_code_not_in_execute_path
+    vulnerable_code_not_present
+```
+
+The given values reflect the VEX not affected justifications. See [VEX-Just] for more details. The values MUST be used as follows:
+
+* `component_not_present`: The software is not affected because the vulnerable component is not in the product.
+* `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+  > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options) the specific code causing the vulnerability is not present in the component.
+* `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code. However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
+* `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code, including non-anticipated states of the product.
+  > Components that are neither used nor executed by the product.
+* `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 #### 3.2.3.5 Vulnerabilities Property - IDs
 
@@ -2933,7 +3001,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
 * For each item in
-  * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
+  * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist as machine readable flag in `/vulnerabilities[]/flags` or as human readable justification in `/vulnerabilities[]/threats`. For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a a description why the vulnerability cannot be exploited.
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided in `/vulnerabilities[]/remediations` as an action statement. Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
     > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object. However, it MUST be ensured that for each Product ID the required information according to its product status as stated in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an impact statement and all products with the status `known_affected` MUST have additional product specific information regardless of whether that is referenced through the Product ID or a Product Group ID.
@@ -4127,7 +4195,7 @@ The relevant paths for this test are:
 
 #### 6.1.27.9 Impact Statement
 
-For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/threats`. The `category` value for such a statement MUST be `impact`.
+For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/flags` or `/vulnerabilities[]/threats`. For the latter one, the `category` value for such a statement MUST be `impact`.
 
 The relevant value for `/document/category` is:
 
@@ -4138,6 +4206,7 @@ The relevant value for `/document/category` is:
 The relevant path for this test is:
 
 ```
+  /vulnerabilities[]/flags
   /vulnerabilities[]/threats
 ```
 
@@ -4391,6 +4460,28 @@ The relevant paths for this test are:
 ```
 
 > The version range `prior to 4.2` is given for the branch category `product_version`.
+
+### 6.1.32 Flag without Product Reference
+
+For each item in `/vulnerabilities[]/flags` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/flags[]
+```
+
+*Example XYZ which fails the test:*
+
+```
+      "flags": [
+        {
+          "label": "component_not_present"
+        }
+      ]
+```
+
+> The given flag does not specify to which products it should be applied.
 
 ## 6.2 Optional Tests
 
@@ -6531,6 +6622,9 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/remediations[]/group_ids`
 
 * 100 000 000 for
+  * `/vulnerabilities[]/flags`
+  * `/vulnerabilities[]/flags[]/group_ids`
+  * `/vulnerabilities[]/flags[]/product_ids`
   * `/vulnerabilities[]/product_status/first_affected`
   * `/vulnerabilities[]/product_status/first_fixed`
   * `/vulnerabilities[]/product_status/fixed`
@@ -6612,6 +6706,8 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/cve`
   * `/vulnerabilities[]/cwe/id`
   * `/vulnerabilities[]/cwe/name`
+  * `/vulnerabilities[]/flags[]/group_ids[]`
+  * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
   * `/vulnerabilities[]/notes[]/audience`
@@ -6705,6 +6801,7 @@ It seems to be safe to assume that the length of each value is not greater than 
 * `/product_tree/branches[]/category` (15)
 * `/product_tree/branches[](/branches[])*/category` (15)
 * `/product_tree/relationships[]/category` (21)
+* `/vulnerabilities[]/flags[]/label` (49)
 * `/vulnerabilities[]/involvements[]/party` (11)
 * `/vulnerabilities[]/involvements[]/status` (17)
 * `/vulnerabilities[]/notes[]/category` (16)
@@ -6763,6 +6860,7 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/initial_release_date`
 * `/document/tracking/revision_history[]/date`
 * `/vulnerabilities[]/discovery_date`
+* `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/release_date`
 * `/vulnerabilities[]/involvements[]/date`
 * `/vulnerabilities[]/remediations[]/date`
