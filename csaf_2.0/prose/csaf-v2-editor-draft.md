@@ -6303,14 +6303,18 @@ An array SHOULD NOT have more than:
   * `/document/tracking/revision_history`
   * `/product_tree/branches`
   * `/product_tree(/branches[])*/branches`
+  * `/product_tree/branches[]/product/product_identification_helper/model_numbers`
   * `/product_tree/branches[]/product/product_identification_helper/serial_numbers`
   * `/product_tree/branches[]/product/product_identification_helper/skus`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/model_numbers`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/skus`
   * `/product_tree/full_product_names`
+  * `/product_tree/full_product_names[]/product_identification_helper/model_numbers`
   * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers`
   * `/product_tree/full_product_names[]/product_identification_helper/skus`
   * `/product_tree/product_groups[]/product_ids`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/model_numbers`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus`
   * `/vulnerabilities`
@@ -6365,6 +6369,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/filename`
+  * `/product_tree/branches[]/product/product_identification_helper/model_numbers[]`
   * `/product_tree/branches[]/product/product_identification_helper/serial_numbers[]`
   * `/product_tree/branches[]/product/product_identification_helper/skus[]`
   * `/product_tree/branches[](/branches[])*/name`
@@ -6373,6 +6378,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/filename`
+  * `/product_tree/branches[](/branches[])*/product/product_identification_helper/model_numbers[]`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers[]`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/skus[]`
   * `/product_tree/full_product_names[]/name`
@@ -6380,6 +6386,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/filename`
+  * `/product_tree/full_product_names[]/product_identification_helper/model_numbers[]`
   * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers[]`
   * `/product_tree/full_product_names[]/product_identification_helper/skus[]`
   * `/product_tree/product_groups[]/group_id`
@@ -6389,6 +6396,7 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/filename`
+  * `/product_tree/relationships[]/full_product_name/product_identification_helper/model_numbers[]`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers[]`
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus[]`
   * `/product_tree/relationships[]/product_reference`
