@@ -2760,7 +2760,7 @@ CSAF documents do not have many required fields as they can be used for differen
 1. Each CSAF document MUST conform the **CSAF Base** profile.
 2. Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional fields from the standard mandatory. A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends.
 3. Any optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with the profile. One and only exempt is when the profile requires not to have a certain set of fields.
-4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the standard.
+4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the CSAF standard.
 5. Values of `/document/category` that do not match any of the values defined in section 4 of this standard SHALL be validated against the "CSAF Base" profile.
 6. Local or private profiles MAY exist and tools MAY choose to support them.
 7. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
@@ -3763,18 +3763,21 @@ The relevant paths for this test are:
 
 ### 6.1.26 Prohibited Document Category Name
 
-It MUST be tested that the document category is not equal to the (case insensitive) name of any other profile than "Generic CSAF". This does not differentiate between underscore, dash or whitespace. This test does only apply for CSAF documents with the profile "Generic CSAF". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "Generic CSAF".
+It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or value of any other profile than "CSAF Base". Any occurrences of dash, whitespace, and underscore characters are removed from the values on both sides before the match. Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
+
+This test does only apply for CSAF documents with the profile "CSAF Base". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
 
 > For CSAF 2.0, the test must be skipped for the following values in `/document/category`:
 >
 > ```
->   security_incident_response
->   informational_advisory
->   security_advisory
->   vex
+>   csaf_base
+>   csaf_informational_advisory
+>   csaf_security_advisory 
+>   csaf_security_incident_response
+>   csaf_vex
 > ```
 
-This is the only mandatory test related to the profile "Generic CSAF" as the required fields SHALL be checked by validating the JSON schema.
+This is the only mandatory test related to the profile "CSAF Base" as the required fields SHALL be checked by validating the JSON schema.
 
 The relevant path for this test is:
 
@@ -3785,10 +3788,12 @@ The relevant path for this test is:
 *Examples 65 for currently prohibited values:*
 
 ```
+  Csaf_a
   Informational Advisory
   security-incident-response
   Security      Advisory
   veX
+  V_eX
 ```
 
 *Example 66 which fails the test:*
