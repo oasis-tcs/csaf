@@ -2364,7 +2364,7 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-#### 3.2.3.XYZ Vulnerabilities Property - Flags
+#### 3.2.3.5 Vulnerabilities Property - Flags
 
 List of flags (`flags`) of value type `array` with 1 or more items of type `object` contains a list of machine readable flags.
 
@@ -2427,7 +2427,7 @@ The given values reflect the VEX not affected justifications. See [VEX-Just] for
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
-#### 3.2.3.5 Vulnerabilities Property - IDs
+#### 3.2.3.6 Vulnerabilities Property - IDs
 
 List of IDs (`ids`) of value type `array` with one or more unique ID items of type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
 
@@ -2480,7 +2480,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 >
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
-#### 3.2.3.6 Vulnerabilities Property - Involvements
+#### 3.2.3.7 Vulnerabilities Property - Involvements
 
 List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
 
@@ -2557,7 +2557,7 @@ The value `open` is the default status. It doesn’t indicate anything about the
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
-#### 3.2.3.7 Vulnerabilities Property - Notes
+#### 3.2.3.8 Vulnerabilities Property - Notes
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
@@ -2567,7 +2567,7 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
     },
 ```
 
-#### 3.2.3.8 Vulnerabilities Property - Product Status
+#### 3.2.3.9 Vulnerabilities Property - Product Status
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability.
 The eight defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),  Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`), and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
@@ -2625,7 +2625,7 @@ Recommended (`recommended`) of value type Products (`products_t`) represents tha
 
 Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 
-#### 3.2.3.9 Vulnerabilities Property - References
+#### 3.2.3.10 Vulnerabilities Property - References
 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a list of references associated with this vulnerability item.
 
@@ -2635,11 +2635,11 @@ Vulnerability references (`references`) of value type References Type (`referenc
     },
 ```
 
-#### 3.2.3.10 Vulnerabilities Property - Release Date
+#### 3.2.3.11 Vulnerabilities Property - Release Date
 
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
-#### 3.2.3.11 Vulnerabilities Property - Remediations
+#### 3.2.3.12 Vulnerabilities Property - Remediations
 
 List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of type `object` contains a list of remediations.
 
@@ -2685,7 +2685,7 @@ In addition, any Remediation MAY expose the six optional properties Date (`date`
       }
 ```
 
-##### 3.2.3.11.1 Vulnerabilities Property - Remediations - Category
+##### 3.2.3.12.1 Vulnerabilities Property - Remediations - Category
 
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:
@@ -2708,15 +2708,15 @@ The value `none_available` indicates that there is currently no fix available. T
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description SHOULD contain details about why there will be no fix issued.
 
-##### 3.2.3.11.2 Vulnerabilities Property - Remediations - Date
+##### 3.2.3.12.2 Vulnerabilities Property - Remediations - Date
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-##### 3.2.3.11.3 Vulnerabilities Property - Remediations - Details
+##### 3.2.3.12.3 Vulnerabilities Property - Remediations - Details
 
 Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
-##### 3.2.3.11.4 Vulnerabilities Property - Remediations - Entitlements
+##### 3.2.3.12.4 Vulnerabilities Property - Remediations - Entitlements
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
 
@@ -2731,15 +2731,15 @@ List of entitlements (`entitlements`) of value type `array` with 1 or more items
 
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
 
-##### 3.2.3.11.5 Vulnerabilities Property - Remediations - Group IDs
+##### 3.2.3.12.5 Vulnerabilities Property - Remediations - Group IDs
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
-##### 3.2.3.11.6 Vulnerabilities Property - Remediations - Product IDs
+##### 3.2.3.12.6 Vulnerabilities Property - Remediations - Product IDs
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
-##### 3.2.3.11.7 Vulnerabilities Property - Remediations - Restart Required
+##### 3.2.3.12.7 Vulnerabilities Property - Remediations - Restart Required
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
 
@@ -2786,11 +2786,11 @@ The values MUST be used as follows:
 
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
-##### 3.2.3.11.8 Vulnerabilities Property - Remediations - URL
+##### 3.2.3.12.8 Vulnerabilities Property - Remediations - URL
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
-#### 3.2.3.12 Vulnerabilities Property - Scores
+#### 3.2.3.13 Vulnerabilities Property - Scores
 
 List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
 
@@ -2828,7 +2828,7 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 
-#### 3.2.3.13 Vulnerabilities Property - Threats
+#### 3.2.3.14 Vulnerabilities Property - Threats
 
 List of threats (`threats`) of value type `array` with 1 or more items of type `object` contains information about a vulnerability that can change with time.
 
@@ -2888,7 +2888,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
-#### 3.2.3.14 Vulnerabilities Property - Title
+#### 3.2.3.15 Vulnerabilities Property - Title
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 
