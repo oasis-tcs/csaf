@@ -1,7 +1,7 @@
 {
   "document": {
     "csaf_version": "2.0",
-    "category": "generic_csaf",
+    "category": "csaf_base",
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",
