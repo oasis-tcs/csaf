@@ -2137,7 +2137,7 @@ The summary of the product group (`summary`) of value type `string` with 1 or mo
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
-List of Product IDs (`product_ids`) of value type array with 2 or more unique items of value type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
+List of Product IDs (`product_ids`) of value type `array` with 2 or more unique items of value type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
 
 #### 3.2.2.4 Product Tree Property - Relationships
 
