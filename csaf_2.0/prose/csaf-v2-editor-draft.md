@@ -2366,7 +2366,7 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 
 #### 3.2.3.5 Vulnerabilities Property - Flags
 
-List of flags (`flags`) of value type `array` with 1 or more items of type `object` contains a list of machine readable flags.
+List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of type `object` contains a list of machine readable flags.
 
 ```
     "flags": {
