@@ -522,7 +522,7 @@ and Version (`version_t`).
 
 ### 3.1.1 Acknowledgments Type
 
-List of Acknowledgments (`acknowledgments_t`) type instances of value type array with 1 or more elements contain a list of `Acknowledgment` elements.
+List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with 1 or more elements contain a list of `Acknowledgment` elements.
 
 ```
     "acknowledgments_t": {
@@ -991,7 +991,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
 ```
 
-The filename representation (`filename`) of type `string` with one or more characters contains the name of the file which is identified by the hash values.
+The filename representation (`filename`) of value type `string` with one or more characters contains the name of the file which is identified by the hash values.
 
 *Examples 13:*
 
@@ -2010,7 +2010,7 @@ The Revision History (`revision_history`) with value type `array` of 1 or more R
         },
 ```
 
-Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`). In addition, a Revision MAY expose the optional property `legacy_version`.
+Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of value type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`). In addition, a Revision MAY expose the optional property `legacy_version`.
 
 ```
         "properties": {
@@ -2091,7 +2091,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
 
 #### 3.2.2.1 Product Tree Property - Branches
 
-List of branches (`branches`) of value type `branches_t`.
+List of branches (`branches`) has the value type `branches_t`.
 
 #### 3.2.2.2 Product Tree Property - Full Product Names
 
@@ -2099,7 +2099,7 @@ List of full product names (`full_product_names`) of value type `array` with 1 o
 
 #### 3.2.2.3 Product Tree Property - Product Groups
 
-List of product groups (`product_groups`) of value type `array` with 1 or more items of type `object` contains a list of product groups.
+List of product groups (`product_groups`) of value type `array` with 1 or more items of value type `object` contains a list of product groups.
 
 ```
     "product_groups": {
@@ -2194,7 +2194,7 @@ The value `installed_with` indicates that the entity labeled with one Product ID
 
 The value `optional_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an optional component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 
-Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
+Full Product Name (`full_product_name`) of value type Full Product Name Type (`full_product_name_t`).
 
 Product Reference (`product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.
 
@@ -2366,7 +2366,7 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 
 #### 3.2.3.5 Vulnerabilities Property - Flags
 
-List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of type `object` contains a list of machine readable flags.
+List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
 ```
     "flags": {
@@ -2429,7 +2429,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 #### 3.2.3.6 Vulnerabilities Property - IDs
 
-List of IDs (`ids`) of value type `array` with one or more unique ID items of type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
+List of IDs (`ids`) of value type `array` with one or more unique ID items of value type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
 
 ```
     "ids": {
@@ -2482,7 +2482,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 
 #### 3.2.3.7 Vulnerabilities Property - Involvements
 
-List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
+List of involvements (`involvements`) of value type `array` with 1 or more items of value type `object` contains a list of involvements.
 
 ```
     "involvements": {
@@ -2641,7 +2641,7 @@ Release date (`release_date`) with value type `string` of format `date-time` hol
 
 #### 3.2.3.12 Vulnerabilities Property - Remediations
 
-List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of type `object` contains a list of remediations.
+List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of value type `object` contains a list of remediations.
 
 ```
     "remediations": {
@@ -2830,7 +2830,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.14 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of type `object` contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of value type `object` contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
