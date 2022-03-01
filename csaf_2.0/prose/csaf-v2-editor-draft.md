@@ -6635,9 +6635,10 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 # Appendix B. Revision History
 
-| Revision | Date | Editor | Changes Made |
-| :--- | :--- | :--- | :--- |
-| csaf-v2.0-wd20220219-dev | 2022-02-19 | Stefan Hagen and Thomas Schmidt| Preparing next Editor revision for TC review and submittal as CSD02 for public review|
+| Revision                 | Date       | Editor                          | Changes Made                                                                          |
+|:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
+| csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS for public review    |
+| csaf-v2.0-wd20220219-dev | 2022-02-19 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
 
 -------
 
