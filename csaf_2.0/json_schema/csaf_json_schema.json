@@ -828,7 +828,8 @@
                   "legacy_version": {
                     "title": "Legacy version of the revision",
                     "description": "Contains the version string used in an existing document with the same content.",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   },
                   "number": {
                     "$ref": "#/$defs/version_t"

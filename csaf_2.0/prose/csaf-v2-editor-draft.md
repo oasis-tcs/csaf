@@ -522,7 +522,7 @@ and Version (`version_t`).
 
 ### 3.1.1 Acknowledgments Type
 
-List of Acknowledgments (`acknowledgments_t`) type instances of value type array with 1 or more elements contain a list of `Acknowledgment` elements.
+List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with 1 or more elements contain a list of `Acknowledgment` elements.
 
 ```
     "acknowledgments_t": {
@@ -679,7 +679,7 @@ List of branches (`branches`) has the value type `branches_t`.
 
 #### 3.1.2.2 Branches Type - Category
 
-Category of the branch (`category`) of value type `string` as `enum` describes the characteristics of the labeled branch.
+Category of the branch (`category`) of value type `string` and `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
 
 ```
@@ -725,7 +725,7 @@ The value `vendor` indicates the name of the vendor or manufacturer that makes t
 
 #### 3.1.2.3 Branches Type - Name
 
-Name of the branch (`name`) of value type string with 1 character or more contains the canonical descriptor or 'friendly name' of the branch.
+Name of the branch (`name`) of value type `string` with 1 or more characters contains the canonical descriptor or 'friendly name' of the branch.
 
 *Examples 5:*
 
@@ -945,7 +945,7 @@ Each File hash of value type `object` contains one hash value and algorithm of t
         }
 ```
 
-The algorithm of the cryptographic hash representation (`algorithm`) of type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
+The algorithm of the cryptographic hash representation (`algorithm`) of value type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 
 *Examples 11:*
@@ -991,7 +991,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
 ```
 
-The filename representation (`filename`) of type `string` with one or more characters contains the name of the file which is identified by the hash values.
+The filename representation (`filename`) of value type `string` with one or more characters contains the name of the file which is identified by the hash values.
 
 *Examples 13:*
 
@@ -1064,7 +1064,7 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
     }
 ```
 
-Any given SBOM URL of value type `string` and format `uri` contains a URL of one SBOM for this product.
+Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
 
 ##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
 
@@ -1138,9 +1138,9 @@ Any such Generic URI item of value type `object` provides the two mandatory prop
         }
 ```
 
-The namespace of the generic URI (`namespace`) of value type `string` and format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
+The namespace of the generic URI (`namespace`) of value type `string` with format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
 
-The URI (`uri`) of value type `string` and format `uri` contains the identifier itself.
+The URI (`uri`) of value type `string` with format `uri` contains the identifier itself.
 
 ### 3.1.4 Language Type
 
@@ -1210,7 +1210,7 @@ Audience of note (`audience`) of value type `string` with 1 or more characters i
     safety engineers
 ```
 
-Note category (`category`) of value type `string` as `enum` indicates the choice of what kind of note this is.
+Note category (`category`) of value type `string` and `enum` indicates the choice of what kind of note this is.
 Valid `enum` values are:
 
 ```
@@ -1349,7 +1349,7 @@ A reference `object` MAY provide the optional property `category`.
     }
 ```
 
-Category of reference (`category`) of value type `string` as `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
+Category of reference (`category`) of value type `string` and `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
 Valid `enum` values are:
 
 ```
@@ -1367,7 +1367,7 @@ The value `self` indicates, that this document is a reference to this same docum
 
 Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
 
-URL of reference (`url`) of value type `string` and format `uri` provides the URL for the reference.
+URL of reference (`url`) of value type `string` with format `uri` provides the URL for the reference.
 
 ### 3.1.11 Version Type
 
@@ -1581,7 +1581,7 @@ Aggregate severity (`aggregate_severity`) of value type `object` with the mandat
     },
 ```
 
-The Namespace of aggregate severity (`namespace`) of value type `string` and format `uri` points to the namespace so referenced.
+The Namespace of aggregate severity (`namespace`) of value type `string` with format `uri` points to the namespace so referenced.
 
 The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
@@ -1689,7 +1689,7 @@ Valid values of the `enum` are:
     WHITE
 ```
 
-The URL of TLP version (`url`) with value type `string` and format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. The default value is the URL to the definition by FIRST:
+The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find the textual description of the TLP version which is used in this document. The default value is the URL to the definition by FIRST:
 
 ```
     https://www.first.org/tlp/
@@ -1786,7 +1786,7 @@ Issuing authority (`issuing_authority`) of value type `string` with 1 or more ch
 
 ##### 3.2.1.8.4 Document Property - Publisher - Name
 
-The Name of publisher (`name`) of value type `string` contains the name of the issuing party.
+The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
 
 *Example 31:*
 
@@ -1798,7 +1798,7 @@ The Name of publisher (`name`) of value type `string` contains the name of the i
 
 ##### 3.2.1.8.5 Document Property - Publisher - Namespace
 
-The Namespace of publisher (`namespace`) of value type `string` and format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
+The Namespace of publisher (`namespace`) of value type `string` with format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
 
 An issuing party can choose any URL which fulfills the requirements state above. The URL MAY be dereferenceable. If an issuing party has chosen a URL, it SHOULD NOT change. Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it identifies a CSAF document globally unique.
 
@@ -1905,7 +1905,7 @@ Every such Alternate Name of value type `string` with 1 or more characters speci
 
 ##### 3.2.1.12.2 Document Property - Tracking - Current Release Date
 
-Current release date (`current_release_date`) with value type `string` and format `date-time` holds the date when the current revision of this document was released.
+Current release date (`current_release_date`) with value type `string` with format `date-time` holds the date when the current revision of this document was released.
 
 ##### 3.2.1.12.3 Document Property - Tracking - Generator
 
@@ -1995,7 +1995,7 @@ This value is also used to determine the filename for the CSAF document (cf. sec
 
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
 
-Initial release date (`initial_release_date`) with value type `string` and format `date-time` holds the date when this document was first published.
+Initial release date (`initial_release_date`) with value type `string` with format `date-time` holds the date when this document was first published.
 
 ##### 3.2.1.12.6 Document Property - Tracking - Revision History
 
@@ -2010,7 +2010,7 @@ The Revision History (`revision_history`) with value type `array` of 1 or more R
         },
 ```
 
-Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`). In addition, a Revision MAY expose the optional property `legacy_version`.
+Each Revision contains all the information elements required to track the evolution of a CSAF document. Revision History Entry items are of value type `object` with the three mandatory properties: Date (`date`), Number (`number`), and Summary (`summary`). In addition, a Revision MAY expose the optional property `legacy_version`.
 
 ```
         "properties": {
@@ -2031,7 +2031,7 @@ Each Revision contains all the information elements required to track the evolut
 
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
 
-Legacy version of the revision (`legacy_version`) of value type `string` contains the version string used in an existing document with the same content.
+Legacy version of the revision (`legacy_version`) of value type `string` with 1 or more characters contains the version string used in an existing document with the same content.
 
 > This SHOULD be used to aid in the mapping between existing (human-readable) documents which might use a different version scheme and CSAF documents with the same content. It is recommended, to use the CSAF revision number to describe the revision history for any new human-readable equivalent.
 
@@ -2091,7 +2091,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
 
 #### 3.2.2.1 Product Tree Property - Branches
 
-List of branches (`branches`) of value type `branches_t`.
+List of branches (`branches`) has the value type `branches_t`.
 
 #### 3.2.2.2 Product Tree Property - Full Product Names
 
@@ -2099,7 +2099,7 @@ List of full product names (`full_product_names`) of value type `array` with 1 o
 
 #### 3.2.2.3 Product Tree Property - Product Groups
 
-List of product groups (`product_groups`) of value type `array` with 1 or more items of type `object` contains a list of product groups.
+List of product groups (`product_groups`) of value type `array` with 1 or more items of value type `object` contains a list of product groups.
 
 ```
     "product_groups": {
@@ -2137,7 +2137,7 @@ The summary of the product group (`summary`) of value type `string` with 1 or mo
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
-List of Product IDs (`product_ids`) of value type array with 2 or more unique items of value type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
+List of Product IDs (`product_ids`) of value type `array` with 2 or more unique items of value type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
 
 #### 3.2.2.4 Product Tree Property - Relationships
 
@@ -2173,7 +2173,7 @@ The Relationship item is of value type `object` and has four mandatory propertie
 
 > The situation where a need for declaring a Relationship arises, is given when a product is e.g. vulnerable only when installed together with another, or to describe operating system components.
 
-Relationship category (`category`) of value `string` and `enum` defines the category of relationship for the referenced component.
+Relationship category (`category`) of value type `string` and `enum` defines the category of relationship for the referenced component.
 The valid values are:
 
 ```
@@ -2194,7 +2194,7 @@ The value `installed_with` indicates that the entity labeled with one Product ID
 
 The value `optional_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an optional component of an entity with another Product ID (e.g. CSAFPID-0002). These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 
-Full Product Name (`full_product_name`) of value type Full Product Name type (`full_product_name_t`).
+Full Product Name (`full_product_name`) of value type Full Product Name Type (`full_product_name_t`).
 
 Product Reference (`product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.
 
@@ -2366,7 +2366,7 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 
 #### 3.2.3.5 Vulnerabilities Property - Flags
 
-List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of type `object` contains a list of machine readable flags.
+List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
 ```
     "flags": {
@@ -2405,7 +2405,7 @@ Date of the flag (`date`) of value type `string` with format `date-time` contain
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
-Label of the flag (`label`) of value type `string` as `enum` specifies the machine readable label. Valid `enum` values are:
+Label of the flag (`label`) of value type `string` and `enum` specifies the machine readable label. Valid `enum` values are:
 
 ```
     component_not_present
@@ -2429,7 +2429,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`).
 
 #### 3.2.3.6 Vulnerabilities Property - IDs
 
-List of IDs (`ids`) of value type `array` with one or more unique ID items of type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
+List of IDs (`ids`) of value type `array` with one or more unique ID items of value type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
 
 ```
     "ids": {
@@ -2482,7 +2482,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 
 #### 3.2.3.7 Vulnerabilities Property - Involvements
 
-List of involvements (`involvements`) of value type `array` with 1 or more items of type `object` contains a list of involvements.
+List of involvements (`involvements`) of value type `array` with 1 or more items of value type `object` contains a list of involvements.
 
 ```
     "involvements": {
@@ -2641,7 +2641,7 @@ Release date (`release_date`) with value type `string` of format `date-time` hol
 
 #### 3.2.3.12 Vulnerabilities Property - Remediations
 
-List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of type `object` contains a list of remediations.
+List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of value type `object` contains a list of remediations.
 
 ```
     "remediations": {
@@ -2830,7 +2830,7 @@ Product IDs (`products`) of value type `products_t` with 1 or more items indicat
 
 #### 3.2.3.14 Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of type `object` contains information about a vulnerability that can change with time.
+List of threats (`threats`) of value type `array` with 1 or more items of value type `object` contains information about a vulnerability that can change with time.
 
 ```
     "threats": {
