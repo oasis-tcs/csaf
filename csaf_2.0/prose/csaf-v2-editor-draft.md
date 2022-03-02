@@ -281,6 +281,8 @@ _JSON Hyper-Schema: A Vocabulary for Hypermedia Annotation of JSON_, draft-handr
 _Relative JSON Pointers_, draft-bhutton-relative-json-pointer-00, December 2020, https://datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00.
 ###### [RFC2119]
 Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, https://www.rfc-editor.org/info/rfc2119.
+###### [RFC3339]
+Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, https://www.rfc-editor.org/info/rfc3339.
 ###### [RFC7464]
 Williams, N., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, https://www.rfc-editor.org/info/rfc7464.
 ###### [RFC8174]
@@ -320,8 +322,6 @@ _CycloneDX Software Bill-of-Material Specification JSON schema version 1.3_, cyc
 _GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, https://github.com/github/cmark.
 ###### [GFMENG]
 _GitHub Engineering: A formal spec for GitHub Flavored Markdown_, https://githubengineering.com/a-formal-spec-for-github-markdown/.
-###### [ISO8601]
-_Data elements and interchange formats — Information interchange — Representation of dates and times_, International Standard, ISO 8601:2004(E), December 1, 2004, https://www.iso.org/standard/40874.html.
 ###### [ISO19770-2]
 _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015,
 https://www.iso.org/standard/65666.html.
