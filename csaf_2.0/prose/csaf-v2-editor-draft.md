@@ -331,7 +331,9 @@ https://www.iso.org/standard/72311.html.
 ###### [OPENSSL]
 _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 ###### [PURL]
-_Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec
+_Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec.
+###### [RFC3339]
+Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, https://www.rfc-editor.org/info/rfc3339.
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 ###### [RFC3986]
