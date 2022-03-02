@@ -5594,7 +5594,7 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
 ```
 
 > This prevents that CSAF documents of a CSAF publisher which have been collected by one CSAF aggregator A are mirrored again on a second CSAF aggregator B. Such cascades are prone to outdated information.
-> If the first aggregator A collects the CSAF documents on best effort and B copies the files from A and announces that this is done weekly, one might assume that B has more recent CSAF documents. However, that is not the case as B's information depends on A.
+> If the first aggregator A collects the CSAF documents on best effort and B copies the files from A and announces that this is done weekly, one might assume that B's CSAF documents are more recent. However, that is not the case as B's information depends on A.
 
 ### 7.1.8 Requirement 8: security.txt
 
