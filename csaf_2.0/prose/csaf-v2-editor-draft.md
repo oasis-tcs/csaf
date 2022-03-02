@@ -5593,6 +5593,9 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
     "mirror_on_CSAF_aggregators": false
 ```
 
+> This prevents that CSAF documents of a CSAF publisher which have been collected by one CSAF aggregator A are mirrored again on a second CSAF aggregator B. Such cascades are prone to outdated information.
+> If the first aggregator A collects the CSAF documents on best effort and B copies the files from A and announces that this is done weekly, one might assume that B's CSAF documents are more recent. However, that is not the case as B's information depends on A.
+
 ### 7.1.8 Requirement 8: security.txt
 
 In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
