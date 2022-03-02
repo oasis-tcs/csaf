@@ -6049,6 +6049,8 @@ A distributing party satisfies the "CSAF aggregator" role if the party:
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 
+Additionally, a CSAF aggregator MAY list one or more issuing parties that it does not mirror.
+
 > The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
 > CSAF aggregators can be provided for free or as a paid service.
 > To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
