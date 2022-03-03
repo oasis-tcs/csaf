@@ -343,14 +343,16 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/document`: Groups the document-level metadata elements. Previously, these elements were grouped through the namespace `cvrf`.
 * `/document/csaf_version`: Gives the version of the CSAF specification which the document was generated for.
 * `/document/distribution/tlp`: Provides details about the TLP classification of the document.
-* `/document/lang`: Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. Previously, this was done through `xml:lang` attributes per element.
+* `/document/lang`: Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646. Previously, this was done through `xml:lang` attributes per element. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/publisher/name`: Contains the name of the issuing party. Previously, this was included in `/cvrf:cvrfdoc/cvrf:DocumentPublisher/cvrf:IssuingAuthority/text()`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/publisher/namespace`: Contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. It replaces the `//cvrf:DocumentPublisher/@VendorID`. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/source_lang`: If this copy of the document is a translation then the value of this property describes from which language this document was translated.
 * `/document/tracking/generator/engine`: Contains information about the engine that generated the CSAF document. This was introduced as intermediate level to group `name` and `version` of `engine` logically. In a CVRF-CSAF conversion, the converter SHOULD replace this objects according to its own values.
 * `/document/tracking/generator/engine/version`: Contains the version of the engine that generated the CSAF document. Previously, this was part of the `cvrf:Engine` element.
+* `/document/tracking/revision_history[]/legacy_version`: Contains the version string used in an existing document with the same content.
 * `/product_tree/*/product/product_identification_helper`: Provides at least one method which aids in identifying the product in an asset database. It was introduced to group different ways to identify a product/
 * `/product_tree/*/product/product_identification_helper/hashes`: Contains a list of cryptographic hashes usable to identify files.
+* `/product_tree/*/product/product_identification_helper/model_numbers`: Contains a list of parts, or full model numbers.
 * `/product_tree/*/product/product_identification_helper/purl`: The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
 * `/product_tree/*/product/product_identification_helper/sbom_urls`: Contains a list of URLs where SBOMs for this product can be retrieved.
 * `/product_tree/*/product/product_identification_helper/serial_numbers`: Contains a list of parts, or full serial numbers.
@@ -361,17 +363,20 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/vulnerabilities[]/remediations[]/restart_required`: Provides information on category of restart is required by this remediation to become effective.
 * `/vulnerabilities[]/scores[]`: Specifies information about (at least one) score of the vulnerability and for which products the given value applies. Previously, products where directly tied to the `vuln:ScoreSetV2` or `vuln:ScoreSetV3`.
 * `/vulnerabilities[]/scores[]/cvss_v2/*`: Additional elements were introduced through the use of the FIRST CVSSv2 schema.
-* `/vulnerabilities[]/scores[]/cvss_v3/*`: Additional elements were introduced through the use of the FIRST CVSSv3 schemas.
+* `/vulnerabilities[]/scores[]/cvss_v3/*`: Additional elements were introduced through the use of the FIRST CVSSv3 schemas. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 
 ## E.2 Changed elements
 
 * `*/acknowledgments[]/organization`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/publisher/category`: The possible values have been extended.
 * `/document/publisher/issuing_authority`: Name of the issuing party is now a separate field. See E.1
+* `/document/tracking/id`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/tracking/generator/engine/name`: Version of the engine is now a separate field. See E.1
 * `/document/tracking/revision_history[]/number`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/document/tracking/version`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/product_tree/*/branches[]/category`: The values `Realm` and `Resource` have been removed. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/product_tree/relationships[]/full_product_name`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/vulnerabilities[]/ids`: The IDs element was changed into an array to be able to contain multiple IDs. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/vulnerabilities[]/remediations[]/category`: The CVRF CSAF Vulnerability Remediation Type `Will Not Fix` was renamed into `no_fix_planned`.
 * `/vulnerabilities[]/scores[]`: See conversion rules in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter). **Note:** As the way changed how products are tied to score values, score values from `vuln:ScoreSetV2` and `vuln:ScoreSetV3` SHOULD be joined if the address the same product set. Therefore, the number of score elements can be different from `Count(vuln:ScoreSetV2 or vuln:ScoreSetV3)`.
 
@@ -435,13 +440,14 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/document/tracking/generator/engine` |  | see E.1 |
 | `/document/tracking/generator/engine/name` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Generator/cvrf:Engine/text()` | see E.2 |
 | `/document/tracking/generator/engine/version` |  | see E.1 |
-| `/document/tracking/id` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:ID/text()` |  |
+| `/document/tracking/id` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Identification/cvrf:ID/text()` |  see E.2 |
 | `/document/tracking/initial_release_date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:InitialReleaseDate/text()` |  |
 | `/document/tracking/revision_history` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory` |  |
 | `/document/tracking/revision_history[i]` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]` |  |
-| `/document/tracking/revision_history[]/date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Date/text()` |  |
-| `/document/tracking/revision_history[]/number` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Number/text()` | see E.2 |
-| `/document/tracking/revision_history[]/summary` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Description/text()` |  |
+| `/document/tracking/revision_history[i]/date` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Date/text()` |  |
+| `/document/tracking/revision_history[i]/legacy_version` | | see E.1 |
+| `/document/tracking/revision_history[i]/number` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Number/text()` | see E.2 |
+| `/document/tracking/revision_history[i]/summary` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:RevisionHistory/cvrf:Revision[i+1]/cvrf:Description/text()` |  |
 | `/document/tracking/status` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Status/text()` |  |
 | `/document/tracking/version` | `/cvrf:cvrfdoc/cvrf:DocumentTracking/cvrf:Version/text()` | see E.2 |
 | `/product_tree` | `/cvrf:cvrfdoc/prod:ProductTree` |  |
@@ -453,9 +459,9 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/branches[k]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]` |  |
 | `/product_tree/branches[i]/branches[j]/branches[k]/branches` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch` | |
 | `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]` |  |
-| `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Type` |  |
+| `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/branches[l]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:Branch[l+1]/@Name` |  |
-| `/product_tree/branches[i]/branches[j]/branches[k]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Type` | |
+| `/product_tree/branches[i]/branches[j]/branches[k]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/@Name` |  |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName` | |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/text()` |  |
@@ -463,12 +469,13 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/cpe` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:Branch[k+1]/prod:FullProductName/@CPE` |  |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/hashes` |  | see E.1 |
+| `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/model_numbers` | | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/serial_numbers` | | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/skus` | | see E.1 |
 | `/product_tree/branches[i]/branches[j]/branches[k]/product/product_identification_helper/x_generic_uris` | | see E.1 |
-| `/product_tree/branches[i]/branches[j]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Type` | |
+| `/product_tree/branches[i]/branches[j]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/branches[j]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/@Name` |  |
 | `/product_tree/branches[i]/branches[j]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName` | |
 | `/product_tree/branches[i]/branches[j]/product/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:Branch[j+1]/prod:FullProductName/text()` |  |
@@ -479,6 +486,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]/file_hashes` | | see parent |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/model_numbers` | | see E.1 |
+| `/product_tree/branches[i]/branches[j]/product/product_identification_helper/model_numbers[]` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/sbom_urls[]` |  | see E.1 |
@@ -490,7 +499,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]` |  | see E.1 |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]/namespace` |  | see parent |
 | `/product_tree/branches[i]/branches[j]/product/product_identification_helper/x_generic_uris[]/uri` |  | see parent |
-| `/product_tree/branches[i]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Type` |  |
+| `/product_tree/branches[i]/category` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Type` | see E.2 |
 | `/product_tree/branches[i]/name` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/@Name` |  |
 | `/product_tree/branches[i]/product` | `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName` | |
 | `/product_tree/branches[i]/product/name` |  `/cvrf:cvrfdoc/prod:ProductTree/prod:Branch[i+1]/prod:FullProductName/text()` |  |
@@ -504,6 +513,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
 | `/product_tree/branches[i]/product/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
 | `/product_tree/branches[i]/product/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/branches[i]/product/product_identification_helper/model_numbers` | | see E.1 |
+| `/product_tree/branches[i]/product/product_identification_helper/model_numbers[]` |  | see E.1 |
 | `/product_tree/branches[i]/product/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/branches[i]/product/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/branches[i]/product/product_identification_helper/sbom_urls[]` |  | see E.1 |
@@ -528,6 +539,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
 | `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
 | `/product_tree/full_product_names[i]/product_identification_helper/hashes[]/filename` |  | see parent |
+| `/product_tree/full_product_names[i]/product_identification_helper/model_numbers` | | see E.1 |
+| `/product_tree/full_product_names[i]/product_identification_helper/model_numbers[]` | | see E.1 |
 | `/product_tree/full_product_names[i]/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/full_product_names[i]/product_identification_helper/sbom_urls` | | see E.1 |
 | `/product_tree/full_product_names[i]/product_identification_helper/sbom_urls[]` |  | see E.1 |
@@ -560,6 +573,8 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm` |  | see parent |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value` |  | see parent |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/hashes[]/filename` | | see parent |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/model_numbers` |  | see E.1 |
+| `/product_tree/relationships[i]/full_product_name/product_identification_helper/model_numbers[]` |  | see E.1 |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/purl` |  | see E.1 |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/sbom_urls` |  | see E.1 |
 | `/product_tree/relationships[i]/full_product_name/product_identification_helper/sbom_urls[]` |  | see E.1 |
@@ -588,9 +603,18 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/vulnerabilities[i]/cwe/id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/@ID` |  |
 | `/vulnerabilities[i]/cwe/name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:CWE/text()` |  |
 | `/vulnerabilities[i]/discovery_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:DiscoveryDate/text()` | |
-| `/vulnerabilities[i]/id` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID` | |
-| `/vulnerabilities[i]/id/system_name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/@SystemName` |  |
-| `/vulnerabilities[i]/id/text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/text()` |  |
+| `/vulnerabilities[i]/flags` |  | see E.1 |
+| `/vulnerabilities[i]/flags[]` |  | see E.1 |
+| `/vulnerabilities[i]/flags[]/date` |  | see parent  |
+| `/vulnerabilities[i]/flags[]/label` |  | see parent |
+| `/vulnerabilities[i]/flags[]/group_ids` | | see parent  |
+| `/vulnerabilities[i]/flags[]/group_ids[]` |  | see parent  |
+| `/vulnerabilities[i]/flags[]/product_ids` |  | see parent  |
+| `/vulnerabilities[i]/flags[]/product_ids[]` |  | see parent  |
+| `/vulnerabilities[i]/ids` |  | see E.2 |
+| `/vulnerabilities[i]/ids[0]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID` | |
+| `/vulnerabilities[i]/ids[0]/system_name` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/@SystemName` |  |
+| `/vulnerabilities[i]/ids[0]/text` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ID/text()` |  |
 | `/vulnerabilities[i]/involvements` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements` |  |
 | `/vulnerabilities[i]/involvements[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Involvements/vuln:Involvement[j+1]` | |
 | `/vulnerabilities[i]/involvements[j]/date` |  | see E.1 |

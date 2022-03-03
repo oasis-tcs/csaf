@@ -7,10 +7,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Multiple Definition of Product ID (failing example 1)",
+    "title": "Mandatory test: Remediation without Product Reference (failing example 1)",
     "tracking": {
       "current_release_date": "2021-07-21T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-02-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-29-01",
       "initial_release_date": "2021-07-21T10:00:00.000Z",
       "revision_history": [
         {
@@ -28,11 +28,23 @@
       {
         "product_id": "CSAFPID-9080700",
         "name": "Product A"
-      },
-      {
-        "product_id": "CSAFPID-9080700",
-        "name": "Product B"
       }
     ]
-  }
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2017-0145",
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "no_fix_planned",
+          "details": "These products are end-of-life. Therefore, no fix will be provided."
+        }
+      ]
+    }
+  ]
 }

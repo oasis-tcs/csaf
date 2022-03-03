@@ -1,6 +1,6 @@
 {
   "document": {
-    "category": "informational_advisory",
+    "category": "csaf_informational_advisory",
     "csaf_version": "2.0",
     "publisher": {
       "category": "other",

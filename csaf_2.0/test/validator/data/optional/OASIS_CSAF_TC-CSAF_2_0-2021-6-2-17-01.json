@@ -7,10 +7,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative test: Missing CVE (failing example 1)",
+    "title": "Optional test: CVE in field IDs (failing example 1)",
     "tracking": {
       "current_release_date": "2021-07-21T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-3-03-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-17-01",
       "initial_release_date": "2021-07-21T10:00:00.000Z",
       "revision_history": [
         {
@@ -25,7 +25,12 @@
   },
   "vulnerabilities": [
     {
-      "title": "BlueKeep"
+      "ids": [
+        {
+          "system_name": "CVE Project",
+          "text": "CVE-2021-44228"
+        }
+      ]
     }
   ]
 }
