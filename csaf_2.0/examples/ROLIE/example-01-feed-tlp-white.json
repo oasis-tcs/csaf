@@ -14,7 +14,7 @@
         "term": "csaf"
       }
     ],
-    "updated": "2021-01-01T12:00Z",
+    "updated": "2021-01-01T12:00:00Z",
     "entry": [
       {
         "id": "2020-ESA-001",
@@ -33,8 +33,8 @@
             "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.asc"
           }
         ],
-        "published": "2021-01-01T11:00Z",
-        "updated": "2021-01-01T12:00Z",
+        "published": "2021-01-01T11:00:00Z",
+        "updated": "2021-01-01T12:00:00Z",
         "summary": {
           "content": "Vulnerabilities fixed in ABC 0.0.1"
         },
