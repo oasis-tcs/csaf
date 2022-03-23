@@ -21,7 +21,7 @@
     "tracking": {
       "current_release_date": "2022-03-17T13:03:42.105Z",
       "generator": {
-        "date": "2022-03-17T13:09:10.414Z",
+        "date": "2022-03-17T13:09:42.105Z",
         "engine": {
           "name": "Secvisogram",
           "version": "1.12.1"
@@ -171,6 +171,13 @@
           "category": "vendor_fix",
           "date": "2022-03-14T13:10:55.000+01:00",
           "details": "Update to the latest version of the product. At least version 1.0.0-rc2",
+          "product_ids": [
+            "CSAFPID-0001",
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004",
+            "CSAFPID-0005"
+          ],
           "url": "https://github.com/csaf-tools/CVRF-CSAF-Converter/releases/tag/1.0.0-rc2"
         }
       ],
