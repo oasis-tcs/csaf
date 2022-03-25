@@ -4043,7 +4043,7 @@ The relevant path for this test is:
 
 > The element `/vulnerabilities` exists.
 
-> A tool MAY change the `/document/category` to `generic_csaf` as a quick fix.
+> A tool MAY change the `/document/category` to `csaf_base` as a quick fix.
 
 #### 6.1.27.4 Product Tree
 
@@ -4943,7 +4943,7 @@ The relevant path for this test is:
 
 ```
   "document": {
-    "category": "generic_csaf",
+    "category": "csaf_base",
     "csaf_version": "2.0",
     "publisher": {
       // ...
@@ -4969,7 +4969,7 @@ The relevant path for this test is:
 ```
   "document": {
     "csaf_version": "2.0",
-    "category": "generic_csaf",
+    "category": "csaf_base",
     // ...
   }
 ```
