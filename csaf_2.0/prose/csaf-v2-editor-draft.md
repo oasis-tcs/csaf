@@ -2979,6 +2979,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities` which lists all vulnerabilities.
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
@@ -2994,6 +2995,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities` which lists all vulnerabilities.
   * at least one of
     * `/vulnerabilities[]/product_status/fixed`
     * `/vulnerabilities[]/product_status/known_affected`
