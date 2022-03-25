@@ -5700,7 +5700,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
           "term": "csaf"
         }
       ],
-      "updated": "2021-01-01T12:00Z",
+      "updated": "2021-01-01T12:00:00.000Z",
       "entry": [
         {
           "id": "2020-ESA-001",
@@ -5719,8 +5719,8 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
               "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.asc"
             }
           ],
-          "published": "2021-01-01T11:00Z",
-          "updated": "2021-01-01T12:00Z",
+          "published": "2021-01-01T11:00:00.000Z",
+          "updated": "2021-01-01T12:00:00.000Z",
           "summary": {
             "content": "Vulnerabilities fixed in ABC 0.0.1"
           },
