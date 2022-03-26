@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 02
 
-## 23 February 2022
+## 29 March 2022
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.md (Authoritative) \
@@ -5054,7 +5054,7 @@ The relevant paths for this test are:
 
 > A tool MAY remove such element as a quick fix.
 
-## 6.2.16 Missing Product Identification Helper
+### 6.2.16 Missing Product Identification Helper
 
 For each element of type `/$defs/full_product_name_t` it MUST be tested that it includes the property `product_identification_helper`.
 
@@ -5079,7 +5079,7 @@ The relevant paths for this test are:
 
 > The product `CSAFPID-9080700` does not provide any Product Identification Helper at all.
 
-## 6.2.17 CVE in field IDs
+### 6.2.17 CVE in field IDs
 
 For each item in `/vulnerabilities[]/ids` it MUST be tested that it is not a CVE ID.
 
@@ -5438,7 +5438,7 @@ The relevant paths for this test are:
 
 > There is a spelling mistake in `Secruity`.
 
-## 6.3.9 Branch Categories
+### 6.3.9 Branch Categories
 
 For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it MUST be tested that ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that order starting with the Product tree node.
 
@@ -6681,7 +6681,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
 | csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS for public review    |
-| csaf-v2.0-wd20220219-dev | 2022-02-19 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
+| csaf-v2.0-wd20220329-dev | 2022-03-29 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
 
 -------
 
