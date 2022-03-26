@@ -5177,7 +5177,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status/fixed[]
 ```
 
-*Example XYZ which fails the test:*
+*Example 111 which fails the test:*
 
 ```
   "product_tree": {
@@ -5230,7 +5230,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores
 ```
 
-*Example 111 which fails the test:*
+*Example 112 which fails the test:*
 
 ```
   "product_tree": {
@@ -5276,7 +5276,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/vectorString
 ```
 
-*Example 112 which fails the test:*
+*Example 113 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -5305,7 +5305,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 113 which fails the test:*
+*Example 114 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -5331,7 +5331,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 114 which fails the test:*
+*Example 115 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -5356,7 +5356,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 115 which fails the test*:
+*Example 116 which fails the test*:
 
 ```
   "product_tree": {
@@ -5415,7 +5415,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 116 which fails the test:*
+*Example 117 which fails the test:*
 
 ```
     "references": [
@@ -5441,7 +5441,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 117 which fails the test:*
+*Example 118 which fails the test:*
 
 ```
     "references": [
@@ -5500,7 +5500,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 118 which fails the test:*
+*Example 119 which fails the test:*
 
 ```
   "document": {
@@ -5530,7 +5530,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 119 which fails the test:*
+*Example 120 which fails the test:*
 
 ```
     "branches": [
@@ -5571,7 +5571,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 120 which fails the test:*
+*Example 121 which fails the test:*
 
 ```
                 "category": "product_version_range",
@@ -5595,7 +5595,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 121 which fails the test:*
+*Example 122 which fails the test:*
 
 ```
             "branches": [
@@ -5665,7 +5665,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Examples 122 Minimal with ROLIE document:*
+*Examples 123 Minimal with ROLIE document:*
 
 ```
   {
@@ -5718,7 +5718,7 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 
 > At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
 
-*Example 123:*
+*Example 124:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -5733,7 +5733,7 @@ It is possible to advertise more than one `provider-metadata.json` by adding mul
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-*Example 124:*
+*Example 125:*
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -5747,7 +5747,7 @@ The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver whic
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
-*Examples 125:*
+*Examples 126:*
 
 ```
 2021
@@ -5758,7 +5758,7 @@ The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 126:*
+*Examples 127:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -5772,7 +5772,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 127:*
+*Examples 128:*
 
 ```
 2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
@@ -5795,7 +5795,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease
 
 MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
 
-*Example 128:*
+*Example 129:*
 
 ```
   {
@@ -5859,7 +5859,7 @@ Any existing signature file (requirement 19) MUST be listed in the corresponding
 
 The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
-*Example 129:*
+*Example 130:*
 
 ```
   {
@@ -5900,7 +5900,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
   * `product_version`
 * type of product
 
-  *Example 130:*
+  *Example 131:*
 
   ```
     CPU
@@ -5915,7 +5915,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
 
 * areas or sectors, the products are used in
 
-  *Example 131:*
+  *Example 132:*
 
   ```
     Chemical
@@ -5930,7 +5930,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
 
 * any other categorization useful to the consumers
 
-*Example 132:*
+*Example 133:*
 
 ```
   {
@@ -5953,7 +5953,7 @@ All CSAF documents SHALL have at least one hash file computed with a secure cryp
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 133:*
+*Example 134:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -5963,7 +5963,7 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
 
 The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 134:*
+*Example 135:*
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
@@ -5975,7 +5975,7 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [RFC4880] for more details.
 
-*Example 135:*
+*Example 136:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -6007,7 +6007,7 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 136:*
+*Example 137:*
 
 ```
   {
@@ -6059,7 +6059,7 @@ The CSAF documents for each issuing party that is mirrored MUST be in a differen
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 137:*
+*Example 138:*
 
 ```
   {
@@ -6332,7 +6332,7 @@ Secondly, the program fulfills the following for all items of:
   * To determine, which minor version of CVSS v3 is used, the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 138:*
+        *Example 139:*
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -6340,7 +6340,7 @@ Secondly, the program fulfills the following for all items of:
 
     2. Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 139:*
+        *Example 140:*
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -6350,7 +6350,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 140:*
+        *Example 141:*
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -6358,7 +6358,7 @@ Secondly, the program fulfills the following for all items of:
 
     3. Retrieve the CVSS version from the CVSS namespace given in the root element, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the global namespace. If more than one CVSS namespace is present and the element is not clearly defined via the namespace, this step MUST be skipped without a decision.
 
-        *Example 141:*
+        *Example 142:*
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
