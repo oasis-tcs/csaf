@@ -1068,6 +1068,13 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
 
+*Examples XYZ:*
+
+```
+    https://raw.githubusercontent.com/CycloneDX/bom-examples/master/SBOM/keycloak-10.0.2/bom.json
+    https://swinslow.net/spdx-examples/example4/main-bin-v2
+```
+
 ##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full serial numbers.
@@ -1143,6 +1150,29 @@ Any such Generic URI item of value type `object` provides the two mandatory prop
 The namespace of the generic URI (`namespace`) of value type `string` with format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
 
 The URI (`uri`) of value type `string` with format `uri` contains the identifier itself.
+
+> These elements can be used to reference a specific component from a SBOM:
+
+*Example XYZ linking a component from a CycloneDX SBOM using the bomlink mechanism:*
+
+```
+          "x_generic_uris": [
+            {
+              "namespace": "https://cyclonedx.org/capabilities/bomlink/",
+              "uri": "urn:cdx:411dafd2-c29f-491a-97d7-e97de5bc2289/1#pkg:maven/org.jboss.logging/jboss-logging@3.4.1.Final?type=jar"
+            }
+```
+
+*Example XYZ linking a component from a SPDX SBOM:*
+
+```
+          "x_generic_uris": [
+            {
+              "namespace": "https://spdx.github.io/spdx-spec/document-creation-information/#65-spdx-document-namespace-field",
+              "uri": "https://swinslow.net/spdx-examples/example4/main-bin-v2#SPDXRef-libc"
+            }
+          ]
+```
 
 ### 3.1.4 Language Type
 
