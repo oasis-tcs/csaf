@@ -2979,6 +2979,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities` which lists all vulnerabilities.
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
@@ -2994,6 +2995,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities` which lists all vulnerabilities.
   * at least one of
     * `/vulnerabilities[]/product_status/fixed`
     * `/vulnerabilities[]/product_status/known_affected`
@@ -4338,6 +4340,38 @@ The relevant path for this test is:
 
 > There is no action statement for `CSAFPID-9080702`.
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
+
+#### 6.1.27.11 Vulnerabilities
+
+It MUST be tested that the element `/vulnerabilities` exists.
+
+The relevant values for `/document/category` are:
+
+```
+  csaf_security_advisory
+  csaf_vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities
+```
+
+*Example XYZ which fails the test:*
+
+```
+  {
+    "document": {
+      // ...
+    },
+    "product_tree": [
+      // ...
+    ]
+  }
+```
+
+> The element `/vulnerabilities` does not exist.
 
 ### 6.1.28 Translation
 
