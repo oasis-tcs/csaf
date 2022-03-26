@@ -5943,7 +5943,7 @@ The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF pro
 The CSAF documents for each issuing party that is mirrored MUST be in a different folder. The folder name SHOULD be retrieved from the name of the issuing authority. This folders MUST be adjacent to the `aggregator.json` (requirement 21). Each such folder MUST at least:
 
 * provide a `provider-metadata.json` for the current issuing party.
-* provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
+* provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
 *Example 133:*
 
@@ -6055,6 +6055,8 @@ A distributing party satisfies the "CSAF aggregator" role if the party:
 * satisfies the requirements 21 to 23 in section 7.1.
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
+* links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in the corresponding `provider-metadata.json`.
+* provides for each CSAF document that is mirrored a signature (requirement 19) and a hash (requirement 18). Both SHALL be listed in the ROLIE feed. If the issuing party provides those files for a CSAF document, they SHOULD be copied as well. If the issuing party does not provide those files, they SHALL be created by the CSAF aggregator. Such a signature does not imply any liability of CSAF aggregator for the content of the corresponding CSAF document. It just confirms that the CSAF document provided has not been modified after being downloaded from the issuing party. A CSAF aggregator MAY add additional signatures and hashes for a CSAF document.
 
 Additionally, a CSAF aggregator MAY list one or more issuing parties that it does not mirror.
 
