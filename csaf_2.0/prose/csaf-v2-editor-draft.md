@@ -1151,7 +1151,7 @@ The namespace of the generic URI (`namespace`) of value type `string` with forma
 
 The URI (`uri`) of value type `string` with format `uri` contains the identifier itself.
 
-> These elements can be used to reference a specific component from a SBOM:
+> These elements can be used to reference a specific component from an SBOM:
 
 *Example XYZ linking a component from a CycloneDX SBOM using the bomlink mechanism:*
 
@@ -1163,7 +1163,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
             }
 ```
 
-*Example XYZ linking a component from a SPDX SBOM:*
+*Example XYZ linking a component from an SPDX SBOM:*
 
 ```
           "x_generic_uris": [
