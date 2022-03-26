@@ -5102,6 +5102,56 @@ The relevant paths for this test are:
 
 > The version range `>4.2` is a valid vsl but not valid according to the vers specification.
 
+### 6.2.19 CVSS for Fixed Products
+
+For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that a CVSS applying to this product has an environmental score of `0`. The test SHALL pass if none of the Product IDs in fixed products group is listed in `products` of any item of the scores element.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status/first_fixed[]
+  /vulnerabilities[]/product_status/fixed[]
+```
+
+*Example XYZ which fails the test:*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "fixed": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor the corresponding attributes in the `vectorString` have been set.
+
+> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` accordingly and compute the `environmentalScore` as quick fix.
+
 ## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests MAY include information about recommended usage. A program MUST handle a test failure as a information.
