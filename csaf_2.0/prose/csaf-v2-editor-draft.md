@@ -5104,7 +5104,7 @@ The relevant paths for this test are:
 
 ### 6.2.19 CVSS for Fixed Products
 
-For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that a CVSS applying to this product has an environmental score of `0`. The test SHALL pass if none of the Product IDs in fixed products group is listed in `products` of any item of the scores element.
+For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that a CVSS applying to this product has an environmental score of `0`. The test SHALL pass if none of the Product IDs listed within product status `fixed` or `first_fixed` is found in `products` of any item of the `scores` element.
 
 The relevant path for this test is:
 
