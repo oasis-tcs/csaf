@@ -377,6 +377,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 * `/product_tree/*/branches[]/category`: The values `Realm` and `Resource` have been removed. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/product_tree/relationships[]/full_product_name`: See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
 * `/vulnerabilities[]/ids`: The IDs element was changed into an array to be able to contain multiple IDs. See conversion rule in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter).
+* `/vulnerabilities[]/remediations[]`: See conversion rules in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter). Remediations are explicitly bound to Product or Group IDs.
 * `/vulnerabilities[]/remediations[]/category`: The CVRF CSAF Vulnerability Remediation Type `Will Not Fix` was renamed into `no_fix_planned`.
 * `/vulnerabilities[]/scores[]`: See conversion rules in [section 9.1.5 of CSAF specification](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#915-conformance-clause-5-cvrf-csaf-converter). **Note:** As the way changed how products are tied to score values, score values from `vuln:ScoreSetV2` and `vuln:ScoreSetV3` SHOULD be joined if the address the same product set. Therefore, the number of score elements can be different from `Count(vuln:ScoreSetV2 or vuln:ScoreSetV3)`.
 
@@ -651,7 +652,7 @@ This informative appendix provides a mapping by path between the elements in CSA
 | `/vulnerabilities[i]/references[j]/url` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:References/vuln:Reference[j+1]/vuln:URL/text()` | |
 | `/vulnerabilities[i]/release_date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:ReleaseDate/text()` |  |
 | `/vulnerabilities[i]/remediations` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations` | |
-| `/vulnerabilities[i]/remediations[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]` | |
+| `/vulnerabilities[i]/remediations[j]` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]` | see E.2 |
 | `/vulnerabilities[i]/remediations[j]/category` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/@Type` | see E.2 |
 | `/vulnerabilities[i]/remediations[j]/date` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/@Date` | |
 | `/vulnerabilities[i]/remediations[j]/details` | `/cvrf:cvrfdoc/vuln:Vulnerability[i+1]/vuln:Remediations/vuln:Remediation[j+1]/vuln:Description/text()` | |
