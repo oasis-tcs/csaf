@@ -447,6 +447,10 @@ Delegation to industry best practices technologies is used in referencing schema
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/
 
+Even though the JSON schema does not prohibit specifically additional properties and custom keywords, it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
+
+> The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and need for dedicated parsers and tools on the side of the consuming parties.
+
 Section 4 defined profiles that are used to ensure a common understanding of which fields are required in a given use case. Additional conventions are stated in section 5. The tests given in section 6 support CSAF producers and consumers to verify rules from the specification which can not be tested by the schema. Section 7 states how to distribute and where to find CSAF documents. Safety, Security and Data Protection are considered in section 8. Finally, a set of conformance targets describes tools in the ecosystem.
 
 -------
