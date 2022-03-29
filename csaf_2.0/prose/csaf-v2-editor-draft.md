@@ -5216,6 +5216,33 @@ The relevant path for this test is:
 
 > A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` accordingly and compute the `environmentalScore` as quick fix.
 
+### 6.2.20 Additional Properties
+
+It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+
+The relevant path for this test is:
+
+```
+  /
+```
+
+> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that sets `additionalProperties` to `false` for every key of type `object`.
+
+*Example XYZ which fails the test:*
+
+```
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "custom_property": "any",
+    // ...
+  }
+```
+
+> The key `custom_property` is not defined in the JSON schema.
+
+> A tool MAY remove such keys as a quick fix.
+
 ## 6.3 Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests MAY include information about recommended usage. A program MUST handle a test failure as a information.
