@@ -2828,7 +2828,7 @@ The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema
 
 The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
 
-Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
+Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply. A score object SHOULD reflect the associated product's status (for example, a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed; the known affected versions of that product can list the vulnerability score as it applies to them).
 
 #### 3.2.3.14 Vulnerabilities Property - Threats
 
