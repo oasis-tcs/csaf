@@ -4,6 +4,7 @@ ORIG_SCHEMA=csaf_2.0/json_schema/csaf_json_schema.json
 STRICT_SCHEMA=csaf_strict_schema.json
 VALIDATOR=csaf_2.0/test/validator.py
 STRICT_GENERATOR=csaf_2.0/test/generate_strict_schema.py
+TESTPATH=csaf_2.0/examples/csaf/*.json
 
 FAIL=0
 
@@ -11,26 +12,32 @@ FAIL=0
 cd `dirname $0`/../../..
 
 validate() {
-  echo -n "Testing file $1 against schema $SCHEMA ... "
-  if python3 $VALIDATOR $SCHEMA $1; then
-    echo SUCCESS
+  printf "%s" "Testing file $1 against schema ${SCHEMA} ... "
+  if python3 ${VALIDATOR} ${SCHEMA} $1; then
+    printf "%s\n" SUCCESS
   else
-    echo FAILED
+    printf "%s\n" FAILED
     FAIL=1
   fi
 
 }
 
-SCHEMA=$ORIG_SCHEMA
-validate csaf_2.0/examples/csaf/CVE-2018-0171-modified.json
-validate csaf_2.0/examples/csaf/cvrf-rhba-2018-0489-modified.json
+test_all() {
+  for i in ${TESTPATH}
+  do
+    validate $i
+  done
+} 
+
+SCHEMA=${ORIG_SCHEMA}
+test_all
+
  
-echo -n "Generating strict schema ... "
-python3 $STRICT_GENERATOR $ORIG_SCHEMA > $STRICT_SCHEMA
-echo done
+printf "%s" "Generating strict schema ... "
+python3 "${STRICT_GENERATOR}" "${ORIG_SCHEMA}" > "${STRICT_SCHEMA}"
+printf "%s\n" "done"
 
-SCHEMA=$STRICT_SCHEMA
-validate csaf_2.0/examples/csaf/CVE-2018-0171-modified.json
-validate csaf_2.0/examples/csaf/cvrf-rhba-2018-0489-modified.json
+SCHEMA=${STRICT_SCHEMA}
+test_all
 
-exit $FAIL
+exit ${FAIL}

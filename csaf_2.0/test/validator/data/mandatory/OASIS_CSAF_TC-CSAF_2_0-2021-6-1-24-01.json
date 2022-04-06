@@ -1,6 +1,6 @@
 {
   "document": {
-    "category": "generic_csaf",
+    "category": "csaf_base",
     "csaf_version": "2.0",
     "publisher": {
       "category": "other",
@@ -29,7 +29,7 @@
         {
           "date": "2021-04-23T10:00:00.000Z",
           "party": "vendor",
-          "status": "in_progress"
+          "status": "completed"
         },
         {
           "date": "2021-04-23T10:00:00.000Z",
