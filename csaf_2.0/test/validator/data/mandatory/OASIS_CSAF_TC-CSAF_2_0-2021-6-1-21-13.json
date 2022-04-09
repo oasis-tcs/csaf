@@ -1,0 +1,31 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory test: Missing Item in Revision History (valid example 3)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-21-13",
+      "initial_release_date": "2021-04-22T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-04-22T10:00:00.000Z",
+          "number": "1.0.0",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.1.0",
+          "summary": "Some other changes."
+        }
+      ],
+      "status": "final",
+      "version": "1.1.0"
+    }
+  }
+}
