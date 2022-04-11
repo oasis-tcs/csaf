@@ -24,6 +24,8 @@ jobs:
       run: jsonschema --version
     - name: Test examples against CSAF schema
       run: ./csaf_2.0/test/csaf_schema/run_tests.sh
+    - name: Test VEX examples against CSAF schema
+      run: ./csaf_2.0/test/csaf_schema/run_tests.sh csaf_vex
     - name: Test examples against Provider Metadata schema
       run: ./csaf_2.0/test/provider_schema/run_tests.sh
     - name: Test examples against Aggregator schema
