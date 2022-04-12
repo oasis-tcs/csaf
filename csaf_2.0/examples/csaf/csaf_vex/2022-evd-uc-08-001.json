@@ -1,0 +1,402 @@
+{
+  "document": {
+    "category": "csaf_vex",
+    "csaf_version": "2.0",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Example Company VEX document. Unofficial content for demonstration purposes only.",
+        "title": "Author comment"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "name": "Example Company ProductCERT",
+      "namespace": "https://psirt.example.com"
+    },
+    "title": "Example VEX Document Use Case 8",
+    "tracking": {
+      "current_release_date": "2022-03-03T11:00:00.000Z",
+      "generator": {
+        "date": "2022-03-03T11:00:00.000Z",
+        "engine": {
+          "name": "Secvisogram",
+          "version": "1.11.0"
+        }
+      },
+      "id": "2022-EVD-UC-08-001",
+      "initial_release_date": "2022-03-03T11:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2022-03-03T11:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "4.2",
+                "product": {
+                  "name": "Example Company ABC 4.2",
+                  "product_id": "CSAFPID-0001"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.4",
+                "product": {
+                  "product_id": "CSAFPID-0002",
+                  "name": "Example Company ABC 2.4"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.6",
+                "product": {
+                  "product_id": "CSAFPID-0003",
+                  "name": "Example Company ABC 2.6"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": "vers:generic/>=2.9|<=4.1",
+                "product": {
+                  "product_id": "CSAFPID-0004",
+                  "name": "Example Company ABC >=2.9|<=4.1"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": "vers:generic/>=1.0|<=2.3",
+                "product": {
+                  "product_id": "CSAFPID-0005",
+                  "name": "Example Company ABC >=1.0|<=2.3"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.5",
+                "product": {
+                  "product_id": "CSAFPID-0006",
+                  "name": "Example Company ABC 2.5"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": "vers:generic/>=2.7|<=2.8",
+                "product": {
+                  "product_id": "CSAFPID-0007",
+                  "name": "Example Company ABC >=2.7|<=2.8"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "ABC"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "vers:generic/>=4.5|<=5.0",
+                "product": {
+                  "name": "Example Company JKL >=4.5|<=5.0",
+                  "product_id": "CSAFPID-0008"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": "vers:generic/>=1.0|<=4.4",
+                "product": {
+                  "name": "Example Company JKL >=1.0|<=4.4",
+                  "product_id": "CSAFPID-0009"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "5.1",
+                "product": {
+                  "product_id": "CSAFPID-0010",
+                  "name": "Example Company JKL 5.1"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "5.2",
+                "product": {
+                  "product_id": "CSAFPID-0011",
+                  "name": "Example Company JKL 5.2"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "JKL"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2021-44228",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled. From log4j 2.15.0, this behavior has been disabled by default. From version 2.16.0 (along with 2.12.2, 2.12.3, and 2.3.1), this functionality has been completely removed. Note that this vulnerability is specific to log4j-core and does not affect log4net, log4cxx, or other Apache Logging Services projects.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "fixed": [
+          "CSAFPID-0010",
+          "CSAFPID-0011"
+        ],
+        "known_affected": [
+          "CSAFPID-0002",
+          "CSAFPID-0003",
+          "CSAFPID-0004",
+          "CSAFPID-0008"
+        ],
+        "known_not_affected": [
+          "CSAFPID-0001",
+          "CSAFPID-0005",
+          "CSAFPID-0006",
+          "CSAFPID-0007",
+          "CSAFPID-0009"
+        ],
+        "recommended": [
+          "CSAFPID-0011"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "NVD - CVE-2021-44228",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-44228"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to version 4.2 or later.",
+          "product_ids": [
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004"
+          ]
+        },
+        {
+          "category": "vendor_fix",
+          "details": "Update to the new version 5.2 or later.",
+          "product_ids": [
+            "CSAFPID-0008"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "attackComplexity": "LOW",
+            "attackVector": "NETWORK",
+            "availabilityImpact": "HIGH",
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "privilegesRequired": "NONE",
+            "scope": "CHANGED",
+            "userInteraction": "NONE",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004",
+            "CSAFPID-0008"
+          ]
+        },
+        {
+          "cvss_v3": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/MC:N/MI:N/MA:N",
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "CHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "modifiedConfidentialityImpact": "NONE",
+            "modifiedIntegrityImpact": "NONE",
+            "modifiedAvailabilityImpact": "NONE"
+          },
+          "products": [
+            "CSAFPID-0001",
+            "CSAFPID-0005",
+            "CSAFPID-0006",
+            "CSAFPID-0007",
+            "CSAFPID-0009"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "details": "Class with vulnerable code was removed before shipping.",
+          "product_ids": [
+            "CSAFPID-0001",
+            "CSAFPID-0005",
+            "CSAFPID-0006",
+            "CSAFPID-0007"
+          ]
+        },
+        {
+          "category": "impact",
+          "details": "Log4j was not included in those versions at all.",
+          "product_ids": [
+            "CSAFPID-0009"
+          ]
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2021-45105",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Apache Log4j2 versions 2.0-alpha1 through 2.16.0 (excluding 2.12.3 and 2.3.1) did not protect from uncontrolled recursion from self-referential lookups. This allows an attacker with control over Thread Context Map data to cause a denial of service when a crafted string is interpreted. This issue was fixed in Log4j 2.17.0, 2.12.3, and 2.3.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "fixed": [
+          "CSAFPID-0011"
+        ],
+        "known_affected": [
+          "CSAFPID-0002",
+          "CSAFPID-0003",
+          "CSAFPID-0004",
+          "CSAFPID-0010"
+        ],
+        "known_not_affected": [
+          "CSAFPID-0001",
+          "CSAFPID-0005",
+          "CSAFPID-0006",
+          "CSAFPID-0007",
+          "CSAFPID-0009"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "NVD - CVE-2021-45105",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45105"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to version 4.2 or later.",
+          "product_ids": [
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004"
+          ]
+        },
+        {
+          "category": "vendor_fix",
+          "details": "Update to the new version 5.2 or later.",
+          "product_ids": [
+            "CSAFPID-0008",
+            "CSAFPID-0010"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "attackComplexity": "HIGH",
+            "attackVector": "NETWORK",
+            "availabilityImpact": "HIGH",
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "NONE",
+            "privilegesRequired": "NONE",
+            "scope": "UNCHANGED",
+            "userInteraction": "NONE",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004",
+            "CSAFPID-0008",
+            "CSAFPID-0010"
+          ]
+        },
+        {
+          "cvss_v3": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H/MC:N/MI:N/MA:N",
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "HIGH",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "HIGH",
+            "modifiedConfidentialityImpact": "NONE",
+            "modifiedIntegrityImpact": "NONE",
+            "modifiedAvailabilityImpact": "NONE"
+          },
+          "products": [
+            "CSAFPID-0001",
+            "CSAFPID-0005",
+            "CSAFPID-0006",
+            "CSAFPID-0007",
+            "CSAFPID-0009"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "details": "Class with vulnerable code was removed before shipping.",
+          "product_ids": [
+            "CSAFPID-0001",
+            "CSAFPID-0005",
+            "CSAFPID-0006",
+            "CSAFPID-0007"
+          ]
+        },
+        {
+          "category": "impact",
+          "details": "Log4j was not included in those versions at all.",
+          "product_ids": [
+            "CSAFPID-0009"
+          ]
+        }
+      ]
+    }
+  ]
+}
