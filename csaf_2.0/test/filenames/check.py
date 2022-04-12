@@ -1,67 +1,98 @@
+#! /usr/bin/env python3
+"""Verify or modify filenames of security advisories against CSAF 2.0 rules."""
 import argparse
 import json
-import os
+import pathlib
 import re
 import sys
 
-def read(csaffile):
-	with(open(csaffile, "r")) as f:
-		data = json.load(f)
-	return data
+ENCODING = 'utf-8'
+INVALID_ID = '_invalid'
+VALID_NAME_PAT = r'([^+\-_a-z0-9]+)'
+SUCC = 'TRUE'
+FAIL = 'FALSE'
 
-def get_filename(filename):
-	return os.path.basename(filename)
-	
-def get_basedir(filepath):
-	return os.path.dirname(os.path.abspath(filepath))+'/'
-	
-def compute_filename(csaf):
-	document_tracking_id='_invalid'
-	if csaf.get('document'):
-		doc=csaf.get('document')
-		if doc.get('tracking'):
-			track=doc.get('tracking')
-			if track.get('id'):
-				document_tracking_id=track.get('id')
-	
-	filename = re.sub(r"([^+\-_a-z0-9]+)", '_', document_tracking_id.lower())
-	return filename + '.json'
 
-def check(current, computed):
-	return current == computed
+def load(csaf_path):
+    """Load the CSAF data from the path to the JSON file or fail miserably."""
+    with open(csaf_path, 'rt', encoding=ENCODING) as handle:
+        return json.load(handle)
 
-def write(result, filename):
-	with(open(filename, "w")) as f:
-		json.dump(result, f, indent=2)
 
-def main():
-	parser = argparse.ArgumentParser(description='Checks filename of a CSAF 2.0.')
-	parser.add_argument('input_file', type=str, help="CSAF input file to check filename")
-	parser.add_argument('-p', '--print', dest='print', action="store_true", help="Print the correct filename")
-	parser.add_argument('-v', '--verbose', dest='verbose', action="store_true", help="Print the result")
-	parser.add_argument('-w','--write', dest='write', action="store_true", help="Write the file to the correct filename if necessary.")
-	parser.add_argument('-r','--rename', dest='rename', action="store_true", help="Renames the file to the correct filename if necessary.")
-	args = parser.parse_args()
-	data=read(args.input_file)
-	current_filename=get_filename(args.input_file)
-	correct_filename=compute_filename(data)
-	result=check(current_filename, correct_filename)
-	
-	if args.print:
-		print(correct_filename)
-	if result:
-		if args.verbose:
-			print("TRUE")
-		exit(0)
-	else:
-		if args.verbose:
-			print("FALSE")
-		if args.write:
-			write(data, get_basedir(args.input_file)+correct_filename)
-		if args.rename:
-			os.rename(args.input_file, get_basedir(args.input_file)+correct_filename)
-		exit(1)
+def dump(csaf_data, csaf_path):
+    """Dump the CSAF data formated to 2 space indent to the JSON file given by the path."""
+    with open(csaf_path, 'wt', encoding=ENCODING) as f:
+        json.dump(csaf_data, f, indent=2)
+
+
+def compute_filename(csaf_data):
+    """Derive the filename from document/tracking/id if exists else return the conventional invalid json name."""
+    document_tracking_id = INVALID_ID
+    if (doc := csaf_data.get('document')) and (track := doc.get('tracking')) and (the_id := track.get('id')):  # noqa
+        document_tracking_id = the_id
+
+    return f'{re.sub(VALID_NAME_PAT, "_", document_tracking_id.lower())}.json'
+
+
+def api():
+    """Implementation of command line API returning parser."""
+    parser = argparse.ArgumentParser(description='Verifies or modifies the name of a CSAF 2.0 advisory file')
+    parser.add_argument('input_file', type=str, help='CSAF advisory file to verify or modify the filename of')
+    parser.add_argument('-p', '--print', dest='echo', action='store_true', help='Prints the correct filename')
+    parser.add_argument(
+        '-v',
+        '--verbose',
+        dest='verbose',
+        action='store_true',
+        help=f'Prints the logic result as either {SUCC} or {FAIL}',
+    )
+    parser.add_argument(
+        '-a',
+        '--add',
+        dest='add',
+        action='store_true',
+        help=(
+            'Writes the CSAF advisory file to the correct filename if different'
+            ' - will overrule -u/--update if given in addition'
+        ),
+    )
+    parser.add_argument(
+        '-u',
+        '--update',
+        dest='update',
+        action='store_true',
+        help=(
+            'Renames the CSAF advisory file to the correct filename if necessary'
+            ' - will be overruled by -a/--add if given in addition'
+        ),
+    )
+    return parser
+
+
+def main(argv=None):
+    """Drive the verification or modification of advisory file(name)s per CSAF 2.0 rules."""
+    argv = sys.argv[1:] if argv is None else argv
+    job = api().parse_args(argv)
+    data = load(job.input_file)
+    current_path = pathlib.Path(job.input_file)
+    correct_path = current_path.parent / compute_filename(data)
+    ok = current_path == correct_path
+
+    if job.echo:
+        print(correct_path.name)
+    if job.verbose:
+        print(SUCC if ok else FAIL)
+
+    if ok:
+        return 0
+
+    if job.add:
+        dump(data, correct_path)
+    elif job.update:
+        _ = current_path.rename(correct_path)
+
+    return 1
 
 
 if __name__ == '__main__':
-	main()
+    sys.exit(main(sys.argv[1:]))
