@@ -5,8 +5,8 @@ STRICT_SCHEMA=csaf_strict_schema.json
 VALIDATOR=csaf_2.0/test/validator.py
 STRICT_GENERATOR=csaf_2.0/test/generate_strict_schema.py
 TESTPATH=csaf_2.0/test/validator/data/$1/*.json
-EXCLUDE=OASIS_CSAF_TC-CSAF_2_0-2021-6-1-08-01.json
-EXCLUDE_STRICT=OASIS_CSAF_TC-CSAF_2_0-2021-6-2-20-01.json
+EXCLUDE=oasis_csaf_tc-csaf_2_0-2021-6-1-08-01.json
+EXCLUDE_STRICT=oasis_csaf_tc-csaf_2_0-2021-6-2-20-01.json
 
 FAIL=0
 
