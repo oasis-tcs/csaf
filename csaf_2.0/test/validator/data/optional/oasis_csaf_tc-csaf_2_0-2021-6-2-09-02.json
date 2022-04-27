@@ -1,0 +1,51 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Optional test: Use of SHA-1 as the only Hash Algorithm (failing example 2)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-09-02",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "sha1",
+                  "value": "e067035314dd8673fe1c9fc6b01414fe0950fdc4"
+                },
+                {
+                  "algorithm": "sha1",
+                  "value": "0ea8daf2551fdd075aefa894e8c51b99b71e1be0"
+                }
+              ],
+              "filename": "product_a.so"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

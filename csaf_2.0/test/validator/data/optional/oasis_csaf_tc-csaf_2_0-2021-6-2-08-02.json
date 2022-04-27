@@ -1,0 +1,51 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Optional test: Use of MD5 as the only Hash Algorithm (failing example 2)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-08-02",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "md5",
+                  "value": "6ae24620ea9656230f49234efd078935"
+                },
+                {
+                  "algorithm": "md5",
+                  "value": "e1b027e19683bf1c3c8df2d62fc500cf"
+                }
+              ],
+              "filename": "product_a.so"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
