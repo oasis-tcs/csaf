@@ -910,7 +910,7 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
@@ -935,7 +935,7 @@ List of file hashes (`file_hashes`) of value type `array` holding at least one i
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified. Any File hash object has the 2 mandatory properties `algorithm` and `value`.
@@ -1023,7 +1023,7 @@ This can also be used to identify hardware. If necessary, the software, or any o
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given model number of value type `string` with at least 1 character represents a part, or a full model number of the component to identify.
@@ -1067,7 +1067,7 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
@@ -1091,7 +1091,7 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
@@ -1114,7 +1114,7 @@ A list of stock keeping units SHOULD only be used if the list of relationships i
       "items": {
         //...  
       }
-    }
+    },
 ```
 
 Any given stock keeping unit of value type `string` with at least 1 character represents a part, or a full stock keeping unit (SKU) of the component to identify.
@@ -1364,7 +1364,6 @@ List of references (`references_t`) of value type `array` with 1 or more items o
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
@@ -2836,7 +2835,6 @@ List of scores (`scores`) of value type `array` with 1 or more items of type sco
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
