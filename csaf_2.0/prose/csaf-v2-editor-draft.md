@@ -2461,7 +2461,7 @@ The given values reflect the VEX not affected justifications. See [VEX-Just] for
   > Components that are neither used nor executed by the product.
 * `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
 #### 3.2.3.6 Vulnerabilities Property - IDs
 
@@ -2773,7 +2773,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
 ##### 3.2.3.12.6 Vulnerabilities Property - Remediations - Product IDs
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
 ##### 3.2.3.12.7 Vulnerabilities Property - Remediations - Restart Required
 
@@ -2922,7 +2922,7 @@ Details of the threat (`details`) of value type `string` with 1 or more characte
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
 
 #### 3.2.3.15 Vulnerabilities Property - Title
 
