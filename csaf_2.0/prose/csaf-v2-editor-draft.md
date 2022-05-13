@@ -5674,7 +5674,7 @@ This does not exclude that such a document is also available in an access protec
 
 CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
-An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it mUST be ensured that the documents are still access protected.
+An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it MUST be ensured that the documents are still access protected.
 
 ### 7.1.6 Requirement 6: No Redirects
 
