@@ -1165,6 +1165,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
               "namespace": "https://cyclonedx.org/capabilities/bomlink/",
               "uri": "urn:cdx:411dafd2-c29f-491a-97d7-e97de5bc2289/1#pkg:maven/org.jboss.logging/jboss-logging@3.4.1.Final?type=jar"
             }
+          ]
 ```
 
 *Example 17 linking a component from an SPDX SBOM:*
