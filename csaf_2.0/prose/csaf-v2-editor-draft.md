@@ -4460,7 +4460,7 @@ The relevant path for this test is:
 
 > A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
 
-### 6.1.30 Integer and Semantic Versioning
+### 6.1.30 Mixed Integer and Semantic Versioning
 
 It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or semantic versioning homogeneously within the same document.
 
