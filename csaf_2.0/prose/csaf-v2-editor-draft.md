@@ -4301,6 +4301,7 @@ The relevant path for this test is:
 ```
 
 > There is no impact statement for `CSAFPID-9080702`.
+>
 > Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 #### 6.1.27.10 Action Statement
@@ -4372,6 +4373,7 @@ The relevant path for this test is:
 ```
 
 > There is no action statement for `CSAFPID-9080702`.
+>
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 #### 6.1.27.11 Vulnerabilities
@@ -4430,6 +4432,7 @@ The relevant path for this test is:
 ```
 
 > The document language and the source language have the same value `en-US`.
+>
 > Note: A translation from `en-US` to `en-GB` would pass the test.
 
 > A tool MAY remove the source language as quick fix.
