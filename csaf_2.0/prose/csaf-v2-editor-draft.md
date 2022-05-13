@@ -604,34 +604,34 @@ Value type is string with format URI (`uri`).
 *Example 4:*
 
 ```
-"acknowledgments": [
-  {
-    "names": [
-      "Johann Sebastian Bach",
-      "Georg Philipp Telemann",
-      "Georg Friedrich Händel"
-    ],
-    "organization": "Baroque composers",
-    "summary": "wonderful music"
-  },
-  {
-    "organization": "CISA"
-    "summary": "coordination efforts",
-    "urls": [
-      "https://cisa.gov"
-    ]
-  },
-  {
-    "organization": "BSI",
-    "summary": "assistance in coordination"
-  },
-  {
-    "names": [
-      "Antonio Vivaldi"
-    ],
-    "summary": "influencing other composers"
-  },
-]
+  "acknowledgments": [
+    {
+      "names": [
+        "Johann Sebastian Bach",
+        "Georg Philipp Telemann",
+        "Georg Friedrich Händel"
+      ],
+      "organization": "Baroque composers",
+      "summary": "wonderful music"
+    },
+    {
+      "organization": "CISA",
+      "summary": "coordination efforts",
+      "urls": [
+        "https://cisa.gov"
+      ]
+    },
+    {
+      "organization": "BSI",
+      "summary": "assistance in coordination"
+    },
+    {
+      "names": [
+        "Antonio Vivaldi"
+      ],
+      "summary": "influencing other composers"
+    }
+  ],
 ```
 
 The example 4 above SHOULD lead to the following outcome in a human-readable advisory:
