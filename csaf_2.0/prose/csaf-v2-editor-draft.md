@@ -2417,10 +2417,11 @@ List of flags (`flags`) of value type `array` with 1 or more unique items (a set
 
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to this vulnerability as a single machine readable flag.
 For example, this could be a machine readable justification code why a product is not affected.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) must be present to state for which products or product groups this flag is applicable.
 
 > These flags enable the receiving party to automate the selection of actions to take.
 
-In addition, any Flag items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```
     "properties": {
@@ -2690,7 +2691,7 @@ List of remediations (`remediations`) of value type `array` with 1 or more Remed
     },
 ```
 
-Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability. At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) must be present to state for which products or product groups this remediation is applicable.
 
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
