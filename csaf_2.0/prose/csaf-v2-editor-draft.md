@@ -2752,7 +2752,7 @@ This value is mutually exclusive with `vendor_fix` per product.
 > An issuing party might choose to use this category to announce that a fix is currently developed. It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The text in field `details` SHOULD contain details about why there will be no fix issued.
-This value is mutually exclusive with `vendor_fix` per product.
+This values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
 
 ##### 3.2.3.12.2 Vulnerabilities Property - Remediations - Date
 
