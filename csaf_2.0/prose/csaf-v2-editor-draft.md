@@ -6212,7 +6212,9 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 
 > The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
 > CSAF aggregators can be provided for free or as a paid service.
+>
 > To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
+> The purpose of this option is that a consumer can retrieve CSAF documents from a CSAF publisher as if this issuing party would be a CSAF trusted provider. To reach that goal, a CSAF aggregator collects the CSAF documents from the CSAF publisher and mirrors it. The collection process MAY be automated or manual. CSAF aggregators announce the collection interval through the field `update_interval` in the corresponding item of the CSAF publishers list (`csaf_publishers`) in their `aggregator.json`.
 
 ## 7.3 Retrieving rules
 
