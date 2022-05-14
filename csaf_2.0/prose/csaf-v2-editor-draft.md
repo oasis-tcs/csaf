@@ -6192,7 +6192,7 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 21 and 22 in section 7.1.
+* satisfies the requirements 6, 21 and 22 in section 7.1.
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -6202,7 +6202,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 21 to 23 in section 7.1.
+* satisfies the requirements 1 to 6 and 21 to 23 in section 7.1.
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 * links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in the corresponding `provider-metadata.json`.
