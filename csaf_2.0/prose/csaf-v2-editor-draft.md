@@ -2744,10 +2744,13 @@ The value `workaround` indicates that the remediation contains information about
 The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product. Mitigations MAY include using devices or access controls external to the affected product. Mitigations MAY or MAY NOT be issued by the original author of the affected product, and they MAY or MAY NOT be officially sanctioned by the document producer.
 
 The value `vendor_fix` indicates that the remediation contains information about an official fix that is issued by the original author of the affected product. Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
+This value is mutually exclusive with `none_available` and `no_fix_planned` per product.
 
 The value `none_available` indicates that there is currently no fix available. The description SHOULD contain details about why there is no fix.
+This value is mutually exclusive with `vendor_fix` per product.
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description SHOULD contain details about why there will be no fix issued.
+This value is mutually exclusive with `vendor_fix` per product.
 
 ##### 3.2.3.12.2 Vulnerabilities Property - Remediations - Date
 
