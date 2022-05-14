@@ -2442,7 +2442,7 @@ In addition, any Flag item MAY provide the three optional properties Date (`date
 
 Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current flag item applies to.
 
 Label of the flag (`label`) of value type `string` and `enum` specifies the machine readable label. Valid `enum` values are:
 
@@ -2772,7 +2772,7 @@ Every Entitlement of the remediation contains any possible vendor-defined constr
 
 ##### 3.2.3.12.5 Vulnerabilities Property - Remediations - Group IDs
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current remediation item applies to.
 
 ##### 3.2.3.12.6 Vulnerabilities Property - Remediations - Product IDs
 
@@ -2922,7 +2922,7 @@ Date of the threat (`date`) of value type `string` with format `date-time` conta
 
 Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current threat item applies to.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`).
 
