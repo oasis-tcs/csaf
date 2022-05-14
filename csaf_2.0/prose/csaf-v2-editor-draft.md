@@ -606,34 +606,34 @@ Value type is string with format URI (`uri`).
 *Example 4:*
 
 ```
-"acknowledgments": [
-  {
-    "names": [
-      "Johann Sebastian Bach",
-      "Georg Philipp Telemann",
-      "Georg Friedrich Händel"
-    ],
-    "organization": "Baroque composers",
-    "summary": "wonderful music"
-  },
-  {
-    "organization": "CISA"
-    "summary": "coordination efforts",
-    "urls": [
-      "https://cisa.gov"
-    ]
-  },
-  {
-    "organization": "BSI",
-    "summary": "assistance in coordination"
-  },
-  {
-    "names": [
-      "Antonio Vivaldi"
-    ],
-    "summary": "influencing other composers"
-  },
-]
+  "acknowledgments": [
+    {
+      "names": [
+        "Johann Sebastian Bach",
+        "Georg Philipp Telemann",
+        "Georg Friedrich Händel"
+      ],
+      "organization": "Baroque composers",
+      "summary": "wonderful music"
+    },
+    {
+      "organization": "CISA",
+      "summary": "coordination efforts",
+      "urls": [
+        "https://cisa.gov"
+      ]
+    },
+    {
+      "organization": "BSI",
+      "summary": "assistance in coordination"
+    },
+    {
+      "names": [
+        "Antonio Vivaldi"
+      ],
+      "summary": "influencing other composers"
+    }
+  ],
 ```
 
 The example 4 above SHOULD lead to the following outcome in a human-readable advisory:
@@ -912,7 +912,7 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
@@ -937,7 +937,7 @@ List of file hashes (`file_hashes`) of value type `array` holding at least one i
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified. Any File hash object has the 2 mandatory properties `algorithm` and `value`.
@@ -1025,7 +1025,7 @@ This can also be used to identify hardware. If necessary, the software, or any o
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given model number of value type `string` with at least 1 character represents a part, or a full model number of the component to identify.
@@ -1069,7 +1069,7 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
@@ -1093,7 +1093,7 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
@@ -1116,7 +1116,7 @@ A list of stock keeping units SHOULD only be used if the list of relationships i
       "items": {
         //...  
       }
-    }
+    },
 ```
 
 Any given stock keeping unit of value type `string` with at least 1 character represents a part, or a full stock keeping unit (SKU) of the component to identify.
@@ -1167,6 +1167,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
               "namespace": "https://cyclonedx.org/capabilities/bomlink/",
               "uri": "urn:cdx:411dafd2-c29f-491a-97d7-e97de5bc2289/1#pkg:maven/org.jboss.logging/jboss-logging@3.4.1.Final?type=jar"
             }
+          ]
 ```
 
 *Example 17 linking a component from an SPDX SBOM:*
@@ -1365,7 +1366,6 @@ List of references (`references_t`) of value type `array` with 1 or more items o
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
@@ -2837,7 +2837,6 @@ List of scores (`scores`) of value type `array` with 1 or more items of type sco
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
@@ -4304,6 +4303,7 @@ The relevant path for this test is:
 ```
 
 > There is no impact statement for `CSAFPID-9080702`.
+>
 > Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 #### 6.1.27.10 Action Statement
@@ -4375,6 +4375,7 @@ The relevant path for this test is:
 ```
 
 > There is no action statement for `CSAFPID-9080702`.
+>
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 #### 6.1.27.11 Vulnerabilities
@@ -4433,6 +4434,7 @@ The relevant path for this test is:
 ```
 
 > The document language and the source language have the same value `en-US`.
+>
 > Note: A translation from `en-US` to `en-GB` would pass the test.
 
 > A tool MAY remove the source language as quick fix.
