@@ -6194,7 +6194,7 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 21 and 22 in section 7.1.
+* satisfies the requirements 6, 21 and 22 in section 7.1.
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -6204,7 +6204,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 21 to 23 in section 7.1.
+* satisfies the requirements 1 to 6 and 21 to 23 in section 7.1.
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 * links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in the corresponding `provider-metadata.json`.
@@ -6214,7 +6214,10 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 
 > The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
 > CSAF aggregators can be provided for free or as a paid service.
+>
 > To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
+> The purpose of this option is that a consumer can retrieve CSAF documents from a CSAF publisher as if this issuing party would be a CSAF trusted provider. To reach that goal, a CSAF aggregator collects the CSAF documents from the CSAF publisher and mirrors it. The collection process MAY be automated or manual. CSAF aggregators announce the collection interval through the field `update_interval` in the corresponding item of the CSAF publishers list (`csaf_publishers`) in their `aggregator.json`.
+> To minimize the implementation efforts and process overhead, a CSAF aggregator MAY upload the CSAF documents of a CSAF publisher into an internal instance of a CSAF provider software. Such construct is called "CSAF proxy provider" as it can be mirrored by the CSAF aggregator software. However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself. Otherwise, that would violate the second rule of section 7.2.1. Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
 
 ## 7.3 Retrieving rules
 
