@@ -5,9 +5,9 @@
 
 # Common Security Advisory Framework Version 2.0
 
-## Committee Specification Draft 02
+## Committee Specification 02
 
-## 29 March 2022
+## 18 May 2022
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.md (Authoritative) \
@@ -6806,6 +6806,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
 | csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS for public review    |
 | csaf-v2.0-wd20220329-dev | 2022-03-29 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
+| csaf-v2.0-wd20220514-dev | 2022-05-14 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS |
 
 -------
 
