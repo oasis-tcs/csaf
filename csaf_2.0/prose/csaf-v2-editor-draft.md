@@ -1015,7 +1015,7 @@ If the value of the hash matches and the filename does not, a user SHOULD prefer
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Model Numbers
 
-The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full model numbers.
+The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) model numbers.
 
 A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected, or the model numbers change during update.
 
@@ -1030,7 +1030,7 @@ This can also be used to identify hardware. If necessary, the software, or any o
     },
 ```
 
-Any given model number of value type `string` with at least 1 character represents a part, or a full model number of the component to identify.
+Any given model number of value type `string` with at least 1 character represents a full or abbreviated (partial) model number of the component to identify.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
 
@@ -1085,7 +1085,7 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
 
 ##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
 
@@ -1098,7 +1098,7 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
     },
 ```
 
-Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
+Any given serial number of value type `string` with at least 1 character represents a full or abbreviated (partial) serial number of the component to identify.
 
 If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
@@ -1106,7 +1106,7 @@ Two `*` MUST NOT follow each other.
 
 ##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - SKUs
 
-The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of parts, or full stock keeping units.
+The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of full or abbreviated (partial) stock keeping units.
 
 A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
 
@@ -1121,7 +1121,7 @@ A list of stock keeping units SHOULD only be used if the list of relationships i
     },
 ```
 
-Any given stock keeping unit of value type `string` with at least 1 character represents a part, or a full stock keeping unit (SKU) of the component to identify.
+Any given stock keeping unit of value type `string` with at least 1 character represents a full or abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 > Sometimes this is also called "item number", "article number" or "product number".
 
