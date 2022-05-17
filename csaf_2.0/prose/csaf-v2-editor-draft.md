@@ -4508,16 +4508,19 @@ The relevant paths for this test are:
 
 For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
 
-> To implement this test it is deemed sufficient that the value of `name` does not contain any of the following strings:
+> To implement this test it is deemed sufficient that, when converted to lower case, the value of `name` does not contain any of the following strings:
 >
 > ```
 >   <
 >   <=
 >   >
 >   >=
->   all versions
+>   after
+>   all
+>   before
 >   later
 >   prior
+>   versions
 > ```
 
 The relevant paths for this test are:
