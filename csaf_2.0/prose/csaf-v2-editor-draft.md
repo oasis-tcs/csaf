@@ -1251,7 +1251,7 @@ Audience of note (`audience`) of value type `string` with 1 or more characters i
     safety engineers
 ```
 
-Note category (`category`) of value type `string` and `enum` indicates the choice of what kind of note this is.
+Note category (`category`) of value type `string` and `enum` contains the information of what kind of note this is.
 Valid `enum` values are:
 
 ```
@@ -1278,7 +1278,7 @@ The value `other` indicates the note is something that doesn’t fit the other c
 
 The value `summary` indicates the note is a summary of something. The optional sibling property `title` MAY have more information in this case.
 
-Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
+Note content (`text`) of value type `string` with 1 or more characters holds the content of the note. Content varies depending on type.
 
 Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
 
