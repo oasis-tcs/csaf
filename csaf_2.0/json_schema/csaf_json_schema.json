@@ -18,11 +18,11 @@
         "properties": {
           "names": {
             "title": "List of acknowledged names",
-            "description": "Contains the names of entities being recognized.",
+            "description": "Contains the names of persons being recognized.",
             "type": "array",
             "minItems": 1,
             "items": {
-              "title": "Name of entity being recognized",
+              "title": "Name of person being recognized",
               "description": "Contains the name of a single person.",
               "type": "string",
               "minLength": 1,
