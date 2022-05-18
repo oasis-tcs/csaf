@@ -18,12 +18,12 @@
         "properties": {
           "names": {
             "title": "List of acknowledged names",
-            "description": "Contains the names of entities being recognized.",
+            "description": "Contains the names of contributors being recognized.",
             "type": "array",
             "minItems": 1,
             "items": {
-              "title": "Name of entity being recognized",
-              "description": "Contains the name of a single person.",
+              "title": "Name of the contributor",
+              "description": "Contains the name of a single contributor being recognized.",
               "type": "string",
               "minLength": 1,
               "examples": [
@@ -235,13 +235,13 @@
             },
             "model_numbers": {
               "title": "List of models",
-              "description": "Contains a list of parts, or full model numbers.",
+              "description": "Contains a list of full or abbreviated (partial) model numbers.",
               "type": "array",
               "minItems": 1,
               "uniqueItems": true,
               "items": {
                 "title": "Model number",
-                "description": "Contains a part, or a full model number of the component to identify.",
+                "description": "Contains a full or abbreviated (partial) model number of the component to identify.",
                 "type": "string",
                 "minLength": 1
               }
@@ -268,25 +268,25 @@
             },
             "serial_numbers": {
               "title": "List of serial numbers",
-              "description": "Contains a list of parts, or full serial numbers.",
+              "description": "Contains a list of full or abbreviated (partial) serial numbers.",
               "type": "array",
               "minItems": 1,
               "uniqueItems": true,
               "items": {
                 "title": "Serial number",
-                "description": "Contains a part, or a full serial number of the component to identify.",
+                "description": "Contains a full or abbreviated (partial) serial number of the component to identify.",
                 "type": "string",
                 "minLength": 1
               }
             },
             "skus": {
               "title": "List of stock keeping units",
-              "description": "Contains a list of parts, or full stock keeping units.",
+              "description": "Contains a list of full or abbreviated (partial) stock keeping units.",
               "type": "array",
               "minItems": 1,
               "items": {
                 "title": "Stock keeping unit",
-                "description": "Contains a part, or a full stock keeping unit (SKU) which is used in the ordering process to identify the component.",
+                "description": "Contains a full or abbreviated (partial) stock keeping unit (SKU) which is used in the ordering process to identify the component.",
                 "type": "string",
                 "minLength": 1
               }
@@ -353,7 +353,7 @@
         "properties": {
           "audience": {
             "title": "Audience of note",
-            "description": "Indicate who is intended to read it.",
+            "description": "Indicates who is intended to read it.",
             "type": "string",
             "minLength": 1,
             "examples": [
@@ -365,7 +365,7 @@
           },
           "category": {
             "title": "Note category",
-            "description": "Choice of what kind of note this is.",
+            "description": "Contains the information of what kind of note this is.",
             "type": "string",
             "enum": [
               "description",
@@ -378,8 +378,8 @@
             ]
           },
           "text": {
-            "title": "Note contents",
-            "description": "The contents of the note. Content varies depending on type.",
+            "title": "Note content",
+            "description": "Holds the content of the note. Content varies depending on type.",
             "type": "string",
             "minLength": 1
           },
@@ -1325,12 +1325,12 @@
           },
           "scores": {
             "title": "List of scores",
-            "description": "contains score objects for the current vulnerability.",
+            "description": "Contains score objects for the current vulnerability.",
             "type": "array",
             "minItems": 1,
             "items": {
               "title": "Score",
-              "description": "specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
+              "description": "Specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
               "type": "object",
               "minProperties": 2,
               "required": [

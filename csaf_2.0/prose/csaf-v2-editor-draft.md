@@ -5,9 +5,9 @@
 
 # Common Security Advisory Framework Version 2.0
 
-## Committee Specification Draft 02
+## Committee Specification 02
 
-## 29 March 2022
+## 18 May 2022
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.md (Authoritative) \
@@ -346,6 +346,8 @@ Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1):
 N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, https://www.rfc-editor.org/info/rfc7464.
 ###### [RFC8615]
 Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019, https://www.rfc-editor.org/info/rfc8615.
+###### [RFC9116]
+Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, https://www.rfc-editor.org/info/rfc9116.
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SECURITY-TXT]
@@ -354,11 +356,13 @@ Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org
 _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [SPDX22]
 _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, https://spdx.github.io/spdx-spec/.
+###### [VERS]
+_vers: a mostly universal version range specifier_, Part of the PURL GitHub Project, https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.
 ###### [VEX]
 _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021,
-https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf
-##### [VEX-Just]
-_An overview of the VEX flags_, TBA
+https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf.
+##### [VEX-Justification]
+_Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, XX May 2022, tba.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at https://www.w3.org/TR/xml.
@@ -561,8 +565,8 @@ The properties are: `names`, `organization`, `summary`, and `urls`.
 
 #### 3.1.1.1 Acknowledgments Type - Names
 
-List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person.
+List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of contributors being recognized.
+Every such item of value type `string` with 1 or more characters represents the name of the contributor and contains the name of a single contributor being recognized.
 
 *Examples 1:*
 
@@ -604,34 +608,34 @@ Value type is string with format URI (`uri`).
 *Example 4:*
 
 ```
-"acknowledgments": [
-  {
-    "names": [
-      "Johann Sebastian Bach",
-      "Georg Philipp Telemann",
-      "Georg Friedrich Händel"
-    ],
-    "organization": "Baroque composers",
-    "summary": "wonderful music"
-  },
-  {
-    "organization": "CISA"
-    "summary": "coordination efforts",
-    "urls": [
-      "https://cisa.gov"
-    ]
-  },
-  {
-    "organization": "BSI",
-    "summary": "assistance in coordination"
-  },
-  {
-    "names": [
-      "Antonio Vivaldi"
-    ],
-    "summary": "influencing other composers"
-  },
-]
+  "acknowledgments": [
+    {
+      "names": [
+        "Johann Sebastian Bach",
+        "Georg Philipp Telemann",
+        "Georg Friedrich Händel"
+      ],
+      "organization": "Baroque composers",
+      "summary": "wonderful music"
+    },
+    {
+      "organization": "CISA",
+      "summary": "coordination efforts",
+      "urls": [
+        "https://cisa.gov"
+      ]
+    },
+    {
+      "organization": "BSI",
+      "summary": "assistance in coordination"
+    },
+    {
+      "names": [
+        "Antonio Vivaldi"
+      ],
+      "summary": "influencing other composers"
+    }
+  ],
 ```
 
 The example 4 above SHOULD lead to the following outcome in a human-readable advisory:
@@ -910,7 +914,7 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
@@ -935,7 +939,7 @@ List of file hashes (`file_hashes`) of value type `array` holding at least one i
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified. Any File hash object has the 2 mandatory properties `algorithm` and `value`.
@@ -1011,7 +1015,7 @@ If the value of the hash matches and the filename does not, a user SHOULD prefer
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Model Numbers
 
-The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full model numbers.
+The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) model numbers.
 
 A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected, or the model numbers change during update.
 
@@ -1023,10 +1027,10 @@ This can also be used to identify hardware. If necessary, the software, or any o
       "items": {
         //...
       }
-    }
+    },
 ```
 
-Any given model number of value type `string` with at least 1 character represents a part, or a full model number of the component to identify.
+Any given model number of value type `string` with at least 1 character represents a full or abbreviated (partial) model number of the component to identify.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
 
@@ -1067,7 +1071,7 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
@@ -1081,7 +1085,7 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
 
 ##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
 
@@ -1091,10 +1095,10 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
       "items": {
         //...
       }
-    }
+    },
 ```
 
-Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
+Any given serial number of value type `string` with at least 1 character represents a full or abbreviated (partial) serial number of the component to identify.
 
 If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
@@ -1102,7 +1106,7 @@ Two `*` MUST NOT follow each other.
 
 ##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - SKUs
 
-The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of parts, or full stock keeping units.
+The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of full or abbreviated (partial) stock keeping units.
 
 A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
 
@@ -1114,10 +1118,10 @@ A list of stock keeping units SHOULD only be used if the list of relationships i
       "items": {
         //...  
       }
-    }
+    },
 ```
 
-Any given stock keeping unit of value type `string` with at least 1 character represents a part, or a full stock keeping unit (SKU) of the component to identify.
+Any given stock keeping unit of value type `string` with at least 1 character represents a full or abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 > Sometimes this is also called "item number", "article number" or "product number".
 
@@ -1165,6 +1169,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
               "namespace": "https://cyclonedx.org/capabilities/bomlink/",
               "uri": "urn:cdx:411dafd2-c29f-491a-97d7-e97de5bc2289/1#pkg:maven/org.jboss.logging/jboss-logging@3.4.1.Final?type=jar"
             }
+          ]
 ```
 
 *Example 17 linking a component from an SPDX SBOM:*
@@ -1246,7 +1251,7 @@ Audience of note (`audience`) of value type `string` with 1 or more characters i
     safety engineers
 ```
 
-Note category (`category`) of value type `string` and `enum` indicates the choice of what kind of note this is.
+Note category (`category`) of value type `string` and `enum` contains the information of what kind of note this is.
 Valid `enum` values are:
 
 ```
@@ -1273,7 +1278,7 @@ The value `other` indicates the note is something that doesn’t fit the other c
 
 The value `summary` indicates the note is a summary of something. The optional sibling property `title` MAY have more information in this case.
 
-Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
+Note content (`text`) of value type `string` with 1 or more characters holds the content of the note. Content varies depending on type.
 
 Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
 
@@ -1363,7 +1368,6 @@ List of references (`references_t`) of value type `array` with 1 or more items o
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
@@ -2415,10 +2419,11 @@ List of flags (`flags`) of value type `array` with 1 or more unique items (a set
 
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to this vulnerability as a single machine readable flag.
 For example, this could be a machine readable justification code why a product is not affected.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) must be present to state for which products or product groups this flag is applicable.
 
 > These flags enable the receiving party to automate the selection of actions to take.
 
-In addition, any Flag items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```
     "properties": {
@@ -2439,7 +2444,7 @@ In addition, any Flag items MAY provide the three optional properties Date (`dat
 
 Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current flag item applies to.
 
 Label of the flag (`label`) of value type `string` and `enum` specifies the machine readable label. Valid `enum` values are:
 
@@ -2451,7 +2456,7 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
     vulnerable_code_not_present
 ```
 
-The given values reflect the VEX not affected justifications. See [VEX-Just] for more details. The values MUST be used as follows:
+The given values reflect the VEX not affected justifications. See [VEX-Justification] for more details. The values MUST be used as follows:
 
 * `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 * `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
@@ -2461,7 +2466,7 @@ The given values reflect the VEX not affected justifications. See [VEX-Just] for
   > Components that are neither used nor executed by the product.
 * `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
 #### 3.2.3.6 Vulnerabilities Property - IDs
 
@@ -2688,7 +2693,7 @@ List of remediations (`remediations`) of value type `array` with 1 or more Remed
     },
 ```
 
-Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability. At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) must be present to state for which products or product groups this remediation is applicable.
 
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
@@ -2739,10 +2744,15 @@ The value `workaround` indicates that the remediation contains information about
 The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product. Mitigations MAY include using devices or access controls external to the affected product. Mitigations MAY or MAY NOT be issued by the original author of the affected product, and they MAY or MAY NOT be officially sanctioned by the document producer.
 
 The value `vendor_fix` indicates that the remediation contains information about an official fix that is issued by the original author of the affected product. Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
+This value contradicts with the categories `none_available` and `no_fix_planned` for the same product. Therefore, such a combination can't be used in the list of remediations.
 
-The value `none_available` indicates that there is currently no fix available. The description SHOULD contain details about why there is no fix.
+The value `none_available` indicates that there is currently no fix or other remediation available. The text in field `details` SHOULD contain details about why there is no fix or other remediation.
+The values `none_available` and `vendor_fix` are mutually exclusive per product.
 
-The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description SHOULD contain details about why there will be no fix issued.
+> An issuing party might choose to use this category to announce that a fix is currently developed. It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+
+The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The text in field `details` SHOULD contain details about why there will be no fix issued.
+The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
 
 ##### 3.2.3.12.2 Vulnerabilities Property - Remediations - Date
 
@@ -2769,11 +2779,11 @@ Every Entitlement of the remediation contains any possible vendor-defined constr
 
 ##### 3.2.3.12.5 Vulnerabilities Property - Remediations - Group IDs
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current remediation item applies to.
 
 ##### 3.2.3.12.6 Vulnerabilities Property - Remediations - Product IDs
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
 ##### 3.2.3.12.7 Vulnerabilities Property - Remediations - Restart Required
 
@@ -2835,7 +2845,6 @@ List of scores (`scores`) of value type `array` with 1 or more items of type sco
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
@@ -2920,9 +2929,9 @@ Date of the threat (`date`) of value type `string` with format `date-time` conta
 
 Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current threat item applies to.
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
 
 #### 3.2.3.15 Vulnerabilities Property - Title
 
@@ -4302,6 +4311,7 @@ The relevant path for this test is:
 ```
 
 > There is no impact statement for `CSAFPID-9080702`.
+>
 > Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 #### 6.1.27.10 Action Statement
@@ -4373,6 +4383,7 @@ The relevant path for this test is:
 ```
 
 > There is no action statement for `CSAFPID-9080702`.
+>
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 #### 6.1.27.11 Vulnerabilities
@@ -4431,6 +4442,7 @@ The relevant path for this test is:
 ```
 
 > The document language and the source language have the same value `en-US`.
+>
 > Note: A translation from `en-US` to `en-GB` would pass the test.
 
 > A tool MAY remove the source language as quick fix.
@@ -4460,7 +4472,7 @@ The relevant path for this test is:
 
 > A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
 
-### 6.1.30 Integer and Semantic Versioning
+### 6.1.30 Mixed Integer and Semantic Versioning
 
 It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or semantic versioning homogeneously within the same document.
 
@@ -4501,16 +4513,19 @@ The relevant paths for this test are:
 
 For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
 
-> To implement this test it is deemed sufficient that the value of `name` does not contain any of the following strings:
+> To implement this test it is deemed sufficient that, when converted to lower case, the value of `name` does not contain any of the following strings:
 >
 > ```
 >   <
 >   <=
 >   >
 >   >=
->   all versions
+>   after
+>   all
+>   before
 >   later
 >   prior
+>   versions
 > ```
 
 The relevant paths for this test are:
@@ -5674,7 +5689,7 @@ This does not exclude that such a document is also available in an access protec
 
 CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
-An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it mUST be ensured that the documents are still access protected.
+An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it MUST be ensured that the documents are still access protected.
 
 ### 7.1.6 Requirement 6: No Redirects
 
@@ -5747,7 +5762,7 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
 
 In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
-> At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
+> At the time of this writing, the security.txt was just published as [RFC9116]. The `CSAF` field is currently in the process of being officially added.
 
 *Example 125:*
 
@@ -6187,7 +6202,7 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 21 and 22 in section 7.1.
+* satisfies the requirements 6, 21 and 22 in section 7.1.
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -6197,7 +6212,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 21 to 23 in section 7.1.
+* satisfies the requirements 1 to 6 and 21 to 23 in section 7.1.
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 * links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in the corresponding `provider-metadata.json`.
@@ -6207,7 +6222,10 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 
 > The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
 > CSAF aggregators can be provided for free or as a paid service.
+>
 > To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
+> The purpose of this option is that a consumer can retrieve CSAF documents from a CSAF publisher as if this issuing party would be a CSAF trusted provider. To reach that goal, a CSAF aggregator collects the CSAF documents from the CSAF publisher and mirrors it. The collection process MAY be automated or manual. CSAF aggregators announce the collection interval through the field `update_interval` in the corresponding item of the CSAF publishers list (`csaf_publishers`) in their `aggregator.json`.
+> To minimize the implementation efforts and process overhead, a CSAF aggregator MAY upload the CSAF documents of a CSAF publisher into an internal instance of a CSAF provider software. Such construct is called "CSAF proxy provider" as it can be mirrored by the CSAF aggregator software. However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself. Otherwise, that would violate the second rule of section 7.2.1. Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
 
 ## 7.3 Retrieving rules
 
@@ -6796,6 +6814,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
 | csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS for public review    |
 | csaf-v2.0-wd20220329-dev | 2022-03-29 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
+| csaf-v2.0-wd20220514-dev | 2022-05-14 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS |
 
 -------
 
