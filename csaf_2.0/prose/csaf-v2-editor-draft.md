@@ -565,8 +565,8 @@ The properties are: `names`, `organization`, `summary`, and `urls`.
 
 #### 3.1.1.1 Acknowledgments Type - Names
 
-List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of persons being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of the person and contains the name of a single person being recognized.
+List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of contributors being recognized.
+Every such item of value type `string` with 1 or more characters represents the name of the contributor and contains the name of a single contributor being recognized.
 
 *Examples 1:*
 
