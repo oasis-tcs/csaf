@@ -353,7 +353,7 @@
         "properties": {
           "audience": {
             "title": "Audience of note",
-            "description": "Indicate who is intended to read it.",
+            "description": "Indicates who is intended to read it.",
             "type": "string",
             "minLength": 1,
             "examples": [
@@ -365,7 +365,7 @@
           },
           "category": {
             "title": "Note category",
-            "description": "Choice of what kind of note this is.",
+            "description": "Contains the information of what kind of note this is.",
             "type": "string",
             "enum": [
               "description",
@@ -378,8 +378,8 @@
             ]
           },
           "text": {
-            "title": "Note contents",
-            "description": "The contents of the note. Content varies depending on type.",
+            "title": "Note content",
+            "description": "Holds the content of the note. Content varies depending on type.",
             "type": "string",
             "minLength": 1
           },
