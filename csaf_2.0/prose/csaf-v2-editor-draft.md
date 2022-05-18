@@ -2744,10 +2744,15 @@ The value `workaround` indicates that the remediation contains information about
 The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product. Mitigations MAY include using devices or access controls external to the affected product. Mitigations MAY or MAY NOT be issued by the original author of the affected product, and they MAY or MAY NOT be officially sanctioned by the document producer.
 
 The value `vendor_fix` indicates that the remediation contains information about an official fix that is issued by the original author of the affected product. Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
+This value contradicts with the categories `none_available` and `no_fix_planned` for the same product. Therefore, such a combination can't be used in the list of remediations.
 
-The value `none_available` indicates that there is currently no fix available. The description SHOULD contain details about why there is no fix.
+The value `none_available` indicates that there is currently no fix or other remediation available. The text in field `details` SHOULD contain details about why there is no fix or other remediation.
+The values `none_available` and `vendor_fix` are mutually exclusive per product.
 
-The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description SHOULD contain details about why there will be no fix issued.
+> An issuing party might choose to use this category to announce that a fix is currently developed. It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+
+The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The text in field `details` SHOULD contain details about why there will be no fix issued.
+The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
 
 ##### 3.2.3.12.2 Vulnerabilities Property - Remediations - Date
 
