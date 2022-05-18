@@ -360,9 +360,9 @@ _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux F
 _vers: a mostly universal version range specifier_, Part of the PURL GitHub Project, https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.
 ###### [VEX]
 _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021,
-https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf
-##### [VEX-Just]
-_An overview of the VEX flags_, TBA
+https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf.
+##### [VEX-Justification]
+_Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, XX May 2022, tba.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at https://www.w3.org/TR/xml.
@@ -2456,7 +2456,7 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
     vulnerable_code_not_present
 ```
 
-The given values reflect the VEX not affected justifications. See [VEX-Just] for more details. The values MUST be used as follows:
+The given values reflect the VEX not affected justifications. See [VEX-Justification] for more details. The values MUST be used as follows:
 
 * `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 * `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
