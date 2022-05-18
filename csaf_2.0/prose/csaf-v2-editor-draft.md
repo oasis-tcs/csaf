@@ -5762,7 +5762,7 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
 
 In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
-> At the time of this writing, the security.txt was just published as [RFC9116]. The `CSAF` field is currently in the process of being officially added.
+> The security.txt was published as [RFC9116] in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
 
 *Example 125:*
 
