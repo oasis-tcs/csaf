@@ -4675,7 +4675,7 @@ The relevant paths for this test are:
 
 For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected and Under investigation it MUST be tested that a remediation exists.
 
-> The remediation might be of the category `none_available` or `no_fixed_planned`.
+> The remediation might be of the category `none_available` or `no_fix_planned`.
 
 The relevant paths for this test are:
 
