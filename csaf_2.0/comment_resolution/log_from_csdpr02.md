@@ -8,32 +8,19 @@ The item number is a hyperlink to the issue number in this OASIS TC CASF reposit
 
 | Item #                                             | Date       | Commenter      | Description                            | Date acknowledged | Resolution           | Disposition                                             | 
 |----------------------------------------------------|------------|----------------|----------------------------------------|-------------------|----------------------|---------------------------------------------------------|
-| [1](https://github.com/oasis-tcs/csaf/issues/512)  | 2022-04-27 | Thomas Proell  | Remediations are confusing             | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/540) |
-| [2](https://github.com/oasis-tcs/csaf/issues/513)  | 2022-04-27 | Thomas Schmidt | Clarify aggregator requirements        | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [3](https://github.com/oasis-tcs/csaf/issues/514)  | 2022-04-27 | Thomas Schmidt | Prettify Note                          | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [4](https://github.com/oasis-tcs/csaf/issues/515)  | 2022-04-27 | Thomas Schmidt | Improve title of mandatory test 6.1.30 | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [5](https://github.com/oasis-tcs/csaf/issues/516)  | 2022-04-27 | Thomas Schmidt | Add missing reference [VERS]           | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [6](https://github.com/oasis-tcs/csaf/issues/517)  | 2022-04-27 | Thomas Schmidt | Add missing reference [VEX-Just]       | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/538) |
-| [7](https://github.com/oasis-tcs/csaf/issues/518)  | 2022-04-27 | Thomas Schmidt | Add missing ] in example 16            | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [8](https://github.com/oasis-tcs/csaf/issues/519)  | 2022-04-27 | Thomas Schmidt | Clarify purpose of product_id          | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [9](https://github.com/oasis-tcs/csaf/issues/520)  | 2022-04-27 | Thomas Schmidt | Clarify purpose of group_ids           | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [10](https://github.com/oasis-tcs/csaf/issues/521) | 2022-04-27 | Thomas Schmidt | Clarify binding already in section 3   | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [11](https://github.com/oasis-tcs/csaf/issues/522) | 2022-04-28 | Thomas Schmidt | Reference security.txt as RFC9116      | 2022-04-28        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [12](https://github.com/oasis-tcs/csaf/issues/523) | 2022-04-28 | Thomas Schmidt | Fix leftover }                         | 2022-04-28        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
-| [13](https://github.com/oasis-tcs/csaf/issues/524) | 2022-04-28 | Thomas Schmidt | Fix example 4                          | 2022-04-28        | Discussed at TC call | [TC agrees. Editors added clarifications and
-explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [1](https://github.com/oasis-tcs/csaf/issues/512)  | 2022-04-27 | Thomas Proell  | Remediations are confusing             | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/540) |
+| [2](https://github.com/oasis-tcs/csaf/issues/513)  | 2022-04-27 | Thomas Schmidt | Clarify aggregator requirements        | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [3](https://github.com/oasis-tcs/csaf/issues/514)  | 2022-04-27 | Thomas Schmidt | Prettify Note                          | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [4](https://github.com/oasis-tcs/csaf/issues/515)  | 2022-04-27 | Thomas Schmidt | Improve title of mandatory test 6.1.30 | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [5](https://github.com/oasis-tcs/csaf/issues/516)  | 2022-04-27 | Thomas Schmidt | Add missing reference [VERS]           | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [6](https://github.com/oasis-tcs/csaf/issues/517)  | 2022-04-27 | Thomas Schmidt | Add missing reference [VEX-Just]       | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/538) |
+| [7](https://github.com/oasis-tcs/csaf/issues/518)  | 2022-04-27 | Thomas Schmidt | Add missing ] in example 16            | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [8](https://github.com/oasis-tcs/csaf/issues/519)  | 2022-04-27 | Thomas Schmidt | Clarify purpose of product_id          | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [9](https://github.com/oasis-tcs/csaf/issues/520)  | 2022-04-27 | Thomas Schmidt | Clarify purpose of group_ids           | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [10](https://github.com/oasis-tcs/csaf/issues/521) | 2022-04-27 | Thomas Schmidt | Clarify binding already in section 3   | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [11](https://github.com/oasis-tcs/csaf/issues/522) | 2022-04-28 | Thomas Schmidt | Reference security.txt as RFC9116      | 2022-04-28        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [12](https://github.com/oasis-tcs/csaf/issues/523) | 2022-04-28 | Thomas Schmidt | Fix leftover }                         | 2022-04-28        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
+| [13](https://github.com/oasis-tcs/csaf/issues/524) | 2022-04-28 | Thomas Schmidt | Fix example 4                          | 2022-04-28        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |
 
 ## Evaluation of Feedback
 
