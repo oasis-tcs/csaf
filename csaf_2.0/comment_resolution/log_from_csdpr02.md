@@ -8,7 +8,7 @@ The item number is a hyperlink to the issue number in this OASIS TC CASF reposit
 
 | Item #                                             | Date       | Commenter      | Description                            | Date acknowledged | Resolution           | Disposition                                             | 
 |----------------------------------------------------|------------|----------------|----------------------------------------|-------------------|----------------------|---------------------------------------------------------|
-| [1](https://github.com/oasis-tcs/csaf/issues/512)  | 2022-04-27 | "tom1972-de"   | Remediations are confusing             | 2022-04-27        | Discussed at TC call | [Completed](https://github.com/oasis-tcs/csaf/pull/540) |
+| [1](https://github.com/oasis-tcs/csaf/issues/512)  | 2022-04-27 | Thomas Proell  | Remediations are confusing             | 2022-04-27        | Discussed at TC call | [Completed](https://github.com/oasis-tcs/csaf/pull/540) |
 | [2](https://github.com/oasis-tcs/csaf/issues/513)  | 2022-04-27 | Thomas Schmidt | Clarify aggregator requirements        | 2022-04-27        | Discussed at TC call | [Completed](https://github.com/oasis-tcs/csaf/pull/543) |
 | [3](https://github.com/oasis-tcs/csaf/issues/514)  | 2022-04-27 | Thomas Schmidt | Prettify Note                          | 2022-04-27        | Discussed at TC call | [Completed](https://github.com/oasis-tcs/csaf/pull/543) |
 | [4](https://github.com/oasis-tcs/csaf/issues/515)  | 2022-04-27 | Thomas Schmidt | Improve title of mandatory test 6.1.30 | 2022-04-27        | Discussed at TC call | [Completed](https://github.com/oasis-tcs/csaf/pull/543) |
