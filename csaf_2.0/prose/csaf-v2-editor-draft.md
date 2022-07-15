@@ -5764,7 +5764,7 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 
 > The security.txt was published as [RFC9116] in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
 
-*Example 125:*
+*Examples 125:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -5804,7 +5804,7 @@ The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 128:*
+*Example 128:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -5818,7 +5818,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 129:*
+*Example 129:*
 
 ```
 2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
