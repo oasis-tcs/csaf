@@ -5687,7 +5687,7 @@ This does not exclude that such a document is also available in an access protec
 
 ### 7.1.5 Requirement 5: TLP:AMBER and TLP:RED
 
-CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
+CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a web server this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it MUST be ensured that the documents are still access protected.
 
@@ -5701,7 +5701,7 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
 
-> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consistency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAf documents.
+> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consistency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAF documents.
 >
 > It is suggested to put the file `provider-metadata.json` adjacent to the ROLIE feed documents (requirement 15) or in the main directory adjacent to the year folders (requirement 14), `changes.csv` (requirement 13) and the `index.txt` (requirement 12).
 > Suggested locations to store the `provider-metadata.json` are:
@@ -5711,7 +5711,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Examples 124 Minimal with ROLIE document:*
+*Example 124 Minimal with ROLIE document:*
 
 ```
   {
@@ -5787,7 +5787,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 
 ### 7.1.10 Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year
 
@@ -6692,7 +6692,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | :--- | :--- | :--- |
 |Alexandre | Dulaunoy | CIRCL|
 |Anthony | Berglas | Cryptsoft Pty Ltd.|
-|Art | MANION | Carnegie Mellon University|
+|Art | Manion | Carnegie Mellon University|
 |Aukjan | van Belkum | EclecticIQ|
 |Ben | Sooter | Electric Power Research Institute (EPRI)|
 |Bernd | Grobauer | Siemens AG|
