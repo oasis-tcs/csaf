@@ -7,10 +7,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Multiple Definition in Involvements (failing example 1)",
+    "title": "Mandatory test: Multiple Definition in Involvements (valid example 2)",
     "tracking": {
       "current_release_date": "2021-07-21T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-24-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-24-12",
       "initial_release_date": "2021-07-21T10:00:00.000Z",
       "revision_history": [
         {
@@ -29,8 +29,12 @@
         {
           "date": "2021-04-23T10:00:00.000Z",
           "party": "vendor",
-          "status": "completed"
-        },
+          "status": "in_progress"
+        }
+      ]
+    },
+    {
+      "involvements": [
         {
           "date": "2021-04-23T10:00:00.000Z",
           "party": "vendor",
