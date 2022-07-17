@@ -802,7 +802,7 @@ If adjacent property `category` has the value `product_version_range`, the value
 
 2. Vers-like Specifier (vls)
 
-    This option uses only the `<version-constraint>` part from the vers specification. It MUST not have an URI nor the `<versioning-scheme>` part. It is a fallback option and SHOULD NOT be used unless really necessary.
+    This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part. It is a fallback option and SHOULD NOT be used unless really necessary.
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
 
     Tools MAY support this on best effort basis.
@@ -1194,7 +1194,7 @@ Language type (`lang_t`) has value type `string` with `pattern` (regular express
 The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
 See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
-> CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they SHOULD not be used to ensure readability across the ecosystem.
+> CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem.
 > It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
 *Examples 18:*
@@ -2419,7 +2419,7 @@ List of flags (`flags`) of value type `array` with 1 or more unique items (a set
 
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to this vulnerability as a single machine readable flag.
 For example, this could be a machine readable justification code why a product is not affected.
-At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) must be present to state for which products or product groups this flag is applicable.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or product groups this flag is applicable.
 
 > These flags enable the receiving party to automate the selection of actions to take.
 
@@ -2693,7 +2693,7 @@ List of remediations (`remediations`) of value type `array` with 1 or more Remed
     },
 ```
 
-Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability. At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) must be present to state for which products or product groups this remediation is applicable.
+Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability. At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or product groups this remediation is applicable.
 
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
@@ -4669,7 +4669,7 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` was defined but never used.
 
-> A tool MAY remove the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
+> A tool MAY remove the unused definition as quick fix. However, such quick fix shall not be applied if the test was skipped.
 
 ### 6.2.2 Missing Remediation
 
@@ -5503,7 +5503,7 @@ The relevant paths for this test are:
 
 ### 6.3.8 Spell check
 
-If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "CSAF Base".
+If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
 
@@ -5675,7 +5675,7 @@ The CSAF document has a filename according to the rules in section 5.1.
 
 ### 7.1.3 Requirement 3: TLS
 
-The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport when crossing organizational boundaries to maintain the chain of custody.
+The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST NOT be downloadable from a location which does not encrypt the transport when crossing organizational boundaries to maintain the chain of custody.
 
 ### 7.1.4 Requirement 4: TLP:WHITE
 
@@ -5687,7 +5687,7 @@ This does not exclude that such a document is also available in an access protec
 
 ### 7.1.5 Requirement 5: TLP:AMBER and TLP:RED
 
-CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
+CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a web server this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it MUST be ensured that the documents are still access protected.
 
@@ -5701,7 +5701,7 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
 
-> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consistency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAf documents.
+> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consistency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAF documents.
 >
 > It is suggested to put the file `provider-metadata.json` adjacent to the ROLIE feed documents (requirement 15) or in the main directory adjacent to the year folders (requirement 14), `changes.csv` (requirement 13) and the `index.txt` (requirement 12).
 > Suggested locations to store the `provider-metadata.json` are:
@@ -5711,7 +5711,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Examples 124 Minimal with ROLIE document:*
+*Example 124 Minimal with ROLIE document:*
 
 ```
   {
@@ -5764,7 +5764,7 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 
 > The security.txt was published as [RFC9116] in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
 
-*Example 125:*
+*Examples 125:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -5787,7 +5787,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 
 ### 7.1.10 Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year
 
@@ -5804,7 +5804,7 @@ The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 128:*
+*Example 128:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -5818,13 +5818,13 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 129:*
+*Example 129:*
 
 ```
-2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
-2018/example_company_-_2018-yh2312.json, "2020-07-01T10:09:01Z"
-2019/example_company_-_2019-yh3234.json, "2019-04-17T15:08:41Z"
-2018/example_company_-_2018-yh2312.json, "2019-03-01T06:01:00Z"
+"2020/example_company_-_2020-yh4711.json","2020-07-01T10:09:07Z"
+"2018/example_company_-_2018-yh2312.json","2020-07-01T10:09:01Z"
+"2019/example_company_-_2019-yh3234.json","2019-04-17T15:08:41Z"
+"2018/example_company_-_2018-yh2312.json","2019-03-01T06:01:00Z"
 ```
 
 ### 7.1.14 Requirement 14: Directory listings
@@ -6042,7 +6042,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 ### 7.1.21 Requirement 21: List of CSAF providers
 
-The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
+The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 > Suggested locations to store the `aggregator.json` are:
 >
@@ -6367,7 +6367,7 @@ Secondly, the program fulfills the following for all items of:
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match MUST be calculated by the original values used in the CVRF document. If this conversion was applied, for each Revision the original value of `cvrf:Number` MUST be set as `legacy_version` in the converted document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition, the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/lang`: If one or more CVRF element containing an `xml:lang` attribute exist and contain the exact same value, the CVRF CSAF converter converts this value into `lang`. If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be determined and possibly a document with multiple languages was produced. In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
-* `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
+* `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program SHOULD prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/document/tracking/id`: If the element `cvrf:ID` contains any line breaks or leading or trailing white space, the CVRF CSAF converter removes those characters. In addition, the converter outputs a warning that the ID was changed.
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given, the CVRF CSAF converter converts the first one into `cwe`. In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
@@ -6523,7 +6523,7 @@ The program:
 
 The resulting modified document:
 
-* does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It SHOULD not use the original `/document/tracking/id` as a prefix.
+* does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It SHOULD NOT use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
 ### 9.1.9 Conformance Clause 9: CSAF translator
@@ -6539,7 +6539,7 @@ The program:
 
 The resulting translated document:
 
-* does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It SHOULD not use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they MAY use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+* does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It SHOULD NOT use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they MAY use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and SHOULD only be set by CSAF translators).
 * has the value `translator` set in `/document/publisher/category`
@@ -6612,7 +6612,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
     * when a new asset is inserted (for this asset)
     * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
     > These also apply if more than one CSAF document or asset was added. To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
-  * Manually and automatically triggered runs SHOULD not be pooled.
+  * Manually and automatically triggered runs SHOULD NOT be pooled.
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
   * marked with a given status
@@ -6692,7 +6692,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | :--- | :--- | :--- |
 |Alexandre | Dulaunoy | CIRCL|
 |Anthony | Berglas | Cryptsoft Pty Ltd.|
-|Art | MANION | Carnegie Mellon University|
+|Art | Manion | Carnegie Mellon University|
 |Aukjan | van Belkum | EclecticIQ|
 |Ben | Sooter | Electric Power Research Institute (EPRI)|
 |Bernd | Grobauer | Siemens AG|
@@ -6815,6 +6815,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS for public review    |
 | csaf-v2.0-wd20220329-dev | 2022-03-29 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
 | csaf-v2.0-wd20220514-dev | 2022-05-14 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS |
+| csaf-v2.0-wd20220715-dev | 2022-07-15 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS |
 
 -------
 
@@ -6822,7 +6823,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 This appendix provides informative guidance on the size of CSAF documents.
 
-The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with the result that hard limits SHOULD not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with the result that hard limits SHOULD NOT be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
 All _CSAF consumers_ SHOULD be able to process CSAF documents which comply with the limits below. All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits.
 
