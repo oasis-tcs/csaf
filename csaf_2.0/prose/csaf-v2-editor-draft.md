@@ -4523,6 +4523,7 @@ For each element of type `/$defs/branches_t` with `category` of `product_version
 >   after
 >   all
 >   before
+>   earlier
 >   later
 >   prior
 >   versions
