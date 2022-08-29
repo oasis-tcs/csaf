@@ -5,19 +5,19 @@
 
 # Common Security Advisory Framework Version 2.0
 
-## Committee Specification 02
+## Committee Specification 03
 
-## 29 June 2022
+## 01 August 2022
 
 #### This stage:
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.html \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.pdf
+
+#### Previous stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/csaf-v2.0-cs02.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/csaf-v2.0-cs02.html \
 https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/csaf-v2.0-cs02.pdf
-
-#### Previous stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.pdf
 
 #### Latest stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.md (Authoritative) \
@@ -35,16 +35,16 @@ Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
-In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Committee.
+In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Technical Committee.
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/schemas/aggregator_json_schema.json. \
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/schemas/aggregator_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/schemas/csaf_json_schema.json. \
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/schemas/csaf_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/schemas/provider_json_schema.json. \
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/schemas/provider_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json.
 
 #### Related work:
@@ -76,7 +76,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.0]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 29 June 2022. OASIS Committee Specification 02. https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/csaf-v2.0-cs02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 01 August 2022. OASIS Committee Specification 03. https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 
 -------
@@ -361,7 +361,7 @@ _vers: a mostly universal version range specifier_, Part of the PURL GitHub Proj
 ###### [VEX]
 _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021,
 https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf.
-##### [VEX-Justification]
+###### [VEX-Justification]
 _Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, XX May 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/.
@@ -587,7 +587,7 @@ The contributing organization (`organization`) has value type `string` with 1 or
     Talos
 ```
 
-##### 3.1.1.3 Acknowledgments Type - Summary
+#### 3.1.1.3 Acknowledgments Type - Summary
 
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.
 
@@ -597,13 +597,13 @@ Summary of the acknowledgment (`summary`) of value type `string` with 1 or more 
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 ```
 
-##### 3.1.1.4 Acknowledgments Type - URLs
+#### 3.1.1.4 Acknowledgments Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
 
-##### 3.1.1.5 Acknowledgments Type - Example
+#### 3.1.1.5 Acknowledgments Type - Example
 
 *Example 4:*
 
