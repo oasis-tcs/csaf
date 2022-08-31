@@ -1,0 +1,44 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Informative test: Missing CWE (failing example 2)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-3-04-02",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2019-0708",
+      "title": "BlueKeep"
+    },
+    {
+      "cve": "CVE-2014-0160",
+      "cwe": {
+        "id": "CWE-119",
+        "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer"
+      },
+      "title": "Heartbleed"
+    },
+    {
+      "cve": "CVE-2017-0144",
+      "title": "EternalBlue"
+    }
+  ]
+}
