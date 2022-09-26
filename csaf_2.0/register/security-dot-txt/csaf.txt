@@ -3,4 +3,4 @@ Description: link to a provider-metadata.json resource of the Common Security Ad
 Multiple Appearances: yes
 Status: current
 Change controller: OASIS-OPEN
-Reference: RFC 9116
+Reference: Common Security Advisory Framework Version 2.0 section 7.1.8 "Requirement 8: security.txt" https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#718-requirement-8-securitytxt
