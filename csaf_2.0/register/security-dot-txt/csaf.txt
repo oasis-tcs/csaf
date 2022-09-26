@@ -1,4 +1,4 @@
-Field Name: Canonical
+Field Name: CSAF
 Description: link to a provider-metadata.json resource of the Common Security Advisory Framework (CSAF)
 Multiple Appearances: yes
 Status: current
