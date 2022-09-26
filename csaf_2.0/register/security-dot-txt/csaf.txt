@@ -1,0 +1,6 @@
+Field Name: Canonical
+Description: link to a provider-metadata.json resource of the Common Security Advisory Framework (CSAF)
+Multiple Appearances: yes
+Status: current
+Change controller: OASIS-OPEN
+Reference: RFC 9116
