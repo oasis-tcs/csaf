@@ -1,0 +1,4 @@
+URI suffix: .well-known/csaf/
+Change controller: OASIS_OPEN
+Specification document(s): Common Security Advisory Framework Version 2.0 section 7.1.9 Requirement 9: Well-known URL for provider-metadata.json, URL https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#719-requirement-9-well-known-url-for-provider-metadatajson
+Related information: Common Security Advisory Framework Version 2.0 section 7 Distributing CSAF Documents, URL https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#7-distributing-csaf-documents
