@@ -10,6 +10,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Test filenames of CSAF examples
       run: ./csaf_2.0/test/filenames/run_tests.sh ./csaf_2.0/examples/csaf/*.json
+    - name: Test filenames of CSAF examples - profile specific folders 
+      run: ./csaf_2.0/test/filenames/run_tests.sh ./csaf_2.0/examples/csaf/csaf_*/*.json
     - name: Test filenames of CSAF test files in validator/data/mandatory
       run: ./csaf_2.0/test/filenames/run_tests.sh ./csaf_2.0/test/validator/data/mandatory/*.json
     - name: Test filenames of CSAF test files in validator/data/optional 
