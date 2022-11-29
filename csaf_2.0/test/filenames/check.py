@@ -8,7 +8,7 @@ import sys
 
 ENCODING = 'utf-8'
 INVALID_ID = '_invalid'
-VALID_NAME_PAT = r'([^+\-_a-z0-9]+)'
+VALID_NAME_PAT = r'([^+\-a-z0-9]+)'
 SUCC = 'TRUE'
 FAIL = 'FALSE'
 
