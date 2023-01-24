@@ -27,3 +27,6 @@ jobs:
       run: ./csaf_2.0/test/validator/run_tests.sh optional
     - name: Test validator/data/informative against schema
       run: ./csaf_2.0/test/validator/run_tests.sh informative
+
+    - name: Test validator/data/testcases.json against testcase schema
+      run: ./csaf_2.0/test/validator/check_testcases.sh
