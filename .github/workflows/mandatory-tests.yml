@@ -3,7 +3,7 @@ name: CSAF Mandatory Tests
 on: [push, pull_request]
 
 jobs:
-  cpe-test:
+  mandatory-test:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
