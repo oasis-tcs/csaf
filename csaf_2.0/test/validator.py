@@ -30,5 +30,5 @@ if len(json_referenced_schemas) > 0:
             schema_store[current_ref_schema['$id']] = current_ref_schema
 
 resolver = RefResolver.from_schema(schema_store[list(schema_store)[0]], store=schema_store)
-validator = Draft202012Validator(schema, resolver, jsonschema.draft202012_format_checker)
+validator = Draft202012Validator(schema, resolver, Draft202012Validator.FORMAT_CHECKER)
 validator.validate(input_obj)
