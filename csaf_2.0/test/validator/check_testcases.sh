@@ -46,7 +46,7 @@ check_files_exist() {
   fi
 }
 
-#validate "${TESTPATH}${TESTFILE}"
+validate "${TESTPATH}${TESTFILE}"
 collect_dir_files ${TESTPATH}
 collect_test_files "${TESTFILE}"
 check_files_exist "${DIRFILES}" "${TESTFILES}"

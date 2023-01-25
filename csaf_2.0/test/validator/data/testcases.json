@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/test/validator/testcases_json_schema.json",
-  "testschema_version": "2.0-alpha",
+  "testschema_version": "2.0",
   "tests": [
     {
       "id": "6.1.1",

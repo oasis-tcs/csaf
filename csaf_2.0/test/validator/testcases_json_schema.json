@@ -97,7 +97,7 @@
       "title": "Test schema version",
       "description": "Contains the current version of this schema",
       "type": "string",
-      "enum": ["2.0-alpha"]
+      "enum": ["2.0"]
     }
   }
 }
