@@ -3,7 +3,7 @@ name: CSAF Mandatory Tests
 on: [push, pull_request]
 
 jobs:
-  cpe-test:
+  mandatory-test:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -11,7 +11,7 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: '16'
+        node-version: '18'
     - name: Setup csaf-validator-lib
       run: |
         cd ..
