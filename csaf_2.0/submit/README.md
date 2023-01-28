@@ -75,7 +75,7 @@ f. *A statement of the intended future plans for versioning and maintenance of t
 The OASIS CSAF Technical Committee will continue to maintain the CSAF\ v2.0 OASIS
 Standards and produce future revisions of them.
 
-For this specific submission (CSAF\ v2.0 OASIS) to ISO/IEC JTC\ 1, OASIS will request to be
+For this specific submission (CSAF\ v2.0 OASIS Standard) to ISO/IEC JTC\ 1, OASIS will request to be
 named the “JTC\ 1 designated maintenance group” and will follow the required maintenance
 procedures (including Systematic Review).
 
