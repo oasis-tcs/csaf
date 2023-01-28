@@ -72,7 +72,7 @@ f. *A statement of the intended future plans for versioning and maintenance of t
    *submission of future versions; and a description of how OASIS and the submission requesters expect to*
    *comply with those rules.*
 
-The OASIS OData Technical Committee will continue to maintain the CSAF\ v2.0 OASIS
+The OASIS CSAF Technical Committee will continue to maintain the CSAF\ v2.0 OASIS
 Standards and produce future revisions of them.
 
 For this specific submission (CSAF\ v2.0 OASIS) to ISO/IEC JTC\ 1, OASIS will request to be
