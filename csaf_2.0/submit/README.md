@@ -23,7 +23,7 @@ c. *The intended status or outcome that the request seeks from the receiving org
    *short description of the receiving organization’s approval process, including estimated time required,*
    *stages of approval and who votes at each stage.*
 
-Intended status: Advance CSAF\ v2.0 OASIS to an ISO/IEC International Standard
+Intended status: Advance CSAF\ v2.0 OASIS Standard to an ISO/IEC International Standard
 
 Process: ISO/IEC\ JTC\ 1 PAS Transposition Process involving a Draft International
 Standard\(DIS) ballot followed by a Ballot Resolution Meeting\ (BRM) (if there are comments
