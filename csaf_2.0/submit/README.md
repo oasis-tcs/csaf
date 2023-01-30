@@ -2,7 +2,7 @@
 
 Date: January 28, 2023
 
->*The following text parts - marked up in a gray, cursive,, and smaller font - have been copied directly from*
+>*The following text parts - marked up in a gray, cursive, and smaller font - have been copied directly from*
 >*the requirements stated in the relevant section of the current OASIS Liaison Policies page at:*
 >                                          https://www.oasis-open.org/policies-guidelines/liaison/#submitwork
 
