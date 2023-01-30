@@ -26,7 +26,7 @@ c. *The intended status or outcome that the request seeks from the receiving org
 Intended status: Advance CSAF\ v2.0 OASIS Standard to an ISO/IEC International Standard
 
 Process: ISO/IEC\ JTC\ 1 PAS Transposition Process involving a Draft International
-Standard\(DIS) ballot followed by a Ballot Resolution Meeting\ (BRM) (if there are comments
+Standard\ (DIS) ballot followed by a Ballot Resolution Meeting\ (BRM) (if there are comments
 during ballots), and potentially a Final DIS\ (FDIS) Ballot.
 
 Stages of approval: https://www.iso.org/stage-codes.html - Stage 40
@@ -39,7 +39,7 @@ Stages of approval: https://www.iso.org/stage-codes.html - Stage 40
 d. *An explanation of how the submission will benefit OASIS.*
 
 Advancing CSAF\ v2.0 to an international standard draws international attention to the work
-done by OASIS and to the organization itself,and governments/regulators may be more
+done by OASIS and to the organization itself, and governments/regulators may be more
 inclined to use the standard because of its ISO/IEC status.
 
 This will help nurture and expand the ongoing liaisons with ISO/IEC JTC 1.
