@@ -25,9 +25,12 @@ c. *The intended status or outcome that the request seeks from the receiving org
 
 Intended status: Advance CSAF\ v2.0 OASIS Standard to an ISO/IEC International Standard
 
-Process: ISO/IEC\ JTC\ 1 PAS Transposition Process involving a Draft International
+Base process: ISO/IEC\ JTC\ 1 PAS Transposition Process involving a Draft International
 Standard\ (DIS) ballot followed by a Ballot Resolution Meeting\ (BRM) (if there are comments
 during ballots), and potentially a Final DIS\ (FDIS) Ballot.
+
+Modification: Kindly asking OASIS Management to first provide a notice and consultation
+period to JTC≤\ 1/SC27, as SC27's support will be helpful before any ballots.
 
 Stages of approval: https://www.iso.org/stage-codes.html - Stage 40
 
@@ -61,6 +64,8 @@ ISO/IEC JTC\ 1 will expect that OASIS will abide by the ISO/IEC/ITU-T Common Pat
 (indicated by at least notifying ISO/IEC of any patent declarations in the required Explanatory
 Report), and will provide ISO/IEC with sufficient copyright license to modify and publish the
 resulting ISO/IEC Standard.
+
+The TC offers publication of the standard on the condition that it's not changed otherwise.
 
 As these items have already been agreed with ISO/IEC JTC\ 1 when OASIS was approved as a
 PAS Submitter, no new issues are expected.
