@@ -219,13 +219,13 @@
                 "format": "date-time"
               },
               "summary": {
-                "title": "",
-                "description": "",
+                "title": "Summary",
+                "description": "Contains the summary of the CSAF document.",
                 "type": "object",
                 "properties": {
                   "content": {
-                    "title": "",
-                    "description": "",
+                    "title": "Content",
+                    "description": "Contains the actual text of the summary.",
                     "type": "string",
                     "minLength": 1
                   }
@@ -256,8 +256,8 @@
                 }
               },
               "format": {
-                "title": "",
-                "description": "",
+                "title": "Format",
+                "description": "Contains information about the format of the entry.",
                 "type": "object",
                 "required": [
                   "schema",
@@ -274,7 +274,7 @@
                   },
                   "version": {
                     "title": "CSAF Version",
-                    "description": "Contains the  CSAF version the document was written in.",
+                    "description": "Contains the CSAF version the document was written in.",
                     "type": "string",
                     "enum": [
                       "2.0"
