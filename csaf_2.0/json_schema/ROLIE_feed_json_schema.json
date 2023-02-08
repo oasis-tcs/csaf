@@ -173,7 +173,6 @@
           "title": "List of Entries",
           "description": "Contains a list of feed entries.",
           "type": "array",
-          "minItems": 1,
           "uniqueItems": true,
           "items": {
             "title": "Entry",
