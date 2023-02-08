@@ -1,0 +1,185 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://access.redhat.com/security/updates/classification/",
+      "text": "Important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright \u00a9 2022 Red Hat, Inc. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "A security update is now available for Red Hat Single Sign-On 7.5 from the Customer Portal.\n\nRed Hat Product Security has rated this update as having a security impact of Important. A Common Vulnerability Scoring System (CVSS) base score, which gives a detailed severity rating, is available for each vulnerability from the CVE link(s) in the References section.",
+        "title": "Topic"
+      },
+      {
+        "category": "general",
+        "text": "Red Hat Single Sign-On 7.5 is a standalone server, based on the Keycloak project, that provides authentication and standards-based single sign-on capabilities for web and mobile applications.\n\nThis is an asynchronous patch for Red Hat Single Sign-On 7.5, and includes one security fix.\n\nSecurity Fix:\n\n* keycloak: Incorrect authorization allows unpriviledged users to create other users (CVE-2021-4133)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.",
+        "title": "Details"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "This content is licensed under the Creative Commons Attribution 4.0 International License (https://creativecommons.org/licenses/by/4.0/). If you distribute this content, or a modified version of it, you must provide attribution to Red Hat Inc. and provide a link to the original.",
+        "title": "Terms of Use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://access.redhat.com/security/team/contact/",
+      "name": "Red Hat Product Security",
+      "namespace": "https://www.redhat.com"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "https://access.redhat.com/errata/RHSA-2021:5217",
+        "url": "https://access.redhat.com/errata/RHSA-2021:5217"
+      },
+      {
+        "category": "external",
+        "summary": "https://access.redhat.com/security/updates/classification/#important",
+        "url": "https://access.redhat.com/security/updates/classification/#important"
+      },
+      {
+        "category": "external",
+        "summary": "https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=securityPatches&product=core.service.rhsso&version=7.5",
+        "url": "https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=securityPatches&product=core.service.rhsso&version=7.5"
+      },
+      {
+        "category": "external",
+        "summary": "https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.5/",
+        "url": "https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.5/"
+      },
+      {
+        "category": "self",
+        "summary": "Canonical URL",
+        "url": "https://access.redhat.com/security/data/csaf/beta/2021/rhsa-2021_5217.json"
+      }
+    ],
+    "title": "Red Hat Security Advisory: Red Hat Single Sign-On 7.5.0 security update",
+    "tracking": {
+      "current_release_date": "2021-12-20T16:16:00Z",
+      "generator": {
+        "date": "2022-03-23T20:31:00Z",
+        "engine": {
+          "name": "Red Hat SDEngine",
+          "version": "3.4.3"
+        }
+      },
+      "id": "RHSA-2021:5217",
+      "initial_release_date": "2021-12-20T16:16:00Z",
+      "revision_history": [
+        {
+          "date": "2021-12-20T16:16:00Z",
+          "number": "1",
+          "summary": "Current version"
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "category": "product_family",
+            "name": "Red Hat Single Sign-On",
+            "product": {
+              "name": "Red Hat Single Sign-On",
+              "product_id": "Red Hat Single Sign-On"
+            }
+          }
+        ],
+        "category": "vendor",
+        "name": "Red Hat"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "acknowledgments": [
+        {
+          "names": [
+            "Grzegorz Soba\u0144ski"
+          ],
+          "organization": "MLabs"
+        }
+      ],
+      "cve": "CVE-2021-4133",
+      "cwe": {
+        "id": "CWE-863",
+        "name": "Incorrect Authorization"
+      },
+      "discovery_date": "2021-12-17T00:00:00Z",
+      "ids": [
+        {
+          "system_name": "Red Hat Bugzilla",
+          "text": "https://bugzilla.redhat.com/show_bug.cgi?id=2033602"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Keycloak: Incorrect authorization allows unpriviledged users to create other users",
+          "title": "Vulnerability Description"
+        }
+      ],
+      "product_status": {
+        "fixed": [
+          "Red Hat Single Sign-On"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "https://github.com/keycloak/keycloak/issues/9247",
+          "url": "https://github.com/keycloak/keycloak/issues/9247"
+        },
+        {
+          "category": "external",
+          "summary": "https://github.com/keycloak/keycloak/security/advisories/GHSA-83x4-9cwr-5487",
+          "url": "https://github.com/keycloak/keycloak/security/advisories/GHSA-83x4-9cwr-5487"
+        },
+        {
+          "category": "external",
+          "summary": "CVE-2021-4133",
+          "url": "https://access.redhat.com/security/cve/CVE-2021-4133"
+        },
+        {
+          "category": "external",
+          "summary": "bz#2033602: CVE-2021-4133 Keycloak: Incorrect authorization allows unpriviledged users to create other users",
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2033602"
+        }
+      ],
+      "release_date": "2021-12-16T17:05:00Z",
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Before applying the update, back up your existing installation, including all applications, configuration files, databases and database settings, and so on.\n\nThe References section of this erratum contains a download link (you must log in to download the update).",
+          "product_ids": [
+            "Red Hat Single Sign-On"
+          ],
+          "url": "https://access.redhat.com/errata/RHSA-2021:5217"
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2021-12-17T00:00:00Z",
+          "details": "Important"
+        }
+      ],
+      "title": "CVE-2021-4133 Keycloak: Incorrect authorization allows unpriviledged users to create other users"
+    }
+  ]
+}

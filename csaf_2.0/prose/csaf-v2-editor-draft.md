@@ -5,19 +5,19 @@
 
 # Common Security Advisory Framework Version 2.0
 
-## Committee Specification Draft 02
+## OASIS Standard
 
-## 23 February 2022
+## 18 November 2022
 
 #### This stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.pdf
+https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html \
+https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.pdf
 
 #### Previous stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/csd01/csaf-v2.0-csd01.pdf
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.html \
+https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.pdf
 
 #### Latest stage:
 https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.md (Authoritative) \
@@ -35,22 +35,22 @@ Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
-In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Committee.
+In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Technical Committee.
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/aggregator_json_schema.json. \
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/aggregator_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/csaf_json_schema.json. \
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/csaf_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/schemas/provider_json_schema.json. \
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/provider_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json.
 
 #### Related work:
 This specification replaces or supersedes:
 
-* _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. Latest stage:  https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html
+* _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. Latest stage:  https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html.
 
 #### Declared JSON namespaces:
 
@@ -63,20 +63,20 @@ This specification replaces or supersedes:
 The Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
 #### Status:
-This document was last revised or approved by the OASIS Common Security Advisory Framework (CSAF) TC on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical.
+This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical.
 
 TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at https://www.oasis-open.org/committees/csaf/.
 
-This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the OASIS IPR Policy, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/csaf/ipr.php).
+This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr/#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/csaf/ipr.php).
 
-Note that any machine-readable content ([Computer Language Definitions](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsCompLang)) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
+Note that any machine-readable content ([Computer Language Definitions](https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang)) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
 
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
 **[csaf-v2.0]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 12 November 2021. OASIS Committee Specification 01. https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 
 -------
@@ -85,7 +85,7 @@ _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan
 
 Copyright © OASIS Open 2022. All Rights Reserved.
 
-All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr) may be found at the OASIS website.
+All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
 This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.
 
@@ -101,7 +101,7 @@ As stated in the OASIS IPR Policy, the following three paragraphs in brackets ap
 
 \[OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this OASIS Standards Final Deliverable or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.\]
 
-The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see https://www.oasis-open.org/policies-guidelines/trademark for above guidance.
+The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see https://www.oasis-open.org/policies-guidelines/trademark/ for above guidance.
 
 -------
 
@@ -115,7 +115,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 ## 1.1 IPR Policy
 
-This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([https://www.oasis-open.org/committees/csaf/ipr.php](https://www.oasis-open.org/committees/csaf/ipr.php)).
+This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr/#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([https://www.oasis-open.org/committees/csaf/ipr.php](https://www.oasis-open.org/committees/csaf/ipr.php)).
 
 ## 1.2 Terminology
 
@@ -346,6 +346,8 @@ Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1):
 N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, https://www.rfc-editor.org/info/rfc7464.
 ###### [RFC8615]
 Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019, https://www.rfc-editor.org/info/rfc8615.
+###### [RFC9116]
+Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, https://www.rfc-editor.org/info/rfc9116.
 ###### [SCAP12]
 _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https://dx.doi.org/10.6028/NIST.SP.800-126r2.
 ###### [SECURITY-TXT]
@@ -354,11 +356,13 @@ Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org
 _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 ###### [SPDX22]
 _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, https://spdx.github.io/spdx-spec/.
+###### [VERS]
+_vers: a mostly universal version range specifier_, Part of the PURL GitHub Project, https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.
 ###### [VEX]
 _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021,
-https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf
-##### [VEX-Just]
-_An overview of the VEX flags_, TBA
+https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf.
+###### [VEX-Justification]
+_Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, XX May 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.
 ###### [XML]
 _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/.
 Latest version available at https://www.w3.org/TR/xml.
@@ -446,6 +450,10 @@ Delegation to industry best practices technologies is used in referencing schema
 * Classification for Document Distribution
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/
+
+Even though the JSON schema does not prohibit specifically additional properties and custom keywords, it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
+
+> The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and need for dedicated parsers as well as other tools on the side of the consuming parties.
 
 Section 4 defined profiles that are used to ensure a common understanding of which fields are required in a given use case. Additional conventions are stated in section 5. The tests given in section 6 support CSAF producers and consumers to verify rules from the specification which can not be tested by the schema. Section 7 states how to distribute and where to find CSAF documents. Safety, Security and Data Protection are considered in section 8. Finally, a set of conformance targets describes tools in the ecosystem.
 
@@ -557,8 +565,8 @@ The properties are: `names`, `organization`, `summary`, and `urls`.
 
 #### 3.1.1.1 Acknowledgments Type - Names
 
-List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of entities being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of entity being recognized and contains the name of a single person.
+List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of contributors being recognized.
+Every such item of value type `string` with 1 or more characters represents the name of the contributor and contains the name of a single contributor being recognized.
 
 *Examples 1:*
 
@@ -579,7 +587,7 @@ The contributing organization (`organization`) has value type `string` with 1 or
     Talos
 ```
 
-##### 3.1.1.3 Acknowledgments Type - Summary
+#### 3.1.1.3 Acknowledgments Type - Summary
 
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.
 
@@ -589,45 +597,45 @@ Summary of the acknowledgment (`summary`) of value type `string` with 1 or more 
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 ```
 
-##### 3.1.1.4 Acknowledgments Type - URLs
+#### 3.1.1.4 Acknowledgments Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
 
-##### 3.1.1.5 Acknowledgments Type - Example
+#### 3.1.1.5 Acknowledgments Type - Example
 
 *Example 4:*
 
 ```
-"acknowledgments": [
-  {
-    "names": [
-      "Johann Sebastian Bach",
-      "Georg Philipp Telemann",
-      "Georg Friedrich Händel"
-    ],
-    "organization": "Baroque composers",
-    "summary": "wonderful music"
-  },
-  {
-    "organization": "CISA"
-    "summary": "coordination efforts",
-    "urls": [
-      "https://cisa.gov"
-    ]
-  },
-  {
-    "organization": "BSI",
-    "summary": "assistance in coordination"
-  },
-  {
-    "names": [
-      "Antonio Vivaldi"
-    ],
-    "summary": "influencing other composers"
-  },
-]
+  "acknowledgments": [
+    {
+      "names": [
+        "Johann Sebastian Bach",
+        "Georg Philipp Telemann",
+        "Georg Friedrich Händel"
+      ],
+      "organization": "Baroque composers",
+      "summary": "wonderful music"
+    },
+    {
+      "organization": "CISA",
+      "summary": "coordination efforts",
+      "urls": [
+        "https://cisa.gov"
+      ]
+    },
+    {
+      "organization": "BSI",
+      "summary": "assistance in coordination"
+    },
+    {
+      "names": [
+        "Antonio Vivaldi"
+      ],
+      "summary": "influencing other composers"
+    }
+  ],
 ```
 
 The example 4 above SHOULD lead to the following outcome in a human-readable advisory:
@@ -794,7 +802,7 @@ If adjacent property `category` has the value `product_version_range`, the value
 
 2. Vers-like Specifier (vls)
 
-    This option uses only the `<version-constraint>` part from the vers specification. It MUST not have an URI nor the `<versioning-scheme>` part. It is a fallback option and SHOULD NOT be used unless really necessary.
+    This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part. It is a fallback option and SHOULD NOT be used unless really necessary.
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
 
     Tools MAY support this on best effort basis.
@@ -906,7 +914,7 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
@@ -931,7 +939,7 @@ List of file hashes (`file_hashes`) of value type `array` holding at least one i
       "items": {
         // ...
       }
-    }
+    },
 ```
 
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified. Any File hash object has the 2 mandatory properties `algorithm` and `value`.
@@ -1007,7 +1015,7 @@ If the value of the hash matches and the filename does not, a user SHOULD prefer
 
 ##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Model Numbers
 
-The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full model numbers.
+The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) model numbers.
 
 A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected, or the model numbers change during update.
 
@@ -1019,10 +1027,10 @@ This can also be used to identify hardware. If necessary, the software, or any o
       "items": {
         //...
       }
-    }
+    },
 ```
 
-Any given model number of value type `string` with at least 1 character represents a part, or a full model number of the component to identify.
+Any given model number of value type `string` with at least 1 character represents a full or abbreviated (partial) model number of the component to identify.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
 
@@ -1063,14 +1071,21 @@ The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items c
       "items": {
         //...
       }
-    }
+    },
 ```
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
 
+*Examples 15:*
+
+```
+    https://raw.githubusercontent.com/CycloneDX/bom-examples/master/SBOM/keycloak-10.0.2/bom.json
+    https://swinslow.net/spdx-examples/example4/main-bin-v2
+```
+
 ##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of parts, or full serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
 
@@ -1080,10 +1095,10 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
       "items": {
         //...
       }
-    }
+    },
 ```
 
-Any given serial number of value type `string` with at least 1 character represents a part, or a full serial number of the component to identify.
+Any given serial number of value type `string` with at least 1 character represents a full or abbreviated (partial) serial number of the component to identify.
 
 If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
@@ -1091,7 +1106,7 @@ Two `*` MUST NOT follow each other.
 
 ##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - SKUs
 
-The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of parts, or full stock keeping units.
+The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of full or abbreviated (partial) stock keeping units.
 
 A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
 
@@ -1103,10 +1118,10 @@ A list of stock keeping units SHOULD only be used if the list of relationships i
       "items": {
         //...  
       }
-    }
+    },
 ```
 
-Any given stock keeping unit of value type `string` with at least 1 character represents a part, or a full stock keeping unit (SKU) of the component to identify.
+Any given stock keeping unit of value type `string` with at least 1 character represents a full or abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 > Sometimes this is also called "item number", "article number" or "product number".
 
@@ -1144,6 +1159,30 @@ The namespace of the generic URI (`namespace`) of value type `string` with forma
 
 The URI (`uri`) of value type `string` with format `uri` contains the identifier itself.
 
+> These elements can be used to reference a specific component from an SBOM:
+
+*Example 16 linking a component from a CycloneDX SBOM using the bomlink mechanism:*
+
+```
+          "x_generic_uris": [
+            {
+              "namespace": "https://cyclonedx.org/capabilities/bomlink/",
+              "uri": "urn:cdx:411dafd2-c29f-491a-97d7-e97de5bc2289/1#pkg:maven/org.jboss.logging/jboss-logging@3.4.1.Final?type=jar"
+            }
+          ]
+```
+
+*Example 17 linking a component from an SPDX SBOM:*
+
+```
+          "x_generic_uris": [
+            {
+              "namespace": "https://spdx.github.io/spdx-spec/document-creation-information/#65-spdx-document-namespace-field",
+              "uri": "https://swinslow.net/spdx-examples/example4/main-bin-v2#SPDXRef-libc"
+            }
+          ]
+```
+
 ### 3.1.4 Language Type
 
 Language type (`lang_t`) has value type `string` with `pattern` (regular expression):
@@ -1155,10 +1194,10 @@ Language type (`lang_t`) has value type `string` with `pattern` (regular express
 The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
 See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
-> CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they SHOULD not be used to ensure readability across the ecosystem.
+> CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem.
 > It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
-*Examples 15:*
+*Examples 18:*
 
 ```
     de
@@ -1203,7 +1242,7 @@ A Note `object` MAY provide the optional properties `audience` and `title`.
 
 Audience of note (`audience`) of value type `string` with 1 or more characters indicates who is intended to read it.
 
-*Examples 16:*
+*Examples 19:*
 
 ```
     all
@@ -1212,7 +1251,7 @@ Audience of note (`audience`) of value type `string` with 1 or more characters i
     safety engineers
 ```
 
-Note category (`category`) of value type `string` and `enum` indicates the choice of what kind of note this is.
+Note category (`category`) of value type `string` and `enum` contains the information of what kind of note this is.
 Valid `enum` values are:
 
 ```
@@ -1239,11 +1278,11 @@ The value `other` indicates the note is something that doesn’t fit the other c
 
 The value `summary` indicates the note is a summary of something. The optional sibling property `title` MAY have more information in this case.
 
-Note contents (`text`) of value type `string` with 1 or more characters holds the contents of the note. Content varies depending on type.
+Note content (`text`) of value type `string` with 1 or more characters holds the content of the note. Content varies depending on type.
 
 Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
 
-*Examples 17:*
+*Examples 20:*
 
 ```
     Details
@@ -1264,7 +1303,7 @@ There is no predefined or required format for the Product Group ID (`product_gro
     },
 ```
 
-*Examples 18:*
+*Examples 21:*
 
 ```
     CSAFGID-0001
@@ -1298,7 +1337,7 @@ The value is a token required to identify a `full_product_name` so that it can b
     },
 ```
 
-*Examples 19:*
+*Examples 22:*
 
 ```
     CSAFPID-0004
@@ -1329,7 +1368,6 @@ List of references (`references_t`) of value type `array` with 1 or more items o
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
@@ -1386,7 +1424,7 @@ The version specifies a version string to denote clearly the evolution of the co
 
 A CSAF document MUST use only one versioning system.
 
-*Examples 20:*
+*Examples 23:*
 
 ```
     1
@@ -1448,7 +1486,7 @@ The goal of this structure is to provide additional information to the end user 
    It MAY also include minor and patch level changes. Patch and minor version MUST be reset to 0 when major version is incremented.
 8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version.
 
-   *Examples 21:*
+   *Examples 24:*
 
    ```
    1.0.0-0.3.7
@@ -1461,7 +1499,7 @@ The goal of this structure is to provide additional information to the end user 
 9. Pre-release MUST NOT be included if `/document/tracking/status` is `final`.
 10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence. Thus two versions that differ only in the build metadata, have the same precedence.
 
-    *Examples 22:*
+    *Examples 25:*
 
     ```
     1.0.0+20130313144700
@@ -1475,7 +1513,7 @@ The goal of this structure is to provide additional information to the end user 
     1. Precedence MUST be calculated by separating the version into major, minor, patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows: Major, minor, and patch versions are always compared numerically.
 
-       *Example 23:*
+       *Example 26:*
 
        ```
        1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
@@ -1483,7 +1521,7 @@ The goal of this structure is to provide additional information to the end user 
 
     3. When major, minor, and patch are equal, a pre-release version has lower precedence than a normal version:
 
-       *Example 24:*
+       *Example 27:*
 
        ```
        1.0.0-alpha < 1.0.0
@@ -1496,7 +1534,7 @@ The goal of this structure is to provide additional information to the end user 
        3. Numeric identifiers always have lower precedence than non-numeric identifiers.
        4. A larger set of pre-release fields has a higher precedence than a smaller set, if all of the preceding identifiers are equal.
 
-       *Example 25:*
+       *Example 28:*
 
        ```
        1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
@@ -1587,7 +1625,7 @@ The Namespace of aggregate severity (`namespace`) of value type `string` with fo
 
 The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
-*Examples 26:*
+*Examples 29:*
 
 ```
     Critical
@@ -1613,7 +1651,7 @@ Document category defines a short canonical name, chosen by the document produce
     }
 ```
 
-*Examples 27*:
+*Examples 30*:
 
 ```
     csaf_base
@@ -1655,7 +1693,7 @@ If both values are present, the TLP information SHOULD be preferred as this aids
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
-*Examples 28:*
+*Examples 31:*
 
 ```
     Copyright 2021, Example Company, All Rights Reserved.
@@ -1697,7 +1735,7 @@ The URL of TLP version (`url`) with value type `string` with format `uri` provid
     https://www.first.org/tlp/
 ```
 
-*Examples 29:*
+*Examples 32:*
 
 ```
     https://www.us-cert.gov/tlp
@@ -1776,7 +1814,7 @@ The value `vendor` indicates developers or maintainers of information system pro
 
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
-*Example 30:*
+*Example 33:*
 
 ```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
@@ -1790,7 +1828,7 @@ Issuing authority (`issuing_authority`) of value type `string` with 1 or more ch
 
 The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
 
-*Example 31:*
+*Example 34:*
 
 ```
      BSI
@@ -1811,7 +1849,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
 * the updated item in `/document/references[]` which points to the new version of the CSAF document
 * an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Example 32:*
+*Example 35:*
 
 ```
     https://csaf.io
@@ -1840,7 +1878,7 @@ The property MUST be present and set for any CSAF document with the value `trans
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
 
-*Examples 33:*
+*Examples 36:*
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
@@ -1899,7 +1937,7 @@ Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) 
 
 Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a distinct optional alternative ID used to refer to the document.
 
-*Example 34:*
+*Example 37:*
 
 ```
     CVE-2019-12345
@@ -1948,7 +1986,7 @@ Engine of document generation (`engine`) of value type `object` with mandatory p
 
 Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 35:*
+*Examples 38:*
 
 ```
     Red Hat rhsa-to-cvrf
@@ -1960,7 +1998,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 
 > Although it is not formally required, the TC suggests to use a versioning which compatible wth Semantic Versioning as described in the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 36:*
+*Examples 39:*
 
 ```
     0.6.0
@@ -1983,7 +2021,7 @@ Unique identifier for the document holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organization.
 
-*Examples 37:*
+*Examples 40:*
 
 ```
     Example Company - 2019-YH3234
@@ -2130,7 +2168,7 @@ The product group items are of value type `object` with the 2 mandatory properti
 
 The summary of the product group (`summary`) of value type `string` with 1 or more characters gives a short, optional description of the group.
 
-*Examples 38:*
+*Examples 41:*
 
 ```
     Products supporting Modbus.
@@ -2202,7 +2240,7 @@ Product Reference (`product_reference`) of value type Product ID (`product_id_t`
 
 Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.
 
-*Example 39:*
+*Example 42:*
 
 ```
   "product_tree": {
@@ -2344,7 +2382,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 and holds the ID for the weakness associated.
 
-*Examples 40:*
+*Examples 43:*
 
 ```
     CWE-22
@@ -2354,7 +2392,7 @@ and holds the ID for the weakness associated.
 
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
 
-*Examples 41:*
+*Examples 44:*
 
 ```
     Cross-Site Request Forgery (CSRF)
@@ -2381,10 +2419,11 @@ List of flags (`flags`) of value type `array` with 1 or more unique items (a set
 
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to this vulnerability as a single machine readable flag.
 For example, this could be a machine readable justification code why a product is not affected.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or product groups this flag is applicable.
 
 > These flags enable the receiving party to automate the selection of actions to take.
 
-In addition, any Flag items MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```
     "properties": {
@@ -2405,7 +2444,7 @@ In addition, any Flag items MAY provide the three optional properties Date (`dat
 
 Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current flag item applies to.
 
 Label of the flag (`label`) of value type `string` and `enum` specifies the machine readable label. Valid `enum` values are:
 
@@ -2417,7 +2456,7 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
     vulnerable_code_not_present
 ```
 
-The given values reflect the VEX not affected justifications. See [VEX-Just] for more details. The values MUST be used as follows:
+The given values reflect the VEX not affected justifications. See [VEX-Justification] for more details. The values MUST be used as follows:
 
 * `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 * `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
@@ -2427,7 +2466,7 @@ The given values reflect the VEX not affected justifications. See [VEX-Just] for
   > Components that are neither used nor executed by the product.
 * `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
 #### 3.2.3.6 Vulnerabilities Property - IDs
 
@@ -2457,7 +2496,7 @@ Every ID item of value type `object` with the two mandatory properties System Na
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Example 42:*
+*Example 45:*
 
 ```
     Cisco Bug ID
@@ -2466,7 +2505,7 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Example 43:*
+*Example 46:*
 
 ```
     CSCso66472
@@ -2654,7 +2693,7 @@ List of remediations (`remediations`) of value type `array` with 1 or more Remed
     },
 ```
 
-Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
+Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability. At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or product groups this remediation is applicable.
 
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`), Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
@@ -2705,10 +2744,15 @@ The value `workaround` indicates that the remediation contains information about
 The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product. Mitigations MAY include using devices or access controls external to the affected product. Mitigations MAY or MAY NOT be issued by the original author of the affected product, and they MAY or MAY NOT be officially sanctioned by the document producer.
 
 The value `vendor_fix` indicates that the remediation contains information about an official fix that is issued by the original author of the affected product. Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
+This value contradicts with the categories `none_available` and `no_fix_planned` for the same product. Therefore, such a combination can't be used in the list of remediations.
 
-The value `none_available` indicates that there is currently no fix available. The description SHOULD contain details about why there is no fix.
+The value `none_available` indicates that there is currently no fix or other remediation available. The text in field `details` SHOULD contain details about why there is no fix or other remediation.
+The values `none_available` and `vendor_fix` are mutually exclusive per product.
 
-The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The description SHOULD contain details about why there will be no fix issued.
+> An issuing party might choose to use this category to announce that a fix is currently developed. It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+
+The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The text in field `details` SHOULD contain details about why there will be no fix issued.
+The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
 
 ##### 3.2.3.12.2 Vulnerabilities Property - Remediations - Date
 
@@ -2735,11 +2779,11 @@ Every Entitlement of the remediation contains any possible vendor-defined constr
 
 ##### 3.2.3.12.5 Vulnerabilities Property - Remediations - Group IDs
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current remediation item applies to.
 
 ##### 3.2.3.12.6 Vulnerabilities Property - Remediations - Product IDs
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
 ##### 3.2.3.12.7 Vulnerabilities Property - Remediations - Restart Required
 
@@ -2801,7 +2845,6 @@ List of scores (`scores`) of value type `array` with 1 or more items of type sco
       // ...
       "items": {
         // ...
-        }
       }
     },
 ```
@@ -2828,7 +2871,7 @@ The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema
 
 The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
 
-Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
+Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply. A score object SHOULD reflect the associated product's status (for example, a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed; the known affected versions of that product can list the vulnerability score as it applies to them).
 
 #### 3.2.3.14 Vulnerabilities Property - Threats
 
@@ -2886,9 +2929,9 @@ Date of the threat (`date`) of value type `string` with format `date-time` conta
 
 Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
 
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`).
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current threat item applies to.
 
-Product IDs (`product_ids`) are of value type Products (`products_t`).
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
 
 #### 3.2.3.15 Vulnerabilities Property - Title
 
@@ -2979,6 +3022,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities` which lists all vulnerabilities.
   * `/vulnerabilities[]/notes`
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
@@ -2994,6 +3038,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities` which lists all vulnerabilities.
   * at least one of
     * `/vulnerabilities[]/product_status/fixed`
     * `/vulnerabilities[]/product_status/known_affected`
@@ -3031,7 +3076,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations where the conversion rule might lead to multiple consecutive underscores. As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 3. The file extension `.json` MUST be appended.
 
-*Examples 44:*
+*Examples 47:*
 
 ```
   cisco-sa-20190513-secureboot.json
@@ -3041,7 +3086,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 
 > It is currently considered best practice to indicate that a CSAF document is invalid by inserting `_invalid` into the filename in front of the file extension.
 
-*Examples 45:*
+*Examples 48:*
 
 ```
   cisco-sa-20190513-secureboot_invalid.json
@@ -3090,7 +3135,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/product_ids[]
 ```
 
-*Example 46 which fails the test:*
+*Example 49 which fails the test:*
 
 ```
   "product_tree": {
@@ -3120,7 +3165,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 47 which fails the test:*
+*Example 50 which fails the test:*
 
 ```
   "product_tree": {
@@ -3151,7 +3196,7 @@ The relevant path for this test is:
 
 > As this can be quite complex a program for large CSAF documents, a program could check first whether a Product ID defined in a relationship item is used as `product_reference` or `relates_to_product_reference`. Only for those which fulfill this condition it is necessary to run the full check following the references.
 
-*Example 48 which fails the test:*
+*Example 51 which fails the test:*
 
 ```
   "product_tree": {
@@ -3188,7 +3233,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/group_ids
 ```
 
-*Example 49 which fails the test:*
+*Example 52 which fails the test:*
 
 ```
   "product_tree": {
@@ -3226,7 +3271,7 @@ The relevant path for this test is:
     /product_tree/product_groups[]/group_id
 ```
 
-*Example 50 which fails the test:*
+*Example 53 which fails the test:*
 
 ```
   "product_tree": {
@@ -3300,7 +3345,7 @@ Contradiction groups are:
 
 > Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group, i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
-*Example 51 which fails the test:*
+*Example 54 which fails the test:*
 
 ```
   "product_tree": {
@@ -3337,7 +3382,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores[]
 ```
 
-*Example 52 which fails the test:*
+*Example 55 which fails the test:*
 
 ```
   "product_tree": {
@@ -3391,7 +3436,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3
 ```
 
-*Example 53 which fails the test:*
+*Example 56 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3425,7 +3470,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
 ```
 
-*Example 54 which fails the test:*
+*Example 57 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3451,7 +3496,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3
 ```
 
-*Example 55 which fails the test:*
+*Example 58 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -3484,7 +3529,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cwe
 ```
 
-*Example 56 which fails the test:*
+*Example 59 which fails the test:*
 
 ```
   "cwe": {
@@ -3506,7 +3551,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 57 which fails the test:*
+*Example 60 which fails the test:*
 
 ```
   "lang": "EZ"
@@ -3528,7 +3573,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/purl
 ```
 
-*Example 58 which fails the test:*
+*Example 61 which fails the test:*
 
 ```
   "product_tree": {
@@ -3556,7 +3601,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 59 which fails the test:*
+*Example 62 which fails the test:*
 
 ```
   "revision_history": [
@@ -3585,7 +3630,7 @@ The relevant path for this test is:
     /document/source_lang
 ```
 
-*Example 60 which fails the test:*
+*Example 63 which fails the test:*
 
 ```
   "document": {
@@ -3612,7 +3657,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 61 which fails the test:*
+*Example 64 which fails the test:*
 
 ```
   "tracking": {
@@ -3646,7 +3691,7 @@ The relevant path for this test is:
     /document/tracking/status
 ```
 
-*Example 62 which fails the test:*
+*Example 65 which fails the test:*
 
 ```
     "tracking": {
@@ -3668,7 +3713,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 63 which fails the test:*
+*Example 66 which fails the test:*
 
 ```
     "tracking": {
@@ -3702,7 +3747,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 64 which fails the test:*
+*Example 67 which fails the test:*
 
 ```
     "revision_history": [
@@ -3731,7 +3776,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 65 which fails the test:*
+*Example 68 which fails the test:*
 
 ```
     "tracking": {
@@ -3753,7 +3798,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 66 which fails the test:*
+*Example 69 which fails the test:*
 
 ```
     "revision_history": [
@@ -3782,7 +3827,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 67 which fails the test:*
+*Example 70 which fails the test:*
 
 ```
    "revision_history": [
@@ -3811,7 +3856,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cve
 ```
 
-*Example 68 which fails the test:*
+*Example 71 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3836,7 +3881,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 69 which fails the test:*
+*Example 72 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -3872,7 +3917,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 70 which fails the test:*
+*Example 73 which fails the test:*
 
 ```
   "product_tree": {
@@ -3928,7 +3973,7 @@ The relevant path for this test is:
   /document/category
 ```
 
-*Examples 71 for currently prohibited values:*
+*Examples 74 for currently prohibited values:*
 
 ```
   Csaf_a
@@ -3939,7 +3984,7 @@ The relevant path for this test is:
   V_eX
 ```
 
-*Example 72 which fails the test:*
+*Example 75 which fails the test:*
 
 ```
   "category": "Security_Incident_Response"
@@ -3970,7 +4015,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 73 which fails the test:*
+*Example 76 which fails the test:*
 
 ```
   "notes": [
@@ -4001,7 +4046,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 74 which fails the test:*
+*Example 77 which fails the test:*
 
 ```
   "references": [
@@ -4031,7 +4076,7 @@ The relevant path for this test is:
   /vulnerabilities
 ```
 
-*Example 75 which fails the test:*
+*Example 78 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4043,7 +4088,7 @@ The relevant path for this test is:
 
 > The element `/vulnerabilities` exists.
 
-> A tool MAY change the `/document/category` to `generic_csaf` as a quick fix.
+> A tool MAY change the `/document/category` to `csaf_base` as a quick fix.
 
 #### 6.1.27.4 Product Tree
 
@@ -4062,7 +4107,7 @@ The relevant path for this test is:
   /product_tree
 ```
 
-*Example 76 which fails the test:*
+*Example 79 which fails the test:*
 
 ```
   {
@@ -4094,7 +4139,7 @@ The relevant path for this test is:
   /vulnerabilities[]/notes
 ```
 
-*Example 77 which fails the test:*
+*Example 80 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4122,7 +4167,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 78 which fails the test:*
+*Example 81 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4153,7 +4198,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation
 ```
 
-*Example 79 which fails the test:*
+*Example 82 which fails the test:*
 
 ```
   "product_status": {
@@ -4185,7 +4230,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids
 ```
 
-*Example 80 which fails the test:*
+*Example 83 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4214,7 +4259,7 @@ The relevant path for this test is:
   /vulnerabilities[]/threats
 ```
 
-*Example 81 which fails the test:*
+*Example 84 which fails the test:*
 
 ```
   "product_tree": {
@@ -4266,6 +4311,7 @@ The relevant path for this test is:
 ```
 
 > There is no impact statement for `CSAFPID-9080702`.
+>
 > Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
 #### 6.1.27.10 Action Statement
@@ -4284,7 +4330,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations
 ```
 
-*Example 82 which fails the test:*
+*Example 85 which fails the test:*
 
 ```
   "product_tree": {
@@ -4337,7 +4383,40 @@ The relevant path for this test is:
 ```
 
 > There is no action statement for `CSAFPID-9080702`.
+>
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
+
+#### 6.1.27.11 Vulnerabilities
+
+It MUST be tested that the element `/vulnerabilities` exists.
+
+The relevant values for `/document/category` are:
+
+```
+  csaf_security_advisory
+  csaf_vex
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities
+```
+
+*Example 86 which fails the test:*
+
+```
+  {
+    "document": {
+      // ...
+    },
+    "product_tree": [
+      // ...
+    ]
+  }
+```
+
+> The element `/vulnerabilities` does not exist.
 
 ### 6.1.28 Translation
 
@@ -4350,7 +4429,7 @@ The relevant path for this test is:
   /document/source_lang
 ```
 
-*Example 83 which fails the test:*
+*Example 87 which fails the test:*
 
 ```
   "document": {
@@ -4363,6 +4442,7 @@ The relevant path for this test is:
 ```
 
 > The document language and the source language have the same value `en-US`.
+>
 > Note: A translation from `en-US` to `en-GB` would pass the test.
 
 > A tool MAY remove the source language as quick fix.
@@ -4377,7 +4457,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations[]
 ```
 
-*Example 84 which fails the test:*
+*Example 88 which fails the test:*
 
 ```
       "remediations": [
@@ -4392,7 +4472,7 @@ The relevant path for this test is:
 
 > A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
 
-### 6.1.30 Integer and Semantic Versioning
+### 6.1.30 Mixed Integer and Semantic Versioning
 
 It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or semantic versioning homogeneously within the same document.
 
@@ -4403,7 +4483,7 @@ The relevant paths for this test are:
   /document/tracking/version
 ```
 
-*Example 85 which fails the test:*
+*Example 89 which fails the test:*
 
 ```
     "tracking": {
@@ -4433,16 +4513,20 @@ The relevant paths for this test are:
 
 For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
 
-> To implement this test it is deemed sufficient that the value of `name` does not contain any of the following strings:
+> To implement this test it is deemed sufficient that, when converted to lower case, the value of `name` does not contain any of the following strings:
 >
 > ```
 >   <
 >   <=
 >   >
 >   >=
->   all versions
+>   after
+>   all
+>   before
+>   earlier
 >   later
 >   prior
+>   versions
 > ```
 
 The relevant paths for this test are:
@@ -4451,7 +4535,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 86 which fails the test:*
+*Example 90 which fails the test:*
 
 ```
             "branches": [
@@ -4475,7 +4559,7 @@ The relevant path for this test is:
   /vulnerabilities[]/flags[]
 ```
 
-*Example 87 which fails the test:*
+*Example 91 which fails the test:*
 
 ```
       "flags": [
@@ -4499,7 +4583,7 @@ The relevant path for this test is:
   /vulnerabilities[]/flags
 ```
 
-*Example 88 which fails the test:*
+*Example 92 which fails the test:*
 
 ```
   "product_tree": {
@@ -4571,7 +4655,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 89 which fails the test:*
+*Example 93 which fails the test:*
 
 ```
   "product_tree": {
@@ -4586,13 +4670,13 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` was defined but never used.
 
-> A tool MAY remove the unused definition as quick fix. However, such quick fix SHALL not be applied if the test was skipped.
+> A tool MAY remove the unused definition as quick fix. However, such quick fix shall not be applied if the test was skipped.
 
 ### 6.2.2 Missing Remediation
 
 For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected and Under investigation it MUST be tested that a remediation exists.
 
-> The remediation might be of the category `none_available` or `no_fixed_planned`.
+> The remediation might be of the category `none_available` or `no_fix_planned`.
 
 The relevant paths for this test are:
 
@@ -4603,7 +4687,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation[]
 ```
 
-*Example 90 which fails the test:*
+*Example 94 which fails the test:*
 
 ```
   "product_tree": {
@@ -4639,7 +4723,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
 ```
 
-*Example 91 which fails the test:*
+*Example 95 which fails the test:*
 
 ```
   "product_tree": {
@@ -4673,7 +4757,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 92 which fails the test:*
+*Example 96 which fails the test:*
 
 ```
     "revision_history": [
@@ -4697,7 +4781,7 @@ The relevant path for this test is:
     /document/tracking/initial_release_date
 ```
 
-*Example 93 which fails the test:*
+*Example 97 which fails the test:*
 
 ```
     "tracking": {
@@ -4731,7 +4815,7 @@ The relevant path for this test is:
     /document/tracking/current_release_date
 ```
 
-*Example 94 which fails the test:*
+*Example 98 which fails the test:*
 
 ```
     "tracking": {
@@ -4765,7 +4849,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 95 which fails the test:*
+*Example 99 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -4796,7 +4880,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 96 which fails the test:*
+*Example 100 which fails the test:*
 
 ```
   "product_tree": {
@@ -4838,7 +4922,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 97 which fails the test:*
+*Example 101 which fails the test:*
 
 ```
   "product_tree": {
@@ -4878,7 +4962,7 @@ The relevant path for this test is:
   /document/distribution/tlp/label
 ```
 
-*Example 98 which fails the test:*
+*Example 102 which fails the test:*
 
 ```
     "distribution": {
@@ -4904,7 +4988,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 99 which fails the test:*
+*Example 103 which fails the test:*
 
 ```
   "document": {
@@ -4939,11 +5023,11 @@ The relevant path for this test is:
   /document/lang
 ```
 
-*Example 100 which fails the test:*
+*Example 104 which fails the test:*
 
 ```
   "document": {
-    "category": "generic_csaf",
+    "category": "csaf_base",
     "csaf_version": "2.0",
     "publisher": {
       // ...
@@ -4964,12 +5048,12 @@ The relevant path for this test is:
   /
 ```
 
-*Example 101 which fails the test:*
+*Example 105 which fails the test:*
 
 ```
   "document": {
     "csaf_version": "2.0",
-    "category": "generic_csaf",
+    "category": "csaf_base",
     // ...
   }
 ```
@@ -4989,7 +5073,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 102 which fails the test:*
+*Example 106 which fails the test:*
 
 ```
   "lang": "qtx"
@@ -5010,7 +5094,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 103 which fails the test:*
+*Example 107 which fails the test:*
 
 ```
   "lang": "i-default"
@@ -5020,7 +5104,7 @@ The relevant paths for this test are:
 
 > A tool MAY remove such element as a quick fix.
 
-## 6.2.16 Missing Product Identification Helper
+### 6.2.16 Missing Product Identification Helper
 
 For each element of type `/$defs/full_product_name_t` it MUST be tested that it includes the property `product_identification_helper`.
 
@@ -5032,7 +5116,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name
 ```
 
-*Example 104 which fails the test:*
+*Example 108 which fails the test:*
 
 ```
     "full_product_names": [
@@ -5045,7 +5129,7 @@ The relevant paths for this test are:
 
 > The product `CSAFPID-9080700` does not provide any Product Identification Helper at all.
 
-## 6.2.17 CVE in field IDs
+### 6.2.17 CVE in field IDs
 
 For each item in `/vulnerabilities[]/ids` it MUST be tested that it is not a CVE ID.
 
@@ -5057,7 +5141,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids[]
 ```
 
-*Example 105 which fails the test:*
+*Example 109 which fails the test:*
 
 ```
       "ids": [
@@ -5088,7 +5172,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 106 which fails the test:*
+*Example 110 which fails the test:*
 
 ```
             "branches": [
@@ -5101,6 +5185,83 @@ The relevant paths for this test are:
 ```
 
 > The version range `>4.2` is a valid vsl but not valid according to the vers specification.
+
+### 6.2.19 CVSS for Fixed Products
+
+For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that a CVSS applying to this product has an environmental score of `0`. The test SHALL pass if none of the Product IDs listed within product status `fixed` or `first_fixed` is found in `products` of any item of the `scores` element.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status/first_fixed[]
+  /vulnerabilities[]/product_status/fixed[]
+```
+
+*Example 111 which fails the test:*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "fixed": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor the corresponding attributes in the `vectorString` have been set.
+
+> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` accordingly and compute the `environmentalScore` as quick fix.
+
+### 6.2.20 Additional Properties
+
+It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+
+The relevant path for this test is:
+
+```
+  /
+```
+
+> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that sets `additionalProperties` to `false` for every key of type `object`.
+
+*Example 112 which fails the test:*
+
+```
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "custom_property": "any",
+    // ...
+  }
+```
+
+> The key `custom_property` is not defined in the JSON schema.
+
+> A tool MAY remove such keys as a quick fix.
 
 ## 6.3 Informative Test
 
@@ -5116,7 +5277,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores
 ```
 
-*Example 107 which fails the test:*
+*Example 113 which fails the test:*
 
 ```
   "product_tree": {
@@ -5162,7 +5323,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/vectorString
 ```
 
-*Example 108 which fails the test:*
+*Example 114 which fails the test:*
 
 ```
   "cvss_v3": {
@@ -5191,7 +5352,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 109 which fails the test:*
+*Example 115 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -5217,7 +5378,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 110 which fails the test:*
+*Example 116 which fails the test:*
 
 ```
   "vulnerabilities": [
@@ -5242,7 +5403,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 111 which fails the test*:
+*Example 117 which fails the test*:
 
 ```
   "product_tree": {
@@ -5301,7 +5462,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 112 which fails the test:*
+*Example 118 which fails the test:*
 
 ```
     "references": [
@@ -5327,7 +5488,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 113 which fails the test:*
+*Example 119 which fails the test:*
 
 ```
     "references": [
@@ -5343,7 +5504,7 @@ The relevant paths for this test are:
 
 ### 6.3.8 Spell check
 
-If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD not be tested if the CSAF document does not use the profile "CSAF Base".
+If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
 
@@ -5386,7 +5547,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 114 which fails the test:*
+*Example 120 which fails the test:*
 
 ```
   "document": {
@@ -5404,7 +5565,7 @@ The relevant paths for this test are:
 
 > There is a spelling mistake in `Secruity`.
 
-## 6.3.9 Branch Categories
+### 6.3.9 Branch Categories
 
 For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it MUST be tested that ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that order starting with the Product tree node.
 
@@ -5416,7 +5577,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 115 which fails the test:*
+*Example 121 which fails the test:*
 
 ```
     "branches": [
@@ -5457,7 +5618,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 116 which fails the test:*
+*Example 122 which fails the test:*
 
 ```
                 "category": "product_version_range",
@@ -5481,7 +5642,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 117 which fails the test:*
+*Example 123 which fails the test:*
 
 ```
             "branches": [
@@ -5515,7 +5676,7 @@ The CSAF document has a filename according to the rules in section 5.1.
 
 ### 7.1.3 Requirement 3: TLS
 
-The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST not be downloadable from a location which does not encrypt the transport when crossing organizational boundaries to maintain the chain of custody.
+The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST NOT be downloadable from a location which does not encrypt the transport when crossing organizational boundaries to maintain the chain of custody.
 
 ### 7.1.4 Requirement 4: TLP:WHITE
 
@@ -5527,9 +5688,9 @@ This does not exclude that such a document is also available in an access protec
 
 ### 7.1.5 Requirement 5: TLP:AMBER and TLP:RED
 
-CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a webserver this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
+CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a web server this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
-An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it mUST be ensured that the documents are still access protected.
+An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it MUST be ensured that the documents are still access protected.
 
 ### 7.1.6 Requirement 6: No Redirects
 
@@ -5541,7 +5702,7 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
 
-> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consistency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAf documents.
+> This information is used to collect the data for CSAF aggregators, listers and end users. The CSAF provider metadata schema ensures the consistency of the metadata for a CSAF provider across the ecosystem. Other approaches, like extracting the `publisher` object from CSAF documents, are likely to fail if the object differs between CSAF documents.
 >
 > It is suggested to put the file `provider-metadata.json` adjacent to the ROLIE feed documents (requirement 15) or in the main directory adjacent to the year folders (requirement 14), `changes.csv` (requirement 13) and the `index.txt` (requirement 12).
 > Suggested locations to store the `provider-metadata.json` are:
@@ -5551,7 +5712,7 @@ The party MUST provide a valid `provider-metadata.json` according to the schema 
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Examples 118 Minimal with ROLIE document:*
+*Example 124 Minimal with ROLIE document:*
 
 ```
   {
@@ -5602,9 +5763,9 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
 
 In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
-> At the time of this writing, the security.txt is still a proposed standard. The `CSAF` field has not been officially added yet.
+> The security.txt was published as [RFC9116] in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
 
-*Example 119:*
+*Examples 125:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -5619,7 +5780,7 @@ It is possible to advertise more than one `provider-metadata.json` by adding mul
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
-*Example 120:*
+*Example 126:*
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -5627,13 +5788,13 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 
 ### 7.1.10 Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a webserver which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
+The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
-*Examples 121:*
+*Examples 127:*
 
 ```
 2021
@@ -5644,7 +5805,7 @@ The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` 
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Examples 122:*
+*Example 128:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -5658,13 +5819,13 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Examples 123:*
+*Example 129:*
 
 ```
-2020/example_company_-_2020-yh4711.json, "2020-07-01T10:09:07Z"
-2018/example_company_-_2018-yh2312.json, "2020-07-01T10:09:01Z"
-2019/example_company_-_2019-yh3234.json, "2019-04-17T15:08:41Z"
-2018/example_company_-_2018-yh2312.json, "2019-03-01T06:01:00Z"
+"2020/example_company_-_2020-yh4711.json","2020-07-01T10:09:07Z"
+"2018/example_company_-_2018-yh2312.json","2020-07-01T10:09:01Z"
+"2019/example_company_-_2019-yh3234.json","2019-04-17T15:08:41Z"
+"2018/example_company_-_2018-yh2312.json","2019-03-01T06:01:00Z"
 ```
 
 ### 7.1.14 Requirement 14: Directory listings
@@ -5681,7 +5842,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease
 
 MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
 
-*Example 124:*
+*Example 130:*
 
 ```
   {
@@ -5700,7 +5861,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
           "term": "csaf"
         }
       ],
-      "updated": "2021-01-01T12:00Z",
+      "updated": "2021-01-01T12:00:00.000Z",
       "entry": [
         {
           "id": "2020-ESA-001",
@@ -5719,8 +5880,8 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
               "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.asc"
             }
           ],
-          "published": "2021-01-01T11:00Z",
-          "updated": "2021-01-01T12:00Z",
+          "published": "2021-01-01T11:00:00.000Z",
+          "updated": "2021-01-01T12:00:00.000Z",
           "summary": {
             "content": "Vulnerabilities fixed in ABC 0.0.1"
           },
@@ -5745,7 +5906,7 @@ Any existing signature file (requirement 19) MUST be listed in the corresponding
 
 The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
-*Example 125:*
+*Example 131:*
 
 ```
   {
@@ -5786,7 +5947,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
   * `product_version`
 * type of product
 
-  *Example 126:*
+  *Example 132:*
 
   ```
     CPU
@@ -5801,7 +5962,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
 
 * areas or sectors, the products are used in
 
-  *Example 127:*
+  *Example 133:*
 
   ```
     Chemical
@@ -5816,7 +5977,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
 
 * any other categorization useful to the consumers
 
-*Example 128:*
+*Example 134:*
 
 ```
   {
@@ -5839,7 +6000,7 @@ All CSAF documents SHALL have at least one hash file computed with a secure cryp
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 129:*
+*Example 135:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -5849,7 +6010,7 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
 
 The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 130:*
+*Example 136:*
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
@@ -5861,7 +6022,7 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [RFC4880] for more details.
 
-*Example 131:*
+*Example 137:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -5882,7 +6043,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 ### 7.1.21 Requirement 21: List of CSAF providers
 
-The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST not be stored adjacent to a `provider-metadata.json`.
+The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 > Suggested locations to store the `aggregator.json` are:
 >
@@ -5893,7 +6054,7 @@ The file `aggregator.json` MUST be present and valid according to the JSON schem
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 132:*
+*Example 138:*
 
 ```
   {
@@ -5943,9 +6104,9 @@ The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF pro
 The CSAF documents for each issuing party that is mirrored MUST be in a different folder. The folder name SHOULD be retrieved from the name of the issuing authority. This folders MUST be adjacent to the `aggregator.json` (requirement 21). Each such folder MUST at least:
 
 * provide a `provider-metadata.json` for the current issuing party.
-* provide the ROLIE feed document according to 15 which links to the local copy of the CSAF document.
+* provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 133:*
+*Example 139:*
 
 ```
   {
@@ -6042,7 +6203,7 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 21 and 22 in section 7.1.
+* satisfies the requirements 6, 21 and 22 in section 7.1.
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -6052,15 +6213,20 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 21 to 23 in section 7.1.
+* satisfies the requirements 1 to 6 and 21 to 23 in section 7.1.
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
+* links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in the corresponding `provider-metadata.json`.
+* provides for each CSAF document that is mirrored a signature (requirement 19) and a hash (requirement 18). Both SHALL be listed in the ROLIE feed. If the issuing party provides those files for a CSAF document, they SHOULD be copied as well. If the issuing party does not provide those files, they SHALL be created by the CSAF aggregator. Such a signature does not imply any liability of CSAF aggregator for the content of the corresponding CSAF document. It just confirms that the CSAF document provided has not been modified after being downloaded from the issuing party. A CSAF aggregator MAY add additional signatures and hashes for a CSAF document.
 
 Additionally, a CSAF aggregator MAY list one or more issuing parties that it does not mirror.
 
 > The purpose of this role is to provide a single point where CSAF documents can be retrieved. Multiple CSAF aggregators are expected to exist around the world. None of them is required to mirror all CSAF documents of all issuing parties.
 > CSAF aggregators can be provided for free or as a paid service.
+>
 > To aid in automation, CSAF aggregators MAY mirror CSAF documents from CSAF publishers. Regarding the terms of use they SHOULD consult with the issuing party.
+> The purpose of this option is that a consumer can retrieve CSAF documents from a CSAF publisher as if this issuing party would be a CSAF trusted provider. To reach that goal, a CSAF aggregator collects the CSAF documents from the CSAF publisher and mirrors it. The collection process MAY be automated or manual. CSAF aggregators announce the collection interval through the field `update_interval` in the corresponding item of the CSAF publishers list (`csaf_publishers`) in their `aggregator.json`.
+> To minimize the implementation efforts and process overhead, a CSAF aggregator MAY upload the CSAF documents of a CSAF publisher into an internal instance of a CSAF provider software. Such construct is called "CSAF proxy provider" as it can be mirrored by the CSAF aggregator software. However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself. Otherwise, that would violate the second rule of section 7.2.1. Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
 
 ## 7.3 Retrieving rules
 
@@ -6202,11 +6368,12 @@ Secondly, the program fulfills the following for all items of:
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning, replace the all elements of type `/$defs/version_t` with the corresponding integer version. For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF. Then, it replaces the value of `number` with the index number in the array (starting with 1). The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item. The match MUST be calculated by the original values used in the CVRF document. If this conversion was applied, for each Revision the original value of `cvrf:Number` MUST be set as `legacy_version` in the converted document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`: If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`. In addition, the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/lang`: If one or more CVRF element containing an `xml:lang` attribute exist and contain the exact same value, the CVRF CSAF converter converts this value into `lang`. If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be determined and possibly a document with multiple languages was produced. In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
-* `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program should prefer the latter one. The program SHALL NOT use hard-coded values.
+* `/document/publisher/name` and `/document/publisher/namespace`: Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with. If values from both sources are present, the program SHOULD prefer the latter one. The program SHALL NOT use hard-coded values.
 * `/document/tracking/id`: If the element `cvrf:ID` contains any line breaks or leading or trailing white space, the CVRF CSAF converter removes those characters. In addition, the converter outputs a warning that the ID was changed.
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given, the CVRF CSAF converter converts the first one into the `full_product_name`. In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given, the CVRF CSAF converter converts the first one into `cwe`. In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
+* `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`. If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
 * `/vulnerabilities[]/scores[]`:
   * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to the rules of the applicable CVSS standard.
   * If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected`. If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this score element.
@@ -6215,7 +6382,7 @@ Secondly, the program fulfills the following for all items of:
   * To determine, which minor version of CVSS v3 is used, the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 134:*
+        *Example 140:*
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -6223,7 +6390,7 @@ Secondly, the program fulfills the following for all items of:
 
     2. Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 135:*
+        *Example 141:*
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -6233,7 +6400,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 136:*
+        *Example 142:*
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -6241,7 +6408,7 @@ Secondly, the program fulfills the following for all items of:
 
     3. Retrieve the CVSS version from the CVSS namespace given in the root element, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the global namespace. If more than one CVSS namespace is present and the element is not clearly defined via the namespace, this step MUST be skipped without a decision.
 
-        *Example 137:*
+        *Example 143:*
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -6357,7 +6524,7 @@ The program:
 
 The resulting modified document:
 
-* does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It SHOULD not use the original `/document/tracking/id` as a prefix.
+* does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It SHOULD NOT use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
 ### 9.1.9 Conformance Clause 9: CSAF translator
@@ -6373,7 +6540,7 @@ The program:
 
 The resulting translated document:
 
-* does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It SHOULD not use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they MAY use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+* does not use the same `/document/tracking/id` as the original document. The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as a prefix and adding an ID from the naming scheme of the issuer of the translated version. It SHOULD NOT use the original `/document/tracking/id` as a suffix. If an issuer uses a CSAF translator to publish his advisories in multiple languages they MAY use the combination of the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and SHOULD only be set by CSAF translators).
 * has the value `translator` set in `/document/publisher/category`
@@ -6446,7 +6613,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
     * when a new asset is inserted (for this asset)
     * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
     > These also apply if more than one CSAF document or asset was added. To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
-  * Manually and automatically triggered runs SHOULD not be pooled.
+  * Manually and automatically triggered runs SHOULD NOT be pooled.
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
   * marked with a given status
@@ -6526,7 +6693,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | :--- | :--- | :--- |
 |Alexandre | Dulaunoy | CIRCL|
 |Anthony | Berglas | Cryptsoft Pty Ltd.|
-|Art | MANION | Carnegie Mellon University|
+|Art | Manion | Carnegie Mellon University|
 |Aukjan | van Belkum | EclecticIQ|
 |Ben | Sooter | Electric Power Research Institute (EPRI)|
 |Bernd | Grobauer | Siemens AG|
@@ -6647,7 +6814,10 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
 | csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS for public review    |
-| csaf-v2.0-wd20220219-dev | 2022-02-19 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
+| csaf-v2.0-wd20220329-dev | 2022-03-29 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
+| csaf-v2.0-wd20220514-dev | 2022-05-14 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS |
+| csaf-v2.0-wd20220715-dev | 2022-07-15 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS |
+| csaf-v2.0-wd20220720-dev | 2022-07-20 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS |
 
 -------
 
@@ -6655,7 +6825,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 This appendix provides informative guidance on the size of CSAF documents.
 
-The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with the result that hard limits SHOULD not be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with the result that hard limits SHOULD NOT be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
 All _CSAF consumers_ SHOULD be able to process CSAF documents which comply with the limits below. All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits.
 

@@ -1,0 +1,4 @@
+URI suffix: .well-known/csaf-aggregator/
+Change controller: OASIS_OPEN
+Specification document(s): Common Security Advisory Framework Version 2.0 section 7.1.21 Requirement 21: List of CSAF providers, URL: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#7121-requirement-21-list-of-csaf-providers
+Related information: Common Security Advisory Framework Version 2.0 section 7 Distributing CSAF Documents, URL https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#7-distributing-csaf-documents

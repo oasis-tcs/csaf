@@ -4,7 +4,7 @@ ORIG_SCHEMA=csaf_2.0/json_schema/csaf_json_schema.json
 STRICT_SCHEMA=csaf_strict_schema.json
 VALIDATOR=csaf_2.0/test/validator.py
 STRICT_GENERATOR=csaf_2.0/test/generate_strict_schema.py
-TESTPATH=csaf_2.0/examples/csaf/*.json
+TESTPATH=csaf_2.0/examples/csaf/$1/*.json
 
 FAIL=0
 
