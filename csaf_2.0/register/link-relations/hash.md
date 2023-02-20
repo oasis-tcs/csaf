@@ -9,7 +9,7 @@ Please confirm that:
 If so, please enter the details of the link relation type below:
 
 * Relation Name: hash
-* Description: Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322]. Any existing hash file (requirement 18) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array link having the rel value of hash.
+* Description: Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322]. Any existing hash file (requirement 18) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link` having the `rel` value of `hash`.
 * Reference: https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#7115-requirement-15-rolie-feed
 
 Any additional information (this will not be included in the registry)? 
