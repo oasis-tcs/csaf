@@ -3,5 +3,5 @@ I suggest to register "csaf" as ROLIE feed type per the following record satisfy
 ```
 Name: csaf
 Index: <Will be assigned by IANA>
-Reference: https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/csaf-v2.0-cs02.html#7115-requirement-15-rolie-feed
+Reference: https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#7115-requirement-15-rolie-feed
 ```
