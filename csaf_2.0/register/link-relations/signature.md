@@ -9,7 +9,7 @@ Please confirm that:
 If so, please enter the details of the link relation type below:
 
 * Relation Name: signature
-* Description: Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322]. Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array link having the rel value of signature.
+* Description: Refers to a resource that contains the context's cryptographic signature.
 * Reference: https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#7115-requirement-15-rolie-feed
 
 Any additional information (this will not be included in the registry)? 
