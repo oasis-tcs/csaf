@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Test filenames of CSAF filename test files in filenames/data/valid/*.json
       run: ./csaf_2.0/test/filenames/run_tests.sh ./csaf_2.0/test/filenames/data/valid/*.json
     - name: Test filenames of CSAF examples
