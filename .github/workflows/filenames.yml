@@ -8,6 +8,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    - name: Setup pip package "paikalta"
+      run: pip install paikalta
     - name: Test filenames of CSAF filename test files in filenames/data/valid/*.json
       run: ./csaf_2.0/test/filenames/run_tests.sh ./csaf_2.0/test/filenames/data/valid/*.json
     - name: Test filenames of CSAF examples
