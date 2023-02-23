@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup pip package "paikalta"
       run: pip install paikalta
     - name: Test filenames of CSAF filename test files in filenames/data/valid/*.json
