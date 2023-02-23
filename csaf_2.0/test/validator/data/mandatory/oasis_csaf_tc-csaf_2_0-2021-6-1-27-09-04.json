@@ -7,10 +7,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Impact Statement (failing example 1)",
+    "title": "Mandatory test: Impact Statement (failing example 4)",
     "tracking": {
       "current_release_date": "2021-07-21T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-27-09-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-27-09-04",
       "initial_release_date": "2021-07-21T10:00:00.000Z",
       "revision_history": [
         {
@@ -37,20 +37,20 @@
         "product_id": "CSAFPID-9080702",
         "name": "Product C"
       }
-    ],
-    "product_groups": [
-      {
-        "group_id": "CSAFGID-0001",
-        "product_ids": [
-          "CSAFPID-9080700",
-          "CSAFPID-9080701"
-        ]
-      }
     ]
   },
   "vulnerabilities": [
     {
       "cve": "CVE-2017-0145",
+      "flags": [
+        {
+          "label": "vulnerable_code_not_present",
+          "product_ids": [
+            "CSAFPID-9080701",
+            "CSAFPID-9080702"
+          ]
+        }
+      ],
       "notes": [
         {
           "category": "description",
@@ -64,16 +64,7 @@
           "CSAFPID-9080701",
           "CSAFPID-9080702"
         ]
-      },
-      "threats": [
-        {
-          "category": "impact",
-          "details": "The vulnerable code is not present in these products.",
-          "group_ids": [
-            "CSAFGID-0001"
-          ]
-        }
-      ]
+      }
     }
   ]
 }
