@@ -9,12 +9,7 @@ cd `dirname $0`/../../..
 
 check() {
   printf "%s" "Testing filename of $1 ... "
-  if paikalta $1; then
-    printf "%s\n" SUCCESS
-  else
-    printf "%s\n" FAILED
-    FAIL=1
-  fi
+  paikalta --labels SUCCESS,FAILED $1 || FAIL=1
 }
 
 test_all() {
