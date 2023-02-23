@@ -8,7 +8,7 @@ jobs:
     name: Test JSON schemas
     steps:
     - name: Checkout repository
-      uses: actions/checkout@master
+      uses: actions/checkout@v3
     - name: Prepare environment
       run: |
         sudo apt-get remove python3-jsonschema
