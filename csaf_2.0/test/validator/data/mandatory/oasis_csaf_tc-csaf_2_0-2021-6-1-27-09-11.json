@@ -7,10 +7,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Impact Statement (failing example 1)",
+    "title": "Mandatory test: Impact Statement (valid example 1)",
     "tracking": {
       "current_release_date": "2021-07-21T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-27-09-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-27-09-11",
       "initial_release_date": "2021-07-21T10:00:00.000Z",
       "revision_history": [
         {
@@ -69,6 +69,9 @@
         {
           "category": "impact",
           "details": "The vulnerable code is not present in these products.",
+          "product_ids": [
+            "CSAFPID-9080702"
+          ],
           "group_ids": [
             "CSAFGID-0001"
           ]
