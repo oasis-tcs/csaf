@@ -12,6 +12,8 @@ jobs:
       run: pip install paikalta
     - name: Test filenames of CSAF filename test files in filenames/data/valid/*.json
       run: ./csaf_2.0/test/filenames/run_tests.sh ./csaf_2.0/test/filenames/data/valid/*.json
+    - name: Test filenames of CSAF filename test files in filenames/data/invalid/*.json
+      run: ./csaf_2.0/test/filenames/run_invalid_tests.sh ./csaf_2.0/test/filenames/data/invalid/*.json
     - name: Test filenames of CSAF examples
       run: ./csaf_2.0/test/filenames/run_tests.sh ./csaf_2.0/examples/csaf/*.json
     - name: Test filenames of CSAF examples - profile specific folders 
