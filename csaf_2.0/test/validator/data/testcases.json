@@ -207,6 +207,34 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-01.json",
           "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-02.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-03.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-04.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-05.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-06.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-07.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-08.json",
+          "valid": false
         }
       ],
       "valid": [
@@ -220,6 +248,34 @@
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-13.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-14.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-15.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-16.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-17.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-18.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-19.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-16-31.json",
           "valid": true
         }
       ]
