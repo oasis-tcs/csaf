@@ -6,7 +6,7 @@
     "style": "backtick"
   },
   "emphasis-style": {
-    "style": "asterisk"
+    "style": "underscore"
   },
   "fenced-code-language": false,
   "first-line-heading": false,
@@ -14,12 +14,13 @@
     "style": "atx"
   },
   "hr-style": {
-    "style": "---"
+    "style": "-------"
   },
   "line-length": false,
   "link-fragments": false,
   "link-image-reference-definitions": false,
   "list-marker-space": false,
+  "no-bare-urls": false,
   "no-blanks-blockquote": false,
   "no-duplicate-heading": {
     "siblings_only": true
@@ -48,6 +49,7 @@
       "tr"
     ]
   },
+  "no-trailing-punctuation": false,
   "ol-prefix": false,
   "strong-style": {
     "style": "asterisk"
