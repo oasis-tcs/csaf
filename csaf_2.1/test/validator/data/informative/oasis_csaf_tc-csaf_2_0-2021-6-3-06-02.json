@@ -1,0 +1,34 @@
+{
+  "document": {
+    "acknowledgments": [
+      {
+        "summary": "A URL that does resolve with HTTP status code 400.",
+        "urls": [
+          "https://github.com/oasis-tcs/csaf/not-available"
+        ]
+      }
+    ],
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Informative test: Use of non-self referencing URLs Failing to Resolve (failing example 2)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-3-06-02",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  }
+}

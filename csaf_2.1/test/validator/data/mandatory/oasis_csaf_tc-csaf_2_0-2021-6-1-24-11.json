@@ -1,0 +1,47 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory test: Multiple Definition in Involvements (valid example 1)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-24-11",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "vulnerabilities": [
+    {
+      "involvements": [
+        {
+          "date": "2021-04-23T10:00:00.000Z",
+          "party": "vendor",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "involvements": [
+        {
+          "date": "2021-04-23T10:00:00.000Z",
+          "party": "vendor",
+          "status": "in_progress",
+          "summary": "The vendor has released a mitigation and is working to fully resolve the issue."
+        }
+      ]
+    }
+  ]
+}

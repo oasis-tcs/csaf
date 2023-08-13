@@ -1,0 +1,36 @@
+{
+  "aggregator": {
+    "category": "lister",
+    "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
+    "issuing_authority": "This service is provided as it is. It is free for everybody.",
+    "name": "Example CSAF Lister",
+    "namespace": "https://lister.example"
+  },
+  "aggregator_version": "2.0",
+  "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
+  "csaf_providers": [
+    {
+      "metadata": {
+        "last_updated": "2021-07-12T20:20:56.169Z",
+        "publisher": {
+          "category": "vendor",
+          "name": "Example Company ProductCERT",
+          "namespace": "https://psirt.example.com"
+        },
+        "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
+      }
+    },
+    {
+      "metadata": {
+        "last_updated": "2021-07-12T21:35:38.000Z",
+        "publisher": {
+          "category": "coordinator",
+          "name": "Example Coordinator CERT",
+          "namespace": "https://cert.example"
+        },
+        "url": "https://cert.example/advisories/csaf/provider-metadata.json"
+      }
+    }
+  ],
+  "last_updated":"2021-07-12T22:35:38.978Z"
+}
