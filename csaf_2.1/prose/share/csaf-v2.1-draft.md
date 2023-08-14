@@ -618,9 +618,9 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="ISO8601" class="anchor"></span>**ISO8601\]** _Data elements and interchange formats — Information interchange — Representation of dates and times_, International Standard, ISO 8601:2004(E), December 1, 2004, https://www.iso.org/standard/40874.html.
 
-**\[**<span id="<https;//www.iso.org/standard/65666.html>." class="anchor"></span>**<https://www.iso.org/standard/65666.html>.\]** 
+**\[**<span id="ISO19770-2" class="anchor"></span>**ISO19770-2\]** _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
-**\[**<span id="<https;//www.iso.org/standard/72311.html>." class="anchor"></span>**<https://www.iso.org/standard/72311.html>.\]** 
+**\[**<span id="ISO29147" class="anchor"></span>**ISO29147\]** _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018, <https://www.iso.org/standard/72311.html>.
 
 **\[**<span id="OPENSSL" class="anchor"></span>**OPENSSL\]** _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 
@@ -652,15 +652,15 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="VERS" class="anchor"></span>**VERS\]** _vers: a mostly universal version range specifier_, Part of the PURL GitHub Project, https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.
 
-**\[**<span id="<https;//ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>." class="anchor"></span>**<https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.\]** 
+**\[**<span id="VEX" class="anchor"></span>**VEX\]** _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.
 
 **\[**<span id="VEX-Justification" class="anchor"></span>**VEX-Justification\]** _Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, XX May 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.
 
-**\[**<span id="Latest version available at <https;//www.w3.org/TR/xml>." class="anchor"></span>**Latest version available at <https://www.w3.org/TR/xml>.\]** 
+**\[**<span id="XML" class="anchor"></span>**XML\]** _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/. Latest version available at <https://www.w3.org/TR/xml>.
 
-**\[**<span id="Latest version available at <https;//www.w3.org/TR/xmlschema11-1/>." class="anchor"></span>**Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.\]** 
+**\[**<span id="XML-Schema-1" class="anchor"></span>**XML-Schema-1\]** _W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn, D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, https://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/. Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.
 
-**\[**<span id="Latest version available at <https;//www.w3.org/TR/xmlschema11-2/>." class="anchor"></span>**Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.\]** 
+**\[**<span id="XML-Schema-2" class="anchor"></span>**XML-Schema-2\]** _W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012, https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.
 
 ## 1.5 Typographical Conventions <a id='typographical-conventions'></a>
 
