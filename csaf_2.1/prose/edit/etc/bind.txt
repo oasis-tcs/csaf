@@ -3,6 +3,7 @@ table-of-contents.md
 introduction-00.md
 introduction-01-ipr-policy.md
 introduction-02-terminology.md
+introduction-02-terminology-glossary.md
 introduction-03-normative-references.md
 introduction-04-informative-references.md
 introduction-05-typographical-conventions.md

@@ -1526,4 +1526,3 @@ The relevant path for this test is:
 ```
 
 > There are two flags given for for `CSAFPID-9080700` - one indirect through `CSAFGID-0001` and one direct.
-

@@ -23,4 +23,3 @@ Types and properties together provide the vocabulary for the domain specific lan
 
 The single mandatory property is `document`.
 The optional two additional properties are `product_tree` and `vulnerabilities`.
-

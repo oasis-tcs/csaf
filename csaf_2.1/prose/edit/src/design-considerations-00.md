@@ -11,4 +11,3 @@ This minimal required information set does not provide any useful information on
 
 Care has been taken, to design the containers for product and vulnerability information to support fine-grained mapping of security advisories onto product and vulnerability and minimize data duplication through referencing.
 The display of the elements representing Product Tree and Vulnerability information has been placed in the sections named accordingly.
-

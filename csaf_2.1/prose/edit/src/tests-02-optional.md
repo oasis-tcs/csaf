@@ -623,4 +623,3 @@ The relevant path for this test is:
 > The key `custom_property` is not defined in the JSON schema.
 
 > A tool MAY remove such keys as a quick fix.
-

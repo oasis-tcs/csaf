@@ -43,4 +43,3 @@ If multiple CSAF documents are transported via a data stream in a sequence witho
 The keys within a CSAF document SHOULD be sorted alphabetically.
 
 -------
-
