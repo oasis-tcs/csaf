@@ -389,28 +389,28 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;advisory-document">advisory document</dt>
   <dd>artifact in which an analysis tool reports a result</dd>
   <dt id="def;advisory-management-system*">advisory management system*</dt>
-  <dd>software system that consumes the documents produced by analysis tools,<br><br>
-      produces advisories that enable engineering and operating organizations to assess the quality of these<br><br>
-      software artifacts at a point in time, and performs functions such as filing security advisories and<br><br>
-      displaying information about individual advisories.<br><br>
+  <dd>software system that consumes the documents produced by analysis tools,
+      produces advisories that enable engineering and operating organizations to assess the quality of these
+      software artifacts at a point in time, and performs functions such as filing security advisories and
+      displaying information about individual advisories.
       **Note**: An advisory management system can interact with a document viewer to display information about individual advisories.</dd>
   <dt id="def;advisory-matching">advisory matching</dt>
   <dd>process of determining whether two advisories are targeting the same products and conditions</dd>
   <dt id="def;artifact">artifact</dt>
-  <dd>sequence of bytes addressable via a URI.<br><br>
-      _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file;<br><br>
-      a specific version of a file in a version control system; a database table accessed via an HTTP request;<br><br>
+  <dd>sequence of bytes addressable via a URI.
+      _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file;
+      a specific version of a file in a version control system; a database table accessed via an HTTP request;
       an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.</dd>
   <dt id="def;csaf-asset-matching-system*">CSAF asset matching system*</dt>
-  <dd>program that connects to or is an asset database and is able to manage CSAF documents as<br><br>
-      required by CSAF management system<br><br>
+  <dd>program that connects to or is an asset database and is able to manage CSAF documents as
+      required by CSAF management system
       as well as matching them to assets of the asset database.</dd>
   <dt id="def;csaf-basic-validator">CSAF basic validator</dt>
   <dd>A program that reads a document and checks it against the JSON schema and performs mandatory tests.</dd>
   <dt id="def;csaf-consumer*">CSAF consumer*</dt>
   <dd>program that reads and interprets a CSAF document</dd>
   <dt id="def;csaf-content-management-system">CSAF content management system</dt>
-  <dd>program that is able to create, review and manage CSAF documents and is able to preview their details as<br><br>
+  <dd>program that is able to create, review and manage CSAF documents and is able to preview their details as
       required by CSAF viewer.</dd>
   <dt id="def;csaf-converter">CSAF converter</dt>
   <dd>CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format</dd>
@@ -425,29 +425,29 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;csaf-management-system">CSAF management system</dt>
   <dd>program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.</dd>
   <dt id="def;csaf-modifier">CSAF modifier</dt>
-  <dd>CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties.<br><br>
+  <dd>CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties.
       The output is a valid CSAF document.</dd>
   <dt id="def;csaf-post-processor">CSAF post-processor</dt>
-  <dd>CSAF producer that transforms an existing CSAF document into a new CSAF document,<br><br>
+  <dd>CSAF producer that transforms an existing CSAF document into a new CSAF document,
       for example, by removing or redacting elements according to sharing policies.</dd>
   <dt id="def;csaf-sbom-matching-system">CSAF SBOM matching system</dt>
-  <dd>A program that connects to or is an SBOM database and is able to manage CSAF documents as<br><br>
+  <dd>A program that connects to or is an SBOM database and is able to manage CSAF documents as
       required by CSAF management system as well as matching them to SBOM components of the SBOM database.</dd>
   <dt id="def;csaf-producer">CSAF producer</dt>
   <dd>program that emits output in the CSAF format</dd>
   <dt id="def;csaf-translator">CSAF translator</dt>
-  <dd>CSAF post-processor which takes a CSAF document as input and translates values of properties into another language.<br><br>
+  <dd>CSAF post-processor which takes a CSAF document as input and translates values of properties into another language.
       The output is a valid CSAF document.</dd>
   <dt id="def;csaf-viewer">CSAF viewer</dt>
-  <dd>CSAF consumer that reads a CSAF document, displays a list of the results it contains,<br><br>
+  <dd>CSAF consumer that reads a CSAF document, displays a list of the results it contains,
       and allows an end user to view each result in the context of the artifact in which it occurs.</dd>
   <dt id="def;cvrf-csaf-converter">CVRF CSAF converter</dt>
   <dd>CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.</dd>
   <dt id="def;document">document</dt>
   <dd>output file produced by an analysis tool, which enumerates the results produced by the tool</dd>
   <dt id="def;driver">driver</dt>
-  <dd>tool component containing an analysis tool’s or converter’s primary executable,<br><br>
-      which controls the tool’s or converter’s execution,<br><br>
+  <dd>tool component containing an analysis tool’s or converter’s primary executable,
+      which controls the tool’s or converter’s execution,
       and which in the case of an analysis tool typically defines a set of analysis rules</dd>
   <dt id="def;embedded-link">embedded link</dt>
   <dd>syntactic construct which enables a message string to refer to a location mentioned in the document</dd>
@@ -460,8 +460,8 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;end-user">(end) user</dt>
   <dd>person who uses the information in a document to investigate, triage, or resolve results</dd>
   <dt id="def;engineering-system">engineering system</dt>
-  <dd>software analysis environment within which analysis tools execute.<br><br>
-      **Note**: An engineering system might include a build system, a source control system, a result management system,<br><br>
+  <dd>software analysis environment within which analysis tools execute.
+      **Note**: An engineering system might include a build system, a source control system, a result management system,
       a bug tracking system, a test execution system, and so on.</dd>
   <dt id="def;extension">extension</dt>
   <dd>tool component other than the driver (for example, a plugin, a configuration file, or a taxonomy)</dd>
@@ -474,21 +474,21 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;false-positive">false positive</dt>
   <dd>result which an end user decides does not actually represent a problem</dd>
   <dt id="def;fingerprint">fingerprint</dt>
-  <dd>stable value that can be used by a result management system to uniquely identify a result over time,<br><br>
+  <dd>stable value that can be used by a result management system to uniquely identify a result over time,
       even if a relevant artifact is modified</dd>
   <dt id="def;formatted-message">formatted message</dt>
   <dd>message string which contains formatting information such as Markdown formatting characters</dd>
   <dt id="def;fully-qualified-logical-name">fully qualified logical name</dt>
-  <dd>string that fully identifies the programmatic construct specified by a logical location,<br><br>
+  <dd>string that fully identifies the programmatic construct specified by a logical location,
       typically by means of a hierarchical identifier.</dd>
   <dt id="def;hierarchical-string">hierarchical string</dt>
   <dd>string in the format &lt;component>{/&lt;component>}*</dd>
   <dt id="def;line">line</dt>
-  <dd>contiguous sequence of characters, starting either at the beginning of an artifact or immediately after<br><br>
-      a newline sequence, and ending at and including the nearest subsequent newline sequence, if one is present,<br><br>
+  <dd>contiguous sequence of characters, starting either at the beginning of an artifact or immediately after
+      a newline sequence, and ending at and including the nearest subsequent newline sequence, if one is present,
       or else extending to the end of the artifact</dd>
   <dt id="def;line-number">line (number)</dt>
-  <dd>1-based index of a line within a file.<br><br>
+  <dd>1-based index of a line within a file.
       **Note**: Abbreviated to "line" when there is no danger of ambiguity with "line" in the sense of a sequence of characters.</dd>
   <dt id="def;localizable">localizable</dt>
   <dd>subject to being translated from one natural language to another</dd>
@@ -497,8 +497,8 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;nested-artifact">nested artifact</dt>
   <dd>artifact that is contained within another artifact</dd>
   <dt id="def;newline-sequence">newline sequence</dt>
-  <dd>sequence of one or more characters representing the end of a line of text.<br><br>
-      **Note**: Some systems represent a newline sequence with a single newline character; others represent it as<br><br>
+  <dd>sequence of one or more characters representing the end of a line of text.
+      **Note**: Some systems represent a newline sequence with a single newline character; others represent it as
       a carriage return character followed by a newline character.</dd>
   <dt id="def;notification">notification</dt>
   <dd>reporting item that describes a condition encountered by a tool during its execution</dd>
@@ -511,23 +511,23 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;plugin">plugin</dt>
   <dd>tool component that defines additional rules</dd>
   <dt id="def;policy">policy</dt>
-  <dd>set of rule configurations that specify how results that<br><br>
+  <dd>set of rule configurations that specify how results that
       violate the rules defined by a particular tool component are to be treated</dd>
   <dt id="def;problem">problem</dt>
-  <dd>result which indicates a condition that has the potential to detract from the quality of the program.<br><br>
+  <dd>result which indicates a condition that has the potential to detract from the quality of the program.
       _Examples_: A security vulnerability, a deviation from contractual or legal requirements.</dd>
   <dt id="def;product">product</dt>
-  <dd>is any deliverable (e.g. software, hardware, specification,...) which can be referred to with a name.<br><br>
+  <dd>is any deliverable (e.g. software, hardware, specification,...) which can be referred to with a name.
       This applies regardless of the origin, the license model, or the mode of distribution of the deliverable.</dd>
   <dt id="def;property">property</dt>
   <dd>attribute of an object consisting of a name and a value associated with the name</dd>
   <dt id="def;redactable-property">redactable property</dt>
-  <dd>property that potentially contains sensitive information that a CSAF direct producer or<br><br>
+  <dd>property that potentially contains sensitive information that a CSAF direct producer or
       a CSAF post-processor might wish to redact</dd>
   <dt id="def;reporting-item">reporting item</dt>
   <dd>unit of output produced by a tool, either a result or a notification</dd>
   <dt id="def;reporting-configuration">reporting configuration</dt>
-  <dd>the subset of reporting metadata that a tool can configure at runtime, before performing its scan.<br><br>
+  <dd>the subset of reporting metadata that a tool can configure at runtime, before performing its scan.
       _Examples_: severity level, rank</dd>
   <dt id="def;repository">repository</dt>
   <dd>container for a related set of files in a version control system</dd>
@@ -552,15 +552,15 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;vcs">VCS</dt>
   <dd>version control system</dd>
   <dt id="def;vendor">vendor</dt>
-  <dd>the community, individual, or organization that created or maintains a product<br><br>
+  <dd>the community, individual, or organization that created or maintains a product
       (including open source software and hardware providers)</dd>
   <dt id="def;vex">VEX</dt>
-  <dd>Vulnerability Exploitability eXchange - enables a supplier or other party to assert whether or not<br><br>
+  <dd>Vulnerability Exploitability eXchange - enables a supplier or other party to assert whether or not
       a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.</dd>
   <dt id="def;viewer">viewer</dt>
   <dd>see CSAF viewer.</dd>
   <dt id="def;vulnerability">vulnerability</dt>
-  <dd>functional behavior of a product or service that violates an implicit or explicit security policy<br><br>
+  <dd>functional behavior of a product or service that violates an implicit or explicit security policy
       (conforming to ISO/IEC 29147 [ISO29147])</dd>
   <dt id="def;xml">XML</dt>
   <dd>eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.</dd>

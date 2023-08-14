@@ -239,7 +239,7 @@ def main(argv: list[str]) -> int:
                         definition += line.lstrip(COLON).strip()
                         continue
                     if line.strip():
-                        definition += '<br><br>' + NL + ' ' * 6 + line.strip()
+                        definition += NL + ' ' * 6 + line.strip()
                         continue
                     if not line.strip():
                         for ref in MD_REF_DETECT.finditer(definition):
