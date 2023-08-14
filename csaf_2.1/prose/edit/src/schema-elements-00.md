@@ -1,4 +1,4 @@
-# 3 Schema Elements
+# Schema Elements
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 

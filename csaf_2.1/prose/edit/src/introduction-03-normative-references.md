@@ -1,4 +1,4 @@
-## 1.3 Normative References
+## Normative References
 
 JSON-Schema-Core
 :    _JSON Schema: A Media Type for Describing JSON Documents_, draft-bhutton-json-schema-00, December 2020, https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00.

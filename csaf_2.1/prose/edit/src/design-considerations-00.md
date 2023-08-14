@@ -1,4 +1,4 @@
-# 2 Design Considerations
+# Design Considerations
 
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 

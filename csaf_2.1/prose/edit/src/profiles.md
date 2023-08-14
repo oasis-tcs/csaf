@@ -1,4 +1,4 @@
-# 4 Profiles
+# Profiles
 
 CSAF documents do not have many required fields as they can be used for different purposes. To ensure a common understanding of which fields are required in a given use case the standard defines profiles. Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose. The value of `/document/category` is used to identify a CSAF document's profile. The following rules apply:
 
@@ -10,7 +10,7 @@ CSAF documents do not have many required fields as they can be used for differen
 6. Local or private profiles MAY exist and tools MAY choose to support them.
 7. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
 
-## 4.1 Profile 1: CSAF Base
+## Profile 1: CSAF Base
 
 This profile defines the default required fields for any CSAF document. Therefore, it is a "catch all" for CSAF documents that do not satisfy any other profile. Furthermore, it is the foundation all other profiles are build on.
 
@@ -39,7 +39,7 @@ An issuing party might choose to set `/document/publisher/name` in front of a va
 
 > Both values `Example Company Security Advisory` and `Example Company security_advisory` in `/document/category` use the profile "CSAF Base". This is important to prepare forward compatibility as later versions of CSAF might add new profiles. Therefore, the values which can be used for the profile "CSAF Base" might change.
 
-## 4.2 Profile 2: Security incident response
+## Profile 2: Security incident response
 
 This profile SHOULD be used to provide a response to a security breach or incident. This MAY also be used to convey information about an incident that is unrelated to the issuing party's own products or infrastructure.
 
@@ -55,7 +55,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > The intended use for this field is to refer to one or more documents or websites which provides more details about the incident.
 * The value of `/document/category` SHALL be `csaf_security_incident_response`.
 
-## 4.3 Profile 3: Informational Advisory
+## Profile 3: Informational Advisory
 
 This profile SHOULD be used to provide information which are **not related to a vulnerability** but e.g. a misconfiguration.
 
@@ -72,7 +72,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 If the element `/product_tree` exists, a user MUST assume that all products mentioned are affected.
 
-## 4.4 Profile 4: Security Advisory
+## Profile 4: Security Advisory
 
 This profile SHOULD be used to provide information which is related to vulnerabilities and corresponding remediations.
 
@@ -88,7 +88,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Lists each product's status in regard to the vulnerability.
 * The value of `/document/category` SHALL be `csaf_security_advisory`.
 
-## 4.5 Profile 5: VEX
+## Profile 5: VEX
 
 This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [VEX] for details.
 

@@ -1,8 +1,8 @@
-## 6.3 Informative Test
+## Informative Test
 
 Informative tests provide insights in common mistakes and bad practices. They MAY fail at a valid CSAF document. It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated. These tests MAY include information about recommended usage. A program MUST handle a test failure as a information.
 
-### 6.3.1 Use of CVSS v2 as the only Scoring System
+### Use of CVSS v2 as the only Scoring System
 
 For each item in the list of scores which contains the `cvss_v2` object it MUST be tested that is not the only scoring item present. The test SHALL pass if a second scoring object is available.
 
@@ -47,7 +47,7 @@ Recommendation:
 
 It is recommended to (also) use the CVSS v3.1.
 
-### 6.3.2 Use of CVSS v3.0
+### Use of CVSS v3.0
 
 For each item in the list of scores which contains the `cvss_v3` object it MUST be tested that CVSS v3.0 is not used.
 
@@ -77,7 +77,7 @@ It is recommended to upgrade to CVSS v3.1.
 
 > A tool MAY upgrade to CVSS v3.1 as quick fix. However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`. The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if the necessary fields for computing their value are present and set.
 
-### 6.3.3 Missing CVE
+### Missing CVE
 
 It MUST be tested that the CVE number is given.
 
@@ -103,7 +103,7 @@ Recommendation:
 
 It is recommended to provide a CVE number to support the users efforts to find more details about a vulnerability and potentially track it through multiple advisories. If no CVE exists for that vulnerability, it is recommended to get one assigned.
 
-### 6.3.4 Missing CWE
+### Missing CWE
 
 It MUST be tested that the CWE is given.
 
@@ -126,7 +126,7 @@ The relevant path for this test is:
 
 > The CWE number is not given.
 
-### 6.3.5 Use of Short Hash
+### Use of Short Hash
 
 It MUST be tested that the length of the hash value is not shorter than 64 characters.
 
@@ -166,7 +166,7 @@ The relevant paths for this test are:
 
 > The length of the hash value is only 32 characters long.
 
-### 6.3.6 Use of non-self referencing URLs Failing to Resolve
+### Use of non-self referencing URLs Failing to Resolve
 
 For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from the 2xx (Successful) or 3xx (Redirection) class.
 
@@ -210,7 +210,7 @@ The relevant paths for this test are:
 
 > The `category` is not set and therefore treated as its default value `external`. A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### 6.3.7 Use of self referencing URLs Failing to Resolve
+### Use of self referencing URLs Failing to Resolve
 
 For each item in an array of type `references_t` with the category `self` it MUST be tested that the URL referenced resolves with a HTTP status code less than 400.
 
@@ -237,7 +237,7 @@ The relevant paths for this test are:
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### 6.3.8 Spell check
+### Spell check
 
 If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of `/document/category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
 
@@ -300,7 +300,7 @@ The relevant paths for this test are:
 
 > There is a spelling mistake in `Secruity`.
 
-### 6.3.9 Branch Categories
+### Branch Categories
 
 For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it MUST be tested that ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that order starting with the Product tree node.
 
@@ -341,7 +341,7 @@ The relevant paths for this test are:
 
 > The product `CSAFPID-9080700` does not have any ancestor with the branch category `product_version`.
 
-### 6.3.10 Usage of Product Version Range
+### Usage of Product Version Range
 
 For each element of type `/$defs/branches_t` it MUST be tested that the `category` is not `product_version_range`.
 
@@ -361,7 +361,7 @@ The relevant paths for this test are:
 
 > The category `product_version_range` was used.
 
-### 6.3.11 Usage of V as Version Indicator
+### Usage of V as Version Indicator
 
 For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not start with `v` or `V` before the version.
 

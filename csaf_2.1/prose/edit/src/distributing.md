@@ -1,24 +1,24 @@
-# 7 Distributing CSAF documents
+# Distributing CSAF documents
 
 This section lists requirements and roles defined for distributing CSAF documents. The first subsection provides all requirements - the second one the roles. It is mandatory to fulfill the basic role "CSAF publisher". The last section provides specific rules for the process of retrieving CSAF documents.
 
-## 7.1 Requirements
+## Requirements
 
 The requirements in this subsection are consecutively numbered to be able to refer to them directly. The order does not give any hint about the importance. Not all requirements have to be fulfilled to conform to this specification - the sets of requirements per conformance clause are defined in section 7.2.
 
-### 7.1.1 Requirement 1: Valid CSAF document
+### Requirement 1: Valid CSAF document
 
 The document is a valid CSAF document (cf. Conformance clause 1).
 
-### 7.1.2 Requirement 2: Filename
+### Requirement 2: Filename
 
 The CSAF document has a filename according to the rules in section 5.1.
 
-### 7.1.3 Requirement 3: TLS
+### Requirement 3: TLS
 
 The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity. The CSAF document MUST NOT be downloadable from a location which does not encrypt the transport when crossing organizational boundaries to maintain the chain of custody.
 
-### 7.1.4 Requirement 4: TLP:WHITE
+### Requirement 4: TLP:WHITE
 
 If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
 
@@ -26,19 +26,19 @@ This does not exclude that such a document is also available in an access protec
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a press release but be able to retrieve the CSAF document.
 
-### 7.1.5 Requirement 5: TLP:AMBER and TLP:RED
+### Requirement 5: TLP:AMBER and TLP:RED
 
 CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected. If they are provided via a web server this SHALL be done under a different path than for TLP:WHITE, TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website. However, it MUST be ensured that the documents are still access protected.
 
-### 7.1.6 Requirement 6: No Redirects
+### Requirement 6: No Redirects
 
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
-### 7.1.7 Requirement 7: provider-metadata.json
+### Requirement 7: provider-metadata.json
 
 The party MUST provide a valid `provider-metadata.json` according to the schema [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata. The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
 
@@ -99,7 +99,7 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
 > This prevents that CSAF documents of a CSAF publisher which have been collected by one CSAF aggregator A are mirrored again on a second CSAF aggregator B. Such cascades are prone to outdated information.
 > If the first aggregator A collects the CSAF documents on best effort and B copies the files from A and announces that this is done weekly, one might assume that B's CSAF documents are more recent. However, that is not the case as B's information depends on A.
 
-### 7.1.8 Requirement 8: security.txt
+### Requirement 8: security.txt
 
 In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
 
@@ -116,7 +116,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields, e.g. in case of changes to the organizational structure through merges or acquisitions. However, this SHOULD NOT be done and removed as soon as possible. If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
 
-### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json
+### Requirement 9: Well-known URL for provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
 
@@ -126,11 +126,11 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
   https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-### 7.1.10 Requirement 10: DNS path
+### Requirement 10: DNS path
 
 The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required.
 
-### 7.1.11 Requirement 11: One folder per year
+### Requirement 11: One folder per year
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the value of `/document/tracking/initial_release_date`.
 
@@ -141,7 +141,7 @@ The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` 
 2020
 ```
 
-### 7.1.12 Requirement 12: index.txt
+### Requirement 12: index.txt
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
@@ -155,7 +155,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 > This can be used to download all CSAF documents.
 
-### 7.1.13 Requirement 13: changes.csv
+### Requirement 13: changes.csv
 
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
@@ -168,11 +168,11 @@ The file changes.csv MUST contain the filename as well as the value of `/documen
 "2018/example_company_-_2018-yh2312.json","2019-03-01T06:01:00Z"
 ```
 
-### 7.1.14 Requirement 14: Directory listings
+### Requirement 14: Directory listings
 
 Directory listing SHALL be enabled to support manual navigation.
 
-### 7.1.15 Requirement 15: ROLIE feed
+### Requirement 15: ROLIE feed
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least one of the feeds
 
@@ -242,7 +242,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
 Any existing hash file (requirement 18) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link` having the `rel` value of `hash`.
 Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link` having the `rel` value of `signature`.
 
-### 7.1.16 Requirement 16: ROLIE service document
+### Requirement 16: ROLIE service document
 
 The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
 
@@ -274,7 +274,7 @@ The use and therefore the existence of ROLIE service document is optional. If it
   }
 ```
 
-### 7.1.17 Requirement 17: ROLIE category document
+### Requirement 17: ROLIE category document
 
 The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
@@ -334,7 +334,7 @@ The use and therefore the existence of ROLIE category document is optional. If i
   }
 ```
 
-### 7.1.18 Requirement 18: Integrity
+### Requirement 18: Integrity
 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3) to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
@@ -358,7 +358,7 @@ ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_compan
 
 If a ROLIE feed exists, each hash file MUST be listed in it as described in requirement 15.
 
-### 7.1.19 Requirement 19: Signatures
+### Requirement 19: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [RFC4880] for more details.
 
@@ -371,7 +371,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc
 
 If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
 
-### 7.1.20 Requirement 20: Public OpenPGP Key
+### Requirement 20: Public OpenPGP Key
 
 The public part of the OpenPGP key used to sign the CSAF documents MUST be available. It SHOULD also be available at a public key server.
 
@@ -381,7 +381,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 > Guidance on OpenPGP key strength can be retrieved from technical guidelines of competent authorities.
 
-### 7.1.21 Requirement 21: List of CSAF providers
+### Requirement 21: List of CSAF providers
 
 The file `aggregator.json` MUST be present and valid according to the JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json). It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
@@ -435,11 +435,11 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
   }
 ```
 
-### 7.1.22 Requirement 22: Two disjoint issuing parties
+### Requirement 22: Two disjoint issuing parties
 
 The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers) or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
 
-### 7.1.23 Requirement 23: Mirror
+### Requirement 23: Mirror
 
 The CSAF documents for each issuing party that is mirrored MUST be in a different folder. The folder name SHOULD be retrieved from the name of the issuing authority. This folders MUST be adjacent to the `aggregator.json` (requirement 21). Each such folder MUST at least:
 
@@ -493,7 +493,7 @@ The CSAF documents for each issuing party that is mirrored MUST be in a differen
   }
 ```
 
-## 7.2 Roles
+## Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name. This allows end users to request their suppliers to fulfill a certain set of requirements. A supplier can use roles for advertising and marketing.
 
@@ -506,14 +506,14 @@ Issuing parties MUST indicate through the value `false` in `mirror_on_CSAF_aggre
 
 The values are independent. The combination of the value `false` in `list_on_CSAF_aggregators` and `true` in `mirror_on_CSAF_aggregators` implies that the issuing party does not want to be listed without having the CSAF documents mirrored. Therefore, a CSAF aggregator can list that issuing party if it mirrors the files.
 
-### 7.2.1 Role: CSAF publisher
+### Role: CSAF publisher
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
 * satisfies the requirements 1 to 4 in section 7.1.
 * distributes only CSAF documents on behalf of its own.
 
-### 7.2.2 Role: CSAF provider
+### Role: CSAF provider
 
 A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the following three groups of requirements:
 
@@ -532,14 +532,14 @@ Thirdly, the party:
 
 > If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17. If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
 
-### 7.2.3 Role: CSAF trusted provider
+### Role: CSAF trusted provider
 
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
 * additionally satisfies the requirements 18 to 20 in section 7.1.
 
-### 7.2.4 Role: CSAF lister
+### Role: CSAF lister
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
@@ -549,7 +549,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 > The purpose of this role is to provide a list of URLs where to find CSAF documents. It is not assumed that the list will be complete.
 
-### 7.2.5 Role: CSAF aggregator
+### Role: CSAF aggregator
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
@@ -568,13 +568,13 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 > The purpose of this option is that a consumer can retrieve CSAF documents from a CSAF publisher as if this issuing party would be a CSAF trusted provider. To reach that goal, a CSAF aggregator collects the CSAF documents from the CSAF publisher and mirrors it. The collection process MAY be automated or manual. CSAF aggregators announce the collection interval through the field `update_interval` in the corresponding item of the CSAF publishers list (`csaf_publishers`) in their `aggregator.json`.
 > To minimize the implementation efforts and process overhead, a CSAF aggregator MAY upload the CSAF documents of a CSAF publisher into an internal instance of a CSAF provider software. Such construct is called "CSAF proxy provider" as it can be mirrored by the CSAF aggregator software. However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself. Otherwise, that would violate the second rule of section 7.2.1. Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
 
-## 7.3 Retrieving rules
+## Retrieving rules
 
 The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
 
 > A retrieving party SHOULD do the first phase every time. Based on the setup and use case of the retrieving party it MAY choose to do it less often, e.g. only when adding new or updating distributing parties. In that case, it SHOULD to check regularly whether new information is available.
 
-### 7.3.1 Finding provider-metadata.json
+### Finding provider-metadata.json
 
 **Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json` (requirement 7 in section 7.1) based on the main domain of the issuing party:
 
@@ -589,7 +589,7 @@ The first two steps SHOULD be performed in all cases as the security.txt MAY adv
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving its location from an `aggregator.json` (requirement 21 in section 7.1) of a CSAF lister or CSAF aggregator.
 
-### 7.3.2 Retrieving CSAF documents
+### Retrieving CSAF documents
 
 Given a `provider-metadata.json`, the following process SHOULD be used to retrieve CSAF documents:
 

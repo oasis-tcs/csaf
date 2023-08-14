@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix B.
 ---
 -->
-# Appendix B. Revision History
+# Revision History
 
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|

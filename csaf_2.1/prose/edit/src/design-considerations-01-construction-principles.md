@@ -1,4 +1,4 @@
-## 2.1 Construction Principles
+## Construction Principles
 
 A Security Advisory defined as a CSAF document is the result of complex orchestration of many players and distinct and partially difficult to play schemas.
 

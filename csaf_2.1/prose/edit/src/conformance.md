@@ -1,4 +1,4 @@
-# 9 Conformance
+# Conformance
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -17,7 +17,7 @@ Informative Comments:
 > * Clear baseline across the communities per this specification
 > * Additional per-community cooperative extensions which may flow back into future updates of this specification
 
-## 9.1 Conformance Targets
+## Conformance Targets
 
 This document defines requirements for the CSAF file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
@@ -40,7 +40,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required by CSAF management system as well as matching them to SBOM components of the SBOM database.
 
-### 9.1.1 Conformance Clause 1: CSAF document
+### Conformance Clause 1: CSAF document
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
@@ -48,14 +48,14 @@ A text file or data stream satisfies the "CSAF document" conformance profile if 
 * satisfies at least one profile defined in section 4.
 * does not fail any mandatory test defined in section 6.1.
 
-### 9.1.2 Conformance Clause 2: CSAF producer
+### Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the conformance profile "CSAF document" .
 * satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF producers.
 
-### 9.1.3 Conformance Clause 3: CSAF direct producer
+### Conformance Clause 3: CSAF direct producer
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
@@ -63,7 +63,7 @@ An analysis tool satisfies the "CSAF direct producer" conformance profile if the
 * additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
 
-### 9.1.4 Conformance Clause 4: CSAF converter
+### Conformance Clause 4: CSAF converter
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
@@ -71,7 +71,7 @@ A converter satisfies the “CSAF converter” conformance profile if the conver
 * additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
 
-### 9.1.5 Conformance Clause 5: CVRF CSAF converter
+### Conformance Clause 5: CVRF CSAF converter
 
 A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
@@ -135,7 +135,7 @@ Secondly, the program fulfills the following for all items of:
 
     4. Retrieve the CVSS version from a config value, which defaults to `3.0`. (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
 
-### 9.1.6 Conformance Clause 6: CSAF content management system
+### Conformance Clause 6: CSAF content management system
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
@@ -222,7 +222,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### 9.1.7 Conformance Clause 7: CSAF post-processor
+### Conformance Clause 7: CSAF post-processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
@@ -230,7 +230,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
 
-### 9.1.8 Conformance Clause 8: CSAF modifier
+### Conformance Clause 8: CSAF modifier
 
 A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -246,7 +246,7 @@ The resulting modified document:
 * does not have the same `/document/tracking/id` as the original document. The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as a suffix after an ID from the naming scheme of the issuer of the modified version. It SHOULD NOT use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### 9.1.9 Conformance Clause 9: CSAF translator
+### Conformance Clause 9: CSAF translator
 
 A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
@@ -266,14 +266,14 @@ The resulting translated document:
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * MAY contain translations for elements in arrays of `references_t` after the first element. However, it MUST keep the original URLs as references at the end.
 
-### 9.1.10 Conformance Clause 10: CSAF consumer
+### Conformance Clause 10: CSAF consumer
 
 A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section 3.
 * satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF consumers.
 
-### 9.1.11 Conformance Clause 11: CSAF viewer
+### Conformance Clause 11: CSAF viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
@@ -287,7 +287,7 @@ For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 * SHOULD prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `scores[]`.
 
-### 9.1.12 Conformance Clause 12: CSAF management system
+### Conformance Clause 12: CSAF management system
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
@@ -307,7 +307,7 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 * identifies the latest version of CSAF documents with the same `/document/tracking/id`.
 * is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
 
-### 9.1.13 Conformance Clause 13: CSAF asset matching system
+### Conformance Clause 13: CSAF asset matching system
 
 A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
 
@@ -337,7 +337,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
   * matching that CSAF document at all
   * marked with a given status
 
-### 9.1.14 Conformance Clause 14: CSAF basic validator
+### Conformance Clause 14: CSAF basic validator
 
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
@@ -351,7 +351,7 @@ A CSAF basic validator MAY provide one or more additional functions:
 * Apply quick fixes as specified in the standard.
 * Apply additional quick fixes as implemented by the vendor.
 
-### 9.1.15 Conformance Clause 15: CSAF extended validator
+### Conformance Clause 15: CSAF extended validator
 
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
@@ -360,7 +360,7 @@ A CSAF basic validator satisfies the "CSAF extended validator" conformance profi
 
 A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
 
-### 9.1.16 Conformance Clause 16: CSAF full validator
+### Conformance Clause 16: CSAF full validator
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
@@ -369,7 +369,7 @@ A CSAF extended validator satisfies the "CSAF full validator" conformance profil
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
-### 9.1.17 Conformance Clause 17: CSAF SBOM matching system
+### Conformance Clause 17: CSAF SBOM matching system
 
 A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformance profile if the SBOM matching system:
 

@@ -1,8 +1,8 @@
-## 6.2 Optional Tests
+## Optional Tests
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
 
-### 6.2.1 Unused Definition of Product ID
+### Unused Definition of Product ID
 
 For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it MUST be tested that the `product_id` is referenced somewhere within the same document.
 
@@ -33,7 +33,7 @@ The relevant paths for this test are:
 
 > A tool MAY remove the unused definition as quick fix. However, such quick fix shall not be applied if the test was skipped.
 
-### 6.2.2 Missing Remediation
+### Missing Remediation
 
 For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected and Under investigation it MUST be tested that a remediation exists.
 
@@ -72,7 +72,7 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.
 
-### 6.2.3 Missing Score
+### Missing Score
 
 For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it MUST be tested that a score object exists which covers this product.
 
@@ -108,7 +108,7 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
 
-### 6.2.4 Build Metadata in Revision History
+### Build Metadata in Revision History
 
 For each item in revision history it MUST be tested that `number` does not include build metadata.
 
@@ -132,7 +132,7 @@ The relevant path for this test is:
 
 > The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
 
-### 6.2.5 Older Initial Release Date than Revision History
+### Older Initial Release Date than Revision History
 
 It MUST be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
 
@@ -166,7 +166,7 @@ The relevant path for this test is:
 
 > The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of the oldest item in Revision History.
 
-### 6.2.6 Older Current Release Date than Revision History
+### Older Current Release Date than Revision History
 
 It MUST be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
 
@@ -200,7 +200,7 @@ The relevant path for this test is:
 
 > The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of the newest item in Revision History.
 
-### 6.2.7 Missing Date in Involvements
+### Missing Date in Involvements
 
 For each item in the list of involvements it MUST be tested that it includes the property `date`.
 
@@ -227,7 +227,7 @@ The relevant path for this test is:
 
 > The list of involvements contains an item which does not contain the property `date`.
 
-### 6.2.8 Use of MD5 as the only Hash Algorithm
+### Use of MD5 as the only Hash Algorithm
 
 It MUST be tested that the hash algorithm `md5` is not the only one present.
 
@@ -269,7 +269,7 @@ The relevant paths for this test are:
 
 > The hash algorithm `md5` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 6.2.9 Use of SHA-1 as the only Hash Algorithm
+### Use of SHA-1 as the only Hash Algorithm
 
 It MUST be tested that the hash algorithm `sha1` is not the only one present.
 
@@ -311,7 +311,7 @@ The relevant paths for this test are:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 6.2.10 Missing TLP label
+### Missing TLP label
 
 It MUST be tested that `/document/distribution/tlp/label` is present and valid.
 
@@ -333,7 +333,7 @@ The relevant path for this test is:
 
 > The CSAF document has no TLP label.
 
-### 6.2.11 Missing Canonical URL
+### Missing Canonical URL
 
 It MUST be tested that the CSAF document has a canonical URL.
 
@@ -374,7 +374,7 @@ The relevant path for this test is:
 
 > The only element where the `category` is `self` has a URL that does not fulfill the requirement of a valid filename for a CSAF document.
 
-### 6.2.12 Missing Document Language
+### Missing Document Language
 
 It MUST be tested that the document language is present and set.
 
@@ -399,7 +399,7 @@ The relevant path for this test is:
 
 > The document language is not defined.
 
-### 6.2.13 Sorting
+### Sorting{#optional-tests--sorting}
 
 It MUST be tested that all keys in a CSAF document are sorted alphabetically.
 
@@ -423,7 +423,7 @@ The relevant path for this test is:
 
 > A tool MAY sort the keys as a quick fix.
 
-### 6.2.14 Use of Private Language
+### Use of Private Language
 
 For each element of type `/$defs/language_t` it MUST be tested that the language code does not contain subtags reserved for private use.
 
@@ -444,7 +444,7 @@ The relevant paths for this test are:
 
 > A tool MAY remove such subtag as a quick fix.
 
-### 6.2.15 Use of Default Language
+### Use of Default Language
 
 For each element of type `/$defs/language_t` it MUST be tested that the language code is not `i-default`.
 
@@ -465,7 +465,7 @@ The relevant paths for this test are:
 
 > A tool MAY remove such element as a quick fix.
 
-### 6.2.16 Missing Product Identification Helper
+### Missing Product Identification Helper
 
 For each element of type `/$defs/full_product_name_t` it MUST be tested that it includes the property `product_identification_helper`.
 
@@ -490,7 +490,7 @@ The relevant paths for this test are:
 
 > The product `CSAFPID-9080700` does not provide any Product Identification Helper at all.
 
-### 6.2.17 CVE in field IDs
+### CVE in field IDs
 
 For each item in `/vulnerabilities[]/ids` it MUST be tested that it is not a CVE ID.
 
@@ -517,7 +517,7 @@ The relevant paths for this test are:
 
 > A tool MAY set such element as value for the `cve` property as a quick fix, if that didn't exist before. Alternatively, it MAY remove such element as a quick fix.
 
-### 6.2.18 Product Version Range without vers
+### Product Version Range without vers
 
 For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that the value of `name` conforms the vers specification.
 
@@ -547,7 +547,7 @@ The relevant paths for this test are:
 
 > The version range `>4.2` is a valid vsl but not valid according to the vers specification.
 
-### 6.2.19 CVSS for Fixed Products
+### CVSS for Fixed Products
 
 For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that a CVSS applying to this product has an environmental score of `0`. The test SHALL pass if none of the Product IDs listed within product status `fixed` or `first_fixed` is found in `products` of any item of the `scores` element.
 
@@ -597,7 +597,7 @@ The relevant path for this test is:
 
 > A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` accordingly and compute the `environmentalScore` as quick fix.
 
-### 6.2.20 Additional Properties
+### Additional Properties
 
 It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
 

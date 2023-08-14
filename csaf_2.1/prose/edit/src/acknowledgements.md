@@ -6,7 +6,7 @@ toc:
   enumerate: Appendix A.
 ---
 -->
-# Appendix A. Acknowledgments
+# Acknowledgments
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
 

@@ -1,8 +1,8 @@
-## 6.1 Mandatory Tests
+## Mandatory Tests
 
 Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a test failure as an error.
 
-### 6.1.1 Missing Definition of Product ID
+### Missing Definition of Product ID
 
 For each element of type `/$defs/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it MUST be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/$defs/products_t`.
 
@@ -43,7 +43,7 @@ The relevant paths for this test are:
 
 > Neither `CSAFPID-9080700` nor `CSAFPID-9080701` were defined in the `product_tree`.
 
-### 6.1.2 Multiple Definition of Product ID
+### Multiple Definition of Product ID
 
 For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it MUST be tested that the `product_id` was not already defined within the same document.
 
@@ -74,7 +74,7 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` was defined twice.
 
-### 6.1.3 Circular Definition of Product ID
+### Circular Definition of Product ID
 
 For each new defined Product ID (type `/$defs/product_id_t`) in items of relationships (`/product_tree/relationships`) it MUST be tested that the `product_id` does not end up in a circle.
 
@@ -112,7 +112,7 @@ The relevant path for this test is:
 
 > `CSAFPID-9080701` refers to itself - this is a circular definition.
 
-### 6.1.4 Missing Definition of Product Group ID
+### Missing Definition of Product Group ID
 
 For each element of type `/$defs/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it MUST be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/$defs/product_groups_t`.
 
@@ -151,7 +151,7 @@ The relevant paths for this test are:
 
 > `CSAFGID-1020301` was not defined in the Product Tree.
 
-### 6.1.5 Multiple Definition of Product Group ID
+### Multiple Definition of Product Group ID
 
 For each Product Group ID (type `/$defs/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it MUST be tested that the `group_id` was not already defined within the same document.
 
@@ -200,7 +200,7 @@ The relevant path for this test is:
 
 > `CSAFGID-1020300` was defined twice.
 
-### 6.1.6 Contradicting Product Status
+### Contradicting Product Status
 
 For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of contradicting product status groups. The sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
 
@@ -262,7 +262,7 @@ Contradiction groups are:
 
 > `CSAFPID-9080700` is a member of the two contradicting groups "Affected" and "Not affected".
 
-### 6.1.7 Multiple Scores with same Version per Product
+### Multiple Scores with same Version per Product
 
 For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
 
@@ -315,7 +315,7 @@ The relevant path for this test is:
 
 > Two CVSS v3.1 scores are given for `CSAFPID-9080700`.
 
-### 6.1.8 Invalid CVSS
+### Invalid CVSS
 
 It MUST be tested that the given CVSS object is valid according to the referenced schema.
 
@@ -340,7 +340,7 @@ The relevant paths for this test are:
 
 > A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on the values given in `vectorString` as quick fix.
 
-### 6.1.9 Invalid CVSS computation
+### Invalid CVSS computation
 
 It MUST be tested that the given CVSS object has the values computed correctly according to the definition.
 
@@ -375,7 +375,7 @@ The relevant paths for this test are:
 
 > A tool MAY set the correct values as computed according to the specification as quick fix.
 
-### 6.1.10 Inconsistent CVSS
+### Inconsistent CVSS
 
 It MUST be tested that the given CVSS properties do not contradict the CVSS vector.
 
@@ -409,7 +409,7 @@ The relevant paths for this test are:
 
 > A tool MAY overwrite contradicting values according to the `vectorString` as quick fix.
 
-### 6.1.11 CWE
+### CWE
 
 It MUST be tested that given CWE exists and is valid.
 
@@ -430,7 +430,7 @@ The relevant path for this test is:
 
 > The `CWE-79` exists. However, its name is `Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')`.
 
-### 6.1.12 Language
+### Language
 
 For each element of type `/$defs/language_t` it MUST be tested that the language code is valid and exists.
 
@@ -451,7 +451,7 @@ The relevant paths for this test are:
 
 > For any deprecated subtag, a tool MAY replace it with its preferred value as a quick fix.
 
-### 6.1.13 PURL
+### PURL
 
 It MUST be tested that given PURL is valid.
 
@@ -481,7 +481,7 @@ The relevant paths for this test are:
 
 > Any valid purl has a name component.
 
-### 6.1.14 Sorted Revision History
+### Sorted Revision History
 
 It MUST be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
 
@@ -510,7 +510,7 @@ The relevant path for this test is:
 
 > The first item has a higher version number than the second.
 
-### 6.1.15 Translator
+### Translator
 
 It MUST be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
 
@@ -537,7 +537,7 @@ The relevant path for this test is:
 
 > The required element `source_lang` is missing.
 
-### 6.1.16 Latest Document Version
+### Latest Document Version
 
 It MUST be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison. Any pre-release part is also ignored if the document status is `draft`.
 
@@ -571,7 +571,7 @@ The relevant path for this test is:
 
 > The value of `number` of the last item after sorting is `2`. However, the document version is `1`.
 
-### 6.1.17 Document Status Draft
+### Document Status Draft
 
 It MUST be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
 
@@ -593,7 +593,7 @@ The relevant path for this test is:
 
 > The `/document/tracking/version` is `0.9.5` but the document status is `final`.
 
-### 6.1.18 Released Revision History
+### Released Revision History
 
 It MUST be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
 
@@ -627,7 +627,7 @@ The relevant path for this test is:
 
 > The document status is `final` but the revision history includes an item which has `0` as value for `number`.
 
-### 6.1.19 Revision History Entries for Pre-release Versions
+### Revision History Entries for Pre-release Versions
 
 It MUST be tested that no item of the revision history has a `number` which includes pre-release information.
 
@@ -656,7 +656,7 @@ The relevant path for this test is:
 
 > The revision history contains an item which has a `number` that indicates that this is pre-release.
 
-### 6.1.20 Non-draft Document Version
+### Non-draft Document Version
 
 It MUST be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
 
@@ -678,7 +678,7 @@ The relevant path for this test is:
 
 > The document status is `interim` but the document version contains the pre-release part `-alpha`.
 
-### 6.1.21 Missing Item in Revision History
+### Missing Item in Revision History
 
 It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version. It MUST also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or a Major version of 0 or 1 in the case of semantic versioning.
 
@@ -707,7 +707,7 @@ The relevant path for this test is:
 
 > The item for version `2` is missing.
 
-### 6.1.22 Multiple Definition in Revision History
+### Multiple Definition in Revision History
 
 It MUST be tested that items of the revision history do not contain the same version number.
 
@@ -736,7 +736,7 @@ The relevant path for this test is:
 
 > The revision history contains two items with the version number `1`.
 
-### 6.1.23 Multiple Use of Same CVE
+### Multiple Use of Same CVE
 
 It MUST be tested that a CVE is not used in multiple vulnerability items.
 
@@ -761,7 +761,7 @@ The relevant path for this test is:
 
 > The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
 
-### 6.1.24 Multiple Definition in Involvements
+### Multiple Definition in Involvements
 
 It MUST be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
 
@@ -795,7 +795,7 @@ The relevant path for this test is:
 
 > The list of involvements contains two items with the same tuple `party` and `date`.
 
-### 6.1.25 Multiple Use of Same Hash Algorithm
+### Multiple Use of Same Hash Algorithm
 
 It MUST be tested that the same hash algorithm is not used multiple times in one item of hashes.
 
@@ -839,7 +839,7 @@ The relevant paths for this test are:
 
 > The hash algorithm `sha256` is used two times in one item of hashes.
 
-### 6.1.26 Prohibited Document Category Name
+### Prohibited Document Category Name
 
 It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or value of any other profile than "CSAF Base". Any occurrences of dash, whitespace, and underscore characters are removed from the values on both sides before the match. Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
 
@@ -882,13 +882,13 @@ The relevant path for this test is:
 
 > The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
 
-### 6.1.27 Profile Tests
+### Profile Tests
 
 This subsubsection structures the tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
 > An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests. This results in one virtual test per profile.
 
-#### 6.1.27.1 Document Notes
+#### Document Notes
 
 It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
 
@@ -919,7 +919,7 @@ The relevant path for this test is:
 
 > The document notes do not contain an item which has a `category` of `description`, `details`, `general` or `summary`.
 
-#### 6.1.27.2 Document References
+#### Document References
 
 It MUST be tested that at least one item in `/document/references` exists that has links to an `external` source.
 
@@ -950,7 +950,7 @@ The relevant path for this test is:
 
 > The document references do not contain any item which has the category `external`.
 
-#### 6.1.27.3 Vulnerabilities
+#### Vulnerabilities{#vulnerabilities-for-informational-advisory}
 
 It MUST be tested that the element `/vulnerabilities` does not exist.
 
@@ -980,7 +980,7 @@ The relevant path for this test is:
 
 > A tool MAY change the `/document/category` to `csaf_base` as a quick fix.
 
-#### 6.1.27.4 Product Tree
+#### Product Tree
 
 It MUST be tested that the element `/product_tree` exists.
 
@@ -1012,7 +1012,7 @@ The relevant path for this test is:
 
 > The element `/product_tree` does not exist.
 
-#### 6.1.27.5 Vulnerability Notes
+#### Vulnerability Notes
 
 For each item in `/vulnerabilities` it MUST be tested that the element `notes` exists.
 
@@ -1041,7 +1041,7 @@ The relevant path for this test is:
 
 > The vulnerability item has no `notes` element.
 
-#### 6.1.27.6 Product Status
+#### Product Status
 
 For each item in `/vulnerabilities` it MUST be tested that the element `product_status` exists.
 
@@ -1069,7 +1069,7 @@ The relevant path for this test is:
 
 > The vulnerability item has no `product_status` element.
 
-#### 6.1.27.7 VEX Product Status
+#### VEX Product Status
 
 For each item in `/vulnerabilities` it MUST be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
 
@@ -1103,7 +1103,7 @@ The relevant paths for this test are:
 
 > None of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
 
-#### 6.1.27.8 Vulnerability ID
+#### Vulnerability ID
 
 For each item in `/vulnerabilities` it MUST be tested that at least one of the elements `cve` or `ids` is present.
 
@@ -1132,7 +1132,7 @@ The relevant paths for this test are:
 
 > None of the elements `cve` or `ids` is present.
 
-#### 6.1.27.9 Impact Statement
+#### Impact Statement
 
 For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/flags` or `/vulnerabilities[]/threats`. For the latter one, the `category` value for such a statement MUST be `impact`.
 
@@ -1204,7 +1204,7 @@ The relevant path for this test is:
 >
 > Note: The impact statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
-#### 6.1.27.10 Action Statement
+#### Action Statement
 
 For each item in `/vulnerabilities[]/product_status/known_affected` it MUST be tested that a corresponding action statement exist in `/vulnerabilities[]/remediations`.
 
@@ -1276,7 +1276,7 @@ The relevant path for this test is:
 >
 > Note: The action statement for `CSAFPID-9080700` and `CSAFPID-9080701` is given through `CSAFGID-0001`.
 
-#### 6.1.27.11 Vulnerabilities
+#### Vulnerabilities{#vulnerabilities-for-security-advisory-or-vex}
 
 It MUST be tested that the element `/vulnerabilities` exists.
 
@@ -1308,7 +1308,7 @@ The relevant path for this test is:
 
 > The element `/vulnerabilities` does not exist.
 
-### 6.1.28 Translation
+### Translation
 
 It MUST be tested that the given source language and document language are not the same.
 
@@ -1337,7 +1337,7 @@ The relevant path for this test is:
 
 > A tool MAY remove the source language as quick fix.
 
-### 6.1.29 Remediation without Product Reference
+### Remediation without Product Reference
 
 For each item in `/vulnerabilities[]/remediations` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
@@ -1362,7 +1362,7 @@ The relevant path for this test is:
 
 > A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
 
-### 6.1.30 Mixed Integer and Semantic Versioning
+### Mixed Integer and Semantic Versioning
 
 It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or semantic versioning homogeneously within the same document.
 
@@ -1399,7 +1399,7 @@ The relevant paths for this test are:
 
 > A tool MAY assign all items their corresponding value according to integer versioning as a quick fix. In such case, the old `number` SHOULD be stored in `legacy_version`.
 
-### 6.1.31 Version Range in Product Version
+### Version Range in Product Version
 
 For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
 
@@ -1439,7 +1439,7 @@ The relevant paths for this test are:
 
 > The version range `prior to 4.2` is given for the branch category `product_version`.
 
-### 6.1.32 Flag without Product Reference
+### Flag without Product Reference
 
 For each item in `/vulnerabilities[]/flags` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
@@ -1461,7 +1461,7 @@ The relevant path for this test is:
 
 > The given flag does not specify to which products it should be applied.
 
-### 6.1.33 Multiple Flags with VEX Justification Codes per Product
+### Multiple Flags with VEX Justification Codes per Product
 
 For each item in `/vulnerabilities[]` it MUST be tested that a Product is not member of more than one Flag item with a VEX justification code (see section 3.2.3.5). This takes indirect relations through Product Groups into account.
 

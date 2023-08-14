@@ -1,4 +1,4 @@
-## 3.1 Definitions
+## Definitions
 
 The definitions (`$defs`) introduce the following domain specific types into the CSAF language:
 Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`),
@@ -43,7 +43,7 @@ and Version (`version_t`).
     },
 ```
 
-### 3.1.1 Acknowledgments Type
+### Acknowledgments Type
 
 List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with 1 or more elements contain a list of `Acknowledgment` elements.
 
@@ -76,7 +76,7 @@ The properties are: `names`, `organization`, `summary`, and `urls`.
         }
 ```
 
-#### 3.1.1.1 Acknowledgments Type - Names
+#### Acknowledgments Type - Names
 
 List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of contributors being recognized.
 Every such item of value type `string` with 1 or more characters represents the name of the contributor and contains the name of a single contributor being recognized.
@@ -88,7 +88,7 @@ Every such item of value type `string` with 1 or more characters represents the 
     Johann Sebastian Bach
 ```
 
-#### 3.1.1.2 Acknowledgments Type - Organization
+#### Acknowledgments Type - Organization
 
 The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of the contributing organization being recognized.
 
@@ -100,7 +100,7 @@ The contributing organization (`organization`) has value type `string` with 1 or
     Talos
 ```
 
-#### 3.1.1.3 Acknowledgments Type - Summary
+#### Acknowledgments Type - Summary
 
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.
 
@@ -110,13 +110,13 @@ Summary of the acknowledgment (`summary`) of value type `string` with 1 or more 
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 ```
 
-#### 3.1.1.4 Acknowledgments Type - URLs
+#### Acknowledgments Type - URLs
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
 
-#### 3.1.1.5 Acknowledgments Type - Example
+#### Acknowledgments Type - Example
 
 *Example 4:*
 
@@ -160,7 +160,7 @@ The example 4 above SHOULD lead to the following outcome in a human-readable adv
 > * BSI for assistance in coordination
 > * Antonio Vivaldi for influencing other composers
 
-### 3.1.2 Branches Type
+### Branches Type
 
 List of branches (`branches_t`) with value type `array` contains 1 or more branch elements as children of the current element.
 
@@ -196,11 +196,11 @@ The properties `name` and `category` are mandatory. In addition, the object cont
 > `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and enables grouping for simpler referencing. As an example, the structure MAY use the following levels: `vendor` -> `product_family` -> `product_name` -> `product_version`.
 > It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support the identification and matching of products on the consumer side.
 
-#### 3.1.2.1 Branches Type - Branches
+#### Branches Type - Branches
 
 List of branches (`branches`) has the value type `branches_t`.
 
-#### 3.1.2.2 Branches Type - Category
+#### Branches Type - Category
 
 Category of the branch (`category`) of value type `string` and `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
@@ -246,7 +246,7 @@ The value `specification` indicates the specification such as a standard, best c
 
 The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
 
-#### 3.1.2.3 Branches Type - Name
+#### Branches Type - Name
 
 Name of the branch (`name`) of value type `string` with 1 or more characters contains the canonical descriptor or 'friendly name' of the branch.
 
@@ -265,7 +265,7 @@ Name of the branch (`name`) of value type `string` with 1 or more characters con
 
 A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is part of the product version as given by the vendor.
 
-##### 3.1.2.3.1 Branches Type - Name under Product Version
+##### Branches Type - Name under Product Version
 
 If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
 
@@ -292,7 +292,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 > All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
 
-##### 3.1.2.3.2 Branches Type - Name under Product Version Range
+##### Branches Type - Name under Product Version Range
 
 If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges. The value of MUST obey to exactly one of the following options:
 
@@ -329,11 +329,11 @@ If adjacent property `category` has the value `product_version_range`, the value
         >=8.1.5
     ```
 
-#### 3.1.2.4 Branches Type - Product
+#### Branches Type - Product
 
 Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
-### 3.1.3 Full Product Name Type
+### Full Product Name Type
 
 Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
@@ -355,7 +355,7 @@ The properties `name` and `product_id` are required. The property `product_ident
     },
 ```
 
-#### 3.1.3.1 Full Product Name Type - Name
+#### Full Product Name Type - Name
 
 Textual description of the product (`name`) has value type `string` with 1 or more characters.
 The value SHOULD be the product's full canonical name, including version number and other attributes, as it would be used in a human-friendly document.
@@ -367,11 +367,11 @@ The value SHOULD be the product's full canonical name, including version number 
     Microsoft Host Integration Server 2006 Service Pack 1
 ```
 
-#### 3.1.3.2 Full Product Name Type - Product ID
+#### Full Product Name Type - Product ID
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
-#### 3.1.3.3 Full Product Name Type - Product Identification Helper
+#### Full Product Name Type - Product Identification Helper
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
 Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus`, and `x_generic_uris`, one is mandatory.
@@ -407,7 +407,7 @@ Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_ur
       }
 ```
 
-##### 3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE
+##### Full Product Name Type - Product Identification Helper - CPE
 
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
@@ -417,7 +417,7 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-N] for details.
 
-##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes
+##### Full Product Name Type - Product Identification Helper - Hashes
 
 List of hashes (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
 
@@ -526,7 +526,7 @@ The filename representation (`filename`) of value type `string` with one or more
 
 If the value of the hash matches and the filename does not, a user SHOULD prefer the hash value. In such cases, the filename SHOULD be used as informational property.
 
-##### 3.1.3.3.3 Full Product Name Type - Product Identification Helper - Model Numbers
+##### Full Product Name Type - Product Identification Helper - Model Numbers
 
 The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) model numbers.
 
@@ -559,7 +559,7 @@ Two `*` MUST NOT follow each other.
     IC25T060ATCS05-0
 ```
 
-##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - PURL
+##### Full Product Name Type - Product Identification Helper - PURL
 
 The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
@@ -572,7 +572,7 @@ The package URL (PURL) representation (`purl`) is a `string` of 7 or more charac
 
 This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
 
-##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs
+##### Full Product Name Type - Product Identification Helper - SBOM URLs
 
 The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains a list of URLs where SBOMs for this product can be retrieved.
 
@@ -596,7 +596,7 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
     https://swinslow.net/spdx-examples/example4/main-bin-v2
 ```
 
-##### 3.1.3.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers
+##### Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) serial numbers.
 
@@ -617,7 +617,7 @@ If a part of a serial number of the component to identify is given, it SHOULD be
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - SKUs
+##### Full Product Name Type - Product Identification Helper - SKUs
 
 The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of full or abbreviated (partial) stock keeping units.
 
@@ -642,7 +642,7 @@ If a part of a stock keeping unit of the component to identify is given, it SHOU
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-##### 3.1.3.3.8 Full Product Name Type - Product Identification Helper - Generic URIs
+##### Full Product Name Type - Product Identification Helper - Generic URIs
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
 
@@ -696,7 +696,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
           ]
 ```
 
-### 3.1.4 Language Type
+### Language Type
 
 Language type (`lang_t`) has value type `string` with `pattern` (regular expression):
 
@@ -720,7 +720,7 @@ See IETF language registry: [https://www.iana.org/assignments/language-subtag-re
     jp
 ```
 
-### 3.1.5 Notes Type
+### Notes Type
 
 List of notes (`notes_t`) of value type `array` with 1 or more items of type `Note` contains notes which are specific to the current context.
 
@@ -804,7 +804,7 @@ Title of note (`title`) of value type `string` with 1 or more characters provide
     Impact on safety systems
 ```
 
-### 3.1.6 Product Group ID Type
+### Product Group ID Type
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
@@ -826,7 +826,7 @@ There is no predefined or required format for the Product Group ID (`product_gro
 
 > Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
 
-### 3.1.7 Product Groups Type
+### Product Groups Type
 
 List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
 
@@ -839,7 +839,7 @@ List of Product Group ID (`product_groups_t`) of value type `array` with 1 or mo
     },
 ```
 
-### 3.1.8 Product ID Type
+### Product ID Type
 
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances.
 The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
@@ -859,7 +859,7 @@ The value is a token required to identify a `full_product_name` so that it can b
 
 > Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
 
-### 3.1.9 Products Type
+### Products Type
 
 List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
@@ -872,7 +872,7 @@ List of Product IDs (`products_t`) of value type `array` with 1 or more unique i
     },
 ```
 
-### 3.1.10 References Type
+### References Type
 
 List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects.
 
@@ -922,7 +922,7 @@ Summary of the reference (`summary`) of value type `string` with 1 or more chara
 
 URL of reference (`url`) of value type `string` with format `uri` provides the URL for the reference.
 
-### 3.1.11 Version Type
+### Version Type
 
 The Version (`version_t`) type has value type `string` with `pattern` (regular expression):
 
@@ -947,7 +947,7 @@ A CSAF document MUST use only one versioning system.
     2.40.0+21AF26D3
 ```
 
-#### 3.1.11.1 Version Type - Integer versioning
+#### Version Type - Integer versioning
 
 Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one. The regular expression for this type is:
 
@@ -964,7 +964,7 @@ The following rules apply:
 5. Build metadata is never included in the version.
 6. Precedence MUST be calculate by integer comparison.
 
-#### 3.1.11.2 Version Type - Semantic versioning
+#### Version Type - Semantic versioning
 
 Semantic versioning derived the rules from [SemVer]. The regular expression for this type is:
 

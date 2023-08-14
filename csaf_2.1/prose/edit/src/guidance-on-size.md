@@ -19,7 +19,7 @@ toc:
     enumerate: C.6
 ---
 -->
-# Appendix C. Guidance on the Size of CSAF Documents
+# Guidance on the Size of CSAF Documents
 
 This appendix provides informative guidance on the size of CSAF documents.
 
@@ -29,13 +29,13 @@ All _CSAF consumers_ SHOULD be able to process CSAF documents which comply with 
 
 > If you come across a case where these limits are exceeded, please provide feedback to the TC.
 
-## C.1 File size
+## File size
 
 A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 15 MB.
 
 > At least one database technology in wide use for storing CSAF documents rejects insert attempts when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integers and small strings may incur more overhead in the BSON format than in JSON. In addition, the BSON format adds length information for the entries inside the document, which adds to the size when storing CSAF document content in a BSON format.
 
-## C.2 Array length
+## Array length
 
 An array SHOULD NOT have more than:
 
@@ -118,7 +118,7 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/threats[]/group_ids`
   * `/vulnerabilities[]/threats[]/product_ids`
 
-## C.3 String length
+## String length
 
 A string SHOULD NOT have a length greater than:
 
@@ -236,7 +236,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/remediations[]/restart_required/details`
   * `/vulnerabilities[]/threats[]/details`
 
-## C.4 URI length
+## URI length
 
 A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
 
@@ -261,7 +261,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/vulnerabilities[]/references[]/url`
 * `/vulnerabilities[]/remediations[]/url`
 
-## C.5 Enum
+## Enum
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
@@ -328,7 +328,7 @@ It seems to be safe to assume that the length of each value is not greater than 
 * `/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity` (8)
 * `/vulnerabilities[]/threats[]/category` (14)
 
-## C.6 Date
+## Date
 
 The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 

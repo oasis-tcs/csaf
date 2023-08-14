@@ -1,8 +1,8 @@
-# 5 Additional Conventions
+# Additional Conventions
 
 This section provides additional rules for handling CSAF documents.
 
-## 5.1 Filename
+## Filename
 
 The following rules MUST be applied to determine the filename for the CSAF document:
 
@@ -34,11 +34,11 @@ The following rules MUST be applied to determine the filename for the CSAF docum
   rhba-2019_0024_invalid.json
 ```
 
-## 5.2 Separation in Data Stream
+## Separation in Data Stream
 
 If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
 
-## 5.3 Sorting
+## Sorting{#additional-conventions--sorting}
 
 The keys within a CSAF document SHOULD be sorted alphabetically.
 

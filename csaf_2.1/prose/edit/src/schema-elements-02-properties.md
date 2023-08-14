@@ -1,8 +1,8 @@
-## 3.2 Properties
+## Properties
 
 These final three subsections document the three properties of a CSAF document. The single mandatory property `document`, as well as the optional properties `product_tree` and `vulnerabilities` in that order.
 
-### 3.2.1 Document Property
+### Document Property
 
 Document level meta-data (`document`) of value type `object` with the 5 mandatory properties Category (`category`), CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`), and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
 In addition, the `document` object MAY provide the 7 optional properties Acknowledgments (`acknowledgments`), Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`), References (`references`), and Source Language (`source_lang`).
@@ -51,7 +51,7 @@ In addition, the `document` object MAY provide the 7 optional properties Acknowl
     },
 ```
 
-#### 3.2.1.1 Document Property - Acknowledgments
+#### Document Property - Acknowledgments
 
 Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of acknowledgment elements associated with the whole document.
 
@@ -61,7 +61,7 @@ Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type 
     },
 ```
 
-#### 3.2.1.2 Document Property - Aggregate Severity
+#### Document Property - Aggregate Severity
 
 Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and criticality with which the one or more vulnerabilities reported should be addressed. It is a document-level metric and applied to the document as a whole — not any specific vulnerability. The range of values in this field is defined according to the document producer's policies and procedures.
 
@@ -91,7 +91,7 @@ The Text of aggregate severity (`text`) of value type `string` with 1 or more ch
     Moderate
 ```
 
-#### 3.2.1.3 Document Property - Category
+#### Document Property - Category
 
 Document category (`category`) with value type `string` of 1 or more characters with `pattern` (regular expression):
 
@@ -118,7 +118,7 @@ Document category defines a short canonical name, chosen by the document produce
     Example Company Security Notice
 ```
 
-#### 3.2.1.4 Document Property - CSAF Version
+#### Document Property - CSAF Version
 
 CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
 The single valid value for this `enum` is:
@@ -127,7 +127,7 @@ The single valid value for this `enum` is:
     2.0
 ```
 
-#### 3.2.1.5 Document Property - Distribution
+#### Document Property - Distribution
 
 Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and Traffic Light Protocol (TLP) (`tlp`) describes any constraints on how this document might be shared.
 
@@ -147,7 +147,7 @@ Rules for sharing document (`distribution`) of value type `object` with at least
 
 If both values are present, the TLP information SHOULD be preferred as this aids in automation.
 
-##### 3.2.1.5.1 Document Property - Distribution - Text
+##### Document Property - Distribution - Text
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
@@ -159,7 +159,7 @@ The Textual description (`text`) of value type `string` with 1 or more character
     Share only on a need-to-know-basis only.
 ```
 
-##### 3.2.1.5.2 Document Property - Distribution - TLP
+##### Document Property - Distribution - TLP
 
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and the optional property URL (`url`) provides details about the TLP classification of the document.
 
@@ -200,11 +200,11 @@ The URL of TLP version (`url`) with value type `string` with format `uri` provid
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf
 ```
 
-#### 3.2.1.6 Document Property - Language
+#### Document Property - Language
 
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.
 
-#### 3.2.1.7 Document Property - Notes
+#### Document Property - Notes
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
@@ -214,7 +214,7 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
     },
 ```
 
-#### 3.2.1.8 Document Property - Publisher
+#### Document Property - Publisher
 
 Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`), Name (`name`) and Namespace (`namespace`) and provides information on the publishing entity.
 The 2 other optional properties are: `contact_details` and `issuing_authority`.
@@ -242,7 +242,7 @@ The 2 other optional properties are: `contact_details` and `issuing_authority`.
     },
 ```
 
-##### 3.2.1.8.1 Document Property - Publisher - Category
+##### Document Property - Publisher - Category
 
 The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of publisher releasing the document.
 The valid values are:
@@ -268,7 +268,7 @@ The value `user` indicates anyone using a vendor’s product.
 
 The value `vendor` indicates developers or maintainers of information system products or services. This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.1.8.2 Document Property - Publisher - Contact Details
+##### Document Property - Publisher - Contact Details
 
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
@@ -278,11 +278,11 @@ Contact details (`contact_details`) of value type `string` with 1 or more charac
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
 ```
 
-##### 3.2.1.8.3 Document Property - Publisher - Issuing Authority
+##### Document Property - Publisher - Issuing Authority
 
 Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### 3.2.1.8.4 Document Property - Publisher - Name
+##### Document Property - Publisher - Name
 
 The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
 
@@ -294,7 +294,7 @@ The Name of publisher (`name`) of value type `string` with 1 or more characters 
      Siemens ProductCERT
 ```
 
-##### 3.2.1.8.5 Document Property - Publisher - Namespace
+##### Document Property - Publisher - Namespace
 
 The Namespace of publisher (`namespace`) of value type `string` with format `uri` contains a URL which is under control of the issuing party and can be used as a globally unique identifier for that issuing party. The URL SHALL be normalized.
 
@@ -314,7 +314,7 @@ If an issuing party decides to change its Namespace it SHOULD reissue all CSAF d
     https://www.example.com
 ```
 
-#### 3.2.1.9 Document Property - References
+#### Document Property - References
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
@@ -324,7 +324,7 @@ Document references (`references`) of value type References Type (`references_t`
     },
 ```
 
-#### 3.2.1.10 Document Property - Source Language
+#### Document Property - Source Language
 
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is a translation then the value of this property describes from which language this document was translated.
 
@@ -332,7 +332,7 @@ The property MUST be present and set for any CSAF document with the value `trans
 
 > If an issuing party publishes a CSAF document with the same content in more than one language, one of these documents SHOULD be deemed the "original", the other ones SHOULD be considered translations from the "original". The issuing party can retain its original publisher information including the `category`. However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
 
-#### 3.2.1.11 Document Property - Title
+#### Document Property - Title
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document, and sufficiently unique to distinguish it from similar documents.
 
@@ -343,7 +343,7 @@ Title of this document (`title`) of value type `string` with 1 or more character
     Example Company Cross-Site-Scripting Vulnerability in Example Generator
 ```
 
-#### 3.2.1.12 Document Property - Tracking
+#### Document Property - Tracking
 
 Tracking (`tracking`) of value type `object` with the six mandatory properties: Current Release Date (`current_release_date`), Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`), and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
@@ -380,7 +380,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
     },
 ```
 
-##### 3.2.1.12.1 Document Property - Tracking - Aliases
+##### Document Property - Tracking - Aliases
 
 Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a list of alternate names for the same document.
 
@@ -401,11 +401,11 @@ Every such Alternate Name of value type `string` with 1 or more characters speci
     CVE-2019-12345
 ```
 
-##### 3.2.1.12.2 Document Property - Tracking - Current Release Date
+##### Document Property - Tracking - Current Release Date
 
 Current release date (`current_release_date`) with value type `string` with format `date-time` holds the date when the current revision of this document was released.
 
-##### 3.2.1.12.3 Document Property - Tracking - Generator
+##### Document Property - Tracking - Generator
 
 Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and optional property Date (`date`) is a container to hold all elements related to the generation of the document. These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
@@ -464,7 +464,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
     2
 ```
 
-##### 3.2.1.12.4 Document Property - Tracking - ID
+##### Document Property - Tracking - ID
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters with `pattern` (regular expression):
 
@@ -491,11 +491,11 @@ Its value SHOULD be assigned and maintained by the original document issuing aut
 
 This value is also used to determine the filename for the CSAF document (cf. section 5.1).
 
-##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date
+##### Document Property - Tracking - Initial Release Date
 
 Initial release date (`initial_release_date`) with value type `string` with format `date-time` holds the date when this document was first published.
 
-##### 3.2.1.12.6 Document Property - Tracking - Revision History
+##### Document Property - Tracking - Revision History
 
 The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of the CSAF document, including the initial one.
 
@@ -539,7 +539,7 @@ The Summary of the revision (`summary`) of value type `string` with 1 or more ch
 
 Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from the document if the document status is `final`. Versions of the document which are pre-release SHALL NOT have its own revision item. All changes MUST be tracked in the item for the next release version. Build metadata SHOULD NOT be included in the `number` of any revision item.
 
-##### 3.2.1.12.7 Document Property - Tracking - Status
+##### Document Property - Tracking - Status
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
 The value MUST be one of the following:
@@ -558,11 +558,11 @@ The value `interim` indicates, that the issuing party expects rapid updates. Thi
 
 > This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation. It can be used as an indication to pull the CSAF document more frequently.
 
-##### 3.2.1.12.8 Document Property - Tracking - Version
+##### Document Property - Tracking - Version
 
 Version has the value type Version (`version_t`).
 
-### 3.2.2 Product Tree Property
+### Product Tree Property
 
 Product Tree (`product_tree`) has value type `object` with 1 or more properties is a container for all fully qualified product names that can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`), and Relationships (`relationships`).
@@ -587,15 +587,15 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
     },
 ```
 
-#### 3.2.2.1 Product Tree Property - Branches
+#### Product Tree Property - Branches
 
 List of branches (`branches`) has the value type `branches_t`.
 
-#### 3.2.2.2 Product Tree Property - Full Product Names
+#### Product Tree Property - Full Product Names
 
 List of full product names (`full_product_names`) of value type `array` with 1 or more items of type `full_product_name_t` contains a list of full product names.
 
-#### 3.2.2.3 Product Tree Property - Product Groups
+#### Product Tree Property - Product Groups
 
 List of product groups (`product_groups`) of value type `array` with 1 or more items of value type `object` contains a list of product groups.
 
@@ -637,7 +637,7 @@ Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
 List of Product IDs (`product_ids`) of value type `array` with 2 or more unique items of value type Product ID (`product_id_t`) lists the product_ids of those products which known as one group in the document.
 
-#### 3.2.2.4 Product Tree Property - Relationships
+#### Product Tree Property - Relationships
 
 List of relationships (`relationships`) of value type `array` with 1 or more items contains a list of relationships.
 
@@ -728,7 +728,7 @@ Relates to Product Reference (`relates_to_product_reference`) of value type Prod
 
 > The product `Cisco AnyConnect Secure Mobility Client 4.9.04053"` (Product ID: `CSAFPID-908070601`) and the product `Microsoft Windows` (Product ID: `CSAFPID-908070602`) form together a new product with the separate Product ID `CSAFPID-908070603`. The latter one can be used to refer to that combination in other parts of the CSAF document. In example 34, it might be the case that `Cisco AnyConnect Secure Mobility Client 4.9.04053"` is only vulnerable when installed on `Microsoft Windows`.
 
-### 3.2.3 Vulnerabilities Property
+### Vulnerabilities Property
 
 Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects representing vulnerabilities and providing 1 or more properties represents a list of all relevant vulnerability information items.
 
@@ -794,7 +794,7 @@ Any vulnerability MAY provide the optional properties Acknowledgments (`acknowle
     }
 ```
 
-#### 3.2.3.1 Vulnerabilities Property - Acknowledgments
+#### Vulnerabilities Property - Acknowledgments
 
 Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of acknowledgment elements associated with this vulnerability item.
 
@@ -804,7 +804,7 @@ Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments 
     },
 ```
 
-#### 3.2.3.2 Vulnerabilities Property - CVE
+#### Vulnerabilities Property - CVE
 
 CVE (`cve`) of value type `string` with `pattern` (regular expression):
 
@@ -814,7 +814,7 @@ CVE (`cve`) of value type `string` with `pattern` (regular expression):
 
 holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
-#### 3.2.3.3 Vulnerabilities Property - CWE
+#### Vulnerabilities Property - CWE
 
 CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [CWE].
 
@@ -858,11 +858,11 @@ The Weakness name (`name`) has value type `string` with 1 or more characters and
     Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
 ```
 
-#### 3.2.3.4 Vulnerabilities Property - Discovery Date
+#### Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-#### 3.2.3.5 Vulnerabilities Property - Flags
+#### Vulnerabilities Property - Flags
 
 List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
@@ -926,7 +926,7 @@ The given values reflect the VEX not affected justifications. See [VEX-Justifica
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
-#### 3.2.3.6 Vulnerabilities Property - IDs
+#### Vulnerabilities Property - IDs
 
 List of IDs (`ids`) of value type `array` with one or more unique ID items of value type `object` represents a list of unique labels or tracking IDs for the vulnerability (if such information exists).
 
@@ -979,7 +979,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 >
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
-#### 3.2.3.7 Vulnerabilities Property - Involvements
+#### Vulnerabilities Property - Involvements
 
 List of involvements (`involvements`) of value type `array` with 1 or more items of value type `object` contains a list of involvements.
 
@@ -1056,7 +1056,7 @@ The value `open` is the default status. It doesn’t indicate anything about the
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
-#### 3.2.3.8 Vulnerabilities Property - Notes
+#### Vulnerabilities Property - Notes
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
@@ -1066,7 +1066,7 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
     },
 ```
 
-#### 3.2.3.9 Vulnerabilities Property - Product Status
+#### Vulnerabilities Property - Product Status
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability.
 The eight defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),  Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`), and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
@@ -1124,7 +1124,7 @@ Recommended (`recommended`) of value type Products (`products_t`) represents tha
 
 Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.
 
-#### 3.2.3.10 Vulnerabilities Property - References
+#### Vulnerabilities Property - References
 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a list of references associated with this vulnerability item.
 
@@ -1134,11 +1134,11 @@ Vulnerability references (`references`) of value type References Type (`referenc
     },
 ```
 
-#### 3.2.3.11 Vulnerabilities Property - Release Date
+#### Vulnerabilities Property - Release Date
 
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time the vulnerability was originally released into the wild.
 
-#### 3.2.3.12 Vulnerabilities Property - Remediations
+#### Vulnerabilities Property - Remediations
 
 List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of value type `object` contains a list of remediations.
 
@@ -1184,7 +1184,7 @@ In addition, any Remediation MAY expose the six optional properties Date (`date`
       }
 ```
 
-##### 3.2.3.12.1 Vulnerabilities Property - Remediations - Category
+##### Vulnerabilities Property - Remediations - Category
 
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:
@@ -1212,15 +1212,15 @@ The values `none_available` and `vendor_fix` are mutually exclusive per product.
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The text in field `details` SHOULD contain details about why there will be no fix issued.
 The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
 
-##### 3.2.3.12.2 Vulnerabilities Property - Remediations - Date
+##### Vulnerabilities Property - Remediations - Date
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-##### 3.2.3.12.3 Vulnerabilities Property - Remediations - Details
+##### Vulnerabilities Property - Remediations - Details
 
 Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
-##### 3.2.3.12.4 Vulnerabilities Property - Remediations - Entitlements
+##### Vulnerabilities Property - Remediations - Entitlements
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with 1 or more characters contains a list of entitlements.
 
@@ -1235,15 +1235,15 @@ List of entitlements (`entitlements`) of value type `array` with 1 or more items
 
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that fully resolves the vulnerability.
 
-##### 3.2.3.12.5 Vulnerabilities Property - Remediations - Group IDs
+##### Vulnerabilities Property - Remediations - Group IDs
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current remediation item applies to.
 
-##### 3.2.3.12.6 Vulnerabilities Property - Remediations - Product IDs
+##### Vulnerabilities Property - Remediations - Product IDs
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
-##### 3.2.3.12.7 Vulnerabilities Property - Remediations - Restart Required
+##### Vulnerabilities Property - Remediations - Restart Required
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
 
@@ -1290,11 +1290,11 @@ The values MUST be used as follows:
 
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart. This can include details on procedures, scope or impact.
 
-##### 3.2.3.12.8 Vulnerabilities Property - Remediations - URL
+##### Vulnerabilities Property - Remediations - URL
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
-#### 3.2.3.13 Vulnerabilities Property - Scores
+#### Vulnerabilities Property - Scores
 
 List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
 
@@ -1331,7 +1331,7 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply. A score object SHOULD reflect the associated product's status (for example, a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed; the known affected versions of that product can list the vulnerability score as it applies to them).
 
-#### 3.2.3.14 Vulnerabilities Property - Threats
+#### Vulnerabilities Property - Threats
 
 List of threats (`threats`) of value type `array` with 1 or more items of value type `object` contains information about a vulnerability that can change with time.
 
@@ -1391,7 +1391,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) an
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
 
-#### 3.2.3.15 Vulnerabilities Property - Title
+#### Vulnerabilities Property - Title
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or title to the vulnerability.
 

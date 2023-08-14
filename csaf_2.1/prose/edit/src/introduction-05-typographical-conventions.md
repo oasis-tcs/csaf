@@ -1,4 +1,4 @@
-## 1.5 Typographical Conventions
+## Typographical Conventions
 
 Keywords defined by this specification use this `monospaced` font.
 

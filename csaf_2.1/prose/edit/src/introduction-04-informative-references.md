@@ -1,4 +1,4 @@
-## 1.4 Informative References
+## Informative References
 
 CPE23-A
 :    _Common Platform Enumeration: Applicability Language Specification Version 2.3 (NISTIR 7698)_, D. Waltermire, P. Cichonski, K. Scarfone, Editors, NIST Interagency Report 7698, August 2011, https://dx.doi.org/10.6028/NIST.IR.7698.
