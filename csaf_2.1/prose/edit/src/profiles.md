@@ -90,7 +90,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 ## Profile 5: VEX
 
-This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [VEX] for details.
+This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [cite](#VEX) for details.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 

@@ -101,9 +101,9 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
 
 ### Requirement 8: security.txt
 
-In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
+In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [cite](#RFC7230)). See [cite](#SECURITY-TXT) for more details.
 
-> The security.txt was published as [RFC9116] in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
+> The security.txt was published as [cite](#RFC9116) in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
 
 *Examples 125:*
 
@@ -118,7 +118,7 @@ It is possible to advertise more than one `provider-metadata.json` by adding mul
 
 ### Requirement 9: Well-known URL for provider-metadata.json
 
-The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
+The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details.
 
 *Example 126:*
 
@@ -180,7 +180,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease
 * TLP:GREEN
 * unlabeled
 
-MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
+MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322).
 
 *Example 130:*
 
@@ -244,7 +244,7 @@ Any existing signature file (requirement 19) MUST be listed in the corresponding
 
 ### Requirement 16: ROLIE service document
 
-The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
+The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
 
 *Example 131:*
 
@@ -276,7 +276,7 @@ The use and therefore the existence of ROLIE service document is optional. If it
 
 ### Requirement 17: ROLIE category document
 
-The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [cite](#RFC8322). ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
 * document category
 * document language
@@ -360,7 +360,7 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 
 ### Requirement 19: Signatures
 
-All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [RFC4880] for more details.
+All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [cite](#RFC4880) for more details.
 
 *Example 137:*
 

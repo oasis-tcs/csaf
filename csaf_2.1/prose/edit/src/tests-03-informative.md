@@ -170,7 +170,7 @@ The relevant paths for this test are:
 
 For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-> This test does not apply for any item in an array of type `references_t` with the category `self`. For details about the HTTP status code classes see [RFC7231].
+> This test does not apply for any item in an array of type `references_t` with the category `self`. For details about the HTTP status code classes see [cite](#RFC7231).
 
 The relevant paths for this test are:
 
@@ -214,7 +214,7 @@ The relevant paths for this test are:
 
 For each item in an array of type `references_t` with the category `self` it MUST be tested that the URL referenced resolves with a HTTP status code less than 400.
 
-> This test will most likely fail if the CSAF document is in a status before the initial release. For details about the HTTP status code classes see [RFC7231].
+> This test will most likely fail if the CSAF document is in a status before the initial release. For details about the HTTP status code classes see [cite](#RFC7231).
 
 The relevant paths for this test are:
 

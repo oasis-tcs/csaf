@@ -298,7 +298,7 @@ If adjacent property `category` has the value `product_version_range`, the value
 
 1. Version Range Specifier (vers)
 
-    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [VERS].
+    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [cite](#VERS).
 
     vers MUST be used in its canonical form. To convey the term "all versions" the special string `vers:all/*` MUST be used.
 
@@ -481,7 +481,7 @@ The default value for `algorithm` is `sha256`.
       sha512
 ```
 
-These values are derived from the currently supported digests OpenSSL [OPENSSL]. Leading dashes were removed.
+These values are derived from the currently supported digests OpenSSL [cite](#OPENSSL). Leading dashes were removed.
 
 > The command `openssl dgst -list` (Version 1.1.1f from 2020-03-31) outputs the following:
 >
@@ -567,10 +567,10 @@ The package URL (PURL) representation (`purl`) is a `string` of 7 or more charac
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
 ```
 
-> The given pattern does not completely evaluate whether a PURL is valid according to the [PURL] specification. It provides a more generic approach and general guidance to enable forward compatibility.
-> CSAF uses only the canonical form of PURL to conform with section 3.3 of [RFC3986]. Therefore, URLs starting with `pkg://` are considered invalid.
+> The given pattern does not completely evaluate whether a PURL is valid according to the [cite](#PURL) specification. It provides a more generic approach and general guidance to enable forward compatibility.
+> CSAF uses only the canonical form of PURL to conform with section 3.3 of [cite](#RFC3986). Therefore, URLs starting with `pkg://` are considered invalid.
 
-This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
+This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [cite](#PURL) for details.
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
 

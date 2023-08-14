@@ -36,7 +36,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 
 ## Separation in Data Stream
 
-If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
+If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [cite](#RFC7464).
 
 ## Sorting{#additional-conventions--sorting}
 

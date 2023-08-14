@@ -816,7 +816,7 @@ holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking num
 
 #### Vulnerabilities Property - CWE
 
-CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [CWE].
+CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [cite](#CWE).
 
 ```
     "cwe": {

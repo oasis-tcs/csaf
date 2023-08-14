@@ -379,7 +379,7 @@ This specification is provided under the [Non-Assertion](https://www.oasis-open.
 
 ## 1.2 Terminology <a id='terminology'></a>
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 [[RFC2119](#rfc2119)] and [[RFC8174](#rfc8174)] when, and only when, they appear in all capitals, as shown here.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 \[[RFC2119](#RFC2119)\] and \[[RFC8174](#RFC8174)\] when, and only when, they appear in all capitals, as shown here.
 
 For purposes of this document, the following terms and definitions apply:
 
@@ -561,7 +561,7 @@ For purposes of this document, the following terms and definitions apply:
   <dd>see CSAF viewer.</dd>
   <dt id="def;vulnerability">vulnerability</dt>
   <dd>functional behavior of a product or service that violates an implicit or explicit security policy
-      (conforming to ISO/IEC 29147 [ISO29147])</dd>
+      (conforming to ISO/IEC 29147 <a href="#ISO29147">cite</a>)</dd>
   <dt id="def;xml">XML</dt>
   <dd>eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.</dd>
 </dl>
@@ -725,16 +725,16 @@ Proven and intended usage patterns from practice are given where possible.
 Delegation to industry best practices technologies is used in referencing schemas for:
 
 * Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-N]
+  * Common Platform Enumeration (CPE) Version 2.3 \[[CPE23-N](#CPE23-N)\]
 * Vulnerability Scoring:
-  * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS31]
+  * Common Vulnerability Scoring System (CVSS) Version 3.1 \[[CVSS31](#CVSS31)\]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
-  * Common Vulnerability Scoring System (CVSS) Version 3.0 [CVSS30]
+  * Common Vulnerability Scoring System (CVSS) Version 3.0 \[[CVSS30](#CVSS30)\]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.0.json
-  * Common Vulnerability Scoring System (CVSS) Version 2.0 [CVSS2]
+  * Common Vulnerability Scoring System (CVSS) Version 2.0 \[[CVSS2](#CVSS2)\]
     * JSON Schema Reference https://www.first.org/cvss/cvss-v2.0.json
 * Vulnerability Classification
-  * Common Weakness Enumeration (CWE) [CWE]
+  * Common Weakness Enumeration (CWE) \[[CWE](#CWE)\]
     * CWE List: http://cwe.mitre.org/data/index.html
 * Classification for Document Distribution
   * Traffic Light Protocol (TLP)
@@ -1074,7 +1074,7 @@ If adjacent property `category` has the value `product_version_range`, the value
 
 1. Version Range Specifier (vers)
 
-    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [VERS].
+    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at \[[VERS](#VERS)\].
 
     vers MUST be used in its canonical form. To convey the term "all versions" the special string `vers:all/*` MUST be used.
 
@@ -1257,7 +1257,7 @@ The default value for `algorithm` is `sha256`.
       sha512
 ```
 
-These values are derived from the currently supported digests OpenSSL [OPENSSL]. Leading dashes were removed.
+These values are derived from the currently supported digests OpenSSL \[[OPENSSL](#OPENSSL)\]. Leading dashes were removed.
 
 > The command `openssl dgst -list` (Version 1.1.1f from 2020-03-31) outputs the following:
 >
@@ -1343,10 +1343,10 @@ The package URL (PURL) representation (`purl`) is a `string` of 7 or more charac
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
 ```
 
-> The given pattern does not completely evaluate whether a PURL is valid according to the [PURL] specification. It provides a more generic approach and general guidance to enable forward compatibility.
-> CSAF uses only the canonical form of PURL to conform with section 3.3 of [RFC3986]. Therefore, URLs starting with `pkg://` are considered invalid.
+> The given pattern does not completely evaluate whether a PURL is valid according to the \[[PURL](#PURL)\] specification. It provides a more generic approach and general guidance to enable forward compatibility.
+> CSAF uses only the canonical form of PURL to conform with section 3.3 of \[[RFC3986](#RFC3986)\]. Therefore, URLs starting with `pkg://` are considered invalid.
 
-This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [PURL] for details.
+This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See \[[PURL](#PURL)\] for details.
 
 ##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs <a id='full-product-name-type-product-identification-helper-sbom-urls'></a>
 
@@ -2647,7 +2647,7 @@ holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking num
 
 #### 3.2.3.3 Vulnerabilities Property - CWE <a id='vulnerabilities-property-cwe'></a>
 
-CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [CWE].
+CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. \[[CWE](#CWE)\].
 
 ```
     "cwe": {
@@ -3320,7 +3320,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 ## 4.5 Profile 5: VEX <a id='profile-5-vex'></a>
 
-This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See [VEX] for details.
+This profile SHOULD be used to provide information of the "Vulnerability Exploitability eXchange". The main purpose of the VEX format is to state that and why a certain product is, or is not, affected by a vulnerability. See \[[VEX](#VEX)\] for details.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
@@ -3385,7 +3385,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 
 ## 5.2 Separation in Data Stream <a id='separation-in-data-stream'></a>
 
-If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with [RFC7464].
+If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween, they MUST be separated by the Record Separator in accordance with \[[RFC7464](#RFC7464)\].
 
 ## 5.3 Sorting <a id='additional-conventions--sorting'></a>
 
@@ -5724,7 +5724,7 @@ The relevant paths for this test are:
 
 For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-> This test does not apply for any item in an array of type `references_t` with the category `self`. For details about the HTTP status code classes see [RFC7231].
+> This test does not apply for any item in an array of type `references_t` with the category `self`. For details about the HTTP status code classes see \[[RFC7231](#RFC7231)\].
 
 The relevant paths for this test are:
 
@@ -5768,7 +5768,7 @@ The relevant paths for this test are:
 
 For each item in an array of type `references_t` with the category `self` it MUST be tested that the URL referenced resolves with a HTTP status code less than 400.
 
-> This test will most likely fail if the CSAF document is in a status before the initial release. For details about the HTTP status code classes see [RFC7231].
+> This test will most likely fail if the CSAF document is in a status before the initial release. For details about the HTTP status code classes see \[[RFC7231](#RFC7231)\].
 
 The relevant paths for this test are:
 
@@ -6050,9 +6050,9 @@ If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.
 
 ### 7.1.8 Requirement 8: security.txt <a id='requirement-8-security-txt'></a>
 
-In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [RFC7230]). See [SECURITY-TXT] for more details.
+In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7). If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of \[[RFC7230](#RFC7230)\]). See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 
-> The security.txt was published as [RFC9116] in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
+> The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022. At the time of this writing, the `CSAF` field is in the process of being officially added.
 
 *Examples 125:*
 
@@ -6067,7 +6067,7 @@ It is possible to advertise more than one `provider-metadata.json` by adding mul
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
 
-The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See [RFC8615] for more details.
+The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly the `provider-metadata.json` according to requirement 7. The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
 *Example 126:*
 
@@ -6129,7 +6129,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease
 * TLP:GREEN
 * unlabeled
 
-MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC8322].
+MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 
 *Example 130:*
 
@@ -6193,7 +6193,7 @@ Any existing signature file (requirement 19) MUST be listed in the corresponding
 
 ### 7.1.16 Requirement 16: ROLIE service document <a id='requirement-16-rolie-service-document'></a>
 
-The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [RFC8322] and lists the ROLIE feed documents.
+The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\] and lists the ROLIE feed documents.
 
 *Example 131:*
 
@@ -6225,7 +6225,7 @@ The use and therefore the existence of ROLIE service document is optional. If it
 
 ### 7.1.17 Requirement 17: ROLIE category document <a id='requirement-17-rolie-category-document'></a>
 
-The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with [RFC8322]. ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
+The use and therefore the existence of ROLIE category document is optional. If it is used, each ROLIE category document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\]. ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
 * document category
 * document language
@@ -6309,7 +6309,7 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 
 ### 7.1.19 Requirement 19: Signatures <a id='requirement-19-signatures'></a>
 
-All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [RFC4880] for more details.
+All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See \[[RFC4880](#RFC4880)\] for more details.
 
 *Example 137:*
 
@@ -6551,7 +6551,7 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
 
 # 8. Safety, Security, and Data Protection Considerations <a id='safety-security-and-data-protection-considerations'></a>
 
-CSAF documents are based on JSON, thus the security considerations of [RFC8259] apply and are repeated here as service for the reader:
+CSAF documents are based on JSON, thus the security considerations of \[[RFC8259](#RFC8259)\] apply and are repeated here as service for the reader:
 >Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
 >
 >Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's `eval()` function to parse most JSON texts (but not all; certain characters such as `U+2028 LINE SEPARATOR` and `U+2029 PARAGRAPH SEPARATOR` are legal in JSON but not JavaScript).  This generally constitutes an unacceptable security risk, since the text could contain executable code along with data declarations.  The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to that language's syntax.
@@ -6560,8 +6560,8 @@ In addition, CSAF documents may be rendered by consumers in various human-readab
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 
 * CSAF producers SHOULD NOT emit messages that contain HTML, even though all variants of Markdown permit it. To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer, e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
-* Deeply nested markup can cause a stack overflow in the Markdown processor [GFMENG]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
-  **Note**: One example is the GitHub fork of the `cmark` Markdown processor [GFMCMARK].
+* Deeply nested markup can cause a stack overflow in the Markdown processor \[[GFMENG](#GFMENG)\]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
+  **Note**: One example is the GitHub fork of the `cmark` Markdown processor \[[GFMCMARK](#GFMCMARK)\].
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code. Moreover, it SHALL be treated as unsafe (user) input.
   > Additional, supporting mitigation measures like retrieving only CSAF documents from trusted sources and check their integrity and signature before parsing the document SHOULD be in place to reduce the risk further.

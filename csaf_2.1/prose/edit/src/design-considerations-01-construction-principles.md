@@ -23,16 +23,16 @@ Proven and intended usage patterns from practice are given where possible.
 Delegation to industry best practices technologies is used in referencing schemas for:
 
 * Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [CPE23-N]
+  * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
 * Vulnerability Scoring:
-  * Common Vulnerability Scoring System (CVSS) Version 3.1 [CVSS31]
+  * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
-  * Common Vulnerability Scoring System (CVSS) Version 3.0 [CVSS30]
+  * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)
     * JSON Schema Reference https://www.first.org/cvss/cvss-v3.0.json
-  * Common Vulnerability Scoring System (CVSS) Version 2.0 [CVSS2]
+  * Common Vulnerability Scoring System (CVSS) Version 2.0 [cite](#CVSS2)
     * JSON Schema Reference https://www.first.org/cvss/cvss-v2.0.json
 * Vulnerability Classification
-  * Common Weakness Enumeration (CWE) [CWE]
+  * Common Weakness Enumeration (CWE) [cite](#CWE)
     * CWE List: http://cwe.mitre.org/data/index.html
 * Classification for Document Distribution
   * Traffic Light Protocol (TLP)
