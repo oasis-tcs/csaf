@@ -393,12 +393,12 @@ For purposes of this document, the following terms and definitions apply:
       produces advisories that enable engineering and operating organizations to assess the quality of these
       software artifacts at a point in time, and performs functions such as filing security advisories and
       displaying information about individual advisories.
-      **Note**: An advisory management system can interact with a document viewer to display information about individual advisories.</dd>
+      <strong>Note</strong>: An advisory management system can interact with a document viewer to display information about individual advisories.</dd>
   <dt id="def;advisory-matching">advisory matching</dt>
   <dd>process of determining whether two advisories are targeting the same products and conditions</dd>
   <dt id="def;artifact">artifact</dt>
   <dd>sequence of bytes addressable via a URI.
-      _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file;
+      <em>Examples</em>: A physical file in a file system such as a source file, an object file, a configuration file or a data file;
       a specific version of a file in a version control system; a database table accessed via an HTTP request;
       an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.</dd>
   <dt id="def;csaf-asset-matching-system*">CSAF asset matching system*</dt>
@@ -407,7 +407,7 @@ For purposes of this document, the following terms and definitions apply:
       as well as matching them to assets of the asset database.</dd>
   <dt id="def;csaf-basic-validator">CSAF basic validator</dt>
   <dd>A program that reads a document and checks it against the JSON schema and performs mandatory tests.</dd>
-  <dt id="def;csaf-consumer*">CSAF consumer*</dt>
+  <dt id="def;csaf-consumer">CSAF consumer</dt>
   <dd>program that reads and interprets a CSAF document</dd>
   <dt id="def;csaf-content-management-system">CSAF content management system</dt>
   <dd>program that is able to create, review and manage CSAF documents and is able to preview their details as
@@ -461,7 +461,7 @@ For purposes of this document, the following terms and definitions apply:
   <dd>person who uses the information in a document to investigate, triage, or resolve results</dd>
   <dt id="def;engineering-system">engineering system</dt>
   <dd>software analysis environment within which analysis tools execute.
-      **Note**: An engineering system might include a build system, a source control system, a result management system,
+      <strong>Note</strong>: An engineering system might include a build system, a source control system, a result management system,
       a bug tracking system, a test execution system, and so on.</dd>
   <dt id="def;extension">extension</dt>
   <dd>tool component other than the driver (for example, a plugin, a configuration file, or a taxonomy)</dd>
@@ -489,7 +489,7 @@ For purposes of this document, the following terms and definitions apply:
       or else extending to the end of the artifact</dd>
   <dt id="def;line-number">line (number)</dt>
   <dd>1-based index of a line within a file.
-      **Note**: Abbreviated to "line" when there is no danger of ambiguity with "line" in the sense of a sequence of characters.</dd>
+      <strong>Note</strong>: Abbreviated to "line" when there is no danger of ambiguity with "line" in the sense of a sequence of characters.</dd>
   <dt id="def;localizable">localizable</dt>
   <dd>subject to being translated from one natural language to another</dd>
   <dt id="def;message-string">message string</dt>
@@ -498,7 +498,7 @@ For purposes of this document, the following terms and definitions apply:
   <dd>artifact that is contained within another artifact</dd>
   <dt id="def;newline-sequence">newline sequence</dt>
   <dd>sequence of one or more characters representing the end of a line of text.
-      **Note**: Some systems represent a newline sequence with a single newline character; others represent it as
+      <strong>Note</strong>: Some systems represent a newline sequence with a single newline character; others represent it as
       a carriage return character followed by a newline character.</dd>
   <dt id="def;notification">notification</dt>
   <dd>reporting item that describes a condition encountered by a tool during its execution</dd>
@@ -515,7 +515,7 @@ For purposes of this document, the following terms and definitions apply:
       violate the rules defined by a particular tool component are to be treated</dd>
   <dt id="def;problem">problem</dt>
   <dd>result which indicates a condition that has the potential to detract from the quality of the program.
-      _Examples_: A security vulnerability, a deviation from contractual or legal requirements.</dd>
+      <em>Examples</em>: A security vulnerability, a deviation from contractual or legal requirements.</dd>
   <dt id="def;product">product</dt>
   <dd>is any deliverable (e.g. software, hardware, specification,...) which can be referred to with a name.
       This applies regardless of the origin, the license model, or the mode of distribution of the deliverable.</dd>
@@ -528,7 +528,7 @@ For purposes of this document, the following terms and definitions apply:
   <dd>unit of output produced by a tool, either a result or a notification</dd>
   <dt id="def;reporting-configuration">reporting configuration</dt>
   <dd>the subset of reporting metadata that a tool can configure at runtime, before performing its scan.
-      _Examples_: severity level, rank</dd>
+      <em>Examples</em>: severity level, rank</dd>
   <dt id="def;repository">repository</dt>
   <dd>container for a related set of files in a version control system</dd>
   <dt id="def;taxonomy">taxonomy</dt>

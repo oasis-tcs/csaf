@@ -28,7 +28,7 @@ as well as matching them to assets of the asset database.
 CSAF basic validator
 :    A program that reads a document and checks it against the JSON schema and performs mandatory tests.
 
-CSAF consumer*
+CSAF consumer
 :    program that reads and interprets a CSAF document
 
 CSAF content management system

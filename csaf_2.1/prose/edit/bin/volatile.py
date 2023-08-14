@@ -237,9 +237,23 @@ def main(argv: list[str]) -> int:
                 if in_definition:
                     if line.startswith(COLON):
                         definition += line.lstrip(COLON).strip()
+                        # HACK A DID ACK
+                        definition = (
+                            definition.replace('_Examples_', '<em>Examples</em>')
+                            .replace('_Example_', '<em>Example</em>')
+                            .replace('**Notes**', '<strong>Notes</strong>')
+                            .replace('**Note**', '<strong>Note</strong>')
+                        )
                         continue
                     if line.strip():
                         definition += NL + ' ' * 6 + line.strip()
+                        # HACK A DID ACK
+                        definition = (
+                            definition.replace('_Examples_', '<em>Examples</em>')
+                            .replace('_Example_', '<em>Example</em>')
+                            .replace('**Notes**', '<strong>Notes</strong>')
+                            .replace('**Note**', '<strong>Note</strong>')
+                        )
                         continue
                     if not line.strip():
                         for ref in MD_REF_DETECT.finditer(definition):
