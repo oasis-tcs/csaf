@@ -38,6 +38,7 @@ indent_size = 2
 trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
+max_line_length = 150
 
 # JavaScript-specific settings
 [*.{js,ts}]

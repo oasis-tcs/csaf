@@ -1,10 +1,13 @@
 ## Optional Tests
 
-Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
+Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
+These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF.
+A program MUST handle a test failure as a warning.
 
 ### Unused Definition of Product ID
 
-For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it MUST be tested that the `product_id` is referenced somewhere within the same document.
+For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it MUST be tested that
+the `product_id` is referenced somewhere within the same document.
 
 This test SHALL be skipped for CSAF documents conforming the profile "Informational Advisory".
 
@@ -35,7 +38,8 @@ The relevant paths for this test are:
 
 ### Missing Remediation
 
-For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected and Under investigation it MUST be tested that a remediation exists.
+For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected and Under investigation it MUST be tested that
+a remediation exists.
 
 > The remediation might be of the category `none_available` or `no_fix_planned`.
 
@@ -74,7 +78,8 @@ The relevant paths for this test are:
 
 ### Missing Score
 
-For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it MUST be tested that a score object exists which covers this product.
+For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it MUST be tested that
+a score object exists which covers this product.
 
 The relevant paths for this test are:
 
@@ -164,7 +169,8 @@ The relevant path for this test is:
     }
 ```
 
-> The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of the oldest item in Revision History.
+> The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of
+> the oldest item in Revision History.
 
 ### Older Current Release Date than Revision History
 
@@ -198,7 +204,8 @@ The relevant path for this test is:
     }
 ```
 
-> The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of the newest item in Revision History.
+> The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of
+> the newest item in Revision History.
 
 ### Missing Date in Involvements
 
@@ -231,7 +238,8 @@ The relevant path for this test is:
 
 It MUST be tested that the hash algorithm `md5` is not the only one present.
 
-> Since collision attacks exist for MD5 such value should be accompanied by a second cryptographically stronger hash. This will allow users to double check the results.
+> Since collision attacks exist for MD5 such value should be accompanied by a second cryptographically stronger hash.
+> This will allow users to double check the results.
 
 The relevant paths for this test are:
 
@@ -273,7 +281,8 @@ The relevant paths for this test are:
 
 It MUST be tested that the hash algorithm `sha1` is not the only one present.
 
-> Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash. This will allow users to double check the results.
+> Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash.
+> This will allow users to double check the results.
 
 The relevant paths for this test are:
 
@@ -515,11 +524,13 @@ The relevant paths for this test are:
 
 > The `CVE-2021-44228` is listed in an item of the `ids` array instead under `cve`.
 
-> A tool MAY set such element as value for the `cve` property as a quick fix, if that didn't exist before. Alternatively, it MAY remove such element as a quick fix.
+> A tool MAY set such element as value for the `cve` property as a quick fix, if that didn't exist before.
+> Alternatively, it MAY remove such element as a quick fix.
 
 ### Product Version Range without vers
 
-For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that the value of `name` conforms the vers specification.
+For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that
+the value of `name` conforms the vers specification.
 
 > To implement this test it is deemed sufficient that the value of `name` matches the following regex:
 >
@@ -549,7 +560,10 @@ The relevant paths for this test are:
 
 ### CVSS for Fixed Products
 
-For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that a CVSS applying to this product has an environmental score of `0`. The test SHALL pass if none of the Product IDs listed within product status `fixed` or `first_fixed` is found in `products` of any item of the `scores` element.
+For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that
+a CVSS applying to this product has an environmental score of `0`.
+The test SHALL pass if none of the Product IDs listed within product status `fixed` or
+`first_fixed` is found in `products` of any item of the `scores` element.
 
 The relevant path for this test is:
 
@@ -593,9 +607,11 @@ The relevant path for this test is:
   ]
 ```
 
-> Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor the corresponding attributes in the `vectorString` have been set.
+> Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor
+> the corresponding attributes in the `vectorString` have been set.
 
-> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` accordingly and compute the `environmentalScore` as quick fix.
+> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` accordingly and
+> compute the `environmentalScore` as quick fix.
 
 ### Additional Properties
 
@@ -607,7 +623,8 @@ The relevant path for this test is:
   /
 ```
 
-> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that sets `additionalProperties` to `false` for every key of type `object`.
+> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that
+> sets `additionalProperties` to `false` for every key of type `object`.
 
 *Example 112 which fails the test:*
 

@@ -23,17 +23,27 @@ toc:
 
 This appendix provides informative guidance on the size of CSAF documents.
 
-The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with the result that hard limits SHOULD NOT be enforced. However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits. A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
+The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with
+the result that hard limits SHOULD NOT be enforced.
+However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits.
+A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
-All _CSAF consumers_ SHOULD be able to process CSAF documents which comply with the limits below. All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits.
+All _CSAF consumers_ SHOULD be able to process CSAF documents which comply with the limits below.
+All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits.
 
 > If you come across a case where these limits are exceeded, please provide feedback to the TC.
 
 ## File size
 
-A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 15 MB.
+A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content,
+e.g.: 15 MB.
 
-> At least one database technology in wide use for storing CSAF documents rejects insert attempts when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integers and small strings may incur more overhead in the BSON format than in JSON. In addition, the BSON format adds length information for the entries inside the document, which adds to the size when storing CSAF document content in a BSON format.
+> At least one database technology in wide use for storing CSAF documents rejects insert attempts when
+> the transformed BSON size exceeds 16 megabytes.
+> The BSON format optimizes for accessibility and not size.
+> So, small integers and small strings may incur more overhead in the BSON format than in JSON.
+> In addition, the BSON format adds length information for the entries inside the document,
+> which adds to the size when storing CSAF document content in a BSON format.
 
 ## Array length
 
@@ -265,7 +275,8 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
-> Later versions of CSAF might add, modify or delete possible value which could change the longest value. Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
+> Later versions of CSAF might add, modify or delete possible value which could change the longest value.
+> Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
 
 It seems to be safe to assume that the length of each value is not greater than 50. This applies to:
 

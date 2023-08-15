@@ -52,7 +52,8 @@ ISO19770-2
 :    _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
 ISO29147
-:    _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018, <https://www.iso.org/standard/72311.html>.
+:    _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018,
+<https://www.iso.org/standard/72311.html>.
 
 OPENSSL
 :    _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
@@ -61,31 +62,40 @@ PURL
 :    _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec.
 
 RFC3339
-:    Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, https://www.rfc-editor.org/info/rfc3339.
+:    Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002,
+https://www.rfc-editor.org/info/rfc3339.
 
 RFC3552
-:    Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
+:    Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003,
+https://www.rfc-editor.org/info/rfc3552.
 
 RFC3986
-:    Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, DOI 10.17487/RFC3986, January 2005, https://www.rfc-editor.org/info/rfc3986.
+:    Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, DOI 10.17487/RFC3986,
+January 2005, https://www.rfc-editor.org/info/rfc3986.
 
 RFC4880
-:    Callas, J., Donnerhacke, L., Finney, H., Shaw, D., and R. Thayer, "OpenPGP Message Format", RFC 4880, DOI 10.17487/RFC4880, November 2007, https://www.rfc-editor.org/info/rfc4880.
+:    Callas, J., Donnerhacke, L., Finney, H., Shaw, D., and R. Thayer, "OpenPGP Message Format", RFC 4880, DOI 10.17487/RFC4880, November 2007,
+https://www.rfc-editor.org/info/rfc4880.
 
 RFC7231
-:    Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, https://www.rfc-editor.org/info/rfc7231.
+:    Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231,
+June 2014, https://www.rfc-editor.org/info/rfc7231.
 
 RFC7464
-:    N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, https://www.rfc-editor.org/info/rfc7464.
+:    N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015,
+https://www.rfc-editor.org/info/rfc7464.
 
 RFC8615
-:    Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019, https://www.rfc-editor.org/info/rfc8615.
+:    Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
+https://www.rfc-editor.org/info/rfc8615.
 
 RFC9116
-:    Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, https://www.rfc-editor.org/info/rfc9116.
+:    Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022,
+https://www.rfc-editor.org/info/rfc9116.
 
 SCAP12
-:    _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https://dx.doi.org/10.6028/NIST.SP.800-126r2.
+:    _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire,
+S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https://dx.doi.org/10.6028/NIST.SP.800-126r2.
 
 SECURITY-TXT
 :    Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org/.
@@ -94,22 +104,31 @@ SemVer
 :    _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
 
 SPDX22
-:    _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, https://spdx.github.io/spdx-spec/.
+:    _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020,
+https://spdx.github.io/spdx-spec/.
 
 VERS
-:    _vers: a mostly universal version range specifier_, Part of the PURL GitHub Project, https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.
+:    _vers: a mostly universal version range specifier_, Part of the PURL GitHub Project,
+https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.
 
 VEX
-:    _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.
+:    _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative,
+27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.
 
 VEX-Justification
-:    _Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, XX May 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.
+:    _Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative,
+XX May 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.
 
 XML
-:    _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/. Latest version available at <https://www.w3.org/TR/xml>.
+:    _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors,
+W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/. Latest version available at <https://www.w3.org/TR/xml>.
 
 XML-Schema-1
-:    _W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn, D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, https://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/. Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.
+:    _W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn,
+D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, https://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/.
+Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.
 
 XML-Schema-2
-:    _W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012, https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.
+:    _W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes,
+D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012,
+https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.

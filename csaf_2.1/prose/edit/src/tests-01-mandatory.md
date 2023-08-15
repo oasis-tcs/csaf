@@ -4,7 +4,9 @@ Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a 
 
 ### Missing Definition of Product ID
 
-For each element of type `/$defs/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and therefore reference an element within the `product_tree` it MUST be tested that the Full Product Name element with the matching `product_id` exists. The same applies for all items of elements of type `/$defs/products_t`.
+For each element of type `/$defs/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and
+therefore reference an element within the `product_tree` it MUST be tested that the Full Product Name element with the matching `product_id` exists.
+The same applies for all items of elements of type `/$defs/products_t`.
 
 The relevant paths for this test are:
 
@@ -45,7 +47,8 @@ The relevant paths for this test are:
 
 ### Multiple Definition of Product ID
 
-For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it MUST be tested that the `product_id` was not already defined within the same document.
+For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it
+MUST be tested that the `product_id` was not already defined within the same document.
 
 The relevant paths for this test are:
 
@@ -76,7 +79,8 @@ The relevant paths for this test are:
 
 ### Circular Definition of Product ID
 
-For each new defined Product ID (type `/$defs/product_id_t`) in items of relationships (`/product_tree/relationships`) it MUST be tested that the `product_id` does not end up in a circle.
+For each new defined Product ID (type `/$defs/product_id_t`) in items of relationships (`/product_tree/relationships`) it
+MUST be tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:
 
@@ -84,7 +88,9 @@ The relevant path for this test is:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-> As this can be quite complex a program for large CSAF documents, a program could check first whether a Product ID defined in a relationship item is used as `product_reference` or `relates_to_product_reference`. Only for those which fulfill this condition it is necessary to run the full check following the references.
+> As this can be quite complex a program for large CSAF documents, a program could check first whether
+> a Product ID defined in a relationship item is used as `product_reference` or `relates_to_product_reference`.
+> Only for those which fulfill this condition it is necessary to run the full check following the references.
 
 *Example 51 which fails the test:*
 
@@ -114,7 +120,9 @@ The relevant path for this test is:
 
 ### Missing Definition of Product Group ID
 
-For each element of type `/$defs/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and therefore reference an element within the `product_tree` it MUST be tested that the Product Group element with the matching `group_id` exists. The same applies for all items of elements of type `/$defs/product_groups_t`.
+For each element of type `/$defs/product_group_id_t` which is not inside a Product Group (`/product_tree/product_groups[]`) and
+therefore reference an element within the `product_tree` it MUST be tested that the Product Group element with the matching `group_id` exists.
+The same applies for all items of elements of type `/$defs/product_groups_t`.
 
 The relevant paths for this test are:
 
@@ -153,7 +161,8 @@ The relevant paths for this test are:
 
 ### Multiple Definition of Product Group ID
 
-For each Product Group ID (type `/$defs/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it MUST be tested that the `group_id` was not already defined within the same document.
+For each Product Group ID (type `/$defs/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it
+MUST be tested that the `group_id` was not already defined within the same document.
 
 The relevant path for this test is:
 
@@ -202,7 +211,8 @@ The relevant path for this test is:
 
 ### Contradicting Product Status
 
-For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of contradicting product status groups. The sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
+For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of contradicting product status groups.
+The sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
 
 Contradiction groups are:
 
@@ -233,7 +243,8 @@ Contradiction groups are:
   /vulnerabilities[]/product_status/under_investigation[]
   ```
 
-> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group, i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
+> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
+> i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
 *Example 54 which fails the test:*
 
@@ -338,7 +349,8 @@ The relevant paths for this test are:
 
 > The required element `baseSeverity` is missing.
 
-> A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on the values given in `vectorString` as quick fix.
+> A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on
+> the values given in `vectorString` as quick fix.
 
 ### Invalid CVSS computation
 
@@ -539,7 +551,9 @@ The relevant path for this test is:
 
 ### Latest Document Version
 
-It MUST be tested that document version has the same value as the the `number` in the last item of Revision History when it is sorted ascending by `date`. Build metadata is ignored in the comparison. Any pre-release part is also ignored if the document status is `draft`.
+It MUST be tested that document version has the same value as the the `number` in the last item of Revision History when
+it is sorted ascending by `date`. Build metadata is ignored in the comparison.
+Any pre-release part is also ignored if the document status is `draft`.
 
 The relevant path for this test is:
 
@@ -680,7 +694,10 @@ The relevant path for this test is:
 
 ### Missing Item in Revision History
 
-It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`. In the case of semantic versioning, this applies only to the Major version. It MUST also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or a Major version of 0 or 1 in the case of semantic versioning.
+It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`.
+In the case of semantic versioning, this applies only to the Major version.
+It MUST also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or
+a Major version of 0 or 1 in the case of semantic versioning.
 
 The relevant path for this test is:
 
@@ -841,9 +858,13 @@ The relevant paths for this test are:
 
 ### Prohibited Document Category Name
 
-It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or value of any other profile than "CSAF Base". Any occurrences of dash, whitespace, and underscore characters are removed from the values on both sides before the match. Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
+It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
+value of any other profile than "CSAF Base". Any occurrences of dash, whitespace,
+and underscore characters are removed from the values on both sides before the match.
+Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
 
-This test does only apply for CSAF documents with the profile "CSAF Base". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
+This test does only apply for CSAF documents with the profile "CSAF Base".
+Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
 
 > For CSAF 2.0, the test must be skipped for the following values in `/document/category`:
 >
@@ -884,9 +905,12 @@ The relevant path for this test is:
 
 ### Profile Tests
 
-This subsubsection structures the tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+This subsubsection structures the tests for the profiles. Not all tests apply for all profiles.
+Tests SHOULD be skipped if the document category does not match the one given in the test.
+Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
-> An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests. This results in one virtual test per profile.
+> An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests.
+> This results in one virtual test per profile.
 
 #### Document Notes
 
@@ -1071,7 +1095,8 @@ The relevant path for this test is:
 
 #### VEX Product Status
 
-For each item in `/vulnerabilities` it MUST be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
+For each item in `/vulnerabilities` it MUST be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
+or `under_investigation` is present in `product_status`.
 
 The relevant value for `/document/category` is:
 
@@ -1134,7 +1159,9 @@ The relevant paths for this test are:
 
 #### Impact Statement
 
-For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that a corresponding impact statement exist in `/vulnerabilities[]/flags` or `/vulnerabilities[]/threats`. For the latter one, the `category` value for such a statement MUST be `impact`.
+For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that
+a corresponding impact statement exist in `/vulnerabilities[]/flags` or `/vulnerabilities[]/threats`.
+For the latter one, the `category` value for such a statement MUST be `impact`.
 
 The relevant value for `/document/category` is:
 
@@ -1206,7 +1233,8 @@ The relevant path for this test is:
 
 #### Action Statement
 
-For each item in `/vulnerabilities[]/product_status/known_affected` it MUST be tested that a corresponding action statement exist in `/vulnerabilities[]/remediations`.
+For each item in `/vulnerabilities[]/product_status/known_affected` it MUST be tested that
+a corresponding action statement exist in `/vulnerabilities[]/remediations`.
 
 The relevant value for `/document/category` is:
 
@@ -1364,7 +1392,8 @@ The relevant path for this test is:
 
 ### Mixed Integer and Semantic Versioning
 
-It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or semantic versioning homogeneously within the same document.
+It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or
+semantic versioning homogeneously within the same document.
 
 The relevant paths for this test are:
 
@@ -1397,13 +1426,16 @@ The relevant paths for this test are:
 
 > The document started with semantic versioning (`1.0.0`) and switched to integer versioning (`2`).
 
-> A tool MAY assign all items their corresponding value according to integer versioning as a quick fix. In such case, the old `number` SHOULD be stored in `legacy_version`.
+> A tool MAY assign all items their corresponding value according to integer versioning as a quick fix.
+> In such case, the old `number` SHOULD be stored in `legacy_version`.
 
 ### Version Range in Product Version
 
-For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that the value of `name` does not contain a version range.
+For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that
+the value of `name` does not contain a version range.
 
-> To implement this test it is deemed sufficient that, when converted to lower case, the value of `name` does not contain any of the following strings:
+> To implement this test it is deemed sufficient that, when converted to lower case,
+> the value of `name` does not contain any of the following strings:
 >
 > ```
 >   <
@@ -1463,9 +1495,12 @@ The relevant path for this test is:
 
 ### Multiple Flags with VEX Justification Codes per Product
 
-For each item in `/vulnerabilities[]` it MUST be tested that a Product is not member of more than one Flag item with a VEX justification code (see section 3.2.3.5). This takes indirect relations through Product Groups into account.
+For each item in `/vulnerabilities[]` it MUST be tested that a Product is not member of more than one Flag item with
+a VEX justification code (see section 3.2.3.5).
+This takes indirect relations through Product Groups into account.
 
-> Additional flags with a different purpose might be provided in later versions of CSAF. Through the explicit reference of VEX justification codes the test is specified to be forward-compatible.
+> Additional flags with a different purpose might be provided in later versions of CSAF.
+> Through the explicit reference of VEX justification codes the test is specified to be forward-compatible.
 
 The relevant path for this test is:
 

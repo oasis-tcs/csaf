@@ -2,8 +2,8 @@
 
 The definitions (`$defs`) introduce the following domain specific types into the CSAF language:
 Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Name (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`),
-Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`), Product ID (`product_id_t`), Products (`products_t`), References (`references_t`),
-and Version (`version_t`).
+Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`), Product ID (`product_id_t`), Products (`products_t`),
+References (`references_t`), and Version (`version_t`).
 
 ```
     "$defs": {
@@ -45,7 +45,8 @@ and Version (`version_t`).
 
 ### Acknowledgments Type
 
-List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with 1 or more elements contain a list of `Acknowledgment` elements.
+List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with 1 or more elements contain
+a list of `Acknowledgment` elements.
 
 ```
     "acknowledgments_t": {
@@ -56,7 +57,8 @@ List of Acknowledgments (`acknowledgments_t`) type instances of value type `arra
     },
 ```
 
-The value type of Acknowledgment is `object` with at least 1 and at most 4 properties. Every such element acknowledges contributions by describing those that contributed.
+The value type of Acknowledgment is `object` with at least 1 and at most 4 properties. Every such element acknowledges contributions by
+describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
 ```
@@ -79,7 +81,8 @@ The properties are: `names`, `organization`, `summary`, and `urls`.
 #### Acknowledgments Type - Names
 
 List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of contributors being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of the contributor and contains the name of a single contributor being recognized.
+Every such item of value type `string` with 1 or more characters represents the name of the contributor and contains the name of
+a single contributor being recognized.
 
 *Examples 1:*
 
@@ -90,7 +93,8 @@ Every such item of value type `string` with 1 or more characters represents the 
 
 #### Acknowledgments Type - Organization
 
-The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of the contributing organization being recognized.
+The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of
+the contributing organization being recognized.
 
 *Examples 2:*
 
@@ -102,7 +106,8 @@ The contributing organization (`organization`) has value type `string` with 1 or
 
 #### Acknowledgments Type - Summary
 
-Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details the document producers wish to make known about the acknowledgment or acknowledged parties.
+Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details
+the document producers wish to make known about the acknowledgment or acknowledged parties.
 
 *Example 3:*
 
@@ -112,7 +117,8 @@ Summary of the acknowledgment (`summary`) of value type `string` with 1 or more 
 
 #### Acknowledgments Type - URLs
 
-List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies a list of URLs or location of the reference to be acknowledged.
+List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies
+a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is string with format URI (`uri`).
 
@@ -193,8 +199,11 @@ The properties `name` and `category` are mandatory. In addition, the object cont
         }
 ```
 
-> `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and enables grouping for simpler referencing. As an example, the structure MAY use the following levels: `vendor` -> `product_family` -> `product_name` -> `product_version`.
-> It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support the identification and matching of products on the consumer side.
+> `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and
+> enables grouping for simpler referencing.
+> As an example, the structure MAY use the following levels: `vendor` -> `product_family` -> `product_name` -> `product_version`.
+> It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support
+> the identification and matching of products on the consumer side.
 
 #### Branches Type - Branches
 
@@ -234,11 +243,14 @@ The value `product_family` indicates the product family that the product falls i
 
 The value `product_name` indicates the name of the product.
 
-The value `product_version` indicates exactly a single version of the product. The value of the adjacent `name` property can be numeric or some other descriptor. However, it MUST NOT contain version ranges of any kind.
+The value `product_version` indicates exactly a single version of the product.
+The value of the adjacent `name` property can be numeric or some other descriptor.
+However, it MUST NOT contain version ranges of any kind.
 
 > It is recommended to enumerate versions wherever possible. Nevertheless, the TC understands that this is sometimes impossible. To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced. See next section for details.
 
-The value `product_version_range` indicates a range of versions for the product. The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
+The value `product_version_range` indicates a range of versions for the product.
+The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
 
 The value `service_pack` indicates the service pack of the product.
 
@@ -263,7 +275,8 @@ Name of the branch (`name`) of value type `string` with 1 or more characters con
     Windows
 ```
 
-A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is part of the product version as given by the vendor.
+A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is
+part of the product version as given by the vendor.
 
 ##### Branches Type - Name under Product Version
 
@@ -277,7 +290,10 @@ If adjacent property `category` has the value `product_version`, the value of `n
     v3
 ```
 
-> The `product_version` is the easiest way for users to determine whether their version is meant (provided that the given ancestors in the product tree matched): If both version strings are the same, it is a match - otherwise not. Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
+> The `product_version` is the easiest way for users to determine whether their version is meant
+> (provided that the given ancestors in the product tree matched):
+> If both version strings are the same, it is a match - otherwise not.
+> Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
 
 *Examples 7 for `name` when using `product_version` which are invalid:*
 
@@ -294,7 +310,8 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 ##### Branches Type - Name under Product Version Range
 
-If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges. The value of MUST obey to exactly one of the following options:
+If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges.
+The value of MUST obey to exactly one of the following options:
 
 1. Version Range Specifier (vers)
 
@@ -315,7 +332,8 @@ If adjacent property `category` has the value `product_version_range`, the value
 
 2. Vers-like Specifier (vls)
 
-    This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part. It is a fallback option and SHOULD NOT be used unless really necessary.
+    This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part.
+    It is a fallback option and SHOULD NOT be used unless really necessary.
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
 
     Tools MAY support this on best effort basis.
@@ -358,7 +376,8 @@ The properties `name` and `product_id` are required. The property `product_ident
 #### Full Product Name Type - Name
 
 Textual description of the product (`name`) has value type `string` with 1 or more characters.
-The value SHOULD be the product's full canonical name, including version number and other attributes, as it would be used in a human-friendly document.
+The value SHOULD be the product's full canonical name, including version number and other attributes,
+as it would be used in a human-friendly document.
 
 *Examples 10:*
 
@@ -373,8 +392,10 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
 #### Full Product Name Type - Product Identification Helper
 
-Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least one method which aids in identifying the product in an asset database.
-Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus`, and `x_generic_uris`, one is mandatory.
+Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least
+one method which aids in identifying the product in an asset database.
+Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus`,
+and `x_generic_uris`, one is mandatory.
 
 ```
     "product_identification_helper": {
@@ -415,7 +436,8 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
     ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
 ```
 
-The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification. See [CPE23-N] for details.
+The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
+See [CPE23-N] for details.
 
 ##### Full Product Name Type - Product Identification Helper - Hashes
 
@@ -455,7 +477,8 @@ List of file hashes (`file_hashes`) of value type `array` holding at least one i
     },
 ```
 
-Each File hash of value type `object` contains one hash value and algorithm of the file to be identified. Any File hash object has the 2 mandatory properties `algorithm` and `value`.
+Each File hash of value type `object` contains one hash value and algorithm of the file to be identified.
+Any File hash object has the 2 mandatory properties `algorithm` and `value`.
 
 ```
         "properties": {
@@ -468,7 +491,8 @@ Each File hash of value type `object` contains one hash value and algorithm of t
         }
 ```
 
-The algorithm of the cryptographic hash representation (`algorithm`) of value type `string` with one or more characters contains the name of the cryptographic hash algorithm used to calculate the value.
+The algorithm of the cryptographic hash representation (`algorithm`) of value type `string` with one or more characters contains
+the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 
 *Examples 11:*
@@ -514,7 +538,8 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
 ```
 
-The filename representation (`filename`) of value type `string` with one or more characters contains the name of the file which is identified by the hash values.
+The filename representation (`filename`) of value type `string` with one or more characters contains the name of
+the file which is identified by the hash values.
 
 *Examples 13:*
 
@@ -524,15 +549,19 @@ The filename representation (`filename`) of value type `string` with one or more
     sudoers.so
 ```
 
-If the value of the hash matches and the filename does not, a user SHOULD prefer the hash value. In such cases, the filename SHOULD be used as informational property.
+If the value of the hash matches and the filename does not, a user SHOULD prefer the hash value.
+In such cases, the filename SHOULD be used as informational property.
 
 ##### Full Product Name Type - Product Identification Helper - Model Numbers
 
-The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) model numbers.
+The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of full or
+abbreviated (partial) model numbers.
 
-A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected, or the model numbers change during update.
+A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected,
+or the model numbers change during update.
 
-This can also be used to identify hardware. If necessary, the software, or any other related part, SHALL be bind to that via a product relationship.
+This can also be used to identify hardware.
+If necessary, the software, or any other related part, SHALL be bind to that via a product relationship.
 
 ```
     "model_numbers": {
@@ -543,11 +572,14 @@ This can also be used to identify hardware. If necessary, the software, or any o
     },
 ```
 
-Any given model number of value type `string` with at least 1 character represents a full or abbreviated (partial) model number of the component to identify.
+Any given model number of value type `string` with at least 1 character represents a full or abbreviated (partial) model number of
+the component to identify.
 
-> The terms "model", "model number" and "model variant" are mostly used synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
+> The terms "model", "model number" and "model variant" are mostly used synonymously.
+> Often it is abbreviated as "MN", M/N" or "model no.".
 
-If a part of a model number of the component to identify is given, it SHOULD begin with the first character of the model number and stop at any point.
+If a part of a model number of the component to identify is given,
+it SHOULD begin with the first character of the model number and stop at any point.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
@@ -567,14 +599,18 @@ The package URL (PURL) representation (`purl`) is a `string` of 7 or more charac
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
 ```
 
-> The given pattern does not completely evaluate whether a PURL is valid according to the [cite](#PURL) specification. It provides a more generic approach and general guidance to enable forward compatibility.
-> CSAF uses only the canonical form of PURL to conform with section 3.3 of [cite](#RFC3986). Therefore, URLs starting with `pkg://` are considered invalid.
+> The given pattern does not completely evaluate whether a PURL is valid according to the [cite](#PURL) specification.
+> It provides a more generic approach and general guidance to enable forward compatibility.
+> CSAF uses only the canonical form of PURL to conform with section 3.3 of [cite](#RFC3986).
+> Therefore, URLs starting with `pkg://` are considered invalid.
 
-This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification. See [cite](#PURL) for details.
+This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+See [cite](#PURL) for details.
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
 
-The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains a list of URLs where SBOMs for this product can be retrieved.
+The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains
+a list of URLs where SBOMs for this product can be retrieved.
 
 > The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
 
@@ -598,9 +634,11 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
 
 ##### Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains a list of full or abbreviated (partial) serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains
+a list of full or abbreviated (partial) serial numbers.
 
-A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected, or the serial numbers change during update.
+A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected,
+or the serial numbers change during update.
 
 ```
     "serial_numbers": {
@@ -611,19 +649,25 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
     },
 ```
 
-Any given serial number of value type `string` with at least 1 character represents a full or abbreviated (partial) serial number of the component to identify.
+Any given serial number of value type `string` with at least 1 character represents a full or
+abbreviated (partial) serial number of the component to identify.
 
-If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
+If a part of a serial number of the component to identify is given,
+it SHOULD begin with the first character of the serial number and stop at any point.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
 
-The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of full or abbreviated (partial) stock keeping units.
+The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of full or
+abbreviated (partial) stock keeping units.
 
-A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
+A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software,
+or the stock keeping units change during update.
+In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
 
-> The use of the list of relationships in the first case is important. Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
+> The use of the list of relationships in the first case is important.
+> Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
 
 ```
     "skus": {
@@ -634,17 +678,20 @@ A list of stock keeping units SHOULD only be used if the list of relationships i
     },
 ```
 
-Any given stock keeping unit of value type `string` with at least 1 character represents a full or abbreviated (partial) stock keeping unit (SKU) of the component to identify.
+Any given stock keeping unit of value type `string` with at least 1 character represents a full or
+abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 > Sometimes this is also called "item number", "article number" or "product number".
 
-If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of the stock keeping unit and stop at any point.
+If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of
+the stock keeping unit and stop at any point.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
 ##### Full Product Name Type - Product Identification Helper - Generic URIs
 
-List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
+List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are
+either vendor-specific or derived from a standard not yet supported.
 
 ```
     "x_generic_uris": {
@@ -668,7 +715,8 @@ Any such Generic URI item of value type `object` provides the two mandatory prop
         }
 ```
 
-The namespace of the generic URI (`namespace`) of value type `string` with format `uri` refers to a URL which provides the name and knowledge about the specification used or is the namespace in which these values are valid.
+The namespace of the generic URI (`namespace`) of value type `string` with format `uri` refers to a URL which provides
+the name and knowledge about the specification used or is the namespace in which these values are valid.
 
 The URI (`uri`) of value type `string` with format `uri` contains the identifier itself.
 
@@ -705,9 +753,11 @@ Language type (`lang_t`) has value type `string` with `pattern` (regular express
 ```
 
 The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
-See IETF language registry: [https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
+See IETF language registry:
+[https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 
-> CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem.
+> CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification.
+> Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem.
 > It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
 *Examples 18:*
@@ -733,7 +783,8 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type `No
     },
 ```
 
-Value type of every such Note item is `object` with the mandatory properties `category` and `text` providing a place to put all manner of text blobs related to the current context.
+Value type of every such Note item is `object` with the mandatory properties `category` and `text` providing a place to put
+all manner of text blobs related to the current context.
 A Note `object` MAY provide the optional properties `audience` and `title`.
 
 ```
@@ -777,23 +828,30 @@ Valid `enum` values are:
     summary
 ```
 
-The value `description` indicates the note is a description of something. The optional sibling property `title` MAY have more information in this case.
+The value `description` indicates the note is a description of something.
+The optional sibling property `title` MAY have more information in this case.
 
-The value `details` indicates the note is a low-level detailed discussion. The optional sibling property `title` MAY have more information in this case.
+The value `details` indicates the note is a low-level detailed discussion.
+The optional sibling property `title` MAY have more information in this case.
 
 The value `faq` indicates the note is a list of frequently asked questions.
 
-The value `general` indicates the note is a general, high-level note. The optional sibling property `title` MAY have more information in this case.
+The value `general` indicates the note is a general, high-level note.
+The optional sibling property `title` MAY have more information in this case.
 
 The value `legal_disclaimer` indicates the note represents any possible legal discussion, including constraints, surrounding the document.
 
-The value `other` indicates the note is something that doesn’t fit the other categories. The optional sibling attribute `title` SHOULD have more information to indicate clearly what kind of note to expect in this case.
+The value `other` indicates the note is something that doesn’t fit the other categories.
+The optional sibling attribute `title` SHOULD have more information to indicate clearly what kind of note to expect in this case.
 
-The value `summary` indicates the note is a summary of something. The optional sibling property `title` MAY have more information in this case.
+The value `summary` indicates the note is a summary of something.
+The optional sibling property `title` MAY have more information in this case.
 
-Note content (`text`) of value type `string` with 1 or more characters holds the content of the note. Content varies depending on type.
+Note content (`text`) of value type `string` with 1 or more characters holds the content of the note.
+Content varies depending on type.
 
-Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what is contained in the text of the note.
+Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what
+is contained in the text of the note.
 
 *Examples 20:*
 
@@ -808,7 +866,8 @@ Title of note (`title`) of value type `string` with 1 or more characters provide
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with 1 or more characters is a reference token for product group instances.
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
-There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies a product group in the context of the current document.
+There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies
+a product group in the context of the current document.
 
 ```
     "product_group_id_t": {
@@ -824,11 +883,13 @@ There is no predefined or required format for the Product Group ID (`product_gro
     CSAFGID-0020
 ```
 
-> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
+> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and
+> the Product Group ID to support reading and parsing the document.
 
 ### Product Groups Type
 
-List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
+List of Product Group ID (`product_groups_t`) of value type `array` with 1 or more unique items (a `set`) of type
+Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
 
 ```
     "product_groups_t": {
@@ -842,7 +903,9 @@ List of Product Group ID (`product_groups_t`) of value type `array` with 1 or mo
 ### Product ID Type
 
 The Product ID Type (`product_id_t`) of value type `string` with 1 or more characters is a reference token for product instances.
-The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document. There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of the current document.
+The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document.
+There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of
+the current document.
 
 ```
     "product_id_t": {
@@ -857,11 +920,13 @@ The value is a token required to identify a `full_product_name` so that it can b
     CSAFPID-0008
 ```
 
-> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and the Product Group ID to support reading and parsing the document.
+> Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and
+> the Product Group ID to support reading and parsing the document.
 
 ### Products Type
 
-List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
+List of Product IDs (`products_t`) of value type `array` with 1 or more unique items (a `set`) of type
+Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
 ```
     "products_t": {
@@ -885,7 +950,9 @@ List of references (`references_t`) of value type `array` with 1 or more items o
     },
 ```
 
-Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences, papers, advisories, and other resources that are related and considered related to either a surrounding part of or the entire document and to be of value to the document consumer.
+Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences,
+papers, advisories, and other resources that are related and considered related to either a surrounding part of or
+the entire document and to be of value to the document consumer.
 A reference `object` MAY provide the optional property `category`.
 
 ```
@@ -902,7 +969,8 @@ A reference `object` MAY provide the optional property `category`.
     }
 ```
 
-Category of reference (`category`) of value type `string` and `enum` indicates whether the reference points to the same document or vulnerability in focus (depending on scope) or to an external resource.
+Category of reference (`category`) of value type `string` and `enum` indicates whether the reference points to the same document or
+vulnerability in focus (depending on scope) or to an external resource.
 Valid `enum` values are:
 
 ```
@@ -930,7 +998,8 @@ The Version (`version_t`) type has value type `string` with `pattern` (regular e
     ^(0|[1-9][0-9]*)$|^((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)$
 ```
 
-The version specifies a version string to denote clearly the evolution of the content of the document. There are two options how it can be used:
+The version specifies a version string to denote clearly the evolution of the content of the document.
+There are two options how it can be used:
 
 * semantic versioning (preferred; according to the rules below)
 * integer versioning
@@ -949,7 +1018,8 @@ A CSAF document MUST use only one versioning system.
 
 #### Version Type - Integer versioning
 
-Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one. The regular expression for this type is:
+Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one.
+The regular expression for this type is:
 
 ```
 ^(0|[1-9][0-9]*)$
@@ -957,10 +1027,15 @@ Integer versioning increments for each version where the `/document/tracking/sta
 
 The following rules apply:
 
-1. Once a versioned document has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version.
-2. Version zero (0) is for initial development before the `initial_release_date`. The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
-3. Version 1 defines the initial public release. Each new version where `/document/tracking/status` is `final` has a version number incremented by one.
-4. Pre-release versions (document status `draft`) MUST carry the new version number. Sole exception is before the initial release (see rule 2). The combination of document status `draft` and version 1 MAY be used to indicate that the content is unlikely to change.
+1. Once a versioned document has been released, the contents of that version MUST NOT be modified.
+   Any modifications MUST be released as a new version.
+2. Version zero (0) is for initial development before the `initial_release_date`.
+   The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
+3. Version 1 defines the initial public release.
+   Each new version where `/document/tracking/status` is `final` has a version number incremented by one.
+4. Pre-release versions (document status `draft`) MUST carry the new version number.
+   Sole exception is before the initial release (see rule 2).
+   The combination of document status `draft` and version 1 MAY be used to indicate that the content is unlikely to change.
 5. Build metadata is never included in the version.
 6. Precedence MUST be calculate by integer comparison.
 
@@ -972,18 +1047,34 @@ Semantic versioning derived the rules from [SemVer]. The regular expression for 
 ^((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)$
 ```
 
-The goal of this structure is to provide additional information to the end user whether a new comparison with the asset database is needed. The "public API" in regards to CSAF is the CSAF document with its structure and content. This results in the following rules:
+The goal of this structure is to provide additional information to the end user whether a new comparison with the asset database is needed.
+The "public API" in regards to CSAF is the CSAF document with its structure and content.
+This results in the following rules:
 
-1. A normal version number MUST take the form X.Y.Z where X, Y, and Z are non-negative integers, and MUST NOT contain leading zeroes. X is the major version, Y is the minor version, and Z is the patch version. Each element MUST increase numerically. For instance: 1.9.0 -> 1.10.0 -> 1.11.0.
-2. Once a versioned document has been released, the contents of that version MUST NOT be modified. Any modifications MUST be released as a new version.
-3. Major version zero (0.y.z) is for initial development before the `initial_release_date`. The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable. Changes which would increment the major version according to rule 7 are tracked in this stage with (0.y.z) by incrementing the minor version y instead. Changes that would increment the minor or patch version according to rule 6 or 5 are both tracked in this stage with (0.y.z) by incrementing the patch version z instead.
-4. Version 1.0.0 defines the initial public release. The way in which the version number is incremented after this release is dependent on the content and structure of the document and how it changes.
-5. Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards compatible bug fixes are introduced. A bug fix is defined as an internal change that fixes incorrect behavior.
+1. A normal version number MUST take the form X.Y.Z where X, Y, and Z are non-negative integers, and MUST NOT contain leading zeroes.
+   X is the major version, Y is the minor version, and Z is the patch version. Each element MUST increase numerically.
+   For instance: 1.9.0 -> 1.10.0 -> 1.11.0.
+2. Once a versioned document has been released, the contents of that version MUST NOT be modified.
+   Any modifications MUST be released as a new version.
+3. Major version zero (0.y.z) is for initial development before the `initial_release_date`.
+   The document status MUST be `draft`. Anything MAY change at any time.
+   The document SHOULD NOT be considered stable. Changes which would increment the major version according to rule 7 are
+   tracked in this stage with (0.y.z) by incrementing the minor version y instead.
+   Changes that would increment the minor or patch version according to rule 6 or 5 are both tracked in this stage with
+   (0.y.z) by incrementing the patch version z instead.
+4. Version 1.0.0 defines the initial public release.
+   The way in which the version number is incremented after this release is dependent on the content and structure of
+   the document and how it changes.
+5. Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards compatible bug fixes are introduced.
+   A bug fix is defined as an internal change that fixes incorrect behavior.
 
    > In the context of the document this is the case e.g. for spelling mistakes.
 
-6. Minor version Y (x.Y.z | x > 0) MUST be incremented if the content of an existing element changes except for those which are covert through rule 7. It MUST be incremented if substantial new information are introduced or new elements are provided. It MAY include patch level changes. Patch version MUST be reset to 0 when minor version is incremented.
-7. Major version X (X.y.z | X > 0) MUST be incremented if a new comparison with the end user's asset database is required. This includes:
+6. Minor version Y (x.Y.z | x > 0) MUST be incremented if the content of an existing element changes except for
+   those which are covert through rule 7. It MUST be incremented if substantial new information are introduced or new elements are provided.
+   It MAY include patch level changes. Patch version MUST be reset to 0 when minor version is incremented.
+7. Major version X (X.y.z | X > 0) MUST be incremented if a new comparison with the end user's asset database is required.
+   This includes:
 
    * changes (adding, removing elements or modifying content) in `/product_tree` or elements which contain `/product_tree` in their path
    * adding or removing items of `/vulnerabilities`
@@ -996,8 +1087,14 @@ The goal of this structure is to provide additional information to the end user 
      * `/vulnerabilities[]/product_status/fixed`
      * `/vulnerabilities[]/product_status/known_not_affected`
 
-   It MAY also include minor and patch level changes. Patch and minor version MUST be reset to 0 when major version is incremented.
-8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version.
+   It MAY also include minor and patch level changes.
+   Patch and minor version MUST be reset to 0 when major version is incremented.
+8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately
+   following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-].
+   Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes.
+   Pre-release versions have a lower precedence than the associated normal version.
+   A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as
+   denoted by its associated normal version.
 
    *Examples 24:*
 
@@ -1010,7 +1107,10 @@ The goal of this structure is to provide additional information to the end user 
    ```
 
 9. Pre-release MUST NOT be included if `/document/tracking/status` is `final`.
-10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-]. Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence. Thus two versions that differ only in the build metadata, have the same precedence.
+10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following
+    the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens [0-9A-Za-z-].
+    Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence.
+    Thus two versions that differ only in the build metadata, have the same precedence.
 
     *Examples 25:*
 
@@ -1023,8 +1123,10 @@ The goal of this structure is to provide additional information to the end user 
 
 11. Precedence refers to how versions are compared to each other when ordered.
 
-    1. Precedence MUST be calculated by separating the version into major, minor, patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
-    2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows: Major, minor, and patch versions are always compared numerically.
+    1. Precedence MUST be calculated by separating the version into major, minor,
+       patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
+    2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows:
+       Major, minor, and patch versions are always compared numerically.
 
        *Example 26:*
 
@@ -1040,7 +1142,8 @@ The goal of this structure is to provide additional information to the end user 
        1.0.0-alpha < 1.0.0
        ```
 
-    4. Precedence for two pre-release versions with the same major, minor, and patch version MUST be determined by comparing each dot separated identifier from left to right until a difference is found as follows:
+    4. Precedence for two pre-release versions with the same major, minor,
+       and patch version MUST be determined by comparing each dot separated identifier from left to right until a difference is found as follows:
 
        1. Identifiers consisting of only digits are compared numerically.
        2. Identifiers with letters or hyphens are compared lexically in ASCII sort order.
