@@ -112,7 +112,7 @@ Document category (`category`) with value type `string` of 1 or more characters 
 
 Document category defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
-> It is directly related to the profiles defined in section 4.
+> It is directly related to the profiles defined in section [sec](#profiles).
 
 ```
     "category": {
@@ -538,7 +538,7 @@ Its value SHOULD be assigned and maintained by the original document issuing aut
 
 > The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
 
-This value is also used to determine the filename for the CSAF document (cf. section 5.1).
+This value is also used to determine the filename for the CSAF document (cf. section [sec](#filename)).
 
 ##### Document Property - Tracking - Initial Release Date
 
@@ -1136,7 +1136,7 @@ Valid values are:
     vendor
 ```
 
-These values follow the same definitions as given for the publisher category (cf. section 3.2.1.8.1).
+These values follow the same definitions as given for the publisher category (cf. section [sec](#document-property-publisher-category)).
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:

@@ -13,7 +13,7 @@ The value of `/document/category` is used to identify a CSAF document's profile.
    the profile.
    One and only exempt is when the profile requires not to have a certain set of fields.
 4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the CSAF standard.
-5. Values of `/document/category` that do not match any of the values defined in section 4 of this standard SHALL be validated against
+5. Values of `/document/category` that do not match any of the values defined in section [sec](#profiles) of this standard SHALL be validated against
    the "CSAF Base" profile.
 6. Local or private profiles MAY exist and tools MAY choose to support them.
 7. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.

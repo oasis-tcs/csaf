@@ -23,7 +23,7 @@ Wherever possible repetition of data has been replaced by linkage through ID ele
 Consistency on the content level thus is in the responsibility of the producer of such documents,
 to link e.g. vulnerability information to the matching product.
 
-A dictionary like presentation of all defined schema elements is given in the section 3.
+A dictionary like presentation of all defined schema elements is given in the section [sec](#schema-elements).
 Any expected relations to other elements (linkage) is described there. This linking relies on setting attribute values accordingly
 (mostly guided by industry best practice and conventions) and thus implies,
 that any deep validation on a semantic level (e.g. does the CWE match the described vulnerability)
@@ -56,11 +56,12 @@ it is strongly recommended not to use them. Suggestions for new fields SHOULD be
 > The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and
 > need for dedicated parsers as well as other tools on the side of the consuming parties.
 
-Section 4 defined profiles that are used to ensure a common understanding of which fields are required in a given use case.
-Additional conventions are stated in section 5.
-The tests given in section 6 support CSAF producers and consumers to verify rules from the specification which can not be tested by the schema.
-Section 7 states how to distribute and where to find CSAF documents.
-Safety, Security and Data Protection are considered in section 8.
+Section [sec](#profiles) defined profiles that are used to ensure a common understanding of which fields are required in a given use case.
+Additional conventions are stated in section [sec](#additional-conventions).
+The tests given in section [sec](#tests) support CSAF producers and
+consumers to verify rules from the specification which can not be tested by the schema.
+Section [sec](#distributing-csaf-documents) states how to distribute and where to find CSAF documents.
+Safety, Security and Data Protection are considered in section [sec](#safety-security-and-data-protection-considerations).
 Finally, a set of conformance targets describes tools in the ecosystem.
 
 -------

@@ -55,32 +55,36 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section 3.
-* satisfies at least one profile defined in section 4.
-* does not fail any mandatory test defined in section 6.1.
+* conforms to the syntax and semantics defined in section [sec](#schema-elements).
+* satisfies at least one profile defined in section [sec](#profiles).
+* does not fail any mandatory test defined in section [sec](#mandatory-tests).
 
 ### Conformance Clause 2: CSAF producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the conformance profile "CSAF document" .
-* satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF producers.
+* satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
+  are designated as applying to CSAF producers.
 
 ### Conformance Clause 3: CSAF direct producer
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
 * satisfies the "CSAF producer" conformance profile.
-* additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
-* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
+* additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to "direct producers" or
+  to "analysis tools".
+* does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
+  are intended to be produced only by converters.
 
 ### Conformance Clause 4: CSAF converter
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
 * satisfies the "CSAF producer" conformance profile.
-* additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
-* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
+* additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to converters.
+* does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
+  are intended to be produced only by direct producers.
 
 ### Conformance Clause 5: CVRF CSAF converter
 
@@ -209,9 +213,9 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
   * track of the version of CSAF documents automatically and increment according to the versioning scheme
-    (see also subsections of 3.1.11) selected in the configuration.
+    (see also subsections of [sec](#version-type)) selected in the configuration.
   * check that the document version is set correctly based on the changes in comparison to the previous version
-    (see also subsections of 3.1.11).
+    (see also subsections of [sec](#version-type)).
   * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in
     the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was
@@ -289,7 +293,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 
 * satisfies the "CSAF consumer" conformance profile.
 * satisfies the "CSAF producer" conformance profile.
-* additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
+* additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to post-processors.
 
 ### Conformance Clause 8: CSAF modifier
 
@@ -299,7 +303,8 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 9, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section [sec](#conformance),
+  are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -340,8 +345,9 @@ The resulting translated document:
 
 A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
-* reads CSAF documents and interprets them according to the semantics defined in section 3.
-* satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF consumers.
+* reads CSAF documents and interprets them according to the semantics defined in section [sec](#schema-elements).
+* satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
+  are designated as applying to CSAF consumers.
 
 ### Conformance Clause 11: CSAF viewer
 
@@ -394,7 +400,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides for each vulnerability within a CSAF document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section 3.1.11.2).
+* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF document
@@ -417,7 +423,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
-* performs all mandatory tests as given in section 6.1.
+* performs all mandatory tests as given in section [sec](#mandatory-tests).
 * does not change the CSAF documents.
 
 A CSAF basic validator MAY provide one or more additional functions:
@@ -431,7 +437,7 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section 6.2.
+* additionally performs all optional tests as given in section [sec](#optional-tests).
 
 A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
 
@@ -440,7 +446,7 @@ A CSAF extended validator MAY provide an additional function to only run one or 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section 6.3.
+* additionally performs all informative tests as given in section [sec](#informative-test).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
@@ -462,7 +468,7 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-* detects the usage semantic version (as described in section 3.1.11.2).
+* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF document

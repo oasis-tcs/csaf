@@ -18,7 +18,7 @@ All examples in this document are informative only.
 
 All other text is normative unless otherwise labeled e.g. like the following informative comment:
 
->This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or
+> This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or
 > common pitfalls learned from implementer or operator experience and often given including the rationale.
 
 -------

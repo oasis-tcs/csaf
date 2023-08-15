@@ -9,7 +9,7 @@ It is mandatory to fulfill the basic role "CSAF publisher". The last section pro
 The requirements in this subsection are consecutively numbered to be able to refer to them directly.
 The order does not give any hint about the importance.
 Not all requirements have to be fulfilled to conform to this specification - the sets of
-requirements per conformance clause are defined in section 7.2.
+requirements per conformance clause are defined in section [sec](#roles).
 
 ### Requirement 1: Valid CSAF document
 
@@ -17,7 +17,7 @@ The document is a valid CSAF document (cf. Conformance clause 1).
 
 ### Requirement 2: Filename
 
-The CSAF document has a filename according to the rules in section 5.1.
+The CSAF document has a filename according to the rules in section [sec](#filename).
 
 ### Requirement 3: TLS
 
@@ -107,7 +107,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
   }
 ```
 
-If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.json`,
+If a CSAF publisher (cf. section [sec](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
 If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
 
@@ -574,7 +574,7 @@ Therefore, a CSAF aggregator can list that issuing party if it mirrors the files
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
-* satisfies the requirements 1 to 4 in section 7.1.
+* satisfies the requirements 1 to 4 in section [sec](#requirements).
 * distributes only CSAF documents on behalf of its own.
 
 ### Role: CSAF provider
@@ -584,15 +584,15 @@ A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the fo
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 5 to 7 in section 7.1.
+* additionally satisfies the requirements 5 to 7 in section [sec](#requirements).
 
 Secondly, the party:
 
-* satisfies at least one of the requirements 8 to 10 in section 7.1.
+* satisfies at least one of the requirements 8 to 10 in section [sec](#requirements).
 
 Thirdly, the party:
 
-* satisfies the requirements 11 to 14 in section 7.1 or requirements 15 to 17 in section 7.1.
+* satisfies the requirements 11 to 14 in section [sec](#requirements) or requirements 15 to 17 in section [sec](#requirements).
 
 > If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17.
 > If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
@@ -602,13 +602,13 @@ Thirdly, the party:
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-* additionally satisfies the requirements 18 to 20 in section 7.1.
+* additionally satisfies the requirements 18 to 20 in section [sec](#requirements).
 
 ### Role: CSAF lister
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 6, 21 and 22 in section 7.1.
+* satisfies the requirements 6, 21 and 22 in section [sec](#requirements).
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -619,7 +619,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 1 to 6 and 21 to 23 in section 7.1.
+* satisfies the requirements 1 to 6 and 21 to 23 in section [sec](#requirements).
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 * links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
@@ -647,12 +647,13 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 > an internal instance of a CSAF provider software.
 > Such construct is called "CSAF proxy provider" as it can be mirrored by the CSAF aggregator software.
 > However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself.
-> Otherwise, that would violate the second rule of section 7.2.1.
+> Otherwise, that would violate the second rule of section [sec](#role-csaf-publisher).
 > Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
 
 ## Retrieving rules
 
-The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
+The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section [sec](#requirements)) and
+retrieving CSAF documents.
 
 > A retrieving party SHOULD do the first phase every time.
 > Based on the setup and use case of the retrieving party it MAY choose to do it less often,
@@ -661,12 +662,12 @@ The retrieving process executes in two phases: Finding the `provider-metadata.js
 
 ### Finding provider-metadata.json
 
-**Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json` (requirement 7 in section 7.1)
-based on the main domain of the issuing party:
+**Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
+(requirement 7 in section [sec](#requirements)) based on the main domain of the issuing party:
 
-1. Checking the Well-known URL (requirement 9 in section 7.1)
-2. Checking the security.txt (requirement 8 in section 7.1)
-3. Checking the DNS path (requirement 10 in section 7.1)
+1. Checking the Well-known URL (requirement 9 in section [sec](#requirements))
+2. Checking the security.txt (requirement 8 in section [sec](#requirements))
+3. Checking the DNS path (requirement 10 in section [sec](#requirements))
 4. Select one or more `provider-metadata.json` to use.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
@@ -677,17 +678,18 @@ The first two steps SHOULD be performed in all cases as the security.txt MAY adv
 The third step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
-its location from an `aggregator.json` (requirement 21 in section 7.1) of a CSAF lister or CSAF aggregator.
+its location from an `aggregator.json` (requirement 21 in section [sec](#requirements)) of a CSAF lister or CSAF aggregator.
 
 ### Retrieving CSAF documents
 
 Given a `provider-metadata.json`, the following process SHOULD be used to retrieve CSAF documents:
 
-1. Parse the `provider-metadata.json` to determine whether the directory-based (requirements 11 to 14 in section 7.1)
-   or ROLIE-based distribution (requirements 15 to 17 in section 7.1) is used.
+1. Parse the `provider-metadata.json` to determine whether the directory-based (requirements 11 to 14 in section [sec](#requirements))
+   or ROLIE-based distribution (requirements 15 to 17 in section [sec](#requirements)) is used.
    If both are present, the ROLIE information SHOULD be preferred.
-2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section 7.1) SHOULD be retrieved together with
-   the CSAF document. They MUST be checked before further processing the CSAF document.
+2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section [sec](#requirements)) SHOULD be retrieved together
+   with the CSAF document.
+   They MUST be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
 4. Execute mandatory tests on the CSAF document.
 

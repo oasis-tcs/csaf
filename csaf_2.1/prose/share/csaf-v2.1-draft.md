@@ -688,7 +688,7 @@ All examples in this document are informative only.
 
 All other text is normative unless otherwise labeled e.g. like the following informative comment:
 
->This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or
+> This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or
 > common pitfalls learned from implementer or operator experience and often given including the rationale.
 
 -------
@@ -744,7 +744,7 @@ Wherever possible repetition of data has been replaced by linkage through ID ele
 Consistency on the content level thus is in the responsibility of the producer of such documents,
 to link e.g. vulnerability information to the matching product.
 
-A dictionary like presentation of all defined schema elements is given in the section 3.
+A dictionary like presentation of all defined schema elements is given in the section [3](#schema-elements).
 Any expected relations to other elements (linkage) is described there. This linking relies on setting attribute values accordingly
 (mostly guided by industry best practice and conventions) and thus implies,
 that any deep validation on a semantic level (e.g. does the CWE match the described vulnerability)
@@ -777,11 +777,12 @@ it is strongly recommended not to use them. Suggestions for new fields SHOULD be
 > The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and
 > need for dedicated parsers as well as other tools on the side of the consuming parties.
 
-Section 4 defined profiles that are used to ensure a common understanding of which fields are required in a given use case.
-Additional conventions are stated in section 5.
-The tests given in section 6 support CSAF producers and consumers to verify rules from the specification which can not be tested by the schema.
-Section 7 states how to distribute and where to find CSAF documents.
-Safety, Security and Data Protection are considered in section 8.
+Section [4](#profiles) defined profiles that are used to ensure a common understanding of which fields are required in a given use case.
+Additional conventions are stated in section [5](#additional-conventions).
+The tests given in section [6](#tests) support CSAF producers and
+consumers to verify rules from the specification which can not be tested by the schema.
+Section [7](#distributing-csaf-documents) states how to distribute and where to find CSAF documents.
+Safety, Security and Data Protection are considered in section [8](#safety-security-and-data-protection-considerations).
 Finally, a set of conformance targets describes tools in the ecosystem.
 
 -------
@@ -1061,7 +1062,9 @@ The value `product_version` indicates exactly a single version of the product.
 The value of the adjacent `name` property can be numeric or some other descriptor.
 However, it MUST NOT contain version ranges of any kind.
 
-> It is recommended to enumerate versions wherever possible. Nevertheless, the TC understands that this is sometimes impossible. To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced. See next section for details.
+> It is recommended to enumerate versions wherever possible. Nevertheless, the TC understands that this is sometimes impossible.
+> To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced.
+> See next section for details.
 
 The value `product_version_range` indicates a range of versions for the product.
 The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
@@ -2084,7 +2087,7 @@ Document category (`category`) with value type `string` of 1 or more characters 
 
 Document category defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
 
-> It is directly related to the profiles defined in section 4.
+> It is directly related to the profiles defined in section [4](#profiles).
 
 ```
     "category": {
@@ -2510,7 +2513,7 @@ Its value SHOULD be assigned and maintained by the original document issuing aut
 
 > The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
 
-This value is also used to determine the filename for the CSAF document (cf. section 5.1).
+This value is also used to determine the filename for the CSAF document (cf. section [5.1](#filename)).
 
 ##### 3.2.1.12.5 Document Property - Tracking - Initial Release Date <a id='document-property-tracking-initial-release-date'></a>
 
@@ -3108,7 +3111,7 @@ Valid values are:
     vendor
 ```
 
-These values follow the same definitions as given for the publisher category (cf. section 3.2.1.8.1).
+These values follow the same definitions as given for the publisher category (cf. section [3.2.1.8.1](#document-property-publisher-category)).
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
@@ -3581,7 +3584,7 @@ The value of `/document/category` is used to identify a CSAF document's profile.
    the profile.
    One and only exempt is when the profile requires not to have a certain set of fields.
 4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the CSAF standard.
-5. Values of `/document/category` that do not match any of the values defined in section 4 of this standard SHALL be validated against
+5. Values of `/document/category` that do not match any of the values defined in section [4](#profiles) of this standard SHALL be validated against
    the "CSAF Base" profile.
 6. Local or private profiles MAY exist and tools MAY choose to support them.
 7. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
@@ -3778,7 +3781,8 @@ The following three subsections list a number of tests which all will have a sho
 
 ## 6.1 Mandatory Tests <a id='mandatory-tests'></a>
 
-Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a test failure as an error.
+Mandatory tests MUST NOT fail at a valid CSAF document.
+A program MUST handle a test failure as an error.
 
 ### 6.1.1 Missing Definition of Product ID <a id='missing-definition-of-product-id'></a>
 
@@ -5274,7 +5278,7 @@ The relevant path for this test is:
 ### 6.1.33 Multiple Flags with VEX Justification Codes per Product <a id='multiple-flags-with-vex-justification-codes-per-product'></a>
 
 For each item in `/vulnerabilities[]` it MUST be tested that a Product is not member of more than one Flag item with
-a VEX justification code (see section 3.2.3.5).
+a VEX justification code (see section [3.2.3.5](#vulnerabilities-property-flags)).
 This takes indirect relations through Product Groups into account.
 
 > Additional flags with a different purpose might be provided in later versions of CSAF.
@@ -5692,7 +5696,7 @@ It MUST be tested that the CSAF document has a canonical URL.
 >
 > * It has the category `self`.
 > * The `url` starts with `https://`.
-> * The `url` ends with the valid filename for the CSAF document according to the rules in section 5.1.
+> * The `url` ends with the valid filename for the CSAF document according to the rules in section [5.1](#filename).
 
 The relevant path for this test is:
 
@@ -6410,7 +6414,7 @@ It is mandatory to fulfill the basic role "CSAF publisher". The last section pro
 The requirements in this subsection are consecutively numbered to be able to refer to them directly.
 The order does not give any hint about the importance.
 Not all requirements have to be fulfilled to conform to this specification - the sets of
-requirements per conformance clause are defined in section 7.2.
+requirements per conformance clause are defined in section [7.2](#roles).
 
 ### 7.1.1 Requirement 1: Valid CSAF document <a id='requirement-1-valid-csaf-document'></a>
 
@@ -6418,7 +6422,7 @@ The document is a valid CSAF document (cf. Conformance clause 1).
 
 ### 7.1.2 Requirement 2: Filename <a id='requirement-2-filename'></a>
 
-The CSAF document has a filename according to the rules in section 5.1.
+The CSAF document has a filename according to the rules in section [5.1](#filename).
 
 ### 7.1.3 Requirement 3: TLS <a id='requirement-3-tls'></a>
 
@@ -6508,7 +6512,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
   }
 ```
 
-If a CSAF publisher (cf. section 7.2.1) does not provide the `provider-metadata.json`,
+If a CSAF publisher (cf. section [7.2.1](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
 If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
 
@@ -6975,7 +6979,7 @@ Therefore, a CSAF aggregator can list that issuing party if it mirrors the files
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
-* satisfies the requirements 1 to 4 in section 7.1.
+* satisfies the requirements 1 to 4 in section [7.1](#requirements).
 * distributes only CSAF documents on behalf of its own.
 
 ### 7.2.2 Role: CSAF provider <a id='role-csaf-provider'></a>
@@ -6985,15 +6989,15 @@ A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the fo
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 5 to 7 in section 7.1.
+* additionally satisfies the requirements 5 to 7 in section [7.1](#requirements).
 
 Secondly, the party:
 
-* satisfies at least one of the requirements 8 to 10 in section 7.1.
+* satisfies at least one of the requirements 8 to 10 in section [7.1](#requirements).
 
 Thirdly, the party:
 
-* satisfies the requirements 11 to 14 in section 7.1 or requirements 15 to 17 in section 7.1.
+* satisfies the requirements 11 to 14 in section [7.1](#requirements) or requirements 15 to 17 in section [7.1](#requirements).
 
 > If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17.
 > If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
@@ -7003,13 +7007,13 @@ Thirdly, the party:
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 * satisfies the "CSAF provider" role profile.
-* additionally satisfies the requirements 18 to 20 in section 7.1.
+* additionally satisfies the requirements 18 to 20 in section [7.1](#requirements).
 
 ### 7.2.4 Role: CSAF lister <a id='role-csaf-lister'></a>
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 6, 21 and 22 in section 7.1.
+* satisfies the requirements 6, 21 and 22 in section [7.1](#requirements).
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -7020,7 +7024,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 1 to 6 and 21 to 23 in section 7.1.
+* satisfies the requirements 1 to 6 and 21 to 23 in section [7.1](#requirements).
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 * links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
@@ -7048,12 +7052,13 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 > an internal instance of a CSAF provider software.
 > Such construct is called "CSAF proxy provider" as it can be mirrored by the CSAF aggregator software.
 > However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself.
-> Otherwise, that would violate the second rule of section 7.2.1.
+> Otherwise, that would violate the second rule of section [7.2.1](#role-csaf-publisher).
 > Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
 
 ## 7.3 Retrieving rules <a id='retrieving-rules'></a>
 
-The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section 7.1) and retrieving CSAF documents.
+The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section [7.1](#requirements)) and
+retrieving CSAF documents.
 
 > A retrieving party SHOULD do the first phase every time.
 > Based on the setup and use case of the retrieving party it MAY choose to do it less often,
@@ -7062,12 +7067,12 @@ The retrieving process executes in two phases: Finding the `provider-metadata.js
 
 ### 7.3.1 Finding provider-metadata.json <a id='finding-provider-metadata-json'></a>
 
-**Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json` (requirement 7 in section 7.1)
-based on the main domain of the issuing party:
+**Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
+(requirement 7 in section [7.1](#requirements)) based on the main domain of the issuing party:
 
-1. Checking the Well-known URL (requirement 9 in section 7.1)
-2. Checking the security.txt (requirement 8 in section 7.1)
-3. Checking the DNS path (requirement 10 in section 7.1)
+1. Checking the Well-known URL (requirement 9 in section [7.1](#requirements))
+2. Checking the security.txt (requirement 8 in section [7.1](#requirements))
+3. Checking the DNS path (requirement 10 in section [7.1](#requirements))
 4. Select one or more `provider-metadata.json` to use.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
@@ -7078,17 +7083,18 @@ The first two steps SHOULD be performed in all cases as the security.txt MAY adv
 The third step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
-its location from an `aggregator.json` (requirement 21 in section 7.1) of a CSAF lister or CSAF aggregator.
+its location from an `aggregator.json` (requirement 21 in section [7.1](#requirements)) of a CSAF lister or CSAF aggregator.
 
 ### 7.3.2 Retrieving CSAF documents <a id='retrieving-csaf-documents'></a>
 
 Given a `provider-metadata.json`, the following process SHOULD be used to retrieve CSAF documents:
 
-1. Parse the `provider-metadata.json` to determine whether the directory-based (requirements 11 to 14 in section 7.1)
-   or ROLIE-based distribution (requirements 15 to 17 in section 7.1) is used.
+1. Parse the `provider-metadata.json` to determine whether the directory-based (requirements 11 to 14 in section [7.1](#requirements))
+   or ROLIE-based distribution (requirements 15 to 17 in section [7.1](#requirements)) is used.
    If both are present, the ROLIE information SHOULD be preferred.
-2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section 7.1) SHOULD be retrieved together with
-   the CSAF document. They MUST be checked before further processing the CSAF document.
+2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section [7.1](#requirements)) SHOULD be retrieved together
+   with the CSAF document.
+   They MUST be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
 4. Execute mandatory tests on the CSAF document.
 
@@ -7183,32 +7189,36 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section 3.
-* satisfies at least one profile defined in section 4.
-* does not fail any mandatory test defined in section 6.1.
+* conforms to the syntax and semantics defined in section [3](#schema-elements).
+* satisfies at least one profile defined in section [4](#profiles).
+* does not fail any mandatory test defined in section [6.1](#mandatory-tests).
 
 ### 9.1.2 Conformance Clause 2: CSAF producer <a id='conformance-clause-2-csaf-producer'></a>
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
 * produces output in the CSAF format, according to the conformance profile "CSAF document" .
-* satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF producers.
+* satisfies those normative requirements in section [3](#schema-elements) and [8](#safety-security-and-data-protection-considerations) that
+  are designated as applying to CSAF producers.
 
 ### 9.1.3 Conformance Clause 3: CSAF direct producer <a id='conformance-clause-3-csaf-direct-producer'></a>
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
 * satisfies the "CSAF producer" conformance profile.
-* additionally satisfies those normative requirements in section 3 that are designated as applying to "direct producers" or to "analysis tools".
-* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by converters.
+* additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to "direct producers" or
+  to "analysis tools".
+* does not emit any objects, properties, or values which, according to section [3](#schema-elements),
+  are intended to be produced only by converters.
 
 ### 9.1.4 Conformance Clause 4: CSAF converter <a id='conformance-clause-4-csaf-converter'></a>
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
 * satisfies the "CSAF producer" conformance profile.
-* additionally satisfies those normative requirements in section 3 that are designated as applying to converters.
-* does not emit any objects, properties, or values which, according to section 3, are intended to be produced only by direct producers.
+* additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to converters.
+* does not emit any objects, properties, or values which, according to section [3](#schema-elements),
+  are intended to be produced only by direct producers.
 
 ### 9.1.5 Conformance Clause 5: CVRF CSAF converter <a id='conformance-clause-5-cvrf-csaf-converter'></a>
 
@@ -7337,9 +7347,9 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * identify the latest version of CSAF documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
   * track of the version of CSAF documents automatically and increment according to the versioning scheme
-    (see also subsections of 3.1.11) selected in the configuration.
+    (see also subsections of [3.1.11](#version-type)) selected in the configuration.
   * check that the document version is set correctly based on the changes in comparison to the previous version
-    (see also subsections of 3.1.11).
+    (see also subsections of [3.1.11](#version-type)).
   * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in
     the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was
@@ -7417,7 +7427,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 
 * satisfies the "CSAF consumer" conformance profile.
 * satisfies the "CSAF producer" conformance profile.
-* additionally satisfies those normative requirements in section 3 that are designated as applying to post-processors.
+* additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to post-processors.
 
 ### 9.1.8 Conformance Clause 8: CSAF modifier <a id='conformance-clause-8-csaf-modifier'></a>
 
@@ -7427,7 +7437,8 @@ The program:
 
 * satisfies the "CSAF post-processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section 9, are intended to be produced only by CSAF translators.
+* does not emit any objects, properties, or values which, according to section [9](#conformance),
+  are intended to be produced only by CSAF translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -7468,8 +7479,9 @@ The resulting translated document:
 
 A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
-* reads CSAF documents and interprets them according to the semantics defined in section 3.
-* satisfies those normative requirements in section 3 and 8 that are designated as applying to CSAF consumers.
+* reads CSAF documents and interprets them according to the semantics defined in section [3](#schema-elements).
+* satisfies those normative requirements in section [3](#schema-elements) and [8](#safety-security-and-data-protection-considerations) that
+  are designated as applying to CSAF consumers.
 
 ### 9.1.11 Conformance Clause 11: CSAF viewer <a id='conformance-clause-11-csaf-viewer'></a>
 
@@ -7522,7 +7534,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 * provides for each vulnerability within a CSAF document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section 3.1.11.2).
+* detects the usage semantic version (as described in section [3.1.11.2](#version-type-semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF document
@@ -7545,7 +7557,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
-* performs all mandatory tests as given in section 6.1.
+* performs all mandatory tests as given in section [6.1](#mandatory-tests).
 * does not change the CSAF documents.
 
 A CSAF basic validator MAY provide one or more additional functions:
@@ -7559,7 +7571,7 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section 6.2.
+* additionally performs all optional tests as given in section [6.2](#optional-tests).
 
 A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
 
@@ -7568,7 +7580,7 @@ A CSAF extended validator MAY provide an additional function to only run one or 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section 6.3.
+* additionally performs all informative tests as given in section [6.3](#informative-test).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
@@ -7590,7 +7602,7 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-* detects the usage semantic version (as described in section 3.1.11.2).
+* detects the usage semantic version (as described in section [3.1.11.2](#version-type-semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF document

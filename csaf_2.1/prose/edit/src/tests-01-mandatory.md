@@ -1,6 +1,7 @@
 ## Mandatory Tests
 
-Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST handle a test failure as an error.
+Mandatory tests MUST NOT fail at a valid CSAF document.
+A program MUST handle a test failure as an error.
 
 ### Missing Definition of Product ID
 
@@ -1496,7 +1497,7 @@ The relevant path for this test is:
 ### Multiple Flags with VEX Justification Codes per Product
 
 For each item in `/vulnerabilities[]` it MUST be tested that a Product is not member of more than one Flag item with
-a VEX justification code (see section 3.2.3.5).
+a VEX justification code (see section [sec](#vulnerabilities-property-flags)).
 This takes indirect relations through Product Groups into account.
 
 > Additional flags with a different purpose might be provided in later versions of CSAF.
