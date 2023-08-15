@@ -2174,7 +2174,7 @@ Valid values of the `enum` are:
     WHITE
 ```
 
-The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find 
+The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find
 he textual description of the TLP version which is used in this document.
 The default value is the URL to the definition by FIRST:
 
