@@ -2474,7 +2474,7 @@ Engine name (`name`) of value type `string` with 1 or more characters represents
 
 Engine version (`version`) of value type `string` with 1 or more characters contains the version of the engine that generated the CSAF document.
 
-> Although it is not formally required, the TC suggests to use a versioning which compatible wth Semantic Versioning as described in
+> Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
 *Examples 39:*
@@ -3706,7 +3706,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * For each item in
   * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist as machine readable flag
     in `/vulnerabilities[]/flags` or as human readable justification in `/vulnerabilities[]/threats`.
-    For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a
+    For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain
     a description why the vulnerability cannot be exploited.
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided
     in `/vulnerabilities[]/remediations` as an action statement.
@@ -4329,7 +4329,7 @@ The relevant path for this test is:
 
 ### 6.1.16 Latest Document Version <a id='latest-document-version'></a>
 
-It MUST be tested that document version has the same value as the the `number` in the last item of Revision History when
+It MUST be tested that document version has the same value as the `number` in the last item of Revision History when
 it is sorted ascending by `date`. Build metadata is ignored in the comparison.
 Any pre-release part is also ignored if the document status is `draft`.
 
@@ -5338,7 +5338,7 @@ The relevant path for this test is:
   ]
 ```
 
-> There are two flags given for for `CSAFPID-9080700` - one indirect through `CSAFGID-0001` and one direct.
+> There are two flags given for `CSAFPID-9080700` - one indirect through `CSAFGID-0001` and one direct.
 
 ## 6.2 Optional Tests <a id='optional-tests'></a>
 
@@ -7224,7 +7224,7 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
   the CVRF CSAF converter replaces those with the category `product_name`.
-  In addition, the converter outputs a warning that that those types do not exist in CSAF and have been replaced with the category `product_name`.
+  In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning,
   replace the all elements of type `/$defs/version_t` with the corresponding integer version.
   For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF.
@@ -7343,7 +7343,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in
     the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was
-    `interim` and no new release has be done during the the given threshold in the configuration (default: 6 weeks)
+    `interim` and no new release has be done during the given threshold in the configuration (default: 6 weeks)
   * support the following workflows:
 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments;

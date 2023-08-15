@@ -96,7 +96,7 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
   the CVRF CSAF converter replaces those with the category `product_name`.
-  In addition, the converter outputs a warning that that those types do not exist in CSAF and have been replaced with the category `product_name`.
+  In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning,
   replace the all elements of type `/$defs/version_t` with the corresponding integer version.
   For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF.
@@ -215,7 +215,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in
     the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was
-    `interim` and no new release has be done during the the given threshold in the configuration (default: 6 weeks)
+    `interim` and no new release has be done during the given threshold in the configuration (default: 6 weeks)
   * support the following workflows:
 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments;

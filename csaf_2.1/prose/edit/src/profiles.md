@@ -138,7 +138,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * For each item in
   * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist as machine readable flag
     in `/vulnerabilities[]/flags` or as human readable justification in `/vulnerabilities[]/threats`.
-    For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain a
+    For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain
     a description why the vulnerability cannot be exploited.
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided
     in `/vulnerabilities[]/remediations` as an action statement.

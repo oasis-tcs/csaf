@@ -551,7 +551,7 @@ The relevant path for this test is:
 
 ### Latest Document Version
 
-It MUST be tested that document version has the same value as the the `number` in the last item of Revision History when
+It MUST be tested that document version has the same value as the `number` in the last item of Revision History when
 it is sorted ascending by `date`. Build metadata is ignored in the comparison.
 Any pre-release part is also ignored if the document status is `draft`.
 
@@ -1560,4 +1560,4 @@ The relevant path for this test is:
   ]
 ```
 
-> There are two flags given for for `CSAFPID-9080700` - one indirect through `CSAFGID-0001` and one direct.
+> There are two flags given for `CSAFPID-9080700` - one indirect through `CSAFGID-0001` and one direct.
