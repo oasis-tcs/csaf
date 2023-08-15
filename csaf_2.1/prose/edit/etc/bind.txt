@@ -12,6 +12,9 @@ design-considerations-01-construction-principles.md
 schema-elements-00.md
 schema-elements-01-definitions.md
 schema-elements-02-properties.md
+schema-elements-02-properties-01-document-property.md
+schema-elements-02-properties-02-product-tree-property.md
+schema-elements-02-properties-03-vulnerabilities-property.md
 profiles.md
 additional-conventions.md
 tests-00.md
