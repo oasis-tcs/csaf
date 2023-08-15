@@ -11,6 +11,17 @@ design-considerations-00.md
 design-considerations-01-construction-principles.md
 schema-elements-00.md
 schema-elements-01-definitions.md
+schema-elements-01-definitions-01-acknowledgements-type.md
+schema-elements-01-definitions-02-branches-type.md
+schema-elements-01-definitions-03-full-product-name-type.md
+schema-elements-01-definitions-04-language-type.md
+schema-elements-01-definitions-05-notes-type.md
+schema-elements-01-definitions-06-product-group-id-type.md
+schema-elements-01-definitions-07-product-groups-type.md
+schema-elements-01-definitions-08-product-id-type.md
+schema-elements-01-definitions-09-products-type.md
+schema-elements-01-definitions-10-references-type.md
+schema-elements-01-definitions-11-version-type.md
 schema-elements-02-properties.md
 schema-elements-02-properties-01-document-property.md
 schema-elements-02-properties-02-product-tree-property.md
