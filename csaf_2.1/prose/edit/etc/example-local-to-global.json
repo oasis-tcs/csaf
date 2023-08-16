@@ -106,7 +106,7 @@
   "requirement-19-signatures-eg-1": "137",
   "requirement-21-list-of-csaf-providers-eg-1": "138",
   "requirement-23-mirror-eg-1": "139",
-  "requirement-7-provider-metadata-jso-eg-1": "124",
+  "requirement-7-provider-metadata-json-eg-1": "124",
   "requirement-8-security-txt-eg-1": "125",
   "requirement-9-well-known-url-for-provider-metadata-json-eg-1": "126",
   "revision-history-entries-for-pre-release-versions-eg-1": "67",
