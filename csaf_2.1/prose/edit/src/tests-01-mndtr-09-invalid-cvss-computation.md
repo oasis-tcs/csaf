@@ -18,7 +18,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
 ```
 
-*Example 57 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "cvss_v3": {

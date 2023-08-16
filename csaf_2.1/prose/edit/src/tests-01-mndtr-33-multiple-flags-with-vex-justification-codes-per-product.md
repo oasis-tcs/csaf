@@ -13,7 +13,7 @@ The relevant path for this test is:
   /vulnerabilities[]/flags
 ```
 
-*Example 92 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {

@@ -11,7 +11,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 50 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {

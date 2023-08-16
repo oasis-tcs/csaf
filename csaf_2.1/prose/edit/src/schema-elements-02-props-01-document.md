@@ -89,7 +89,7 @@ The Namespace of aggregate severity (`namespace`) of value type `string` with fo
 The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is
 independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
-*Examples 29:*
+*Examples 1:*
 
 ```
     Critical
@@ -115,7 +115,7 @@ Document category defines a short canonical name, chosen by the document produce
     }
 ```
 
-*Examples 30*:
+*Examples 1:*
 
 ```
     csaf_base
@@ -158,7 +158,7 @@ If both values are present, the TLP information SHOULD be preferred as this aids
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
-*Examples 31:*
+*Examples 1:*
 
 ```
     Copyright 2021, Example Company, All Rights Reserved.
@@ -203,7 +203,7 @@ The default value is the URL to the definition by FIRST:
     https://www.first.org/tlp/
 ```
 
-*Examples 32:*
+*Examples 1:*
 
 ```
     https://www.us-cert.gov/tlp
@@ -293,7 +293,7 @@ product resellers and distributors, including authoritative vendor partners.
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher,
 possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
-*Example 33:*
+*Example 1:*
 
 ```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
@@ -308,7 +308,7 @@ the authority of the issuing party to release the document, in particular, the p
 
 The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
 
-*Example 34:*
+*Example 1:*
 
 ```
      BSI
@@ -335,7 +335,7 @@ an incremented (patch) version which has no other changes than:
 * the updated item in `/document/references[]` which points to the new version of the CSAF document
 * an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Example 35:*
+*Examples 1:*
 
 ```
     https://csaf.io
@@ -370,7 +370,7 @@ The property SHALL NOT be present if the document was not translated.
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document,
 and sufficiently unique to distinguish it from similar documents.
 
-*Examples 36:*
+*Examples 1:*
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
@@ -433,7 +433,7 @@ list of alternate names for the same document.
 Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a
 distinct optional alternative ID used to refer to the document.
 
-*Example 37:*
+*Example 1:*
 
 ```
     CVE-2019-12345
@@ -487,7 +487,7 @@ optional property Engine version (`version`) contains information about the engi
 
 Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 38:*
+*Examples 1:*
 
 ```
     Red Hat rhsa-to-cvrf
@@ -500,7 +500,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 > Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 39:*
+*Examples 2:*
 
 ```
     0.6.0
@@ -523,7 +523,7 @@ Unique identifier for the document holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organization.
 
-*Examples 40:*
+*Examples 1:*
 
 ```
     Example Company - 2019-YH3234

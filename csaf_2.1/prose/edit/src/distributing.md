@@ -70,7 +70,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 124 Minimal with ROLIE document:*
+*Example 1 (minimal with ROLIE document):*
 
 ```
   {
@@ -131,7 +131,7 @@ See [cite](#SECURITY-TXT) for more details.
 > The security.txt was published as [cite](#RFC9116) in April 2022. At the time of this writing,
 > the `CSAF` field is in the process of being officially added.
 
-*Examples 125:*
+*Examples 1:*
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -151,7 +151,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7.
 The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details.
 
-*Example 126:*
+*Example 1:*
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -168,7 +168,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
 
-*Examples 127:*
+*Examples 1:*
 
 ```
 2021
@@ -179,7 +179,7 @@ value of `/document/tracking/initial_release_date`.
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Example 128:*
+*Example 1:*
 
 ```
 2020/example_company_-_2020-yh4711.json
@@ -194,7 +194,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Example 129:*
+*Example 1:*
 
 ```
 "2020/example_company_-_2020-yh4711.json","2020-07-01T10:09:07Z"
@@ -221,7 +221,7 @@ At least one of the feeds
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322).
 
-*Example 130:*
+*Example 1:*
 
 ```
   {
@@ -288,7 +288,7 @@ having the `rel` value of `signature`.
 The use and therefore the existence of ROLIE service document is optional.
 If it is used, each ROLIE service document MUST be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
 
-*Example 131:*
+*Example 1:*
 
 ```
   {
@@ -331,7 +331,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   * `product_version`
 * type of product
 
-  *Example 132:*
+  *Examples 1:*
 
   ```
     CPU
@@ -346,7 +346,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * areas or sectors, the products are used in
 
-  *Example 133:*
+  *Examples 2:*
 
   ```
     Chemical
@@ -361,7 +361,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * any other categorization useful to the consumers
 
-*Example 134:*
+*Example 3:*
 
 ```
   {
@@ -385,7 +385,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 135:*
+*Example 1:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -396,7 +396,7 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
 The file content SHALL start with the first byte of the hexadecimal hash value.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 136:*
+*Example 2:*
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
@@ -409,7 +409,7 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is
 extended by the appropriate extension. See [cite](#RFC4880) for more details.
 
-*Example 137:*
+*Example 1:*
 
 ```
 File name of CSAF document: example_company_-_2019-yh3234.json
@@ -444,7 +444,7 @@ It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 138:*
+*Example 1:*
 
 ```
   {
@@ -500,7 +500,7 @@ Each such folder MUST at least:
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 139:*
+*Example 1:*
 
 ```
   {

@@ -8,7 +8,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 66 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "tracking": {

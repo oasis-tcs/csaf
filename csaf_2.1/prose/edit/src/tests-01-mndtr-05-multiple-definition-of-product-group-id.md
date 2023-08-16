@@ -9,7 +9,7 @@ The relevant path for this test is:
     /product_tree/product_groups[]/group_id
 ```
 
-*Example 53 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {

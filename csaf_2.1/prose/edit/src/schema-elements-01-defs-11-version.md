@@ -14,7 +14,7 @@ There are two options how it can be used:
 
 A CSAF document MUST use only one versioning system.
 
-*Examples 23:*
+*Examples 1:*
 
 ```
     1
@@ -104,7 +104,7 @@ This results in the following rules:
    A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as
    denoted by its associated normal version.
 
-   *Examples 24:*
+   *Examples 1:*
 
    ```
    1.0.0-0.3.7
@@ -120,7 +120,7 @@ This results in the following rules:
     Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence.
     Thus two versions that differ only in the build metadata, have the same precedence.
 
-    *Examples 25:*
+    *Examples 2:*
 
     ```
     1.0.0+20130313144700
@@ -136,7 +136,7 @@ This results in the following rules:
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows:
        Major, minor, and patch versions are always compared numerically.
 
-       *Example 26:*
+       *Example 3:*
 
        ```
        1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
@@ -144,7 +144,7 @@ This results in the following rules:
 
     3. When major, minor, and patch are equal, a pre-release version has lower precedence than a normal version:
 
-       *Example 27:*
+       *Example 4:*
 
        ```
        1.0.0-alpha < 1.0.0
@@ -158,7 +158,7 @@ This results in the following rules:
        3. Numeric identifiers always have lower precedence than non-numeric identifiers.
        4. A larger set of pre-release fields has a higher precedence than a smaller set, if all of the preceding identifiers are equal.
 
-       *Example 28:*
+       *Example 5:*
 
        ```
        1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0

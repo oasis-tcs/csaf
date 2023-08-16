@@ -96,7 +96,7 @@ The value `vendor` indicates the name of the vendor or manufacturer that makes t
 
 Name of the branch (`name`) of value type `string` with 1 or more characters contains the canonical descriptor or 'friendly name' of the branch.
 
-*Examples 5:*
+*Examples 1:*
 
 ```
     10
@@ -116,7 +116,7 @@ part of the product version as given by the vendor.
 
 If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
 
-*Examples 6 for `name` when using `product_version`:*
+*Examples 1 (for `name` when using `product_version`):*
 
 ```
     10
@@ -129,7 +129,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 > If both version strings are the same, it is a match - otherwise not.
 > Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
 
-*Examples 7 for `name` when using `product_version` which are invalid:*
+*Examples 2 (for `name` when using `product_version` which are invalid):*
 
 ```
     8.0.0 - 8.0.1
@@ -153,7 +153,7 @@ The value of MUST obey to exactly one of the following options:
 
     vers MUST be used in its canonical form. To convey the term "all versions" the special string `vers:all/*` MUST be used.
 
-    *Examples 8 for `name` when using `product_version_range` with vers:*
+    *Examples 1 (for `name` when using `product_version_range` with vers):*
 
     ```
         vers:gem/>=2.2.0|!= 2.2.1|<2.3.0
@@ -172,7 +172,7 @@ The value of MUST obey to exactly one of the following options:
 
     Tools MAY support this on best effort basis.
 
-    *Examples 9 for `name` when using `product_version_range` with vls:*
+    *Examples 2 (for `name` when using `product_version_range` with vls):*
 
     ```
         <=2

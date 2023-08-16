@@ -9,7 +9,7 @@ The relevant path for this test is:
   /document/source_lang
 ```
 
-*Example 87 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "document": {

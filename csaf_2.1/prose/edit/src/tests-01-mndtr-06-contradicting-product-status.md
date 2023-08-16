@@ -35,7 +35,7 @@ Contradiction groups are:
 > Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
-*Example 54 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {

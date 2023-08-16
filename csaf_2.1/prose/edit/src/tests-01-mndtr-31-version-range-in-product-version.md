@@ -26,7 +26,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 90 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
             "branches": [

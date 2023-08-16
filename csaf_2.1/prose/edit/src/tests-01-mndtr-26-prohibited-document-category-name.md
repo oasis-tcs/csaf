@@ -26,7 +26,7 @@ The relevant path for this test is:
   /document/category
 ```
 
-*Examples 74 for currently prohibited values:*
+*Examples 1 (for currently prohibited values):*
 
 ```
   Csaf_a
@@ -37,7 +37,7 @@ The relevant path for this test is:
   V_eX
 ```
 
-*Example 75 which fails the test:*
+*Example 2 (which fails the test):*
 
 ```
   "category": "Security_Incident_Response"

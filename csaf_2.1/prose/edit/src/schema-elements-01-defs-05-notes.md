@@ -34,7 +34,7 @@ A Note `object` MAY provide the optional properties `audience` and `title`.
 
 Audience of note (`audience`) of value type `string` with 1 or more characters indicates who is intended to read it.
 
-*Examples 19:*
+*Examples 1:*
 
 ```
     all
@@ -81,7 +81,7 @@ Content varies depending on type.
 Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what
 is contained in the text of the note.
 
-*Examples 20:*
+*Examples 2:*
 
 ```
     Details

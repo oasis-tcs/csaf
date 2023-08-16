@@ -8,7 +8,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 72 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [

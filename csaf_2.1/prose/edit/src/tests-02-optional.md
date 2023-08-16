@@ -19,7 +19,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 93 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -52,7 +52,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation[]
 ```
 
-*Example 94 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -89,7 +89,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
 ```
 
-*Example 95 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -123,7 +123,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 96 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "revision_history": [
@@ -147,7 +147,7 @@ The relevant path for this test is:
     /document/tracking/initial_release_date
 ```
 
-*Example 97 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "tracking": {
@@ -182,7 +182,7 @@ The relevant path for this test is:
     /document/tracking/current_release_date
 ```
 
-*Example 98 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "tracking": {
@@ -217,7 +217,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 99 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [
@@ -249,7 +249,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 100 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -292,7 +292,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 101 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -332,7 +332,7 @@ The relevant path for this test is:
   /document/distribution/tlp/label
 ```
 
-*Example 102 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "distribution": {
@@ -358,7 +358,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 103 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "document": {
@@ -393,7 +393,7 @@ The relevant path for this test is:
   /document/lang
 ```
 
-*Example 104 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "document": {
@@ -418,7 +418,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 105 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "document": {
@@ -443,7 +443,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 106 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "lang": "qtx"
@@ -464,7 +464,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 107 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "lang": "i-default"
@@ -486,7 +486,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name
 ```
 
-*Example 108 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "full_product_names": [
@@ -511,7 +511,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids[]
 ```
 
-*Example 109 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
       "ids": [
@@ -544,7 +544,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 110 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
             "branches": [
@@ -572,7 +572,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status/fixed[]
 ```
 
-*Example 111 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -626,7 +626,7 @@ The relevant path for this test is:
 > To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that
 > sets `additionalProperties` to `false` for every key of type `object`.
 
-*Example 112 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "document": {

@@ -66,7 +66,7 @@ the optional Summary (`summary`) property.
 
 The summary of the product group (`summary`) of value type `string` with 1 or more characters gives a short, optional description of the group.
 
-*Examples 41:*
+*Examples 1:*
 
 ```
     Products supporting Modbus.
@@ -155,7 +155,7 @@ which is referenced as the first element of the relationship.
 Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to
 the Full Product Name element, which is referenced as the second element of the relationship.
 
-*Example 42:*
+*Examples 1:*
 
 ```
   "product_tree": {

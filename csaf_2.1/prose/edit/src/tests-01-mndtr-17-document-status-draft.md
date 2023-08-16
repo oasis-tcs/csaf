@@ -8,7 +8,7 @@ The relevant path for this test is:
     /document/tracking/status
 ```
 
-*Example 65 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "tracking": {

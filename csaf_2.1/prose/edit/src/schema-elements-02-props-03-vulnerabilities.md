@@ -117,7 +117,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 and holds the ID for the weakness associated.
 
-*Examples 43:*
+*Examples 1:*
 
 ```
     CWE-22
@@ -128,7 +128,7 @@ and holds the ID for the weakness associated.
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given
 in the CWE specification.
 
-*Examples 44:*
+*Examples 2:*
 
 ```
     Cross-Site Request Forgery (CSRF)
@@ -239,7 +239,7 @@ tracking ID for the vulnerability.
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Example 45:*
+*Examples 1:*
 
 ```
     Cisco Bug ID
@@ -248,7 +248,7 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Example 46:*
+*Examples 2:*
 
 ```
     CSCso66472
@@ -372,7 +372,7 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
 
 #### Vulnerabilities Property - Product Status
 
-Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of product_ids which
+Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
 The eight defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),

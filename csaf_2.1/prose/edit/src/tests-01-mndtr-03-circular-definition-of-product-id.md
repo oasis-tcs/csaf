@@ -13,7 +13,7 @@ The relevant path for this test is:
 > a Product ID defined in a relationship item is used as `product_reference` or `relates_to_product_reference`.
 > Only for those which fulfill this condition it is necessary to run the full check following the references.
 
-*Example 51 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {

@@ -8,7 +8,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cwe
 ```
 
-*Example 59 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "cwe": {

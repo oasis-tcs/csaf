@@ -24,7 +24,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 76 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "notes": [
@@ -55,7 +55,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 77 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "references": [
@@ -85,7 +85,7 @@ The relevant path for this test is:
   /vulnerabilities
 ```
 
-*Example 78 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [
@@ -116,7 +116,7 @@ The relevant path for this test is:
   /product_tree
 ```
 
-*Example 79 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   {
@@ -148,7 +148,7 @@ The relevant path for this test is:
   /vulnerabilities[]/notes
 ```
 
-*Example 80 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [
@@ -176,7 +176,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 81 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [
@@ -208,7 +208,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation
 ```
 
-*Example 82 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_status": {
@@ -240,7 +240,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids
 ```
 
-*Example 83 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [
@@ -271,7 +271,7 @@ The relevant path for this test is:
   /vulnerabilities[]/threats
 ```
 
-*Example 84 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -343,7 +343,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations
 ```
 
-*Example 85 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -416,7 +416,7 @@ The relevant path for this test is:
   /vulnerabilities
 ```
 
-*Example 86 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   {

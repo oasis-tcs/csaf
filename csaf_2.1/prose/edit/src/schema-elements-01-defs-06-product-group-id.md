@@ -11,7 +11,7 @@ a product group in the context of the current document.
     },
 ```
 
-*Examples 21:*
+*Examples 1:*
 
 ```
     CSAFGID-0001

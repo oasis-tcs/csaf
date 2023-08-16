@@ -51,7 +51,7 @@ a single contributor being recognized.
 The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of
 the contributing organization being recognized.
 
-*Examples 2:*
+*Examples 1:*
 
 ```
     CISA
@@ -64,7 +64,7 @@ the contributing organization being recognized.
 Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details
 the document producers wish to make known about the acknowledgment or acknowledged parties.
 
-*Example 3:*
+*Example 1:*
 
 ```
     First analysis of Coordinated Multi-Stream Attack (CMSA)
@@ -79,7 +79,7 @@ Value type is string with format URI (`uri`).
 
 #### Acknowledgments Type - Example
 
-*Example 4:*
+*Example 1:*
 
 ```
   "acknowledgments": [
@@ -112,7 +112,7 @@ Value type is string with format URI (`uri`).
   ],
 ```
 
-The example 4 above SHOULD lead to the following outcome in a human-readable advisory:
+The example [eg](#acknowledgments-type-example-eg-1) above SHOULD lead to the following outcome in a human-readable advisory:
 
 > We thank the following parties for their efforts:
 >

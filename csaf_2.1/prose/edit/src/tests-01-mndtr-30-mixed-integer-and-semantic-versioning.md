@@ -10,7 +10,7 @@ The relevant paths for this test are:
   /document/tracking/version
 ```
 
-*Example 89 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "tracking": {

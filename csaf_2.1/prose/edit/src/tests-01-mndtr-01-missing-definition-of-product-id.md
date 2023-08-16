@@ -23,7 +23,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/product_ids[]
 ```
 
-*Example 49 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {

@@ -26,7 +26,7 @@ Textual description of the product (`name`) has value type `string` with 1 or mo
 The value SHOULD be the product's full canonical name, including version number and other attributes,
 as it would be used in a human-friendly document.
 
-*Examples 10:*
+*Examples 1:*
 
 ```
     Cisco AnyConnect Secure Mobility Client 2.3.185
@@ -142,7 +142,7 @@ The algorithm of the cryptographic hash representation (`algorithm`) of value ty
 the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 
-*Examples 11:*
+*Examples 1:*
 
 ```
       blake2b512
@@ -177,7 +177,7 @@ The Value of the cryptographic hash representation (`value`) of value type `stri
 
 The Value of the cryptographic hash attribute contains the cryptographic hash value in hexadecimal representation.
 
-*Examples 12:*
+*Examples 2:*
 
 ```
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
@@ -188,7 +188,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
 The filename representation (`filename`) of value type `string` with one or more characters contains the name of
 the file which is identified by the hash values.
 
-*Examples 13:*
+*Examples 3:*
 
 ```
     WINWORD.EXE
@@ -230,7 +230,7 @@ it SHOULD begin with the first character of the model number and stop at any poi
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
 Two `*` MUST NOT follow each other.
 
-*Examples 14:*
+*Examples 1:*
 
 ```
     6RA8096-4MV62-0AA0
@@ -272,7 +272,7 @@ a list of URLs where SBOMs for this product can be retrieved.
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
 
-*Examples 15:*
+*Examples 1:*
 
 ```
     https://raw.githubusercontent.com/CycloneDX/bom-examples/master/SBOM/keycloak-10.0.2/bom.json
@@ -369,7 +369,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 
 > These elements can be used to reference a specific component from an SBOM:
 
-*Example 16 linking a component from a CycloneDX SBOM using the bomlink mechanism:*
+*Example 1 (linking a component from a CycloneDX SBOM using the bomlink mechanism):*
 
 ```
           "x_generic_uris": [
@@ -380,7 +380,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
           ]
 ```
 
-*Example 17 linking a component from an SPDX SBOM:*
+*Example 2 (linking a component from an SPDX SBOM):*
 
 ```
           "x_generic_uris": [

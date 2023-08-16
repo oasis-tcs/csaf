@@ -8,7 +8,7 @@ Keywords defined by this specification use this `monospaced` font.
 
 Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
 
-*Examples 4321:*
+*Example 1:*
 
 ```
     Informative examples also use this paragraph style but preceded by the text "Example(s)".

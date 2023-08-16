@@ -11,7 +11,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/group_ids
 ```
 
-*Example 52 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {

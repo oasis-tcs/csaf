@@ -9,7 +9,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 60 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "lang": "EZ"

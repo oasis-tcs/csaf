@@ -19,7 +19,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    > As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 3. The file extension `.json` MUST be appended.
 
-*Examples 47:*
+*Examples 1:*
 
 ```
   cisco-sa-20190513-secureboot.json
@@ -30,7 +30,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 > It is currently considered best practice to indicate that a CSAF document is invalid by
 > inserting `_invalid` into the filename in front of the file extension.
 
-*Examples 48:*
+*Examples 2:*
 
 ```
   cisco-sa-20190513-secureboot_invalid.json

@@ -17,7 +17,7 @@ The relevant path for this test is:
     /vulnerabilities[]/scores
 ```
 
-*Example 113 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -63,7 +63,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/vectorString
 ```
 
-*Example 114 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "cvss_v3": {
@@ -95,7 +95,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 115 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [
@@ -123,7 +123,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 116 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "vulnerabilities": [
@@ -148,7 +148,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 117 which fails the test*:
+*Example 1 (which fails the test):*
 
 ```
   "product_tree": {
@@ -209,7 +209,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 118 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "references": [
@@ -238,7 +238,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 119 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "references": [
@@ -299,7 +299,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 120 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
   "document": {
@@ -331,7 +331,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 121 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
     "branches": [
@@ -373,7 +373,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 122 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
                 "category": "product_version_range",
@@ -398,7 +398,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 123 which fails the test:*
+*Example 1 (which fails the test):*
 
 ```
             "branches": [
