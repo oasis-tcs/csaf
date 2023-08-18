@@ -1,5 +1,6 @@
 import jsonschema
-from jsonschema.validators import Draft202012Validator, RefResolver
+from jsonschema.validators import Draft202012Validator
+from referencing import Registry, Resource
 import simplejson as json
 import sys
 
@@ -16,7 +17,7 @@ with open(json_schema, 'r') as f:
     schema_data = f.read()
     schema = json.loads(schema_data)
 
-schema_store = {schema['$id']: schema}
+registry = Registry().with_resource(schema['$id'], Resource.from_contents(schema))
 
 with open(json_input, 'r') as f:
     input_data = f.read()
@@ -27,8 +28,7 @@ if len(json_referenced_schemas) > 0:
         with open(i, 'r') as f:
             current_ref_schema_data = f.read()
             current_ref_schema = json.loads(current_ref_schema_data)
-            schema_store[current_ref_schema['$id']] = current_ref_schema
+            registry = registry.combine(Registry().with_resource(current_ref_schema['$id'], Resource.from_contents(current_ref_schema)))
 
-resolver = RefResolver.from_schema(schema_store[list(schema_store)[0]], store=schema_store)
-validator = Draft202012Validator(schema, resolver, Draft202012Validator.FORMAT_CHECKER)
+validator = Draft202012Validator(schema, registry=registry, format_checker=Draft202012Validator.FORMAT_CHECKER)
 validator.validate(input_obj)
