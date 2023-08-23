@@ -21,7 +21,7 @@ jobs:
           python3-wheel
         pip3 install jsonschema[format]
     - name: Check jsonschema version
-      run: jsonschema --version
+      run: python3 -c "from importlib.metadata import version; print(version('jsonschema'))"
     - name: Test examples against CSAF schema
       run: ./csaf_2.0/test/csaf_schema/run_tests.sh
     - name: Test VEX examples against CSAF schema
