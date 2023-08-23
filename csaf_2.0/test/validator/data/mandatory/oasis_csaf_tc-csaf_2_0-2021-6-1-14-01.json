@@ -9,9 +9,9 @@
     },
     "title": "Mandatory test: Sorted Revision History (failing example 1)",
     "tracking": {
-      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "current_release_date": "2021-07-23T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-14-01",
-      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "initial_release_date": "2021-07-22T10:00:00.000Z",
       "revision_history": [
         {
           "date": "2021-07-22T10:00:00.000Z",
