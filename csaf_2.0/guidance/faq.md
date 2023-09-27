@@ -23,4 +23,21 @@ CSAF enable individuals and organizations to successfully disclose and consume s
 Yes. CSAF is the replacement for the [Common Vulnerability Reporting Framework (CVRF)](https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html). It enhances the capabilities of CVRF including different profiles (e.g., CSAF Base, Informational Advisory, Incident Response, VEX, etc.). Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional fields from the standard mandatory. A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends. CSAF also provides several additional enhancements that were not supported in CVRF. In addition, CSAF uses JSON while CVRF used XML.
 
 ### What is VEX and how is it supported in CSAF?
+
 The Vulnerability Exploitability eXchange (VEX) allows a software supplier or other parties to assert the status of specific vulnerabilities in a particular product. CSAF supports VEX to allow suppliers and other parties to provide the status of the vulnerabilities that may affect a product. As stated in [CISA's VEX Use Case documentation](https://www.cisa.gov/sites/default/files/publications/VEX_Use_Cases_Aprill2022.pdf), VEX is a form of a security advisory, similar to those already issued by mature product security teams today. There are a few important improvements for the VEX model over ‘traditional’ security advisories. First, VEX documents are machine readable, built to support integration into existing and novel security management tools, as well as broader vulnerability tracking platforms. Second, VEX data can support more effective use of [Software Bills of Materials (SBOM)](https://www.cisa.gov/sbom) data.
+
+### Why is CSAF 2.0 still using TLP v1?
+
+When the CSAF Committee Specification which was later promoted as OASIS standard was published the new [TLP v2](https://www.first.org/tlp/) was not available. Therefore, CSAF 2.0 support only [TLP v1](https://www.first.org/tlp/v1/). Nevertheless, as TLP v2 is backwards compatible the following mapping table can be used to display the new TLP v2 terms in a human-readable advisory:
+
+| TLP v2 | TLP v1 |
+|--------|--------|
+| `TLP:CLEAR` | `TLP:WHITE` |
+| `TLP:GREEN` | `TLP:GREEN` |
+| `TLP:AMBER` | `TLP:AMBER` |
+| `TLP:AMBER+STRICT` | *not present* |
+| `TLP:RED` | `TLP:RED` |
+
+*Note:* There is no equivalent for the TLP v2 `TLP:AMBER+STRICT` in TLP v1. For situations, where the label `TLP:AMBER+STRICT` would be needed it is recommended to use the label `TLP:RED` in CSAF and explain the laxer requirement through `/document/distribution/text`.
+
+Future versions of [CSAF will support TLP v2](https://github.com/oasis-tcs/csaf/issues/591).
