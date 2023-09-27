@@ -41,3 +41,13 @@ When the CSAF Committee Specification which was later promoted as OASIS standard
 *Note:* There is no equivalent for the TLP v2 `TLP:AMBER+STRICT` in TLP v1. For situations, where the label `TLP:AMBER+STRICT` would be needed it is recommended to use the label `TLP:RED` in CSAF and explain the laxer requirement through `/document/distribution/text`.
 
 Future versions of [CSAF will support TLP v2](https://github.com/oasis-tcs/csaf/issues/591).
+
+## CSAF Distribution
+
+### How can my organization be added to a CSAF lister or CSAF aggregator?
+
+CSAF lister and CSAF aggregator choose on their own which producing parties they add to their lists. Please reach out to the CSAF lister or CSAF aggregator in question. Their contact details are available in the metadata of the list.
+
+### Where can I find a list of all parties that produce CSAF?
+
+Currently, there is no such list available. However, [BSI hosts a list with metadata of known parties](https://wid.cert-bund.de/.well-known/csaf-aggregator/aggregator.json) that produce CSAF files and distribute them in a way that they are automatically retrievable. This list is called a CSAF lister.
