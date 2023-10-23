@@ -5,7 +5,7 @@ If you want to use a CDN to provide your CSAF files, please find some remarks be
 - **Activate caching**: Most files are more or less static - activate caching to minimize risk for (D)DoS.
 - **Include path exemption**: The path `.well-known/csaf/` and potentially `.well-known/security.txt` need to be accessible for all HTTP-clients (also those that are usually detected as bots).
 
-  *Specifically, at least the files in this path ending on `.json`, `.asc`, `.sha256` and `sha512` should be excluded.*
+  *Specifically, at least the files in this path ending on `.json`, `.asc`, `.sha256` and `.sha512` should be excluded.*
 - **Flush cache when updating files**: When new files are written or old files updated, the cache must be updated. Usually, this can be done through the API the CDN provides. Instead of flushing the whole cache (easy way), a more precise way can be used as files that need to be updated in the cache depend on the distribution method:
 
   **Directory-based distribution:**
