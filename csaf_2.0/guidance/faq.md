@@ -10,7 +10,7 @@ The Common Security Advisory Framework (CSAF) is the definitive reference for th
 
 ### What problems are addressed by CSAF?
 
-CSAF enable individuals and organizations to successfully disclose and consume security advisories in machine readable format. It also specifies the distribution and discovery of CSAF documents.
+CSAF enables individuals and organizations to successfully disclose and consume security advisories in machine readable format. It also specifies the distribution and discovery of CSAF documents.
 
 ## Relation to other standard and specifications
 
@@ -28,7 +28,7 @@ The Vulnerability Exploitability eXchange (VEX) allows a software supplier or ot
 
 ### Why is CSAF 2.0 still using TLP v1?
 
-When the CSAF Committee Specification which was later promoted as OASIS standard was published the new [TLP v2](https://www.first.org/tlp/) was not available. Therefore, CSAF 2.0 support only [TLP v1](https://www.first.org/tlp/v1/). Nevertheless, as TLP v2 is backwards compatible the following mapping table can be used to display the new TLP v2 terms in a human-readable advisory:
+When the CSAF Committee Specification, which was later promoted to OASIS standard, was published the new [TLP v2](https://www.first.org/tlp/) was not available. Therefore, CSAF 2.0 only supports [TLP v1](https://www.first.org/tlp/v1/). Nevertheless, as TLP v2 is backwards compatible the following mapping table can be used to display the new TLP v2 terms in a human-readable advisory:
 
 | TLP v2 | TLP v1 |
 |--------|--------|
