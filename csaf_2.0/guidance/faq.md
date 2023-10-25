@@ -48,6 +48,10 @@ Future versions of [CSAF will support TLP v2](https://github.com/oasis-tcs/csaf/
 
 CSAF lister and CSAF aggregator choose on their own which producing parties they add to their lists. Please reach out to the CSAF lister or CSAF aggregator in question. Their contact details are available in the metadata of the list.
 
+### I want to use a Content Delivery Network (CDN) to distribute CSAF files. What do I need to consider?
+
+Please see our advise on [CDNs](./cdn.md).
+
 ### Where can I find a list of all parties that produce CSAF?
 
 Currently, there is no such list available. However, [BSI hosts a list with metadata of known parties](https://wid.cert-bund.de/.well-known/csaf-aggregator/aggregator.json) that produce CSAF files and distribute them in a way that they are automatically retrievable. This list is called a CSAF lister.
