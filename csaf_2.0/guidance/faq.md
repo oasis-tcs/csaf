@@ -4,7 +4,7 @@ This document provides answers regarding frequently asked questions about CSAF 2
 
 ## General
 
-### What is the Common Advisory Security Framework (CSAF)?
+### What is the Common Security Advisory Framework (CSAF)?
 
 The Common Security Advisory Framework (CSAF) is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties. You can [access the CSAF 2.0 standard here](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html).
 
