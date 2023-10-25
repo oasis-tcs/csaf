@@ -40,7 +40,7 @@ When the CSAF Committee Specification, which was later promoted to OASIS standar
 
 *Note:* There is no equivalent for the TLP v2 `TLP:AMBER+STRICT` in TLP v1. For situations, where the label `TLP:AMBER+STRICT` would be needed it is recommended to use the label `TLP:RED` in CSAF and explain the laxer requirement through `/document/distribution/text`.
 
-Future versions of [CSAF will support TLP v2](https://github.com/oasis-tcs/csaf/issues/591).
+Starting with version CSAF 2.1, [CSAF will support TLP v2](https://github.com/oasis-tcs/csaf/issues/591).
 
 ## CSAF Distribution
 
