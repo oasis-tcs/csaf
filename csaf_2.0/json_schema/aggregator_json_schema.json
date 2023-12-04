@@ -175,7 +175,7 @@
         "type": "object",
         "required": [
           "metadata",
-          "mirror",
+          "mirrors",
           "update_interval"
         ],
         "properties": {
