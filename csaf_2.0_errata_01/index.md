@@ -97,7 +97,9 @@ There are no changes to the published CSAF document. Changes have been made only
 
 ## 1.1 Description of changes
 
-Describe adding the "s" to "mirror" as you wish.
+In the aggregator schema, a typo has been corrected that blocked creation of any valid JSON aggregator document instance.
+
+In line 178 of the `aggregator_json_schema.json`, the entry `mirror` as `required` field has been corrected to be `mirrors` to match the existing property definition in line 187 of the same schema file. There is no field `mirror`.
 
 ## 1.2 Scope of changes
 
