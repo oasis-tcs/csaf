@@ -7,10 +7,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Sorted Revision History (failing example 1)",
+    "title": "Mandatory test: Sorted Revision History (failing example 2)",
     "tracking": {
       "current_release_date": "2021-07-23T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-14-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-14-02",
       "initial_release_date": "2021-07-22T10:00:00.000Z",
       "revision_history": [
         {
@@ -25,7 +25,7 @@
         }
       ],
       "status": "final",
-      "version": "1"
+      "version": "2"
     }
   }
 }
