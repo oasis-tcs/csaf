@@ -141,7 +141,7 @@ p.notices, li.notices, div.notices {
 }
 
 p.dense {
-  line-height: 0.9;
+  line-height: 1.2;
 }
 
 a {
@@ -187,5 +187,19 @@ ol.toc-4 {
   list-style-type: none;
   list-style-position: outside;
   margin-left: -0.6em;
+  font-size: 0.7rem;
+}
+
+ol.toc-5 {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-left: -0.2em;
+  font-size: 0.7rem;
+}
+
+ol.toc-6 {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-left: 0.1em;
   font-size: 0.7rem;
 }

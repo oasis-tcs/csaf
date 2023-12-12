@@ -1,5 +1,4 @@
 frontmatter.md
-table-of-contents.md
 introduction-00.md
 introduction-01-ipr-policy.md
 introduction-02-terminology.md

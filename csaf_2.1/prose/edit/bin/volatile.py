@@ -19,6 +19,8 @@ ENCODING = 'utf-8'
 NL = '\n'
 CB_END = '}'
 COLON = ':'
+DASH = '-'
+DOT = '.'
 FULL_STOP = '.'
 HASH = '#'
 PARA = '§'
@@ -66,7 +68,10 @@ TOK_TOC = '(#$thing$)'  # Transform phase ToC label string template replacing $t
 TOK_SEC = "<a id='$thing$'></a>"  # Transform phase section title label string template ($thing$ -> old value)
 TOK_LAB = '{#'
 H = '#'
-TOC_HEADER = """Table of Contents
+YAML_X_SEP = DASH * 7
+TOC_HEADER = f"""{YAML_X_SEP}
+
+# Table of Contents
 """
 CLEAN_MD_START = '# Introduction'
 
@@ -335,6 +340,7 @@ def main(argv: list[str]) -> int:
     meta_hook = {}
     # TODO: ToC builder -> class
     tic_toc = [TOC_HEADER]
+    mint = []
     did_appendix_sep = False
     clean_headings = False
     current_cs = None
@@ -411,6 +417,12 @@ def main(argv: list[str]) -> int:
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
+                extended = False
+                if sec_cnt_disp.upper().isupper():
+                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
+                    if extended == 2:
+                        extended = sec_cnt_disp.count(DOT) + 1
+                mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
                 current_cs = label  # Update state for label in non tag lines
                 # correct the default state assignment
                 CS_OF_SLOT[slot] = current_cs  # type: ignore
@@ -529,6 +541,7 @@ def main(argv: list[str]) -> int:
                     line = line.replace(sem_ref, disp_ref)
                     lines[slot] = line
 
+    tic_toc.append(YAML_X_SEP)
     tic_toc.append(NL)
     # Inject the table of contents:
     for slot, line in enumerate(lines):
@@ -542,6 +555,9 @@ def main(argv: list[str]) -> int:
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
+
+    with open(BUILD_AT / 'toc-mint.json', 'wt', encoding=ENCODING) as handle:
+        json.dump(mint, handle, indent=2)
 
     if DUMP_LUT:
         with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING) as handle:
