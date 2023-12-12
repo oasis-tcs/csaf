@@ -105,14 +105,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 -------
 
-
 # Table of Contents
-
-[[TOC will be inserted here]]
-
--------
-
-Table of Contents
 
 1. [Introduction](#introduction)  
 	1.1 [IPR Policy](#ipr-policy)  
@@ -370,6 +363,7 @@ Appendix C. [Guidance on the Size of CSAF Documents](#guidance-on-the-size-of-cs
 	C.4 [URI length](#uri-length)  
 	C.5 [Enum](#enum)  
 	C.6 [Date](#date)  
+-------
 
 # 1. Introduction <a id='introduction'></a>
 
