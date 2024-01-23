@@ -43,8 +43,8 @@
           "cvss_v3": {
             "baseScore": 6.5,
             "baseSeverity": "MEDIUM",
-            "modifiedConfidentialality": "NONE",
-            "modifiedIntegrity": "NONE",
+            "modifiedConfidentialityImpact": "NONE",
+            "modifiedIntegrityImpact": "NONE",
             "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
             "version": "3.1"
           },

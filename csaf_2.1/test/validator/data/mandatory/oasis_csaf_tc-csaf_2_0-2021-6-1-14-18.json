@@ -1,0 +1,76 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory test: Sorted Revision History (valid example 8)",
+    "tracking": {
+      "current_release_date": "2021-07-22T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-14-18",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.0.0",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.1.0",
+          "summary": "Second version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.2.0",
+          "summary": "Third version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.3.0",
+          "summary": "Fourth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.4.0",
+          "summary": "Fifth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.5.0",
+          "summary": "Sixth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.6.0",
+          "summary": "Seventh version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.7.0",
+          "summary": "Eighth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.8.0",
+          "summary": "Ninth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1.9.0",
+          "summary": "Tenth version."
+        },
+        {
+          "date": "2021-07-22T10:00:00.000Z",
+          "number": "1.10.0",
+          "summary": "Eleventh version."
+        }
+      ],
+      "status": "final",
+      "version": "1.10.0"
+    }
+  }
+}

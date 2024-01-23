@@ -1,0 +1,71 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory test: Sorted Revision History (valid example 7)",
+    "tracking": {
+      "current_release_date": "2021-07-22T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-14-17",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "2",
+          "summary": "Second version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "3",
+          "summary": "Third version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "4",
+          "summary": "Fourth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "5",
+          "summary": "Fifth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "6",
+          "summary": "Sixth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "7",
+          "summary": "Seventh version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "8",
+          "summary": "Eighth version."
+        },
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "9",
+          "summary": "Ninth version."
+        },
+        {
+          "date": "2021-07-22T10:00:00.000Z",
+          "number": "10",
+          "summary": "Tenth version."
+        }
+      ],
+      "status": "final",
+      "version": "10"
+    }
+  }
+}
