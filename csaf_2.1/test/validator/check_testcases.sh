@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SCHEMA=csaf_2.0/test/validator/testcases_json_schema.json 
-VALIDATOR=csaf_2.0/test/validator.py
-TESTPATH=csaf_2.0/test/validator/data/
+SCHEMA=csaf_2.1/test/validator/testcases_json_schema.json
+VALIDATOR=csaf_2.1/test/validator.py
+TESTPATH=csaf_2.1/test/validator/data/
 TESTFILE=testcases.json
 
 FAIL=0
