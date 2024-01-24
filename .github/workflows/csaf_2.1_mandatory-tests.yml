@@ -1,0 +1,40 @@
+name: CSAF Mandatory Tests (CSAF 2.1)
+
+on:
+  push:
+    paths:
+      - 'csaf_2.1/**'
+  pull_request:
+    paths:
+      - 'csaf_2.1/**'
+
+jobs:
+  mandatory-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+    - name: Setup csaf-validator-lib
+      run: |
+        cd ..
+        git clone https://github.com/secvisogram/csaf-validator-lib.git
+        cd csaf-validator-lib && npm ci --prod
+    - name: Run mandatory tests on examples
+      run:  |
+        for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/*.json`
+        do
+          printf "%s%s\n" "Starting test of " $i
+          ../csaf-validator-lib/scripts/runTest.js $i base
+        done
+    # Only temporary until examples in the repo are reorganized
+    - name: Run mandatory tests on examples/csaf_vex
+      run:  |
+        for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/csaf_vex/*.json`
+        do
+          printf "%s%s\n" "Starting test of " $i
+          ../csaf-validator-lib/scripts/runTest.js $i base
+        done
