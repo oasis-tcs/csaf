@@ -12,7 +12,6 @@ VALIDATOR=csaf_2.1/test/validator.py
 STRICT_GENERATOR=csaf_2.1/test/generate_strict_schema.py
 TESTPATH=csaf_2.1/examples/aggregator/*.json
 
-
 FAIL=0
 
 # go to root of git repository
