@@ -623,7 +623,7 @@ Valid values are:
 The values MUST be used as follows:
 
 * `none`: No restart required.
-* `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item
+* `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
    needs to be restarted.
 * `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
 * `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
