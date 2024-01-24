@@ -39,7 +39,7 @@ SCHEMA=${ORIG_SCHEMA}
 test_all
  
 printf "%s" "Generating strict schema ... "
-mkdir ${STRICT_BUILD}
+mkdir -p ${STRICT_BUILD}
 python3 "${STRICT_GENERATOR}" "${ORIG_SCHEMA}" > "${PROVIDER_STRICT_SCHEMA}"
 printf "%s\n" "done"
 
