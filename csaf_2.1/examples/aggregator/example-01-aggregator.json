@@ -6,7 +6,7 @@
     "name": "Example CSAF Lister",
     "namespace": "https://lister.example"
   },
-  "aggregator_version": "2.0",
+  "aggregator_version": "2.1",
   "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
   "csaf_providers": [
     {
@@ -32,5 +32,5 @@
       }
     }
   ],
-  "last_updated":"2021-07-12T22:35:38.978Z"
+  "last_updated": "2024-01-24T22:35:38.978Z"
 }
