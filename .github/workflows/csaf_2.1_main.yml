@@ -1,8 +1,12 @@
-name: JSON Schema Tests
+name: JSON Schema Tests (CSAF 2.1)
 
-on: [push, pull_request]
-  paths:
-    - 'csaf_2.1/*'
+on:
+  push:
+    paths:
+      - 'csaf_2.1/*'
+  pull_request:
+    paths:
+      - 'csaf_2.1/*'
 
 jobs:
   json-test_job:
