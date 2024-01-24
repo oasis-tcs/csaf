@@ -1,6 +1,8 @@
 name: CSAF Filenames Test
 
 on: [push, pull_request]
+  paths:
+    - 'csaf_2.0/*'
 
 jobs:
   filename-test:
