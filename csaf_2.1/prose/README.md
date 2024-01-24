@@ -19,6 +19,14 @@ In general, we try to keep this file identical to the `share/csaf-v2.1-draft.md`
 The latter is generated from the source files below `edit/src/` as collected per `edit/etc/bind.txt` through
 the `edit/bin/volatile.py` script (for now).
 
+To generate the Markdown version (for now) use:
+
+```console
+% cd edit
+% python3 bin/volatile.py
+% cp build/tmp.md ../share/csaf-v2.1-draft.md
+```
+
 The way to the HTML is a three-step process:
 
 First calling pandoc (inside the `edit` folder) as:
