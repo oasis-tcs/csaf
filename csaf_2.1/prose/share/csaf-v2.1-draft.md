@@ -388,7 +388,7 @@ For purposes of this document, the following terms and definitions apply:
   <dd>reporting item that describes a condition present in an artifact and that requires action by the consumers</dd>
   <dt id="def;advisory-document">advisory document</dt>
   <dd>artifact in which an analysis tool reports a result</dd>
-  <dt id="def;advisory-management-system*">advisory management system*</dt>
+  <dt id="def;advisory-management-system">advisory management system</dt>
   <dd>software system that consumes the documents produced by analysis tools,
       produces advisories that enable engineering and operating organizations to assess the quality of these
       software artifacts at a point in time, and performs functions such as filing security advisories and
@@ -401,7 +401,7 @@ For purposes of this document, the following terms and definitions apply:
       <em>Examples</em>: A physical file in a file system such as a source file, an object file, a configuration file or a data file;
       a specific version of a file in a version control system; a database table accessed via an HTTP request;
       an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.</dd>
-  <dt id="def;csaf-asset-matching-system*">CSAF asset matching system*</dt>
+  <dt id="def;csaf-asset-matching-system">CSAF asset matching system</dt>
   <dd>program that connects to or is an asset database and is able to manage CSAF documents as
       required by CSAF management system
       as well as matching them to assets of the asset database.</dd>

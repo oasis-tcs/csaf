@@ -4,7 +4,7 @@ advisory
 advisory document
 :    artifact in which an analysis tool reports a result
 
-advisory management system*
+advisory management system
 :    software system that consumes the documents produced by analysis tools,
 produces advisories that enable engineering and operating organizations to assess the quality of these
 software artifacts at a point in time, and performs functions such as filing security advisories and
@@ -20,7 +20,7 @@ _Examples_: A physical file in a file system such as a source file, an object fi
 a specific version of a file in a version control system; a database table accessed via an HTTP request;
 an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
-CSAF asset matching system*
+CSAF asset matching system
 :    program that connects to or is an asset database and is able to manage CSAF documents as
 required by CSAF management system
 as well as matching them to assets of the asset database.
