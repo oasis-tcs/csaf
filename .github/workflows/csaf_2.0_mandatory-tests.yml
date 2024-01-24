@@ -3,10 +3,10 @@ name: CSAF Mandatory Tests (CSAF 2.0)
 on: 
   push:
     paths:
-      - 'csaf_2.0/*'
+      - 'csaf_2.0/**'
   pull_request:
     paths:
-      - 'csaf_2.0/*'
+      - 'csaf_2.0/**'
 
 jobs:
   mandatory-test:
