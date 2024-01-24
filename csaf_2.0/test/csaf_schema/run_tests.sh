@@ -1,7 +1,8 @@
 #!/bin/bash
 
+STRICT_BUILD=csaf_2.0/build
 ORIG_SCHEMA=csaf_2.0/json_schema/csaf_json_schema.json 
-STRICT_SCHEMA=csaf_strict_schema.json
+CSAF_STRICT_SCHEMA=${STRICT_BUILD}/csaf_strict_schema.json
 CVSS_20_STRICT_SCHEMA=csaf_2.0/referenced_schema/first/cvss-v2.0_strict.json
 CVSS_30_STRICT_SCHEMA=csaf_2.0/referenced_schema/first/cvss-v3.0_strict.json
 CVSS_31_STRICT_SCHEMA=csaf_2.0/referenced_schema/first/cvss-v3.1_strict.json
@@ -37,6 +38,7 @@ test_all
 
  
 printf "%s" "Generating strict schema ... "
+mkdir ${STRICT_BUILD}
 python3 "${STRICT_GENERATOR}" "${ORIG_SCHEMA}" > "${STRICT_SCHEMA}"
 printf "%s\n" "done"
 
