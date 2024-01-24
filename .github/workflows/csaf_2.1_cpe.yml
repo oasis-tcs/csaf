@@ -3,10 +3,10 @@ name: CPE Dictionary Test (CSAF 2.1)
 on:
   push:
     paths:
-      - 'csaf_2.1/*'
+      - 'csaf_2.1/**'
   pull_request:
     paths:
-      - 'csaf_2.1/*'
+      - 'csaf_2.1/**'
 
 jobs:
   cpe-test:

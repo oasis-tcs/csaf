@@ -3,10 +3,10 @@ name: Validator Data Test (CSAF 2.1)
 on:
   push:
     paths:
-      - 'csaf_2.1/*'
+      - 'csaf_2.1/**'
   pull_request:
     paths:
-      - 'csaf_2.1/*'
+      - 'csaf_2.1/**'
 
 jobs:
   validator-test:
