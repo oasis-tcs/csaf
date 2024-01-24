@@ -1,6 +1,8 @@
 name: CPE Dictionary Test
 
 on: [push, pull_request]
+  paths:
+    - 'csaf_2.0/*'
 
 jobs:
   cpe-test:

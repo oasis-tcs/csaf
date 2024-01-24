@@ -1,6 +1,8 @@
 name: JSON Schema Tests
 
 on: [push, pull_request]
+  paths:
+    - 'csaf_2.0/*'
 
 jobs:
   json-test_job:
