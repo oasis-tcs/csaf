@@ -1,6 +1,12 @@
-name: JSON Schema Tests
+name: JSON Schema Tests (CSAF 2.0)
 
-on: [push, pull_request]
+on: 
+  push:
+    paths:
+      - 'csaf_2.0/**'
+  pull_request:
+    paths:
+      - 'csaf_2.0/**'
 
 jobs:
   json-test_job:
@@ -35,6 +41,6 @@ jobs:
       with:
         name: strict-schemas
         path: |
-          csaf_strict_schema.json
-          provider_strict_schema.json
-          aggregator_strict_schema.json
+          csaf_2.0/build/csaf_strict_schema.json
+          csaf_2.0/build/provider_strict_schema.json
+          csaf_2.0/build/aggregator_strict_schema.json

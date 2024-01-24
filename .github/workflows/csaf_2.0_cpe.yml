@@ -1,6 +1,12 @@
-name: CPE Dictionary Test
+name: CPE Dictionary Test (CSAF 2.0)
 
-on: [push, pull_request]
+on: 
+  push:
+    paths:
+      - 'csaf_2.0/**'
+  pull_request:
+    paths:
+      - 'csaf_2.0/**'
 
 jobs:
   cpe-test:
@@ -11,6 +17,6 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: '18'
+        node-version: '20'
     - name: Perform CPE Dictionary Test
       run: ./csaf_2.0/test/cpe/run_tests.sh
