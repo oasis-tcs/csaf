@@ -38,11 +38,11 @@ test_all
 
  
 printf "%s" "Generating strict schema ... "
-mkdir ${STRICT_BUILD}
-python3 "${STRICT_GENERATOR}" "${ORIG_SCHEMA}" > "${STRICT_SCHEMA}"
+mkdir -p ${STRICT_BUILD}
+python3 "${STRICT_GENERATOR}" "${ORIG_SCHEMA}" > "${CSAF_STRICT_SCHEMA}"
 printf "%s\n" "done"
 
-SCHEMA=${STRICT_SCHEMA}
+SCHEMA=${CSAF_STRICT_SCHEMA}
 test_all
 
 exit ${FAIL}
