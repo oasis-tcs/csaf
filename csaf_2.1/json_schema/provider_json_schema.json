@@ -155,7 +155,7 @@
       "description": "Gives the version of the CSAF provider metadata specification which the document was generated for.",
       "type": "string",
       "enum": [
-        "2.0"
+        "2.1"
       ]
     },
     "mirror_on_CSAF_aggregators": {
