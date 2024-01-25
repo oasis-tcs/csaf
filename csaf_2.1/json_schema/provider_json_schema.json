@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json",
   "title": "CSAF provider metadata",
   "description": "Representation of metadata information of a CSAF provider as a JSON document.",
   "type": "object",
@@ -194,7 +194,7 @@
     "publisher": {
       "title": "Publisher",
       "description": "Provides information about the publisher of the CSAF documents in this repository.",
-      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json#/properties/document/properties/publisher"
+      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json#/properties/document/properties/publisher"
     },
     "role": {
       "title": "Role of the issuing party",

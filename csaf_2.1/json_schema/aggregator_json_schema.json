@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json",
   "title": "CSAF aggregator",
   "description": "Representation of information where to find CSAF providers as a JSON document.",
   "type": "object",
@@ -31,17 +31,17 @@
         "publisher": {
           "title": "Publisher",
           "description": "Provides information about the issuing party for this entry.",
-          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json#/properties/publisher"
+          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json#/properties/publisher"
         },
         "role": {
           "title": "Role of the issuing party",
           "description": "Contains the role of the issuing party according to section 7 in the CSAF standard.",
-          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json#/properties/role"
+          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json#/properties/role"
         },
         "url": {
           "title": "URL of the metadata",
           "description": "Contains the URL of the provider-metadata.json for that entry.",
-          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json#/properties/canonical_url"
+          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json#/properties/canonical_url"
         }
       }
     },
@@ -54,7 +54,7 @@
       "items": {
         "title": "Mirror",
         "description": "Contains the base URL of the mirror for this issuing party.",
-        "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json#/$defs/provider_url_t"
+        "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json#/$defs/provider_url_t"
       }
     }
   },
