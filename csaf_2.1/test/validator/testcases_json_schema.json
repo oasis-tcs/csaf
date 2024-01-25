@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/test/validator/testcases_json_schema.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testcases_json_schema.json",
   "title": "Test cases for CSAF",
   "description": "Representation of the data provided for test cases from section 6 of the specification.",
   "type": "object",
@@ -97,7 +97,7 @@
       "title": "Test schema version",
       "description": "Contains the current version of this schema",
       "type": "string",
-      "enum": ["2.0"]
+      "enum": ["2.1"]
     }
   }
 }
