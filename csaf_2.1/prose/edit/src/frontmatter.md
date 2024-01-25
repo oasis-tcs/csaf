@@ -3,26 +3,24 @@
 
 -------
 
-# Common Security Advisory Framework Version 2.0
+# Common Security Advisory Framework Version 2.1
 
-## OASIS Standard
+## Committee Specification Draft 01
 
-## 18 November 2022
+## ?? Month 2024
 
 #### This stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.pdf
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf
 
 #### Previous stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.pdf
+N/A
 
 #### Latest stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.pdf
+https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -31,32 +29,29 @@ https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.pdf
 Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/)
 
 #### Editors:
-Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
-
-In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Technical Committee.
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/aggregator_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/csaf_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/provider_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json.
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json.
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json.
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json.
 
 #### Related work:
 This specification replaces or supersedes:
 
-* _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. Latest stage:  https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html.
+* _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 #### Declared JSON namespaces:
 
-* [https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json)
 
 
 #### Abstract:
@@ -74,9 +69,9 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
-**[csaf-v2.0]**
+**[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
