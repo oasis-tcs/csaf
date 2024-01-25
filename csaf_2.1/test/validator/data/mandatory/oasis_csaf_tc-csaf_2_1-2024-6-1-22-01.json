@@ -9,17 +9,17 @@
     },
     "title": "Mandatory test: Multiple Definition in Revision History (failing example 1)",
     "tracking": {
-      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "current_release_date": "2024-01-21T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-22-01",
-      "initial_release_date": "2021-07-20T10:00:00.000Z",
+      "initial_release_date": "2024-01-20T10:00:00.000Z",
       "revision_history": [
         {
-          "date": "2021-07-20T10:00:00.000Z",
+          "date": "2024-01-20T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T10:00:00.000Z",
+          "date": "2024-01-21T10:00:00.000Z",
           "number": "1",
           "summary": "Some other changes."
         }

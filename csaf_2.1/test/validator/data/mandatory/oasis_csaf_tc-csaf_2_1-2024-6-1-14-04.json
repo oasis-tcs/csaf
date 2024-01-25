@@ -9,17 +9,17 @@
     },
     "title": "Mandatory test: Sorted Revision History (failing example 4)",
     "tracking": {
-      "current_release_date": "2021-07-23T10:00:00.000Z",
+      "current_release_date": "2024-01-23T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-14-04",
-      "initial_release_date": "2021-07-22T10:00:00.000Z",
+      "initial_release_date": "2024-01-22T10:00:00.000Z",
       "revision_history": [
         {
-          "date": "2021-07-22T10:00:00.000Z",
+          "date": "2024-01-22T10:00:00.000Z",
           "number": "2.0.0",
           "summary": "Second version."
         },
         {
-          "date": "2021-07-23T10:00:00.000Z",
+          "date": "2024-01-23T10:00:00.000Z",
           "number": "1.0.0",
           "summary": "Initial version."
         }

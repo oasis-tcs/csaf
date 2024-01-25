@@ -9,17 +9,17 @@
     },
     "title": "Optional test: Older Current Release Date than Revision History (failing example 1)",
     "tracking": {
-      "current_release_date": "2021-05-06T10:00:00.000Z",
+      "current_release_date": "2023-09-06T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-06-01",
-      "initial_release_date": "2021-05-06T10:00:00.000Z",
+      "initial_release_date": "2023-09-06T10:00:00.000Z",
       "revision_history": [
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2023-09-06T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T11:00:00.000Z",
+          "date": "2024-01-21T11:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
