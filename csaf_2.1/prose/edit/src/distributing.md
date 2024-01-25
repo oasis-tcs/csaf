@@ -77,10 +77,10 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
     "distributions": [
       {
-        "rolie":{
+        "rolie": {
           "feeds": [
             {
-              "summary":"All TLP:WHITE advisories of Example Company.",
+              "summary": "All TLP:WHITE advisories of Example Company.",
               "tlp_label": "WHITE",
               "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
             }
@@ -88,9 +88,9 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
         }
       }
     ],
-    "last_updated": "2021-07-12T20:20:56.169Z",
+    "last_updated": "2024-01-24T20:20:56.169Z",
     "list_on_CSAF_aggregators": true,
-    "metadata_version": "2.0",
+    "metadata_version": "2.1",
     "mirror_on_CSAF_aggregators": true,
     "public_openpgp_keys": [
       {
@@ -101,7 +101,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
     "publisher": {
       "category": "vendor",
       "name": "Example Company ProductCERT",
-      "namespace":"https://psirt.example.com"
+      "namespace": "https://psirt.example.com"
     },
     "role": "csaf_trusted_provider"
   }
@@ -234,43 +234,43 @@ Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322)
           "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
         }
       ],
-      "category": [ 
+      "category": [
         {
           "scheme": "urn:ietf:params:rolie:category:information-type",
           "term": "csaf"
         }
       ],
-      "updated": "2021-01-01T12:00:00.000Z",
+      "updated": "2024-01-01T12:00:00.000Z",
       "entry": [
         {
-          "id": "2020-ESA-001",
-          "title": "Example Security Advisory 001",
+          "id": "ESA-2024-001",
+          "title": "Multiple vulnerabilities in ABC 0.0.2",
           "link": [
             {
               "rel": "self",
-              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
             },
             {
               "rel": "hash",
-              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.sha512"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.sha512"
             },
             {
               "rel": "signature",
-              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.asc"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.asc"
             }
           ],
-          "published": "2021-01-01T11:00:00.000Z",
-          "updated": "2021-01-01T12:00:00.000Z",
+          "published": "2024-01-01T11:00:00.000Z",
+          "updated": "2024-01-01T12:00:00.000Z",
           "summary": {
-            "content": "Vulnerabilities fixed in ABC 0.0.1"
+            "content": "Multiple vulnerabilities were fixed in ABC 0.0.3"
           },
           "content": {
             "type": "application/json",
-            "src": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+            "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
-            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
-            "version": "2.0"
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+            "version": "2.1"
           }
         }
       ]
@@ -455,12 +455,12 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
       "name": "Example CSAF Lister",
       "namespace": "https://lister.example"
     },
-    "aggregator_version": "2.0",
+    "aggregator_version": "2.1",
     "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
     "csaf_providers": [
       {
         "metadata": {
-          "last_updated": "2021-07-12T20:20:56.169Z",
+          "last_updated": "2024-01-12T20:20:56.169Z",
           "publisher": {
             "category": "vendor",
             "name": "Example Company ProductCERT",
@@ -471,7 +471,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
       },
       {
         "metadata": {
-          "last_updated": "2021-07-12T21:35:38.000Z",
+          "last_updated": "2024-01-12T21:35:38.000Z",
           "publisher": {
             "category": "coordinator",
             "name": "Example Coordinator CERT",
@@ -481,7 +481,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
         }
       }
     ],
-    "last_updated":"2021-07-12T22:35:38.978Z"
+    "last_updated": "2024-01-24T22:35:38.978Z"
   }
 ```
 
@@ -511,12 +511,12 @@ Each such folder MUST at least:
       "name": "Example Aggregator",
       "namespace": "https://aggregator.example"
     },
-    "aggregator_version": "2.0",
+    "aggregator_version": "2.1",
     "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
     "csaf_providers": [
       {
         "metadata": {
-          "last_updated": "2021-07-12T20:20:56.169Z",
+          "last_updated": "2024-01-12T20:20:56.169Z",
           "publisher": {
             "category": "vendor",
             "name": "Example Company ProductCERT",
@@ -530,7 +530,7 @@ Each such folder MUST at least:
       },
       {
         "metadata": {
-          "last_updated": "2021-07-12T21:35:38.000Z",
+          "last_updated": "2024-01-12T21:35:38.000Z",
           "publisher": {
             "category": "coordinator",
             "name": "Example Coordinator CERT",
@@ -543,7 +543,7 @@ Each such folder MUST at least:
         ]
       }
     ],
-    "last_updated":"2021-07-12T22:35:38.978Z"
+    "last_updated": "2024-01-24T22:35:38.978Z"
   }
 ```
 

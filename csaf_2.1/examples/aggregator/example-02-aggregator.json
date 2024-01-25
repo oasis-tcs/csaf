@@ -11,7 +11,7 @@
   "csaf_providers": [
     {
       "metadata": {
-        "last_updated": "2021-07-12T20:20:56.169Z",
+        "last_updated": "2024-01-12T20:20:56.169Z",
         "publisher": {
           "category": "vendor",
           "name": "Example Company ProductCERT",
@@ -25,7 +25,7 @@
     },
     {
       "metadata": {
-        "last_updated": "2021-07-12T21:35:38.000Z",
+        "last_updated": "2024-01-12T21:35:38.000Z",
         "publisher": {
           "category": "coordinator",
           "name": "Example Coordinator CERT",

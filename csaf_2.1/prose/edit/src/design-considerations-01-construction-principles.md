@@ -6,7 +6,7 @@ partially difficult to play schemas.
 The format chosen is [JSONSchema] which allows validation and delegation to sub schema providers.
 The latter aligns well with separation of concerns and shares the format family of information interchange utilized by
 the providers of product and vulnerability information which migrated from XML to JSON since the creation of CSAF CVRF version 1.2,
-the predecessor of this specification.
+the pre-predecessor of this specification.
 
 The acronym CSAF, “Common Security Advisory Framework”, stands for the target of concerted mitigation and remediation accomplishment.
 

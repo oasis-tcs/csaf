@@ -9,7 +9,7 @@ including authoritative vendor partners.
 A security issue is not necessarily constrained to a problem statement, the focus of the term is on the security aspect impacting
 (or not impacting) specific product-platform-version combinations.
 Information on presence or absence of workarounds is also considered part of the security issue.
-This document is the definitive reference for the language elements of CSAF version 2.0.
+This document is the definitive reference for the language elements of CSAF version 2.1.
 The encompassing JSON schema file noted in the Additional Artifacts section of the title page SHALL be taken as normative in the case
 a gap or an inconsistency in this explanatory document becomes evident.
 The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself.
