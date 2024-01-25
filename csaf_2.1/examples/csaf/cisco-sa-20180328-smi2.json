@@ -2,7 +2,7 @@
   "document": {
     "title": "Cisco IOS and IOS XE Software Smart Install Remote Code Execution Vulnerability",
     "category": "Cisco Security Advisory",
-    "csaf_version": "2.0",
+    "csaf_version": "2.1",
     "publisher": {
       "category": "vendor",
       "contact_details": "Emergency Support:\n+1 877 228 7302 (toll-free within North America)\n+1 408 525 6532 (International direct-dial)\nNon-emergency Support:\nEmail: psirt@cisco.com\nSupport requests that are received via e-mail are typically acknowledged within 48 hours.",
@@ -354,7 +354,7 @@
               },
               {
                 "name": "15.0EY",
-                "category": "product_version",                
+                "category": "product_version",
                 "branches": [
                   {
                     "name": "15.0(1)EY",
@@ -2765,7 +2765,7 @@
           "CVRFPID-236834"
         ]
       },
-      "scores": [ 
+      "scores": [
         {
           "products": [
             "CVRFPID-103559",
@@ -3028,13 +3028,12 @@
             "CVRFPID-233155",
             "CVRFPID-236834"
           ],
-          "cvss_v3": 
-            {
-              "version": "3.0",
-              "baseScore": 9.8,
-              "baseSeverity": "CRITICAL",
-              "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-            }
+          "cvss_v3": {
+            "version": "3.0",
+            "baseScore": 9.8,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          }
         }
       ],
       "remediations": [

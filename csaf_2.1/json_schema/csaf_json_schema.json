@@ -558,7 +558,7 @@
           "description": "Gives the version of the CSAF specification which the document was generated for.",
           "type": "string",
           "enum": [
-            "2.0"
+            "2.1"
           ]
         },
         "distribution": {
