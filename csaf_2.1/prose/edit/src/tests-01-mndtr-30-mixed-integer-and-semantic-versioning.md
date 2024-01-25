@@ -17,12 +17,12 @@ The relevant paths for this test are:
       // ...
       "revision_history": [
         {
-          "date": "2021-07-21T09:00:00.000Z",
+          "date": "2024-01-21T09:00:00.000Z",
           "number": "1.0.0",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T10:00:00.000Z",
+          "date": "2024-01-21T10:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }

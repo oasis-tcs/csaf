@@ -3,26 +3,24 @@
 
 -------
 
-# Common Security Advisory Framework Version 2.0
+# Common Security Advisory Framework Version 2.1
 
-## OASIS Standard
+## Committee Specification Draft 01
 
-## 18 November 2022
+## ?? Month 2024
 
 #### This stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.pdf
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf
 
 #### Previous stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/cs03/csaf-v2.0-cs03.pdf
+N/A
 
 #### Latest stage:
-https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html \
-https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.pdf
+https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
 
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -31,32 +29,29 @@ https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.pdf
 Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/)
 
 #### Editors:
-Langley Rock (lrock@redhat.com), [Red Hat](https://redhat.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
-
-In Memory of Eric Johnson, TIBCO Software Inc. and Mike Gorski, Cisco Systems both active members of the OASIS CSAF Technical Committee.
 
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/aggregator_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/csaf_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/provider_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json.
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json.
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json.
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json.
 
 #### Related work:
 This specification replaces or supersedes:
 
-* _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. Latest stage:  https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html.
+* _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 #### Declared JSON namespaces:
 
-* [https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json)
 
 
 #### Abstract:
@@ -74,9 +69,9 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
-**[csaf-v2.0]**
+**[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -594,6 +589,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="CPE23-N" class="anchor"></span>**CPE23-N\]** _Common Platform Enumeration: Naming Specification Version 2.3_, B. Cheikes, D. Waltermire, K. Scarfone, Editors, NIST Interagency Report 7695, August 2011, https://dx.doi.org/10.6028/NIST.IR.7695.
 
+**\[**<span id="CSAF-v2.0" class="anchor"></span>**CSAF-v2.0\]** _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+
 **\[**<span id="CVE" class="anchor"></span>**CVE\]** _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://cve.mitre.org/about/.
 
 **\[**<span id="CVE-NF" class="anchor"></span>**CVE-NF\]** _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names - CVE ID Syntax Change_, MITRE, January 01, 2014, https://cve.mitre.org/cve/identifiers/syntaxchange.html.
@@ -698,7 +695,7 @@ including authoritative vendor partners.
 A security issue is not necessarily constrained to a problem statement, the focus of the term is on the security aspect impacting
 (or not impacting) specific product-platform-version combinations.
 Information on presence or absence of workarounds is also considered part of the security issue.
-This document is the definitive reference for the language elements of CSAF version 2.0.
+This document is the definitive reference for the language elements of CSAF version 2.1.
 The encompassing JSON schema file noted in the Additional Artifacts section of the title page SHALL be taken as normative in the case
 a gap or an inconsistency in this explanatory document becomes evident.
 The following presentation in this section is grouped by topical area, and is not simply derivative documentation from the schema document itself.
@@ -721,7 +718,7 @@ partially difficult to play schemas.
 The format chosen is [JSONSchema] which allows validation and delegation to sub schema providers.
 The latter aligns well with separation of concerns and shares the format family of information interchange utilized by
 the providers of product and vulnerability information which migrated from XML to JSON since the creation of CSAF CVRF version 1.2,
-the predecessor of this specification.
+the pre-predecessor of this specification.
 
 The acronym CSAF, “Common Security Advisory Framework”, stands for the target of concerted mitigation and remediation accomplishment.
 
@@ -785,7 +782,7 @@ Finally, a set of conformance targets describes tools in the ecosystem.
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
-The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
+The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules.
 
 ```
     "$schema": "https://json-schema.org/draft/2020-12/schema"
@@ -794,7 +791,7 @@ The CSAF schema Version 2.0 builds on the JSON Schema draft 2020-12 rules.
 The schema identifier is:
 
 ```
-    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json"
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"
 ```
 
 The further documentation of the schema is organized via Definitions and Properties.
@@ -2103,7 +2100,7 @@ CSAF version (`csaf_version`) of value type `string` and `enum` gives the versio
 The single valid value for this `enum` is:
 
 ```
-    2.0
+    2.1
 ```
 
 #### 3.2.1.5 Document Property - Distribution <a id='document-property-distribution'></a>
@@ -4283,12 +4280,12 @@ The relevant path for this test is:
 ```
   "revision_history": [
     {
-      "date": "2021-07-22T10:00:00.000Z",
+      "date": "2024-01-22T10:00:00.000Z",
       "number": "2",
       "summary": "Second version."
     },
     {
-      "date": "2021-07-23T10:00:00.000Z",
+      "date": "2024-01-23T10:00:00.000Z",
       "number": "1",
       "summary": "Initial version."
     }
@@ -4343,12 +4340,12 @@ The relevant path for this test is:
     // ...
     "revision_history": [
       {
-        "date": "2021-07-21T09:00:00.000Z",
+        "date": "2024-01-21T09:00:00.000Z",
         "number": "1",
         "summary": "Initial version."
       },
       {
-        "date": "2021-07-21T10:00:00.000Z",
+        "date": "2024-01-21T10:00:00.000Z",
         "number": "2",
         "summary": "Second version."
       }
@@ -4399,12 +4396,12 @@ The relevant path for this test is:
       // ...
       "revision_history": [
         {
-          "date": "2021-05-17T10:00:00.000Z",
+          "date": "2023-09-17T10:00:00.000Z",
           "number": "0",
           "summary": "First draft"
         },
         {
-          "date": "2021-07-21T10:00:00.000Z",
+          "date": "2024-01-21T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         }
@@ -4431,12 +4428,12 @@ The relevant path for this test is:
 ```
     "revision_history": [
       {
-        "date": "2021-04-22T10:00:00.000Z",
+        "date": "2023-08-22T10:00:00.000Z",
         "number": "1.0.0-rc",
         "summary": "Release Candidate for initial version."
       },
       {
-        "date": "2021-04-23T10:00:00.000Z",
+        "date": "2023-08-23T10:00:00.000Z",
         "number": "1.0.0",
         "summary": "Initial version."
       }
@@ -4485,12 +4482,12 @@ The relevant path for this test is:
 ```
     "revision_history": [
       {
-        "date": "2021-04-22T10:00:00.000Z",
+        "date": "2023-08-22T10:00:00.000Z",
         "number": "1",
         "summary": "Initial version."
       },
       {
-        "date": "2021-07-21T10:00:00.000Z",
+        "date": "2024-01-21T10:00:00.000Z",
         "number": "3",
         "summary": "Some other changes."
       }
@@ -4570,12 +4567,12 @@ The relevant path for this test is:
     {
       "involvements": [
         {
-          "date": "2021-04-23T10:00:00.000Z",
+          "date": "2023-08-23T10:00:00.000Z",
           "party": "vendor",
           "status": "completed"
         },
         {
-          "date": "2021-04-23T10:00:00.000Z",
+          "date": "2023-08-23T10:00:00.000Z",
           "party": "vendor",
           "status": "in_progress",
           "summary": "The vendor has released a mitigation and is working to fully resolve the issue."
@@ -4742,7 +4739,7 @@ The relevant path for this test is:
     {
       "category": "self",
       "summary": "The canonical URL.",
-      "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2_0-2021-6-1-27-02-01.json"
+      "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-27-02-01.json"
     }
   ]
 ```
@@ -5184,12 +5181,12 @@ The relevant paths for this test are:
       // ...
       "revision_history": [
         {
-          "date": "2021-07-21T09:00:00.000Z",
+          "date": "2024-01-21T09:00:00.000Z",
           "number": "1.0.0",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T10:00:00.000Z",
+          "date": "2024-01-21T10:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
@@ -5467,7 +5464,7 @@ The relevant path for this test is:
 ```
     "revision_history": [
       {
-        "date": "2021-04-23T10:00:00.000Z",
+        "date": "2023-08-23T10:00:00.000Z",
         "number": "1.0.0+exp.sha.ac00785",
         "summary": "Initial version."
       }
@@ -5491,15 +5488,15 @@ The relevant path for this test is:
 ```
     "tracking": {
       // ...
-      "initial_release_date": "2021-04-22T10:00:00.000Z",
+      "initial_release_date": "2023-08-22T10:00:00.000Z",
       "revision_history": [
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2023-09-06T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T11:00:00.000Z",
+          "date": "2024-01-21T11:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
@@ -5508,7 +5505,7 @@ The relevant path for this test is:
     }
 ```
 
-> The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of
+> The initial release date `2023-08-22T10:00:00.000Z` is older than `2023-09-06T10:00:00.000Z` which is the `date` of
 > the oldest item in Revision History.
 
 ### 6.2.6 Older Current Release Date than Revision History <a id='older-current-release-date-than-revision-history'></a>
@@ -5525,16 +5522,16 @@ The relevant path for this test is:
 
 ```
     "tracking": {
-      "current_release_date": "2021-05-06T10:00:00.000Z",
+      "current_release_date": "2023-09-06T10:00:00.000Z",
       // ...
       "revision_history": [
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2023-09-06T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T11:00:00.000Z",
+          "date": "2024-01-21T11:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
@@ -5543,7 +5540,7 @@ The relevant path for this test is:
     }
 ```
 
-> The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of
+> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T1100:00.000Z` which is the `date` of
 > the newest item in Revision History.
 
 ### 6.2.7 Missing Date in Involvements <a id='missing-date-in-involvements'></a>
@@ -5706,13 +5703,13 @@ The relevant path for this test is:
       {
         "category": "self",
         "summary": "A non-canonical URL.",
-        "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01_1.json"
+        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2.1-2024-6-2-11-01_1.json"
       }
     ],
     // ...
     "tracking": {
       // ...
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-11-01",
       // ...
       "version": "1"
     },
@@ -5737,7 +5734,7 @@ The relevant path for this test is:
 ```
   "document": {
     "category": "csaf_base",
-    "csaf_version": "2.0",
+    "csaf_version": "2.1",
     "publisher": {
       // ...
     },
@@ -5761,7 +5758,7 @@ The relevant path for this test is:
 
 ```
   "document": {
-    "csaf_version": "2.0",
+    "csaf_version": "2.1",
     "category": "csaf_base",
     // ...
   }
@@ -5970,7 +5967,7 @@ The relevant path for this test is:
 ```
   "document": {
     "category": "csaf_base",
-    "csaf_version": "2.0",
+    "csaf_version": "2.1",
     "custom_property": "any",
     // ...
   }
@@ -6475,10 +6472,10 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
     "distributions": [
       {
-        "rolie":{
+        "rolie": {
           "feeds": [
             {
-              "summary":"All TLP:WHITE advisories of Example Company.",
+              "summary": "All TLP:WHITE advisories of Example Company.",
               "tlp_label": "WHITE",
               "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
             }
@@ -6486,9 +6483,9 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
         }
       }
     ],
-    "last_updated": "2021-07-12T20:20:56.169Z",
+    "last_updated": "2024-01-24T20:20:56.169Z",
     "list_on_CSAF_aggregators": true,
-    "metadata_version": "2.0",
+    "metadata_version": "2.1",
     "mirror_on_CSAF_aggregators": true,
     "public_openpgp_keys": [
       {
@@ -6499,7 +6496,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
     "publisher": {
       "category": "vendor",
       "name": "Example Company ProductCERT",
-      "namespace":"https://psirt.example.com"
+      "namespace": "https://psirt.example.com"
     },
     "role": "csaf_trusted_provider"
   }
@@ -6632,43 +6629,43 @@ Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC
           "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
         }
       ],
-      "category": [ 
+      "category": [
         {
           "scheme": "urn:ietf:params:rolie:category:information-type",
           "term": "csaf"
         }
       ],
-      "updated": "2021-01-01T12:00:00.000Z",
+      "updated": "2024-01-01T12:00:00.000Z",
       "entry": [
         {
-          "id": "2020-ESA-001",
-          "title": "Example Security Advisory 001",
+          "id": "ESA-2024-001",
+          "title": "Multiple vulnerabilities in ABC 0.0.2",
           "link": [
             {
               "rel": "self",
-              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
             },
             {
               "rel": "hash",
-              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.sha512"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.sha512"
             },
             {
               "rel": "signature",
-              "href": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json.asc"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.asc"
             }
           ],
-          "published": "2021-01-01T11:00:00.000Z",
-          "updated": "2021-01-01T12:00:00.000Z",
+          "published": "2024-01-01T11:00:00.000Z",
+          "updated": "2024-01-01T12:00:00.000Z",
           "summary": {
-            "content": "Vulnerabilities fixed in ABC 0.0.1"
+            "content": "Multiple vulnerabilities were fixed in ABC 0.0.3"
           },
           "content": {
             "type": "application/json",
-            "src": "https://psirt.domain.tld/advisories/csaf/2020/2020-ESA-001.json"
+            "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
-            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
-            "version": "2.0"
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+            "version": "2.1"
           }
         }
       ]
@@ -6853,12 +6850,12 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
       "name": "Example CSAF Lister",
       "namespace": "https://lister.example"
     },
-    "aggregator_version": "2.0",
+    "aggregator_version": "2.1",
     "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
     "csaf_providers": [
       {
         "metadata": {
-          "last_updated": "2021-07-12T20:20:56.169Z",
+          "last_updated": "2024-01-12T20:20:56.169Z",
           "publisher": {
             "category": "vendor",
             "name": "Example Company ProductCERT",
@@ -6869,7 +6866,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
       },
       {
         "metadata": {
-          "last_updated": "2021-07-12T21:35:38.000Z",
+          "last_updated": "2024-01-12T21:35:38.000Z",
           "publisher": {
             "category": "coordinator",
             "name": "Example Coordinator CERT",
@@ -6879,7 +6876,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
         }
       }
     ],
-    "last_updated":"2021-07-12T22:35:38.978Z"
+    "last_updated": "2024-01-24T22:35:38.978Z"
   }
 ```
 
@@ -6909,12 +6906,12 @@ Each such folder MUST at least:
       "name": "Example Aggregator",
       "namespace": "https://aggregator.example"
     },
-    "aggregator_version": "2.0",
+    "aggregator_version": "2.1",
     "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
     "csaf_providers": [
       {
         "metadata": {
-          "last_updated": "2021-07-12T20:20:56.169Z",
+          "last_updated": "2024-01-12T20:20:56.169Z",
           "publisher": {
             "category": "vendor",
             "name": "Example Company ProductCERT",
@@ -6928,7 +6925,7 @@ Each such folder MUST at least:
       },
       {
         "metadata": {
-          "last_updated": "2021-07-12T21:35:38.000Z",
+          "last_updated": "2024-01-12T21:35:38.000Z",
           "publisher": {
             "category": "coordinator",
             "name": "Example Coordinator CERT",
@@ -6941,7 +6938,7 @@ Each such folder MUST at least:
         ]
       }
     ],
-    "last_updated":"2021-07-12T22:35:38.978Z"
+    "last_updated": "2024-01-24T22:35:38.978Z"
   }
 ```
 
@@ -7745,11 +7742,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
-| csaf-v2.0-wd20210927-dev | 2021-09-27 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS for public review    |
-| csaf-v2.0-wd20220329-dev | 2022-03-29 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CSD02 for public review |
-| csaf-v2.0-wd20220514-dev | 2022-05-14 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS                      |
-| csaf-v2.0-wd20220715-dev | 2022-07-15 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS                      |
-| csaf-v2.0-wd20220720-dev | 2022-07-20 | Stefan Hagen and Thomas Schmidt | Preparing next Editor revision for TC review and submittal as CS                      |
+| csaf-v2.0-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
 
 -------
 

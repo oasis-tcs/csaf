@@ -15,12 +15,12 @@ The relevant path for this test is:
       // ...
       "revision_history": [
         {
-          "date": "2021-05-17T10:00:00.000Z",
+          "date": "2023-09-17T10:00:00.000Z",
           "number": "0",
           "summary": "First draft"
         },
         {
-          "date": "2021-07-21T10:00:00.000Z",
+          "date": "2024-01-21T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         }

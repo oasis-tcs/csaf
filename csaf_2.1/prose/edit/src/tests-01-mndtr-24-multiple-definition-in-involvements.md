@@ -15,12 +15,12 @@ The relevant path for this test is:
     {
       "involvements": [
         {
-          "date": "2021-04-23T10:00:00.000Z",
+          "date": "2023-08-23T10:00:00.000Z",
           "party": "vendor",
           "status": "completed"
         },
         {
-          "date": "2021-04-23T10:00:00.000Z",
+          "date": "2023-08-23T10:00:00.000Z",
           "party": "vendor",
           "status": "in_progress",
           "summary": "The vendor has released a mitigation and is working to fully resolve the issue."

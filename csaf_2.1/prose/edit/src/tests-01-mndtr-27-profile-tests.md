@@ -62,7 +62,7 @@ The relevant path for this test is:
     {
       "category": "self",
       "summary": "The canonical URL.",
-      "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2_0-2021-6-1-27-02-01.json"
+      "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-27-02-01.json"
     }
   ]
 ```

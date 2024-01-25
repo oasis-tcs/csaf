@@ -130,7 +130,7 @@ CSAF version (`csaf_version`) of value type `string` and `enum` gives the versio
 The single valid value for this `enum` is:
 
 ```
-    2.0
+    2.1
 ```
 
 #### Document Property - Distribution

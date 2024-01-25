@@ -128,7 +128,7 @@ The relevant path for this test is:
 ```
     "revision_history": [
       {
-        "date": "2021-04-23T10:00:00.000Z",
+        "date": "2023-08-23T10:00:00.000Z",
         "number": "1.0.0+exp.sha.ac00785",
         "summary": "Initial version."
       }
@@ -152,15 +152,15 @@ The relevant path for this test is:
 ```
     "tracking": {
       // ...
-      "initial_release_date": "2021-04-22T10:00:00.000Z",
+      "initial_release_date": "2023-08-22T10:00:00.000Z",
       "revision_history": [
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2023-09-06T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T11:00:00.000Z",
+          "date": "2024-01-21T11:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
@@ -169,7 +169,7 @@ The relevant path for this test is:
     }
 ```
 
-> The initial release date `2021-04-22T10:00:00.000Z` is older than `2021-05-06T10:00:00.000Z` which is the `date` of
+> The initial release date `2023-08-22T10:00:00.000Z` is older than `2023-09-06T10:00:00.000Z` which is the `date` of
 > the oldest item in Revision History.
 
 ### Older Current Release Date than Revision History
@@ -186,16 +186,16 @@ The relevant path for this test is:
 
 ```
     "tracking": {
-      "current_release_date": "2021-05-06T10:00:00.000Z",
+      "current_release_date": "2023-09-06T10:00:00.000Z",
       // ...
       "revision_history": [
         {
-          "date": "2021-05-06T10:00:00.000Z",
+          "date": "2023-09-06T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         },
         {
-          "date": "2021-07-21T11:00:00.000Z",
+          "date": "2024-01-21T11:00:00.000Z",
           "number": "2",
           "summary": "Second version."
         }
@@ -204,7 +204,7 @@ The relevant path for this test is:
     }
 ```
 
-> The current release date `2021-05-06T10:00:00.000Z` is older than `2021-05-23T1100:00.000Z` which is the `date` of
+> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T1100:00.000Z` which is the `date` of
 > the newest item in Revision History.
 
 ### Missing Date in Involvements
@@ -367,13 +367,13 @@ The relevant path for this test is:
       {
         "category": "self",
         "summary": "A non-canonical URL.",
-        "url": "https://example.com/security/data/csaf/2021/OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01_1.json"
+        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2.1-2024-6-2-11-01_1.json"
       }
     ],
     // ...
     "tracking": {
       // ...
-      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-2-11-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-11-01",
       // ...
       "version": "1"
     },
@@ -398,7 +398,7 @@ The relevant path for this test is:
 ```
   "document": {
     "category": "csaf_base",
-    "csaf_version": "2.0",
+    "csaf_version": "2.1",
     "publisher": {
       // ...
     },
@@ -422,7 +422,7 @@ The relevant path for this test is:
 
 ```
   "document": {
-    "csaf_version": "2.0",
+    "csaf_version": "2.1",
     "category": "csaf_base",
     // ...
   }
@@ -631,7 +631,7 @@ The relevant path for this test is:
 ```
   "document": {
     "category": "csaf_base",
-    "csaf_version": "2.0",
+    "csaf_version": "2.1",
     "custom_property": "any",
     // ...
   }
