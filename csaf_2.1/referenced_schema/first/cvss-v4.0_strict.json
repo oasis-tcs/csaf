@@ -1,0 +1,566 @@
+{
+  "$id": "https://www.first.org/cvss/cvss-v4.0.json?20231011",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/definitions/noneScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/definitions/noneSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/definitions/lowScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/definitions/lowSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/definitions/mediumScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/definitions/mediumSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/definitions/highScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/definitions/highSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/definitions/criticalScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/definitions/criticalSeverityType"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "threatScore": {
+              "$ref": "#/definitions/noneScoreType"
+            },
+            "threatSeverity": {
+              "$ref": "#/definitions/noneSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "threatScore": {
+              "$ref": "#/definitions/lowScoreType"
+            },
+            "threatSeverity": {
+              "$ref": "#/definitions/lowSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "threatScore": {
+              "$ref": "#/definitions/mediumScoreType"
+            },
+            "threatSeverity": {
+              "$ref": "#/definitions/mediumSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "threatScore": {
+              "$ref": "#/definitions/highScoreType"
+            },
+            "threatSeverity": {
+              "$ref": "#/definitions/highSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "threatScore": {
+              "$ref": "#/definitions/criticalScoreType"
+            },
+            "threatSeverity": {
+              "$ref": "#/definitions/criticalSeverityType"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "environmentalScore": {
+              "$ref": "#/definitions/noneScoreType"
+            },
+            "environmentalSeverity": {
+              "$ref": "#/definitions/noneSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "environmentalScore": {
+              "$ref": "#/definitions/lowScoreType"
+            },
+            "environmentalSeverity": {
+              "$ref": "#/definitions/lowSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "environmentalScore": {
+              "$ref": "#/definitions/mediumScoreType"
+            },
+            "environmentalSeverity": {
+              "$ref": "#/definitions/mediumSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "environmentalScore": {
+              "$ref": "#/definitions/highScoreType"
+            },
+            "environmentalSeverity": {
+              "$ref": "#/definitions/highSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "environmentalScore": {
+              "$ref": "#/definitions/criticalScoreType"
+            },
+            "environmentalSeverity": {
+              "$ref": "#/definitions/criticalSeverityType"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "attackComplexityType": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ],
+      "type": "string"
+    },
+    "attackRequirementsType": {
+      "enum": [
+        "NONE",
+        "PRESENT"
+      ],
+      "type": "string"
+    },
+    "attackVectorType": {
+      "enum": [
+        "NETWORK",
+        "ADJACENT",
+        "LOCAL",
+        "PHYSICAL"
+      ],
+      "type": "string"
+    },
+    "automatableType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NO",
+        "YES",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "ciaRequirementType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "criticalScoreType": {
+      "maximum": 10,
+      "minimum": 9.0,
+      "multipleOf": 0.1,
+      "type": "number"
+    },
+    "criticalSeverityType": {
+      "const": "CRITICAL"
+    },
+    "exploitMaturityType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "UNREPORTED",
+        "PROOF_OF_CONCEPT",
+        "ATTACKED",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "highScoreType": {
+      "maximum": 8.9,
+      "minimum": 7.0,
+      "multipleOf": 0.1,
+      "type": "number"
+    },
+    "highSeverityType": {
+      "const": "HIGH"
+    },
+    "lowScoreType": {
+      "maximum": 3.9,
+      "minimum": 0.1,
+      "multipleOf": 0.1,
+      "type": "number"
+    },
+    "lowSeverityType": {
+      "const": "LOW"
+    },
+    "mediumScoreType": {
+      "maximum": 6.9,
+      "minimum": 4.0,
+      "multipleOf": 0.1,
+      "type": "number"
+    },
+    "mediumSeverityType": {
+      "const": "MEDIUM"
+    },
+    "modifiedAttackComplexityType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedAttackRequirementsType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NONE",
+        "PRESENT",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedAttackVectorType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NETWORK",
+        "ADJACENT",
+        "LOCAL",
+        "PHYSICAL",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedPrivilegesRequiredType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NONE",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedSubCType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedSubIaType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH",
+        "SAFETY",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedUserInteractionType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NONE",
+        "PASSIVE",
+        "ACTIVE",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedVulnCiaType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "noneScoreType": {
+      "maximum": 0.0,
+      "minimum": 0.0,
+      "type": "number"
+    },
+    "noneSeverityType": {
+      "const": "NONE"
+    },
+    "privilegesRequiredType": {
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NONE"
+      ],
+      "type": "string"
+    },
+    "providerUrgencyType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "CLEAR",
+        "GREEN",
+        "AMBER",
+        "RED",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "recoveryType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "AUTOMATIC",
+        "USER",
+        "IRRECOVERABLE",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "safetyType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "NEGLIGIBLE",
+        "PRESENT",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "subCiaType": {
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH"
+      ],
+      "type": "string"
+    },
+    "userInteractionType": {
+      "enum": [
+        "NONE",
+        "PASSIVE",
+        "ACTIVE"
+      ],
+      "type": "string"
+    },
+    "valueDensityType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "DIFFUSE",
+        "CONCENTRATED",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "vulnCiaType": {
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH"
+      ],
+      "type": "string"
+    },
+    "vulnerabilityResponseEffortType": {
+      "default": "NOT_DEFINED",
+      "enum": [
+        "LOW",
+        "MODERATE",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    }
+  },
+  "license": [
+    "Copyright (c) 2023, FIRST.ORG, INC.",
+    "All rights reserved.",
+    "",
+    "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the ",
+    "following conditions are met:",
+    "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following ",
+    "   disclaimer.",
+    "2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the ",
+    "   following disclaimer in the documentation and/or other materials provided with the distribution.",
+    "3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote ",
+    "   products derived from this software without specific prior written permission.",
+    "",
+    "THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, ",
+    "INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE ",
+    "DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, ",
+    "SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR ",
+    "SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, ",
+    "WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE ",
+    "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  ],
+  "properties": {
+    "Automatable": {
+      "$ref": "#/definitions/automatableType"
+    },
+    "Recovery": {
+      "$ref": "#/definitions/recoveryType"
+    },
+    "Safety": {
+      "$ref": "#/definitions/safetyType"
+    },
+    "attackComplexity": {
+      "$ref": "#/definitions/attackComplexityType"
+    },
+    "attackRequirements": {
+      "$ref": "#/definitions/attackRequirementsType"
+    },
+    "attackVector": {
+      "$ref": "#/definitions/attackVectorType"
+    },
+    "availabilityRequirement": {
+      "$ref": "#/definitions/ciaRequirementType"
+    },
+    "confidentialityRequirement": {
+      "$ref": "#/definitions/ciaRequirementType"
+    },
+    "exploitMaturity": {
+      "$ref": "#/definitions/exploitMaturityType"
+    },
+    "integrityRequirement": {
+      "$ref": "#/definitions/ciaRequirementType"
+    },
+    "modifiedAttackComplexity": {
+      "$ref": "#/definitions/modifiedAttackComplexityType"
+    },
+    "modifiedAttackRequirements": {
+      "$ref": "#/definitions/modifiedAttackRequirementsType"
+    },
+    "modifiedAttackVector": {
+      "$ref": "#/definitions/modifiedAttackVectorType"
+    },
+    "modifiedPrivilegesRequired": {
+      "$ref": "#/definitions/modifiedPrivilegesRequiredType"
+    },
+    "modifiedSubAvailabilityImpact": {
+      "$ref": "#/definitions/modifiedSubIaType"
+    },
+    "modifiedSubConfidentialityImpact": {
+      "$ref": "#/definitions/modifiedSubCType"
+    },
+    "modifiedSubIntegrityImpact": {
+      "$ref": "#/definitions/modifiedSubIaType"
+    },
+    "modifiedUserInteraction": {
+      "$ref": "#/definitions/modifiedUserInteractionType"
+    },
+    "modifiedVulnAvailabilityImpact": {
+      "$ref": "#/definitions/modifiedVulnCiaType"
+    },
+    "modifiedVulnConfidentialityImpact": {
+      "$ref": "#/definitions/modifiedVulnCiaType"
+    },
+    "modifiedVulnIntegrityImpact": {
+      "$ref": "#/definitions/modifiedVulnCiaType"
+    },
+    "privilegesRequired": {
+      "$ref": "#/definitions/privilegesRequiredType"
+    },
+    "providerUrgency": {
+      "$ref": "#/definitions/providerUrgencyType"
+    },
+    "subAvailabilityImpact": {
+      "$ref": "#/definitions/subCiaType"
+    },
+    "subConfidentialityImpact": {
+      "$ref": "#/definitions/subCiaType"
+    },
+    "subIntegrityImpact": {
+      "$ref": "#/definitions/subCiaType"
+    },
+    "userInteraction": {
+      "$ref": "#/definitions/userInteractionType"
+    },
+    "valueDensity": {
+      "$ref": "#/definitions/valueDensityType"
+    },
+    "vectorString": {
+      "pattern": "^CVSS:4[.]0/AV:[NALP]/AC:[LH]/AT:[NP]/PR:[NLH]/UI:[NPA]/VC:[HLN]/VI:[HLN]/VA:[HLN]/SC:[HLN]/SI:[HLN]/SA:[HLN](/E:[XAPU])?(/CR:[XHML])?(/IR:[XHML])?(/AR:[XHML])?(/MAV:[XNALP])?(/MAC:[XLH])?(/MAT:[XNP])?(/MPR:[XNLH])?(/MUI:[XNPA])?(/MVC:[XNLH])?(/MVI:[XNLH])?(/MVA:[XNLH])?(/MSC:[XNLH])?(/MSI:[XNLHS])?(/MSA:[XNLHS])?(/S:[XNP])?(/AU:[XNY])?(/R:[XAUI])?(/V:[XDC])?(/RE:[XLMH])?(/U:(X|Clear|Green|Amber|Red))?$",
+      "type": "string"
+    },
+    "version": {
+      "description": "CVSS Version",
+      "enum": [
+        "4.0"
+      ],
+      "type": "string"
+    },
+    "vulnAvailabilityImpact": {
+      "$ref": "#/definitions/vulnCiaType"
+    },
+    "vulnConfidentialityImpact": {
+      "$ref": "#/definitions/vulnCiaType"
+    },
+    "vulnIntegrityImpact": {
+      "$ref": "#/definitions/vulnCiaType"
+    },
+    "vulnerabilityResponseEffort": {
+      "$ref": "#/definitions/vulnerabilityResponseEffortType"
+    }
+  },
+  "required": [
+    "version",
+    "vectorString",
+    "baseScore",
+    "baseSeverity"
+  ],
+  "title": "JSON Schema for Common Vulnerability Scoring System version 4.0",
+  "type": "object"
+}
