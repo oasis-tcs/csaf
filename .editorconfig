@@ -1,0 +1,61 @@
+.editorconfig # Editor config
+# http://EditorConfig.org
+
+# This EditorConfig overrides any parent EditorConfigs
+root = true
+
+# Default rules applied to all file types
+[*]
+
+# Trim trailing spaces, newline at EOF
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = lf
+
+# 2 space indentation
+indent_style = space
+indent_size = 2
+
+# Makefiles require tabs
+[Makefile]
+indent_style = tab
+indent_size = 4
+max_line_length = 256
+
+# 4 space indentation
+[*.{py,java,r,R}]
+indent_style = space
+indent_size = 4
+max_line_length = 120
+
+# 2 space indentation
+[*.{json,y{a,}ml,html,cwl}]
+indent_style = space
+indent_size = 2
+
+[*.{md,Rmd,rst}]
+trim_trailing_whitespace = false
+indent_style = space
+indent_size = 2
+max_line_length = 150
+
+# JavaScript-specific settings
+[*.{js,ts}]
+quote_type = single
+indent_style = space
+indent_size = 2
+continuation_indent_size = 2
+curly_bracket_next_line = false
+indent_brace_style = BSD
+spaces_around_operators = true
+spaces_around_brackets = none
+max_line_length = 150
+
+[*.rs]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+max_line_length = 120

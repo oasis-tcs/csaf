@@ -1,0 +1,32 @@
+{
+  "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
+  "distributions": [
+    {
+      "rolie": {
+        "feeds": [
+          {
+            "summary": "All TLP:WHITE advisories of Example Company.",
+            "tlp_label": "WHITE",
+            "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
+          }
+        ]
+      }
+    }
+  ],
+  "last_updated": "2024-01-24T20:20:56.169Z",
+  "list_on_CSAF_aggregators": true,
+  "metadata_version": "2.1",
+  "mirror_on_CSAF_aggregators": true,
+  "public_openpgp_keys": [
+    {
+      "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
+      "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
+    }
+  ],
+  "publisher": {
+    "category": "vendor",
+    "name": "Example Company ProductCERT",
+    "namespace": "https://psirt.example.com"
+  },
+  "role": "csaf_trusted_provider"
+}

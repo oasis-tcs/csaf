@@ -1,6 +1,25 @@
-
+# Original ignores (before csaf_2.1 branch off)
 meeting_minutes/.DS_Store
 .DS_Store
 *_strict_schema.json
 official-cpe-dictionary_v2.3.*
 official-cpe-dictionary_v2.2.*
+
+# pyenv
+.python-version
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Other local development artifacts
+*~
+.idea
+local*
+.vscode/
+build/
