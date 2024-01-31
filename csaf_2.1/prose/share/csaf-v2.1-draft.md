@@ -71,7 +71,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. ?? Month 2024. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -4511,12 +4511,12 @@ The relevant path for this test is:
 ```
    "revision_history": [
       {
-        "date": "2021-07-20T10:00:00.000Z",
+        "date": "2024-01-20T10:00:00.000Z",
         "number": "1",
         "summary": "Initial version."
       },
       {
-        "date": "2021-07-21T10:00:00.000Z",
+        "date": "2024-01-21T10:00:00.000Z",
         "number": "1",
         "summary": "Some other changes."
       }

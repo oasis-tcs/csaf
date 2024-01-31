@@ -13,12 +13,12 @@ The relevant path for this test is:
 ```
    "revision_history": [
       {
-        "date": "2021-07-20T10:00:00.000Z",
+        "date": "2024-01-20T10:00:00.000Z",
         "number": "1",
         "summary": "Initial version."
       },
       {
-        "date": "2021-07-21T10:00:00.000Z",
+        "date": "2024-01-21T10:00:00.000Z",
         "number": "1",
         "summary": "Some other changes."
       }
