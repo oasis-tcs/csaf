@@ -1,0 +1,100 @@
+accessibility-check: 0 (Tidy Classic)
+add-meta-charset: no
+add-xml-decl: no
+add-xml-space: no
+alt-text: 
+anchor-as-name: yes
+ascii-chars: no
+assume-xml-procins: no
+bare: no
+break-before-br: no
+char-encoding: utf8
+clean: no
+coerce-endtags: yes
+css-prefix: c
+custom-tags: no
+decorate-inferred-ul: no
+doctype: auto
+drop-empty-elements: yes
+drop-empty-paras: yes
+drop-proprietary-attributes: no
+enclose-block-text: no
+enclose-text: no
+error-file: 
+escape-cdata: no
+escape-scripts: yes
+fix-backslash: yes
+fix-bad-comments: auto
+fix-style-tags: yes
+fix-uri: yes
+force-output: no
+gdoc: no
+gnu-emacs: no
+hide-comments: no
+indent: yes
+indent-attributes: no
+indent-cdata: no
+indent-spaces: 2
+indent-with-tabs: no
+input-encoding: utf8
+input-xml: no
+join-classes: no
+join-styles: yes
+keep-tabs: no
+keep-time: no
+literal-attributes: no
+logical-emphasis: no
+lower-literals: yes
+markup: yes
+merge-divs: auto
+merge-emphasis: yes
+merge-spans: auto
+mute: 
+mute-id: no
+ncr: yes
+new-blocklevel-tags: 
+new-empty-tags: 
+new-inline-tags: 
+new-pre-tags: 
+newline: LF
+numeric-entities: no
+omit-optional-tags: no
+output-bom: auto
+output-encoding: utf8
+output-file: 
+output-html: no
+output-xhtml: no
+output-xml: no
+preserve-entities: no
+priority-attributes: 
+punctuation-wrap: no
+quiet: no
+quote-ampersand: yes
+quote-marks: no
+quote-nbsp: yes
+repeated-attributes: keep-last
+replace-color: no
+show-body-only: no
+show-errors: 6
+show-filename: no
+show-info: yes
+show-meta-change: no
+show-warnings: yes
+skip-nested: yes
+sort-attributes: none
+strict-tags-attributes: no
+tab-size: 8
+tidy-mark: yes
+uppercase-attributes: no
+uppercase-tags: no
+vertical-space: no
+warn-proprietary-attributes: yes
+word-2000: no
+wrap: 345
+wrap-asp: yes
+wrap-attributes: no
+wrap-jste: yes
+wrap-php: no
+wrap-script-literals: no
+wrap-sections: yes
+write-back: no
