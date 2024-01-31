@@ -135,6 +135,8 @@ Secondly, the program fulfills the following for all items of:
   `first_affected` and `last_affected` into `product_ids`.
   If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
 * `/vulnerabilities[]/scores[]`:
+  * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
+    the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
   * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard.
   * If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in
@@ -145,7 +147,8 @@ Secondly, the program fulfills the following for all items of:
     A CVRF CSAF converter MAY offer a configuration option to delete such elements.
   * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards
     the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
-  * To determine, which minor version of CVSS v3 is used, the CVRF CSAF converter uses the following steps:
+  * To determine, which minor version of CVSS v3 is used and to evaluate a CVSS v4 that was wrongly inserted in a CVSS v3 element,
+    the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
         *Example 1:*
