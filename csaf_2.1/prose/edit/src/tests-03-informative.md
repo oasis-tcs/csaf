@@ -413,3 +413,45 @@ The relevant paths for this test are:
 > The product version starts with a `v`.
 
 -------
+
+### Missing CVSS v4.0
+
+For each item in the list of scores it MUST be tested that a `cvss_v4` object is present.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/scores
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "scores": [
+        {
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ]
+```
+
+> There is no CVSS v4.0 score given for `CSAFPID-9080700`.
