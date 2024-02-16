@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## ?? Month 2024
+## 28 February 2024
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -71,7 +71,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. ?? Month 2024. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 28 February 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -634,6 +634,8 @@ For purposes of this document, the following terms and definitions apply:
 **\[**<span id="June 2014, https;//www.rfc-editor.org/info/rfc7231." class="anchor"></span>**June 2014, https://www.rfc-editor.org/info/rfc7231.\]** 
 
 **\[**<span id="https;//www.rfc-editor.org/info/rfc7464." class="anchor"></span>**https://www.rfc-editor.org/info/rfc7464.\]** 
+
+**\[**<span id="https;//www.rfc-editor.org/info/rfc8322." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8322.\]** 
 
 **\[**<span id="https;//www.rfc-editor.org/info/rfc8615." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8615.\]** 
 
@@ -1546,7 +1548,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 ```
           "x_generic_uris": [
             {
-              "namespace": "https://spdx.github.io/spdx-spec/document-creation-information/#65-spdx-document-namespace-field",
+              "namespace": "https://spdx.github.io/spdx-spec/latest/document-creation-information/#65-spdx-document-namespace-field",
               "uri": "https://swinslow.net/spdx-examples/example4/main-bin-v2#SPDXRef-libc"
             }
           ]
@@ -7743,7 +7745,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
 | csaf-v2.0-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
-
+| csaf-v2.0-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>
@@ -7763,7 +7765,7 @@ All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits
 ## C.1 File size <a id='file-size'></a>
 
 A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content,
-e.g.: 15 MB.
+e.g.: 50 MiB.
 
 > At least one database technology in wide use for storing CSAF documents rejects insert attempts when
 > the transformed BSON size exceeds 16 megabytes.
