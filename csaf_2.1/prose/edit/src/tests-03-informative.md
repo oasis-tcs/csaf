@@ -50,7 +50,7 @@ The relevant path for this test is:
 
 Recommendation:
 
-It is recommended to (also) use the CVSS v3.1.
+It is recommended to (also) use the CVSS v4.0.
 
 ### Use of CVSS v3.0
 
