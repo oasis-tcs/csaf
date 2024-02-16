@@ -211,6 +211,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/remediations[]/product_ids[]`
   * `/vulnerabilities[]/scores[]/cvss_v2/vectorString`
   * `/vulnerabilities[]/scores[]/cvss_v3/vectorString`
+  * `/vulnerabilities[]/scores[]/cvss_v4/vectorString`
   * `/vulnerabilities[]/scores[]/products[]`
   * `/vulnerabilities[]/threats[]/group_ids[]`
   * `/vulnerabilities[]/threats[]/product_ids[]`
@@ -337,6 +338,42 @@ It seems to be safe to assume that the length of each value is not greater than 
 * `/vulnerabilities[]/scores[]/cvss_v3/modifiedIntegrityImpact` (11)
 * `/vulnerabilities[]/scores[]/cvss_v3/modifiedAvailabilityImpact` (11)
 * `/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity` (8)
+* `/vulnerabilities[]/scores[]/cvss_v4/version` (3)
+* `/vulnerabilities[]/scores[]/cvss_v4/attackVector` (8)
+* `/vulnerabilities[]/scores[]/cvss_v4/attackComplexity` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/attackRequirements` (7)
+* `/vulnerabilities[]/scores[]/cvss_v4/privilegesRequired` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/userInteraction` (7)
+* `/vulnerabilities[]/scores[]/cvss_v4/vulnConfidentialityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/vulnIntegrityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/vulnAvailabilityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/subConfidentialityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/subIntegrityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/subAvailabilityImpact` (4)
+* `/vulnerabilities[]/scores[]/cvss_v4/exploitMaturity` (16)
+* `/vulnerabilities[]/scores[]/cvss_v4/confidentialityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/integrityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/availabilityRequirement` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackVector` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackComplexity` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackRequirements` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedPrivilegesRequired` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedUserInteraction` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnConfidentialityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnIntegrityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnAvailabilityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedSubConfidentialityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedSubIntegrityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/modifiedSubAvailabilityImpact` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/Safety` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/Automatable` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/Recovery` (13)
+* `/vulnerabilities[]/scores[]/cvss_v4/valueDensity` (12)
+* `/vulnerabilities[]/scores[]/cvss_v4/vulnerabilityResponseEffort` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/providerUrgency` (11)
+* `/vulnerabilities[]/scores[]/cvss_v4/baseSeverity` (8)
+* `/vulnerabilities[]/scores[]/cvss_v4/threatSeverity` (8)
+* `/vulnerabilities[]/scores[]/cvss_v4/environmentalSeverity` (8)
 * `/vulnerabilities[]/threats[]/category` (14)
 
 ## Date

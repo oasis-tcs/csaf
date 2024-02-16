@@ -1350,6 +1350,9 @@
                     }
                   ]
                 },
+                "cvss_v4": {
+                  "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
+                },
                 "products": {
                   "$ref": "#/$defs/products_t"
                 }
