@@ -385,7 +385,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 ```
           "x_generic_uris": [
             {
-              "namespace": "https://spdx.github.io/spdx-spec/document-creation-information/#65-spdx-document-namespace-field",
+              "namespace": "https://spdx.github.io/spdx-spec/latest/document-creation-information/#65-spdx-document-namespace-field",
               "uri": "https://swinslow.net/spdx-examples/example4/main-bin-v2#SPDXRef-libc"
             }
           ]
