@@ -91,6 +91,10 @@ RFC7464
 :    N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015,
 https://www.rfc-editor.org/info/rfc7464.
 
+RFC8322
+:    Field, J., Banghart, S., and D. Waltermire, "Resource-Oriented Lightweight Information Exchange (ROLIE)", RFC 8322, DOI 10.17487/RFC8322, February 2018,
+https://www.rfc-editor.org/info/rfc8322.
+
 RFC8615
 :    Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
 https://www.rfc-editor.org/info/rfc8615.
