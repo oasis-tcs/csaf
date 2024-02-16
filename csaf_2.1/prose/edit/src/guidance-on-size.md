@@ -36,7 +36,7 @@ All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits
 ## File size
 
 A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content,
-e.g.: 15 MB.
+e.g.: 50 MiB.
 
 > At least one database technology in wide use for storing CSAF documents rejects insert attempts when
 > the transformed BSON size exceeds 16 megabytes.
