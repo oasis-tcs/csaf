@@ -610,8 +610,8 @@ The relevant path for this test is:
 > Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor
 > the corresponding attributes in the `vectorString` have been set.
 
-> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` accordingly and
-> compute the `environmentalScore` as quick fix.
+> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` (respectively their
+> equivalents according to the CVSS version used) accordingly and compute the `environmentalScore` as quick fix.
 
 ### Additional Properties
 
