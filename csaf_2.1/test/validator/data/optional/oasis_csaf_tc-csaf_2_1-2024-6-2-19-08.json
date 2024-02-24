@@ -46,8 +46,8 @@
             "modifiedVulnConfidentialityImpact": "NONE",
             "modifiedVulnIntegrityImpact": "NONE",
             "modifiedVulnAvailabilityImpact": "NONE",
-            "modifiedSubConfidentialityImpact": "NONE",
-            "modifiedSubIntegrityImpact": "NONE",
+            "modifiedSubConfidentialityImpact": "NEGLIGIBLE",
+            "modifiedSubIntegrityImpact": "NEGLIGIBLE",
             "vectorString": "CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:P/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
             "version": "4.0"
           },
