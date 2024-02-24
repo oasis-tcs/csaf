@@ -207,7 +207,7 @@ The default value is the URL to the definition by FIRST:
 
 ```
     https://www.us-cert.gov/tlp
-    https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf
+    https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/TLP/merkblatt-tlp.pdf
 ```
 
 #### Document Property - Language
