@@ -171,8 +171,8 @@ value of `/document/tracking/initial_release_date`.
 *Examples 1:*
 
 ```
-2021
-2020
+2024
+2023
 ```
 
 ### Requirement 12: index.txt
@@ -182,9 +182,10 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 *Example 1:*
 
 ```
-2020/example_company_-_2020-yh4711.json
-2019/example_company_-_2019-yh3234.json
-2018/example_company_-_2018-yh2312.json
+2023/esa-2023-09953.json
+2022/esa-2022-02723.json
+2021/esa-2021-31916.json
+2021/esa-2021-03676.json
 ```
 
 > This can be used to download all CSAF documents.
@@ -197,10 +198,10 @@ CSAF document in the sub-directories without a heading; lines MUST be sorted by 
 *Example 1:*
 
 ```
-"2020/example_company_-_2020-yh4711.json","2020-07-01T10:09:07Z"
-"2018/example_company_-_2018-yh2312.json","2020-07-01T10:09:01Z"
-"2019/example_company_-_2019-yh3234.json","2019-04-17T15:08:41Z"
-"2018/example_company_-_2018-yh2312.json","2019-03-01T06:01:00Z"
+"2023/esa-2023-09953.json","2023-07-01T10:09:07Z"
+"2021/esa-2021-03676.json","2023-07-01T10:09:01Z"
+"2022/esa-2022-02723.json","2022-04-17T15:08:41Z"
+"2021/esa-2021-31916.json","2022-03-01T06:01:00Z"
 ```
 
 ### Requirement 14: Directory listings
@@ -388,9 +389,9 @@ MD5 and SHA1 SHOULD NOT be used.
 *Example 1:*
 
 ```
-File name of CSAF document: example_company_-_2019-yh3234.json
-File name of SHA-256 hash file: example_company_-_2019-yh3234.json.sha256
-File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512
+File name of CSAF document: esa-2022-02723.json
+File name of SHA-256 hash file: esa-2022-02723.json.sha256
+File name of SHA-512 hash file: esa-2022-02723.json.sha512
 ```
 
 The file content SHALL start with the first byte of the hexadecimal hash value.
@@ -399,7 +400,7 @@ Any subsequent data (like a filename) which is optional SHALL be separated by at
 *Example 2:*
 
 ```
-ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json
+ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
 ```
 
 If a ROLIE feed exists, each hash file MUST be listed in it as described in requirement 15.
@@ -412,8 +413,8 @@ extended by the appropriate extension. See [cite](#RFC4880) for more details.
 *Example 1:*
 
 ```
-File name of CSAF document: example_company_-_2019-yh3234.json
-File name of signature file: example_company_-_2019-yh3234.json.asc
+File name of CSAF document: esa-2022-02723.json
+File name of signature file: esa-2022-02723.json.asc
 ```
 
 If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
