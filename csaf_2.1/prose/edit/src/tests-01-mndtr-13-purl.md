@@ -1,4 +1,4 @@
-### purl
+### PURL
 
 It MUST be tested that given purl is valid.
 
