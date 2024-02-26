@@ -50,6 +50,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
+* **CSAF 2.0 to CSAF 2.1 converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
 
 ### Conformance Clause 1: CSAF document
 
@@ -488,5 +489,20 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
 * provides at least the following statistics for the count of SBOM component:
   * matching that CSAF document at all
   * marked with a given status
+
+### Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter
+
+A program satisfies the "CSAF 2.0 to CSAF 2.1 converter" conformance profile if the program fulfills the following two groups of requirements:
+
+Firstly, the program:
+
+* satisfies the "CSAF producer" conformance profile.
+* takes only CSAF 2.0 documents as input.
+* additionally satisfies the normative requirements given below.
+
+Secondly, the program fulfills the following for all items of:
+
+
+> A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
 
 -------
