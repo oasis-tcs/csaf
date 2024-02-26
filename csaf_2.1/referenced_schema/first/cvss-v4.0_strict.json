@@ -1,5 +1,5 @@
 {
-  "$id": "https://www.first.org/cvss/cvss-v4.0.json?20231011",
+  "$id": "https://www.first.org/cvss/cvss-v4.0.json?20240216",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "unevaluatedProperties": false,
   "allOf": [
@@ -297,7 +297,7 @@
     "modifiedSubCType": {
       "default": "NOT_DEFINED",
       "enum": [
-        "NONE",
+        "NEGLIGIBLE",
         "LOW",
         "HIGH",
         "NOT_DEFINED"
@@ -307,7 +307,7 @@
     "modifiedSubIaType": {
       "default": "NOT_DEFINED",
       "enum": [
-        "NONE",
+        "NEGLIGIBLE",
         "LOW",
         "HIGH",
         "SAFETY",
