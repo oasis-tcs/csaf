@@ -112,6 +112,7 @@
   "mandatory-tests": "6.1",
   "missing-canonical-url": "6.2.11",
   "missing-cve": "6.3.3",
+  "missing-cvss-v4-0": "6.3.12",
   "missing-cwe": "6.3.4",
   "missing-date-in-involvements": "6.2.7",
   "missing-definition-of-product-group-id": "6.1.4",
