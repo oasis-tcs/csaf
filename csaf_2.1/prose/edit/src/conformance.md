@@ -502,7 +502,12 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
+* type `/$defs/full_product_name_t/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a
+  warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
+
+> A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
+> of the rules above MAY be ignored to avoid data loss.
 
 -------

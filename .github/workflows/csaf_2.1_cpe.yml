@@ -19,4 +19,6 @@ jobs:
       with:
         node-version: '20'
     - name: Perform CPE Dictionary Test
-      run: ./csaf_2.1/test/cpe/run_tests.sh
+      run: ./csaf_2.1/test/cpe/run_dictionary_tests.sh
+    - name: Perform CPE local examples Test
+      run: ./csaf_2.1/test/cpe/run_local_tests.sh
