@@ -191,6 +191,7 @@
   "6.3.9": "branch-categories",
   "6.3.10": "usage-of-product-version-range",
   "6.3.11": "usage-of-v-as-version-indicator",
+  "6.3.12": "missing-cvss-v4-0",
   "7": "distributing-csaf-documents",
   "7.1": "requirements",
   "7.1.1": "requirement-1-valid-csaf-document",

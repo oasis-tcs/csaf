@@ -1,0 +1,5 @@
+PREFIXcpe:/o:redhat:rhel_aus:7.6::server
+cpe:/o:redhat:rhel_aus:7.6::server::SUFFIX
+PREFIXcpe:2.3:a:admin_management_xtended_project:admin_management_xtended:0.8:*:*:*:*:wordpress:*:*
+cpe:2.3:a:admin_management_xtended_project:admin_management_xtended:0.8:*:*:*:*:wordpress:*:*"
+cpe:2.3:a:admin_management_xtended_project:admin_management_xtended:0.8:*:*:*:*:wordpress:*:**

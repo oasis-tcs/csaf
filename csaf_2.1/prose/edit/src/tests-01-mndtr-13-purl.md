@@ -1,6 +1,6 @@
 ### PURL
 
-It MUST be tested that given PURL is valid.
+It MUST be tested that given purl is valid.
 
 The relevant paths for this test are:
 
