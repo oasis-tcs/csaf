@@ -473,7 +473,7 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
 * detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
-* is able to trigger a run of the asset matching module:
+* is able to trigger a run of the SBOM matching module:
   * manually:
     * per CSAF document
     * per list of CSAF documents
