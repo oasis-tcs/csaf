@@ -243,7 +243,7 @@ Two `*` MUST NOT follow each other.
 The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
-    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
+    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
 ```
 
 > The given pattern does not completely evaluate whether a PURL is valid according to the [cite](#PURL) specification.
