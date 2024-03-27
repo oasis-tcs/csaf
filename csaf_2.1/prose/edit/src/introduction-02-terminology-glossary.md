@@ -20,6 +20,9 @@ _Examples_: A physical file in a file system such as a source file, an object fi
 a specific version of a file in a version control system; a database table accessed via an HTTP request;
 an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
+CSAF 2.0 to CSAF 2.1 converter
+:    A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
+
 CSAF asset matching system
 :    program that connects to or is an asset database and is able to manage CSAF documents as
 required by CSAF management system

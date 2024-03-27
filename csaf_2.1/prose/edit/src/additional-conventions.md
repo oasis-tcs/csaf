@@ -47,4 +47,28 @@ they MUST be separated by the Record Separator in accordance with [cite](#RFC746
 
 The keys within a CSAF document SHOULD be sorted alphabetically.
 
+## Usage of Markdown
+
+The use of GitHub-flavoured Markdown is permitted in the following fields:
+
+```
+  /document/acknowledgments[]/summary
+  /document/distribution/text
+  /document/notes[]/text
+  /document/publisher/issuing_authority
+  /document/references[]/summary
+  /document/tracking/revision_history[]/summary
+  /product_tree/product_groups[]/summary
+  /vulnerabilities[]/acknowledgments[]/summary
+  /vulnerabilities[]/involvements[]/summary
+  /vulnerabilities[]/notes[]/text
+  /vulnerabilities[]/references[]/summary
+  /vulnerabilities[]/remediations[]/details
+  /vulnerabilities[]/remediations[]/entitlements[]
+  /vulnerabilities[]/remediations[]/restart_required/details
+  /vulnerabilities[]/threats[]/details
+```
+
+Other fields MUST NOT contain Markdown.
+
 -------

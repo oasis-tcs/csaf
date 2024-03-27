@@ -1,3 +1,4 @@
+import decimal
 import jsonschema
 from jsonschema.validators import Draft202012Validator
 from referencing import Registry, Resource
@@ -15,20 +16,20 @@ json_referenced_schemas = sys.argv[3:]
 
 with open(json_schema, 'r') as f:
     schema_data = f.read()
-    schema = json.loads(schema_data)
+    schema = json.loads(schema_data, parse_float=decimal.Decimal)
 
 resource = Resource.from_contents(schema)
 registry = Registry().with_resource(resource.id(), resource)
 
 with open(json_input, 'r') as f:
     input_data = f.read()
-    input_obj = json.loads(input_data)
+    input_obj = json.loads(input_data, parse_float=decimal.Decimal)
 
 if len(json_referenced_schemas) > 0:
     for i in json_referenced_schemas:
         with open(i, 'r') as f:
             current_ref_schema_data = f.read()
-            current_ref_schema = json.loads(current_ref_schema_data)
+            current_ref_schema = json.loads(current_ref_schema_data, parse_float=decimal.Decimal)
             current_resource = Resource.from_contents(current_ref_schema)
             registry = registry.combine(Registry().with_resource(current_resource.id().split('?')[0], current_resource))
 

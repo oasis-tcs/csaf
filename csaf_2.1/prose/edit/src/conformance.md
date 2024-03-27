@@ -50,6 +50,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
+* **CSAF 2.0 to CSAF 2.1 converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
 
 ### Conformance Clause 1: CSAF document
 
@@ -135,6 +136,8 @@ Secondly, the program fulfills the following for all items of:
   `first_affected` and `last_affected` into `product_ids`.
   If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
 * `/vulnerabilities[]/scores[]`:
+  * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
+    the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
   * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard.
   * If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in
@@ -145,7 +148,8 @@ Secondly, the program fulfills the following for all items of:
     A CVRF CSAF converter MAY offer a configuration option to delete such elements.
   * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards
     the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
-  * To determine, which minor version of CVSS v3 is used, the CVRF CSAF converter uses the following steps:
+  * To determine, which minor version of CVSS v3 is used and to evaluate a CVSS v4 that was wrongly inserted in a CVSS v3 element,
+    the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
         *Example 1:*
@@ -485,5 +489,20 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
 * provides at least the following statistics for the count of SBOM component:
   * matching that CSAF document at all
   * marked with a given status
+
+### Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter
+
+A program satisfies the "CSAF 2.0 to CSAF 2.1 converter" conformance profile if the program fulfills the following two groups of requirements:
+
+Firstly, the program:
+
+* satisfies the "CSAF producer" conformance profile.
+* takes only CSAF 2.0 documents as input.
+* additionally satisfies the normative requirements given below.
+
+Secondly, the program fulfills the following for all items of:
+
+
+> A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
 
 -------
