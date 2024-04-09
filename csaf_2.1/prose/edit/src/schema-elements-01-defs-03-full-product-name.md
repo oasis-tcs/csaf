@@ -311,7 +311,7 @@ abbreviated (partial) stock keeping units.
 
 A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software,
 or the stock keeping units change during update.
-In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
+In the latter case the remediations SHALL include the new stock keeping units or a description how it can be obtained.
 
 > The use of the list of relationships in the first case is important.
 > Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
@@ -385,7 +385,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 ```
           "x_generic_uris": [
             {
-              "namespace": "https://spdx.github.io/spdx-spec/document-creation-information/#65-spdx-document-namespace-field",
+              "namespace": "https://spdx.github.io/spdx-spec/latest/document-creation-information/#65-spdx-document-namespace-field",
               "uri": "https://swinslow.net/spdx-examples/example4/main-bin-v2#SPDXRef-libc"
             }
           ]

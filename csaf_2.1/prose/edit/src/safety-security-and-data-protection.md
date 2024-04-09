@@ -12,7 +12,7 @@ CSAF documents are based on JSON, thus the security considerations of [cite](#RF
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 
-* CSAF producers SHOULD NOT emit messages that contain HTML, even though all variants of Markdown permit it.
+* CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
   To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer,
   e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
 * Deeply nested markup can cause a stack overflow in the Markdown processor [cite](#GFMENG).

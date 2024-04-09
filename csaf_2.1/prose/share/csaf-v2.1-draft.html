@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
-    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0" />
+    <meta name="generator" content="HTML Tidy for HTML5 for Apple macOS version 5.8.0" />
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -326,8 +326,8 @@
     <h2 id="committee-specification-draft-01">
       Committee Specification Draft 01
     </h2>
-    <h2 id="-month-2024">
-      ?? Month 2024
+    <h2 id="28-february-2024">
+      28 February 2024
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -403,14 +403,11 @@
       Declared JSON namespaces:
     </h4>
     <ul>
-      <li>
-        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json</span></a>
+      <li>[<a href="https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https">https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https</a>://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json)
       </li>
-      <li>
-        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json</span></a>
+      <li>[<a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https</a>://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json)
       </li>
-      <li>
-        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json</span></a>
+      <li>[<a href="https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https">https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https</a>://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json)
       </li>
     </ul>
     <h4 id="abstract">
@@ -448,7 +445,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. ?? Month 2024. OASIS Standard. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. 28 February 2024. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -620,7 +617,8 @@
         <a href="#additional-conventions">Additional Conventions</a><br />
         5.1 <a href="#filename">Filename</a><br />
         5.2 <a href="#separation-in-data-stream">Separation in Data Stream</a><br />
-        5.3 <a href="#additional-conventions--sorting">Sorting</a>
+        5.3 <a href="#additional-conventions--sorting">Sorting</a><br />
+        5.4 <a href="#usage-of-markdown">Usage of Markdown</a>
       </li>
       <li>
         <a href="#tests">Tests</a><br />
@@ -701,7 +699,8 @@
         6.3.8 <a href="#spell-check">Spell check</a><br />
         6.3.9 <a href="#branch-categories">Branch Categories</a><br />
         6.3.10 <a href="#usage-of-product-version-range">Usage of Product Version Range</a><br />
-        6.3.11 <a href="#usage-of-v-as-version-indicator">Usage of V as Version Indicator</a>
+        6.3.11 <a href="#usage-of-v-as-version-indicator">Usage of V as Version Indicator</a><br />
+        6.3.12 <a href="#missing-cvss-v4-0">Missing CVSS v4.0</a>
       </li>
       <li>
         <a href="#distributing-csaf-documents">Distributing CSAF documents</a><br />
@@ -761,7 +760,8 @@
         9.1.14 <a href="#conformance-clause-14-csaf-basic-validator">Conformance Clause 14: CSAF basic validator</a><br />
         9.1.15 <a href="#conformance-clause-15-csaf-extended-validator">Conformance Clause 15: CSAF extended validator</a><br />
         9.1.16 <a href="#conformance-clause-16-csaf-full-validator">Conformance Clause 16: CSAF full validator</a><br />
-        9.1.17 <a href="#conformance-clause-17-csaf-sbom-matching-system">Conformance Clause 17: CSAF SBOM matching system</a>
+        9.1.17 <a href="#conformance-clause-17-csaf-sbom-matching-system">Conformance Clause 17: CSAF SBOM matching system</a><br />
+        9.1.18 <a href="#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter">Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter</a>
       </li>
     </ol>
     <h2 id="appendix-a-acknowledgments-appendix-b-revision-history-appendix-c-guidance-on-the-size-of-csaf-documents-c1-file-size-c2-array-length-c3-string-length-c4-uri-length-c5-enum-c6-date">
@@ -783,7 +783,8 @@
     </h2>
     <p>
       This specification is provided under the <a href="https://www.oasis-open.org/policies-guidelines/ipr/#Non-Assertion-Mode">Non-Assertion</a> Mode of the <a href="https://www.oasis-open.org/policies-guidelines/ipr/">OASIS IPR Policy</a>, the mode chosen when the Technical Committee was established. For information on whether any patents
-      have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (<a href="https://www.oasis-open.org/committees/csaf/ipr.php"><span>https://www.oasis-open.org/committees/csaf/ipr.php</span></a>).
+      have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page ([<a href=
+      "https://www.oasis-open.org/committees/csaf/ipr.php](https">https://www.oasis-open.org/committees/csaf/ipr.php](https</a>://<a href="http://www.oasis-open.org/committees/csaf/ipr.php">www.oasis-open.org/committees/csaf/ipr.php</a>)).
     </p>
     <h2 id="12-terminology-">
       1.2 Terminology <a id='terminology'></a>
@@ -827,6 +828,12 @@
       <dd>
         sequence of bytes addressable via a URI. <em>Examples</em>: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed via an HTTP request; an arbitrary stream of bytes returned from an HTTP request, a
         product URL, a common product enumeration value.
+      </dd>
+      <dt id="def;csaf-2-0-to-csaf-2-1-converter">
+        CSAF 2.0 to CSAF 2.1 converter
+      </dt>
+      <dd>
+        A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
       </dd>
       <dt id="def;csaf-asset-matching-system">
         CSAF asset matching system
@@ -1313,6 +1320,9 @@
       <strong>[</strong><span id="CVSS31" class="anchor"></span><strong>CVSS31]</strong> <em>Common Vulnerability Scoring System v3.1: Specification Document</em>, FIRST.Org, Inc., June 2019, <a href="https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf">https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf</a>.
     </p>
     <p>
+      <strong>[</strong><span id="CVSS40" class="anchor"></span><strong>CVSS40]</strong> <em>Common Vulnerability Scoring System v4.0: Specification Document</em>, FIRST.Org, Inc., 09 November 2023, <a href="https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf">https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf</a>.
+    </p>
+    <p>
       <strong>[</strong><span id="CWE" class="anchor"></span><strong>CWE]</strong> <em>Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types</em>, MITRE, 2005, <a href="http://cwe.mitre.org/about/">http://cwe.mitre.org/about/</a>.
     </p>
     <p>
@@ -1361,6 +1371,9 @@
       <strong>[</strong><span id="https;//www.rfc-editor.org/info/rfc7464." class="anchor"></span><strong><a href="https://www.rfc-editor.org/info/rfc7464">https://www.rfc-editor.org/info/rfc7464</a>.]</strong>
     </p>
     <p>
+      <strong>[</strong><span id="https;//www.rfc-editor.org/info/rfc8322." class="anchor"></span><strong><a href="https://www.rfc-editor.org/info/rfc8322">https://www.rfc-editor.org/info/rfc8322</a>.]</strong>
+    </p>
+    <p>
       <strong>[</strong><span id="https;//www.rfc-editor.org/info/rfc8615." class="anchor"></span><strong><a href="https://www.rfc-editor.org/info/rfc8615">https://www.rfc-editor.org/info/rfc8615</a>.]</strong>
     </p>
     <p>
@@ -1387,7 +1400,7 @@
       <strong>[</strong><span id="27 September 2021, &lt;https;//ntia.gov/files/ntia/publications/vex_one-page_summary.pdf&gt;." class="anchor"></span><strong>27 September 2021, <a href="https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf">https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf</a>.]</strong>
     </p>
     <p>
-      <strong>[</strong><span id="XX May 2022, https;//www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf." class="anchor"></span><strong>XX May 2022, <a href=
+      <strong>[</strong><span id="June 2022, https;//www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf." class="anchor"></span><strong>June 2022, <a href=
       "https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf">https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf</a>.]</strong>
     </p>
     <p>
@@ -1496,6 +1509,12 @@
       </li>
       <li>Vulnerability Scoring:
         <ul>
+          <li>Common Vulnerability Scoring System (CVSS) Version 4.0 [<a href="#CVSS40">CVSS40</a>]
+            <ul>
+              <li>JSON Schema Reference <a href="https://www.first.org/cvss/cvss-v4.0.json">https://www.first.org/cvss/cvss-v4.0.json</a>
+              </li>
+            </ul>
+          </li>
           <li>Common Vulnerability Scoring System (CVSS) Version 3.1 [<a href="#CVSS31">CVSS31</a>]
             <ul>
               <li>JSON Schema Reference <a href="https://www.first.org/cvss/cvss-v3.1.json">https://www.first.org/cvss/cvss-v3.1.json</a>
@@ -2242,7 +2261,7 @@
       The list of stock keeping units (<code>skus</code>) of value type <code>array</code> with 1 or more items contains a list of full or abbreviated (partial) stock keeping units.
     </p>
     <p>
-      A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units is or a description how it can be obtained.
+      A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units or a description how it can be obtained.
     </p>
     <blockquote>
       <p>
@@ -2315,7 +2334,7 @@
     </p>
     <pre><code>          "x_generic_uris": [
             {
-              "namespace": "https://spdx.github.io/spdx-spec/document-creation-information/#65-spdx-document-namespace-field",
+              "namespace": "https://spdx.github.io/spdx-spec/latest/document-creation-information/#65-spdx-document-namespace-field",
               "uri": "https://swinslow.net/spdx-examples/example4/main-bin-v2#SPDXRef-libc"
             }
           ]</code></pre>
@@ -2954,7 +2973,7 @@
       <em>Examples 1:</em><a id='document-property-distribution-tlp-eg-1'></a><a id='sec-3-2-1-5-2-eg-1'></a><a id='example-32'></a>
     </p>
     <pre><code>    https://www.us-cert.gov/tlp
-    https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf</code></pre>
+    https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/TLP/merkblatt-tlp.pdf</code></pre>
     <h4 id="3216-document-property---language-">
       3.2.1.6 Document Property - Language <a id='document-property-language'></a>
     </h4>
@@ -4184,8 +4203,8 @@
       }
     },</code></pre>
     <p>
-      Value type of every such Score item is <code>object</code> with the mandatory property <code>products</code> and the optional properties <code>cvss_v2</code> and <code>cvss_v3</code> specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item has at least 2
-      properties.
+      Value type of every such Score item is <code>object</code> with the mandatory property <code>products</code> and the optional properties <code>cvss_v2</code>, <code>cvss_v3</code> and <code>cvss_v4</code> specifies information about (at least one) score of the vulnerability and for which products the given value applies. Each Score item
+      has at least 2 properties.
     </p>
     <pre><code>        "properties": {
           "cvss_v2": {
@@ -4195,16 +4214,23 @@
             "oneOf": [
               // ...
             ]
-          }
+          },
+          "cvss_v4": {
+            // ...
+          },
           "products": {
             // ...
           }
         }</code></pre>
     <p>
-      The property CVSS v2 (<code>cvss_v2</code>) holding a CVSS v2.0 value abiding by the schema at <a href="https://www.first.org/cvss/cvss-v2.0.json"><span>https://www.first.org/cvss/cvss-v2.0.json</span></a>.
+      The property CVSS v2 (<code>cvss_v2</code>) holding a CVSS v2.0 value abiding by the schema at [<a href="https://www.first.org/cvss/cvss-v2.0.json](https">https://www.first.org/cvss/cvss-v2.0.json](https</a>://<a href="http://www.first.org/cvss/cvss-v2.0.json">www.first.org/cvss/cvss-v2.0.json</a>).
     </p>
     <p>
-      The property CVSS v3 (<code>cvss_v3</code>) holding a CVSS v3.x value abiding by one of the schemas at <a href="https://www.first.org/cvss/cvss-v3.0.json"><span>https://www.first.org/cvss/cvss-v3.0.json</span></a> or <a href="https://www.first.org/cvss/cvss-v3.1.json"><span>https://www.first.org/cvss/cvss-v3.1.json</span></a>.
+      The property CVSS v3 (<code>cvss_v3</code>) holding a CVSS v3.x value abiding by one of the schemas at [<a href="https://www.first.org/cvss/cvss-v3.0.json](https">https://www.first.org/cvss/cvss-v3.0.json](https</a>://<a href="http://www.first.org/cvss/cvss-v3.0.json">www.first.org/cvss/cvss-v3.0.json</a>) or [<a href=
+      "https://www.first.org/cvss/cvss-v3.1.json](https">https://www.first.org/cvss/cvss-v3.1.json](https</a>://<a href="http://www.first.org/cvss/cvss-v3.1.json">www.first.org/cvss/cvss-v3.1.json</a>).
+    </p>
+    <p>
+      The property CVSS v4 (<code>cvss_v4</code>) holding a CVSS v4.0 value abiding by the schema at [<a href="https://www.first.org/cvss/cvss-v4.0.json](https">https://www.first.org/cvss/cvss-v4.0.json](https</a>://<a href="http://www.first.org/cvss/cvss-v4.0.json">www.first.org/cvss/cvss-v4.0.json</a>).
     </p>
     <p>
       Product IDs (<code>products</code>) of value type <code>products_t</code> with 1 or more items indicates for which products the given scores apply. A score object SHOULD reflect the associated product's status (for example, a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed;
@@ -4647,6 +4673,30 @@
     <p>
       The keys within a CSAF document SHOULD be sorted alphabetically.
     </p>
+    <h2 id="54-usage-of-markdown-">
+      5.4 Usage of Markdown <a id='usage-of-markdown'></a>
+    </h2>
+    <p>
+      The use of GitHub-flavoured Markdown is permitted in the following fields:
+    </p>
+    <pre><code>  /document/acknowledgments[]/summary
+  /document/distribution/text
+  /document/notes[]/text
+  /document/publisher/issuing_authority
+  /document/references[]/summary
+  /document/tracking/revision_history[]/summary
+  /product_tree/product_groups[]/summary
+  /vulnerabilities[]/acknowledgments[]/summary
+  /vulnerabilities[]/involvements[]/summary
+  /vulnerabilities[]/notes[]/text
+  /vulnerabilities[]/references[]/summary
+  /vulnerabilities[]/remediations[]/details
+  /vulnerabilities[]/remediations[]/entitlements[]
+  /vulnerabilities[]/remediations[]/restart_required/details
+  /vulnerabilities[]/threats[]/details</code></pre>
+    <p>
+      Other fields MUST NOT contain Markdown.
+    </p>
     <hr />
     <h1 id="6-tests-">
       6. Tests <a id='tests'></a>
@@ -5004,7 +5054,8 @@
       The relevant paths for this test are:
     </p>
     <pre><code>  /vulnerabilities[]/scores[]/cvss_v2
-  /vulnerabilities[]/scores[]/cvss_v3</code></pre>
+  /vulnerabilities[]/scores[]/cvss_v3
+  /vulnerabilities[]/scores[]/cvss_v4</code></pre>
     <p>
       <em>Example 1 (which fails the test):</em><a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-56'></a>
     </p>
@@ -5045,7 +5096,13 @@
   /vulnerabilities[]/scores[]/cvss_v3/temporalScore
   /vulnerabilities[]/scores[]/cvss_v3/temporalSeverity
   /vulnerabilities[]/scores[]/cvss_v3/environmentalScore
-  /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity</code></pre>
+  /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
+  /vulnerabilities[]/scores[]/cvss_v4/baseScore
+  /vulnerabilities[]/scores[]/cvss_v4/baseSeverity
+  /vulnerabilities[]/scores[]/cvss_v4/threatScore
+  /vulnerabilities[]/scores[]/cvss_v4/threatSeverity
+  /vulnerabilities[]/scores[]/cvss_v4/environmentalScore
+  /vulnerabilities[]/scores[]/cvss_v4/environmentalSeverity</code></pre>
     <p>
       <em>Example 1 (which fails the test):</em><a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-57'></a>
     </p>
@@ -5075,7 +5132,8 @@
       The relevant paths for this test are:
     </p>
     <pre><code>  /vulnerabilities[]/scores[]/cvss_v2
-  /vulnerabilities[]/scores[]/cvss_v3</code></pre>
+  /vulnerabilities[]/scores[]/cvss_v3
+  /vulnerabilities[]/scores[]/cvss_v4</code></pre>
     <p>
       <em>Example 1 (which fails the test):</em><a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-58'></a>
     </p>
@@ -6919,7 +6977,7 @@
     </blockquote>
     <blockquote>
       <p>
-        A tool MAY set the properties <code>modifiedIntegrityImpact</code>, <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code> accordingly and compute the <code>environmentalScore</code> as quick fix.
+        A tool MAY set the properties <code>modifiedIntegrityImpact</code>, <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code> (respectively their equivalents according to the CVSS version used) accordingly and compute the <code>environmentalScore</code> as quick fix.
       </p>
     </blockquote>
     <h3 id="6220-additional-properties-">
@@ -7009,7 +7067,7 @@
       Recommendation:
     </p>
     <p>
-      It is recommended to (also) use the CVSS v3.1.
+      It is recommended to (also) use the CVSS v4.0.
     </p>
     <h3 id="632-use-of-cvss-v30-">
       6.3.2 Use of CVSS v3.0 <a id='use-of-cvss-v3-0'></a>
@@ -7388,6 +7446,49 @@
       </p>
     </blockquote>
     <hr />
+    <h3 id="6312-missing-cvss-v40-">
+      6.3.12 Missing CVSS v4.0 <a id='missing-cvss-v4-0'></a>
+    </h3>
+    <p>
+      For each item in the list of scores it MUST be tested that a <code>cvss_v4</code> object is present.
+    </p>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>    /vulnerabilities[]/scores</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-124'></a>
+    </p>
+    <pre><code>  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "scores": [
+        {
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "cvss_v3": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ]</code></pre>
+    <blockquote>
+      <p>
+        There is no CVSS v4.0 score given for <code>CSAFPID-9080700</code>.
+      </p>
+    </blockquote>
     <h1 id="7-distributing-csaf-documents-">
       7. Distributing CSAF documents <a id='distributing-csaf-documents'></a>
     </h1>
@@ -7484,7 +7585,7 @@
       </ul>
     </blockquote>
     <p>
-      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-124'></a>
+      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-125'></a>
     </p>
     <pre><code>  {
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
@@ -7542,7 +7643,7 @@
       </p>
     </blockquote>
     <p>
-      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-125'></a>
+      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-126'></a>
     </p>
     <pre><code>CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
@@ -7559,7 +7660,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The URL path <code>/.well-known/csaf/provider-metadata.json</code> under the main domain of the issuing authority serves directly the <code>provider-metadata.json</code> according to requirement 7. The use of the scheme "HTTPS" is required. See [<a href="#RFC8615">RFC8615</a>] for more details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-126'></a>
+      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-127'></a>
     </p>
     <pre><code>  https://www.example.com/.well-known/csaf/provider-metadata.json</code></pre>
     <h3 id="7110-requirement-10-dns-path-">
@@ -7575,10 +7676,10 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The CSAF documents MUST be located within folders named <code>&lt;YYYY&gt;</code> where <code>&lt;YYYY&gt;</code> is the year given in the value of <code>/document/tracking/initial_release_date</code>.
     </p>
     <p>
-      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-127'></a>
+      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-128'></a>
     </p>
-    <pre><code>2021
-2020</code></pre>
+    <pre><code>2024
+2023</code></pre>
     <h3 id="7112-requirement-12-indextxt-">
       7.1.12 Requirement 12: index.txt <a id='requirement-12-index-txt'></a>
     </h3>
@@ -7586,11 +7687,12 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-128'></a>
+      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-129'></a>
     </p>
-    <pre><code>2020/example_company_-_2020-yh4711.json
-2019/example_company_-_2019-yh3234.json
-2018/example_company_-_2018-yh2312.json</code></pre>
+    <pre><code>2023/esa-2023-09953.json
+2022/esa-2022-02723.json
+2021/esa-2021-31916.json
+2021/esa-2021-03676.json</code></pre>
     <blockquote>
       <p>
         This can be used to download all CSAF documents.
@@ -7603,12 +7705,12 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The file changes.csv MUST contain the filename as well as the value of <code>/document/tracking/current_release_date</code> for each CSAF document in the sub-directories without a heading; lines MUST be sorted by the <code>current_release_date</code> timestamp with the latest one first.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-129'></a>
+      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-130'></a>
     </p>
-    <pre><code>"2020/example_company_-_2020-yh4711.json","2020-07-01T10:09:07Z"
-"2018/example_company_-_2018-yh2312.json","2020-07-01T10:09:01Z"
-"2019/example_company_-_2019-yh3234.json","2019-04-17T15:08:41Z"
-"2018/example_company_-_2018-yh2312.json","2019-03-01T06:01:00Z"</code></pre>
+    <pre><code>"2023/esa-2023-09953.json","2023-07-01T10:09:07Z"
+"2021/esa-2021-03676.json","2023-07-01T10:09:01Z"
+"2022/esa-2022-02723.json","2022-04-17T15:08:41Z"
+"2021/esa-2021-31916.json","2022-03-01T06:01:00Z"</code></pre>
     <h3 id="7114-requirement-14-directory-listings-">
       7.1.14 Requirement 14: Directory listings <a id='requirement-14-directory-listings'></a>
     </h3>
@@ -7634,7 +7736,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [<a href="#RFC8322">RFC8322</a>].
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-130'></a>
+      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-131'></a>
     </p>
     <pre><code>  {
     "feed": {
@@ -7699,7 +7801,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The use and therefore the existence of ROLIE service document is optional. If it is used, each ROLIE service document MUST be a JSON file that conforms with [<a href="#RFC8322">RFC8322</a>] and lists the ROLIE feed documents.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-131'></a>
+      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-132'></a>
     </p>
     <pre><code>  {
     "service": {
@@ -7765,7 +7867,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
           type of product
         </p>
         <p>
-          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-132'></a>
+          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-133'></a>
         </p>
         <pre><code>  CPU
   Firewall
@@ -7781,7 +7883,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
           areas or sectors, the products are used in
         </p>
         <p>
-          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-133'></a>
+          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-134'></a>
         </p>
         <pre><code>  Chemical
   Commercial
@@ -7799,7 +7901,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       </li>
     </ul>
     <p>
-      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-134'></a>
+      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-135'></a>
     </p>
     <pre><code>  {
     "categories": {
@@ -7823,18 +7925,18 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       MD5 and SHA1 SHOULD NOT be used.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-135'></a>
+      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-136'></a>
     </p>
-    <pre><code>File name of CSAF document: example_company_-_2019-yh3234.json
-File name of SHA-256 hash file: example_company_-_2019-yh3234.json.sha256
-File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512</code></pre>
+    <pre><code>File name of CSAF document: esa-2022-02723.json
+File name of SHA-256 hash file: esa-2022-02723.json.sha256
+File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
     <p>
       The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
     </p>
     <p>
-      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-136'></a>
+      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-137'></a>
     </p>
-    <pre><code>ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  example_company_-_2019-yh3234.json</code></pre>
+    <pre><code>ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json</code></pre>
     <p>
       If a ROLIE feed exists, each hash file MUST be listed in it as described in requirement 15.
     </p>
@@ -7845,10 +7947,10 @@ File name of SHA-512 hash file: example_company_-_2019-yh3234.json.sha512</code>
       All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [<a href="#RFC4880">RFC4880</a>] for more details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-137'></a>
+      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-138'></a>
     </p>
-    <pre><code>File name of CSAF document: example_company_-_2019-yh3234.json
-File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
+    <pre><code>File name of CSAF document: esa-2022-02723.json
+File name of signature file: esa-2022-02723.json.asc</code></pre>
     <p>
       If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
     </p>
@@ -7900,7 +8002,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
       The file <code>aggregator.json</code> SHOULD only list the latest version of the metadata of a CSAF provider.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-138'></a>
+      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-139'></a>
     </p>
     <pre><code>  {
     "aggregator": {
@@ -7957,7 +8059,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
       </li>
     </ul>
     <p>
-      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-139'></a>
+      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-140'></a>
     </p>
     <pre><code>  {
     "aggregator": {
@@ -8205,7 +8307,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
       In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF. Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
     </p>
     <ul>
-      <li>CSAF producers SHOULD NOT emit messages that contain HTML, even though all variants of Markdown permit it. To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer, e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
+      <li>CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted. To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer, e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
       </li>
       <li>Deeply nested markup can cause a stack overflow in the Markdown processor [<a href="#GFMENG">GFMENG</a>]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks. <strong>Note</strong>: One example is the GitHub fork of the <code>cmark</code> Markdown processor [<a href=
       "#GFMCMARK">GFMCMARK</a>].
@@ -8308,6 +8410,9 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
       </li>
       <li>
         <strong>CSAF SBOM matching system</strong>: A program that connects to or is an SBOM database and is able to manage CSAF documents as required by CSAF management system as well as matching them to SBOM components of the SBOM database.
+      </li>
+      <li>
+        <strong>CSAF 2.0 to CSAF 2.1 converter</strong>: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
       </li>
     </ul>
     <h3 id="911-conformance-clause-1-csaf-document-">
@@ -8422,6 +8527,8 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
       <li>
         <code>/vulnerabilities[]/scores[]</code>:
         <ul>
+          <li>For any CVSS v4 element, the CVRF CSAF converter MUST compute the <code>baseSeverity</code> from the <code>baseScore</code> according to the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
+          </li>
           <li>For any CVSS v3 element, the CVRF CSAF converter MUST compute the <code>baseSeverity</code> from the <code>baseScore</code> according to the rules of the applicable CVSS standard.
           </li>
           <li>If no <code>product_id</code> is given, the CVRF CSAF converter appends all Product IDs which are listed under <code>../product_status</code> in the arrays <code>known_affected</code>, <code>first_affected</code> and <code>last_affected</code>. If none of these arrays exist, the CVRF CSAF converter outputs an error that no
@@ -8431,14 +8538,14 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
           </li>
           <li>If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
           </li>
-          <li>To determine, which minor version of CVSS v3 is used, the CVRF CSAF converter uses the following steps:
+          <li>To determine, which minor version of CVSS v3 is used and to evaluate a CVSS v4 that was wrongly inserted in a CVSS v3 element, the CVRF CSAF converter uses the following steps:
             <ol type="1">
               <li>
                 <p>
                   Retrieve the CVSS version from the CVSS vector, if present.
                 </p>
                 <p>
-                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-140'></a>
+                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-141'></a>
                 </p>
                 <pre><code>  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H =&gt; 3.1</code></pre>
               </li>
@@ -8447,7 +8554,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
                 </p>
                 <p>
-                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-141'></a>
+                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-142'></a>
                 </p>
                 <pre><code>  xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
   &lt;!-- --&gt;
@@ -8456,7 +8563,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
                   is handled the same as
                 </p>
                 <p>
-                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-142'></a>
+                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-143'></a>
                 </p>
                 <pre><code>  &lt;ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd"&gt;</code></pre>
               </li>
@@ -8466,7 +8573,7 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
                   decision.
                 </p>
                 <p>
-                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-143'></a>
+                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-144'></a>
                 </p>
                 <pre><code>  xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" =&gt; 3.0</code></pre>
               </li>
@@ -9151,6 +9258,31 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
         </ul>
       </li>
     </ul>
+    <h3 id="9118-conformance-clause-18-csaf-20-to-csaf-21-converter-">
+      9.1.18 Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter <a id='conformance-clause-18-csaf-2-0-to-csaf-2-1-converter'></a>
+    </h3>
+    <p>
+      A program satisfies the "CSAF 2.0 to CSAF 2.1 converter" conformance profile if the program fulfills the following two groups of requirements:
+    </p>
+    <p>
+      Firstly, the program:
+    </p>
+    <ul>
+      <li>satisfies the "CSAF producer" conformance profile.
+      </li>
+      <li>takes only CSAF 2.0 documents as input.
+      </li>
+      <li>additionally satisfies the normative requirements given below.
+      </li>
+    </ul>
+    <p>
+      Secondly, the program fulfills the following for all items of:
+    </p>
+    <blockquote>
+      <p>
+        A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
+      </p>
+    </blockquote>
     <hr />
     <h1 id="appendix-a-acknowledgments-">
       Appendix A. Acknowledgments <a id='acknowledgments'></a>
@@ -10425,6 +10557,20 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
             Preparing initial Editor Revision
           </td>
         </tr>
+        <tr class="even">
+          <td style="text-align: left;">
+            csaf-v2.0-wd20240228-dev
+          </td>
+          <td style="text-align: left;">
+            2024-02-28
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Next Editor Revision
+          </td>
+        </tr>
       </tbody>
     </table>
     <hr />
@@ -10450,12 +10596,12 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
       C.1 File size <a id='file-size'></a>
     </h2>
     <p>
-      A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 15 MB.
+      A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 50 MiB.
     </p>
     <blockquote>
       <p>
-        At least one database technology in wide use for storing CSAF documents rejects insert attempts when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integers and small strings may incur more overhead in the BSON format than in JSON. In addition, the BSON format adds
-        length information for the entries inside the document, which adds to the size when storing CSAF document content in a BSON format.
+        The CSAF documents observed in the wild expose strongly varying sizes as per the use cases they serve. At least one database technology in wide use for storing CSAF documents rejects insert attempts when the transformed BSON size exceeds 16 megabytes. The BSON format optimizes for accessibility and not size. So, small integers and
+        small strings may incur more overhead in the BSON format than in JSON. In addition, the BSON format adds length information for the entries inside the document, which adds to the size when storing CSAF document content in a BSON format.
       </p>
     </blockquote>
     <h2 id="c2-array-length-">
@@ -10955,6 +11101,9 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
             <code>/vulnerabilities[]/scores[]/cvss_v3/vectorString</code>
           </li>
           <li>
+            <code>/vulnerabilities[]/scores[]/cvss_v4/vectorString</code>
+          </li>
+          <li>
             <code>/vulnerabilities[]/scores[]/products[]</code>
           </li>
           <li>
@@ -11274,4 +11423,159 @@ File name of signature file: example_company_-_2019-yh3234.json.asc</code></pre>
       <li>
         <code>/vulnerabilities[]/scores[]/cvss_v3/remediationLevel</code> (13)
       </li>
- 
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/reportConfidence</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/temporalSeverity</code> (8)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/confidentialityRequirement</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/integrityRequirement</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/availabilityRequirement</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackVector</code> (16)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackComplexity</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedPrivilegesRequired</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedUserInteraction</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedScope</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedConfidentialityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedIntegrityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/modifiedAvailabilityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity</code> (8)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/version</code> (3)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/attackVector</code> (8)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/attackComplexity</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/attackRequirements</code> (7)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/privilegesRequired</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/userInteraction</code> (7)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/vulnConfidentialityImpact</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/vulnIntegrityImpact</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/vulnAvailabilityImpact</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/subConfidentialityImpact</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/subIntegrityImpact</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/subAvailabilityImpact</code> (4)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/exploitMaturity</code> (16)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/confidentialityRequirement</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/integrityRequirement</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/availabilityRequirement</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackVector</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackComplexity</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackRequirements</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedPrivilegesRequired</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedUserInteraction</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnConfidentialityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnIntegrityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnAvailabilityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedSubConfidentialityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedSubIntegrityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/modifiedSubAvailabilityImpact</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/Safety</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/Automatable</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/Recovery</code> (13)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/valueDensity</code> (12)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/vulnerabilityResponseEffort</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/providerUrgency</code> (11)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/baseSeverity</code> (8)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/threatSeverity</code> (8)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/scores[]/cvss_v4/environmentalSeverity</code> (8)
+      </li>
+      <li>
+        <code>/vulnerabilities[]/threats[]/category</code> (14)
+      </li>
+    </ul>
+    <h2 id="c6-date-">
+      C.6 Date <a id='date'></a>

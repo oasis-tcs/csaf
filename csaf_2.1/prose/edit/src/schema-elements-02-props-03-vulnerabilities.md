@@ -662,8 +662,8 @@ List of scores (`scores`) of value type `array` with 1 or more items of type sco
     },
 ```
 
-Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2` and
-`cvss_v3` specifies information about (at least one) score of the vulnerability and for which products the given value applies.
+Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2`,
+`cvss_v3` and `cvss_v4` specifies information about (at least one) score of the vulnerability and for which products the given value applies.
 Each Score item has at least 2 properties.
 
 ```
@@ -675,7 +675,10 @@ Each Score item has at least 2 properties.
             "oneOf": [
               // ...
             ]
-          }
+          },
+          "cvss_v4": {
+            // ...
+          },
           "products": {
             // ...
           }
@@ -688,6 +691,8 @@ The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema
 The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
 [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
 [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+
+The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
 A score object SHOULD reflect the associated product's status (for example,

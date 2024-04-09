@@ -36,6 +36,9 @@ CVSS30
 CVSS31
 :    _Common Vulnerability Scoring System v3.1: Specification Document_, FIRST.Org, Inc., June 2019, https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf.
 
+CVSS40
+:    _Common Vulnerability Scoring System v4.0: Specification Document_, FIRST.Org, Inc., 09 November 2023, https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf.
+
 CWE
 :    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2005, http://cwe.mitre.org/about/.
 
@@ -88,6 +91,10 @@ RFC7464
 :    N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015,
 https://www.rfc-editor.org/info/rfc7464.
 
+RFC8322
+:    Field, J., Banghart, S., and D. Waltermire, "Resource-Oriented Lightweight Information Exchange (ROLIE)", RFC 8322, DOI 10.17487/RFC8322, February 2018,
+https://www.rfc-editor.org/info/rfc8322.
+
 RFC8615
 :    Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
 https://www.rfc-editor.org/info/rfc8615.
@@ -120,7 +127,7 @@ VEX
 
 VEX-Justification
 :    _Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative,
-XX May 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.
+June 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.
 
 XML
 :    _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors,

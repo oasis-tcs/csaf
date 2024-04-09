@@ -16,6 +16,12 @@ The relevant paths for this test are:
   /vulnerabilities[]/scores[]/cvss_v3/temporalSeverity
   /vulnerabilities[]/scores[]/cvss_v3/environmentalScore
   /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
+  /vulnerabilities[]/scores[]/cvss_v4/baseScore
+  /vulnerabilities[]/scores[]/cvss_v4/baseSeverity
+  /vulnerabilities[]/scores[]/cvss_v4/threatScore
+  /vulnerabilities[]/scores[]/cvss_v4/threatSeverity
+  /vulnerabilities[]/scores[]/cvss_v4/environmentalScore
+  /vulnerabilities[]/scores[]/cvss_v4/environmentalSeverity
 ```
 
 *Example 1 (which fails the test):*
