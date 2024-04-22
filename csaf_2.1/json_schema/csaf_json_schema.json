@@ -592,9 +592,10 @@
                   "type": "string",
                   "enum": [
                     "AMBER",
+                    "AMBER+STRICT",
+                    "CLEAR",
                     "GREEN",
-                    "RED",
-                    "WHITE"
+                    "RED"
                   ]
                 },
                 "url": {
