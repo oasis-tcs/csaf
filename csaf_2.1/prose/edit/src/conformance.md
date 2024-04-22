@@ -519,6 +519,8 @@ Secondly, the program fulfills the following for all items of:
   both values: the converted one based on the table and the one from the distribution text.
   > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
 
+  If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
+
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
 
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
