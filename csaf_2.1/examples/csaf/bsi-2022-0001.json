@@ -7,7 +7,7 @@
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
-        "label": "WHITE",
+        "label": "CLEAR",
         "url": "https://www.first.org/tlp/"
       }
     },
