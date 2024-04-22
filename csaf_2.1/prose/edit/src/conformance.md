@@ -504,6 +504,20 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a
   warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
+  
+  | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
+  |---------------------------|---------------------------|
+  | `TLP:WHITE`               | `TLP:CLEAR`               |
+  | `TLP:GREEN`               | `TLP:GREEN`               |
+  | `TLP:AMBER`               | `TLP:AMBER`               |
+  | `TLP:RED`                 | `TLP:RED`                 |
+
+  If `/document/distribution/text` contains the string `TLP v2.0: TLP:<ValidTLPLabel>`, the CSAF 2.0 to CSAF 2.1 converter SHOULD provide an
+  option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
+  the CSAF 2.0 to CSAF 2.1 converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
+  both values: the converted one based on the table and the one from the distribution text.
+  > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
 

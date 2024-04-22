@@ -190,10 +190,15 @@ Valid values of the `enum` are:
 
 ```
     AMBER
+    AMBER+STRICT
+    CLEAR
     GREEN
     RED
-    WHITE
 ```
+
+> Note: In the TLP specification there are only 4 labels. The part `+STRICT` is an extension to `TLP:AMBER`.
+> To simplify the JSON structure, avoid additional business level tests and aid in parsing, consumption and
+> processing, it is provided as a label to be selected instead of having a separate field.
 
 The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find
 the textual description of the TLP version which is used in this document.
