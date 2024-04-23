@@ -96,6 +96,7 @@
               "language",
               "legacy",
               "patch_level",
+              "platform",
               "product_family",
               "product_name",
               "product_version",
