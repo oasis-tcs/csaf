@@ -51,6 +51,11 @@ CSAF lister and CSAF aggregator choose on their own which producing parties they
 ### How long should signatures of CSAF documents be valid?
 
 At any given point in time, signatures MUST be valid for 30 more days and SHOULD be valid for at least 90 more days. When signing CSAF documents, the signing party SHOULD comply with or exceed current best practices and guidance on key length.
+Tools SHOULD treat the violation of the rules given in the first sentence as:
+
+* warning if the signature is only valid for 90 days or less at the time of the check,
+* error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of the check and
+* error if the signature is expired at the time of the check.
 
 ### I want to use a Content Delivery Network (CDN) to distribute CSAF files. What do I need to consider?
 
