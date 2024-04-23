@@ -399,6 +399,11 @@ The relevant path for this test is:
   "document": {
     "category": "csaf_base",
     "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
     "publisher": {
       // ...
     },
