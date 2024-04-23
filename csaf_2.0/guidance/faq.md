@@ -48,6 +48,10 @@ Starting with version CSAF 2.1, [CSAF will support TLP v2](https://github.com/oa
 
 CSAF lister and CSAF aggregator choose on their own which producing parties they add to their lists. Please reach out to the CSAF lister or CSAF aggregator in question. Their contact details are available in the metadata of the list.
 
+### How long should signatures of CSAF documents be valid?
+
+At any given point in time, signatures MUST be valid for 30 more days and SHOULD be valid for at least 90 more days. When signing CSAF documents, the signing party SHOULD comply with or exceed current best practices and guidance on key length.
+
 ### I want to use a Content Delivery Network (CDN) to distribute CSAF files. What do I need to consider?
 
 Please see our advise on [CDNs](./cdn.md).
