@@ -3,6 +3,11 @@
     "title": "Cisco IOS and IOS XE Software Smart Install Remote Code Execution Vulnerability",
     "category": "Cisco Security Advisory",
     "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
     "publisher": {
       "category": "vendor",
       "contact_details": "Emergency Support:\n+1 877 228 7302 (toll-free within North America)\n+1 408 525 6532 (International direct-dial)\nNon-emergency Support:\nEmail: psirt@cisco.com\nSupport requests that are received via e-mail are typically acknowledged within 48 hours.",

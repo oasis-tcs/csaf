@@ -25,9 +25,9 @@ The CSAF document is per default retrievable from a website which uses TLS for e
 The CSAF document MUST NOT be downloadable from a location which does not encrypt the transport when crossing organizational
 boundaries to maintain the chain of custody.
 
-### Requirement 4: TLP:WHITE
+### Requirement 4: TLP:CLEAR
 
-If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
+If the CSAF document is labeled TLP:CLEAR, it MUST be freely accessible.
 
 This does not exclude that such a document is also available in an access protected customer portal.
 However, there MUST be one copy of the document available for people without access to the portal.
@@ -35,10 +35,10 @@ However, there MUST be one copy of the document available for people without acc
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a
 > press release but be able to retrieve the CSAF document.
 
-### Requirement 5: TLP:AMBER and TLP:RED
+### Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED
 
-CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected.
-If they are provided via a web server this SHALL be done under a different path than for TLP:WHITE,
+CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED MUST be access protected.
+If they are provided via a web server this SHALL be done under a different path than for TLP:CLEAR,
 TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website.
@@ -80,9 +80,9 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
         "rolie": {
           "feeds": [
             {
-              "summary": "All TLP:WHITE advisories of Example Company.",
-              "tlp_label": "WHITE",
-              "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
+              "summary": "All TLP:CLEAR advisories of Example Company.",
+              "tlp_label": "CLEAR",
+              "url": "https://www.example.com/.well-known/csaf/feed-tlp-clear.json"
             }
           ]
         }
@@ -215,7 +215,7 @@ ROLIE is built on top of the Atom Publishing Format and Protocol, with specific 
 All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed.
 At least one of the feeds
 
-* TLP:WHITE
+* TLP:CLEAR
 * TLP:GREEN
 * unlabeled
 
@@ -227,12 +227,12 @@ Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322)
 ```
   {
     "feed": {
-      "id": "example-csaf-feed-tlp-white",
-      "title": "Example CSAF feed (TLP:WHITE)",
+      "id": "example-csaf-feed-tlp-clear",
+      "title": "Example CSAF feed (TLP:CLEAR)",
       "link": [
         {
           "rel": "self",
-          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
+          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json"
         }
       ],
       "category": [
@@ -299,8 +299,8 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
           "title": "Public CSAF feed",
           "collection": [
             {
-              "title": "Example CSAF feed (TLP:WHITE)",
-              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
+              "title": "Example CSAF feed (TLP:CLEAR)",
+              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json",
               "categories": {
                 "category": [
                   {

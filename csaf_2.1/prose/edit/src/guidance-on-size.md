@@ -283,7 +283,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 It seems to be safe to assume that the length of each value is not greater than 50. This applies to:
 
 * `/document/csaf_version` (3)
-* `/document/distribution/tlp/label` (5)
+* `/document/distribution/tlp/label` (12)
 * `/document/notes[]/category` (16)
 * `/document/publisher/category` (11)
 * `/document/references[]/category` (8)

@@ -3,6 +3,11 @@
     "category": "csaf_base",
     "csaf_version": "2.1",
     "custom_property": "any",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",

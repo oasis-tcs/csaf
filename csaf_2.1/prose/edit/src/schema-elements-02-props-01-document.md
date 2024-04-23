@@ -1,11 +1,11 @@
 ### Document Property
 
-Document level meta-data (`document`) of value type `object` with the 5 mandatory properties Category (`category`),
-CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`),
+Document level meta-data (`document`) of value type `object` with the 6 mandatory properties Category (`category`),
+CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the 7 optional properties Acknowledgments (`acknowledgments`),
-Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`),
-References (`references`), and Source Language (`source_lang`).
+In addition, the `document` object MAY provide the 6 optional properties Acknowledgments (`acknowledgments`),
+Aggregate Severity (`aggregate_severity`), Language (`lang`), Notes (`notes`), References (`references`),
+and Source Language (`source_lang`).
 
 ```
     "document": {
@@ -135,8 +135,8 @@ The single valid value for this `enum` is:
 
 #### Document Property - Distribution
 
-Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and
-Traffic Light Protocol (TLP) (`tlp`) describes any constraints on how this document might be shared.
+Rules for sharing document (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
+optional property Text (`text`) describes any constraints on how this document might be shared.
 
 ```
     "distribution": {
@@ -161,7 +161,7 @@ The Textual description (`text`) of value type `string` with 1 or more character
 *Examples 1:*
 
 ```
-    Copyright 2021, Example Company, All Rights Reserved.
+    Copyright 2024, Example Company, All Rights Reserved.
     Distribute freely.
     Share only on a need-to-know-basis only.
 ```
@@ -190,10 +190,15 @@ Valid values of the `enum` are:
 
 ```
     AMBER
+    AMBER+STRICT
+    CLEAR
     GREEN
     RED
-    WHITE
 ```
+
+> Note: In the TLP specification there are only 4 labels. The part `+STRICT` is an extension to `TLP:AMBER`.
+> To simplify the JSON structure, avoid additional business level tests and aid in parsing, consumption and
+> processing, it is provided as a label to be selected instead of having a separate field.
 
 The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find
 the textual description of the TLP version which is used in this document.

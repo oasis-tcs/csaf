@@ -1,11 +1,11 @@
 {
   "feed": {
-    "id": "example-csaf-feed-tlp-white",
-    "title": "Example CSAF feed (TLP:WHITE)",
+    "id": "example-csaf-feed-tlp-clear",
+    "title": "Example CSAF feed (TLP:CLEAR)",
     "link": [
       {
         "rel": "self",
-        "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
+        "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json"
       }
     ],
     "category": [
