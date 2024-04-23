@@ -4,10 +4,8 @@
     "category": "Cisco Security Advisory",
     "csaf_version": "2.1",
     "distribution": {
-      "distribution": {
-        "tlp": {
-          "label": "CLEAR"
-        }
+      "tlp": {
+        "label": "CLEAR"
       }
     },
     "publisher": {
