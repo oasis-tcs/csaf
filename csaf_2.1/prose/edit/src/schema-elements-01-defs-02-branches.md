@@ -52,6 +52,7 @@ Valid `enum` values are:
     language
     legacy
     patch_level
+    platform
     product_family
     product_name
     product_version
@@ -70,6 +71,8 @@ The value `language` indicates the language of the product.
 The value `legacy` indicates an entry that has reached its end of life.
 
 The value `patch_level` indicates the patch level of the product.
+
+The value `platform` indicates the (CPU) platform for which the product is intended.
 
 The value `product_family` indicates the product family that the product falls into.
 
