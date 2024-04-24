@@ -419,6 +419,16 @@ File name of signature file: esa-2022-02723.json.asc
 
 If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
 
+At all times, signatures MUST remain valid for a minimum of 30 days and ideally for at least 90 days. When executing
+CSAF document signatures, the signing party SHOULD adhere to or surpass the prevailing best practices and recommendations
+regarding key length.
+Tools SHOULD treat the violation of the rules given in the first sentence as:
+
+* warning if the signature is only valid for 90 days or less at the time of the verification,
+* error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
+  the verification and
+* error if the signature is expired at the time of the verification.
+
 ### Requirement 20: Public OpenPGP Key
 
 The public part of the OpenPGP key used to sign the CSAF documents MUST be available.
