@@ -374,9 +374,9 @@ The following combinations of `category` and `title` have a special meaning and 
 
 | `category` | `title` | content of `text` |
 |---------------|---------------|-------------------|
-| `description` | CVE description | Contains the official and unchanged CVE description for this specific vulnerability. |
+| `description` | CVE Description | Contains the official and unchanged CVE description for this specific vulnerability. |
 | `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
-| `summary` | Vulnerability summary | Contains a summary of the vulnerability which is not the official CVE description. |
+| `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
 
 #### Vulnerabilities Property - Product Status
 
