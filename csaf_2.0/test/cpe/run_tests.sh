@@ -20,7 +20,7 @@ get_dictionary() {
 prepare_23_dictionary() {
   # Get CPE 2.3 fields
   # Correctly decode special characters
-  grep '<cpe-23:cpe23-item name=' "$CPE".xml | sed -e 's/^.*<cpe-23:cpe23-item name="//' -e 's/"\/>$//' \
+  grep '<cpe-23:cpe23-item name=' "$CPE".xml | sed -e 's/^.*<cpe-23:cpe23-item name="//' -e 's/"\/\?>$//' \
     | sed -e 's/\\&amp;/\\\&/g' \
     | sed -e 's/\\&quot;/\\"/g' \
     > "$CPE".txt
