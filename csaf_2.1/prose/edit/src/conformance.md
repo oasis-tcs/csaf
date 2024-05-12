@@ -473,7 +473,7 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
 * detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
-* is able to trigger a run of the asset matching module:
+* is able to trigger a run of the SBOM matching module:
   * manually:
     * per CSAF document
     * per list of CSAF documents
@@ -502,7 +502,12 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
+* type `/$defs/full_product_name_t/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a
+  warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
+
+> A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
+> of the rules above MAY be ignored to avoid data loss.
 
 -------

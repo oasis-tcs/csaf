@@ -412,8 +412,6 @@ The relevant paths for this test are:
 
 > The product version starts with a `v`.
 
--------
-
 ### Missing CVSS v4.0
 
 For each item in the list of scores it MUST be tested that a `cvss_v4` object is present.
@@ -455,3 +453,5 @@ The relevant path for this test is:
 ```
 
 > There is no CVSS v4.0 score given for `CSAFPID-9080700`.
+
+-------

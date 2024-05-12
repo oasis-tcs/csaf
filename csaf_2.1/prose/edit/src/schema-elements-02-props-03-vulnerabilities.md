@@ -750,7 +750,8 @@ Valid values are:
 The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known.
 This knowledge can range from information privately held among a very small group to an issue that has been described to the public at
 a major conference or is being widely exploited globally.
-For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric.
+For consistency and simplicity, this section can be a mirror image of the CVSS `exploitMaturity` (v4.0),
+respectively `exploitCodeMaturity` (v3.1 and v3.0) or `exploitability` (v2.0) metric.
 However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
 The value `impact` indicates that the `details` field contains an assessment of the impact on the user or the target set if

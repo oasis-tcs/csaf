@@ -80,7 +80,7 @@ and `x_generic_uris`, one is mandatory.
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
 ```
-    ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
+    ^((cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:\\/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6}))$
 ```
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
@@ -238,20 +238,20 @@ Two `*` MUST NOT follow each other.
     IC25T060ATCS05-0
 ```
 
-##### Full Product Name Type - Product Identification Helper - PURL
+##### Full Product Name Type - Product Identification Helper - purl
 
-The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
+The package URL (purl) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
-    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
+    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
 ```
 
-> The given pattern does not completely evaluate whether a PURL is valid according to the [cite](#PURL) specification.
+> The given pattern does not completely evaluate whether a purl is valid according to the [cite](#PURL) specification.
 > It provides a more generic approach and general guidance to enable forward compatibility.
-> CSAF uses only the canonical form of PURL to conform with section 3.3 of [cite](#RFC3986).
+> CSAF uses only the canonical form of purl to conform with section 3.3 of [cite](#RFC3986).
 > Therefore, URLs starting with `pkg://` are considered invalid.
 
-This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+This package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
 See [cite](#PURL) for details.
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
