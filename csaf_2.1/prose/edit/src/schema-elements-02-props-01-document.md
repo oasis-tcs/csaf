@@ -230,6 +230,14 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
     },
 ```
 
+The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+
+| `category` | `title` | content of `text` |
+|---------------|---------------|-------------------|
+| `description` | Product Description | Contains a description of a product given in the `product_tree` in regards to field of application and core functionality. |
+| `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
+| `summary` | Summary | Contains a short summary of the content of the advisory. |
+
 #### Document Property - Publisher
 
 Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`), Name (`name`) and

@@ -370,6 +370,14 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
     },
 ```
 
+The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+
+| `category` | `title` | content of `text` |
+|---------------|---------------|-------------------|
+| `description` | CVE Description | Contains the official and unchanged CVE description for this specific vulnerability. |
+| `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
+| `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
+
 #### Vulnerabilities Property - Product Status
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
