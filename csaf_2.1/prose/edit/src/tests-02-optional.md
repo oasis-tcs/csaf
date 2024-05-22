@@ -320,7 +320,7 @@ The relevant paths for this test are:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### Missing TLP label (deprecated)
+### Missing TLP label (deprecated){#missing-tlp-label}
 
 It MUST be tested that `/document/distribution/tlp/label` is present and valid.
 
