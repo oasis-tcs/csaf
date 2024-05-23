@@ -200,6 +200,11 @@ Valid values of the `enum` are:
 > To simplify the JSON structure, avoid additional business level tests and aid in parsing, consumption and
 > processing, it is provided as a label to be selected instead of having a separate field.
 
+The default value for `label` is `CLEAR`.
+
+> Note: This provides the suggested default value for anyone writing CSAF documents as the majority of those
+> are intended to be publicly available.
+
 The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find
 the textual description of the TLP version which is used in this document.
 The default value is the URL to the definition by FIRST:

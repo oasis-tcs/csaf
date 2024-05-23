@@ -594,6 +594,7 @@
                   "title": "Label of TLP",
                   "description": "Provides the TLP label of the document.",
                   "type": "string",
+                  "default": "CLEAR",
                   "enum": [
                     "AMBER",
                     "AMBER+STRICT",
