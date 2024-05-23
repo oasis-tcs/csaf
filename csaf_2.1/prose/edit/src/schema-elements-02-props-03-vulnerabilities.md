@@ -92,7 +92,7 @@ holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking num
 
 #### Vulnerabilities Property - CWE
 
-CWE (`cwe`) of value type `object` with the 2 mandatory properties Weakness ID (`id`) and Weakness Name (`name`) holds the
+CWE (`cwe`) of value type `object` with the 3 mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`) holds the
 MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [cite](#CWE).
 
 ```
@@ -103,6 +103,9 @@ MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. Fo
           // ...
         },
         "name": {
+          // ...
+        },
+        "version": {
           // ...
         }
       }
@@ -115,7 +118,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
     ^CWE-[1-9]\\d{0,5}$
 ```
 
-and holds the ID for the weakness associated.
+It holds the ID for the weakness associated.
 
 *Examples 1:*
 
@@ -134,6 +137,25 @@ in the CWE specification.
     Cross-Site Request Forgery (CSRF)
     Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
     Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+```
+
+The CWE version (`version`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$
+```
+
+It holds the version string of the CWE specification this weakness was extracted from.
+When creating or modifying a CSAF document, the latest published version of the CWE specification SHOULD be used.
+
+*Examples 3:*
+
+```
+    "1.0",
+    "3.4.1",
+    "4.0",
+    "4.11",
+    "4.12"
 ```
 
 #### Vulnerabilities Property - Discovery Date

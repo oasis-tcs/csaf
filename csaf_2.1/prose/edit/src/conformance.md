@@ -130,6 +130,12 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given,
   the CVRF CSAF converter converts the first one into `cwe`.
   In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
+  
+  The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
+  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
+  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+  of the source document SHOULD be used.
+  > This is done to create a deterministic conversion.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given,
   the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
@@ -520,6 +526,13 @@ Secondly, the program fulfills the following for all items of:
   > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
+* `/vulnerabilities[]/cwe`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
+  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+  of the source document SHOULD be used.
+  > This is done to create a deterministic conversion.
+
+  The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
 
