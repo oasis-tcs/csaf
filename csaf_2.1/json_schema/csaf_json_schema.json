@@ -1000,7 +1000,8 @@
             "type": "object",
             "required": [
               "id",
-              "name"
+              "name",
+              "version"
             ],
             "properties": {
               "id": {
@@ -1023,6 +1024,20 @@
                   "Cross-Site Request Forgery (CSRF)",
                   "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                   "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+                ]
+              },
+              "version": {
+                "title": "CWE version",
+                "description": "Holds the version string of the CWE specification this weakness was extracted from.",
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$",
+                "examples": [
+                  "1.0",
+                  "3.4.1",
+                  "4.0",
+                  "4.11",
+                  "4.12"
                 ]
               }
             }
