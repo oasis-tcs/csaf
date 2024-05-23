@@ -37,7 +37,8 @@
       "cve": "CVE-2014-0160",
       "cwe": {
         "id": "CWE-119",
-        "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer"
+        "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+        "version": "4.13"
       },
       "title": "Heartbleed"
     },

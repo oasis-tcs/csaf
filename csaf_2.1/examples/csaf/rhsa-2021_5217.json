@@ -118,7 +118,8 @@
       "cve": "CVE-2021-4133",
       "cwe": {
         "id": "CWE-863",
-        "name": "Incorrect Authorization"
+        "name": "Incorrect Authorization",
+        "version": "4.6"
       },
       "discovery_date": "2021-12-17T00:00:00Z",
       "ids": [

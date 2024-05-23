@@ -136,7 +136,8 @@
       "cve": "CVE-2022-27193",
       "cwe": {
         "id": "CWE-611",
-        "name": "Improper Restriction of XML External Entity Reference"
+        "name": "Improper Restriction of XML External Entity Reference",
+        "version": "4.6"
       },
       "ids": [
         {

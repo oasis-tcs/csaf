@@ -33,7 +33,8 @@
       "cve": "CVE-2019-0708",
       "cwe": {
         "id": "CWE-416",
-        "name": "Use After Free"
+        "name": "Use After Free",
+        "version": "4.13"
       },
       "title": "BlueKeep"
     }

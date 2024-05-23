@@ -32,7 +32,8 @@
     {
       "cwe": {
         "id": "CWE-79",
-        "name": "Improper Input Validation"
+        "name": "Improper Input Validation",
+        "version": "4.13"
       }
     }
   ]
