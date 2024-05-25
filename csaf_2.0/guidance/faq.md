@@ -29,7 +29,7 @@ The CPE pattern in CSAF 2.0 had two problems:
 1. It allowed invalid CPEs due to the fact of missing brakes. Simplified it stated the pattern `^(CPE2.3)|(CPE2.2)$` instead of `^((CPE2.3)|(CPE2.2))$` which allowed for CPE 2.3 with additional content at the end and CPE 2.2 with additional content as a prefix, i.e. `NOTAVALIDCPEcpe:/o:example:a:42::anyother` is accepted while it is not a valid CPE.
 2. Some implementations had issues with unescaped `/` characters in JSON patterns.
 
-To avoid both problems, is was decided to change the CPE pattern. Tools implementing CSAF 2.0 are allowed to use the CSAF 2.1 CPE regex. This does not impact their state of conformance regarding CSAF 2.0.
+To avoid both problems, is was decided to change the CPE pattern in CSAF 2.1. Tools implementing CSAF 2.0 are allowed to use the CSAF 2.1 CPE regex. This does not impact their state of conformance regarding CSAF 2.0.
 
 ### What is VEX and how is it supported in CSAF?
 
