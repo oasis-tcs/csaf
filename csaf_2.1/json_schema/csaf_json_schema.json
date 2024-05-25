@@ -994,51 +994,58 @@
             "type": "string",
             "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$"
           },
-          "cwe": {
-            "title": "CWE",
-            "description": "Holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.",
-            "type": "object",
-            "required": [
-              "id",
-              "name",
-              "version"
-            ],
-            "properties": {
-              "id": {
-                "title": "Weakness ID",
-                "description": "Holds the ID for the weakness associated.",
-                "type": "string",
-                "pattern": "^CWE-[1-9]\\d{0,5}$",
-                "examples": [
-                  "CWE-22",
-                  "CWE-352",
-                  "CWE-79"
-                ]
-              },
-              "name": {
-                "title": "Weakness name",
-                "description": "Holds the full name of the weakness as given in the CWE specification.",
-                "type": "string",
-                "minLength": 1,
-                "examples": [
-                  "Cross-Site Request Forgery (CSRF)",
-                  "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
-                  "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
-                ]
-              },
-              "version": {
-                "title": "CWE version",
-                "description": "Holds the version string of the CWE specification this weakness was extracted from.",
-                "type": "string",
-                "minLength": 1,
-                "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$",
-                "examples": [
-                  "1.0",
-                  "3.4.1",
-                  "4.0",
-                  "4.11",
-                  "4.12"
-                ]
+          "cwes": {
+            "title": "List of CWEs",
+            "description": "Contains a list of CWEs.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "title": "CWE",
+              "description": "Holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.",
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "version"
+              ],
+              "properties": {
+                "id": {
+                  "title": "Weakness ID",
+                  "description": "Holds the ID for the weakness associated.",
+                  "type": "string",
+                  "pattern": "^CWE-[1-9]\\d{0,5}$",
+                  "examples": [
+                    "CWE-22",
+                    "CWE-352",
+                    "CWE-79"
+                  ]
+                },
+                "name": {
+                  "title": "Weakness name",
+                  "description": "Holds the full name of the weakness as given in the CWE specification.",
+                  "type": "string",
+                  "minLength": 1,
+                  "examples": [
+                    "Cross-Site Request Forgery (CSRF)",
+                    "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+                    "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+                  ]
+                },
+                "version": {
+                  "title": "CWE version",
+                  "description": "Holds the version string of the CWE specification this weakness was extracted from.",
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$",
+                  "examples": [
+                    "1.0",
+                    "3.4.1",
+                    "4.0",
+                    "4.11",
+                    "4.12"
+                  ]
+                }
               }
             }
           },
