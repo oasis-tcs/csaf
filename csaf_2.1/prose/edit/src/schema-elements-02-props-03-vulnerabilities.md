@@ -15,7 +15,7 @@ properties represents a list of all relevant vulnerability information items.
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
-Common Weakness Enumeration (CWE) (`cwe`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
+Common Weakness Enumerations (CWEs) (`cwes`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
 Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`),
 Scores (`scores`), Threats (`threats`), and Title (`title`).
 
@@ -27,7 +27,7 @@ Scores (`scores`), Threats (`threats`), and Title (`title`).
       "cve": {
         // ...
       },
-      "cwe": {
+      "cwes": {
         // ...
       },
       "discovery_date": {
@@ -90,14 +90,23 @@ CVE (`cve`) of value type `string` with `pattern` (regular expression):
 
 holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
-#### Vulnerabilities Property - CWE
+#### Vulnerabilities Property - CWEs
 
-CWE (`cwe`) of value type `object` with the 3 mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`) holds the
+List of CWEs (`cwes`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of CWEs.
+
+```
+    "cwes": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every CWE item of value type `object` with the 3 mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`) holds the
 MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [cite](#CWE).
 
 ```
-    "cwe": {
-      // ...
       "properties": {
         "id": {
           // ...
@@ -109,7 +118,6 @@ MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. Fo
           // ...
         }
       }
-    },
 ```
 
 The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):

@@ -127,16 +127,14 @@ Secondly, the program fulfills the following for all items of:
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given,
   the CVRF CSAF converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
-* `/vulnerabilities[]/cwe`:
-  * If more than one `vuln:CWE` instance is given, the CVRF CSAF converter converts the first one into `cwe`.
-    In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
-  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter omits this instance and outputs a
-    warning that this CWE has been removed as it is not allowed in vulnerability mappings.
+* `/vulnerabilities[]/cwes[]`:
   * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document. If no such version exist, the first matching version
     published after the value of `/document/tracking/current_release_date` of the source document SHOULD be used.
     > This is done to create a deterministic conversion.
+  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter omits this instance and outputs a
+    warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given,
   the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
@@ -527,7 +525,7 @@ Secondly, the program fulfills the following for all items of:
   > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
-* `/vulnerabilities[]/cwe`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+* `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
   using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
   of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
   of the source document SHOULD be used.
