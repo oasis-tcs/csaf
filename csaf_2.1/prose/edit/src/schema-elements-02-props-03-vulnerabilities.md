@@ -298,7 +298,7 @@ The ordered tuple of the values of `party` and `date` (if present) SHALL be uniq
           },
           "summary": {
             // ...
-          },
+          }
         }
 ```
 
