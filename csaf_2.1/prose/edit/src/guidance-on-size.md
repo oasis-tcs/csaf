@@ -74,6 +74,7 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/acknowledgments`
   * `/vulnerabilities[]/acknowledgments[]/names`
   * `/vulnerabilities[]/acknowledgments[]/urls`
+  * `/vulnerabilities[]/cwes`
   * `/vulnerabilities[]/ids`
   * `/vulnerabilities[]/remediations[]/entitlements`
 
@@ -192,8 +193,9 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/acknowledgments[]/names[]`
   * `/vulnerabilities[]/acknowledgments[]/organization`
   * `/vulnerabilities[]/cve`
-  * `/vulnerabilities[]/cwe/id`
-  * `/vulnerabilities[]/cwe/name`
+  * `/vulnerabilities[]/cwes[]/id`
+  * `/vulnerabilities[]/cwes[]/name`
+  * `/vulnerabilities[]/cwes[]/version`
   * `/vulnerabilities[]/flags[]/group_ids[]`
   * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
