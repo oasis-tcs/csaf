@@ -30,11 +30,13 @@
   },
   "vulnerabilities": [
     {
-      "cwe": {
-        "id": "CWE-601",
-        "name": "URL Redirection to Untrusted Site ('Open Redirect')",
-        "version": "4.13"
-      }
+      "cwes": [
+        {
+          "id": "CWE-601",
+          "name": "URL Redirection to Untrusted Site ('Open Redirect')",
+          "version": "4.13"
+        }
+      ]
     }
   ]
 }

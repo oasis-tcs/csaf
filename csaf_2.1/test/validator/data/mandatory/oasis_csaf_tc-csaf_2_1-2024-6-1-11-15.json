@@ -30,11 +30,13 @@
   },
   "vulnerabilities": [
     {
-      "cwe": {
-        "id": "CWE-1192",
-        "name": "System-on-Chip (SoC) Using Components without Unique, Immutable Identifiers",
-        "version": "4.13"
-      }
+      "cwes": [
+        {
+          "id": "CWE-1192",
+          "name": "System-on-Chip (SoC) Using Components without Unique, Immutable Identifiers",
+          "version": "4.13"
+        }
+      ]
     }
   ]
 }

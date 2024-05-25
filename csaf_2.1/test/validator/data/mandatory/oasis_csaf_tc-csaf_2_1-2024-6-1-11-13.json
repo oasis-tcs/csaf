@@ -30,11 +30,13 @@
   },
   "vulnerabilities": [
     {
-      "cwe": {
-        "id": "CWE-1324",
-        "name": "DEPRECATED: Sensitive Information Accessible by Physical Probing of JTAG Interface",
-        "version": "4.10"
-      }
+      "cwes": [
+        {
+          "id": "CWE-1324",
+          "name": "DEPRECATED: Sensitive Information Accessible by Physical Probing of JTAG Interface",
+          "version": "4.10"
+        }
+      ]
     }
   ]
 }

@@ -30,11 +30,13 @@
   },
   "vulnerabilities": [
     {
-      "cwe": {
-        "id": "CWE-79",
-        "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-        "version": "4.13"
-      }
+      "cwes": [
+        {
+          "id": "CWE-79",
+          "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+          "version": "4.13"
+        }
+      ]
     }
   ]
 }

@@ -30,11 +30,13 @@
   },
   "vulnerabilities": [
     {
-      "cwe": {
-        "id": "CWE-19",
-        "name": "Data Processing Errors",
-        "version": "2.11"
-      }
+      "cwes": [
+        {
+          "id": "CWE-19",
+          "name": "Data Processing Errors",
+          "version": "2.11"
+        }
+      ]
     }
   ]
 }

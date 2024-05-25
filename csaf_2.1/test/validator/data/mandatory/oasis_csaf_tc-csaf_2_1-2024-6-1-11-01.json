@@ -30,11 +30,13 @@
   },
   "vulnerabilities": [
     {
-      "cwe": {
-        "id": "CWE-79",
-        "name": "Improper Input Validation",
-        "version": "4.13"
-      }
+      "cwes": [
+        {
+          "id": "CWE-79",
+          "name": "Improper Input Validation",
+          "version": "4.13"
+        }
+      ]
     }
   ]
 }

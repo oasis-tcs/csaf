@@ -30,11 +30,13 @@
   },
   "vulnerabilities": [
     {
-      "cwe": {
-        "id": "CWE-1192",
-        "name": "Improper Identifier for IP Block used in System-On-Chip (SOC)",
-        "version": "4.14"
-      }
+      "cwes": [
+        {
+          "id": "CWE-1192",
+          "name": "Improper Identifier for IP Block used in System-On-Chip (SOC)",
+          "version": "4.14"
+        }
+      ]
     }
   ]
 }

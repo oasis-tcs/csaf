@@ -340,11 +340,13 @@
   "vulnerabilities": [
     {
       "cve": "CVE-2020-10188",
-      "cwe": {
-        "id": "CWE-119",
-        "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
-        "version": "4.6"
-      },
+      "cwes": [
+        {
+          "id": "CWE-119",
+          "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+          "version": "4.6"
+        }
+      ],
       "discovery_date": "2020-03-06T00:00:00Z",
       "ids": [
         {
