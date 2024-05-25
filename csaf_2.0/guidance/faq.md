@@ -22,6 +22,15 @@ CSAF enables individuals and organizations to successfully disclose and consume 
 
 Yes. CSAF is the replacement for the [Common Vulnerability Reporting Framework (CVRF)](https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html). It enhances the capabilities of CVRF including different profiles (e.g., CSAF Base, Informational Advisory, Incident Response, VEX, etc.). Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional fields from the standard mandatory. A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends. CSAF also provides several additional enhancements that were not supported in CVRF. In addition, CSAF uses JSON while CVRF used XML.
 
+### There a change in the CPE pattern from CSAF 2.0 to CSAF 2.1. Why?
+
+The CPE pattern in CSAF 2.0 had two problems:
+
+1. It allowed invalid CPEs due to the fact of missing brakes. Simplified it stated the pattern `^(CPE2.3)|(CPE2.2)$` instead of `^((CPE2.3)|(CPE2.2))$` which allowed for CPE 2.3 with additional content at the end and CPE 2.2 with additional content as a prefix, i.e. `NOTAVALIDCPEcpe:/o:example:a:42::anyother` is accepted while it is not a valid CPE.
+2. Some implementations had issues with unescaped `/` characters in JSON patterns.
+
+To avoid both problems, is was decided to change the CPE pattern. Tools implementing CSAF 2.0 are allowed to use the CSAF 2.1 CPE regex. This does not impact their state of conformance regarding CSAF 2.0.
+
 ### What is VEX and how is it supported in CSAF?
 
 The Vulnerability Exploitability eXchange (VEX) allows a software supplier or other parties to assert the status of specific vulnerabilities in a particular product. CSAF supports VEX to allow suppliers and other parties to provide the status of the vulnerabilities that may affect a product. As stated in [CISA's VEX Use Case documentation](https://www.cisa.gov/sites/default/files/publications/VEX_Use_Cases_Aprill2022.pdf), VEX is a form of a security advisory, similar to those already issued by mature product security teams today. There are a few important improvements for the VEX model over ‘traditional’ security advisories. First, VEX documents are machine readable, built to support integration into existing and novel security management tools, as well as broader vulnerability tracking platforms. Second, VEX data can support more effective use of [Software Bills of Materials (SBOM)](https://www.cisa.gov/sbom) data.
