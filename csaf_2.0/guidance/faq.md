@@ -22,7 +22,7 @@ CSAF enables individuals and organizations to successfully disclose and consume 
 
 Yes. CSAF is the replacement for the [Common Vulnerability Reporting Framework (CVRF)](https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html). It enhances the capabilities of CVRF including different profiles (e.g., CSAF Base, Informational Advisory, Incident Response, VEX, etc.). Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional fields from the standard mandatory. A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends. CSAF also provides several additional enhancements that were not supported in CVRF. In addition, CSAF uses JSON while CVRF used XML.
 
-### There a change in the CPE pattern from CSAF 2.0 to CSAF 2.1. Why?
+### The CPE pattern changed from CSAF 2.0 to CSAF 2.1. Why?
 
 The CPE pattern in CSAF 2.0 had two problems:
 
