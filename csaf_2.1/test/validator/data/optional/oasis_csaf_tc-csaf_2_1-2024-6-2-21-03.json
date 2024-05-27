@@ -14,7 +14,7 @@
     },
     "title": "Optional test: Same Timestamps in Revision History (failing example 3)",
     "tracking": {
-      "current_release_date": "2024-01-21T10:00:00.000Z",
+      "current_release_date": "2024-01-22T00:00:00.000+14:00",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-21-03",
       "initial_release_date": "2024-01-21T10:00:00.000Z",
       "revision_history": [
