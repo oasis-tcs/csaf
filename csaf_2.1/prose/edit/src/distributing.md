@@ -288,6 +288,8 @@ having the `rel` value of `signature`.
 
 The use and therefore the existence of ROLIE service document is optional.
 If it is used, each ROLIE service document MUST be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
+It MAY also list the corresponding ROLIE category documents.
+The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
 *Example 1:*
 
