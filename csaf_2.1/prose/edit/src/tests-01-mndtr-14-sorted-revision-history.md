@@ -1,6 +1,7 @@
 ### Sorted Revision History
 
-It MUST be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted ascending by `date`.
+It MUST be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted
+ascending by `date` and as a second level criteria `number`.
 
 The relevant path for this test is:
 
