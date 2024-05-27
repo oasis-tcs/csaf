@@ -321,6 +321,7 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
 
 The use and therefore the existence of ROLIE category document is optional.
 If it is used, each ROLIE category document MUST be a JSON file that conforms with [cite](#RFC8322).
+A ROLIE category document SHOULD reside next to the corresponding ROLIE feed.
 ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
 * document category
