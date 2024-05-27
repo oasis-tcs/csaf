@@ -130,10 +130,14 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/cwes[]`:
   * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
-    `/document/tracking/current_release_date` of the source document. If no such version exist, the first matching version
-    published after the value of `/document/tracking/current_release_date` of the source document SHOULD be used.
+    `/document/tracking/current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    of the source document SHOULD be used.
     > This is done to create a deterministic conversion.
-  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter omits this instance and outputs a
+
+    If the CWE does not match at all, the CVRF CSAF converter MUST omit this CWE and output a warning that an invalid CWE was found and has
+    been removed.
+  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter MUST omit this instance and output a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given,
