@@ -560,14 +560,16 @@ Each such folder MUST at least:
 
 ### Requirement 24: HTTP User-Agent
 
-Access to the files provided, both CSAF metadata and documents, MUST NOT be restricted by the value of HTTP User-Agent.
+Access to the CSAF related files and directories provided, for both metadata and documents, MUST be allowed independent of the
+value of HTTP User-Agent.
 
 > Limit the value of HTTP User-Agents to a certain set would hinder adoption of tools retrieving the files.
 
 The only exception is that the temporary blocking of certain HTTP User-Agents is allowed to mitigate an ongoing security incident
-(e.g. a DoS attack on the web server serving the CSAF files). However, it MUST be checked if a less severe measure with a similar
-effect could be used. White-listing CSAF related files and directories MUST be considered. The temporary blocking MUST be removed
-as soon as possible, at latest two weeks after the security incident process was completed.
+(e.g. a DoS attack on the web server serving the CSAF files).
+However, it MUST be checked if a less severe measure with a similar effect could be used.
+It MUST be considered to exempt CSAF related files and directories from such a the temporary blocking.
+The temporary blocking MUST be removed as soon as possible, at latest two weeks after the security incident process was completed.
 
 > Also confer to the TC's guidance on content delivery networks and caching.
 
