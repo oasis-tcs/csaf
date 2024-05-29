@@ -567,9 +567,9 @@ value of HTTP User-Agent.
 
 The only exception is that the temporary blocking of certain HTTP User-Agents is allowed to mitigate an ongoing security incident
 (e.g. a DoS attack on the web server serving the CSAF files).
-However, it MUST be checked if a less severe measure with a similar effect could be used.
-It MUST be considered to exempt CSAF related files and directories from such a the temporary blocking.
-The temporary blocking MUST be removed as soon as possible, at latest two weeks after the security incident process was completed.
+However, a less severe measure with a similar effect SHOULD be used.
+CSAF related files and directories SHOULD be exempted from temporary blocking.
+The temporary blocking SHOULD be removed as soon as possible, at latest two weeks after the security incident process was completed.
 
 > Also confer to the TC's guidance on content delivery networks and caching.
 
