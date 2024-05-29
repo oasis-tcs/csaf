@@ -296,7 +296,7 @@ The value `discoverer` indicates individuals or organizations that find vulnerab
 This includes all manner of researchers.
 
 The value `multiplier` indicates individuals or organizations that use existing CSAF documents or information that could
-be represented in CSAF and create their own CSAF documents for distribution to specific target audience.
+be represented in CSAF, and create their own CSAF documents for distribution to a specific target audience.
 A single multiplier might have target audiences.
 > For example, a National CSIRT might create different CSAF documents for the same vulnerability for critical
   infrastructure companies in different sectors, government agencies, non-critical industry and the public based on
