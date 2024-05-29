@@ -521,7 +521,7 @@ Secondly, the program fulfills the following for all items of:
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
 
-> A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
+> A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
 > of the rules above MAY be ignored to avoid data loss.
