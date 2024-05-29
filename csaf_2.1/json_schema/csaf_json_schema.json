@@ -96,6 +96,7 @@
               "language",
               "legacy",
               "patch_level",
+              "platform",
               "product_family",
               "product_name",
               "product_version",
@@ -503,6 +504,7 @@
       "required": [
         "category",
         "csaf_version",
+        "distribution",
         "publisher",
         "title",
         "tracking"
@@ -565,7 +567,9 @@
           "title": "Rules for sharing document",
           "description": "Describe any constraints on how this document might be shared.",
           "type": "object",
-          "minProperties": 1,
+          "required": [
+            "tlp"
+          ],
           "properties": {
             "text": {
               "title": "Textual description",
@@ -592,9 +596,10 @@
                   "type": "string",
                   "enum": [
                     "AMBER",
+                    "AMBER+STRICT",
+                    "CLEAR",
                     "GREEN",
-                    "RED",
-                    "WHITE"
+                    "RED"
                   ]
                 },
                 "url": {

@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 28 February 2024
+## 24 April 2024
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -55,7 +55,7 @@ This specification replaces or supersedes:
 
 
 #### Abstract:
-The Common Security Advisory Framework (CSAF) Version 2.0 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
+The Common Security Advisory Framework (CSAF) Version 2.1 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
 #### Status:
 This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical.
@@ -71,7 +71,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 28 February 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 24 April 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -132,7 +132,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 				3.1.3.3.1 [Full Product Name Type - Product Identification Helper - CPE](#full-product-name-type-product-identification-helper-cpe)  
 				3.1.3.3.2 [Full Product Name Type - Product Identification Helper - Hashes](#full-product-name-type-product-identification-helper-hashes)  
 				3.1.3.3.3 [Full Product Name Type - Product Identification Helper - Model Numbers](#full-product-name-type-product-identification-helper-model-numbers)  
-				3.1.3.3.4 [Full Product Name Type - Product Identification Helper - PURL](#full-product-name-type-product-identification-helper-purl)  
+				3.1.3.3.4 [Full Product Name Type - Product Identification Helper - purl](#full-product-name-type-product-identification-helper-purl)  
 				3.1.3.3.5 [Full Product Name Type - Product Identification Helper - SBOM URLs](#full-product-name-type-product-identification-helper-sbom-urls)  
 				3.1.3.3.6 [Full Product Name Type - Product Identification Helper - Serial Numbers](#full-product-name-type-product-identification-helper-serial-numbers)  
 				3.1.3.3.7 [Full Product Name Type - Product Identification Helper - SKUs](#full-product-name-type-product-identification-helper-skus)  
@@ -272,7 +272,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.7 [Missing Date in Involvements](#missing-date-in-involvements)  
 		6.2.8 [Use of MD5 as the only Hash Algorithm](#use-of-md5-as-the-only-hash-algorithm)  
 		6.2.9 [Use of SHA-1 as the only Hash Algorithm](#use-of-sha-1-as-the-only-hash-algorithm)  
-		6.2.10 [Missing TLP label](#missing-tlp-label)  
+		6.2.10 [Missing TLP label (deprecated)](#missing-tlp-label)  
 		6.2.11 [Missing Canonical URL](#missing-canonical-url)  
 		6.2.12 [Missing Document Language](#missing-document-language)  
 		6.2.13 [Sorting](#optional-tests--sorting)  
@@ -301,8 +301,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		7.1.1 [Requirement 1: Valid CSAF document](#requirement-1-valid-csaf-document)  
 		7.1.2 [Requirement 2: Filename](#requirement-2-filename)  
 		7.1.3 [Requirement 3: TLS](#requirement-3-tls)  
-		7.1.4 [Requirement 4: TLP:WHITE](#requirement-4-tlp-white)  
-		7.1.5 [Requirement 5: TLP:AMBER and TLP:RED](#requirement-5-tlp-amber-and-tlp-red)  
+		7.1.4 [Requirement 4: TLP:CLEAR](#requirement-4-tlp-clear)  
+		7.1.5 [Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED](#requirement-5-tlp-amber-tlp-amber+strict-and-tlp-red)  
 		7.1.6 [Requirement 6: No Redirects](#requirement-6-no-redirects)  
 		7.1.7 [Requirement 7: provider-metadata.json](#requirement-7-provider-metadata-json)  
 		7.1.8 [Requirement 8: security.txt](#requirement-8-security-txt)  
@@ -628,7 +628,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="OPENSSL" class="anchor"></span>**OPENSSL\]** _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 
-**\[**<span id="PURL" class="anchor"></span>**PURL\]** _Package URL (PURL)_, GitHub Project, https://github.com/package-url/purl-spec.
+**\[**<span id="PURL" class="anchor"></span>**PURL\]** _Package URL (purl)_, GitHub Project, https://github.com/package-url/purl-spec.
 
 **\[**<span id="https;//www.rfc-editor.org/info/rfc3339." class="anchor"></span>**https://www.rfc-editor.org/info/rfc3339.\]** 
 
@@ -1037,6 +1037,7 @@ Valid `enum` values are:
     language
     legacy
     patch_level
+    platform
     product_family
     product_name
     product_version
@@ -1055,6 +1056,8 @@ The value `language` indicates the language of the product.
 The value `legacy` indicates an entry that has reached its end of life.
 
 The value `patch_level` indicates the patch level of the product.
+
+The value `platform` indicates the (CPU) platform for which the product is intended.
 
 The value `product_family` indicates the product family that the product falls into.
 
@@ -1252,7 +1255,7 @@ and `x_generic_uris`, one is mandatory.
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
 ```
-    ^(cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6})$
+    ^((cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:\\/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6}))$
 ```
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
@@ -1410,20 +1413,20 @@ Two `*` MUST NOT follow each other.
     IC25T060ATCS05-0
 ```
 
-##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - PURL <a id='full-product-name-type-product-identification-helper-purl'></a>
+##### 3.1.3.3.4 Full Product Name Type - Product Identification Helper - purl <a id='full-product-name-type-product-identification-helper-purl'></a>
 
-The package URL (PURL) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
+The package URL (purl) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
-    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*/.+
+    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
 ```
 
-> The given pattern does not completely evaluate whether a PURL is valid according to the \[[PURL](#PURL)\] specification.
+> The given pattern does not completely evaluate whether a purl is valid according to the \[[PURL](#PURL)\] specification.
 > It provides a more generic approach and general guidance to enable forward compatibility.
-> CSAF uses only the canonical form of PURL to conform with section 3.3 of \[[RFC3986](#RFC3986)\].
+> CSAF uses only the canonical form of purl to conform with section 3.3 of \[[RFC3986](#RFC3986)\].
 > Therefore, URLs starting with `pkg://` are considered invalid.
 
-This package URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+This package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
 See \[[PURL](#PURL)\] for details.
 
 ##### 3.1.3.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs <a id='full-product-name-type-product-identification-helper-sbom-urls'></a>
@@ -1981,12 +1984,12 @@ The single mandatory property `document`, as well as the optional properties `pr
 
 ### 3.2.1 Document Property <a id='document-property'></a>
 
-Document level meta-data (`document`) of value type `object` with the 5 mandatory properties Category (`category`),
-CSAF Version (`csaf_version`), Publisher (`publisher`), Title (`title`),
+Document level meta-data (`document`) of value type `object` with the 6 mandatory properties Category (`category`),
+CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the 7 optional properties Acknowledgments (`acknowledgments`),
-Aggregate Severity (`aggregate_severity`), Distribution (`distribution`), Language (`lang`), Notes (`notes`),
-References (`references`), and Source Language (`source_lang`).
+In addition, the `document` object MAY provide the 6 optional properties Acknowledgments (`acknowledgments`),
+Aggregate Severity (`aggregate_severity`), Language (`lang`), Notes (`notes`), References (`references`),
+and Source Language (`source_lang`).
 
 ```
     "document": {
@@ -2116,8 +2119,8 @@ The single valid value for this `enum` is:
 
 #### 3.2.1.5 Document Property - Distribution <a id='document-property-distribution'></a>
 
-Rules for sharing document (`distribution`) of value type `object` with at least 1 of the 2 properties Text (`text`) and
-Traffic Light Protocol (TLP) (`tlp`) describes any constraints on how this document might be shared.
+Rules for sharing document (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
+optional property Text (`text`) describes any constraints on how this document might be shared.
 
 ```
     "distribution": {
@@ -2142,7 +2145,7 @@ The Textual description (`text`) of value type `string` with 1 or more character
 *Examples 1:*<a id='document-property-distribution-text-eg-1'></a><a id='sec-3-2-1-5-1-eg-1'></a><a id='example-31'></a>
 
 ```
-    Copyright 2021, Example Company, All Rights Reserved.
+    Copyright 2024, Example Company, All Rights Reserved.
     Distribute freely.
     Share only on a need-to-know-basis only.
 ```
@@ -2171,10 +2174,15 @@ Valid values of the `enum` are:
 
 ```
     AMBER
+    AMBER+STRICT
+    CLEAR
     GREEN
     RED
-    WHITE
 ```
+
+> Note: In the TLP specification there are only 4 labels. The part `+STRICT` is an extension to `TLP:AMBER`.
+> To simplify the JSON structure, avoid additional business level tests and aid in parsing, consumption and
+> processing, it is provided as a label to be selected instead of having a separate field.
 
 The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find
 the textual description of the TLP version which is used in this document.
@@ -2205,6 +2213,14 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
       // ...
     },
 ```
+
+The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+
+| `category` | `title` | content of `text` |
+|---------------|---------------|-------------------|
+| `description` | Product Description | Contains a description of a product given in the `product_tree` in regards to field of application and core functionality. |
+| `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
+| `summary` | Summary | Contains a short summary of the content of the advisory. |
 
 #### 3.2.1.8 Document Property - Publisher <a id='document-property-publisher'></a>
 
@@ -3167,6 +3183,14 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
     },
 ```
 
+The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+
+| `category` | `title` | content of `text` |
+|---------------|---------------|-------------------|
+| `description` | CVE Description | Contains the official and unchanged CVE description for this specific vulnerability. |
+| `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
+| `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
+
 #### 3.2.3.9 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
@@ -3547,7 +3571,8 @@ Valid values are:
 The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known.
 This knowledge can range from information privately held among a very small group to an issue that has been described to the public at
 a major conference or is being widely exploited globally.
-For consistency and simplicity, this section can be a mirror image of the CVSS "Exploitability" metric.
+For consistency and simplicity, this section can be a mirror image of the CVSS `exploitMaturity` (v4.0),
+respectively `exploitCodeMaturity` (v3.1 and v3.0) or `exploitability` (v2.0) metric.
 However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
 
 The value `impact` indicates that the `details` field contains an assessment of the impact on the user or the target set if
@@ -3606,6 +3631,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * `/document/category`
   * `/document/csaf_version`
+  * `/document/distribution/tlp/label`
   * `/document/publisher/category`
   * `/document/publisher/name`
   * `/document/publisher/namespace`
@@ -4285,7 +4311,7 @@ The relevant paths for this test are:
 
 ### 6.1.13 PURL <a id='purl'></a>
 
-It MUST be tested that given PURL is valid.
+It MUST be tested that given purl is valid.
 
 The relevant paths for this test are:
 
@@ -5704,7 +5730,7 @@ The relevant paths for this test are:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 6.2.10 Missing TLP label <a id='missing-tlp-label'></a>
+### 6.2.10 Missing TLP label (deprecated) <a id='missing-tlp-label'></a>
 
 It MUST be tested that `/document/distribution/tlp/label` is present and valid.
 
@@ -5783,6 +5809,11 @@ The relevant path for this test is:
   "document": {
     "category": "csaf_base",
     "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
     "publisher": {
       // ...
     },
@@ -6439,8 +6470,6 @@ The relevant paths for this test are:
 
 > The product version starts with a `v`.
 
--------
-
 ### 6.3.12 Missing CVSS v4.0 <a id='missing-cvss-v4-0'></a>
 
 For each item in the list of scores it MUST be tested that a `cvss_v4` object is present.
@@ -6483,6 +6512,8 @@ The relevant path for this test is:
 
 > There is no CVSS v4.0 score given for `CSAFPID-9080700`.
 
+-------
+
 # 7. Distributing CSAF documents <a id='distributing-csaf-documents'></a>
 
 This section lists requirements and roles defined for distributing CSAF documents.
@@ -6510,9 +6541,9 @@ The CSAF document is per default retrievable from a website which uses TLS for e
 The CSAF document MUST NOT be downloadable from a location which does not encrypt the transport when crossing organizational
 boundaries to maintain the chain of custody.
 
-### 7.1.4 Requirement 4: TLP:WHITE <a id='requirement-4-tlp-white'></a>
+### 7.1.4 Requirement 4: TLP:CLEAR <a id='requirement-4-tlp-clear'></a>
 
-If the CSAF document is labeled TLP:WHITE, it MUST be freely accessible.
+If the CSAF document is labeled TLP:CLEAR, it MUST be freely accessible.
 
 This does not exclude that such a document is also available in an access protected customer portal.
 However, there MUST be one copy of the document available for people without access to the portal.
@@ -6520,10 +6551,10 @@ However, there MUST be one copy of the document available for people without acc
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a
 > press release but be able to retrieve the CSAF document.
 
-### 7.1.5 Requirement 5: TLP:AMBER and TLP:RED <a id='requirement-5-tlp-amber-and-tlp-red'></a>
+### 7.1.5 Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED <a id='requirement-5-tlp-amber-tlp-amber+strict-and-tlp-red'></a>
 
-CSAF documents labeled TLP:AMBER or TLP:RED MUST be access protected.
-If they are provided via a web server this SHALL be done under a different path than for TLP:WHITE,
+CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED MUST be access protected.
+If they are provided via a web server this SHALL be done under a different path than for TLP:CLEAR,
 TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website.
@@ -6565,9 +6596,9 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
         "rolie": {
           "feeds": [
             {
-              "summary": "All TLP:WHITE advisories of Example Company.",
-              "tlp_label": "WHITE",
-              "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
+              "summary": "All TLP:CLEAR advisories of Example Company.",
+              "tlp_label": "CLEAR",
+              "url": "https://www.example.com/.well-known/csaf/feed-tlp-clear.json"
             }
           ]
         }
@@ -6700,7 +6731,7 @@ ROLIE is built on top of the Atom Publishing Format and Protocol, with specific 
 All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed.
 At least one of the feeds
 
-* TLP:WHITE
+* TLP:CLEAR
 * TLP:GREEN
 * unlabeled
 
@@ -6712,12 +6743,12 @@ Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC
 ```
   {
     "feed": {
-      "id": "example-csaf-feed-tlp-white",
-      "title": "Example CSAF feed (TLP:WHITE)",
+      "id": "example-csaf-feed-tlp-clear",
+      "title": "Example CSAF feed (TLP:CLEAR)",
       "link": [
         {
           "rel": "self",
-          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
+          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json"
         }
       ],
       "category": [
@@ -6784,8 +6815,8 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
           "title": "Public CSAF feed",
           "collection": [
             {
-              "title": "Example CSAF feed (TLP:WHITE)",
-              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
+              "title": "Example CSAF feed (TLP:CLEAR)",
+              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json",
               "categories": {
                 "category": [
                   {
@@ -6903,6 +6934,16 @@ File name of signature file: esa-2022-02723.json.asc
 ```
 
 If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
+
+At all times, signatures MUST remain valid for a minimum of 30 days and ideally for at least 90 days. When executing
+CSAF document signatures, the signing party SHOULD adhere to or surpass the prevailing best practices and recommendations
+regarding key length.
+Tools SHOULD treat the violation of the rules given in the first sentence as:
+
+* warning if the signature is only valid for 90 days or less at the time of the verification,
+* error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
+  the verification and
+* error if the signature is expired at the time of the verification.
 
 ### 7.1.20 Requirement 20: Public OpenPGP Key <a id='requirement-20-public-openpgp-key'></a>
 
@@ -7688,7 +7729,7 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
 * detects the usage semantic version (as described in section [3.1.11.2](#version-type-semantic-versioning)).
-* is able to trigger a run of the asset matching module:
+* is able to trigger a run of the SBOM matching module:
   * manually:
     * per CSAF document
     * per list of CSAF documents
@@ -7717,8 +7758,29 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
+* type `/$defs/full_product_name_t/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a
+  warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
+  
+  | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
+  |---------------------------|---------------------------|
+  | `TLP:WHITE`               | `TLP:CLEAR`               |
+  | `TLP:GREEN`               | `TLP:GREEN`               |
+  | `TLP:AMBER`               | `TLP:AMBER`               |
+  | `TLP:RED`                 | `TLP:RED`                 |
+
+  If `/document/distribution/text` contains the string `TLP v2.0: TLP:<ValidTLPLabel>`, the CSAF 2.0 to CSAF 2.1 converter SHOULD provide an
+  option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
+  the CSAF 2.0 to CSAF 2.1 converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
+  both values: the converted one based on the table and the one from the distribution text.
+  > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
+
+  If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavoured Markdown.
+
+> A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
+> of the rules above MAY be ignored to avoid data loss.
 
 -------
 
@@ -7854,6 +7916,8 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
 | csaf-v2.0-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
 | csaf-v2.0-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.0-wd20240327-dev | 2024-03-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.0-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>
@@ -8120,7 +8184,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 It seems to be safe to assume that the length of each value is not greater than 50. This applies to:
 
 * `/document/csaf_version` (3)
-* `/document/distribution/tlp/label` (5)
+* `/document/distribution/tlp/label` (12)
 * `/document/notes[]/category` (16)
 * `/document/publisher/category` (11)
 * `/document/references[]/category` (8)

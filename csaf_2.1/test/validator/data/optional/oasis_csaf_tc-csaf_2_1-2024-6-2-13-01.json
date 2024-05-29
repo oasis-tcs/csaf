@@ -2,6 +2,11 @@
   "document": {
     "csaf_version": "2.1",
     "category": "csaf_base",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",

@@ -98,7 +98,7 @@
                       "description": "Contains a summary of the feed.",
                       "type": "string",
                       "examples": [
-                        "All TLP:WHITE advisories of Example Company."
+                        "All TLP:CLEAR advisories of Example Company."
                       ]
                     },
                     "tlp_label": {
@@ -107,9 +107,10 @@
                       "type": "string",
                       "enum": [
                         "UNLABELED",
-                        "WHITE",
+                        "CLEAR",
                         "GREEN",
                         "AMBER",
+                        "AMBER+STRICT",
                         "RED"
                       ]
                     },

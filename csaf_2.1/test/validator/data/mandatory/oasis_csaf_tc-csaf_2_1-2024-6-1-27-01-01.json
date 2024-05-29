@@ -2,6 +2,11 @@
   "document": {
     "category": "csaf_security_incident_response",
     "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
     "notes": [
       {
         "category": "legal_disclaimer",

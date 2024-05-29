@@ -5,8 +5,8 @@
         "title": "Public CSAF feed",
         "collection": [
           {
-            "title": "Example CSAF feed (TLP:WHITE)",
-            "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json",
+            "title": "Example CSAF feed (TLP:CLEAR)",
+            "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json",
             "categories": {
               "category": [
                 {

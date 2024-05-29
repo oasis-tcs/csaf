@@ -5,9 +5,9 @@
       "rolie": {
         "feeds": [
           {
-            "summary": "All TLP:WHITE advisories of Example Company.",
-            "tlp_label": "WHITE",
-            "url": "https://www.example.com/.well-known/csaf/feed-tlp-white.json"
+            "summary": "All TLP:CLEAR advisories of Example Company.",
+            "tlp_label": "CLEAR",
+            "url": "https://www.example.com/.well-known/csaf/feed-tlp-clear.json"
           }
         ]
       }
