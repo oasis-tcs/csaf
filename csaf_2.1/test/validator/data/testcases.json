@@ -921,6 +921,25 @@
           "valid": true
         }
       ]
+    },{
+      "id": "6.1.34",
+      "group": "mandatory",
+      "failures": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-34-01.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-34-02.json",
+          "valid": false
+        }
+      ],
+      "valid": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-34-11.json",
+          "valid": true
+        }
+      ]
     },
     {
       "id": "6.2.1",
