@@ -299,7 +299,7 @@ The value `multiplier` indicates individuals or organizations that use existing 
 be represented in CSAF, and create their own CSAF documents for distribution to a specific target audience.
 A single multiplier might have target audiences.
 > For example, a National CSIRT might create different CSAF documents for the same vulnerability for critical
-  infrastructure companies in different sectors, government agencies, non-critical industry and the public based on
+  infrastructure companies in different sectors, government agencies, non-critical industry, and the public based on
   information sharing agreements and threats to the target group.
   
 The creation step can make use of a CSAF modifier that replaces metadata, e.g. the document publisher.
