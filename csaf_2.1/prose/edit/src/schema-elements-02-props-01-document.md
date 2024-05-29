@@ -281,6 +281,7 @@ The valid values are:
 ```
     coordinator
     discoverer
+    multiplier
     other
     translator
     user
@@ -294,10 +295,20 @@ This includes all Computer Emergency/Incident Response Teams (CERTs/CIRTs) or ag
 The value `discoverer` indicates individuals or organizations that find vulnerabilities or security weaknesses.
 This includes all manner of researchers.
 
+The value `multiplier` indicates individuals or organizations that use existing CSAF documents or information that could
+be represented in CSAF and create their own CSAF documents for distribution to specific target audience.
+A single multiplier might have target audiences.
+> For example, a National CSIRT might create different CSAF documents for the same vulnerability for critical
+  infrastructure companies in different sectors, government agencies, non-critical industry and the public based on
+  information sharing agreements and threats to the target group.
+  
+The creation step can make use of a CSAF modifier that replaces metadata, e.g. the document publisher.
+Currently, this value includes multipliers, republishers, and forwarders.
+
 The value `translator` indicates individuals or organizations that translate CSAF documents.
 This includes all manner of language translators, also those who work for the party issuing the original advisory.
 
-The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers,
+The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers,
 and miscellaneous contributors.
 
 The value `user` indicates anyone using a vendor’s product.
