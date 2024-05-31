@@ -649,7 +649,7 @@ The relevant path for this test is:
 ### Same Timestamps in Revision History
 
 It MUST be tested that the timestamps of all items in the revision history are pairwise disjoint.
-To ensure the correct result, the timestamps SHALL be converted to UTC before checking their uniqueness.
+As the timestamps might use different timezones, the comparison MUST take timezones into account.
 
 The relevant path for this test is:
 
