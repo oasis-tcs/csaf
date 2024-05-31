@@ -103,7 +103,7 @@ List of CWEs (`cwes`) of value type `array` with 1 or more unique items (a set) 
     },
 ```
 
-> It is expected that the list of CWEs is ordered descending, with the the most apt CWE listed as the first item.
+> It is expected that the list of CWEs is ordered from the most specific weakness ID to the least specific one.
 
 Every CWE item of value type `object` with the 3 mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`) holds the
 MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [cite](#CWE).
