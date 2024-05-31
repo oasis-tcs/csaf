@@ -1,6 +1,7 @@
 ### Missing Item in Revision History
 
 It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`.
+As the timestamps might use different timezones, the sorting MUST take timezones into account.
 In the case of semantic versioning, this applies only to the Major version.
 It MUST also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or
 a Major version of 0 or 1 in the case of semantic versioning.
