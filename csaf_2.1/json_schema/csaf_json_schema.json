@@ -645,6 +645,7 @@
               "enum": [
                 "coordinator",
                 "discoverer",
+                "multiplier",
                 "other",
                 "translator",
                 "user",
