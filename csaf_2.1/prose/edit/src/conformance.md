@@ -127,9 +127,18 @@ Secondly, the program fulfills the following for all items of:
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given,
   the CVRF CSAF converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
-* `/vulnerabilities[]/cwe`: If more than one `vuln:CWE` instance is given,
-  the CVRF CSAF converter converts the first one into `cwe`.
-  In addition, the converter outputs a warning that information might be lost during conversion of the CWE.
+* `/vulnerabilities[]/cwes[]`:
+  * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
+    using the latest version that matches the `id` and `name` exactly and was published prior to the value of
+    `/document/tracking/current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    of the source document SHOULD be used.
+    > This is done to create a deterministic conversion.
+
+    If the CWE does not match at all, the CVRF CSAF converter MUST omit this CWE and output a warning that an invalid CWE was found and has
+    been removed.
+  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter MUST omit this instance and output a
+    warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given,
   the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
@@ -523,6 +532,13 @@ Secondly, the program fulfills the following for all items of:
 * `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning MUST exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
+* `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
+  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+  of the source document SHOULD be used.
+  > This is done to create a deterministic conversion.
+
+  The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 

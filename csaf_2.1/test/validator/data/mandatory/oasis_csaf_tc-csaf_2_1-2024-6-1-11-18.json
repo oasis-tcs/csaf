@@ -12,10 +12,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative test: Missing CWE (failing example 2)",
+    "title": "Mandatory test: CWE (valid example 8)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-04-02",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-11-18",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -30,23 +30,32 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-2019-0708",
-      "title": "BlueKeep"
-    },
-    {
-      "cve": "CVE-2014-0160",
       "cwes": [
         {
-          "id": "CWE-119",
-          "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+          "id": "CWE-1240",
+          "name": "Use of a Cryptographic Primitive with a Risky Implementation",
+          "version": "4.13"
+        },
+        {
+          "id": "CWE-327",
+          "name": "Use of a Broken or Risky Cryptographic Algorithm",
+          "version": "4.13"
+        },
+        {
+          "id": "CWE-693",
+          "name": "Protection Mechanism Failure",
           "version": "4.13"
         }
-      ],
-      "title": "Heartbleed"
+      ]
     },
     {
-      "cve": "CVE-2017-0144",
-      "title": "EternalBlue"
+      "cwes": [
+        {
+          "id": "CWE-645",
+          "name": "Overly Restrictive Account Lockout Mechanism",
+          "version": "4.13"
+        }
+      ]
     }
   ]
 }
