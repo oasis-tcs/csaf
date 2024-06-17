@@ -2,6 +2,7 @@
 
 It MUST be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted
 ascending by `date` and as a second level criteria `number`.
+As the timestamps might use different timezones, the sorting MUST take timezones into account.
 
 The relevant path for this test is:
 
