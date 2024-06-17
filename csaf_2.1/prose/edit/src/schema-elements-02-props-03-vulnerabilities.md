@@ -299,7 +299,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 
 #### Vulnerabilities Property - Involvements
 
-List of involvements (`involvements`) of value type `array` with 1 or more items of value type `object` contains a list of involvements.
+List of involvements (`involvements`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of involvements.
 
 ```
     "involvements": {
@@ -330,7 +330,7 @@ The ordered tuple of the values of `party` and `date` (if present) SHALL be uniq
           },
           "summary": {
             // ...
-          },
+          }
         }
 ```
 

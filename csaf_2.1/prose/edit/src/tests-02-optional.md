@@ -140,6 +140,7 @@ The relevant path for this test is:
 ### Older Initial Release Date than Revision History
 
 It MUST be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
+As the timestamps might use different timezones, the sorting and comparison MUST take timezones into account.
 
 The relevant path for this test is:
 
@@ -175,6 +176,7 @@ The relevant path for this test is:
 ### Older Current Release Date than Revision History
 
 It MUST be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
+As the timestamps might use different timezones, the sorting and comparison MUST take timezones into account.
 
 The relevant path for this test is:
 
