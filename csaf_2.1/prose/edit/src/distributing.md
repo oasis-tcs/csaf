@@ -561,6 +561,21 @@ Each such folder MUST at least:
   }
 ```
 
+### Requirement 24: HTTP User-Agent
+
+Access to the CSAF related files and directories provided, for both metadata and documents, MUST be allowed independent of the
+value of HTTP User-Agent.
+
+> Limit the value of HTTP User-Agents to a certain set would hinder adoption of tools retrieving the files.
+
+The only exception is that the temporary blocking of certain HTTP User-Agents is allowed to mitigate an ongoing security incident
+(e.g. a DoS attack on the web server serving the CSAF files).
+However, a less severe measure with a similar effect SHOULD be used.
+CSAF related files and directories SHOULD be exempted from temporary blocking.
+The temporary blocking SHOULD be removed as soon as possible, at latest two weeks after the security incident process was completed.
+
+> Also confer to the TC's guidance on content delivery networks and caching.
+
 ## Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name.
@@ -598,7 +613,7 @@ A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the fo
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 5 to 7 in section [sec](#requirements).
+* additionally satisfies the requirements 5 to 7 and 24 in section [sec](#requirements).
 
 Secondly, the party:
 
@@ -622,7 +637,7 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 6, 21 and 22 in section [sec](#requirements).
+* satisfies the requirements 6, 21, 22 and 24 in section [sec](#requirements).
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -633,7 +648,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 1 to 6 and 21 to 23 in section [sec](#requirements).
+* satisfies the requirements 1 to 6 and 21 to 24 in section [sec](#requirements).
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 * links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
