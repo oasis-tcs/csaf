@@ -140,6 +140,7 @@ The relevant path for this test is:
 ### Older Initial Release Date than Revision History
 
 It MUST be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
+As the timestamps might use different timezones, the sorting and comparison MUST take timezones into account.
 
 The relevant path for this test is:
 
@@ -175,6 +176,7 @@ The relevant path for this test is:
 ### Older Current Release Date than Revision History
 
 It MUST be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
+As the timestamps might use different timezones, the sorting and comparison MUST take timezones into account.
 
 The relevant path for this test is:
 
@@ -645,3 +647,33 @@ The relevant path for this test is:
 > The key `custom_property` is not defined in the JSON schema.
 
 > A tool MAY remove such keys as a quick fix.
+
+### Same Timestamps in Revision History
+
+It MUST be tested that the timestamps of all items in the revision history are pairwise disjoint.
+As the timestamps might use different timezones, the comparison MUST take timezones into account.
+
+The relevant path for this test is:
+
+```
+  /document/tracking/revision_history[]/date
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "revision_history": [
+    {
+      "date": "2024-01-21T10:00:00.000Z",
+      "number": "2.0.0",
+      "summary": "Second version."
+    },
+    {
+      "date": "2024-01-21T10:00:00.000Z",
+      "number": "1.0.0",
+      "summary": "Initial version."
+    }
+  ]
+```
+
+> The first and second revision have the same timestamp.

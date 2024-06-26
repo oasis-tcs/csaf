@@ -165,10 +165,13 @@
   "vulnerabilities": [
     {
       "cve": "CVE-2021-4104",
-      "cwe": {
-        "id": "CWE-20",
-        "name": "Improper Input Validation"
-      },
+      "cwes": [
+        {
+          "id": "CWE-20",
+          "name": "Improper Input Validation",
+          "version": "4.6"
+        }
+      ],
       "discovery_date": "2021-12-13T00:00:00Z",
       "ids": [
         {

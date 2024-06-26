@@ -200,6 +200,11 @@ Valid values of the `enum` are:
 > To simplify the JSON structure, avoid additional business level tests and aid in parsing, consumption and
 > processing, it is provided as a label to be selected instead of having a separate field.
 
+The default value for `label` is `CLEAR`.
+
+> Note: This provides the suggested default value for anyone writing CSAF documents as the majority of those
+> are intended to be publicly available.
+
 The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find
 the textual description of the TLP version which is used in this document.
 The default value is the URL to the definition by FIRST:
@@ -276,6 +281,7 @@ The valid values are:
 ```
     coordinator
     discoverer
+    multiplier
     other
     translator
     user
@@ -289,10 +295,20 @@ This includes all Computer Emergency/Incident Response Teams (CERTs/CIRTs) or ag
 The value `discoverer` indicates individuals or organizations that find vulnerabilities or security weaknesses.
 This includes all manner of researchers.
 
+The value `multiplier` indicates individuals or organizations that use existing CSAF documents or information that could
+be represented in CSAF, and create their own CSAF documents for distribution to a specific target audience.
+A single multiplier might have target audiences.
+> For example, a National CSIRT might create different CSAF documents for the same vulnerability for critical
+  infrastructure companies in different sectors, government agencies, non-critical industry, and the public based on
+  information sharing agreements and threats to the target group.
+  
+The creation step can make use of a CSAF modifier that replaces metadata, e.g. the document publisher.
+Currently, this value includes multipliers, republishers, and forwarders.
+
 The value `translator` indicates individuals or organizations that translate CSAF documents.
 This includes all manner of language translators, also those who work for the party issuing the original advisory.
 
-The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers, forwarders, republishers,
+The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers,
 and miscellaneous contributors.
 
 The value `user` indicates anyone using a vendor’s product.
