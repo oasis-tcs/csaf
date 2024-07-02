@@ -264,7 +264,8 @@ A CSAF content management system satisfies the "CSAF content management system" 
   new advisories for that group. He might also do the user management for the group up to a configured level.
 * prefills the following fields in new CSAF documents with the values given below or based on the templates from configuration:
 
-  * `/document/csaf_version` with the value `2.0`
+  * `/$schema` with the value prescribed by the schema
+  * `/document/csaf_version` with the value prescribed by the schema
   * `/document/language`
   * `/document/notes`
     * `legal_disclaimer` (Terms of use from the configuration)
@@ -286,7 +287,8 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * prefills all fields which have be present in the existing CSAF document
   * adds a new item in `/document/tracking/revision_history[]`
   * updates the following fields with the values given below or based on the templates from configuration:
-    * `/document/csaf_version` with the value `2.0`
+    * `/$schema` with the value prescribed by the schema
+    * `/document/csaf_version` with the value prescribed by the schema
     * `/document/language`
     * `/document/notes`
       * `legal_disclaimer` (Terms of use from the configuration)
@@ -513,6 +515,8 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a
   warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
+* `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
   
   | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
