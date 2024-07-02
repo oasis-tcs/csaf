@@ -282,7 +282,13 @@ A string which is an enum has a fixed maximum length given by its longest value.
 > Later versions of CSAF might add, modify or delete possible value which could change the longest value.
 > Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
 
-It seems to be safe to assume that the length of each value is not greater than 50. This applies to:
+The value of `/$schema` is a fixed URL, currently pointing to the JSON schema location.
+It seems to be safe to assume that the length of this value is not greater than 5. This applies to:
+
+* `/$schema` (64)
+
+For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
+This applies to:
 
 * `/document/csaf_version` (3)
 * `/document/distribution/tlp/label` (12)

@@ -494,9 +494,19 @@
     }
   },
   "required": [
+    "$schema",
     "document"
   ],
   "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the CSAF JSON schema which the document promises to be valid for.",
+      "type": "string",
+      "enum": [
+        "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"
+      ],
+      "format": "uri"
+    },
     "document": {
       "title": "Document level meta-data",
       "description": "Captures the meta-data about this document describing a particular set of security advisories.",

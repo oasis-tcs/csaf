@@ -27,6 +27,7 @@ Furthermore, it is the foundation all other profiles are build on.
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "CSAF Base":
 
 * The following elements MUST exist and be valid:
+  * `/$schema`
   * `/document/category`
   * `/document/csaf_version`
   * `/document/distribution/tlp/label`
