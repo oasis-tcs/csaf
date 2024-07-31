@@ -22,9 +22,10 @@ schema-elements-01-defs-09-products.md
 schema-elements-01-defs-10-references.md
 schema-elements-01-defs-11-version.md
 schema-elements-02-properties.md
-schema-elements-02-props-01-document.md
-schema-elements-02-props-02-product-tree.md
-schema-elements-02-props-03-vulnerabilities.md
+schema-elements-02-props-01-schema.md
+schema-elements-02-props-02-document.md
+schema-elements-02-props-03-product-tree.md
+schema-elements-02-props-04-vulnerabilities.md
 profiles.md
 additional-conventions.md
 tests-00.md
