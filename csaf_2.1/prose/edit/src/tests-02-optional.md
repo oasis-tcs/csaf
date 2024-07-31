@@ -76,10 +76,10 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.
 
-### Missing Score
+### Missing Metric
 
 For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it MUST be tested that
-a score object exists which covers this product.
+a metric object exists which covers this product.
 
 The relevant paths for this test are:
 
@@ -111,7 +111,7 @@ The relevant paths for this test are:
   ]
 ```
 
-> `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
+> `CSAFPID-9080700` has in Product Status `first_affected` but there is no metric object which covers this Product ID.
 
 ### Build Metadata in Revision History
 
@@ -570,7 +570,7 @@ The relevant paths for this test are:
 For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that
 a CVSS applying to this product has an environmental score of `0`.
 The test SHALL pass if none of the Product IDs listed within product status `fixed` or
-`first_fixed` is found in `products` of any item of the `scores` element.
+`first_fixed` is found in `products` of any item of the `metrics` element.
 
 The relevant path for this test is:
 
@@ -597,14 +597,16 @@ The relevant path for this test is:
           "CSAFPID-9080700"
         ]
       },
-      "scores": [
+      "metrics": [
         {
-          "cvss_v3": {
-            "baseScore": 6.5,
-            "baseSeverity": "MEDIUM",
-            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
-            "version": "3.1"
-          },
+          "content": {
+            "cvss_v3": {
+              "baseScore": 6.5,
+              "baseSeverity": "MEDIUM",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+              "version": "3.1"
+            }
+          }          ,
           "products": [
             "CSAFPID-9080700"
           ]
