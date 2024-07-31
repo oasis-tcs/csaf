@@ -39,23 +39,25 @@
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C/E:POC",
+              "baseScore": 9.0,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "NONE",
+              "confidentialityImpact": "COMPLETE",
+              "integrityImpact": "COMPLETE",
+              "availabilityImpact": "COMPLETE",
+              "exploitability": "PROOF_OF_CONCEPT"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "version": "2.0",
-            "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C/E:POC",
-            "baseScore": 9.0,
-            "accessVector": "NETWORK",
-            "accessComplexity": "LOW",
-            "authentication": "NONE",
-            "confidentialityImpact": "COMPLETE",
-            "integrityImpact": "COMPLETE",
-            "availabilityImpact": "COMPLETE",
-            "exploitability": "PROOF_OF_CONCEPT"
-          }
+          ]
         }
       ]
     }
