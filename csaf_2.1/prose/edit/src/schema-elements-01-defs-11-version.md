@@ -45,7 +45,7 @@ The following rules apply:
    Sole exception is before the initial release (see rule 2).
    The combination of document status `draft` and version 1 MAY be used to indicate that the content is unlikely to change.
 5. Build metadata is never included in the version.
-6. Precedence MUST be calculate by integer comparison.
+6. Precedence MUST be determined by integer comparison.
 
 #### Version Type - Semantic versioning
 
