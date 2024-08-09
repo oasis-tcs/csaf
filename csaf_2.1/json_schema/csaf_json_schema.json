@@ -1201,6 +1201,57 @@
               }
             }
           },
+          "metrics": {
+            "title": "List of metrics",
+            "description": "Contains metric objects for the current vulnerability.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "title": "metric",
+              "description": "Contains all metadata about the metric including products it applies to and the source and the content itself.",
+              "type": "object",
+              "required": [
+                "content",
+                "products"
+              ],
+              "properties": {
+                "content": {
+                  "title": "Content",
+                  "description": "Specifies information about (at least one) metric or score for the given products regarding the current vulnerability.",
+                  "type": "object",
+                  "minProperties": 1,
+                  "properties": {
+                    "cvss_v2": {
+                      "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
+                    },
+                    "cvss_v3": {
+                      "oneOf": [
+                        {
+                          "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
+                        },
+                        {
+                          "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
+                        }
+                      ]
+                    },
+                    "cvss_v4": {
+                      "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
+                    }
+                  }
+                },
+                "products": {
+                  "$ref": "#/$defs/products_t"
+                },
+                "source": {
+                  "title": "Source",
+                  "description": "Contains the URL of the source that originally determined the metric.",
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
           "notes": {
             "title": "Vulnerability notes",
             "description": "Holds notes associated with this vulnerability item.",
@@ -1358,42 +1409,6 @@
                   "description": "Contains the URL where to obtain the remediation.",
                   "type": "string",
                   "format": "uri"
-                }
-              }
-            }
-          },
-          "scores": {
-            "title": "List of scores",
-            "description": "Contains score objects for the current vulnerability.",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "title": "Score",
-              "description": "Specifies information about (at least one) score of the vulnerability and for which products the given value applies.",
-              "type": "object",
-              "minProperties": 2,
-              "required": [
-                "products"
-              ],
-              "properties": {
-                "cvss_v2": {
-                  "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
-                },
-                "cvss_v3": {
-                  "oneOf": [
-                    {
-                      "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
-                    },
-                    {
-                      "$ref": "https://www.first.org/cvss/cvss-v3.1.json"
-                    }
-                  ]
-                },
-                "cvss_v4": {
-                  "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
-                },
-                "products": {
-                  "$ref": "#/$defs/products_t"
                 }
               }
             }
