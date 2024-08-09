@@ -148,6 +148,60 @@
   "vulnerabilities": [
     {
       "cve": "CVE-2021-44228",
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              "attackComplexity": "LOW",
+              "attackVector": "NETWORK",
+              "availabilityImpact": "HIGH",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "HIGH",
+              "privilegesRequired": "NONE",
+              "scope": "CHANGED",
+              "userInteraction": "NONE",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "version": "3.1"
+            }
+          },
+          "products": [
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004",
+            "CSAFPID-0008"
+          ]
+        },
+        {
+          "content": {
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/MC:N/MI:N/MA:N",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "scope": "CHANGED",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "HIGH",
+              "availabilityImpact": "HIGH",
+              "modifiedConfidentialityImpact": "NONE",
+              "modifiedIntegrityImpact": "NONE",
+              "modifiedAvailabilityImpact": "NONE"
+            }
+          },
+          "products": [
+            "CSAFPID-0001",
+            "CSAFPID-0005",
+            "CSAFPID-0006",
+            "CSAFPID-0007",
+            "CSAFPID-0009"
+          ]
+        }
+      ],
       "notes": [
         {
           "category": "description",
@@ -195,56 +249,6 @@
           "details": "Update to the new version 5.1 or later.",
           "product_ids": [
             "CSAFPID-0008"
-          ]
-        }
-      ],
-      "scores": [
-        {
-          "cvss_v3": {
-            "attackComplexity": "LOW",
-            "attackVector": "NETWORK",
-            "availabilityImpact": "HIGH",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL",
-            "confidentialityImpact": "HIGH",
-            "integrityImpact": "HIGH",
-            "privilegesRequired": "NONE",
-            "scope": "CHANGED",
-            "userInteraction": "NONE",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-            "version": "3.1"
-          },
-          "products": [
-            "CSAFPID-0002",
-            "CSAFPID-0003",
-            "CSAFPID-0004",
-            "CSAFPID-0008"
-          ]
-        },
-        {
-          "cvss_v3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/MC:N/MI:N/MA:N",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL",
-            "attackVector": "NETWORK",
-            "attackComplexity": "LOW",
-            "privilegesRequired": "NONE",
-            "userInteraction": "NONE",
-            "scope": "CHANGED",
-            "confidentialityImpact": "HIGH",
-            "integrityImpact": "HIGH",
-            "availabilityImpact": "HIGH",
-            "modifiedConfidentialityImpact": "NONE",
-            "modifiedIntegrityImpact": "NONE",
-            "modifiedAvailabilityImpact": "NONE"
-          },
-          "products": [
-            "CSAFPID-0001",
-            "CSAFPID-0005",
-            "CSAFPID-0006",
-            "CSAFPID-0007",
-            "CSAFPID-0009"
           ]
         }
       ],

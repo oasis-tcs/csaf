@@ -39,28 +39,32 @@
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v4": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v4": {
-            "version": "4.0",
-            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL"
-          }
+          ]
         },
         {
+          "content": {
+            "cvss_v4": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:N/SC:H/SI:N/SA:N",
+              "baseScore": 4.9,
+              "baseSeverity": "MEDIUM"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v4": {
-            "version": "4.0",
-            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:N/SC:H/SI:N/SA:N",
-            "baseScore": 4.9,
-            "baseSeverity": "MEDIUM"
-          }
+          ]
         }
       ]
     }

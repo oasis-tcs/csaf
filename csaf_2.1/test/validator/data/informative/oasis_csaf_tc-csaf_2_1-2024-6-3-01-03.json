@@ -39,70 +39,78 @@
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
-          "products": [
-            "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "version": "2.0",
-            "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:N",
-            "baseScore": 5.5
-          }
-        }
-      ]
-    },
-    {
-      "scores": [
-        {
-          "products": [
-            "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "version": "2.0",
-            "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
-            "baseScore": 10
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:N",
+              "baseScore": 5.5
+            }
           },
-          "cvss_v3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL"
-          }
+          "products": [
+            "CSAFPID-9080700"
+          ]
         }
       ]
     },
     {
-      "scores": [
+      "metrics": [
         {
-          "products": [
-            "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "version": "2.0",
-            "vectorString": "AV:L/AC:L/Au:S/C:C/I:N/A:N",
-            "baseScore": 4.6
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+              "baseScore": 10
+            },
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL"
+            }
           },
-          "cvss_v4": {
-            "version": "4.0",
-            "vectorString": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
-            "baseScore": 5.7,
-            "baseSeverity": "MEDIUM"
-          }
+          "products": [
+            "CSAFPID-9080700"
+          ]
         }
       ]
     },
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:L/AC:L/Au:S/C:C/I:N/A:N",
+              "baseScore": 4.6
+            },
+            "cvss_v4": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+              "baseScore": 5.7,
+              "baseSeverity": "MEDIUM"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "version": "2.0",
-            "vectorString": "AV:N/AC:M/Au:N/C:P/I:N/A:N",
-            "baseScore": 4.3
-          }
+          ]
+        }
+      ]
+    },
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:M/Au:N/C:P/I:N/A:N",
+              "baseScore": 4.3
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
         }
       ]
     }

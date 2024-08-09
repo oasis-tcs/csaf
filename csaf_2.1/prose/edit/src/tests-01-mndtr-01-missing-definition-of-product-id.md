@@ -10,6 +10,7 @@ The relevant paths for this test are:
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
+  /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/first_fixed[]
   /vulnerabilities[]/product_status/fixed[]
@@ -19,7 +20,6 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/recommended[]
   /vulnerabilities[]/product_status/under_investigation[]
   /vulnerabilities[]/remediations[]/product_ids[]
-  /vulnerabilities[]/scores[]/products[]
   /vulnerabilities[]/threats[]/product_ids[]
 ```
 

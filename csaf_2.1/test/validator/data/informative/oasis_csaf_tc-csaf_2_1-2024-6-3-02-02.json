@@ -39,47 +39,53 @@
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v3": {
+              "version": "3.0",
+              "vectorString": "CVSS:3.0/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+              "baseScore": 6.5,
+              "baseSeverity": "MEDIUM"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v3": {
-            "version": "3.0",
-            "vectorString": "CVSS:3.0/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
-            "baseScore": 6.5,
-            "baseSeverity": "MEDIUM"
-          }
+          ]
         }
       ]
     },
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:H",
+              "baseScore": 7.1,
+              "baseSeverity": "HIGH"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:H",
-            "baseScore": 7.1,
-            "baseSeverity": "HIGH"
-          }
+          ]
         }
       ]
     },
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v3": {
+              "version": "3.0",
+              "vectorString": "CVSS:3.0/AV:P/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+              "baseScore": 6.1,
+              "baseSeverity": "MEDIUM"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v3": {
-            "version": "3.0",
-            "vectorString": "CVSS:3.0/AV:P/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
-            "baseScore": 6.1,
-            "baseSeverity": "MEDIUM"
-          }
+          ]
         }
       ]
     }

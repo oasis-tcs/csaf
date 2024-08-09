@@ -144,7 +144,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
   `first_affected` and `last_affected` into `product_ids`.
   If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
-* `/vulnerabilities[]/scores[]`:
+* `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
   * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
@@ -373,11 +373,11 @@ The viewer:
 * satisfies the "CSAF consumer" conformance profile.
 * satisfies the normative requirements given below.
 
-For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
+For each CVSS-Score in `/vulnerabilities[]/metrics[]` the viewer:
 
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
-* SHOULD prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version
-  (in that order) if a `product_id` is listed in more than one item of `scores[]`.
+* SHOULD prefer the item of `metrics[]` for each `product_id` which originates from the document author (and therefore has no property `source`)
+  and has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `metrics[]`.
 
 ### Conformance Clause 12: CSAF management system
 

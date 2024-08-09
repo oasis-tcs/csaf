@@ -39,24 +39,26 @@
   },
   "vulnerabilities": [
     {
-      "product_status": {
-        "first_fixed": [
-          "CSAFPID-9080700"
-        ]
-      },
-      "scores": [
+      "metrics": [
         {
-          "cvss_v4": {
-            "baseScore": 7.3,
-            "baseSeverity": "HIGH",
-            "vectorString": "CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:P/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
-            "version": "4.0"
+          "content": {
+            "cvss_v4": {
+              "baseScore": 7.3,
+              "baseSeverity": "HIGH",
+              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:P/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+              "version": "4.0"
+            }
           },
           "products": [
             "CSAFPID-9080700"
           ]
         }
-      ]
+      ],
+      "product_status": {
+        "first_fixed": [
+          "CSAFPID-9080700"
+        ]
+      }
     }
   ]
 }

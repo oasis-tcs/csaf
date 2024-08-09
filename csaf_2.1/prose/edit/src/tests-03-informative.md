@@ -8,13 +8,16 @@ A program MUST handle a test failure as a information.
 
 ### Use of CVSS v2 as the only Scoring System
 
-For each item in the list of scores which contains the `cvss_v2` object it MUST be tested that is not the only scoring item present.
-The test SHALL pass if a second scoring object is available.
+For each item in the list of metrics which contains the `cvss_v2` object under `content` it MUST be tested that is not the only scoring item present.
+The test SHALL pass if a second scoring object is available regarding the specific product.
+
+> One source might just provide CVSS v2.
+> As long as at least one different source provides a different scoring system for the same products, the test passes.
 
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/scores
+    /vulnerabilities[]/metrics
 ```
 
 *Example 1 (which fails the test):*
@@ -30,16 +33,18 @@ The relevant path for this test is:
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+              "baseScore": 10
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "version": "2.0",
-            "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
-            "baseScore": 10
-          }
+          ]
         }
       ]
     }
@@ -54,13 +59,13 @@ It is recommended to (also) use the CVSS v4.0.
 
 ### Use of CVSS v3.0
 
-For each item in the list of scores which contains the `cvss_v3` object it MUST be tested that CVSS v3.0 is not used.
+For each item in the list of metrics which contains the `cvss_v3` object under `content` it MUST be tested that CVSS v3.0 is not used.
 
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/scores[]/cvss_v3/version
-  /vulnerabilities[]/scores[]/cvss_v3/vectorString
+  /vulnerabilities[]/metrics[]/content/cvss_v3/version
+  /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
 ```
 
 *Example 1 (which fails the test):*
@@ -414,12 +419,12 @@ The relevant paths for this test are:
 
 ### Missing CVSS v4.0
 
-For each item in the list of scores it MUST be tested that a `cvss_v4` object is present.
+For each item in the list of metrics it MUST be tested that a `cvss_v4` object is present.
 
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/scores
+    /vulnerabilities[]/metrics[]/content
 ```
 
 *Example 1 (which fails the test):*
@@ -435,17 +440,19 @@ The relevant path for this test is:
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL"
-          }
+          ]
         }
       ]
     }

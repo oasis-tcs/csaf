@@ -16,8 +16,8 @@ The Vulnerability item of value type `object` with 1 or more properties is a con
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
 Common Weakness Enumeration (CWE) (`cwes`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
-Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`),
-Scores (`scores`), Threats (`threats`), and Title (`title`).
+Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`),
+Remediations (`remediations`), Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -42,6 +42,9 @@ Scores (`scores`), Threats (`threats`), and Title (`title`).
       "involvements": {
         // ...
       },
+      "metrics": {
+        // ...
+      },
       "notes": {
         // ...
       },
@@ -55,9 +58,6 @@ Scores (`scores`), Threats (`threats`), and Title (`title`).
         // ...
       },
       "remediations": {
-        // ...
-      },
-      "scores": {
         // ...
       },
       "threats": {
@@ -392,6 +392,80 @@ The use of this status by a vendor indicates that future updates from the vendor
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
+#### Vulnerabilities Property - Metrics
+
+List of metrics (`metrics`) of value type `array` with 1 or more unique items (a set) of value type `object` Contains metric objects for the current vulnerability.
+
+```
+    "metrics": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every Metric item of value type `object` with the mandatory properties `content` and `products` and the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
+
+```
+        "properties": {
+          "content": {
+            // ...
+          },
+          "products": {
+            // ...
+          },
+          "source": {
+            // ...
+          }
+        }
+```
+
+##### Vulnerabilities Property - Metrics - Content
+
+Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`) and CVSS v4 (`cvss_v4`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
+A Content object has at least 1 property.
+
+```
+        "properties": {
+          "cvss_v2": {
+            // ...
+          },
+          "cvss_v3": {
+            "oneOf": [
+              // ...
+            ]
+          },
+          "cvss_v4": {
+            // ...
+          }
+        }
+```
+
+The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
+[https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+
+The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
+[https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
+[https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+
+The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
+[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
+
+##### Vulnerabilities Property - Metrics - Products
+
+Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given content applies.
+A metric object SHOULD reflect the associated product's status (for example,
+a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed;
+the known affected versions of that product can list the vulnerability score as it applies to them).
+
+##### Vulnerabilities Property - Metrics - Source
+
+Source (`source`) of value type `string` with format `uri` contains the URL of the source that originally determined the metric.
+If no source is given, then the metric was assigned by the document author.
+
+> For example, this could point to the vendor advisory, discoverer blog post, a multiplier's assessment or other sources that provide metric information.
+
 #### Vulnerabilities Property - Notes
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
@@ -688,56 +762,6 @@ This can include details on procedures, scope or impact.
 ##### Vulnerabilities Property - Remediations - URL
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
-
-#### Vulnerabilities Property - Scores
-
-List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
-
-```
-    "scores": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
-```
-
-Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2`,
-`cvss_v3` and `cvss_v4` specifies information about (at least one) score of the vulnerability and for which products the given value applies.
-Each Score item has at least 2 properties.
-
-```
-        "properties": {
-          "cvss_v2": {
-            // ...
-          },
-          "cvss_v3": {
-            "oneOf": [
-              // ...
-            ]
-          },
-          "cvss_v4": {
-            // ...
-          },
-          "products": {
-            // ...
-          }
-        }
-```
-
-The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
-
-The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
-[https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
-[https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
-
-The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
-
-Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
-A score object SHOULD reflect the associated product's status (for example,
-a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed;
-the known affected versions of that product can list the vulnerability score as it applies to them).
 
 #### Vulnerabilities Property - Threats
 

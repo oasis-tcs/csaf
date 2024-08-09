@@ -86,6 +86,31 @@
   "vulnerabilities": [
     {
       "cve": "CVE-2021-44228",
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              "attackComplexity": "LOW",
+              "attackVector": "NETWORK",
+              "availabilityImpact": "HIGH",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "HIGH",
+              "privilegesRequired": "NONE",
+              "scope": "CHANGED",
+              "userInteraction": "NONE",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "version": "3.1"
+            }
+          },
+          "products": [
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004"
+          ]
+        }
+      ],
       "notes": [
         {
           "category": "description",
@@ -112,29 +137,6 @@
           "category": "vendor_fix",
           "details": "Update to version 4.2 or later.",
           "product_ids": [
-            "CSAFPID-0002",
-            "CSAFPID-0003",
-            "CSAFPID-0004"
-          ]
-        }
-      ],
-      "scores": [
-        {
-          "cvss_v3": {
-            "attackComplexity": "LOW",
-            "attackVector": "NETWORK",
-            "availabilityImpact": "HIGH",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL",
-            "confidentialityImpact": "HIGH",
-            "integrityImpact": "HIGH",
-            "privilegesRequired": "NONE",
-            "scope": "CHANGED",
-            "userInteraction": "NONE",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-            "version": "3.1"
-          },
-          "products": [
             "CSAFPID-0002",
             "CSAFPID-0003",
             "CSAFPID-0004"
