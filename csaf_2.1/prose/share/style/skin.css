@@ -203,3 +203,29 @@ ol.toc-6 {
   margin-left: 0.1em;
   font-size: 0.7rem;
 }
+
+ul > li {
+  font-size:10.0pt;
+  font-family:"Liberation Sans",sans-serif;
+}
+
+
+#toc_container {
+    display: table;
+    font-size: 12pt;
+    margin-bottom: 1em;
+    padding: 10px;
+    width: auto;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: left;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+    margin-left: 0;
+    padding-left: 0.5em;
+    font-size: 12pt;
+}
