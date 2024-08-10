@@ -568,28 +568,28 @@ For purposes of this document, the following terms and definitions apply:
   <dd>see CSAF viewer.</dd>
   <dt id="def;vulnerability">vulnerability</dt>
   <dd>functional behavior of a product or service that violates an implicit or explicit security policy
-      (conforming to ISO/IEC 29147 <a href="#ISO29147">cite</a>)</dd>
+      (conforming to ISO/IEC 29147 <a href="#ISO29147">[ISO29147</a>])</dd>
   <dt id="def;xml">XML</dt>
   <dd>eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.</dd>
 </dl>
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
-**\[**<span id="https;//datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00." class="anchor"></span>**https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00.\]** 
+**\[**<span id="JSON-Schema-Core" class="anchor"></span>**JSON-Schema-Core\]** _JSON Schema: A Media Type for Describing JSON Documents_, draft-bhutton-json-schema-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00>.
 
-**\[**<span id="https;//datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00." class="anchor"></span>**https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00.\]** 
+**\[**<span id="JSON-Schema-Validation" class="anchor"></span>**JSON-Schema-Validation\]** _JSON Schema Validation: A Vocabulary for Structural Validation of JSON_, draft-bhutton-json-schema-validation-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00>.
 
-**\[**<span id="https;//json-schema.org/draft/2019-09/json-schema-hypermedia.html." class="anchor"></span>**https://json-schema.org/draft/2019-09/json-schema-hypermedia.html.\]** 
+**\[**<span id="JSON-Hyper-Schema" class="anchor"></span>**JSON-Hyper-Schema\]** _JSON Hyper-Schema: A Vocabulary for Hypermedia Annotation of JSON_, draft-handrews-json-schema-hyperschema-02, September 2019, <https://json-schema.org/draft/2019-09/json-schema-hypermedia.html>.
 
-**\[**<span id="https;//datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00." class="anchor"></span>**https://datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00.\]** 
+**\[**<span id="Relative-JSON-Pointers" class="anchor"></span>**Relative-JSON-Pointers\]** _Relative JSON Pointers_, draft-bhutton-relative-json-pointer-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc2119." class="anchor"></span>**https://www.rfc-editor.org/info/rfc2119.\]** 
+**\[**<span id="RFC2119" class="anchor"></span>**RFC2119\]** Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <https://www.rfc-editor.org/info/rfc2119>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc7464." class="anchor"></span>**https://www.rfc-editor.org/info/rfc7464.\]** 
+**\[**<span id="RFC7464" class="anchor"></span>**RFC7464\]** Williams, N., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, <https://www.rfc-editor.org/info/rfc7464>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8174." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8174.\]** 
+**\[**<span id="RFC8174" class="anchor"></span>**RFC8174\]** Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8259." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8259.\]** 
+**\[**<span id="RFC8259" class="anchor"></span>**RFC8259\]** T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", RFC 8259, DOI 10.17487/RFC8259, December 2017, <https://www.rfc-editor.org/info/rfc8259>.
 
 ## 1.4 Informative References <a id='informative-references'></a>
 
@@ -631,49 +631,49 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="ISO19770-2" class="anchor"></span>**ISO19770-2\]** _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
-**\[**<span id="<https;//www.iso.org/standard/72311.html>." class="anchor"></span>**<https://www.iso.org/standard/72311.html>.\]** 
+**\[**<span id="ISO29147" class="anchor"></span>**ISO29147\]** _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018, <https://www.iso.org/standard/72311.html>.
 
 **\[**<span id="OPENSSL" class="anchor"></span>**OPENSSL\]** _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 
 **\[**<span id="PURL" class="anchor"></span>**PURL\]** _Package URL (purl)_, GitHub Project, https://github.com/package-url/purl-spec.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc3339." class="anchor"></span>**https://www.rfc-editor.org/info/rfc3339.\]** 
+**\[**<span id="RFC3339" class="anchor"></span>**RFC3339\]** Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc3552." class="anchor"></span>**https://www.rfc-editor.org/info/rfc3552.\]** 
+**\[**<span id="RFC3552" class="anchor"></span>**RFC3552\]** Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, <https://www.rfc-editor.org/info/rfc3552>.
 
-**\[**<span id="January 2005, https;//www.rfc-editor.org/info/rfc3986." class="anchor"></span>**January 2005, https://www.rfc-editor.org/info/rfc3986.\]** 
+**\[**<span id="RFC3986" class="anchor"></span>**RFC3986\]** Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, DOI 10.17487/RFC3986, January 2005, <https://www.rfc-editor.org/info/rfc3986>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc4880." class="anchor"></span>**https://www.rfc-editor.org/info/rfc4880.\]** 
+**\[**<span id="RFC4880" class="anchor"></span>**RFC4880\]** Callas, J., Donnerhacke, L., Finney, H., Shaw, D., and R. Thayer, "OpenPGP Message Format", RFC 4880, DOI 10.17487/RFC4880, November 2007, <https://www.rfc-editor.org/info/rfc4880>.
 
-**\[**<span id="June 2014, https;//www.rfc-editor.org/info/rfc7231." class="anchor"></span>**June 2014, https://www.rfc-editor.org/info/rfc7231.\]** 
+**\[**<span id="RFC7231" class="anchor"></span>**RFC7231\]** Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, <https://www.rfc-editor.org/info/rfc7231>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc7464." class="anchor"></span>**https://www.rfc-editor.org/info/rfc7464.\]** 
+**\[**<span id="RFC7464" class="anchor"></span>**RFC7464\]** N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, <https://www.rfc-editor.org/info/rfc7464>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8322." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8322.\]** 
+**\[**<span id="RFC8322" class="anchor"></span>**RFC8322\]** Field, J., Banghart, S., and D. Waltermire, "Resource-Oriented Lightweight Information Exchange (ROLIE)", RFC 8322, DOI 10.17487/RFC8322, February 2018, <https://www.rfc-editor.org/info/rfc8322>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8615." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8615.\]** 
+**\[**<span id="RFC8615" class="anchor"></span>**RFC8615\]** Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019, <https://www.rfc-editor.org/info/rfc8615>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc9116." class="anchor"></span>**https://www.rfc-editor.org/info/rfc9116.\]** 
+**\[**<span id="RFC9116" class="anchor"></span>**RFC9116\]** Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, <https://www.rfc-editor.org/info/rfc9116>.
 
-**\[**<span id="S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https;//dx.doi.org/10.6028/NIST.SP.800-126r2." class="anchor"></span>**S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https://dx.doi.org/10.6028/NIST.SP.800-126r2.\]** 
+**\[**<span id="SCAP12" class="anchor"></span>**SCAP12\]** _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
 
-**\[**<span id="SECURITY-TXT" class="anchor"></span>**SECURITY-TXT\]** Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org/.
+**\[**<span id="SECURITY-TXT" class="anchor"></span>**SECURITY-TXT\]** Foudil, E. and Shafranovich, Y., _Security.txt Project_, <https://securitytxt.org/>.
 
-**\[**<span id="SemVer" class="anchor"></span>**SemVer\]** _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
+**\[**<span id="SemVer" class="anchor"></span>**SemVer\]** _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, <https://semver.org/>.
 
-**\[**<span id="https;//spdx.github.io/spdx-spec/." class="anchor"></span>**https://spdx.github.io/spdx-spec/.\]** 
+**\[**<span id="SPDX22" class="anchor"></span>**SPDX22\]** _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, <https://spdx.github.io/spdx-spec/>.
 
-**\[**<span id="https;//github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst." class="anchor"></span>**https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.\]** 
+**\[**<span id="VERS" class="anchor"></span>**VERS\]** _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst>.
 
-**\[**<span id="27 September 2021, <https;//ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>." class="anchor"></span>**27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.\]** 
+**\[**<span id="VEX" class="anchor"></span>**VEX\]** _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.
 
-**\[**<span id="June 2022, https;//www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf." class="anchor"></span>**June 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.\]** 
+**\[**<span id="VEX-Justification" class="anchor"></span>**VEX-Justification\]** _Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, June 2022, <https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf>.
 
-**\[**<span id="W3C Recommendation, November 26, 2008, https;//www.w3.org/TR/2008/REC-xml-20081126/. Latest version available at <https;//www.w3.org/TR/xml>." class="anchor"></span>**W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/. Latest version available at <https://www.w3.org/TR/xml>.\]** 
+**\[**<span id="XML" class="anchor"></span>**XML\]** _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, <https://www.w3.org/TR/2008/REC-xml-20081126/>. Latest version available at <https://www.w3.org/TR/xml>.
 
-**\[**<span id="Latest version available at <https;//www.w3.org/TR/xmlschema11-1/>." class="anchor"></span>**Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.\]** 
+**\[**<span id="XML-Schema-1" class="anchor"></span>**XML-Schema-1\]** _W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn, D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, <https://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/>. Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.
 
-**\[**<span id="https;//www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. Latest version available at <https;//www.w3.org/TR/xmlschema11-2/>." class="anchor"></span>**https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.\]** 
+**\[**<span id="XML-Schema-2" class="anchor"></span>**XML-Schema-2\]** _W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012, <https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/>. Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.
 
 ## 1.5 Typographical Conventions <a id='typographical-conventions'></a>
 

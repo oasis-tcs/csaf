@@ -249,7 +249,7 @@ viewer
 
 vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy
-(conforming to ISO/IEC 29147 [cite](#ISO29147))
+(conforming to ISO/IEC 29147 [[ISO29147](#ISO29147)])
 
 XML
 :    eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
