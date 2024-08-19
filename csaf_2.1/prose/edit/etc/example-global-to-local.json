@@ -95,7 +95,7 @@
   "93": "multiple-flags-with-vex-justification-codes-per-product-eg-1",
   "94": "unused-definition-of-product-id-eg-1",
   "95": "missing-remediation-eg-1",
-  "96": "missing-score-eg-1",
+  "96": "missing-metric-eg-1",
   "97": "build-metadata-in-revision-history-eg-1",
   "98": "older-initial-release-date-than-revision-history-eg-1",
   "99": "older-current-release-date-than-revision-history-eg-1",

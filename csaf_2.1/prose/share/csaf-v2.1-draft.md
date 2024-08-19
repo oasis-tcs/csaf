@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 26 June 2024
+## 31 July 2024
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -71,7 +71,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 26 June 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 31 July 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -190,20 +190,23 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			3.2.4.5 [Vulnerabilities Property - Flags](#vulnerabilities-property-flags)  
 			3.2.4.6 [Vulnerabilities Property - IDs](#vulnerabilities-property-ids)  
 			3.2.4.7 [Vulnerabilities Property - Involvements](#vulnerabilities-property-involvements)  
-			3.2.4.8 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
-			3.2.4.9 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
-			3.2.4.10 [Vulnerabilities Property - References](#vulnerabilities-property-references)  
-			3.2.4.11 [Vulnerabilities Property - Release Date](#vulnerabilities-property-release-date)  
-			3.2.4.12 [Vulnerabilities Property - Remediations](#vulnerabilities-property-remediations)  
-				3.2.4.12.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
-				3.2.4.12.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property-remediations-date)  
-				3.2.4.12.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property-remediations-details)  
-				3.2.4.12.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property-remediations-entitlements)  
-				3.2.4.12.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property-remediations-group-ids)  
-				3.2.4.12.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property-remediations-product-ids)  
-				3.2.4.12.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property-remediations-restart-required)  
-				3.2.4.12.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property-remediations-url)  
-			3.2.4.13 [Vulnerabilities Property - Scores](#vulnerabilities-property-scores)  
+			3.2.4.8 [Vulnerabilities Property - Metrics](#vulnerabilities-property-metrics)  
+				3.2.4.8.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property-metrics-content)  
+				3.2.4.8.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property-metrics-products)  
+				3.2.4.8.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property-metrics-source)  
+			3.2.4.9 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
+			3.2.4.10 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
+			3.2.4.11 [Vulnerabilities Property - References](#vulnerabilities-property-references)  
+			3.2.4.12 [Vulnerabilities Property - Release Date](#vulnerabilities-property-release-date)  
+			3.2.4.13 [Vulnerabilities Property - Remediations](#vulnerabilities-property-remediations)  
+				3.2.4.13.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
+				3.2.4.13.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property-remediations-date)  
+				3.2.4.13.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property-remediations-details)  
+				3.2.4.13.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property-remediations-entitlements)  
+				3.2.4.13.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property-remediations-group-ids)  
+				3.2.4.13.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property-remediations-product-ids)  
+				3.2.4.13.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property-remediations-restart-required)  
+				3.2.4.13.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property-remediations-url)  
 			3.2.4.14 [Vulnerabilities Property - Threats](#vulnerabilities-property-threats)  
 			3.2.4.15 [Vulnerabilities Property - Title](#vulnerabilities-property-title)  
 4. [Profiles](#profiles)  
@@ -267,7 +270,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	6.2 [Optional Tests](#optional-tests)  
 		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
 		6.2.2 [Missing Remediation](#missing-remediation)  
-		6.2.3 [Missing Score](#missing-score)  
+		6.2.3 [Missing Metric](#missing-metric)  
 		6.2.4 [Build Metadata in Revision History](#build-metadata-in-revision-history)  
 		6.2.5 [Older Initial Release Date than Revision History](#older-initial-release-date-than-revision-history)  
 		6.2.6 [Older Current Release Date than Revision History](#older-current-release-date-than-revision-history)  
@@ -565,28 +568,28 @@ For purposes of this document, the following terms and definitions apply:
   <dd>see CSAF viewer.</dd>
   <dt id="def;vulnerability">vulnerability</dt>
   <dd>functional behavior of a product or service that violates an implicit or explicit security policy
-      (conforming to ISO/IEC 29147 <a href="#ISO29147">cite</a>)</dd>
+      (conforming to ISO/IEC 29147 <a href="#ISO29147">[ISO29147</a>])</dd>
   <dt id="def;xml">XML</dt>
   <dd>eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.</dd>
 </dl>
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
-**\[**<span id="https;//datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00." class="anchor"></span>**https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00.\]** 
+**\[**<span id="JSON-Schema-Core" class="anchor"></span>**JSON-Schema-Core\]** _JSON Schema: A Media Type for Describing JSON Documents_, draft-bhutton-json-schema-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00>.
 
-**\[**<span id="https;//datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00." class="anchor"></span>**https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00.\]** 
+**\[**<span id="JSON-Schema-Validation" class="anchor"></span>**JSON-Schema-Validation\]** _JSON Schema Validation: A Vocabulary for Structural Validation of JSON_, draft-bhutton-json-schema-validation-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00>.
 
-**\[**<span id="https;//json-schema.org/draft/2019-09/json-schema-hypermedia.html." class="anchor"></span>**https://json-schema.org/draft/2019-09/json-schema-hypermedia.html.\]** 
+**\[**<span id="JSON-Hyper-Schema" class="anchor"></span>**JSON-Hyper-Schema\]** _JSON Hyper-Schema: A Vocabulary for Hypermedia Annotation of JSON_, draft-handrews-json-schema-hyperschema-02, September 2019, <https://json-schema.org/draft/2019-09/json-schema-hypermedia.html>.
 
-**\[**<span id="https;//datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00." class="anchor"></span>**https://datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00.\]** 
+**\[**<span id="Relative-JSON-Pointers" class="anchor"></span>**Relative-JSON-Pointers\]** _Relative JSON Pointers_, draft-bhutton-relative-json-pointer-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc2119." class="anchor"></span>**https://www.rfc-editor.org/info/rfc2119.\]** 
+**\[**<span id="RFC2119" class="anchor"></span>**RFC2119\]** Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <https://www.rfc-editor.org/info/rfc2119>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc7464." class="anchor"></span>**https://www.rfc-editor.org/info/rfc7464.\]** 
+**\[**<span id="RFC7464" class="anchor"></span>**RFC7464\]** Williams, N., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, <https://www.rfc-editor.org/info/rfc7464>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8174." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8174.\]** 
+**\[**<span id="RFC8174" class="anchor"></span>**RFC8174\]** Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8259." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8259.\]** 
+**\[**<span id="RFC8259" class="anchor"></span>**RFC8259\]** T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", RFC 8259, DOI 10.17487/RFC8259, December 2017, <https://www.rfc-editor.org/info/rfc8259>.
 
 ## 1.4 Informative References <a id='informative-references'></a>
 
@@ -628,49 +631,49 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="ISO19770-2" class="anchor"></span>**ISO19770-2\]** _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
-**\[**<span id="<https;//www.iso.org/standard/72311.html>." class="anchor"></span>**<https://www.iso.org/standard/72311.html>.\]** 
+**\[**<span id="ISO29147" class="anchor"></span>**ISO29147\]** _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018, <https://www.iso.org/standard/72311.html>.
 
 **\[**<span id="OPENSSL" class="anchor"></span>**OPENSSL\]** _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 
 **\[**<span id="PURL" class="anchor"></span>**PURL\]** _Package URL (purl)_, GitHub Project, https://github.com/package-url/purl-spec.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc3339." class="anchor"></span>**https://www.rfc-editor.org/info/rfc3339.\]** 
+**\[**<span id="RFC3339" class="anchor"></span>**RFC3339\]** Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc3552." class="anchor"></span>**https://www.rfc-editor.org/info/rfc3552.\]** 
+**\[**<span id="RFC3552" class="anchor"></span>**RFC3552\]** Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, <https://www.rfc-editor.org/info/rfc3552>.
 
-**\[**<span id="January 2005, https;//www.rfc-editor.org/info/rfc3986." class="anchor"></span>**January 2005, https://www.rfc-editor.org/info/rfc3986.\]** 
+**\[**<span id="RFC3986" class="anchor"></span>**RFC3986\]** Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, DOI 10.17487/RFC3986, January 2005, <https://www.rfc-editor.org/info/rfc3986>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc4880." class="anchor"></span>**https://www.rfc-editor.org/info/rfc4880.\]** 
+**\[**<span id="RFC4880" class="anchor"></span>**RFC4880\]** Callas, J., Donnerhacke, L., Finney, H., Shaw, D., and R. Thayer, "OpenPGP Message Format", RFC 4880, DOI 10.17487/RFC4880, November 2007, <https://www.rfc-editor.org/info/rfc4880>.
 
-**\[**<span id="June 2014, https;//www.rfc-editor.org/info/rfc7231." class="anchor"></span>**June 2014, https://www.rfc-editor.org/info/rfc7231.\]** 
+**\[**<span id="RFC7231" class="anchor"></span>**RFC7231\]** Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, <https://www.rfc-editor.org/info/rfc7231>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc7464." class="anchor"></span>**https://www.rfc-editor.org/info/rfc7464.\]** 
+**\[**<span id="RFC7464" class="anchor"></span>**RFC7464\]** N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, <https://www.rfc-editor.org/info/rfc7464>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8322." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8322.\]** 
+**\[**<span id="RFC8322" class="anchor"></span>**RFC8322\]** Field, J., Banghart, S., and D. Waltermire, "Resource-Oriented Lightweight Information Exchange (ROLIE)", RFC 8322, DOI 10.17487/RFC8322, February 2018, <https://www.rfc-editor.org/info/rfc8322>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc8615." class="anchor"></span>**https://www.rfc-editor.org/info/rfc8615.\]** 
+**\[**<span id="RFC8615" class="anchor"></span>**RFC8615\]** Nottingham, M., "Well-Known Uniform Resource Identifiers (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019, <https://www.rfc-editor.org/info/rfc8615>.
 
-**\[**<span id="https;//www.rfc-editor.org/info/rfc9116." class="anchor"></span>**https://www.rfc-editor.org/info/rfc9116.\]** 
+**\[**<span id="RFC9116" class="anchor"></span>**RFC9116\]** Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, <https://www.rfc-editor.org/info/rfc9116>.
 
-**\[**<span id="S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https;//dx.doi.org/10.6028/NIST.SP.800-126r2." class="anchor"></span>**S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, https://dx.doi.org/10.6028/NIST.SP.800-126r2.\]** 
+**\[**<span id="SCAP12" class="anchor"></span>**SCAP12\]** _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
 
-**\[**<span id="SECURITY-TXT" class="anchor"></span>**SECURITY-TXT\]** Foudil, E. and Shafranovich, Y., _Security.txt Project_, https://securitytxt.org/.
+**\[**<span id="SECURITY-TXT" class="anchor"></span>**SECURITY-TXT\]** Foudil, E. and Shafranovich, Y., _Security.txt Project_, <https://securitytxt.org/>.
 
-**\[**<span id="SemVer" class="anchor"></span>**SemVer\]** _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, https://semver.org/.
+**\[**<span id="SemVer" class="anchor"></span>**SemVer\]** _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, <https://semver.org/>.
 
-**\[**<span id="https;//spdx.github.io/spdx-spec/." class="anchor"></span>**https://spdx.github.io/spdx-spec/.\]** 
+**\[**<span id="SPDX22" class="anchor"></span>**SPDX22\]** _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, <https://spdx.github.io/spdx-spec/>.
 
-**\[**<span id="https;//github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst." class="anchor"></span>**https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst.\]** 
+**\[**<span id="VERS" class="anchor"></span>**VERS\]** _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst>.
 
-**\[**<span id="27 September 2021, <https;//ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>." class="anchor"></span>**27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.\]** 
+**\[**<span id="VEX" class="anchor"></span>**VEX\]** _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.
 
-**\[**<span id="June 2022, https;//www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf." class="anchor"></span>**June 2022, https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf.\]** 
+**\[**<span id="VEX-Justification" class="anchor"></span>**VEX-Justification\]** _Vulnerability Exploitability eXchange (VEX) - Status Justifications_, VEX sub-group of the Framing Working Group in the CISA SBOM initiative, June 2022, <https://www.cisa.gov/sites/default/files/publications/VEX_Status_Justification_Jun22.pdf>.
 
-**\[**<span id="W3C Recommendation, November 26, 2008, https;//www.w3.org/TR/2008/REC-xml-20081126/. Latest version available at <https;//www.w3.org/TR/xml>." class="anchor"></span>**W3C Recommendation, November 26, 2008, https://www.w3.org/TR/2008/REC-xml-20081126/. Latest version available at <https://www.w3.org/TR/xml>.\]** 
+**\[**<span id="XML" class="anchor"></span>**XML\]** _Extensible Markup Language (XML) 1.0 (Fifth Edition)_, T. Bray, J. Paoli, M. Sperberg-McQueen, E. Maler, F. Yergeau, Editors, W3C Recommendation, November 26, 2008, <https://www.w3.org/TR/2008/REC-xml-20081126/>. Latest version available at <https://www.w3.org/TR/xml>.
 
-**\[**<span id="Latest version available at <https;//www.w3.org/TR/xmlschema11-1/>." class="anchor"></span>**Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.\]** 
+**\[**<span id="XML-Schema-1" class="anchor"></span>**XML-Schema-1\]** _W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures_, S. Gao, M. Sperberg-McQueen, H. Thompson, N. Mendelsohn, D. Beech, M. Maloney, Editors, W3C Recommendation, April 5, 2012, <https://www.w3.org/TR/2012/REC-xmlschema11-1-20120405/>. Latest version available at <https://www.w3.org/TR/xmlschema11-1/>.
 
-**\[**<span id="https;//www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. Latest version available at <https;//www.w3.org/TR/xmlschema11-2/>." class="anchor"></span>**https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/. Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.\]** 
+**\[**<span id="XML-Schema-2" class="anchor"></span>**XML-Schema-2\]** _W3C XML Schema Definition Language (XSD) 1.1 Part 2_: Datatypes W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes, D. Peterson, S. Gao, A. Malhotra, M. Sperberg-McQueen, H. Thompson, Paul V. Biron, Editors, W3C Recommendation, April 5, 2012, <https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/>. Latest version available at <https://www.w3.org/TR/xmlschema11-2/>.
 
 ## 1.5 Typographical Conventions <a id='typographical-conventions'></a>
 
@@ -1862,7 +1865,7 @@ The following rules apply:
    Sole exception is before the initial release (see rule 2).
    The combination of document status `draft` and version 1 MAY be used to indicate that the content is unlikely to change.
 5. Build metadata is never included in the version.
-6. Precedence MUST be calculate by integer comparison.
+6. Precedence MUST be determined by integer comparison.
 
 #### 3.1.11.2 Version Type - Semantic versioning <a id='version-type-semantic-versioning'></a>
 
@@ -2861,8 +2864,8 @@ The Vulnerability item of value type `object` with 1 or more properties is a con
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
 Common Weakness Enumeration (CWE) (`cwes`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
-Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`), Remediations (`remediations`),
-Scores (`scores`), Threats (`threats`), and Title (`title`).
+Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`),
+Remediations (`remediations`), Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -2887,6 +2890,9 @@ Scores (`scores`), Threats (`threats`), and Title (`title`).
       "involvements": {
         // ...
       },
+      "metrics": {
+        // ...
+      },
       "notes": {
         // ...
       },
@@ -2900,9 +2906,6 @@ Scores (`scores`), Threats (`threats`), and Title (`title`).
         // ...
       },
       "remediations": {
-        // ...
-      },
-      "scores": {
         // ...
       },
       "threats": {
@@ -3237,7 +3240,81 @@ The use of this status by a vendor indicates that future updates from the vendor
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
-#### 3.2.4.8 Vulnerabilities Property - Notes <a id='vulnerabilities-property-notes'></a>
+#### 3.2.4.8 Vulnerabilities Property - Metrics <a id='vulnerabilities-property-metrics'></a>
+
+List of metrics (`metrics`) of value type `array` with 1 or more unique items (a set) of value type `object` Contains metric objects for the current vulnerability.
+
+```
+    "metrics": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every Metric item of value type `object` with the mandatory properties `content` and `products` and the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
+
+```
+        "properties": {
+          "content": {
+            // ...
+          },
+          "products": {
+            // ...
+          },
+          "source": {
+            // ...
+          }
+        }
+```
+
+##### 3.2.4.8.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property-metrics-content'></a>
+
+Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`) and CVSS v4 (`cvss_v4`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
+A Content object has at least 1 property.
+
+```
+        "properties": {
+          "cvss_v2": {
+            // ...
+          },
+          "cvss_v3": {
+            "oneOf": [
+              // ...
+            ]
+          },
+          "cvss_v4": {
+            // ...
+          }
+        }
+```
+
+The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
+[https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+
+The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
+[https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
+[https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+
+The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
+[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
+
+##### 3.2.4.8.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property-metrics-products'></a>
+
+Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given content applies.
+A metric object SHOULD reflect the associated product's status (for example,
+a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed;
+the known affected versions of that product can list the vulnerability score as it applies to them).
+
+##### 3.2.4.8.3 Vulnerabilities Property - Metrics - Source <a id='vulnerabilities-property-metrics-source'></a>
+
+Source (`source`) of value type `string` with format `uri` contains the URL of the source that originally determined the metric.
+If no source is given, then the metric was assigned by the document author.
+
+> For example, this could point to the vendor advisory, discoverer blog post, a multiplier's assessment or other sources that provide metric information.
+
+#### 3.2.4.9 Vulnerabilities Property - Notes <a id='vulnerabilities-property-notes'></a>
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
@@ -3255,7 +3332,7 @@ The following combinations of `category` and `title` have a special meaning and 
 | `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
 | `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
 
-#### 3.2.4.9 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
+#### 3.2.4.10 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
@@ -3329,7 +3406,7 @@ Under investigation (`under_investigation`) of value type Products (`products_t`
 are not affected by the vulnerability.
 However, it is still under investigation - the result will be provided in a later release of the document.
 
-#### 3.2.4.10 Vulnerabilities Property - References <a id='vulnerabilities-property-references'></a>
+#### 3.2.4.11 Vulnerabilities Property - References <a id='vulnerabilities-property-references'></a>
 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
@@ -3340,12 +3417,12 @@ list of references associated with this vulnerability item.
     },
 ```
 
-#### 3.2.4.11 Vulnerabilities Property - Release Date <a id='vulnerabilities-property-release-date'></a>
+#### 3.2.4.12 Vulnerabilities Property - Release Date <a id='vulnerabilities-property-release-date'></a>
 
 Release date (`release_date`) with value type `string` of format `date-time` holds the date and time
 the vulnerability was originally released into the wild.
 
-#### 3.2.4.12 Vulnerabilities Property - Remediations <a id='vulnerabilities-property-remediations'></a>
+#### 3.2.4.13 Vulnerabilities Property - Remediations <a id='vulnerabilities-property-remediations'></a>
 
 List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of value type `object` contains a list of remediations.
 
@@ -3395,7 +3472,7 @@ Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`ur
       }
 ```
 
-##### 3.2.4.12.1 Vulnerabilities Property - Remediations - Category <a id='vulnerabilities-property-remediations-category'></a>
+##### 3.2.4.13.1 Vulnerabilities Property - Remediations - Category <a id='vulnerabilities-property-remediations-category'></a>
 
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:
@@ -3436,15 +3513,15 @@ This is often the case when a product has been orphaned, declared end-of-life, o
 The text in field `details` SHOULD contain details about why there will be no fix issued.
 The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
 
-##### 3.2.4.12.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property-remediations-date'></a>
+##### 3.2.4.13.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property-remediations-date'></a>
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-##### 3.2.4.12.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property-remediations-details'></a>
+##### 3.2.4.13.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property-remediations-details'></a>
 
 Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
-##### 3.2.4.12.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property-remediations-entitlements'></a>
+##### 3.2.4.13.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property-remediations-entitlements'></a>
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with
 1 or more characters contains a list of entitlements.
@@ -3461,16 +3538,16 @@ List of entitlements (`entitlements`) of value type `array` with 1 or more items
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that
 fully resolves the vulnerability.
 
-##### 3.2.4.12.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property-remediations-group-ids'></a>
+##### 3.2.4.13.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property-remediations-group-ids'></a>
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of
 Product Groups the current remediation item applies to.
 
-##### 3.2.4.12.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property-remediations-product-ids'></a>
+##### 3.2.4.13.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property-remediations-product-ids'></a>
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
-##### 3.2.4.12.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property-remediations-restart-required'></a>
+##### 3.2.4.13.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property-remediations-restart-required'></a>
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
@@ -3530,59 +3607,9 @@ The values MUST be used as follows:
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart.
 This can include details on procedures, scope or impact.
 
-##### 3.2.4.12.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property-remediations-url'></a>
+##### 3.2.4.13.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property-remediations-url'></a>
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
-
-#### 3.2.4.13 Vulnerabilities Property - Scores <a id='vulnerabilities-property-scores'></a>
-
-List of scores (`scores`) of value type `array` with 1 or more items of type score holds a list of score objects for the current vulnerability.
-
-```
-    "scores": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
-```
-
-Value type of every such Score item is `object` with the mandatory property `products` and the optional properties `cvss_v2`,
-`cvss_v3` and `cvss_v4` specifies information about (at least one) score of the vulnerability and for which products the given value applies.
-Each Score item has at least 2 properties.
-
-```
-        "properties": {
-          "cvss_v2": {
-            // ...
-          },
-          "cvss_v3": {
-            "oneOf": [
-              // ...
-            ]
-          },
-          "cvss_v4": {
-            // ...
-          },
-          "products": {
-            // ...
-          }
-        }
-```
-
-The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
-
-The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
-[https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
-[https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
-
-The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at [https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
-
-Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given scores apply.
-A score object SHOULD reflect the associated product's status (for example,
-a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed;
-the known affected versions of that product can list the vulnerability score as it applies to them).
 
 #### 3.2.4.14 Vulnerabilities Property - Threats <a id='vulnerabilities-property-threats'></a>
 
@@ -3925,6 +3952,7 @@ The relevant paths for this test are:
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
+  /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/first_fixed[]
   /vulnerabilities[]/product_status/fixed[]
@@ -3934,7 +3962,6 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/recommended[]
   /vulnerabilities[]/product_status/under_investigation[]
   /vulnerabilities[]/remediations[]/product_ids[]
-  /vulnerabilities[]/scores[]/products[]
   /vulnerabilities[]/threats[]/product_ids[]
 ```
 
@@ -4186,12 +4213,14 @@ Contradiction groups are:
 
 ### 6.1.7 Multiple Scores with same Version per Product <a id='multiple-scores-with-same-version-per-product'></a>
 
-For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version.
+For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version and same source.
+
+> Different source might assign different scores for the same product.
 
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/scores[]
+    /vulnerabilities[]/metrics[]
 ```
 
 *Example 1 (which fails the test):*<a id='multiple-scores-with-same-version-per-product-eg-1'></a><a id='sec-6-1-7-eg-1'></a><a id='example-56'></a>
@@ -4207,35 +4236,39 @@ The relevant path for this test is:
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL"
+           }
+          }
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL"
-          }
+          ]          
         },
         {
+          "content": {
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+              "baseScore": 6.5,
+              "baseSeverity": "MEDIUM"
+            }
+          }
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
-            "baseScore": 6.5,
-            "baseSeverity": "MEDIUM"
-          }
+          ]          
         }
       ]
     }
   ]
 ```
 
-> Two CVSS v3.1 scores are given for `CSAFPID-9080700`.
+> Two CVSS v3.1 scores are given for `CSAFPID-9080700` by the document author.
 
 ### 6.1.8 Invalid CVSS <a id='invalid-cvss'></a>
 
@@ -4244,9 +4277,9 @@ It MUST be tested that the given CVSS object is valid according to the reference
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/scores[]/cvss_v2
-  /vulnerabilities[]/scores[]/cvss_v3
-  /vulnerabilities[]/scores[]/cvss_v4
+  /vulnerabilities[]/metrics[]/content/cvss_v2
+  /vulnerabilities[]/metrics[]/content/cvss_v3
+  /vulnerabilities[]/metrics[]/content/cvss_v4
 ```
 
 *Example 1 (which fails the test):*<a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-57'></a>
@@ -4273,21 +4306,21 @@ It MUST be tested that the given CVSS object has the values computed correctly a
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/scores[]/cvss_v2/baseScore
-  /vulnerabilities[]/scores[]/cvss_v2/temporalScore
-  /vulnerabilities[]/scores[]/cvss_v2/environmentalScore
-  /vulnerabilities[]/scores[]/cvss_v3/baseScore
-  /vulnerabilities[]/scores[]/cvss_v3/baseSeverity
-  /vulnerabilities[]/scores[]/cvss_v3/temporalScore
-  /vulnerabilities[]/scores[]/cvss_v3/temporalSeverity
-  /vulnerabilities[]/scores[]/cvss_v3/environmentalScore
-  /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
-  /vulnerabilities[]/scores[]/cvss_v4/baseScore
-  /vulnerabilities[]/scores[]/cvss_v4/baseSeverity
-  /vulnerabilities[]/scores[]/cvss_v4/threatScore
-  /vulnerabilities[]/scores[]/cvss_v4/threatSeverity
-  /vulnerabilities[]/scores[]/cvss_v4/environmentalScore
-  /vulnerabilities[]/scores[]/cvss_v4/environmentalSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v2/baseScore
+  /vulnerabilities[]/metrics[]/content/cvss_v2/temporalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v2/environmentalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/baseScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/baseSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v3/temporalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/temporalSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v4/baseScore
+  /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v4/threatScore
+  /vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity
 ```
 
 *Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-58'></a>
@@ -4312,9 +4345,9 @@ It MUST be tested that the given CVSS properties do not contradict the CVSS vect
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/scores[]/cvss_v2
-  /vulnerabilities[]/scores[]/cvss_v3
-  /vulnerabilities[]/scores[]/cvss_v4
+  /vulnerabilities[]/metrics[]/content/cvss_v2
+  /vulnerabilities[]/metrics[]/content/cvss_v3
+  /vulnerabilities[]/metrics[]/content/cvss_v4
 ```
 
 *Example 1 (which fails the test):*<a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-59'></a>
@@ -5568,10 +5601,10 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.
 
-### 6.2.3 Missing Score <a id='missing-score'></a>
+### 6.2.3 Missing Metric <a id='missing-metric'></a>
 
 For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it MUST be tested that
-a score object exists which covers this product.
+a metric object exists which covers this product.
 
 The relevant paths for this test are:
 
@@ -5581,7 +5614,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-score-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-96'></a>
+*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-96'></a>
 
 ```
   "product_tree": {
@@ -5603,7 +5636,7 @@ The relevant paths for this test are:
   ]
 ```
 
-> `CSAFPID-9080700` has in Product Status `first_affected` but there is no score object which covers this Product ID.
+> `CSAFPID-9080700` has in Product Status `first_affected` but there is no metric object which covers this Product ID.
 
 ### 6.2.4 Build Metadata in Revision History <a id='build-metadata-in-revision-history'></a>
 
@@ -6062,7 +6095,7 @@ The relevant paths for this test are:
 For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that
 a CVSS applying to this product has an environmental score of `0`.
 The test SHALL pass if none of the Product IDs listed within product status `fixed` or
-`first_fixed` is found in `products` of any item of the `scores` element.
+`first_fixed` is found in `products` of any item of the `metrics` element.
 
 The relevant path for this test is:
 
@@ -6089,14 +6122,16 @@ The relevant path for this test is:
           "CSAFPID-9080700"
         ]
       },
-      "scores": [
+      "metrics": [
         {
-          "cvss_v3": {
-            "baseScore": 6.5,
-            "baseSeverity": "MEDIUM",
-            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
-            "version": "3.1"
-          },
+          "content": {
+            "cvss_v3": {
+              "baseScore": 6.5,
+              "baseSeverity": "MEDIUM",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+              "version": "3.1"
+            }
+          }          ,
           "products": [
             "CSAFPID-9080700"
           ]
@@ -6180,13 +6215,16 @@ A program MUST handle a test failure as a information.
 
 ### 6.3.1 Use of CVSS v2 as the only Scoring System <a id='use-of-cvss-v2-as-the-only-scoring-system'></a>
 
-For each item in the list of scores which contains the `cvss_v2` object it MUST be tested that is not the only scoring item present.
-The test SHALL pass if a second scoring object is available.
+For each item in the list of metrics which contains the `cvss_v2` object under `content` it MUST be tested that is not the only scoring item present.
+The test SHALL pass if a second scoring object is available regarding the specific product.
+
+> One source might just provide CVSS v2.
+> As long as at least one different source provides a different scoring system for the same products, the test passes.
 
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/scores
+    /vulnerabilities[]/metrics
 ```
 
 *Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-115'></a>
@@ -6202,16 +6240,18 @@ The relevant path for this test is:
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+              "baseScore": 10
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "version": "2.0",
-            "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
-            "baseScore": 10
-          }
+          ]
         }
       ]
     }
@@ -6226,13 +6266,13 @@ It is recommended to (also) use the CVSS v4.0.
 
 ### 6.3.2 Use of CVSS v3.0 <a id='use-of-cvss-v3-0'></a>
 
-For each item in the list of scores which contains the `cvss_v3` object it MUST be tested that CVSS v3.0 is not used.
+For each item in the list of metrics which contains the `cvss_v3` object under `content` it MUST be tested that CVSS v3.0 is not used.
 
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/scores[]/cvss_v3/version
-  /vulnerabilities[]/scores[]/cvss_v3/vectorString
+  /vulnerabilities[]/metrics[]/content/cvss_v3/version
+  /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
 ```
 
 *Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-116'></a>
@@ -6586,12 +6626,12 @@ The relevant paths for this test are:
 
 ### 6.3.12 Missing CVSS v4.0 <a id='missing-cvss-v4-0'></a>
 
-For each item in the list of scores it MUST be tested that a `cvss_v4` object is present.
+For each item in the list of metrics it MUST be tested that a `cvss_v4` object is present.
 
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/scores
+    /vulnerabilities[]/metrics[]/content
 ```
 
 *Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-127'></a>
@@ -6607,17 +6647,19 @@ The relevant path for this test is:
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL"
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-            "baseScore": 10,
-            "baseSeverity": "CRITICAL"
-          }
+          ]
         }
       ]
     }
@@ -7532,7 +7574,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
   `first_affected` and `last_affected` into `product_ids`.
   If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
-* `/vulnerabilities[]/scores[]`:
+* `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
   * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
@@ -7761,11 +7803,11 @@ The viewer:
 * satisfies the "CSAF consumer" conformance profile.
 * satisfies the normative requirements given below.
 
-For each CVSS-Score in `/vulnerabilities[]/scores[]` the viewer:
+For each CVSS-Score in `/vulnerabilities[]/metrics[]` the viewer:
 
 * preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
-* SHOULD prefer the item of `scores[]` for each `product_id` which has the highest CVSS Base Score and newest CVSS version
-  (in that order) if a `product_id` is listed in more than one item of `scores[]`.
+* SHOULD prefer the item of `metrics[]` for each `product_id` which originates from the document author (and therefore has no property `source`)
+  and has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `metrics[]`.
 
 ### 9.1.12 Conformance Clause 12: CSAF management system <a id='conformance-clause-12-csaf-management-system'></a>
 
@@ -8075,6 +8117,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.0-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.0-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>
@@ -8182,8 +8225,8 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/product_status/under_investigation`
   * `/vulnerabilities[]/remediations`
   * `/vulnerabilities[]/remediations[]/product_ids`
-  * `/vulnerabilities[]/scores`
-  * `/vulnerabilities[]/scores[]/products`
+  * `/vulnerabilities[]/metrics`
+  * `/vulnerabilities[]/metrics[]/products`
   * `/vulnerabilities[]/threats`
   * `/vulnerabilities[]/threats[]/group_ids`
   * `/vulnerabilities[]/threats[]/product_ids`
@@ -8270,9 +8313,9 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/product_status/under_investigation[]`
   * `/vulnerabilities[]/remediations[]/group_ids[]`
   * `/vulnerabilities[]/remediations[]/product_ids[]`
-  * `/vulnerabilities[]/scores[]/cvss_v2/vectorString`
-  * `/vulnerabilities[]/scores[]/cvss_v3/vectorString`
-  * `/vulnerabilities[]/scores[]/cvss_v4/vectorString`
+  * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
+  * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
+  * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
   * `/vulnerabilities[]/scores[]/products[]`
   * `/vulnerabilities[]/threats[]/group_ids[]`
   * `/vulnerabilities[]/threats[]/product_ids[]`
@@ -8330,6 +8373,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
 * `/vulnerabilities[]/acknowledgments[]/urls[]`
+* `/vulnerabilities[]/metrics[]/source`
 * `/vulnerabilities[]/references[]/url`
 * `/vulnerabilities[]/remediations[]/url`
 
@@ -8364,83 +8408,83 @@ This applies to:
 * `/vulnerabilities[]/references[]/category` (8)
 * `/vulnerabilities[]/remediations[]/category` (14)
 * `/vulnerabilities[]/remediations[]/restart_required/category` (20)
-* `/vulnerabilities[]/scores[]/cvss_v2/version` (3)
-* `/vulnerabilities[]/scores[]/cvss_v2/accessVector` (16)
-* `/vulnerabilities[]/scores[]/cvss_v2/accessComplexity` (6)
-* `/vulnerabilities[]/scores[]/cvss_v2/authentication` (8)
-* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityImpact` (8)
-* `/vulnerabilities[]/scores[]/cvss_v2/integrityImpact` (8)
-* `/vulnerabilities[]/scores[]/cvss_v2/availabilityImpact` (8)
-* `/vulnerabilities[]/scores[]/cvss_v2/exploitability` (16)
-* `/vulnerabilities[]/scores[]/cvss_v2/remediationLevel` (13)
-* `/vulnerabilities[]/scores[]/cvss_v2/reportConfidence` (14)
-* `/vulnerabilities[]/scores[]/cvss_v2/collateralDamagePotential` (11)
-* `/vulnerabilities[]/scores[]/cvss_v2/targetDistribution` (11)
-* `/vulnerabilities[]/scores[]/cvss_v2/confidentialityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v2/integrityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v2/availabilityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/version` (3)
-* `/vulnerabilities[]/scores[]/cvss_v3/attackVector` (16)
-* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity` (4)
-* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired` (4)
-* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction` (8)
-* `/vulnerabilities[]/scores[]/cvss_v3/scope` (9)
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v3/baseSeverity` (8)
-* `/vulnerabilities[]/scores[]/cvss_v3/exploitCodeMaturity` (16)
-* `/vulnerabilities[]/scores[]/cvss_v3/remediationLevel` (13)
-* `/vulnerabilities[]/scores[]/cvss_v3/reportConfidence` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/temporalSeverity` (8)
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackVector` (16)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAttackComplexity` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedPrivilegesRequired` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedUserInteraction` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedScope` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedConfidentialityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedIntegrityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/modifiedAvailabilityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity` (8)
-* `/vulnerabilities[]/scores[]/cvss_v4/version` (3)
-* `/vulnerabilities[]/scores[]/cvss_v4/attackVector` (8)
-* `/vulnerabilities[]/scores[]/cvss_v4/attackComplexity` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/attackRequirements` (7)
-* `/vulnerabilities[]/scores[]/cvss_v4/privilegesRequired` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/userInteraction` (7)
-* `/vulnerabilities[]/scores[]/cvss_v4/vulnConfidentialityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/vulnIntegrityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/vulnAvailabilityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/subConfidentialityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/subIntegrityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/subAvailabilityImpact` (4)
-* `/vulnerabilities[]/scores[]/cvss_v4/exploitMaturity` (16)
-* `/vulnerabilities[]/scores[]/cvss_v4/confidentialityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/integrityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/availabilityRequirement` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackVector` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackComplexity` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedAttackRequirements` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedPrivilegesRequired` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedUserInteraction` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnConfidentialityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnIntegrityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedVulnAvailabilityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedSubConfidentialityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedSubIntegrityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/modifiedSubAvailabilityImpact` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/Safety` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/Automatable` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/Recovery` (13)
-* `/vulnerabilities[]/scores[]/cvss_v4/valueDensity` (12)
-* `/vulnerabilities[]/scores[]/cvss_v4/vulnerabilityResponseEffort` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/providerUrgency` (11)
-* `/vulnerabilities[]/scores[]/cvss_v4/baseSeverity` (8)
-* `/vulnerabilities[]/scores[]/cvss_v4/threatSeverity` (8)
-* `/vulnerabilities[]/scores[]/cvss_v4/environmentalSeverity` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/version` (3)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/accessVector` (16)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/accessComplexity` (6)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/authentication` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/confidentialityImpact` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/integrityImpact` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/availabilityImpact` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/exploitability` (16)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/remediationLevel` (13)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/reportConfidence` (14)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/collateralDamagePotential` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/targetDistribution` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/confidentialityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/integrityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v2/availabilityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/version` (3)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/attackVector` (16)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/attackComplexity` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/privilegesRequired` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/userInteraction` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/scope` (9)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/confidentialityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/integrityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/availabilityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/baseSeverity` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/exploitCodeMaturity` (16)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/remediationLevel` (13)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/reportConfidence` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/temporalSeverity` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/confidentialityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/integrityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/availabilityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedAttackVector` (16)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedAttackComplexity` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedPrivilegesRequired` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedUserInteraction` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedScope` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedConfidentialityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedIntegrityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/modifiedAvailabilityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/version` (3)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/attackVector` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/attackComplexity` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/attackRequirements` (7)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/privilegesRequired` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/userInteraction` (7)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnConfidentialityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnIntegrityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnAvailabilityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/subConfidentialityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/subIntegrityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/subAvailabilityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/exploitMaturity` (16)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/confidentialityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/integrityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/availabilityRequirement` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedAttackVector` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedAttackComplexity` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedAttackRequirements` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedPrivilegesRequired` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedUserInteraction` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedVulnConfidentialityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedVulnIntegrityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedVulnAvailabilityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedSubConfidentialityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedSubIntegrityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedSubAvailabilityImpact` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/Safety` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/Automatable` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/Recovery` (13)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/valueDensity` (12)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnerabilityResponseEffort` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/providerUrgency` (11)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity` (8)
+* `/vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity` (8)
 * `/vulnerabilities[]/threats[]/category` (14)
 
 ## C.6 Date <a id='date'></a>

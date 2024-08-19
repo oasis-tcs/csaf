@@ -39,15 +39,17 @@
   },
   "vulnerabilities": [
     {
-      "scores": [
+      "metrics": [
         {
+          "content": {
+            "cvss_v2": {
+              "vectorString": "AV:L/AC:L/Au:M/C:C/I:C/A:C",
+              "baseScore": 6.5
+            }
+          },
           "products": [
             "CSAFPID-9080700"
-          ],
-          "cvss_v2": {
-            "vectorString": "AV:L/AC:L/Au:M/C:C/I:C/A:C",
-            "baseScore": 6.5
-          }
+          ]
         }
       ]
     }

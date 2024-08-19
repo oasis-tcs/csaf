@@ -148,6 +148,36 @@
           "text": "csaf-tools/CVRF-CSAF-Converter#78"
         }
       ],
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              "attackComplexity": "LOW",
+              "attackVector": "LOCAL",
+              "availabilityImpact": "LOW",
+              "baseScore": 6.1,
+              "baseSeverity": "MEDIUM",
+              "confidentialityImpact": "HIGH",
+              "exploitCodeMaturity": "FUNCTIONAL",
+              "integrityImpact": "NONE",
+              "privilegesRequired": "NONE",
+              "remediationLevel": "OFFICIAL_FIX",
+              "reportConfidence": "CONFIRMED",
+              "scope": "UNCHANGED",
+              "userInteraction": "REQUIRED",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:L/E:F/RL:O/RC:C",
+              "version": "3.1"
+            }
+          },
+          "products": [
+            "CSAFPID-0001",
+            "CSAFPID-0002",
+            "CSAFPID-0003",
+            "CSAFPID-0004",
+            "CSAFPID-0005"
+          ]
+        }
+      ],
       "notes": [
         {
           "category": "description",
@@ -183,34 +213,6 @@
             "CSAFPID-0005"
           ],
           "url": "https://github.com/csaf-tools/CVRF-CSAF-Converter/releases/tag/1.0.0-rc2"
-        }
-      ],
-      "scores": [
-        {
-          "cvss_v3": {
-            "attackComplexity": "LOW",
-            "attackVector": "LOCAL",
-            "availabilityImpact": "LOW",
-            "baseScore": 6.1,
-            "baseSeverity": "MEDIUM",
-            "confidentialityImpact": "HIGH",
-            "exploitCodeMaturity": "FUNCTIONAL",
-            "integrityImpact": "NONE",
-            "privilegesRequired": "NONE",
-            "remediationLevel": "OFFICIAL_FIX",
-            "reportConfidence": "CONFIRMED",
-            "scope": "UNCHANGED",
-            "userInteraction": "REQUIRED",
-            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:L/E:F/RL:O/RC:C",
-            "version": "3.1"
-          },
-          "products": [
-            "CSAFPID-0001",
-            "CSAFPID-0002",
-            "CSAFPID-0003",
-            "CSAFPID-0004",
-            "CSAFPID-0005"
-          ]
         }
       ]
     }

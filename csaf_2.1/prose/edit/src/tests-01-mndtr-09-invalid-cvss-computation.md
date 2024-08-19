@@ -7,21 +7,21 @@ It MUST be tested that the given CVSS object has the values computed correctly a
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/scores[]/cvss_v2/baseScore
-  /vulnerabilities[]/scores[]/cvss_v2/temporalScore
-  /vulnerabilities[]/scores[]/cvss_v2/environmentalScore
-  /vulnerabilities[]/scores[]/cvss_v3/baseScore
-  /vulnerabilities[]/scores[]/cvss_v3/baseSeverity
-  /vulnerabilities[]/scores[]/cvss_v3/temporalScore
-  /vulnerabilities[]/scores[]/cvss_v3/temporalSeverity
-  /vulnerabilities[]/scores[]/cvss_v3/environmentalScore
-  /vulnerabilities[]/scores[]/cvss_v3/environmentalSeverity
-  /vulnerabilities[]/scores[]/cvss_v4/baseScore
-  /vulnerabilities[]/scores[]/cvss_v4/baseSeverity
-  /vulnerabilities[]/scores[]/cvss_v4/threatScore
-  /vulnerabilities[]/scores[]/cvss_v4/threatSeverity
-  /vulnerabilities[]/scores[]/cvss_v4/environmentalScore
-  /vulnerabilities[]/scores[]/cvss_v4/environmentalSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v2/baseScore
+  /vulnerabilities[]/metrics[]/content/cvss_v2/temporalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v2/environmentalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/baseScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/baseSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v3/temporalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/temporalSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v4/baseScore
+  /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v4/threatScore
+  /vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity
+  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalScore
+  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity
 ```
 
 *Example 1 (which fails the test):*
