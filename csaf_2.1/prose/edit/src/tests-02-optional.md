@@ -701,7 +701,7 @@ The relevant path for this test is:
     }
 ```
 
-> The title contains the document tracking id.
+> The document title contains the document tracking id.
 
 > A tool MAY remove the document tracking id from the document title.
 > It SHOULD also remove any separating characters including whitespace, colon, dash and brackets.
