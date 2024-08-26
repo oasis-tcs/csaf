@@ -52,6 +52,9 @@ The entities ("conformance targets") for which this document defines requirement
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
 * **CSAF 2.0 to CSAF 2.1 converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
 * **CSAF library**: A library that implements CSAF data capabilities.
+* **CSAF library with basic validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
+* **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
+* **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
 
 ### Conformance Clause 1: CSAF document
 
@@ -584,5 +587,26 @@ A library satisfies the "CSAF library" conformance profile if the library:
 * validates the CVSS scores and severities for existing data for all CVSS versions.
 
 > The library MAY implement an option to retrieve the keys unsorted.
+
+### Conformance Clause 20: CSAF library with basic validation
+
+A CSAF library satisfies the "CSAF library with basic validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF basic validator" conformance profile.
+
+### Conformance Clause 21: CSAF library with extended validation
+
+A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF extended validator" conformance profile.
+
+### Conformance Clause 22: CSAF library with full validation
+
+A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF full validator" conformance profile.
 
 -------
