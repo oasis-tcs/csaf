@@ -594,6 +594,12 @@ A CSAF library satisfies the "CSAF library with basic validation" conformance pr
 
 * satisfies the "CSAF library" conformance profile.
 * satisfies the "CSAF basic validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF basic validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF basic validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with basic validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF basic validator" part and does not enforce its presence.
 
 ### Conformance Clause 21: CSAF library with extended validation
 
@@ -601,6 +607,12 @@ A CSAF library satisfies the "CSAF library with extended validation" conformance
 
 * satisfies the "CSAF library" conformance profile.
 * satisfies the "CSAF extended validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF extended validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF extended validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with extended validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF extended validator" part and does not enforce its presence.
 
 ### Conformance Clause 22: CSAF library with full validation
 
@@ -608,5 +620,11 @@ A CSAF library satisfies the "CSAF library with extended validation" conformance
 
 * satisfies the "CSAF library" conformance profile.
 * satisfies the "CSAF full validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF full validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF full validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF full validator" part and does not enforce its presence.
 
 -------
