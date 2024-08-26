@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json",
   "aggregator": {
     "category": "lister",
     "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",

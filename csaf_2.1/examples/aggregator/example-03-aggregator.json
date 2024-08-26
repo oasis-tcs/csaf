@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json",
   "aggregator": {
     "category": "aggregator",
     "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
