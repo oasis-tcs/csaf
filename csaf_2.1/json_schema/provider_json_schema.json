@@ -104,15 +104,7 @@
                     "tlp_label": {
                       "title": "TLP label",
                       "description": "Provides the TLP label for the feed.",
-                      "type": "string",
-                      "enum": [
-                        "UNLABELED",
-                        "CLEAR",
-                        "GREEN",
-                        "AMBER",
-                        "AMBER+STRICT",
-                        "RED"
-                      ]
+                      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json#/properties/document/properties/distribution/properties/tlp/properties/label"
                     },
                     "url": {
                       "title": "URL of the feed",
