@@ -53,10 +53,26 @@
         "type": "object",
         "minProperties": 1,
         "properties": {
-          "directory_url": {
-            "title": "Directory URL",
-            "description": "Contains the base url for the directory distribution.",
-            "$ref": "#/$defs/url_t"
+          "directory": {
+            "title": "Directory",
+            "description": "Contains all information for directory-based distribution.",
+            "type": "object",
+            "required": [
+              "tlp_label",
+              "url"
+            ],
+            "properties": {
+              "tlp_label": {
+                "title": "TLP label",
+                "description": "Provides the TLP label for the directory.",
+                "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json#/properties/document/properties/distribution/properties/tlp/properties/label"
+              },
+              "url": {
+                "title": "Directory URL",
+                "description": "Contains the base url for the directory-based distribution.",
+                "$ref": "#/$defs/url_t"
+              }
+            }
           },
           "rolie": {
             "title": "ROLIE",
