@@ -53,6 +53,9 @@ CSAF extended validator
 CSAF full validator
 :    A CSAF extended validator that additionally performs informative tests.
 
+CSAF library
+:    A library that implements CSAF data capabilities.
+
 CSAF management system
 :    program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 
