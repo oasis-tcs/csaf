@@ -1606,10 +1606,6 @@
         {
           "name": "optional/oasis_csaf_tc-csaf_2_1-2024-6-2-26-03.json",
           "valid": true
-        },
-        {
-          "name": "optional/oasis_csaf_tc-csaf_2_1-2024-6-2-26-04.json",
-          "valid": true
         }
       ],
       "valid": [
@@ -1623,10 +1619,6 @@
         },
         {
           "name": "optional/oasis_csaf_tc-csaf_2_1-2024-6-2-26-13.json",
-          "valid": true
-        },
-        {
-          "name": "optional/oasis_csaf_tc-csaf_2_1-2024-6-2-26-14.json",
           "valid": true
         }
       ]
