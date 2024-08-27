@@ -706,7 +706,7 @@ The relevant path for this test is:
 > A tool MAY remove the document tracking id from the document title.
 > It SHOULD also remove any separating characters including whitespace, colon, dash and brackets.
 
-### Usage of deprecated CWE
+### Usage of Deprecated CWE
 
 For each item in the CWE array it MUST be tested that the CWE is not deprecated in the given version.
 
@@ -732,7 +732,7 @@ The relevant path for this test is:
 
 > A tool MAY suggest to replace the deprecated CWE with its replacement or closest equivalent.
 
-### Usage of non-latest CWE Version
+### Usage of Non-Latest CWE Version
 
 For each item in the CWE array it MUST be tested that the latest CWE version available at the time of the last revision was used.
 The test SHALL fail if a later CWE version was used.
@@ -771,7 +771,7 @@ The relevant path for this test is:
 > A tool MAY suggest to use the latest version available at the time of the `current_release_date`.
 > This is most likely also the overall latest CWE version as modifications to a CSAF document lead to a new `current_release_date`.
 
-### Usage of CWE not allowed for Vulnerability Mapping
+### Usage of CWE Not Allowed for Vulnerability Mapping
 
 For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
 
@@ -797,7 +797,7 @@ The relevant path for this test is:
 
 > The usage of CWE-20 is discouraged as "is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available". [cite](https://cwe.mitre.org/data/definitions/20.html)
 
-### Usage of CWE allowed with Review for Vulnerability Mapping
+### Usage of CWE Allowed with Review for Vulnerability Mapping
 
 For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed without review.
 
