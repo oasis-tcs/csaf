@@ -796,3 +796,30 @@ The relevant path for this test is:
 ```
 
 > The usage of CWE-20 is discouraged as "is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available". [cite](https://cwe.mitre.org/data/definitions/20.html)
+
+### Usage of CWE allowed with Review for Vulnerability Mapping
+
+For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed without review.
+
+> Reasoning: CWEs marked with a vulnerability mapping state of `Allowed-with-Review` should only be used if a thorough review was done.
+> This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "cwes": [
+        {
+          "id": "CWE-1023",
+          "name": "Incomplete Comparison with Missing Factors",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The usage of CWE-1023 is allowed with review as the "CWE entry is a Class and might have Base-level children that would be more appropriate". [cite](https://cwe.mitre.org/data/definitions/1023.html)
