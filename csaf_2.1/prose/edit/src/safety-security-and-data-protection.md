@@ -19,11 +19,11 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
   To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the `cmark` Markdown processor [cite](#GFMCMARK).
 * To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
-  CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the `--safe` option in the `cmark` Markdown processor)
+  CSAF consumers SHALL either disable HTML processing (for example, by using the `--safe` option in the `cmark` Markdown processor)
   or run the resulting HTML through an HTML sanitizer.
 * To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, `javascript:` links),
-  CSAF consumers SHALL either make all links non-clickable (for example, by displaying them as standard text)
-  or make only those clickable that are known to be save (for example, determining that via the media type).
+  CSAF consumers SHALL either remove all actions from links (for example, by displaying them as standard text)
+or render only those actionable that are known to be safe (for example, determining that via the media type).
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to
 render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can
 be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code.
