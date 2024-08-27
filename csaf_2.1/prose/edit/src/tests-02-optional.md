@@ -770,3 +770,29 @@ The relevant path for this test is:
 
 > A tool MAY suggest to use the latest version available at the time of the `current_release_date`.
 > This is most likely also the overall latest CWE version as modifications to a CSAF document lead to a new `current_release_date`.
+
+### Usage of CWE not allowed for Vulnerability Mapping
+
+For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
+
+> Currently, this includes the two usage state `Allowed` and `Allowed-with-Review`.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "cwes": [
+        {
+          "id": "CWE-20",
+          "name": "Improper Input Validation",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The usage of CWE-20 is discouraged as "is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available". [cite](https://cwe.mitre.org/data/definitions/20.html)
