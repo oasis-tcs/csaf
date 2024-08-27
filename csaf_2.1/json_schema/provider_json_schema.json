@@ -27,6 +27,7 @@
     }
   },
   "required": [
+    "$schema",
     "canonical_url",
     "last_updated",
     "list_on_CSAF_aggregators",
@@ -36,6 +37,15 @@
     "role"
   ],
   "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the provider-metadata.json JSON schema which the document promises to be valid for.",
+      "type": "string",
+      "enum": [
+        "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json"
+      ],
+      "format": "uri"
+    },
     "canonical_url": {
       "title": "Canonical URL",
       "description": "Contains the URL for this document.",
