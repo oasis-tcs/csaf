@@ -35,7 +35,9 @@
         "name": "Product A",
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
-          "purl": "pkg:maven/@1.3.4"
+          "purls": [
+            "pkg:maven/@1.3.4"
+          ]
         }
       }
     ]
