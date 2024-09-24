@@ -51,6 +51,10 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
 * **CSAF 2.0 to CSAF 2.1 converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
+* **CSAF library**: A library that implements CSAF data capabilities.
+* **CSAF library with basic validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
+* **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
+* **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
 
 ### Conformance Clause 1: CSAF document
 
@@ -64,7 +68,7 @@ A text file or data stream satisfies the "CSAF document" conformance profile if 
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the conformance profile "CSAF document" .
+* produces output in the CSAF format, according to the conformance profile "CSAF document".
 * satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
   are designated as applying to CSAF producers.
 
@@ -550,5 +554,77 @@ Secondly, the program fulfills the following for all items of:
 
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
 > of the rules above MAY be ignored to avoid data loss.
+
+### Conformance Clause 19: CSAF library
+
+A library satisfies the "CSAF library" conformance profile if the library:
+
+* implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#schema-elements).
+* checks all elements according to the patterns provided in the JSON schema.
+* has a function that checks version ranges.
+* has a function that helps to create version ranges.
+* provides for each element functions that allow to create, add, modify and delete that element.
+* has a function that reads a CSAF document into the data structure from a
+  * file system.
+  * URL.
+  * data stream.
+* provides function for sorting the keys and sorts the keys automatically on output.
+* has a function that outputs the data structure as CSAF document
+  * on the file system.
+  * as string.
+  * into a data stream.
+* has a function to determine the filename according to [sec](#filename) and sets the filename per default when saving a CSAF document.
+* generates a new `product_id` for each new element of type `full_product_name_t` unless an ID is given during the creation.
+* generates a new `group_id` for each new element of type `product_group_id_t` unless an ID is given during the creation.
+* provides a function to retrieve all elements of type `product_id_t` with its corresponding `full_product_name_t/name` and
+  `full_product_name_t/product_identification_helper`.
+* provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
+* provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
+  and, where necessary according to the profile, the impact statement respectively the action statement.
+* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by whitespace
+  of the elements along the path towards this leaf.
+* calculates the CVSS scores and severities for existing data for all CVSS versions.
+* validates the CVSS scores and severities for existing data for all CVSS versions.
+
+> The library MAY implement an option to retrieve the keys unsorted.
+
+### Conformance Clause 20: CSAF library with basic validation
+
+A CSAF library satisfies the "CSAF library with basic validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF basic validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF basic validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF basic validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with basic validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF basic validator" part and does not enforce its presence.
+
+### Conformance Clause 21: CSAF library with extended validation
+
+A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF extended validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF extended validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF extended validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with extended validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF extended validator" part and does not enforce its presence.
+
+### Conformance Clause 22: CSAF library with full validation
+
+A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF full validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF full validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF full validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF full validator" part and does not enforce its presence.
 
 -------
