@@ -284,7 +284,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 > Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
 
 The value of `/$schema` is a fixed URL, currently pointing to the JSON schema location.
-It seems to be safe to assume that the length of this value is not greater than 5. This applies to:
+It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
 
 * `/$schema` (64)
 
