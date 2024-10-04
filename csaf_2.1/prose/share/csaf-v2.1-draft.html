@@ -41,8 +41,8 @@
     <h2 id="committee-specification-draft-01">
       Committee Specification Draft 01
     </h2>
-    <h2 id="31-july-2024">
-      31 July 2024
+    <h2 id="28-august-2024">
+      28 August 2024
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -160,7 +160,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. 31 July 2024. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. 28 August 2024. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -632,6 +632,16 @@
                 </li>
                 <li>6.2.21 <a href="#same-timestamps-in-revision-history">Same Timestamps in Revision History</a>
                 </li>
+                <li>6.2.22 <a href="#document-tracking-id-in-title">Document Tracking ID in Title</a>
+                </li>
+                <li>6.2.23 <a href="#usage-of-deprecated-cwe">Usage of Deprecated CWE</a>
+                </li>
+                <li>6.2.24 <a href="#usage-of-non-latest-cwe-version">Usage of Non-Latest CWE Version</a>
+                </li>
+                <li>6.2.25 <a href="#usage-of-cwe-not-allowed-for-vulnerability-mapping">Usage of CWE Not Allowed for Vulnerability Mapping</a>
+                </li>
+                <li>6.2.26 <a href="#usage-of-cwe-allowed-with-review-for-vulnerability-mapping">Usage of CWE Allowed with Review for Vulnerability Mapping</a>
+                </li>
               </ul>
             </li>
             <li>6.3 <a href="#informative-test">Informative Test</a>
@@ -784,6 +794,14 @@
                 </li>
                 <li>9.1.18 <a href="#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter">Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter</a>
                 </li>
+                <li>9.1.19 <a href="#conformance-clause-19-csaf-library">Conformance Clause 19: CSAF library</a>
+                </li>
+                <li>9.1.20 <a href="#conformance-clause-20-csaf-library-with-basic-validation">Conformance Clause 20: CSAF library with basic validation</a>
+                </li>
+                <li>9.1.21 <a href="#conformance-clause-21-csaf-library-with-extended-validation">Conformance Clause 21: CSAF library with extended validation</a>
+                </li>
+                <li>9.1.22 <a href="#conformance-clause-22-csaf-library-with-full-validation">Conformance Clause 22: CSAF library with full validation</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -923,6 +941,30 @@
       </dt>
       <dd>
         A CSAF extended validator that additionally performs informative tests.
+      </dd>
+      <dt id="def;csaf-library">
+        CSAF library
+      </dt>
+      <dd>
+        A library that implements CSAF data capabilities.
+      </dd>
+      <dt id="def;csaf-library-with-basic-validation">
+        CSAF library with basic validation
+      </dt>
+      <dd>
+        A CSAF library that also satisfies the conformance target "CSAF basic validator".
+      </dd>
+      <dt id="def;csaf-library-with-extended-validation">
+        CSAF library with extended validation
+      </dt>
+      <dd>
+        A CSAF library that also satisfies the conformance target "CSAF extended validator".
+      </dd>
+      <dt id="def;csaf-library-with-full-validation">
+        CSAF library with full validation
+      </dt>
+      <dd>
+        A CSAF library that also satisfies the conformance target "CSAF full validator".
       </dd>
       <dt id="def;csaf-management-system">
         CSAF management system
@@ -2071,28 +2113,29 @@
         "cpe": {
           // ...
         },
-        "hashes": {
+        "hashes": [
           // ...
-        },
-        "model_numbers": {
+        ],
+        "model_numbers": [
           // ...
-        },
+        ],
         "purl": {
           // ...
         },
-        "sbom_urls": {
+        "sbom_urls": [
           // ...
-        },
-        "serial_numbers": {
+        ],
+        "serial_numbers": [
           // ...
-        },
-        "skus": {
+        ],
+        "skus": [
           // ...
-        },
-        "x_generic_uris": {
+        ],
+        "x_generic_uris": [
           // ...
-        }
-      }</code></pre>
+        ]
+      }
+    }</code></pre>
     <h5 id="31331-full-product-name-type---product-identification-helper---cpe-">
       3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE <a id='full-product-name-type-product-identification-helper-cpe'></a>
     </h5>
@@ -7324,6 +7367,166 @@
         The first and second revision have the same timestamp.
       </p>
     </blockquote>
+    <h3 id="6222-document-tracking-id-in-title-">
+      6.2.22 Document Tracking ID in Title <a id='document-tracking-id-in-title'></a>
+    </h3>
+    <p>
+      It MUST be tested that the <code>/document/title</code> does not contain the <code>/document/tracking/id</code>.
+    </p>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>  /document/title</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-115'></a>
+    </p>
+    <pre><code>    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "tracking": {
+      // ...
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
+      // ...
+    }</code></pre>
+    <blockquote>
+      <p>
+        The document title contains the document tracking id.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY remove the document tracking id from the document title. It SHOULD also remove any separating characters including whitespace, colon, dash and brackets.
+      </p>
+    </blockquote>
+    <h3 id="6223-usage-of-deprecated-cwe-">
+      6.2.23 Usage of Deprecated CWE <a id='usage-of-deprecated-cwe'></a>
+    </h3>
+    <p>
+      For each item in the CWE array it MUST be tested that the CWE is not deprecated in the given version.
+    </p>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-116'></a>
+    </p>
+    <pre><code>     "cwes": [
+        {
+          "id": "CWE-596",
+          "name": "DEPRECATED: Incorrect Semantic Object Comparison",
+          "version": "4.13"
+        }
+      ]</code></pre>
+    <blockquote>
+      <p>
+        The <code>CWE-596</code> is deprecated in version <code>4.13</code>.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY suggest to replace the deprecated CWE with its replacement or closest equivalent.
+      </p>
+    </blockquote>
+    <h3 id="6224-usage-of-non-latest-cwe-version-">
+      6.2.24 Usage of Non-Latest CWE Version <a id='usage-of-non-latest-cwe-version'></a>
+    </h3>
+    <p>
+      For each item in the CWE array it MUST be tested that the latest CWE version available at the time of the last revision was used. The test SHALL fail if a later CWE version was used.
+    </p>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-117'></a>
+    </p>
+    <pre><code>  "document": {
+    // ...
+    "tracking": {
+      "current_release_date": "2024-01-21T10:00:00.000Z",
+      // ...
+    }
+  },
+  "vulnerabilities": [
+    {
+      "cwes": [
+        {
+          "id": "CWE-256",
+          "name": "Plaintext Storage of a Password",
+          "version": "4.12"
+        }
+      ]
+    }
+  ]</code></pre>
+    <blockquote>
+      <p>
+        The CWE version listed is <code>4.12</code>. However, version <code>4.13</code> was most recent version when the document was released on <code>2024-01-21T10:00:00.000Z</code>.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY suggest to use the latest version available at the time of the <code>current_release_date</code>. This is most likely also the overall latest CWE version as modifications to a CSAF document lead to a new <code>current_release_date</code>.
+      </p>
+    </blockquote>
+    <h3 id="6225-usage-of-cwe-not-allowed-for-vulnerability-mapping-">
+      6.2.25 Usage of CWE Not Allowed for Vulnerability Mapping <a id='usage-of-cwe-not-allowed-for-vulnerability-mapping'></a>
+    </h3>
+    <p>
+      For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
+    </p>
+    <blockquote>
+      <p>
+        Currently, this includes the two usage state <code>Allowed</code> and <code>Allowed-with-Review</code>.
+      </p>
+    </blockquote>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-118'></a>
+    </p>
+    <pre><code>      "cwes": [
+        {
+          "id": "CWE-20",
+          "name": "Improper Input Validation",
+          "version": "4.13"
+        }
+      ]</code></pre>
+    <blockquote>
+      <p>
+        The usage of CWE-20 is discouraged as "is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available". <a href="https://cwe.mitre.org/data/definitions/20.html#Vulnerability_Mapping_Notes_20">cite</a>
+      </p>
+    </blockquote>
+    <h3 id="6226-usage-of-cwe-allowed-with-review-for-vulnerability-mapping-">
+      6.2.26 Usage of CWE Allowed with Review for Vulnerability Mapping <a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping'></a>
+    </h3>
+    <p>
+      For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed without review.
+    </p>
+    <blockquote>
+      <p>
+        Reasoning: CWEs marked with a vulnerability mapping state of <code>Allowed-with-Review</code> should only be used if a thorough review was done. This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
+      </p>
+    </blockquote>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-119'></a>
+    </p>
+    <pre><code>      "cwes": [
+        {
+          "id": "CWE-1023",
+          "name": "Incomplete Comparison with Missing Factors",
+          "version": "4.13"
+        }
+      ]</code></pre>
+    <blockquote>
+      <p>
+        The usage of CWE-1023 is allowed with review as the "CWE entry is a Class and might have Base-level children that would be more appropriate". <a href="https://cwe.mitre.org/data/definitions/1023.html#Vulnerability_Mapping_Notes_1023">cite</a>
+      </p>
+    </blockquote>
     <h2 id="63-informative-test-">
       6.3 Informative Test <a id='informative-test'></a>
     </h2>
@@ -7347,7 +7550,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-115'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-120'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -7398,7 +7601,7 @@
     <pre><code>  /vulnerabilities[]/metrics[]/content/cvss_v3/version
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-116'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-121'></a>
     </p>
     <pre><code>  "cvss_v3": {
     "version": "3.0",
@@ -7434,7 +7637,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cve</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-117'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-122'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -7463,7 +7666,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cwe</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-118'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-123'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -7489,7 +7692,7 @@
   /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-119'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-124'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -7552,7 +7755,7 @@
   /vulnerabilities[]/references[]/url
   /vulnerabilities[]/remediations[]/url</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-120'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-125'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -7582,7 +7785,7 @@
     <pre><code>  /document/references[]/url
   /vulnerabilities[]/references[]/url</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-121'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-126'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -7643,7 +7846,7 @@
   /vulnerabilities[]/threats[]/details
   /vulnerabilities[]/title</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-122'></a>
+      <em>Example 1 (which fails the test):</em><a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-127'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -7678,7 +7881,7 @@
     </p>
     <pre><code>  /product_tree/branches</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-123'></a>
+      <em>Example 1 (which fails the test):</em><a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-128'></a>
     </p>
     <pre><code>    "branches": [
       {
@@ -7723,7 +7926,7 @@
     </p>
     <pre><code>  /product_tree/branches[](/branches[])*/category</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-124'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-129'></a>
     </p>
     <pre><code>                "category": "product_version_range",</code></pre>
     <blockquote>
@@ -7748,7 +7951,7 @@
     </p>
     <pre><code>  /product_tree/branches[](/branches[])*/name</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-126'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-130'></a>
     </p>
     <pre><code>            "branches": [
               {
@@ -7773,7 +7976,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics[]/content</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-127'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-131'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -7904,7 +8107,7 @@
       </ul>
     </blockquote>
     <p>
-      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-128'></a>
+      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-132'></a>
     </p>
     <pre><code>  {
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
@@ -7962,7 +8165,7 @@
       </p>
     </blockquote>
     <p>
-      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-129'></a>
+      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-133'></a>
     </p>
     <pre><code>CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
@@ -7979,7 +8182,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The URL path <code>/.well-known/csaf/provider-metadata.json</code> under the main domain of the issuing authority serves directly the <code>provider-metadata.json</code> according to requirement 7. The use of the scheme "HTTPS" is required. See [<a href="#RFC8615">RFC8615</a>] for more details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-130'></a>
+      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-134'></a>
     </p>
     <pre><code>  https://www.example.com/.well-known/csaf/provider-metadata.json</code></pre>
     <h3 id="7110-requirement-10-dns-path-">
@@ -7995,7 +8198,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The CSAF documents MUST be located within folders named <code>&lt;YYYY&gt;</code> where <code>&lt;YYYY&gt;</code> is the year given in the value of <code>/document/tracking/initial_release_date</code>.
     </p>
     <p>
-      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-131'></a>
+      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-135'></a>
     </p>
     <pre><code>2024
 2023</code></pre>
@@ -8006,7 +8209,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-132'></a>
+      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-136'></a>
     </p>
     <pre><code>2023/esa-2023-09953.json
 2022/esa-2022-02723.json
@@ -8024,7 +8227,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The file changes.csv MUST contain the filename as well as the value of <code>/document/tracking/current_release_date</code> for each CSAF document in the sub-directories without a heading; lines MUST be sorted by the <code>current_release_date</code> timestamp with the latest one first.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-133'></a>
+      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-137'></a>
     </p>
     <pre><code>"2023/esa-2023-09953.json","2023-07-01T10:09:07Z"
 "2021/esa-2021-03676.json","2023-07-01T10:09:01Z"
@@ -8055,7 +8258,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [<a href="#RFC8322">RFC8322</a>].
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-134'></a>
+      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-138'></a>
     </p>
     <pre><code>  {
     "feed": {
@@ -8121,7 +8324,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       the filename <code>service.json</code> and reside next to the <code>provider-metadata.json</code>.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-135'></a>
+      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-139'></a>
     </p>
     <pre><code>  {
     "service": {
@@ -8188,7 +8391,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
           type of product
         </p>
         <p>
-          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-136'></a>
+          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-140'></a>
         </p>
         <pre><code>  CPU
   Firewall
@@ -8204,7 +8407,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
           areas or sectors, the products are used in
         </p>
         <p>
-          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-137'></a>
+          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-141'></a>
         </p>
         <pre><code>  Chemical
   Commercial
@@ -8222,7 +8425,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       </li>
     </ul>
     <p>
-      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-138'></a>
+      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-142'></a>
     </p>
     <pre><code>  {
     "categories": {
@@ -8246,7 +8449,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       MD5 and SHA1 SHOULD NOT be used.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-139'></a>
+      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-143'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of SHA-256 hash file: esa-2022-02723.json.sha256
@@ -8255,7 +8458,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
       The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
     </p>
     <p>
-      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-140'></a>
+      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-144'></a>
     </p>
     <pre><code>ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json</code></pre>
     <p>
@@ -8268,7 +8471,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
       All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. See [<a href="#RFC4880">RFC4880</a>] for more details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-141'></a>
+      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-145'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of signature file: esa-2022-02723.json.asc</code></pre>
@@ -8334,7 +8537,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       The file <code>aggregator.json</code> SHOULD only list the latest version of the metadata of a CSAF provider.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-142'></a>
+      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-146'></a>
     </p>
     <pre><code>  {
     "aggregator": {
@@ -8391,7 +8594,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
     </ul>
     <p>
-      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-143'></a>
+      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-147'></a>
     </p>
     <pre><code>  {
     "aggregator": {
@@ -8664,9 +8867,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       <li>Deeply nested markup can cause a stack overflow in the Markdown processor [<a href="#GFMENG">GFMENG</a>]. To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks. <strong>Note</strong>: One example is the GitHub fork of the <code>cmark</code> Markdown processor [<a href=
       "#GFMCMARK">GFMCMARK</a>].
       </li>
-      <li>To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links), CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor) or run the resulting HTML through an HTML sanitizer.
-      CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF
-      document is run as code. Moreover, it SHALL be treated as unsafe (user) input.
+      <li>To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, <code>data:image/svg+xml</code>), CSAF consumers SHALL either disable HTML processing (for example, by using the <code>--safe</code> option in the <code>cmark</code> Markdown processor) or run the resulting HTML through
+      an HTML sanitizer.
+      </li>
+      <li>To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, <code>javascript:</code> links), CSAF consumers SHALL either remove all actions from links (for example, by displaying them as standard text) or render only those actionable that are known to be safe (for example, determining that
+      via the media type). CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can be contained within a CSAF document, CSAF consumers SHALL ensure that none of
+      the values of a CSAF document is run as code. Moreover, it SHALL be treated as unsafe (user) input.
         <blockquote>
           <p>
             Additional, supporting mitigation measures like retrieving only CSAF documents from trusted sources and check their integrity and signature before parsing the document SHOULD be in place to reduce the risk further.
@@ -8766,6 +8972,18 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       <li>
         <strong>CSAF 2.0 to CSAF 2.1 converter</strong>: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
       </li>
+      <li>
+        <strong>CSAF library</strong>: A library that implements CSAF data capabilities.
+      </li>
+      <li>
+        <strong>CSAF library with basic validation</strong>: A CSAF library that also satisfies the conformance target "CSAF basic validator".
+      </li>
+      <li>
+        <strong>CSAF library with extended validation</strong>: A CSAF library that also satisfies the conformance target "CSAF extended validator".
+      </li>
+      <li>
+        <strong>CSAF library with full validation</strong>: A CSAF library that also satisfies the conformance target "CSAF full validator".
+      </li>
     </ul>
     <h3 id="911-conformance-clause-1-csaf-document-">
       9.1.1 Conformance Clause 1: CSAF document <a id='conformance-clause-1-csaf-document'></a>
@@ -8788,7 +9006,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       A program satisfies the "CSAF producer" conformance profile if the program:
     </p>
     <ul>
-      <li>produces output in the CSAF format, according to the conformance profile "CSAF document" .
+      <li>produces output in the CSAF format, according to the conformance profile "CSAF document".
       </li>
       <li>satisfies those normative requirements in section <a href="#schema-elements">3</a> and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF producers.
       </li>
@@ -8918,7 +9136,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS vector, if present.
                 </p>
                 <p>
-                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-144'></a>
+                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-148'></a>
                 </p>
                 <pre><code>  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H =&gt; 3.1</code></pre>
               </li>
@@ -8927,7 +9145,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
                 </p>
                 <p>
-                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-145'></a>
+                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-149'></a>
                 </p>
                 <pre><code>  xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
   &lt;!-- --&gt;
@@ -8936,7 +9154,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   is handled the same as
                 </p>
                 <p>
-                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-146'></a>
+                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-150'></a>
                 </p>
                 <pre><code>  &lt;ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd"&gt;</code></pre>
               </li>
@@ -8946,7 +9164,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   decision.
                 </p>
                 <p>
-                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-147'></a>
+                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-151'></a>
                 </p>
                 <pre><code>  xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" =&gt; 3.0</code></pre>
               </li>
@@ -9745,6 +9963,11 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
+          <code>/document/title</code>: If the value contains the <code>/document/tracking/id</code>, the CSAF 2.0 to CSAF 2.1 converter MUST remove the <code>/document/tracking/id</code> from the <code>/document/title</code>. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
+        </p>
+      </li>
+      <li>
+        <p>
           <code>/vulnerabilities[]/cwes[]</code>: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by using the latest version that matches the <code>id</code> and <code>name</code> exactly and was published prior to the value of
           <code>/document/tracking/current_release_date</code> of the source document. If no such version exist, the first matching version published after the value of <code>/document/tracking/current_release_date</code> of the source document SHOULD be used.
         </p>
@@ -9768,6 +9991,126 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any of the rules above MAY be ignored to avoid data loss.
       </p>
     </blockquote>
+    <h3 id="9119-conformance-clause-19-csaf-library-">
+      9.1.19 Conformance Clause 19: CSAF library <a id='conformance-clause-19-csaf-library'></a>
+    </h3>
+    <p>
+      A library satisfies the "CSAF library" conformance profile if the library:
+    </p>
+    <ul>
+      <li>implements all elements as data structures conforming to the syntax and semantics defined in section <a href="#schema-elements">3</a>.
+      </li>
+      <li>checks all elements according to the patterns provided in the JSON schema.
+      </li>
+      <li>has a function that checks version ranges.
+      </li>
+      <li>has a function that helps to create version ranges.
+      </li>
+      <li>provides for each element functions that allow to create, add, modify and delete that element.
+      </li>
+      <li>has a function that reads a CSAF document into the data structure from a
+        <ul>
+          <li>file system.
+          </li>
+          <li>URL.
+          </li>
+          <li>data stream.
+          </li>
+        </ul>
+      </li>
+      <li>provides function for sorting the keys and sorts the keys automatically on output.
+      </li>
+      <li>has a function that outputs the data structure as CSAF document
+        <ul>
+          <li>on the file system.
+          </li>
+          <li>as string.
+          </li>
+          <li>into a data stream.
+          </li>
+        </ul>
+      </li>
+      <li>has a function to determine the filename according to <a href="#filename">5.1</a> and sets the filename per default when saving a CSAF document.
+      </li>
+      <li>generates a new <code>product_id</code> for each new element of type <code>full_product_name_t</code> unless an ID is given during the creation.
+      </li>
+      <li>generates a new <code>group_id</code> for each new element of type <code>product_group_id_t</code> unless an ID is given during the creation.
+      </li>
+      <li>provides a function to retrieve all elements of type <code>product_id_t</code> with its corresponding <code>full_product_name_t/name</code> and <code>full_product_name_t/product_identification_helper</code>.
+      </li>
+      <li>provides a function to retrieve all <code>product_identification_helper</code> and their mapping to elements of type <code>product_id_t</code>.
+      </li>
+      <li>provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status and, where necessary according to the profile, the impact statement respectively the action statement.
+      </li>
+      <li>provides a function to generate a <code>full_product_name_t/name</code> with in <code>branches</code> through concatenating the <code>name</code> values separated by whitespace of the elements along the path towards this leaf.
+      </li>
+      <li>calculates the CVSS scores and severities for existing data for all CVSS versions.
+      </li>
+      <li>validates the CVSS scores and severities for existing data for all CVSS versions.
+      </li>
+    </ul>
+    <blockquote>
+      <p>
+        The library MAY implement an option to retrieve the keys unsorted.
+      </p>
+    </blockquote>
+    <h3 id="9120-conformance-clause-20-csaf-library-with-basic-validation-">
+      9.1.20 Conformance Clause 20: CSAF library with basic validation <a id='conformance-clause-20-csaf-library-with-basic-validation'></a>
+    </h3>
+    <p>
+      A CSAF library satisfies the "CSAF library with basic validation" conformance profile if the CSAF library:
+    </p>
+    <ul>
+      <li>satisfies the "CSAF library" conformance profile.
+      </li>
+      <li>satisfies the "CSAF basic validator" conformance profile.
+      </li>
+      <li>validates the CSAF document before output according to the "CSAF basic validator" and presents the validation result accordingly.
+      </li>
+      <li>provide a function to validate the data structure in its current state according to the "CSAF basic validator" and presents the validation result accordingly.
+      </li>
+    </ul>
+    <p>
+      A CSAF library does not satisfies the "CSAF library with basic validation" conformance profile if the CSAF library uses an external library or program for the "CSAF basic validator" part and does not enforce its presence.
+    </p>
+    <h3 id="9121-conformance-clause-21-csaf-library-with-extended-validation-">
+      9.1.21 Conformance Clause 21: CSAF library with extended validation <a id='conformance-clause-21-csaf-library-with-extended-validation'></a>
+    </h3>
+    <p>
+      A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+    </p>
+    <ul>
+      <li>satisfies the "CSAF library" conformance profile.
+      </li>
+      <li>satisfies the "CSAF extended validator" conformance profile.
+      </li>
+      <li>validates the CSAF document before output according to the "CSAF extended validator" and presents the validation result accordingly.
+      </li>
+      <li>provide a function to validate the data structure in its current state according to the "CSAF extended validator" and presents the validation result accordingly.
+      </li>
+    </ul>
+    <p>
+      A CSAF library does not satisfies the "CSAF library with extended validation" conformance profile if the CSAF library uses an external library or program for the "CSAF extended validator" part and does not enforce its presence.
+    </p>
+    <h3 id="9122-conformance-clause-22-csaf-library-with-full-validation-">
+      9.1.22 Conformance Clause 22: CSAF library with full validation <a id='conformance-clause-22-csaf-library-with-full-validation'></a>
+    </h3>
+    <p>
+      A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+    </p>
+    <ul>
+      <li>satisfies the "CSAF library" conformance profile.
+      </li>
+      <li>satisfies the "CSAF full validator" conformance profile.
+      </li>
+      <li>validates the CSAF document before output according to the "CSAF full validator" and presents the validation result accordingly.
+      </li>
+      <li>provide a function to validate the data structure in its current state according to the "CSAF full validator" and presents the validation result accordingly.
+      </li>
+    </ul>
+    <p>
+      A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or program for the "CSAF full validator" part and does not enforce its presence.
+    </p>
     <hr />
     <h1 id="appendix-a-acknowledgments-">
       Appendix A. Acknowledgments <a id='acknowledgments'></a>
@@ -11126,6 +11469,20 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             Next Editor Revision
           </td>
         </tr>
+        <tr>
+          <td style="text-align: left;">
+            csaf-v2.0-wd20240828-dev
+          </td>
+          <td style="text-align: left;">
+            2024-08-28
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Next Editor Revision
+          </td>
+        </tr>
       </tbody>
     </table>
     <hr />
@@ -11855,7 +12212,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </p>
     </blockquote>
     <p>
-      The value of <code>/$schema</code> is a fixed URL, currently pointing to the JSON schema location. It seems to be safe to assume that the length of this value is not greater than 5. This applies to:
+      The value of <code>/$schema</code> is a fixed URL, currently pointing to the JSON schema location. It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
     </p>
     <ul>
       <li>

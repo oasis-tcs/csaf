@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 31 July 2024
+## 28 August 2024
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -71,7 +71,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 31 July 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 28 August 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -289,6 +289,11 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.19 [CVSS for Fixed Products](#cvss-for-fixed-products)  
 		6.2.20 [Additional Properties](#additional-properties)  
 		6.2.21 [Same Timestamps in Revision History](#same-timestamps-in-revision-history)  
+		6.2.22 [Document Tracking ID in Title](#document-tracking-id-in-title)  
+		6.2.23 [Usage of Deprecated CWE](#usage-of-deprecated-cwe)  
+		6.2.24 [Usage of Non-Latest CWE Version](#usage-of-non-latest-cwe-version)  
+		6.2.25 [Usage of CWE Not Allowed for Vulnerability Mapping](#usage-of-cwe-not-allowed-for-vulnerability-mapping)  
+		6.2.26 [Usage of CWE Allowed with Review for Vulnerability Mapping](#usage-of-cwe-allowed-with-review-for-vulnerability-mapping)  
 	6.3 [Informative Test](#informative-test)  
 		6.3.1 [Use of CVSS v2 as the only Scoring System](#use-of-cvss-v2-as-the-only-scoring-system)  
 		6.3.2 [Use of CVSS v3.0](#use-of-cvss-v3-0)  
@@ -358,6 +363,10 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		9.1.16 [Conformance Clause 16: CSAF full validator](#conformance-clause-16-csaf-full-validator)  
 		9.1.17 [Conformance Clause 17: CSAF SBOM matching system](#conformance-clause-17-csaf-sbom-matching-system)  
 		9.1.18 [Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter)  
+		9.1.19 [Conformance Clause 19: CSAF library](#conformance-clause-19-csaf-library)  
+		9.1.20 [Conformance Clause 20: CSAF library with basic validation](#conformance-clause-20-csaf-library-with-basic-validation)  
+		9.1.21 [Conformance Clause 21: CSAF library with extended validation](#conformance-clause-21-csaf-library-with-extended-validation)  
+		9.1.22 [Conformance Clause 22: CSAF library with full validation](#conformance-clause-22-csaf-library-with-full-validation)  
 
 Appendix A. [Acknowledgments](#acknowledgments)  
 Appendix B. [Revision History](#revision-history)  
@@ -429,6 +438,14 @@ For purposes of this document, the following terms and definitions apply:
   <dd>A CSAF basic validator that additionally performs optional tests.</dd>
   <dt id="def;csaf-full-validator">CSAF full validator</dt>
   <dd>A CSAF extended validator that additionally performs informative tests.</dd>
+  <dt id="def;csaf-library">CSAF library</dt>
+  <dd>A library that implements CSAF data capabilities.</dd>
+  <dt id="def;csaf-library-with-basic-validation">CSAF library with basic validation</dt>
+  <dd>A CSAF library that also satisfies the conformance target "CSAF basic validator".</dd>
+  <dt id="def;csaf-library-with-extended-validation">CSAF library with extended validation</dt>
+  <dd>A CSAF library that also satisfies the conformance target "CSAF extended validator".</dd>
+  <dt id="def;csaf-library-with-full-validation">CSAF library with full validation</dt>
+  <dd>A CSAF library that also satisfies the conformance target "CSAF full validator".</dd>
   <dt id="def;csaf-management-system">CSAF management system</dt>
   <dd>program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.</dd>
   <dt id="def;csaf-modifier">CSAF modifier</dt>
@@ -1233,28 +1250,29 @@ and `x_generic_uris`, one is mandatory.
         "cpe": {
           // ...
         },
-        "hashes": {
+        "hashes": [
           // ...
-        },
-        "model_numbers": {
+        ],
+        "model_numbers": [
           // ...
-        },
+        ],
         "purl": {
           // ...
         },
-        "sbom_urls": {
+        "sbom_urls": [
           // ...
-        },
-        "serial_numbers": {
+        ],
+        "serial_numbers": [
           // ...
-        },
-        "skus": {
+        ],
+        "skus": [
           // ...
-        },
-        "x_generic_uris": {
+        ],
+        "x_generic_uris": [
           // ...
-        }
+        ]
       }
+    }
 ```
 
 ##### 3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE <a id='full-product-name-type-product-identification-helper-cpe'></a>
@@ -6205,6 +6223,150 @@ The relevant path for this test is:
 
 > The first and second revision have the same timestamp.
 
+### 6.2.22 Document Tracking ID in Title <a id='document-tracking-id-in-title'></a>
+
+It MUST be tested that the `/document/title` does not contain the `/document/tracking/id`.
+
+The relevant path for this test is:
+
+```
+  /document/title
+```
+
+*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-115'></a>
+
+```
+    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "tracking": {
+      // ...
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
+      // ...
+    }
+```
+
+> The document title contains the document tracking id.
+
+> A tool MAY remove the document tracking id from the document title.
+> It SHOULD also remove any separating characters including whitespace, colon, dash and brackets.
+
+### 6.2.23 Usage of Deprecated CWE <a id='usage-of-deprecated-cwe'></a>
+
+For each item in the CWE array it MUST be tested that the CWE is not deprecated in the given version.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-116'></a>
+
+```
+     "cwes": [
+        {
+          "id": "CWE-596",
+          "name": "DEPRECATED: Incorrect Semantic Object Comparison",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The `CWE-596` is deprecated in version `4.13`.
+
+> A tool MAY suggest to replace the deprecated CWE with its replacement or closest equivalent.
+
+### 6.2.24 Usage of Non-Latest CWE Version <a id='usage-of-non-latest-cwe-version'></a>
+
+For each item in the CWE array it MUST be tested that the latest CWE version available at the time of the last revision was used.
+The test SHALL fail if a later CWE version was used.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-117'></a>
+
+```
+  "document": {
+    // ...
+    "tracking": {
+      "current_release_date": "2024-01-21T10:00:00.000Z",
+      // ...
+    }
+  },
+  "vulnerabilities": [
+    {
+      "cwes": [
+        {
+          "id": "CWE-256",
+          "name": "Plaintext Storage of a Password",
+          "version": "4.12"
+        }
+      ]
+    }
+  ]
+```
+
+> The CWE version listed is `4.12`. However, version `4.13` was most recent version when the document was released on `2024-01-21T10:00:00.000Z`.
+
+> A tool MAY suggest to use the latest version available at the time of the `current_release_date`.
+> This is most likely also the overall latest CWE version as modifications to a CSAF document lead to a new `current_release_date`.
+
+### 6.2.25 Usage of CWE Not Allowed for Vulnerability Mapping <a id='usage-of-cwe-not-allowed-for-vulnerability-mapping'></a>
+
+For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
+
+> Currently, this includes the two usage state `Allowed` and `Allowed-with-Review`.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-118'></a>
+
+```
+      "cwes": [
+        {
+          "id": "CWE-20",
+          "name": "Improper Input Validation",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The usage of CWE-20 is discouraged as "is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available". [cite](https://cwe.mitre.org/data/definitions/20.html#Vulnerability_Mapping_Notes_20)
+
+### 6.2.26 Usage of CWE Allowed with Review for Vulnerability Mapping <a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping'></a>
+
+For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed without review.
+
+> Reasoning: CWEs marked with a vulnerability mapping state of `Allowed-with-Review` should only be used if a thorough review was done.
+> This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-119'></a>
+
+```
+      "cwes": [
+        {
+          "id": "CWE-1023",
+          "name": "Incomplete Comparison with Missing Factors",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The usage of CWE-1023 is allowed with review as the "CWE entry is a Class and might have Base-level children that would be more appropriate". [cite](https://cwe.mitre.org/data/definitions/1023.html#Vulnerability_Mapping_Notes_1023)
+
 ## 6.3 Informative Test <a id='informative-test'></a>
 
 Informative tests provide insights in common mistakes and bad practices.
@@ -6227,7 +6389,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-115'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-120'></a>
 
 ```
   "product_tree": {
@@ -6275,7 +6437,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-116'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-121'></a>
 
 ```
   "cvss_v3": {
@@ -6307,7 +6469,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-117'></a>
+*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-122'></a>
 
 ```
   "vulnerabilities": [
@@ -6335,7 +6497,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-118'></a>
+*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-123'></a>
 
 ```
   "vulnerabilities": [
@@ -6360,7 +6522,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-119'></a>
+*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-124'></a>
 
 ```
   "product_tree": {
@@ -6421,7 +6583,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-120'></a>
+*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-125'></a>
 
 ```
     "references": [
@@ -6450,7 +6612,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-121'></a>
+*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-126'></a>
 
 ```
     "references": [
@@ -6511,7 +6673,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-122'></a>
+*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-127'></a>
 
 ```
   "document": {
@@ -6543,7 +6705,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-123'></a>
+*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-128'></a>
 
 ```
     "branches": [
@@ -6585,7 +6747,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-124'></a>
+*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-129'></a>
 
 ```
                 "category": "product_version_range",
@@ -6610,7 +6772,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-126'></a>
+*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-130'></a>
 
 ```
             "branches": [
@@ -6634,7 +6796,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-127'></a>
+*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-131'></a>
 
 ```
   "product_tree": {
@@ -6742,7 +6904,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-128'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-132'></a>
 
 ```
   {
@@ -6803,7 +6965,7 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022. At the time of this writing,
 > the `CSAF` field is in the process of being officially added.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-129'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-133'></a>
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -6823,7 +6985,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-130'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-134'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -6840,7 +7002,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-131'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-135'></a>
 
 ```
 2024
@@ -6851,7 +7013,7 @@ value of `/document/tracking/initial_release_date`.
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-132'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-136'></a>
 
 ```
 2023/esa-2023-09953.json
@@ -6867,7 +7029,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-133'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-137'></a>
 
 ```
 "2023/esa-2023-09953.json","2023-07-01T10:09:07Z"
@@ -6894,7 +7056,7 @@ At least one of the feeds
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-134'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-138'></a>
 
 ```
   {
@@ -6963,7 +7125,7 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-135'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-139'></a>
 
 ```
   {
@@ -7007,7 +7169,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   * `product_version`
 * type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-136'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-140'></a>
 
   ```
     CPU
@@ -7022,7 +7184,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-137'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-141'></a>
 
   ```
     Chemical
@@ -7037,7 +7199,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-138'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-142'></a>
 
 ```
   {
@@ -7061,7 +7223,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-139'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-143'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -7072,7 +7234,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512
 The file content SHALL start with the first byte of the hexadecimal hash value.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-140'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-144'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -7085,7 +7247,7 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is
 extended by the appropriate extension. See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-141'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-145'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -7130,7 +7292,7 @@ It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-142'></a>
+*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-146'></a>
 
 ```
   {
@@ -7186,7 +7348,7 @@ Each such folder MUST at least:
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-143'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-147'></a>
 
 ```
   {
@@ -7416,9 +7578,12 @@ Thus, for security reasons, CSAF producers and consumers SHALL adhere to the fol
 * Deeply nested markup can cause a stack overflow in the Markdown processor \[[GFMENG](#GFMENG)\].
   To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the `cmark` Markdown processor \[[GFMCMARK](#GFMCMARK)\].
-* To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, javascript: links),
-  CSAF consumers SHALL either disable HTML processing (for example, by using an option such as the --safe option in the cmark Markdown processor)
+* To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
+  CSAF consumers SHALL either disable HTML processing (for example, by using the `--safe` option in the `cmark` Markdown processor)
   or run the resulting HTML through an HTML sanitizer.
+* To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, `javascript:` links),
+  CSAF consumers SHALL either remove all actions from links (for example, by displaying them as standard text)
+or render only those actionable that are known to be safe (for example, determining that via the media type).
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to
 render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can
 be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code.
@@ -7481,6 +7646,10 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
 * **CSAF 2.0 to CSAF 2.1 converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
+* **CSAF library**: A library that implements CSAF data capabilities.
+* **CSAF library with basic validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
+* **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
+* **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
 
 ### 9.1.1 Conformance Clause 1: CSAF document <a id='conformance-clause-1-csaf-document'></a>
 
@@ -7494,7 +7663,7 @@ A text file or data stream satisfies the "CSAF document" conformance profile if 
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the conformance profile "CSAF document" .
+* produces output in the CSAF format, according to the conformance profile "CSAF document".
 * satisfies those normative requirements in section [3](#schema-elements) and [8](#safety-security-and-data-protection-considerations) that
   are designated as applying to CSAF producers.
 
@@ -7591,7 +7760,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-144'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-148'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -7600,7 +7769,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-145'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-149'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -7610,7 +7779,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-146'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-150'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -7621,7 +7790,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step MUST be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-147'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-151'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -7966,6 +8135,8 @@ Secondly, the program fulfills the following for all items of:
 * `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning MUST exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
+* `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 converter MUST remove the `/document/tracking/id`
+  from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
 * `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
   using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
   of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
@@ -7978,6 +8149,78 @@ Secondly, the program fulfills the following for all items of:
 
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
 > of the rules above MAY be ignored to avoid data loss.
+
+### 9.1.19 Conformance Clause 19: CSAF library <a id='conformance-clause-19-csaf-library'></a>
+
+A library satisfies the "CSAF library" conformance profile if the library:
+
+* implements all elements as data structures conforming to the syntax and semantics defined in section [3](#schema-elements).
+* checks all elements according to the patterns provided in the JSON schema.
+* has a function that checks version ranges.
+* has a function that helps to create version ranges.
+* provides for each element functions that allow to create, add, modify and delete that element.
+* has a function that reads a CSAF document into the data structure from a
+  * file system.
+  * URL.
+  * data stream.
+* provides function for sorting the keys and sorts the keys automatically on output.
+* has a function that outputs the data structure as CSAF document
+  * on the file system.
+  * as string.
+  * into a data stream.
+* has a function to determine the filename according to [5.1](#filename) and sets the filename per default when saving a CSAF document.
+* generates a new `product_id` for each new element of type `full_product_name_t` unless an ID is given during the creation.
+* generates a new `group_id` for each new element of type `product_group_id_t` unless an ID is given during the creation.
+* provides a function to retrieve all elements of type `product_id_t` with its corresponding `full_product_name_t/name` and
+  `full_product_name_t/product_identification_helper`.
+* provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
+* provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
+  and, where necessary according to the profile, the impact statement respectively the action statement.
+* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by whitespace
+  of the elements along the path towards this leaf.
+* calculates the CVSS scores and severities for existing data for all CVSS versions.
+* validates the CVSS scores and severities for existing data for all CVSS versions.
+
+> The library MAY implement an option to retrieve the keys unsorted.
+
+### 9.1.20 Conformance Clause 20: CSAF library with basic validation <a id='conformance-clause-20-csaf-library-with-basic-validation'></a>
+
+A CSAF library satisfies the "CSAF library with basic validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF basic validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF basic validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF basic validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with basic validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF basic validator" part and does not enforce its presence.
+
+### 9.1.21 Conformance Clause 21: CSAF library with extended validation <a id='conformance-clause-21-csaf-library-with-extended-validation'></a>
+
+A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF extended validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF extended validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF extended validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with extended validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF extended validator" part and does not enforce its presence.
+
+### 9.1.22 Conformance Clause 22: CSAF library with full validation <a id='conformance-clause-22-csaf-library-with-full-validation'></a>
+
+A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+
+* satisfies the "CSAF library" conformance profile.
+* satisfies the "CSAF full validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF full validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF full validator" and presents the validation
+  result accordingly.
+
+A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF full validator" part and does not enforce its presence.
 
 -------
 
@@ -8118,6 +8361,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.0-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.0-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>
@@ -8385,7 +8629,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 > Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
 
 The value of `/$schema` is a fixed URL, currently pointing to the JSON schema location.
-It seems to be safe to assume that the length of this value is not greater than 5. This applies to:
+It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
 
 * `/$schema` (64)
 
