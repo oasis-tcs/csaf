@@ -59,6 +59,7 @@
     }
   },
   "required": [
+    "$schema",
     "aggregator",
     "aggregator_version",
     "canonical_url",
@@ -66,6 +67,15 @@
     "last_updated"
   ],
   "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the Aggregator JSON schema which the document promises to be valid for.",
+      "type": "string",
+      "enum": [
+        "https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json"
+      ],
+      "format": "uri"
+    },
     "aggregator": {
       "title": "Aggregator",
       "description": "Provides information about the aggregator.",

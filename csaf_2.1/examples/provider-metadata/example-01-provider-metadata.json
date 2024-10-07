@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json",
   "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
   "distributions": [
     {

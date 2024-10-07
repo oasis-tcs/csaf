@@ -51,28 +51,29 @@ and `x_generic_uris`, one is mandatory.
         "cpe": {
           // ...
         },
-        "hashes": {
+        "hashes": [
           // ...
-        },
-        "model_numbers": {
+        ],
+        "model_numbers": [
           // ...
-        },
+        ],
         "purl": {
           // ...
         },
-        "sbom_urls": {
+        "sbom_urls": [
           // ...
-        },
-        "serial_numbers": {
+        ],
+        "serial_numbers": [
           // ...
-        },
-        "skus": {
+        ],
+        "skus": [
           // ...
-        },
-        "x_generic_uris": {
+        ],
+        "x_generic_uris": [
           // ...
-        }
+        ]
       }
+    }
 ```
 
 ##### Full Product Name Type - Product Identification Helper - CPE

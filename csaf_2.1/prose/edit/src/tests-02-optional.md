@@ -679,3 +679,147 @@ The relevant path for this test is:
 ```
 
 > The first and second revision have the same timestamp.
+
+### Document Tracking ID in Title
+
+It MUST be tested that the `/document/title` does not contain the `/document/tracking/id`.
+
+The relevant path for this test is:
+
+```
+  /document/title
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "tracking": {
+      // ...
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
+      // ...
+    }
+```
+
+> The document title contains the document tracking id.
+
+> A tool MAY remove the document tracking id from the document title.
+> It SHOULD also remove any separating characters including whitespace, colon, dash and brackets.
+
+### Usage of Deprecated CWE
+
+For each item in the CWE array it MUST be tested that the CWE is not deprecated in the given version.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+     "cwes": [
+        {
+          "id": "CWE-596",
+          "name": "DEPRECATED: Incorrect Semantic Object Comparison",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The `CWE-596` is deprecated in version `4.13`.
+
+> A tool MAY suggest to replace the deprecated CWE with its replacement or closest equivalent.
+
+### Usage of Non-Latest CWE Version
+
+For each item in the CWE array it MUST be tested that the latest CWE version available at the time of the last revision was used.
+The test SHALL fail if a later CWE version was used.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "document": {
+    // ...
+    "tracking": {
+      "current_release_date": "2024-01-21T10:00:00.000Z",
+      // ...
+    }
+  },
+  "vulnerabilities": [
+    {
+      "cwes": [
+        {
+          "id": "CWE-256",
+          "name": "Plaintext Storage of a Password",
+          "version": "4.12"
+        }
+      ]
+    }
+  ]
+```
+
+> The CWE version listed is `4.12`. However, version `4.13` was most recent version when the document was released on `2024-01-21T10:00:00.000Z`.
+
+> A tool MAY suggest to use the latest version available at the time of the `current_release_date`.
+> This is most likely also the overall latest CWE version as modifications to a CSAF document lead to a new `current_release_date`.
+
+### Usage of CWE Not Allowed for Vulnerability Mapping
+
+For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
+
+> Currently, this includes the two usage state `Allowed` and `Allowed-with-Review`.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "cwes": [
+        {
+          "id": "CWE-20",
+          "name": "Improper Input Validation",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The usage of CWE-20 is discouraged as "is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available". [cite](https://cwe.mitre.org/data/definitions/20.html#Vulnerability_Mapping_Notes_20)
+
+### Usage of CWE Allowed with Review for Vulnerability Mapping
+
+For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed without review.
+
+> Reasoning: CWEs marked with a vulnerability mapping state of `Allowed-with-Review` should only be used if a thorough review was done.
+> This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/cwes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "cwes": [
+        {
+          "id": "CWE-1023",
+          "name": "Incomplete Comparison with Missing Factors",
+          "version": "4.13"
+        }
+      ]
+```
+
+> The usage of CWE-1023 is allowed with review as the "CWE entry is a Class and might have Base-level children that would be more appropriate". [cite](https://cwe.mitre.org/data/definitions/1023.html#Vulnerability_Mapping_Notes_1023)
