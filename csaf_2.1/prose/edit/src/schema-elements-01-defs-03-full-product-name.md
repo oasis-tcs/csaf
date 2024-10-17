@@ -87,6 +87,8 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
 See [CPE23-N] for details.
 
+> Both, CPE 2.2 and CPE 2.3, are supported in CSAF.
+
 ##### Full Product Name Type - Product Identification Helper - Hashes
 
 List of hashes (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
