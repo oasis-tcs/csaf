@@ -110,7 +110,7 @@ This results in the following rules:
    1.0.0-0.3.7
    1.0.0-alpha
    1.0.0-alpha.1
-   1.0.0-x-y-z.–
+   1.0.0-x-y-z.--
    1.0.0-x.7.z.92
    ```
 
@@ -124,7 +124,7 @@ This results in the following rules:
 
     ```
     1.0.0+20130313144700
-    1.0.0+21AF26D3—-117B344092BD
+    1.0.0+21AF26D3----117B344092BD
     1.0.0-alpha+001
     1.0.0-beta+exp.sha.5114f85
     ```
@@ -163,3 +163,15 @@ This results in the following rules:
        ```
        1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
        ```
+
+Note, that the following values do no conform the semantic versioning described above.
+
+*Examples 6 (which are invalid):*
+
+```
+  1.16.13.14-Cor
+  1.0.0-x-y-z.–
+  1.0.0+21AF26D3—-117B344092BD
+  2.5.20+3f93da6b+7cc
+  3.20.0-00
+```
