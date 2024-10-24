@@ -1,6 +1,7 @@
 ### Contradicting Product Status Remediation Combination
 
-For each item in `/vulnerabilities[]/remediations` it MUST be tested that the same Product ID is not member of a contradicting product status group.
+For each item in `/vulnerabilities[]/remediations` it MUST be tested that a Product is not member of a contradicting product status group.
+This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:
 
@@ -27,4 +28,4 @@ The relevant path for this test is:
       ]
 ```
 
-> For the product with product ID `CSAFPID-908070` a `vendo_fix` is given but the product was not affected at all.
+> For the product with product ID `CSAFPID-908070` a `vendor_fix` is given but the product was not affected at all.
