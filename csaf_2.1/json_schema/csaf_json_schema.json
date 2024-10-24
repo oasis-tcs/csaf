@@ -1338,6 +1338,7 @@
                     "mitigation",
                     "no_fix_planned",
                     "none_available",
+                    "optional_patch",
                     "vendor_fix",
                     "workaround"
                   ]
