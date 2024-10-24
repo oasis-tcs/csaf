@@ -659,14 +659,11 @@ Its application is not necessary, but might be desired by the user, e.g. to calm
 updating a dependency to a fixed version even though the dependency in the affected version was used
 in the product in a way that the product itself was not affected.
 Unless otherwise noted, it is assumed that this does not change the state regarding the vulnerability.
-This value contradicts with the categories `none_available`, `no_fix_planned` and `vendor_fix` for the same product.
-Therefore, such a combination can't be used in the list of remediations.
 
 > This is sometimes also referred to as a "regulatory compliance patch".
 
 The value `none_available` indicates that there is currently no fix or other remediation available.
 The text in field `details` SHOULD contain details about why there is no fix or other remediation.
-The values `none_available`, `optional_patch` and `vendor_fix` are mutually exclusive per product.
 
 The value `fix_planned` indicates that there is a fix for the vulnerability planned but not yet ready.
 An issuing party might choose to use this category to announce that a fix is currently developed.
@@ -675,7 +672,6 @@ The text in field `details` SHOULD contain details including a date when a custo
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time.
 This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated.
 The text in field `details` SHOULD contain details about why there will be no fix issued.
-The values `no_fix_planned`, `optional_patch` and `vendor_fix` are mutually exclusive per product.
 
 Some category values contradict each other and thus are mutually exclusive per product.
 Therefore, such a combination MUST NOT be used in the list of remediations for the same product.
@@ -691,6 +687,21 @@ The following tables shows the allowed and prohibited combinations:
 | `none_available` | prohibited   | prohibited   | prohibited   | prohibited       | allowed          | prohibited    | prohibited       |
 | `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
 | `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
+
+Some category values contradict certain product status groups.
+Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+The following tables shows the allowed, discouraged and prohibited combinations:
+
+| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Recommended |
+|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|
+| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     |
+| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     |
+| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | allowed     |
+| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     |
 
 ##### Vulnerabilities Property - Remediations - Date
 
