@@ -679,6 +679,7 @@ The values `no_fix_planned`, `optional_patch` and `vendor_fix` are mutually excl
 
 Some category values contradict each other and thus are mutually exclusive per product.
 Therefore, such a combination MUST NOT be used in the list of remediations for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed and prohibited combinations:
 
 | category value   | `workaround` | `mitigation` | `vendor_fix` | `optional_patch` | `none_available` | `fix_planned` | `no_fix_planned` |
