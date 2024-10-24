@@ -148,13 +148,22 @@ Secondly, the program fulfills the following for all items of:
   * If no `product_ids` or `group_ids` is given, the CVRF CSAF converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
     If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
-  * The CVRF CSAF converter MUST convert any remediation with the attribute `Vendor Fix` into the category `optional_patch` if the product in
+  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
     question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
     Otherwise, the category `vendor_fix` MUST be set.
-    The CVRF CSAF converter MUST output a warning if the value of the category was changed including the products it was changed for.
     If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
     different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
     to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
+  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
@@ -541,7 +550,7 @@ Secondly, the program fulfills the following for all items of:
   option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
   the CSAF 2.0 to CSAF 2.1 converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
   both values: the converted one based on the table and the one from the distribution text.
-  > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
+  > This is a common case for CSAF 2.0 documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
 * `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
@@ -557,13 +566,23 @@ Secondly, the program fulfills the following for all items of:
 
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
-* `/vulnerabilities[]/remediations[]`: The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the
-  category `optional_patch` if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
-  Otherwise, the category `vendor_fix` MUST stay the same.
-  The CSAF 2.0 to CSAF 2.1 converter MUST output a warning if the value of the category was changed including the products it was changed for.
-  If multiple products are associated with the remediation - either directly or through a product group - and the products belong to different
-  product status groups, the CSAF 2.0 to CSAF 2.1 converter MUST duplicate the remediation, change the category in one instance to `optional_patch`
-  and distribute the products accordingly as stated by the conversion rule.
+* `/vulnerabilities[]/remediations[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
+    if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST stay the same.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to different
+    product status groups, the CSAF 2.0 to CSAF 2.1 converter MUST duplicate the remediation, change the category in one instance to `optional_patch`
+    and distribute the products accordingly as stated by the conversion rule.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `none_available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the future or no `date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove any product from a remediation with the category `none_available`
+    if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CSAF 2.0 to CSAF 2.1 converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 
