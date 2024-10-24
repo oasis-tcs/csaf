@@ -144,10 +144,17 @@ Secondly, the program fulfills the following for all items of:
   * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter MUST omit this instance and output a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
-* `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given,
-  the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
-  `first_affected` and `last_affected` into `product_ids`.
-  If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+* `/vulnerabilities[]/remediations[]`:
+  * If no `product_ids` or `group_ids` is given, the CVRF CSAF converter appends all Product IDs which are listed under
+    `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
+    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+  * The CVRF CSAF converter MUST convert any remediation with the attribute `Vendor Fix` into the category `optional_patch` if the product in
+    question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST be set.
+    The CVRF CSAF converter MUST output a warning if the value of the category was changed including the products it was changed for.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
+    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
+    to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
@@ -549,6 +556,14 @@ Secondly, the program fulfills the following for all items of:
   > This is done to create a deterministic conversion.
 
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+
+* `/vulnerabilities[]/remediations[]`: The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the
+  category `optional_patch` if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+  Otherwise, the category `vendor_fix` MUST stay the same.
+  The CSAF 2.0 to CSAF 2.1 converter MUST output a warning if the value of the category was changed including the products it was changed for.
+  If multiple products are associated with the remediation - either directly or through a product group - and the products belong to different
+  product status groups, the CSAF 2.0 to CSAF 2.1 converter MUST duplicate the remediation, change the category in one instance to `optional_patch`
+  and distribute the products accordingly as stated by the conversion rule.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 
