@@ -630,6 +630,7 @@ Category of the remediation (`category`) of value type `string` and `enum` speci
 Valid values are:
 
 ```
+    fix_planned
     mitigation
     no_fix_planned
     none_available
@@ -651,8 +652,6 @@ and they MAY or MAY NOT be officially sanctioned by the document producer.
 The value `vendor_fix` indicates that the remediation contains information about an official fix that
 is issued by the original author of the affected product.
 Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
-This value contradicts with the categories `none_available`, `no_fix_planned` and `optional_patch` for the same product.
-Therefore, such a combination can't be used in the list of remediations.
 
 The value `optional_patch` indicates that the remediation contains information about an patch that
 is issued by the original author of the affected product.
@@ -669,13 +668,28 @@ The value `none_available` indicates that there is currently no fix or other rem
 The text in field `details` SHOULD contain details about why there is no fix or other remediation.
 The values `none_available`, `optional_patch` and `vendor_fix` are mutually exclusive per product.
 
-> An issuing party might choose to use this category to announce that a fix is currently developed.
-It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+The value `fix_planned` indicates that there is a fix for the vulnerability planned but not yet ready.
+An issuing party might choose to use this category to announce that a fix is currently developed.
+The text in field `details` SHOULD contain details including a date when a customer can expect the fix to be ready and distributed.
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time.
 This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated.
 The text in field `details` SHOULD contain details about why there will be no fix issued.
 The values `no_fix_planned`, `optional_patch` and `vendor_fix` are mutually exclusive per product.
+
+Some category values contradict each other and thus are mutually exclusive per product.
+Therefore, such a combination MUST NOT be used in the list of remediations for the same product.
+The following tables shows the allowed and prohibited combinations:
+
+| category value   | `workaround` | `mitigation` | `vendor_fix` | `optional_patch` | `none_available` | `fix_planned` | `no_fix_planned` |
+|:----------------:|:------------:|:------------:|:------------:|:----------------:|:----------------:|:-------------:|:----------------:|
+| `workaround`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
+| `mitigation`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
+| `vendor_fix`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | prohibited    | prohibited       |
+| `optional_patch` | prohibited   | prohibited   | prohibited   | allowed          | prohibited       | prohibited    | prohibited       |
+| `none_available` | prohibited   | prohibited   | prohibited   | prohibited       | allowed          | prohibited    | prohibited       |
+| `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
+| `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
 
 ##### Vulnerabilities Property - Remediations - Date
 
