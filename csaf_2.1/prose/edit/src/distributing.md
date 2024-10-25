@@ -150,7 +150,7 @@ If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF e
 ### Requirement 9: Well-known URL for provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly
-the `provider-metadata.json` according to requirement 7.
+the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details.
 
 *Example 1:*
@@ -162,7 +162,7 @@ The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details
 ### Requirement 10: DNS path
 
 The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly
-the `provider-metadata.json` according to requirement 7.
+the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
 ### Requirement 11: One folder per year
