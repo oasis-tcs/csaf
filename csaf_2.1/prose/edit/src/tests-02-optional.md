@@ -324,7 +324,7 @@ The relevant paths for this test are:
 
 ### Missing TLP label (obsolete){#missing-tlp-label}
 
-> The TLP label is now mandatory and enforce by the schema. Therefore, the optional test is obsolete.
+> The TLP label is now required and enforce by the schema. Therefore, the optional test is obsolete.
 > This section is kept to avoid confusion and number changes.
 
 ### Missing Canonical URL
