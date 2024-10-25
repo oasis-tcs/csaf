@@ -51,9 +51,6 @@ GFMCMARK
 GFMENG
 :    _GitHub Engineering: A formal spec for GitHub Flavored Markdown_, https://githubengineering.com/a-formal-spec-for-github-markdown/.
 
-ISO8601
-:    _Data elements and interchange formats — Information interchange — Representation of dates and times_, International Standard, ISO 8601:2004(E), December 1, 2004, https://www.iso.org/standard/40874.html.
-
 ISO19770-2
 :    _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
@@ -65,9 +62,6 @@ OPENSSL
 
 PURL
 :    _Package URL (purl)_, GitHub Project, https://github.com/package-url/purl-spec.
-
-RFC3339
-:    Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
 
 RFC3552
 :    Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, <https://www.rfc-editor.org/info/rfc3552>.
