@@ -50,6 +50,8 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
+If any redirects are used, there SHOULD not be more than 5 and MUST NOT be more than 10 consecutive redirects.
+
 ### Requirement 7: provider-metadata.json
 
 The party MUST provide a valid `provider-metadata.json` according to the schema
@@ -128,8 +130,8 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [cite](#RFC7230)).
 See [cite](#SECURITY-TXT) for more details.
 
-> The security.txt was published as [cite](#RFC9116) in April 2022. At the time of this writing,
-> the `CSAF` field is in the process of being officially added.
+> The security.txt was published as [cite](#RFC9116) in April 2022.
+> The `CSAF` field was officially added through the IANA registry.
 
 *Examples 1:*
 
@@ -148,7 +150,7 @@ If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF e
 ### Requirement 9: Well-known URL for provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly
-the `provider-metadata.json` according to requirement 7.
+the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details.
 
 *Example 1:*
@@ -160,7 +162,7 @@ The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details
 ### Requirement 10: DNS path
 
 The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly
-the `provider-metadata.json` according to requirement 7.
+the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
 ### Requirement 11: One folder per year
