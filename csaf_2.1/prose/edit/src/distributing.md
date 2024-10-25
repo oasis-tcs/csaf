@@ -130,8 +130,8 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [cite](#RFC7230)).
 See [cite](#SECURITY-TXT) for more details.
 
-> The security.txt was published as [cite](#RFC9116) in April 2022. At the time of this writing,
-> the `CSAF` field is in the process of being officially added.
+> The security.txt was published as [cite](#RFC9116) in April 2022.
+> The `CSAF` field was officially added through the IANA registry.
 
 *Examples 1:*
 
