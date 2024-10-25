@@ -63,6 +63,9 @@ tests-01-mndtr-30-mixed-integer-and-semantic-versioning.md
 tests-01-mndtr-31-version-range-in-product-version.md
 tests-01-mndtr-32-flag-without-product-reference.md
 tests-01-mndtr-33-multiple-flags-with-vex-justification-codes-per-product.md
+tests-01-mndtr-34-branches-recursion-depth.md
+tests-01-mndtr-35-contradicting-remediations.md
+tests-01-mndtr-36-contradicting-product-status-remediation-combination.md
 tests-02-optional.md
 tests-03-informative.md
 distributing.md
