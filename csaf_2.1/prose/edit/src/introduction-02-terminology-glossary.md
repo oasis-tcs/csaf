@@ -47,6 +47,9 @@ CSAF direct producer
 CSAF document
 :    security advisory text document in the format defined by this document.
 
+CSAF downloader
+:    A program that retrieves CSAF documents in an automated fashion.
+
 CSAF extended validator
 :    A CSAF basic validator that additionally performs optional tests.
 

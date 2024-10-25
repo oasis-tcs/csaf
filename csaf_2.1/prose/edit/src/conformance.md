@@ -27,6 +27,7 @@ This document defines requirements for the CSAF file format and for certain soft
 The entities ("conformance targets") for which this document defines requirements are:
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
+* **CSAF downloader**: A program that retrieves CSAF documents in an automated fashion.
 * **CSAF producer**: A program which emits output in the CSAF format.
 * **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
 * **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
@@ -627,4 +628,14 @@ A CSAF library satisfies the "CSAF library with extended validation" conformance
 A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
 program for the "CSAF full validator" part and does not enforce its presence.
 
+### Conformance Clause 23: CSAF downloader
+
+A program satisfies the "CSAF downloader" conformance profile if the program:
+
+* conforms to the process defined in section [sec](#retrieving-rules) by executing all parts that are applicable to the given role.
+* supports directory-based and ROLIE-based retrieval.
+* is able to execute both steps from section [sec](#retrieving-rules) separately.
+* uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
+
+> A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents)
 -------
