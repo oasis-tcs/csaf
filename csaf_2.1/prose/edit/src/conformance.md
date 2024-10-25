@@ -145,7 +145,7 @@ Secondly, the program fulfills the following for all items of:
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/remediations[]`:
-  * If no `product_ids` or `group_ids` is given, the CVRF CSAF converter appends all Product IDs which are listed under
+  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
     If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
   * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
