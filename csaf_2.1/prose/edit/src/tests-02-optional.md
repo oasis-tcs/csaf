@@ -322,27 +322,10 @@ The relevant paths for this test are:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### Missing TLP label (deprecated){#missing-tlp-label}
+### Missing TLP label (obsolete){#missing-tlp-label}
 
-It MUST be tested that `/document/distribution/tlp/label` is present and valid.
-
-> TLP labels support the machine-readability and automated distribution.
-
-The relevant path for this test is:
-
-```
-  /document/distribution/tlp/label
-```
-
-*Example 1 (which fails the test):*
-
-```
-    "distribution": {
-      "text": "Distribute freely."
-    }
-```
-
-> The CSAF document has no TLP label.
+> The TLP label is now mandatory. Therefore, the optional test is obsolete.
+> This section is kept to avoid confusion and number changes.
 
 ### Missing Canonical URL
 
