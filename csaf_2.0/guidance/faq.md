@@ -73,3 +73,13 @@ Please see our advise on [CDNs](./cdn.md).
 ### Where can I find a list of all parties that produce CSAF?
 
 Currently, there is no such list available. However, [BSI hosts a list with metadata of known parties](https://wid.cert-bund.de/.well-known/csaf-aggregator/aggregator.json) that produce CSAF files and distribute them in a way that they are automatically retrievable. This list is called a CSAF lister.
+
+## CSAF Internals
+
+### What is the maximum recursion depth allowed in the product tree for `branches`?
+
+Even though it is not formally noted in CSAF 2.0, the recursion of `branches` is limited to 25 repetitions. Therefore, the longest path to a leaf is:
+
+```
+/product_tree/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/product
+```
