@@ -137,6 +137,9 @@ externalized property
 false positive
 :    result which an end user decides does not actually represent a problem
 
+filter
+:    refine a list by selecting entries that match given criteria
+
 fingerprint
 :    stable value that can be used by a result management system to uniquely identify a result over time,
 even if a relevant artifact is modified
@@ -217,6 +220,9 @@ _Examples_: severity level, rank
 
 repository
 :    container for a related set of files in a version control system
+
+search
+:    compile a list of entries that match given criteria
 
 taxonomy
 :    classification of analysis results into a set of categories
