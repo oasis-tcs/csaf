@@ -672,5 +672,5 @@ A program satisfies the "CSAF downloader" conformance profile if the program:
 * is able to execute both steps from section [sec](#retrieving-rules) separately.
 * uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
 
-> A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents)
+> A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
 -------
