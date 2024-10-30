@@ -806,3 +806,36 @@ The relevant path for this test is:
 ```
 
 > The usage of CWE-1023 is allowed with review as the "CWE entry is a Class and might have Base-level children that would be more appropriate". [cite](https://cwe.mitre.org/data/definitions/1023.html#Vulnerability_Mapping_Notes_1023)
+
+### Discouraged Product Status Remediation Combination
+
+For each item in `/vulnerabilities[]/remediations` it MUST be tested that a Product is not member of a discouraged product status group
+remediation category combination.
+This takes indirect relations through Product Groups into account.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/remediations[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "fix_planned",
+          "details": "The fix should be available in Q4 2024.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+```
+
+> For the product with product ID `CSAFPID-908070` a fix is planned but the product was not affected at all.

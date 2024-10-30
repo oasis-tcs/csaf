@@ -630,9 +630,11 @@ Category of the remediation (`category`) of value type `string` and `enum` speci
 Valid values are:
 
 ```
+    fix_planned
     mitigation
     no_fix_planned
     none_available
+    optional_patch
     vendor_fix
     workaround
 ```
@@ -650,20 +652,56 @@ and they MAY or MAY NOT be officially sanctioned by the document producer.
 The value `vendor_fix` indicates that the remediation contains information about an official fix that
 is issued by the original author of the affected product.
 Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
-This value contradicts with the categories `none_available` and `no_fix_planned` for the same product.
-Therefore, such a combination can't be used in the list of remediations.
+
+The value `optional_patch` indicates that the remediation contains information about an patch that
+is issued by the original author of the affected product.
+Its application is not necessary, but might be desired by the user, e.g. to calm a security scanner by
+updating a dependency to a fixed version even though the dependency in the affected version was used
+in the product in a way that the product itself was not affected.
+Unless otherwise noted, it is assumed that this does not change the state regarding the vulnerability.
+
+> This is sometimes also referred to as a "regulatory compliance patch".
 
 The value `none_available` indicates that there is currently no fix or other remediation available.
 The text in field `details` SHOULD contain details about why there is no fix or other remediation.
-The values `none_available` and `vendor_fix` are mutually exclusive per product.
 
-> An issuing party might choose to use this category to announce that a fix is currently developed.
-It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+The value `fix_planned` indicates that there is a fix for the vulnerability planned but not yet ready.
+An issuing party might choose to use this category to announce that a fix is currently developed.
+The text in field `details` SHOULD contain details including a date when a customer can expect the fix to be ready and distributed.
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time.
 This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated.
 The text in field `details` SHOULD contain details about why there will be no fix issued.
-The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
+
+Some category values contradict each other and thus are mutually exclusive per product.
+Therefore, such a combination MUST NOT be used in the list of remediations for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+The following tables shows the allowed and prohibited combinations:
+
+| category value   | `workaround` | `mitigation` | `vendor_fix` | `optional_patch` | `none_available` | `fix_planned` | `no_fix_planned` |
+|:----------------:|:------------:|:------------:|:------------:|:----------------:|:----------------:|:-------------:|:----------------:|
+| `workaround`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
+| `mitigation`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
+| `vendor_fix`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | prohibited    | prohibited       |
+| `optional_patch` | prohibited   | prohibited   | prohibited   | allowed          | prohibited       | prohibited    | prohibited       |
+| `none_available` | prohibited   | prohibited   | prohibited   | prohibited       | allowed          | prohibited    | prohibited       |
+| `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
+| `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
+
+Some category values contradict certain product status groups.
+Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+The following tables shows the allowed, discouraged and prohibited combinations:
+
+| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Recommended |
+|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|
+| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     |
+| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     |
+| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | allowed     |
+| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     |
 
 ##### Vulnerabilities Property - Remediations - Date
 
