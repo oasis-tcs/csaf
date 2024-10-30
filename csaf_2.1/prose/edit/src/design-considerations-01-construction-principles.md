@@ -66,4 +66,4 @@ Section [sec](#distributing-csaf-documents) states how to distribute and where t
 Safety, Security and Data Protection are considered in section [sec](#safety-security-and-data-protection-considerations).
 Finally, a set of conformance targets describes tools in the ecosystem.
 
--------
+

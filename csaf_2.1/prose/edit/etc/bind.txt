@@ -8,6 +8,7 @@ introduction-04-informative-references.md
 introduction-05-typographical-conventions.md
 design-considerations-00.md
 design-considerations-01-construction-principles.md
+design-considerations-02-date-time.md
 schema-elements-00.md
 schema-elements-01-definitions.md
 schema-elements-01-defs-01-acknowledgements.md
