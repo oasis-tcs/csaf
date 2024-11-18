@@ -220,6 +220,9 @@ Therefore, they are reserved for implementation-specific situations:
 
 A CSAF document with `TLP:CLEAR` SHOULD NOT contain a sharing group value and SHALL NOT contain any other value for the Sharing Group ID than Max UUID (`ffffffff-ffff-ffff-ffff-ffffffffffff`).
 
+If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for CSAF modifier (cf. section [sec](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of `/document/tracking/id` SHALL be applied.
+This implies that usually the sharing group ID is used as a prefix to the original `/document/tracking/id`.
+
 Sharing Group Name (`name`) of value type `string` with one or more characters contains a human-readable name for the sharing group.
 
 The Sharing Group Name is optional and can be chosen freely by the entity establishing the sharing group.
