@@ -839,3 +839,29 @@ The relevant path for this test is:
 ```
 
 > For the product with product ID `CSAFPID-908070` a fix is planned but the product was not affected at all.
+
+### Usage of Max UUID
+
+It MUST be tested that the Max UUID is not used as sharing group id.
+
+The relevant path for this test is:
+
+```
+  /document/distribution/sharing_group/id
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "distribution": {
+      "sharing_group": {
+        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "name": "Public"
+      },
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+```
+
+> The sharing group id uses the Max UUID.
