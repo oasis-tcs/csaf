@@ -139,6 +139,7 @@ A string SHOULD NOT have a length greater than:
   * `/document/acknowledgments[]/organization`
   * `/document/aggregate_severity/text`
   * `/document/category`
+  * `/document/distribution/sharing_group/name`
   * `/document/lang`
   * `/document/notes[]/audience`
   * `/document/notes[]/title`
@@ -250,31 +251,20 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/remediations[]/restart_required/details`
   * `/vulnerabilities[]/threats[]/details`
 
-## URI length
+## Date
 
-A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
+The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
-* `/document/acknowledgments[]/urls[]`
-* `/document/aggregate_severity/namespace`
-* `/document/distribution/tlp/url`
-* `/document/references[]/url`
-* `/document/publisher/namespace`
-* `/product_tree/branches[]/product/product_identification_helper/sbom_urls[]`
-* `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace`
-* `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri`
-* `/product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls[]`
-* `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace`
-* `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri`
-* `/product_tree/full_product_names[]/product_identification_helper/sbom_urls[]`
-* `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace`
-* `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri`
-* `/product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls[]`
-* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
-* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
-* `/vulnerabilities[]/acknowledgments[]/urls[]`
-* `/vulnerabilities[]/metrics[]/source`
-* `/vulnerabilities[]/references[]/url`
-* `/vulnerabilities[]/remediations[]/url`
+* `/document/tracking/current_release_date`
+* `/document/tracking/generator/date`
+* `/document/tracking/initial_release_date`
+* `/document/tracking/revision_history[]/date`
+* `/vulnerabilities[]/discovery_date`
+* `/vulnerabilities[]/flags[]/date`
+* `/vulnerabilities[]/release_date`
+* `/vulnerabilities[]/involvements[]/date`
+* `/vulnerabilities[]/remediations[]/date`
+* `/vulnerabilities[]/threats[]/date`
 
 ## Enum
 
@@ -386,17 +376,34 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity` (8)
 * `/vulnerabilities[]/threats[]/category` (14)
 
-## Date
+## URI length
 
-The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
+A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
 
-* `/document/tracking/current_release_date`
-* `/document/tracking/generator/date`
-* `/document/tracking/initial_release_date`
-* `/document/tracking/revision_history[]/date`
-* `/vulnerabilities[]/discovery_date`
-* `/vulnerabilities[]/flags[]/date`
-* `/vulnerabilities[]/release_date`
-* `/vulnerabilities[]/involvements[]/date`
-* `/vulnerabilities[]/remediations[]/date`
-* `/vulnerabilities[]/threats[]/date`
+* `/document/acknowledgments[]/urls[]`
+* `/document/aggregate_severity/namespace`
+* `/document/distribution/tlp/url`
+* `/document/references[]/url`
+* `/document/publisher/namespace`
+* `/product_tree/branches[]/product/product_identification_helper/sbom_urls[]`
+* `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls[]`
+* `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/full_product_names[]/product_identification_helper/sbom_urls[]`
+* `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls[]`
+* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
+* `/vulnerabilities[]/acknowledgments[]/urls[]`
+* `/vulnerabilities[]/metrics[]/source`
+* `/vulnerabilities[]/references[]/url`
+* `/vulnerabilities[]/remediations[]/url`
+
+## UUID length
+
+A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
+
+* `/document/distribution/sharing_group/id (36)
