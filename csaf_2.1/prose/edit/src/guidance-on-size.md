@@ -33,7 +33,7 @@ All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits
 
 > If you come across a case where these limits are exceeded, please provide feedback to the TC.
 
-## File size
+## File Size
 
 A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content,
 e.g.: 50 MiB.
@@ -46,7 +46,7 @@ e.g.: 50 MiB.
 > In addition, the BSON format adds length information for the entries inside the document,
 > which adds to the size when storing CSAF document content in a BSON format.
 
-## Array length
+## Array Length
 
 An array SHOULD NOT have more than:
 
@@ -130,7 +130,7 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/threats[]/group_ids`
   * `/vulnerabilities[]/threats[]/product_ids`
 
-## String length
+## String Length
 
 A string SHOULD NOT have a length greater than:
 
@@ -376,7 +376,7 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity` (8)
 * `/vulnerabilities[]/threats[]/category` (14)
 
-## URI length
+## URI Length
 
 A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
 
@@ -402,7 +402,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/vulnerabilities[]/references[]/url`
 * `/vulnerabilities[]/remediations[]/url`
 
-## UUID length
+## UUID Length
 
 A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
 
