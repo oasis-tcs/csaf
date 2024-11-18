@@ -23,3 +23,5 @@ The relevant path for this test is:
 ```
 
 > The sharing group uses the Max UUID but the CSAF document is labeled as `TLP:RED`.
+
+> A tool MAY remove the property `sharing_group` as a quick fix.

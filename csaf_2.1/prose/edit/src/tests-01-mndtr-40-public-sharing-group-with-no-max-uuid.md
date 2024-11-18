@@ -23,3 +23,5 @@ The relevant path for this test is:
 ```
 
 > The sharing group is present for the `TLP:CLEAR` document but it differs from the Max UUID.
+
+> A tool MAY update the sharing group id as a quick fix.

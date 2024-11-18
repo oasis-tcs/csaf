@@ -20,3 +20,5 @@ The relevant path for this test is:
 ```
 
 > The Max UUID is used but the sharing group name does not exist.
+
+> A tool MAY add the corresponding sharing group name as a quick fix.

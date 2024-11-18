@@ -864,6 +864,8 @@ The relevant path for this test is:
 
 > The sharing group id uses the Max UUID.
 
+> A tool MAY remove the property `sharing_group` as a quick fix.
+
 ### Usage of Nil UUID
 
 It MUST be tested that the Nil UUID is not used as sharing group id.
@@ -887,6 +889,8 @@ The relevant path for this test is:
 ```
 
 > The sharing group id uses the Nil UUID.
+
+> A tool MAY remove the property `sharing_group` as a quick fix.
 
 ### Usage of Sharing Group on TLP:CLEAR
 
@@ -913,3 +917,5 @@ The relevant path for this test is:
 ```
 
 > The CSAF document is `TLP:CLEAR` but a sharing group is given.
+
+> A tool MAY remove the property `sharing_group` as a quick fix.

@@ -21,3 +21,5 @@ The relevant path for this test is:
 ```
 
 > The sharing group name is `Public` but it does not use the Max UUID.
+
+> A tool MAY update the sharing group name as a quick fix.
