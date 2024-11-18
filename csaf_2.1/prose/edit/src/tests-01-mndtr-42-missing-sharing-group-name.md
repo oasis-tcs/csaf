@@ -1,6 +1,6 @@
 ### Missing Sharing Group Name
 
-It MUST be tested that the sharing group name exists and equals the predefined reserved value from section [#cite](document-property---distribution---sharing-group) if the precondition is fulfilled.
+It MUST be tested that the sharing group name exists and equals the predefined reserved value from section [sec](#document-property-distribution-sharing-group) if the precondition is fulfilled.
 
 The relevant path for this test is:
 

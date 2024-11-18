@@ -1,6 +1,6 @@
 ### Invalid Sharing Group Name
 
-It MUST be tested that the value of sharing group name does not equal the reserved values from section [#cite](document-property---distribution---sharing-group) if the precondition is not fulfilled.
+It MUST be tested that the value of sharing group name does not equal the reserved values from section [sec](#document-property-distribution-sharing-group) if the precondition is not fulfilled.
 
 The relevant path for this test is:
 
