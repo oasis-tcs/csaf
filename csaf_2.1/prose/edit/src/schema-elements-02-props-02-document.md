@@ -223,8 +223,10 @@ A CSAF document with `TLP:CLEAR` SHOULD NOT contain a sharing group value and SH
 Sharing Group Name (`name`) of value type `string` with one or more characters contains a human-readable name for the sharing group.
 
 The Sharing Group Name is optional and can be chosen freely by the entity establishing the sharing group.
-For the Max UUID, the value of `name` SHALL exist and be `Public`.
-For the Nil UUID, the value of `name` SHALL exist and be `No Sharing allowed`.
+However, the following values are reserved for the conditions below:
+
+- For the Max UUID, the value of `name` SHALL exist and be `Public`.
+- For the Nil UUID, the value of `name` SHALL exist and be `No sharing allowed`.
 
 ##### Document Property - Distribution - Text
 
