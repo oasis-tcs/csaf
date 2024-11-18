@@ -51,29 +51,28 @@ and `x_generic_uris`, one is mandatory.
         "cpe": {
           // ...
         },
-        "hashes": [
+        "hashes": {
           // ...
-        ],
-        "model_numbers": [
+        },
+        "model_numbers": {
           // ...
-        ],
+        },
         "purl": {
           // ...
         },
-        "sbom_urls": [
+        "sbom_urls": {
           // ...
-        ],
-        "serial_numbers": [
+        },
+        "serial_numbers": {
           // ...
-        ],
-        "skus": [
+        },
+        "skus": {
           // ...
-        ],
-        "x_generic_uris": [
+        },
+        "x_generic_uris": {
           // ...
-        ]
+        }
       }
-    }
 ```
 
 ##### Full Product Name Type - Product Identification Helper - CPE
@@ -86,6 +85,8 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
 See [CPE23-N] for details.
+
+> Both, CPE 2.2 and CPE 2.3, are supported in CSAF.
 
 ##### Full Product Name Type - Product Identification Helper - Hashes
 

@@ -27,6 +27,7 @@ This document defines requirements for the CSAF file format and for certain soft
 The entities ("conformance targets") for which this document defines requirements are:
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
+* **CSAF downloader**: A program that retrieves CSAF documents in an automated fashion.
 * **CSAF producer**: A program which emits output in the CSAF format.
 * **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
 * **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
@@ -60,6 +61,7 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
+* conforms to the syntax and semantics defined in section [sec](#date-and-time)
 * conforms to the syntax and semantics defined in section [sec](#schema-elements).
 * satisfies at least one profile defined in section [sec](#profiles).
 * does not fail any mandatory test defined in section [sec](#mandatory-tests).
@@ -144,10 +146,26 @@ Secondly, the program fulfills the following for all items of:
   * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter MUST omit this instance and output a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
-* `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given,
-  the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
-  `first_affected` and `last_affected` into `product_ids`.
-  If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+* `/vulnerabilities[]/remediations[]`:
+  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
+    `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
+    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
+    question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST be set.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
+    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
+    to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
+  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
@@ -534,7 +552,7 @@ Secondly, the program fulfills the following for all items of:
   option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
   the CSAF 2.0 to CSAF 2.1 converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
   both values: the converted one based on the table and the one from the distribution text.
-  > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
+  > This is a common case for CSAF 2.0 documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
 * `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
@@ -549,6 +567,24 @@ Secondly, the program fulfills the following for all items of:
   > This is done to create a deterministic conversion.
 
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+
+* `/vulnerabilities[]/remediations[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
+    if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST stay the same.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to different
+    product status groups, the CSAF 2.0 to CSAF 2.1 converter MUST duplicate the remediation, change the category in one instance to `optional_patch`
+    and distribute the products accordingly as stated by the conversion rule.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `none_available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the future or no `date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove any product from a remediation with the category `none_available`
+    if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CSAF 2.0 to CSAF 2.1 converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 
@@ -626,5 +662,16 @@ A CSAF library satisfies the "CSAF library with extended validation" conformance
 
 A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
 program for the "CSAF full validator" part and does not enforce its presence.
+
+### Conformance Clause 23: CSAF downloader
+
+A program satisfies the "CSAF downloader" conformance profile if the program:
+
+* conforms to the process defined in section [sec](#retrieving-rules) by executing all parts that are applicable to the given role.
+* supports directory-based and ROLIE-based retrieval.
+* is able to execute both steps from section [sec](#retrieving-rules) separately.
+* uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
+
+> A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
 
 -------

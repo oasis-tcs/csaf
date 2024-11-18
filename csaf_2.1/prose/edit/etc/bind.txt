@@ -8,6 +8,7 @@ introduction-04-informative-references.md
 introduction-05-typographical-conventions.md
 design-considerations-00.md
 design-considerations-01-construction-principles.md
+design-considerations-02-date-time.md
 schema-elements-00.md
 schema-elements-01-definitions.md
 schema-elements-01-defs-01-acknowledgements.md
@@ -63,6 +64,9 @@ tests-01-mndtr-30-mixed-integer-and-semantic-versioning.md
 tests-01-mndtr-31-version-range-in-product-version.md
 tests-01-mndtr-32-flag-without-product-reference.md
 tests-01-mndtr-33-multiple-flags-with-vex-justification-codes-per-product.md
+tests-01-mndtr-34-branches-recursion-depth.md
+tests-01-mndtr-35-contradicting-remediations.md
+tests-01-mndtr-36-contradicting-product-status-remediation-combination.md
 tests-02-optional.md
 tests-03-informative.md
 distributing.md

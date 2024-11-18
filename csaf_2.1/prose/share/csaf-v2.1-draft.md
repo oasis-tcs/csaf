@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 28 August 2024
+## 30 October 2024
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -71,7 +71,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 28 August 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 30 October 2024. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -110,6 +110,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	1.5 [Typographical Conventions](#typographical-conventions)  
 2. [Design Considerations](#design-considerations)  
 	2.1 [Construction Principles](#construction-principles)  
+	2.2 [Date and Time](#date-and-time)  
 3. [Schema Elements](#schema-elements)  
 	3.1 [Definitions](#definitions)  
 		3.1.1 [Acknowledgments Type](#acknowledgments-type)  
@@ -267,6 +268,9 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.1.31 [Version Range in Product Version](#version-range-in-product-version)  
 		6.1.32 [Flag without Product Reference](#flag-without-product-reference)  
 		6.1.33 [Multiple Flags with VEX Justification Codes per Product](#multiple-flags-with-vex-justification-codes-per-product)  
+		6.1.34 [Branches Recursion Depth](#mandatory-tests--branches-recursion-depth)  
+		6.1.35 [Contradicting Remediations](#contradicting-remediations)  
+		6.1.36 [Contradicting Product Status Remediation Combination](#contradicting-product-status-remediation-combination)  
 	6.2 [Optional Tests](#optional-tests)  
 		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
 		6.2.2 [Missing Remediation](#missing-remediation)  
@@ -277,7 +281,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.7 [Missing Date in Involvements](#missing-date-in-involvements)  
 		6.2.8 [Use of MD5 as the only Hash Algorithm](#use-of-md5-as-the-only-hash-algorithm)  
 		6.2.9 [Use of SHA-1 as the only Hash Algorithm](#use-of-sha-1-as-the-only-hash-algorithm)  
-		6.2.10 [Missing TLP label (deprecated)](#missing-tlp-label)  
+		6.2.10 [Missing TLP label (obsolete)](#missing-tlp-label)  
 		6.2.11 [Missing Canonical URL](#missing-canonical-url)  
 		6.2.12 [Missing Document Language](#missing-document-language)  
 		6.2.13 [Sorting](#optional-tests--sorting)  
@@ -294,6 +298,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.24 [Usage of Non-Latest CWE Version](#usage-of-non-latest-cwe-version)  
 		6.2.25 [Usage of CWE Not Allowed for Vulnerability Mapping](#usage-of-cwe-not-allowed-for-vulnerability-mapping)  
 		6.2.26 [Usage of CWE Allowed with Review for Vulnerability Mapping](#usage-of-cwe-allowed-with-review-for-vulnerability-mapping)  
+		6.2.27 [Discouraged Product Status Remediation Combination](#discouraged-product-status-remediation-combination)  
 	6.3 [Informative Test](#informative-test)  
 		6.3.1 [Use of CVSS v2 as the only Scoring System](#use-of-cvss-v2-as-the-only-scoring-system)  
 		6.3.2 [Use of CVSS v3.0](#use-of-cvss-v3-0)  
@@ -367,6 +372,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		9.1.20 [Conformance Clause 20: CSAF library with basic validation](#conformance-clause-20-csaf-library-with-basic-validation)  
 		9.1.21 [Conformance Clause 21: CSAF library with extended validation](#conformance-clause-21-csaf-library-with-extended-validation)  
 		9.1.22 [Conformance Clause 22: CSAF library with full validation](#conformance-clause-22-csaf-library-with-full-validation)  
+		9.1.23 [Conformance Clause 23: CSAF downloader](#conformance-clause-23-csaf-downloader)  
 
 Appendix A. [Acknowledgments](#acknowledgments)  
 Appendix B. [Revision History](#revision-history)  
@@ -434,6 +440,8 @@ For purposes of this document, the following terms and definitions apply:
   <dd>analysis tool which acts as a CSAF producer</dd>
   <dt id="def;csaf-document">CSAF document</dt>
   <dd>security advisory text document in the format defined by this document.</dd>
+  <dt id="def;csaf-downloader">CSAF downloader</dt>
+  <dd>A program that retrieves CSAF documents in an automated fashion.</dd>
   <dt id="def;csaf-extended-validator">CSAF extended validator</dt>
   <dd>A CSAF basic validator that additionally performs optional tests.</dd>
   <dt id="def;csaf-full-validator">CSAF full validator</dt>
@@ -497,6 +505,8 @@ For purposes of this document, the following terms and definitions apply:
   <dd>property stored outside of the CSAF document to which it logically belongs</dd>
   <dt id="def;false-positive">false positive</dt>
   <dd>result which an end user decides does not actually represent a problem</dd>
+  <dt id="def;filter">filter</dt>
+  <dd>refine a list by selecting entries that match given criteria</dd>
   <dt id="def;fingerprint">fingerprint</dt>
   <dd>stable value that can be used by a result management system to uniquely identify a result over time,
       even if a relevant artifact is modified</dd>
@@ -555,6 +565,8 @@ For purposes of this document, the following terms and definitions apply:
       <em>Examples</em>: severity level, rank</dd>
   <dt id="def;repository">repository</dt>
   <dd>container for a related set of files in a version control system</dd>
+  <dt id="def;search">search</dt>
+  <dd>compile a list of entries that match given criteria</dd>
   <dt id="def;taxonomy">taxonomy</dt>
   <dd>classification of analysis results into a set of categories</dd>
   <dt id="def;tag">tag</dt>
@@ -592,6 +604,8 @@ For purposes of this document, the following terms and definitions apply:
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
+**\[**<span id="ISO8601" class="anchor"></span>**ISO8601\]** _Data elements and interchange formats — Information interchange — Representation of dates and times_, International Standard, ISO 8601:2004(E), December 1, 2004, https://www.iso.org/standard/40874.html.
+
 **\[**<span id="JSON-Schema-Core" class="anchor"></span>**JSON-Schema-Core\]** _JSON Schema: A Media Type for Describing JSON Documents_, draft-bhutton-json-schema-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00>.
 
 **\[**<span id="JSON-Schema-Validation" class="anchor"></span>**JSON-Schema-Validation\]** _JSON Schema Validation: A Vocabulary for Structural Validation of JSON_, draft-bhutton-json-schema-validation-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00>.
@@ -601,6 +615,8 @@ For purposes of this document, the following terms and definitions apply:
 **\[**<span id="Relative-JSON-Pointers" class="anchor"></span>**Relative-JSON-Pointers\]** _Relative JSON Pointers_, draft-bhutton-relative-json-pointer-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-relative-json-pointer-00>.
 
 **\[**<span id="RFC2119" class="anchor"></span>**RFC2119\]** Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <https://www.rfc-editor.org/info/rfc2119>.
+
+**\[**<span id="RFC3339" class="anchor"></span>**RFC3339\]** Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
 
 **\[**<span id="RFC7464" class="anchor"></span>**RFC7464\]** Williams, N., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, <https://www.rfc-editor.org/info/rfc7464>.
 
@@ -644,8 +660,6 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="GFMENG" class="anchor"></span>**GFMENG\]** _GitHub Engineering: A formal spec for GitHub Flavored Markdown_, https://githubengineering.com/a-formal-spec-for-github-markdown/.
 
-**\[**<span id="ISO8601" class="anchor"></span>**ISO8601\]** _Data elements and interchange formats — Information interchange — Representation of dates and times_, International Standard, ISO 8601:2004(E), December 1, 2004, https://www.iso.org/standard/40874.html.
-
 **\[**<span id="ISO19770-2" class="anchor"></span>**ISO19770-2\]** _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
 **\[**<span id="ISO29147" class="anchor"></span>**ISO29147\]** _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018, <https://www.iso.org/standard/72311.html>.
@@ -653,8 +667,6 @@ For purposes of this document, the following terms and definitions apply:
 **\[**<span id="OPENSSL" class="anchor"></span>**OPENSSL\]** _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 
 **\[**<span id="PURL" class="anchor"></span>**PURL\]** _Package URL (purl)_, GitHub Project, https://github.com/package-url/purl-spec.
-
-**\[**<span id="RFC3339" class="anchor"></span>**RFC3339\]** Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
 
 **\[**<span id="RFC3552" class="anchor"></span>**RFC3552\]** Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, <https://www.rfc-editor.org/info/rfc3552>.
 
@@ -810,6 +822,19 @@ consumers to verify rules from the specification which can not be tested by the 
 Section [7](#distributing-csaf-documents) states how to distribute and where to find CSAF documents.
 Safety, Security and Data Protection are considered in section [8](#safety-security-and-data-protection-considerations).
 Finally, a set of conformance targets describes tools in the ecosystem.
+
+
+## 2.2 Date and Time <a id='date-and-time'></a>
+
+This standard uses the `date-time` format as defined in JSON Schema Draft 2020-12 Section 7.3.1.
+In accordance with RFC 3339 and ISO 8601, the following rules apply:
+
+* The letter `T` separating the date and time SHALL be upper case.
+* The letter `Z` indicating the timezone UTC SHALL be upper case.
+* Fractions of seconds are allowed as specified in the standards mention above with the full stop (`.`) as separator.
+* Leap seconds are supported. However, they SHOULD be avoided if possible.
+* Empty timezones are prohibited.
+* The ABNF of RFC 3339, section 5.6 applies.
 
 -------
 
@@ -1250,29 +1275,28 @@ and `x_generic_uris`, one is mandatory.
         "cpe": {
           // ...
         },
-        "hashes": [
+        "hashes": {
           // ...
-        ],
-        "model_numbers": [
+        },
+        "model_numbers": {
           // ...
-        ],
+        },
         "purl": {
           // ...
         },
-        "sbom_urls": [
+        "sbom_urls": {
           // ...
-        ],
-        "serial_numbers": [
+        },
+        "serial_numbers": {
           // ...
-        ],
-        "skus": [
+        },
+        "skus": {
           // ...
-        ],
-        "x_generic_uris": [
+        },
+        "x_generic_uris": {
           // ...
-        ]
+        }
       }
-    }
 ```
 
 ##### 3.1.3.3.1 Full Product Name Type - Product Identification Helper - CPE <a id='full-product-name-type-product-identification-helper-cpe'></a>
@@ -1285,6 +1309,8 @@ Common Platform Enumeration representation (`cpe`) of value type `string` of 5 o
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
 See [CPE23-N] for details.
+
+> Both, CPE 2.2 and CPE 2.3, are supported in CSAF.
 
 ##### 3.1.3.3.2 Full Product Name Type - Product Identification Helper - Hashes <a id='full-product-name-type-product-identification-helper-hashes'></a>
 
@@ -1948,7 +1974,7 @@ This results in the following rules:
    1.0.0-0.3.7
    1.0.0-alpha
    1.0.0-alpha.1
-   1.0.0-x-y-z.–
+   1.0.0-x-y-z.--
    1.0.0-x.7.z.92
    ```
 
@@ -1962,7 +1988,7 @@ This results in the following rules:
 
     ```
     1.0.0+20130313144700
-    1.0.0+21AF26D3—-117B344092BD
+    1.0.0+21AF26D3----117B344092BD
     1.0.0-alpha+001
     1.0.0-beta+exp.sha.5114f85
     ```
@@ -2001,6 +2027,18 @@ This results in the following rules:
        ```
        1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
        ```
+
+Note, that the following values do no conform the semantic versioning described above.
+
+*Examples 6 (which are invalid):*<a id='version-type-semantic-versioning-eg-6'></a><a id='sec-3-1-11-2-eg-6'></a><a id='example-29'></a>
+
+```
+  1.16.13.14-Cor
+  1.0.0-x-y-z.–
+  1.0.0+21AF26D3—-117B344092BD
+  2.5.20+3f93da6b+7cc
+  3.20.0-00
+```
 
 ## 3.2 Properties <a id='properties'></a>
 
@@ -2110,7 +2148,7 @@ The Namespace of aggregate severity (`namespace`) of value type `string` with fo
 The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is
 independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
-*Examples 1:*<a id='document-property-aggregate-severity-eg-1'></a><a id='sec-3-2-2-2-eg-1'></a><a id='example-29'></a>
+*Examples 1:*<a id='document-property-aggregate-severity-eg-1'></a><a id='sec-3-2-2-2-eg-1'></a><a id='example-30'></a>
 
 ```
     Critical
@@ -2136,7 +2174,7 @@ Document category defines a short canonical name, chosen by the document produce
     }
 ```
 
-*Examples 1:*<a id='document-property-category-eg-1'></a><a id='sec-3-2-2-3-eg-1'></a><a id='example-30'></a>
+*Examples 1:*<a id='document-property-category-eg-1'></a><a id='sec-3-2-2-3-eg-1'></a><a id='example-31'></a>
 
 ```
     csaf_base
@@ -2179,7 +2217,7 @@ If both values are present, the TLP information SHOULD be preferred as this aids
 
 The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
 
-*Examples 1:*<a id='document-property-distribution-text-eg-1'></a><a id='sec-3-2-2-5-1-eg-1'></a><a id='example-31'></a>
+*Examples 1:*<a id='document-property-distribution-text-eg-1'></a><a id='sec-3-2-2-5-1-eg-1'></a><a id='example-32'></a>
 
 ```
     Copyright 2024, Example Company, All Rights Reserved.
@@ -2234,7 +2272,7 @@ The default value is the URL to the definition by FIRST:
     https://www.first.org/tlp/
 ```
 
-*Examples 1:*<a id='document-property-distribution-tlp-eg-1'></a><a id='sec-3-2-2-5-2-eg-1'></a><a id='example-32'></a>
+*Examples 1:*<a id='document-property-distribution-tlp-eg-1'></a><a id='sec-3-2-2-5-2-eg-1'></a><a id='example-33'></a>
 
 ```
     https://www.us-cert.gov/tlp
@@ -2343,7 +2381,7 @@ product resellers and distributors, including authoritative vendor partners.
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher,
 possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
-*Example 1:*<a id='document-property-publisher-contact-details-eg-1'></a><a id='sec-3-2-2-8-2-eg-1'></a><a id='example-33'></a>
+*Example 1:*<a id='document-property-publisher-contact-details-eg-1'></a><a id='sec-3-2-2-8-2-eg-1'></a><a id='example-34'></a>
 
 ```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
@@ -2358,7 +2396,7 @@ the authority of the issuing party to release the document, in particular, the p
 
 The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
 
-*Example 1:*<a id='document-property-publisher-name-eg-1'></a><a id='sec-3-2-2-8-4-eg-1'></a><a id='example-34'></a>
+*Example 1:*<a id='document-property-publisher-name-eg-1'></a><a id='sec-3-2-2-8-4-eg-1'></a><a id='example-35'></a>
 
 ```
      BSI
@@ -2385,7 +2423,7 @@ an incremented (patch) version which has no other changes than:
 * the updated item in `/document/references[]` which points to the new version of the CSAF document
 * an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Examples 1:*<a id='document-property-publisher-namespace-eg-1'></a><a id='sec-3-2-2-8-5-eg-1'></a><a id='example-35'></a>
+*Examples 1:*<a id='document-property-publisher-namespace-eg-1'></a><a id='sec-3-2-2-8-5-eg-1'></a><a id='example-36'></a>
 
 ```
     https://csaf.io
@@ -2420,7 +2458,7 @@ The property SHALL NOT be present if the document was not translated.
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document,
 and sufficiently unique to distinguish it from similar documents.
 
-*Examples 1:*<a id='document-property-title-eg-1'></a><a id='sec-3-2-2-11-eg-1'></a><a id='example-36'></a>
+*Examples 1:*<a id='document-property-title-eg-1'></a><a id='sec-3-2-2-11-eg-1'></a><a id='example-37'></a>
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
@@ -2483,7 +2521,7 @@ list of alternate names for the same document.
 Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a
 distinct optional alternative ID used to refer to the document.
 
-*Example 1:*<a id='document-property-tracking-aliases-eg-1'></a><a id='sec-3-2-2-12-1-eg-1'></a><a id='example-37'></a>
+*Example 1:*<a id='document-property-tracking-aliases-eg-1'></a><a id='sec-3-2-2-12-1-eg-1'></a><a id='example-38'></a>
 
 ```
     CVE-2019-12345
@@ -2537,7 +2575,7 @@ optional property Engine version (`version`) contains information about the engi
 
 Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 1:*<a id='document-property-tracking-generator-eg-1'></a><a id='sec-3-2-2-12-3-eg-1'></a><a id='example-38'></a>
+*Examples 1:*<a id='document-property-tracking-generator-eg-1'></a><a id='sec-3-2-2-12-3-eg-1'></a><a id='example-39'></a>
 
 ```
     Red Hat rhsa-to-cvrf
@@ -2550,7 +2588,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 > Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 2:*<a id='document-property-tracking-generator-eg-2'></a><a id='sec-3-2-2-12-3-eg-2'></a><a id='example-39'></a>
+*Examples 2:*<a id='document-property-tracking-generator-eg-2'></a><a id='sec-3-2-2-12-3-eg-2'></a><a id='example-40'></a>
 
 ```
     0.6.0
@@ -2573,7 +2611,7 @@ Unique identifier for the document holds the Identifier.
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organization.
 
-*Examples 1:*<a id='document-property-tracking-id-eg-1'></a><a id='sec-3-2-2-12-4-eg-1'></a><a id='example-40'></a>
+*Examples 1:*<a id='document-property-tracking-id-eg-1'></a><a id='sec-3-2-2-12-4-eg-1'></a><a id='example-41'></a>
 
 ```
     Example Company - 2019-YH3234
@@ -2741,7 +2779,7 @@ the optional Summary (`summary`) property.
 
 The summary of the product group (`summary`) of value type `string` with 1 or more characters gives a short, optional description of the group.
 
-*Examples 1:*<a id='product-tree-property-product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-41'></a>
+*Examples 1:*<a id='product-tree-property-product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-42'></a>
 
 ```
     Products supporting Modbus.
@@ -2830,7 +2868,7 @@ which is referenced as the first element of the relationship.
 Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to
 the Full Product Name element, which is referenced as the second element of the relationship.
 
-*Examples 1:*<a id='product-tree-property-relationships-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-42'></a>
+*Examples 1:*<a id='product-tree-property-relationships-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-43'></a>
 
 ```
   "product_tree": {
@@ -2996,7 +3034,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 It holds the ID for the weakness associated.
 
-*Examples 1:*<a id='vulnerabilities-property-cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-43'></a>
+*Examples 1:*<a id='vulnerabilities-property-cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-44'></a>
 
 ```
     CWE-22
@@ -3007,7 +3045,7 @@ It holds the ID for the weakness associated.
 The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given
 in the CWE specification.
 
-*Examples 2:*<a id='vulnerabilities-property-cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-44'></a>
+*Examples 2:*<a id='vulnerabilities-property-cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-45'></a>
 
 ```
     Cross-Site Request Forgery (CSRF)
@@ -3024,7 +3062,7 @@ The CWE version (`version`) has value type `string` with `pattern` (regular expr
 It holds the version string of the CWE specification this weakness was extracted from.
 When creating or modifying a CSAF document, the latest published version of the CWE specification SHOULD be used.
 
-*Examples 3:*<a id='vulnerabilities-property-cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-45'></a>
+*Examples 3:*<a id='vulnerabilities-property-cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-46'></a>
 
 ```
     "1.0",
@@ -3137,7 +3175,7 @@ tracking ID for the vulnerability.
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Examples 1:*<a id='vulnerabilities-property-ids-eg-1'></a><a id='sec-3-2-4-6-eg-1'></a><a id='example-46'></a>
+*Examples 1:*<a id='vulnerabilities-property-ids-eg-1'></a><a id='sec-3-2-4-6-eg-1'></a><a id='example-47'></a>
 
 ```
     Cisco Bug ID
@@ -3146,7 +3184,7 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Examples 2:*<a id='vulnerabilities-property-ids-eg-2'></a><a id='sec-3-2-4-6-eg-2'></a><a id='example-47'></a>
+*Examples 2:*<a id='vulnerabilities-property-ids-eg-2'></a><a id='sec-3-2-4-6-eg-2'></a><a id='example-48'></a>
 
 ```
     CSCso66472
@@ -3496,9 +3534,11 @@ Category of the remediation (`category`) of value type `string` and `enum` speci
 Valid values are:
 
 ```
+    fix_planned
     mitigation
     no_fix_planned
     none_available
+    optional_patch
     vendor_fix
     workaround
 ```
@@ -3516,20 +3556,56 @@ and they MAY or MAY NOT be officially sanctioned by the document producer.
 The value `vendor_fix` indicates that the remediation contains information about an official fix that
 is issued by the original author of the affected product.
 Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
-This value contradicts with the categories `none_available` and `no_fix_planned` for the same product.
-Therefore, such a combination can't be used in the list of remediations.
+
+The value `optional_patch` indicates that the remediation contains information about an patch that
+is issued by the original author of the affected product.
+Its application is not necessary, but might be desired by the user, e.g. to calm a security scanner by
+updating a dependency to a fixed version even though the dependency in the affected version was used
+in the product in a way that the product itself was not affected.
+Unless otherwise noted, it is assumed that this does not change the state regarding the vulnerability.
+
+> This is sometimes also referred to as a "regulatory compliance patch".
 
 The value `none_available` indicates that there is currently no fix or other remediation available.
 The text in field `details` SHOULD contain details about why there is no fix or other remediation.
-The values `none_available` and `vendor_fix` are mutually exclusive per product.
 
-> An issuing party might choose to use this category to announce that a fix is currently developed.
-It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+The value `fix_planned` indicates that there is a fix for the vulnerability planned but not yet ready.
+An issuing party might choose to use this category to announce that a fix is currently developed.
+The text in field `details` SHOULD contain details including a date when a customer can expect the fix to be ready and distributed.
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time.
 This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated.
 The text in field `details` SHOULD contain details about why there will be no fix issued.
-The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
+
+Some category values contradict each other and thus are mutually exclusive per product.
+Therefore, such a combination MUST NOT be used in the list of remediations for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+The following tables shows the allowed and prohibited combinations:
+
+| category value   | `workaround` | `mitigation` | `vendor_fix` | `optional_patch` | `none_available` | `fix_planned` | `no_fix_planned` |
+|:----------------:|:------------:|:------------:|:------------:|:----------------:|:----------------:|:-------------:|:----------------:|
+| `workaround`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
+| `mitigation`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
+| `vendor_fix`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | prohibited    | prohibited       |
+| `optional_patch` | prohibited   | prohibited   | prohibited   | allowed          | prohibited       | prohibited    | prohibited       |
+| `none_available` | prohibited   | prohibited   | prohibited   | prohibited       | allowed          | prohibited    | prohibited       |
+| `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
+| `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
+
+Some category values contradict certain product status groups.
+Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+The following tables shows the allowed, discouraged and prohibited combinations:
+
+| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Recommended |
+|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|
+| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
+| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     |
+| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     |
+| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | allowed     |
+| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     |
 
 ##### 3.2.4.13.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property-remediations-date'></a>
 
@@ -3887,7 +3963,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    > As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 3. The file extension `.json` MUST be appended.
 
-*Examples 1:*<a id='filename-eg-1'></a><a id='sec-5-1-eg-1'></a><a id='example-48'></a>
+*Examples 1:*<a id='filename-eg-1'></a><a id='sec-5-1-eg-1'></a><a id='example-49'></a>
 
 ```
   cisco-sa-20190513-secureboot.json
@@ -3898,7 +3974,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 > It is currently considered best practice to indicate that a CSAF document is invalid by
 > inserting `_invalid` into the filename in front of the file extension.
 
-*Examples 2:*<a id='filename-eg-2'></a><a id='sec-5-1-eg-2'></a><a id='example-49'></a>
+*Examples 2:*<a id='filename-eg-2'></a><a id='sec-5-1-eg-2'></a><a id='example-50'></a>
 
 ```
   cisco-sa-20190513-secureboot_invalid.json
@@ -3983,7 +4059,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/product_ids[]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-definition-of-product-id-eg-1'></a><a id='sec-6-1-1-eg-1'></a><a id='example-50'></a>
+*Example 1 (which fails the test):*<a id='missing-definition-of-product-id-eg-1'></a><a id='sec-6-1-1-eg-1'></a><a id='example-51'></a>
 
 ```
   "product_tree": {
@@ -4014,7 +4090,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-of-product-id-eg-1'></a><a id='sec-6-1-2-eg-1'></a><a id='example-51'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-of-product-id-eg-1'></a><a id='sec-6-1-2-eg-1'></a><a id='example-52'></a>
 
 ```
   "product_tree": {
@@ -4048,7 +4124,7 @@ The relevant path for this test is:
 > a Product ID defined in a relationship item is used as `product_reference` or `relates_to_product_reference`.
 > Only for those which fulfill this condition it is necessary to run the full check following the references.
 
-*Example 1 (which fails the test):*<a id='circular-definition-of-product-id-eg-1'></a><a id='sec-6-1-3-eg-1'></a><a id='example-52'></a>
+*Example 1 (which fails the test):*<a id='circular-definition-of-product-id-eg-1'></a><a id='sec-6-1-3-eg-1'></a><a id='example-53'></a>
 
 ```
   "product_tree": {
@@ -4087,7 +4163,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/threats[]/group_ids
 ```
 
-*Example 1 (which fails the test):*<a id='missing-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-4-eg-1'></a><a id='example-53'></a>
+*Example 1 (which fails the test):*<a id='missing-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-4-eg-1'></a><a id='example-54'></a>
 
 ```
   "product_tree": {
@@ -4126,7 +4202,7 @@ The relevant path for this test is:
     /product_tree/product_groups[]/group_id
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-5-eg-1'></a><a id='example-54'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-5-eg-1'></a><a id='example-55'></a>
 
 ```
   "product_tree": {
@@ -4202,7 +4278,7 @@ Contradiction groups are:
 > Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
-*Example 1 (which fails the test):*<a id='contradicting-product-status-eg-1'></a><a id='sec-6-1-6-eg-1'></a><a id='example-55'></a>
+*Example 1 (which fails the test):*<a id='contradicting-product-status-eg-1'></a><a id='sec-6-1-6-eg-1'></a><a id='example-56'></a>
 
 ```
   "product_tree": {
@@ -4241,7 +4317,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-scores-with-same-version-per-product-eg-1'></a><a id='sec-6-1-7-eg-1'></a><a id='example-56'></a>
+*Example 1 (which fails the test):*<a id='multiple-scores-with-same-version-per-product-eg-1'></a><a id='sec-6-1-7-eg-1'></a><a id='example-57'></a>
 
 ```
   "product_tree": {
@@ -4300,7 +4376,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v4
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-57'></a>
+*Example 1 (which fails the test):*<a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-58'></a>
 
 ```
   "cvss_v3": {
@@ -4341,7 +4417,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-58'></a>
+*Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-59'></a>
 
 ```
   "cvss_v3": {
@@ -4368,7 +4444,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v4
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-59'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-60'></a>
 
 ```
   "cvss_v3": {
@@ -4402,7 +4478,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-60'></a>
+*Example 1 (which fails the test):*<a id='cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-61'></a>
 
 ```
   "cwes": [
@@ -4427,7 +4503,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='language-eg-1'></a><a id='sec-6-1-12-eg-1'></a><a id='example-61'></a>
+*Example 1 (which fails the test):*<a id='language-eg-1'></a><a id='sec-6-1-12-eg-1'></a><a id='example-62'></a>
 
 ```
   "lang": "EZ"
@@ -4449,7 +4525,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/purl
 ```
 
-*Example 1 (which fails the test):*<a id='purl-eg-1'></a><a id='sec-6-1-13-eg-1'></a><a id='example-62'></a>
+*Example 1 (which fails the test):*<a id='purl-eg-1'></a><a id='sec-6-1-13-eg-1'></a><a id='example-63'></a>
 
 ```
   "product_tree": {
@@ -4479,7 +4555,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='sorted-revision-history-eg-1'></a><a id='sec-6-1-14-eg-1'></a><a id='example-63'></a>
+*Example 1 (which fails the test):*<a id='sorted-revision-history-eg-1'></a><a id='sec-6-1-14-eg-1'></a><a id='example-64'></a>
 
 ```
   "revision_history": [
@@ -4508,7 +4584,7 @@ The relevant path for this test is:
     /document/source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='translator-eg-1'></a><a id='sec-6-1-15-eg-1'></a><a id='example-64'></a>
+*Example 1 (which fails the test):*<a id='translator-eg-1'></a><a id='sec-6-1-15-eg-1'></a><a id='example-65'></a>
 
 ```
   "document": {
@@ -4539,7 +4615,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 1 (which fails the test):*<a id='latest-document-version-eg-1'></a><a id='sec-6-1-16-eg-1'></a><a id='example-65'></a>
+*Example 1 (which fails the test):*<a id='latest-document-version-eg-1'></a><a id='sec-6-1-16-eg-1'></a><a id='example-66'></a>
 
 ```
   "tracking": {
@@ -4573,7 +4649,7 @@ The relevant path for this test is:
     /document/tracking/status
 ```
 
-*Example 1 (which fails the test):*<a id='document-status-draft-eg-1'></a><a id='sec-6-1-17-eg-1'></a><a id='example-66'></a>
+*Example 1 (which fails the test):*<a id='document-status-draft-eg-1'></a><a id='sec-6-1-17-eg-1'></a><a id='example-67'></a>
 
 ```
     "tracking": {
@@ -4595,7 +4671,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 1 (which fails the test):*<a id='released-revision-history-eg-1'></a><a id='sec-6-1-18-eg-1'></a><a id='example-67'></a>
+*Example 1 (which fails the test):*<a id='released-revision-history-eg-1'></a><a id='sec-6-1-18-eg-1'></a><a id='example-68'></a>
 
 ```
     "tracking": {
@@ -4629,7 +4705,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 1 (which fails the test):*<a id='revision-history-entries-for-pre-release-versions-eg-1'></a><a id='sec-6-1-19-eg-1'></a><a id='example-68'></a>
+*Example 1 (which fails the test):*<a id='revision-history-entries-for-pre-release-versions-eg-1'></a><a id='sec-6-1-19-eg-1'></a><a id='example-69'></a>
 
 ```
     "revision_history": [
@@ -4658,7 +4734,7 @@ The relevant path for this test is:
     /document/tracking/version
 ```
 
-*Example 1 (which fails the test):*<a id='non-draft-document-version-eg-1'></a><a id='sec-6-1-20-eg-1'></a><a id='example-69'></a>
+*Example 1 (which fails the test):*<a id='non-draft-document-version-eg-1'></a><a id='sec-6-1-20-eg-1'></a><a id='example-70'></a>
 
 ```
     "tracking": {
@@ -4684,7 +4760,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='missing-item-in-revision-history-eg-1'></a><a id='sec-6-1-21-eg-1'></a><a id='example-70'></a>
+*Example 1 (which fails the test):*<a id='missing-item-in-revision-history-eg-1'></a><a id='sec-6-1-21-eg-1'></a><a id='example-71'></a>
 
 ```
     "revision_history": [
@@ -4713,7 +4789,7 @@ The relevant path for this test is:
     /document/tracking/revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-in-revision-history-eg-1'></a><a id='sec-6-1-22-eg-1'></a><a id='example-71'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-in-revision-history-eg-1'></a><a id='sec-6-1-22-eg-1'></a><a id='example-72'></a>
 
 ```
    "revision_history": [
@@ -4742,7 +4818,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cve
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-use-of-same-cve-eg-1'></a><a id='sec-6-1-23-eg-1'></a><a id='example-72'></a>
+*Example 1 (which fails the test):*<a id='multiple-use-of-same-cve-eg-1'></a><a id='sec-6-1-23-eg-1'></a><a id='example-73'></a>
 
 ```
   "vulnerabilities": [
@@ -4767,7 +4843,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-in-involvements-eg-1'></a><a id='sec-6-1-24-eg-1'></a><a id='example-73'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-in-involvements-eg-1'></a><a id='sec-6-1-24-eg-1'></a><a id='example-74'></a>
 
 ```
   "vulnerabilities": [
@@ -4803,7 +4879,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-use-of-same-hash-algorithm-eg-1'></a><a id='sec-6-1-25-eg-1'></a><a id='example-74'></a>
+*Example 1 (which fails the test):*<a id='multiple-use-of-same-hash-algorithm-eg-1'></a><a id='sec-6-1-25-eg-1'></a><a id='example-75'></a>
 
 ```
   "product_tree": {
@@ -4863,7 +4939,7 @@ The relevant path for this test is:
   /document/category
 ```
 
-*Examples 1 (for currently prohibited values):*<a id='prohibited-document-category-name-eg-1'></a><a id='sec-6-1-26-eg-1'></a><a id='example-75'></a>
+*Examples 1 (for currently prohibited values):*<a id='prohibited-document-category-name-eg-1'></a><a id='sec-6-1-26-eg-1'></a><a id='example-76'></a>
 
 ```
   Csaf_a
@@ -4874,7 +4950,7 @@ The relevant path for this test is:
   V_eX
 ```
 
-*Example 2 (which fails the test):*<a id='prohibited-document-category-name-eg-2'></a><a id='sec-6-1-26-eg-2'></a><a id='example-76'></a>
+*Example 2 (which fails the test):*<a id='prohibited-document-category-name-eg-2'></a><a id='sec-6-1-26-eg-2'></a><a id='example-77'></a>
 
 ```
   "category": "Security_Incident_Response"
@@ -4908,7 +4984,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='document-notes-eg-1'></a><a id='sec-6-1-27-1-eg-1'></a><a id='example-77'></a>
+*Example 1 (which fails the test):*<a id='document-notes-eg-1'></a><a id='sec-6-1-27-1-eg-1'></a><a id='example-78'></a>
 
 ```
   "notes": [
@@ -4939,7 +5015,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 1 (which fails the test):*<a id='document-references-eg-1'></a><a id='sec-6-1-27-2-eg-1'></a><a id='example-78'></a>
+*Example 1 (which fails the test):*<a id='document-references-eg-1'></a><a id='sec-6-1-27-2-eg-1'></a><a id='example-79'></a>
 
 ```
   "references": [
@@ -4969,7 +5045,7 @@ The relevant path for this test is:
   /vulnerabilities
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerabilities-for-informational-advisory-eg-1'></a><a id='sec-6-1-27-3-eg-1'></a><a id='example-79'></a>
+*Example 1 (which fails the test):*<a id='vulnerabilities-for-informational-advisory-eg-1'></a><a id='sec-6-1-27-3-eg-1'></a><a id='example-80'></a>
 
 ```
   "vulnerabilities": [
@@ -5000,7 +5076,7 @@ The relevant path for this test is:
   /product_tree
 ```
 
-*Example 1 (which fails the test):*<a id='product-tree-eg-1'></a><a id='sec-6-1-27-4-eg-1'></a><a id='example-80'></a>
+*Example 1 (which fails the test):*<a id='product-tree-eg-1'></a><a id='sec-6-1-27-4-eg-1'></a><a id='example-81'></a>
 
 ```
   {
@@ -5032,7 +5108,7 @@ The relevant path for this test is:
   /vulnerabilities[]/notes
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-notes-eg-1'></a><a id='sec-6-1-27-5-eg-1'></a><a id='example-81'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-notes-eg-1'></a><a id='sec-6-1-27-5-eg-1'></a><a id='example-82'></a>
 
 ```
   "vulnerabilities": [
@@ -5060,7 +5136,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 1 (which fails the test):*<a id='product-status-eg-1'></a><a id='sec-6-1-27-6-eg-1'></a><a id='example-82'></a>
+*Example 1 (which fails the test):*<a id='product-status-eg-1'></a><a id='sec-6-1-27-6-eg-1'></a><a id='example-83'></a>
 
 ```
   "vulnerabilities": [
@@ -5092,7 +5168,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation
 ```
 
-*Example 1 (which fails the test):*<a id='vex-product-status-eg-1'></a><a id='sec-6-1-27-7-eg-1'></a><a id='example-83'></a>
+*Example 1 (which fails the test):*<a id='vex-product-status-eg-1'></a><a id='sec-6-1-27-7-eg-1'></a><a id='example-84'></a>
 
 ```
   "product_status": {
@@ -5124,7 +5200,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-id-eg-1'></a><a id='sec-6-1-27-8-eg-1'></a><a id='example-84'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-id-eg-1'></a><a id='sec-6-1-27-8-eg-1'></a><a id='example-85'></a>
 
 ```
   "vulnerabilities": [
@@ -5155,7 +5231,7 @@ The relevant path for this test is:
   /vulnerabilities[]/threats
 ```
 
-*Example 1 (which fails the test):*<a id='impact-statement-eg-1'></a><a id='sec-6-1-27-9-eg-1'></a><a id='example-85'></a>
+*Example 1 (which fails the test):*<a id='impact-statement-eg-1'></a><a id='sec-6-1-27-9-eg-1'></a><a id='example-86'></a>
 
 ```
   "product_tree": {
@@ -5227,7 +5303,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations
 ```
 
-*Example 1 (which fails the test):*<a id='action-statement-eg-1'></a><a id='sec-6-1-27-10-eg-1'></a><a id='example-86'></a>
+*Example 1 (which fails the test):*<a id='action-statement-eg-1'></a><a id='sec-6-1-27-10-eg-1'></a><a id='example-87'></a>
 
 ```
   "product_tree": {
@@ -5300,7 +5376,7 @@ The relevant path for this test is:
   /vulnerabilities
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerabilities-for-security-advisory-or-vex-eg-1'></a><a id='sec-6-1-27-11-eg-1'></a><a id='example-87'></a>
+*Example 1 (which fails the test):*<a id='vulnerabilities-for-security-advisory-or-vex-eg-1'></a><a id='sec-6-1-27-11-eg-1'></a><a id='example-88'></a>
 
 ```
   {
@@ -5326,7 +5402,7 @@ The relevant path for this test is:
   /document/source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='translation-eg-1'></a><a id='sec-6-1-28-eg-1'></a><a id='example-88'></a>
+*Example 1 (which fails the test):*<a id='translation-eg-1'></a><a id='sec-6-1-28-eg-1'></a><a id='example-89'></a>
 
 ```
   "document": {
@@ -5354,7 +5430,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations[]
 ```
 
-*Example 1 (which fails the test):*<a id='remediation-without-product-reference-eg-1'></a><a id='sec-6-1-29-eg-1'></a><a id='example-89'></a>
+*Example 1 (which fails the test):*<a id='remediation-without-product-reference-eg-1'></a><a id='sec-6-1-29-eg-1'></a><a id='example-90'></a>
 
 ```
       "remediations": [
@@ -5381,7 +5457,7 @@ The relevant paths for this test are:
   /document/tracking/version
 ```
 
-*Example 1 (which fails the test):*<a id='mixed-integer-and-semantic-versioning-eg-1'></a><a id='sec-6-1-30-eg-1'></a><a id='example-90'></a>
+*Example 1 (which fails the test):*<a id='mixed-integer-and-semantic-versioning-eg-1'></a><a id='sec-6-1-30-eg-1'></a><a id='example-91'></a>
 
 ```
     "tracking": {
@@ -5436,7 +5512,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='version-range-in-product-version-eg-1'></a><a id='sec-6-1-31-eg-1'></a><a id='example-91'></a>
+*Example 1 (which fails the test):*<a id='version-range-in-product-version-eg-1'></a><a id='sec-6-1-31-eg-1'></a><a id='example-92'></a>
 
 ```
             "branches": [
@@ -5460,7 +5536,7 @@ The relevant path for this test is:
   /vulnerabilities[]/flags[]
 ```
 
-*Example 1 (which fails the test):*<a id='flag-without-product-reference-eg-1'></a><a id='sec-6-1-32-eg-1'></a><a id='example-92'></a>
+*Example 1 (which fails the test):*<a id='flag-without-product-reference-eg-1'></a><a id='sec-6-1-32-eg-1'></a><a id='example-93'></a>
 
 ```
       "flags": [
@@ -5487,7 +5563,7 @@ The relevant path for this test is:
   /vulnerabilities[]/flags
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-flags-with-vex-justification-codes-per-product-eg-1'></a><a id='sec-6-1-33-eg-1'></a><a id='example-93'></a>
+*Example 1 (which fails the test):*<a id='multiple-flags-with-vex-justification-codes-per-product-eg-1'></a><a id='sec-6-1-33-eg-1'></a><a id='example-94'></a>
 
 ```
   "product_tree": {
@@ -5541,6 +5617,287 @@ The relevant path for this test is:
 
 > There are two flags given for `CSAFPID-9080700` - one indirect through `CSAFGID-0001` and one direct.
 
+### 6.1.34 Branches Recursion Depth <a id='mandatory-tests--branches-recursion-depth'></a>
+
+For each product defined under `/product_tree/branches[]` it MUST be tested that the complete JSON path
+does not contain more than 30 instances of `branches`.
+
+The relevant path for this test is:
+
+```
+  /product_tree/branches[](/branches[])*/product
+```
+
+*Example 1 (which fails the test):*<a id='mandatory-tests--branches-recursion-depth-eg-1'></a><a id='sec-6-1-34-eg-1'></a><a id='example-95'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "branches": [
+                  {
+                    "branches": [
+                      {
+                        "branches": [
+                          {
+                            "branches": [
+                              {
+                                "branches": [
+                                  {
+                                    "branches": [
+                                      {
+                                        "branches": [
+                                          {
+                                            "branches": [
+                                              {
+                                                "branches": [
+                                                  {
+                                                    "branches": [
+                                                      {
+                                                        "branches": [
+                                                          {
+                                                            "branches": [
+                                                              {
+                                                                "branches": [
+                                                                  {
+                                                                    "branches": [
+                                                                      {
+                                                                        "branches": [
+                                                                          {
+                                                                            "branches": [
+                                                                              {
+                                                                                "branches": [
+                                                                                  {
+                                                                                    "branches": [
+                                                                                      {
+                                                                                        "branches": [
+                                                                                          {
+                                                                                            "branches": [
+                                                                                              {
+                                                                                                "branches": [
+                                                                                                  {
+                                                                                                    "branches": [
+                                                                                                      {
+                                                                                                        "branches": [
+                                                                                                          {
+                                                                                                            "branches": [
+                                                                                                              {
+                                                                                                                "branches": [
+                                                                                                                  {
+                                                                                                                    "branches": [
+                                                                                                                      {
+                                                                                                                        "branches": [
+                                                                                                                          {
+                                                                                                                            "branches": [
+                                                                                                                              {
+                                                                                                                                "category": "product_name",
+                                                                                                                                "name": "branches",
+                                                                                                                                "product": {
+                                                                                                                                  "name": "<<generate Product name>>",
+                                                                                                                                  "product_id": "CSAFPID-9080700"
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            ],
+                                                                                                                            "category": "product_family",
+                                                                                                                            "name": "31"
+                                                                                                                          }
+                                                                                                                        ],
+                                                                                                                        "category": "product_family",
+                                                                                                                        "name": "with"
+                                                                                                                      }
+                                                                                                                    ],
+                                                                                                                    "category": "product_family",
+                                                                                                                    "name": "test"
+                                                                                                                  }
+                                                                                                                ],
+                                                                                                                "category": "product_family",
+                                                                                                                "name": "the"
+                                                                                                              }
+                                                                                                            ],
+                                                                                                            "category": "product_family",
+                                                                                                            "name": "fail"
+                                                                                                          }
+                                                                                                        ],
+                                                                                                        "category": "product_family",
+                                                                                                        "name": "and"
+                                                                                                      }
+                                                                                                    ],
+                                                                                                    "category": "product_family",
+                                                                                                    "name": "limits"
+                                                                                                  }
+                                                                                                ],
+                                                                                                "category": "product_family",
+                                                                                                "name": "the"
+                                                                                              }
+                                                                                            ],
+                                                                                            "category": "product_family",
+                                                                                            "name": "testing"
+                                                                                          }
+                                                                                        ],
+                                                                                        "category": "product_family",
+                                                                                        "name": "are"
+                                                                                      }
+                                                                                    ],
+                                                                                    "category": "product_family",
+                                                                                    "name": "they"
+                                                                                  }
+                                                                                ],
+                                                                                "category": "product_family",
+                                                                                "name": "but"
+                                                                              }
+                                                                            ],
+                                                                            "category": "product_family",
+                                                                            "name": "unrealistic"
+                                                                          }
+                                                                        ],
+                                                                        "category": "product_family",
+                                                                        "name": "less"
+                                                                      }
+                                                                    ],
+                                                                    "category": "product_family",
+                                                                    "name": "or"
+                                                                  }
+                                                                ],
+                                                                "category": "product_family",
+                                                                "name": "more"
+                                                              }
+                                                            ],
+                                                            "category": "product_family",
+                                                            "name": "and"
+                                                          }
+                                                        ],
+                                                        "category": "product_family",
+                                                        "name": "unnecessary"
+                                                      }
+                                                    ],
+                                                    "category": "product_family",
+                                                    "name": "seem"
+                                                  }
+                                                ],
+                                                "category": "product_family",
+                                                "name": "which"
+                                              }
+                                            ],
+                                            "category": "product_family",
+                                            "name": "product"
+                                          }
+                                        ],
+                                        "category": "product_family",
+                                        "name": "hypothetical"
+                                      }
+                                    ],
+                                    "category": "product_family",
+                                    "name": "this"
+                                  }
+                                ],
+                                "category": "product_family",
+                                "name": "for"
+                              }
+                            ],
+                            "category": "product_family",
+                            "name": "structure"
+                          }
+                        ],
+                        "category": "product_family",
+                        "name": "nested"
+                      }
+                    ],
+                    "category": "product_family",
+                    "name": "deeply"
+                  }
+                ],
+                "category": "product_family",
+                "name": "a"
+              }
+            ],
+            "category": "product_family",
+            "name": "uses"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  }
+```
+
+> The complete JSON path contains 31 times `branches`.
+
+### 6.1.35 Contradicting Remediations <a id='contradicting-remediations'></a>
+
+For each item in `/vulnerabilities[]/remediations` it MUST be tested that a product is not member of contradicting remediation categories.
+This takes indirect relations through product groups into account.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/remediations[]
+```
+
+*Example 1 (which fails the test):*<a id='contradicting-remediations-eg-1'></a><a id='sec-6-1-35-eg-1'></a><a id='example-96'></a>
+
+```
+      "remediations": [
+        {
+          "category": "no_fix_planned",
+          "details": "The product is end-of-life. Therefore, no fix will be provided.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        },
+        {
+          "category": "vendor_fix",
+          "details": "Update to version >=14.3 to fix the vulnerability.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+```
+
+> The two remediations given for the product with product ID `CSAFPID-908070` contradict each other.
+
+> A tool MAY apply the conversion rules from the conformance target CSAF 2.0 to CSAF 2.1 converter if applicable or
+> remove the product from the remediation with the lower priority.
+> The priority MAY be defined as follows:
+> `vendor_fix` > `mitigation` > `workaround` > `fix_planned` > `no_fix_planned` > `optional_patch` > `none_available`
+
+### 6.1.36 Contradicting Product Status Remediation Combination <a id='contradicting-product-status-remediation-combination'></a>
+
+For each item in `/vulnerabilities[]/remediations` it MUST be tested that a product is not member of a contradicting product status group.
+This takes indirect relations through product groups into account.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/remediations[]
+```
+
+*Example 1 (which fails the test):*<a id='contradicting-product-status-remediation-combination-eg-1'></a><a id='sec-6-1-36-eg-1'></a><a id='example-97'></a>
+
+```
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to version >=14.3 to fix the vulnerability.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+```
+
+> For the product with product ID `CSAFPID-908070` a `vendor_fix` is given but the product was not affected at all.
+
 ## 6.2 Optional Tests <a id='optional-tests'></a>
 
 Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
@@ -5562,7 +5919,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-94'></a>
+*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-98'></a>
 
 ```
   "product_tree": {
@@ -5595,7 +5952,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation[]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-95'></a>
+*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-99'></a>
 
 ```
   "product_tree": {
@@ -5632,7 +5989,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-96'></a>
+*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-100'></a>
 
 ```
   "product_tree": {
@@ -5666,7 +6023,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-97'></a>
+*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-101'></a>
 
 ```
     "revision_history": [
@@ -5691,7 +6048,7 @@ The relevant path for this test is:
     /document/tracking/initial_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-98'></a>
+*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-102'></a>
 
 ```
     "tracking": {
@@ -5727,7 +6084,7 @@ The relevant path for this test is:
     /document/tracking/current_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-99'></a>
+*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-103'></a>
 
 ```
     "tracking": {
@@ -5762,7 +6119,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 1 (which fails the test):*<a id='missing-date-in-involvements-eg-1'></a><a id='sec-6-2-7-eg-1'></a><a id='example-100'></a>
+*Example 1 (which fails the test):*<a id='missing-date-in-involvements-eg-1'></a><a id='sec-6-2-7-eg-1'></a><a id='example-104'></a>
 
 ```
   "vulnerabilities": [
@@ -5794,7 +6151,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-101'></a>
+*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-105'></a>
 
 ```
   "product_tree": {
@@ -5837,7 +6194,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-102'></a>
+*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-106'></a>
 
 ```
   "product_tree": {
@@ -5865,27 +6222,10 @@ The relevant paths for this test are:
 
 > The hash algorithm `sha1` is used in one item of hashes without being accompanied by a second hash algorithm.
 
-### 6.2.10 Missing TLP label (deprecated) <a id='missing-tlp-label'></a>
+### 6.2.10 Missing TLP label (obsolete) <a id='missing-tlp-label'></a>
 
-It MUST be tested that `/document/distribution/tlp/label` is present and valid.
-
-> TLP labels support the machine-readability and automated distribution.
-
-The relevant path for this test is:
-
-```
-  /document/distribution/tlp/label
-```
-
-*Example 1 (which fails the test):*<a id='missing-tlp-label-eg-1'></a><a id='sec-6-2-10-eg-1'></a><a id='example-103'></a>
-
-```
-    "distribution": {
-      "text": "Distribute freely."
-    }
-```
-
-> The CSAF document has no TLP label.
+> The TLP label is now required by the schema. Therefore, the optional test is obsolete.
+> This section is kept to document that change and keep the numbering of the remaining sections stable.
 
 ### 6.2.11 Missing Canonical URL <a id='missing-canonical-url'></a>
 
@@ -5903,7 +6243,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-104'></a>
+*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-108'></a>
 
 ```
   "document": {
@@ -5938,7 +6278,7 @@ The relevant path for this test is:
   /document/lang
 ```
 
-*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-105'></a>
+*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-109'></a>
 
 ```
   "document": {
@@ -5968,7 +6308,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 1 (which fails the test):*<a id='optional-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-106'></a>
+*Example 1 (which fails the test):*<a id='optional-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-110'></a>
 
 ```
   "document": {
@@ -5993,7 +6333,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-107'></a>
+*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-111'></a>
 
 ```
   "lang": "qtx"
@@ -6014,7 +6354,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-108'></a>
+*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-112'></a>
 
 ```
   "lang": "i-default"
@@ -6036,7 +6376,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name
 ```
 
-*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-109'></a>
+*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-113'></a>
 
 ```
     "full_product_names": [
@@ -6061,7 +6401,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids[]
 ```
 
-*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-110'></a>
+*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-114'></a>
 
 ```
       "ids": [
@@ -6094,7 +6434,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-111'></a>
+*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-115'></a>
 
 ```
             "branches": [
@@ -6122,7 +6462,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status/fixed[]
 ```
 
-*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-112'></a>
+*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-116'></a>
 
 ```
   "product_tree": {
@@ -6178,7 +6518,7 @@ The relevant path for this test is:
 > To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that
 > sets `additionalProperties` to `false` for every key of type `object`.
 
-*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-113'></a>
+*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-117'></a>
 
 ```
   "document": {
@@ -6204,7 +6544,7 @@ The relevant path for this test is:
   /document/tracking/revision_history[]/date
 ```
 
-*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-114'></a>
+*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-118'></a>
 
 ```
   "revision_history": [
@@ -6233,7 +6573,7 @@ The relevant path for this test is:
   /document/title
 ```
 
-*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-115'></a>
+*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-119'></a>
 
 ```
     "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
@@ -6259,7 +6599,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-116'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-120'></a>
 
 ```
      "cwes": [
@@ -6286,7 +6626,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-117'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-121'></a>
 
 ```
   "document": {
@@ -6326,7 +6666,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-118'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-122'></a>
 
 ```
       "cwes": [
@@ -6353,7 +6693,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-119'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-123'></a>
 
 ```
       "cwes": [
@@ -6366,6 +6706,39 @@ The relevant path for this test is:
 ```
 
 > The usage of CWE-1023 is allowed with review as the "CWE entry is a Class and might have Base-level children that would be more appropriate". [cite](https://cwe.mitre.org/data/definitions/1023.html#Vulnerability_Mapping_Notes_1023)
+
+### 6.2.27 Discouraged Product Status Remediation Combination <a id='discouraged-product-status-remediation-combination'></a>
+
+For each item in `/vulnerabilities[]/remediations` it MUST be tested that a Product is not member of a discouraged product status group
+remediation category combination.
+This takes indirect relations through Product Groups into account.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/remediations[]
+```
+
+*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-124'></a>
+
+```
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "fix_planned",
+          "details": "The fix should be available in Q4 2024.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+```
+
+> For the product with product ID `CSAFPID-908070` a fix is planned but the product was not affected at all.
 
 ## 6.3 Informative Test <a id='informative-test'></a>
 
@@ -6389,7 +6762,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-120'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-125'></a>
 
 ```
   "product_tree": {
@@ -6437,7 +6810,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-121'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-126'></a>
 
 ```
   "cvss_v3": {
@@ -6469,7 +6842,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-122'></a>
+*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-127'></a>
 
 ```
   "vulnerabilities": [
@@ -6497,7 +6870,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwe
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-123'></a>
+*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-128'></a>
 
 ```
   "vulnerabilities": [
@@ -6522,7 +6895,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-124'></a>
+*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-129'></a>
 
 ```
   "product_tree": {
@@ -6583,7 +6956,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-125'></a>
+*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-130'></a>
 
 ```
     "references": [
@@ -6612,7 +6985,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-126'></a>
+*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-131'></a>
 
 ```
     "references": [
@@ -6673,7 +7046,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-127'></a>
+*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-132'></a>
 
 ```
   "document": {
@@ -6705,7 +7078,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-128'></a>
+*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-133'></a>
 
 ```
     "branches": [
@@ -6747,7 +7120,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-129'></a>
+*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-134'></a>
 
 ```
                 "category": "product_version_range",
@@ -6772,7 +7145,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-130'></a>
+*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-135'></a>
 
 ```
             "branches": [
@@ -6796,7 +7169,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-131'></a>
+*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-136'></a>
 
 ```
   "product_tree": {
@@ -6884,6 +7257,8 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
+If any redirects are used, there SHOULD not be more than 5 and MUST NOT be more than 10 consecutive redirects.
+
 ### 7.1.7 Requirement 7: provider-metadata.json <a id='requirement-7-provider-metadata-json'></a>
 
 The party MUST provide a valid `provider-metadata.json` according to the schema
@@ -6904,7 +7279,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-132'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-137'></a>
 
 ```
   {
@@ -6962,10 +7337,10 @@ In the security.txt there MUST be at least one field `CSAF` which points to the 
 If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of \[[RFC7230](#RFC7230)\]).
 See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 
-> The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022. At the time of this writing,
-> the `CSAF` field is in the process of being officially added.
+> The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
+> The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-133'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-138'></a>
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -6982,10 +7357,10 @@ If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF e
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly
-the `provider-metadata.json` according to requirement 7.
+the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-134'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-139'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -6994,7 +7369,7 @@ The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more 
 ### 7.1.10 Requirement 10: DNS path <a id='requirement-10-dns-path'></a>
 
 The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly
-the `provider-metadata.json` according to requirement 7.
+the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year <a id='requirement-11-one-folder-per-year'></a>
@@ -7002,7 +7377,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-135'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-140'></a>
 
 ```
 2024
@@ -7013,7 +7388,7 @@ value of `/document/tracking/initial_release_date`.
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-136'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-141'></a>
 
 ```
 2023/esa-2023-09953.json
@@ -7029,7 +7404,7 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-137'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-142'></a>
 
 ```
 "2023/esa-2023-09953.json","2023-07-01T10:09:07Z"
@@ -7056,7 +7431,7 @@ At least one of the feeds
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-138'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-143'></a>
 
 ```
   {
@@ -7125,7 +7500,7 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-139'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-144'></a>
 
 ```
   {
@@ -7169,7 +7544,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   * `product_version`
 * type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-140'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-145'></a>
 
   ```
     CPU
@@ -7184,7 +7559,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-141'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-146'></a>
 
   ```
     Chemical
@@ -7199,7 +7574,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-142'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-147'></a>
 
 ```
   {
@@ -7223,7 +7598,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-143'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-148'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -7234,7 +7609,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512
 The file content SHALL start with the first byte of the hexadecimal hash value.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-144'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-149'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -7247,7 +7622,7 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is
 extended by the appropriate extension. See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-145'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-150'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -7292,7 +7667,7 @@ It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-146'></a>
+*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-151'></a>
 
 ```
   {
@@ -7348,7 +7723,7 @@ Each such folder MUST at least:
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-147'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-152'></a>
 
 ```
   {
@@ -7622,6 +7997,7 @@ This document defines requirements for the CSAF file format and for certain soft
 The entities ("conformance targets") for which this document defines requirements are:
 
 * **CSAF document**: A security advisory text document in the format defined by this document.
+* **CSAF downloader**: A program that retrieves CSAF documents in an automated fashion.
 * **CSAF producer**: A program which emits output in the CSAF format.
 * **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
 * **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
@@ -7655,6 +8031,7 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
+* conforms to the syntax and semantics defined in section [2.2](#date-and-time)
 * conforms to the syntax and semantics defined in section [3](#schema-elements).
 * satisfies at least one profile defined in section [4](#profiles).
 * does not fail any mandatory test defined in section [6.1](#mandatory-tests).
@@ -7739,10 +8116,26 @@ Secondly, the program fulfills the following for all items of:
   * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter MUST omit this instance and output a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
-* `/vulnerabilities[]/remediation[]`: If no `product_ids` or `group_ids` is given,
-  the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in the arrays `known_affected`,
-  `first_affected` and `last_affected` into `product_ids`.
-  If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+* `/vulnerabilities[]/remediations[]`:
+  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
+    `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
+    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
+    question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST be set.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
+    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
+    to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
+  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
@@ -7760,7 +8153,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-148'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-153'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -7769,7 +8162,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-149'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-154'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -7779,7 +8172,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-150'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-155'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -7790,7 +8183,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step MUST be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-151'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-156'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -8129,7 +8522,7 @@ Secondly, the program fulfills the following for all items of:
   option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
   the CSAF 2.0 to CSAF 2.1 converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
   both values: the converted one based on the table and the one from the distribution text.
-  > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
+  > This is a common case for CSAF 2.0 documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
 * `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
@@ -8144,6 +8537,24 @@ Secondly, the program fulfills the following for all items of:
   > This is done to create a deterministic conversion.
 
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+
+* `/vulnerabilities[]/remediations[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
+    if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST stay the same.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to different
+    product status groups, the CSAF 2.0 to CSAF 2.1 converter MUST duplicate the remediation, change the category in one instance to `optional_patch`
+    and distribute the products accordingly as stated by the conversion rule.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `none_available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the future or no `date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove any product from a remediation with the category `none_available`
+    if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CSAF 2.0 to CSAF 2.1 converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 
@@ -8221,6 +8632,17 @@ A CSAF library satisfies the "CSAF library with extended validation" conformance
 
 A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
 program for the "CSAF full validator" part and does not enforce its presence.
+
+### 9.1.23 Conformance Clause 23: CSAF downloader <a id='conformance-clause-23-csaf-downloader'></a>
+
+A program satisfies the "CSAF downloader" conformance profile if the program:
+
+* conforms to the process defined in section [7.3](#retrieving-rules) by executing all parts that are applicable to the given role.
+* supports directory-based and ROLIE-based retrieval.
+* is able to execute both steps from section [7.3](#retrieving-rules) separately.
+* uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
+
+> A tool MAY implement an option to store CSAF documents that fail any of the steps in section [7.3.2](#retrieving-csaf-documents).
 
 -------
 
@@ -8362,6 +8784,8 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.0-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.0-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>

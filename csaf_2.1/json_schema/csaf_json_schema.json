@@ -1335,9 +1335,11 @@
                   "description": "Specifies the category which this remediation belongs to.",
                   "type": "string",
                   "enum": [
+                    "fix_planned",
                     "mitigation",
                     "no_fix_planned",
                     "none_available",
+                    "optional_patch",
                     "vendor_fix",
                     "workaround"
                   ]
