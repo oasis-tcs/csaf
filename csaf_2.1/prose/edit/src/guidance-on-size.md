@@ -406,4 +406,4 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 
 A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
 
-* `/document/distribution/sharing_group/id (36)
+* `/document/distribution/sharing_group/id` (36)
