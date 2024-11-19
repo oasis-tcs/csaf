@@ -14,7 +14,7 @@ the value of `name` does not contain a version range.
 >      >=
 >    ```
 >
-> 2. If interpreted as individual word separated by whitespace, it does not contain any of the following keywords:
+> 2. If interpreted as a list of individual words separated by whitespace, the list does not contain any of the following keywords:
 >
 >    ```
 >      after
