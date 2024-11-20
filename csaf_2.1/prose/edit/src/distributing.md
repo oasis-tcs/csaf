@@ -194,17 +194,24 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 ### Requirement 13: changes.csv
 
-The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
+The file `changes.csv` contains a list of CSAF documents in the current TLP level that were changed recently.
+Therefore, it MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
+The `changes.csv` SHALL be a valid comma separated values format as defined by [cite](#RFC4180) without double quotes.
+
+> Note: As a consequence of section [sec](#requirement-2-filename) Requirement 2 for filenames and section [sec](#requirement-11-one-folder-per-year)
+> Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
 *Example 1:*
 
 ```
-"2023/esa-2023-09953.json","2023-07-01T10:09:07Z"
-"2021/esa-2021-03676.json","2023-07-01T10:09:01Z"
-"2022/esa-2022-02723.json","2022-04-17T15:08:41Z"
-"2021/esa-2021-31916.json","2022-03-01T06:01:00Z"
+2023/esa-2023-09953.json,2023-07-01T10:09:07Z
+2021/esa-2021-03676.json,2023-07-01T10:09:01Z
+2022/esa-2022-02723.json,2022-04-17T15:08:41Z
+2021/esa-2021-31916.json,2022-03-01T06:01:00Z
 ```
+
+> Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
 
 ### Requirement 14: Directory listings
 
