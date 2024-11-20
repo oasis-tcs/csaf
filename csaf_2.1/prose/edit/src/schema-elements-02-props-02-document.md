@@ -162,8 +162,8 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 *Examples 1:*
 
 ```
-    Only releasable to European Energy sector
     E-ISAC members-only
+    Only releasable to European Energy sector
     Releasable to NATO countries
 ```
 
