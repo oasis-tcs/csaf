@@ -1,3 +1,11 @@
+<!--
+---
+toc:
+  auto: false
+  label: Safety, Security, and Data Protection Considerations
+  enumerate: Appendix B.
+---
+-->
 # Safety, Security, and Data Protection Considerations
 
 CSAF documents are based on JSON, thus the security considerations of [cite](#RFC8259) apply and are repeated here as service for the reader:

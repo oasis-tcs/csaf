@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := build
-.PHONY: build
+.PHONY: build pdf
 build:
 	bin/volatile.py
 	cp -a build/tmp.md ../share/csaf-v2.1-draft.md
@@ -7,3 +7,12 @@ build:
 	bin/toccata.py
 	timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml | sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > ../share/csaf-v2.1-draft.html
 	git status
+
+pdf:
+	bin/lapidify.py
+	mkdir -p build/render/pdf
+	cp -a build/bookmatter.tex.in build/render/pdf/
+	cp -a build/driver.tex.in build/render/pdf/
+	cp -a build/metadata.tex.in build/render/pdf/
+	cp -a build/setup.tex.in build/render/pdf/
+	cd build/render/pdf && liitos render ../../ -t csaf -f pdf -p -l "etiketti -e" && open this.pdf && cd -

@@ -1,10 +1,8 @@
 frontmatter.md
 introduction-00.md
-introduction-01-ipr-policy.md
-introduction-02-terminology.md
-introduction-02-terminology-glossary.md
-introduction-03-normative-references.md
-introduction-04-informative-references.md
+introduction-01-changes-from-earlier-versions.md
+introduction-02-glossary.md
+introduction-02-glossary-data.md
 introduction-05-typographical-conventions.md
 design-considerations-00.md
 design-considerations-01-construction-principles.md
@@ -66,8 +64,10 @@ tests-01-mndtr-33-multiple-flags-with-vex-justification-codes-per-product.md
 tests-02-optional.md
 tests-03-informative.md
 distributing.md
-safety-security-and-data-protection.md
 conformance.md
+references.md
+safety-security-and-data-protection.md
 acknowledgements.md
 revision-history.md
+notices.md
 guidance-on-size.md

@@ -3,7 +3,7 @@
 toc:
   auto: false
   label: Revision History
-  enumerate: Appendix B.
+  enumerate: Appendix D.
 ---
 -->
 # Revision History

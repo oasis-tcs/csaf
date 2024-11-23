@@ -176,12 +176,15 @@ the Full Product Name element, which is referenced as the second element of the 
         "relates_to_product_reference": "CSAFPID-908070602",
         "full_product_name": {
           "product_id": "CSAFPID-908070603",
-          "name": "Cisco AnyConnect Secure Mobility Client 2.3.185 installed on Microsoft Windows"
+          "name": "Cisco AnyConnect Secure Mobility Client 2.3.185 installed on←
+           Microsoft Windows"
         }
       }
     ]
   }
 ```
+  > For the significance of the left pointing arrow character (`←`) at the end of the third line in the preceding example 2 please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 > The product `Cisco AnyConnect Secure Mobility Client 4.9.04053"` (Product ID: `CSAFPID-908070601`) and the product `Microsoft Windows`
 > (Product ID: `CSAFPID-908070602`) form together a new product with the separate Product ID `CSAFPID-908070603`.

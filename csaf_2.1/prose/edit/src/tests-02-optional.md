@@ -46,7 +46,7 @@ a remediation exists.
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/known_affected[]
   /vulnerabilities[]/product_status/last_affected[]
   /vulnerabilities[]/product_status/under_investigation[]
@@ -84,7 +84,7 @@ a metric object exists which covers this product.
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/known_affected[]
   /vulnerabilities[]/product_status/last_affected[]
 ```
@@ -246,10 +246,16 @@ It MUST be tested that the hash algorithm `md5` is not the only one present.
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes
-  /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes
-  /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/←
+  hashes[]/file_hashes
+  /product_tree/full_product_names[]/product_identification_helper/hashes[]/←
+  file_hashes
+  /product_tree/relationships[]/full_product_name/product_identification_helper/←
+  hashes[]/file_hashes
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding
+  > listing of relevant paths please cf. the guidance in section [sec](#typographical-conventions).
 
 *Example 1 (which fails the test):*
 
@@ -289,10 +295,16 @@ It MUST be tested that the hash algorithm `sha1` is not the only one present.
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes
-  /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes
-  /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/←
+  hashes[]/file_hashes
+  /product_tree/full_product_names[]/product_identification_helper/hashes[]/←
+  file_hashes
+  /product_tree/relationships[]/full_product_name/product_identification_helper/←
+  hashes[]/file_hashes
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding
+  > listing of relevant paths please cf. the guidance in section [sec](#typographical-conventions).
 
 *Example 1 (which fails the test):*
 
@@ -360,6 +372,9 @@ The relevant path for this test is:
   /document/references
 ```
 
+  > For the significance of the left pointing arrow character (`←`) at the end of one line in the following
+  > example 1 please cf. the guidance in section [sec](#typographical-conventions).
+
 *Example 1 (which fails the test):*
 
 ```
@@ -369,7 +384,8 @@ The relevant path for this test is:
       {
         "category": "self",
         "summary": "A non-canonical URL.",
-        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2.1-2024-6-2-11-01_1.json"
+        "url": "https://example.com/security/data/csaf/2024/←
+        oasis_csaf_tc-csaf_2.1-2024-6-2-11-01_1.json"
       }
     ],
     // ...
@@ -690,10 +706,14 @@ The relevant path for this test is:
   /document/title
 ```
 
+  > For the significance of the left pointing arrow character (`←`) at the end of one line in the following
+  > example 1 please cf. the guidance in section [sec](#typographical-conventions).
+
 *Example 1 (which fails the test):*
 
 ```
-    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document←
+     Tracking ID in Title (failing example 1)",
     "tracking": {
       // ...
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",

@@ -24,13 +24,17 @@ The relevant path for this test is:
   /document/notes
 ```
 
+  > For the significance of the left pointing arrow character (`←`) at the end of a line in the following
+  > example 1 please cf. the guidance in section [sec](#typographical-conventions).
+
 *Example 1 (which fails the test):*
 
 ```
   "notes": [
     {
       "category": "legal_disclaimer",
-      "text": "The CSAF document is provided to You \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind.",
+      "text": "The CSAF document is provided to You \"AS IS\" and \"AS AVAILABLE\"←
+       and with all faults and defects without warranty of any kind.",
       "title": "Terms of Use"
     }
   ]
@@ -55,6 +59,9 @@ The relevant path for this test is:
   /document/references
 ```
 
+  > For the significance of the left pointing arrow character (`←`) at the end of a line in the following
+  > example 1 please cf. the guidance in section [sec](#typographical-conventions).
+
 *Example 1 (which fails the test):*
 
 ```
@@ -62,7 +69,8 @@ The relevant path for this test is:
     {
       "category": "self",
       "summary": "The canonical URL.",
-      "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-27-02-01.json"
+      "url": "https://example.com/security/data/csaf/2024/←
+      oasis_csaf_tc-csaf_2_1-2024-6-1-27-02-01.json"
     }
   ]
 ```
@@ -343,6 +351,9 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations
 ```
 
+  > For the significance of the left pointing arrow character (`←`) at the end of a line in the following
+  > example 1 please cf. the guidance in section [sec](#typographical-conventions).
+
 *Example 1 (which fails the test):*
 
 ```
@@ -385,7 +396,8 @@ The relevant path for this test is:
       "remediations": [
         {
           "category": "no_fix_planned",
-          "details": "These products are end-of-life. Therefore, no fix will be provided.",
+          "details": "These products are end-of-life. Therefore, no fix will be←
+           provided.",
           "group_ids": [
             "CSAFGID-0001"
           ]

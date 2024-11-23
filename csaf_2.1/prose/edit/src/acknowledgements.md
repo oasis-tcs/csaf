@@ -3,7 +3,7 @@
 toc:
   auto: false
   label: Acknowledgments
-  enumerate: Appendix A.
+  enumerate: Appendix C.
 ---
 -->
 # Acknowledgments

@@ -146,8 +146,12 @@ in the CWE specification.
 ```
     Cross-Site Request Forgery (CSRF)
     Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
-    Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+    Improper Neutralization of Input During Web Page Generation←
+     ('Cross-site Scripting')
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of the third line in the preceding example 2 please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 The CWE version (`version`) has value type `string` with `pattern` (regular expression):
 
@@ -478,11 +482,13 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
 
-| `category` | `title` | content of `text` |
-|---------------|---------------|-------------------|
-| `description` | CVE Description | Contains the official and unchanged CVE description for this specific vulnerability. |
-| `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
-| `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
+| `category`    | `title`               | content of `text`                                                                                                                                    |
+|:--------------|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `description` | CVE Description       | Contains the official and unchanged CVE description for this specific vulnerability.                                                                 |
+| `description` | Preconditions         | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
+| `summary`     | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description.                                                                   |
+
+Table: Semantics for values of `text`fields from combination of `category` and `title`values.
 
 #### Vulnerabilities Property - Product Status
 
@@ -658,7 +664,8 @@ The text in field `details` SHOULD contain details about why there is no fix or 
 The values `none_available` and `vendor_fix` are mutually exclusive per product.
 
 > An issuing party might choose to use this category to announce that a fix is currently developed.
-It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+
+It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time.
 This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated.

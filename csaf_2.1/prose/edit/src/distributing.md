@@ -74,7 +74,8 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 
 ```
   {
-    "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
+    "canonical_url": "https://www.example.com/.well-known/csaf/←
+    provider-metadata.json",
     "distributions": [
       {
         "rolie": {
@@ -95,7 +96,8 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
     "public_openpgp_keys": [
       {
         "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
-        "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
+        "url": "https://keys.example.net/vks/v1/←
+        by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
       }
     ],
     "publisher": {
@@ -106,6 +108,9 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
     "role": "csaf_trusted_provider"
   }
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of a line in the preceding example 1 please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 If a CSAF publisher (cf. section [sec](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
@@ -249,15 +254,18 @@ Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322)
           "link": [
             {
               "rel": "self",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/←
+              esa-2024-001.json"
             },
             {
               "rel": "hash",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.sha512"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/←
+              esa-2024-001.json.sha512"
             },
             {
               "rel": "signature",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.asc"
+              "href": "https://psirt.domain.tld/advisories/csaf/2024/←
+              esa-2024-001.json.asc"
             }
           ],
           "published": "2024-01-01T11:00:00.000Z",
@@ -270,7 +278,8 @@ Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322)
             "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
-            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/←
+            csaf_json_schema.json",
             "version": "2.1"
           }
         }
@@ -278,6 +287,9 @@ Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322)
     }
   }
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding example 1 please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 Any existing hash file (requirement 18) MUST be listed in the corresponding entry of the ROLIE feed as an item of
 the array `link` having the `rel` value of `hash`.
@@ -464,13 +476,17 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
   {
     "aggregator": {
       "category": "lister",
-      "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
-      "issuing_authority": "This service is provided as it is. It is free for everybody.",
+      "contact_details": "Example CSAF Lister can be reached at←
+       contact_us@lister.example, or via our website at←
+       https://lister.example/security/csaf/aggregator/contact.",
+      "issuing_authority": "This service is provided as it is.←
+       It is free for everybody.",
       "name": "Example CSAF Lister",
       "namespace": "https://lister.example"
     },
     "aggregator_version": "2.1",
-    "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
+    "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/←
+    aggregator.json",
     "csaf_providers": [
       {
         "metadata": {
@@ -498,6 +514,9 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
     "last_updated": "2024-01-24T22:35:38.978Z"
   }
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding example 1 please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 ### Requirement 22: Two disjoint issuing parties
 
@@ -520,13 +539,17 @@ Each such folder MUST at least:
   {
     "aggregator": {
       "category": "aggregator",
-      "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
-      "issuing_authority": "This service is provided as it is. It is free for everybody.",
+      "contact_details": "Example Aggregator can be reached at←
+       contact_us@aggregator.example, or via our website at←
+       https://aggregator.example/security/csaf/aggregator/contact.",
+      "issuing_authority": "This service is provided as it is.←
+       It is free for everybody.",
       "name": "Example Aggregator",
       "namespace": "https://aggregator.example"
     },
     "aggregator_version": "2.1",
-    "canonical_url": "https://aggregator.example/.well-known/csaf-aggregator/aggregator.json",
+    "canonical_url": "https://aggregator.example/.well-known/←
+    csaf-aggregator/aggregator.json",
     "csaf_providers": [
       {
         "metadata": {
@@ -539,7 +562,8 @@ Each such folder MUST at least:
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         },
         "mirrors": [
-          "https://aggregator.example/.well-known/csaf-aggregator/Example_Company_ProductCERT/provider-metadata.json"
+          "https://aggregator.example/.well-known/csaf-aggregator/←
+          Example_Company_ProductCERT/provider-metadata.json"
         ]
       },
       {
@@ -553,13 +577,17 @@ Each such folder MUST at least:
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         },
         "mirrors": [
-          "https://aggregator.example/.well-known/csaf-aggregator/Example_Coordinator_CERT/provider-metadata.json"
+          "https://aggregator.example/.well-known/csaf-aggregator/←
+          Example_Coordinator_CERT/provider-metadata.json"
         ]
       }
     ],
     "last_updated": "2024-01-24T22:35:38.978Z"
   }
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding example 1 please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 ### Requirement 24: HTTP User-Agent
 

@@ -137,6 +137,7 @@ Secondly, the program fulfills the following for all items of:
     `/document/tracking/current_release_date` of the source document.
     If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
     of the source document SHOULD be used.
+
     > This is done to create a deterministic conversion.
 
     If the CWE does not match at all, the CVRF CSAF converter MUST omit this CWE and output a warning that an invalid CWE was found and has
@@ -287,7 +288,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/category` (based on the templates from configuration)
 
 * When updating an existing CSAF document:
-  
+
   * prefills all fields which have be present in the existing CSAF document
   * adds a new item in `/document/tracking/revision_history[]`
   * updates the following fields with the values given below or based on the templates from configuration:
@@ -430,8 +431,10 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
     * when a new CSAF document is inserted (for this CSAF document)
     * when a new asset is inserted (for this asset)
     * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
+
     > These also apply if more than one CSAF document or asset was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
+
   * Manually and automatically triggered runs SHOULD NOT be pooled.
 * provides at least the following statistics for the count of assets:
   * matching that CSAF document at all
@@ -475,7 +478,9 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
 
 * satisfies the "CSAF management system" conformance profile.
 * is an SBOM database or connects to one.
+
   > A repository or any other location that can be queried for SBOMs and their content is also considered an SBOM database.
+
 * matches the CSAF documents within the system to the respective SBOM components.
   This might be done with a probability which gives the user the chance to broaden or narrow the results.
   The process of matching is also referred to as "run of the SBOM matching module".
@@ -498,9 +503,12 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
     * when a new CSAF document is inserted (for this CSAF document)
     * when a new SBOM component is inserted (for this SBOM component)
     * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
+
     > These also apply if more than one CSAF document or SBOM component was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
+
   > Manually and automatically triggered runs should not be pooled.
+
 * provides at least the following statistics for the count of SBOM component:
   * matching that CSAF document at all
   * marked with a given status
@@ -522,9 +530,9 @@ Secondly, the program fulfills the following for all items of:
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
-  
+
   | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
-  |---------------------------|---------------------------|
+  |:--------------------------|:--------------------------|
   | `TLP:WHITE`               | `TLP:CLEAR`               |
   | `TLP:GREEN`               | `TLP:GREEN`               |
   | `TLP:AMBER`               | `TLP:AMBER`               |
@@ -534,6 +542,7 @@ Secondly, the program fulfills the following for all items of:
   option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
   the CSAF 2.0 to CSAF 2.1 converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
   both values: the converted one based on the table and the one from the distribution text.
+
   > This is a common case for CSAF 2.0 documents labeled as TLP:RED but actually intended to be TLP:AMBER+STRICT.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
@@ -546,6 +555,7 @@ Secondly, the program fulfills the following for all items of:
   using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
   of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
   of the source document SHOULD be used.
+
   > This is done to create a deterministic conversion.
 
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.

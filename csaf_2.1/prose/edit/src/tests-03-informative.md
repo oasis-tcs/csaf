@@ -148,10 +148,16 @@ It MUST be tested that the length of the hash value is not shorter than 64 chara
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/value
-  /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value
-  /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/←
+  hashes[]/file_hashes[]/value
+  /product_tree/full_product_names[]/product_identification_helper/hashes[]/←
+  file_hashes[]/value
+  /product_tree/relationships[]/full_product_name/product_identification_helper/←
+  hashes[]/file_hashes[]/value
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding
+  > listing of relevant paths please cf. the guidance in section [sec](#typographical-conventions).
 
 *Example 1 (which fails the test):*
 
@@ -198,28 +204,42 @@ The relevant paths for this test are:
   /document/references[]/url
   /document/publisher/namespace
   /product_tree/branches[]/product/product_identification_helper/sbom_urls[]
-  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls[]
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri
+  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/←
+  namespace
+  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/←
+  uri
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/←
+  sbom_urls[]
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/←
+  x_generic_uris[]/namespace
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/←
+  x_generic_uris[]/uri
   /product_tree/full_product_names[]/product_identification_helper/sbom_urls[]
-  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri
-  /product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls[]
-  /product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri
+  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]←
+  /namespace
+  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]←
+  /uri
+  /product_tree/relationships[]/full_product_name/product_identification_helper/←
+  sbom_urls[]
+  /product_tree/relationships[]/full_product_name/product_identification_helper/←
+  x_generic_uris[]/namespace
+  /product_tree/relationships[]/full_product_name/product_identification_helper/←
+  x_generic_uris[]/uri
   /vulnerabilities[]/acknowledgments[]/urls[]
   /vulnerabilities[]/references[]/url
   /vulnerabilities[]/remediations[]/url
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding
+  > listing of relevant paths and following example 1 please cf. the guidance in section [sec](#typographical-conventions).
 
 *Example 1 (which fails the test):*
 
 ```
     "references": [
       {
-        "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
+        "summary": "A URL that does not resolve with HTTP status code in the←
+         interval between (including) 200 and (excluding) 400.",
         "url": "https://example.invalid"
       }
     ]
@@ -243,13 +263,17 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
+  > For the significance of the left pointing arrow character (`←`) at the end of a line in the following
+  > example 1 please cf. the guidance in section [sec](#typographical-conventions).
+
 *Example 1 (which fails the test):*
 
 ```
     "references": [
       {
         "category": "self",
-        "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
+        "summary": "A URL that does not resolve with HTTP status code in the←
+         interval between (including) 200 and (excluding) 400.",
         "url": "https://example.invalid"
       }
     ]

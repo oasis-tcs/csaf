@@ -47,7 +47,7 @@ and `x_generic_uris`, one is mandatory.
 ```
     "product_identification_helper": {
       // ...
-      "properties": { 
+      "properties": {
         "cpe": {
           // ...
         },
@@ -81,8 +81,16 @@ and `x_generic_uris`, one is mandatory.
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
 
 ```
-    ^((cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:\\/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6}))$
+    ^((cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!←
+    \"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}←
+    (:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)←
+    ([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;←
+    <=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|←
+    ([c][pP][eE]:\\/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6}))$
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding representation please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 The Common Platform Enumeration (CPE) attribute refers to a method for naming platforms external to this specification.
 See [CPE23-N] for details.
@@ -159,14 +167,14 @@ These values are derived from the currently supported digests OpenSSL [cite](#OP
 >
 >```
 >  Supported digests:
->  -blake2b512                -blake2s256                -md4                      
->  -md5                       -md5-sha1                  -ripemd                   
->  -ripemd160                 -rmd160                    -sha1                     
->  -sha224                    -sha256                    -sha3-224                 
->  -sha3-256                  -sha3-384                  -sha3-512                 
->  -sha384                    -sha512                    -sha512-224               
->  -sha512-256                -shake128                  -shake256                 
->  -sm3                       -ssl3-md5                  -ssl3-sha1                
+>  -blake2b512                -blake2s256                -md4
+>  -md5                       -md5-sha1                  -ripemd
+>  -ripemd160                 -rmd160                    -sha1
+>  -sha224                    -sha256                    -sha3-224
+>  -sha3-256                  -sha3-384                  -sha3-512
+>  -sha384                    -sha512                    -sha512-224
+>  -sha512-256                -shake128                  -shake256
+>  -sm3                       -ssl3-md5                  -ssl3-sha1
 >  -whirlpool
 >```
 
@@ -181,10 +189,15 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
 *Examples 2:*
 
 ```
-    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
+    37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb520←
+    3677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
     4775203615d9534a8bfca96a93dc8b461a489f69124a130d786b42204f3341cc
-    9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
+    9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec4←
+    2883bea0b2a1fa697c
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding examples please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 The filename representation (`filename`) of value type `string` with one or more characters contains the name of
 the file which is identified by the hash values.
@@ -228,7 +241,7 @@ the component to identify.
 
 If a part of a model number of the component to identify is given,
 it SHOULD begin with the first character of the model number and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 *Examples 1:*
@@ -276,9 +289,13 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
 *Examples 1:*
 
 ```
-    https://raw.githubusercontent.com/CycloneDX/bom-examples/master/SBOM/keycloak-10.0.2/bom.json
+    https://raw.githubusercontent.com/CycloneDX/bom-examples/master/SBOM/←
+    keycloak-10.0.2/bom.json
     https://swinslow.net/spdx-examples/example4/main-bin-v2
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of the first line in the preceding examples 1 please
+  > cf. the guidance in section [sec](#typographical-conventions).
 
 ##### Full Product Name Type - Product Identification Helper - Serial Numbers
 
@@ -302,7 +319,7 @@ abbreviated (partial) serial number of the component to identify.
 
 If a part of a serial number of the component to identify is given,
 it SHOULD begin with the first character of the serial number and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
@@ -319,9 +336,9 @@ In the latter case the remediations SHALL include the new stock keeping units or
 
 ```
     "skus": {
-        //...  
+        //...
       "items": {
-        //...  
+        //...
       }
     },
 ```
@@ -333,7 +350,7 @@ abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of
 the stock keeping unit and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 ##### Full Product Name Type - Product Identification Helper - Generic URIs
@@ -347,7 +364,7 @@ either vendor-specific or derived from a standard not yet supported.
       "items": {
         // ...
       }
-    }  
+    }
 ```
 
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
@@ -376,7 +393,8 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
           "x_generic_uris": [
             {
               "namespace": "https://cyclonedx.org/capabilities/bomlink/",
-              "uri": "urn:cdx:411dafd2-c29f-491a-97d7-e97de5bc2289/1#pkg:maven/org.jboss.logging/jboss-logging@3.4.1.Final?type=jar"
+              "uri": "urn:cdx:411dafd2-c29f-491a-97d7-e97de5bc2289/1#pkg:maven/←
+              org.jboss.logging/jboss-logging@3.4.1.Final?type=jar"
             }
           ]
 ```
@@ -386,8 +404,13 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 ```
           "x_generic_uris": [
             {
-              "namespace": "https://spdx.github.io/spdx-spec/latest/document-creation-information/#65-spdx-document-namespace-field",
-              "uri": "https://swinslow.net/spdx-examples/example4/main-bin-v2#SPDXRef-libc"
+              "namespace": "https://spdx.github.io/spdx-spec/latest/←
+              document-creation-information/#65-spdx-document-namespace-field",
+              "uri": "https://swinslow.net/spdx-examples/example4/←
+              main-bin-v2#SPDXRef-libc"
             }
           ]
 ```
+
+  > For the significance of the left pointing arrow character (`←`) at the end of lines in the preceding examples 1 and 2 please
+  > cf. the guidance in section [sec](#typographical-conventions).
