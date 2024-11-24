@@ -14,7 +14,7 @@ Language type (`lang_t`) has value type `string` with `pattern` (regular express
   > cf. the guidance in section [sec](#typographical-conventions).
 
 The value identifies a language, corresponding to IETF BCP 47 / RFC 5646.
-See IETF language registry: <https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry>
+See IETF language registry: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
 
 > CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification.
 > Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem.
