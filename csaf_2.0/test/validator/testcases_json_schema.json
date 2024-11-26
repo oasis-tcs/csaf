@@ -79,10 +79,20 @@
     }
   },
   "required": [
+    "$schema",
     "tests",
     "testschema_version"
   ],
   "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for test data which the document promises to be valid for.",
+      "type": "string",
+      "enum": [
+        "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.0/test/validator/testcases_json_schema.json"
+      ],
+      "format": "uri"
+    },
     "tests": {
       "title": "List of tests",
       "description": "Contains a list of test data.",
@@ -99,5 +109,6 @@
       "type": "string",
       "enum": ["2.0"]
     }
-  }
+  },
+  "additionalProperties": false
 }
