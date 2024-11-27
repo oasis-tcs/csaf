@@ -420,7 +420,9 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 ### Requirement 19: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is
-extended by the appropriate extension. See [cite](#RFC4880) for more details.
+extended by the appropriate extension.
+This signature SHALL be presented as an ASCII armored file.
+See [cite](#RFC4880) for more details.
 
 *Example 1:*
 
@@ -444,6 +446,7 @@ Tools SHOULD treat the violation of the rules given in the first sentence as:
 ### Requirement 20: Public OpenPGP Key
 
 The public part of the OpenPGP key used to sign the CSAF documents MUST be available.
+This key file SHALL be presented as an ASCII armored file.
 It SHOULD also be available at a public key server.
 
 > For example, the public part of the OpenPGP key could be placed in a directory `openpgp` adjacent to the `provider-metadata.json`.
