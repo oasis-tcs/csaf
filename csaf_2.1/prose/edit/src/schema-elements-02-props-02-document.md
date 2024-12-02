@@ -314,8 +314,8 @@ and miscellaneous contributors.
 The value `user` indicates anyone using a vendor’s product.
 
 The value `vendor` indicates developers or maintainers of information system products or services.
-This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and
-product resellers and distributors, including authoritative vendor partners.
+This includes all authoritative product vendors, product security incident response teams (PSIRTs),
+open source projects as well as product resellers and distributors, including authoritative vendor partners.
 
 ##### Document Property - Publisher - Contact Details
 
