@@ -839,3 +839,83 @@ The relevant path for this test is:
 ```
 
 > For the product with product ID `CSAFPID-908070` a fix is planned but the product was not affected at all.
+
+### Usage of Max UUID
+
+It MUST be tested that the Max UUID is not used as sharing group id.
+
+The relevant path for this test is:
+
+```
+  /document/distribution/sharing_group/id
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "distribution": {
+      "sharing_group": {
+        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "name": "Public"
+      },
+      // ...
+    },
+```
+
+> The sharing group id uses the Max UUID.
+
+> A tool MAY remove the property `sharing_group` as a quick fix.
+
+### Usage of Nil UUID
+
+It MUST be tested that the Nil UUID is not used as sharing group id.
+
+The relevant path for this test is:
+
+```
+  /document/distribution/sharing_group/id
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "distribution": {
+      "sharing_group": {
+        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "name": "Public"
+      },
+      // ...
+    },
+```
+
+> The sharing group id uses the Nil UUID.
+
+> A tool MAY remove the property `sharing_group` as a quick fix.
+
+### Usage of Sharing Group on TLP:CLEAR
+
+It MUST be tested that no sharing group is used if the document is `TLP:CLEAR`.
+
+The relevant path for this test is:
+
+```
+  /document/distribution/sharing_group
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "distribution": {
+      "sharing_group": {
+        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "name": "Public"
+      },
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+```
+
+> The CSAF document is `TLP:CLEAR` but a sharing group is given.
+
+> A tool MAY remove the property `sharing_group` as a quick fix.
