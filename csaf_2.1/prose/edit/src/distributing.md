@@ -194,17 +194,24 @@ The index.txt file within MUST provide a list of all filenames of CSAF documents
 
 ### Requirement 13: changes.csv
 
-The file changes.csv MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
+The file `changes.csv` contains a list of CSAF documents in the current TLP level that were changed recently.
+Therefore, it MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
+The `changes.csv` SHALL be a valid comma separated values format as defined by [cite](#RFC4180) without double quotes.
+
+> Note: As a consequence of section [sec](#requirement-2-filename) Requirement 2 for filenames and section [sec](#requirement-11-one-folder-per-year)
+> Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
 *Example 1:*
 
 ```
-"2023/esa-2023-09953.json","2023-07-01T10:09:07Z"
-"2021/esa-2021-03676.json","2023-07-01T10:09:01Z"
-"2022/esa-2022-02723.json","2022-04-17T15:08:41Z"
-"2021/esa-2021-31916.json","2022-03-01T06:01:00Z"
+2023/esa-2023-09953.json,2023-07-01T10:09:07Z
+2021/esa-2021-03676.json,2023-07-01T10:09:01Z
+2022/esa-2022-02723.json,2022-04-17T15:08:41Z
+2021/esa-2021-31916.json,2022-03-01T06:01:00Z
 ```
+
+> Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
 
 ### Requirement 14: Directory listings
 
@@ -413,7 +420,9 @@ If a ROLIE feed exists, each hash file MUST be listed in it as described in requ
 ### Requirement 19: Signatures
 
 All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is
-extended by the appropriate extension. See [cite](#RFC4880) for more details.
+extended by the appropriate extension.
+This signature SHALL be presented as an ASCII armored file.
+See [cite](#RFC4880) for more details.
 
 *Example 1:*
 
@@ -437,6 +446,7 @@ Tools SHOULD treat the violation of the rules given in the first sentence as:
 ### Requirement 20: Public OpenPGP Key
 
 The public part of the OpenPGP key used to sign the CSAF documents MUST be available.
+This key file SHALL be presented as an ASCII armored file.
 It SHOULD also be available at a public key server.
 
 > For example, the public part of the OpenPGP key could be placed in a directory `openpgp` adjacent to the `provider-metadata.json`.

@@ -136,12 +136,15 @@ The single valid value for this `enum` is:
 #### Document Property - Distribution
 
 Rules for sharing document (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
-optional property Text (`text`) describes any constraints on how this document might be shared.
+optional properties Sharing Group (`Sharing Group`) and Text (`text`) describes any constraints on how this document might be shared.
 
 ```
     "distribution": {
       // ...
       "properties": {
+        "sharing_group": {
+          // ...
+        },
         "text": {
           // ...
         },
@@ -152,7 +155,81 @@ optional property Text (`text`) describes any constraints on how this document m
     },
 ```
 
-If both values are present, the TLP information SHOULD be preferred as this aids in automation.
+If multiple values are present, the TLP information SHOULD be preferred as this aids in automation.
+The Sharing Group SHALL be interpreted as specification to the TLP information.
+Therefore, the Sharing Group MAY also be used to convey special TLP restrictions:
+
+*Examples 1:*
+
+```
+    E-ISAC members-only
+    Only releasable to European Energy sector
+    Releasable to NATO countries
+```
+
+> Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated Sharing Group IDs to allow for automation.
+
+##### Document Property - Distribution - Sharing Group
+
+Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
+the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
+
+```
+        "sharing_group": {
+          // ...
+          "properties": {
+            "id": {
+              // ...
+            },
+            "name": {
+              // ...
+            }
+          }
+        },
+```
+
+Sharing Group ID (`id`) of value type `string` with format `uuid` and `pattern` (regular expression):
+
+```
+    ^(([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})|([0]{8}-([0]{4}-){3}[0]{12})|([f]{8}-([f]{4}-){3}[f]{12}))$
+```
+
+Sharing Group ID provides the unique ID for the sharing group.
+This ID is intended to be globally unique and MAY also be used by different issuing parties to share CSAF data within a closed group,
+e.g. during a Multi-Party Coordinated Vulnerability Disclosure case.
+
+> Note, that participants in such cases usually differ. Therefore, it is advised to use one ID per case.
+> Otherwise, the consequences of adding or removing parties from a case and the implications to other cases have to be considered.
+
+The ID SHOULD NOT change throughout different CSAF documents, if the same sharing group is addressed.
+It MUST differ if a different sharing group is addressed.
+
+The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lower case.
+The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. `TLP:GREEN` and above.
+
+The following ID values SHOULD NOT be used unless there are technical reasons for them.
+Therefore, they are reserved for implementation-specific situations:
+
+- A system MAY use the Max UUID for `TLP:CLEAR` CSAF documents.
+  > For example, the system uses the UUID as an indication whether a user allowed to see the document.
+  > The security considerations from [cite](#RFC9562) should be reflected on.
+- A system MAY use the Nil UUID for CSAF documents that MUST NOT be shared.
+  > For example, the CSAF document is just being drafted and the accidental leakage should be prevented.
+
+> Note, that both values do not indicate a closed sharing group.
+
+A CSAF document with `TLP:CLEAR` SHOULD NOT contain a sharing group value and SHALL NOT contain any other value for the Sharing Group ID than Max UUID (`ffffffff-ffff-ffff-ffff-ffffffffffff`).
+
+If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for CSAF modifier (cf. section [sec](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of `/document/tracking/id` SHALL be applied.
+This implies that usually the sharing group ID is used as a prefix to the original `/document/tracking/id`.
+
+Sharing Group Name (`name`) of value type `string` with one or more characters contains a human-readable name for the sharing group.
+
+The Sharing Group Name is optional and can be chosen freely by the entity establishing the sharing group.
+However, the following values are reserved for the conditions below:
+
+- For the Max UUID, the value of `name` SHALL exist and be `Public`.
+- For the Nil UUID, the value of `name` SHALL exist and be `No sharing allowed`.
 
 ##### Document Property - Distribution - Text
 
@@ -314,8 +391,8 @@ and miscellaneous contributors.
 The value `user` indicates anyone using a vendor’s product.
 
 The value `vendor` indicates developers or maintainers of information system products or services.
-This includes all authoritative product vendors, Product Security Incident Response Teams (PSIRTs), and
-product resellers and distributors, including authoritative vendor partners.
+This includes all authoritative product vendors, product security incident response teams (PSIRTs),
+open source projects as well as product resellers and distributors, including authoritative vendor partners.
 
 ##### Document Property - Publisher - Contact Details
 
