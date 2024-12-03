@@ -892,7 +892,7 @@ The relevant path for this test is:
 
 > A tool MAY remove the property `sharing_group` as a quick fix.
 
-### Usage of Sharing Group on TLP:CLEAR
+### Usage of Sharing Group on TLP:CLEAR{#usage-of-sharing-group-on-tlp-clear}
 
 It MUST be tested that no sharing group is used if the document is `TLP:CLEAR`.
 
