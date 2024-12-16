@@ -5,11 +5,10 @@
     "csaf_version": "2.1",
     "distribution": {
       "sharing_group": {
-        "id": "86c81730-1a06-478d-82d4-978e41eb332f",
-        "name": "Example Sharing Group 1"
+        "id": "5868d6be-b28a-404e-a245-0b5093b31b8b"
       },
       "tlp": {
-        "label": "RED"
+        "label": "AMBER+STRICT"
       }
     },
     "publisher": {
@@ -17,10 +16,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Non-Public Sharing Group with Max UUID (valid example 1)",
+    "title": "Mandatory test: Non-Public Sharing Group with Max UUID (valid example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-39-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-38-12",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
