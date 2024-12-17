@@ -5,8 +5,7 @@
     "csaf_version": "2.1",
     "distribution": {
       "sharing_group": {
-        "id": "5868d6be-b28a-404e-a245-0b5093b31b8b",
-        "name": "No sharing allowed"
+        "id": "00000000-0000-0000-0000-000000000000"
       },
       "tlp": {
         "label": "RED"
@@ -17,7 +16,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Invalid Sharing Group Name (failing example 2)",
+    "title": "Mandatory test: Missing Sharing Group Name (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-41-02",
@@ -29,7 +28,7 @@
           "summary": "Initial version."
         }
       ],
-      "status": "draft",
+      "status": "final",
       "version": "1"
     }
   }

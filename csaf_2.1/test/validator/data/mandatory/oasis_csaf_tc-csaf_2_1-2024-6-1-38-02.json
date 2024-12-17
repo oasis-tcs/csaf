@@ -9,7 +9,7 @@
         "name": "Public"
       },
       "tlp": {
-        "label": "CLEAR"
+        "label": "AMBER+STRICT"
       }
     },
     "publisher": {
@@ -17,10 +17,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Missing Sharing Group Name (valid example 1)",
+    "title": "Mandatory test: Non-Public Sharing Group with Max UUID (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-42-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-38-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
