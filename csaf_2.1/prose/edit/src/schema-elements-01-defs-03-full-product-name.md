@@ -73,6 +73,7 @@ and `x_generic_uris`, one is mandatory.
           // ...
         }
       }
+    }
 ```
 
 ##### Full Product Name Type - Product Identification Helper - CPE
@@ -242,8 +243,18 @@ Two `*` MUST NOT follow each other.
 
 ##### Full Product Name Type - Product Identification Helper - purls
 
-List of purls (`purls`) of value type `array` with 1 or more items contains a list of package URL (purl) identifiers.
-A purl is a `string` of 7 or more characters that meets the criteria of `pattern` (regular expression):
+List of purls (`purls`) of value type `array` with 1 or more unique items contains a list of package URL (purl) identifiers.
+
+```
+    "purls": {
+        //...
+      "items": {
+        //...
+      }
+    },
+```
+
+A package URL representation is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
@@ -254,11 +265,12 @@ A purl is a `string` of 7 or more characters that meets the criteria of `pattern
 > CSAF uses only the canonical form of purl to conform with section 3.3 of [cite](#RFC3986).
 > Therefore, URLs starting with `pkg://` are considered invalid.
 
-A package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
-See [cite](#PURL) for details. Multiple purls can be specified to allow for identifiers to locate identical components in different locations.
+The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+See [cite](#PURL) for details.
+Multiple purls can be specified to allow for identifiers to locate identical components in different locations.
 
-If multiple purls are specified, they SHALL only differ in their qualifiers. Otherwise, separate product branches
-should be used to differentiate between the components.
+If multiple purls are specified, they SHALL only differ in their qualifiers.
+Otherwise, separate product branches SHOULD be used to differentiate between the components.
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
 
