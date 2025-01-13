@@ -588,6 +588,37 @@
             "tlp"
           ],
           "properties": {
+            "sharing_group": {
+              "title": "Sharing Group",
+              "description": "Contains information about the group this document is intended to be shared with.",
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "title": "Sharing Group ID",
+                  "description": "Provides the unique ID for the sharing group.",
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^(([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})|([0]{8}-([0]{4}-){3}[0]{12})|([f]{8}-([f]{4}-){3}[f]{12}))$"
+                },
+                "name": {
+                  "title": "Sharing Group Name",
+                  "description": "Contains a human-readable name for the sharing group.",
+                  "type": "string",
+                  "minLength": 1,
+                  "examples": [
+                    "Customer A",
+                    "ISAC members",
+                    "NIS2 regulated important entities in Germany, sector water",
+                    "Pre-Sharing group for advisory discussion",
+                    "Users of Product A",
+                    "US Federal Civilian Authorities"
+                  ]
+                }
+              }
+            },
             "text": {
               "title": "Textual description",
               "description": "Provides a textual description of additional constraints.",

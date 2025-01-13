@@ -67,6 +67,11 @@ tests-01-mndtr-33-multiple-flags-with-vex-justification-codes-per-product.md
 tests-01-mndtr-34-branches-recursion-depth.md
 tests-01-mndtr-35-contradicting-remediations.md
 tests-01-mndtr-36-contradicting-product-status-remediation-combination.md
+tests-01-mndtr-37-date-and-time.md
+tests-01-mndtr-38-non-public-sharing-group-with-max-uuid.md
+tests-01-mndtr-39-public-sharing-group-with-no-max-uuid.md
+tests-01-mndtr-40-invalid-sharing-group-name.md
+tests-01-mndtr-41-missing-sharing-group-name.md
 tests-01-mndtr-42-purl-qualifiers.md
 tests-02-optional.md
 tests-03-informative.md
