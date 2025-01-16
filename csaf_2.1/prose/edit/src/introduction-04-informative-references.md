@@ -102,6 +102,9 @@ SemVer
 SPDX22
 :    _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, <https://spdx.github.io/spdx-spec/>.
 
+SSVC
+:    _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/>
+
 VERS
 :    _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst>.
 
