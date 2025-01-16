@@ -196,8 +196,8 @@ To form the overall product, both parts MUST be combined through a relationship.
 > A matching tool can search for the serial number in an asset database and identify the asset that has this specific hardware.
 > Afterwards, the software can be matched separately.
 >
-> Representing the software version as a child element under elements representing hardware would create confusion whether the author
-> intended that to be a software or hardware version and therefore is prohibited.
+> Representing the software version as a child element under elements representing hardware unsettles the consumer whether the version
+> applies to the software or hardware.
 > Also, this would violate the rule regarding the full identification of a product by the `product_identification_helper` from section
 > [sec](#full-product-name-type-product-identification-helper).
 >
