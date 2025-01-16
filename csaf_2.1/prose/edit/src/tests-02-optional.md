@@ -939,7 +939,7 @@ The relevant paths for this test are:
 
 *Example 1 (which fails the test):*
 
-```  
+```
   "product_tree": {
     "branches": [
       {
@@ -972,3 +972,69 @@ The relevant paths for this test are:
 ```
 
 > The `product_tree` mentions the hardware product Example Company Controller A and combines it with the Firmware version 4.1.
+
+### Use of same Product Identification Helper for different Products
+
+For each Product Identification Helper category it MUST be tested that the same value is not used for multiple products in this category.
+
+> This test detects a potentially incorrect constructed product tree.
+> Note: This test will fail if the CSAF document contains in its `product_tree` the old and new name of a product that was renamed.
+> However, this is expected and considered a good reason for the test to fail.
+> This does not make the CSAF document invalid.
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/product/product_identification_helper
+  /product_tree/full_product_names[]/product_id/product_identification_helper
+  /product_tree/relationships[]/full_product_name/product_id/product_identification_helper
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.0",
+                "product": {
+                  "name": "Example Company Product A 1.0",
+                  "product_id": "CSAFPID-908070601",
+                  "product_identification_helper": {
+                    "serial_numbers": [
+                      "143-D-354"
+                    ]
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.0",
+                "product": {
+                  "name": "Example Company Product A 2.0",
+                  "product_id": "CSAFPID-908070602",
+                  "product_identification_helper": {
+                    "serial_numbers": [
+                      "143-D-354"
+                    ]
+                  }
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  }
+```
+
+> Both products are identified by the same serial number `143-D-354`.
