@@ -201,7 +201,8 @@ To form the overall product, both parts MUST be combined through a relationship.
 > Also, this would violate the rule regarding the full identification of a product by the `product_identification_helper` from section
 > [sec](#full-product-name-type-product-identification-helper).
 >
-> In the majority of cases the vulnerabilities reside in software or are remediated via software.
+> Based on the CVE statistics up to and including the year 2024, in the majority of cases the vulnerabilities reside in software or
+> are remediated via software.
 > Having multiple products with the same `product_identification_helper` in different `product_status` for the same vulnerability
 > would make it undecidable for machines what the `product_status` actually is.
 
