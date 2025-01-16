@@ -1,6 +1,6 @@
 name: JSON Schema Tests (CSAF 2.0)
 
-on: 
+on:
   push:
     paths:
       - 'csaf_2.0/**'
@@ -37,7 +37,7 @@ jobs:
     - name: Test examples against Aggregator schema
       run: ./csaf_2.0/test/aggregator_schema/run_tests.sh
     - name: Upload strict JSON schema artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: strict-schemas
         path: |
