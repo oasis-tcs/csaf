@@ -1269,7 +1269,7 @@
                     "cvss_v4": {
                       "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
                     },
-                    "ssvc_v1_0_1": {
+                    "ssvc_v1": {
                       "$ref": "https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json"
                     }
                   }
