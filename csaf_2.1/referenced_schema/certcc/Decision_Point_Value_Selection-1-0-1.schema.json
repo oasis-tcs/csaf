@@ -50,7 +50,7 @@
           "type": "string",
           "examples": [
             "ssvc",
-            "cvvsv4"
+            "cvssv4"
           ]
         },
         "values": {
