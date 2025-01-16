@@ -76,6 +76,8 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/acknowledgments[]/urls`
   * `/vulnerabilities[]/cwes`
   * `/vulnerabilities[]/ids`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/values`
   * `/vulnerabilities[]/remediations[]/entitlements`
 
 * 40 000 items for
@@ -201,6 +203,12 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/id`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/role`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/name`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/values[]`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/version`
   * `/vulnerabilities[]/notes[]/audience`
   * `/vulnerabilities[]/notes[]/title`
   * `/vulnerabilities[]/product_status/first_affected[]`
@@ -263,6 +271,7 @@ The maximum length of strings representing a temporal value is given by the form
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/release_date`
 * `/vulnerabilities[]/involvements[]/date`
+* `/vulnerabilities[]/metrics[]/content/ssvc_v1/timestamp`
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
 
@@ -374,6 +383,7 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity` (8)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity` (8)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity` (8)
+* `/vulnerabilities[]/metrics[]/content/ssvc_v1/schemaVersion` (5)
 * `/vulnerabilities[]/threats[]/category` (14)
 
 ## URI Length
