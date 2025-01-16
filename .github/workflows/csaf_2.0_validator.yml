@@ -1,6 +1,6 @@
 name: Validator Data Test (CSAF 2.0)
 
-on: 
+on:
   push:
     paths:
       - 'csaf_2.0/**'
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Prepare environment
       run: |
         sudo apt-get remove python3-jsonschema
