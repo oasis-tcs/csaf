@@ -190,8 +190,8 @@ To form the overall product, both parts MUST be combined through a relationship.
 > The serial number `143-D-354` identifies the `Example Company Controller A 1.0` which is in this example the hardware in its version 1.0.
 > The hash `3fb9d502d096b1dfbcdfe60eed80ddecd98c8771bf21a82bbe1752735c4dc9e2` identifies the software in the version 4.1;
 > the hash `0a853ce2337f0608489ac596a308dc5b7b19d35a52b10bf31261586ac368b175` identifies the software in the version 4.2.
-> The relationships combine the software and hardware part and form a new product which can be used in the vulnerability section to
-> assign its product status.
+> The relationships combine the software and hardware part and form new products.
+> These are used e.g. to assign the product status in the vulnerability section.
 >
 > A matching tool can search for the serial number in an asset database and identify the asset that has this specific hardware.
 > Afterwards, the software can be matched separately.
