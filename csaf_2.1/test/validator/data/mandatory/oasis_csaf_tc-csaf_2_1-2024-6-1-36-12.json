@@ -1,0 +1,101 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory test: Contradicting Product Status Remediation Combination (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-36-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      },
+      {
+        "product_id": "CSAFPID-9080702",
+        "name": "Product C"
+      },
+      {
+        "product_id": "CSAFPID-9080703",
+        "name": "Product D"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-1020300",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "first_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ],
+        "known_affected": [
+          "CSAFPID-9080703"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "none_available",
+          "details": "The product is end-of-life. Therefore, no fix will be provided.",
+          "product_ids": [
+            "CSAFPID-9080703"
+          ]
+        },
+        {
+          "category": "mitigation",
+          "details": "Make sure that the product is not connected to any network.",
+          "group_ids": [
+            "CSAFGID-1020300"
+          ]
+        },
+        {
+          "category": "vendor_fix",
+          "details": "Update to the version 8.5.1 or higher.",
+          "product_ids": [
+            "CSAFPID-9080701",
+            "CSAFPID-9080702"
+          ]
+        }
+      ]
+    }
+  ]
+}
+

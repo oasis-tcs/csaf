@@ -1,0 +1,67 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Informative test: Missing CWE (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-04-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2019-0708",
+      "cwes": [
+        {
+          "id": "CWE-416",
+          "name": "Use After Free",
+          "version": "4.13"
+        }
+      ],
+      "title": "BlueKeep"
+    },
+    {
+      "cve": "CVE-2014-0160",
+      "cwes": [
+        {
+          "id": "CWE-119",
+          "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+          "version": "4.13"
+        }
+      ],
+      "title": "Heartbleed"
+    },
+    {
+      "cve": "CVE-2017-0144",
+      "cwes": [
+        {
+          "id": "CWE-20",
+          "name": "Improper Input Validation",
+          "version": "4.13"
+        }
+      ],
+      "title": "EternalBlue"
+    }
+  ]
+}

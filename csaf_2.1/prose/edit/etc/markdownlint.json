@@ -1,0 +1,60 @@
+{
+  "blanks-around-fences": false,
+  "blanks-around-lists": false,
+  "code-block-style": false,
+  "code-fence-style": {
+    "style": "backtick"
+  },
+  "emphasis-style": {
+    "style": "underscore"
+  },
+  "fenced-code-language": false,
+  "first-line-heading": false,
+  "heading-style": {
+    "style": "atx"
+  },
+  "hr-style": {
+    "style": "-------"
+  },
+  "line-length": false,
+  "link-fragments": false,
+  "link-image-reference-definitions": false,
+  "list-marker-space": false,
+  "no-bare-urls": false,
+  "no-blanks-blockquote": false,
+  "no-duplicate-heading": {
+    "siblings_only": true
+  },
+  "no-emphasis-as-heading": false,
+  "no-hard-tabs": false,
+  "no-inline-html": {
+    "allowed_elements": [
+      "a",
+      "br",
+      "em",
+      "col",
+      "colgroup",
+      "img",
+      "p",
+      "pre",
+      "span",
+      "strong",
+      "sub",
+      "sup",
+      "table",
+      "tbody",
+      "td",
+      "th",
+      "thead",
+      "tr"
+    ]
+  },
+  "no-trailing-punctuation": false,
+  "ol-prefix": false,
+  "strong-style": {
+    "style": "asterisk"
+  },
+  "ul-style": {
+    "style": "asterisk"
+  }
+}

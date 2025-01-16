@@ -1,0 +1,52 @@
+{
+  "feed": {
+    "id": "example-csaf-feed-tlp-clear",
+    "title": "Example CSAF feed (TLP:CLEAR)",
+    "link": [
+      {
+        "rel": "self",
+        "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json"
+      }
+    ],
+    "category": [
+      {
+        "scheme": "urn:ietf:params:rolie:category:information-type",
+        "term": "csaf"
+      }
+    ],
+    "updated": "2024-01-01T12:00:00.000Z",
+    "entry": [
+      {
+        "id": "ESA-2024-001",
+        "title": "Multiple vulnerabilities in ABC 0.0.2",
+        "link": [
+          {
+            "rel": "self",
+            "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+          },
+          {
+            "rel": "hash",
+            "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.sha512"
+          },
+          {
+            "rel": "signature",
+            "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.asc"
+          }
+        ],
+        "published": "2024-01-01T11:00:00.000Z",
+        "updated": "2024-01-01T12:00:00.000Z",
+        "summary": {
+          "content": "Multiple vulnerabilities were fixed in ABC 0.0.3"
+        },
+        "content": {
+          "type": "application/json",
+          "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+        },
+        "format": {
+          "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+          "version": "2.1"
+        }
+      }
+    ]
+  }
+}
