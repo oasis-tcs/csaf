@@ -926,7 +926,8 @@ For each product containing at least one of the Product Identification Helpers `
 
 > This tests detects a potential situation where hardware and software have been mixed in the `product_tree`.
 > Note: This test will fail if the CSAF document contains in its `product_tree` only hardware.
-> However, this is considered a good reason for the test to fail.
+> However, this is expected and considered a good reason for the test to fail.
+> This does not make the CSAF document invalid.
 
 The relevant paths for this test are:
 
