@@ -193,8 +193,8 @@ To form the overall product, both parts MUST be combined through a relationship.
 > The relationships combine the software and hardware part and form new products.
 > These are used e.g. to assign the product status in the vulnerability section.
 >
-> A matching tool can search for the serial number in an asset database and identify the asset that has this specific hardware.
-> Afterwards, the software can be matched separately.
+> A matching tool searches in a first steo for the serial number in an asset database to identify the asset that has this specific hardware and
+> matches the software separately in a second step.
 >
 > Representing the software version as a child element under elements representing hardware unsettles the consumer whether the version
 > applies to the software or hardware.
