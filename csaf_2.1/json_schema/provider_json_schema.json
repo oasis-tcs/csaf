@@ -115,10 +115,17 @@
                   "description": "Contains information about the ROLIE feed.",
                   "type": "object",
                   "required": [
+                    "last_updated",
                     "tlp_label",
                     "url"
                   ],
                   "properties": {
+                    "last_updated": {
+                      "title": "Last updated",
+                      "description": "Holds the date and time when the feed was last updated.",
+                      "type": "string",
+                      "format": "date-time"
+                    },
                     "summary": {
                       "title": "Summary of the feed",
                       "description": "Contains a summary of the feed.",

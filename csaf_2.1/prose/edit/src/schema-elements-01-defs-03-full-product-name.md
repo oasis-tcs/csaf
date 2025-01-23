@@ -41,7 +41,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least
 one method which aids in identifying the product in an asset database.
-Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus`,
+Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purls`, `sbom_urls`, `serial_numbers`, `skus`,
 and `x_generic_uris`, one is mandatory.
 
 ```
@@ -57,7 +57,7 @@ and `x_generic_uris`, one is mandatory.
         "model_numbers": {
           // ...
         },
-        "purl": {
+        "purls": {
           // ...
         },
         "sbom_urls": {
@@ -73,6 +73,7 @@ and `x_generic_uris`, one is mandatory.
           // ...
         }
       }
+    }
 ```
 
 A helper to identify the product SHALL identify the product described by the `name` in its entirety.
@@ -247,9 +248,20 @@ Two `*` MUST NOT follow each other.
     IC25T060ATCS05-0
 ```
 
-##### Full Product Name Type - Product Identification Helper - purl
+##### Full Product Name Type - Product Identification Helper - purls
 
-The package URL (purl) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
+List of purls (`purls`) of value type `array` with 1 or more unique items contains a list of package URL (purl) identifiers.
+
+```
+    "purls": {
+        //...
+      "items": {
+        //...
+      }
+    },
+```
+
+A package URL representation is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
@@ -260,8 +272,12 @@ The package URL (purl) representation (`purl`) is a `string` of 7 or more charac
 > CSAF uses only the canonical form of purl to conform with section 3.3 of [cite](#RFC3986).
 > Therefore, URLs starting with `pkg://` are considered invalid.
 
-This package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
 See [cite](#PURL) for details.
+Multiple purls can be specified to allow for identifiers to locate identical components in different locations.
+
+If multiple purls are specified, they SHALL only differ in their qualifiers.
+Otherwise, separate product branches SHOULD be used to differentiate between the components.
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
 
