@@ -76,6 +76,13 @@ and `x_generic_uris`, one is mandatory.
     }
 ```
 
+A helper to identify the product SHALL identify the product described by the `name` in its entirety.
+A matching algorithm has to be able to rely on the `product_identification_helper` information during the matching without having to
+check e.g. the branches hierarchy leading to the product.
+
+> Therefore, it is, for example, prohibited to omit the version from the CPE if a `product_version` was given in branches hierarchy
+> leading to the product.
+
 ##### Full Product Name Type - Product Identification Helper - CPE
 
 Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
