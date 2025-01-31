@@ -61,9 +61,10 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section [sec](#date-and-time)
+* conforms to the syntax and semantics defined in section [sec](#date-and-time).
 * conforms to the syntax and semantics defined in section [sec](#schema-elements).
 * satisfies at least one profile defined in section [sec](#profiles).
+* conforms to the syntax and semantics defined in section [sec](#additional-conventions).
 * does not fail any mandatory test defined in section [sec](#mandatory-tests).
 
 ### Conformance Clause 2: CSAF producer
