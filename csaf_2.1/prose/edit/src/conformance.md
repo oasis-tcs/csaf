@@ -383,9 +383,9 @@ The resulting translated document:
 
 A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
-* reads CSAF documents and interprets them according to the semantics defined in section [sec](#schema-elements).
-* satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
-  are designated as applying to CSAF consumers.
+* reads CSAF documents and interprets them according to the semantics defined in section [sec](#schema-elements) and [sec](#additional-conventions).
+* satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
+  [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF consumers.
 
 ### Conformance Clause 11: CSAF viewer
 
