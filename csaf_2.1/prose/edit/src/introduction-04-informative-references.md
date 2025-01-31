@@ -42,8 +42,8 @@ CVSS40
 CWE
 :    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2005, http://cwe.mitre.org/about/.
 
-CYCLONEDX13
-:    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.3_, cyclonedx.org, May 2021, https://github.com/CycloneDX/specification/blob/1.3/schema/bom-1.3.schema.json.
+CYCLONEDX161
+:    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.6.1_, cyclonedx.org, November 7, 2024, https://github.com/CycloneDX/specification/blob/1.6.1/schema/bom-1.6.schema.json.
 
 GFMCMARK
 :    _GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, https://github.com/github/cmark.
@@ -99,8 +99,8 @@ SECURITY-TXT
 SemVer
 :    _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, <https://semver.org/>.
 
-SPDX22
-:    _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, <https://spdx.github.io/spdx-spec/>.
+SPDX301
+:    _The System Package Data Exchange® (SPDX®) Specification Version 3.0.1_, Linux Foundation and its Contributors, 2024, <https://spdx.github.io/spdx-spec/>.
 
 VERS
 :    _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/master/VERSION-RANGE-SPEC.rst>.
