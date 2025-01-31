@@ -536,8 +536,10 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
-* type `/$defs/full_product_name_t/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a
-  warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
+  invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* type `/$defs/full_product_name_t/product_identification_helper/purls`: If a `/$defs/full_product_name_t/product_identification_helper/purl` is given,
+  the CSAF 2.0 to CSAF 2.1 converter MUST convert it into the first item of the corresponding `purls` array.
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
