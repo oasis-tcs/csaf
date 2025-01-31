@@ -1,6 +1,6 @@
-### PURL
+### PURL Qualifiers
 
-It MUST be tested that all given purls are valid.
+For each `product_identification_helper` object containing multiple purls it MUST be tested that the purls only differ in their qualifiers.
 
 The relevant paths for this test are:
 
@@ -20,7 +20,8 @@ The relevant paths for this test are:
         "product_id": "CSAFPID-9080700",
         "product_identification_helper": {
           "purls": [
-            "pkg:maven/@1.3.4"
+            "pkg:maven/com.example/logging@1.3.4",
+            "pkg:maven/com.example/audit@1.3.4"
           ]
         }
       }
@@ -28,4 +29,4 @@ The relevant paths for this test are:
   }
 ```
 
-> Any valid purl has a name component.
+> The two purls differ in the name component.

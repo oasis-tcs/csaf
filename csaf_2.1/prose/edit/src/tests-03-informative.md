@@ -120,7 +120,7 @@ If no CVE exists for that vulnerability, it is recommended to get one assigned.
 
 ### Missing CWE
 
-It MUST be tested that the CWE is given.
+It MUST be tested that at least one CWE is given.
 
 The relevant path for this test is:
 
@@ -139,7 +139,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The CWE number is not given.
+> No CWE number is given.
 
 ### Use of Short Hash
 

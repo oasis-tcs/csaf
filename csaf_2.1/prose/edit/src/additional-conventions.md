@@ -79,4 +79,131 @@ The `/product_tree` uses a nested structure for `branches`. Along a single path 
 /product_tree/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/product
 ```
 
+## Hardware and Software within the Product Tree
+
+If a product consists of hardware and software, the hardware part MUST be presented as one product in the product tree and the software part as another one.
+To form the overall product, both parts MUST be combined through a relationship.
+
+*Examples 1:*
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.0",
+                "product": {
+                  "name": "Example Company Controller A 1.0",
+                  "product_id": "CSAFPID-908070601",
+                  "product_identification_helper": {
+                    "serial_numbers": [
+                      "143-D-354"
+                    ]
+                  }
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Controller A"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "4.1",
+                "product": {
+                  "name": "Example Company Controller A Firmware 4.1",
+                  "product_id": "CSAFPID-908070602",
+                  "product_identification_helper": {
+                    "hashes": [
+                      {
+                        "file_hashes": [
+                          {
+                            "algorithm": "sha256",
+                            "value": "3fb9d502d096b1dfbcdfe60eed80ddecd98c8771bf21a82bbe1752735c4dc9e2"
+                          }
+                        ],
+                        "filename": "a_4-1.bin"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "4.2",
+                "product": {
+                  "name": "Example Company Controller A Firmware 4.2",
+                  "product_id": "CSAFPID-908070603",
+                  "product_identification_helper": {
+                    "hashes": [
+                      {
+                        "file_hashes": [
+                          {
+                            "algorithm": "sha256",
+                            "value": "0a853ce2337f0608489ac596a308dc5b7b19d35a52b10bf31261586ac368b175"
+                          }
+                        ],
+                        "filename": "a_4-2.bin"
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Controller A Firmware"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "installed_on",
+        "full_product_name": {
+          "name": "Example Company Controller A Firmware 4.1 installed on Example Company Controller A 1.0",
+          "product_id": "CSAFPID-908070604"
+        },
+        "product_reference": "CSAFPID-908070602",
+        "relates_to_product_reference": "CSAFPID-908070601"
+      },
+      {
+        "category": "installed_on",
+        "full_product_name": {
+          "name": "Example Company Controller A Firmware 4.2 installed on Example Company Controller A 1.0",
+          "product_id": "CSAFPID-908070605"
+        },
+        "product_reference": "CSAFPID-908070603",
+        "relates_to_product_reference": "CSAFPID-908070601"
+      }
+    ]
+  }
+```
+
+> This requirement is important to allow for correct matching.
+> The serial number `143-D-354` identifies the `Example Company Controller A 1.0` which is in this example the hardware in its version 1.0.
+> The hash `3fb9d502d096b1dfbcdfe60eed80ddecd98c8771bf21a82bbe1752735c4dc9e2` identifies the software in the version 4.1;
+> the hash `0a853ce2337f0608489ac596a308dc5b7b19d35a52b10bf31261586ac368b175` identifies the software in the version 4.2.
+> The relationships combine the software and hardware part and form new products.
+> These are used e.g. to assign the product status in the vulnerability section.
+>
+> A matching tool searches in a first step for the product identification helper, e.g the serial number in an asset database to identify
+> the asset that has this specific hardware and matches the software separately in a second step.
+>
+> Representing the software version as a child element under elements representing hardware unsettles the consumer whether the version
+> applies to the software or hardware.
+> Also, this would violate the rule regarding the full identification of a product by the `product_identification_helper` from section
+> [sec](#full-product-name-type-product-identification-helper).
+>
+> Based on the CVE statistics up to and including the year 2024, in the majority of cases the vulnerabilities reside in software or
+> are remediated via software.
+> Having multiple products with the same `product_identification_helper` in different `product_status` for the same vulnerability
+> would make it undecidable for machines what the `product_status` actually is.
+
 -------

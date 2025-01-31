@@ -82,6 +82,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
         "rolie": {
           "feeds": [
             {
+              "last_updated": "2024-01-24T20:20:56.169Z",
               "summary": "All TLP:CLEAR advisories of Example Company.",
               "tlp_label": "CLEAR",
               "url": "https://www.example.com/.well-known/csaf/feed-tlp-clear.json"
