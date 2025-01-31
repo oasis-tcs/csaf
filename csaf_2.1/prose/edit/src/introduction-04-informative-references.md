@@ -16,7 +16,7 @@ CSAF-v2.0
 :    _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 CVE
-:    _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://cve.mitre.org/about/.
+:    _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, https://www.cve.org/About/Overview.
 
 CVE-NF
 :    _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names - CVE ID Syntax Change_, MITRE, January 01, 2014, https://cve.mitre.org/cve/identifiers/syntaxchange.html.
@@ -37,13 +37,13 @@ CVSS31
 :    _Common Vulnerability Scoring System v3.1: Specification Document_, FIRST.Org, Inc., June 2019, https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf.
 
 CVSS40
-:    _Common Vulnerability Scoring System v4.0: Specification Document_, FIRST.Org, Inc., 09 November 2023, https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf.
+:    _Common Vulnerability Scoring System v4.0: Specification Document_, FIRST.Org, Inc., November 9, 2023, https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf.
 
 CWE
-:    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2005, http://cwe.mitre.org/about/.
+:    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2006, http://cwe.mitre.org/about/.
 
-CYCLONEDX13
-:    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.3_, cyclonedx.org, May 2021, https://github.com/CycloneDX/specification/blob/1.3/schema/bom-1.3.schema.json.
+CYCLONEDX161
+:    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.6.1_, cyclonedx.org, November 7, 2024, https://github.com/CycloneDX/specification/blob/1.6.1/schema/bom-1.6.schema.json.
 
 GFMCMARK
 :    _GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, https://github.com/github/cmark.
@@ -55,7 +55,7 @@ ISO19770-2
 :    _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
 ISO29147
-:    _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October, 2018, <https://www.iso.org/standard/72311.html>.
+:    _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October 23, 2018, <https://www.iso.org/standard/72311.html>.
 
 OPENSSL
 :    _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
@@ -99,11 +99,11 @@ SECURITY-TXT
 SemVer
 :    _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, <https://semver.org/>.
 
-SPDX22
-:    _The Software Package Data Exchange (SPDX®) Specification Version 2.2_, Linux Foundation and its Contributors, 2020, <https://spdx.github.io/spdx-spec/>.
+SPDX301
+:    _The System Package Data Exchange® (SPDX®) Specification Version 3.0.1_, Linux Foundation and its Contributors, 2024, <https://spdx.github.io/spdx-spec/>.
 
 VERS
-:    _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst>.
+:    _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/master/VERSION-RANGE-SPEC.rst>.
 
 VEX
 :    _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.
