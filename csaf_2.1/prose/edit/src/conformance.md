@@ -8,7 +8,7 @@ Informative Comments:
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 16 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF document**, all other 22 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
