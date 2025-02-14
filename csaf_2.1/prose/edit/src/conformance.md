@@ -8,7 +8,7 @@ Informative Comments:
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 16 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF document**, all other 22 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -61,9 +61,10 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section [sec](#date-and-time)
+* conforms to the syntax and semantics defined in section [sec](#date-and-time).
 * conforms to the syntax and semantics defined in section [sec](#schema-elements).
 * satisfies at least one profile defined in section [sec](#profiles).
+* conforms to the syntax and semantics defined in section [sec](#additional-conventions).
 * does not fail any mandatory test defined in section [sec](#mandatory-tests).
 
 ### Conformance Clause 2: CSAF producer
@@ -382,9 +383,9 @@ The resulting translated document:
 
 A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
-* reads CSAF documents and interprets them according to the semantics defined in section [sec](#schema-elements).
-* satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
-  are designated as applying to CSAF consumers.
+* reads CSAF documents and interprets them according to the semantics defined in section [sec](#schema-elements) and [sec](#additional-conventions).
+* satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
+  [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF consumers.
 
 ### Conformance Clause 11: CSAF viewer
 
@@ -535,8 +536,10 @@ Firstly, the program:
 
 Secondly, the program fulfills the following for all items of:
 
-* type `/$defs/full_product_name_t/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a
-  warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
+  invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* type `/$defs/full_product_name_t/product_identification_helper/purls`: If a `/$defs/full_product_name_t/product_identification_helper/purl` is given,
+  the CSAF 2.0 to CSAF 2.1 converter MUST convert it into the first item of the corresponding `purls` array.
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:

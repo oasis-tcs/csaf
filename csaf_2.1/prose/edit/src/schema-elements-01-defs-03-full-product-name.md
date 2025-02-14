@@ -41,7 +41,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least
 one method which aids in identifying the product in an asset database.
-Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_urls`, `serial_numbers`, `skus`,
+Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purls`, `sbom_urls`, `serial_numbers`, `skus`,
 and `x_generic_uris`, one is mandatory.
 
 ```
@@ -57,7 +57,7 @@ and `x_generic_uris`, one is mandatory.
         "model_numbers": {
           // ...
         },
-        "purl": {
+        "purls": {
           // ...
         },
         "sbom_urls": {
@@ -73,7 +73,15 @@ and `x_generic_uris`, one is mandatory.
           // ...
         }
       }
+    }
 ```
+
+A helper to identify the product SHALL identify the product described by the `name` in its entirety.
+A matching algorithm has to be able to rely on the `product_identification_helper` information during the matching without having to
+check e.g. the branches hierarchy leading to the product.
+
+> Therefore, it is, for example, prohibited to omit the version from the CPE if a `product_version` was given in branches hierarchy
+> leading to the product.
 
 ##### Full Product Name Type - Product Identification Helper - CPE
 
@@ -156,19 +164,19 @@ The default value for `algorithm` is `sha256`.
 
 These values are derived from the currently supported digests OpenSSL [cite](#OPENSSL). Leading dashes were removed.
 
-> The command `openssl dgst -list` (Version 1.1.1f from 2020-03-31) outputs the following:
+> The command `openssl dgst -list` (Version 3.4.0 from 2024-10-22) outputs the following:
 >
 >```
 >  Supported digests:
 >  -blake2b512                -blake2s256                -md4                      
->  -md5                       -md5-sha1                  -ripemd                   
->  -ripemd160                 -rmd160                    -sha1                     
->  -sha224                    -sha256                    -sha3-224                 
->  -sha3-256                  -sha3-384                  -sha3-512                 
->  -sha384                    -sha512                    -sha512-224               
->  -sha512-256                -shake128                  -shake256                 
->  -sm3                       -ssl3-md5                  -ssl3-sha1                
->  -whirlpool
+>  -md5                       -md5-sha1                  -mdc2
+>  -ripemd                    -ripemd160                 -rmd160
+>  -sha1                      -sha224                    -sha256
+>  -sha3-224                  -sha3-256                  -sha3-384
+>  -sha3-512                  -sha384                    -sha512
+>  -sha512-224                -sha512-256                -shake128
+>  -shake256                  -sm3                       -ssl3-md5
+>  -ssl3-sha1                 -whirlpool
 >```
 
 The Value of the cryptographic hash representation (`value`) of value type `string` of 32 or more characters with `pattern` (regular expression):
@@ -240,9 +248,20 @@ Two `*` MUST NOT follow each other.
     IC25T060ATCS05-0
 ```
 
-##### Full Product Name Type - Product Identification Helper - purl
+##### Full Product Name Type - Product Identification Helper - purls
 
-The package URL (purl) representation (`purl`) is a `string` of 7 or more characters with `pattern` (regular expression):
+List of purls (`purls`) of value type `array` with 1 or more unique items contains a list of package URL (purl) identifiers.
+
+```
+    "purls": {
+        //...
+      "items": {
+        //...
+      }
+    },
+```
+
+A package URL representation is a `string` of 7 or more characters with `pattern` (regular expression):
 
 ```
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
@@ -253,8 +272,12 @@ The package URL (purl) representation (`purl`) is a `string` of 7 or more charac
 > CSAF uses only the canonical form of purl to conform with section 3.3 of [cite](#RFC3986).
 > Therefore, URLs starting with `pkg://` are considered invalid.
 
-This package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
+The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
 See [cite](#PURL) for details.
+Multiple purls can be specified to allow for identifiers to locate identical components in different locations.
+
+If multiple purls are specified, they SHALL only differ in their qualifiers.
+Otherwise, separate product branches SHOULD be used to differentiate between the components.
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
 
