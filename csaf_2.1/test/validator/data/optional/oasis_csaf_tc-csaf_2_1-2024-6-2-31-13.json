@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: PURL (failing example 1)",
+    "title": "Optional test: Hardware and Software (valid example 3)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-13-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-31-13",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -30,15 +30,26 @@
     }
   },
   "product_tree": {
-    "full_product_names": [
+    "branches": [
       {
-        "name": "Product A",
-        "product_id": "CSAFPID-9080700",
-        "product_identification_helper": {
-          "purls": [
-            "pkg:maven/@1.3.4"
-          ]
-        }
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.0",
+                "product": {
+                  "name": "Example Company Product A 1.0",
+                  "product_id": "CSAFPID-908070601"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
       }
     ]
   }

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory test: PURL Qualifiers (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-42-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Example Company",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "Product A",
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.3.4",
+                "product": {
+                  "product_id": "CSAFPID-9080700",
+                  "name": "Example Company Product A 1.3.4",
+                  "product_identification_helper": {
+                    "purls": [
+                      "pkg:maven/com.example/product-A@1.3.4?repository_url=https://registry.example.com",
+                      "pkg:maven/com.example/product-A@1.3.4?repository_url=https://index.example.com",
+                      "pkg:maven/com.example/product-A?repository_url=https://index.example.com"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

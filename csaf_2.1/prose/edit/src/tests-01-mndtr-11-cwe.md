@@ -1,6 +1,6 @@
 ### CWE
 
-It MUST be tested that given CWE exists and is valid in the version provided.
+For each CWE it MUST be tested that the given CWE exists and is valid in the version provided.
 Any `id` that refers to a CWE Category or View MUST fail the test.
 
 The relevant path for this test is:
