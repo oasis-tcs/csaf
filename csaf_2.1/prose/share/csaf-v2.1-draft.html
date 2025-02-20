@@ -41,8 +41,8 @@
     <h2 id="committee-specification-draft-01">
       Committee Specification Draft 01
     </h2>
-    <h2 id="29-january-2025">
-      29 January 2025
+    <h2 id="26-february-2025">
+      26 February 2025
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -163,7 +163,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. 29 January 2025. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. 26 February 2025. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -525,7 +525,7 @@
                 </li>
                 <li>6.1.10 <a href="#inconsistent-cvss">Inconsistent CVSS</a>
                 </li>
-                <li>6.1.11 <a href="#cwe">CWE</a>
+                <li>6.1.11 <a href="#mandatory-tests--cwe">CWE</a>
                 </li>
                 <li>6.1.12 <a href="#language">Language</a>
                 </li>
@@ -6210,7 +6210,7 @@
       </p>
     </blockquote>
     <h3 id="6111-cwe-">
-      6.1.11 CWE <a id='cwe'></a>
+      6.1.11 CWE <a id='mandatory-tests--cwe'></a>
     </h3>
     <p>
       For each CWE it MUST be tested that the given CWE exists and is valid in the version provided. Any <code>id</code> that refers to a CWE Category or View MUST fail the test.
@@ -6220,7 +6220,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/cwes[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-63'></a>
+      <em>Example 1 (which fails the test):</em><a id='mandatory-tests--cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-63'></a>
     </p>
     <pre><code>  "cwes": [
     {
@@ -9638,7 +9638,15 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       7.1.10 Requirement 10: DNS path <a id='requirement-10-dns-path'></a>
     </h3>
     <p>
-      The DNS record <code>csaf.data.security.domain.tld</code> SHALL resolve as a web server which serves directly the <code>provider-metadata.json</code> according to requirement 7. That implies that redirects SHALL NOT be used. The use of the scheme "HTTPS" is required.
+      Assuming that the organization's main domain is <code>domain.tld</code>, the DNS record <code>csaf.data.security.domain.tld</code> SHALL resolve to the IP address of a web server which serves directly the <code>provider-metadata.json</code> according to requirement 7.
+    </p>
+    <blockquote>
+      <p>
+        The <code>domain.tld</code> is just a placeholder for the organization's main domain. For the organization with the main domain being <code>example.com</code>, the necessary DNS record is <code>csaf.data.security.example.com</code>.
+      </p>
+    </blockquote>
+    <p>
+      That implies that redirects SHALL NOT be used. The use of the scheme "HTTPS" is required.
     </p>
     <h3 id="7111-requirement-11-one-folder-per-year-">
       7.1.11 Requirement 11: One folder per year <a id='requirement-11-one-folder-per-year'></a>
@@ -13049,6 +13057,20 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </td>
           <td style="text-align: left;">
             2025-01-29
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Next Editor Revision
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
+            csaf-v2.0-wd20250226-dev
+          </td>
+          <td style="text-align: left;">
+            2025-02-26
           </td>
           <td style="text-align: left;">
             Stefan Hagen and Thomas Schmidt
