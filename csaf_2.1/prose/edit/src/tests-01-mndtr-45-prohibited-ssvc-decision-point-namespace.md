@@ -6,7 +6,8 @@ For each SSVC decision point given under `selections` with a `namespace` other t
 > According to the SSVC project, the following values are currently registered:
 >
 > ```
->   cvssv4
+>   cvss
+>   nciss
 >   ssvc
 > ```
 

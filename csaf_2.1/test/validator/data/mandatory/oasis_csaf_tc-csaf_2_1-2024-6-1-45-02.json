@@ -49,7 +49,7 @@
               "selections": [
                 {
                   "name": "Attack Complexity",
-                  "namespace": "CVSSv4",
+                  "namespace": "CVSS",
                   "values": [
                     "Low"
                   ],
