@@ -5,7 +5,7 @@ For each SSVC decision point given under `selections` with the `namespace` of `s
 > A list of all valid decision points including their values is available at the [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
 > The items in `values` need to have the same order as in their definition.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]

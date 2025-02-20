@@ -3,7 +3,7 @@
 For each `ssvc_v1` object it MUST be tested that `id` is either the CVE of the vulnerability given in `cve` or the `text` of an item in the `ids` array.
 The test MUST fail, if the `id` equals the `/document/tracking/id` and the CSAF document contains more than one vulnerability.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```
    /vulnerabilities[]/metrics[]/content/ssvc_v1/id
