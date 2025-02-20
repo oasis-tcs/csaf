@@ -162,8 +162,13 @@ The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details
 
 ### Requirement 10: DNS path
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly
-the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
+Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
+to the IP address of a web server which serves directly the `provider-metadata.json` according to requirement 7.
+
+> The `domain.tld` is just a placeholder for the organization's main domain.
+> For the organization with the main domain being `example.com`, the necessary DNS record is `csaf.data.security.example.com`.
+
+That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
 ### Requirement 11: One folder per year
