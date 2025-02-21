@@ -240,6 +240,8 @@ it MUST begin with the first character of the model number and end with the last
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 This applies also to the first character.
 Two `*` MUST NOT follow each other.
+Multiple occurrences of `*` in a single string SHOULD be avoided.
+When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
 *Examples 1:*
 
@@ -330,6 +332,8 @@ it MUST begin with the first character of the serial number and end with the las
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 This applies also to the first character.
 Two `*` MUST NOT follow each other.
+Multiple occurrences of `*` in a single string SHOULD be avoided.
+When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
 
