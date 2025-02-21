@@ -37,23 +37,23 @@ Delegation to industry best practices technologies is used in referencing schema
 * Classification for Document Distribution
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/
+* Platform Data
+  * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
+* Vulnerability Categorization
+  * Stakeholder-Specific Vulnerability Categorization [cite](#SSVC)
+    * JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json
 * Vulnerability Classification
   * Common Weakness Enumeration (CWE) [cite](#CWE)
     * CWE List: http://cwe.mitre.org/data/index.html
-* Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
-* Vulnerability Categorization:
-  * Stakeholder-Specific Vulnerability Categorization [cite](#SSVC)
-    * JSON Schema Reference https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json
-* Vulnerability Scoring:
+* Vulnerability Scoring
   * Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v4.0.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v3.0.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.0.json
   * Common Vulnerability Scoring System (CVSS) Version 2.0 [cite](#CVSS2)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v2.0.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
 
 Even though the JSON schema does not prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
