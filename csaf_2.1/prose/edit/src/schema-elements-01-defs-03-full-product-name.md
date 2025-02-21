@@ -242,6 +242,8 @@ This applies also to the first character.
 Multiple unescaped `*` MUST NOT occur in a single string.
 When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
+> Note: A backslash MUST be escaped itself in a JSON string.
+
 *Examples 1:*
 
 ```
@@ -332,6 +334,8 @@ Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a sin
 This applies also to the first character.
 Multiple unescaped `*` MUST NOT occur in a single string.
 When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+
+> Note: A backslash MUST be escaped itself in a JSON string.
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
 
