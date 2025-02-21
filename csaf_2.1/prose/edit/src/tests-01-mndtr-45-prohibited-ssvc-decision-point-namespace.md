@@ -1,7 +1,7 @@
 ### Prohibited SSVC Decision Point Namespace
 
-For each SSVC decision point given under `selections` with a `namespace` other than case-sensitive registered values, it MUST be tested that the
-`namespace` it not equal to the case-insensitive registered values.
+For each SSVC decision point given under `selections` with a `namespace` other than case-sensitive registered values,
+it MUST be tested that the `namespace` it not equal to the case-insensitive registered values.
 
 > According to the SSVC project, the following values are currently registered:
 >
