@@ -239,8 +239,7 @@ If a part of a model number of the component to identify is given,
 it MUST begin with the first character of the model number and end with the last character.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 This applies also to the first character.
-Two `*` MUST NOT follow each other.
-Multiple occurrences of `*` in a single string SHOULD be avoided.
+Multiple unescaped `*` MUST NOT occur in a single string.
 When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
 *Examples 1:*
@@ -331,8 +330,7 @@ If a part of a serial number of the component to identify is given,
 it MUST begin with the first character of the serial number and end with the last character.
 Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 This applies also to the first character.
-Two `*` MUST NOT follow each other.
-Multiple occurrences of `*` in a single string SHOULD be avoided.
+Multiple unescaped `*` MUST NOT occur in a single string.
 When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
