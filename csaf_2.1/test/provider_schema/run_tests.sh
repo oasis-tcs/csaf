@@ -7,6 +7,7 @@ CVSS_20_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v2.0_strict.json
 CVSS_30_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.0_strict.json
 CVSS_31_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.1_strict.json
 CVSS_40_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v4.0_strict.json
+SSVC_101_SCHEMA=csaf_2.1/referenced_schema/certcc/Decision_Point_Value_Selection-1-0-1.schema.json
 PROVIDER_STRICT_SCHEMA=${STRICT_BUILD}/provider_strict_schema.json
 VALIDATOR=csaf_2.1/test/validator.py
 STRICT_GENERATOR=csaf_2.1/test/generate_strict_schema.py
@@ -19,7 +20,7 @@ cd `dirname $0`/../../..
 
 validate() {
   printf "%s" "Testing file $1 against schema ${SCHEMA} ... "
-  if python3 ${VALIDATOR} ${SCHEMA} $1 ${CSAF_STRICT_SCHEMA} ${CVSS_20_STRICT_SCHEMA} ${CVSS_30_STRICT_SCHEMA} ${CVSS_31_STRICT_SCHEMA} ${CVSS_40_STRICT_SCHEMA}; then
+  if python3 ${VALIDATOR} ${SCHEMA} $1 ${CSAF_STRICT_SCHEMA} ${CVSS_20_STRICT_SCHEMA} ${CVSS_30_STRICT_SCHEMA} ${CVSS_31_STRICT_SCHEMA} ${CVSS_40_STRICT_SCHEMA} ${SSVC_101_SCHEMA}; then
     printf "%s\n" SUCCESS
   else
     printf "%s\n" FAILED
