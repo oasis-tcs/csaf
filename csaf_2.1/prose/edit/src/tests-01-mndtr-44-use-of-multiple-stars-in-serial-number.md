@@ -2,7 +2,7 @@
 
 For each serial number it MUST be tested that the it does not contain multiple unescaped stars.
 
-> Multiple `*` that match zero or multiple characters within a serial number introduce an ambiguousness and is therefore prohibited.
+> Multiple `*` that match zero or multiple characters within a serial number introduce ambiguity and are therefore prohibited.
 
 The relevant paths for this test are:
 
