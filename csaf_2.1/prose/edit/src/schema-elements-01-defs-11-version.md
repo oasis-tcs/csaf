@@ -39,7 +39,7 @@ The following rules apply:
    Any modifications MUST be released as a new version.
 2. Version zero (0) is for initial development before the `initial_release_date`.
    The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
-3. Version 1 defines the initial release to the intended target group.
+3. Version 1 defines the initial release to the specified target group.
    Each new version where `/document/tracking/status` is `final` has a version number incremented by one.
 4. Pre-release versions (document status `draft`) MUST carry the new version number.
    Sole exception is before the initial release (see rule 2).
@@ -70,7 +70,7 @@ This results in the following rules:
    tracked in this stage with (0.y.z) by incrementing the minor version y instead.
    Changes that would increment the minor or patch version according to rule 6 or 5 are both tracked in this stage with
    (0.y.z) by incrementing the patch version z instead.
-4. Version 1.0.0 defines the initial release to the intended target group.
+4. Version 1.0.0 defines the initial release to the specified target group.
    The way in which the version number is incremented after this release is dependent on the content and structure of
    the document and how it changes.
 5. Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards compatible bug fixes are introduced.
