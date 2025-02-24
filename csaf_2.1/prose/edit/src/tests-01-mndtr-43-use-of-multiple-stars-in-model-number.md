@@ -2,7 +2,7 @@
 
 For each model number it MUST be tested that the it does not contain multiple unescaped stars.
 
-> Multiple `*` that match zero or multiple characters within a model number introduce an ambiguousness and is therefore prohibited.
+> Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and is therefore prohibited.
 
 The relevant paths for this test are:
 
