@@ -247,7 +247,8 @@ As part of the model number, the special characters `?`, `*` and `\` MUST be esc
 *Examples 1:*
 
 ```
-    *-2024
+    *-G109A/EU?
+    2024-*
     6RA8096-4MV62-0AA0
     6RA801?-??V62-0AA0
     IC25T060ATCS05-0
@@ -337,6 +338,16 @@ An unescaped `*` MUST be the only `*` wildcard in the string.
 As part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
 > Note: A backslash MUST be escaped itself in a JSON string.
+
+*Examples 1:*
+
+```
+    *RF8R71YR???
+    11S45N0249Z1ZS9*
+    DSEP147100
+    L15-VM-???
+    L234.696.30.044.712
+```
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
 
