@@ -236,17 +236,18 @@ the component to identify.
 > Often it is abbreviated as "MN", M/N" or "model no.".
 
 If a part of a model number of the component to identify is given,
-it MUST begin with the first character of the model number and end with the last character.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
+it MUST begin at the first and end at the last character position of the string representing the targeted component.
+The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at these positions from matching.
 This applies also to the first character.
-Multiple unescaped `*` MUST NOT occur in a single string.
-When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` MUST be the only `*` wildcard in the string.
+As part of the model number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
 > Note: A backslash MUST be escaped itself in a JSON string.
 
 *Examples 1:*
 
 ```
+    *-2024
     6RA8096-4MV62-0AA0
     6RA801?-??V62-0AA0
     IC25T060ATCS05-0
@@ -329,11 +330,11 @@ Any given serial number of value type `string` with at least 1 character represe
 abbreviated (partial) serial number of the component to identify.
 
 If a part of a serial number of the component to identify is given,
-it MUST begin with the first character of the serial number and end with the last character.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
+it MUST begin at the first and end at the last character position of the string representing the targeted component.
+The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at these positions from matching.
 This applies also to the first character.
-Multiple unescaped `*` MUST NOT occur in a single string.
-When part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` MUST be the only `*` wildcard in the string.
+As part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
 
 > Note: A backslash MUST be escaped itself in a JSON string.
 
