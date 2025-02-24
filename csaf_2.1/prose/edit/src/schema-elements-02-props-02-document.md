@@ -643,7 +643,7 @@ This value is also used to determine the filename for the CSAF document (cf. sec
 
 ##### Document Property - Tracking - Initial Release Date
 
-Initial release date (`initial_release_date`) with value type `string` with format `date-time` holds the date when this document was first released to the intended target group.
+Initial release date (`initial_release_date`) with value type `string` with format `date-time` holds the date when this document was first released to the specified target group.
 
 > For `TLP:CLEAR` documents, this is usually the timestamp when the document was published.
 > For `TLP:GREEN` and higher, this is the timestamp when it was first made available to the specific group.

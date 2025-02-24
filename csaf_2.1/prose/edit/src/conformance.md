@@ -257,7 +257,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * suggest to publish a new version of the CSAF document with the document status `final` if the document status was
     `interim` and no new release has be done during the given threshold in the configuration (default: 6 weeks)
     > Note that the terms "publish", "publication" and their derived forms are used in this conformance profile independent of
-      whether the intended target group is the public or a closed group.
+      whether the specified target group is the public or a closed group.
   * support the following workflows:
 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments;
@@ -374,7 +374,7 @@ The resulting translated document:
   It SHOULD NOT use the original `/document/tracking/id` as a suffix.
   If an issuer uses a CSAF translator to publish his advisories in multiple languages they MAY use the combination of
   the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
-  > Note that the term "publish" is used in this conformance profile independent of whether the intended target group is the public
+  > Note that the term "publish" is used in this conformance profile independent of whether the specified target group is the public
     or a closed group.
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and SHOULD only be set by CSAF translators).
