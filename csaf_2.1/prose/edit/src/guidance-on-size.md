@@ -263,10 +263,10 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/generator/date`
 * `/document/tracking/initial_release_date`
 * `/document/tracking/revision_history[]/date`
+* `/vulnerabilities[]/disclosure_date`
 * `/vulnerabilities[]/discovery_date`
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/involvements[]/date`
-* `/vulnerabilities[]/release_date`
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
 
