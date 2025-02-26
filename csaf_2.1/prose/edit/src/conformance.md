@@ -538,8 +538,38 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* type `/$defs/full_product_name_t/model_number`:
+  * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 converter SHOULD add a `*` to the end and output a
+    warning that a partial model number was detected and a star has been added.
+    Such a warning MUST include the model number.
+  * If the model number contains a `\`, the CSAF 2.0 to CSAF 2.1 converter MUST escape it by inserting an additional `\` before the character.
+  * If the model number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 converter MUST remove the entry and
+    output a warning that a model number with multiple stars was detected and removed.
+    Such a warning MUST include the model number.
+
+  > A tool MAY provide a non-default option to interpret all model numbers as complete and therefore does not add any stars.
+
+  > A tool MAY provide a non-default option to interpret the `?` in all model numbers as part of the model number itself and therefore escape it.
+
+  > A tool MAY provide a non-default option to interpret the `*` in all model numbers as part of the model number itself and therefore escape it.
+
 * type `/$defs/full_product_name_t/product_identification_helper/purls`: If a `/$defs/full_product_name_t/product_identification_helper/purl` is given,
   the CSAF 2.0 to CSAF 2.1 converter MUST convert it into the first item of the corresponding `purls` array.
+* type `/$defs/full_product_name_t/serial_number`:
+  * If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 converter SHOULD add a `*` to the end and output a
+    warning that a partial serial number was detected and a star has been added.
+    Such a warning MUST include the serial number.
+  * If the serial number contains a `\`, the CSAF 2.0 to CSAF 2.1 converter MUST escape it by inserting an additional `\` before the character.
+  * If the serial number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 converter MUST remove the entry and
+    output a warning that a serial number with multiple stars was detected and removed.
+    Such a warning MUST include the serial number.
+
+  > A tool MAY provide a non-default option to interpret all serial numbers as complete and therefore does not add any stars.
+
+  > A tool MAY provide a non-default option to interpret the `?` in all serial numbers as part of the serial number itself and therefore escape it.
+
+  > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
+
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
