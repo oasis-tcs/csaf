@@ -73,6 +73,8 @@ tests-01-mndtr-39-public-sharing-group-with-no-max-uuid.md
 tests-01-mndtr-40-invalid-sharing-group-name.md
 tests-01-mndtr-41-missing-sharing-group-name.md
 tests-01-mndtr-42-purl-qualifiers.md
+tests-01-mndtr-43-use-of-multiple-stars-in-model-number.md
+tests-01-mndtr-44-use-of-multiple-stars-in-serial-number.md
 tests-02-optional.md
 tests-03-informative.md
 distributing.md
