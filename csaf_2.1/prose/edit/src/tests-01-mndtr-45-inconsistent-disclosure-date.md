@@ -22,9 +22,7 @@ The relevant path for this test is:
     },
     // ...
     "tracking": {
-      "current_release_date": "2024-01-24T10:00:00.000Z",
       // ...
-      "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
           "date": "2024-01-24T10:00:00.000Z",
@@ -33,7 +31,7 @@ The relevant path for this test is:
         }
       ],
       "status": "final",
-      "version": "1"
+      // ...
     }
   },
   "vulnerabilities": [
