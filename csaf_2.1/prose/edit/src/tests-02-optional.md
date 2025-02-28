@@ -1041,7 +1041,7 @@ The relevant paths for this test are:
 
 ### Disclosure Date newer than Revision History
 
-For each vulnerability, it MUST be tested that the `disclosure_date` is not newer than the `date` of the newest item of the `revision_history`
+For each vulnerability, it MUST be tested that the `disclosure_date` is earlier or equal to the `date` of the newest item of the `revision_history`
 if the `disclosure_date` is in the past at the time of the test execution.
 As the timestamps might use different timezones, the sorting MUST take timezones into account.
 
