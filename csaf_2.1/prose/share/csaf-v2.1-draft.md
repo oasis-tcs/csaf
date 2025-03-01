@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 29 January 2025
+## 26 February 2025
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -71,7 +71,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 29 January 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 26 February 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -236,7 +236,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.1.8 [Invalid CVSS](#invalid-cvss)  
 		6.1.9 [Invalid CVSS computation](#invalid-cvss-computation)  
 		6.1.10 [Inconsistent CVSS](#inconsistent-cvss)  
-		6.1.11 [CWE](#cwe)  
+		6.1.11 [CWE](#mandatory-tests--cwe)  
 		6.1.12 [Language](#language)  
 		6.1.13 [PURL](#purl)  
 		6.1.14 [Sorted Revision History](#sorted-revision-history)  
@@ -4715,7 +4715,7 @@ The relevant paths for this test are:
 
 > A tool MAY overwrite contradicting values according to the `vectorString` as quick fix.
 
-### 6.1.11 CWE <a id='cwe'></a>
+### 6.1.11 CWE <a id='mandatory-tests--cwe'></a>
 
 For each CWE it MUST be tested that the given CWE exists and is valid in the version provided.
 Any `id` that refers to a CWE Category or View MUST fail the test.
@@ -4726,7 +4726,7 @@ The relevant path for this test is:
     /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-63'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-63'></a>
 
 ```
   "cwes": [
@@ -7991,8 +7991,13 @@ The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more 
 
 ### 7.1.10 Requirement 10: DNS path <a id='requirement-10-dns-path'></a>
 
-The DNS record `csaf.data.security.domain.tld` SHALL resolve as a web server which serves directly
-the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
+Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
+to the IP address of a web server which serves directly the `provider-metadata.json` according to requirement 7.
+
+> The `domain.tld` is just a placeholder for the organization's main domain.
+> For the organization with the main domain being `example.com`, the necessary DNS record is `csaf.data.security.example.com`.
+
+That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One folder per year <a id='requirement-11-one-folder-per-year'></a>
@@ -9423,6 +9428,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.0-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.0-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>

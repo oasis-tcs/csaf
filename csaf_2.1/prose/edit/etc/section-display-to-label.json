@@ -133,7 +133,7 @@
   "6.1.8": "invalid-cvss",
   "6.1.9": "invalid-cvss-computation",
   "6.1.10": "inconsistent-cvss",
-  "6.1.11": "cwe",
+  "6.1.11": "mandatory-tests--cwe",
   "6.1.12": "language",
   "6.1.13": "purl",
   "6.1.14": "sorted-revision-history",

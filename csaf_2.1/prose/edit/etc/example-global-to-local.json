@@ -62,7 +62,7 @@
   "60": "invalid-cvss-eg-1",
   "61": "invalid-cvss-computation-eg-1",
   "62": "inconsistent-cvss-eg-1",
-  "63": "cwe-eg-1",
+  "63": "mandatory-tests--cwe-eg-1",
   "64": "language-eg-1",
   "65": "purl-eg-1",
   "66": "sorted-revision-history-eg-1",

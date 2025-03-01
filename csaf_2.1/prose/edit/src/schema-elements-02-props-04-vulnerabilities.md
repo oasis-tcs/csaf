@@ -15,8 +15,8 @@ properties represents a list of all relevant vulnerability information items.
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
-Common Weakness Enumeration (CWE) (`cwes`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
-Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Release Date (`release_date`),
+Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`),
+Involvements (`involvements`), Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`),
 Remediations (`remediations`), Threats (`threats`), and Title (`title`).
 
 ```
@@ -28,6 +28,9 @@ Remediations (`remediations`), Threats (`threats`), and Title (`title`).
         // ...
       },
       "cwes": {
+        // ...
+      },
+      "disclosure_date": {
         // ...
       },
       "discovery_date": {
@@ -52,9 +55,6 @@ Remediations (`remediations`), Threats (`threats`), and Title (`title`).
         // ...
       },
       "references": {
-        // ...
-      },
-      "release_date": {
         // ...
       },
       "remediations": {
@@ -167,6 +167,15 @@ When creating or modifying a CSAF document, the latest published version of the 
     "4.11",
     "4.12"
 ```
+
+#### Vulnerabilities Property - Disclosure Date
+
+Disclosure date (`disclosure_date`) with value type `string` of format `date-time` holds the date and time
+the vulnerability was originally disclosed to the public.
+
+For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
+As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that the
+vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
 
 #### Vulnerabilities Property - Discovery Date
 
@@ -574,11 +583,6 @@ list of references associated with this vulnerability item.
       // ...
     },
 ```
-
-#### Vulnerabilities Property - Release Date
-
-Release date (`release_date`) with value type `string` of format `date-time` holds the date and time
-the vulnerability was originally released into the wild.
 
 #### Vulnerabilities Property - Remediations
 

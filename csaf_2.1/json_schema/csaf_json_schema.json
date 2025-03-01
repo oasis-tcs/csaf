@@ -855,7 +855,7 @@
             },
             "initial_release_date": {
               "title": "Initial release date",
-              "description": "The date when this document was first published.",
+              "description": "The date when this document was first released to the specified target group.",
               "type": "string",
               "format": "date-time"
             },
@@ -1098,6 +1098,12 @@
                 }
               }
             }
+          },
+          "disclosure_date": {
+            "title": "Disclosure date",
+            "description": "Holds the date and time the vulnerability was originally disclosed to the public.",
+            "type": "string",
+            "format": "date-time"
           },
           "discovery_date": {
             "title": "Discovery date",
@@ -1350,12 +1356,6 @@
             "title": "Vulnerability references",
             "description": "Holds a list of references associated with this vulnerability item.",
             "$ref": "#/$defs/references_t"
-          },
-          "release_date": {
-            "title": "Release date",
-            "description": "Holds the date and time the vulnerability was originally released into the wild.",
-            "type": "string",
-            "format": "date-time"
           },
           "remediations": {
             "title": "List of remediations",

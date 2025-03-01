@@ -1,4 +1,4 @@
-### CWE
+### CWE{#mandatory-tests--cwe}
 
 For each CWE it MUST be tested that the given CWE exists and is valid in the version provided.
 Any `id` that refers to a CWE Category or View MUST fail the test.

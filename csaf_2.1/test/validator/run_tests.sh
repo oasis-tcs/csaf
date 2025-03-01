@@ -11,7 +11,8 @@ SSVC_101_SCHEMA=csaf_2.1/referenced_schema/certcc/Decision_Point_Value_Selection
 VALIDATOR=csaf_2.1/test/validator.py
 STRICT_GENERATOR=csaf_2.1/test/generate_strict_schema.py
 TESTPATH=csaf_2.1/test/validator/data/$1/*.json
-EXCLUDE='oasis_csaf_tc-csaf_2_1-2024-6-1-08-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-09-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-01.json|oasis_csaf_tc-csaf_2_1-2024-6-2-10-01.json'
+EXCLUDE='oasis_csaf_tc-csaf_2_1-2024-6-1-08-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-09-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-05.json|oasis_csaf_tc-csaf_2_1-2024-6-2-10-01.json'
+EXCLUDE_LEAP='oasis_csaf_tc-csaf_2_1-2024-6-1-37-12.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-13.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-14.json'
 EXCLUDE_STRICT=oasis_csaf_tc-csaf_2_1-2024-6-2-20-01.json
 
 FAIL=0
@@ -31,14 +32,14 @@ validate() {
 }
 
 test_all() {
-  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}")
+  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}" | grep -Ev "${EXCLUDE_LEAP}")
   do
     validate $i
   done
 }
 
 test_all_strict() {
-  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}" | grep -v ${EXCLUDE_STRICT})
+  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}" | grep -Ev "${EXCLUDE_LEAP}" | grep -v ${EXCLUDE_STRICT})
   do
     validate $i
   done
