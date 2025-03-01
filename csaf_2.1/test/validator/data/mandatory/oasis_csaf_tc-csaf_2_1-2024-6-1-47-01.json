@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Prohibited SSVC Decision Point Namespace (valid example 2)",
+    "title": "Mandatory test: Inconsistent SSVC ID (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-45-12",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-01",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -44,16 +44,16 @@
         {
           "content": {
             "ssvc_v1": {
-              "id": "CVE-1900-0001",
+              "id": "CVE-1900-0002",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
-                  "name": "Attack Complexity",
-                  "namespace": "cvss",
+                  "name": "Exploitation",
+                  "namespace": "ssvc",
                   "values": [
-                    "Low"
+                    "None"
                   ],
-                  "version": "3.0.1"
+                  "version": "1.1.0"
                 }
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"

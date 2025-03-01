@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: SSVC Decision Points (valid example 1)",
+    "title": "Mandatory test: Prohibited SSVC Decision Point Namespace (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-44-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-49-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -48,13 +48,12 @@
               "schemaVersion": "1-0-1",
               "selections": [
                 {
-                  "name": "Mission Impact",
-                  "namespace": "ssvc",
+                  "name": "Attack Complexity",
+                  "namespace": "CVSS",
                   "values": [
-                    "None",
-                    "Non-Essential Degraded"
+                    "Low"
                   ],
-                  "version": "1.0.0"
+                  "version": "3.0.1"
                 }
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"

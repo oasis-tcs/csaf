@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Prohibited SSVC Decision Point Namespace (failing example 1)",
+    "title": "Mandatory test: Inconsistent SSVC ID (failing example 4)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-45-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-04",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -39,21 +39,53 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
       "metrics": [
         {
           "content": {
             "ssvc_v1": {
-              "id": "CVE-1900-0001",
+              "id": "Bug#2723",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
-                  "name": "Mission Impact",
-                  "namespace": "SSVC",
+                  "name": "Exploitation",
+                  "namespace": "ssvc",
                   "values": [
                     "None"
                   ],
-                  "version": "1.0.0"
+                  "version": "1.1.0"
+                }
+              ],
+              "timestamp": "2024-01-24T10:00:00.000Z"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    },
+    {
+      "cve": "CVE-1900-0001",
+      "ids": [
+        {
+          "system_name": "Example Companies Bugtracker",
+          "text": "Bug#2723"
+        }
+      ],
+      "metrics": [
+        {
+          "content": {
+            "ssvc_v1": {
+              "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-43-04",
+              "schemaVersion": "1-0-1",
+              "selections": [
+                {
+                  "name": "Exploitation",
+                  "namespace": "ssvc",
+                  "values": [
+                    "None"
+                  ],
+                  "version": "1.1.0"
                 }
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"

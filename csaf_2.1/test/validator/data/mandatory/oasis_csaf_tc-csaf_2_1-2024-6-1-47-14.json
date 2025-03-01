@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: SSVC Decision Points (failing example 3)",
+    "title": "Mandatory test: Inconsistent SSVC ID (valid example 4)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-44-03",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-14",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -39,7 +39,45 @@
   },
   "vulnerabilities": [
     {
+      "ids": [
+        {
+          "system_name": "Example Companies Bugtracker",
+          "text": "Bug#3272"
+        }
+      ],
+      "metrics": [
+        {
+          "content": {
+            "ssvc_v1": {
+              "id": "Bug#3272",
+              "schemaVersion": "1-0-1",
+              "selections": [
+                {
+                  "name": "Exploitation",
+                  "namespace": "ssvc",
+                  "values": [
+                    "None"
+                  ],
+                  "version": "1.1.0"
+                }
+              ],
+              "timestamp": "2024-01-24T10:00:00.000Z"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    },
+    {
       "cve": "CVE-1900-0001",
+      "ids": [
+        {
+          "system_name": "Example Companies Bugtracker",
+          "text": "Bug#2723"
+        }
+      ],
       "metrics": [
         {
           "content": {
@@ -48,15 +86,12 @@
               "schemaVersion": "1-0-1",
               "selections": [
                 {
-                  "name": "Safety Impact",
+                  "name": "Exploitation",
                   "namespace": "ssvc",
                   "values": [
-                    "Catastrophic",
-                    "Critical",
-                    "Marginal",
-                    "Negligible"
+                    "None"
                   ],
-                  "version": "1.0.0"
+                  "version": "1.1.0"
                 }
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"

@@ -73,9 +73,9 @@ tests-01-mndtr-39-public-sharing-group-with-no-max-uuid.md
 tests-01-mndtr-40-invalid-sharing-group-name.md
 tests-01-mndtr-41-missing-sharing-group-name.md
 tests-01-mndtr-42-purl-qualifiers.md
-tests-01-mndtr-43-inconsistent-ssvc-id.md
-tests-01-mndtr-44-ssvc-decision-points.md
-tests-01-mndtr-45-prohibited-ssvc-decision-point-namespace.md
+tests-01-mndtr-47-inconsistent-ssvc-id.md
+tests-01-mndtr-48-ssvc-decision-points.md
+tests-01-mndtr-49-prohibited-ssvc-decision-point-namespace.md
 tests-02-optional.md
 tests-03-informative.md
 distributing.md
