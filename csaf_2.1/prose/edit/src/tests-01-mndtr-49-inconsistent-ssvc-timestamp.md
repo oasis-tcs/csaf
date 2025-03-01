@@ -1,23 +1,28 @@
-{
-  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+### Inconsistent SSVC Timestamp
+
+For each vulnerability, it MUST be tested that the SSVC `timestamp` is earlier or equal to the `date` of the newest item of the `revision_history`
+if the document status is `final` or `interim`.
+As the timestamps might use different timezones, the sorting MUST take timezones into account.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/metrics[]/content/ssvc_v1/timestamp
+```
+
+*Example 1 (which fails the test):*
+
+```
   "document": {
-    "category": "csaf_base",
-    "csaf_version": "2.1",
+    // ...
     "distribution": {
       "tlp": {
         "label": "CLEAR"
       }
     },
-    "publisher": {
-      "category": "other",
-      "name": "OASIS CSAF TC",
-      "namespace": "https://csaf.io"
-    },
-    "title": "Mandatory test: Inconsistent SSVC Timestamp (failing example 1)",
+    // ...
     "tracking": {
-      "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-49-01",
-      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      // ...
       "revision_history": [
         {
           "date": "2024-01-24T10:00:00.000Z",
@@ -26,16 +31,8 @@
         }
       ],
       "status": "final",
-      "version": "1"
+      // ...
     }
-  },
-  "product_tree": {
-    "full_product_names": [
-      {
-        "product_id": "CSAFPID-9080700",
-        "name": "Product A"
-      }
-    ]
   },
   "vulnerabilities": [
     {
@@ -59,11 +56,11 @@
               "timestamp": "2024-07-13T10:00:00.000Z"
             }
           },
-          "products": [
-            "CSAFPID-9080700"
-          ]
+          // ...
         }
       ]
     }
   ]
-}
+```
+
+> The document is in status `final` but the SSVC `timestamp` is newer than the `date` of newest item in the `revision_history`.

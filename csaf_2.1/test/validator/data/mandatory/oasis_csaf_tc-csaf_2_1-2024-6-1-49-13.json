@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Inconsistent SSVC Timestamp (valid example 2)",
+    "title": "Mandatory test: Inconsistent SSVC Timestamp (valid example 3)",
     "tracking": {
       "current_release_date": "2024-02-29T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-49-12",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-49-13",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -61,7 +61,7 @@
                   "version": "1.1.0"
                 }
               ],
-              "timestamp": "2024-02-28T14:30:00.000-19:00"
+              "timestamp": "2024-02-29T14:30:00.000+07:00"
             }
           },
           "products": [
