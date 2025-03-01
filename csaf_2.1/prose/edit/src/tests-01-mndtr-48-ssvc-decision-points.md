@@ -1,7 +1,15 @@
 ### SSVC Decision Points
 
-For each SSVC decision point given under `selections` with the `namespace` of `ssvc`, it MUST be tested that given decision point exists, is valid and the items in `values` are ordered correctly.
+For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested that given decision point exists, is valid and the items in `values` are ordered correctly.
 
+> According to the SSVC project, the following values are currently registered:
+>
+> ```
+>   cvss
+>   nciss
+>   ssvc
+> ```
+>
 > A list of all valid decision points including their values is available at the [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
 > The items in `values` need to have the same order as in their definition.
 
