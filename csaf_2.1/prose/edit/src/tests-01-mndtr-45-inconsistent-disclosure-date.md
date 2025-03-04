@@ -41,4 +41,4 @@ The relevant path for this test is:
   ]
 ```
 
-> The document is labeled `TLP:CLEAR` and in status `final` but the `disclosure_date` is newer than the date of newest item in the `revision_history`.
+> The document is labeled `TLP:CLEAR` and in status `final` but the `disclosure_date` is newer than the `date` of newest item in the `revision_history`.

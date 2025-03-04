@@ -102,6 +102,9 @@ SemVer
 SPDX301
 :    _The System Package Data Exchange® (SPDX®) Specification Version 3.0.1_, Linux Foundation and its Contributors, 2024, <https://spdx.github.io/spdx-spec/>.
 
+SSVC
+:    _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>
+
 VERS
 :    _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/master/VERSION-RANGE-SPEC.rst>.
 

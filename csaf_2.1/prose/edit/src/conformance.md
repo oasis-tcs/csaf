@@ -605,7 +605,17 @@ Secondly, the program fulfills the following for all items of:
   > This is done to create a deterministic conversion.
 
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert the key as `disclosure_date`.
+* `/vulnerabilities[]/metrics/ssvc_v1`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
+  vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 converter MUST convert that data into the `ssvc_v1`
+  object within the current vulnerability.
+  If the CSAF 2.0 to CSAF 2.1 converter is able to construct a valid object without loosing any information, the corresponding `notes` item SHALL
+  be removed.
+  If the CSAF 2.0 to CSAF 2.1 converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 converter SHALL
+  remove the invalid `ssvc_v1` object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data failed.
+  If the CSAF 2.0 to CSAF 2.1 converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 converter SHALL remove the `ssvc_v1`
+  object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data would lead to loosing information.
 * `/vulnerabilities[]/remediations[]`:
   * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
     if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
@@ -623,6 +633,7 @@ Secondly, the program fulfills the following for all items of:
   * In any other case, the CSAF 2.0 to CSAF 2.1 converter MUST preserve the product in the remediation of the category `none_available`.
   * The CSAF 2.0 to CSAF 2.1 converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
+* The CSAF 2.0 to CSAF 2.1 converter SHALL provide the JSON path where the warning occurred together with the warning.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 

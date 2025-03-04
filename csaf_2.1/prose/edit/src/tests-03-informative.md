@@ -461,4 +461,51 @@ The relevant path for this test is:
 
 > There is no CVSS v4.0 score given for `CSAFPID-9080700`.
 
+### Usage of Non-Latest SSVC Decision Point Version
+
+For each SSVC decision point given under `selections` with the `namespace` of `ssvc`, it MUST be tested the latest decision point `version` available at the time of the `timestamp` was used.
+The test SHALL fail if a later `version` was used.
+
+> A list of all valid decision points including their values is available at the [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
+
+The relevant path for this test is:
+
+```
+   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "metrics": [
+        {
+          "content": {
+            "ssvc_v1": {
+              "id": "CVE-1900-0001",
+              "schemaVersion": "1-0-1",
+              "selections": [
+                {
+                  "name": "Mission Impact",
+                  "namespace": "ssvc",
+                  "values": [
+                    "Non-Essential Degraded"
+                  ],
+                  "version": "1.0.0"
+                }
+              ],
+              "timestamp": "2024-01-24T10:00:00.000Z"
+            }
+          },
+          // ...
+        }
+      ]
+    }
+  ]
+```
+
+> At the timestamp `2024-01-24T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
+
 -------
