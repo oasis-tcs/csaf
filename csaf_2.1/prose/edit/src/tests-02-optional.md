@@ -1038,3 +1038,140 @@ The relevant paths for this test are:
 ```
 
 > Both products are identified by the same serial number `143-D-354`.
+
+### Disclosure Date newer than Revision History
+
+For each vulnerability, it MUST be tested that the `disclosure_date` is earlier or equal to the `date` of the newest item of the `revision_history`
+if the `disclosure_date` is in the past at the time of the test execution.
+As the timestamps might use different timezones, the sorting MUST take timezones into account.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/disclosure_date
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "document": {
+    // ...
+    "distribution": {
+      "tlp": {
+        "label": "GREEN"
+      }
+    },
+    // ...
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      // ...
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "vulnerabilities": [
+    {
+      "disclosure_date": "2024-02-24T10:00:00.000Z"
+    }
+  ]
+```
+
+> The `disclosure_date` is in the past but newer than the date of newest item in the `revision_history`.
+
+### Usage of Unknown SSVC Decision Point Namespace
+
+For each SSVC decision point given under `selections`, it MUST be tested the `namespace` is one of the case-sensitive registered namespaces.
+
+The relevant path for this test is:
+
+```
+   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "metrics": [
+        {
+          "content": {
+            "ssvc_v1": {
+              "id": "CVE-1900-0001",
+              "schemaVersion": "1-0-1",
+              "selections": [
+                {
+                  "name": "Technical Impact",
+                  "namespace": "an-yet-unknown-or-maybe-private-namespace",
+                  "values": [
+                    "Total"
+                  ],
+                  "version": "1.0.0"
+                }
+              ],
+              "timestamp": "2024-01-24T10:00:00.000Z"
+            }
+          },
+          // ...
+        }
+      ]
+    }
+  ]
+```
+
+> The namespace `an-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
+> Its decision point definitions might therefore not be known to the reader of the document.
+
+### Usage of Unknown SSVC Role
+
+For each SSVC object, it MUST be tested the `role` is one of the case-sensitive registered roles.
+
+The relevant path for this test is:
+
+```
+   /vulnerabilities[]/metrics[]/content/ssvc_v1/role
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "metrics": [
+        {
+          "content": {
+            "ssvc_v1": {
+              "id": "CVE-1900-0001",
+              "schemaVersion": "1-0-1",
+              "selections": [
+                {
+                  "name": "Technical Impact",
+                  "namespace": "an-yet-unknown-or-maybe-private-namespace",
+                  "values": [
+                    "Total"
+                  ],
+                  "version": "1.0.0"
+                }
+              ],
+              "timestamp": "2024-01-24T10:00:00.000Z"
+            }
+          },
+          // ...
+        }
+      ]
+    }
+  ]
+```
+
+> The namespace `an-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
+> Its decision point definitions might therefore not be known to the reader of the document.

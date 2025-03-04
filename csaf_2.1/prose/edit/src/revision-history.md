@@ -21,4 +21,5 @@ toc:
 | csaf-v2.0-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 | csaf-v2.0-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.0-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------

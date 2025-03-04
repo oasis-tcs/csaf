@@ -348,6 +348,7 @@
           "version": "4.6"
         }
       ],
+      "disclosure_date": "2020-02-28T00:00:00Z",
       "discovery_date": "2020-03-06T00:00:00Z",
       "ids": [
         {
@@ -393,7 +394,6 @@
           "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1811673"
         }
       ],
-      "release_date": "2020-02-28T00:00:00Z",
       "remediations": [
         {
           "category": "vendor_fix",
