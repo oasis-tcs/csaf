@@ -146,7 +146,7 @@ Secondly, the program fulfills the following for all items of:
     been removed.
   * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter MUST omit this instance and output a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
-* `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date`.
+* `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/remediations[]`:
   * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
