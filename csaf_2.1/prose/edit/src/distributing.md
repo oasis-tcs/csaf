@@ -221,7 +221,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 ### Requirement 14: Directory listings
 
-Directory listing SHALL be enabled to support manual navigation.
+Server-side generated directory listing SHALL be enabled to support manual navigation.
 
 ### Requirement 15: ROLIE feed
 
