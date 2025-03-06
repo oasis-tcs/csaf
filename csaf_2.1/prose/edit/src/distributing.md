@@ -221,7 +221,10 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 ### Requirement 14: Directory listings
 
-Directory listing SHALL be enabled to support manual navigation.
+Server-side generated directory listing SHALL be enabled to support manual navigation.
+
+> As the content of the directory listing is more or less static, there is little to no benefit in using of client-side scripts.
+> Moreover, client-side scripts, like JavaScript, are usually not evaluated in text-based browsers and are also hard to check programmatically.
 
 ### Requirement 15: ROLIE feed
 
