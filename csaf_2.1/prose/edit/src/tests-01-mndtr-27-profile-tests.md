@@ -459,14 +459,14 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*
 
 ```
-  "vulnerabilities": [
-    {
-      "title": "A vulnerability item without a product status"
-    }
-  ]
+      "product_status": {
+        "under_investigation": [
+          "CSAFPID-9080700"
+        ]
+      }
 ```
 
-> The vulnerability item has no affected products element.
+> The product status does not contain the `known_affected` element.
 
 #### Corresponding Affected Products
 
