@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Corresponding Affected Products (failing example 3)",
+    "title": "Mandatory test: Corresponding Affected Products (valid example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-12-03",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-13-11",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -30,14 +30,34 @@
     }
   },
   "product_tree": {
-    "full_product_names": [
+    "branches": [
       {
-        "name": "Example Company Product A 4.2",
-        "product_id": "CSAFPID-9080700"
-      },
-      {
-        "name": "Example Company Product A < 4.2",
-        "product_id": "CSAFPID-9080701"
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "4.2",
+                "product": {
+                  "name": "Example Company Product A 4.2",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": "<4.2",
+                "product": {
+                  "name": "Example Company Product A prior to 4.2",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
       }
     ]
   },
@@ -53,27 +73,7 @@
       "product_status": {
         "fixed": [
           "CSAFPID-9080700"
-        ]
-      },
-      "remediations": [
-        {
-          "category": "vendor_fix",
-          "details": "Update to the latest version, at least version 4.2.",
-          "product_ids": [
-            "CSAFPID-9080701"
-          ]
-        }
-      ]
-    },
-    {
-      "notes": [
-        {
-          "category": "summary",
-          "text": "A vulnerability exists that allows an authenticated attacker to write push messages with arbitrary content to random users of the system.",
-          "title": "Vulnerability summary"
-        }
-      ],
-      "product_status": {
+        ],
         "known_affected": [
           "CSAFPID-9080701"
         ]

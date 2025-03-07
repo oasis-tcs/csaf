@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Corresponding Affected Products (failing example 4)",
+    "title": "Mandatory test: Corresponding Affected Products (valid example 6)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-12-04",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-13-16",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -37,69 +37,35 @@
             "branches": [
               {
                 "category": "product_version",
-                "name": "4.2",
+                "name": "4.1",
                 "product": {
-                  "name": "Example Company Product A 4.2",
+                  "name": "Example Company Product A 4.1",
                   "product_id": "CSAFPID-9080700"
                 }
               },
               {
                 "category": "product_version",
-                "name": "4.1",
+                "name": "4.2",
                 "product": {
-                  "name": "Example Company Product A 4.1",
+                  "name": "Example Company Product A 4.2",
+                  "product_id": "CSAFPID-9080701"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "4.3",
+                "product": {
+                  "name": "Example Company Product A 4.3",
                   "product_id": "CSAFPID-9080701"
                 }
               }
             ],
             "category": "product_name",
             "name": "Product A"
-          },
-          {
-            "branches": [
-              {
-                "category": "product_version",
-                "name": "0.8.15",
-                "product": {
-                  "name": "Example Company Product B 0.8.15",
-                  "product_id": "CSAFPID-9080703"
-                }
-              },
-              {
-                "category": "product_version",
-                "name": "0.8.14",
-                "product": {
-                  "name": "Example Company Product B 0.8.14",
-                  "product_id": "CSAFPID-9080704"
-                }
-              }
-            ],
-            "category": "product_name",
-            "name": "Product B"
           }
         ],
         "category": "vendor",
         "name": "Example Company"
-      }
-    ],
-    "relationships": [
-      {
-        "category": "installed_on",
-        "full_product_name": {
-          "name": "Example Company Product B 0.8.15 installed on Example Company Product A 4.2",
-          "product_id": "CSAFPID-9080705"
-        },
-        "product_reference": "CSAFPID-9080703",
-        "relates_to_product_reference": "CSAFPID-9080700"
-      },
-      {
-        "category": "installed_on",
-        "full_product_name": {
-          "name": "Example Company Product B 0.8.14 installed on Example Company Product A 4.1",
-          "product_id": "CSAFPID-9080706"
-        },
-        "product_reference": "CSAFPID-9080704",
-        "relates_to_product_reference": "CSAFPID-9080701"
       }
     ]
   },
@@ -114,18 +80,19 @@
       ],
       "product_status": {
         "fixed": [
-          "CSAFPID-9080705"
-        ], 
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ],
         "known_affected": [
-          "CSAFPID-9080706"
+          "CSAFPID-9080700"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Update to the latest version, at least version 0.8.15.",
+          "details": "Update to the latest version, at least version 4.2.",
           "product_ids": [
-            "CSAFPID-9080706"
+            "CSAFPID-9080700"
           ]
         }
       ]

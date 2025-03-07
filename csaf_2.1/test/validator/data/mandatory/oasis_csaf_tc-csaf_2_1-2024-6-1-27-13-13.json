@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Corresponding Affected Products (valid example 5)",
+    "title": "Mandatory test: Corresponding Affected Products (valid example 3)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-12-15",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-13-13",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -42,39 +42,22 @@
                   "name": "Example Company Product A 4.2",
                   "product_id": "CSAFPID-9080700"
                 }
-              }
-            ],
-            "category": "product_name",
-            "name": "Product A"
-          },
-          {
-            "branches": [
+              },
               {
                 "category": "product_version",
-                "name": "47-11",
+                "name": "4.1",
                 "product": {
-                  "name": "Example Company Hotfix for Product A 47-11",
+                  "name": "Example Company Product A 4.1",
                   "product_id": "CSAFPID-9080701"
                 }
               }
             ],
             "category": "product_name",
-            "name": "Hotfix for Product A"
+            "name": "Product A"
           }
         ],
         "category": "vendor",
         "name": "Example Company"
-      }
-    ],
-    "relationships": [
-      {
-        "category": "installed_with",
-        "full_product_name": {
-          "name": "Example Company Product A 4.2 installed with Example Company Hotfix for Product A 47-11",
-          "product_id": "CSAFPID-0009"
-        },
-        "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701"
       }
     ]
   },
@@ -88,19 +71,45 @@
         }
       ],
       "product_status": {
-        "first_fixed": [
-          "CSAFPID-9080701"
+        "fixed": [
+          "CSAFPID-9080700"
         ],
         "known_affected": [
-          "CSAFPID-9080700"
+          "CSAFPID-9080701"
         ]
       },
       "remediations": [
         {
-          "category": "workaround",
-          "details": "Apply the hotfix 47-11 to the product.",
+          "category": "vendor_fix",
+          "details": "Update to the latest version, at least version 4.2.",
           "product_ids": [
-            "CSAFPID-9080700"
+            "CSAFPID-9080701"
+          ]
+        }
+      ]
+    },
+        {
+      "notes": [
+        {
+          "category": "summary",
+          "text": "A vulnerability exists that allows an authenticated attacker to write push messages with arbitrary content to random users of the system.",
+          "title": "Vulnerability summary"
+        }
+      ],
+      "product_status": {
+        "fixed": [
+          "CSAFPID-9080700"
+        ],
+        "known_affected": [
+          "CSAFPID-9080701"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to the latest version, at least version 4.2.",
+          "product_ids": [
+            "CSAFPID-9080701"
           ]
         }
       ]

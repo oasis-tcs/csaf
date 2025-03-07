@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Corresponding Affected Products (valid example 4)",
+    "title": "Mandatory test: Corresponding Affected Products (failing example 4)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-12-14",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-13-04",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -100,24 +100,6 @@
         },
         "product_reference": "CSAFPID-9080704",
         "relates_to_product_reference": "CSAFPID-9080701"
-      },
-      {
-        "category": "installed_on",
-        "full_product_name": {
-          "name": "Example Company Product B 0.8.14 installed on Example Company Product A 4.2",
-          "product_id": "CSAFPID-9080707"
-        },
-        "product_reference": "CSAFPID-9080704",
-        "relates_to_product_reference": "CSAFPID-9080700"
-      },
-      {
-        "category": "installed_on",
-        "full_product_name": {
-          "name": "Example Company Product B 0.8.15 installed on Example Company Product A 4.1",
-          "product_id": "CSAFPID-9080708"
-        },
-        "product_reference": "CSAFPID-9080703",
-        "relates_to_product_reference": "CSAFPID-9080701"
       }
     ]
   },
@@ -132,12 +114,10 @@
       ],
       "product_status": {
         "fixed": [
-          "CSAFPID-9080705",
-          "CSAFPID-9080708"
-        ],
+          "CSAFPID-9080705"
+        ], 
         "known_affected": [
-          "CSAFPID-9080706",
-          "CSAFPID-9080707"
+          "CSAFPID-9080706"
         ]
       },
       "remediations": [
@@ -145,8 +125,7 @@
           "category": "vendor_fix",
           "details": "Update to the latest version, at least version 0.8.15.",
           "product_ids": [
-            "CSAFPID-9080706",
-            "CSAFPID-9080707"
+            "CSAFPID-9080706"
           ]
         }
       ]
