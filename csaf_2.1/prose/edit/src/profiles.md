@@ -116,7 +116,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
     > Lists each product's status in regard to the vulnerability.
-  * `/vulnerabilities[]/product_status/affected`
+  * `/vulnerabilities[]/product_status/known_affected`
     > Lists affected products in regard to the vulnerability.
   * For each product given in `/vulnerabilities[]/product_status/fixed`, the corresponding affected version SHALL be given.
     > Corresponding versions are usually in the same `branches` element.

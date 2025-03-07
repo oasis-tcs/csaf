@@ -40,7 +40,7 @@
   "vulnerabilities": [
     {
       "product_status": {
-        "affected": [
+        "known_affected": [
           "CSAFPID-9080700"
         ]
       },
