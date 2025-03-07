@@ -919,11 +919,11 @@
           "valid": false
         },
         {
-          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-12-01.json",
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-02.json",
           "valid": false
         },
         {
-          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-13-01.json",
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-03.json",
           "valid": false
         }
       ]
