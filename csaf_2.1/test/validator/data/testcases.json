@@ -813,6 +813,14 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-06-01.json",
           "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-06-02.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-06-03.json",
+          "valid": false
         }
       ]
     },

@@ -155,6 +155,11 @@ The relevant path for this test is:
 ```
   "vulnerabilities": [
     {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
       "title": "A vulnerability item without a note"
     }
   ]
@@ -170,6 +175,7 @@ The relevant value for `/document/category` is:
 
 ```
   csaf_security_advisory
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:

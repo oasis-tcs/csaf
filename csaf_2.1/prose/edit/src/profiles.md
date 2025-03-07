@@ -124,6 +124,8 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements SHOULD exist:
   * `/vulnerabilities[]/product_status/fixed`
     > Lists fixed products in regard to the vulnerability.
+  * `/vulnerabilities[]/remediations`
+    > Lists for each affected product in regard to the vulnerability appropriate remediations.
 
 ## Profile 5: VEX
 
