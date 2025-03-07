@@ -416,6 +416,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_security_advisory
   csaf_vex
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
