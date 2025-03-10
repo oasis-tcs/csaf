@@ -1,6 +1,6 @@
-### Profile Tests
+### Profile Tests{#mandatory-profile-tests}
 
-This subsubsection structures the tests for the profiles. Not all tests apply for all profiles.
+This subsubsection structures the mandatory tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
 Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
@@ -108,6 +108,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_security_advisory
   csaf_vex
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -140,6 +141,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_security_advisory
   csaf_vex
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -153,6 +155,11 @@ The relevant path for this test is:
 ```
   "vulnerabilities": [
     {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
       "title": "A vulnerability item without a note"
     }
   ]
@@ -164,10 +171,11 @@ The relevant path for this test is:
 
 For each item in `/vulnerabilities` it MUST be tested that the element `product_status` exists.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_security_advisory
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -408,6 +416,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_security_advisory
   csaf_vex
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -430,3 +439,94 @@ The relevant path for this test is:
 ```
 
 > The element `/vulnerabilities` does not exist.
+
+### Affected Products
+
+For each item in `/vulnerabilities` it MUST be tested that the element `product_status/known_affected` exists.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_security_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status/known_affected
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "product_status": {
+        "under_investigation": [
+          "CSAFPID-9080700"
+        ]
+      }
+```
+
+> The product status does not contain the `known_affected` element.
+
+#### Corresponding Affected Products
+
+For each product listed in the product status group fixed in any vulnerability,
+it MUST be tested that a corresponding version of the product is listed as affected in the same vulnerability.
+
+> For a relationship `installed_with` the product without any relationship is a corresponding product.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_security_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status/known_affected
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    // ...
+    "product_tree": {
+      "branches": [
+        {
+          "branches": [
+            {
+              "branches": [
+                {
+                  "category": "product_version",
+                  "name": "4.2",
+                  "product": {
+                    "name": "Example Company Product A 4.2",
+                    "product_id": "CSAFPID-9080700"
+                  }
+                }
+              ],
+              "category": "product_name",
+              "name": "Product A"
+            }
+          ],
+          "category": "vendor",
+          "name": "Example Company"
+        }
+      ]
+    },
+    "vulnerabilities": [
+      {
+        // ...
+        "product_status": {
+          "fixed": [
+            "CSAFPID-9080700"
+          ]
+        }
+      }
+    ]
+  }
+```
+
+> The vulnerability just contains the fixed product but does not list corresponding affected products.

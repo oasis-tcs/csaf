@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
   "document": {
-    "category": "csaf_security_advisory",
+    "category": "csaf_vex",
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Vulnerability Notes (failing example 1)",
+    "title": "Mandatory test: Vulnerabilities (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-05-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-11-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -32,19 +32,9 @@
   "product_tree": {
     "full_product_names": [
       {
-        "name": "Product A",
-        "product_id": "CSAFPID-9080700"
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
       }
     ]
-  },
-  "vulnerabilities": [
-    {
-      "product_status": {
-        "known_affected": [
-          "CSAFPID-9080700"
-        ]
-      },
-      "title": "A vulnerability item without a note"
-    }
-  ]
+  }
 }
