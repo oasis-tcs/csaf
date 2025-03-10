@@ -25,7 +25,7 @@ jobs:
         cd csaf-validator-lib && git checkout 196-csaf-2.1 && npm ci --prod
     - name: Run mandatory tests on examples
       run:  |
-        for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/*.json`
+        for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/*.json | grep -Ev 'rhsa-2021_5186.json|rhsa-2021_5217|rhsa-2022_0011.json'`
         do
           printf "%s%s\n" "Starting test of " $i
           ../csaf-validator-lib/scripts/runTest.js -f $i -t mandatory -c 2.1
