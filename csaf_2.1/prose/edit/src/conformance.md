@@ -299,7 +299,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
 
   * `/$schema` with the value prescribed by the schema
   * `/document/csaf_version` with the value prescribed by the schema
-  * `/document/language`
+  * `/document/lang`
   * `/document/notes`
     * `legal_disclaimer` (Terms of use from the configuration)
     * `general` (General Security recommendations from the configuration)
@@ -322,7 +322,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * updates the following fields with the values given below or based on the templates from configuration:
     * `/$schema` with the value prescribed by the schema
     * `/document/csaf_version` with the value prescribed by the schema
-    * `/document/language`
+    * `/document/lang`
     * `/document/notes`
       * `legal_disclaimer` (Terms of use from the configuration)
       * `general` (General Security recommendations from the configuration)
