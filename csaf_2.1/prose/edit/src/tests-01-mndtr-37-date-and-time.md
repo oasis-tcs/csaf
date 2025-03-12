@@ -9,9 +9,9 @@ The relevant path for this test is:
   /document/tracking/generator/date
   /document/tracking/initial_release_date
   /document/tracking/revision_history[]/date
+  /vulnerabilities[]/disclosure_date
   /vulnerabilities[]/discovery_date
   /vulnerabilities[]/flags[]/date
-  /vulnerabilities[]/release_date
   /vulnerabilities[]/involvements[]/date
   /vulnerabilities[]/remediations[]/date
   /vulnerabilities[]/threats[]/date

@@ -34,23 +34,26 @@ Proven and intended usage patterns from practice are given where possible.
 
 Delegation to industry best practices technologies is used in referencing schemas for:
 
-* Platform Data:
-  * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
-* Vulnerability Scoring:
-  * Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v4.0.json
-  * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v3.1.json
-  * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v3.0.json
-  * Common Vulnerability Scoring System (CVSS) Version 2.0 [cite](#CVSS2)
-    * JSON Schema Reference https://www.first.org/cvss/cvss-v2.0.json
-* Vulnerability Classification
-  * Common Weakness Enumeration (CWE) [cite](#CWE)
-    * CWE List: http://cwe.mitre.org/data/index.html
 * Classification for Document Distribution
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/
+* Platform Data
+  * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
+* Vulnerability Categorization
+  * Stakeholder-Specific Vulnerability Categorization [cite](#SSVC)
+    * JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json
+* Vulnerability Classification
+  * Common Weakness Enumeration (CWE) [cite](#CWE)
+    * CWE List: http://cwe.mitre.org/data/index.html
+* Vulnerability Scoring
+  * Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
+  * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
+  * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.0.json
+  * Common Vulnerability Scoring System (CVSS) Version 2.0 [cite](#CVSS2)
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
 
 Even though the JSON schema does not prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
@@ -65,5 +68,3 @@ consumers to verify rules from the specification which can not be tested by the 
 Section [sec](#distributing-csaf-documents) states how to distribute and where to find CSAF documents.
 Safety, Security and Data Protection are considered in section [sec](#safety-security-and-data-protection-considerations).
 Finally, a set of conformance targets describes tools in the ecosystem.
-
-

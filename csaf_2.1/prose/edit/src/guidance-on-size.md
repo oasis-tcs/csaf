@@ -80,6 +80,8 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/acknowledgments[]/urls`
   * `/vulnerabilities[]/cwes`
   * `/vulnerabilities[]/ids`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/values`
   * `/vulnerabilities[]/remediations[]/entitlements`
 
 * 40 000 items for
@@ -208,6 +210,12 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/id`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/role`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/name`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/values[]`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/version`
   * `/vulnerabilities[]/metrics[]/products[]`
   * `/vulnerabilities[]/notes[]/audience`
   * `/vulnerabilities[]/notes[]/title`
@@ -263,10 +271,11 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/generator/date`
 * `/document/tracking/initial_release_date`
 * `/document/tracking/revision_history[]/date`
+* `/vulnerabilities[]/disclosure_date`
 * `/vulnerabilities[]/discovery_date`
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/involvements[]/date`
-* `/vulnerabilities[]/release_date`
+* `/vulnerabilities[]/metrics[]/content/ssvc_v1/timestamp`
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
 
@@ -284,6 +293,7 @@ It seems to be safe to assume that the length of this value is not greater than 
 
 For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:
+
 * `/document/csaf_version` (3)
 * `/document/distribution/tlp/label` (12)
 * `/document/notes[]/category` (16)
@@ -373,6 +383,7 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnConfidentialityImpact` (4)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnerabilityResponseEffort` (11)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnIntegrityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/ssvc_v1/schemaVersion` (5)
 * `/vulnerabilities[]/notes[]/category` (16)
 * `/vulnerabilities[]/references[]/category` (8)
 * `/vulnerabilities[]/remediations[]/category` (14)
