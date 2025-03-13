@@ -587,3 +587,33 @@ The relevant path for this test is:
 ```
 
 > The element `/product_tree` exists.
+
+#### Withdrawal Revision History
+
+It MUST be tested that the revision history contains at least two entries.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /document/tracking/revision_history
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "revision_history": [
+    {
+      "date": "2024-01-24T10:00:00.000Z",
+      "number": "1",
+      "summary": "Initial version."
+    }
+  ],
+```
+
+> The revision history contains only one entry.
