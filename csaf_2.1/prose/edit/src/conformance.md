@@ -119,14 +119,25 @@ Secondly, the program fulfills the following for all items of:
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`:
   If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`.
   In addition, the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
-* `/document/category`: If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF converter MUST try to convert the data
-  into a valid CSAF document in this profile according to CSAF 2.1.
+* `/document/category`:
+  * If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF converter MUST try to convert the data
+    into a valid CSAF document in this profile according to CSAF 2.1.
 
-  > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
+    > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
 
-  If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
-  `csaf_deprecated_security_advisory`.
-* `/document/lang`: If one or more CVRF element containing an `xml:lang` attribute exist and contain the exact same value,
+    If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
+    `csaf_deprecated_security_advisory`.
+  * If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
+    if the document language of the CVRF document is unspecified and the `cvrf:DocumentTitle` starts with the string `Withdrawn`,
+    CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
+    > to the profile.
+
+    > A tool MAY support this detection for other languages.
+
+    If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category`
+    according to the conversion rules and output a warning a potentially withdrawn CSAF document was created which would result in an invalid CSAF.
+* `/document/lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
   the CVRF CSAF converter converts this value into `lang`.
   If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be
   determined and possibly a document with multiple languages was produced.
@@ -583,14 +594,24 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
 
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
-* `/document/category`: If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 converter MUST try to convert the data into a
-  valid CSAF document in this profile according to CSAF 2.1.
-  For any version range of affected products that uses the strict `<`, i.e. not `<=`, as comparator of the last version constraint, the CSAF 2.0
-  to CSAF 2.1 converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
-  The CSAF 2.0 to CSAF 2.1 converter MUST output a warning that a product was added to the `product_tree` and the corresponding `/vulnerabilities[]`.
-  Such warning MUST contain the full product name and its path as well as the paths of the `/vulnerabilities[]` it was added to.
-  If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
-  `csaf_deprecated_security_advisory`.
+* `/document/category`:
+  * If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 converter MUST try to convert the data into a
+    valid CSAF document in this profile according to CSAF 2.1.
+    For any version range of affected products that uses the strict `<`, i.e. not `<=`, as comparator of the last version constraint, the CSAF 2.0
+    to CSAF 2.1 converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
+    The CSAF 2.0 to CSAF 2.1 converter MUST output a warning that a product was added to the `product_tree` and the corresponding `/vulnerabilities[]`.
+    Such warning MUST contain the full product name and its path as well as the paths of the `/vulnerabilities[]` it was added to.
+    If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
+    `csaf_deprecated_security_advisory`.
+  * If the `/document/lang` is English or unspecified and the `document/title` starts with the string `Withdrawn`, the CSAF 2.0 to CSAF 2.1 converter
+    MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
+    > to the profile.
+
+    > A tool MAY support this detection for other languages.
+
+    If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category`
+    of the original CSAF document and output a warning a potentially withdrawn CSAF document was created which would result in an invalid CSAF.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
   

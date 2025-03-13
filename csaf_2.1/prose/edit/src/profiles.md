@@ -198,7 +198,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     describing the original content and the reasons for the withdrawal
     > Other items, such as a legal disclaimer, may exist alongside the required one.
 
-    The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified language.
+    The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
   * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
 * The value of `/document/category` SHALL be `csaf_withdrawn`.
