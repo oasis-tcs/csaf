@@ -73,10 +73,11 @@ The relevant path for this test is:
 
 It MUST be tested that the element `/vulnerabilities` does not exist.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_informational_advisory
+  csaf_withdrawn
 ```
 
 The relevant path for this test is:
