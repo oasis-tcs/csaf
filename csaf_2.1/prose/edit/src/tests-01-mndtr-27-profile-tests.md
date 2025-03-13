@@ -100,7 +100,7 @@ The relevant path for this test is:
 
 > A tool MAY change the `/document/category` to `csaf_base` as a quick fix.
 
-#### Product Tree
+#### Product Tree{#product-tree-for-security-advisory-vex-deprecated-security-advisory}
 
 It MUST be tested that the element `/product_tree` exists.
 
@@ -561,3 +561,29 @@ The relevant path for this test is:
 ```
 
 > The document notes do not contain an item which has a `category` of `description`.
+
+#### Product Tree{#product-tree-for-withdrawn}
+
+It MUST be tested that the element `/product_tree` does not exist.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /product_tree
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "product_tree": [
+      // ...
+    ]
+```
+
+> The element `/product_tree` exists.
