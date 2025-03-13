@@ -7,7 +7,7 @@ Each of the following tests SHOULD be treated as they where listed similar to th
 > An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests.
 > This results in one virtual test per profile.
 
-#### Document Notes
+#### Document Notes{#document-notes-for-informational-advisory-and-security-incident-response}
 
 It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
 
@@ -531,3 +531,33 @@ The relevant path for this test is:
 ```
 
 > The vulnerability just contains the fixed product but does not list corresponding affected products.
+
+#### Document Notes{#document-notes-for-withdrawn}
+
+It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "notes": [
+    {
+      "category": "legal_disclaimer",
+      "text": "The CSAF document is provided to You \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind.",
+      "title": "Terms of Use"
+    }
+  ]
+```
+
+> The document notes do not contain an item which has a `category` of `description`.

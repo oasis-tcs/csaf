@@ -10,9 +10,9 @@
     },
     "notes": [
       {
-        "category": "description",
-        "text": "This CSAF document contained example data and was withdrawn to create test data.",
-        "title": "Reasoning for Withdrawal"
+        "category": "legal_disclaimer",
+        "text": "The CSAF document is provided to You \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind.",
+        "title": "Terms of Use"
       }
     ],
     "publisher": {
@@ -20,10 +20,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Vulnerabilities (failing example 2)",
+    "title": "Mandatory test: Document Notes (failing example 1)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-03-02",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-14-01",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -40,10 +40,5 @@
       "status": "final",
       "version": "2"
     }
-  },
-  "vulnerabilities": [
-    {
-      "title": "A vulnerability item that SHALL NOT exist"
-    }
-  ]
+  }
 }
