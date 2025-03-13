@@ -1226,9 +1226,28 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*
 
 ```
-
+  "vulnerabilities": [
+    {
+      // ...
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to the latest version, at least version 4.2.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]
 ```
 
->
+> The fixed product is not listed in the advisory but there is a clear indication that such product exists as there is a remediation 
+> with category `vendor_fix`.
 
 > A tool MAY create the missing fixed product based on the data available in the advisory.
