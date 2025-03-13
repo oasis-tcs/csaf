@@ -424,7 +424,7 @@ The relevant path for this test is:
 
 ### Use of Private Language
 
-For each element of type `/$defs/language_t` it MUST be tested that the language code does not contain subtags reserved for private use.
+For each element of type `/$defs/lang_t` it MUST be tested that the language code does not contain subtags reserved for private use.
 
 The relevant paths for this test are:
 
@@ -445,7 +445,7 @@ The relevant paths for this test are:
 
 ### Use of Default Language
 
-For each element of type `/$defs/language_t` it MUST be tested that the language code is not `i-default`.
+For each element of type `/$defs/lang_t` it MUST be tested that the language code is not `i-default`.
 
 The relevant paths for this test are:
 
