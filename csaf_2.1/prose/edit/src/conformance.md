@@ -8,7 +8,7 @@ Informative Comments:
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 22 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF document**, all other 23 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -56,6 +56,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF library with basic validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
 * **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
 * **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
+* **CSAF withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
 
 ### Conformance Clause 1: CSAF document
 
@@ -758,5 +759,18 @@ A program satisfies the "CSAF downloader" conformance profile if the program:
 * uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
 
 > A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
+
+### Conformance Clause 24: CSAF withdrawer
+
+A program satisfies the "CSAF withdrawer" conformance profile if the program:
+
+* satisfies the "CSAF post-processor" conformance profile.
+* keeps the original `/document/tracking/id`.
+* adds a new item to the revision history stating the revision metadata of the withdrawal.
+* adds the reasoning for withdrawal as specified in section [sec](#profile-7-withdrawn).
+* removes the `/product_tree`.
+* removes the `/vulnerabilities`.
+
+> A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
 
 -------
