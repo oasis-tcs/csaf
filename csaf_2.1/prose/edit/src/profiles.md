@@ -186,4 +186,27 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Lists each product's status in regard to the vulnerability.
 * The value of `/document/category` SHALL be `csaf_deprecated_security_advisory`.
 
+## Profile 7: Withdrawn
+
+This profile MUST be used for any CSAF document that is withdrawn. It MUST NOT be used for any superseded document.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Withdrawn":
+
+* The following elements MUST exist and be valid:
+  * all elements required by the profile "CSAF Base".
+  * `/document[]/notes` with exactly one item using the `category` `description`
+    describing the original content and the reasons for the withdrawal
+    > Other items, such as a legal disclaimer, may exist alongside the required one.
+
+    The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
+    For any other language, it SHOULD be the language specific translation of that term.
+  * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+    > A CSAF document cannot be withdrawn during the initial release to its specified target group.
+    > In such case, the CSAF document should not be released at all.
+    > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
+* The value of `/document/category` SHALL be `csaf_withdrawn`.
+* The elements `/product_tree` and `/vulnerabilities` SHALL NOT exist.
+
+The CSAF document MAY link to additional information through `/document/references`.
+
 -------

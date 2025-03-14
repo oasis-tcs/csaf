@@ -11,12 +11,13 @@ Therefore, it MUST be skipped if the document category matches one of the values
 > For CSAF 2.1, the test must be skipped for the following values in `/document/category`:
 >
 > ```
->   csaf_base
->   csaf_security_incident_response
->   csaf_informational_advisory
->   csaf_security_advisory
->   csaf_vex
->   csaf_deprecated_security_advisory
+>  csaf_base
+>  csaf_security_incident_response
+>  csaf_informational_advisory
+>  csaf_security_advisory
+>  csaf_vex
+>  csaf_deprecated_security_advisory
+>  csaf_withdrawn
 > ```
 
 This is the only mandatory test related to the profile "CSAF Base" as the required fields SHALL be checked by validating the JSON schema.
@@ -37,6 +38,7 @@ The relevant path for this test is:
   veX
   V_eX
   Deprecated Security Advisory
+  withdrawn
 ```
 
 *Example 2 (which fails the test):*
