@@ -1,13 +1,7 @@
 {
-  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
   "document": {
     "category": "csaf_base",
-    "csaf_version": "2.1",
-    "distribution": {
-      "tlp": {
-        "label": "CLEAR"
-      }
-    },
+    "csaf_version": "2.0",
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",
@@ -15,12 +9,12 @@
     },
     "title": "Mandatory test: Invalid CVSS computation (valid example 2)",
     "tracking": {
-      "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-09-12",
-      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-1-09-12",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
       "revision_history": [
         {
-          "date": "2024-01-24T10:00:00.000Z",
+          "date": "2021-07-21T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
         }
@@ -39,19 +33,17 @@
   },
   "vulnerabilities": [
     {
-      "metrics": [
+      "scores": [
         {
-          "content": {
-            "cvss_v3": {
-              "version": "3.0",
-              "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-              "baseScore": 10,
-              "baseSeverity": "CRITICAL"
-            }
-          },
           "products": [
             "CSAFPID-9080700"
-          ]
+          ],
+          "cvss_v3": {
+            "version": "3.0",
+            "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL"
+          }
         }
       ]
     }
