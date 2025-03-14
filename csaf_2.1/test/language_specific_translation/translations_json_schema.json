@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testcases_json_schema.json",
+  "title": "Test cases for CSAF",
+  "description": "Representation of the data provided for test cases from section 6 of the specification.",
+  "type": "object",
+  "$defs": {
+    "translation_t": {
+      "title": "Translation",
+      "description": "Contains the translation for a single language.",
+      "type": "object",
+      "minProperties": 2,
+      "required": [
+        "lang"
+      ],
+      "properties": {
+        "lang": {
+          "title": "Language",
+          "description": "Identifies the language according to BCP 47 / RFC 5646.",
+          "type": "string",
+          "pattern": "^(([A-Za-z]{2,3}(-[A-Za-z]{3}(-[A-Za-z]{3}){0,2})?|[A-Za-z]{4,8})(-[A-Za-z]{4})?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-[A-WY-Za-wy-z0-9](-[A-Za-z0-9]{2,8})+)*(-[Xx](-[A-Za-z0-9]{1,8})+)?|[Xx](-[A-Za-z0-9]{1,8})+|[Ii]-[Dd][Ee][Ff][Aa][Uu][Ll][Tt]|[Ii]-[Mm][Ii][Nn][Gg][Oo])$",
+          "examples": [
+            "de",
+            "en",
+            "fr",
+            "frc",
+            "jp"
+          ]
+        },
+        "reasoning_for_withdrawal": {
+          "title": "Reasoning for Withdrawal",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "translation_version",
+    "translations"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for test data which the document promises to be valid for.",
+      "type": "string",
+      "enum": [
+        "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/language_specific_translation/translations_json_schema.json"
+      ],
+      "format": "uri"
+    },
+    "translation_version": {
+      "title": "Translation schema version",
+      "description": "Contains the current version of this schema",
+      "type": "string",
+      "enum": ["2.1"]
+    },
+    "translations": {
+      "title": "List of translations",
+      "description": "Contains the list of recognized translations for terms in the standard.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/translation_t"
+      }
+    }
+  },
+  "additionalProperties": false
+}
