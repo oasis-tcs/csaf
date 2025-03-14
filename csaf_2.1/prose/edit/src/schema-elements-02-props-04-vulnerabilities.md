@@ -751,15 +751,15 @@ Therefore, such a combination MUST NOT exist in a vulnerability item for the sam
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed, discouraged and prohibited combinations:
 
-| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Recommended |
-|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|
-| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
-| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
-| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
-| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     |
-| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     |
-| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | allowed     |
-| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     |
+| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Unknown     | Recommended |
+|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|:-----------:|
+| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
+| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
+| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
+| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     | allowed     |
+| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     | allowed     |
+| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
+| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
 
 ##### Vulnerabilities Property - Remediations - Date
 
