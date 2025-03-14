@@ -148,6 +148,13 @@ Secondly, the program fulfills the following for all items of:
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
+* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+  the CVRF CSAF converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the
+  vulnerability.
+  > A tool MAY implement an option to suppress this conversion.
+   If the CVRF CSAF converter converter is unable to construct a valid object with the information given, the CVRF CSAF converter converter SHALL
+  remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
+  Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/remediations[]`:
   * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
@@ -607,6 +614,13 @@ Secondly, the program fulfills the following for all items of:
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value into the `disclosure_date` element.
+* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+  the CSAF 2.0 to CSAF 2.1 converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the
+  vulnerability.
+  > A tool MAY implement an option to suppress this conversion.
+   If the CSAF 2.0 to CSAF 2.1 converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 converter SHALL
+  remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
+  Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/metrics/ssvc_v1`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
   vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 converter MUST convert that data into the `ssvc_v1`
   object within the current vulnerability.
