@@ -9,7 +9,6 @@
       "title": "Translation",
       "description": "Contains the translation for a single language.",
       "type": "object",
-      "minProperties": 2,
       "required": [
         "lang"
       ],
@@ -27,11 +26,20 @@
             "jp"
           ]
         },
-        "reasoning_for_withdrawal": {
-          "title": "Reasoning for Withdrawal",
-          "description": "Contains the language specific translation of the term.",
-          "type": "string",
-          "minLength": 1
+        "term": {
+          "title": "Term",
+          "description": "Contains the language specific translation of the defined terms.",
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "reasoning_for_withdrawal": {
+              "title": "Reasoning for Withdrawal",
+              "description": "Contains the language specific translation of the term.",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -56,7 +64,9 @@
       "title": "Translation schema version",
       "description": "Contains the current version of this schema",
       "type": "string",
-      "enum": ["2.1"]
+      "enum": [
+        "2.1"
+      ]
     },
     "translations": {
       "title": "List of translations",

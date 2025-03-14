@@ -4,7 +4,9 @@
   "translations": [
     {
       "lang": "de",
-      "reasoning_for_withdrawal": "Begründung für die Zurückziehung"
+      "term": {
+        "reasoning_for_withdrawal": "Begründung für die Zurückziehung"
+      }
     }
   ]
 }
