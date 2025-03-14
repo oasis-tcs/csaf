@@ -1247,10 +1247,10 @@ The relevant path for this test is:
   ]
 ```
 
-> The fixed product is not listed in the advisory but there is a clear indication that such product exists as there is a remediation 
+> The fixed product is not listed in the advisory but there is a clear indication that such product exists as there is a remediation
 > with category `vendor_fix`.
 
-> A tool MAY create the missing fixed product based on the data available in the advisory.
+> A tool MAY create the missing fixed product based on the data available in the advisory as a quick fix.
 
 #### Language Specific Reasoning for Withdrawal
 
