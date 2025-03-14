@@ -39,4 +39,8 @@ Furthermore, this might leak information about internal structures or tools used
 Given that credentials from a browser are a potent tool in the event of an attack, restricting the origins seems to imply a higher risk and
 therefore less secure than allowing all domains without credentials.
 
+As setting the `Access-Control-Allow-Origin` header potentially allows for cross site request forgery,
+it SHOULD only be served on files and directories containing CSAF data.
+For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
+
 -------
