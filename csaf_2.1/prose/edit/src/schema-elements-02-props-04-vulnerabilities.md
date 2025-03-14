@@ -580,6 +580,47 @@ Unknown (`unknown`) of value type Products (`products_t`) represents that it is 
 vulnerability.
 There is also no investigation and therefore the status might never be determined.
 
+The individual properties form the following product status groups:
+
+* Affected:
+
+   ```
+   /vulnerabilities[]/product_status/first_affected[]
+   /vulnerabilities[]/product_status/known_affected[]
+   /vulnerabilities[]/product_status/last_affected[]
+   ```
+
+* Not affected:
+
+  ```
+  /vulnerabilities[]/product_status/known_not_affected[]
+  ```
+
+* Fixed:
+
+  ```
+  /vulnerabilities[]/product_status/first_fixed[]
+  /vulnerabilities[]/product_status/fixed[]
+  ```
+
+* Under investigation:
+
+  ```
+  /vulnerabilities[]/product_status/under_investigation[]
+  ```
+
+* Unknown:
+
+  ```
+  /vulnerabilities[]/product_status/unknown[]
+  ```
+
+As the aforementioned product status groups contradict each other,
+the sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
+
+> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
+> i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
+
 #### Vulnerabilities Property - References
 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
