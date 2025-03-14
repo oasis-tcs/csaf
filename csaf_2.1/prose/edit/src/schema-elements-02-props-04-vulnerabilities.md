@@ -503,9 +503,9 @@ The following combinations of `category` and `title` have a special meaning and 
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
-The eight defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),
+The nine defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
-and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
+Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
 
 ```
     "product_status": {
@@ -533,7 +533,10 @@ and Under investigation (`under_investigation`) are all of value type Products (
           // ...
         },
         "under_investigation": {
-          // ..
+          // ...
+        },
+        "unknown": {
+          // ...
         }
       }
     },
@@ -572,6 +575,10 @@ the vendor-recommended versions for fixing the vulnerability.
 Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether these versions are or
 are not affected by the vulnerability.
 However, it is still under investigation - the result will be provided in a later release of the document.
+
+Unknown (`unknown`) of value type Products (`products_t`) represents that it is not known whether these versions are or are not affected by the
+vulnerability.
+There is also no investigation and therefore the status might never be determined.
 
 #### Vulnerabilities Property - References
 
