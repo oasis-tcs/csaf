@@ -597,6 +597,17 @@ The temporary blocking SHOULD be removed as soon as possible, at latest two week
 
 > Also confer to the TC's guidance on content delivery networks and caching.
 
+### Requirement 25: Access-Control-Allow-Origin
+
+For any CSAF documents and related metadata, the web server SHOULD set the HTTP header `Access-Control-Allow-Origin: *`.
+
+> The HTTP header enables users to access the CSAF data with web browser based clients.
+
+The HTTP header MAY be altered to allow just specified domains.
+In such case, the response SHOULD also include the `Vary` header.
+
+> Such restriction may allow the allow-listed domains to send credentials.
+
 ## Roles
 
 This subsection groups the requirements from the previous subsection into named sets which target the roles with the same name.
@@ -634,7 +645,7 @@ A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the fo
 Firstly, the party:
 
 * satisfies the "CSAF publisher" role profile.
-* additionally satisfies the requirements 5 to 7 and 24 in section [sec](#requirements).
+* additionally satisfies the requirements 5 to 7, 24 and 25 in section [sec](#requirements).
 
 Secondly, the party:
 
@@ -658,7 +669,7 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
-* satisfies the requirements 6, 21, 22 and 24 in section [sec](#requirements).
+* satisfies the requirements 6, 21, 22, 24 and 25 in section [sec](#requirements).
 * uses the value `lister` for `/aggregator/category`.
 * does not list any mirror pointing to a domain under its own control.
 
@@ -669,7 +680,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
-* satisfies the requirements 1 to 6 and 21 to 24 in section [sec](#requirements).
+* satisfies the requirements 1 to 6 and 21 to 25 in section [sec](#requirements).
 * uses the value `aggregator` for `/aggregator/category`.
 * lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
 * links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
