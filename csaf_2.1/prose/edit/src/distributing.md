@@ -603,8 +603,8 @@ For any CSAF documents and related metadata, the web server SHOULD set the HTTP 
 
 > The HTTP header enables users to access the CSAF data with web browser based clients.
 
-The HTTP header MAY be altered to allow just specified domains.
-In such case, the response SHOULD follow the recommendation of [cite](#FETCH) including but not limited to the `Vary` header.
+The value of the HTTP header MAY be altered to allow just specified domains.
+In such case, the response SHOULD follow the recommendation of [cite](#FETCH) including but not limited to about the `Vary` header.
 
 > Such restriction may allow the allow-listed domains to send credentials.
 
