@@ -45,6 +45,9 @@ CWE
 CYCLONEDX161
 :    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.6.1_, cyclonedx.org, November 7, 2024, https://github.com/CycloneDX/specification/blob/1.6.1/schema/bom-1.6.schema.json.
 
+FETCH
+:    _Fetch: Living Standard_, https://fetch.spec.whatwg.org.
+
 GFMCMARK
 :    _GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, https://github.com/github/cmark.
 
