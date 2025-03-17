@@ -1,0 +1,62 @@
+{
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.0",
+    "lang": "en",
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Informative test: Spell check (failing example 2)",
+    "tracking": {
+      "current_release_date": "2021-07-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.0-2021-6-3-08-02",
+      "initial_release_date": "2021-07-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2021-07-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "17.4",
+                "product": {
+                  "name": "Example Company Pruduct A 17.4",
+                  "product_id": "CSAFPID-9080700"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Pruduct A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "notes": [
+        {
+          "category": "summary",
+          "text": "A vulnerapility exists in an undisclused component that allows an unauthenticated remote addacker to x-cute arbitrary code with rood priviledges.",
+          "title": "Vu1nerability sommary"
+        }
+      ]
+    }
+  ]
+}
