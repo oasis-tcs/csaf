@@ -1257,7 +1257,7 @@ The relevant path for this test is:
 If the document language is not English or unspecified, it MUST be tested that exactly one item in document notes exists
 that has the language specific translation of the term `Reasoning for Withdrawal` as `title`.
 The `category` of this item MUST be `description`.
-If no language specific translation has been recorded, the test MUST be skipped and output a information to the user that no such translation is known.
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
