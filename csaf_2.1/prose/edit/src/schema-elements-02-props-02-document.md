@@ -318,9 +318,11 @@ The following combinations of `category` and `title` have a special meaning and 
 
 | `category` | `title` | content of `text` |
 |---------------|---------------|-------------------|
-| `description` | Product Description | Contains a description of a product given in the `product_tree` in regards to field of application and core functionality. |
+| `description` | Product Description | Contains a description of a product given in the `product_tree` in regards to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
 | `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
 | `summary` | Summary | Contains a short summary of the content of the advisory. |
+
+If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
 #### Document Property - Publisher
 
