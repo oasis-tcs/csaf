@@ -7,10 +7,12 @@ The same applies for all items of elements of type `/$defs/products_t`.
 The relevant paths for this test are:
 
 ```
+  /document/notes[]/product_ids[]
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
   /vulnerabilities[]/metrics[]/products[]
+  /vulnerabilities[]/notes[]/product_ids[]
   /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/first_fixed[]
   /vulnerabilities[]/product_status/fixed[]
