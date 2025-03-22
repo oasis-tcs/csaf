@@ -149,8 +149,7 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
-  the CVRF CSAF converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the
-  vulnerability.
+  the CVRF CSAF converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
   > A tool MAY implement an option to suppress this conversion.
    If the CVRF CSAF converter converter is unable to construct a valid object with the information given, the CVRF CSAF converter converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
