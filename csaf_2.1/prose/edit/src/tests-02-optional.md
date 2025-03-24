@@ -1232,3 +1232,32 @@ The relevant path for this test is:
 >
 
 > A tool MAY create the missing fixed product based on the data available in the advisory.
+
+### Product Description without Product Reference
+
+For each product description it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+
+> If the document language is English or unspecified, the product description can be identified by checking for a note containing the corresponding
+> `category` and `title` combination from [sec]{#document-properties-notes}.
+> For other languages, the language specific translation is used.
+
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no translation for
+product description is known.
+
+The relevant path for this test is:
+
+```
+  /document/notes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "flags": [
+        {
+          "label": "component_not_present"
+        }
+      ]
+```
+
+> The given flag does not specify to which products it should be applied.
