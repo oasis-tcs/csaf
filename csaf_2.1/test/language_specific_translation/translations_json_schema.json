@@ -36,7 +36,7 @@
   "required": [
     "$schema",
     "translation_version",
-    "translations"
+    "translation"
   ],
   "properties": {
     "$schema": {
