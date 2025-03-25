@@ -34,7 +34,7 @@ Moreover, it SHALL be treated as unsafe (user) input.
 The distribution requirements of CSAF data allow to specify domains as the value of the HTTP header `Access-Control-Allow-Origin`.
 While a wildcard (`*`) as header value usually prevents implementing browsers from sending credentials during the CORS request,
 the restriction to specified domains often enables sending credentials.
-Allowing several specified domains results in using dynamics on the server, which can widen the attack surface slightly by more code and configuration.
+Allowing several specified domains results in using dynamics on the server, which can widen the attack surface by using more code and configuration.
 Furthermore, this might reveal information about internal structures, e.g. which domains are allowed to send credentials, or which tools are used.
 Given that credentials from a browser are a potent tool in the event of an attack, restricting the origins seems to imply a higher risk and
 therefore less secure than allowing all domains without credentials.
