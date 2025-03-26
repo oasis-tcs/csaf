@@ -7,8 +7,10 @@ The same applies for all items of elements of type `/$defs/product_groups_t`.
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/remediations[]/group_ids
-  /vulnerabilities[]/threats[]/group_ids
+  /document/notes[]/group_ids[]
+  /vulnerabilities[]/notes[]/group_ids[]
+  /vulnerabilities[]/remediations[]/group_ids[]
+  /vulnerabilities[]/threats[]/group_ids[]
 ```
 
 *Example 1 (which fails the test):*

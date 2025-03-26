@@ -8,15 +8,31 @@
         "label": "CLEAR"
       }
     },
+    "lang": "en-US",
+    "notes": [
+      {
+        "category": "description",
+        "text": "Product A is a local time tracking tool. It is mainly used by software developers and can be connected with most modern time-tracking systems.",
+        "title": "Product Description for Product A"
+      },
+      {
+        "category": "general",
+        "product_ids": [
+          "CSAFPID-9080700"
+        ],
+        "text": "Product A should run with least privileges.",
+        "title": "General Security Recommendation"
+      }
+    ],
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Invalid CVSS computation (valid example 1)",
+    "title": "Optional test: Product Description without Product Reference (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-09-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-38-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -32,28 +48,9 @@
   "product_tree": {
     "full_product_names": [
       {
-        "product_id": "CSAFPID-9080700",
-        "name": "Product A"
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
       }
     ]
-  },
-  "vulnerabilities": [
-    {
-      "metrics": [
-        {
-          "content": {
-            "cvss_v3": {
-              "version": "3.1",
-              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-              "baseScore": 10,
-              "baseSeverity": "CRITICAL"
-            }
-          },
-          "products": [
-            "CSAFPID-9080700"
-          ]
-        }
-      ]
-    }
-  ]
+  }
 }

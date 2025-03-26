@@ -143,6 +143,13 @@ Secondly, the program fulfills the following for all items of:
   If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be
   determined and possibly a document with multiple languages was produced.
   In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
+* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-properties-notes),
+  where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is a specific product name, version or family.
+  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  product specific note has been discovered and no products could been assigned to it.
 * `/document/publisher/name` and `/document/publisher/namespace`:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
@@ -167,6 +174,14 @@ Secondly, the program fulfills the following for all items of:
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
+* `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
+  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is
+  a specific product name, version or family.
+  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  product specific note has been discovered and no products could been assigned to it.
 * `/vulnerabilities[]/remediations[]`:
   * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
@@ -630,6 +645,14 @@ Secondly, the program fulfills the following for all items of:
   > This is a common case for CSAF 2.0 documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
+* `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
+  [sec](#document-properties-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that extension
+  is a specific product name, version or family.
+  In such case, the CSAF 2.0 to CSAF 2.1 SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CSAF 2.0 to CSAF 2.1 is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  product specific note has been discovered and no products could been assigned to it.
 * `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning MUST exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
@@ -653,6 +676,14 @@ Secondly, the program fulfills the following for all items of:
   remove the invalid `ssvc_v1` object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data failed.
   If the CSAF 2.0 to CSAF 2.1 converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 converter SHALL remove the `ssvc_v1`
   object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data would lead to loosing information.
+* `/vulnerabilities[]/notes`: If any `/vulnerabilities[]/notes` item contains one of the `category` and `title` combinations specified in
+  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that
+  extension is a specific product name, version or family.
+  In such case, the CSAF 2.0 to CSAF 2.1 converter SHALL try to add the corresponding products to the note item and output a warning that a potential
+  product specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a
+  potential product specific note has been discovered and no products could been assigned to it.
 * `/vulnerabilities[]/remediations[]`:
   * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
     if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
