@@ -1226,12 +1226,64 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*
 
 ```
-
+  "vulnerabilities": [
+    {
+      // ...
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to the latest version, at least version 4.2.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]
 ```
 
->
+> The fixed product is not listed in the advisory but there is a clear indication that such product exists as there is a remediation
+> with category `vendor_fix`.
 
-> A tool MAY create the missing fixed product based on the data available in the advisory.
+> A tool MAY create the missing fixed product based on the data available in the advisory as a quick fix.
+
+#### Language Specific Reasoning for Withdrawal
+
+If the document language is not English or unspecified, it MUST be tested that exactly one item in document notes exists
+that has the language specific translation of the term `Reasoning for Withdrawal` as `title`.
+The `category` of this item MUST be `description`.
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+
+> A list of the language specific translations is kept at the OASIS CSAF TC.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    "category": "summary",
+    "text": "Das CSAF Document enthielt Beispieldaten und wurde zurückgezogen, um Testdaten zu erzeugen.",
+    "title": "Begründung für die Zurückziehung"
+  }
+```
+
+> The note has the correct title. However, it uses the wrong category.
 
 ### Product Description without Product Reference
 

@@ -727,6 +727,10 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-26-02.json",
           "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-26-03.json",
+          "valid": false
         }
       ],
       "valid": [
@@ -766,6 +770,10 @@
       "failures": [
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-01.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-02.json",
           "valid": false
         }
       ]
@@ -988,6 +996,98 @@
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-13-16.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.27.14",
+      "group": "mandatory",
+      "failures": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-14-01.json",
+          "valid": false
+        }
+      ],
+      "valid": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-14-11.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.27.15",
+      "group": "mandatory",
+      "failures": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-15-01.json",
+          "valid": false
+        }
+      ],
+      "valid": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-15-11.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.27.16",
+      "group": "mandatory",
+      "failures": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-01.json",
+          "valid": false
+        }
+      ],
+      "valid": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-11.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-12.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.27.17",
+      "group": "mandatory",
+      "failures": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-01.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-02.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-03.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-04.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-05.json",
+          "valid": false
+        }
+      ],
+      "valid": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-11.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-12.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-13.json",
           "valid": true
         }
       ]
@@ -2503,6 +2603,22 @@
         },
         {
           "name": "optional/oasis_csaf_tc-csaf_2_1-2024-6-2-37-01-13.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.2.37.2",
+      "group": "optional",
+      "failures": [
+        {
+          "name": "optional/oasis_csaf_tc-csaf_2_1-2024-6-2-37-02-01.json",
+          "valid": true
+        }
+      ],
+      "valid": [
+        {
+          "name": "optional/oasis_csaf_tc-csaf_2_1-2024-6-2-37-02-11.json",
           "valid": true
         }
       ]
