@@ -424,7 +424,7 @@ The relevant path for this test is:
 
 ### Use of Private Language
 
-For each element of type `/$defs/language_t` it MUST be tested that the language code does not contain subtags reserved for private use.
+For each element of type `/$defs/lang_t` it MUST be tested that the language code does not contain subtags reserved for private use.
 
 The relevant paths for this test are:
 
@@ -445,7 +445,7 @@ The relevant paths for this test are:
 
 ### Use of Default Language
 
-For each element of type `/$defs/language_t` it MUST be tested that the language code is not `i-default`.
+For each element of type `/$defs/lang_t` it MUST be tested that the language code is not `i-default`.
 
 The relevant paths for this test are:
 
@@ -1175,3 +1175,141 @@ The relevant path for this test is:
 
 > The namespace `an-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
+
+### Usage of Deprecated Profile
+
+It MUST be tested that the `/document/category` does not start with `csaf_deprecated_`.
+
+The relevant path for this test is:
+
+```
+   /document/category
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "category": "csaf_deprecated_security_advisory",
+
+```
+
+> The document category starts with `csaf_deprecated_`.
+
+### Profile Tests{#optional-profile-tests}
+
+This subsubsection structures the optional tests for the profiles. Not all tests apply for all profiles.
+Tests SHOULD be skipped if the document category does not match the one given in the test.
+Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+
+#### Missing Fixed Product
+
+For each product listed in the product status group affected in any vulnerability,
+it MUST be tested that a corresponding version of the product is listed as fixed in the same vulnerability.
+The test MUST be skipped if there is a clear indication, that such a version of the product does not exist.
+Indicators include a remediation item with one of the categories `fix_planned`, `no_fix_planned` or `none_available` referring to the affected product.
+The test MUST NOT be skipped, if there is an indication, that such a version of the product might exist.
+Indicators include an affected product version range with the comparator `<` in the last version constraint and
+a remediation item with the categories `vendor_fix` referring to the affected product.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_security_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "vulnerabilities": [
+    {
+      // ...
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to the latest version, at least version 4.2.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> The fixed product is not listed in the advisory but there is a clear indication that such product exists as there is a remediation
+> with category `vendor_fix`.
+
+> A tool MAY create the missing fixed product based on the data available in the advisory as a quick fix.
+
+#### Language Specific Reasoning for Withdrawal
+
+If the document language is not English or unspecified, it MUST be tested that exactly one item in document notes exists
+that has the language specific translation of the term `Reasoning for Withdrawal` as `title`.
+The `category` of this item MUST be `description`.
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+
+> A list of the language specific translations is kept at the OASIS CSAF TC.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    "category": "summary",
+    "text": "Das CSAF Document enthielt Beispieldaten und wurde zurückgezogen, um Testdaten zu erzeugen.",
+    "title": "Begründung für die Zurückziehung"
+  }
+```
+
+> The note has the correct title. However, it uses the wrong category.
+
+### Product Description without Product Reference
+
+For each product description it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+
+> If the document language is English or unspecified, the product description can be identified by checking for a note containing the corresponding
+> `category` and `title` combination from [sec]{#document-properties-notes}.
+> For other languages, the language specific translation is used.
+
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no translation for
+product description is known.
+
+The relevant path for this test is:
+
+```
+  /document/notes[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "flags": [
+        {
+          "label": "component_not_present"
+        }
+      ]
+```
+
+> The given flag does not specify to which products it should be applied.
