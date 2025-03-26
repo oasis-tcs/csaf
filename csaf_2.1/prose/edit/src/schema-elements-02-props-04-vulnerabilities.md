@@ -499,6 +499,8 @@ The following combinations of `category` and `title` have a special meaning and 
 | `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
 | `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
 
+If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
+
 #### Vulnerabilities Property - Product Status
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which

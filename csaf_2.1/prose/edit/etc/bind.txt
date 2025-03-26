@@ -79,7 +79,7 @@ tests-01-mndtr-45-inconsistent-disclosure-date.md
 tests-01-mndtr-46-invalid-ssvc.md
 tests-01-mndtr-47-inconsistent-ssvc-id.md
 tests-01-mndtr-48-ssvc-decision-points.md
-tests-01-mndtr-49-prohibited-ssvc-decision-point-namespace.md
+tests-01-mndtr-49-inconsistent-ssvc-timestamp.md
 tests-02-optional.md
 tests-03-informative.md
 distributing.md

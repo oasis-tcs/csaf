@@ -31,6 +31,12 @@
   },
   "vulnerabilities": [
     {
+      "notes": [
+        {
+          "category": "summary",
+          "text": "A vulnerability that can't reference any product as the `product_tree` does not exist."
+        }
+      ],
       "title": "A vulnerability item that can't reference any product as the product_tree does not exist."
     }
   ]

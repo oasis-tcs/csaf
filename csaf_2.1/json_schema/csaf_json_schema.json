@@ -385,6 +385,12 @@
               "summary"
             ]
           },
+          "group_ids": {
+            "$ref": "#/$defs/product_groups_t"
+          },
+          "product_ids": {
+            "$ref": "#/$defs/products_t"
+          },
           "text": {
             "title": "Note content",
             "description": "Holds the content of the note. Content varies depending on type.",
