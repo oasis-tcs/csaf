@@ -1305,11 +1305,13 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*
 
 ```
-      "flags": [
-        {
-          "label": "component_not_present"
-        }
-      ]
+    "notes": [
+      {
+        "category": "description",
+        "text": "Product A is a local time tracking tool. It is mainly used by software developers and can be connected with most modern time-tracking systems.",
+        "title": "Product Description"
+      }
+    ],
 ```
 
-> The given flag does not specify to which products it should be applied.
+> The given note item does not specify to which products it applies to.
