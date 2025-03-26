@@ -1086,7 +1086,7 @@ The relevant path for this test is:
 
 > The `disclosure_date` is in the past but newer than the date of newest item in the `revision_history`.
 
-### Usage of Unknown SSVC Decision Point Namespace
+### Usage of Unregistered SSVC Decision Point Namespace
 
 For each SSVC decision point given under `selections`, it MUST be tested the `namespace` is one of the case-sensitive registered namespaces.
 
