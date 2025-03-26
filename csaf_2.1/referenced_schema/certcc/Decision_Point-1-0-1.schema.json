@@ -58,14 +58,13 @@
 				},
 				"namespace": {
 					"type": "string",
-					"description": "Namespace (a short, unique string): For example, \"ssvc\" or \"cvss\" to indicate the source of the decision point. See SSVC Documentation for details.",
-					"pattern": "^[a-z0-9-]{3,4}[a-z0-9/\\.-]*$",
+					"description": "Namespace (a short, unique string): The value must be one of the official namespaces, currently \"ssvc\", \"cvss\" OR can start with 'x_' for private namespaces. See SSVC Documentation for details.",
+					"pattern": "^(?=.{3,25}$)(x_)?[a-z0-9]{3}([/.-]?[a-z0-9]+){0,22}$",
 					"examples": [
 						"ssvc",
 						"cvss",
-						"ssvc-jp",
-						"ssvc/acme",
-						"ssvc/example.com"
+						"x_custom",
+						"x_custom/extension"
 					]
 				},
 				"version": {
