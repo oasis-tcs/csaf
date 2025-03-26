@@ -1,4 +1,4 @@
-## Informative Test
+## Informative Tests
 
 Informative tests provide insights in common mistakes and bad practices.
 They MAY fail at a valid CSAF document.
