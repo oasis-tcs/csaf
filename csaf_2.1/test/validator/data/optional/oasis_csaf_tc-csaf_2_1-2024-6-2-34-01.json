@@ -49,7 +49,7 @@
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "an-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
                   "values": [
                     "Total"
                   ],

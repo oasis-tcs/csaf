@@ -1111,7 +1111,7 @@ The relevant path for this test is:
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "an-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
                   "values": [
                     "Total"
                   ],
@@ -1128,7 +1128,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The namespace `an-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
+> The namespace `some-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
 ### Usage of Private SSVC Decision Point Namespace in TLP:CLEAR Document
@@ -1268,7 +1268,7 @@ The relevant path for this test is:
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "an-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
                   "values": [
                     "Total"
                   ],
@@ -1285,7 +1285,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The namespace `an-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
+> The namespace `some-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
 ### Usage of Deprecated Profile
