@@ -1,4 +1,4 @@
-## Informative Test
+## Informative Tests
 
 Informative tests provide insights in common mistakes and bad practices.
 They MAY fail at a valid CSAF document.
@@ -125,7 +125,7 @@ It MUST be tested that at least one CWE is given.
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/cwe
+  /vulnerabilities[]/cwes
 ```
 
 *Example 1 (which fails the test):*
