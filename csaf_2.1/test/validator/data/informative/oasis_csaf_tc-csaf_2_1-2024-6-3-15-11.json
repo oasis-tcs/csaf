@@ -5,7 +5,7 @@
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
-        "label": "CLEAR"
+        "label": "GREEN"
       }
     },
     "publisher": {
@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Optional test: Usage of Unregistered SSVC Decision Point Namespace (failing example 1)",
+    "title": "Informative test: Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document (valid example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-34-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-15-11",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -49,7 +49,7 @@
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "ssvc",
                   "values": [
                     "Total"
                   ],

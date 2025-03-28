@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Optional test: Missing Fixed Product (failing example 2)",
+    "title": "Optional test: Missing Fixed Product (valid example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-37-01-02",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-01-12",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -42,6 +42,14 @@
                   "name": "Example Company Product A < 4.2",
                   "product_id": "CSAFPID-9080700"
                 }
+              },
+              {
+                "category": "product_version",
+                "name": "4.2",
+                "product": {
+                  "name": "Example Company Product A 4.2",
+                  "product_id": "CSAFPID-9080701"
+                }
               }
             ],
             "category": "product_name",
@@ -63,6 +71,9 @@
         }
       ],
       "product_status": {
+        "fixed": [
+          "CSAFPID-9080701"
+        ],
         "known_affected": [
           "CSAFPID-9080700"
         ]
