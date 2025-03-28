@@ -174,40 +174,6 @@ Secondly, the program fulfills the following for all items of:
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
-* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
-  the CVRF CSAF converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
-  > A tool MAY implement an option to suppress this conversion.
-   If the CVRF CSAF converter converter is unable to construct a valid object with the information given, the CVRF CSAF converter converter SHALL
-  remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
-  Such warning SHOULD include the specific error that occurred.
-* `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
-  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is
-  a specific product name, version or family.
-  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
-  specific note has been discovered and products have been assigned to it.
-  Such warning MUST also include the note and the assigned products.
-  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
-  product specific note has been discovered and no products could been assigned to it.
-* `/vulnerabilities[]/remediations[]`:
-  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
-    `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
-    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
-  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
-    question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
-    Otherwise, the category `vendor_fix` MUST be set.
-    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
-    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
-    to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
-  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
-    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
-    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
-    If it was the last product in that remediation, the remediation MUST be removed.
-  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
-    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
-    If it was the last product in that remediation, the remediation MUST be removed.
-  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
-  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
-    including the products it was changed for.
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
@@ -263,6 +229,40 @@ Secondly, the program fulfills the following for all items of:
 
     4. Retrieve the CVSS version from a config value, which defaults to `3.0`.
        (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
+* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+  the CVRF CSAF converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+  > A tool MAY implement an option to suppress this conversion.
+   If the CVRF CSAF converter converter is unable to construct a valid object with the information given, the CVRF CSAF converter converter SHALL
+  remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
+  Such warning SHOULD include the specific error that occurred.
+* `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
+  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is
+  a specific product name, version or family.
+  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  product specific note has been discovered and no products could been assigned to it.
+* `/vulnerabilities[]/remediations[]`:
+  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
+    `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
+    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
+    question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST be set.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
+    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
+    to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
+  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 
 ### Conformance Clause 6: CSAF content management system
 
