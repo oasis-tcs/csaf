@@ -236,13 +236,13 @@
             },
             "model_numbers": {
               "title": "List of models",
-              "description": "Contains a list of full or abbreviated (partial) model numbers.",
+              "description": "Contains a list of model numbers.",
               "type": "array",
               "minItems": 1,
               "uniqueItems": true,
               "items": {
                 "title": "Model number",
-                "description": "Contains a full or abbreviated (partial) model number of the component to identify.",
+                "description": "Contains a model number of the component to identify - possibly with placeholders.",
                 "type": "string",
                 "minLength": 1
               }
@@ -276,13 +276,13 @@
             },
             "serial_numbers": {
               "title": "List of serial numbers",
-              "description": "Contains a list of full or abbreviated (partial) serial numbers.",
+              "description": "Contains a list of serial numbers.",
               "type": "array",
               "minItems": 1,
               "uniqueItems": true,
               "items": {
                 "title": "Serial number",
-                "description": "Contains a full or abbreviated (partial) serial number of the component to identify.",
+                "description": "Contains a serial number of the component to identify - possibly with placeholders.",
                 "type": "string",
                 "minLength": 1
               }
