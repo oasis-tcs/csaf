@@ -88,8 +88,9 @@ The following is a quick reference of the changes between the CSAF 2.0 and CSAF 
 
 Below is a comparison between the CSAF provider metadata schemas for version CSAF 2.1 and CSAF 2.0.
 
-
 ### Schema Identity and Required Properties
+
+Of course, updating the new 2.1 version references.
 
 - **Schema Declaration:**
   - **CSAF Provider 2.1:**  
@@ -101,18 +102,7 @@ Below is a comparison between the CSAF provider metadata schemas for version CSA
     - The property `"metadata_version"` is fixed to `"2.1"`.
 
 
----
 
-##  Definitions and URL Types
-
-- **URL Definitions ($defs):**
-  - Both versions define:
-    - **`json_url_t`:** For JSON file URLs (pattern matching `\.json$`).
-    - **`provider_url_t`:** For URLs ending in `/provider-metadata.json`.
-    - **`url_t`:** A generic URL type.
-  - These definitions are identical across both versions, ensuring consistency in URL formatting.
-
----
 
 ## Distributions Structure
 
