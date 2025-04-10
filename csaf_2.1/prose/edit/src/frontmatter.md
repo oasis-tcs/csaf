@@ -26,8 +26,8 @@ https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
 
 #### Chairs:
-Justin Murphy (justin.murphy@mail.cisa.dhs.gov), [DHS Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov)
-Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/)
+Justin Murphy (justin.murphy@mail.cisa.dhs.gov), [DHS Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov) \
+Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
 
 #### Editors:
