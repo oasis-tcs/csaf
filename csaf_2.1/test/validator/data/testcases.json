@@ -2368,6 +2368,10 @@
         {
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-03.json",
           "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-04.json",
+          "valid": true
         }
       ],
       "valid": [
@@ -2381,6 +2385,10 @@
         },
         {
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-13.json",
+          "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-14.json",
           "valid": true
         }
       ]
