@@ -56,8 +56,8 @@
           "version": "4.13"
         },
         {
-          "id": "CWE-74",
-          "name": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')",
+          "id": "CWE-98",
+          "name": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion')",
           "version": "4.13"
         }
       ]
