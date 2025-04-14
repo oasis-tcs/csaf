@@ -20,3 +20,6 @@
   However, in the product formed by the relationship the version is `2.3.185`.
   Even though this is not impossible it creates confusion as it is not explained in detail.
   See [#926](https://github.com/oasis-tcs/csaf/issues/926).
+- In [section 3.2.3.9 Product Status](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#3239-vulnerabilities-property---product-status),
+  the standard does not mention `flags` as a potential source for more information regarding the reasoning for `known_not_affected`.
+  See [#935](https://github.com/oasis-tcs/csaf/issues/935).
