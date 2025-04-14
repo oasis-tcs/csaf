@@ -15,5 +15,8 @@
 - The prose mentions in different places `/document/language` and `/$defs/language_t` which are not defined in the schema.
   See [#897](https://github.com/oasis-tcs/csaf/issues/897).
 - The tests 6.1.1 and 6.1.4 are missing the `flags` path.
-  See [#909](https://github.com/oasis-tcs/csaf/issues/693).
-  
+  See [#909](https://github.com/oasis-tcs/csaf/issues/909).
+- Example 42 lists `Cisco AnyConnect Secure Mobility Client 4.9.04053`.
+  However, in the product formed by the relationship the version is `2.3.185`.
+  Even though this is not impossible it creates confusion as it is not explained in detail.
+  See [#926](https://github.com/oasis-tcs/csaf/issues/926).
