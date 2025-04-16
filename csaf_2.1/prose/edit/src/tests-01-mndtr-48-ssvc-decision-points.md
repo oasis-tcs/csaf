@@ -1,6 +1,8 @@
 ### SSVC Decision Points
 
-For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested that given decision point exists, is valid and the items in `values` are ordered correctly.
+For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested that given decision point exists,
+is valid and the items in `values` are ordered correctly.
+The test SHALL pass, if a non-registered `namespace` is used.
 
 > According to the SSVC project, the following values are currently registered:
 >
