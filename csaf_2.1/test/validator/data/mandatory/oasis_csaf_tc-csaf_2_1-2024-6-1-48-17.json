@@ -49,7 +49,7 @@
               "selections": [
                 {
                   "name": "Safety Impact",
-                  "namespace": "x_a-custom-namespace-unsing-an/extension",
+                  "namespace": "x_some-custom-namespace-unsing-an/extension",
                   "values": [
                     "Severe",
                     "Critical",
