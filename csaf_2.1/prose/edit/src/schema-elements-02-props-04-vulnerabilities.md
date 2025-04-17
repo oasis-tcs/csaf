@@ -563,7 +563,7 @@ No remediation is required regarding this vulnerability.
 
 > This could for instance be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist,
 > or other factors.
-See `/vulnerabilities[]/threats` in category `impact` for more details.
+> See `/vulnerabilities[]/flags` and `/vulnerabilities[]/threats` in category `impact` for more details.
 
 Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be
 affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
