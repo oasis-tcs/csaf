@@ -211,8 +211,7 @@ In such cases, the filename SHOULD be used as informational property.
 
 ##### Full Product Name Type - Product Identification Helper - Model Numbers
 
-The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of full or
-abbreviated (partial) model numbers.
+The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of model numbers.
 
 A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected,
 or the model numbers change during update.
@@ -229,8 +228,8 @@ If necessary, the software, or any other related part, SHALL be bind to that via
     },
 ```
 
-Any given model number of value type `string` with at least 1 character represents a full or abbreviated (partial) model number of
-the component to identify.
+Any given model number of value type `string` with at least 1 character represents a model number of the component to identify -
+possibly with placeholders.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously.
 > Often it is abbreviated as "MN", M/N" or "model no.".
@@ -313,7 +312,7 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
 ##### Full Product Name Type - Product Identification Helper - Serial Numbers
 
 The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains
-a list of full or abbreviated (partial) serial numbers.
+a list of serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected,
 or the serial numbers change during update.
@@ -327,8 +326,8 @@ or the serial numbers change during update.
     },
 ```
 
-Any given serial number of value type `string` with at least 1 character represents a full or
-abbreviated (partial) serial number of the component to identify.
+Any given serial number of value type `string` with at least 1 character represents a serial number of the component to identify -
+possibly with placeholders.
 
 If a part of a serial number of the component to identify is given,
 it MUST begin at the first and end at the last character position of the string representing the targeted component.

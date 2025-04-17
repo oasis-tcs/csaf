@@ -5,7 +5,7 @@
       "namespace": "https://access.redhat.com/security/updates/classification/",
       "text": "Important"
     },
-    "category": "csaf_security_advisory",
+    "category": "csaf_deprecated_security_advisory",
     "csaf_version": "2.1",
     "distribution": {
       "text": "Copyright \u00a9 2022 Red Hat, Inc. All rights reserved.",

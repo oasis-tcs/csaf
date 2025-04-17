@@ -94,6 +94,9 @@ CSAF viewer
 :    CSAF consumer that reads a CSAF document, displays a list of the results it contains,
 and allows an end user to view each result in the context of the artifact in which it occurs.
 
+CSAF withdrawer
+:    A CSAF post-processor that transforms a given CSAF into a withdrawn one.
+
 CVRF CSAF converter
 :    CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 

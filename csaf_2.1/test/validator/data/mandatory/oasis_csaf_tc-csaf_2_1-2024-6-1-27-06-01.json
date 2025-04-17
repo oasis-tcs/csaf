@@ -29,6 +29,14 @@
       "version": "1"
     }
   },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
+      }
+    ]
+  },
   "vulnerabilities": [
     {
       "title": "A vulnerability item without a product status"

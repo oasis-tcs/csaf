@@ -13,7 +13,7 @@ List of notes (`notes_t`) of value type `array` with 1 or more items of type `No
 
 Value type of every such Note item is `object` with the mandatory properties `category` and `text` providing a place to put
 all manner of text blobs related to the current context.
-A Note `object` MAY provide the optional properties `audience` and `title`.
+A Note `object` MAY provide the optional properties `audience`, `group_ids`, `product_ids` and `title`.
 
 ```
     "properties": {
@@ -23,6 +23,12 @@ A Note `object` MAY provide the optional properties `audience` and `title`.
       "category": {
         // ...
       },
+      "group_ids": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      }
       "text": {
         // ...
       },
@@ -74,6 +80,10 @@ The optional sibling attribute `title` SHOULD have more information to indicate 
 
 The value `summary` indicates the note is a summary of something.
 The optional sibling property `title` MAY have more information in this case.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current note item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current note item applies to.
 
 Note content (`text`) of value type `string` with 1 or more characters holds the content of the note.
 Content varies depending on type.

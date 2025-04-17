@@ -12,11 +12,14 @@ The value of `/document/category` is used to identify a CSAF document's profile.
 3. Any optional field from the standard can also be added to a CSAF document which conforms with a profile without breaking conformance with
    the profile.
    One and only exempt is when the profile requires not to have a certain set of fields.
-4. Values of `/document/category` starting with `csaf_` are reserved for existing, upcoming and future profiles defined in the CSAF standard.
-5. Values of `/document/category` that do not match any of the values defined in section [sec](#profiles) of this standard SHALL be validated against
+4. Values of `/document/category` starting with `csaf_` are reserved for existing, past, upcoming and future profiles defined in the CSAF standard.
+5. Values of `/document/category` starting with `csaf_deprecated_` are used for official profiles that are marked deprecated.
+   Those profiles are mostly there to allow backwards compatibility, e.g. with older CSAF versions.
+   Therefore, they SHOULD NOT be used for newly created CSAF documents.
+6. Values of `/document/category` that do not match any of the values defined in section [sec](#profiles) of this standard SHALL be validated against
    the "CSAF Base" profile.
-6. Local or private profiles MAY exist and tools MAY choose to support them.
-7. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
+7. Local or private profiles MAY exist and tools MAY choose to support them.
+8. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
 
 ## Profile 1: CSAF Base
 
@@ -113,7 +116,16 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Provides details about the vulnerability.
   * `/vulnerabilities[]/product_status`
     > Lists each product's status in regard to the vulnerability.
+  * `/vulnerabilities[]/product_status/known_affected`
+    > Lists affected products in regard to the vulnerability.
+  * For each product given in `/vulnerabilities[]/product_status/fixed`, the corresponding affected version SHALL be given.
+    > Corresponding versions are usually in the same `branches` element.
 * The value of `/document/category` SHALL be `csaf_security_advisory`.
+* The following elements SHOULD exist:
+  * `/vulnerabilities[]/product_status/fixed`
+    > Lists fixed products in regard to the vulnerability.
+  * `/vulnerabilities[]/remediations`
+    > Lists for each affected product in regard to the vulnerability appropriate remediations.
 
 ## Profile 5: VEX
 
@@ -152,5 +164,49 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   > impact statement and all products with the status `known_affected` MUST have additional product specific information
   > regardless of whether that is referenced through the Product ID or a Product Group ID.
 * The value of `/document/category` SHALL be `csaf_vex`.
+
+## Profile 6: Deprecated Security Advisory
+
+This profile MAY be used to provide information which is related to vulnerabilities and corresponding remediations,
+e.g. when converting CSAF documents from older CSAF versions or a human-readable format.
+It SHOULD NOT be used for newly created documents.
+The profile "Security Advisory" from section [sec]{profiles-profile-4-security-advisory} SHOULD be used instead.
+
+> The definition of the profile "Deprecated Security Advisory" in CSAF 2.1 matches the definition of profile "Security Advisory" in CSAF 2.0.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Deprecated Security Advisory":
+
+* The following elements MUST exist and be valid:
+  * all elements required by the profile "CSAF Base".
+  * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  * `/vulnerabilities` which lists all vulnerabilities.
+  * `/vulnerabilities[]/notes`
+    > Provides details about the vulnerability.
+  * `/vulnerabilities[]/product_status`
+    > Lists each product's status in regard to the vulnerability.
+* The value of `/document/category` SHALL be `csaf_deprecated_security_advisory`.
+
+## Profile 7: Withdrawn
+
+This profile MUST be used for any CSAF document that is withdrawn. It MUST NOT be used for any superseded document.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Withdrawn":
+
+* The following elements MUST exist and be valid:
+  * all elements required by the profile "CSAF Base".
+  * `/document[]/notes` with exactly one item using the `category` `description`
+    describing the original content and the reasons for the withdrawal
+    > Other items, such as a legal disclaimer, may exist alongside the required one.
+
+    The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
+    For any other language, it SHOULD be the language specific translation of that term.
+  * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+    > A CSAF document cannot be withdrawn during the initial release to its specified target group.
+    > In such case, the CSAF document should not be released at all.
+    > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
+* The value of `/document/category` SHALL be `csaf_withdrawn`.
+* The elements `/product_tree` and `/vulnerabilities` SHALL NOT exist.
+
+The CSAF document MAY link to additional information through `/document/references`.
 
 -------

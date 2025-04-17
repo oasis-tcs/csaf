@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 26 February 2025
+## 26 March 2025
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -25,8 +25,10 @@ https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
 #### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
 
-#### Chair:
-Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/)
+#### Chairs:
+Justin Murphy (justin.murphy@mail.cisa.dhs.gov), [DHS Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov) \
+Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/) \
+Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
 
 #### Editors:
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
@@ -71,7 +73,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 26 February 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 26 March 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------

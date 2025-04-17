@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testcases_json_schema.json",
+  "title": "Test cases for CSAF",
+  "description": "Representation of the data provided for test cases from section 6 of the specification.",
+  "type": "object",
+  "$defs": {
+    "term_t": {
+      "title": "Term",
+      "description": "Contains the language specific translation of the defined terms.",
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "product_description": {
+          "title": "Product Description",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        },
+        "reasoning_for_withdrawal": {
+          "title": "Reasoning for Withdrawal",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "translation_t": {
+      "title": "Translation",
+      "description": "Contains the translation for the specified languages. Languages are properties. The keys are defined according to BCP 47 / RFC 5646.",
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": {
+        "^(([A-Za-z]{2,3}(-[A-Za-z]{3}(-[A-Za-z]{3}){0,2})?|[A-Za-z]{4,8})(-[A-Za-z]{4})?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-[A-WY-Za-wy-z0-9](-[A-Za-z0-9]{2,8})+)*(-[Xx](-[A-Za-z0-9]{1,8})+)?)$": {
+          "$ref": "#/$defs/term_t"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "translation_version",
+    "translation"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for test data which the document promises to be valid for.",
+      "type": "string",
+      "enum": [
+        "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/language_specific_translation/translations_json_schema.json"
+      ],
+      "format": "uri"
+    },
+    "translation_version": {
+      "title": "Translation schema version",
+      "description": "Contains the current version of this schema",
+      "type": "string",
+      "enum": [
+        "2.1"
+      ]
+    },
+    "translation": {
+        "$ref": "#/$defs/translation_t"
+    }
+  },
+  "additionalProperties": false
+}
