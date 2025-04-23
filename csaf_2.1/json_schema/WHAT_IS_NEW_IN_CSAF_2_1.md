@@ -1,4 +1,5 @@
 # What's New in CSAF 2.1
+
 The following is a quick reference of the changes between the CSAF 2.0 and CSAF 2.1 JSON schemas (including the main CSAF 2.1 JSON schema and the `provider_metadata.json` schema). 
 
 ----
@@ -13,7 +14,7 @@ The following is a quick reference of the changes between the CSAF 2.0 and CSAF 
     - In CSAF 2.0, `"distribution"` was optional.
     
   - **New Sharing Group:**  
-    - CSAF 2.1 introduces an optional `"sharing_group"` within `"distribution"`. This sub-object requires an `"id"` and may include a human‐readable `"name"`.  
+    - CSAF 2.1 introduces an optional `"sharing_group"` within `"distribution"`. This sub-object requires an `"id"` and may include a human-readable `"name"`.  
     - This sharing group was not defined in CSAF 2.0.
     
   - **Traffic Light Protocol (TLP) Labels:**  
@@ -25,7 +26,6 @@ The following is a quick reference of the changes between the CSAF 2.0 and CSAF 
   - **Additional Category Value:**  
     - In CSAF 2.1 the `"publisher"` object’s `"category"` enumeration has been expanded to include `"multiplier"`, alongside the previous values such as `"coordinator"`, `"discoverer"`, `"other"`, `"translator"`, `"user"`, and `"vendor"`.  
     - This new category is not available in CSAF 2.0.
-    
 
 ---
 
@@ -101,9 +101,6 @@ Of course, updating the new 2.1 version references.
     - Uses an `$id` pointing to the v2.0 URL, but the `$schema` property is not required.
     - The property `"metadata_version"` is fixed to `"2.1"`.
 
-
-
-
 ## Distributions Structure
 
 - **Directory-Based Distribution:**
@@ -114,21 +111,18 @@ Of course, updating the new 2.1 version references.
       - `"url"` – the base URL for the directory.
 
   - **CSAF Provider 2.0:**  
-    • Uses a simpler approach where the directory distribution is provided as a single property named `"directory_url"` that directly holds the URL.
-    
+    - Uses a simpler approach where the directory distribution is provided as a single property named `"directory_url"` that directly holds the URL.
 
 - **ROLIE Distribution:**
   - **Structure of ROLIE Feeds:**
     - **In 2.1:**  
-      • The `"rolie"` object requires a `"feeds"` array where each feed object must include `"last_updated"`, `"tlp_label"`, and `"url"`.  
-      • The `"tlp_label"` is referenced from the CSAF 2.1 document schema – this means its allowed values follow the updated standard (e.g. it no longer uses the literal `"WHITE"` but uses `"CLEAR"` instead).
-      
-      
+      - The `"rolie"` object requires a `"feeds"` array where each feed object must include `"last_updated"`, `"tlp_label"`, and `"url"`.  
+      - The `"tlp_label"` is referenced from the CSAF 2.1 document schema – this means its allowed values follow the updated standard (e.g. it no longer uses the literal `"WHITE"` but uses `"CLEAR"` instead).
+
     - **In 2.0:**  
       - The corresponding `"rolie"` object in v2.0 requires `"feeds"` where each feed object requires `"tlp_label"` and `"url"` (note the absence of a `"last_updated"` requirement).  
       - The enumeration for `"tlp_label"` in v2.0 is hardcoded to values such as `"UNLABELED"`, `"WHITE"`, `"GREEN"`, `"AMBER"`, and `"RED"`.
-      
-      
+
 - **Services:**  
   - Both versions include a `"services"` array under the `"rolie"` distribution for listing service document URLs, and the definitions are similar.
 
@@ -141,10 +135,8 @@ Of course, updating the new 2.1 version references.
     - The `"public_openpgp_keys"` array requires each key object to include both `"fingerprint"` and `"url"`.  
     - The `"fingerprint"` must meet a minimum length and a pattern (hexadecimal, at least 40 characters).
     
-    
   - **CSAF Provider 2.0:**  
     - The similar array requires only the `"url"` property (with `"fingerprint"` being optional if present).
-    
 
 ---
 
@@ -156,6 +148,3 @@ Of course, updating the new 2.1 version references.
   
 - **Role Property:**
   - Both versions define the `"role"` property with the same default (`"csaf_provider"`) and enumeration values (`"csaf_publisher"`, `"csaf_provider"`, `"csaf_trusted_provider"`).
-
-
-
