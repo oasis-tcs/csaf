@@ -78,6 +78,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_informational_advisory
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:

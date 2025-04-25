@@ -27,10 +27,10 @@
         "url": "https://example.com/security/advisories/a-website-with-more-details-about-the-issue"
       }
     ],
-    "title": "Mandatory test: Vulnerabilities (failing example 1)",
+    "title": "Mandatory test: Vulnerabilities (valid example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-03-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-03-11",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -42,10 +42,5 @@
       "status": "final",
       "version": "1"
     }
-  },
-  "vulnerabilities": [
-    {
-      "title": "A vulnerability item that SHALL NOT exist"
-    }
-  ]
+  }
 }

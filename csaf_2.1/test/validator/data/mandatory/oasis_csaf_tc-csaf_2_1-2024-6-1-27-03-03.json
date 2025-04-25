@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
   "document": {
-    "category": "csaf_informational_advisory",
+    "category": "csaf_superseded",
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
@@ -10,9 +10,9 @@
     },
     "notes": [
       {
-        "category": "summary",
-        "text": "This CSAF document contains example data to create test data for an informational advisory. This text sums up the issue.",
-        "title": "Summary of the issue"
+        "category": "description",
+        "text": "This CSAF document contained example data and was superseded to create test data.",
+        "title": "Reasoning for Supersession"
       }
     ],
     "publisher": {
@@ -23,24 +23,29 @@
     "references": [
       {
         "category": "external",
-        "summary": "More details about the issue",
-        "url": "https://example.com/security/advisories/a-website-with-more-details-about-the-issue"
+        "summary": "superseding document",
+        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
-    "title": "Mandatory test: Vulnerabilities (failing example 1)",
+    "title": "Mandatory test: Vulnerabilities (failing example 3)",
     "tracking": {
-      "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-03-01",
+      "current_release_date": "2024-05-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-03-03",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
           "date": "2024-01-24T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
+        },
+        {
+          "date": "2024-05-24T10:00:00.000Z",
+          "number": "2",
+          "summary": "Supersession."
         }
       ],
       "status": "final",
-      "version": "1"
+      "version": "2"
     }
   },
   "vulnerabilities": [
