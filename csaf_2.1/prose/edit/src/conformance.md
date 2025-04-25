@@ -128,11 +128,13 @@ Secondly, the program fulfills the following for all items of:
 
     If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
-  * If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
-    if the document language of the CVRF document is unspecified and the `cvrf:DocumentTitle` starts with the string `Withdrawn`,
-    CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+  * If both of the following `or`-conditions apply:
+    * one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
+      the document language of the CVRF document is unspecified
+    * the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with "Withdrawn" (case-insensitive),
+    the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
-    > to the profile.
+    > to this profile.
 
     > A tool MAY support this detection for other languages.
 
