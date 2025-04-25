@@ -47,13 +47,5 @@
       "status": "final",
       "version": "2"
     }
-  },
-  "product_tree": {
-    "full_product_names": [
-      {
-        "name": "Product A",
-        "product_id": "CSAFPID-9080700"
-      }
-    ]
   }
 }

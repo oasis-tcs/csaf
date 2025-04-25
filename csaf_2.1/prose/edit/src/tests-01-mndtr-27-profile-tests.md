@@ -591,14 +591,15 @@ The relevant path for this test is:
 
 > The element `/product_tree` exists.
 
-#### Withdrawal Revision History
+#### Revision History{#revision-history-for-withdrawn-and-superseded}
 
 It MUST be tested that the revision history contains at least two entries.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:
