@@ -154,7 +154,7 @@ Secondly, the program fulfills the following for all items of:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
   The program SHALL NOT use hard-coded values.
-* `/document/tracking/id`: If the element `cvrf:ID` contains any line breaks or leading or trailing white space,
+* `/document/tracking/id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
   the CVRF CSAF converter removes those characters.
   In addition, the converter outputs a warning that the ID was changed.
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given,
