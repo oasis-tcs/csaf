@@ -533,14 +533,15 @@ The relevant path for this test is:
 
 > The vulnerability just contains the fixed product but does not list corresponding affected products.
 
-#### Document Notes{#document-notes-for-withdrawn}
+#### Document Notes{#document-notes-for-withdrawn-and-superseded}
 
 It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:
