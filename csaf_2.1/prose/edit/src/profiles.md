@@ -209,4 +209,21 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 The CSAF document MAY link to additional information through `/document/references`.
 
+## Profile 8: Superseded
+
+This profile MUST be used for any CSAF document that is superseded. It MUST NOT be used for any withdrawn document.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Superseded":
+
+* The following elements MUST exist and be valid:
+  * all elements required by the profile "CSAF Base".
+  * `/document[]/notes` with exactly one item using the `category` `summary` and the `title` `Reasoning for Supersession` describing
+    the original content and the reasons for the supersession
+  * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+    > A CSAF document cannot be superseded during the initial release to its specified target group.
+    > In such case, the CSAF document should not be released at all.
+    > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
+  * `/document/references` containing at least one item with `category` `external` and `summary` starting with `Superseding document`.
+* The value of `/document/category` SHALL be `csaf_superseded`.
+
 -------
