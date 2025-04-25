@@ -99,7 +99,7 @@ Of course, updating the new 2.1 version references.
   
   - **CSAF Provider 2.0:**  
     - Uses an `$id` pointing to the v2.0 URL, but the `$schema` property is not required.
-    - The property `"metadata_version"` is fixed to `"2.1"`.
+    - The property `"metadata_version"` is fixed to `"2.0"`.
 
 ## Distributions Structure
 
