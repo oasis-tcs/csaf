@@ -117,11 +117,15 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/remediations[]/group_ids`
 
 * 100 000 000 for
+  * `/document/notes[]/group_ids`
+  * `/document/notes[]/product_ids`
   * `/vulnerabilities[]/flags`
   * `/vulnerabilities[]/flags[]/group_ids`
   * `/vulnerabilities[]/flags[]/product_ids`
   * `/vulnerabilities[]/metrics`
   * `/vulnerabilities[]/metrics[]/products`
+  * `/vulnerabilities[]/notes[]/group_ids`
+  * `/vulnerabilities[]/notes[]/product_ids`
   * `/vulnerabilities[]/product_status/first_affected`
   * `/vulnerabilities[]/product_status/first_fixed`
   * `/vulnerabilities[]/product_status/fixed`
@@ -148,6 +152,8 @@ A string SHOULD NOT have a length greater than:
   * `/document/distribution/sharing_group/name`
   * `/document/lang`
   * `/document/notes[]/audience`
+  * `/document/notes[]/group_ids[]`
+  * `/document/notes[]/product_ids[]`
   * `/document/notes[]/title`
   * `/document/publisher/name`
   * `/document/source_lang`
@@ -218,6 +224,8 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/version`
   * `/vulnerabilities[]/metrics[]/products[]`
   * `/vulnerabilities[]/notes[]/audience`
+  * `/vulnerabilities[]/notes[]/group_ids[]`
+  * `/vulnerabilities[]/notes[]/product_ids[]`
   * `/vulnerabilities[]/notes[]/title`
   * `/vulnerabilities[]/product_status/first_affected[]`
   * `/vulnerabilities[]/product_status/first_fixed[]`
