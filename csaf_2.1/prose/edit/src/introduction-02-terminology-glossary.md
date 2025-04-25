@@ -86,6 +86,9 @@ required by CSAF management system as well as matching them to SBOM components o
 CSAF producer
 :    program that emits output in the CSAF format
 
+CSAF superseder
+:    A CSAF post-processor that transforms a given CSAF into a superseded one.
+
 CSAF translator
 :    CSAF post-processor which takes a CSAF document as input and translates values of properties into another language.
 The output is a valid CSAF document.
