@@ -217,7 +217,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
-  * `/document[]/notes` with exactly one item using the `category` `summary` and the `title` `Reasoning for Supersession` describing
+  * `/document[]/notes` with exactly one item using the `category` `description` and the `title` `Reasoning for Supersession` describing
     the original content and the reasons for the supersession
   * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
     > A CSAF document cannot be superseded during the initial release to its specified target group.
