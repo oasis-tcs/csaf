@@ -227,7 +227,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
   * `/document/references` containing at least one item with `category` `external`
-    The `summary` MUST start with `Superseding document` for English or an unspecified document language.
+    The `summary` MUST start with `Superseding Document` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
 * The value of `/document/category` SHALL be `csaf_superseded`.
 * The elements `/product_tree` and `/vulnerabilities` SHALL NOT exist.

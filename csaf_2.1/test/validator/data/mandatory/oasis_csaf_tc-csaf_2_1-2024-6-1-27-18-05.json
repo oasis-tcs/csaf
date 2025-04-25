@@ -29,7 +29,7 @@
     "references": [
       {
         "category": "external",
-        "summary": "Superseding document",
+        "summary": "Superseding Document",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
