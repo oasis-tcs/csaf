@@ -128,20 +128,15 @@ Secondly, the program fulfills the following for all items of:
 
     If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
-  * If both of the following `or`-conditions apply:
-    * one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
-      the document language of the CVRF document is unspecified
-    * the `cvrf:DocumentTitle` starts with the string `Superseded` or the `cvrf:DocumentType` starts with `Superseded` (case-insensitive),
-    the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
+  * If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
+    the document language of the CVRF document is unspecified,
+    the following rules apply:
+    * If the `cvrf:DocumentTitle` starts with the string `Superseded` or the `cvrf:DocumentType` starts with `Superseded` (case-insensitive),
+      the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
+    * If the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
+      the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
-    > to this profile.
-  * If both of the following `or`-conditions apply:
-    * one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
-      the document language of the CVRF document is unspecified
-    * the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
-    the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
-    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
-    > to this profile.
+    > to the profile.
 
     > A tool MAY support this detection for other languages.
 
@@ -635,10 +630,10 @@ Secondly, the program fulfills the following for all items of:
     If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
   * If the `/document/lang` is English or unspecified, the following rules apply:
-    * If the `/document/title` starts with the string `Superseded`, the CSAF 2.0 to CSAF 2.1 converter
-      MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
-    * If the `/document/title` starts with the string `Withdrawn`, the CSAF 2.0 to CSAF 2.1 converter
-      MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+    * If the `/document/title` starts with the string `Superseded` or the `/document/category` has the value `Superseded` (case-insensitive),
+      the CSAF 2.0 to CSAF 2.1 converter MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
+    * If the `/document/title` starts with the string `Withdrawn` or the `/document/category` has the value `Withdrawn` (case-insensitive),
+      the CSAF 2.0 to CSAF 2.1 converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
     > to the profile.
 
