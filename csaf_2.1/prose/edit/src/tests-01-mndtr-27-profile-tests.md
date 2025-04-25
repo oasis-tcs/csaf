@@ -564,14 +564,15 @@ The relevant path for this test is:
 
 > The document notes do not contain an item which has a `category` of `description`.
 
-#### Product Tree{#product-tree-for-withdrawn}
+#### Product Tree{#product-tree-for-withdrawn-and-superseded}
 
 It MUST be tested that the element `/product_tree` does not exist.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:
