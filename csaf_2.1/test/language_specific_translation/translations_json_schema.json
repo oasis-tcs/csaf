@@ -28,6 +28,12 @@
           "description": "Contains the language specific translation of the term.",
           "type": "string",
           "minLength": 1
+        },
+        "superseding_document": {
+          "title": "Superseding Document",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": false
