@@ -38,7 +38,7 @@ The relevant path for this test is:
 
 > The document notes do not contain an item which has a `category` of `description`, `details`, `general` or `summary`.
 
-#### Document References
+#### Document References{#document-references-for-informational-advisory-and-security-incident-response}
 
 It MUST be tested that at least one item in `/document/references` exists that has links to an `external` source.
 
@@ -685,3 +685,35 @@ The relevant path for this test is:
 ```
 
 > The note has the correct title. However, it uses the wrong category.
+
+#### Reference to Superseding Document
+
+If the document language is English or unspecified, it MUST be tested that at least one item in document references exists
+that has a summary starting with `Superseding Document`.
+The `category` of this item MUST be `external`.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_superseded
+```
+
+The relevant path for this test is:
+
+```
+  /document/references
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "references": [
+      {
+        "category": "self",
+        "summary": "Superseding Document",
+        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
+      }
+    ],
+```
+
+> The reference summary starts correctly with the string "Superseding Document". However, it uses the wrong category.

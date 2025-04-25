@@ -8,12 +8,12 @@
         "label": "CLEAR"
       }
     },
-    "lang": "de-DE",
+    "lang": "en-US",
     "notes": [
       {
         "category": "description",
-        "text": "Das CSAF Dokument enthielt Beispieldaten und wurde ersetzt, um Testdaten zu erzeugen.",
-        "title": "Begründung für die Ersetzung"
+        "text": "This CSAF document contained example data and was superseded to create test data.",
+        "title": "Reasoning for Supersession"
       }
     ],
     "publisher": {
@@ -23,26 +23,25 @@
     },
     "references": [
       {
-        "category": "external",
-        "summary": "Ersetzendes Dokument",
+        "summary": "Superseding Document",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
-    "title": "Mandatory test: Reasoning for Supersession (valid example 3)",
+    "title": "Mandatory test: Reference to Superseding Document (failing example 2)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-18-13",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-19-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
           "date": "2024-01-24T10:00:00.000Z",
           "number": "1",
-          "summary": "Initiale Version."
+          "summary": "Initial version."
         },
         {
           "date": "2024-05-24T10:00:00.000Z",
           "number": "2",
-          "summary": "Ersetzt."
+          "summary": "Supersession."
         }
       ],
       "status": "final",
