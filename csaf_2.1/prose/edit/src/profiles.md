@@ -217,13 +217,18 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
-  * `/document[]/notes` with exactly one item using the `category` `description` and the `title` `Reasoning for Supersession` describing
-    the original content and the reasons for the supersession
+  * `/document[]/notes` with exactly one item using the `category` `description`
+      > Other items, such as a legal disclaimer, may exist alongside the required one.
+
+    The `title` MUST be `Reasoning for Supersession` for English or an unspecified document language.
+    For any other language, it SHOULD be the language specific translation of that term.
   * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
     > A CSAF document cannot be superseded during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
-  * `/document/references` containing at least one item with `category` `external` and `summary` starting with `Superseding document`.
+  * `/document/references` containing at least one item with `category` `external`
+    The `summary` MUST start with `Superseding document` for English or an unspecified document language.
+    For any other language, it SHOULD be the language specific translation of that term.
 * The value of `/document/category` SHALL be `csaf_superseded`.
 * The elements `/product_tree` and `/vulnerabilities` SHALL NOT exist.
 
