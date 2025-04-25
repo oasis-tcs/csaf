@@ -134,6 +134,7 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/product_status/last_affected`
   * `/vulnerabilities[]/product_status/recommended`
   * `/vulnerabilities[]/product_status/under_investigation`
+  * `/vulnerabilities[]/product_status/unknown`
   * `/vulnerabilities[]/remediations`
   * `/vulnerabilities[]/remediations[]/product_ids`
   * `/vulnerabilities[]/threats`
