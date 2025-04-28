@@ -1355,6 +1355,11 @@
                 "title": "Under investigation",
                 "description": "It is not known yet whether these versions are or are not affected by the vulnerability. However, it is still under investigation - the result will be provided in a later release of the document.",
                 "$ref": "#/$defs/products_t"
+              },
+              "unknown": {
+                "title": "Unknown",
+                "description": "It is not known whether these versions are or are not affected by the vulnerability. There is also no investigation and therefore the status might never be determined.",
+                "$ref": "#/$defs/products_t"
               }
             }
           },
