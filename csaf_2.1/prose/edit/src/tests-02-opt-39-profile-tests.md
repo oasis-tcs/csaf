@@ -57,7 +57,7 @@ The relevant path for this test is:
 
 #### Language Specific Reasoning for Withdrawal
 
-If the document language is not English or unspecified, it MUST be tested that exactly one item in document notes exists
+If the document language is specified but not English, it MUST be tested that exactly one item in document notes exists
 that has the language specific translation of the term `Reasoning for Withdrawal` as `title`.
 The `category` of this item MUST be `description`.
 If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
@@ -79,11 +79,83 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*
 
 ```
-  {
-    "category": "summary",
-    "text": "Das CSAF Document enthielt Beispieldaten und wurde zurückgezogen, um Testdaten zu erzeugen.",
-    "title": "Begründung für die Zurückziehung"
-  }
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Das CSAF Document enthielt Beispieldaten und wurde zurückgezogen, um Testdaten zu erzeugen.",
+        "title": "Begründung für die Zurückziehung"
+      }
+    ],
+```
+
+> The note has the correct title. However, it uses the wrong category.
+
+#### Language Specific Reasoning for Supersession
+
+If the document language is specified but not English, it MUST be tested that exactly one item in document notes exists
+that has the language specific translation of the term `Reasoning for Supersession` as `title`.
+The `category` of this item MUST be `description`.
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+
+> A list of the language specific translations is kept at the OASIS CSAF TC.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_superseded
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Das CSAF Dokument enthielt Beispieldaten und wurde ersetzt, um Testdaten zu erzeugen.",
+        "title": "Begründung für die Ersetzung"
+      }
+    ],
+```
+
+> The note has the correct title. However, it uses the wrong category.
+
+#### Language Specific Superseding Document
+
+If the document language is specified but not English, it MUST be tested that at least one item in document references exists
+that starts with the language specific translation of the term `Superseding Document` as `summary`.
+The `category` of this item MUST be `external`.
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+
+> A list of the language specific translations is kept at the OASIS CSAF TC.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_superseded
+```
+
+The relevant path for this test is:
+
+```
+  /document/references
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "references": [
+      {
+        "category": "self",
+        "summary": "Ersetztes Dokument",
+        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
+      }
+    ],
 ```
 
 > The note has the correct title. However, it uses the wrong category.

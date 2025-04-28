@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
   "document": {
-    "category": "csaf_withdrawn",
+    "category": "csaf_superseded",
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
@@ -11,9 +11,9 @@
     "lang": "de-DE",
     "notes": [
       {
-        "category": "description",
-        "text": "Das CSAF Dokument enthielt Beispieldaten und wurde zurückgezogen, um Testdaten zu erzeugen.",
-        "title": "Begründung für die Zurückziehung"
+        "category": "summary",
+        "text": "Das CSAF Dokument enthielt Beispieldaten und wurde ersetzt, um Testdaten zu erzeugen.",
+        "title": "Begründung für die Ersetzung"
       }
     ],
     "publisher": {
@@ -21,10 +21,17 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Reasoning for Withdrawal (valid example 3)",
+    "references": [
+      {
+        "category": "external",
+        "summary": "Ersetzendes Dokument",
+        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
+      }
+    ],
+    "title": "Optional test: Language Specific Reasoning for Supersession (failing example 1)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-17-13",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-03-01",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -35,7 +42,7 @@
         {
           "date": "2024-05-24T10:00:00.000Z",
           "number": "2",
-          "summary": "Zurückgezogen."
+          "summary": "Ersetzt."
         }
       ],
       "status": "final",

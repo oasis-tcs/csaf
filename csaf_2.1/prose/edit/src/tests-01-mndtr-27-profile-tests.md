@@ -38,7 +38,7 @@ The relevant path for this test is:
 
 > The document notes do not contain an item which has a `category` of `description`, `details`, `general` or `summary`.
 
-#### Document References
+#### Document References{#document-references-for-informational-advisory-and-security-incident-response}
 
 It MUST be tested that at least one item in `/document/references` exists that has links to an `external` source.
 
@@ -78,6 +78,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_informational_advisory
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:
@@ -532,14 +533,15 @@ The relevant path for this test is:
 
 > The vulnerability just contains the fixed product but does not list corresponding affected products.
 
-#### Document Notes{#document-notes-for-withdrawn}
+#### Document Notes{#document-notes-for-withdrawn-and-superseded}
 
 It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:
@@ -562,14 +564,15 @@ The relevant path for this test is:
 
 > The document notes do not contain an item which has a `category` of `description`.
 
-#### Product Tree{#product-tree-for-withdrawn}
+#### Product Tree{#product-tree-for-withdrawn-and-superseded}
 
 It MUST be tested that the element `/product_tree` does not exist.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:
@@ -588,14 +591,15 @@ The relevant path for this test is:
 
 > The element `/product_tree` exists.
 
-#### Withdrawal Revision History
+#### Revision History{#revision-history-for-withdrawn-and-superseded}
 
 It MUST be tested that the revision history contains at least two entries.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_withdrawn
+  csaf_superseded
 ```
 
 The relevant path for this test is:
@@ -649,3 +653,67 @@ The relevant path for this test is:
 ```
 
 > The note has the correct title. However, it uses the wrong category.
+
+#### Reasoning for Supersession
+
+If the document language is English or unspecified, it MUST be tested that exactly one item in document notes exists
+that has the title `Reasoning for Supersession`.
+The `category` of this item MUST be `description`.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_superseded
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "notes": [
+    {
+      "category": "details",
+      "text": "This CSAF document contained example data and was withdrawn to create test data.",
+      "title": "Reasoning for Supersession"
+    }
+  ],
+```
+
+> The note has the correct title. However, it uses the wrong category.
+
+#### Reference to Superseding Document
+
+If the document language is English or unspecified, it MUST be tested that at least one item in document references exists
+that has a summary starting with `Superseding Document`.
+The `category` of this item MUST be `external`.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_superseded
+```
+
+The relevant path for this test is:
+
+```
+  /document/references
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "references": [
+      {
+        "category": "self",
+        "summary": "Superseding Document",
+        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
+      }
+    ],
+```
+
+> The reference summary starts correctly with the string "Superseding Document". However, it uses the wrong category.

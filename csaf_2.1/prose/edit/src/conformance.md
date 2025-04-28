@@ -8,7 +8,7 @@ Informative Comments:
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 23 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF document**, all other 24 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -57,6 +57,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
 * **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
 * **CSAF withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
+* **CSAF superseder**: A CSAF post-processor that transforms a given CSAF into a superseded one.
 
 ### Conformance Clause 1: CSAF document
 
@@ -129,8 +130,12 @@ Secondly, the program fulfills the following for all items of:
     If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
   * If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
-    if the document language of the CVRF document is unspecified and the `cvrf:DocumentTitle` starts with the string `Withdrawn`,
-    CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+    the document language of the CVRF document is unspecified,
+    the following rules apply:
+    * If the `cvrf:DocumentTitle` starts with the string `Superseded` or the `cvrf:DocumentType` starts with `Superseded` (case-insensitive),
+      the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
+    * If the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
+      the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
     > to the profile.
 
@@ -625,8 +630,11 @@ Secondly, the program fulfills the following for all items of:
     Such warning MUST contain the full product name and its path as well as the paths of the `/vulnerabilities[]` it was added to.
     If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
-  * If the `/document/lang` is English or unspecified and the `document/title` starts with the string `Withdrawn`, the CSAF 2.0 to CSAF 2.1 converter
-    MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+  * If the `/document/lang` is English or unspecified, the following rules apply:
+    * If the `/document/title` starts with the string `Superseded` or the `/document/category` has the value `Superseded` (case-insensitive),
+      the CSAF 2.0 to CSAF 2.1 converter MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
+    * If the `/document/title` starts with the string `Withdrawn` or the `/document/category` has the value `Withdrawn` (case-insensitive),
+      the CSAF 2.0 to CSAF 2.1 converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
     > to the profile.
 
@@ -812,6 +820,20 @@ A program satisfies the "CSAF withdrawer" conformance profile if the program:
 * keeps the original `/document/tracking/id`.
 * adds a new item to the revision history stating the revision metadata of the withdrawal.
 * adds the reasoning for withdrawal as specified in section [sec](#profile-7-withdrawn).
+* removes the `/product_tree`.
+* removes the `/vulnerabilities`.
+
+> A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
+
+### Conformance Clause 25: CSAF superseder
+
+A program satisfies the "CSAF superseder" conformance profile if the program:
+
+* satisfies the "CSAF post-processor" conformance profile.
+* keeps the original `/document/tracking/id`.
+* adds a new item to the revision history stating the revision metadata of the supersession.
+* adds the reasoning for supersession as specified in section [sec](#profile-8-superseded).
+* adds the reference to the superseding document as specified in section [sec](#profile-8-superseded).
 * removes the `/product_tree`.
 * removes the `/vulnerabilities`.
 

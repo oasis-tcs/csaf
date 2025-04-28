@@ -1,18 +1,24 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
   "document": {
-    "category": "csaf_withdrawn",
+    "category": "csaf_superseded",
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
         "label": "CLEAR"
       }
     },
+    "lang": "en-US",
     "notes": [
       {
+        "category": "general",
+        "text": "This CSAF document contained example data and was superseded to create test data.",
+        "title": "Reasoning for Supersession"
+      },
+      {
         "category": "description",
-        "text": "This CSAF document contained example data and was withdrawn to create test data.",
-        "title": "Reasoning for Withdrawal"
+        "text": "This CSAF document contained example data and was superseded to create test data.",
+        "title": "Why was this document superseded?"
       }
     ],
     "publisher": {
@@ -20,10 +26,17 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Revision History (valid example 1)",
+    "references": [
+      {
+        "category": "external",
+        "summary": "Superseding Document",
+        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
+      }
+    ],
+    "title": "Mandatory test: Reasoning for Supersession (failing example 5)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-16-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-18-05",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -34,7 +47,7 @@
         {
           "date": "2024-05-24T10:00:00.000Z",
           "number": "2",
-          "summary": "Withdrawal."
+          "summary": "Supersession."
         }
       ],
       "status": "final",

@@ -1,19 +1,18 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
   "document": {
-    "category": "csaf_withdrawn",
+    "category": "csaf_superseded",
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
         "label": "CLEAR"
       }
     },
-    "lang": "de-DE",
     "notes": [
       {
         "category": "description",
-        "text": "Das CSAF Dokument enthielt Beispieldaten und wurde zurückgezogen, um Testdaten zu erzeugen.",
-        "title": "Begründung für die Zurückziehung"
+        "text": "This CSAF document contained example data and was superseded to create test data.",
+        "title": "Reasoning for Supersession"
       }
     ],
     "publisher": {
@@ -21,21 +20,28 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Reasoning for Withdrawal (valid example 3)",
+    "references": [
+      {
+        "category": "external",
+        "summary": "Superseding Document",
+        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
+      }
+    ],
+    "title": "Mandatory test: Vulnerabilities (valid example 3)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-17-13",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-03-13",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
           "date": "2024-01-24T10:00:00.000Z",
           "number": "1",
-          "summary": "Initiale Version."
+          "summary": "Initial version."
         },
         {
           "date": "2024-05-24T10:00:00.000Z",
           "number": "2",
-          "summary": "Zurückgezogen."
+          "summary": "Supersession."
         }
       ],
       "status": "final",
