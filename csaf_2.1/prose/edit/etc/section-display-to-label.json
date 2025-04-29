@@ -225,7 +225,7 @@
   "6.2.31": "hardware-and-software",
   "6.2.32": "use-of-same-product-identification-helper-for-different-products",
   "6.2.33": "disclosure-date-newer-than-revision-history",
-  "6.2.34": "usage-of-unknown-ssvc-decision-point-namespace",
+  "6.2.34": "usage-of-unregistered-ssvc-decision-point-namespace",
   "6.2.35": "usage-of-unknown-ssvc-role",
   "6.3": "informative-test",
   "6.3.1": "use-of-cvss-v2-as-the-only-scoring-system",
