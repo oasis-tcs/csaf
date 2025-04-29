@@ -41,6 +41,8 @@ This prose specification is one component of a Work Product that also includes:
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json.
 * CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json.
+* Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/meta_json_schema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json.
 * Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json.
 
@@ -53,6 +55,7 @@ This specification replaces or supersedes:
 
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json)
 
 
