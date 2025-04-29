@@ -21,5 +21,5 @@ The further documentation of the schema is organized via Definitions and Propert
 
 Types and properties together provide the vocabulary for the domain specific language supporting security advisories.
 
-The single mandatory property is `document`.
+The two mandatory properties are `$schema` and `document`.
 The optional two additional properties are `product_tree` and `vulnerabilities`.
