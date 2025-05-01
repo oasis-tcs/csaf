@@ -246,6 +246,8 @@
   "6.3.11": "usage-of-v-as-version-indicator",
   "6.3.12": "missing-cvss-v4-0",
   "6.3.13": "usage-of-non-latest-ssvc-decision-point-version",
+  "6.3.14": "usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document",
+  "6.3.15": "usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document",
   "7": "distributing-csaf-documents",
   "7.1": "requirements",
   "7.1.1": "requirement-1-valid-csaf-document",

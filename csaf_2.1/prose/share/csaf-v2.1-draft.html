@@ -765,6 +765,10 @@
                 </li>
                 <li>6.3.13 <a href="#usage-of-non-latest-ssvc-decision-point-version">Usage of Non-Latest SSVC Decision Point Version</a>
                 </li>
+                <li>6.3.14 <a href="#usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document">Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document</a>
+                </li>
+                <li>6.3.15 <a href="#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document">Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -10700,6 +10704,118 @@
         At the timestamp <code>2024-01-24T10:00:00.000Z</code> version <code>2.0.0</code> of the SSVC decision point <code>Mission Impact</code> was already available.
       </p>
     </blockquote>
+    <h3 id="6314-usage-of-private-ssvc-decision-point-namespace-in-non-tlpclear-document-">
+      6.3.14 Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document <a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document'></a>
+    </h3>
+    <p>
+      For each SSVC decision point given under <code>selections</code>, it MUST be tested the <code>namespace</code> is not a private one if the document is not labeled <code>TLP:CLEAR</code>.
+    </p>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-175'></a>
+    </p>
+    <pre><code>  {
+    "document": {
+      // ...
+      "distribution": {
+        "tlp": {
+          "label": "GREEN"
+        }
+      },
+      // ...
+    }
+    "vulnerabilities": [
+      {
+        "cve": "CVE-1900-0001",
+        "metrics": [
+          {
+            "content": {
+              "ssvc_v1": {
+                "id": "CVE-1900-0001",
+                "schemaVersion": "1-0-1",
+                "selections": [
+                  {
+                    "name": "Technical Impact",
+                    "namespace": "x_custom",
+                    "values": [
+                      "Total"
+                    ],
+                    "version": "1.0.0"
+                  }
+                ],
+                "timestamp": "2024-01-24T10:00:00.000Z"
+              }
+            },
+            // ...
+          }
+        ]
+      }
+    ]
+  }</code></pre>
+    <blockquote>
+      <p>
+        The namespace <code>x_custom</code> is a private namespace. Its decision point definitions might therefore not be known to the reader of the document.
+      </p>
+    </blockquote>
+    <h3 id="6315-usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlpclear-document-">
+      6.3.15 Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document <a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document'></a>
+    </h3>
+    <p>
+      For each SSVC decision point given under <code>selections</code>, it MUST be tested the <code>namespace</code> does not use an extension if the document is not labeled <code>TLP:CLEAR</code>.
+    </p>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-176'></a>
+    </p>
+    <pre><code>  {
+    "document": {
+      // ...
+      "distribution": {
+        "tlp": {
+          "label": "GREEN"
+        }
+      },
+      // ...
+    }
+    "vulnerabilities": [
+      {
+        "cve": "CVE-1900-0001",
+        "metrics": [
+          {
+            "content": {
+              "ssvc_v1": {
+                "id": "CVE-1900-0001",
+                "schemaVersion": "1-0-1",
+                "selections": [
+                  {
+                    "name": "Technical Impact",
+                    "namespace": "ssvc/additional-technical-impacts",
+                    "values": [
+                      "Total"
+                    ],
+                    "version": "1.0.0"
+                  }
+                ],
+                "timestamp": "2024-01-24T10:00:00.000Z"
+              }
+            },
+            // ...
+          }
+        ]
+      }
+    ]
+  }</code></pre>
+    <blockquote>
+      <p>
+        The namespace contains the extension <code>additional-technical-impacts</code>. Its decision point definitions might therefore not be known to the reader of the document.
+      </p>
+    </blockquote>
     <hr />
     <h1 id="7-distributing-csaf-documents-">
       7. Distributing CSAF documents <a id='distributing-csaf-documents'></a>
@@ -10800,7 +10916,7 @@
       </ul>
     </blockquote>
     <p>
-      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-175'></a>
+      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-177'></a>
     </p>
     <pre><code>  {
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
@@ -10859,7 +10975,7 @@
       </p>
     </blockquote>
     <p>
-      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-176'></a>
+      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-178'></a>
     </p>
     <pre><code>CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
@@ -10877,7 +10993,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-177'></a>
+      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-179'></a>
     </p>
     <pre><code>  https://www.example.com/.well-known/csaf/provider-metadata.json</code></pre>
     <h3 id="7110-requirement-10-dns-path-">
@@ -10901,7 +11017,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The CSAF documents MUST be located within folders named <code>&lt;YYYY&gt;</code> where <code>&lt;YYYY&gt;</code> is the year given in the value of <code>/document/tracking/initial_release_date</code>.
     </p>
     <p>
-      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-178'></a>
+      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-180'></a>
     </p>
     <pre><code>2024
 2023</code></pre>
@@ -10912,7 +11028,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-179'></a>
+      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-181'></a>
     </p>
     <pre><code>2023/esa-2023-09953.json
 2022/esa-2022-02723.json
@@ -10936,7 +11052,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       </p>
     </blockquote>
     <p>
-      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-180'></a>
+      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-182'></a>
     </p>
     <pre><code>2023/esa-2023-09953.json,2023-07-01T10:09:07Z
 2021/esa-2021-03676.json,2023-07-01T10:09:01Z
@@ -10977,7 +11093,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [<a href="#RFC8322">RFC8322</a>].
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-181'></a>
+      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-183'></a>
     </p>
     <pre><code>  {
     "feed": {
@@ -11043,7 +11159,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       the filename <code>service.json</code> and reside next to the <code>provider-metadata.json</code>.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-182'></a>
+      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-184'></a>
     </p>
     <pre><code>  {
     "service": {
@@ -11110,7 +11226,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
           type of product
         </p>
         <p>
-          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-183'></a>
+          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-185'></a>
         </p>
         <pre><code>  CPU
   Firewall
@@ -11126,7 +11242,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
           areas or sectors, the products are used in
         </p>
         <p>
-          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-184'></a>
+          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-186'></a>
         </p>
         <pre><code>  Chemical
   Commercial
@@ -11144,7 +11260,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       </li>
     </ul>
     <p>
-      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-185'></a>
+      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-187'></a>
     </p>
     <pre><code>  {
     "categories": {
@@ -11168,7 +11284,7 @@ CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pr
       MD5 and SHA1 SHOULD NOT be used.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-186'></a>
+      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-188'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of SHA-256 hash file: esa-2022-02723.json.sha256
@@ -11177,7 +11293,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
       The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
     </p>
     <p>
-      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-187'></a>
+      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-189'></a>
     </p>
     <pre><code>ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json</code></pre>
     <p>
@@ -11190,7 +11306,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
       All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. This signature SHALL be presented as an ASCII armored file. See [<a href="#RFC4880">RFC4880</a>] for more details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-188'></a>
+      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-190'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of signature file: esa-2022-02723.json.asc</code></pre>
@@ -11256,7 +11372,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       The file <code>aggregator.json</code> SHOULD only list the latest version of the metadata of a CSAF provider.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-189'></a>
+      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-191'></a>
     </p>
     <pre><code>  {
     "aggregator": {
@@ -11313,7 +11429,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
     </ul>
     <p>
-      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-190'></a>
+      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-192'></a>
     </p>
     <pre><code>  {
     "aggregator": {
@@ -11933,7 +12049,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS vector, if present.
                 </p>
                 <p>
-                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-191'></a>
+                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-193'></a>
                 </p>
                 <pre><code>  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H =&gt; 3.1</code></pre>
               </li>
@@ -11942,7 +12058,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
                 </p>
                 <p>
-                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-192'></a>
+                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-194'></a>
                 </p>
                 <pre><code>  xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
   &lt;!-- --&gt;
@@ -11951,7 +12067,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   is handled the same as
                 </p>
                 <p>
-                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-193'></a>
+                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-195'></a>
                 </p>
                 <pre><code>  &lt;ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd"&gt;</code></pre>
               </li>
@@ -11961,7 +12077,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   decision.
                 </p>
                 <p>
-                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-194'></a>
+                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-196'></a>
                 </p>
                 <pre><code>  xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" =&gt; 3.0</code></pre>
               </li>

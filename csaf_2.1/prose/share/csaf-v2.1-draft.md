@@ -353,6 +353,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.3.11 [Usage of V as Version Indicator](#usage-of-v-as-version-indicator)  
 		6.3.12 [Missing CVSS v4.0](#missing-cvss-v4-0)  
 		6.3.13 [Usage of Non-Latest SSVC Decision Point Version](#usage-of-non-latest-ssvc-decision-point-version)  
+		6.3.14 [Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document](#usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document)  
+		6.3.15 [Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)  
 7. [Distributing CSAF documents](#distributing-csaf-documents)  
 	7.1 [Requirements](#requirements)  
 		7.1.1 [Requirement 1: Valid CSAF document](#requirement-1-valid-csaf-document)  
@@ -8924,6 +8926,119 @@ The relevant path for this test is:
 
 > At the timestamp `2024-01-24T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
 
+### 6.3.14 Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document <a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document'></a>
+
+For each SSVC decision point given under `selections`, it MUST be tested the `namespace` is not a private one if the document is not labeled `TLP:CLEAR`.
+
+The relevant path for this test is:
+
+```
+   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
+```
+
+*Example 1 (which fails the test):*<a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-175'></a>
+
+```
+  {
+    "document": {
+      // ...
+      "distribution": {
+        "tlp": {
+          "label": "GREEN"
+        }
+      },
+      // ...
+    }
+    "vulnerabilities": [
+      {
+        "cve": "CVE-1900-0001",
+        "metrics": [
+          {
+            "content": {
+              "ssvc_v1": {
+                "id": "CVE-1900-0001",
+                "schemaVersion": "1-0-1",
+                "selections": [
+                  {
+                    "name": "Technical Impact",
+                    "namespace": "x_custom",
+                    "values": [
+                      "Total"
+                    ],
+                    "version": "1.0.0"
+                  }
+                ],
+                "timestamp": "2024-01-24T10:00:00.000Z"
+              }
+            },
+            // ...
+          }
+        ]
+      }
+    ]
+  }
+```
+
+> The namespace `x_custom` is a private namespace.
+> Its decision point definitions might therefore not be known to the reader of the document.
+
+### 6.3.15 Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document <a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document'></a>
+
+For each SSVC decision point given under `selections`, it MUST be tested the `namespace` does not use an extension
+if the document is not labeled `TLP:CLEAR`.
+
+The relevant path for this test is:
+
+```
+   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
+```
+
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-176'></a>
+
+```
+  {
+    "document": {
+      // ...
+      "distribution": {
+        "tlp": {
+          "label": "GREEN"
+        }
+      },
+      // ...
+    }
+    "vulnerabilities": [
+      {
+        "cve": "CVE-1900-0001",
+        "metrics": [
+          {
+            "content": {
+              "ssvc_v1": {
+                "id": "CVE-1900-0001",
+                "schemaVersion": "1-0-1",
+                "selections": [
+                  {
+                    "name": "Technical Impact",
+                    "namespace": "ssvc/additional-technical-impacts",
+                    "values": [
+                      "Total"
+                    ],
+                    "version": "1.0.0"
+                  }
+                ],
+                "timestamp": "2024-01-24T10:00:00.000Z"
+              }
+            },
+            // ...
+          }
+        ]
+      }
+    ]
+  }
+```
+
+> The namespace contains the extension `additional-technical-impacts`.
+> Its decision point definitions might therefore not be known to the reader of the document.
+
 -------
 
 # 7. Distributing CSAF documents <a id='distributing-csaf-documents'></a>
@@ -9000,7 +9115,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-175'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-177'></a>
 
 ```
   {
@@ -9062,7 +9177,7 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
 > The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-176'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-178'></a>
 
 ```
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -9082,7 +9197,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-177'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-179'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -9104,7 +9219,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-178'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-180'></a>
 
 ```
 2024
@@ -9115,7 +9230,7 @@ value of `/document/tracking/initial_release_date`.
 
 The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-179'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-181'></a>
 
 ```
 2023/esa-2023-09953.json
@@ -9136,7 +9251,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by \
 > Note: As a consequence of section [sec](#requirement-2-filename) Requirement 2 for filenames and section [sec](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-180'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-182'></a>
 
 ```
 2023/esa-2023-09953.json,2023-07-01T10:09:07Z
@@ -9168,7 +9283,7 @@ At least one of the feeds
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-181'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-183'></a>
 
 ```
   {
@@ -9237,7 +9352,7 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-182'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-184'></a>
 
 ```
   {
@@ -9281,7 +9396,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   * `product_version`
 * type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-183'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-185'></a>
 
   ```
     CPU
@@ -9296,7 +9411,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-184'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-186'></a>
 
   ```
     Chemical
@@ -9311,7 +9426,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-185'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-187'></a>
 
 ```
   {
@@ -9335,7 +9450,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-186'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-188'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -9346,7 +9461,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512
 The file content SHALL start with the first byte of the hexadecimal hash value.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-187'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-189'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -9361,7 +9476,7 @@ extended by the appropriate extension.
 This signature SHALL be presented as an ASCII armored file.
 See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-188'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-190'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -9407,7 +9522,7 @@ It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-189'></a>
+*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-191'></a>
 
 ```
   {
@@ -9463,7 +9578,7 @@ Each such folder MUST at least:
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-190'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-192'></a>
 
 ```
   {
@@ -9924,7 +10039,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-191'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-193'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -9933,7 +10048,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-192'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-194'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -9943,7 +10058,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-193'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-195'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -9954,7 +10069,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step MUST be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-194'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-196'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
