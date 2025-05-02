@@ -191,6 +191,7 @@
   "6.1.47": "inconsistent-ssvc-id",
   "6.1.48": "ssvc-decision-points",
   "6.1.49": "inconsistent-ssvc-timestamp",
+  "6.1.50": "product-version-range-rules",
   "6.2": "optional-tests",
   "6.2.1": "unused-definition-of-product-id",
   "6.2.2": "missing-remediation",
