@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json",
   "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json",
   "title": "CSAF aggregator",
   "description": "Representation of information where to find CSAF providers as a JSON document.",
