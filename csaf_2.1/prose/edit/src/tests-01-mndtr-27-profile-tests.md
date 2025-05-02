@@ -442,7 +442,7 @@ The relevant path for this test is:
 
 > The element `/vulnerabilities` does not exist.
 
-### Affected Products
+#### Affected Products
 
 For each item in `/vulnerabilities` it MUST be tested that the element `product_status/known_affected` exists.
 
