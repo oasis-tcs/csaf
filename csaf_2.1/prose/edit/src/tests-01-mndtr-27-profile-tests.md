@@ -1,13 +1,13 @@
-### Profile Tests
+### Profile Tests{#mandatory-profile-tests}
 
-This subsubsection structures the tests for the profiles. Not all tests apply for all profiles.
+This subsubsection structures the mandatory tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
 Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
 > An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests.
 > This results in one virtual test per profile.
 
-#### Document Notes
+#### Document Notes{#document-notes-for-informational-advisory-and-security-incident-response}
 
 It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
 
@@ -73,10 +73,11 @@ The relevant path for this test is:
 
 It MUST be tested that the element `/vulnerabilities` does not exist.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_informational_advisory
+  csaf_withdrawn
 ```
 
 The relevant path for this test is:
@@ -99,7 +100,7 @@ The relevant path for this test is:
 
 > A tool MAY change the `/document/category` to `csaf_base` as a quick fix.
 
-#### Product Tree
+#### Product Tree{#product-tree-for-security-advisory-vex-deprecated-security-advisory}
 
 It MUST be tested that the element `/product_tree` exists.
 
@@ -108,6 +109,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_security_advisory
   csaf_vex
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -140,6 +142,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_security_advisory
   csaf_vex
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -153,6 +156,11 @@ The relevant path for this test is:
 ```
   "vulnerabilities": [
     {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
       "title": "A vulnerability item without a note"
     }
   ]
@@ -164,10 +172,11 @@ The relevant path for this test is:
 
 For each item in `/vulnerabilities` it MUST be tested that the element `product_status` exists.
 
-The relevant value for `/document/category` is:
+The relevant values for `/document/category` are:
 
 ```
   csaf_security_advisory
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -408,6 +417,7 @@ The relevant values for `/document/category` are:
 ```
   csaf_security_advisory
   csaf_vex
+  csaf_deprecated_security_advisory
 ```
 
 The relevant path for this test is:
@@ -430,3 +440,212 @@ The relevant path for this test is:
 ```
 
 > The element `/vulnerabilities` does not exist.
+
+#### Affected Products
+
+For each item in `/vulnerabilities` it MUST be tested that the element `product_status/known_affected` exists.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_security_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status/known_affected
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "product_status": {
+        "under_investigation": [
+          "CSAFPID-9080700"
+        ]
+      }
+```
+
+> The product status does not contain the `known_affected` element.
+
+#### Corresponding Affected Products
+
+For each product listed in the product status group fixed in any vulnerability,
+it MUST be tested that a corresponding version of the product is listed as affected in the same vulnerability.
+
+> For a relationship `installed_with` the product without any relationship is a corresponding product.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_security_advisory
+```
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/product_status/known_affected
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    // ...
+    "product_tree": {
+      "branches": [
+        {
+          "branches": [
+            {
+              "branches": [
+                {
+                  "category": "product_version",
+                  "name": "4.2",
+                  "product": {
+                    "name": "Example Company Product A 4.2",
+                    "product_id": "CSAFPID-9080700"
+                  }
+                }
+              ],
+              "category": "product_name",
+              "name": "Product A"
+            }
+          ],
+          "category": "vendor",
+          "name": "Example Company"
+        }
+      ]
+    },
+    "vulnerabilities": [
+      {
+        // ...
+        "product_status": {
+          "fixed": [
+            "CSAFPID-9080700"
+          ]
+        }
+      }
+    ]
+  }
+```
+
+> The vulnerability just contains the fixed product but does not list corresponding affected products.
+
+#### Document Notes{#document-notes-for-withdrawn}
+
+It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "notes": [
+    {
+      "category": "legal_disclaimer",
+      "text": "The CSAF document is provided to You \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind.",
+      "title": "Terms of Use"
+    }
+  ]
+```
+
+> The document notes do not contain an item which has a `category` of `description`.
+
+#### Product Tree{#product-tree-for-withdrawn}
+
+It MUST be tested that the element `/product_tree` does not exist.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /product_tree
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "product_tree": [
+      // ...
+    ]
+```
+
+> The element `/product_tree` exists.
+
+#### Withdrawal Revision History
+
+It MUST be tested that the revision history contains at least two entries.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /document/tracking/revision_history
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "revision_history": [
+    {
+      "date": "2024-01-24T10:00:00.000Z",
+      "number": "1",
+      "summary": "Initial version."
+    }
+  ],
+```
+
+> The revision history contains only one entry.
+
+#### Reasoning for Withdrawal
+
+If the document language is English or unspecified, it MUST be tested that exactly one item in document notes exists
+that has the title `Reasoning for Withdrawal`.
+The `category` of this item MUST be `description`.
+
+The relevant value for `/document/category` is:
+
+```
+  csaf_withdrawn
+```
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "notes": [
+    {
+      "category": "summary",
+      "text": "This CSAF document contained example data and was withdrawn to create test data.",
+      "title": "Reasoning for Withdrawal"
+    }
+  ],
+```
+
+> The note has the correct title. However, it uses the wrong category.

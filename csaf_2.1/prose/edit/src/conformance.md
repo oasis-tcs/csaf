@@ -8,7 +8,7 @@ Informative Comments:
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 22 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF document**, all other 23 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -56,6 +56,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF library with basic validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
 * **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
 * **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
+* **CSAF withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
 
 ### Conformance Clause 1: CSAF document
 
@@ -119,11 +120,36 @@ Secondly, the program fulfills the following for all items of:
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`:
   If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`.
   In addition, the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
-* `/document/lang`: If one or more CVRF element containing an `xml:lang` attribute exist and contain the exact same value,
+* `/document/category`:
+  * If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF converter MUST try to convert the data
+    into a valid CSAF document in this profile according to CSAF 2.1.
+
+    > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
+
+    If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
+    `csaf_deprecated_security_advisory`.
+  * If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
+    if the document language of the CVRF document is unspecified and the `cvrf:DocumentTitle` starts with the string `Withdrawn`,
+    CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
+    > to the profile.
+
+    > A tool MAY support this detection for other languages.
+
+    If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category`
+    according to the conversion rules and output a warning a potentially withdrawn CSAF document was created which would result in an invalid CSAF.
+* `/document/lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
   the CVRF CSAF converter converts this value into `lang`.
   If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be
   determined and possibly a document with multiple languages was produced.
   In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
+* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property-notes),
+  where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is a specific product name, version or family.
+  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  product specific note has been discovered and no products could been assigned to it.
 * `/document/publisher/name` and `/document/publisher/namespace`:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
@@ -148,26 +174,6 @@ Secondly, the program fulfills the following for all items of:
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
-* `/vulnerabilities[]/remediations[]`:
-  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
-    `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
-    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
-  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
-    question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
-    Otherwise, the category `vendor_fix` MUST be set.
-    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
-    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
-    to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
-  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
-    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
-    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
-    If it was the last product in that remediation, the remediation MUST be removed.
-  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
-    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
-    If it was the last product in that remediation, the remediation MUST be removed.
-  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
-  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
-    including the products it was changed for.
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
@@ -223,6 +229,40 @@ Secondly, the program fulfills the following for all items of:
 
     4. Retrieve the CVSS version from a config value, which defaults to `3.0`.
        (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
+* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+  the CVRF CSAF converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+  > A tool MAY implement an option to suppress this conversion.
+   If the CVRF CSAF converter converter is unable to construct a valid object with the information given, the CVRF CSAF converter converter SHALL
+  remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
+  Such warning SHOULD include the specific error that occurred.
+* `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
+  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is
+  a specific product name, version or family.
+  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  product specific note has been discovered and no products could been assigned to it.
+* `/vulnerabilities[]/remediations[]`:
+  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
+    `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
+    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
+  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
+    question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
+    Otherwise, the category `vendor_fix` MUST be set.
+    If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
+    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
+    to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
+  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
+    Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
+    if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
+    If it was the last product in that remediation, the remediation MUST be removed.
+  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+    including the products it was changed for.
 
 ### Conformance Clause 6: CSAF content management system
 
@@ -292,7 +332,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
 
   * `/$schema` with the value prescribed by the schema
   * `/document/csaf_version` with the value prescribed by the schema
-  * `/document/language`
+  * `/document/lang`
   * `/document/notes`
     * `legal_disclaimer` (Terms of use from the configuration)
     * `general` (General Security recommendations from the configuration)
@@ -315,7 +355,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * updates the following fields with the values given below or based on the templates from configuration:
     * `/$schema` with the value prescribed by the schema
     * `/document/csaf_version` with the value prescribed by the schema
-    * `/document/language`
+    * `/document/lang`
     * `/document/notes`
       * `legal_disclaimer` (Terms of use from the configuration)
       * `general` (General Security recommendations from the configuration)
@@ -489,7 +529,7 @@ A CSAF extended validator MAY provide an additional function to only run one or 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section [sec](#informative-test).
+* additionally performs all informative tests as given in section [sec](#informative-tests).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
@@ -576,6 +616,24 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
 
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
+* `/document/category`:
+  * If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 converter MUST try to convert the data into a
+    valid CSAF document in this profile according to CSAF 2.1.
+    For any version range of affected products that uses the strict `<`, i.e. not `<=`, as comparator of the last version constraint, the CSAF 2.0
+    to CSAF 2.1 converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
+    The CSAF 2.0 to CSAF 2.1 converter MUST output a warning that a product was added to the `product_tree` and the corresponding `/vulnerabilities[]`.
+    Such warning MUST contain the full product name and its path as well as the paths of the `/vulnerabilities[]` it was added to.
+    If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
+    `csaf_deprecated_security_advisory`.
+  * If the `/document/lang` is English or unspecified and the `document/title` starts with the string `Withdrawn`, the CSAF 2.0 to CSAF 2.1 converter
+    MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
+    > to the profile.
+
+    > A tool MAY support this detection for other languages.
+
+    If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category`
+    of the original CSAF document and output a warning a potentially withdrawn CSAF document was created which would result in an invalid CSAF.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
   
@@ -593,6 +651,14 @@ Secondly, the program fulfills the following for all items of:
   > This is a common case for CSAF 2.0 documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
+* `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
+  [sec](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that extension
+  is a specific product name, version or family.
+  In such case, the CSAF 2.0 to CSAF 2.1 SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CSAF 2.0 to CSAF 2.1 is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  product specific note has been discovered and no products could been assigned to it.
 * `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning MUST exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
@@ -607,6 +673,12 @@ Secondly, the program fulfills the following for all items of:
   The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value into the `disclosure_date` element.
+* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+  the CSAF 2.0 to CSAF 2.1 converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+  > A tool MAY implement an option to suppress this conversion.
+   If the CSAF 2.0 to CSAF 2.1 converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 converter SHALL
+  remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
+  Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/metrics/ssvc_v1`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
   vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 converter MUST convert that data into the `ssvc_v1`
   object within the current vulnerability.
@@ -616,6 +688,14 @@ Secondly, the program fulfills the following for all items of:
   remove the invalid `ssvc_v1` object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data failed.
   If the CSAF 2.0 to CSAF 2.1 converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 converter SHALL remove the `ssvc_v1`
   object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data would lead to loosing information.
+* `/vulnerabilities[]/notes`: If any `/vulnerabilities[]/notes` item contains one of the `category` and `title` combinations specified in
+  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that
+  extension is a specific product name, version or family.
+  In such case, the CSAF 2.0 to CSAF 2.1 converter SHALL try to add the corresponding products to the note item and output a warning that a potential
+  product specific note has been discovered and products have been assigned to it.
+  Such warning MUST also include the note and the assigned products.
+  If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a
+  potential product specific note has been discovered and no products could been assigned to it.
 * `/vulnerabilities[]/remediations[]`:
   * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
     if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
@@ -644,7 +724,8 @@ Secondly, the program fulfills the following for all items of:
 
 A library satisfies the "CSAF library" conformance profile if the library:
 
-* implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#schema-elements).
+* implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#date-and-time), [sec](#schema-elements),
+  [sec](#profiles) and [sec](#additional-conventions).
 * checks all elements according to the patterns provided in the JSON schema.
 * has a function that checks version ranges.
 * has a function that helps to create version ranges.
@@ -722,5 +803,18 @@ A program satisfies the "CSAF downloader" conformance profile if the program:
 * uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
 
 > A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
+
+### Conformance Clause 24: CSAF withdrawer
+
+A program satisfies the "CSAF withdrawer" conformance profile if the program:
+
+* satisfies the "CSAF post-processor" conformance profile.
+* keeps the original `/document/tracking/id`.
+* adds a new item to the revision history stating the revision metadata of the withdrawal.
+* adds the reasoning for withdrawal as specified in section [sec](#profile-7-withdrawn).
+* removes the `/product_tree`.
+* removes the `/vulnerabilities`.
+
+> A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
 
 -------
