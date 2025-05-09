@@ -119,6 +119,7 @@
   "impact-statement": "6.1.27.9",
   "inconsistent-cvss": "6.1.10",
   "inconsistent-disclosure-date": "6.1.45",
+  "inconsistent-epss-timestamp": "6.1.51",
   "inconsistent-ssvc-id": "6.1.47",
   "inconsistent-ssvc-timestamp": "6.1.49",
   "informative-references": "1.4",

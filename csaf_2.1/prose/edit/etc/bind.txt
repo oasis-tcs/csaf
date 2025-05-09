@@ -81,6 +81,7 @@ tests-01-mndtr-47-inconsistent-ssvc-id.md
 tests-01-mndtr-48-ssvc-decision-points.md
 tests-01-mndtr-49-inconsistent-ssvc-timestamp.md
 tests-01-mndtr-50-product-version-range-rules.md
+tests-01-mndtr-51-inconsistent-epss-timestamp.md
 tests-02-optional.md
 tests-02-opt-01-unused-definition-of-product-id.md
 tests-02-opt-02-missing-remediation.md
