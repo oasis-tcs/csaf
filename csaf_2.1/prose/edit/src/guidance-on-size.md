@@ -217,6 +217,8 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
+  * `/vulnerabilities[]/metrics[]/content/epss/percentile`
+  * `/vulnerabilities[]/metrics[]/content/epss/probability`
   * `/vulnerabilities[]/metrics[]/content/ssvc_v1/id`
   * `/vulnerabilities[]/metrics[]/content/ssvc_v1/role`
   * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/name`
@@ -284,6 +286,7 @@ The maximum length of strings representing a temporal value is given by the form
 * `/vulnerabilities[]/discovery_date`
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/involvements[]/date`
+* `/vulnerabilities[]/metrics[]/content/epss/timestamp`
 * `/vulnerabilities[]/metrics[]/content/ssvc_v1/timestamp`
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
