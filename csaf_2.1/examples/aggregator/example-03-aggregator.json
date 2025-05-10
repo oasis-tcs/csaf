@@ -18,6 +18,7 @@
           "name": "Example Company ProductCERT",
           "namespace": "https://psirt.example.com"
         },
+        "role": "csaf_provider",
         "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
       },
       "mirrors": [
@@ -32,6 +33,7 @@
           "name": "Example Coordinator CERT",
           "namespace": "https://cert.example"
         },
+        "role": "csaf_trusted_provider",
         "url": "https://cert.example/advisories/csaf/provider-metadata.json"
       },
       "mirrors": [
@@ -48,6 +50,7 @@
           "name": "Example Cooperation ProductCERT",
           "namespace": "https://psirt.example.net"
         },
+        "role": "csaf_publisher",
         "url": "https://www.example.net/.well-known/csaf/provider-metadata.json"
       },
       "mirrors": [

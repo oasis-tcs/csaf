@@ -19,6 +19,7 @@
       "required": [
         "last_updated",
         "publisher",
+        "role",
         "url"
       ],
       "properties": {
