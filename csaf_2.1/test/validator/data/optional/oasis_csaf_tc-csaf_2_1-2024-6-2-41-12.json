@@ -62,7 +62,7 @@
           "content": {
             "epss": {
               "percentile": "0.975650000",
-              "probability": "0.0.975650000",
+              "probability": "0.975650000",
               "timestamp": "2024-03-14T14:30:00.000-20:00"
             }
           },

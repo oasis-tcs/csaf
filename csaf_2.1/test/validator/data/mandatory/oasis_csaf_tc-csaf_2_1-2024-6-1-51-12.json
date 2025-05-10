@@ -50,7 +50,7 @@
           "content": {
             "epss": {
               "percentile": "0.999990000",
-              "probability": "0.0.975650000",
+              "probability": "0.975650000",
               "timestamp": "2024-02-28T14:30:00.000-19:00"
             }
           },
