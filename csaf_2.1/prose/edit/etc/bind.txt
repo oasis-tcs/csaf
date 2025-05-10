@@ -81,6 +81,7 @@ tests-01-mndtr-47-inconsistent-ssvc-id.md
 tests-01-mndtr-48-ssvc-decision-points.md
 tests-01-mndtr-49-inconsistent-ssvc-timestamp.md
 tests-01-mndtr-50-product-version-range-rules.md
+tests-01-mndtr-51-inconsistent-epss-timestamp.md
 tests-02-optional.md
 tests-02-opt-01-unused-definition-of-product-id.md
 tests-02-opt-02-missing-remediation.md
@@ -122,6 +123,7 @@ tests-02-opt-37-usage-of-unknown-ssvc-role.md
 tests-02-opt-38-usage-of-deprecated-profile.md
 tests-02-opt-39-profile-tests.md
 tests-02-opt-40-product-description-without-product.md
+tests-02-opt-41-old-epss-timestamp.md
 tests-03-informative.md
 distributing.md
 safety-security-and-data-protection.md

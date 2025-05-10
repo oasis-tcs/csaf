@@ -1288,6 +1288,36 @@
                     "cvss_v4": {
                       "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
                     },
+                    "epss": {
+                      "title": "EPSS",
+                      "description": "Contains the EPSS data.",
+                      "type": "object",
+                      "required": [
+                        "percentile",
+                        "probability",
+                        "timestamp"
+                      ],
+                      "properties": {
+                        "percentile": {
+                          "title": "Percentile",
+                          "description": "Contains the rank ordering of probabilities from highest to lowest.",
+                          "type": "string",
+                          "pattern": "^(([0]\\.([0-9])+)|([1]\\.[0]+))$"
+                        },
+                        "probability": {
+                          "title": "Probability",
+                          "description": "Contains the likelihood that any exploitation activity for this Vulnerability is being observed in the 30 days following the given timestamp.",
+                          "type": "string",
+                          "pattern": "^(([0]\\.([0-9])+)|([1]\\.[0]+))$"
+                        },
+                        "timestamp": {
+                          "title": "EPSS timestamp",
+                          "description": "Holds the date and time the EPSS value was recorded.",
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    },
                     "ssvc_v1": {
                       "$ref": "https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json"
                     }
