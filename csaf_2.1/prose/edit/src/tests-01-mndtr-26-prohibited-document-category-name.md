@@ -18,6 +18,7 @@ Therefore, it MUST be skipped if the document category matches one of the values
 >  csaf_vex
 >  csaf_deprecated_security_advisory
 >  csaf_withdrawn
+>  csaf_superseded
 > ```
 
 This is the only mandatory test related to the profile "CSAF Base" as the required fields SHALL be checked by validating the JSON schema.
@@ -39,6 +40,7 @@ The relevant path for this test is:
   V_eX
   Deprecated Security Advisory
   withdrawn
+  Superseded
 ```
 
 *Example 2 (which fails the test):*

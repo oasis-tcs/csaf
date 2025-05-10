@@ -182,6 +182,8 @@ The value of MUST obey to exactly one of the following options:
         <4.2
         <V3.0.29
         >=8.1.5
+        >10.9a|!=10.9c|!=10.9f|<=10.9k
+        <2024-4-pabc0019|>2024-10-pefd0010|<2024-12-pjkl2010|>2024-12-pjkl5010|<=2025-1-pghi1001
     ```
 
 #### Branches Type - Product

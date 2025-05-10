@@ -45,6 +45,9 @@ CWE
 CYCLONEDX161
 :    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.6.1_, cyclonedx.org, November 7, 2024, https://github.com/CycloneDX/specification/blob/1.6.1/schema/bom-1.6.schema.json.
 
+EPSS
+:    _Exploit Prediction Scoring System (EPSS)_,  FIRST.Org, Inc., https://www.first.org/epss/
+
 FETCH
 :    _Fetch: Living Standard_, https://fetch.spec.whatwg.org.
 

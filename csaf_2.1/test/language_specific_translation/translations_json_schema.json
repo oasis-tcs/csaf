@@ -17,8 +17,20 @@
           "type": "string",
           "minLength": 1
         },
+        "reasoning_for_supersession": {
+          "title": "Reasoning for Supersession",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        },
         "reasoning_for_withdrawal": {
           "title": "Reasoning for Withdrawal",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        },
+        "superseding_document": {
+          "title": "Superseding Document",
           "description": "Contains the language specific translation of the term.",
           "type": "string",
           "minLength": 1

@@ -432,7 +432,7 @@ Every Metric item of value type `object` with the mandatory properties `content`
 
 ##### Vulnerabilities Property - Metrics - Content
 
-Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`) and CVSS v4 (`cvss_v4`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
+Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`), EPSS (`epss`), and SSVC v1 (`ssvc_v1`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
 A Content object has at least 1 property.
 
 ```
@@ -446,6 +446,9 @@ A Content object has at least 1 property.
             ]
           },
           "cvss_v4": {
+            // ...
+          },
+          "epss": {
             // ...
           },
           "ssvc_v1": {
@@ -466,6 +469,40 @@ The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema
 
 The property SSVC v1 (`ssvc_v1`) holding an SSVC Decision Point Value Selection v1.0.1 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json](https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json).
+
+The property EPSS (`epss`) of value type `object` with the 3 mandatory properties Percentile (`percentile`), Probability (`probability`) and EPSS timestamp (`timestamp`) contains the EPSS data.
+
+```
+            "properties": {
+              "percentile": {
+                // ...
+              },
+              "probability": {
+                // ...
+              },
+              "timestamp": {
+                // ...
+              }
+            }
+```
+
+Percentile (`percentile`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^(([0]\\.([0-9])+)|([1]\\.[0]+))$
+```
+
+The value contains the rank ordering of probabilities from highest to lowest.
+
+Probability (`probability`) with `pattern` (regular expression):
+
+```
+    ^(([0]\\.([0-9])+)|([1]\\.[0]+))$
+```
+
+The value contains the likelihood that any exploitation activity for this Vulnerability is being observed in the 30 days following the given timestamp.
+
+EPSS timestamp (`timestamp`) of value type `string` with format `date-time` holds the date and time the EPSS value was recorded.
 
 ##### Vulnerabilities Property - Metrics - Products
 
@@ -505,9 +542,9 @@ If a note is specific to a product or product group it MUST be bound via the `gr
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
-The eight defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),
+The nine defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
-and Under investigation (`under_investigation`) are all of value type Products (`products_t`).
+Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
 
 ```
     "product_status": {
@@ -535,7 +572,10 @@ and Under investigation (`under_investigation`) are all of value type Products (
           // ...
         },
         "under_investigation": {
-          // ..
+          // ...
+        },
+        "unknown": {
+          // ...
         }
       }
     },
@@ -563,7 +603,7 @@ No remediation is required regarding this vulnerability.
 
 > This could for instance be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist,
 > or other factors.
-See `/vulnerabilities[]/threats` in category `impact` for more details.
+> See `/vulnerabilities[]/flags` and `/vulnerabilities[]/threats` in category `impact` for more details.
 
 Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be
 affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
@@ -574,6 +614,51 @@ the vendor-recommended versions for fixing the vulnerability.
 Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether these versions are or
 are not affected by the vulnerability.
 However, it is still under investigation - the result will be provided in a later release of the document.
+
+Unknown (`unknown`) of value type Products (`products_t`) represents that it is not known whether these versions are or are not affected by the
+vulnerability.
+There is also no investigation and therefore the status might never be determined.
+
+The individual properties form the following product status groups:
+
+* Affected:
+
+   ```
+   /vulnerabilities[]/product_status/first_affected[]
+   /vulnerabilities[]/product_status/known_affected[]
+   /vulnerabilities[]/product_status/last_affected[]
+   ```
+
+* Not affected:
+
+  ```
+  /vulnerabilities[]/product_status/known_not_affected[]
+  ```
+
+* Fixed:
+
+  ```
+  /vulnerabilities[]/product_status/first_fixed[]
+  /vulnerabilities[]/product_status/fixed[]
+  ```
+
+* Under investigation:
+
+  ```
+  /vulnerabilities[]/product_status/under_investigation[]
+  ```
+
+* Unknown:
+
+  ```
+  /vulnerabilities[]/product_status/unknown[]
+  ```
+
+As the aforementioned product status groups contradict each other,
+the sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
+
+> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
+> i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
 #### Vulnerabilities Property - References
 
@@ -705,15 +790,15 @@ Therefore, such a combination MUST NOT exist in a vulnerability item for the sam
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed, discouraged and prohibited combinations:
 
-| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Recommended |
-|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|
-| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
-| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
-| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | allowed     |
-| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     |
-| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     |
-| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | allowed     |
-| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     |
+| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Unknown     | Recommended |
+|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|:-----------:|
+| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
+| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
+| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
+| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     | allowed     |
+| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     | allowed     |
+| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
+| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
 
 ##### Vulnerabilities Property - Remediations - Date
 

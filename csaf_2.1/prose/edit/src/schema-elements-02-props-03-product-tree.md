@@ -176,7 +176,7 @@ the Full Product Name element, which is referenced as the second element of the 
         "relates_to_product_reference": "CSAFPID-908070602",
         "full_product_name": {
           "product_id": "CSAFPID-908070603",
-          "name": "Cisco AnyConnect Secure Mobility Client 2.3.185 installed on Microsoft Windows"
+          "name": "Cisco AnyConnect Secure Mobility Client 4.9.04053 installed on Microsoft Windows"
         }
       }
     ]

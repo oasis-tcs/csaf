@@ -1,4 +1,4 @@
-name: Validator Data Test (CSAF 2.1)
+name: Translation Test (CSAF 2.1)
 
 on:
   push:

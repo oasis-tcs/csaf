@@ -4,7 +4,9 @@
   "translation": {
     "de": {
       "product_description": "Produktbeschreibung",
-      "reasoning_for_withdrawal": "Begründung für die Zurückziehung"
+      "reasoning_for_supersession": "Begründung für die Ersetzung",
+      "reasoning_for_withdrawal": "Begründung für die Zurückziehung",
+      "superseding_document": "Ersetzendes Dokument"
     }
   }
 }

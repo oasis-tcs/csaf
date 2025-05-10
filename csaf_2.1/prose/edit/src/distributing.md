@@ -185,7 +185,12 @@ value of `/document/tracking/initial_release_date`.
 
 ### Requirement 12: index.txt
 
-The index.txt file within MUST provide a list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+The file index.txt MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+Each entry SHALL be terminated by a newline sequence.
+The last entry MAY skip the newline sequence.
+
+> If different TLP labels are used, multiple index.txt exist.
+> However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
 *Example 1:*
 

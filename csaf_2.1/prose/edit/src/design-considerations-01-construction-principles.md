@@ -37,6 +37,8 @@ Delegation to industry best practices technologies is used in referencing schema
 * Classification for Document Distribution
   * Traffic Light Protocol (TLP)
     * Default Definition: https://www.first.org/tlp/
+* Exploit Prediction
+  * Exploit Prediction Scoring System (EPSS) [cite](#EPSS)
 * Platform Data
   * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
 * Vulnerability Categorization
