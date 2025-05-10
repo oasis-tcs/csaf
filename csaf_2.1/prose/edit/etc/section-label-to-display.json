@@ -169,6 +169,7 @@
   "non-public-sharing-group-with-max-uuid": "6.1.38",
   "normative-references": "1.3",
   "notes-type": "3.1.5",
+  "old-epss-timestamp": "6.2.41",
   "older-current-release-date-than-revision-history": "6.2.6",
   "older-initial-release-date-than-revision-history": "6.2.5",
   "optional-profile-tests": "6.2.39",
