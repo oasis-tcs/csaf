@@ -13,7 +13,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Branches Recursion Depth (failing example 2)",
+    "title": "Mandatory Test: Branches Recursion Depth (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-34-02",

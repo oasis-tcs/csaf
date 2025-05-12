@@ -51,7 +51,7 @@ CSAF downloader
 :    A program that retrieves CSAF documents in an automated fashion.
 
 CSAF extended validator
-:    A CSAF basic validator that additionally performs optional tests.
+:    A CSAF basic validator that additionally performs recommended tests.
 
 CSAF full validator
 :    A CSAF extended validator that additionally performs informative tests.

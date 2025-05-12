@@ -47,7 +47,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to assets of the asset database.
 * **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs recommended tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
@@ -525,9 +525,9 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section [sec](#optional-tests).
+* additionally performs all recommended tests as given in section [sec](#recommended-tests).
 
-A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
+A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
 ### Conformance Clause 16: CSAF full validator
 

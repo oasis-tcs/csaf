@@ -20,7 +20,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory test: Document Notes (failing example 1)",
+    "title": "Mandatory Test: Document Notes (failing example 1)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-14-01",

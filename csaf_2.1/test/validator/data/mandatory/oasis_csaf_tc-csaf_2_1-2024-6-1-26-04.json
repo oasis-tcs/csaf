@@ -27,7 +27,7 @@
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
-    "title": "Mandatory test: Prohibited Document Category Name (failing example 4)",
+    "title": "Mandatory Test: Prohibited Document Category Name (failing example 4)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-26-04",

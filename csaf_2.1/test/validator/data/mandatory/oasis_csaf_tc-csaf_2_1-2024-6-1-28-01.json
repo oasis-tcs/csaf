@@ -15,7 +15,7 @@
       "namespace": "https://csaf.io"
     },
     "source_lang": "en-US",
-    "title": "Mandatory test: Translation (failing example 1)",
+    "title": "Mandatory Test: Translation (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-28-01",
