@@ -13,7 +13,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Optional test: Usage of Deprecated CWE (failing example 2)",
+    "title": "Recommended Test: Usage of Deprecated CWE (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-21T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-23-02",

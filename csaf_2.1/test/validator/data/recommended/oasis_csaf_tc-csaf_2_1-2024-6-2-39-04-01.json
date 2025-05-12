@@ -28,7 +28,7 @@
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
-    "title": "Optional test: Language Specific Superseding Document (failing example 1)",
+    "title": "Recommended Test: Language Specific Superseding Document (failing example 1)",
     "tracking": {
       "current_release_date": "2024-05-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-04-01",
