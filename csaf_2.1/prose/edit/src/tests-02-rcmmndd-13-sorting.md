@@ -1,4 +1,4 @@
-### Sorting{#optional-tests--sorting}
+### Sorting{#recommended-tests--sorting}
 
 It MUST be tested that all keys in a CSAF document are sorted alphabetically.
 

@@ -11,7 +11,7 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*
 
 ```
-    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
     "tracking": {
       // ...
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
