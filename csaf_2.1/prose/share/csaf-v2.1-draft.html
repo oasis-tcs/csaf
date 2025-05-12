@@ -41,8 +41,8 @@
     <h2 id="committee-specification-draft-01">
       Committee Specification Draft 01
     </h2>
-    <h2 id="30-april-2025">
-      30 April 2025
+    <h2 id="28-may-2025">
+      28 May 2025
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -165,7 +165,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. 30 April 2025. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen, and Thomas Schmidt. 28 May 2025. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -657,7 +657,7 @@
                 </li>
               </ul>
             </li>
-            <li>6.2 <a href="#optional-tests">Optional Tests</a>
+            <li>6.2 <a href="#recommended-tests">Recommended Tests</a>
               <ul>
                 <li>6.2.1 <a href="#unused-definition-of-product-id">Unused Definition of Product ID</a>
                 </li>
@@ -683,7 +683,7 @@
                 </li>
                 <li>6.2.12 <a href="#missing-document-language">Missing Document Language</a>
                 </li>
-                <li>6.2.13 <a href="#optional-tests--sorting">Sorting</a>
+                <li>6.2.13 <a href="#recommended-tests--sorting">Sorting</a>
                 </li>
                 <li>6.2.14 <a href="#use-of-private-language">Use of Private Language</a>
                 </li>
@@ -735,7 +735,7 @@
                 </li>
                 <li>6.2.38 <a href="#usage-of-deprecated-profile">Usage of Deprecated Profile</a>
                 </li>
-                <li>6.2.39 <a href="#optional-profile-tests">Profile Tests</a>
+                <li>6.2.39 <a href="#recommended-profile-tests">Profile Tests</a>
                   <ul>
                     <li>6.2.39.1 <a href="#missing-fixed-product">Missing Fixed Product</a>
                     </li>
@@ -1064,7 +1064,7 @@
         CSAF extended validator
       </dt>
       <dd>
-        A CSAF basic validator that additionally performs optional tests.
+        A CSAF basic validator that additionally performs recommended tests.
       </dd>
       <dt id="def;csaf-full-validator">
         CSAF full validator
@@ -8966,11 +8966,11 @@
         The document is in status <code>final</code> but the EPSS <code>timestamp</code> is newer than the <code>date</code> of newest item in the <code>revision_history</code>.
       </p>
     </blockquote>
-    <h2 id="62-optional-tests-">
-      6.2 Optional Tests <a id='optional-tests'></a>
+    <h2 id="62-recommended-tests-">
+      6.2 Recommended Tests <a id='recommended-tests'></a>
     </h2>
     <p>
-      Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
+      Recommended tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid. These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF. A program MUST handle a test failure as a warning.
     </p>
     <h3 id="621-unused-definition-of-product-id-">
       6.2.1 Unused Definition of Product ID <a id='unused-definition-of-product-id'></a>
@@ -9308,7 +9308,7 @@
     </h3>
     <blockquote>
       <p>
-        The TLP label is now required by the schema. Therefore, the optional test is obsolete. This section is kept to document that change and keep the numbering of the remaining sections stable.
+        The TLP label is now required by the schema. Therefore, the recommended test is obsolete. This section is kept to document that change and keep the numbering of the remaining sections stable.
       </p>
     </blockquote>
     <h3 id="6211-missing-canonical-url-">
@@ -9392,7 +9392,7 @@
       </p>
     </blockquote>
     <h3 id="6213-sorting-">
-      6.2.13 Sorting <a id='optional-tests--sorting'></a>
+      6.2.13 Sorting <a id='recommended-tests--sorting'></a>
     </h3>
     <p>
       It MUST be tested that all keys in a CSAF document are sorted alphabetically.
@@ -9402,7 +9402,7 @@
     </p>
     <pre><code>  /</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='optional-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-137'></a>
+      <em>Example 1 (which fails the test):</em><a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-137'></a>
     </p>
     <pre><code>  "document": {
     "csaf_version": "2.1",
@@ -9694,7 +9694,7 @@
     <p>
       <em>Example 1 (which fails the test):</em><a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-146'></a>
     </p>
-    <pre><code>    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    <pre><code>    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
     "tracking": {
       // ...
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
@@ -10357,10 +10357,10 @@
       </p>
     </blockquote>
     <h3 id="6239-profile-tests-">
-      6.2.39 Profile Tests <a id='optional-profile-tests'></a>
+      6.2.39 Profile Tests <a id='recommended-profile-tests'></a>
     </h3>
     <p>
-      This subsubsection structures the optional tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+      This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
     </p>
     <h4 id="62391-missing-fixed-product-">
       6.2.39.1 Missing Fixed Product <a id='missing-fixed-product'></a>
@@ -11891,6 +11891,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -11905,6 +11906,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -12267,7 +12269,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         <strong>CSAF basic validator</strong>: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
       </li>
       <li>
-        <strong>CSAF extended validator</strong>: A CSAF basic validator that additionally performs optional tests.
+        <strong>CSAF extended validator</strong>: A CSAF basic validator that additionally performs recommended tests.
       </li>
       <li>
         <strong>CSAF full validator</strong>: A CSAF extended validator that additionally performs informative tests.
@@ -13166,11 +13168,11 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     <ul>
       <li>satisfies the "CSAF basic validator" conformance profile.
       </li>
-      <li>additionally performs all optional tests as given in section <a href="#optional-tests">6.2</a>.
+      <li>additionally performs all recommended tests as given in section <a href="#recommended-tests">6.2</a>.
       </li>
     </ul>
     <p>
-      A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
+      A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
     </p>
     <h3 id="9116-conformance-clause-16-csaf-full-validator-">
       9.1.16 Conformance Clause 16: CSAF full validator <a id='conformance-clause-16-csaf-full-validator'></a>
@@ -15018,7 +15020,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       <tbody>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240124-dev
+            csaf-v2.1-wd20240124-dev
           </td>
           <td style="text-align: left;">
             2024-01-24
@@ -15032,7 +15034,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240228-dev
+            csaf-v2.1-wd20240228-dev
           </td>
           <td style="text-align: left;">
             2024-02-28
@@ -15046,7 +15048,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240327-dev
+            csaf-v2.1-wd20240327-dev
           </td>
           <td style="text-align: left;">
             2024-03-27
@@ -15060,7 +15062,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240424-dev
+            csaf-v2.1-wd20240424-dev
           </td>
           <td style="text-align: left;">
             2024-04-24
@@ -15074,7 +15076,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240529-dev
+            csaf-v2.1-wd20240529-dev
           </td>
           <td style="text-align: left;">
             2024-05-29
@@ -15088,7 +15090,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240626-dev
+            csaf-v2.1-wd20240626-dev
           </td>
           <td style="text-align: left;">
             2024-06-26
@@ -15102,7 +15104,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240731-dev
+            csaf-v2.1-wd20240731-dev
           </td>
           <td style="text-align: left;">
             2024-07-31
@@ -15116,7 +15118,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20240828-dev
+            csaf-v2.1-wd20240828-dev
           </td>
           <td style="text-align: left;">
             2024-08-28
@@ -15130,7 +15132,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20241030-dev
+            csaf-v2.1-wd20241030-dev
           </td>
           <td style="text-align: left;">
             2024-10-30
@@ -15144,7 +15146,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20241127-dev
+            csaf-v2.1-wd20241127-dev
           </td>
           <td style="text-align: left;">
             2024-11-27
@@ -15158,7 +15160,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20250129-dev
+            csaf-v2.1-wd20250129-dev
           </td>
           <td style="text-align: left;">
             2025-01-29
@@ -15172,7 +15174,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20250226-dev
+            csaf-v2.1-wd20250226-dev
           </td>
           <td style="text-align: left;">
             2025-02-26
@@ -15186,7 +15188,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20250326-dev
+            csaf-v2.1-wd20250326-dev
           </td>
           <td style="text-align: left;">
             2025-03-26
@@ -15200,10 +15202,24 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            csaf-v2.0-wd20250430-dev
+            csaf-v2.1-wd20250430-dev
           </td>
           <td style="text-align: left;">
             2025-04-30
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Next Editor Revision
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
+            csaf-v2.1-wd20250528-dev
+          </td>
+          <td style="text-align: left;">
+            2025-05-28
           </td>
           <td style="text-align: left;">
             Stefan Hagen and Thomas Schmidt

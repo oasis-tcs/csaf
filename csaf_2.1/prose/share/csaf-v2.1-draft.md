@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 30 April 2025
+## 28 May 2025
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -73,7 +73,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 30 April 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 28 May 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -301,7 +301,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.1.49 [Inconsistent SSVC Timestamp](#inconsistent-ssvc-timestamp)  
 		6.1.50 [Product Version Range Rules](#product-version-range-rules)  
 		6.1.51 [Inconsistent EPSS Timestamp](#inconsistent-epss-timestamp)  
-	6.2 [Optional Tests](#optional-tests)  
+	6.2 [Recommended Tests](#recommended-tests)  
 		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
 		6.2.2 [Missing Remediation](#missing-remediation)  
 		6.2.3 [Missing Metric](#missing-metric)  
@@ -314,7 +314,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.10 [Missing TLP label (obsolete)](#missing-tlp-label)  
 		6.2.11 [Missing Canonical URL](#missing-canonical-url)  
 		6.2.12 [Missing Document Language](#missing-document-language)  
-		6.2.13 [Sorting](#optional-tests--sorting)  
+		6.2.13 [Sorting](#recommended-tests--sorting)  
 		6.2.14 [Use of Private Language](#use-of-private-language)  
 		6.2.15 [Use of Default Language](#use-of-default-language)  
 		6.2.16 [Missing Product Identification Helper](#missing-product-identification-helper)  
@@ -340,7 +340,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.36 [Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)  
 		6.2.37 [Usage of Unknown SSVC Role](#usage-of-unknown-ssvc-role)  
 		6.2.38 [Usage of Deprecated Profile](#usage-of-deprecated-profile)  
-		6.2.39 [Profile Tests](#optional-profile-tests)  
+		6.2.39 [Profile Tests](#recommended-profile-tests)  
 			6.2.39.1 [Missing Fixed Product](#missing-fixed-product)  
 			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)  
 			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)  
@@ -498,7 +498,7 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;csaf-downloader">CSAF downloader</dt>
   <dd>A program that retrieves CSAF documents in an automated fashion.</dd>
   <dt id="def;csaf-extended-validator">CSAF extended validator</dt>
-  <dd>A CSAF basic validator that additionally performs optional tests.</dd>
+  <dd>A CSAF basic validator that additionally performs recommended tests.</dd>
   <dt id="def;csaf-full-validator">CSAF full validator</dt>
   <dd>A CSAF extended validator that additionally performs informative tests.</dd>
   <dt id="def;csaf-library">CSAF library</dt>
@@ -7237,9 +7237,9 @@ The relevant path for this test is:
 
 > The document is in status `final` but the EPSS `timestamp` is newer than the `date` of newest item in the `revision_history`.
 
-## 6.2 Optional Tests <a id='optional-tests'></a>
+## 6.2 Recommended Tests <a id='recommended-tests'></a>
 
-Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
+Recommended tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
 These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF.
 A program MUST handle a test failure as a warning.
 
@@ -7563,7 +7563,7 @@ The relevant paths for this test are:
 
 ### 6.2.10 Missing TLP label (obsolete) <a id='missing-tlp-label'></a>
 
-> The TLP label is now required by the schema. Therefore, the optional test is obsolete.
+> The TLP label is now required by the schema. Therefore, the recommended test is obsolete.
 > This section is kept to document that change and keep the numbering of the remaining sections stable.
 
 ### 6.2.11 Missing Canonical URL <a id='missing-canonical-url'></a>
@@ -7637,7 +7637,7 @@ The relevant path for this test is:
 
 > The document language is not defined.
 
-### 6.2.13 Sorting <a id='optional-tests--sorting'></a>
+### 6.2.13 Sorting <a id='recommended-tests--sorting'></a>
 
 It MUST be tested that all keys in a CSAF document are sorted alphabetically.
 
@@ -7647,7 +7647,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 1 (which fails the test):*<a id='optional-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-137'></a>
+*Example 1 (which fails the test):*<a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-137'></a>
 
 ```
   "document": {
@@ -7915,7 +7915,7 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-146'></a>
 
 ```
-    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
     "tracking": {
       // ...
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
@@ -8546,9 +8546,9 @@ The relevant path for this test is:
 
 > The document category starts with `csaf_deprecated_`.
 
-### 6.2.39 Profile Tests <a id='optional-profile-tests'></a>
+### 6.2.39 Profile Tests <a id='recommended-profile-tests'></a>
 
-This subsubsection structures the optional tests for the profiles. Not all tests apply for all profiles.
+This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
 Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
@@ -9987,6 +9987,7 @@ Each such folder MUST at least:
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -10001,6 +10002,7 @@ Each such folder MUST at least:
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -10282,7 +10284,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to assets of the asset database.
 * **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs recommended tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
@@ -10760,9 +10762,9 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section [6.2](#optional-tests).
+* additionally performs all recommended tests as given in section [6.2](#recommended-tests).
 
-A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
+A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
 ### 9.1.16 Conformance Clause 16: CSAF full validator <a id='conformance-clause-16-csaf-full-validator'></a>
 
@@ -11206,20 +11208,21 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
-| csaf-v2.0-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
-| csaf-v2.0-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240327-dev | 2024-03-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250326-dev | 2025-03-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250430-dev | 2025-04-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
+| csaf-v2.1-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240327-dev | 2024-03-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250326-dev | 2025-03-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250430-dev | 2025-04-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250528-dev | 2025-05-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>
