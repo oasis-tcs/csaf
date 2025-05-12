@@ -562,6 +562,7 @@ Each such folder MUST at least:
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -576,6 +577,7 @@ Each such folder MUST at least:
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         },
         "mirrors": [
