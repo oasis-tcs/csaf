@@ -9,8 +9,8 @@ The relevant path for this test is:
   /
 ```
 
-> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that
-> has all references integrated and sets `additionalProperties` to `false` for every key of type `object`.
+> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated
+> and sets `additionalProperties` respectively `unevaluatedProperties` to `false` at all appropriate places to detect additional properties.
 
 *Example 1 (which fails the test):*
 
