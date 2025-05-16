@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Additional Properties (failing example 1)",
+    "title": "Recommended Test: Additional Properties (valid example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-20-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-20-11",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -45,7 +45,6 @@
             "cvss_v3": {
               "baseScore": 6.4,
               "baseSeverity": "MEDIUM",
-              "custom_property": "any",
               "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:N/I:H/A:L",
               "version": "3.1"
             }
