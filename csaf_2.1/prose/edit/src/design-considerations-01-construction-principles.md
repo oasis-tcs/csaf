@@ -57,8 +57,9 @@ Delegation to industry best practices technologies is used in referencing schema
   * Common Vulnerability Scoring System (CVSS) Version 2.0 [cite](#CVSS2)
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
 
-Even though the JSON schema does not prohibit specifically additional properties and custom keywords,
+Even though not all - especially the referenced ones - JSON schemas prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
+The JSON schemas defined in this standard do not allow the use of additional properties and custom keywords.
 
 > The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and
 > need for dedicated parsers as well as other tools on the side of the consuming parties.
