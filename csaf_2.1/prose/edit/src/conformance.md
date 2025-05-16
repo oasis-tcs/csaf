@@ -104,6 +104,8 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CVRF documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CVRF CSAF converter converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
@@ -582,6 +584,8 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CSAF 2.0 documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
