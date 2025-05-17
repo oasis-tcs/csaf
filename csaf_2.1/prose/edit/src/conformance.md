@@ -111,7 +111,7 @@ Secondly, the program fulfills the following for all items of:
 * value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF converter MUST replace the seconds
   and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
-  The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not and the path where it occurred.
+  The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
   the CVRF CSAF converter replaces those with the category `product_name`.
   In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
@@ -272,6 +272,7 @@ Secondly, the program fulfills the following for all items of:
   * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
   * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
+* The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
 
 ### Conformance Clause 6: CSAF content management system
 
@@ -593,8 +594,7 @@ Secondly, the program fulfills the following for all items of:
 * value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 converter MUST replace
   the seconds and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
-  The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not
-  and the path where it occurred.
+  The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:
