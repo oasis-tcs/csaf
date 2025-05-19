@@ -82,7 +82,8 @@
                 "description": "Contains the base url for the directory-based distribution.",
                 "$ref": "#/$defs/url_t"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "rolie": {
             "title": "ROLIE",
@@ -144,7 +145,8 @@
                       "description": "Contains the URL of the feed.",
                       "$ref": "#/$defs/json_url_t"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "services": {
@@ -159,9 +161,11 @@
                   "$ref": "#/$defs/json_url_t"
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "last_updated": {
@@ -215,7 +219,8 @@
             "description": "Contains the URL where the key can be retrieved.",
             "$ref": "#/$defs/url_t"
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "publisher": {
@@ -234,5 +239,6 @@
         "csaf_trusted_provider"
       ]
     }
-  }
+  },
+  "additionalProperties": false
 }
