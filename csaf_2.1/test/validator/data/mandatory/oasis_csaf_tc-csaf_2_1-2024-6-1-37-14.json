@@ -31,8 +31,8 @@
   },
   "vulnerabilities": [
     {
-      "disclosure_date": "2016-12-31T23:59:60+00:00",
-      "discovery_date": "2017-01-01T02:59:60+03:00"
+      "disclosure_date": "2016-12-31T23:59:59.9999999999+00:00",
+      "discovery_date": "2017-01-01T02:59:59.9999995+03:00"
     }
   ]
 }

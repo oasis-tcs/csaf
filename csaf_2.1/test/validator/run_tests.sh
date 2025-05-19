@@ -13,7 +13,7 @@ VALIDATOR=csaf_2.1/test/validator.py
 STRICT_GENERATOR=csaf_2.1/test/generate_strict_schema.py
 TESTPATH=csaf_2.1/test/validator/data/$1/*.json
 EXCLUDE='oasis_csaf_tc-csaf_2_1-2024-6-1-08-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-09-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-06.json|oasis_csaf_tc-csaf_2_1-2024-6-1-46-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-46-02.json|oasis_csaf_tc-csaf_2_1-2024-6-2-10-01.json|oasis_csaf_tc-csaf_2_1-2024-6-2-20-01.json|oasis_csaf_tc-csaf_2_1-2024-6-2-20-02.json'
-EXCLUDE_LEAP='oasis_csaf_tc-csaf_2_1-2024-6-1-37-12.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-13.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-14.json'
+EXCLUDE_LEAP='oasis_csaf_tc-csaf_2_1-2024-6-1-37-07.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-08.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-09.json'
 
 FAIL=0
 
