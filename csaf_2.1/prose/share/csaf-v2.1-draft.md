@@ -391,6 +391,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	7.3 [Retrieving rules](#retrieving-rules)  
 		7.3.1 [Finding provider-metadata.json](#finding-provider-metadata-json)  
 		7.3.2 [Retrieving CSAF documents](#retrieving-csaf-documents)  
+	7.4 [Distributing v2.0 and v2.1 in Parallel](#distributing-v2-0-and-v2-1-in-parallel)  
 8. [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)  
 9. [Conformance](#conformance)  
 	9.1 [Conformance Targets](#conformance-targets)  
@@ -9047,6 +9048,9 @@ This section lists requirements and roles defined for distributing CSAF document
 The first subsection provides all requirements - the second one the roles.
 It is mandatory to fulfill the basic role "CSAF publisher". The last section provides specific rules for the process of retrieving CSAF documents.
 
+
+-------
+
 ## 7.1 Requirements <a id='requirements'></a>
 
 The requirements in this subsection are consecutively numbered to be able to refer to them directly.
@@ -9796,6 +9800,8 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
    They MUST be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
 4. Execute mandatory tests on the CSAF document.
+
+## 7.4 Distributing v2.0 and v2.1 in Parallel <a id='distributing-v2-0-and-v2-1-in-parallel'></a>
 
 -------
 

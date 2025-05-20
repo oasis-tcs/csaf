@@ -40,5 +40,3 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
    They MUST be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
 4. Execute mandatory tests on the CSAF document.
-
--------
