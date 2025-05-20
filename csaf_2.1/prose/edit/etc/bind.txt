@@ -122,7 +122,10 @@ tests-02-opt-38-usage-of-deprecated-profile.md
 tests-02-opt-39-profile-tests.md
 tests-02-opt-40-product-description-without-product.md
 tests-03-informative.md
-distributing.md
+distributing-00.md
+distributing-01-requirements.md
+distributing-02-roles.md
+distributing-03-retrieving-rules.md
 safety-security-and-data-protection.md
 conformance.md
 acknowledgements.md
