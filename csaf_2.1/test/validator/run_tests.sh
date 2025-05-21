@@ -1,13 +1,13 @@
 #!/bin/bash
 
 STRICT_BUILD=csaf_2.1/build
-ORIG_SCHEMA=csaf_2.1/json_schema/csaf_json_schema.json
+ORIG_SCHEMA=csaf_2.1/json_schema/csaf.json
 CSAF_STRICT_SCHEMA=${STRICT_BUILD}/csaf_strict_schema.json
 CVSS_20_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v2.0_strict.json
 CVSS_30_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.0_strict.json
 CVSS_31_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.1_strict.json
 CVSS_40_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v4.0_strict.json
-META_SCHEMA=csaf_2.1/json_schema/meta_json_schema.json
+META_SCHEMA=csaf_2.1/json_schema/meta.json
 SSVC_101_DP_SCHEMA=csaf_2.1/referenced_schema/certcc/Decision_Point-1-0-1.schema.json
 SSVC_101_DPVS_SCHEMA=csaf_2.1/referenced_schema/certcc/Decision_Point_Value_Selection-1-0-1.schema.json
 VALIDATOR=csaf_2.1/test/validator.py

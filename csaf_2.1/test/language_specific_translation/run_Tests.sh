@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCHEMA=csaf_2.1/test/language_specific_translation/translations_json_schema.json
-META_SCHEMA=csaf_2.1/json_schema/meta_json_schema.json
+META_SCHEMA=csaf_2.1/json_schema/meta.json
 VALIDATOR=csaf_2.1/test/validator.py
 TESTPATH=csaf_2.1/language_specific_translation/
 TESTFILE=translations.json

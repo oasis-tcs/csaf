@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCHEMA=csaf_2.1/json_schema/csaf_json_schema.json
+SCHEMA=csaf_2.1/json_schema/csaf.json
 VALIDATOR=csaf_2.1/test/cpe/test-regex.js
 DATA_VALID=csaf_2.1/test/cpe/data/valid/cpe.txt
 DATA_INVALID=csaf_2.1/test/cpe/data/invalid/cpe.txt

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
   "document": {
     "category": "csaf_security_incident_response",
     "csaf_version": "2.1",

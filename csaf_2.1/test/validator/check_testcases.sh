@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCHEMA=csaf_2.1/test/validator/testcases_json_schema.json
-META_SCHEMA=csaf_2.1/json_schema/meta_json_schema.json
+META_SCHEMA=csaf_2.1/json_schema/meta.json
 VALIDATOR=csaf_2.1/test/validator.py
 TESTPATH=csaf_2.1/test/validator/data/
 TESTFILE=testcases.json
