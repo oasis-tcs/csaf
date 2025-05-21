@@ -6,7 +6,7 @@ To be able to ensure that the format constraints are validated as intended, the 
 ```
   {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json",
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
     "$dynamicAnchor": "meta",
     "$vocabulary": {
       "https://json-schema.org/draft/2020-12/vocab/core": true,
@@ -23,7 +23,7 @@ It is then consequently used in all JSON schemas defined in this standard and re
 
 ```
   {
-    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json",
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
     // ...
   }
 ```

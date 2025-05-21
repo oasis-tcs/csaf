@@ -37,14 +37,14 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json.
-* Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/meta_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json.
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
+* Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
 #### Related work:
 This specification replaces or supersedes:
@@ -53,10 +53,10 @@ This specification replaces or supersedes:
 
 #### Declared JSON namespaces:
 
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
 
 #### Abstract:
