@@ -13,7 +13,7 @@ retrieving CSAF documents.
 **Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
 (requirement 7 in section [sec](#requirements)) based on the main domain of the issuing party. 
 
-An ordered list of possible `provider-metadata.json` candidates SHOULD be chosen in the following way:
+An ordered list of possible `provider-metadata.json` candidates SHOULD be generated in the following way:
 
 1. Checking the Well-known URL (requirement 9 in section [sec](#requirements))
 2. Checking the security.txt (requirement 8 in section [sec](#requirements))
