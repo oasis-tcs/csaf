@@ -170,7 +170,7 @@ When creating or modifying a CSAF document, the latest published version of the 
 
 #### Vulnerabilities Property - Disclosure Date
 
-Disclosure date (`disclosure_date`) with value type `string` of format `date-time` holds the date and time
+Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
 
 For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
@@ -432,7 +432,7 @@ Every Metric item of value type `object` with the mandatory properties `content`
 
 ##### Vulnerabilities Property - Metrics - Content
 
-Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`) and CVSS v4 (`cvss_v4`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
+Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`), EPSS (`epss`), and SSVC v1 (`ssvc_v1`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
 A Content object has at least 1 property.
 
 ```
@@ -446,6 +446,9 @@ A Content object has at least 1 property.
             ]
           },
           "cvss_v4": {
+            // ...
+          },
+          "epss": {
             // ...
           },
           "ssvc_v1": {
@@ -466,6 +469,40 @@ The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema
 
 The property SSVC v1 (`ssvc_v1`) holding an SSVC Decision Point Value Selection v1.0.1 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json](https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json).
+
+The property EPSS (`epss`) of value type `object` with the 3 mandatory properties Percentile (`percentile`), Probability (`probability`) and EPSS timestamp (`timestamp`) contains the EPSS data.
+
+```
+            "properties": {
+              "percentile": {
+                // ...
+              },
+              "probability": {
+                // ...
+              },
+              "timestamp": {
+                // ...
+              }
+            }
+```
+
+Percentile (`percentile`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^(([0]\\.([0-9])+)|([1]\\.[0]+))$
+```
+
+The value contains the rank ordering of probabilities from highest to lowest.
+
+Probability (`probability`) with `pattern` (regular expression):
+
+```
+    ^(([0]\\.([0-9])+)|([1]\\.[0]+))$
+```
+
+The value contains the likelihood that any exploitation activity for this Vulnerability is being observed in the 30 days following the given timestamp.
+
+EPSS timestamp (`timestamp`) of value type `string` with format `date-time` holds the date and time the EPSS value was recorded.
 
 ##### Vulnerabilities Property - Metrics - Products
 

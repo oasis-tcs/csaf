@@ -1,0 +1,45 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "document": {
+    "category": "csaf_withdrawn",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "lang": "de-DE",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Das CSAF Document enthielt Beispieldaten und wurde zurückgezogen, um Testdaten zu erzeugen.",
+        "title": "Begründung für die Zurückziehung"
+      }
+    ],
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Language Specific Reasoning for Withdrawal (failing example 1)",
+    "tracking": {
+      "current_release_date": "2024-05-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-02-01",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initiale Version."
+        },
+        {
+          "date": "2024-05-24T10:00:00.000Z",
+          "number": "2",
+          "summary": "Zurückgezogen."
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  }
+}

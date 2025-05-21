@@ -51,7 +51,7 @@ CSAF downloader
 :    A program that retrieves CSAF documents in an automated fashion.
 
 CSAF extended validator
-:    A CSAF basic validator that additionally performs optional tests.
+:    A CSAF basic validator that additionally performs recommended tests.
 
 CSAF full validator
 :    A CSAF extended validator that additionally performs informative tests.
@@ -210,7 +210,7 @@ problem
 _Examples_: A security vulnerability, a deviation from contractual or legal requirements.
 
 product
-:    is any deliverable (e.g. software, hardware, specification,...) which can be referred to with a name.
+:    is any deliverable (e.g. software, hardware, specification, or service) which can be referred to with a name.
 This applies regardless of the origin, the license model, or the mode of distribution of the deliverable.
 
 property

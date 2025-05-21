@@ -1,0 +1,115 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Use of same Product Identification Helper for different Products (failing example 3)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-32-03",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.0",
+                "product": {
+                  "name": "Example Company Product A 1.0",
+                  "product_id": "CSAFPID-908070601",
+                  "product_identification_helper": {
+                    "serial_numbers": [
+                      "143-D-354"
+                    ]
+                  }
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "2.0",
+                "product": {
+                  "name": "Example Company Product B 2.0",
+                  "product_id": "CSAFPID-908070602",
+                  "product_identification_helper": {
+                    "model_numbers": [
+                      "143-D-354"
+                    ]
+                  }
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product B"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ],
+    "full_product_names": [
+      {
+        "name": "Product C",
+        "product_id": "CSAFPID-908070603",
+        "product_identification_helper": {
+          "model_numbers": [
+            "143-D-354"
+          ]
+        }
+      },
+      {
+        "name": "Product D",
+        "product_id": "CSAFPID-908070604",
+        "product_identification_helper": {
+          "cpe": "cpe:/a:example:product_d"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "category": "installed_on",
+        "full_product_name": {
+          "name": "Product D installed on Example Company Product A 1.0",
+          "product_id": "CSAFPID-908070605",
+          "product_identification_helper": {
+            "cpe": "cpe:/a:example:product_d",
+            "model_numbers": [
+              "143-D-354"
+            ]
+          }
+        },
+        "product_reference": "CSAFPID-908070604",
+        "relates_to_product_reference": "CSAFPID-908070601"
+      }
+    ]
+  }
+}
