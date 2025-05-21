@@ -23,7 +23,7 @@ One or more `provider-metadata.json` will be selected from the listed of candida
 one `provider-metadata.json`, the first one in the list SHOULD be chosen.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
-> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section 7.1.
+> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section [sec](#requirements).
 > If that is the case, the response is added to the list of candidates - otherwise not. If the resource yields more than one response,
 > the responses are added to the list in the order they are returned from the resource
 
