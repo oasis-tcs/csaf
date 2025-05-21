@@ -6,9 +6,25 @@ from referencing.jsonschema import DRAFT202012
 import simplejson as json
 import sys
 
+# As documented in https://referencing.readthedocs.io/en/stable/api/#referencing.Specification:
+# A specification defines the referencing behavior.
+# As we use the referencing from Draft 2020-12, it seem save enough to specify that explicitly
+# as the library does not support custom dialects (yet).
+# This was extracted as a function as we need that in several places.
+def create_resource(schema):
+    resource = Resource()
+    try:
+        # First try to use the initially specified schema
+        resource = Resource.from_contents(schema)
+    except:
+        # If that fails, explicitly use Draft 2020-12
+        resource = Resource(schema, DRAFT202012)
+    return resource
+   
+
 if len(sys.argv) < 3:
-  print("<command> <schema.json> <validated.json> [<referenced-schema-01.json> [.. <referenced-schema-n.json>]]")
-  sys.exit(1)
+    print("<command> <schema.json> <validated.json> [<referenced-schema-01.json> [.. <referenced-schema-n.json>]]")
+    sys.exit(1)
 
 
 json_schema = sys.argv[1]
@@ -20,11 +36,7 @@ with open(json_schema, 'r') as f:
     schema_data = f.read()
     schema = json.loads(schema_data, parse_float=decimal.Decimal)
 
-# As documented in https://referencing.readthedocs.io/en/stable/api/#referencing.Specification:
-# A specification defines the referencing behavior.
-# As we use the referencing from Draft 2020-12, it seem save enough to specify that explicitly
-# as the library does not support custom dialects (yet).
-resource = Resource(schema, DRAFT202012)
+resource = create_resource(schema)
 registry = Registry().with_resource(resource.id(), resource)
 
 # Load any referenced schema
@@ -33,7 +45,7 @@ if len(json_referenced_schemas) > 0:
         with open(i, 'r') as f:
             current_ref_schema_data = f.read()
             current_ref_schema = json.loads(current_ref_schema_data, parse_float=decimal.Decimal)
-            current_resource = Resource.from_contents(current_ref_schema)
+            current_resource = create_resource(current_ref_schema)
             registry = registry.combine(Registry().with_resource(current_resource.id().split('?')[0], current_resource))
 
 registry = registry.crawl()
