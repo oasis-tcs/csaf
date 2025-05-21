@@ -12,10 +12,11 @@ Different scenarios can be encountered:
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is recommended.
 The following process SHOULD be followed:
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
-  Its `canonical_url` must be set correctly.
+  Its `canonical_url` must be set correctly and the property `maintained_until` SHOULD be set to an appropriate date in the future.
   The url MUST also be added as an entry to the security.txt, if used.
 - A `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/v2.1/provider-metadata.json`.
-  Its `canonical_url` must be set correctly.
+  Its `canonical_url` must be set correctly, optionally the property `maintained_from` can be set to an appropriate date in the future, 
+  if the service is not considered stable yet.
   The url MUST also be added to the security.txt, if used.
 - At the begin of the transition period, a `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   The content of the resource MUST be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
