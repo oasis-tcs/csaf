@@ -104,6 +104,11 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
   }
 ```
 
+The `maintained_until` and `maintained_from` properties can be used to indicate that the `provider-metadata.json` is only guaranteed to be
+accessed at the given `canonical_url` until or after the specified date and time. This can be used to support a transition period between
+CSAF 2.0 and CSAF 2.1 (cf. section [transition](#transition-between-csaf-20-and-csaf-2_1)). If the date and time specified `maintained_until` 
+is in the past, the `provider-metadata.json` is not considered to be valid.
+
 If a CSAF publisher (cf. section [sec](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
 If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
