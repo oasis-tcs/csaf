@@ -131,16 +131,16 @@ See [cite](#SECURITY-TXT) for more details.
 *Examples 1:*
 
 ```
+CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/csaf/provider-metadata.json
-CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
 e.g. in case of changes to the organizational structure through merges or acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
-If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
+If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
 ### Requirement 9: Well-known URL for provider-metadata.json
 
