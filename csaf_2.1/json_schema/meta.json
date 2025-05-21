@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/meta_json_schema.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
   "$dynamicAnchor": "meta",
   "$vocabulary": {
     "https://json-schema.org/draft/2020-12/vocab/core": true,
