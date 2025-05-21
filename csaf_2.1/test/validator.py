@@ -12,7 +12,7 @@ import sys
 # as the library does not support custom dialects (yet).
 # This was extracted as a function as we need that in several places.
 def create_resource_with_specification(schema):
-    resource = Resource()
+    resource = None
     try:
         # First try to use the initially specified schema
         resource = Resource.from_contents(schema)
