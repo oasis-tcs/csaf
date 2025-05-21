@@ -13,19 +13,19 @@ retrieving CSAF documents.
 **Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
 (requirement 7 in section [sec](#requirements)) based on the main domain of the issuing party. 
 
-An ordered list of possible `provider-metadata.json` candidates SHOULD be generated in the following way:
+First, an ordered list of possible `provider-metadata.json` candidates SHOULD be generated in the following way:
 
 1. Checking the Well-known URL (requirement 9 in section [sec](#requirements))
 2. Checking the security.txt (requirement 8 in section [sec](#requirements))
 3. If the above steps fail to produce any candidates: Checking the DNS path (requirement 10 in section [sec](#requirements))
 
-One or more `provider-metadata.json` will be selected from the listed of candidates. If retrieving party is only able to process 
-one `provider-metadata.json`, the first one in the list SHOULD be chosen.
+Second, select one or more `provider-metadata.json` to use from the list of valid candidates.
+If the retrieving party is only able to process one `provider-metadata.json`, the first one in the list SHOULD be chosen.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
 > Try to access the resource and test whether the response provides an expected result as defined in the requirement in section [sec](#requirements).
-> If that is the case, the response is added to the list of candidates - otherwise not. If the resource yields more than one response,
-> the responses are added to the list in the order they are returned from the resource
+> If that is the case, the response is added to the list of candidates - otherwise not. 
+> If the resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
 its location from an `aggregator.json` (requirement 21 in section [sec](#requirements)) of a CSAF lister or CSAF aggregator.
