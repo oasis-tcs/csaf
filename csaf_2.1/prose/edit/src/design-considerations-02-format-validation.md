@@ -27,3 +27,8 @@ It is then consequently used in all JSON schemas defined in this standard and re
     // ...
   }
 ```
+
+The format validation is enforced by setting the corresponding vocabulary as required.
+
+> If a library used to parse, modify or create CSAF content is unable to deal with this meta schema, it could reach the objective by
+> interpreting the schema as JSON schema 2020-12 dialect and enforcing the format validation via its implementation.
