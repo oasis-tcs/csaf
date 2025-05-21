@@ -11,7 +11,7 @@ import sys
 # As we use the referencing from Draft 2020-12, it seem save enough to specify that explicitly
 # as the library does not support custom dialects (yet).
 # This was extracted as a function as we need that in several places.
-def create_resource(schema):
+def create_resource_with_specification(schema):
     resource = Resource()
     try:
         # First try to use the initially specified schema
@@ -36,7 +36,7 @@ with open(json_schema, 'r') as f:
     schema_data = f.read()
     schema = json.loads(schema_data, parse_float=decimal.Decimal)
 
-resource = create_resource(schema)
+resource = create_resource_with_specification(schema)
 registry = Registry().with_resource(resource.id(), resource)
 
 # Load any referenced schema
@@ -45,7 +45,7 @@ if len(json_referenced_schemas) > 0:
         with open(i, 'r') as f:
             current_ref_schema_data = f.read()
             current_ref_schema = json.loads(current_ref_schema_data, parse_float=decimal.Decimal)
-            current_resource = create_resource(current_ref_schema)
+            current_resource = create_resource_with_specification(current_ref_schema)
             registry = registry.combine(Registry().with_resource(current_resource.id().split('?')[0], current_resource))
 
 registry = registry.crawl()
