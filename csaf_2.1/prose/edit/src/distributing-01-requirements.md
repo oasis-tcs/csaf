@@ -70,6 +70,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
     "distributions": [
       {
@@ -482,6 +483,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "lister",
       "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
@@ -500,6 +502,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         }
       },
@@ -511,6 +514,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         }
       }
@@ -538,6 +542,7 @@ Each such folder MUST at least:
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "aggregator",
       "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
