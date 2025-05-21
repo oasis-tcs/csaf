@@ -2,6 +2,7 @@ import decimal
 import jsonschema
 from jsonschema.validators import Draft202012Validator
 from referencing import Registry, Resource
+from referencing.jsonschema import DRAFT202012
 import simplejson as json
 import sys
 
@@ -14,17 +15,19 @@ json_schema = sys.argv[1]
 json_input = sys.argv[2]
 json_referenced_schemas = sys.argv[3:]
 
+# Load the schema
 with open(json_schema, 'r') as f:
     schema_data = f.read()
     schema = json.loads(schema_data, parse_float=decimal.Decimal)
 
-resource = Resource.from_contents(schema)
+# As documented in https://referencing.readthedocs.io/en/stable/api/#referencing.Specification:
+# A specification defines the referencing behavior.
+# As we use the referencing from Draft 2020-12, it seem save enough to specify that explicitly
+# as the library does not support custom dialects (yet).
+resource = Resource(schema, DRAFT202012)
 registry = Registry().with_resource(resource.id(), resource)
 
-with open(json_input, 'r') as f:
-    input_data = f.read()
-    input_obj = json.loads(input_data, parse_float=decimal.Decimal)
-
+# Load any referenced schema
 if len(json_referenced_schemas) > 0:
     for i in json_referenced_schemas:
         with open(i, 'r') as f:
@@ -35,5 +38,13 @@ if len(json_referenced_schemas) > 0:
 
 registry = registry.crawl()
 
+# Load the JSON to validate
+with open(json_input, 'r') as f:
+    input_data = f.read()
+    input_obj = json.loads(input_data, parse_float=decimal.Decimal)
+
+# Even though the meta schema should enforce the validation, we need to set the validator here 
+# due to the missing support for custom dialects
+# Nevertheless, this implementation will check correctly whether the format is valid
 validator = Draft202012Validator(schema, registry=registry, format_checker=Draft202012Validator.FORMAT_CHECKER)
 validator.validate(input_obj)
