@@ -1116,7 +1116,6 @@
                   "description": "Holds the version string of the CWE specification this weakness was extracted from.",
                   "type": "string",
                   "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$",
-                  "minLength": 1,
                   "examples": [
                     "1.0",
                     "3.4.1",
