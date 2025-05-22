@@ -1,0 +1,35 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json",
+  "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
+  "distributions": [
+    {
+      "rolie": {
+        "feeds": [
+          {
+            "last_updated": "2024-01-24T20:20:56.169Z",
+            "summary": "All TLP:CLEAR advisories of Example Company.",
+            "tlp_label": "CLEAR",
+            "url": "https://www.example.com/.well-known/csaf/feed-tlp-clear.json"
+          }
+        ]
+      }
+    }
+  ],
+  "last_updated": "2024-01-24T20:20:56.169Z",
+  "maintained_until": "2025-12-31T00:00:00.000Z",
+  "list_on_CSAF_aggregators": true,
+  "metadata_version": "2.1",
+  "mirror_on_CSAF_aggregators": true,
+  "public_openpgp_keys": [
+    {
+      "fingerprint": "8F5F267907B2C4559DB360DB2294BA7D2B2298B1",
+      "url": "https://keys.example.net/vks/v1/by-fingerprint/8F5F267907B2C4559DB360DB2294BA7D2B2298B1"
+    }
+  ],
+  "publisher": {
+    "category": "vendor",
+    "name": "Example Company ProductCERT",
+    "namespace": "https://psirt.example.com"
+  },
+  "role": "csaf_trusted_provider"
+}
