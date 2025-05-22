@@ -138,8 +138,13 @@ It holds the ID for the weakness associated.
     CWE-79
 ```
 
-The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given
-in the CWE specification.
+The Weakness name (`name`) has value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The Weakness name holds the full name of the weakness as given in the CWE specification.
 
 *Examples 2:*
 
