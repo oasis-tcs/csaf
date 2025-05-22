@@ -7,7 +7,7 @@ Different scenarios can be encountered:
 - Providers will immediately upgrade all documents as well as the `provider-metadata.json` to CSAF 2.1.
   While this benefits the adoption of CSAF 2.1, consumers that still use CSAF 2.0
 - Providers will begin a transition period, in which they continue to serve existing documents in CSAF 2.0, gradually updating the existing
-  document base (using a CSAF 2.1/2.0 converter TODO conformance clause) and publishing new documents in CSAF 2.1.
+  document base (using a CSAF 2.0 to CSAF 2.1 converter as described in [sec](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter)) and publishing new documents using CSAF 2.1.
 
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is recommended.
 The following process SHOULD be followed:

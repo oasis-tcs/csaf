@@ -106,7 +106,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 
 The `maintained_until` and `maintained_from` properties can be used to indicate that the `provider-metadata.json` is only guaranteed to be
 accessed at the given `canonical_url` until or after the specified date and time. This can be used to support a transition period between
-CSAF 2.0 and CSAF 2.1 (cf. section [transition](#transition-between-csaf-2_0-and-csaf-2_1)). If the date and time specified `maintained_until`
+CSAF 2.0 and CSAF 2.1 (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)). If the date and time specified `maintained_until`
 is in the past, the `provider-metadata.json` is not considered to be valid.
 
 If a CSAF publisher (cf. section [sec](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
@@ -146,7 +146,7 @@ It is possible to advertise more than one `provider-metadata.json` by adding mul
 e.g. in case of changes to the organizational structure through merges or acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
 A valid use case for temporarly including multiple entries would be a transition phase between CSAF 2.0 and CSAF 2.1, in which documents 
-and provider metadata of both versions are served simultaneously (cf. section [transition](#transition-between-csaf-2_0-and-csaf-2_1)).
+and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
 ### Requirement 9: Well-known URL for provider-metadata.json
