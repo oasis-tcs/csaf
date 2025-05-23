@@ -119,6 +119,9 @@ An array SHOULD NOT have more than:
 * 100 000 000 for
   * `/document/notes[]/group_ids`
   * `/document/notes[]/product_ids`
+  * `/vulnerabilities[]/first_known_exploitation_dates`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/group_ids`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/product_ids`
   * `/vulnerabilities[]/flags`
   * `/vulnerabilities[]/flags[]/group_ids`
   * `/vulnerabilities[]/flags[]/product_ids`
@@ -284,6 +287,8 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/revision_history[]/date`
 * `/vulnerabilities[]/disclosure_date`
 * `/vulnerabilities[]/discovery_date`
+* `/vulnerabilities[]/first_known_exploitation_dates[]/date`
+* `/vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date`
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/involvements[]/date`
 * `/vulnerabilities[]/metrics[]/content/epss/timestamp`
