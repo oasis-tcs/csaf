@@ -1140,6 +1140,44 @@
             "type": "string",
             "format": "date-time"
           },
+          "first_known_exploitation_dates": {
+            "title": "List of first known exploitation dates",
+            "description": "Contains a list of dates of first known exploitations.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "title": "First known exploitation date",
+              "description": "Contains information on when this vulnerability was first known to be exploited in the wild in the products specified.",
+              "type": "object",
+              "minProperties": 3,
+              "required": [
+                "date",
+                "exploitation_date"
+              ],
+              "properties": {
+                "date": {
+                  "title": "Date of the information",
+                  "description": "Contains the date when the information was last updated.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "exploitation_date": {
+                  "title": "Date of the exploitation",
+                  "description": "Contains the date when the exploitation happened.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "group_ids": {
+                  "$ref": "#/$defs/product_groups_t"
+                },
+                "product_ids": {
+                  "$ref": "#/$defs/products_t"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
           "flags": {
             "title": "List of flags",
             "description": "Contains a list of machine readable flags.",
