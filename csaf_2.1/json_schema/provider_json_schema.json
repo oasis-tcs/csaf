@@ -180,15 +180,15 @@
       "type": "boolean",
       "default": true
     },
-    "maintained_until": {
-      "title": "Maintained until",
-      "description": "Holds the date and time until when this CSAF provider metadata is maintained. Access to the provider metadata at the given canonical_url after this date is not guaranteed.",
-      "type": "string",
-      "format": "date-time"
-    },
     "maintained_from": {
       "title": "Maintained from",
       "description": "Holds the date and time from when this CSAF provider metadata is maintained. Access to the provider metadata at the given canonical_url before this date is not guaranteed.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "maintained_until": {
+      "title": "Maintained until",
+      "description": "Holds the date and time until when this CSAF provider metadata is maintained. Access to the provider metadata at the given canonical_url after this date is not guaranteed.",
       "type": "string",
       "format": "date-time"
     },
