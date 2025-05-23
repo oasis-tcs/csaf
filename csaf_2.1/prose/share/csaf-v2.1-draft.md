@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 30 April 2025
+## 28 May 2025
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -73,7 +73,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 30 April 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 28 May 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -301,7 +301,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.1.49 [Inconsistent SSVC Timestamp](#inconsistent-ssvc-timestamp)  
 		6.1.50 [Product Version Range Rules](#product-version-range-rules)  
 		6.1.51 [Inconsistent EPSS Timestamp](#inconsistent-epss-timestamp)  
-	6.2 [Optional Tests](#optional-tests)  
+	6.2 [Recommended Tests](#recommended-tests)  
 		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
 		6.2.2 [Missing Remediation](#missing-remediation)  
 		6.2.3 [Missing Metric](#missing-metric)  
@@ -314,7 +314,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.10 [Missing TLP label (obsolete)](#missing-tlp-label)  
 		6.2.11 [Missing Canonical URL](#missing-canonical-url)  
 		6.2.12 [Missing Document Language](#missing-document-language)  
-		6.2.13 [Sorting](#optional-tests--sorting)  
+		6.2.13 [Sorting](#recommended-tests--sorting)  
 		6.2.14 [Use of Private Language](#use-of-private-language)  
 		6.2.15 [Use of Default Language](#use-of-default-language)  
 		6.2.16 [Missing Product Identification Helper](#missing-product-identification-helper)  
@@ -340,7 +340,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.36 [Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)  
 		6.2.37 [Usage of Unknown SSVC Role](#usage-of-unknown-ssvc-role)  
 		6.2.38 [Usage of Deprecated Profile](#usage-of-deprecated-profile)  
-		6.2.39 [Profile Tests](#optional-profile-tests)  
+		6.2.39 [Profile Tests](#recommended-profile-tests)  
 			6.2.39.1 [Missing Fixed Product](#missing-fixed-product)  
 			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)  
 			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)  
@@ -498,7 +498,7 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;csaf-downloader">CSAF downloader</dt>
   <dd>A program that retrieves CSAF documents in an automated fashion.</dd>
   <dt id="def;csaf-extended-validator">CSAF extended validator</dt>
-  <dd>A CSAF basic validator that additionally performs optional tests.</dd>
+  <dd>A CSAF basic validator that additionally performs recommended tests.</dd>
   <dt id="def;csaf-full-validator">CSAF full validator</dt>
   <dd>A CSAF extended validator that additionally performs informative tests.</dd>
   <dt id="def;csaf-library">CSAF library</dt>
@@ -885,8 +885,9 @@ Delegation to industry best practices technologies is used in referencing schema
   * Common Vulnerability Scoring System (CVSS) Version 2.0 \[[CVSS2](#CVSS2)\]
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
 
-Even though the JSON schema does not prohibit specifically additional properties and custom keywords,
+Even though not all - especially the referenced - JSON schemas prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
+The JSON schemas defined in this standard do not allow the use of additional properties and custom keywords.
 
 > The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and
 > need for dedicated parsers as well as other tools on the side of the consuming parties.
@@ -908,7 +909,10 @@ In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the 
 * The separator between date and time MUST be the letter `T`.
 * The letter `Z` indicating the timezone UTC SHALL be upper case.
 * Fractions of seconds are allowed as specified in the standards mention above with the full stop (`.`) as separator.
-* Leap seconds are supported. However, they SHOULD be avoided if possible.
+* Leap seconds MUST NOT be used.
+  > While a full support of RFC 3339 would be preferred, significant challenges have been mentioned by implementers as most libraries are lacking
+  > the support for leap seconds.
+  > To ensure interoperability, the decision was made to prohibit leap seconds.
 * Empty timezones MUST NOT be used.
 * The ABNF of RFC 3339, section 5.6 applies.
 
@@ -3259,8 +3263,13 @@ It holds the ID for the weakness associated.
     CWE-79
 ```
 
-The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given
-in the CWE specification.
+The Weakness name (`name`) has value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The Weakness name holds the full name of the weakness as given in the CWE specification.
 
 *Examples 2:*<a id='vulnerabilities-property-cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-48'></a>
 
@@ -3291,7 +3300,7 @@ When creating or modifying a CSAF document, the latest published version of the 
 
 #### 3.2.4.4 Vulnerabilities Property - Disclosure Date <a id='vulnerabilities-property-disclosure-date'></a>
 
-Disclosure date (`disclosure_date`) with value type `string` of format `date-time` holds the date and time
+Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
 
 For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
@@ -7237,9 +7246,9 @@ The relevant path for this test is:
 
 > The document is in status `final` but the EPSS `timestamp` is newer than the `date` of newest item in the `revision_history`.
 
-## 6.2 Optional Tests <a id='optional-tests'></a>
+## 6.2 Recommended Tests <a id='recommended-tests'></a>
 
-Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
+Recommended tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
 These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF.
 A program MUST handle a test failure as a warning.
 
@@ -7563,7 +7572,7 @@ The relevant paths for this test are:
 
 ### 6.2.10 Missing TLP label (obsolete) <a id='missing-tlp-label'></a>
 
-> The TLP label is now required by the schema. Therefore, the optional test is obsolete.
+> The TLP label is now required by the schema. Therefore, the recommended test is obsolete.
 > This section is kept to document that change and keep the numbering of the remaining sections stable.
 
 ### 6.2.11 Missing Canonical URL <a id='missing-canonical-url'></a>
@@ -7637,7 +7646,7 @@ The relevant path for this test is:
 
 > The document language is not defined.
 
-### 6.2.13 Sorting <a id='optional-tests--sorting'></a>
+### 6.2.13 Sorting <a id='recommended-tests--sorting'></a>
 
 It MUST be tested that all keys in a CSAF document are sorted alphabetically.
 
@@ -7647,7 +7656,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 1 (which fails the test):*<a id='optional-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-137'></a>
+*Example 1 (which fails the test):*<a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-137'></a>
 
 ```
   "document": {
@@ -7847,6 +7856,7 @@ The relevant path for this test is:
 ### 6.2.20 Additional Properties <a id='additional-properties'></a>
 
 It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+This also applies for referenced schemas.
 
 The relevant path for this test is:
 
@@ -7854,18 +7864,19 @@ The relevant path for this test is:
   /
 ```
 
-> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that
-> sets `additionalProperties` to `false` for every key of type `object`.
+> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated
+> and sets `additionalProperties` respectively `unevaluatedProperties` to `false` at all appropriate places to detect additional properties.
 
 *Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-144'></a>
 
 ```
-  "document": {
-    "category": "csaf_base",
-    "csaf_version": "2.1",
-    "custom_property": "any",
-    // ...
-  }
+            "cvss_v3": {
+              "baseScore": 6.4,
+              "baseSeverity": "MEDIUM",
+              "custom_property": "any",
+              "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:N/I:H/A:L",
+              "version": "3.1"
+            }
 ```
 
 > The key `custom_property` is not defined in the JSON schema.
@@ -7915,7 +7926,7 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-146'></a>
 
 ```
-    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
     "tracking": {
       // ...
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
@@ -8546,9 +8557,9 @@ The relevant path for this test is:
 
 > The document category starts with `csaf_deprecated_`.
 
-### 6.2.39 Profile Tests <a id='optional-profile-tests'></a>
+### 6.2.39 Profile Tests <a id='recommended-profile-tests'></a>
 
-This subsubsection structures the optional tests for the profiles. Not all tests apply for all profiles.
+This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
 Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
@@ -9562,16 +9573,16 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 *Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-185'></a>
 
 ```
+CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/csaf/provider-metadata.json
-CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
 e.g. in case of changes to the organizational structure through merges or acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
-If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
+If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
 
@@ -9987,6 +9998,7 @@ Each such folder MUST at least:
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -10001,6 +10013,7 @@ Each such folder MUST at least:
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -10154,19 +10167,21 @@ retrieving CSAF documents.
 ### 7.3.1 Finding provider-metadata.json <a id='finding-provider-metadata-json'></a>
 
 **Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
-(requirement 7 in section [7.1](#requirements)) based on the main domain of the issuing party:
+(requirement 7 in section [7.1](#requirements)) based on the main domain of the issuing party. 
+
+First, an ordered list of possible `provider-metadata.json` candidates SHOULD be generated in the following way:
 
 1. Checking the Well-known URL (requirement 9 in section [7.1](#requirements))
 2. Checking the security.txt (requirement 8 in section [7.1](#requirements))
-3. Checking the DNS path (requirement 10 in section [7.1](#requirements))
-4. Select one or more `provider-metadata.json` to use.
+3. If the above steps fail to produce any candidates: Checking the DNS path (requirement 10 in section [7.1](#requirements))
+
+Second, select one or more `provider-metadata.json` to use from the list of valid candidates.
+If the retrieving party is only able to process one `provider-metadata.json`, the first one in the list SHOULD be chosen.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
-> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section 7.1.
-> If that is the case, the step was successful - otherwise not.
-
-The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional `provider-metadata.json`.
-The third step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
+> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section [7.1](#requirements).
+> If that is the case, the response is added to the list of candidates - otherwise not. 
+> If the resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
 its location from an `aggregator.json` (requirement 21 in section [7.1](#requirements)) of a CSAF lister or CSAF aggregator.
@@ -10282,7 +10297,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to assets of the asset database.
 * **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs recommended tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
@@ -10339,10 +10354,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CVRF documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CVRF CSAF converter converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF converter MUST replace the seconds
+  and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
   the CVRF CSAF converter replaces those with the category `product_name`.
   In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
@@ -10401,6 +10422,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwes[]`:
+  * The CVRF CSAF converter MUST remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document.
@@ -10503,6 +10525,7 @@ Secondly, the program fulfills the following for all items of:
   * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
   * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
+* The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
 
 ### 9.1.6 Conformance Clause 6: CSAF content management system <a id='conformance-clause-6-csaf-content-management-system'></a>
 
@@ -10760,9 +10783,9 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section [6.2](#optional-tests).
+* additionally performs all recommended tests as given in section [6.2](#recommended-tests).
 
-A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
+A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
 ### 9.1.16 Conformance Clause 16: CSAF full validator <a id='conformance-clause-16-csaf-full-validator'></a>
 
@@ -10817,10 +10840,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CSAF 2.0 documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 converter MUST replace
+  the seconds and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:
@@ -10907,13 +10936,16 @@ Secondly, the program fulfills the following for all items of:
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
-* `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
-  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
-  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
-  of the source document SHOULD be used.
-  > This is done to create a deterministic conversion.
+* `/vulnerabilities[]/cwes[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove all preceding and trailing white space from the `name`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+    using the latest version that matches the `id` and `name` exactly and was published prior to the value of
+    `/document/tracking/current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    of the source document SHOULD be used.
+    > This is done to create a deterministic conversion.
 
-  The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+    The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value into the `disclosure_date` element.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
@@ -11206,20 +11238,21 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
-| csaf-v2.0-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
-| csaf-v2.0-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240327-dev | 2024-03-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250326-dev | 2025-03-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250430-dev | 2025-04-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
+| csaf-v2.1-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240327-dev | 2024-03-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250326-dev | 2025-03-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250430-dev | 2025-04-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250528-dev | 2025-05-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>

@@ -53,9 +53,9 @@
           "description": "Contains the name of the group the test belongs to.",
           "type": "string",
           "enum": [
-            "mandatory",
             "informative",
-            "optional"
+            "mandatory",
+            "recommended"
           ]
         },
         "id": {

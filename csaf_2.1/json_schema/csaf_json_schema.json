@@ -64,7 +64,8 @@
               "format": "uri"
             }
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "branches_t": {
@@ -125,7 +126,8 @@
           "product": {
             "$ref": "#/$defs/full_product_name_t"
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "full_product_name_t": {
@@ -217,7 +219,8 @@
                             "9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "filename": {
@@ -231,7 +234,8 @@
                       "sudoers.so"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "model_numbers": {
@@ -325,12 +329,15 @@
                     "type": "string",
                     "format": "uri"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "lang_t": {
       "title": "Language type",
@@ -409,7 +416,8 @@
               "Impact on safety systems"
             ]
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "product_group_id_t": {
@@ -489,7 +497,8 @@
             "type": "string",
             "format": "uri"
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "version_t": {
@@ -563,7 +572,8 @@
                 "Moderate"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "category": {
           "title": "Document category",
@@ -623,7 +633,8 @@
                     "US Federal Civilian Authorities"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "text": {
               "title": "Textual description",
@@ -668,9 +679,11 @@
                     "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Kritis/Merkblatt_TLP.pdf"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "lang": {
           "title": "Document language",
@@ -742,7 +755,8 @@
                 "https://www.example.com"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "references": {
           "title": "Document references",
@@ -843,9 +857,11 @@
                         "2"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "id": {
               "title": "Unique identifier for the document",
@@ -904,7 +920,8 @@
                       "Initial version."
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "status": {
@@ -920,9 +937,11 @@
             "version": {
               "$ref": "#/$defs/version_t"
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "product_tree": {
       "title": "Product tree",
@@ -979,7 +998,8 @@
                   "The x64 versions of the operating system."
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "relationships": {
@@ -1023,10 +1043,12 @@
                 "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
                 "$ref": "#/$defs/product_id_t"
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "vulnerabilities": {
       "title": "Vulnerabilities",
@@ -1081,6 +1103,7 @@
                   "title": "Weakness name",
                   "description": "Holds the full name of the weakness as given in the CWE specification.",
                   "type": "string",
+                  "pattern": "^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$",
                   "minLength": 1,
                   "examples": [
                     "Cross-Site Request Forgery (CSRF)",
@@ -1092,7 +1115,6 @@
                   "title": "CWE version",
                   "description": "Holds the version string of the CWE specification this weakness was extracted from.",
                   "type": "string",
-                  "minLength": 1,
                   "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$",
                   "examples": [
                     "1.0",
@@ -1102,7 +1124,8 @@
                     "4.12"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "disclosure_date": {
@@ -1155,7 +1178,8 @@
                 "product_ids": {
                   "$ref": "#/$defs/products_t"
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "ids": {
@@ -1193,7 +1217,8 @@
                     "oasis-tcs/csaf#210"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "involvements": {
@@ -1248,7 +1273,8 @@
                   "type": "string",
                   "minLength": 1
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "metrics": {
@@ -1316,12 +1342,14 @@
                           "type": "string",
                           "format": "date-time"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "ssvc_v1": {
                       "$ref": "https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "products": {
                   "$ref": "#/$defs/products_t"
@@ -1332,7 +1360,8 @@
                   "type": "string",
                   "format": "uri"
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "notes": {
@@ -1391,7 +1420,8 @@
                 "description": "It is not known whether these versions are or are not affected by the vulnerability. There is also no investigation and therefore the status might never be determined.",
                 "$ref": "#/$defs/products_t"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "references": {
             "title": "Vulnerability references",
@@ -1486,7 +1516,8 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "url": {
                   "title": "URL to the remediation",
@@ -1494,7 +1525,8 @@
                   "type": "string",
                   "format": "uri"
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "threats": {
@@ -1539,7 +1571,8 @@
                 "product_ids": {
                   "$ref": "#/$defs/products_t"
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "title": {
@@ -1548,8 +1581,10 @@
             "type": "string",
             "minLength": 1
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

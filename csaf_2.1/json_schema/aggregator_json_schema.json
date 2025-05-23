@@ -19,6 +19,7 @@
       "required": [
         "last_updated",
         "publisher",
+        "role",
         "url"
       ],
       "properties": {
@@ -43,7 +44,8 @@
           "description": "Contains the URL of the provider-metadata.json for that entry.",
           "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json#/properties/canonical_url"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "mirrors_t": {
       "title": "List of mirrors",
@@ -131,7 +133,8 @@
             "https://csaf.io"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "aggregator_version": {
       "title": "CSAF aggregator version",
@@ -170,7 +173,8 @@
             "description": "Contains a list of URLs or mirrors for this CSAF provider.",
             "$ref": "#/$defs/mirrors_t"
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "csaf_publishers": {
@@ -212,7 +216,8 @@
               "on notification by CSAF publisher"
             ]
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "last_updated": {
@@ -221,5 +226,6 @@
       "type": "string",
       "format": "date-time"
     }
-  }
+  },
+  "additionalProperties": false
 }

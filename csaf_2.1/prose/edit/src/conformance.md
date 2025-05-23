@@ -47,7 +47,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to assets of the asset database.
 * **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs recommended tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
@@ -104,10 +104,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CVRF documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CVRF CSAF converter converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF converter MUST replace the seconds
+  and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
   the CVRF CSAF converter replaces those with the category `product_name`.
   In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
@@ -166,6 +172,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwes[]`:
+  * The CVRF CSAF converter MUST remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document.
@@ -268,6 +275,7 @@ Secondly, the program fulfills the following for all items of:
   * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
   * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
+* The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
 
 ### Conformance Clause 6: CSAF content management system
 
@@ -525,9 +533,9 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section [sec](#optional-tests).
+* additionally performs all recommended tests as given in section [sec](#recommended-tests).
 
-A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
+A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
 ### Conformance Clause 16: CSAF full validator
 
@@ -582,10 +590,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CSAF 2.0 documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 converter MUST replace
+  the seconds and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:
@@ -672,13 +686,16 @@ Secondly, the program fulfills the following for all items of:
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
-* `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
-  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
-  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
-  of the source document SHOULD be used.
-  > This is done to create a deterministic conversion.
+* `/vulnerabilities[]/cwes[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove all preceding and trailing white space from the `name`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+    using the latest version that matches the `id` and `name` exactly and was published prior to the value of
+    `/document/tracking/current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    of the source document SHOULD be used.
+    > This is done to create a deterministic conversion.
 
-  The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+    The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value into the `disclosure_date` element.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
