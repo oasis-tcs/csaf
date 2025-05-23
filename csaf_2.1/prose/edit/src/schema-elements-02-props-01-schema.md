@@ -4,7 +4,7 @@ JSON schema (`$schema`) of value type `string` and `enum` with format `uri` cont
 The single valid value for this `enum` is:
 
 ```
-  https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json
+  https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json
 ```
 
 > This value allows for tools to identify that a JSON document is meant to be valid against this schema.

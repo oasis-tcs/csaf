@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
   "title": "Common Security Advisory Framework",
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
@@ -525,7 +525,7 @@
       "description": "Contains the URL of the CSAF JSON schema which the document promises to be valid for.",
       "type": "string",
       "enum": [
-        "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"
+        "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"
       ],
       "format": "uri"
     },

@@ -301,7 +301,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 The value of `/$schema` is a fixed URL, currently pointing to the JSON schema location.
 It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
 
-* `/$schema` (64)
+* `/$schema` (59)
 
 For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:

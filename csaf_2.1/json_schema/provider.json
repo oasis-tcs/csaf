@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
   "title": "CSAF provider metadata",
   "description": "Representation of metadata information of a CSAF provider as a JSON document.",
   "type": "object",
@@ -42,7 +42,7 @@
       "description": "Contains the URL of the provider-metadata.json JSON schema which the document promises to be valid for.",
       "type": "string",
       "enum": [
-        "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json"
+        "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json"
       ],
       "format": "uri"
     },
@@ -75,7 +75,7 @@
               "tlp_label": {
                 "title": "TLP label",
                 "description": "Provides the TLP label for the directory.",
-                "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json#/properties/document/properties/distribution/properties/tlp/properties/label"
+                "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/properties/document/properties/distribution/properties/tlp/properties/label"
               },
               "url": {
                 "title": "Directory URL",
@@ -138,7 +138,7 @@
                     "tlp_label": {
                       "title": "TLP label",
                       "description": "Provides the TLP label for the feed.",
-                      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json#/properties/document/properties/distribution/properties/tlp/properties/label"
+                      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/properties/document/properties/distribution/properties/tlp/properties/label"
                     },
                     "url": {
                       "title": "URL of the feed",
@@ -226,7 +226,7 @@
     "publisher": {
       "title": "Publisher",
       "description": "Provides information about the publisher of the CSAF documents in this repository.",
-      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json#/properties/document/properties/publisher"
+      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/properties/document/properties/publisher"
     },
     "role": {
       "title": "Role of the issuing party",
