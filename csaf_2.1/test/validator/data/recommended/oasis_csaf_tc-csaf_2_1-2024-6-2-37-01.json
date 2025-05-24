@@ -45,7 +45,7 @@
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
-              "role": "An unregistrable role",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
