@@ -16,12 +16,7 @@
       "title": "CSAF issuing party metadata.",
       "description": "Contains the metadata of a single CSAF issuing party.",
       "type": "object",
-      "required": [
-        "last_updated",
-        "publisher",
-        "role",
-        "url"
-      ],
+      "required": ["last_updated", "publisher", "role", "url"],
       "properties": {
         "last_updated": {
           "title": "Last updated",
@@ -82,20 +77,13 @@
       "title": "Aggregator",
       "description": "Provides information about the aggregator.",
       "type": "object",
-      "required": [
-        "category",
-        "name",
-        "namespace"
-      ],
+      "required": ["category", "name", "namespace"],
       "properties": {
         "category": {
           "title": "Category of aggregator",
           "description": "Provides information about the category of aggregator.",
           "type": "string",
-          "enum": [
-            "aggregator",
-            "lister"
-          ]
+          "enum": ["aggregator", "lister"]
         },
         "contact_details": {
           "title": "Contact details",
@@ -117,21 +105,14 @@
           "description": "Contains the name of the aggregator.",
           "type": "string",
           "minLength": 1,
-          "examples": [
-            "BSI",
-            "CISA",
-            "CSAF TC"
-          ]
+          "examples": ["BSI", "CISA", "CSAF TC"]
         },
         "namespace": {
           "title": "Namespace of aggregator",
           "description": "Contains a URL which is under control of the aggregator and can be used as a globally unique identifier for that aggregator.",
           "type": "string",
           "format": "uri",
-          "examples": [
-            "https://www.example.com",
-            "https://csaf.io"
-          ]
+          "examples": ["https://www.example.com", "https://csaf.io"]
         }
       },
       "additionalProperties": false
@@ -140,9 +121,7 @@
       "title": "CSAF aggregator version",
       "description": "Gives the version of the CSAF aggregator specification which the document was generated for.",
       "type": "string",
-      "enum": [
-        "2.1"
-      ]
+      "enum": ["2.1"]
     },
     "canonical_url": {
       "title": "Canonical URL",
@@ -159,9 +138,7 @@
         "title": "CSAF provider entry",
         "description": "Contains information from a CSAF provider.",
         "type": "object",
-        "required": [
-          "metadata"
-        ],
+        "required": ["metadata"],
         "properties": {
           "metadata": {
             "title": "CSAF provider metadata.",
@@ -187,11 +164,7 @@
         "title": "CSAF publisher entry",
         "description": "Contains information from a CSAF publisher.",
         "type": "object",
-        "required": [
-          "metadata",
-          "mirrors",
-          "update_interval"
-        ],
+        "required": ["metadata", "mirrors", "update_interval"],
         "properties": {
           "metadata": {
             "title": "CSAF publisher metadata.",
@@ -223,6 +196,18 @@
     "last_updated": {
       "title": "Last updated",
       "description": "Holds the date and time when the document was last updated.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "maintained_from": {
+      "title": "Maintained from",
+      "description": "Holds the date and time from when the providers within this CSAF aggregator are in a maintained state.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "maintained_until": {
+      "title": "Maintained until",
+      "description": "Holds the date and time until when the providers within this CSAF aggregator are in a maintained state.",
       "type": "string",
       "format": "date-time"
     }
