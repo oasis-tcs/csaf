@@ -67,10 +67,7 @@
             "title": "Directory",
             "description": "Contains all information for directory-based distribution.",
             "type": "object",
-            "required": [
-              "tlp_label",
-              "url"
-            ],
+            "required": ["tlp_label", "url"],
             "properties": {
               "tlp_label": {
                 "title": "TLP label",
@@ -89,9 +86,7 @@
             "title": "ROLIE",
             "description": "Contains all information for ROLIE distribution.",
             "type": "object",
-            "required": [
-                "feeds"
-            ],
+            "required": ["feeds"],
             "properties": {
               "categories": {
                 "title": "List of ROLIE category document URLs",
@@ -115,11 +110,7 @@
                   "title": "ROLIE feed",
                   "description": "Contains information about the ROLIE feed.",
                   "type": "object",
-                  "required": [
-                    "last_updated",
-                    "tlp_label",
-                    "url"
-                  ],
+                  "required": ["last_updated", "tlp_label", "url"],
                   "properties": {
                     "last_updated": {
                       "title": "Last updated",
@@ -182,13 +173,13 @@
     },
     "maintained_from": {
       "title": "Maintained from",
-      "description": "Holds the date and time from when this CSAF provider metadata is maintained. Access to the provider metadata at the given canonical_url before this date is not guaranteed.",
+      "description": "Holds the date and time from when the distributions within this CSAF provider are in a maintained state.",
       "type": "string",
       "format": "date-time"
     },
     "maintained_until": {
       "title": "Maintained until",
-      "description": "Holds the date and time until when this CSAF provider metadata is maintained. Access to the provider metadata at the given canonical_url after this date is not guaranteed.",
+      "description": "Holds the date and time until when the distributions within this CSAF provider are in a maintained state.",
       "type": "string",
       "format": "date-time"
     },
@@ -196,9 +187,7 @@
       "title": "CSAF provider metadata version",
       "description": "Gives the version of the CSAF provider metadata specification which the document was generated for.",
       "type": "string",
-      "enum": [
-        "2.1"
-      ]
+      "enum": ["2.1"]
     },
     "mirror_on_CSAF_aggregators": {
       "title": "Mirror on CSAF aggregators",
@@ -214,10 +203,7 @@
         "title": "PGP keys",
         "description": "Contains all information about an OpenPGP key used to sign CSAF documents.",
         "type": "object",
-        "required": [
-          "fingerprint",
-          "url"
-        ],
+        "required": ["fingerprint", "url"],
         "properties": {
           "fingerprint": {
             "title": "Fingerprint of the key",
@@ -245,11 +231,7 @@
       "description": "Contains the role of the issuing party according to section 7 in the CSAF standard.",
       "type": "string",
       "default": "csaf_provider",
-      "enum": [
-        "csaf_publisher",
-        "csaf_provider",
-        "csaf_trusted_provider"
-      ]
+      "enum": ["csaf_publisher", "csaf_provider", "csaf_trusted_provider"]
     }
   },
   "additionalProperties": false
