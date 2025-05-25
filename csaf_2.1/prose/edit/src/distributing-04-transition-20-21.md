@@ -19,7 +19,7 @@ The provider SHOULD announce a transition period containing three points in time
   - The roll-over-date at which CSAF 2.1 comes authoritative but CSAF 2.0 is still supported.
   - The end of the transition period, after which CSAF 2.0 is not supported any more.
 
-### Process of transition
+### Process of transitioning `provider-metadata.json`
 
 The following process SHOULD be followed within the transition period:
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
@@ -39,3 +39,13 @@ The following process SHOULD be followed within the transition period:
   - For file-based distribution servers, this MAY be achieved by using a symlink.
 - At the end of the transition period, it is RECOMMENDED to archive the remaining CSAF 2.0 documents, for example at
   `.well-known/csaf/archive/v2.0.tar.bz2`
+
+### Process of transitioning `aggregator.json`
+
+Similarly, to the process of transitioning `provider-metadata.json`, the same process SHOULD be used to transition `aggregator.json`.
+It is RECOMMENDED to use the following URLs during the process:
+- `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.  
+- `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
+- `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
+
+A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 providers.
