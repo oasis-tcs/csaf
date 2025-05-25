@@ -30,7 +30,8 @@ The following process SHOULD be followed within the transition period:
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
 - Sometime before the roll-over-date, all existing CSAF 2.0 documents SHOULD be converted to CSAF 2.1.
-- A the roll-over-date, the contents of the `provider-metadata.json` at `/.well-known/csaf/provider-metadata.json` SHALL be
-  replaced with the contents of the resource available at `/.well-known/csaf/v2.1/provider-metadata.json`.
+- A the roll-over-date, a `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
+  - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.1/provider-metadata.json`.
+  - For file-based distribution servers, this MAY be achieved by using a symlink.
 - At the end of the transition period, it is RECOMMENDED to archive the remaining CSAF 2.0 documents, for example at
   `.well-known/csaf/archive/v2.0.tar.bz2`
