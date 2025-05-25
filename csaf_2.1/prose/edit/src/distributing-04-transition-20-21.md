@@ -11,7 +11,13 @@ Different scenarios can be encountered:
   and publishing new documents using CSAF 2.1.
 
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is recommended.
-The following process SHOULD be followed:
+The provider SHOULD announce a transition period containing three points in time:
+  - The begin of the transition period, where the provider is starting to distribute serving CSAF 2.1 documents, while CSAF 2.0
+    being authoritative.
+  - The roll-over-date at which CSAF 2.1 comes authoritative but CSAF 2.0 is still supported.
+  - The end of the transition period, after which CSAF 2.0 is not supported any more.
+
+The following process SHOULD be followed within the transition period:
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
   - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.0/provider-metadata.json` path.
   - The property `maintained_until` SHOULD be set to the end of the transition period.
@@ -22,7 +28,9 @@ The following process SHOULD be followed:
   - The URL SHALL also be added to the security.txt, if used.
 - At the begin of the transition period, a `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
-  - For file-based distribution servers, this MAY for example be achieved by a symlink.
-- After the transition period has ended, the contents of the `provider-metadata.json` at `/.well-known/csaf/provider-metadata.json` SHALL be
+  - For file-based distribution servers, this MAY be achieved by using a symlink.
+- Sometime before the roll-over-date, all existing CSAF 2.0 documents SHOULD be converted to CSAF 2.1.
+- A the roll-over-date, the contents of the `provider-metadata.json` at `/.well-known/csaf/provider-metadata.json` SHALL be
   replaced with the contents of the resource available at `/.well-known/csaf/v2.1/provider-metadata.json`.
-  - The canonical URL SHALL be set to the URL corresponding to `/.well-known/csaf/provider-metadata.json`.
+- At the end of the transition period, it is RECOMMENDED to archive the remaining CSAF 2.0 documents, for example at
+  `.well-known/csaf/archive/v2.0.tar.bz2`

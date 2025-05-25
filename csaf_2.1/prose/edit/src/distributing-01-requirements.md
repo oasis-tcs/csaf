@@ -165,6 +165,10 @@ The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details
   https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
+As specified in [sec](#transition-between-csaf-20-and-csaf-21), the value of `canonical_url` MAY differ from the URL that was
+requested as a part of this requirement.
+Such state is intended and MUST NOT be reported as error.
+
 ### Requirement 10: DNS path
 
 Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
