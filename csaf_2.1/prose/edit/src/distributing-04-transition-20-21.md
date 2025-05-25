@@ -10,12 +10,16 @@ Different scenarios can be encountered:
   document base (e.g. by using a CSAF 2.0 to CSAF 2.1 converter as described in [sec](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter))
   and publishing new documents using CSAF 2.1.
 
+### Announcing the transition    
+
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is recommended.
 The provider SHOULD announce a transition period containing three points in time:
   - The begin of the transition period, where the provider is starting to distribute serving CSAF 2.1 documents, while CSAF 2.0
     being authoritative.
   - The roll-over-date at which CSAF 2.1 comes authoritative but CSAF 2.0 is still supported.
   - The end of the transition period, after which CSAF 2.0 is not supported any more.
+
+### Process of transition
 
 The following process SHOULD be followed within the transition period:
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
