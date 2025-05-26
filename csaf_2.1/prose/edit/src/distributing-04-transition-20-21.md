@@ -11,7 +11,7 @@ Different scenarios can be encountered:
   document base (e.g. by using a CSAF 2.0 to CSAF 2.1 converter as described in [sec](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter))
   and publishing new documents using CSAF 2.1.
 
-### Announcing the transition    
+### Announcing the Transition
 
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is recommended.
 The provider SHOULD announce a transition period containing three points in time:
@@ -20,7 +20,11 @@ The provider SHOULD announce a transition period containing three points in time
 - The roll-over-date at which CSAF 2.1 becomes authoritative but CSAF 2.0 is still supported.
 - The end of the transition period, after which CSAF 2.0 is not supported any more.
 
-### Process of transitioning `provider-metadata.json`
+The announcement MAY contain also the following information:
+
+- The first date, when CSAF 2.1 documents are available and automatically retrievable from the server through a CSAF 2.1 `provider-metadata.json`.
+- The last date, when CSAF 2.0 documents are available and automatically retrievable from the server through a CSAF 2.0 `provider-metadata.json`.
+### Transition Process for a CSAF provider
 
 The following process SHOULD be followed within the transition period:
 
@@ -36,20 +40,34 @@ The following process SHOULD be followed within the transition period:
 - At the begin of the transition period, a `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
+    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
 - Sometime before the roll-over-date, all existing CSAF 2.0 documents SHOULD be converted to CSAF 2.1.
 - A the roll-over-date, a `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.1/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
-- At the end of the transition period, it is RECOMMENDED to archive the remaining CSAF 2.0 documents, for example at
-  `.well-known/csaf/archive/v2.0.tar.bz2`
+    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
+- At the end of the transition period, the URL of the CSAF 2.0 `provider-metadata.json` SHOULD be removed from the `security.txt`.
+  - The unmaintained CSAF 2.0 directory structure and files SHOULD be removed or made inaccessible.
+  - The CSAF 2.0 documents MAY be archived.
 
-### Process of transitioning `aggregator.json`
+### Archive of CSAF document from previous version
+
+The following rules apply for the archival of CSAF document from a previous version:
+
+- This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
+- The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section [sec]8#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [sec](#requirement-18-integrity).
+- The archive MUST be accompanied by a hash of the same algorithm.
+- Existing signatures MAY also be included into the archive.
+  It is NOT RECOMMENDED to renew the signatures in the archive unless the archive is not updated.
+
+### Transition Process for a CSAF Aggregator
 
 Similarly, to the process of transitioning `provider-metadata.json`, the same process SHOULD be used to transition `aggregator.json`.
 It is RECOMMENDED to use the following URLs during the process:
+
 
 - `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.  
 - `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
 - `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
 
-A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 providers.
+A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 publishers and providers.

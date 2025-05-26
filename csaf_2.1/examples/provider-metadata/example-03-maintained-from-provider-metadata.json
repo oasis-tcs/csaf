@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json",
-  "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
+  "canonical_url": "https://www.example.com/.well-known/csaf/v2.1/provider-metadata.json",
   "distributions": [
     {
       "rolie": {
@@ -9,7 +9,9 @@
             "last_updated": "2024-01-24T20:20:56.169Z",
             "summary": "All TLP:CLEAR advisories of Example Company.",
             "tlp_label": "CLEAR",
-            "url": "https://www.example.com/.well-known/csaf/feed-tlp-clear.json"
+            "summary": "All TLP:CLEAR advisories of Example Company in CSAF 2.1.",
+            "tlp_label": "CLEAR",
+            "url": "https://www.example.com/.well-known/csaf/v2.1/feed-tlp-clear.json"
           }
         ]
       }
