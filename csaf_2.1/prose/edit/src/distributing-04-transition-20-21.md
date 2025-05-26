@@ -2,6 +2,7 @@
 
 This subsection details the process that SHOULD be followed when transitioning the distribution of documents from CSAF 2.0 to CSAF 2.1.
 Different scenarios can be encountered:
+
 - Providers will continue to use CSAF 2.0.
   This SHOULD be avoided, as the CSAF ecosystem greatly profits from adoption to the new standard version.
 - Providers will immediately upgrade all documents as well as the `provider-metadata.json` to CSAF 2.1.
@@ -14,17 +15,19 @@ Different scenarios can be encountered:
 
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is recommended.
 The provider SHOULD announce a transition period containing three points in time:
-  - The begin of the transition period, where the provider is starting to distribute serving CSAF 2.1 documents, while CSAF 2.0
-    being authoritative.
-  - The roll-over-date at which CSAF 2.1 comes authoritative but CSAF 2.0 is still supported.
-  - The end of the transition period, after which CSAF 2.0 is not supported any more.
+
+- The begin of the transition period, where the provider is starting to serve CSAF 2.1 documents, while CSAF 2.0 being authoritative.
+- The roll-over-date at which CSAF 2.1 becomes authoritative but CSAF 2.0 is still supported.
+- The end of the transition period, after which CSAF 2.0 is not supported any more.
 
 ### Process of transitioning `provider-metadata.json`
 
 The following process SHOULD be followed within the transition period:
+
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
   - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.0/provider-metadata.json` path.
-  - The property `maintained_until` SHOULD be set to the end of the transition period.
+  > The property `maintained_until` was not defined in CSAF 2.0 and therefore cannot be used -
+  > otherwise it would be set to the end of the transition period.
   - The URL SHALL also be added as an entry in the security.txt, if used.
 - A `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/v2.1/provider-metadata.json`.
   - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.1/provider-metadata.json` path.
@@ -44,6 +47,7 @@ The following process SHOULD be followed within the transition period:
 
 Similarly, to the process of transitioning `provider-metadata.json`, the same process SHOULD be used to transition `aggregator.json`.
 It is RECOMMENDED to use the following URLs during the process:
+
 - `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.  
 - `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
 - `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
