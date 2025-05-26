@@ -24,6 +24,7 @@ The announcement MAY contain also the following information:
 
 - The first date, when CSAF 2.1 documents are available and automatically retrievable from the server through a CSAF 2.1 `provider-metadata.json`.
 - The last date, when CSAF 2.0 documents are available and automatically retrievable from the server through a CSAF 2.0 `provider-metadata.json`.
+
 ### Transition Process for a CSAF provider
 
 The following process SHOULD be followed within the transition period:
@@ -55,7 +56,8 @@ The following process SHOULD be followed within the transition period:
 The following rules apply for the archival of CSAF document from a previous version:
 
 - This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
-- The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section [sec]8#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [sec](#requirement-18-integrity).
+- The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section
+  [sec](#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [sec](#requirement-18-integrity).
 - The archive MUST be accompanied by a hash of the same algorithm.
 - Existing signatures MAY also be included into the archive.
   It is NOT RECOMMENDED to renew the signatures in the archive unless the archive is not updated.
@@ -64,7 +66,6 @@ The following rules apply for the archival of CSAF document from a previous vers
 
 Similarly, to the process of transitioning `provider-metadata.json`, the same process SHOULD be used to transition `aggregator.json`.
 It is RECOMMENDED to use the following URLs during the process:
-
 
 - `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.  
 - `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
