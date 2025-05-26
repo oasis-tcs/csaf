@@ -1468,6 +1468,12 @@
       <dd>
         functional behavior of a product or service that violates an implicit or explicit security policy (conforming to ISO/IEC 29147 <a href="#ISO29147">[ISO29147</a>])
       </dd>
+      <dt id="def;white-space">
+        white space
+      </dt>
+      <dd>
+        code point used to improve text readability or token separation as defined in section 12.2 of <a href="#ECMA-262">cite</a>
+      </dd>
       <dt id="def;xml">
         XML
       </dt>
@@ -1478,6 +1484,9 @@
     <h2 id="13-normative-references-">
       1.3 Normative References <a id='normative-references'></a>
     </h2>
+    <p>
+      <strong>[</strong><span id="ECMA-262" class="anchor"></span><strong>ECMA-262]</strong> <em>ECMAScript® 2024 Language Specification</em>, ECMA-262, 15th edition, June 2024, <a href="https://262.ecma-international.org/15.0/">https://262.ecma-international.org/15.0/</a>
+    </p>
     <p>
       <strong>[</strong><span id="ISO8601-1" class="anchor"></span><strong>ISO8601-1]</strong> <em>Date and time — Representations for information interchangePart 1: Basic rules</em>, International Standard, ISO 8601-1:2019(E), February 25, 2019, <a href="https://www.iso.org/standard/70907.html">https://www.iso.org/standard/70907.html</a>.
     </p>
@@ -9619,13 +9628,32 @@
   ]</code></pre>
     <blockquote>
       <p>
-        Neither the <code>environmentalScore</code> nor the properties <code>modifiedIntegrityImpact</code>, <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code> nor the corresponding attributes in the <code>vectorString</code> have been set.
+        Neither the <code>environmentalScore</code> nor the properties <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code>, <code>modifiedIntegrityImpact</code> nor the corresponding attributes in the <code>vectorString</code> have been set.
       </p>
     </blockquote>
     <blockquote>
       <p>
-        A tool MAY set the properties <code>modifiedIntegrityImpact</code>, <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code> (respectively their equivalents according to the CVSS version used) accordingly and compute the <code>environmentalScore</code> as quick fix.
+        A tool MAY remove any Product IDs listed within product status <code>fixed</code> or <code>first_fixed</code> from <code>products</code> of all items of the <code>metrics</code> element.
       </p>
+      <p>
+        Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce score to <code>0</code> and compute the <code>environmentalScore</code> as quick fix. The following environmental properties have been identified:
+      </p>
+      <ul>
+        <li>CVSS v2: <code>targetDistribution</code> to <code>NONE</code>
+        </li>
+        <li>CVSS v3: all of <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code>, and <code>modifiedIntegrityImpact</code> to <code>NONE</code>
+        </li>
+        <li>CVSS v4: all of
+          <ul>
+            <li>
+              <code>modifiedVulnAvailabilityImpact</code>, <code>modifiedVulnConfidentialityImpact</code>, and <code>modifiedVulnIntegrityImpact</code> to <code>NONE</code> and
+            </li>
+            <li>
+              <code>modifiedSubAvailabilityImpact</code>, <code>modifiedSubConfidentialityImpact</code>, and <code>modifiedSubIntegrityImpact</code> to <code>NEGLIGIBLE</code>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </blockquote>
     <h3 id="6220-additional-properties-">
       6.2.20 Additional Properties <a id='additional-properties'></a>
@@ -10323,11 +10351,12 @@
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "ssvc",
                   "values": [
                     "Total"
                   ],
@@ -10344,7 +10373,7 @@
   ]</code></pre>
     <blockquote>
       <p>
-        The namespace <code>some-yet-unknown-or-maybe-private-namespace</code> is not a registered namespace. Its decision point definitions might therefore not be known to the reader of the document.
+        The role <code>An unregistered role</code> is not a registered role. Its structure might therefore not be known to the reader of the document.
       </p>
     </blockquote>
     <h3 id="6238-usage-of-deprecated-profile-">

@@ -657,13 +657,17 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;vulnerability">vulnerability</dt>
   <dd>functional behavior of a product or service that violates an implicit or explicit security policy
       (conforming to ISO/IEC 29147 <a href="#ISO29147">[ISO29147</a>])</dd>
+  <dt id="def;white-space">white space</dt>
+  <dd>code point used to improve text readability or token separation as defined in section 12.2 of <a href="#ECMA-262">cite</a></dd>
   <dt id="def;xml">XML</dt>
   <dd>eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.</dd>
 </dl>
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
-**\[**<span id="ISO8601-1" class="anchor"></span>**ISO8601-1\]** _Date and time — Representations for information interchangePart 1: Basic rules_, International Standard, ISO 8601-1:2019(E), February 25, 2019, https://www.iso.org/standard/70907.html.
+**\[**<span id="ECMA-262" class="anchor"></span>**ECMA-262\]** _ECMAScript® 2024 Language Specification_, ECMA-262, 15th edition, June 2024, <https://262.ecma-international.org/15.0/>
+
+**\[**<span id="ISO8601-1" class="anchor"></span>**ISO8601-1\]** _Date and time — Representations for information interchangePart 1: Basic rules_, International Standard, ISO 8601-1:2019(E), February 25, 2019, <https://www.iso.org/standard/70907.html>.
 
 **\[**<span id="JSON-Schema-Core" class="anchor"></span>**JSON-Schema-Core\]** _JSON Schema: A Media Type for Describing JSON Documents_, draft-bhutton-json-schema-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00>.
 
@@ -7847,11 +7851,20 @@ The relevant path for this test is:
   ]
 ```
 
-> Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor
+> Neither the `environmentalScore` nor the properties `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, `modifiedIntegrityImpact` nor
 > the corresponding attributes in the `vectorString` have been set.
 
-> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` (respectively their
-> equivalents according to the CVSS version used) accordingly and compute the `environmentalScore` as quick fix.
+> A tool MAY remove any Product IDs listed within product status `fixed` or `first_fixed` from `products` of all items of the `metrics` element.
+>
+> Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce score to `0`
+> and compute the `environmentalScore` as quick fix.
+> The following environmental properties have been identified:
+>
+> - CVSS v2: `targetDistribution` to `NONE`
+> - CVSS v3: all of `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, and `modifiedIntegrityImpact` to `NONE`
+> - CVSS v4: all of
+>   - `modifiedVulnAvailabilityImpact`, `modifiedVulnConfidentialityImpact`, and `modifiedVulnIntegrityImpact` to `NONE` and
+>   - `modifiedSubAvailabilityImpact`, `modifiedSubConfidentialityImpact`, and `modifiedSubIntegrityImpact` to `NEGLIGIBLE`
 
 ### 6.2.20 Additional Properties <a id='additional-properties'></a>
 
@@ -8514,11 +8527,12 @@ The relevant path for this test is:
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "ssvc",
                   "values": [
                     "Total"
                   ],
@@ -8535,8 +8549,8 @@ The relevant path for this test is:
   ]
 ```
 
-> The namespace `some-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
-> Its decision point definitions might therefore not be known to the reader of the document.
+> The role `An unregistered role` is not a registered role.
+> Its structure might therefore not be known to the reader of the document.
 
 ### 6.2.38 Usage of Deprecated Profile <a id='usage-of-deprecated-profile'></a>
 

@@ -19,11 +19,12 @@ The relevant path for this test is:
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "ssvc",
                   "values": [
                     "Total"
                   ],
@@ -40,5 +41,5 @@ The relevant path for this test is:
   ]
 ```
 
-> The namespace `some-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
-> Its decision point definitions might therefore not be known to the reader of the document.
+> The role `An unregistered role` is not a registered role.
+> Its structure might therefore not be known to the reader of the document.

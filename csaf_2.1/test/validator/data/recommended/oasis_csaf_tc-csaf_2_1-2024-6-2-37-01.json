@@ -1,5 +1,5 @@
 {
-  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
   "document": {
     "category": "csaf_base",
     "csaf_version": "2.1",
@@ -45,7 +45,7 @@
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
-              "role": "An unregistrable role",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
