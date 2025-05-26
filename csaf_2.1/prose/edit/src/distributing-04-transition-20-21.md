@@ -55,7 +55,7 @@ The following process SHOULD be followed within the transition period:
 
 The following rules apply for the archival of CSAF document from a previous version:
 
-- This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
+- This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.tar.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
 - The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section
   [sec](#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [sec](#requirement-18-integrity).
 - The archive MUST be accompanied by a hash of the same algorithm.
