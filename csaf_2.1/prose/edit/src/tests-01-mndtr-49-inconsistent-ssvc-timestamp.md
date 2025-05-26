@@ -15,12 +15,6 @@ The relevant path for this test is:
 ```
   "document": {
     // ...
-    "distribution": {
-      "tlp": {
-        "label": "CLEAR"
-      }
-    },
-    // ...
     "tracking": {
       // ...
       "revision_history": [
@@ -34,6 +28,7 @@ The relevant path for this test is:
       // ...
     }
   },
+  // ...
   "vulnerabilities": [
     {
       "cve": "CVE-1900-0001",

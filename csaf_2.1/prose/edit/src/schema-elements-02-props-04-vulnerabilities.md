@@ -15,9 +15,10 @@ properties represents a list of all relevant vulnerability information items.
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
-Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`),
-Involvements (`involvements`), Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`),
-Remediations (`remediations`), Threats (`threats`), and Title (`title`).
+Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
+List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
+Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
+Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -34,6 +35,9 @@ Remediations (`remediations`), Threats (`threats`), and Title (`title`).
         // ...
       },
       "discovery_date": {
+        // ...
+      },
+      "first_known_exploitation_dates": {
         // ...
       },
       "flags": {
@@ -185,6 +189,59 @@ vulnerability was in fact disclosed to the public at that time or update the `di
 #### Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
+
+#### Vulnerabilities Property - First Known Exploitation Dates
+
+List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with 1 or more unique items (a set) of value type
+`object` contains a list of dates of first known exploitations.
+
+```
+    "first_known_exploitation_dates": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every First known exploitation date item of value type `object` with the 2 mandatory properties Date of the information (`date`) and
+Date of the exploitation (`exploitation_date`) holds at least 3 properties and contains information on when this vulnerability was
+first known to be exploited in the wild in the products specified.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
+product groups this date is applicable.
+
+> This information can be helpful to determine the risk of compromise.
+> It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
+
+```
+    "properties": {
+      "date": {
+        // ...
+      },
+      "exploitation_date": {
+        // ...
+      },
+      "group_ids": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      }
+    }
+```
+
+Date of the information (`date`) of value type `string` with format `date-time` contains the date when the information was last updated.
+
+Date of the exploitation (`exploitation_date`) of value type `string` with format `date-time` contains the date when the exploitation happened.
+
+> Different document issuers might have different knowledge about exploitations in the wild that happened.
+> Therefore, the `exploitation_date` can differ.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
+first known exploitation date item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current first known exploitation date item
+applies to.
 
 #### Vulnerabilities Property - Flags
 
