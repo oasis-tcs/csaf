@@ -3466,17 +3466,17 @@
       ]
     },
     {
-      "id": "6.3.15",
+      "id": "6.3.16",
       "group": "informative",
       "failures": [
         {
-          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-15-01.json",
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-16-01.json",
           "valid": true
         }
       ],
       "valid": [
         {
-          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-15-11.json",
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-16-11.json",
           "valid": true
         }
       ]
