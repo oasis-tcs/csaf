@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: Inconsistent First Known Exploitation Dates (valid example 2)",
+    "title": "Mandatory Test: Inconsistent Exploitation Date (failing example 2)",
     "tracking": {
       "current_release_date": "2024-03-26T10:00:00.000-07:00",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-52-12",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-53-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -50,8 +50,8 @@
     {
       "first_known_exploitation_dates": [
         {
-          "date": "2024-03-26T10:00:00.000+00:07",
-          "exploitation_date": "2024-03-26T03:00:00.000-03:21",
+          "date": "2024-03-26T13:44:00.000+02:00",
+          "exploitation_date": "2024-03-26T08:00:00.000+08:15",
           "product_ids": [
             "CSAFPID-9080700"
           ]
@@ -61,15 +61,15 @@
     {
       "first_known_exploitation_dates": [
         {
-          "date": "2024-03-27T10:00:00.000+17:00",
-          "exploitation_date": "2024-03-25T23:00:00.000-17:00",
+          "date": "2024-03-27T10:00:00.000+18:00",
+          "exploitation_date": "2024-03-25T22:30:00.000-18:00",
           "product_ids": [
             "CSAFPID-9080700"
           ]
         },
         {
-          "date": "2024-03-25T23:29:59.999999-17:30",
-          "exploitation_date": "2024-03-27T07:59:59.999999+15:00",
+          "date": "2024-03-25T20:29:59.99999-11:45",
+          "exploitation_date": "2024-03-27T08:04:59.9999999+23:50",
           "product_ids": [
             "CSAFPID-9080701"
           ]
