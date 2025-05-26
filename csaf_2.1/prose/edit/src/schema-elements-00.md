@@ -2,16 +2,16 @@
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
-The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules.
+The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules extended by the format validation enforcement (see [sec](#format-validation)).
 
 ```
-    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json"
 ```
 
 The schema identifier is:
 
 ```
-    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"
 ```
 
 The further documentation of the schema is organized via Definitions and Properties.
@@ -21,5 +21,5 @@ The further documentation of the schema is organized via Definitions and Propert
 
 Types and properties together provide the vocabulary for the domain specific language supporting security advisories.
 
-The single mandatory property is `document`.
+The two mandatory properties are `$schema` and `document`.
 The optional two additional properties are `product_tree` and `vulnerabilities`.

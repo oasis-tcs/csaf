@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCHEMA=csaf_2.1/json_schema/csaf_json_schema.json
+SCHEMA=csaf_2.1/json_schema/csaf.json
 VALIDATOR=csaf_2.1/test/cpe/test-regex.js
 CPE_BASE_URL=https://nvd.nist.gov/feeds/xml/cpe/dictionary/
 CPE_2_3=official-cpe-dictionary_v2.3
