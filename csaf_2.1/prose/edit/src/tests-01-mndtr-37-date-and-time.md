@@ -11,6 +11,8 @@ The relevant path for this test is:
   /document/tracking/revision_history[]/date
   /vulnerabilities[]/disclosure_date
   /vulnerabilities[]/discovery_date
+  /vulnerabilities[]/first_known_exploitation_dates[]/date
+  /vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date
   /vulnerabilities[]/flags[]/date
   /vulnerabilities[]/involvements[]/date
   /vulnerabilities[]/remediations[]/date
