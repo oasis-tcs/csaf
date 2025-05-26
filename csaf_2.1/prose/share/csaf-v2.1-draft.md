@@ -37,12 +37,14 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json.
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
+* Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
 #### Related work:
 This specification replaces or supersedes:
@@ -51,9 +53,10 @@ This specification replaces or supersedes:
 
 #### Declared JSON namespaces:
 
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
 
 #### Abstract:
@@ -112,7 +115,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	1.5 [Typographical Conventions](#typographical-conventions)  
 2. [Design Considerations](#design-considerations)  
 	2.1 [Construction Principles](#construction-principles)  
-	2.2 [Date and Time](#date-and-time)  
+	2.2 [Format Validation](#format-validation)  
+	2.3 [Date and Time](#date-and-time)  
 3. [Schema Elements](#schema-elements)  
 	3.1 [Definitions](#definitions)  
 		3.1.1 [Acknowledgments Type](#acknowledgments-type)  
@@ -904,7 +908,42 @@ Section [7](#distributing-csaf-documents) states how to distribute and where to 
 Safety, Security and Data Protection are considered in section [8](#safety-security-and-data-protection-considerations).
 Finally, a set of conformance targets describes tools in the ecosystem.
 
-## 2.2 Date and Time <a id='date-and-time'></a>
+## 2.2 Format Validation <a id='format-validation'></a>
+
+The JSON schema 2020-12 dialect per default uses the `format` keyword just as annotation.
+To be able to ensure that the format constraints are validated as intended, the following metaschema is defined.
+
+```
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+    "$dynamicAnchor": "meta",
+    "$vocabulary": {
+      "https://json-schema.org/draft/2020-12/vocab/core": true,
+      "https://json-schema.org/draft/2020-12/vocab/format-assertion": true
+    },
+    "allOf": [
+      { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
+      { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
+    ]
+  }
+```
+
+It is then consequently used in all JSON schemas defined in this standard and replaces the reference to the JSON schema 2020-12.
+
+```
+  {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+    // ...
+  }
+```
+
+The format validation is enforced by setting the corresponding vocabulary as required.
+
+> If a library used to parse, modify or create CSAF content is unable to deal with this meta schema, it could reach the objective by
+> interpreting the schema as JSON schema 2020-12 dialect and enforcing the format validation via its implementation.
+
+## 2.3 Date and Time <a id='date-and-time'></a>
 
 This standard uses the `date-time` format as defined in JSON Schema Draft 2020-12 Section 7.3.1.
 In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the following rules apply:
@@ -926,16 +965,16 @@ In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the 
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
-The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules.
+The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules extended by the format validation enforcement (see [2.2](#format-validation)).
 
 ```
-    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json"
 ```
 
 The schema identifier is:
 
 ```
-    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"
 ```
 
 The further documentation of the schema is organized via Definitions and Properties.
@@ -945,7 +984,7 @@ The further documentation of the schema is organized via Definitions and Propert
 
 Types and properties together provide the vocabulary for the domain specific language supporting security advisories.
 
-The single mandatory property is `document`.
+The two mandatory properties are `$schema` and `document`.
 The optional two additional properties are `product_tree` and `vulnerabilities`.
 
 ## 3.1 Definitions <a id='definitions'></a>
@@ -2189,7 +2228,7 @@ JSON schema (`$schema`) of value type `string` and `enum` with format `uri` cont
 The single valid value for this `enum` is:
 
 ```
-  https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json
+  https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json
 ```
 
 > This value allows for tools to identify that a JSON document is meant to be valid against this schema.
@@ -9505,7 +9544,7 @@ If any redirects are used, there SHOULD not be more than 5 and MUST NOT be more 
 ### 7.1.7 Requirement 7: provider-metadata.json <a id='requirement-7-provider-metadata-json'></a>
 
 The party MUST provide a valid `provider-metadata.json` according to the schema
-[CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata.
+[CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json) for its own metadata.
 The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a
 CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
 
@@ -9526,6 +9565,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
     "distributions": [
       {
@@ -9743,7 +9783,7 @@ Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC
             "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
-            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
             "version": "2.1"
           }
         }
@@ -9922,7 +9962,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 ### 7.1.21 Requirement 21: List of CSAF providers <a id='requirement-21-list-of-csaf-providers'></a>
 
 The file `aggregator.json` MUST be present and valid according to the
-JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json).
+JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
 It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 > Suggested locations to store the `aggregator.json` are:
@@ -9938,6 +9978,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "lister",
       "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
@@ -9956,6 +9997,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         }
       },
@@ -9967,6 +10009,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         }
       }
@@ -9994,6 +10037,7 @@ Each such folder MUST at least:
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "aggregator",
       "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
@@ -10327,7 +10371,8 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section [2.2](#date-and-time).
+* conforms to the syntax and semantics defined in section [2.2](#format-validation).
+* conforms to the syntax and semantics defined in section [2.3](#date-and-time).
 * conforms to the syntax and semantics defined in section [3](#schema-elements).
 * satisfies at least one profile defined in section [4](#profiles).
 * conforms to the syntax and semantics defined in section [5](#additional-conventions).
@@ -11013,7 +11058,7 @@ Secondly, the program fulfills the following for all items of:
 
 A library satisfies the "CSAF library" conformance profile if the library:
 
-* implements all elements as data structures conforming to the syntax and semantics defined in section [2.2](#date-and-time), [3](#schema-elements),
+* implements all elements as data structures conforming to the syntax and semantics defined in section [2.3](#date-and-time), [3](#schema-elements),
   [4](#profiles) and [5](#additional-conventions).
 * checks all elements according to the patterns provided in the JSON schema.
 * has a function that checks version ranges.
@@ -11551,7 +11596,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 The value of `/$schema` is a fixed URL, currently pointing to the JSON schema location.
 It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
 
-* `/$schema` (64)
+* `/$schema` (59)
 
 For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:

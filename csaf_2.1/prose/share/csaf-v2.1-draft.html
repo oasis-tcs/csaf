@@ -94,14 +94,17 @@
       This prose specification is one component of a Work Product that also includes:
     </p>
     <ul>
-      <li>Aggregator JSON schema: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator_json_schema.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator_json_schema.json</a>.<br />
-        Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json">https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json</a>.
+      <li>Aggregator JSON schema: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json</a>.<br />
+        Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json">https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json</a>.
       </li>
-      <li>CSAF JSON schema: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json</a>.<br />
-        Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json</a>.
+      <li>CSAF JSON schema: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json</a>.<br />
+        Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json">https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json</a>.
       </li>
-      <li>Provider JSON schema: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json</a>.<br />
-        Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json">https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json</a>.
+      <li>Meta JSON schema: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json</a>.<br />
+        Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json">https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json</a>.
+      </li>
+      <li>Provider JSON schema: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json">https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json</a>.<br />
+        Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json">https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json</a>.
       </li>
     </ul>
     <h4 id="related-work">
@@ -121,13 +124,16 @@
     </h4>
     <ul>
       <li>
-        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json</span></a>
+        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json</span></a>
       </li>
       <li>
-        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json</span></a>
+        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json</span></a>
       </li>
       <li>
-        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json</span></a>
+        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json</span></a>
+      </li>
+      <li>
+        <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json"><span>https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json</span></a>
       </li>
     </ul>
     <h4 id="abstract">
@@ -235,7 +241,9 @@
           <ul>
             <li>2.1 <a href="#construction-principles">Construction Principles</a>
             </li>
-            <li>2.2 <a href="#date-and-time">Date and Time</a>
+            <li>2.2 <a href="#format-validation">Format Validation</a>
+            </li>
+            <li>2.3 <a href="#date-and-time">Date and Time</a>
             </li>
           </ul>
         </li>
@@ -1848,8 +1856,42 @@
       from the specification which can not be tested by the schema. Section <a href="#distributing-csaf-documents">7</a> states how to distribute and where to find CSAF documents. Safety, Security and Data Protection are considered in section <a href="#safety-security-and-data-protection-considerations">8</a>. Finally, a set of conformance
       targets describes tools in the ecosystem.
     </p>
-    <h2 id="22-date-and-time-">
-      2.2 Date and Time <a id='date-and-time'></a>
+    <h2 id="22-format-validation-">
+      2.2 Format Validation <a id='format-validation'></a>
+    </h2>
+    <p>
+      The JSON schema 2020-12 dialect per default uses the <code>format</code> keyword just as annotation. To be able to ensure that the format constraints are validated as intended, the following metaschema is defined.
+    </p>
+    <pre><code>  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+    "$dynamicAnchor": "meta",
+    "$vocabulary": {
+      "https://json-schema.org/draft/2020-12/vocab/core": true,
+      "https://json-schema.org/draft/2020-12/vocab/format-assertion": true
+    },
+    "allOf": [
+      { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
+      { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
+    ]
+  }</code></pre>
+    <p>
+      It is then consequently used in all JSON schemas defined in this standard and replaces the reference to the JSON schema 2020-12.
+    </p>
+    <pre><code>  {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+    // ...
+  }</code></pre>
+    <p>
+      The format validation is enforced by setting the corresponding vocabulary as required.
+    </p>
+    <blockquote>
+      <p>
+        If a library used to parse, modify or create CSAF content is unable to deal with this meta schema, it could reach the objective by interpreting the schema as JSON schema 2020-12 dialect and enforcing the format validation via its implementation.
+      </p>
+    </blockquote>
+    <h2 id="23-date-and-time-">
+      2.3 Date and Time <a id='date-and-time'></a>
     </h2>
     <p>
       This standard uses the <code>date-time</code> format as defined in JSON Schema Draft 2020-12 Section 7.3.1. In accordance with [<a href="#RFC3339">RFC3339</a>] and [<a href="#ISO8601-1">ISO8601-1</a>], the following rules apply:
@@ -1883,13 +1925,13 @@
       The CSAF schema describes how to represent security advisory information as a JSON document.
     </p>
     <p>
-      The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules.
+      The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules extended by the format validation enforcement (see <a href="#format-validation">2.2</a>).
     </p>
-    <pre><code>    "$schema": "https://json-schema.org/draft/2020-12/schema"</code></pre>
+    <pre><code>    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json"</code></pre>
     <p>
       The schema identifier is:
     </p>
-    <pre><code>    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"</code></pre>
+    <pre><code>    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"</code></pre>
     <p>
       The further documentation of the schema is organized via Definitions and Properties.
     </p>
@@ -1903,7 +1945,7 @@
       Types and properties together provide the vocabulary for the domain specific language supporting security advisories.
     </p>
     <p>
-      The single mandatory property is <code>document</code>. The optional two additional properties are <code>product_tree</code> and <code>vulnerabilities</code>.
+      The two mandatory properties are <code>$schema</code> and <code>document</code>. The optional two additional properties are <code>product_tree</code> and <code>vulnerabilities</code>.
     </p>
     <h2 id="31-definitions-">
       3.1 Definitions <a id='definitions'></a>
@@ -3177,7 +3219,7 @@
     <p>
       JSON schema (<code>$schema</code>) of value type <code>string</code> and <code>enum</code> with format <code>uri</code> contains the URL of the CSAF JSON schema which the document promises to be valid for. The single valid value for this <code>enum</code> is:
     </p>
-    <pre><code>  https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json</code></pre>
+    <pre><code>  https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json</code></pre>
     <blockquote>
       <p>
         This value allows for tools to identify that a JSON document is meant to be valid against this schema. Tools can use that to support users by automatically checking whether the CSAF adheres to the JSON schema identified by this URL.
@@ -11364,8 +11406,8 @@
       7.1.7 Requirement 7: provider-metadata.json <a id='requirement-7-provider-metadata-json'></a>
     </h3>
     <p>
-      The party MUST provide a valid <code>provider-metadata.json</code> according to the schema <a href="https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json">CSAF provider metadata</a> for its own metadata. The <code>publisher</code> object SHOULD match the one used in the CSAF documents of the issuing party but can be set
-      to whatever value a CSAF aggregator SHOULD display over any individual <code>publisher</code> values in the CSAF documents themselves.
+      The party MUST provide a valid <code>provider-metadata.json</code> according to the schema <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json">CSAF provider metadata</a> for its own metadata. The <code>publisher</code> object SHOULD match the one used in the CSAF documents of the issuing party but can be set to
+      whatever value a CSAF aggregator SHOULD display over any individual <code>publisher</code> values in the CSAF documents themselves.
     </p>
     <blockquote>
       <p>
@@ -11395,6 +11437,7 @@
       <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-184'></a>
     </p>
     <pre><code>  {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
     "distributions": [
       {
@@ -11621,7 +11664,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
             "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
-            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
             "version": "2.1"
           }
         }
@@ -11828,7 +11871,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       7.1.21 Requirement 21: List of CSAF providers <a id='requirement-21-list-of-csaf-providers'></a>
     </h3>
     <p>
-      The file <code>aggregator.json</code> MUST be present and valid according to the JSON schema <a href="https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json">CSAF aggregator</a>. It MUST NOT be stored adjacent to a <code>provider-metadata.json</code>.
+      The file <code>aggregator.json</code> MUST be present and valid according to the JSON schema <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json">CSAF aggregator</a>. It MUST NOT be stored adjacent to a <code>provider-metadata.json</code>.
     </p>
     <blockquote>
       <p>
@@ -11856,6 +11899,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-198'></a>
     </p>
     <pre><code>  {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "lister",
       "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
@@ -11874,6 +11918,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         }
       },
@@ -11885,6 +11930,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         }
       }
@@ -11913,6 +11959,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-199'></a>
     </p>
     <pre><code>  {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "aggregator",
       "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
@@ -12348,7 +12395,9 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       A text file or data stream satisfies the "CSAF document" conformance profile if it:
     </p>
     <ul>
-      <li>conforms to the syntax and semantics defined in section <a href="#date-and-time">2.2</a>.
+      <li>conforms to the syntax and semantics defined in section <a href="#format-validation">2.2</a>.
+      </li>
+      <li>conforms to the syntax and semantics defined in section <a href="#date-and-time">2.3</a>.
       </li>
       <li>conforms to the syntax and semantics defined in section <a href="#schema-elements">3</a>.
       </li>
@@ -13646,7 +13695,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       A library satisfies the "CSAF library" conformance profile if the library:
     </p>
     <ul>
-      <li>implements all elements as data structures conforming to the syntax and semantics defined in section <a href="#date-and-time">2.2</a>, <a href="#schema-elements">3</a>, <a href="#profiles">4</a> and <a href="#additional-conventions">5</a>.
+      <li>implements all elements as data structures conforming to the syntax and semantics defined in section <a href="#date-and-time">2.3</a>, <a href="#schema-elements">3</a>, <a href="#profiles">4</a> and <a href="#additional-conventions">5</a>.
       </li>
       <li>checks all elements according to the patterns provided in the JSON schema.
       </li>
@@ -16080,7 +16129,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     </p>
     <ul>
       <li>
-        <code>/$schema</code> (64)
+        <code>/$schema</code> (59)
       </li>
     </ul>
     <p>
