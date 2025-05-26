@@ -7,8 +7,6 @@
         "feeds": [
           {
             "last_updated": "2024-01-24T20:20:56.169Z",
-            "summary": "All TLP:CLEAR advisories of Example Company.",
-            "tlp_label": "CLEAR",
             "summary": "All TLP:CLEAR advisories of Example Company in CSAF 2.1.",
             "tlp_label": "CLEAR",
             "url": "https://www.example.com/.well-known/csaf/v2.1/feed-tlp-clear.json"
