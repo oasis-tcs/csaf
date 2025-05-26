@@ -63,6 +63,7 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
+* conforms to the syntax and semantics defined in section [sec](#format-validation).
 * conforms to the syntax and semantics defined in section [sec](#date-and-time).
 * conforms to the syntax and semantics defined in section [sec](#schema-elements).
 * satisfies at least one profile defined in section [sec](#profiles).
@@ -172,6 +173,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwes[]`:
+  * The CVRF CSAF converter MUST remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document.
@@ -685,13 +687,16 @@ Secondly, the program fulfills the following for all items of:
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
-* `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
-  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
-  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
-  of the source document SHOULD be used.
-  > This is done to create a deterministic conversion.
+* `/vulnerabilities[]/cwes[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove all preceding and trailing white space from the `name`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+    using the latest version that matches the `id` and `name` exactly and was published prior to the value of
+    `/document/tracking/current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    of the source document SHOULD be used.
+    > This is done to create a deterministic conversion.
 
-  The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+    The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value into the `disclosure_date` element.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,

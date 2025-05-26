@@ -657,13 +657,17 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;vulnerability">vulnerability</dt>
   <dd>functional behavior of a product or service that violates an implicit or explicit security policy
       (conforming to ISO/IEC 29147 <a href="#ISO29147">[ISO29147</a>])</dd>
+  <dt id="def;white-space">white space</dt>
+  <dd>code point used to improve text readability or token separation as defined in section 12.2 of <a href="#ECMA-262">cite</a></dd>
   <dt id="def;xml">XML</dt>
   <dd>eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.</dd>
 </dl>
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
-**\[**<span id="ISO8601-1" class="anchor"></span>**ISO8601-1\]** _Date and time — Representations for information interchangePart 1: Basic rules_, International Standard, ISO 8601-1:2019(E), February 25, 2019, https://www.iso.org/standard/70907.html.
+**\[**<span id="ECMA-262" class="anchor"></span>**ECMA-262\]** _ECMAScript® 2024 Language Specification_, ECMA-262, 15th edition, June 2024, <https://262.ecma-international.org/15.0/>
+
+**\[**<span id="ISO8601-1" class="anchor"></span>**ISO8601-1\]** _Date and time — Representations for information interchangePart 1: Basic rules_, International Standard, ISO 8601-1:2019(E), February 25, 2019, <https://www.iso.org/standard/70907.html>.
 
 **\[**<span id="JSON-Schema-Core" class="anchor"></span>**JSON-Schema-Core\]** _JSON Schema: A Media Type for Describing JSON Documents_, draft-bhutton-json-schema-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00>.
 
@@ -885,8 +889,9 @@ Delegation to industry best practices technologies is used in referencing schema
   * Common Vulnerability Scoring System (CVSS) Version 2.0 \[[CVSS2](#CVSS2)\]
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
 
-Even though the JSON schema does not prohibit specifically additional properties and custom keywords,
+Even though not all - especially the referenced - JSON schemas prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
+The JSON schemas defined in this standard do not allow the use of additional properties and custom keywords.
 
 > The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and
 > need for dedicated parsers as well as other tools on the side of the consuming parties.
@@ -908,7 +913,10 @@ In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the 
 * The separator between date and time MUST be the letter `T`.
 * The letter `Z` indicating the timezone UTC SHALL be upper case.
 * Fractions of seconds are allowed as specified in the standards mention above with the full stop (`.`) as separator.
-* Leap seconds are supported. However, they SHOULD be avoided if possible.
+* Leap seconds MUST NOT be used.
+  > While a full support of RFC 3339 would be preferred, significant challenges have been mentioned by implementers as most libraries are lacking
+  > the support for leap seconds.
+  > To ensure interoperability, the decision was made to prohibit leap seconds.
 * Empty timezones MUST NOT be used.
 * The ABNF of RFC 3339, section 5.6 applies.
 
@@ -3259,8 +3267,13 @@ It holds the ID for the weakness associated.
     CWE-79
 ```
 
-The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given
-in the CWE specification.
+The Weakness name (`name`) has value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The Weakness name holds the full name of the weakness as given in the CWE specification.
 
 *Examples 2:*<a id='vulnerabilities-property-cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-48'></a>
 
@@ -3291,7 +3304,7 @@ When creating or modifying a CSAF document, the latest published version of the 
 
 #### 3.2.4.4 Vulnerabilities Property - Disclosure Date <a id='vulnerabilities-property-disclosure-date'></a>
 
-Disclosure date (`disclosure_date`) with value type `string` of format `date-time` holds the date and time
+Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
 
 For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
@@ -7838,15 +7851,25 @@ The relevant path for this test is:
   ]
 ```
 
-> Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor
+> Neither the `environmentalScore` nor the properties `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, `modifiedIntegrityImpact` nor
 > the corresponding attributes in the `vectorString` have been set.
 
-> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` (respectively their
-> equivalents according to the CVSS version used) accordingly and compute the `environmentalScore` as quick fix.
+> A tool MAY remove any Product IDs listed within product status `fixed` or `first_fixed` from `products` of all items of the `metrics` element.
+>
+> Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce score to `0`
+> and compute the `environmentalScore` as quick fix.
+> The following environmental properties have been identified:
+>
+> - CVSS v2: `targetDistribution` to `NONE`
+> - CVSS v3: all of `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, and `modifiedIntegrityImpact` to `NONE`
+> - CVSS v4: all of
+>   - `modifiedVulnAvailabilityImpact`, `modifiedVulnConfidentialityImpact`, and `modifiedVulnIntegrityImpact` to `NONE` and
+>   - `modifiedSubAvailabilityImpact`, `modifiedSubConfidentialityImpact`, and `modifiedSubIntegrityImpact` to `NEGLIGIBLE`
 
 ### 6.2.20 Additional Properties <a id='additional-properties'></a>
 
 It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+This also applies for referenced schemas.
 
 The relevant path for this test is:
 
@@ -7854,18 +7877,19 @@ The relevant path for this test is:
   /
 ```
 
-> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that
-> sets `additionalProperties` to `false` for every key of type `object`.
+> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated
+> and sets `additionalProperties` respectively `unevaluatedProperties` to `false` at all appropriate places to detect additional properties.
 
 *Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-144'></a>
 
 ```
-  "document": {
-    "category": "csaf_base",
-    "csaf_version": "2.1",
-    "custom_property": "any",
-    // ...
-  }
+            "cvss_v3": {
+              "baseScore": 6.4,
+              "baseSeverity": "MEDIUM",
+              "custom_property": "any",
+              "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:N/I:H/A:L",
+              "version": "3.1"
+            }
 ```
 
 > The key `custom_property` is not defined in the JSON schema.
@@ -8503,11 +8527,12 @@ The relevant path for this test is:
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "ssvc",
                   "values": [
                     "Total"
                   ],
@@ -8524,8 +8549,8 @@ The relevant path for this test is:
   ]
 ```
 
-> The namespace `some-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
-> Its decision point definitions might therefore not be known to the reader of the document.
+> The role `An unregistered role` is not a registered role.
+> Its structure might therefore not be known to the reader of the document.
 
 ### 6.2.38 Usage of Deprecated Profile <a id='usage-of-deprecated-profile'></a>
 
@@ -9562,16 +9587,16 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 *Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-185'></a>
 
 ```
+CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/csaf/provider-metadata.json
-CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
 e.g. in case of changes to the organizational structure through merges or acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
-If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
+If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
 
@@ -10156,19 +10181,21 @@ retrieving CSAF documents.
 ### 7.3.1 Finding provider-metadata.json <a id='finding-provider-metadata-json'></a>
 
 **Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
-(requirement 7 in section [7.1](#requirements)) based on the main domain of the issuing party:
+(requirement 7 in section [7.1](#requirements)) based on the main domain of the issuing party. 
+
+First, an ordered list of possible `provider-metadata.json` candidates SHOULD be generated in the following way:
 
 1. Checking the Well-known URL (requirement 9 in section [7.1](#requirements))
 2. Checking the security.txt (requirement 8 in section [7.1](#requirements))
-3. Checking the DNS path (requirement 10 in section [7.1](#requirements))
-4. Select one or more `provider-metadata.json` to use.
+3. If the above steps fail to produce any candidates: Checking the DNS path (requirement 10 in section [7.1](#requirements))
+
+Second, select one or more `provider-metadata.json` to use from the list of valid candidates.
+If the retrieving party is only able to process one `provider-metadata.json`, the first one in the list SHOULD be chosen.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
-> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section 7.1.
-> If that is the case, the step was successful - otherwise not.
-
-The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional `provider-metadata.json`.
-The third step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
+> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section [7.1](#requirements).
+> If that is the case, the response is added to the list of candidates - otherwise not. 
+> If the resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
 its location from an `aggregator.json` (requirement 21 in section [7.1](#requirements)) of a CSAF lister or CSAF aggregator.
@@ -10341,10 +10368,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CVRF documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CVRF CSAF converter converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF converter MUST replace the seconds
+  and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
   the CVRF CSAF converter replaces those with the category `product_name`.
   In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
@@ -10403,6 +10436,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwes[]`:
+  * The CVRF CSAF converter MUST remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document.
@@ -10505,6 +10539,7 @@ Secondly, the program fulfills the following for all items of:
   * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
   * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
+* The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
 
 ### 9.1.6 Conformance Clause 6: CSAF content management system <a id='conformance-clause-6-csaf-content-management-system'></a>
 
@@ -10819,10 +10854,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CSAF 2.0 documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 converter MUST replace
+  the seconds and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:
@@ -10909,13 +10950,16 @@ Secondly, the program fulfills the following for all items of:
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
-* `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
-  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
-  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
-  of the source document SHOULD be used.
-  > This is done to create a deterministic conversion.
+* `/vulnerabilities[]/cwes[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove all preceding and trailing white space from the `name`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+    using the latest version that matches the `id` and `name` exactly and was published prior to the value of
+    `/document/tracking/current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    of the source document SHOULD be used.
+    > This is done to create a deterministic conversion.
 
-  The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+    The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value into the `disclosure_date` element.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,

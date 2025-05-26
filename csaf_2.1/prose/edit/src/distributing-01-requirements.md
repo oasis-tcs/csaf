@@ -49,7 +49,7 @@ If any redirects are used, there SHOULD not be more than 5 and MUST NOT be more 
 ### Requirement 7: provider-metadata.json
 
 The party MUST provide a valid `provider-metadata.json` according to the schema
-[CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata.
+[CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json) for its own metadata.
 The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a
 CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
 
@@ -70,6 +70,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
     "distributions": [
       {
@@ -302,7 +303,7 @@ Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322)
             "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
-            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
             "version": "2.1"
           }
         }
@@ -481,7 +482,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 ### Requirement 21: List of CSAF providers
 
 The file `aggregator.json` MUST be present and valid according to the
-JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json).
+JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
 It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 > Suggested locations to store the `aggregator.json` are:
@@ -497,6 +498,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "lister",
       "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
@@ -515,6 +517,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         }
       },
@@ -526,6 +529,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         }
       }
@@ -553,6 +557,7 @@ Each such folder MUST at least:
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "aggregator",
       "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",

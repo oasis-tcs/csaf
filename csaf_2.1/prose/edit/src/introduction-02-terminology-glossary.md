@@ -278,5 +278,8 @@ vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy
 (conforming to ISO/IEC 29147 [[ISO29147](#ISO29147)])
 
+white space
+:    code point used to improve text readability or token separation as defined in section 12.2 of [cite](#ECMA-262)
+
 XML
 :    eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.

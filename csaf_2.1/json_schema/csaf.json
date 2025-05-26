@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
   "title": "Common Security Advisory Framework",
   "description": "Representation of security advisory information as a JSON document.",
   "type": "object",
@@ -525,7 +525,7 @@
       "description": "Contains the URL of the CSAF JSON schema which the document promises to be valid for.",
       "type": "string",
       "enum": [
-        "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"
+        "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"
       ],
       "format": "uri"
     },
@@ -1103,6 +1103,7 @@
                   "title": "Weakness name",
                   "description": "Holds the full name of the weakness as given in the CWE specification.",
                   "type": "string",
+                  "pattern": "^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$",
                   "minLength": 1,
                   "examples": [
                     "Cross-Site Request Forgery (CSRF)",
@@ -1114,7 +1115,6 @@
                   "title": "CWE version",
                   "description": "Holds the version string of the CWE specification this weakness was extracted from.",
                   "type": "string",
-                  "minLength": 1,
                   "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$",
                   "examples": [
                     "1.0",

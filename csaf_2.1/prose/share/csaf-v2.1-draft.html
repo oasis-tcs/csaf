@@ -1468,6 +1468,12 @@
       <dd>
         functional behavior of a product or service that violates an implicit or explicit security policy (conforming to ISO/IEC 29147 <a href="#ISO29147">[ISO29147</a>])
       </dd>
+      <dt id="def;white-space">
+        white space
+      </dt>
+      <dd>
+        code point used to improve text readability or token separation as defined in section 12.2 of <a href="#ECMA-262">cite</a>
+      </dd>
       <dt id="def;xml">
         XML
       </dt>
@@ -1478,6 +1484,9 @@
     <h2 id="13-normative-references-">
       1.3 Normative References <a id='normative-references'></a>
     </h2>
+    <p>
+      <strong>[</strong><span id="ECMA-262" class="anchor"></span><strong>ECMA-262]</strong> <em>ECMAScript® 2024 Language Specification</em>, ECMA-262, 15th edition, June 2024, <a href="https://262.ecma-international.org/15.0/">https://262.ecma-international.org/15.0/</a>
+    </p>
     <p>
       <strong>[</strong><span id="ISO8601-1" class="anchor"></span><strong>ISO8601-1]</strong> <em>Date and time — Representations for information interchangePart 1: Basic rules</em>, International Standard, ISO 8601-1:2019(E), February 25, 2019, <a href="https://www.iso.org/standard/70907.html">https://www.iso.org/standard/70907.html</a>.
     </p>
@@ -1826,7 +1835,8 @@
       </li>
     </ul>
     <p>
-      Even though the JSON schema does not prohibit specifically additional properties and custom keywords, it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
+      Even though not all - especially the referenced - JSON schemas prohibit specifically additional properties and custom keywords, it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub. The JSON schemas defined in this standard do not allow the use of additional properties
+      and custom keywords.
     </p>
     <blockquote>
       <p>
@@ -1853,7 +1863,12 @@
       </li>
       <li>Fractions of seconds are allowed as specified in the standards mention above with the full stop (<code>.</code>) as separator.
       </li>
-      <li>Leap seconds are supported. However, they SHOULD be avoided if possible.
+      <li>Leap seconds MUST NOT be used.
+        <blockquote>
+          <p>
+            While a full support of RFC 3339 would be preferred, significant challenges have been mentioned by implementers as most libraries are lacking the support for leap seconds. To ensure interoperability, the decision was made to prohibit leap seconds.
+          </p>
+        </blockquote>
       </li>
       <li>Empty timezones MUST NOT be used.
       </li>
@@ -4240,7 +4255,11 @@
     CWE-352
     CWE-79</code></pre>
     <p>
-      The Weakness name (<code>name</code>) has value type <code>string</code> with 1 or more characters and holds the full name of the weakness as given in the CWE specification.
+      The Weakness name (<code>name</code>) has value type <code>string</code> of 1 or more characters with <code>pattern</code> (regular expression):
+    </p>
+    <pre><code>    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$</code></pre>
+    <p>
+      The Weakness name holds the full name of the weakness as given in the CWE specification.
     </p>
     <p>
       <em>Examples 2:</em><a id='vulnerabilities-property-cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-48'></a>
@@ -4267,7 +4286,7 @@
       3.2.4.4 Vulnerabilities Property - Disclosure Date <a id='vulnerabilities-property-disclosure-date'></a>
     </h4>
     <p>
-      Disclosure date (<code>disclosure_date</code>) with value type <code>string</code> of format <code>date-time</code> holds the date and time the vulnerability was originally disclosed to the public.
+      Disclosure date (<code>disclosure_date</code>) of value type <code>string</code> with format <code>date-time</code> holds the date and time the vulnerability was originally disclosed to the public.
     </p>
     <p>
       For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability. As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that the vulnerability was in fact
@@ -9609,19 +9628,38 @@
   ]</code></pre>
     <blockquote>
       <p>
-        Neither the <code>environmentalScore</code> nor the properties <code>modifiedIntegrityImpact</code>, <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code> nor the corresponding attributes in the <code>vectorString</code> have been set.
+        Neither the <code>environmentalScore</code> nor the properties <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code>, <code>modifiedIntegrityImpact</code> nor the corresponding attributes in the <code>vectorString</code> have been set.
       </p>
     </blockquote>
     <blockquote>
       <p>
-        A tool MAY set the properties <code>modifiedIntegrityImpact</code>, <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code> (respectively their equivalents according to the CVSS version used) accordingly and compute the <code>environmentalScore</code> as quick fix.
+        A tool MAY remove any Product IDs listed within product status <code>fixed</code> or <code>first_fixed</code> from <code>products</code> of all items of the <code>metrics</code> element.
       </p>
+      <p>
+        Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce score to <code>0</code> and compute the <code>environmentalScore</code> as quick fix. The following environmental properties have been identified:
+      </p>
+      <ul>
+        <li>CVSS v2: <code>targetDistribution</code> to <code>NONE</code>
+        </li>
+        <li>CVSS v3: all of <code>modifiedAvailabilityImpact</code>, <code>modifiedConfidentialityImpact</code>, and <code>modifiedIntegrityImpact</code> to <code>NONE</code>
+        </li>
+        <li>CVSS v4: all of
+          <ul>
+            <li>
+              <code>modifiedVulnAvailabilityImpact</code>, <code>modifiedVulnConfidentialityImpact</code>, and <code>modifiedVulnIntegrityImpact</code> to <code>NONE</code> and
+            </li>
+            <li>
+              <code>modifiedSubAvailabilityImpact</code>, <code>modifiedSubConfidentialityImpact</code>, and <code>modifiedSubIntegrityImpact</code> to <code>NEGLIGIBLE</code>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </blockquote>
     <h3 id="6220-additional-properties-">
       6.2.20 Additional Properties <a id='additional-properties'></a>
     </h3>
     <p>
-      It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+      It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema. This also applies for referenced schemas.
     </p>
     <p>
       The relevant path for this test is:
@@ -9629,18 +9667,19 @@
     <pre><code>  /</code></pre>
     <blockquote>
       <p>
-        To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that sets <code>additionalProperties</code> to <code>false</code> for every key of type <code>object</code>.
+        To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated and sets <code>additionalProperties</code> respectively <code>unevaluatedProperties</code> to <code>false</code> at all appropriate places to detect additional properties.
       </p>
     </blockquote>
     <p>
       <em>Example 1 (which fails the test):</em><a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-144'></a>
     </p>
-    <pre><code>  "document": {
-    "category": "csaf_base",
-    "csaf_version": "2.1",
-    "custom_property": "any",
-    // ...
-  }</code></pre>
+    <pre><code>            "cvss_v3": {
+              "baseScore": 6.4,
+              "baseSeverity": "MEDIUM",
+              "custom_property": "any",
+              "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:N/I:H/A:L",
+              "version": "3.1"
+            }</code></pre>
     <blockquote>
       <p>
         The key <code>custom_property</code> is not defined in the JSON schema.
@@ -10312,11 +10351,12 @@
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "ssvc",
                   "values": [
                     "Total"
                   ],
@@ -10333,7 +10373,7 @@
   ]</code></pre>
     <blockquote>
       <p>
-        The namespace <code>some-yet-unknown-or-maybe-private-namespace</code> is not a registered namespace. Its decision point definitions might therefore not be known to the reader of the document.
+        The role <code>An unregistered role</code> is not a registered role. Its structure might therefore not be known to the reader of the document.
       </p>
     </blockquote>
     <h3 id="6238-usage-of-deprecated-profile-">
@@ -11413,13 +11453,13 @@
     <p>
       <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-185'></a>
     </p>
-    <pre><code>CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
+    <pre><code>CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
+CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
-CSAF: https://domain.tld/security/csaf/provider-metadata.json
-CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json</code></pre>
+CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
     <p>
-      It is possible to advertise more than one <code>provider-metadata.json</code> by adding multiple <code>CSAF</code> fields, e.g. in case of changes to the organizational structure through merges or acquisitions. However, this SHOULD NOT be done and removed as soon as possible. If one of the URLs fulfills requirement 9, this MUST be used
-      as the first CSAF entry in the security.txt.
+      It is possible to advertise more than one <code>provider-metadata.json</code> by adding multiple <code>CSAF</code> fields, e.g. in case of changes to the organizational structure through merges or acquisitions. However, this SHOULD NOT be done and removed as soon as possible. If one of the URLs fulfills requirement 9, it MUST be set as
+      the first CSAF entry in the security.txt.
     </p>
     <h3 id="719-requirement-9-well-known-url-for-provider-metadatajson-">
       7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
@@ -12100,26 +12140,28 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       7.3.1 Finding provider-metadata.json <a id='finding-provider-metadata-json'></a>
     </h3>
     <p>
-      <strong>Direct locating</strong>: The following process SHOULD be used to determine the location of a <code>provider-metadata.json</code> (requirement 7 in section <a href="#requirements">7.1</a>) based on the main domain of the issuing party:
+      <strong>Direct locating</strong>: The following process SHOULD be used to determine the location of a <code>provider-metadata.json</code> (requirement 7 in section <a href="#requirements">7.1</a>) based on the main domain of the issuing party.
+    </p>
+    <p>
+      First, an ordered list of possible <code>provider-metadata.json</code> candidates SHOULD be generated in the following way:
     </p>
     <ol type="1">
       <li>Checking the Well-known URL (requirement 9 in section <a href="#requirements">7.1</a>)
       </li>
       <li>Checking the security.txt (requirement 8 in section <a href="#requirements">7.1</a>)
       </li>
-      <li>Checking the DNS path (requirement 10 in section <a href="#requirements">7.1</a>)
-      </li>
-      <li>Select one or more <code>provider-metadata.json</code> to use.
+      <li>If the above steps fail to produce any candidates: Checking the DNS path (requirement 10 in section <a href="#requirements">7.1</a>)
       </li>
     </ol>
+    <p>
+      Second, select one or more <code>provider-metadata.json</code> to use from the list of valid candidates. If the retrieving party is only able to process one <code>provider-metadata.json</code>, the first one in the list SHOULD be chosen.
+    </p>
     <blockquote>
       <p>
-        The term "checking" used in the listing above SHOULD be understood as follows: Try to access the resource and test whether the response provides an expected result as defined in the requirement in section 7.1. If that is the case, the step was successful - otherwise not.
+        The term "checking" used in the listing above SHOULD be understood as follows: Try to access the resource and test whether the response provides an expected result as defined in the requirement in section <a href="#requirements">7.1</a>. If that is the case, the response is added to the list of candidates - otherwise not. If the
+        resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
       </p>
     </blockquote>
-    <p>
-      The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional <code>provider-metadata.json</code>. The third step SHOULD only be performed if the first two did not result in the location of at least one <code>provider-metadata.json</code>.
-    </p>
     <p>
       <strong>Indirect locating</strong>: A retrieving party MAY choose to determine the location of a <code>provider-metadata.json</code> by retrieving its location from an <code>aggregator.json</code> (requirement 21 in section <a href="#requirements">7.1</a>) of a CSAF lister or CSAF aggregator.
     </p>
@@ -12371,6 +12413,8 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>takes only CVRF documents as input.
       </li>
+      <li>outputs a warning that an additional property was detected and not converted if it detects an additional property in the input. The CVRF CSAF converter converter SHALL ignore that additional property during the conversion.
+      </li>
       <li>additionally satisfies the normative requirements given below.
       </li>
     </ul>
@@ -12378,6 +12422,9 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       Secondly, the program fulfills the following for all items of:
     </p>
     <ul>
+      <li>value type <code>string</code> with format <code>date-time</code>: If the value contains a <code>60</code> in the seconds place, the CVRF CSAF converter MUST replace the seconds and their fractions with <code>59.999999</code>. In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has
+      been replaced. The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
+      </li>
       <li>type <code>/$defs/branches_t</code>: If any <code>prod:Branch</code> instance has the type <code>Realm</code> or <code>Resource</code>, the CVRF CSAF converter replaces those with the category <code>product_name</code>. In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the
       category <code>product_name</code>.
       </li>
@@ -12452,6 +12499,11 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       <li>
         <code>/vulnerabilities[]/cwes[]</code>:
         <ul>
+          <li>
+            <p>
+              The CVRF CSAF converter MUST remove all preceding and trailing white space from the <code>name</code>.
+            </p>
+          </li>
           <li>
             <p>
               The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by using the latest version that matches the <code>id</code> and <code>name</code> exactly and was published prior to the value of <code>/document/tracking/current_release_date</code> of the source document. If no such version
@@ -12576,6 +12628,8 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           <li>The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed, including the products it was changed for.
           </li>
         </ul>
+      </li>
+      <li>The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
       </li>
     </ul>
     <h3 id="916-conformance-clause-6-csaf-content-management-system-">
@@ -13280,6 +13334,8 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>takes only CSAF 2.0 documents as input.
       </li>
+      <li>outputs a warning that an additional property was detected and not converted if it detects an additional property in the input. The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
+      </li>
       <li>additionally satisfies the normative requirements given below.
       </li>
     </ul>
@@ -13287,6 +13343,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       Secondly, the program fulfills the following for all items of:
     </p>
     <ul>
+      <li>
+        <p>
+          value type <code>string</code> with format <code>date-time</code>: If the value contains a <code>60</code> in the seconds place, the CSAF 2.0 to CSAF 2.1 converter MUST replace the seconds and their fractions with <code>59.999999</code>. In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and
+          the value has been replaced. The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
+        </p>
+      </li>
       <li>
         <p>
           type <code>/$defs/full_product_name_t/product_identification_helper/cpe</code>: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
@@ -13485,17 +13547,29 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
-          <code>/vulnerabilities[]/cwes[]</code>: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by using the latest version that matches the <code>id</code> and <code>name</code> exactly and was published prior to the value of
-          <code>/document/tracking/current_release_date</code> of the source document. If no such version exist, the first matching version published after the value of <code>/document/tracking/current_release_date</code> of the source document SHOULD be used.
+          <code>/vulnerabilities[]/cwes[]</code>:
         </p>
-        <blockquote>
-          <p>
-            This is done to create a deterministic conversion.
-          </p>
-        </blockquote>
-        <p>
-          The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
-        </p>
+        <ul>
+          <li>
+            <p>
+              The CSAF 2.0 to CSAF 2.1 converter MUST remove all preceding and trailing white space from the <code>name</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by using the latest version that matches the <code>id</code> and <code>name</code> exactly and was published prior to the value of <code>/document/tracking/current_release_date</code> of the source document. If no such
+              version exist, the first matching version published after the value of <code>/document/tracking/current_release_date</code> of the source document SHOULD be used.
+            </p>
+            <blockquote>
+              <p>
+                This is done to create a deterministic conversion.
+              </p>
+            </blockquote>
+            <p>
+              The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+            </p>
+          </li>
+        </ul>
       </li>
       <li>
         <p>
