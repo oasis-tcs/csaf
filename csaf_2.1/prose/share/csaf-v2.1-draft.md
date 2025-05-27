@@ -362,7 +362,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.3.5 [Use of Short Hash](#use-of-short-hash)  
 		6.3.6 [Use of non-self referencing URLs Failing to Resolve](#use-of-non-self-referencing-urls-failing-to-resolve)  
 		6.3.7 [Use of self referencing URLs Failing to Resolve](#use-of-self-referencing-urls-failing-to-resolve)  
-		6.3.8 [Spell check](#spell-check)  
+		6.3.8 [Spell Check](#spell-check)  
 		6.3.9 [Branch Categories](#branch-categories)  
 		6.3.10 [Usage of Product Version Range](#usage-of-product-version-range)  
 		6.3.11 [Usage of V as Version Indicator](#usage-of-v-as-version-indicator)  
@@ -370,6 +370,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.3.13 [Usage of Non-Latest SSVC Decision Point Version](#usage-of-non-latest-ssvc-decision-point-version)  
 		6.3.14 [Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document](#usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document)  
 		6.3.15 [Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)  
+		6.3.16 [Grammar Check](#grammar-check)  
 7. [Distributing CSAF documents](#distributing-csaf-documents)  
 	7.1 [Requirements](#requirements)  
 		7.1.1 [Requirement 1: Valid CSAF document](#requirement-1-valid-csaf-document)  
@@ -8498,6 +8499,9 @@ For each vulnerability, it MUST be tested that the `disclosure_date` is earlier 
 if the `disclosure_date` is in the past at the time of the test execution.
 As the timestamps might use different timezones, the sorting MUST take timezones into account.
 
+> The result of the test is dependent upon the time of the execution of the test - it might change for a given CSAF document over time.
+> However, the latest version of a CSAF document should always pass the test.
+
 The relevant path for this test is:
 
 ```
@@ -8706,7 +8710,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/role
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-role-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-163'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-role-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-164'></a>
 
 ```
   "vulnerabilities": [
@@ -8752,7 +8756,7 @@ The relevant path for this test is:
    /document/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-164'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-165'></a>
 
 ```
     "category": "csaf_deprecated_security_advisory",
@@ -8789,7 +8793,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-165'></a>
+*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-166'></a>
 
 ```
   "vulnerabilities": [
@@ -8839,7 +8843,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-166'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-167'></a>
 
 ```
     "notes": [
@@ -8874,7 +8878,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-167'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-168'></a>
 
 ```
     "notes": [
@@ -8909,7 +8913,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-168'></a>
+*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-169'></a>
 
 ```
     "references": [
@@ -8940,7 +8944,7 @@ The relevant path for this test is:
   /document/notes[]
 ```
 
-*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-169'></a>
+*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-170'></a>
 
 ```
     "notes": [
@@ -8966,7 +8970,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content/epss/timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-170'></a>
+*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-171'></a>
 
 ```
   "document": {
@@ -9035,7 +9039,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-171'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-172'></a>
 
 ```
   "product_tree": {
@@ -9083,7 +9087,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-172'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-173'></a>
 
 ```
   "cvss_v3": {
@@ -9115,7 +9119,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-173'></a>
+*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-174'></a>
 
 ```
   "vulnerabilities": [
@@ -9143,7 +9147,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-174'></a>
+*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-175'></a>
 
 ```
   "vulnerabilities": [
@@ -9168,7 +9172,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-175'></a>
+*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-176'></a>
 
 ```
   "product_tree": {
@@ -9229,7 +9233,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-176'></a>
+*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-177'></a>
 
 ```
     "references": [
@@ -9258,7 +9262,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-177'></a>
+*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-178'></a>
 
 ```
     "references": [
@@ -9272,7 +9276,7 @@ The relevant paths for this test are:
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### 6.3.8 Spell check <a id='spell-check'></a>
+### 6.3.8 Spell Check <a id='spell-check'></a>
 
 If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes.
 The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported.
@@ -9319,7 +9323,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-178'></a>
+*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-179'></a>
 
 ```
   "document": {
@@ -9351,7 +9355,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-179'></a>
+*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-180'></a>
 
 ```
     "branches": [
@@ -9393,7 +9397,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-180'></a>
+*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-181'></a>
 
 ```
                 "category": "product_version_range",
@@ -9418,7 +9422,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-181'></a>
+*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-182'></a>
 
 ```
             "branches": [
@@ -9442,7 +9446,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-182'></a>
+*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-183'></a>
 
 ```
   "product_tree": {
@@ -9489,7 +9493,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-183'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-184'></a>
 
 ```
   "vulnerabilities": [
@@ -9533,7 +9537,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-184'></a>
+*Example 1 (which fails the test):*<a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-185'></a>
 
 ```
   {
@@ -9590,7 +9594,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-185'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-186'></a>
 
 ```
   {
@@ -9635,6 +9639,60 @@ The relevant path for this test is:
 
 > The namespace contains the extension `additional-technical-impacts`.
 > Its decision point definitions might therefore not be known to the reader of the document.
+
+### 6.3.16 Grammar Check <a id='grammar-check'></a>
+
+If the document language is given it MUST be tested that a grammar check for the given language does not find any mistakes.
+The test SHALL be skipped if the document language is not set.
+It SHALL fail it the given language is not supported.
+
+The relevant paths for this test are:
+
+```
+  /document/acknowledgments[]/summary
+  /document/aggregate_severity/text
+  /document/distribution/text
+  /document/notes[]/audience
+  /document/notes[]/text
+  /document/notes[]/title
+  /document/publisher/issuing_authority
+  /document/references[]/summary
+  /document/title
+  /document/tracking/revision_history[]/summary
+  /product_tree/product_groups[]/summary
+  /vulnerabilities[]/acknowledgments[]/summary
+  /vulnerabilities[]/involvements[]/summary
+  /vulnerabilities[]/notes[]/audience
+  /vulnerabilities[]/notes[]/text
+  /vulnerabilities[]/notes[]/title
+  /vulnerabilities[]/references[]/summary
+  /vulnerabilities[]/remediations[]/details
+  /vulnerabilities[]/remediations[]/entitlements[]
+  /vulnerabilities[]/remediations[]/restart_required/details
+  /vulnerabilities[]/threats[]/details
+  /vulnerabilities[]/title
+```
+
+*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-163'></a>
+
+```
+  "document": {
+    // ...
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "The security hardening guide must followed for ensure secure operations of a products."
+      }
+    ],
+    // ...
+  }
+```
+
+> Multiple grammar mistakes exist:
+> - a `be` is missing between `must` and `followed`
+> - the `for` needs to be a `to`
+> - `a products` is also incorrect as `a` indicates singular. 
 
 -------
 
@@ -9712,7 +9770,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-186'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-187'></a>
 
 ```
   {
@@ -9775,7 +9833,7 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
 > The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-187'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-188'></a>
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -9795,7 +9853,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-188'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-189'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -9817,7 +9875,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-189'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-190'></a>
 
 ```
 2024
@@ -9833,7 +9891,7 @@ The last entry MAY skip the newline sequence.
 > If different TLP labels are used, multiple index.txt exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-190'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-191'></a>
 
 ```
 2023/esa-2023-09953.json
@@ -9854,7 +9912,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by \
 > Note: As a consequence of section [sec](#requirement-2-filename) Requirement 2 for filenames and section [sec](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-191'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-192'></a>
 
 ```
 2023/esa-2023-09953.json,2023-07-01T10:09:07Z
@@ -9886,7 +9944,7 @@ At least one of the feeds
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-192'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-193'></a>
 
 ```
   {
@@ -9955,7 +10013,7 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-193'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-194'></a>
 
 ```
   {
@@ -9999,7 +10057,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   * `product_version`
 * type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-194'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-195'></a>
 
   ```
     CPU
@@ -10014,7 +10072,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-195'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-196'></a>
 
   ```
     Chemical
@@ -10029,7 +10087,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-196'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-197'></a>
 
 ```
   {
@@ -10053,7 +10111,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-197'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-198'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -10064,7 +10122,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512
 The file content SHALL start with the first byte of the hexadecimal hash value.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-198'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-199'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -10079,7 +10137,7 @@ extended by the appropriate extension.
 This signature SHALL be presented as an ASCII armored file.
 See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-199'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-200'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -10125,7 +10183,7 @@ It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-200'></a>
+*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-201'></a>
 
 ```
   {
@@ -10184,7 +10242,7 @@ Each such folder MUST at least:
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-201'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-202'></a>
 
 ```
   {
@@ -10663,7 +10721,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-202'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-203'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -10672,7 +10730,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-203'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-204'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -10682,7 +10740,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-204'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-205'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -10693,7 +10751,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step MUST be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-205'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-206'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -11003,6 +11061,7 @@ A CSAF extended validator satisfies the "CSAF full validator" conformance profil
 
 * satisfies the "CSAF extended validator" conformance profile.
 * additionally performs all informative tests as given in section [6.3](#informative-tests).
+* provides an option to additionally use a custom dictionary for test [6.3.8](#spell-check).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
