@@ -184,7 +184,7 @@ the vulnerability was originally disclosed to the public.
 
 For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the
 intended date for disclosure of the vulnerability.
-This is also sometimes called Embargo date.
+This is also sometimes called embargo date.
 As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that
 the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
 
