@@ -657,9 +657,22 @@ The relevant paths for this test are:
 *Example 1 (which fails the test):*
 
 ```
-
+  "document": {
+    // ...
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "The security hardening guide must followed for ensure secure operations of a products."
+      }
+    ],
+    // ...
+  }
 ```
 
-> The word order is incorrect.
+> Multiple grammar mistakes exist:
+> - a `be` is missing between `must` and `followed`
+> - the `for` needs to be a `to`
+> - `a products` is also incorrect as `a` indicates singular. 
 
 -------
