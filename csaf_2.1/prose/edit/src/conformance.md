@@ -544,6 +544,7 @@ A CSAF extended validator satisfies the "CSAF full validator" conformance profil
 
 * satisfies the "CSAF extended validator" conformance profile.
 * additionally performs all informative tests as given in section [sec](#informative-tests).
+* provides an option to additionally use a custom dictionary for test [sec](#spell-check).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
