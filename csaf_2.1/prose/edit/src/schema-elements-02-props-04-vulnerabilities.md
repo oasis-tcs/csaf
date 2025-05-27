@@ -182,9 +182,11 @@ When creating or modifying a CSAF document, the latest published version of the 
 Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
 
-For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
-As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that the
-vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
+For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the
+intended date for disclosure of the vulnerability.
+This is also sometimes called embargo date.
+As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that
+the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
 
 #### Vulnerabilities Property - Discovery Date
 
