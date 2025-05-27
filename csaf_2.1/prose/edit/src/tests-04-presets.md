@@ -1,12 +1,12 @@
 ## Presets
 
-A test preset is predefined set of tests that was given a name.
+A test preset is a predefined set of tests that was given a name.
 It MAY contain any number of tests.
 Two presets MAY overlap.
 The content of a preset MAY be different.
 A CSAF validator MUST support all official presets that it implements all tests for.
 A CSAF validator MAY provide or support additional presets.
-A CSAF validator SHALL NOT support any preset that it does not implement all tests for.
+A CSAF validator MUST implement all tests for any supported preset.
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
 - `x_`: for any CSAF validator specific preset.
