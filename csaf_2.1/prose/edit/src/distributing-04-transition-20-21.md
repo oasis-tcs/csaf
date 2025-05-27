@@ -27,7 +27,7 @@ The announcement MAY contain also the following information:
   > This might be a public beta prior to the begin of the transition period.
   > However, those documents SHOULD NOT be used in production as they may be unstable due to their beta status.
 - The last date, when CSAF 2.0 documents are available and automatically retrievable from the server through a CSAF 2.0 `provider-metadata.json`.
-  > This date is usually at the end or after the transition period.
+  > This date is usually at the end of the transition period.
 
 ### Transition Process for a CSAF Provider
 
@@ -57,10 +57,12 @@ The following process SHOULD be followed:
   - The unmaintained CSAF 2.0 directory structure and files SHOULD be removed or made inaccessible.
   - The CSAF 2.0 documents MAY be archived.
 
-If a DNS path (cf. section [sec](#requirement-10-dns-path)) is used instead of the well-known URL, the same process SHOULD be followed except:
-- Instead of placing the `provider-metadata.json` that is considered valid at the respective time within the transition period at
-- `/.well-known/csaf/provider-metadata.json` it MUST be available at the URL `csaf.data.security.domain.tld` where `domain.tld` refers
-  to the provider's used domain name.
+If a DNS path (cf. section [sec](#requirement-10-dns-path)) is used instead of the well-known URL, the same process SHOULD be followed taking the rules below into account:
+
+- The leading and authoritative `provider-metadata.json` is always served according to the DNS path requirement (see section [sec](#requirement-10-dns-path)).
+  > This implies that a CSAF 2.0 `provider-metadata.json` is served at the beginning and 
+  > replaced by the CSAF 2.1 `provider-metadata.json`  at the roll-over-date.
+- It is recommended to use the folders `v2.0` and `v2.1` to differentiate between the CSAF versions.
 
 ### Archive of CSAF Document from Previous Version
 
