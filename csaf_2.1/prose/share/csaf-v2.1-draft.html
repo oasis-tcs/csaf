@@ -783,7 +783,7 @@
                 </li>
                 <li>6.3.7 <a href="#use-of-self-referencing-urls-failing-to-resolve">Use of self referencing URLs Failing to Resolve</a>
                 </li>
-                <li>6.3.8 <a href="#spell-check">Spell check</a>
+                <li>6.3.8 <a href="#spell-check">Spell Check</a>
                 </li>
                 <li>6.3.9 <a href="#branch-categories">Branch Categories</a>
                 </li>
@@ -798,6 +798,8 @@
                 <li>6.3.14 <a href="#usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document">Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document</a>
                 </li>
                 <li>6.3.15 <a href="#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document">Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document</a>
+                </li>
+                <li>6.3.16 <a href="#grammar-check">Grammar Check</a>
                 </li>
               </ul>
             </li>
@@ -10325,6 +10327,11 @@
       For each vulnerability, it MUST be tested that the <code>disclosure_date</code> is earlier or equal to the <code>date</code> of the newest item of the <code>revision_history</code> if the <code>disclosure_date</code> is in the past at the time of the test execution. As the timestamps might use different timezones, the sorting MUST take
       timezones into account.
     </p>
+    <blockquote>
+      <p>
+        The result of the test is dependent upon the time of the execution of the test - it might change for a given CSAF document over time. However, the latest version of a CSAF document should always pass the test.
+      </p>
+    </blockquote>
     <p>
       The relevant path for this test is:
     </p>
@@ -10533,7 +10540,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v1/role</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-unknown-ssvc-role-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-163'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-unknown-ssvc-role-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-164'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -10579,7 +10586,7 @@
     </p>
     <pre><code>   /document/category</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-164'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-165'></a>
     </p>
     <pre><code>    "category": "csaf_deprecated_security_advisory",
 </code></pre>
@@ -10611,7 +10618,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/product_status</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-165'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-166'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -10663,7 +10670,7 @@
     </p>
     <pre><code>  /document/notes</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-166'></a>
+      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-167'></a>
     </p>
     <pre><code>    "notes": [
       {
@@ -10698,7 +10705,7 @@
     </p>
     <pre><code>  /document/notes</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-167'></a>
+      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-168'></a>
     </p>
     <pre><code>    "notes": [
       {
@@ -10733,7 +10740,7 @@
     </p>
     <pre><code>  /document/references</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-168'></a>
+      <em>Example 1 (which fails the test):</em><a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-169'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -10766,7 +10773,7 @@
     </p>
     <pre><code>  /document/notes[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-169'></a>
+      <em>Example 1 (which fails the test):</em><a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-170'></a>
     </p>
     <pre><code>    "notes": [
       {
@@ -10792,7 +10799,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics[]/content/epss/timestamp</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-170'></a>
+      <em>Example 1 (which fails the test):</em><a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-171'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -10862,7 +10869,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-171'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-172'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -10913,7 +10920,7 @@
     <pre><code>  /vulnerabilities[]/metrics[]/content/cvss_v3/version
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-172'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-173'></a>
     </p>
     <pre><code>  "cvss_v3": {
     "version": "3.0",
@@ -10949,7 +10956,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cve</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-173'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-174'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -10978,7 +10985,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cwes</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-174'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-175'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -11004,7 +11011,7 @@
   /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-175'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-176'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -11067,7 +11074,7 @@
   /vulnerabilities[]/references[]/url
   /vulnerabilities[]/remediations[]/url</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-176'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-177'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -11097,7 +11104,7 @@
     <pre><code>  /document/references[]/url
   /vulnerabilities[]/references[]/url</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-177'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-178'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -11112,7 +11119,7 @@
       </p>
     </blockquote>
     <h3 id="638-spell-check-">
-      6.3.8 Spell check <a id='spell-check'></a>
+      6.3.8 Spell Check <a id='spell-check'></a>
     </h3>
     <p>
       If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes. The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported. The value of <code>/document/category</code> SHOULD NOT be tested if the CSAF document does not use the
@@ -11158,7 +11165,7 @@
   /vulnerabilities[]/threats[]/details
   /vulnerabilities[]/title</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-178'></a>
+      <em>Example 1 (which fails the test):</em><a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-179'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -11193,7 +11200,7 @@
     </p>
     <pre><code>  /product_tree/branches</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-179'></a>
+      <em>Example 1 (which fails the test):</em><a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-180'></a>
     </p>
     <pre><code>    "branches": [
       {
@@ -11238,7 +11245,7 @@
     </p>
     <pre><code>  /product_tree/branches[](/branches[])*/category</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-180'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-181'></a>
     </p>
     <pre><code>                "category": "product_version_range",</code></pre>
     <blockquote>
@@ -11263,7 +11270,7 @@
     </p>
     <pre><code>  /product_tree/branches[](/branches[])*/name</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-181'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-182'></a>
     </p>
     <pre><code>            "branches": [
               {
@@ -11288,7 +11295,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics[]/content</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-182'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-183'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -11338,7 +11345,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-183'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-184'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -11383,7 +11390,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-184'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-185'></a>
     </p>
     <pre><code>  {
     "document": {
@@ -11439,7 +11446,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-185'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-186'></a>
     </p>
     <pre><code>  {
     "document": {
@@ -11483,6 +11490,65 @@
       <p>
         The namespace contains the extension <code>additional-technical-impacts</code>. Its decision point definitions might therefore not be known to the reader of the document.
       </p>
+    </blockquote>
+    <h3 id="6316-grammar-check-">
+      6.3.16 Grammar Check <a id='grammar-check'></a>
+    </h3>
+    <p>
+      If the document language is given it MUST be tested that a grammar check for the given language does not find any mistakes. The test SHALL be skipped if the document language is not set. It SHALL fail it the given language is not supported.
+    </p>
+    <p>
+      The relevant paths for this test are:
+    </p>
+    <pre><code>  /document/acknowledgments[]/summary
+  /document/aggregate_severity/text
+  /document/distribution/text
+  /document/notes[]/audience
+  /document/notes[]/text
+  /document/notes[]/title
+  /document/publisher/issuing_authority
+  /document/references[]/summary
+  /document/title
+  /document/tracking/revision_history[]/summary
+  /product_tree/product_groups[]/summary
+  /vulnerabilities[]/acknowledgments[]/summary
+  /vulnerabilities[]/involvements[]/summary
+  /vulnerabilities[]/notes[]/audience
+  /vulnerabilities[]/notes[]/text
+  /vulnerabilities[]/notes[]/title
+  /vulnerabilities[]/references[]/summary
+  /vulnerabilities[]/remediations[]/details
+  /vulnerabilities[]/remediations[]/entitlements[]
+  /vulnerabilities[]/remediations[]/restart_required/details
+  /vulnerabilities[]/threats[]/details
+  /vulnerabilities[]/title</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-163'></a>
+    </p>
+    <pre><code>  "document": {
+    // ...
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "The security hardening guide must followed for ensure secure operations of a products."
+      }
+    ],
+    // ...
+  }</code></pre>
+    <blockquote>
+      <p>
+        Multiple grammar mistakes exist:
+      </p>
+      <ul>
+        <li>a <code>be</code> is missing between <code>must</code> and <code>followed</code>
+        </li>
+        <li>the <code>for</code> needs to be a <code>to</code>
+        </li>
+        <li>
+          <code>a products</code> is also incorrect as <code>a</code> indicates singular.
+        </li>
+      </ul>
     </blockquote>
     <hr />
     <h1 id="7-distributing-csaf-documents-">
@@ -11584,7 +11650,7 @@
       </ul>
     </blockquote>
     <p>
-      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-186'></a>
+      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-187'></a>
     </p>
     <pre><code>  {
     "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
@@ -11644,7 +11710,7 @@
       </p>
     </blockquote>
     <p>
-      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-187'></a>
+      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-188'></a>
     </p>
     <pre><code>CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -11662,7 +11728,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-188'></a>
+      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-189'></a>
     </p>
     <pre><code>  https://www.example.com/.well-known/csaf/provider-metadata.json</code></pre>
     <h3 id="7110-requirement-10-dns-path-">
@@ -11686,7 +11752,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       The CSAF documents MUST be located within folders named <code>&lt;YYYY&gt;</code> where <code>&lt;YYYY&gt;</code> is the year given in the value of <code>/document/tracking/initial_release_date</code>.
     </p>
     <p>
-      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-189'></a>
+      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-190'></a>
     </p>
     <pre><code>2024
 2023</code></pre>
@@ -11702,7 +11768,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       </p>
     </blockquote>
     <p>
-      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-190'></a>
+      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-191'></a>
     </p>
     <pre><code>2023/esa-2023-09953.json
 2022/esa-2022-02723.json
@@ -11726,7 +11792,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       </p>
     </blockquote>
     <p>
-      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-191'></a>
+      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-192'></a>
     </p>
     <pre><code>2023/esa-2023-09953.json,2023-07-01T10:09:07Z
 2021/esa-2021-03676.json,2023-07-01T10:09:01Z
@@ -11767,7 +11833,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [<a href="#RFC8322">RFC8322</a>].
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-192'></a>
+      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-193'></a>
     </p>
     <pre><code>  {
     "feed": {
@@ -11833,7 +11899,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       the filename <code>service.json</code> and reside next to the <code>provider-metadata.json</code>.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-193'></a>
+      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-194'></a>
     </p>
     <pre><code>  {
     "service": {
@@ -11900,7 +11966,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
           type of product
         </p>
         <p>
-          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-194'></a>
+          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-195'></a>
         </p>
         <pre><code>  CPU
   Firewall
@@ -11916,7 +11982,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
           areas or sectors, the products are used in
         </p>
         <p>
-          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-195'></a>
+          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-196'></a>
         </p>
         <pre><code>  Chemical
   Commercial
@@ -11934,7 +12000,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       </li>
     </ul>
     <p>
-      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-196'></a>
+      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-197'></a>
     </p>
     <pre><code>  {
     "categories": {
@@ -11958,7 +12024,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       MD5 and SHA1 SHOULD NOT be used.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-197'></a>
+      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-198'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of SHA-256 hash file: esa-2022-02723.json.sha256
@@ -11967,7 +12033,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
       The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
     </p>
     <p>
-      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-198'></a>
+      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-199'></a>
     </p>
     <pre><code>ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json</code></pre>
     <p>
@@ -11980,7 +12046,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
       All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. This signature SHALL be presented as an ASCII armored file. See [<a href="#RFC4880">RFC4880</a>] for more details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-199'></a>
+      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-200'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of signature file: esa-2022-02723.json.asc</code></pre>
@@ -12046,7 +12112,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       The file <code>aggregator.json</code> SHOULD only list the latest version of the metadata of a CSAF provider.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-200'></a>
+      <em>Example 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-201'></a>
     </p>
     <pre><code>  {
     "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
@@ -12106,7 +12172,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
     </ul>
     <p>
-      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-201'></a>
+      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-202'></a>
     </p>
     <pre><code>  {
     "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
@@ -12751,7 +12817,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS vector, if present.
                 </p>
                 <p>
-                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-202'></a>
+                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-203'></a>
                 </p>
                 <pre><code>  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H =&gt; 3.1</code></pre>
               </li>
@@ -12760,7 +12826,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
                 </p>
                 <p>
-                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-203'></a>
+                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-204'></a>
                 </p>
                 <pre><code>  xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
   &lt;!-- --&gt;
@@ -12769,7 +12835,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   is handled the same as
                 </p>
                 <p>
-                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-204'></a>
+                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-205'></a>
                 </p>
                 <pre><code>  &lt;ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd"&gt;</code></pre>
               </li>
@@ -12779,7 +12845,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   decision.
                 </p>
                 <p>
-                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-205'></a>
+                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-206'></a>
                 </p>
                 <pre><code>  xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" =&gt; 3.0</code></pre>
               </li>
@@ -13437,6 +13503,8 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       <li>satisfies the "CSAF extended validator" conformance profile.
       </li>
       <li>additionally performs all informative tests as given in section <a href="#informative-tests">6.3</a>.
+      </li>
+      <li>provides an option to additionally use a custom dictionary for test <a href="#spell-check">6.3.8</a>.
       </li>
     </ul>
     <p>
