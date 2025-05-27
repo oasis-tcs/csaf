@@ -624,7 +624,7 @@ The relevant path for this test is:
 ### Grammar Check
 
 If the document language is given it MUST be tested that a grammar check for the given language does not find any mistakes.
-The test SHALL be skipped if not document language is set.
+The test SHALL be skipped if the document language is not set.
 It SHALL fail it the given language is not supported.
 
 The relevant paths for this test are:
