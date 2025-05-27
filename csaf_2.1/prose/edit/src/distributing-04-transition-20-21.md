@@ -57,6 +57,11 @@ The following process SHOULD be followed:
   - The unmaintained CSAF 2.0 directory structure and files SHOULD be removed or made inaccessible.
   - The CSAF 2.0 documents MAY be archived.
 
+If a DNS path (cf. section [sec](#requirement-10-dns-path)) is used instead of the well-known URL, the same process SHOULD be followed except:
+- Instead of placing the `provider-metadata.json` that is considered valid at the respective time within the transition period at
+- `/.well-known/csaf/provider-metadata.json` it MUST be available at the URL `csaf.data.security.domain.tld` where `domain.tld` refers
+  to the provider's used domain name.
+
 ### Archive of CSAF Document from Previous Version
 
 The following rules apply for the archival of CSAF document from a previous version:
