@@ -20,15 +20,15 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 
 Official presets are defined in different parts of the standard.
 
-### Presets defined in Test Section
+### Presets defined through Test Subsections
 
-The following presets are defined through subsections of the test chapter:
+The following presets are defined through subsections of the test section:
 
 - `mandatory`: all tests given in section [sec](#mandatory-tests)
 - `recommended`: all tests given in section [sec](#recommended-tests)
 - `informative`: all tests given in section [sec](#informative-tests)
 
-### Presets defined in Conformance Targets
+### Presets defined through Conformance Targets
 
 The following presets are defined through conformance targets:
 

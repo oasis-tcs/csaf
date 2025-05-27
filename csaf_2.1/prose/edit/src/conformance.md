@@ -520,7 +520,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
-* performs all mandatory tests as given in section [sec](#mandatory-tests).
+* performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
 * does not change the CSAF documents.
 
 A CSAF basic validator MAY provide one or more additional functions:
@@ -534,7 +534,7 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all recommended tests as given in section [sec](#recommended-tests).
+* additionally performs all tests of the preset `recommended` as given in section [sec](#presets-defined-through-test-subsections).
 
 A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
@@ -543,7 +543,7 @@ A CSAF extended validator MAY provide an additional function to only run one or 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section [sec](#informative-tests).
+* additionally performs all tests of the preset `informative` as given in section [sec](#presets-defined-through-test-subsections).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
