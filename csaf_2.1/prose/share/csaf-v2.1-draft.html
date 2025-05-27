@@ -4342,8 +4342,8 @@
       Disclosure date (<code>disclosure_date</code>) of value type <code>string</code> with format <code>date-time</code> holds the date and time the vulnerability was originally disclosed to the public.
     </p>
     <p>
-      For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability. As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that the vulnerability was in fact
-      disclosed to the public at that time or update the <code>disclosure_date</code> with the new intended date in the future.
+      For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability. This is also sometimes called embargo date. As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to
+      confirm that the vulnerability was in fact disclosed to the public at that time or update the <code>disclosure_date</code> with the new intended date in the future.
     </p>
     <h4 id="3245-vulnerabilities-property---discovery-date-">
       3.2.4.5 Vulnerabilities Property - Discovery Date <a id='vulnerabilities-property-discovery-date'></a>
@@ -4558,14 +4558,24 @@
       }
     },</code></pre>
     <p>
-      Every Involvement item of value type <code>object</code> with the 2 mandatory properties Party (<code>party</code>), Status (<code>status</code>) and the 2 optional properties Date of involvement (<code>date</code>) and Summary (<code>summary</code>) is a container that allows the document producers to comment on the level of
-      involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to convey the disclosure timeline. The ordered tuple of the values of <code>party</code> and <code>date</code> (if present) SHALL be unique within <code>involvements</code>.
+      Every Involvement item of value type <code>object</code> with the 2 mandatory properties Party (<code>party</code>), Status (<code>status</code>) and the 5 optional properties Party contact information (<code>contact</code>), Date of involvement (<code>date</code>), Group IDs (<code>group_ids</code>), Product IDs
+      (<code>product_ids</code>), and Summary (<code>summary</code>) is a container that allows the document producers to comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process. It can also be used to convey the disclosure timeline. The ordered
+      tuple of the values of <code>party</code> and <code>date</code> (if present) SHALL be unique within <code>involvements</code>.
     </p>
     <pre><code>        "properties": {
+          "contact": {
+            // ...
+          },
           "date": {
             // ...
           },
+          "group_ids" {
+            // ...
+          },
           "party": {
+            // ...
+          },
+          "product_ids": {
             // ...
           },
           "status": {
@@ -4576,7 +4586,18 @@
           }
         }</code></pre>
     <p>
+      Party contact information (<code>contact</code>) contains the contact information of the party that was used in this state.
+    </p>
+    <blockquote>
+      <p>
+        In many cases, that could be an email address.
+      </p>
+    </blockquote>
+    <p>
       Date of involvement (<code>date</code>) of value type <code>string</code> with format <code>date-time</code> holds the date and time of the involvement entry.
+    </p>
+    <p>
+      Group IDs (<code>group_ids</code>) are of value type Product Groups (<code>product_groups_t</code>) and contain a list of Product Groups the current involvement item applies to.
     </p>
     <p>
       Party category (<code>party</code>) of value type <code>string</code> and <code>enum</code> defines the category of the involved party. Valid values are:
@@ -4588,6 +4609,9 @@
     vendor</code></pre>
     <p>
       These values follow the same definitions as given for the publisher category (cf. section <a href="#document-property-publisher-category">3.2.2.8.1</a>).
+    </p>
+    <p>
+      Product IDs (<code>product_ids</code>) are of value type Products (<code>products_t</code>) and contain a list of Products the current involvement item applies to.
     </p>
     <p>
       Party status (<code>status</code>) of value type <code>string</code> and <code>enum</code> defines contact status of the involved party. Valid values are:
@@ -6363,6 +6387,7 @@
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
+  /vulnerabilities[]/involvements[]/product_ids[]
   /vulnerabilities[]/flags[]/product_ids[]
   /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/notes[]/product_ids[]
@@ -6482,6 +6507,7 @@
     </p>
     <pre><code>  /document/notes[]/group_ids[]
   /vulnerabilities[]/flags[]/group_ids[]
+  /vulnerabilities[]/involvements[]/group_ids[]
   /vulnerabilities[]/notes[]/group_ids[]
   /vulnerabilities[]/remediations[]/group_ids[]
   /vulnerabilities[]/threats[]/group_ids[]</code></pre>
@@ -15841,6 +15867,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             <code>/vulnerabilities[]/flags[]/product_ids</code>
           </li>
           <li>
+            <code>/vulnerabilities[]/involvements[]/group_ids</code>
+          </li>
+          <li>
+            <code>/vulnerabilities[]/involvements[]/product_ids</code>
+          </li>
+          <li>
             <code>/vulnerabilities[]/metrics</code>
           </li>
           <li>
@@ -16112,6 +16144,9 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </li>
           <li>
             <code>/vulnerabilities[]/ids[]/text</code>
+          </li>
+          <li>
+            <code>/vulnerabilities[]/involvements[]/contact</code>
           </li>
           <li>
             <code>/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString</code>

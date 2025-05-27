@@ -3354,9 +3354,11 @@ When creating or modifying a CSAF document, the latest published version of the 
 Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
 
-For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
-As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that the
-vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
+For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the
+intended date for disclosure of the vulnerability.
+This is also sometimes called embargo date.
+As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that
+the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
 
 #### 3.2.4.5 Vulnerabilities Property - Discovery Date <a id='vulnerabilities-property-discovery-date'></a>
 
@@ -3554,18 +3556,27 @@ List of involvements (`involvements`) of value type `array` with 1 or more uniqu
 ```
 
 Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and
-the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container that allows the document producers to
-comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping,
-and remediation process.
+the 5 optional properties Party contact information (`contact`), Date of involvement (`date`), Group IDs (`group_ids`),
+Product IDs (`product_ids`), and Summary (`summary`) is a container that allows the document producers to comment on the level of
+involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process.
 It can also be used to convey the disclosure timeline.
 The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
 
 ```
         "properties": {
+          "contact": {
+            // ...
+          },
           "date": {
             // ...
           },
+          "group_ids" {
+            // ...
+          },
           "party": {
+            // ...
+          },
+          "product_ids": {
             // ...
           },
           "status": {
@@ -3577,7 +3588,14 @@ The ordered tuple of the values of `party` and `date` (if present) SHALL be uniq
         }
 ```
 
+Party contact information (`contact`) contains the contact information of the party that was used in this state.
+
+> In many cases, that could be an email address.
+
 Date of involvement (`date`) of value type `string` with format `date-time` holds the date and time of the involvement entry.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
+involvement item applies to.
 
 Party category (`party`) of value type `string` and `enum` defines the category of the involved party.
 Valid values are:
@@ -3591,6 +3609,9 @@ Valid values are:
 ```
 
 These values follow the same definitions as given for the publisher category (cf. section [3.2.2.8.1](#document-property-publisher-category)).
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current
+involvement item applies to.
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
@@ -4680,6 +4701,7 @@ The relevant paths for this test are:
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
+  /vulnerabilities[]/involvements[]/product_ids[]
   /vulnerabilities[]/flags[]/product_ids[]
   /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/notes[]/product_ids[]
@@ -4797,6 +4819,7 @@ The relevant paths for this test are:
 ```
   /document/notes[]/group_ids[]
   /vulnerabilities[]/flags[]/group_ids[]
+  /vulnerabilities[]/involvements[]/group_ids[]
   /vulnerabilities[]/notes[]/group_ids[]
   /vulnerabilities[]/remediations[]/group_ids[]
   /vulnerabilities[]/threats[]/group_ids[]
@@ -11632,6 +11655,8 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/flags`
   * `/vulnerabilities[]/flags[]/group_ids`
   * `/vulnerabilities[]/flags[]/product_ids`
+  * `/vulnerabilities[]/involvements[]/group_ids`
+  * `/vulnerabilities[]/involvements[]/product_ids`
   * `/vulnerabilities[]/metrics`
   * `/vulnerabilities[]/metrics[]/products`
   * `/vulnerabilities[]/notes[]/group_ids`
@@ -11724,6 +11749,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
+  * `/vulnerabilities[]/involvements[]/contact`
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
