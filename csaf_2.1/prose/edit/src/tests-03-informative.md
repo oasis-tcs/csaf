@@ -257,7 +257,7 @@ The relevant paths for this test are:
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### Spell check
+### Spell Check
 
 If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes.
 The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported.
