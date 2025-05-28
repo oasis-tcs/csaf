@@ -135,6 +135,7 @@ tests-02-rcmmndd-44-deprecated-license-identifier.md
 tests-02-rcmmndd-45-non-existing-license-identifier.md
 tests-02-rcmmndd-46-language-specific-license-text.md
 tests-03-informative.md
+tests-04-presets.md
 distributing-00.md
 distributing-01-requirements.md
 distributing-02-roles.md
