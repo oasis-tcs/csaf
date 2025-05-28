@@ -10291,6 +10291,10 @@
       <p>
         This test detects a potentially incorrect constructed product tree. Note: This test will fail if the CSAF document contains in its <code>product_tree</code> the old and new name of a product that was renamed. However, this is expected and considered a good reason for the test to fail. This does not make the CSAF document invalid.
       </p>
+      <p>
+        For the comparison, arrays need to be treated as unordered sets which need to be pairwise disjoint. When comparing two helper-objects' array properties whose items are themselves JSON objects (e.g. <code>hashes</code> or <code>file_hashes</code>), the array needs to be treated as an unordered set, and each object is compared by
+        deep-equality of its key/value pairs (ignoring key‐order).
+      </p>
     </blockquote>
     <p>
       The relevant paths for this test are:
@@ -11920,19 +11924,20 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       7.1.15 Requirement 15: ROLIE feed <a id='requirement-15-rolie-feed'></a>
     </h3>
     <p>
-      Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed. At least
-      one of the feeds
+      Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content. ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content. All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed (summary
+      feed). Additional ROLIE feeds might exist that contain only a subset of the CSAF documents. The selection criteria SHOULD be described through the summary. At least one of the feeds
     </p>
     <ul>
       <li>TLP:CLEAR
       </li>
       <li>TLP:GREEN
       </li>
-      <li>unlabeled
-      </li>
     </ul>
     <p>
       MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [<a href="#RFC8322">RFC8322</a>].
+    </p>
+    <p>
+      The ROLIE feed document MUST contain a feed category with the registered ROLIE information type <code>csaf</code>. The <code>scheme</code> for this category MUST be <code>urn:ietf:params:rolie:category:information-type</code>.
     </p>
     <p>
       <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-194'></a>

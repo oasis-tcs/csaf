@@ -8459,6 +8459,10 @@ For each Product Identification Helper category it MUST be tested that the same 
 > Note: This test will fail if the CSAF document contains in its `product_tree` the old and new name of a product that was renamed.
 > However, this is expected and considered a good reason for the test to fail.
 > This does not make the CSAF document invalid.
+>
+> For the comparison, arrays need to be treated as unordered sets which need to be pairwise disjoint.
+> When comparing two helper-objects' array properties whose items are themselves JSON objects (e.g. `hashes` or `file_hashes`),
+> the array needs to be treated as an unordered set, and each object is compared by deep-equality of its key/value pairs (ignoring key‐order).
 
 The relevant paths for this test are:
 
@@ -10030,15 +10034,19 @@ Server-side generated directory listing SHALL be enabled to support manual navig
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
-All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed.
+All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed (summary feed).
+Additional ROLIE feeds might exist that contain only a subset of the CSAF documents.
+The selection criteria SHOULD be described through the summary.
 At least one of the feeds
 
 * TLP:CLEAR
 * TLP:GREEN
-* unlabeled
 
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
+
+The ROLIE feed document MUST contain a feed category with the registered ROLIE information type `csaf`.
+The `scheme` for this category MUST be `urn:ietf:params:rolie:category:information-type`.
 
 *Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-194'></a>
 
