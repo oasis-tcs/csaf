@@ -3079,7 +3079,7 @@
         }
       ]
     },
-       {
+    {
       "id": "6.2.41",
       "group": "recommended",
       "failures": [
@@ -3099,6 +3099,30 @@
         },
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-41-12.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.2.42",
+      "group": "recommended",
+      "failures": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-42-01.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-42-02.json",
+          "valid": true
+        }
+      ],
+      "valid": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-42-11.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-42-12.json",
           "valid": true
         }
       ]

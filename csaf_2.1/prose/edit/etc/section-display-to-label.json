@@ -243,6 +243,7 @@
   "6.2.39.4": "language-specific-superseding-document",
   "6.2.40": "product-description-without-product-reference",
   "6.2.41": "old-epss-timestamp",
+  "6.2.42": "inconsistent-product-identification-helper",
   "6.3": "informative-tests",
   "6.3.1": "use-of-cvss-v2-as-the-only-scoring-system",
   "6.3.2": "use-of-cvss-v3-0",
