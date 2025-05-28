@@ -3103,7 +3103,7 @@
         }
       ]
     },
-       {
+    {
       "id": "6.2.41",
       "group": "recommended",
       "failures": [
@@ -3123,6 +3123,22 @@
         },
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-41-12.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.2.43",
+      "group": "recommended",
+      "failures": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-43-01.json",
+          "valid": true
+        }
+      ],
+      "valid": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-43-11.json",
           "valid": true
         }
       ]
