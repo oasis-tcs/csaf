@@ -157,6 +157,7 @@ A string SHOULD NOT have a length greater than:
   * `/document/category`
   * `/document/distribution/sharing_group/name`
   * `/document/lang`
+  * `/document/license_expression`
   * `/document/notes[]/audience`
   * `/document/notes[]/group_ids[]`
   * `/document/notes[]/product_ids[]`
