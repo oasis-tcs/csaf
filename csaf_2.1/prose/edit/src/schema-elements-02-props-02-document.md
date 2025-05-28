@@ -327,7 +327,7 @@ In addition, the following rules apply:
      SPDX license identifiers that were deprecated before the version listed above MUST NOT be used.
      > The list is available at <https://spdx.org/licenses/>.
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
-     the license database AboutCode's "Scancode LicenseDB" MUST be consulted as a next step.
+     the license database AboutCode's "ScanCode LicenseDB" MUST be consulted as a next step.
      License identifiers from this database MUST use the prefix `LicenseRef-scancode-`.
      > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
 

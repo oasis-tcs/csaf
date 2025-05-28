@@ -58,6 +58,7 @@
   "date": "C.4",
   "date-and-time": "2.3",
   "definitions": "3.1",
+  "deprecated-license-identifier": "6.2.44",
   "design-considerations": "2",
   "disclosure-date-newer-than-revision-history": "6.2.33",
   "discouraged-product-status-remediation-combination": "6.2.27",
