@@ -3,9 +3,9 @@
 Document level meta-data (`document`) of value type `object` with the 6 mandatory properties Category (`category`),
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the 6 optional properties Acknowledgments (`acknowledgments`),
-Aggregate Severity (`aggregate_severity`), Language (`lang`), Notes (`notes`), References (`references`),
-and Source Language (`source_lang`).
+In addition, the `document` object MAY provide the 7 optional properties Acknowledgments (`acknowledgments`),
+Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
+References (`references`), and Source Language (`source_lang`).
 
 ```
     "document": {
@@ -27,6 +27,9 @@ and Source Language (`source_lang`).
           // ...
         },
         "lang": {
+          // ...
+        },
+        "license_expression": {
           // ...
         },
         "notes": {
@@ -303,6 +306,48 @@ The default value is the URL to the definition by FIRST:
 
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
 corresponding to IETF BCP 47 / RFC 5646.
+
+#### Document Property - License Expression
+
+License expression (`license_expression`) of value type `string` with 1 or more characters contains the SPDX license expression for the CSAF document.
+It MUST NOT contain a license text.
+See annex B of [cite](#SPDX301) for details.
+The `DocumentRef` part given in that ABNF MUST NOT be used in CSAF.
+Any SPDX license identifier not from the official SPDX license identifier list MUST contain a prefix of the form
+`LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the entity that provided the
+database this license identifier was found in.
+The unique name MAY be a domain name.
+
+In addition, the following rules apply:
+
+- License identification:
+  1. The SPDX License List Version 3.26.0 or later MUST be consulted to identify the appropriate SPDX license identifier or
+     construct an expression based on a SPDX license identifier.
+     Deprecated license identifiers SHOULD NOT be used.
+     SPDX license identifiers that were deprecated before the version listed above MUST NOT be used.
+     > The list is available at <https://spdx.org/licenses/>.
+  2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
+     the license database AboutCode's "Scancode LicenseDB" MUST be consulted as a next step.
+     License identifiers from this database MUST use the prefix `LicenseRef-scancode-`.
+     > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
+
+     The construction of a license expression with such an identifier is also allowed.
+  3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
+     the issuing party SHALL create their own license identifier following the rules above.
+     The license identifier SHOULD contain the version number of the license.
+     The license text MUST be made available through a document note with `category` of `legal_disclaimer` and `title` of `License`.
+
+- License similarity:
+  - Annex C of [cite](#SPDX301) applies.
+
+*Examples 1:*
+
+```
+  CC-BY-4.0
+  LicenseRef-www.example.org-Example-CSAF-License-3.0+
+  LicenseRef-scancode-public-domain
+  MIT OR any-OSI
+```
 
 #### Document Property - Notes
 
