@@ -148,7 +148,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
-e.g. in case of changes to the organizational structure through merges or acquisitions.
+e.g. in case of changes to the organizational structure through mergers and acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
 A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
 and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
