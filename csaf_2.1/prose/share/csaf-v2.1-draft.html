@@ -821,6 +821,16 @@
                 </li>
               </ul>
             </li>
+            <li>6.4 <a href="#presets">Presets</a>
+              <ul>
+                <li>6.4.1 <a href="#presets-defined-through-test-subsections">Presets defined through Test Subsections</a>
+                </li>
+                <li>6.4.2 <a href="#presets-defined-through-conformance-targets">Presets defined through Conformance Targets</a>
+                </li>
+                <li>6.4.3 <a href="#additional-presets">Additional Presets</a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li>7. <a href="#distributing-csaf-documents">Distributing CSAF documents</a>
@@ -6474,7 +6484,7 @@
       6. Tests <a id='tests'></a>
     </h1>
     <p>
-      The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
+      The first three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test. The forth subsection groups tests into preset.
     </p>
     <h2 id="61-mandatory-tests-">
       6.1 Mandatory Tests <a id='mandatory-tests'></a>
@@ -9711,7 +9721,7 @@
     </h3>
     <blockquote>
       <p>
-        The TLP label is now required by the schema. Therefore, the recommended test is obsolete. This section is kept to document that change and keep the numbering of the remaining sections stable.
+        The TLP label is now required by the schema. Therefore, the recommended test is obsolete. This section is kept to document that change and keep the numbering of the remaining sections stable. The test is excluded from any preset and requirement to be executed.
       </p>
     </blockquote>
     <h3 id="6211-missing-canonical-url-">
@@ -11934,6 +11944,168 @@
       </p>
     </blockquote>
     <hr />
+    <h2 id="64-presets-">
+      6.4 Presets <a id='presets'></a>
+    </h2>
+    <p>
+      A test preset is a predefined set of tests that was given a name. It MAY contain any number of tests. Two presets MAY overlap. The content of a preset MAY vary in different CSAF versions. A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator. A CSAF validator MAY provide
+      or support additional presets. A CSAF validator MUST implement all tests for any supported preset. Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
+    </p>
+    <ul>
+      <li>
+        <code>x_</code>: for any CSAF validator specific preset.
+        <blockquote>
+          <p>
+            Multiple CSAF validators might use the same preset name for different sets of tests. Users are advised to carefully check the documentation of the tools to avoid incorrect assumptions.
+          </p>
+        </blockquote>
+      </li>
+      <li>
+        <code>org_</code> followed by an organization identifier and an underscore (<code>_</code>): for any preset specified by an organization as a part of a public definition that can be implemented by different CSAF validators. The organization identifier MUST only use the characters identified by the pattern <code>[0-9a-zA-Z-]</code>.
+        The organization identifier MUST be registered with the OASIS CSAF TC.
+      </li>
+      <li>
+        <code>csaf_</code>: for any preset defined later on by the OASIS CSAF TC.
+      </li>
+    </ul>
+    <p>
+      Official presets are defined in different parts of the standard.
+    </p>
+    <h3 id="641-presets-defined-through-test-subsections-">
+      6.4.1 Presets defined through Test Subsections <a id='presets-defined-through-test-subsections'></a>
+    </h3>
+    <p>
+      The following presets are defined through subsections of the test section:
+    </p>
+    <ul>
+      <li>
+        <code>mandatory</code>: all tests given in section <a href="#mandatory-tests">6.1</a>
+      </li>
+      <li>
+        <code>recommended</code>: all tests given in section <a href="#recommended-tests">6.2</a>
+      </li>
+      <li>
+        <code>informative</code>: all tests given in section <a href="#informative-tests">6.3</a>
+      </li>
+    </ul>
+    <h3 id="642-presets-defined-through-conformance-targets-">
+      6.4.2 Presets defined through Conformance Targets <a id='presets-defined-through-conformance-targets'></a>
+    </h3>
+    <p>
+      The following presets are defined through conformance targets:
+    </p>
+    <ul>
+      <li>
+        <code>schema</code>: Check against the JSON schema (see section <a href="#conformance-clause-14-csaf-basic-validator">sec</a>)
+      </li>
+      <li>
+        <code>basic</code>: <code>schema</code> + <code>mandatory</code> (see section <a href="#conformance-clause-14-csaf-basic-validator">sec</a>)
+      </li>
+      <li>
+        <code>extended</code>: <code>basic</code> + <code>recommended</code> (see section <a href="#conformance-clause-15-csaf-extended-validator">sec</a>)
+      </li>
+      <li>
+        <code>full</code>: <code>extended</code> + <code>informative</code> (see section <a href="#conformance-clause-16-csaf-full-validator">sec</a>)
+      </li>
+    </ul>
+    <p>
+      As presets are sets, the operator <code>+</code> MUST be interpreted as the union operation.
+    </p>
+    <h3 id="643-additional-presets-">
+      6.4.3 Additional Presets <a id='additional-presets'></a>
+    </h3>
+    <p>
+      Additional presets are defined as follows:
+    </p>
+    <ul>
+      <li>
+        <code>external-request-free</code>:
+        <ul>
+          <li>Description: Any test that can be executed without a request into the Internet or a different network.
+            <blockquote>
+              <p>
+                This is intended to be used for browser-based tools as external requests may result in CORS issues. Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
+              </p>
+            </blockquote>
+          </li>
+          <li>Set: <code>full</code> excluding tests <a href="#use-of-non-self-referencing-urls-failing-to-resolve">6.3.6</a> and <a href="use-of-self-referencing-urls-failing-to-resolve">sec</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>consistent-revision-history</code>:
+        <ul>
+          <li>Description: Any test that is related to the revision history and ensures consistence within it.
+          </li>
+          <li>Set:
+            <ul>
+              <li>
+                <a href="#sorted-revision-history">6.1.14</a>
+              </li>
+              <li>
+                <a href="#released-revision-history">6.1.18</a>
+              </li>
+              <li>
+                <a href="#revision-history-entries-for-pre-release-versions">6.1.19</a>
+              </li>
+              <li>
+                <a href="#missing-item-in-revision-history">6.1.21</a>
+              </li>
+              <li>
+                <a href="#multiple-definition-in-revision-history">6.1.22</a>
+              </li>
+              <li>
+                <a href="#mandatory-tests--date-and-time">6.1.37</a>
+              </li>
+              <li>
+                <a href="#build-metadata-in-revision-history">6.2.4</a>
+              </li>
+              <li>
+                <a href="#older-initial-release-date-than-revision-history">6.2.5</a>
+              </li>
+              <li>
+                <a href="#older-current-release-date-than-revision-history">6.2.6</a>
+              </li>
+              <li>
+                <a href="#same-timestamps-in-revision-history">6.2.21</a>
+              </li>
+              <li>
+                <a href="#disclosure-date-newer-than-revision-history">6.2.33</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>consistent-date-times</code>:
+        <ul>
+          <li>Description: Any test that is related to timestamps in CSAF and avoids invalid situations.
+          </li>
+          <li>Set:
+            <ul>
+              <li>
+                <a href="#mandatory-tests--date-and-time">6.1.37</a>
+              </li>
+              <li>
+                <a href="#inconsistent-disclosure-date">6.1.45</a>
+              </li>
+              <li>
+                <a href="#inconsistent-ssvc-timestamp">6.1.49</a>
+              </li>
+              <li>
+                <a href="#inconsistent-epss-timestamp">6.1.51</a>
+              </li>
+              <li>
+                <a href="#inconsistent-first-known-exploitation-dates">6.1.52</a>
+              </li>
+              <li>
+                <a href="#inconsistent-exploitation-date">6.1.53</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
     <h1 id="7-distributing-csaf-documents-">
       7. Distributing CSAF documents <a id='distributing-csaf-documents'></a>
     </h1>
@@ -14023,9 +14195,11 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     <ul>
       <li>reads documents and performs a check against the JSON schema.
       </li>
-      <li>performs all mandatory tests as given in section <a href="#mandatory-tests">6.1</a>.
+      <li>performs all tests of the preset <code>mandatory</code> as given in section <a href="#presets-defined-through-test-subsections">6.4.1</a>.
       </li>
       <li>does not change the CSAF documents.
+      </li>
+      <li>satisfies those normative requirements in section <a href="#presets">6.4</a> that are designated as applying to CSAF validators.
       </li>
     </ul>
     <p>
@@ -14048,7 +14222,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     <ul>
       <li>satisfies the "CSAF basic validator" conformance profile.
       </li>
-      <li>additionally performs all recommended tests as given in section <a href="#recommended-tests">6.2</a>.
+      <li>additionally performs all tests of the preset <code>recommended</code> as given in section <a href="#presets-defined-through-test-subsections">6.4.1</a>.
       </li>
     </ul>
     <p>
@@ -14063,7 +14237,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     <ul>
       <li>satisfies the "CSAF extended validator" conformance profile.
       </li>
-      <li>additionally performs all informative tests as given in section <a href="#informative-tests">6.3</a>.
+      <li>additionally performs all tests of the preset <code>informative</code> as given in section <a href="#presets-defined-through-test-subsections">6.4.1</a>.
       </li>
       <li>provides an option to additionally use a custom dictionary for test <a href="#spell-check">6.3.8</a>.
       </li>

@@ -380,6 +380,10 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.3.15 [Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)  
 		6.3.16 [Grammar Check](#grammar-check)  
 		6.3.17 [Use of Unregistered License](#use-of-unregistered-license)  
+	6.4 [Presets](#presets)  
+		6.4.1 [Presets defined through Test Subsections](#presets-defined-through-test-subsections)  
+		6.4.2 [Presets defined through Conformance Targets](#presets-defined-through-conformance-targets)  
+		6.4.3 [Additional Presets](#additional-presets)  
 7. [Distributing CSAF documents](#distributing-csaf-documents)  
 	7.1 [Requirements](#requirements)  
 		7.1.1 [Requirement 1: Valid CSAF document](#requirement-1-valid-csaf-document)  
@@ -4745,7 +4749,8 @@ To form the overall product, both parts MUST be combined through a relationship.
 
 # 6. Tests <a id='tests'></a>
 
-The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
+The first three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
+The forth subsection groups tests into preset.
 
 ## 6.1 Mandatory Tests <a id='mandatory-tests'></a>
 
@@ -7909,6 +7914,7 @@ The relevant paths for this test are:
 
 > The TLP label is now required by the schema. Therefore, the recommended test is obsolete.
 > This section is kept to document that change and keep the numbering of the remaining sections stable.
+> The test is excluded from any preset and requirement to be executed.
 
 ### 6.2.11 Missing Canonical URL <a id='missing-canonical-url'></a>
 
@@ -10031,6 +10037,81 @@ The relevant path for this test is:
 
 -------
 
+## 6.4 Presets <a id='presets'></a>
+
+A test preset is a predefined set of tests that was given a name.
+It MAY contain any number of tests.
+Two presets MAY overlap.
+The content of a preset MAY vary in different CSAF versions.
+A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator.
+A CSAF validator MAY provide or support additional presets.
+A CSAF validator MUST implement all tests for any supported preset.
+Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
+
+- `x_`: for any CSAF validator specific preset.
+  > Multiple CSAF validators might use the same preset name for different sets of tests.
+  > Users are advised to carefully check the documentation of the tools to avoid incorrect assumptions.
+- `org_` followed by an organization identifier and an underscore (`_`): for any preset specified by an organization as a part of a public definition
+  that can be implemented by different CSAF validators.
+  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-]`.
+  The organization identifier MUST be registered with the OASIS CSAF TC.
+- `csaf_`: for any preset defined later on by the OASIS CSAF TC.
+
+Official presets are defined in different parts of the standard.
+
+### 6.4.1 Presets defined through Test Subsections <a id='presets-defined-through-test-subsections'></a>
+
+The following presets are defined through subsections of the test section:
+
+- `mandatory`: all tests given in section [6.1](#mandatory-tests)
+- `recommended`: all tests given in section [6.2](#recommended-tests)
+- `informative`: all tests given in section [6.3](#informative-tests)
+
+### 6.4.2 Presets defined through Conformance Targets <a id='presets-defined-through-conformance-targets'></a>
+
+The following presets are defined through conformance targets:
+
+- `schema`: Check against the JSON schema (see section [sec](#conformance-clause-14-csaf-basic-validator))
+- `basic`: `schema` + `mandatory` (see section [sec](#conformance-clause-14-csaf-basic-validator))
+- `extended`: `basic` + `recommended` (see section [sec](#conformance-clause-15-csaf-extended-validator))
+- `full`: `extended` + `informative` (see section [sec](#conformance-clause-16-csaf-full-validator))
+
+As presets are sets, the operator `+` MUST be interpreted as the union operation.
+
+### 6.4.3 Additional Presets <a id='additional-presets'></a>
+
+Additional presets are defined as follows:
+
+- `external-request-free`:
+  - Description: Any test that can be executed without a request into the Internet or a different network.
+    > This is intended to be used for browser-based tools as external requests may result in CORS issues.
+    > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
+  - Set: `full` excluding tests [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve)
+    and [sec](use-of-self-referencing-urls-failing-to-resolve)
+- `consistent-revision-history`:
+  - Description: Any test that is related to the revision history and ensures consistence within it.
+  - Set:
+    - [6.1.14](#sorted-revision-history)
+    - [6.1.18](#released-revision-history)
+    - [6.1.19](#revision-history-entries-for-pre-release-versions)
+    - [6.1.21](#missing-item-in-revision-history)
+    - [6.1.22](#multiple-definition-in-revision-history)
+    - [6.1.37](#mandatory-tests--date-and-time)
+    - [6.2.4](#build-metadata-in-revision-history)
+    - [6.2.5](#older-initial-release-date-than-revision-history)
+    - [6.2.6](#older-current-release-date-than-revision-history)
+    - [6.2.21](#same-timestamps-in-revision-history)
+    - [6.2.33](#disclosure-date-newer-than-revision-history)
+- `consistent-date-times`:
+  - Description: Any test that is related to timestamps in CSAF and avoids invalid situations.
+  - Set:
+    - [6.1.37](#mandatory-tests--date-and-time)
+    - [6.1.45](#inconsistent-disclosure-date)
+    - [6.1.49](#inconsistent-ssvc-timestamp)
+    - [6.1.51](#inconsistent-epss-timestamp)
+    - [6.1.52](#inconsistent-first-known-exploitation-dates)
+    - [6.1.53](#inconsistent-exploitation-date)
+
 # 7. Distributing CSAF documents <a id='distributing-csaf-documents'></a>
 
 This section lists requirements and roles defined for distributing CSAF documents.
@@ -11482,8 +11563,9 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
-* performs all mandatory tests as given in section [6.1](#mandatory-tests).
+* performs all tests of the preset `mandatory` as given in section [6.4.1](#presets-defined-through-test-subsections).
 * does not change the CSAF documents.
+* satisfies those normative requirements in section [6.4](#presets) that are designated as applying to CSAF validators.
 
 A CSAF basic validator MAY provide one or more additional functions:
 
@@ -11496,7 +11578,7 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all recommended tests as given in section [6.2](#recommended-tests).
+* additionally performs all tests of the preset `recommended` as given in section [6.4.1](#presets-defined-through-test-subsections).
 
 A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
@@ -11505,7 +11587,7 @@ A CSAF extended validator MAY provide an additional function to only run one or 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section [6.3](#informative-tests).
+* additionally performs all tests of the preset `informative` as given in section [6.4.1](#presets-defined-through-test-subsections).
 * provides an option to additionally use a custom dictionary for test [6.3.8](#spell-check).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
