@@ -6,6 +6,10 @@ For each Product Identification Helper category it MUST be tested that the same 
 > Note: This test will fail if the CSAF document contains in its `product_tree` the old and new name of a product that was renamed.
 > However, this is expected and considered a good reason for the test to fail.
 > This does not make the CSAF document invalid.
+>
+> For the comparison, arrays need to be treated as an unordered sets which need to be pairwise disjoint.
+> When comparing two helper-objects' array properties whose items are themselves JSON objects (e.g. `hashes` or `file_hashes`),
+> the array needs to be treated as an unordered set, and each object is compared by deep-equality of its key/value pairs (ignoring key‐order).
 
 The relevant paths for this test are:
 
