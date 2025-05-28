@@ -225,6 +225,18 @@
       "description": "Holds the date and time when the document was last updated.",
       "type": "string",
       "format": "date-time"
+    },
+    "maintained_from": {
+      "title": "Maintained from",
+      "description": "Holds the date and time from when this CSAF aggregator file is in a maintained state.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "maintained_until": {
+      "title": "Maintained until",
+      "description": "Holds the date and time until when this CSAF aggregator file is in a maintained state.",
+      "type": "string",
+      "format": "date-time"
     }
   },
   "additionalProperties": false
