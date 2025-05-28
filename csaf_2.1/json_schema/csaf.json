@@ -604,18 +604,6 @@
             "tlp"
           ],
           "properties": {
-            "license": {
-              "title": "License",
-              "description": "Contains the SPDX license expression for the CSAF document.",
-              "type": "string",
-              "minLength": 1,
-              "examples": [
-                "CC-BY-4.0",
-                "LicenseRef-www.example.org-Example-CSAF-License-3.0+",
-                "LicenseRef-scancode-public-domain",
-                "MIT OR any-OSI"
-              ]
-            },
             "sharing_group": {
               "title": "Sharing Group",
               "description": "Contains information about the group this document is intended to be shared with.",
@@ -701,6 +689,18 @@
           "title": "Document language",
           "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.",
           "$ref": "#/$defs/lang_t"
+        },
+        "license": {
+          "title": "License",
+          "description": "Contains the SPDX license expression for the CSAF document.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "CC-BY-4.0",
+            "LicenseRef-www.example.org-Example-CSAF-License-3.0+",
+            "LicenseRef-scancode-public-domain",
+            "MIT OR any-OSI"
+          ]
         },
         "notes": {
           "title": "Document notes",
