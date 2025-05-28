@@ -90,7 +90,7 @@
             "description": "Contains all information for ROLIE distribution.",
             "type": "object",
             "required": [
-                "feeds"
+              "feeds"
             ],
             "properties": {
               "categories": {
@@ -179,6 +179,18 @@
       "description": "Decides whether this file should be linked in the list of a CSAF aggregator.",
       "type": "boolean",
       "default": true
+    },
+    "maintained_from": {
+      "title": "Maintained from",
+      "description": "Holds the date and time from when the distributions within this CSAF provider are in a maintained state.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "maintained_until": {
+      "title": "Maintained until",
+      "description": "Holds the date and time until when the distributions within this CSAF provider are in a maintained state.",
+      "type": "string",
+      "format": "date-time"
     },
     "metadata_version": {
       "title": "CSAF provider metadata version",

@@ -105,6 +105,15 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
   }
 ```
 
+The `maintained_until` and `maintained_from` properties can be used to indicate that the distributions contained in `provider-metadata.json` at
+the given `canonical_url` are only guaranteed to be maintained until or after the specified date and time. 
+This SHOULD be used to support a transition period between CSAF 2.0 and CSAF 2.1 (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
+CSAF downloaders (cf. section [sec](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json` 
+SHOULD evaluate this property and emit a warning if the current date is less than 90 days away from `maintained_until` and an error if the current 
+date exceeds `maintained_until`.
+The programs MAY provide a non-default option to use the `provider-metadata.json` anyway.
+Furthermore, such programs SHOULD evaluate the `maintained_from` property and output a warning if the current date is still before the `maintained_from` timestamp.
+
 If a CSAF publisher (cf. section [sec](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
 If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
@@ -139,8 +148,10 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
-e.g. in case of changes to the organizational structure through merges or acquisitions.
+e.g. in case of changes to the organizational structure through mergers and acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
+A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
+and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
 ### Requirement 9: Well-known URL for provider-metadata.json
@@ -154,6 +165,10 @@ The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
+
+As specified in [sec](#transition-between-csaf-20-and-csaf-21), the value of `canonical_url` MAY differ from the URL that was
+requested as a part of this requirement.
+Such state is intended and MUST NOT be reported as error.
 
 ### Requirement 10: DNS path
 
