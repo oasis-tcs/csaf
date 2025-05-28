@@ -1,4 +1,4 @@
-{  
+{
   "acknowledgments": "Appendix A.",
   "acknowledgments-type": "3.1.1",
   "acknowledgments-type-example": "3.1.1.5",
@@ -156,9 +156,9 @@
   "missing-document-language": "6.2.12",
   "missing-fixed-product": "6.2.39.1",
   "missing-item-in-revision-history": "6.1.21",
+  "missing-metric": "6.2.3",
   "missing-product-identification-helper": "6.2.16",
   "missing-remediation": "6.2.2",
-  "missing-metric": "6.2.3",
   "missing-sharing-group-name": "6.1.41",
   "missing-tlp-label": "6.2.10",
   "mixed-integer-and-semantic-versioning": "6.1.30",
@@ -177,7 +177,7 @@
   "old-epss-timestamp": "6.2.41",
   "older-current-release-date-than-revision-history": "6.2.6",
   "older-initial-release-date-than-revision-history": "6.2.5",
-  "product-description-without-product-reference": "6.2.40", 
+  "product-description-without-product-reference": "6.2.40",
   "product-group-id-type": "3.1.6",
   "product-groups-type": "3.1.7",
   "product-id-type": "3.1.8",
@@ -189,8 +189,8 @@
   "product-tree-property-full-product-names": "3.2.3.2",
   "product-tree-property-product-groups": "3.2.3.3",
   "product-tree-property-relationships": "3.2.3.4",
-  "product-version-range-without-vers": "6.2.18",
   "product-version-range-rules": "6.1.50",
+  "product-version-range-without-vers": "6.2.18",
   "products-type": "3.1.9",
   "profile-1-csaf-base": "4.1",
   "profile-2-security-incident-response": "4.2",
@@ -285,9 +285,9 @@
   "use-of-cvss-v3-0": "6.3.2",
   "use-of-default-language": "6.2.15",
   "use-of-md5-as-the-only-hash-algorithm": "6.2.8",
-  "use-of-non-self-referencing-urls-failing-to-resolve": "6.3.6",
   "use-of-multiple-stars-in-model-number": "6.1.43",
   "use-of-multiple-stars-in-serial-number": "6.1.44",
+  "use-of-non-self-referencing-urls-failing-to-resolve": "6.3.6",
   "use-of-private-language": "6.2.14",
   "use-of-same-product-identification-helper-for-different-products": "6.2.32",
   "use-of-self-referencing-urls-failing-to-resolve": "6.3.7",
@@ -304,7 +304,7 @@
   "vulnerabilities-property-acknowledgments": "3.2.4.1",
   "vulnerabilities-property-cve": "3.2.4.2",
   "vulnerabilities-property-cwes": "3.2.4.3",
-  "vulnerabilities-property-disclosure-date": "3.2.4.4",
+  "vulnerabilities-property-discosure-date": "3.2.4.4",
   "vulnerabilities-property-discovery-date": "3.2.4.5",
   "vulnerabilities-property-first-known-exploitation-dates": "3.2.4.6",
   "vulnerabilities-property-flags": "3.2.4.7",
@@ -329,6 +329,5 @@
   "vulnerabilities-property-threats": "3.2.4.15",
   "vulnerabilities-property-title": "3.2.4.16",
   "vulnerability-id": "6.1.27.8",
-  "vulnerability-notes": "6.1.27.5",
-  "withdrawal-revision-history": "6.1.27.16"
+  "vulnerability-notes": "6.1.27.5"
 }

@@ -125,6 +125,8 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/flags`
   * `/vulnerabilities[]/flags[]/group_ids`
   * `/vulnerabilities[]/flags[]/product_ids`
+  * `/vulnerabilities[]/involvements[]/group_ids`
+  * `/vulnerabilities[]/involvements[]/product_ids`
   * `/vulnerabilities[]/metrics`
   * `/vulnerabilities[]/metrics[]/products`
   * `/vulnerabilities[]/notes[]/group_ids`
@@ -217,6 +219,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
+  * `/vulnerabilities[]/involvements[]/contact`
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
