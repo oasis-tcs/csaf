@@ -690,8 +690,8 @@
           "description": "Identifies the language used by this document, corresponding to IETF BCP 47 / RFC 5646.",
           "$ref": "#/$defs/lang_t"
         },
-        "license": {
-          "title": "License",
+        "license_expression": {
+          "title": "License expression",
           "description": "Contains the SPDX license expression for the CSAF document.",
           "type": "string",
           "minLength": 1,
