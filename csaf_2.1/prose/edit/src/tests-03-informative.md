@@ -260,7 +260,8 @@ The relevant paths for this test are:
 ### Spell Check
 
 If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes.
-The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported.
+The test SHALL be skipped if the document language is not set.
+It SHALL fail if the given language is not supported.
 The value of `/document/category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
@@ -625,7 +626,7 @@ The relevant path for this test is:
 
 If the document language is given it MUST be tested that a grammar check for the given language does not find any mistakes.
 The test SHALL be skipped if the document language is not set.
-It SHALL fail it the given language is not supported.
+It SHALL fail if the given language is not supported.
 
 The relevant paths for this test are:
 
@@ -671,8 +672,9 @@ The relevant paths for this test are:
 ```
 
 > Multiple grammar mistakes exist:
+>
 > - a `be` is missing between `must` and `followed`
 > - the `for` needs to be a `to`
-> - `a products` is also incorrect as `a` indicates singular. 
+> - `a products` is also incorrect as `a` indicates singular.
 
 -------

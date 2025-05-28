@@ -829,6 +829,7 @@ A program satisfies the "CSAF downloader" conformance profile if the program:
 * supports directory-based and ROLIE-based retrieval.
 * is able to execute both steps from section [sec](#retrieving-rules) separately.
 * uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
+* satisfies those normative requirements in section [sec](#distributing-csaf-documents) that are designated as applying to CSAF downloaders.
 
 > A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
 

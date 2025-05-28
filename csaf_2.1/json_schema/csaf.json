@@ -1274,11 +1274,20 @@
                 "status"
               ],
               "properties": {
+                "contact": {
+                  "title": "Party contact information",
+                  "description": "Contains the contact information of the party that was used in this state.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "date": {
                   "title": "Date of involvement",
                   "description": "Holds the date and time of the involvement entry.",
                   "type": "string",
                   "format": "date-time"
+                },
+                "group_ids": {
+                  "$ref": "#/$defs/product_groups_t"
                 },
                 "party": {
                   "title": "Party category",
@@ -1291,6 +1300,9 @@
                     "user",
                     "vendor"
                   ]
+                },
+                "product_ids": {
+                  "$ref": "#/$defs/products_t"
                 },
                 "status": {
                   "title": "Party status",
