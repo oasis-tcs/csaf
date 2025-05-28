@@ -317,6 +317,7 @@ Any SPDX license identifier not from the official SPDX license identifier list M
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the entity that provided the
 database this license identifier was found in.
 The unique name MAY be a domain name.
+The same applies for `AdditionRef-` user defined identifiers.
 
 In addition, the following rules apply:
 
@@ -326,6 +327,7 @@ In addition, the following rules apply:
      Deprecated license identifiers SHOULD NOT be used.
      SPDX license identifiers that were deprecated before the version listed above MUST NOT be used.
      > The list is available at <https://spdx.org/licenses/>.
+     > It includes also the exceptions.
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
      the license database AboutCode's "ScanCode LicenseDB" MUST be consulted as a next step.
      License identifiers from this database MUST use the prefix `LicenseRef-scancode-`.
