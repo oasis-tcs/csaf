@@ -11,6 +11,12 @@
       "type": "object",
       "minProperties": 1,
       "properties": {
+        "license": {
+          "title": "License",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        },
         "product_description": {
           "title": "Product Description",
           "description": "Contains the language specific translation of the term.",
