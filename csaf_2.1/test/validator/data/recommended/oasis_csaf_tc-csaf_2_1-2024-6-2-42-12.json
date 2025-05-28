@@ -1,0 +1,78 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Inconsistent Product Identification Helper (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-42-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Debian",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "curl",
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "7.88.1-10+deb12u12",
+                "product": {
+                  "product_id": "CSAFPID-9080700",
+                  "name": "Debian Curl 7.88.1-10+deb12u12",
+                  "product_identification_helper": {
+                    "purls": [
+                      "pkg:deb/debian/curl@7.88.1-10+deb12u12?arch=i386",
+                      "pkg:deb/debian/curl@7.88.1-10+deb12u12?arch=amd64"
+                    ]
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "8.13.0-5~bpo12+1",
+                "product": {
+                  "product_id": "CSAFPID-9080701",
+                  "name": "Debian Curl 8.13.0-5~bpo12+1",
+                  "product_identification_helper": {
+                    "purls": [
+                      "pkg:deb/debian/curl@8.13.0-5~bpo12+1?arch=i386",
+                      "pkg:deb/debian/curl@8.13.0-5~bpo12+1?arch=amd64",
+                      "pkg:deb/debian/curl@8.13.0-5~bpo12+1?arch=arm64",
+                      "pkg:deb/debian/curl@8.13.0-5~bpo12+1?arch=armel"
+                    ]               
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

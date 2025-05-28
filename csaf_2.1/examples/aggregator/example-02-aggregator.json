@@ -1,5 +1,5 @@
 {
-  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
   "aggregator": {
     "category": "aggregator",
     "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
@@ -18,6 +18,7 @@
           "name": "Example Company ProductCERT",
           "namespace": "https://psirt.example.com"
         },
+        "role": "csaf_provider",
         "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
       },
       "mirrors": [
@@ -32,6 +33,7 @@
           "name": "Example Coordinator CERT",
           "namespace": "https://cert.example"
         },
+        "role": "csaf_trusted_provider",
         "url": "https://cert.example/advisories/csaf/provider-metadata.json"
       },
       "mirrors": [

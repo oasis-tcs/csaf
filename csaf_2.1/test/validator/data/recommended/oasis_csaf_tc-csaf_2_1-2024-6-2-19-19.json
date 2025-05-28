@@ -1,0 +1,70 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: CVSS for Fixed Products (valid example 9)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-19-19",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v4": {
+              "baseScore": 7.3,
+              "baseSeverity": "HIGH",
+              "modifiedVulnConfidentialityImpact": "NONE",
+              "modifiedVulnIntegrityImpact": "NONE",
+              "modifiedVulnAvailabilityImpact": "NONE",
+              "modifiedSubConfidentialityImpact": "NEGLIGIBLE",
+              "modifiedSubIntegrityImpact": "NEGLIGIBLE",
+              "modifiedSubAvailabilityImpact": "NEGLIGIBLE",
+              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:P/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+              "version": "4.0"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ],
+      "product_status": {
+        "first_fixed": [
+          "CSAFPID-9080700"
+        ]
+      }
+    }
+  ]
+}

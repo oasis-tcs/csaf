@@ -119,9 +119,14 @@ An array SHOULD NOT have more than:
 * 100 000 000 for
   * `/document/notes[]/group_ids`
   * `/document/notes[]/product_ids`
+  * `/vulnerabilities[]/first_known_exploitation_dates`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/group_ids`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/product_ids`
   * `/vulnerabilities[]/flags`
   * `/vulnerabilities[]/flags[]/group_ids`
   * `/vulnerabilities[]/flags[]/product_ids`
+  * `/vulnerabilities[]/involvements[]/group_ids`
+  * `/vulnerabilities[]/involvements[]/product_ids`
   * `/vulnerabilities[]/metrics`
   * `/vulnerabilities[]/metrics[]/products`
   * `/vulnerabilities[]/notes[]/group_ids`
@@ -152,6 +157,7 @@ A string SHOULD NOT have a length greater than:
   * `/document/category`
   * `/document/distribution/sharing_group/name`
   * `/document/lang`
+  * `/document/license_expression`
   * `/document/notes[]/audience`
   * `/document/notes[]/group_ids[]`
   * `/document/notes[]/product_ids[]`
@@ -214,6 +220,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
+  * `/vulnerabilities[]/involvements[]/contact`
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
@@ -284,6 +291,8 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/revision_history[]/date`
 * `/vulnerabilities[]/disclosure_date`
 * `/vulnerabilities[]/discovery_date`
+* `/vulnerabilities[]/first_known_exploitation_dates[]/date`
+* `/vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date`
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/involvements[]/date`
 * `/vulnerabilities[]/metrics[]/content/epss/timestamp`
@@ -301,7 +310,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 The value of `/$schema` is a fixed URL, currently pointing to the JSON schema location.
 It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
 
-* `/$schema` (64)
+* `/$schema` (59)
 
 For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:

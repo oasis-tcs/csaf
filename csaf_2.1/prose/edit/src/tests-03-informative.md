@@ -257,10 +257,11 @@ The relevant paths for this test are:
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### Spell check
+### Spell Check
 
 If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes.
-The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported.
+The test SHALL be skipped if the document language is not set.
+It SHALL fail if the given language is not supported.
 The value of `/document/category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
@@ -620,5 +621,80 @@ The relevant path for this test is:
 
 > The namespace contains the extension `additional-technical-impacts`.
 > Its decision point definitions might therefore not be known to the reader of the document.
+
+### Grammar Check
+
+If the document language is given it MUST be tested that a grammar check for the given language does not find any mistakes.
+The test SHALL be skipped if the document language is not set.
+It SHALL fail if the given language is not supported.
+
+The relevant paths for this test are:
+
+```
+  /document/acknowledgments[]/summary
+  /document/aggregate_severity/text
+  /document/distribution/text
+  /document/notes[]/audience
+  /document/notes[]/text
+  /document/notes[]/title
+  /document/publisher/issuing_authority
+  /document/references[]/summary
+  /document/title
+  /document/tracking/revision_history[]/summary
+  /product_tree/product_groups[]/summary
+  /vulnerabilities[]/acknowledgments[]/summary
+  /vulnerabilities[]/involvements[]/summary
+  /vulnerabilities[]/notes[]/audience
+  /vulnerabilities[]/notes[]/text
+  /vulnerabilities[]/notes[]/title
+  /vulnerabilities[]/references[]/summary
+  /vulnerabilities[]/remediations[]/details
+  /vulnerabilities[]/remediations[]/entitlements[]
+  /vulnerabilities[]/remediations[]/restart_required/details
+  /vulnerabilities[]/threats[]/details
+  /vulnerabilities[]/title
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "document": {
+    // ...
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "The security hardening guide must followed for ensure secure operations of a products."
+      }
+    ],
+    // ...
+  }
+```
+
+> Multiple grammar mistakes exist:
+>
+> - a `be` is missing between `must` and `followed`
+> - the `for` needs to be a `to`
+> - `a products` is also incorrect as `a` indicates singular.
+
+### Use of Unregistered License
+
+It MUST be tested that the all license identifiers and exceptions are listed either in the official SPDX license identifier list
+or AboutCode's "ScanCode LicenseDB".
+
+The relevant path for this test is:
+
+```
+  /document/license_expression
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "license_expression": "LicenseRef-www.example.com-no-work-pd",
+```
+
+> The `license_expression` contains a license identifier that is neither listed in the official SPDX license identifier list
+> nor AboutCode's "ScanCode LicenseDB".
 
 -------

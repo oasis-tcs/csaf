@@ -11,6 +11,7 @@ The relevant paths for this test are:
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
+  /vulnerabilities[]/involvements[]/product_ids[]
   /vulnerabilities[]/flags[]/product_ids[]
   /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/notes[]/product_ids[]

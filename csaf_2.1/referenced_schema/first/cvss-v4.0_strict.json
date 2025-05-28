@@ -1,6 +1,6 @@
 {
   "$id": "https://www.first.org/cvss/cvss-v4.0.json?20240216",
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "unevaluatedProperties": false,
   "allOf": [
     {
@@ -8,50 +8,50 @@
         {
           "properties": {
             "baseScore": {
-              "$ref": "#/definitions/noneScoreType"
+              "$ref": "#/$defs/noneScoreType"
             },
             "baseSeverity": {
-              "$ref": "#/definitions/noneSeverityType"
+              "$ref": "#/$defs/noneSeverityType"
             }
           }
         },
         {
           "properties": {
             "baseScore": {
-              "$ref": "#/definitions/lowScoreType"
+              "$ref": "#/$defs/lowScoreType"
             },
             "baseSeverity": {
-              "$ref": "#/definitions/lowSeverityType"
+              "$ref": "#/$defs/lowSeverityType"
             }
           }
         },
         {
           "properties": {
             "baseScore": {
-              "$ref": "#/definitions/mediumScoreType"
+              "$ref": "#/$defs/mediumScoreType"
             },
             "baseSeverity": {
-              "$ref": "#/definitions/mediumSeverityType"
+              "$ref": "#/$defs/mediumSeverityType"
             }
           }
         },
         {
           "properties": {
             "baseScore": {
-              "$ref": "#/definitions/highScoreType"
+              "$ref": "#/$defs/highScoreType"
             },
             "baseSeverity": {
-              "$ref": "#/definitions/highSeverityType"
+              "$ref": "#/$defs/highSeverityType"
             }
           }
         },
         {
           "properties": {
             "baseScore": {
-              "$ref": "#/definitions/criticalScoreType"
+              "$ref": "#/$defs/criticalScoreType"
             },
             "baseSeverity": {
-              "$ref": "#/definitions/criticalSeverityType"
+              "$ref": "#/$defs/criticalSeverityType"
             }
           }
         }
@@ -62,50 +62,50 @@
         {
           "properties": {
             "threatScore": {
-              "$ref": "#/definitions/noneScoreType"
+              "$ref": "#/$defs/noneScoreType"
             },
             "threatSeverity": {
-              "$ref": "#/definitions/noneSeverityType"
+              "$ref": "#/$defs/noneSeverityType"
             }
           }
         },
         {
           "properties": {
             "threatScore": {
-              "$ref": "#/definitions/lowScoreType"
+              "$ref": "#/$defs/lowScoreType"
             },
             "threatSeverity": {
-              "$ref": "#/definitions/lowSeverityType"
+              "$ref": "#/$defs/lowSeverityType"
             }
           }
         },
         {
           "properties": {
             "threatScore": {
-              "$ref": "#/definitions/mediumScoreType"
+              "$ref": "#/$defs/mediumScoreType"
             },
             "threatSeverity": {
-              "$ref": "#/definitions/mediumSeverityType"
+              "$ref": "#/$defs/mediumSeverityType"
             }
           }
         },
         {
           "properties": {
             "threatScore": {
-              "$ref": "#/definitions/highScoreType"
+              "$ref": "#/$defs/highScoreType"
             },
             "threatSeverity": {
-              "$ref": "#/definitions/highSeverityType"
+              "$ref": "#/$defs/highSeverityType"
             }
           }
         },
         {
           "properties": {
             "threatScore": {
-              "$ref": "#/definitions/criticalScoreType"
+              "$ref": "#/$defs/criticalScoreType"
             },
             "threatSeverity": {
-              "$ref": "#/definitions/criticalSeverityType"
+              "$ref": "#/$defs/criticalSeverityType"
             }
           }
         }
@@ -116,57 +116,57 @@
         {
           "properties": {
             "environmentalScore": {
-              "$ref": "#/definitions/noneScoreType"
+              "$ref": "#/$defs/noneScoreType"
             },
             "environmentalSeverity": {
-              "$ref": "#/definitions/noneSeverityType"
+              "$ref": "#/$defs/noneSeverityType"
             }
           }
         },
         {
           "properties": {
             "environmentalScore": {
-              "$ref": "#/definitions/lowScoreType"
+              "$ref": "#/$defs/lowScoreType"
             },
             "environmentalSeverity": {
-              "$ref": "#/definitions/lowSeverityType"
+              "$ref": "#/$defs/lowSeverityType"
             }
           }
         },
         {
           "properties": {
             "environmentalScore": {
-              "$ref": "#/definitions/mediumScoreType"
+              "$ref": "#/$defs/mediumScoreType"
             },
             "environmentalSeverity": {
-              "$ref": "#/definitions/mediumSeverityType"
+              "$ref": "#/$defs/mediumSeverityType"
             }
           }
         },
         {
           "properties": {
             "environmentalScore": {
-              "$ref": "#/definitions/highScoreType"
+              "$ref": "#/$defs/highScoreType"
             },
             "environmentalSeverity": {
-              "$ref": "#/definitions/highSeverityType"
+              "$ref": "#/$defs/highSeverityType"
             }
           }
         },
         {
           "properties": {
             "environmentalScore": {
-              "$ref": "#/definitions/criticalScoreType"
+              "$ref": "#/$defs/criticalScoreType"
             },
             "environmentalSeverity": {
-              "$ref": "#/definitions/criticalSeverityType"
+              "$ref": "#/$defs/criticalSeverityType"
             }
           }
         }
       ]
     }
   ],
-  "definitions": {
+  "$defs": {
     "attackComplexityType": {
       "enum": [
         "HIGH",
@@ -231,7 +231,6 @@
     "highScoreType": {
       "maximum": 8.9,
       "minimum": 7.0,
-      "multipleOf": 0.1,
       "type": "number"
     },
     "highSeverityType": {
@@ -448,88 +447,88 @@
   ],
   "properties": {
     "Automatable": {
-      "$ref": "#/definitions/automatableType"
+      "$ref": "#/$defs/automatableType"
     },
     "Recovery": {
-      "$ref": "#/definitions/recoveryType"
+      "$ref": "#/$defs/recoveryType"
     },
     "Safety": {
-      "$ref": "#/definitions/safetyType"
+      "$ref": "#/$defs/safetyType"
     },
     "attackComplexity": {
-      "$ref": "#/definitions/attackComplexityType"
+      "$ref": "#/$defs/attackComplexityType"
     },
     "attackRequirements": {
-      "$ref": "#/definitions/attackRequirementsType"
+      "$ref": "#/$defs/attackRequirementsType"
     },
     "attackVector": {
-      "$ref": "#/definitions/attackVectorType"
+      "$ref": "#/$defs/attackVectorType"
     },
     "availabilityRequirement": {
-      "$ref": "#/definitions/ciaRequirementType"
+      "$ref": "#/$defs/ciaRequirementType"
     },
     "confidentialityRequirement": {
-      "$ref": "#/definitions/ciaRequirementType"
+      "$ref": "#/$defs/ciaRequirementType"
     },
     "exploitMaturity": {
-      "$ref": "#/definitions/exploitMaturityType"
+      "$ref": "#/$defs/exploitMaturityType"
     },
     "integrityRequirement": {
-      "$ref": "#/definitions/ciaRequirementType"
+      "$ref": "#/$defs/ciaRequirementType"
     },
     "modifiedAttackComplexity": {
-      "$ref": "#/definitions/modifiedAttackComplexityType"
+      "$ref": "#/$defs/modifiedAttackComplexityType"
     },
     "modifiedAttackRequirements": {
-      "$ref": "#/definitions/modifiedAttackRequirementsType"
+      "$ref": "#/$defs/modifiedAttackRequirementsType"
     },
     "modifiedAttackVector": {
-      "$ref": "#/definitions/modifiedAttackVectorType"
+      "$ref": "#/$defs/modifiedAttackVectorType"
     },
     "modifiedPrivilegesRequired": {
-      "$ref": "#/definitions/modifiedPrivilegesRequiredType"
+      "$ref": "#/$defs/modifiedPrivilegesRequiredType"
     },
     "modifiedSubAvailabilityImpact": {
-      "$ref": "#/definitions/modifiedSubIaType"
+      "$ref": "#/$defs/modifiedSubIaType"
     },
     "modifiedSubConfidentialityImpact": {
-      "$ref": "#/definitions/modifiedSubCType"
+      "$ref": "#/$defs/modifiedSubCType"
     },
     "modifiedSubIntegrityImpact": {
-      "$ref": "#/definitions/modifiedSubIaType"
+      "$ref": "#/$defs/modifiedSubIaType"
     },
     "modifiedUserInteraction": {
-      "$ref": "#/definitions/modifiedUserInteractionType"
+      "$ref": "#/$defs/modifiedUserInteractionType"
     },
     "modifiedVulnAvailabilityImpact": {
-      "$ref": "#/definitions/modifiedVulnCiaType"
+      "$ref": "#/$defs/modifiedVulnCiaType"
     },
     "modifiedVulnConfidentialityImpact": {
-      "$ref": "#/definitions/modifiedVulnCiaType"
+      "$ref": "#/$defs/modifiedVulnCiaType"
     },
     "modifiedVulnIntegrityImpact": {
-      "$ref": "#/definitions/modifiedVulnCiaType"
+      "$ref": "#/$defs/modifiedVulnCiaType"
     },
     "privilegesRequired": {
-      "$ref": "#/definitions/privilegesRequiredType"
+      "$ref": "#/$defs/privilegesRequiredType"
     },
     "providerUrgency": {
-      "$ref": "#/definitions/providerUrgencyType"
+      "$ref": "#/$defs/providerUrgencyType"
     },
     "subAvailabilityImpact": {
-      "$ref": "#/definitions/subCiaType"
+      "$ref": "#/$defs/subCiaType"
     },
     "subConfidentialityImpact": {
-      "$ref": "#/definitions/subCiaType"
+      "$ref": "#/$defs/subCiaType"
     },
     "subIntegrityImpact": {
-      "$ref": "#/definitions/subCiaType"
+      "$ref": "#/$defs/subCiaType"
     },
     "userInteraction": {
-      "$ref": "#/definitions/userInteractionType"
+      "$ref": "#/$defs/userInteractionType"
     },
     "valueDensity": {
-      "$ref": "#/definitions/valueDensityType"
+      "$ref": "#/$defs/valueDensityType"
     },
     "vectorString": {
       "pattern": "^CVSS:4[.]0/AV:[NALP]/AC:[LH]/AT:[NP]/PR:[NLH]/UI:[NPA]/VC:[HLN]/VI:[HLN]/VA:[HLN]/SC:[HLN]/SI:[HLN]/SA:[HLN](/E:[XAPU])?(/CR:[XHML])?(/IR:[XHML])?(/AR:[XHML])?(/MAV:[XNALP])?(/MAC:[XLH])?(/MAT:[XNP])?(/MPR:[XNLH])?(/MUI:[XNPA])?(/MVC:[XNLH])?(/MVI:[XNLH])?(/MVA:[XNLH])?(/MSC:[XNLH])?(/MSI:[XNLHS])?(/MSA:[XNLHS])?(/S:[XNP])?(/AU:[XNY])?(/R:[XAUI])?(/V:[XDC])?(/RE:[XLMH])?(/U:(X|Clear|Green|Amber|Red))?$",
@@ -543,16 +542,16 @@
       "type": "string"
     },
     "vulnAvailabilityImpact": {
-      "$ref": "#/definitions/vulnCiaType"
+      "$ref": "#/$defs/vulnCiaType"
     },
     "vulnConfidentialityImpact": {
-      "$ref": "#/definitions/vulnCiaType"
+      "$ref": "#/$defs/vulnCiaType"
     },
     "vulnIntegrityImpact": {
-      "$ref": "#/definitions/vulnCiaType"
+      "$ref": "#/$defs/vulnCiaType"
     },
     "vulnerabilityResponseEffort": {
-      "$ref": "#/definitions/vulnerabilityResponseEffortType"
+      "$ref": "#/$defs/vulnerabilityResponseEffortType"
     }
   },
   "required": [

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Usage of CWE Not Allowed for Vulnerability Mapping (valid example 4)",
+    "tracking": {
+      "current_release_date": "2024-01-21T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-25-14",
+      "initial_release_date": "2024-01-21T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-21T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "vulnerabilities": [
+    {
+      "cwes": [
+        {
+          "id": "CWE-1284",
+          "name": "Improper Validation of Specified Quantity in Input",
+          "version": "4.13"
+        }
+      ]
+    },
+    {
+      "cwes": [
+        {
+          "id": "CWE-1289",
+          "name": "Improper Validation of Unsafe Equivalence in Input",
+          "version": "4.13"
+        }
+      ]
+    },
+    {
+      "cwes": [
+        {
+          "id": "CWE-94",
+          "name": "Improper Control of Generation of Code ('Code Injection')",
+          "version": "4.13"
+        },
+        {
+          "id": "CWE-98",
+          "name": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion')",
+          "version": "4.13"
+        }
+      ]
+    }
+  ]
+}

@@ -15,9 +15,10 @@ properties represents a list of all relevant vulnerability information items.
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
-Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`),
-Involvements (`involvements`), Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`),
-Remediations (`remediations`), Threats (`threats`), and Title (`title`).
+Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
+List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
+Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
+Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -34,6 +35,9 @@ Remediations (`remediations`), Threats (`threats`), and Title (`title`).
         // ...
       },
       "discovery_date": {
+        // ...
+      },
+      "first_known_exploitation_dates": {
         // ...
       },
       "flags": {
@@ -138,8 +142,13 @@ It holds the ID for the weakness associated.
     CWE-79
 ```
 
-The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given
-in the CWE specification.
+The Weakness name (`name`) has value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The Weakness name holds the full name of the weakness as given in the CWE specification.
 
 *Examples 2:*
 
@@ -170,16 +179,71 @@ When creating or modifying a CSAF document, the latest published version of the 
 
 #### Vulnerabilities Property - Disclosure Date
 
-Disclosure date (`disclosure_date`) with value type `string` of format `date-time` holds the date and time
+Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
 
-For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
-As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that the
-vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
+For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the
+intended date for disclosure of the vulnerability.
+This is also sometimes called embargo date.
+As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that
+the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
 
 #### Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
+
+#### Vulnerabilities Property - First Known Exploitation Dates
+
+List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with 1 or more unique items (a set) of value type
+`object` contains a list of dates of first known exploitations.
+
+```
+    "first_known_exploitation_dates": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every First known exploitation date item of value type `object` with the 2 mandatory properties Date of the information (`date`) and
+Date of the exploitation (`exploitation_date`) holds at least 3 properties and contains information on when this vulnerability was
+first known to be exploited in the wild in the products specified.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
+product groups this date is applicable.
+
+> This information can be helpful to determine the risk of compromise.
+> It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
+
+```
+    "properties": {
+      "date": {
+        // ...
+      },
+      "exploitation_date": {
+        // ...
+      },
+      "group_ids": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      }
+    }
+```
+
+Date of the information (`date`) of value type `string` with format `date-time` contains the date when the information was last updated.
+
+Date of the exploitation (`exploitation_date`) of value type `string` with format `date-time` contains the date when the exploitation happened.
+
+> Different document issuers might have different knowledge about exploitations in the wild that happened.
+> Therefore, the `exploitation_date` can differ.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
+first known exploitation date item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current first known exploitation date item
+applies to.
 
 #### Vulnerabilities Property - Flags
 
@@ -320,18 +384,27 @@ List of involvements (`involvements`) of value type `array` with 1 or more uniqu
 ```
 
 Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and
-the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container that allows the document producers to
-comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping,
-and remediation process.
+the 5 optional properties Party contact information (`contact`), Date of involvement (`date`), Group IDs (`group_ids`),
+Product IDs (`product_ids`), and Summary (`summary`) is a container that allows the document producers to comment on the level of
+involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process.
 It can also be used to convey the disclosure timeline.
 The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
 
 ```
         "properties": {
+          "contact": {
+            // ...
+          },
           "date": {
             // ...
           },
+          "group_ids" {
+            // ...
+          },
           "party": {
+            // ...
+          },
+          "product_ids": {
             // ...
           },
           "status": {
@@ -343,7 +416,14 @@ The ordered tuple of the values of `party` and `date` (if present) SHALL be uniq
         }
 ```
 
+Party contact information (`contact`) contains the contact information of the party that was used in this state.
+
+> In many cases, that could be an email address.
+
 Date of involvement (`date`) of value type `string` with format `date-time` holds the date and time of the involvement entry.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
+involvement item applies to.
 
 Party category (`party`) of value type `string` and `enum` defines the category of the involved party.
 Valid values are:
@@ -357,6 +437,9 @@ Valid values are:
 ```
 
 These values follow the same definitions as given for the publisher category (cf. section [sec](#document-property-publisher-category)).
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current
+involvement item applies to.
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:

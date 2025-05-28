@@ -19,10 +19,14 @@ In general, we try to keep this file identical to the `share/csaf-v2.1-draft.md`
 The latter is generated from the source files below `edit/src/` as collected per `edit/etc/bind.txt` through
 the `edit/bin/volatile.py` script (for now).
 
-To generate the Markdown version (for now) use:
+To generate the Markdown version and the HTML user facing delivery item simply call make inside the edit folder.
+
+Else you can call the individual commands as described below:
 
 ```console
 % cd edit
+% python3 bin/invert_sec_labels.py  # derive inverted label map from section numbers to labels JSON
+% python3 bin/invert_eg_labels.py   # derive inverted label map from example global couinter tto labels JSON
 % python3 bin/volatile.py
 % cp -a build/tmp.md ../share/csaf-v2.1-draft.md
 ```

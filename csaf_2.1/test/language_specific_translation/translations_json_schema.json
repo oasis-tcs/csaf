@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
   "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testcases_json_schema.json",
   "title": "Test cases for CSAF",
   "description": "Representation of the data provided for test cases from section 6 of the specification.",
@@ -11,6 +11,12 @@
       "type": "object",
       "minProperties": 1,
       "properties": {
+        "license": {
+          "title": "License",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        },
         "product_description": {
           "title": "Product Description",
           "description": "Contains the language specific translation of the term.",

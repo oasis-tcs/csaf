@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 01
 
-## 30 April 2025
+## 28 May 2025
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
@@ -37,12 +37,14 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider_json_schema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json.
+* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
+* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
+* Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
+* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
 #### Related work:
 This specification replaces or supersedes:
@@ -51,9 +53,10 @@ This specification replaces or supersedes:
 
 #### Declared JSON namespaces:
 
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/provider_json_schema.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
 
 #### Abstract:
@@ -73,7 +76,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 30 April 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Thomas Schmidt. 28 May 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -112,7 +115,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	1.5 [Typographical Conventions](#typographical-conventions)  
 2. [Design Considerations](#design-considerations)  
 	2.1 [Construction Principles](#construction-principles)  
-	2.2 [Date and Time](#date-and-time)  
+	2.2 [Format Validation](#format-validation)  
+	2.3 [Date and Time](#date-and-time)  
 3. [Schema Elements](#schema-elements)  
 	3.1 [Definitions](#definitions)  
 		3.1.1 [Acknowledgments Type](#acknowledgments-type)  
@@ -162,25 +166,26 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 				3.2.2.5.2 [Document Property - Distribution - Text](#document-property-distribution-text)  
 				3.2.2.5.3 [Document Property - Distribution - TLP](#document-property-distribution-tlp)  
 			3.2.2.6 [Document Property - Language](#document-property-language)  
-			3.2.2.7 [Document Property - Notes](#document-property-notes)  
-			3.2.2.8 [Document Property - Publisher](#document-property-publisher)  
-				3.2.2.8.1 [Document Property - Publisher - Category](#document-property-publisher-category)  
-				3.2.2.8.2 [Document Property - Publisher - Contact Details](#document-property-publisher-contact-details)  
-				3.2.2.8.3 [Document Property - Publisher - Issuing Authority](#document-property-publisher-issuing-authority)  
-				3.2.2.8.4 [Document Property - Publisher - Name](#document-property-publisher-name)  
-				3.2.2.8.5 [Document Property - Publisher - Namespace](#document-property-publisher-namespace)  
-			3.2.2.9 [Document Property - References](#document-property-references)  
-			3.2.2.10 [Document Property - Source Language](#document-property-source-language)  
-			3.2.2.11 [Document Property - Title](#document-property-title)  
-			3.2.2.12 [Document Property - Tracking](#document-property-tracking)  
-				3.2.2.12.1 [Document Property - Tracking - Aliases](#document-property-tracking-aliases)  
-				3.2.2.12.2 [Document Property - Tracking - Current Release Date](#document-property-tracking-current-release-date)  
-				3.2.2.12.3 [Document Property - Tracking - Generator](#document-property-tracking-generator)  
-				3.2.2.12.4 [Document Property - Tracking - ID](#document-property-tracking-id)  
-				3.2.2.12.5 [Document Property - Tracking - Initial Release Date](#document-property-tracking-initial-release-date)  
-				3.2.2.12.6 [Document Property - Tracking - Revision History](#document-property-tracking-revision-history)  
-				3.2.2.12.7 [Document Property - Tracking - Status](#document-property-tracking-status)  
-				3.2.2.12.8 [Document Property - Tracking - Version](#document-property-tracking-version)  
+			3.2.2.7 [Document Property - License Expression](#document-property-license-expression)  
+			3.2.2.8 [Document Property - Notes](#document-property-notes)  
+			3.2.2.9 [Document Property - Publisher](#document-property-publisher)  
+				3.2.2.9.1 [Document Property - Publisher - Category](#document-property-publisher-category)  
+				3.2.2.9.2 [Document Property - Publisher - Contact Details](#document-property-publisher-contact-details)  
+				3.2.2.9.3 [Document Property - Publisher - Issuing Authority](#document-property-publisher-issuing-authority)  
+				3.2.2.9.4 [Document Property - Publisher - Name](#document-property-publisher-name)  
+				3.2.2.9.5 [Document Property - Publisher - Namespace](#document-property-publisher-namespace)  
+			3.2.2.10 [Document Property - References](#document-property-references)  
+			3.2.2.11 [Document Property - Source Language](#document-property-source-language)  
+			3.2.2.12 [Document Property - Title](#document-property-title)  
+			3.2.2.13 [Document Property - Tracking](#document-property-tracking)  
+				3.2.2.13.1 [Document Property - Tracking - Aliases](#document-property-tracking-aliases)  
+				3.2.2.13.2 [Document Property - Tracking - Current Release Date](#document-property-tracking-current-release-date)  
+				3.2.2.13.3 [Document Property - Tracking - Generator](#document-property-tracking-generator)  
+				3.2.2.13.4 [Document Property - Tracking - ID](#document-property-tracking-id)  
+				3.2.2.13.5 [Document Property - Tracking - Initial Release Date](#document-property-tracking-initial-release-date)  
+				3.2.2.13.6 [Document Property - Tracking - Revision History](#document-property-tracking-revision-history)  
+				3.2.2.13.7 [Document Property - Tracking - Status](#document-property-tracking-status)  
+				3.2.2.13.8 [Document Property - Tracking - Version](#document-property-tracking-version)  
 		3.2.3 [Product Tree Property](#product-tree-property)  
 			3.2.3.1 [Product Tree Property - Branches](#product-tree-property-branches)  
 			3.2.3.2 [Product Tree Property - Full Product Names](#product-tree-property-full-product-names)  
@@ -192,27 +197,28 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			3.2.4.3 [Vulnerabilities Property - CWEs](#vulnerabilities-property-cwes)  
 			3.2.4.4 [Vulnerabilities Property - Disclosure Date](#vulnerabilities-property-disclosure-date)  
 			3.2.4.5 [Vulnerabilities Property - Discovery Date](#vulnerabilities-property-discovery-date)  
-			3.2.4.6 [Vulnerabilities Property - Flags](#vulnerabilities-property-flags)  
-			3.2.4.7 [Vulnerabilities Property - IDs](#vulnerabilities-property-ids)  
-			3.2.4.8 [Vulnerabilities Property - Involvements](#vulnerabilities-property-involvements)  
-			3.2.4.9 [Vulnerabilities Property - Metrics](#vulnerabilities-property-metrics)  
-				3.2.4.9.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property-metrics-content)  
-				3.2.4.9.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property-metrics-products)  
-				3.2.4.9.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property-metrics-source)  
-			3.2.4.10 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
-			3.2.4.11 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
-			3.2.4.12 [Vulnerabilities Property - References](#vulnerabilities-property-references)  
-			3.2.4.13 [Vulnerabilities Property - Remediations](#vulnerabilities-property-remediations)  
-				3.2.4.13.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
-				3.2.4.13.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property-remediations-date)  
-				3.2.4.13.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property-remediations-details)  
-				3.2.4.13.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property-remediations-entitlements)  
-				3.2.4.13.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property-remediations-group-ids)  
-				3.2.4.13.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property-remediations-product-ids)  
-				3.2.4.13.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property-remediations-restart-required)  
-				3.2.4.13.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property-remediations-url)  
-			3.2.4.14 [Vulnerabilities Property - Threats](#vulnerabilities-property-threats)  
-			3.2.4.15 [Vulnerabilities Property - Title](#vulnerabilities-property-title)  
+			3.2.4.6 [Vulnerabilities Property - First Known Exploitation Dates](#vulnerabilities-property-first-known-exploitation-dates)  
+			3.2.4.7 [Vulnerabilities Property - Flags](#vulnerabilities-property-flags)  
+			3.2.4.8 [Vulnerabilities Property - IDs](#vulnerabilities-property-ids)  
+			3.2.4.9 [Vulnerabilities Property - Involvements](#vulnerabilities-property-involvements)  
+			3.2.4.10 [Vulnerabilities Property - Metrics](#vulnerabilities-property-metrics)  
+				3.2.4.10.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property-metrics-content)  
+				3.2.4.10.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property-metrics-products)  
+				3.2.4.10.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property-metrics-source)  
+			3.2.4.11 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
+			3.2.4.12 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
+			3.2.4.13 [Vulnerabilities Property - References](#vulnerabilities-property-references)  
+			3.2.4.14 [Vulnerabilities Property - Remediations](#vulnerabilities-property-remediations)  
+				3.2.4.14.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
+				3.2.4.14.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property-remediations-date)  
+				3.2.4.14.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property-remediations-details)  
+				3.2.4.14.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property-remediations-entitlements)  
+				3.2.4.14.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property-remediations-group-ids)  
+				3.2.4.14.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property-remediations-product-ids)  
+				3.2.4.14.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property-remediations-restart-required)  
+				3.2.4.14.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property-remediations-url)  
+			3.2.4.15 [Vulnerabilities Property - Threats](#vulnerabilities-property-threats)  
+			3.2.4.16 [Vulnerabilities Property - Title](#vulnerabilities-property-title)  
 4. [Profiles](#profiles)  
 	4.1 [Profile 1: CSAF Base](#profile-1-csaf-base)  
 	4.2 [Profile 2: Security incident response](#profile-2-security-incident-response)  
@@ -301,7 +307,11 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.1.49 [Inconsistent SSVC Timestamp](#inconsistent-ssvc-timestamp)  
 		6.1.50 [Product Version Range Rules](#product-version-range-rules)  
 		6.1.51 [Inconsistent EPSS Timestamp](#inconsistent-epss-timestamp)  
-	6.2 [Optional Tests](#optional-tests)  
+		6.1.52 [Inconsistent First Known Exploitation Dates](#inconsistent-first-known-exploitation-dates)  
+		6.1.53 [Inconsistent Exploitation Date](#inconsistent-exploitation-date)  
+		6.1.54 [License Expression](#license-expression)  
+		6.1.55 [License Text](#license-text)  
+	6.2 [Recommended Tests](#recommended-tests)  
 		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
 		6.2.2 [Missing Remediation](#missing-remediation)  
 		6.2.3 [Missing Metric](#missing-metric)  
@@ -314,7 +324,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.10 [Missing TLP label (obsolete)](#missing-tlp-label)  
 		6.2.11 [Missing Canonical URL](#missing-canonical-url)  
 		6.2.12 [Missing Document Language](#missing-document-language)  
-		6.2.13 [Sorting](#optional-tests--sorting)  
+		6.2.13 [Sorting](#recommended-tests--sorting)  
 		6.2.14 [Use of Private Language](#use-of-private-language)  
 		6.2.15 [Use of Default Language](#use-of-default-language)  
 		6.2.16 [Missing Product Identification Helper](#missing-product-identification-helper)  
@@ -340,13 +350,18 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.36 [Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)  
 		6.2.37 [Usage of Unknown SSVC Role](#usage-of-unknown-ssvc-role)  
 		6.2.38 [Usage of Deprecated Profile](#usage-of-deprecated-profile)  
-		6.2.39 [Profile Tests](#optional-profile-tests)  
+		6.2.39 [Profile Tests](#recommended-profile-tests)  
 			6.2.39.1 [Missing Fixed Product](#missing-fixed-product)  
 			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)  
 			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)  
 			6.2.39.4 [Language Specific Superseding Document](#language-specific-superseding-document)  
 		6.2.40 [Product Description without Product Reference](#product-description-without-product-reference)  
 		6.2.41 [Old EPSS Timestamp](#old-epss-timestamp)  
+		6.2.42 [Inconsistent Product Identification Helper](#inconsistent-product-identification-helper)  
+		6.2.43 [Missing License Expression](#missing-license-expression)  
+		6.2.44 [Deprecated License Identifier](#deprecated-license-identifier)  
+		6.2.45 [Non-Existing License Identifier](#non-existing-license-identifier)  
+		6.2.46 [Language Specific License Text](#language-specific-license-text)  
 	6.3 [Informative Tests](#informative-tests)  
 		6.3.1 [Use of CVSS v2 as the only Scoring System](#use-of-cvss-v2-as-the-only-scoring-system)  
 		6.3.2 [Use of CVSS v3.0](#use-of-cvss-v3-0)  
@@ -355,7 +370,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.3.5 [Use of Short Hash](#use-of-short-hash)  
 		6.3.6 [Use of non-self referencing URLs Failing to Resolve](#use-of-non-self-referencing-urls-failing-to-resolve)  
 		6.3.7 [Use of self referencing URLs Failing to Resolve](#use-of-self-referencing-urls-failing-to-resolve)  
-		6.3.8 [Spell check](#spell-check)  
+		6.3.8 [Spell Check](#spell-check)  
 		6.3.9 [Branch Categories](#branch-categories)  
 		6.3.10 [Usage of Product Version Range](#usage-of-product-version-range)  
 		6.3.11 [Usage of V as Version Indicator](#usage-of-v-as-version-indicator)  
@@ -363,6 +378,12 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.3.13 [Usage of Non-Latest SSVC Decision Point Version](#usage-of-non-latest-ssvc-decision-point-version)  
 		6.3.14 [Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document](#usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document)  
 		6.3.15 [Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)  
+		6.3.16 [Grammar Check](#grammar-check)  
+		6.3.17 [Use of Unregistered License](#use-of-unregistered-license)  
+	6.4 [Presets](#presets)  
+		6.4.1 [Presets defined through Test Subsections](#presets-defined-through-test-subsections)  
+		6.4.2 [Presets defined through Conformance Targets](#presets-defined-through-conformance-targets)  
+		6.4.3 [Additional Presets](#additional-presets)  
 7. [Distributing CSAF documents](#distributing-csaf-documents)  
 	7.1 [Requirements](#requirements)  
 		7.1.1 [Requirement 1: Valid CSAF document](#requirement-1-valid-csaf-document)  
@@ -399,6 +420,11 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	7.3 [Retrieving rules](#retrieving-rules)  
 		7.3.1 [Finding provider-metadata.json](#finding-provider-metadata-json)  
 		7.3.2 [Retrieving CSAF documents](#retrieving-csaf-documents)  
+	7.4 [Transition between CSAF 2.0 and CSAF 2.1](#transition-between-csaf-2-0-and-csaf-2-1)  
+		7.4.1 [Announcing the Transition](#announcing-the-transition)  
+		7.4.2 [Transition Process for a CSAF Provider](#transition-process-for-a-csaf-provider)  
+		7.4.3 [Archive of CSAF Document from Previous Version](#archive-of-csaf-document-from-previous-version)  
+		7.4.4 [Transition Process for a CSAF Aggregator](#transition-process-for-a-csaf-aggregator)  
 8. [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)  
 9. [Conformance](#conformance)  
 	9.1 [Conformance Targets](#conformance-targets)  
@@ -498,7 +524,7 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;csaf-downloader">CSAF downloader</dt>
   <dd>A program that retrieves CSAF documents in an automated fashion.</dd>
   <dt id="def;csaf-extended-validator">CSAF extended validator</dt>
-  <dd>A CSAF basic validator that additionally performs optional tests.</dd>
+  <dd>A CSAF basic validator that additionally performs recommended tests.</dd>
   <dt id="def;csaf-full-validator">CSAF full validator</dt>
   <dd>A CSAF extended validator that additionally performs informative tests.</dd>
   <dt id="def;csaf-library">CSAF library</dt>
@@ -657,13 +683,17 @@ For purposes of this document, the following terms and definitions apply:
   <dt id="def;vulnerability">vulnerability</dt>
   <dd>functional behavior of a product or service that violates an implicit or explicit security policy
       (conforming to ISO/IEC 29147 <a href="#ISO29147">[ISO29147</a>])</dd>
+  <dt id="def;white-space">white space</dt>
+  <dd>code point used to improve text readability or token separation as defined in section 12.2 of <a href="#ECMA-262">cite</a></dd>
   <dt id="def;xml">XML</dt>
   <dd>eXtensible Markup Language - the format used by the predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.</dd>
 </dl>
 
 ## 1.3 Normative References <a id='normative-references'></a>
 
-**\[**<span id="ISO8601-1" class="anchor"></span>**ISO8601-1\]** _Date and time — Representations for information interchangePart 1: Basic rules_, International Standard, ISO 8601-1:2019(E), February 25, 2019, https://www.iso.org/standard/70907.html.
+**\[**<span id="ECMA-262" class="anchor"></span>**ECMA-262\]** _ECMAScript® 2024 Language Specification_, ECMA-262, 15th edition, June 2024, <https://262.ecma-international.org/15.0/>
+
+**\[**<span id="ISO8601-1" class="anchor"></span>**ISO8601-1\]** _Date and time — Representations for information interchangePart 1: Basic rules_, International Standard, ISO 8601-1:2019(E), February 25, 2019, <https://www.iso.org/standard/70907.html>.
 
 **\[**<span id="JSON-Schema-Core" class="anchor"></span>**JSON-Schema-Core\]** _JSON Schema: A Media Type for Describing JSON Documents_, draft-bhutton-json-schema-00, December 2020, <https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00>.
 
@@ -686,6 +716,8 @@ For purposes of this document, the following terms and definitions apply:
 **\[**<span id="RFC8259" class="anchor"></span>**RFC8259\]** T. Bray, Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", RFC 8259, DOI 10.17487/RFC8259, December 2017, <https://www.rfc-editor.org/info/rfc8259>.
 
 **\[**<span id="RFC9562" class="anchor"></span>**RFC9562\]** Davis, K., Peabody, B., and P. Leach, "Universally Unique IDentifiers (UUIDs)", RFC 9562, DOI 10.17487/RFC9562, May 2024, <https://www.rfc-editor.org/info/rfc9562>.
+
+**\[**<span id="SPDX301" class="anchor"></span>**SPDX301\]** _The System Package Data Exchange® (SPDX®) Specification Version 3.0.1_, Linux Foundation and its Contributors, 2024, <https://spdx.github.io/spdx-spec/>.
 
 ## 1.4 Informative References <a id='informative-references'></a>
 
@@ -758,8 +790,6 @@ For purposes of this document, the following terms and definitions apply:
 **\[**<span id="SECURITY-TXT" class="anchor"></span>**SECURITY-TXT\]** Foudil, E. and Shafranovich, Y., _Security.txt Project_, <https://securitytxt.org/>.
 
 **\[**<span id="SemVer" class="anchor"></span>**SemVer\]** _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, <https://semver.org/>.
-
-**\[**<span id="SPDX301" class="anchor"></span>**SPDX301\]** _The System Package Data Exchange® (SPDX®) Specification Version 3.0.1_, Linux Foundation and its Contributors, 2024, <https://spdx.github.io/spdx-spec/>.
 
 **\[**<span id="SSVC" class="anchor"></span>**SSVC\]** _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>
 
@@ -885,8 +915,9 @@ Delegation to industry best practices technologies is used in referencing schema
   * Common Vulnerability Scoring System (CVSS) Version 2.0 \[[CVSS2](#CVSS2)\]
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
 
-Even though the JSON schema does not prohibit specifically additional properties and custom keywords,
+Even though not all - especially the referenced - JSON schemas prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
+The JSON schemas defined in this standard do not allow the use of additional properties and custom keywords.
 
 > The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and
 > need for dedicated parsers as well as other tools on the side of the consuming parties.
@@ -899,7 +930,42 @@ Section [7](#distributing-csaf-documents) states how to distribute and where to 
 Safety, Security and Data Protection are considered in section [8](#safety-security-and-data-protection-considerations).
 Finally, a set of conformance targets describes tools in the ecosystem.
 
-## 2.2 Date and Time <a id='date-and-time'></a>
+## 2.2 Format Validation <a id='format-validation'></a>
+
+The JSON schema 2020-12 dialect per default uses the `format` keyword just as annotation.
+To be able to ensure that the format constraints are validated as intended, the following metaschema is defined.
+
+```
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+    "$dynamicAnchor": "meta",
+    "$vocabulary": {
+      "https://json-schema.org/draft/2020-12/vocab/core": true,
+      "https://json-schema.org/draft/2020-12/vocab/format-assertion": true
+    },
+    "allOf": [
+      { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
+      { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
+    ]
+  }
+```
+
+It is then consequently used in all JSON schemas defined in this standard and replaces the reference to the JSON schema 2020-12.
+
+```
+  {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+    // ...
+  }
+```
+
+The format validation is enforced by setting the corresponding vocabulary as required.
+
+> If a library used to parse, modify or create CSAF content is unable to deal with this meta schema, it could reach the objective by
+> interpreting the schema as JSON schema 2020-12 dialect and enforcing the format validation via its implementation.
+
+## 2.3 Date and Time <a id='date-and-time'></a>
 
 This standard uses the `date-time` format as defined in JSON Schema Draft 2020-12 Section 7.3.1.
 In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the following rules apply:
@@ -908,7 +974,10 @@ In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the 
 * The separator between date and time MUST be the letter `T`.
 * The letter `Z` indicating the timezone UTC SHALL be upper case.
 * Fractions of seconds are allowed as specified in the standards mention above with the full stop (`.`) as separator.
-* Leap seconds are supported. However, they SHOULD be avoided if possible.
+* Leap seconds MUST NOT be used.
+  > While a full support of RFC 3339 would be preferred, significant challenges have been mentioned by implementers as most libraries are lacking
+  > the support for leap seconds.
+  > To ensure interoperability, the decision was made to prohibit leap seconds.
 * Empty timezones MUST NOT be used.
 * The ABNF of RFC 3339, section 5.6 applies.
 
@@ -918,16 +987,16 @@ In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the 
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
-The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules.
+The CSAF schema Version 2.1 builds on the JSON Schema draft 2020-12 rules extended by the format validation enforcement (see [2.2](#format-validation)).
 
 ```
-    "$schema": "https://json-schema.org/draft/2020-12/schema"
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json"
 ```
 
 The schema identifier is:
 
 ```
-    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json"
+    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"
 ```
 
 The further documentation of the schema is organized via Definitions and Properties.
@@ -937,7 +1006,7 @@ The further documentation of the schema is organized via Definitions and Propert
 
 Types and properties together provide the vocabulary for the domain specific language supporting security advisories.
 
-The single mandatory property is `document`.
+The two mandatory properties are `$schema` and `document`.
 The optional two additional properties are `product_tree` and `vulnerabilities`.
 
 ## 3.1 Definitions <a id='definitions'></a>
@@ -2181,7 +2250,7 @@ JSON schema (`$schema`) of value type `string` and `enum` with format `uri` cont
 The single valid value for this `enum` is:
 
 ```
-  https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json
+  https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json
 ```
 
 > This value allows for tools to identify that a JSON document is meant to be valid against this schema.
@@ -2192,9 +2261,9 @@ The single valid value for this `enum` is:
 Document level meta-data (`document`) of value type `object` with the 6 mandatory properties Category (`category`),
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the 6 optional properties Acknowledgments (`acknowledgments`),
-Aggregate Severity (`aggregate_severity`), Language (`lang`), Notes (`notes`), References (`references`),
-and Source Language (`source_lang`).
+In addition, the `document` object MAY provide the 7 optional properties Acknowledgments (`acknowledgments`),
+Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
+References (`references`), and Source Language (`source_lang`).
 
 ```
     "document": {
@@ -2216,6 +2285,9 @@ and Source Language (`source_lang`).
           // ...
         },
         "lang": {
+          // ...
+        },
+        "license_expression": {
           // ...
         },
         "notes": {
@@ -2493,7 +2565,53 @@ The default value is the URL to the definition by FIRST:
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
 corresponding to IETF BCP 47 / RFC 5646.
 
-#### 3.2.2.7 Document Property - Notes <a id='document-property-notes'></a>
+#### 3.2.2.7 Document Property - License Expression <a id='document-property-license-expression'></a>
+
+License expression (`license_expression`) of value type `string` with 1 or more characters contains the SPDX license expression for the CSAF document.
+It MUST NOT contain a license text.
+See annex B of \[[SPDX301](#SPDX301)\] for details.
+The `DocumentRef` part given in that ABNF MUST NOT be used in CSAF.
+Any SPDX license identifier not from the official SPDX license identifier list MUST contain a prefix of the form
+`LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the entity that provided the
+database this license identifier was found in.
+The unique name MAY be a domain name.
+The same applies for `AdditionRef-` user defined identifiers.
+
+In addition, the following rules apply:
+
+- License identification:
+  1. The SPDX License List Version 3.26.0 or later MUST be consulted to identify the appropriate SPDX license identifier or
+     construct an expression based on a SPDX license identifier.
+     Deprecated license identifiers SHOULD NOT be used.
+     SPDX license identifiers that were deprecated before the version listed above MUST NOT be used.
+     > The list is available at <https://spdx.org/licenses/>.
+     > It includes also the exceptions.
+  2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
+     the license database AboutCode's "ScanCode LicenseDB" MUST be consulted as a next step.
+     License identifiers from this database MUST use the prefix `LicenseRef-scancode-`.
+     > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
+
+     The construction of a license expression with such an identifier is also allowed.
+  3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
+     the issuing party SHALL create their own license identifier following the rules above.
+     The license identifier SHOULD contain the version number of the license.
+     The license text MUST be made available through exactly one document note using the `category` `legal_disclaimer`.
+     The `title` MUST be `License` for English or an unspecified document language.
+     For any other language, it SHOULD be the language specific translation of that term.
+
+- License similarity:
+  - Annex C of \[[SPDX301](#SPDX301)\] applies.
+
+*Examples 1:*<a id='document-property-license-expression-eg-1'></a><a id='sec-3-2-2-6-eg-1'></a><a id='example-127'></a>
+
+```
+  CC-BY-4.0
+  LicenseRef-www.example.org-Example-CSAF-License-3.0+
+  LicenseRef-scancode-public-domain
+  MIT OR any-OSI
+```
+
+#### 3.2.2.8 Document Property - Notes <a id='document-property-notes'></a>
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
@@ -2509,11 +2627,12 @@ The following combinations of `category` and `title` have a special meaning and 
 |---------------|---------------|-------------------|
 | `description` | Product Description | Contains a description of a product given in the `product_tree` in regards to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
 | `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
+| `legal_disclaimer` | License | Contains the only license text of the document license. |
 | `summary` | Summary | Contains a short summary of the content of the advisory. |
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
-#### 3.2.2.8 Document Property - Publisher <a id='document-property-publisher'></a>
+#### 3.2.2.9 Document Property - Publisher <a id='document-property-publisher'></a>
 
 Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`), Name (`name`) and
 Namespace (`namespace`) and provides information on the publishing entity.
@@ -2542,7 +2661,7 @@ The 2 other optional properties are: `contact_details` and `issuing_authority`.
     },
 ```
 
-##### 3.2.2.8.1 Document Property - Publisher - Category <a id='document-property-publisher-category'></a>
+##### 3.2.2.9.1 Document Property - Publisher - Category <a id='document-property-publisher-category'></a>
 
 The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of
 publisher releasing the document.
@@ -2587,27 +2706,27 @@ The value `vendor` indicates developers or maintainers of information system pro
 This includes all authoritative product vendors, product security incident response teams (PSIRTs),
 open source projects as well as product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.2.8.2 Document Property - Publisher - Contact Details <a id='document-property-publisher-contact-details'></a>
+##### 3.2.2.9.2 Document Property - Publisher - Contact Details <a id='document-property-publisher-contact-details'></a>
 
 Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher,
 possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
-*Example 1:*<a id='document-property-publisher-contact-details-eg-1'></a><a id='sec-3-2-2-8-2-eg-1'></a><a id='example-37'></a>
+*Example 1:*<a id='document-property-publisher-contact-details-eg-1'></a><a id='sec-3-2-2-9-2-eg-1'></a><a id='example-37'></a>
 
 ```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
 ```
 
-##### 3.2.2.8.3 Document Property - Publisher - Issuing Authority <a id='document-property-publisher-issuing-authority'></a>
+##### 3.2.2.9.3 Document Property - Publisher - Issuing Authority <a id='document-property-publisher-issuing-authority'></a>
 
 Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about
 the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### 3.2.2.8.4 Document Property - Publisher - Name <a id='document-property-publisher-name'></a>
+##### 3.2.2.9.4 Document Property - Publisher - Name <a id='document-property-publisher-name'></a>
 
 The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
 
-*Example 1:*<a id='document-property-publisher-name-eg-1'></a><a id='sec-3-2-2-8-4-eg-1'></a><a id='example-38'></a>
+*Example 1:*<a id='document-property-publisher-name-eg-1'></a><a id='sec-3-2-2-9-4-eg-1'></a><a id='example-38'></a>
 
 ```
      BSI
@@ -2615,7 +2734,7 @@ The Name of publisher (`name`) of value type `string` with 1 or more characters 
      Siemens ProductCERT
 ```
 
-##### 3.2.2.8.5 Document Property - Publisher - Namespace <a id='document-property-publisher-namespace'></a>
+##### 3.2.2.9.5 Document Property - Publisher - Namespace <a id='document-property-publisher-namespace'></a>
 
 The Namespace of publisher (`namespace`) of value type `string` with format `uri` contains a URL which
 is under control of the issuing party and can be used as a globally unique identifier for that issuing party.
@@ -2634,14 +2753,14 @@ an incremented (patch) version which has no other changes than:
 * the updated item in `/document/references[]` which points to the new version of the CSAF document
 * an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Examples 1:*<a id='document-property-publisher-namespace-eg-1'></a><a id='sec-3-2-2-8-5-eg-1'></a><a id='example-39'></a>
+*Examples 1:*<a id='document-property-publisher-namespace-eg-1'></a><a id='sec-3-2-2-9-5-eg-1'></a><a id='example-39'></a>
 
 ```
     https://csaf.io
     https://www.example.com
 ```
 
-#### 3.2.2.9 Document Property - References <a id='document-property-references'></a>
+#### 3.2.2.10 Document Property - References <a id='document-property-references'></a>
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
@@ -2651,7 +2770,7 @@ Document references (`references`) of value type References Type (`references_t`
     },
 ```
 
-#### 3.2.2.10 Document Property - Source Language <a id='document-property-source-language'></a>
+#### 3.2.2.11 Document Property - Source Language <a id='document-property-source-language'></a>
 
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is
 a translation then the value of this property describes from which language this document was translated.
@@ -2664,19 +2783,19 @@ The property SHALL NOT be present if the document was not translated.
 > The issuing party can retain its original publisher information including the `category`.
 > However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
 
-#### 3.2.2.11 Document Property - Title <a id='document-property-title'></a>
+#### 3.2.2.12 Document Property - Title <a id='document-property-title'></a>
 
 Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document,
 and sufficiently unique to distinguish it from similar documents.
 
-*Examples 1:*<a id='document-property-title-eg-1'></a><a id='sec-3-2-2-11-eg-1'></a><a id='example-40'></a>
+*Examples 1:*<a id='document-property-title-eg-1'></a><a id='sec-3-2-2-12-eg-1'></a><a id='example-40'></a>
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
     Example Company Cross-Site-Scripting Vulnerability in Example Generator
 ```
 
-#### 3.2.2.12 Document Property - Tracking <a id='document-property-tracking'></a>
+#### 3.2.2.13 Document Property - Tracking <a id='document-property-tracking'></a>
 
 Tracking (`tracking`) of value type `object` with the six mandatory properties: Current Release Date (`current_release_date`),
 Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`),
@@ -2715,7 +2834,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
     },
 ```
 
-##### 3.2.2.12.1 Document Property - Tracking - Aliases <a id='document-property-tracking-aliases'></a>
+##### 3.2.2.13.1 Document Property - Tracking - Aliases <a id='document-property-tracking-aliases'></a>
 
 Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
@@ -2732,18 +2851,18 @@ list of alternate names for the same document.
 Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a
 distinct optional alternative ID used to refer to the document.
 
-*Example 1:*<a id='document-property-tracking-aliases-eg-1'></a><a id='sec-3-2-2-12-1-eg-1'></a><a id='example-41'></a>
+*Example 1:*<a id='document-property-tracking-aliases-eg-1'></a><a id='sec-3-2-2-13-1-eg-1'></a><a id='example-41'></a>
 
 ```
     CVE-2019-12345
 ```
 
-##### 3.2.2.12.2 Document Property - Tracking - Current Release Date <a id='document-property-tracking-current-release-date'></a>
+##### 3.2.2.13.2 Document Property - Tracking - Current Release Date <a id='document-property-tracking-current-release-date'></a>
 
 Current release date (`current_release_date`) with value type `string` with format `date-time` holds the date when
 the current revision of this document was released.
 
-##### 3.2.2.12.3 Document Property - Tracking - Generator <a id='document-property-tracking-generator'></a>
+##### 3.2.2.13.3 Document Property - Tracking - Generator <a id='document-property-tracking-generator'></a>
 
 Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and
 optional property Date (`date`) is a container to hold all elements related to the generation of the document.
@@ -2786,7 +2905,7 @@ optional property Engine version (`version`) contains information about the engi
 
 Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 1:*<a id='document-property-tracking-generator-eg-1'></a><a id='sec-3-2-2-12-3-eg-1'></a><a id='example-42'></a>
+*Examples 1:*<a id='document-property-tracking-generator-eg-1'></a><a id='sec-3-2-2-13-3-eg-1'></a><a id='example-42'></a>
 
 ```
     Red Hat rhsa-to-cvrf
@@ -2799,7 +2918,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 > Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 2:*<a id='document-property-tracking-generator-eg-2'></a><a id='sec-3-2-2-12-3-eg-2'></a><a id='example-43'></a>
+*Examples 2:*<a id='document-property-tracking-generator-eg-2'></a><a id='sec-3-2-2-13-3-eg-2'></a><a id='example-43'></a>
 
 ```
     0.6.0
@@ -2807,7 +2926,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
     2
 ```
 
-##### 3.2.2.12.4 Document Property - Tracking - ID <a id='document-property-tracking-id'></a>
+##### 3.2.2.13.4 Document Property - Tracking - ID <a id='document-property-tracking-id'></a>
 
 Unique identifier for the document (`id`) of value type `string` with 1 or more characters with `pattern` (regular expression):
 
@@ -2821,7 +2940,7 @@ It SHALL NOT start or end with a white space and SHALL NOT contain a newline seq
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organization.
 
-*Examples 1:*<a id='document-property-tracking-id-eg-1'></a><a id='sec-3-2-2-12-4-eg-1'></a><a id='example-44'></a>
+*Examples 1:*<a id='document-property-tracking-id-eg-1'></a><a id='sec-3-2-2-13-4-eg-1'></a><a id='example-44'></a>
 
 ```
     Example Company - 2019-YH3234
@@ -2833,7 +2952,7 @@ Its value SHOULD be assigned and maintained by the original document issuing aut
 
 This value is also used to determine the filename for the CSAF document (cf. section [5.1](#filename)).
 
-##### 3.2.2.12.5 Document Property - Tracking - Initial Release Date <a id='document-property-tracking-initial-release-date'></a>
+##### 3.2.2.13.5 Document Property - Tracking - Initial Release Date <a id='document-property-tracking-initial-release-date'></a>
 
 Initial release date (`initial_release_date`) with value type `string` with format `date-time` holds the date when this document was first released to the specified target group.
 
@@ -2844,7 +2963,7 @@ Initial release date (`initial_release_date`) with value type `string` with form
 If the timestamp of the initial release date was set incorrectly, it MUST be corrected.
 This change MUST be tracked with a new entry in the revision history.
 
-##### 3.2.2.12.6 Document Property - Tracking - Revision History <a id='document-property-tracking-revision-history'></a>
+##### 3.2.2.13.6 Document Property - Tracking - Revision History <a id='document-property-tracking-revision-history'></a>
 
 The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of
 the CSAF document, including the initial one.
@@ -2899,7 +3018,7 @@ Versions of the document which are pre-release SHALL NOT have its own revision i
 All changes MUST be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision item.
 
-##### 3.2.2.12.7 Document Property - Tracking - Status <a id='document-property-tracking-status'></a>
+##### 3.2.2.13.7 Document Property - Tracking - Status <a id='document-property-tracking-status'></a>
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
 The value MUST be one of the following:
@@ -2924,7 +3043,7 @@ Once the rate slows down it MUST be changed to `final`. This MAY be done in a pa
 > This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation.
 > It can be used as an indication to pull the CSAF document more frequently.
 
-##### 3.2.2.12.8 Document Property - Tracking - Version <a id='document-property-tracking-version'></a>
+##### 3.2.2.13.8 Document Property - Tracking - Version <a id='document-property-tracking-version'></a>
 
 Version has the value type Version (`version_t`).
 
@@ -3136,9 +3255,10 @@ properties represents a list of all relevant vulnerability information items.
 The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
-Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`), Flags (`flags`), IDs (`ids`),
-Involvements (`involvements`), Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`),
-Remediations (`remediations`), Threats (`threats`), and Title (`title`).
+Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
+List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
+Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
+Threats (`threats`), and Title (`title`).
 
 ```
     "properties": {
@@ -3155,6 +3275,9 @@ Remediations (`remediations`), Threats (`threats`), and Title (`title`).
         // ...
       },
       "discovery_date": {
+        // ...
+      },
+      "first_known_exploitation_dates": {
         // ...
       },
       "flags": {
@@ -3259,8 +3382,13 @@ It holds the ID for the weakness associated.
     CWE-79
 ```
 
-The Weakness name (`name`) has value type `string` with 1 or more characters and holds the full name of the weakness as given
-in the CWE specification.
+The Weakness name (`name`) has value type `string` of 1 or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The Weakness name holds the full name of the weakness as given in the CWE specification.
 
 *Examples 2:*<a id='vulnerabilities-property-cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-48'></a>
 
@@ -3291,18 +3419,73 @@ When creating or modifying a CSAF document, the latest published version of the 
 
 #### 3.2.4.4 Vulnerabilities Property - Disclosure Date <a id='vulnerabilities-property-disclosure-date'></a>
 
-Disclosure date (`disclosure_date`) with value type `string` of format `date-time` holds the date and time
+Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
 
-For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the intended date for disclosure of the vulnerability.
-As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that the
-vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
+For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the
+intended date for disclosure of the vulnerability.
+This is also sometimes called embargo date.
+As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that
+the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
 
 #### 3.2.4.5 Vulnerabilities Property - Discovery Date <a id='vulnerabilities-property-discovery-date'></a>
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-#### 3.2.4.6 Vulnerabilities Property - Flags <a id='vulnerabilities-property-flags'></a>
+#### 3.2.4.6 Vulnerabilities Property - First Known Exploitation Dates <a id='vulnerabilities-property-first-known-exploitation-dates'></a>
+
+List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with 1 or more unique items (a set) of value type
+`object` contains a list of dates of first known exploitations.
+
+```
+    "first_known_exploitation_dates": {
+      // ...
+      "items": {
+        // ...
+      }
+    },
+```
+
+Every First known exploitation date item of value type `object` with the 2 mandatory properties Date of the information (`date`) and
+Date of the exploitation (`exploitation_date`) holds at least 3 properties and contains information on when this vulnerability was
+first known to be exploited in the wild in the products specified.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
+product groups this date is applicable.
+
+> This information can be helpful to determine the risk of compromise.
+> It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
+
+```
+    "properties": {
+      "date": {
+        // ...
+      },
+      "exploitation_date": {
+        // ...
+      },
+      "group_ids": {
+        // ...
+      },
+      "product_ids": {
+        // ...
+      }
+    }
+```
+
+Date of the information (`date`) of value type `string` with format `date-time` contains the date when the information was last updated.
+
+Date of the exploitation (`exploitation_date`) of value type `string` with format `date-time` contains the date when the exploitation happened.
+
+> Different document issuers might have different knowledge about exploitations in the wild that happened.
+> Therefore, the `exploitation_date` can differ.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
+first known exploitation date item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current first known exploitation date item
+applies to.
+
+#### 3.2.4.7 Vulnerabilities Property - Flags <a id='vulnerabilities-property-flags'></a>
 
 List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
@@ -3371,7 +3554,7 @@ The given values reflect the VEX not affected justifications. See [VEX-Justifica
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
-#### 3.2.4.7 Vulnerabilities Property - IDs <a id='vulnerabilities-property-ids'></a>
+#### 3.2.4.8 Vulnerabilities Property - IDs <a id='vulnerabilities-property-ids'></a>
 
 List of IDs (`ids`) of value type `array` with one or more unique ID items of value type `object` represents a list of unique labels or
 tracking IDs for the vulnerability (if such information exists).
@@ -3401,7 +3584,7 @@ tracking ID for the vulnerability.
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Examples 1:*<a id='vulnerabilities-property-ids-eg-1'></a><a id='sec-3-2-4-7-eg-1'></a><a id='example-50'></a>
+*Examples 1:*<a id='vulnerabilities-property-ids-eg-1'></a><a id='sec-3-2-4-8-eg-1'></a><a id='example-50'></a>
 
 ```
     Cisco Bug ID
@@ -3410,7 +3593,7 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
 
 Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Examples 2:*<a id='vulnerabilities-property-ids-eg-2'></a><a id='sec-3-2-4-7-eg-2'></a><a id='example-51'></a>
+*Examples 2:*<a id='vulnerabilities-property-ids-eg-2'></a><a id='sec-3-2-4-8-eg-2'></a><a id='example-51'></a>
 
 ```
     CSCso66472
@@ -3427,7 +3610,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
-#### 3.2.4.8 Vulnerabilities Property - Involvements <a id='vulnerabilities-property-involvements'></a>
+#### 3.2.4.9 Vulnerabilities Property - Involvements <a id='vulnerabilities-property-involvements'></a>
 
 List of involvements (`involvements`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of involvements.
 
@@ -3441,18 +3624,27 @@ List of involvements (`involvements`) of value type `array` with 1 or more uniqu
 ```
 
 Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and
-the 2 optional properties Date of involvement (`date`) and Summary (`summary`) is a container that allows the document producers to
-comment on the level of involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping,
-and remediation process.
+the 5 optional properties Party contact information (`contact`), Date of involvement (`date`), Group IDs (`group_ids`),
+Product IDs (`product_ids`), and Summary (`summary`) is a container that allows the document producers to comment on the level of
+involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process.
 It can also be used to convey the disclosure timeline.
 The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
 
 ```
         "properties": {
+          "contact": {
+            // ...
+          },
           "date": {
             // ...
           },
+          "group_ids" {
+            // ...
+          },
           "party": {
+            // ...
+          },
+          "product_ids": {
             // ...
           },
           "status": {
@@ -3464,7 +3656,14 @@ The ordered tuple of the values of `party` and `date` (if present) SHALL be uniq
         }
 ```
 
+Party contact information (`contact`) contains the contact information of the party that was used in this state.
+
+> In many cases, that could be an email address.
+
 Date of involvement (`date`) of value type `string` with format `date-time` holds the date and time of the involvement entry.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
+involvement item applies to.
 
 Party category (`party`) of value type `string` and `enum` defines the category of the involved party.
 Valid values are:
@@ -3477,7 +3676,10 @@ Valid values are:
     vendor
 ```
 
-These values follow the same definitions as given for the publisher category (cf. section [3.2.2.8.1](#document-property-publisher-category)).
+These values follow the same definitions as given for the publisher category (cf. section [3.2.2.9.1](#document-property-publisher-category)).
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current
+involvement item applies to.
 
 Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
 Valid values are:
@@ -3522,7 +3724,7 @@ The use of this status by a vendor indicates that future updates from the vendor
 
 Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
 
-#### 3.2.4.9 Vulnerabilities Property - Metrics <a id='vulnerabilities-property-metrics'></a>
+#### 3.2.4.10 Vulnerabilities Property - Metrics <a id='vulnerabilities-property-metrics'></a>
 
 List of metrics (`metrics`) of value type `array` with 1 or more unique items (a set) of value type `object` Contains metric objects for the current vulnerability.
 
@@ -3551,7 +3753,7 @@ Every Metric item of value type `object` with the mandatory properties `content`
         }
 ```
 
-##### 3.2.4.9.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property-metrics-content'></a>
+##### 3.2.4.10.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property-metrics-content'></a>
 
 Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`), EPSS (`epss`), and SSVC v1 (`ssvc_v1`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
 A Content object has at least 1 property.
@@ -3625,21 +3827,21 @@ The value contains the likelihood that any exploitation activity for this Vulner
 
 EPSS timestamp (`timestamp`) of value type `string` with format `date-time` holds the date and time the EPSS value was recorded.
 
-##### 3.2.4.9.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property-metrics-products'></a>
+##### 3.2.4.10.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property-metrics-products'></a>
 
 Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given content applies.
 A metric object SHOULD reflect the associated product's status (for example,
 a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed;
 the known affected versions of that product can list the vulnerability score as it applies to them).
 
-##### 3.2.4.9.3 Vulnerabilities Property - Metrics - Source <a id='vulnerabilities-property-metrics-source'></a>
+##### 3.2.4.10.3 Vulnerabilities Property - Metrics - Source <a id='vulnerabilities-property-metrics-source'></a>
 
 Source (`source`) of value type `string` with format `uri` contains the URL of the source that originally determined the metric.
 If no source is given, then the metric was assigned by the document author.
 
 > For example, this could point to the vendor advisory, discoverer blog post, a multiplier's assessment or other sources that provide metric information.
 
-#### 3.2.4.10 Vulnerabilities Property - Notes <a id='vulnerabilities-property-notes'></a>
+#### 3.2.4.11 Vulnerabilities Property - Notes <a id='vulnerabilities-property-notes'></a>
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
@@ -3659,7 +3861,7 @@ The following combinations of `category` and `title` have a special meaning and 
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
-#### 3.2.4.11 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
+#### 3.2.4.12 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
 
 Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
@@ -3781,7 +3983,7 @@ the sets formed by the contradicting groups within one vulnerability item MUST b
 > Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
-#### 3.2.4.12 Vulnerabilities Property - References <a id='vulnerabilities-property-references'></a>
+#### 3.2.4.13 Vulnerabilities Property - References <a id='vulnerabilities-property-references'></a>
 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
@@ -3792,7 +3994,7 @@ list of references associated with this vulnerability item.
     },
 ```
 
-#### 3.2.4.13 Vulnerabilities Property - Remediations <a id='vulnerabilities-property-remediations'></a>
+#### 3.2.4.14 Vulnerabilities Property - Remediations <a id='vulnerabilities-property-remediations'></a>
 
 List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of value type `object` contains a list of remediations.
 
@@ -3842,7 +4044,7 @@ Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`ur
       }
 ```
 
-##### 3.2.4.13.1 Vulnerabilities Property - Remediations - Category <a id='vulnerabilities-property-remediations-category'></a>
+##### 3.2.4.14.1 Vulnerabilities Property - Remediations - Category <a id='vulnerabilities-property-remediations-category'></a>
 
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:
@@ -3921,15 +4123,15 @@ The following tables shows the allowed, discouraged and prohibited combinations:
 | `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
 | `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
 
-##### 3.2.4.13.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property-remediations-date'></a>
+##### 3.2.4.14.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property-remediations-date'></a>
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-##### 3.2.4.13.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property-remediations-details'></a>
+##### 3.2.4.14.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property-remediations-details'></a>
 
 Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
 
-##### 3.2.4.13.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property-remediations-entitlements'></a>
+##### 3.2.4.14.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property-remediations-entitlements'></a>
 
 List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with
 1 or more characters contains a list of entitlements.
@@ -3946,16 +4148,16 @@ List of entitlements (`entitlements`) of value type `array` with 1 or more items
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that
 fully resolves the vulnerability.
 
-##### 3.2.4.13.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property-remediations-group-ids'></a>
+##### 3.2.4.14.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property-remediations-group-ids'></a>
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of
 Product Groups the current remediation item applies to.
 
-##### 3.2.4.13.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property-remediations-product-ids'></a>
+##### 3.2.4.14.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property-remediations-product-ids'></a>
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
-##### 3.2.4.13.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property-remediations-restart-required'></a>
+##### 3.2.4.14.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property-remediations-restart-required'></a>
 
 Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
@@ -4015,11 +4217,11 @@ The values MUST be used as follows:
 Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart.
 This can include details on procedures, scope or impact.
 
-##### 3.2.4.13.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property-remediations-url'></a>
+##### 3.2.4.14.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property-remediations-url'></a>
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
-#### 3.2.4.14 Vulnerabilities Property - Threats <a id='vulnerabilities-property-threats'></a>
+#### 3.2.4.15 Vulnerabilities Property - Threats <a id='vulnerabilities-property-threats'></a>
 
 List of threats (`threats`) of value type `array` with 1 or more items of value type `object` contains
 information about a vulnerability that can change with time.
@@ -4092,7 +4294,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) an
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
 
-#### 3.2.4.15 Vulnerabilities Property - Title <a id='vulnerabilities-property-title'></a>
+#### 3.2.4.16 Vulnerabilities Property - Title <a id='vulnerabilities-property-title'></a>
 
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or
 title to the vulnerability.
@@ -4547,7 +4749,8 @@ To form the overall product, both parts MUST be combined through a relationship.
 
 # 6. Tests <a id='tests'></a>
 
-The following three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
+The first three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
+The forth subsection groups tests into preset.
 
 ## 6.1 Mandatory Tests <a id='mandatory-tests'></a>
 
@@ -4567,6 +4770,7 @@ The relevant paths for this test are:
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
+  /vulnerabilities[]/involvements[]/product_ids[]
   /vulnerabilities[]/flags[]/product_ids[]
   /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/notes[]/product_ids[]
@@ -4684,6 +4888,7 @@ The relevant paths for this test are:
 ```
   /document/notes[]/group_ids[]
   /vulnerabilities[]/flags[]/group_ids[]
+  /vulnerabilities[]/involvements[]/group_ids[]
   /vulnerabilities[]/notes[]/group_ids[]
   /vulnerabilities[]/remediations[]/group_ids[]
   /vulnerabilities[]/threats[]/group_ids[]
@@ -6352,7 +6557,7 @@ The relevant path for this test is:
 ### 6.1.33 Multiple Flags with VEX Justification Codes per Product <a id='multiple-flags-with-vex-justification-codes-per-product'></a>
 
 For each item in `/vulnerabilities[]` it MUST be tested that a Product is not member of more than one Flag item with
-a VEX justification code (see section [3.2.4.6](#vulnerabilities-property-flags)).
+a VEX justification code (see section [3.2.4.7](#vulnerabilities-property-flags)).
 This takes indirect relations through Product Groups into account.
 
 > Additional flags with a different purpose might be provided in later versions of CSAF.
@@ -6712,6 +6917,8 @@ The relevant path for this test is:
   /document/tracking/revision_history[]/date
   /vulnerabilities[]/disclosure_date
   /vulnerabilities[]/discovery_date
+  /vulnerabilities[]/first_known_exploitation_dates[]/date
+  /vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date
   /vulnerabilities[]/flags[]/date
   /vulnerabilities[]/involvements[]/date
   /vulnerabilities[]/remediations[]/date
@@ -7105,12 +7312,6 @@ The relevant path for this test is:
 ```
   "document": {
     // ...
-    "distribution": {
-      "tlp": {
-        "label": "CLEAR"
-      }
-    },
-    // ...
     "tracking": {
       // ...
       "revision_history": [
@@ -7124,6 +7325,7 @@ The relevant path for this test is:
       // ...
     }
   },
+  // ...
   "vulnerabilities": [
     {
       "cve": "CVE-1900-0001",
@@ -7237,9 +7439,156 @@ The relevant path for this test is:
 
 > The document is in status `final` but the EPSS `timestamp` is newer than the `date` of newest item in the `revision_history`.
 
-## 6.2 Optional Tests <a id='optional-tests'></a>
+### 6.1.52 Inconsistent First Known Exploitation Dates <a id='inconsistent-first-known-exploitation-dates'></a>
 
-Optional tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
+For each First Known Exploitation Dates item, it MUST be tested that the values of its `date` and `exploitation_date` properties are both earlier than
+or equal to the `date` of the newest item of the `revision_history` if the document status is `final` or `interim`.
+As the timestamps might use different timezones, the sorting MUST take timezones into account.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/first_known_exploitation_dates[]/date
+  /vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date
+```
+
+*Example 1 (which fails the test):*<a id='inconsistent-first-known-exploitation-dates-eg-1'></a><a id='sec-6-1-52-eg-1'></a><a id='example-125'></a>
+
+```
+  "document": {
+    // ...
+    "tracking": {
+      // ...
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      // ...
+    }
+  },
+  // ...
+  "vulnerabilities": [
+    {
+      "first_known_exploitation_dates": [
+        {
+          "date": "2024-01-24T13:00:00.000Z",
+          "exploitation_date": "2024-01-24T12:34:56.789Z",
+          // ...
+        }
+      ]
+    }
+  ]
+```
+
+> The document is in status `final` but the values of the properties `date` and `exploitation_date` of the First Known Exploitation Dates item are
+> newer than the `date` of newest item in the `revision_history`.
+
+### 6.1.53 Inconsistent Exploitation Date <a id='inconsistent-exploitation-date'></a>
+
+For each First Known Exploitation Dates item, it MUST be tested that the value of `exploitation_date` is earlier than or equal to value of the
+sibling element `date`.
+As the timestamps might use different timezones, the sorting MUST take timezones into account.
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date
+```
+
+*Example 1 (which fails the test):*<a id='inconsistent-exploitation-date-eg-1'></a><a id='sec-6-1-53-eg-1'></a><a id='example-126'></a>
+
+```
+  "document": {
+    // ...
+    "tracking": {
+      // ...
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      // ...
+    }
+  },
+  // ...
+  "vulnerabilities": [
+    {
+      "first_known_exploitation_dates": [
+        {
+          "date": "2024-01-24T13:00:00.000Z",
+          "exploitation_date": "2024-01-24T12:34:56.789Z",
+          // ...
+        }
+      ]
+    }
+  ]
+```
+
+> The document is in status `final` but the value of `exploitation_date` is newer than the value of `date` in the same item.
+
+### 6.1.54 License Expression <a id='license-expression'></a>
+
+It MUST be tested that the license expression is valid.
+
+> To implement this test, it it deemed sufficient to check for the ABNF defined in annex B of \[[SPDX301](#SPDX301)\] and
+> the restriction on the `DocumentRef` part given in [3.2.2.7](#document-property-license-expression)
+
+The relevant path for this test is:
+
+```
+  /document/license_expression
+```
+
+*Example 1 (which fails the test):*<a id='license-expression-eg-1'></a><a id='sec-6-1-54-eg-1'></a><a id='example-128'></a>
+
+```
+    "license_expression": "This is a license text that should not be here.",
+```
+
+> The license expression contains a license text instead of a SPDX license expression.
+
+### 6.1.55 License Text <a id='license-text'></a>
+
+If the document language is English or unspecified,
+and the `license_expression` contains license identifiers or exceptions that are not listed in the SPDX license list or Aboutcode's "ScanCode LicenseDB",
+it MUST be tested that exactly one item in document notes exists that has the title `License`.
+The category of this item MUST be `legal_disclaimer`.
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*<a id='license-text-eg-1'></a><a id='sec-6-1-55-eg-1'></a><a id='example-129'></a>
+
+```
+  "document": {
+    // ...
+    "license_expression": "LicenseRef-www.example.com-no-work-pd",
+    "notes": [
+      {
+        "category": "other",
+        "text": "This is not a work and therefore it can't be licensed. Use it as public domain.",
+        "title": "License"
+      }
+    ],
+    // ...
+  }  
+```
+
+> The note has the correct title. However, it uses the wrong category.
+
+## 6.2 Recommended Tests <a id='recommended-tests'></a>
+
+Recommended tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
 These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF.
 A program MUST handle a test failure as a warning.
 
@@ -7258,7 +7607,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-125'></a>
+*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-130'></a>
 
 ```
   "product_tree": {
@@ -7291,7 +7640,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/under_investigation[]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-126'></a>
+*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-131'></a>
 
 ```
   "product_tree": {
@@ -7328,7 +7677,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-127'></a>
+*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-132'></a>
 
 ```
   "product_tree": {
@@ -7362,7 +7711,7 @@ The relevant path for this test is:
     /document/tracking/revision_history[]/number
 ```
 
-*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-128'></a>
+*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-133'></a>
 
 ```
     "revision_history": [
@@ -7387,7 +7736,7 @@ The relevant path for this test is:
     /document/tracking/initial_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-129'></a>
+*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-134'></a>
 
 ```
     "tracking": {
@@ -7423,7 +7772,7 @@ The relevant path for this test is:
     /document/tracking/current_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-130'></a>
+*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-135'></a>
 
 ```
     "tracking": {
@@ -7458,7 +7807,7 @@ The relevant path for this test is:
     /vulnerabilities[]/involvements
 ```
 
-*Example 1 (which fails the test):*<a id='missing-date-in-involvements-eg-1'></a><a id='sec-6-2-7-eg-1'></a><a id='example-131'></a>
+*Example 1 (which fails the test):*<a id='missing-date-in-involvements-eg-1'></a><a id='sec-6-2-7-eg-1'></a><a id='example-136'></a>
 
 ```
   "vulnerabilities": [
@@ -7490,7 +7839,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-132'></a>
+*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-137'></a>
 
 ```
   "product_tree": {
@@ -7533,7 +7882,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-133'></a>
+*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-138'></a>
 
 ```
   "product_tree": {
@@ -7563,8 +7912,9 @@ The relevant paths for this test are:
 
 ### 6.2.10 Missing TLP label (obsolete) <a id='missing-tlp-label'></a>
 
-> The TLP label is now required by the schema. Therefore, the optional test is obsolete.
+> The TLP label is now required by the schema. Therefore, the recommended test is obsolete.
 > This section is kept to document that change and keep the numbering of the remaining sections stable.
+> The test is excluded from any preset and requirement to be executed.
 
 ### 6.2.11 Missing Canonical URL <a id='missing-canonical-url'></a>
 
@@ -7582,7 +7932,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-135'></a>
+*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-140'></a>
 
 ```
   "document": {
@@ -7617,7 +7967,7 @@ The relevant path for this test is:
   /document/lang
 ```
 
-*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-136'></a>
+*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-141'></a>
 
 ```
   "document": {
@@ -7637,7 +7987,7 @@ The relevant path for this test is:
 
 > The document language is not defined.
 
-### 6.2.13 Sorting <a id='optional-tests--sorting'></a>
+### 6.2.13 Sorting <a id='recommended-tests--sorting'></a>
 
 It MUST be tested that all keys in a CSAF document are sorted alphabetically.
 
@@ -7647,7 +7997,7 @@ The relevant path for this test is:
   /
 ```
 
-*Example 1 (which fails the test):*<a id='optional-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-137'></a>
+*Example 1 (which fails the test):*<a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-142'></a>
 
 ```
   "document": {
@@ -7672,7 +8022,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-138'></a>
+*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-143'></a>
 
 ```
   "lang": "qtx"
@@ -7693,7 +8043,7 @@ The relevant paths for this test are:
   /document/source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-139'></a>
+*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-144'></a>
 
 ```
   "lang": "i-default"
@@ -7715,7 +8065,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name
 ```
 
-*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-140'></a>
+*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-145'></a>
 
 ```
     "full_product_names": [
@@ -7740,7 +8090,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids[]
 ```
 
-*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-141'></a>
+*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-150'></a>
 
 ```
       "ids": [
@@ -7773,7 +8123,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-142'></a>
+*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-151'></a>
 
 ```
             "branches": [
@@ -7801,7 +8151,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status/fixed[]
 ```
 
-*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-143'></a>
+*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-152'></a>
 
 ```
   "product_tree": {
@@ -7838,15 +8188,25 @@ The relevant path for this test is:
   ]
 ```
 
-> Neither the `environmentalScore` nor the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` nor
+> Neither the `environmentalScore` nor the properties `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, `modifiedIntegrityImpact` nor
 > the corresponding attributes in the `vectorString` have been set.
 
-> A tool MAY set the properties `modifiedIntegrityImpact`, `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact` (respectively their
-> equivalents according to the CVSS version used) accordingly and compute the `environmentalScore` as quick fix.
+> A tool MAY remove any Product IDs listed within product status `fixed` or `first_fixed` from `products` of all items of the `metrics` element.
+>
+> Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce score to `0`
+> and compute the `environmentalScore` as quick fix.
+> The following environmental properties have been identified:
+>
+> - CVSS v2: `targetDistribution` to `NONE`
+> - CVSS v3: all of `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, and `modifiedIntegrityImpact` to `NONE`
+> - CVSS v4: all of
+>   - `modifiedVulnAvailabilityImpact`, `modifiedVulnConfidentialityImpact`, and `modifiedVulnIntegrityImpact` to `NONE` and
+>   - `modifiedSubAvailabilityImpact`, `modifiedSubConfidentialityImpact`, and `modifiedSubIntegrityImpact` to `NEGLIGIBLE`
 
 ### 6.2.20 Additional Properties <a id='additional-properties'></a>
 
 It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+This also applies for referenced schemas.
 
 The relevant path for this test is:
 
@@ -7854,18 +8214,19 @@ The relevant path for this test is:
   /
 ```
 
-> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that
-> sets `additionalProperties` to `false` for every key of type `object`.
+> To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated
+> and sets `additionalProperties` respectively `unevaluatedProperties` to `false` at all appropriate places to detect additional properties.
 
-*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-144'></a>
+*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-153'></a>
 
 ```
-  "document": {
-    "category": "csaf_base",
-    "csaf_version": "2.1",
-    "custom_property": "any",
-    // ...
-  }
+            "cvss_v3": {
+              "baseScore": 6.4,
+              "baseSeverity": "MEDIUM",
+              "custom_property": "any",
+              "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:N/I:H/A:L",
+              "version": "3.1"
+            }
 ```
 
 > The key `custom_property` is not defined in the JSON schema.
@@ -7883,7 +8244,7 @@ The relevant path for this test is:
   /document/tracking/revision_history[]/date
 ```
 
-*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-145'></a>
+*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-154'></a>
 
 ```
   "revision_history": [
@@ -7912,10 +8273,10 @@ The relevant path for this test is:
   /document/title
 ```
 
-*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-146'></a>
+*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-155'></a>
 
 ```
-    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Optional test: Document Tracking ID in Title (failing example 1)",
+    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
     "tracking": {
       // ...
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
@@ -7938,7 +8299,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-147'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-156'></a>
 
 ```
      "cwes": [
@@ -7965,7 +8326,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-148'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-157'></a>
 
 ```
   "document": {
@@ -8005,7 +8366,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-149'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-158'></a>
 
 ```
       "cwes": [
@@ -8032,7 +8393,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-150'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-159'></a>
 
 ```
       "cwes": [
@@ -8058,7 +8419,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations[]
 ```
 
-*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-151'></a>
+*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-160'></a>
 
 ```
       "product_status": {
@@ -8089,7 +8450,7 @@ The relevant path for this test is:
   /document/distribution/sharing_group/id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-152'></a>
+*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-161'></a>
 
 ```
     "distribution": {
@@ -8115,7 +8476,7 @@ The relevant path for this test is:
   /document/distribution/sharing_group/id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-153'></a>
+*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-162'></a>
 
 ```
     "distribution": {
@@ -8141,7 +8502,7 @@ The relevant path for this test is:
   /document/distribution/sharing_group
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-154'></a>
+*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-163'></a>
 
 ```
     "distribution": {
@@ -8176,7 +8537,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id
 ```
 
-*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-155'></a>
+*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-164'></a>
 
 ```
   "product_tree": {
@@ -8220,6 +8581,10 @@ For each Product Identification Helper category it MUST be tested that the same 
 > Note: This test will fail if the CSAF document contains in its `product_tree` the old and new name of a product that was renamed.
 > However, this is expected and considered a good reason for the test to fail.
 > This does not make the CSAF document invalid.
+>
+> For the comparison, arrays need to be treated as unordered sets which need to be pairwise disjoint.
+> When comparing two helper-objects' array properties whose items are themselves JSON objects (e.g. `hashes` or `file_hashes`),
+> the array needs to be treated as an unordered set, and each object is compared by deep-equality of its key/value pairs (ignoring key‐order).
 
 The relevant paths for this test are:
 
@@ -8229,7 +8594,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id/product_identification_helper
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-156'></a>
+*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-165'></a>
 
 ```
   "product_tree": {
@@ -8284,13 +8649,16 @@ For each vulnerability, it MUST be tested that the `disclosure_date` is earlier 
 if the `disclosure_date` is in the past at the time of the test execution.
 As the timestamps might use different timezones, the sorting MUST take timezones into account.
 
+> The result of the test is dependent upon the time of the execution of the test - it might change for a given CSAF document over time.
+> However, the latest version of a CSAF document should always pass the test.
+
 The relevant path for this test is:
 
 ```
     /vulnerabilities[]/disclosure_date
 ```
 
-*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-157'></a>
+*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-166'></a>
 
 ```
   "document": {
@@ -8335,7 +8703,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-158'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-167'></a>
 
 ```
   "vulnerabilities": [
@@ -8380,7 +8748,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-private-ssvc-decision-point-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-159'></a>
+*Example 1 (which fails the test):*<a id='usage-of-private-ssvc-decision-point-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-168'></a>
 
 ```
   {
@@ -8436,7 +8804,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-160'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-169'></a>
 
 ```
   {
@@ -8492,7 +8860,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/role
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-role-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-161'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-role-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-172'></a>
 
 ```
   "vulnerabilities": [
@@ -8503,11 +8871,12 @@ The relevant path for this test is:
           "content": {
             "ssvc_v1": {
               "id": "CVE-1900-0001",
+              "role": "An unregistered role",
               "schemaVersion": "1-0-1",
               "selections": [
                 {
                   "name": "Technical Impact",
-                  "namespace": "some-yet-unknown-or-maybe-private-namespace",
+                  "namespace": "ssvc",
                   "values": [
                     "Total"
                   ],
@@ -8524,8 +8893,8 @@ The relevant path for this test is:
   ]
 ```
 
-> The namespace `some-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
-> Its decision point definitions might therefore not be known to the reader of the document.
+> The role `An unregistered role` is not a registered role.
+> Its structure might therefore not be known to the reader of the document.
 
 ### 6.2.38 Usage of Deprecated Profile <a id='usage-of-deprecated-profile'></a>
 
@@ -8537,7 +8906,7 @@ The relevant path for this test is:
    /document/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-162'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-173'></a>
 
 ```
     "category": "csaf_deprecated_security_advisory",
@@ -8546,9 +8915,9 @@ The relevant path for this test is:
 
 > The document category starts with `csaf_deprecated_`.
 
-### 6.2.39 Profile Tests <a id='optional-profile-tests'></a>
+### 6.2.39 Profile Tests <a id='recommended-profile-tests'></a>
 
-This subsubsection structures the optional tests for the profiles. Not all tests apply for all profiles.
+This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
 Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
@@ -8574,7 +8943,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-163'></a>
+*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-174'></a>
 
 ```
   "vulnerabilities": [
@@ -8624,7 +8993,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-164'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-175'></a>
 
 ```
     "notes": [
@@ -8659,7 +9028,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-165'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-176'></a>
 
 ```
     "notes": [
@@ -8694,7 +9063,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-166'></a>
+*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-177'></a>
 
 ```
     "references": [
@@ -8725,7 +9094,7 @@ The relevant path for this test is:
   /document/notes[]
 ```
 
-*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-167'></a>
+*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-178'></a>
 
 ```
     "notes": [
@@ -8751,7 +9120,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content/epss/timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-168'></a>
+*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-179'></a>
 
 ```
   "document": {
@@ -8798,6 +9167,175 @@ The relevant path for this test is:
 
 > The document is in status `final` but the EPSS `timestamp` is more than 15 days older than the `date` of newest item in the `revision_history`.
 
+### 6.2.42 Inconsistent Product Identification Helper <a id='inconsistent-product-identification-helper'></a>
+
+For each product identification helper which resides in `branches`, it MUST be tested that the product identification helper contain at least
+the same information as the categorized strings.
+Information that cannot be represented in the specific product identification helper MUST be omitted from the comparison.
+
+> To implement this test it is deemed sufficient to follow the process below.
+> It is based on a static mapping of branch categories to the corresponding part of the product identification helpers.
+> The latter one are referred to as counterparts.
+>
+> 1. Determine counterpart in the specific product identification helper for all categories used along the path up to the product.
+> 2. Check whether the counterparts in the product identification helper are set.
+> 3. Check whether each set counterpart does not contain a wildcard unless the value of the categorized string would indicate that.
+> 4. Check whether the version part algins between the categorized strings and the product identification helper.
+> 5. For CPE only: Check whether extra information is included in the CPE that is not in the categorized string.
+>    This might be a counterpart that is set but the corresponding categorized string is missing along th path.
+
+The relevant paths for this test are:
+
+```
+    /product_tree/branches[](/branches[])*/product/product_identification_helper/cpe
+    /product_tree/branches[](/branches[])*/product/product_identification_helper/purl
+```
+
+*Example 1 (which fails the test):*<a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-180'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Example Company",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "Product A",
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "2.2.0",
+                "product": {
+                  "product_id": "CSAFPID-9080700",
+                  "name": "Example Company Product A 2.2.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:h:example:product_a:2.2.0:*:*:de:*:*:*:*"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.3.0",
+                "product": {
+                  "product_id": "CSAFPID-9080701",
+                  "name": "Example Company Product A 2.3.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:h:example:product_a:2.3.0:PL17:*:*:*:*:*:*"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+> The CPE of the first product contains a language part that is not given through the categorized strings.
+> The CPE of the second product contains an update part that is not given through the categorized strings.
+
+### 6.2.43 Missing License Expression <a id='missing-license-expression'></a>
+
+It MUST be tested that the license expression is present and set.
+
+The relevant path for this test is:
+
+```
+  /document/license_expression
+```
+
+*Example 1 (which fails the test):*<a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-146'></a>
+
+```
+  "document": {
+    // ...
+    "lang": "en-US",
+    "publisher": {
+      // ...
+    },
+    // ...
+  }
+```
+
+> The license expression is not defined.
+
+### 6.2.44 Deprecated License Identifier <a id='deprecated-license-identifier'></a>
+
+It MUST be tested that all license identifier and exceptions used are not deprecated.
+This SHALL be tested for the SPDX license list and Aboutcode's "ScanCode LicenseDB".
+The test MAY be skipped for other license inventoring entities.
+
+The relevant path for this test is:
+
+```
+  /document/license_expression
+```
+
+*Example 1 (which fails the test):*<a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-147'></a>
+
+```
+  "license_expression": "GFDL-1.1",
+```
+
+> The license identifier `GFDL-1.1` was deprecated as of version 3.0.
+
+### 6.2.45 Non-Existing License Identifier <a id='non-existing-license-identifier'></a>
+
+It MUST be tested that all license identifier and exceptions used exist.
+This SHALL be tested for the SPDX license list and Aboutcode's "ScanCode LicenseDB".
+The test MAY be skipped for other license inventoring entities.
+
+The relevant path for this test is:
+
+```
+  /document/license_expression
+```
+
+*Example 1 (which fails the test):*<a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-148'></a>
+
+```
+  "license_expression": "A-License-Identifier-That-Does-Not-Exist",
+```
+
+> The license identifier does not exist in the SPDX license list.
+
+### 6.2.46 Language Specific License Text <a id='language-specific-license-text'></a>
+
+If the document language is specified but not English,
+and the `license_expression` contains license identifiers or exceptions that are not listed in the SPDX license list or Aboutcode's "ScanCode LicenseDB",
+it MUST be tested that exactly one item in document notes exists that has the language specific translation of the term `License` as title.
+The category of this item MUST be `legal_disclaimer`.
+If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+
+The relevant path for this test is:
+
+```
+  /document/notes
+```
+
+*Example 1 (which fails the test):*<a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-149'></a>
+
+```
+  "document": {
+    // ...
+    "lang": "de-DE",
+    "license_expression": "LicenseRef-www.example.com-no-work",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Es handelt sich nicht um ein urheberrechtliches Werk, da die Schöpfungshöhe nicht erreicht ist.",
+        "title": "Lizenz"
+      }
+    ],
+    // ...
+  }  
+```
+
+> The note has the correct title. However, it uses the wrong category.
+
 ## 6.3 Informative Tests <a id='informative-tests'></a>
 
 Informative tests provide insights in common mistakes and bad practices.
@@ -8820,7 +9358,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-169'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-181'></a>
 
 ```
   "product_tree": {
@@ -8868,7 +9406,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-170'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-182'></a>
 
 ```
   "cvss_v3": {
@@ -8900,7 +9438,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-171'></a>
+*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-183'></a>
 
 ```
   "vulnerabilities": [
@@ -8928,7 +9466,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-172'></a>
+*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-184'></a>
 
 ```
   "vulnerabilities": [
@@ -8953,7 +9491,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-173'></a>
+*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-185'></a>
 
 ```
   "product_tree": {
@@ -9014,7 +9552,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-174'></a>
+*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-186'></a>
 
 ```
     "references": [
@@ -9043,7 +9581,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-175'></a>
+*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-187'></a>
 
 ```
     "references": [
@@ -9057,10 +9595,11 @@ The relevant paths for this test are:
 
 > The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### 6.3.8 Spell check <a id='spell-check'></a>
+### 6.3.8 Spell Check <a id='spell-check'></a>
 
 If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes.
-The test SHALL be skipped if not document language is set. It SHALL fail it the given language is not supported.
+The test SHALL be skipped if the document language is not set.
+It SHALL fail if the given language is not supported.
 The value of `/document/category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
@@ -9104,7 +9643,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-176'></a>
+*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-188'></a>
 
 ```
   "document": {
@@ -9136,7 +9675,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-177'></a>
+*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-189'></a>
 
 ```
     "branches": [
@@ -9178,7 +9717,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-178'></a>
+*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-190'></a>
 
 ```
                 "category": "product_version_range",
@@ -9203,7 +9742,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-179'></a>
+*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-191'></a>
 
 ```
             "branches": [
@@ -9227,7 +9766,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-180'></a>
+*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-192'></a>
 
 ```
   "product_tree": {
@@ -9274,7 +9813,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-181'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-193'></a>
 
 ```
   "vulnerabilities": [
@@ -9318,7 +9857,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-182'></a>
+*Example 1 (which fails the test):*<a id='usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-194'></a>
 
 ```
   {
@@ -9375,7 +9914,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-183'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-195'></a>
 
 ```
   {
@@ -9421,7 +9960,157 @@ The relevant path for this test is:
 > The namespace contains the extension `additional-technical-impacts`.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
+### 6.3.16 Grammar Check <a id='grammar-check'></a>
+
+If the document language is given it MUST be tested that a grammar check for the given language does not find any mistakes.
+The test SHALL be skipped if the document language is not set.
+It SHALL fail if the given language is not supported.
+
+The relevant paths for this test are:
+
+```
+  /document/acknowledgments[]/summary
+  /document/aggregate_severity/text
+  /document/distribution/text
+  /document/notes[]/audience
+  /document/notes[]/text
+  /document/notes[]/title
+  /document/publisher/issuing_authority
+  /document/references[]/summary
+  /document/title
+  /document/tracking/revision_history[]/summary
+  /product_tree/product_groups[]/summary
+  /vulnerabilities[]/acknowledgments[]/summary
+  /vulnerabilities[]/involvements[]/summary
+  /vulnerabilities[]/notes[]/audience
+  /vulnerabilities[]/notes[]/text
+  /vulnerabilities[]/notes[]/title
+  /vulnerabilities[]/references[]/summary
+  /vulnerabilities[]/remediations[]/details
+  /vulnerabilities[]/remediations[]/entitlements[]
+  /vulnerabilities[]/remediations[]/restart_required/details
+  /vulnerabilities[]/threats[]/details
+  /vulnerabilities[]/title
+```
+
+*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-170'></a>
+
+```
+  "document": {
+    // ...
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "The security hardening guide must followed for ensure secure operations of a products."
+      }
+    ],
+    // ...
+  }
+```
+
+> Multiple grammar mistakes exist:
+>
+> - a `be` is missing between `must` and `followed`
+> - the `for` needs to be a `to`
+> - `a products` is also incorrect as `a` indicates singular.
+
+### 6.3.17 Use of Unregistered License <a id='use-of-unregistered-license'></a>
+
+It MUST be tested that the all license identifiers and exceptions are listed either in the official SPDX license identifier list
+or AboutCode's "ScanCode LicenseDB".
+
+The relevant path for this test is:
+
+```
+  /document/license_expression
+```
+
+*Example 1 (which fails the test):*<a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-171'></a>
+
+```
+    "license_expression": "LicenseRef-www.example.com-no-work-pd",
+```
+
+> The `license_expression` contains a license identifier that is neither listed in the official SPDX license identifier list
+> nor AboutCode's "ScanCode LicenseDB".
+
 -------
+
+## 6.4 Presets <a id='presets'></a>
+
+A test preset is a predefined set of tests that was given a name.
+It MAY contain any number of tests.
+Two presets MAY overlap.
+The content of a preset MAY vary in different CSAF versions.
+A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator.
+A CSAF validator MAY provide or support additional presets.
+A CSAF validator MUST implement all tests for any supported preset.
+Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
+
+- `x_`: for any CSAF validator specific preset.
+  > Multiple CSAF validators might use the same preset name for different sets of tests.
+  > Users are advised to carefully check the documentation of the tools to avoid incorrect assumptions.
+- `org_` followed by an organization identifier and an underscore (`_`): for any preset specified by an organization as a part of a public definition
+  that can be implemented by different CSAF validators.
+  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-]`.
+  The organization identifier MUST be registered with the OASIS CSAF TC.
+- `csaf_`: for any preset defined later on by the OASIS CSAF TC.
+
+Official presets are defined in different parts of the standard.
+
+### 6.4.1 Presets defined through Test Subsections <a id='presets-defined-through-test-subsections'></a>
+
+The following presets are defined through subsections of the test section:
+
+- `mandatory`: all tests given in section [6.1](#mandatory-tests)
+- `recommended`: all tests given in section [6.2](#recommended-tests)
+- `informative`: all tests given in section [6.3](#informative-tests)
+
+### 6.4.2 Presets defined through Conformance Targets <a id='presets-defined-through-conformance-targets'></a>
+
+The following presets are defined through conformance targets:
+
+- `schema`: Check against the JSON schema (see section [sec](#conformance-clause-14-csaf-basic-validator))
+- `basic`: `schema` + `mandatory` (see section [sec](#conformance-clause-14-csaf-basic-validator))
+- `extended`: `basic` + `recommended` (see section [sec](#conformance-clause-15-csaf-extended-validator))
+- `full`: `extended` + `informative` (see section [sec](#conformance-clause-16-csaf-full-validator))
+
+As presets are sets, the operator `+` MUST be interpreted as the union operation.
+
+### 6.4.3 Additional Presets <a id='additional-presets'></a>
+
+Additional presets are defined as follows:
+
+- `external-request-free`:
+  - Description: Any test that can be executed without a request into the Internet or a different network.
+    > This is intended to be used for browser-based tools as external requests may result in CORS issues.
+    > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
+  - Set: `full` excluding tests [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve)
+    and [sec](use-of-self-referencing-urls-failing-to-resolve)
+- `consistent-revision-history`:
+  - Description: Any test that is related to the revision history and ensures consistence within it.
+  - Set:
+    - [6.1.14](#sorted-revision-history)
+    - [6.1.18](#released-revision-history)
+    - [6.1.19](#revision-history-entries-for-pre-release-versions)
+    - [6.1.21](#missing-item-in-revision-history)
+    - [6.1.22](#multiple-definition-in-revision-history)
+    - [6.1.37](#mandatory-tests--date-and-time)
+    - [6.2.4](#build-metadata-in-revision-history)
+    - [6.2.5](#older-initial-release-date-than-revision-history)
+    - [6.2.6](#older-current-release-date-than-revision-history)
+    - [6.2.21](#same-timestamps-in-revision-history)
+    - [6.2.33](#disclosure-date-newer-than-revision-history)
+- `consistent-date-times`:
+  - Description: Any test that is related to timestamps in CSAF and avoids invalid situations.
+  - Set:
+    - [6.1.37](#mandatory-tests--date-and-time)
+    - [6.1.45](#inconsistent-disclosure-date)
+    - [6.1.49](#inconsistent-ssvc-timestamp)
+    - [6.1.51](#inconsistent-epss-timestamp)
+    - [6.1.52](#inconsistent-first-known-exploitation-dates)
+    - [6.1.53](#inconsistent-exploitation-date)
 
 # 7. Distributing CSAF documents <a id='distributing-csaf-documents'></a>
 
@@ -9480,7 +10169,7 @@ If any redirects are used, there SHOULD not be more than 5 and MUST NOT be more 
 ### 7.1.7 Requirement 7: provider-metadata.json <a id='requirement-7-provider-metadata-json'></a>
 
 The party MUST provide a valid `provider-metadata.json` according to the schema
-[CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.0/provider_json_schema.json) for its own metadata.
+[CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json) for its own metadata.
 The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a
 CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
 
@@ -9497,10 +10186,11 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-184'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-196'></a>
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
     "canonical_url": "https://www.example.com/.well-known/csaf/provider-metadata.json",
     "distributions": [
       {
@@ -9535,6 +10225,15 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
   }
 ```
 
+The `maintained_until` and `maintained_from` properties can be used to indicate that the distributions contained in `provider-metadata.json` at
+the given `canonical_url` are only guaranteed to be maintained until or after the specified date and time. 
+This SHOULD be used to support a transition period between CSAF 2.0 and CSAF 2.1 (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
+CSAF downloaders (cf. section [sec](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json` 
+SHOULD evaluate this property and emit a warning if the current date is less than 90 days away from `maintained_until` and an error if the current 
+date exceeds `maintained_until`.
+The programs MAY provide a non-default option to use the `provider-metadata.json` anyway.
+Furthermore, such programs SHOULD evaluate the `maintained_from` property and output a warning if the current date is still before the `maintained_from` timestamp.
+
 If a CSAF publisher (cf. section [7.2.1](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
 If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
@@ -9559,19 +10258,21 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
 > The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-185'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-197'></a>
 
 ```
+CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
 CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/csaf/provider-metadata.json
-CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
-e.g. in case of changes to the organizational structure through merges or acquisitions.
+e.g. in case of changes to the organizational structure through mergers and acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
-If one of the URLs fulfills requirement 9, this MUST be used as the first CSAF entry in the security.txt.
+A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
+and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
+If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
 
@@ -9579,11 +10280,15 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-186'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-198'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
+
+As specified in [sec](#transition-between-csaf-20-and-csaf-21), the value of `canonical_url` MAY differ from the URL that was
+requested as a part of this requirement.
+Such state is intended and MUST NOT be reported as error.
 
 ### 7.1.10 Requirement 10: DNS path <a id='requirement-10-dns-path'></a>
 
@@ -9601,7 +10306,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-187'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-199'></a>
 
 ```
 2024
@@ -9617,7 +10322,7 @@ The last entry MAY skip the newline sequence.
 > If different TLP labels are used, multiple index.txt exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-188'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-200'></a>
 
 ```
 2023/esa-2023-09953.json
@@ -9638,7 +10343,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by \
 > Note: As a consequence of section [sec](#requirement-2-filename) Requirement 2 for filenames and section [sec](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-189'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-201'></a>
 
 ```
 2023/esa-2023-09953.json,2023-07-01T10:09:07Z
@@ -9660,17 +10365,21 @@ Server-side generated directory listing SHALL be enabled to support manual navig
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
-All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed.
+All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed (summary feed).
+Additional ROLIE feeds might exist that contain only a subset of the CSAF documents.
+The selection criteria SHOULD be described through the summary.
 At least one of the feeds
 
 * TLP:CLEAR
 * TLP:GREEN
-* unlabeled
 
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-190'></a>
+The ROLIE feed document MUST contain a feed category with the registered ROLIE information type `csaf`.
+The `scheme` for this category MUST be `urn:ietf:params:rolie:category:information-type`.
+
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-202'></a>
 
 ```
   {
@@ -9718,7 +10427,7 @@ Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC
             "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
-            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+            "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
             "version": "2.1"
           }
         }
@@ -9739,7 +10448,7 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-191'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-203'></a>
 
 ```
   {
@@ -9783,7 +10492,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   * `product_version`
 * type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-192'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-204'></a>
 
   ```
     CPU
@@ -9798,7 +10507,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-193'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-205'></a>
 
   ```
     Chemical
@@ -9813,7 +10522,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-194'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-206'></a>
 
 ```
   {
@@ -9837,7 +10546,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHOULD NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-195'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-207'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -9848,7 +10557,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512
 The file content SHALL start with the first byte of the hexadecimal hash value.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-196'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-208'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -9863,7 +10572,7 @@ extended by the appropriate extension.
 This signature SHALL be presented as an ASCII armored file.
 See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-197'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-209'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -9897,7 +10606,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 ### 7.1.21 Requirement 21: List of CSAF providers <a id='requirement-21-list-of-csaf-providers'></a>
 
 The file `aggregator.json` MUST be present and valid according to the
-JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.0/aggregator_json_schema.json).
+JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
 It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 > Suggested locations to store the `aggregator.json` are:
@@ -9909,10 +10618,11 @@ It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-198'></a>
+*Example 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-210'></a>
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "lister",
       "contact_details": "Example CSAF Lister can be reached at contact_us@lister.example, or via our website at https://lister.example/security/csaf/aggregator/contact.",
@@ -9931,6 +10641,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         }
       },
@@ -9942,6 +10653,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         }
       }
@@ -9965,10 +10677,11 @@ Each such folder MUST at least:
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-199'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-211'></a>
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
     "aggregator": {
       "category": "aggregator",
       "contact_details": "Example Aggregator can be reached at contact_us@aggregator.example, or via our website at https://aggregator.example/security/csaf/aggregator/contact.",
@@ -9987,6 +10700,7 @@ Each such folder MUST at least:
             "name": "Example Company ProductCERT",
             "namespace": "https://psirt.example.com"
           },
+          "role": "csaf_provider",
           "url": "https://www.example.com/.well-known/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -10001,6 +10715,7 @@ Each such folder MUST at least:
             "name": "Example Coordinator CERT",
             "namespace": "https://cert.example"
           },
+          "role": "csaf_trusted_provider",
           "url": "https://cert.example/advisories/csaf/provider-metadata.json"
         },
         "mirrors": [
@@ -10154,19 +10869,21 @@ retrieving CSAF documents.
 ### 7.3.1 Finding provider-metadata.json <a id='finding-provider-metadata-json'></a>
 
 **Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
-(requirement 7 in section [7.1](#requirements)) based on the main domain of the issuing party:
+(requirement 7 in section [7.1](#requirements)) based on the main domain of the issuing party. 
+
+First, an ordered list of possible `provider-metadata.json` candidates SHOULD be generated in the following way:
 
 1. Checking the Well-known URL (requirement 9 in section [7.1](#requirements))
 2. Checking the security.txt (requirement 8 in section [7.1](#requirements))
-3. Checking the DNS path (requirement 10 in section [7.1](#requirements))
-4. Select one or more `provider-metadata.json` to use.
+3. If the above steps fail to produce any candidates: Checking the DNS path (requirement 10 in section [7.1](#requirements))
+
+Second, select one or more `provider-metadata.json` to use from the list of valid candidates.
+If the retrieving party is only able to process one `provider-metadata.json`, the first one in the list SHOULD be chosen.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
-> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section 7.1.
-> If that is the case, the step was successful - otherwise not.
-
-The first two steps SHOULD be performed in all cases as the security.txt MAY advertise additional `provider-metadata.json`.
-The third step SHOULD only be performed if the first two did not result in the location of at least one `provider-metadata.json`.
+> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section [7.1](#requirements).
+> If that is the case, the response is added to the list of candidates - otherwise not. 
+> If the resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
 its location from an `aggregator.json` (requirement 21 in section [7.1](#requirements)) of a CSAF lister or CSAF aggregator.
@@ -10185,6 +10902,94 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
 4. Execute mandatory tests on the CSAF document.
 
 -------
+
+## 7.4 Transition between CSAF 2.0 and CSAF 2.1 <a id='transition-between-csaf-2-0-and-csaf-2-1'></a>
+
+This subsection details the process that SHOULD be followed when transitioning the distribution of documents from CSAF 2.0 to CSAF 2.1.
+Different scenarios can be encountered:
+
+- Providers will continue to use CSAF 2.0.
+  This SHOULD be avoided, as the CSAF ecosystem greatly profits from adoption of the new standard version.
+- Providers will immediately upgrade all documents as well as the `provider-metadata.json` to CSAF 2.1.
+  While this benefits the adoption of CSAF 2.1, consumers that still rely on CSAF 2.0 are cut off.
+- Providers will begin a transition period, in which they continue to serve existing documents in CSAF 2.0, gradually updating the existing
+  document base (e.g. by using a CSAF 2.0 to CSAF 2.1 converter as described in [sec](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter))
+  and publishing new documents using CSAF 2.1.
+
+### 7.4.1 Announcing the Transition <a id='announcing-the-transition'></a>
+
+In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is RECOMMENDED.
+The provider SHOULD announce a transition period containing three points in time:
+
+- The begin of the transition period, where the provider is starting to serve CSAF 2.1 documents, while CSAF 2.0 being authoritative.
+  > It is expected that the CSAF 2.1 files can be used in production from this point onward.
+- The roll-over-date at which CSAF 2.1 becomes authoritative but CSAF 2.0 is still supported.
+- The end of the transition period, after which CSAF 2.0 is not supported, i.e. maintained, any more.
+
+The announcement MAY contain also the following information:
+
+- The first date, when CSAF 2.1 documents are available and automatically retrievable from the server through a CSAF 2.1 `provider-metadata.json`.
+  > This might be a public beta prior to the begin of the transition period.
+  > However, those documents SHOULD NOT be used in production as they may be unstable due to their beta status.
+- The last date, when CSAF 2.0 documents are available and automatically retrievable from the server through a CSAF 2.0 `provider-metadata.json`.
+  > This date is usually at the end of the transition period.
+
+### 7.4.2 Transition Process for a CSAF Provider <a id='transition-process-for-a-csaf-provider'></a>
+
+The following process SHOULD be followed:
+
+- A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
+  - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.0/provider-metadata.json` path.
+    > The property `maintained_until` was not defined in CSAF 2.0 and therefore cannot be used -
+    > otherwise it would be set to the end of the transition period.
+  - The URL SHALL also be added as an entry in the security.txt, if used.
+- A `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/v2.1/provider-metadata.json`.
+  - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.1/provider-metadata.json` path.
+  - Optionally, the property `maintained_from` can be set to an appropriate date in the future, if the service is not considered stable yet.
+    > The transition officially starts at the date and time noted in the property `maintained_from` as this is the point in time
+    > when both CSAF 2.0 and CSAF 2.1 documents are retrievable in production-grade quality.
+  - The URL SHALL also be added to the security.txt, if used.
+- At the begin of the transition period, a `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
+  - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
+  - For file-based distribution servers, this MAY be achieved by using a symlink.
+    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
+- Sometime before the roll-over-date, all existing CSAF 2.0 documents SHOULD be converted to CSAF 2.1.
+- A the roll-over-date, a `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
+  - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.1/provider-metadata.json`.
+  - For file-based distribution servers, this MAY be achieved by using a symlink.
+    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
+- At the end of the transition period, the URL of the CSAF 2.0 `provider-metadata.json` SHOULD be removed from the `security.txt`.
+  - The unmaintained CSAF 2.0 directory structure and files SHOULD be removed or made inaccessible.
+  - The CSAF 2.0 documents MAY be archived.
+
+If a DNS path (cf. section [sec](#requirement-10-dns-path)) is used instead of the well-known URL, the same process SHOULD be followed taking the rules below into account:
+
+- The leading and authoritative `provider-metadata.json` is always served according to the DNS path requirement (see section [sec](#requirement-10-dns-path)).
+  > This implies that a CSAF 2.0 `provider-metadata.json` is served at the beginning and 
+  > replaced by the CSAF 2.1 `provider-metadata.json`  at the roll-over-date.
+- It is recommended to use the folders `v2.0` and `v2.1` to differentiate between the CSAF versions.
+
+### 7.4.3 Archive of CSAF Document from Previous Version <a id='archive-of-csaf-document-from-previous-version'></a>
+
+The following rules apply for the archival of CSAF document from a previous version:
+
+- This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.tar.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
+- The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section
+  [sec](#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [sec](#requirement-18-integrity).
+- The archive MUST be accompanied by a hash of the same algorithm.
+- Existing signatures MAY also be included into the archive.
+  It is NOT RECOMMENDED to renew the signatures in the archive unless the archive is updated with new content.
+
+### 7.4.4 Transition Process for a CSAF Aggregator <a id='transition-process-for-a-csaf-aggregator'></a>
+
+Similarly, to the transition process for a CSAF provider, the same process SHOULD be used for a CSAF aggregator.
+It is RECOMMENDED to use the following URLs during the process:
+
+- `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.  
+- `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
+- `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
+
+A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 publishers and providers.
 
 # 8. Safety, Security, and Data Protection Considerations <a id='safety-security-and-data-protection-considerations'></a>
 
@@ -10282,7 +11087,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to assets of the asset database.
 * **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF extended validator**: A CSAF basic validator that additionally performs optional tests.
+* **CSAF extended validator**: A CSAF basic validator that additionally performs recommended tests.
 * **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
 * **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
@@ -10298,7 +11103,8 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section [2.2](#date-and-time).
+* conforms to the syntax and semantics defined in section [2.2](#format-validation).
+* conforms to the syntax and semantics defined in section [2.3](#date-and-time).
 * conforms to the syntax and semantics defined in section [3](#schema-elements).
 * satisfies at least one profile defined in section [4](#profiles).
 * conforms to the syntax and semantics defined in section [5](#additional-conventions).
@@ -10339,10 +11145,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CVRF documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CVRF CSAF converter converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF converter MUST replace the seconds
+  and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
   the CVRF CSAF converter replaces those with the category `product_name`.
   In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
@@ -10383,7 +11195,10 @@ Secondly, the program fulfills the following for all items of:
   If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be
   determined and possibly a document with multiple languages was produced.
   In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
-* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [3.2.2.7](#document-property-notes),
+* `/document/license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains a valid SPDX license expression,
+  the CVRF CSAF converter SHALL convert this value into `license_expression`.
+  In addition, the converter outputs an information that license expression was found and set as document license expression.
+* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [3.2.2.8](#document-property-notes),
   where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -10401,6 +11216,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwes[]`:
+  * The CVRF CSAF converter MUST remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document.
@@ -10431,7 +11247,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-200'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-212'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -10440,7 +11256,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-201'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-213'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -10450,7 +11266,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-202'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-214'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -10461,7 +11277,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step MUST be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-203'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-215'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -10476,7 +11292,7 @@ Secondly, the program fulfills the following for all items of:
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
-  [3.2.4.10](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is
+  [3.2.4.11](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is
   a specific product name, version or family.
   In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -10503,6 +11319,7 @@ Secondly, the program fulfills the following for all items of:
   * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
   * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
+* The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
 
 ### 9.1.6 Conformance Clause 6: CSAF content management system <a id='conformance-clause-6-csaf-content-management-system'></a>
 
@@ -10746,8 +11563,9 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
-* performs all mandatory tests as given in section [6.1](#mandatory-tests).
+* performs all tests of the preset `mandatory` as given in section [6.4.1](#presets-defined-through-test-subsections).
 * does not change the CSAF documents.
+* satisfies those normative requirements in section [6.4](#presets) that are designated as applying to CSAF validators.
 
 A CSAF basic validator MAY provide one or more additional functions:
 
@@ -10760,16 +11578,17 @@ A CSAF basic validator MAY provide one or more additional functions:
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
 * satisfies the "CSAF basic validator" conformance profile.
-* additionally performs all optional tests as given in section [6.2](#optional-tests).
+* additionally performs all tests of the preset `recommended` as given in section [6.4.1](#presets-defined-through-test-subsections).
 
-A CSAF extended validator MAY provide an additional function to only run one or more selected optional tests.
+A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
 ### 9.1.16 Conformance Clause 16: CSAF full validator <a id='conformance-clause-16-csaf-full-validator'></a>
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
 * satisfies the "CSAF extended validator" conformance profile.
-* additionally performs all informative tests as given in section [6.3](#informative-tests).
+* additionally performs all tests of the preset `informative` as given in section [6.4.1](#presets-defined-through-test-subsections).
+* provides an option to additionally use a custom dictionary for test [6.3.8](#spell-check).
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
@@ -10817,10 +11636,16 @@ Firstly, the program:
 
 * satisfies the "CSAF producer" conformance profile.
 * takes only CSAF 2.0 documents as input.
+* outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 converter MUST replace
+  the seconds and their fractions with `59.999999`.
+  In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
+  The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:
@@ -10894,8 +11719,11 @@ Secondly, the program fulfills the following for all items of:
   > This is a common case for CSAF 2.0 documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
+  * `/document/license_expression`: If any `/document/notes` item in with `category` `legal_disclaimer` contains a valid SPDX license expression,
+  the CSAF 2.0 to CSAF 2.1 converter SHALL convert this value into `license_expression`.
+  In addition, the converter outputs an information that license expression was found and set as document license expression.
 * `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
-  [3.2.2.7](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that extension
+  [3.2.2.8](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that extension
   is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -10907,15 +11735,19 @@ Secondly, the program fulfills the following for all items of:
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
-* `/vulnerabilities[]/cwes[]`: The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
-  using the latest version that matches the `id` and `name` exactly and was published prior to the value of `/document/tracking/current_release_date`
-  of the source document. If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
-  of the source document SHOULD be used.
-  > This is done to create a deterministic conversion.
+* `/vulnerabilities[]/cwes[]`:
+  * The CSAF 2.0 to CSAF 2.1 converter MUST remove all preceding and trailing white space from the `name`.
+  * The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+    using the latest version that matches the `id` and `name` exactly and was published prior to the value of
+    `/document/tracking/current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    of the source document SHOULD be used.
+    > This is done to create a deterministic conversion.
 
-  The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
+    The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
-* `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value into the `disclosure_date` element.
+* `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value 
+  into the `disclosure_date` element.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
   the CSAF 2.0 to CSAF 2.1 converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
   > A tool MAY implement an option to suppress this conversion.
@@ -10932,7 +11764,7 @@ Secondly, the program fulfills the following for all items of:
   If the CSAF 2.0 to CSAF 2.1 converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 converter SHALL remove the `ssvc_v1`
   object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data would lead to loosing information.
 * `/vulnerabilities[]/notes`: If any `/vulnerabilities[]/notes` item contains one of the `category` and `title` combinations specified in
-  [3.2.4.10](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that
+  [3.2.4.11](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that
   extension is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 converter SHALL try to add the corresponding products to the note item and output a warning that a potential
   product specific note has been discovered and products have been assigned to it.
@@ -10967,7 +11799,7 @@ Secondly, the program fulfills the following for all items of:
 
 A library satisfies the "CSAF library" conformance profile if the library:
 
-* implements all elements as data structures conforming to the syntax and semantics defined in section [2.2](#date-and-time), [3](#schema-elements),
+* implements all elements as data structures conforming to the syntax and semantics defined in section [2.3](#date-and-time), [3](#schema-elements),
   [4](#profiles) and [5](#additional-conventions).
 * checks all elements according to the patterns provided in the JSON schema.
 * has a function that checks version ranges.
@@ -11044,6 +11876,7 @@ A program satisfies the "CSAF downloader" conformance profile if the program:
 * supports directory-based and ROLIE-based retrieval.
 * is able to execute both steps from section [7.3](#retrieving-rules) separately.
 * uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
+* satisfies those normative requirements in section [7](#distributing-csaf-documents) that are designated as applying to CSAF downloaders.
 
 > A tool MAY implement an option to store CSAF documents that fail any of the steps in section [7.3.2](#retrieving-csaf-documents).
 
@@ -11206,20 +12039,21 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 | Revision                 | Date       | Editor                          | Changes Made                                                                          |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------------------------------------------------|
-| csaf-v2.0-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
-| csaf-v2.0-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240327-dev | 2024-03-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250326-dev | 2025-03-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
-| csaf-v2.0-wd20250430-dev | 2025-04-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision |
+| csaf-v2.1-wd20240228-dev | 2024-02-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240327-dev | 2024-03-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240424-dev | 2024-04-24 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240529-dev | 2024-05-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240626-dev | 2024-06-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240731-dev | 2024-07-31 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20240828-dev | 2024-08-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20241030-dev | 2024-10-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20241127-dev | 2024-11-27 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250129-dev | 2025-01-29 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250226-dev | 2025-02-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250326-dev | 2025-03-26 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250430-dev | 2025-04-30 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
+| csaf-v2.1-wd20250528-dev | 2025-05-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision |
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>
@@ -11322,9 +12156,14 @@ An array SHOULD NOT have more than:
 * 100 000 000 for
   * `/document/notes[]/group_ids`
   * `/document/notes[]/product_ids`
+  * `/vulnerabilities[]/first_known_exploitation_dates`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/group_ids`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/product_ids`
   * `/vulnerabilities[]/flags`
   * `/vulnerabilities[]/flags[]/group_ids`
   * `/vulnerabilities[]/flags[]/product_ids`
+  * `/vulnerabilities[]/involvements[]/group_ids`
+  * `/vulnerabilities[]/involvements[]/product_ids`
   * `/vulnerabilities[]/metrics`
   * `/vulnerabilities[]/metrics[]/products`
   * `/vulnerabilities[]/notes[]/group_ids`
@@ -11355,6 +12194,7 @@ A string SHOULD NOT have a length greater than:
   * `/document/category`
   * `/document/distribution/sharing_group/name`
   * `/document/lang`
+  * `/document/license_expression`
   * `/document/notes[]/audience`
   * `/document/notes[]/group_ids[]`
   * `/document/notes[]/product_ids[]`
@@ -11417,6 +12257,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/flags[]/product_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
+  * `/vulnerabilities[]/involvements[]/contact`
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
@@ -11487,6 +12328,8 @@ The maximum length of strings representing a temporal value is given by the form
 * `/document/tracking/revision_history[]/date`
 * `/vulnerabilities[]/disclosure_date`
 * `/vulnerabilities[]/discovery_date`
+* `/vulnerabilities[]/first_known_exploitation_dates[]/date`
+* `/vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date`
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/involvements[]/date`
 * `/vulnerabilities[]/metrics[]/content/epss/timestamp`
@@ -11504,7 +12347,7 @@ A string which is an enum has a fixed maximum length given by its longest value.
 The value of `/$schema` is a fixed URL, currently pointing to the JSON schema location.
 It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
 
-* `/$schema` (64)
+* `/$schema` (59)
 
 For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:

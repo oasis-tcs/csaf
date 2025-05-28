@@ -43,7 +43,7 @@
           "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
         },
         "format": {
-          "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf_json_schema.json",
+          "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
           "version": "2.1"
         }
       }
