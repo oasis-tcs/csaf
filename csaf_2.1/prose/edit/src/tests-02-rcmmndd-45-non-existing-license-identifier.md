@@ -1,7 +1,7 @@
 ### Non-Existing License Identifier
 
 It MUST be tested that all license identifier and exceptions used exist.
-This SHALL be tested for the SPDX license list and Aboutcode`s "ScanCode LicenseDB".
+This SHALL be tested for the SPDX license list and Aboutcode's "ScanCode LicenseDB".
 The test MAY be skipped for other license inventoring entities.
 
 The relevant path for this test is:
