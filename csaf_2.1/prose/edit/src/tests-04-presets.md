@@ -60,7 +60,7 @@ Additional presets are defined as follows:
     - [sec](#mandatory-tests--date-and-time)
     - [sec](#build-metadata-in-revision-history)
     - [sec](#older-initial-release-date-than-revision-history)
-    - [sec](#older-current-release-date-than-revision-histor)
+    - [sec](#older-current-release-date-than-revision-history)
     - [sec](#same-timestamps-in-revision-history)
     - [sec](#disclosure-date-newer-than-revision-history)
 - `consistent-date-times`:
