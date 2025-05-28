@@ -85,6 +85,7 @@ tests-01-mndtr-50-product-version-range-rules.md
 tests-01-mndtr-51-inconsistent-epss-timestamp.md
 tests-01-mndtr-52-inconsistent-first-known-exploitation-dates.md
 tests-01-mndtr-53-inconsistent-exploitation-date.md
+tests-01.mmdtr-54-license-expression.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md

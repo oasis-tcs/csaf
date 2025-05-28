@@ -3,7 +3,7 @@
 It MUST be tested that the license expression is valid.
 
 > To implement this test, it it deemed sufficient to check for the ABNF defined in annex B of [cite](#SPDX301) and
-> the restriction on the `DocumentRef` part.
+> the restriction on the `DocumentRef` part given in [sec](#document-property-license-expression)
 
 The relevant paths for this test are:
 
