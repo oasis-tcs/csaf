@@ -8,11 +8,11 @@
         "label": "CLEAR"
       }
     },
-    "license_expression": "LicenseRef-www.example.org-Example-CSAF-License-3.0+",
+    "license_expression": "LicenseRef-www.example.com-no-work-pd",
     "notes": [
       {
-        "category": "legal_disclaimer",
-        "text": "This is the Example-CSAF-License-3.0 text.",
+        "category": "other",
+        "text": "This is not a work and therefore it can't be licensed. Use it as public domain.",
         "title": "License"
       }
     ],
@@ -21,10 +21,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: License Expression (valid example 2)",
+    "title": "Mandatory Test: License Text (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-54-12",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-55-01",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {

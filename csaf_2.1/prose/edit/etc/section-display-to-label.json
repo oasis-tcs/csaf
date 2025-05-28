@@ -199,6 +199,7 @@
   "6.1.52": "inconsistent-first-known-exploitation-dates",
   "6.1.53": "inconsistent-exploitation-date",
   "6.1.54": "license-expression",
+  "6.1.55": "license-text",
   "6.2": "recommended-tests",
   "6.2.1": "unused-definition-of-product-id",
   "6.2.2": "missing-remediation",

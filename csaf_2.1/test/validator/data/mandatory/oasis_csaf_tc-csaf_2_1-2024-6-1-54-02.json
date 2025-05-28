@@ -9,6 +9,13 @@
       }
     },
     "license_expression": "DocumentRef-some-document-reference:LicenseRef-www.example.org-Example-CSAF-License-2.0",
+    "notes": [
+      {
+        "category": "legal_disclaimer",
+        "text": "This is the Example-CSAF-License-2.0 text.",
+        "title": "License"
+      }
+    ],
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",
