@@ -230,15 +230,19 @@ Server-side generated directory listing SHALL be enabled to support manual navig
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
-All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed.
+All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed (summary feed).
+Additional ROLIE feeds might exist that contain only a subset of the CSAF documents.
+The selection criteria SHOULD be described through the summary.
 At least one of the feeds
 
 * TLP:CLEAR
 * TLP:GREEN
-* unlabeled
 
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322).
+
+The ROLIE feed document MUST contain a feed category with the registered ROLIE information type `csaf`.
+The `scheme` for this category MUST be `urn:ietf:params:rolie:category:information-type`.
 
 *Example 1:*
 
