@@ -343,6 +343,7 @@ tracking ID for the vulnerability.
 ```
 
 System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
+The URL of the system MAY be used as `system_name`.
 
 *Examples 1:*
 
@@ -369,6 +370,14 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 >
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
+
+The following values for `system` are registered and MUST be used as stated below:
+
+| `system_name`                  | pattern for `text`                         | description             |
+|--------------------------------|--------------------------------------------|-------------------------|
+| `https://www.cnvd.org.cn`      | `^CNVD-[1-9][0-9]{3}-[0-9]{5,}$`           | Identifiers of the CNVD |
+| `https://euvd.enisa.europa.eu` | `^EUVD-[1-9][0-9]{3}-[0-9]{4,}$`           | Identifiers of the EUVD |
+| `https://gcve.eu`              | `^GCVE-[1-9][0-9]*-[1-9][0-9]{3}-[^\\s]+$` | Identifiers of the GCVE |
 
 #### Vulnerabilities Property - Involvements
 
