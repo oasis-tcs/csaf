@@ -374,7 +374,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 The following values for `system` are registered and MUST be used as stated below:
 
 | `system_name`                  | pattern for `text`               | description             |
-|--------------------------------|----------------------------------|-------------------------|
+|:-------------------------------|:---------------------------------|:------------------------|
 | `https://www.cnvd.org.cn`      | `^CNVD-[1-9][0-9]{3}-[0-9]{5,}$` | Identifiers of the CNVD |
 | `https://euvd.enisa.europa.eu` | `^EUVD-[1-9][0-9]{3}-[0-9]{4,}$` | Identifiers of the EUVD |
 
