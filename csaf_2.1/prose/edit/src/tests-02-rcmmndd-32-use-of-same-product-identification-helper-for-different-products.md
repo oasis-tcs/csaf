@@ -7,7 +7,7 @@ For each Product Identification Helper category it MUST be tested that the same 
 > However, this is expected and considered a good reason for the test to fail.
 > This does not make the CSAF document invalid.
 >
-> For the comparison, arrays need to be treated as an unordered sets which need to be pairwise disjoint.
+> For the comparison, arrays need to be treated as unordered sets which need to be pairwise disjoint.
 > When comparing two helper-objects' array properties whose items are themselves JSON objects (e.g. `hashes` or `file_hashes`),
 > the array needs to be treated as an unordered set, and each object is compared by deep-equality of its key/value pairs (ignoring key‐order).
 
