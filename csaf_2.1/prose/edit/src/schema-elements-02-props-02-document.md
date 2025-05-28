@@ -335,7 +335,9 @@ In addition, the following rules apply:
   3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
      the issuing party SHALL create their own license identifier following the rules above.
      The license identifier SHOULD contain the version number of the license.
-     The license text MUST be made available through a document note with `category` of `legal_disclaimer` and `title` of `License`.
+     The license text MUST be made available through exactly one document note using the `category` `legal_disclaimer`.
+     The `title` MUST be `License` for English or an unspecified document language.
+     For any other language, it SHOULD be the language specific translation of that term.
 
 - License similarity:
   - Annex C of [cite](#SPDX301) applies.
@@ -365,6 +367,7 @@ The following combinations of `category` and `title` have a special meaning and 
 |---------------|---------------|-------------------|
 | `description` | Product Description | Contains a description of a product given in the `product_tree` in regards to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
 | `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
+| `legal_disclaimer` | License | Contains the only license text of the document license. |
 | `summary` | Summary | Contains a short summary of the content of the advisory. |
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
