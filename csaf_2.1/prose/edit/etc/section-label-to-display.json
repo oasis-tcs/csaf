@@ -303,7 +303,7 @@
   "vulnerabilities-property-acknowledgments": "3.2.4.1",
   "vulnerabilities-property-cve": "3.2.4.2",
   "vulnerabilities-property-cwes": "3.2.4.3",
-  "vulnerabilities-property-discosure-date": "3.2.4.4",
+  "vulnerabilities-property-disclosure-date": "3.2.4.4",
   "vulnerabilities-property-discovery-date": "3.2.4.5",
   "vulnerabilities-property-first-known-exploitation-dates": "3.2.4.6",
   "vulnerabilities-property-flags": "3.2.4.7",
