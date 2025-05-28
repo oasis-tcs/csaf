@@ -247,6 +247,7 @@
   "6.2.41": "old-epss-timestamp",
   "6.2.43": "missing-license-expression",
   "6.2.44": "deprecated-license-identifier",
+  "6.2.45": "non-existing-license-identifier",
   "6.3": "informative-tests",
   "6.3.1": "use-of-cvss-v2-as-the-only-scoring-system",
   "6.3.2": "use-of-cvss-v3-0",
