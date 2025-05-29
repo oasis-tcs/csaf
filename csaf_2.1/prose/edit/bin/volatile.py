@@ -28,6 +28,8 @@ SEMI = ';'
 SPACE = ' '
 TM = '™'
 
+DEBUG = bool(os.getenv('DEBUG_VOLATILE', ''))
+
 # Optionally dump the look-up tables (LUT)s for section display and label:
 DUMP_LUT = bool(os.getenv('DUMP_LUT', ''))
 
@@ -417,7 +419,7 @@ def main(argv: list[str]) -> int:
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
-                extended = False
+                extended = 0
                 if sec_cnt_disp.upper().isupper():
                     extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
                     if extended == 2:
@@ -480,16 +482,16 @@ def main(argv: list[str]) -> int:
                         raise RuntimeError(f'bad label for example in ({line.rstrip(NL)})')
                     section, number = label.split('-eg-', 1)
                     if section == CS_OF_SLOT[slot]:
-                        print(f'detected local reference for {label} in ({line.rstrip(NL)})')
+                        DEBUG and print(f'detected local reference for {label} in ({line.rstrip(NL)})')
                         evil_ref = f'\\[[{number}](#{label})\\]'  # [1](#a-sec-eg-1)
                     else:
-                        print(f'detected remote reference for {label} in ({line.rstrip(NL)})')
+                        DEBUG and print(f'detected remote reference for {label} in ({line.rstrip(NL)})')
                         sec_disp = display_from[section]
                         evil_ref = (
                             f'\\[[{number} (of section {sec_disp})](#{label})\\]'  # [1 (of section 1.2.3)](#a-sec-eg-1)
                         )
                     line = line.replace(sem_ref, evil_ref)
-                    print(line.rstrip(NL))
+                    DEBUG and print(line.rstrip(NL))
                     lines[slot] = line
 
     # Process the text display of section refs

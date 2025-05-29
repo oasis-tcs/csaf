@@ -1,4 +1,4 @@
-#! /usr/bin/env python 
+#! /usr/bin/env python
 """Bread and butter inversion of global example number to example sug mapping."""
 import json
 import pathlib

@@ -1,4 +1,4 @@
-#! /usr/bin/env python 
+#! /usr/bin/env python
 """Bread and butter inversion of section numbers to label mapping."""
 import json
 import pathlib
