@@ -26,7 +26,13 @@ if sorted(unique) != sorted(data.values()):
     raise RuntimeError('Please ensure the section labels are unique')
 
 inverted = {v: k for k, v in data.items()}
-ordered = {k: inverted[k] for k in sorted(inverted)}
+ordered = {
+    'Please do not edit manually!': (
+        "Instead, call 'make invert-sections' inside the clone-root/csaf_2.1/prose/edit folder."
+    )
+}
+for k in sorted(inverted):
+    ordered[k] = inverted[k]
 
 with open(OUT_PATH, 'wt', encoding='utf-8') as handle:
     json.dump(ordered, handle, indent=2)
