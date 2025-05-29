@@ -7,10 +7,14 @@ ETC_PATH = pathlib.Path('etc')
 IN_PATH = ETC_PATH / 'section-display-to-label.json'
 OUT_PATH = ETC_PATH / 'section-label-to-display.json'
 
+ENCODING = 'utf-8'
+ENC_ERRS = 'ignore'
+NL = '\n'
+
 if not ETC_PATH.is_dir():
     raise RuntimeError('Please execute me inside csaf_2.1/prose/edit/ because I am a simple tool')
 
-with open(IN_PATH, 'rt', encoding='utf-8') as handle:
+with open(IN_PATH, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
     data = json.load(handle)
 
 unique = {v for v in data.values()}
@@ -34,5 +38,6 @@ ordered = {
 for k in sorted(inverted):
     ordered[k] = inverted[k]
 
-with open(OUT_PATH, 'wt', encoding='utf-8') as handle:
+with open(OUT_PATH, 'wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
     json.dump(ordered, handle, indent=2)
+    handle.write(NL)  # For POSIX compliance
