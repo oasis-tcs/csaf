@@ -390,7 +390,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		7.1.2 [Requirement 2: Filename](#requirement-2-filename)  
 		7.1.3 [Requirement 3: TLS](#requirement-3-tls)  
 		7.1.4 [Requirement 4: TLP:CLEAR](#requirement-4-tlp-clear)  
-		7.1.5 [Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED](#requirement-5-tlp-amber-tlp-amber+strict-and-tlp-red)  
+		7.1.5 [Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED](#requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red)  
 		7.1.6 [Requirement 6: No Redirects](#requirement-6-no-redirects)  
 		7.1.7 [Requirement 7: provider-metadata.json](#requirement-7-provider-metadata-json)  
 		7.1.8 [Requirement 8: security.txt](#requirement-8-security-txt)  
@@ -709,6 +709,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="RFC4180" class="anchor"></span>**RFC4180\]** Shafranovich, Y., "Common Format and MIME Type for Comma-Separated Values (CSV) Files", RFC 4180, DOI 10.17487/RFC4180, October 2005, <https://www.rfc-editor.org/info/rfc4180>.
 
+**\[**<span id="RFC7230" class="anchor"></span>**RFC7230\]** Roy T. Fielding and Julian Reschke, "Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing", RFC 7230, DOI 10.17487/RFC7230, June 2014, <https://www.rfc-editor.org/info/rfc7230>.
+
 **\[**<span id="RFC7464" class="anchor"></span>**RFC7464\]** Williams, N., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, <https://www.rfc-editor.org/info/rfc7464>.
 
 **\[**<span id="RFC8174" class="anchor"></span>**RFC8174\]** Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -739,7 +741,7 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="CVRF-v1.2" class="anchor"></span>**CVRF-v1.2\]** _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by Stefan Hagen. 13 September 2017. OASIS Committee Specification 01. https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/cs01/csaf-cvrf-v1.2-cs01.html. Latest version: https://docs.oasis-open.org/csaf/csaf-cvrf/v1.2/csaf-cvrf-v1.2.html.
 
-**\[**<span id="CVSS2" class="anchor"></span>**CVSS2\]** _A Complete Guide to the Common Vulnerability Scoring System Version 2.0_, P. Mell, K. Scarfone, S. Romanosky, Editors, First.org, Inc., June 2007, https://www.first.org/cvss/cvss-v2-guide.pdf.
+**\[**<span id="CVSS2" class="anchor"></span>**CVSS2\]** _A Complete Guide to the Common Vulnerability Scoring System Version 2.0_, P. Mell, K. Scarfone, S. Romanosky, Editors, First.org, Inc., June 2007, https://www.first.org/cvss/v2/cvss-v2-guide.pdf.
 
 **\[**<span id="CVSS30" class="anchor"></span>**CVSS30\]** _Common Vulnerability Scoring System v3.0: Specification Document_, FIRST.Org, Inc., June 2019, https://www.first.org/cvss/v3.0/cvss-v30-specification_v1.9.pdf.
 
@@ -776,8 +778,6 @@ For purposes of this document, the following terms and definitions apply:
 **\[**<span id="RFC4880" class="anchor"></span>**RFC4880\]** Callas, J., Donnerhacke, L., Finney, H., Shaw, D., and R. Thayer, "OpenPGP Message Format", RFC 4880, DOI 10.17487/RFC4880, November 2007, <https://www.rfc-editor.org/info/rfc4880>.
 
 **\[**<span id="RFC7231" class="anchor"></span>**RFC7231\]** Fielding, R., Ed., and J. Reschke, Ed., "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content", RFC 7231, DOI 10.17487/RFC7231, June 2014, <https://www.rfc-editor.org/info/rfc7231>.
-
-**\[**<span id="RFC7464" class="anchor"></span>**RFC7464\]** N. Williams., "JavaScript Object Notation (JSON) Text Sequences", RFC 7464, DOI 10.17487/RFC7464, February 2015, <https://www.rfc-editor.org/info/rfc7464>.
 
 **\[**<span id="RFC8322" class="anchor"></span>**RFC8322\]** Field, J., Banghart, S., and D. Waltermire, "Resource-Oriented Lightweight Information Exchange (ROLIE)", RFC 8322, DOI 10.17487/RFC8322, February 2018, <https://www.rfc-editor.org/info/rfc8322>.
 
@@ -10087,7 +10087,7 @@ Additional presets are defined as follows:
     > This is intended to be used for browser-based tools as external requests may result in CORS issues.
     > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
   - Set: `full` excluding tests [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve)
-    and [sec](use-of-self-referencing-urls-failing-to-resolve)
+    and [6.3.7](#use-of-self-referencing-urls-failing-to-resolve)
 - `consistent-revision-history`:
   - Description: Any test that is related to the revision history and ensures consistence within it.
   - Set:
@@ -10149,7 +10149,7 @@ However, there MUST be one copy of the document available for people without acc
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a
 > press release but be able to retrieve the CSAF document.
 
-### 7.1.5 Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED <a id='requirement-5-tlp-amber-tlp-amber+strict-and-tlp-red'></a>
+### 7.1.5 Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED <a id='requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red'></a>
 
 CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED MUST be access protected.
 If they are provided via a web server this SHALL be done under a different path than for TLP:CLEAR,
@@ -10286,7 +10286,7 @@ The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more 
   https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-As specified in [sec](#transition-between-csaf-20-and-csaf-21), the value of `canonical_url` MAY differ from the URL that was
+As specified in [sec](#transition-between-csaf-2-0-and-csaf-2-1), the value of `canonical_url` MAY differ from the URL that was
 requested as a part of this requirement.
 Such state is intended and MUST NOT be reported as error.
 
@@ -10920,7 +10920,7 @@ Different scenarios can be encountered:
 
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is RECOMMENDED.
 The provider SHOULD announce a transition period containing three points in time:
-
+ 
 - The begin of the transition period, where the provider is starting to serve CSAF 2.1 documents, while CSAF 2.0 being authoritative.
   > It is expected that the CSAF 2.1 files can be used in production from this point onward.
 - The roll-over-date at which CSAF 2.1 becomes authoritative but CSAF 2.0 is still supported.
@@ -10952,12 +10952,12 @@ The following process SHOULD be followed:
 - At the begin of the transition period, a `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
-    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
+    Redirects SHALL NOT be used (cf. to requirement [sec](#requirement-9-well-known-url-for-provider-metadata-json))
 - Sometime before the roll-over-date, all existing CSAF 2.0 documents SHOULD be converted to CSAF 2.1.
 - A the roll-over-date, a `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.1/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
-    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
+    Redirects SHALL NOT be used (cf. to requirement [sec](#requirement-9-well-known-url-for-provider-metadata-json))
 - At the end of the transition period, the URL of the CSAF 2.0 `provider-metadata.json` SHOULD be removed from the `security.txt`.
   - The unmaintained CSAF 2.0 directory structure and files SHOULD be removed or made inaccessible.
   - The CSAF 2.0 documents MAY be archived.
