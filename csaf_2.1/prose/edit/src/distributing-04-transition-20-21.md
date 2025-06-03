@@ -15,7 +15,6 @@ Different scenarios can be encountered:
 
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is RECOMMENDED.
 The provider SHOULD announce a transition period containing three points in time:
- 
 - The begin of the transition period, where the provider is starting to serve CSAF 2.1 documents, while CSAF 2.0 being authoritative.
   > It is expected that the CSAF 2.1 files can be used in production from this point onward.
 - The roll-over-date at which CSAF 2.1 becomes authoritative but CSAF 2.0 is still supported.
