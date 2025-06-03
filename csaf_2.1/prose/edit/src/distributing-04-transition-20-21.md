@@ -1,4 +1,4 @@
-## Transition between CSAF 2.0 and CSAF 2.1
+## Transition between CSAF 2.0 and CSAF 2.1{#transition-between-csaf-2-0-and-csaf-2-1}
 
 This subsection details the process that SHOULD be followed when transitioning the distribution of documents from CSAF 2.0 to CSAF 2.1.
 Different scenarios can be encountered:
@@ -15,7 +15,7 @@ Different scenarios can be encountered:
 
 In the last scenario, a temporary parallel distribution of CSAF 2.0 and CSAF 2.1 documents and provider metadata is RECOMMENDED.
 The provider SHOULD announce a transition period containing three points in time:
-
+ 
 - The begin of the transition period, where the provider is starting to serve CSAF 2.1 documents, while CSAF 2.0 being authoritative.
   > It is expected that the CSAF 2.1 files can be used in production from this point onward.
 - The roll-over-date at which CSAF 2.1 becomes authoritative but CSAF 2.0 is still supported.
@@ -47,12 +47,12 @@ The following process SHOULD be followed:
 - At the begin of the transition period, a `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
-    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
+    Redirects SHALL NOT be used (cf. to requirement [sec](#requirement-9-well-known-url-for-provider-metadata-json))
 - Sometime before the roll-over-date, all existing CSAF 2.0 documents SHOULD be converted to CSAF 2.1.
 - A the roll-over-date, a `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.1/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
-    Redirects SHALL NOT be used (cf. to requirement [sec](requirement-9-well-known-url-for-provider-metadata-json))
+    Redirects SHALL NOT be used (cf. to requirement [sec](#requirement-9-well-known-url-for-provider-metadata-json))
 - At the end of the transition period, the URL of the CSAF 2.0 `provider-metadata.json` SHOULD be removed from the `security.txt`.
   - The unmaintained CSAF 2.0 directory structure and files SHOULD be removed or made inaccessible.
   - The CSAF 2.0 documents MAY be archived.
