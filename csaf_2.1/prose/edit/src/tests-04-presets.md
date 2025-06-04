@@ -48,7 +48,7 @@ Additional presets are defined as follows:
     > This is intended to be used for browser-based tools as external requests may result in CORS issues.
     > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
   - Set: `full` excluding tests [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
-    and [sec](use-of-self-referencing-urls-failing-to-resolve)
+    and [sec](#use-of-self-referencing-urls-failing-to-resolve)
 - `consistent-revision-history`:
   - Description: Any test that is related to the revision history and ensures consistence within it.
   - Set:

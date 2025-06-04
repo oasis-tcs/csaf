@@ -6,9 +6,13 @@ from typing import Union
 
 ENCODING = 'utf-8'
 NL = '\n'
+SP = ' '
 COLON = ':'
 DASH = '-'
 DOT = '.'
+
+LANG_PATCH = '<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">'
+LOGO_TARGET = 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
 
 TOC_STARTSWITH_TRIGGER = '<h1 id="table-of-contents'
 INTRO_STARTSWITH_TRIGGER = '<h1 id="1-introduction'
@@ -91,6 +95,14 @@ def main(argv: list[str]) -> int:
     # print(toc_db[-1])
     the_toc = generate_toc(toc_db)
     # print(the_toc)
+
+    with open('../share/style/base.css', 'rt', encoding=ENCODING) as handle:
+        base_css = handle.read()
+    with open('../share/style/skin.css', 'rt', encoding=ENCODING) as handle:
+        skin_css = handle.read()
+    with open(LOGO_AT, 'rt', encoding=ENCODING) as handle:
+        logo_data = handle.read().strip()
+
     with open('build/tmp.html', 'rt', encoding=ENCODING) as handle:
         incoming = handle.readlines()
 
@@ -109,6 +121,17 @@ def main(argv: list[str]) -> int:
             outgoing.append(line)
             outgoing.append(the_toc)
             continue
+        if line.startswith('<html xmlns'):
+            line = LANG_PATCH
+        elif '</style>' in line:
+            line = NL + base_css + NL + skin_css + NL + line
+        elif 'style/base.css' in line:
+            continue
+        elif 'style/skin.css' in line:
+            continue
+        elif LOGO_TARGET in line:
+            line = line.replace(LOGO_TARGET, logo_data)
+
         outgoing.append(line)
 
     with open('build/injected.html', 'wt', encoding=ENCODING) as handle:

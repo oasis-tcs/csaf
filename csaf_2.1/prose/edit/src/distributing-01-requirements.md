@@ -29,7 +29,7 @@ However, there MUST be one copy of the document available for people without acc
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a
 > press release but be able to retrieve the CSAF document.
 
-### Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED
+### Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED{#requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red}
 
 CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED MUST be access protected.
 If they are provided via a web server this SHALL be done under a different path than for TLP:CLEAR,
@@ -166,7 +166,7 @@ The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details
   https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-As specified in [sec](#transition-between-csaf-20-and-csaf-21), the value of `canonical_url` MAY differ from the URL that was
+As specified in [sec](#transition-between-csaf-2-0-and-csaf-2-1), the value of `canonical_url` MAY differ from the URL that was
 requested as a part of this requirement.
 Such state is intended and MUST NOT be reported as error.
 
