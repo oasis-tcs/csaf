@@ -10,6 +10,7 @@ types = mypy bin
 build_root = build/
 build_pdf = $(build_root)render/pdf/
 liitos_templates = etc/liitos/
+optimize_pdf = qpdf --linearize --replace-input
 
 .PHONY: all
 all: lint types build
@@ -72,6 +73,7 @@ render-html: render-markdown
 render-pdf:
 	command -v liitos >/dev/null 2>&1 || { echo >&2 "make render-pdf requires liitos but it's not installed - you can install per pip install liitos.  Aborting."; exit 1; }
 	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
+	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
 	bin/lapidify.py && \
 		mkdir -p $(build_pdf) && \
 		printf "pdf.md\n" > $(build_root)bind.txt && \
@@ -89,8 +91,11 @@ render-pdf:
 		cp -a $(liitos_templates)publisher.tex.in $(build_root) && \
 		cp -a $(liitos_templates)setup.tex.in $(build_pdf) && \
 		cp -a $(liitos_templates)structure.yml $(build_root) && \
-		cd $(build_pdf) && liitos render ../../ -t csaf -f pdf -p -l "etiketti -e"  && \
-		open this.pdf && cd -
+		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
+		cd $(build_pdf) && liitos render ../../ -t csaf -f pdf -p -l "etiketti --config etiketti.yml --enforce"  && \
+		$(optimize_pdf) -- this.pdf && \
+		cp -a this.pdf ../../../../share/csaf-v2.1-draft.pdf && \
+		open ../../../../share/csaf-v2.1-draft.pdf && cd -
 
 .PHONY: build
 build: render status
