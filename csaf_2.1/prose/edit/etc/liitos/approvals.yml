@@ -1,5 +1,5 @@
 approvals:
-- name: An Author
+- name: Stefan Hagen and Thomas Schmidt
   role: Author
 - name: A Reviewer
   role: Review
