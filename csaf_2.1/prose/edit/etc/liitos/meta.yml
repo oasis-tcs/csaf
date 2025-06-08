@@ -1,0 +1,65 @@
+---
+document:
+  common:
+    approvals_adjustable_vertical_space: -4.0em
+    approvals_date_and_signature_label: Date and Signature
+    approvals_department_label: Department
+    approvals_department_value: ABC
+    approvals_name_label: Name
+    approvals_role_label: Approvals
+    approvals_strategy: south  # one of east or south
+    bold_font: ITCFranklinGothicStd-Demi
+    bold_italic_font: ITCFranklinGothicStd-DemiIt
+    bookmark_title: CSAF v2.1 CSD01
+    bookmatter_path: bookmatter.tex.in
+    change_log_author_label: Author
+    change_log_date_label: Date
+    change_log_description_label: Description
+    change_log_issue_label: Iss.
+    change_log_revision_label: Rev.
+    change_log_tune_header_sep: 0.1em
+    chosen_logo: images/OASISLogo-v3.0.png
+    chosen_title_page_logo: images/OASISLogo-v3.0.png
+    code_fontsize: \tiny
+    driver_path: driver.tex.in
+    fixed_font_package: sourcecodepro
+    font_path: /opt/fonts/
+    font_suffix: .otf
+    footer_frame_note: csaf-v2.1-csd01
+    footer_outer_field_normal_pages: 28 May 2025 - \theMetaPageNumPrefix { } \thepage { } of \pageref{LastPage}
+    footer_page_number_prefix: Page
+    has_approvals: false
+    has_changes: false
+    has_notices: false
+    header_date: null
+    header_date_enable_auto: true
+    header_date_label: ' '
+    header_date_show: false
+    header_id: null
+    header_id_label: ' '
+    header_id_show: false
+    header_issue_revision_combined: null
+    header_issue_revision_combined_label: ' '
+    header_issue_revision_combined_show: false
+    header_title: Standards Track Work Product
+    header_type: ' '
+    issue: ' '
+    italic_font: ITCFranklinGothicStd-BookIt
+    list_of_figures: '%'  # empty string to enable lof
+    list_of_tables: '%'  # empty string to enable lot
+    lox_indent: '\hspace*{0.01em}'  # tool default is '\hspace*{0.40\textwidth}' for kind of centering
+    main_font: ITCFranklinGothicStd-Book
+    metadata_path: metadata.tex.in
+    proprietary_information: ' '
+    proprietary_information_adjustable_vertical_space: -1.7em
+    proprietary_information_tune_header_sep: 0.1em
+    publisher_path: publisher.tex.in
+    revision: '00'
+    setup_path: ./setup.tex.in
+    stretch: '1.04'  # old default was '1.2'
+    sub_title: ' '
+    table_caption_below: false
+    table_uglify: true
+    title: ' '
+    toc_all_dots: '%'  # old default was not toc all dots, so '%' would restore
+    toc_level: 4
