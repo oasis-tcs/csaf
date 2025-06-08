@@ -1,0 +1,296 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{hidelinks,unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names,table}{xcolor}
+%
+\documentclass[
+  american,
+  paper=a4,%WELL_HACK_A_DID_ACK
+  captions=tableheading,
+  headsepline=false,
+  footsepline=true,
+  draft=false,
+  overfullrule=false,
+  sfdefaults=false,%egregdoesnotlikesansseriftitles,
+  VALUE.SLOTtoc=sectionentrywithdots,%%_PATCH_%_TOC_ALL_DOTS_%%
+]{scrartcl}
+\addtokomafont{sectionentrydots}{\bfseries}%%% MAYBE NOT SUCH A GOOD IDEA %%%
+\usepackage{bookmark}
+\bookmarksetup{
+  open,
+  openlevel=1,
+  numbered,
+}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{ragged2e}
+%\RaggedRight
+
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+%%%%\setstretch{\theStretch}
+\usepackage{iftex}
+\usepackage{unicode-math}
+\usepackage{fontspec}
+\setmainfont[
+    Path = VALUE.SLOT,%%_PATCH_%_FONT_%_PATH_%%
+    Extension = VALUE.SLOT,%%_PATCH_%_FONT_%_SUFFIX_%%
+    Ligatures = TeX,
+    BoldFont={VALUE.SLOT},%%_PATCH_%_BOLD_%_FONT_%%
+    ItalicFont={VALUE.SLOT},%%_PATCH_%_ITALIC_%_FONT_%%
+    BoldItalicFont={VALUE.SLOT}%%_PATCH_%_BOLDITALIC_%_FONT_%%
+]{VALUE.SLOT}%%_PATCH_%_MAIN_%_FONT_%%
+\setsansfont[
+    Path = VALUE.SLOT,%%_PATCH_%_FONT_%_PATH_%%
+    Extension = VALUE.SLOT,%%_PATCH_%_FONT_%_SUFFIX_%%
+    Ligatures = TeX,
+    BoldFont={VALUE.SLOT},%%_PATCH_%_BOLD_%_FONT_%%
+    ItalicFont={VALUE.SLOT},%%_PATCH_%_ITALIC_%_FONT_%%
+    BoldItalicFont={VALUE.SLOT}%%_PATCH_%_BOLDITALIC_%_FONT_%%
+]{VALUE.SLOT}%%_PATCH_%_MAIN_%_FONT_%%
+\usepackage{VALUE.SLOT}%%_PATCH_%_FIXED_%_FONT_%_PACKAGE_%%
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+
+\usepackage{enumitem}
+\usepackage{xcolor}
+\definecolor{light-gray}{HTML}{E5E4E2}
+\definecolor{white}{HTML}{FFFFFF}
+\definecolor{oasis-sections}{HTML}{446CAA}
+\definecolor{oasis-links}{HTML}{0000EE}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=.,% [red]
+  anchorcolor=oasis-links,% [black]
+  citecolor=.,% [green]
+  filecolor=.,% [cyan]
+  menucolor=.,% [red]
+  runcolor=.,% [cyan - same as file color]
+  urlcolor=oasis-links,
+}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+% add backlinks to footnote references, cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
+\usepackage{footnotebackref}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%\makeatletter
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%\makeatother
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%% scale images if necessary, so that they will not overflow the page
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%% margins by default, and it is still possible to overwrite the defaults
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%% using explicit options in \includegraphics[width, height, ...]{}
+%BEFORE pandoc 3.2.1 from 2024-06-24%%%\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% set default figure placement
+\makeatletter
+\def\fps@figure{h!tbp}
+\makeatother
+% enable strikeout
+\usepackage{soul}
+\usepackage[normalem]{ulem}%% package with default options change emph to become underline instead of italics =(
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+%dehyphenate
+\usepackage[american=nohyphenation]{hyphsubst}
+% ... woodpecker
+%\tolerance=1
+%\emergencystretch=\maxdimen
+%\hyphenpenalty=10000
+%\hbadness=10000
+\tolerance=9000
+\emergencystretch=0pt
+\hyphenpenalty=10000
+\hbadness=10000
+\frenchspacing
+% - experimental-above -
+% internationalization
+\usepackage[main=american]{babel}
+% remove language-specific shorthands:
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage{selnolig}  % disable illegal ligatures
+
+\input{metadata.tex}%% Job specific variable values used for the specific document target
+
+\setstretch{\theStretch}%%%%%%%%---------------------------?????
+
+\setcounter{table}{-2}%% give some leeway (invisibly) to signature and change history table
+\renewcommand{\thetable}{\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+\usepackage{layout}
+\usepackage[left=1cm,top=0.5cm,right=1cm,bottom=0.6cm,footskip=1.0cm,includehead=true,includefoot=true,centering]{geometry}%%,showframe %% bottom tuned from 0.8cm to 1.8cm
+\usepackage{scrlayer-scrpage}
+
+% patch the paragraph to become a blunt vertically pushing element
+\RedeclareSectionCommands[
+    beforeskip=.75\baselineskip plus 1ex minus -0.2ex,
+    runin=false,
+    afterskip=0.33\baselineskip,
+    font=\bfseries,
+    afterindent=false
+]{paragraph,subparagraph}
+\RedeclareSectionCommands[
+    afterskip=0.02\baselineskip,
+]{section,subsection,subsubsection,paragraph,subparagraph}
+\addtokomafont{section}{\color{oasis-sections}}
+\addtokomafont{subsection}{\color{oasis-sections}}
+\addtokomafont{subsubsection}{\color{oasis-sections}}
+\addtokomafont{paragraph}{\color{oasis-sections}}
+\addtokomafont{subparagraph}{\color{oasis-sections}}
+
+% Fake some section alignment
+\def\fakesection#1{\hskip 6em \hfil #1\hfil}
+
+% patch the toc to allow for level 4 without page floods
+\BeforeTOCHead[toc]{%
+  \KOMAoptions{parskip=false}% no parskip in ToC
+  \RedeclareSectionCommand[afterskip=1sp minus 1sp]{section}% (was chapter) no skip after ToC title
+}
+%\DeclareTOCStyleEntry[beforeskip=.5cm]{chapter}{chapter}
+\DeclareTOCStyleEntry[beforeskip=.3cm]{section}{section}
+\DeclareTOCStyleEntry[beforeskip=.1cm]{default}{subsection}
+\DeclareTOCStyleEntry[numwidth=1.5em,indent=0em]{section}{section}
+\DeclareTOCStyleEntry[numwidth=2.5em,indent=1em]{section}{subsection}
+\DeclareTOCStyleEntry[numwidth=3.5em,indent=3em]{section}{subsubsection}
+\DeclareTOCStyleEntry[numwidth=4.5em,indent=5em]{section}{paragraph}
+\DeclareTOCStyleEntry[numwidth=5.5em,indent=7em]{section}{subparagraph}
+
+% Can we simply upper case TOC entries for level 1 and 2 sections?
+\ExplSyntaxOn
+\cs_new_eq:NN \ToUppercase \text_uppercase:n
+\ExplSyntaxOff
+
+% No UPPERCASE transforms for table of contents
+%\renewcommand\addsectiontocentry[2]{%
+%  \addtocentrydefault{section}{#1}{\texorpdfstring{\expandafter\ToUppercase\expandafter{#2}}{#2}}%
+%}
+%\renewcommand\addsubsectiontocentry[2]{%
+%  \addtocentrydefault{subsection}{#1}{\texorpdfstring{\expandafter\ToUppercase\expandafter{#2}}{#2}}%
+%}
+
+% OASIS has bold for all heading levels
+%% unbold level 3 and 4 etc sections
+%\setkomafont{subsubsection}{\normalfont}
+%\setkomafont{paragraph}{\normalfont}
+%\setkomafont{subparagraph}{\normalfont}
+
+% Provide the Shaded and Highlighting environments in case code comes along
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},fontsize=VALUE.SLOT}%%_PATCH_%_CODE_%_FONTSIZE_%%
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+
+% Hook to inject chosen logo
+\newcommand{\theChosenLogo}{VALUE.SLOT}%%_PATCH_%_CHOSEN_%_LOGO_%%
+% The liitos "Normal" pages header and footer style:
+\newpairofpagestyles{liitos-header-footer}{%%
+  \clearpairofpagestyles
+  \ihead*{}
+  \chead*{\upshape{\normalsize Standards Track Work Product}}
+  \ohead*{}
+  \ifoot*{\upshape{\scriptsize\theMetaPropInfo}}
+  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2024. All Rights Reserved.}}
+  \ofoot*{\upshape{\scriptsize VALUE.SLOT}}%%_PATCH_%_NORMAL_%_PAGES_%_OUTER_%_FOOT_%_CONTENT_%_VALUE_%%
+  \setlength{\headheight}{10mm}%% ... tuned
+  \setlength{\footheight}{10mm}%% ... tuned
+}
+
+% Decrease verbatim environment font size when not tagged as highlighting target
+\makeatletter
+\patchcmd{\@verbatim}
+  {\verbatim@font}
+  {\verbatim@font\footnotesize}%HERE-WE-GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-TODO
+  {}{}
+\makeatother
+
+% Make blockquotes more explicit and better separate than with just left indent
+\usepackage[most]{tcolorbox}
+\definecolor{block-gray}{gray}{0.85}
+\newtcolorbox{blockquote}{colback=block-gray,grow to right by=-1mm,grow to left by=-1mm,boxrule=0pt,boxsep=0pt,breakable}
+
+% Hook to inject chosen title page logo
+\newcommand{\theChosenTitlePageLogo}{VALUE.SLOT}%%_PATCH_%_CHOSEN_%_TITLE_%_PAGE_%_LOGO_%%
+%% The liitos title page header and footer style:
+\newpairofpagestyles{liitos-title-header-footer}{%%
+  \clearpairofpagestyles
+  \ihead*{}
+  \chead*{\upshape{\normalsize Standards Track Work Product}}
+  \ohead*{}
+  \ifoot*{\upshape{\scriptsize\theMetaPropInfo}}
+  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2024. All Rights Reserved.}}
+  \ofoot*{\upshape{\scriptsize VALUE.SLOT}}%%_PATCH_%_NORMAL_%_PAGES_%_OUTER_%_FOOT_%_CONTENT_%_VALUE_%%
+  \setlength{\headheight}{10mm}%% ... tuned
+  \setlength{\footheight}{10mm}%% ... tuned
+}
+
+\pagestyle{liitos-title-header-footer}% TODO: parametrize back again title
