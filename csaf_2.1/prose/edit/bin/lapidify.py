@@ -398,7 +398,6 @@ def main(argv: list[str]) -> int:
 
                 # manage label
                 text = line.split(tag, 1)[1].rstrip()
-                xline = line
                 link_attributes = ''
                 if '{' in line:
                     link_attributes = '{' + line.split('{', 1)[1]
@@ -417,60 +416,52 @@ def main(argv: list[str]) -> int:
 
                 if line.rstrip() == '# Acknowledgments':
                     line = line.rstrip().replace('# ', '# Appendix A. ', 1) + '{.unnumbered #acknowledgments}' + NL
-
-                if line.rstrip() == '# Revision History':
+                elif line.rstrip() == '# Revision History':
                     line = line.rstrip().replace('# ', '# Appendix B. ', 1) + '{.unnumbered #revision-history}' + NL
-
-                if line.rstrip() == '# Guidance on the Size of CSAF Documents':
+                elif line.rstrip() == '# Guidance on the Size of CSAF Documents':
                     line = line.rstrip().replace('# ', '# Appendix C. ', 1) + '{.unnumbered #guidance-on-the-size-of-csaf-documents}' + NL
-
-                if line.rstrip() == '## File Size':
+                elif line.rstrip() == '## File Size':
                     line = line.rstrip().replace('## ', '## C.1 ', 1) + '{.unnumbered #file-size}' + NL
-
-                if line.rstrip() == '## Array Length':
+                elif line.rstrip() == '## Array Length':
                     line = line.rstrip().replace('## ', '## C.2 ', 1) + '{.unnumbered #array-length}' + NL
-
-                if line.rstrip() == '## String Length':
+                elif line.rstrip() == '## String Length':
                     line = line.rstrip().replace('## ', '## C.3 ', 1) + '{.unnumbered #string-length}' + NL
-
-                if line.rstrip() == '## Date':
+                elif line.rstrip() == '## Date':
                     line = line.rstrip().replace('## ', '## C.4 ', 1) + '{.unnumbered #date}' + NL
-
-                if line.rstrip() == '## Enum':
+                elif line.rstrip() == '## Enum':
                     line = line.rstrip().replace('## ', '## C.5 ', 1) + '{.unnumbered #enum}' + NL
-
-                if line.rstrip() == '## URI Length':
+                elif line.rstrip() == '## URI Length':
                     line = line.rstrip().replace('## ', '## C.6 ', 1) + '{.unnumbered #uri-length}' + NL
-
-                if line.rstrip() == '## UUID Length':
+                elif line.rstrip() == '## UUID Length':
                     line = line.rstrip().replace('## ', '## C.7 ', 1) + '{.unnumbered #uuid-length}' + NL
 
-
-                if 'uuid-length' == label:
-                    print(xline)
-                    print('FOO', SEC_LABEL_TEXT[label])
-                    print('BAR', SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp])
-                    print('BAZ', label)
-                    print('QUUX', line)
-                    print('TAG', tag)
-
                 # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
-                lines[slot] = line
                 cur_lvl = nxt_lvl
                 if not did_appendix_sep and meta_hook and slot < first_meta_slot:  # type: ignore
                     tic_toc.append(TOC_VERTICAL_SPACER)
                     did_appendix_sep = True
                 toc_template = TOC_TEMPLATE[cur_lvl if not meta_hook else app_lvl]
-                tic_toc.append(
-                    toc_template.replace('$sec_cnt_disp$', sec_cnt_disp)
-                    .replace('$text$', text)
-                    .replace('$label$', label)
-                )
                 extended = False
                 if sec_cnt_disp.upper().isupper():
                     extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
                     if extended == 2:
                         extended = sec_cnt_disp.count(DOT) + 1
+                if '{#' in text and label in text:
+                    print(f'{slot=}: Fixed ToC for {line=}')
+                    print(f'{slot=}: --> {list(sec_cnt.values())},{extended=},{sec_cnt_disp=},{text=},{label=}')
+                    text = text.replace('{#' + label + '}', '')
+                tic_toc.append(
+                    toc_template.replace('$sec_cnt_disp$', sec_cnt_disp)
+                    .replace('$text$', text)
+                    .replace('$label$', label)
+                )
+                if line.startswith('#') and '{#' in line:
+                    hack = '{#' + label + '}'
+                    hackhack = f'{hack}{hack}'
+                    if hackhack in line:
+                        line = line.replace(hackhack, hack)
+                        print(f'{slot=}: Fixed {line=} in collector')
+                lines[slot] = line
                 mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
                 current_cs = label  # Update state for label in non tag lines
                 # correct the default state assignment
