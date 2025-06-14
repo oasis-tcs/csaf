@@ -35,6 +35,8 @@
 \usepackage{iftex}
 \usepackage{unicode-math}
 \usepackage{fontspec}
+\usepackage{libertineRoman}
+\usepackage{libertineMono}
 \setmainfont[
     Path = VALUE.SLOT,%%_PATCH_%_FONT_%_PATH_%%
     Extension = VALUE.SLOT,%%_PATCH_%_FONT_%_SUFFIX_%%
