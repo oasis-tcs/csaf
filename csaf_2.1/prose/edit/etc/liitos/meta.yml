@@ -8,8 +8,8 @@ document:
     approvals_name_label: Name
     approvals_role_label: Approvals
     approvals_strategy: south  # one of east or south
-    bold_font: ITCFranklinGothicStd-Demi
-    bold_italic_font: ITCFranklinGothicStd-DemiIt
+    bold_font: LinLibertine_RB
+    bold_italic_font: LinLibertine_RBI
     bookmark_title: CSAF v2.1 CSD01
     bookmatter_path: bookmatter.tex.in
     change_log_author_label: Author
@@ -44,11 +44,11 @@ document:
     header_title: Standards Track Work Product
     header_type: ' '
     issue: ' '
-    italic_font: ITCFranklinGothicStd-BookIt
+    italic_font: LinLibertine_RI
     list_of_figures: '%'  # empty string to enable lof
     list_of_tables: '%'  # empty string to enable lot
     lox_indent: '\hspace*{0.01em}'  # tool default is '\hspace*{0.40\textwidth}' for kind of centering
-    main_font: ITCFranklinGothicStd-Book
+    main_font: LinLibertine_R
     metadata_path: metadata.tex.in
     proprietary_information: ' '
     proprietary_information_adjustable_vertical_space: -1.7em
