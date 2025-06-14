@@ -189,7 +189,7 @@
 \DeclareTOCStyleEntry[numwidth=1.5em,indent=0em]{section}{section}
 \DeclareTOCStyleEntry[numwidth=2.5em,indent=1em]{section}{subsection}
 \DeclareTOCStyleEntry[numwidth=3.5em,indent=3em]{section}{subsubsection}
-\DeclareTOCStyleEntry[numwidth=4.5em,indent=5em]{section}{paragraph}
+\DeclareTOCStyleEntry[numwidth=4.7em,indent=5em]{section}{paragraph}
 \DeclareTOCStyleEntry[numwidth=5.5em,indent=7em]{section}{subparagraph}
 
 % Can we simply upper case TOC entries for level 1 and 2 sections?
