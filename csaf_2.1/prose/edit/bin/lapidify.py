@@ -111,7 +111,11 @@ META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 def load_binder(binder_at: Union[str, pathlib.Path]) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
     with open(binder_at, 'rt', encoding=ENCODING) as resource:
-        return [pathlib.Path(entry.strip()) for entry in resource.readlines() if entry.strip() and entry.strip() != 'frontmatter.md']
+        return [
+            pathlib.Path(entry.strip())
+            for entry in resource.readlines()
+            if entry.strip() and entry.strip() != 'frontmatter.md'
+        ]
 
 
 def end_of_toc_in(text: str) -> bool:
@@ -411,7 +415,7 @@ def main(argv: list[str]) -> int:
                 SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
                 #                    MAYBE_NO_HTML_A_FOR_HEADING #
-                line = tag + text + link_attributes # + ' ' + TOK_SEC.replace('$thing$', label)
+                line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
                 # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WIOLL_YOU_?
 
                 if line.rstrip() == '# Acknowledgments':
@@ -419,7 +423,11 @@ def main(argv: list[str]) -> int:
                 elif line.rstrip() == '# Revision History':
                     line = line.rstrip().replace('# ', '# Appendix B. ', 1) + '{.unnumbered #revision-history}' + NL
                 elif line.rstrip() == '# Guidance on the Size of CSAF Documents':
-                    line = line.rstrip().replace('# ', '# Appendix C. ', 1) + '{.unnumbered #guidance-on-the-size-of-csaf-documents}' + NL
+                    line = (
+                        line.rstrip().replace('# ', '# Appendix C. ', 1)
+                        + '{.unnumbered #guidance-on-the-size-of-csaf-documents}'
+                        + NL
+                    )
                 elif line.rstrip() == '## File Size':
                     line = line.rstrip().replace('## ', '## C.1 ', 1) + '{.unnumbered #file-size}' + NL
                 elif line.rstrip() == '## Array Length':
