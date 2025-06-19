@@ -80,7 +80,7 @@ SEC_NO_TOC_POSTFIX = '{.unnumbered .unlisted}'
 
 SECTION_DISPLAY_TO_LABEL = {}
 SECTION_LABEL_TO_DISPLAY: dict[str, str] = {}
-SEC_LABEL_TEXT = {}  # Mapping section labels to the display text
+SEC_LABEL_TEXT: dict[str, str] = {}  # Mapping section labels to the display text
 
 TOC_TEMPLATE = {
     1: '$sec_cnt_disp$ [$text$](#$label$)  ',
@@ -486,14 +486,14 @@ def main(argv: list[str]) -> int:
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
                 #                    MAYBE_NO_HTML_A_FOR_HEADING #
                 line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
-                # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WIOLL_YOU_?
+                # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WILL_YOU_?
 
                 # Slightly enhanced document content specific hack
                 terse_line = line.rstrip()
                 if terse_line in APPENDIX_HEAD_REMAP:
                     transform = APPENDIX_HEAD_REMAP[terse_line]
                     this, that = transform['replace']
-                    line = terse_line.replace(this, that) + transform['attrs'] + NL
+                    line = terse_line.replace(this, that) + transform['attrs'] + NL  # type: ignore
 
                 # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
                 cur_lvl = nxt_lvl
@@ -503,9 +503,9 @@ def main(argv: list[str]) -> int:
                 toc_template = TOC_TEMPLATE[cur_lvl if not meta_hook else app_lvl]
                 extended = False
                 if sec_cnt_disp.upper().isupper():
-                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
+                    extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1  # type: ignore
                     if extended == 2:
-                        extended = sec_cnt_disp.count(DOT) + 1
+                        extended = sec_cnt_disp.count(DOT) + 1  # type: ignore
                 if '{#' in text and label in text:
                     print(f'{slot=}: Fixed ToC for {line=}')
                     print(f'{slot=}: --> {list(sec_cnt.values())},{extended=},{sec_cnt_disp=},{text=},{label=}')
