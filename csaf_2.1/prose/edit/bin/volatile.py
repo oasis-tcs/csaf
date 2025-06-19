@@ -62,6 +62,9 @@ SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a
 SEC_DISP_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<disp>§[0-9.]+)\)\.')
 SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>§[0-9.]+)\.')  # e.g. ' # See §3.14.14.'
 
+SEC_OVER = '[sec]('
+CIT_OVER = '[cite]('
+
 # Specific tokens:
 HC_BEG = '<!--'
 HC_END = '-->'
@@ -554,6 +557,14 @@ def main(argv: list[str]) -> int:
     # remove any trailing blank line
     while lines[-1] == NL:
         del lines[-1]
+
+    # detect left over citation and section references
+    ref_defects = [(n, r) for n, r in enumerate(lines) if CIT_OVER in r or SEC_OVER in r]
+    if ref_defects:
+        print(f'Found {len(ref_defects)} citation or section reference defects:')
+        for slot, line in ref_defects:
+            print(f'- "{line.strip()}" (slot {slot})')
+        return 1
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
