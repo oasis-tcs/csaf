@@ -1,10 +1,10 @@
 #! /usr/bin/env python
 """Volatile script file for prototyping that may take on different behaviors in time.
 
-This one off script is a constant place to document the early stages of tools for processing the editable
+This one-off script is a constant place to document the early stages of tools for processing the editable
 sources and build the delivery items.
 
-Currently impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
+Currently, impersonating phase zero concatenate and map from the initial sources to the GFM+gh_cosmetics file.
 """
 import json
 import pathlib
