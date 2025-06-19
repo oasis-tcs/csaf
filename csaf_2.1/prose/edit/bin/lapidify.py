@@ -111,6 +111,22 @@ GLOSSARY_SOURCES = ('introduction-02-terminology-glossary.md',)
 # Type declarations:
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 
+APPENDIX_HEAD_REMAP = {
+    '# Acknowledgments': {'replace': ['# ', '# Appendix A. '], 'attrs': '{.unnumbered #acknowledgments}'},
+    '# Revision History': {'replace': ['# ', '# Appendix B. '], 'attrs': '{.unnumbered #revision-history}'},
+    '# Guidance on the Size of CSAF Documents': {
+        'replace': ['# ', '# Appendix C. '],
+        'attrs': '{.unnumbered #guidance-on-the-size-of-csaf-documents}'
+    },
+    '## File Size': {'replace': ['## ', '## C.1 '], 'attrs': '{.unnumbered #file-size}'},
+    '## Array Length': {'replace': ['## ', '## C.2 '], 'attrs': '{.unnumbered #array-length}'},
+    '## String Length': {'replace': ['## ', '## C.3 '], 'attrs': '{.unnumbered #string-length}'},
+    '## Date': {'replace': ['## ', '## C.4 '], 'attrs': '{.unnumbered #date}'},
+    '## Enum': {'replace': ['## ', '## C.5 '], 'attrs': '{.unnumbered #enum}'},
+    '## URI Length': {'replace': ['## ', '## C.6 '], 'attrs': '{.unnumbered #uri-length}'},
+    '## UUID Length': {'replace': ['## ', '## C.7 '], 'attrs': '{.unnumbered #uuid-length}'},
+}
+
 
 def load_binder(binder_at: Union[str, pathlib.Path]) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
@@ -472,30 +488,12 @@ def main(argv: list[str]) -> int:
                 line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
                 # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WIOLL_YOU_?
 
-                if line.rstrip() == '# Acknowledgments':
-                    line = line.rstrip().replace('# ', '# Appendix A. ', 1) + '{.unnumbered #acknowledgments}' + NL
-                elif line.rstrip() == '# Revision History':
-                    line = line.rstrip().replace('# ', '# Appendix B. ', 1) + '{.unnumbered #revision-history}' + NL
-                elif line.rstrip() == '# Guidance on the Size of CSAF Documents':
-                    line = (
-                        line.rstrip().replace('# ', '# Appendix C. ', 1)
-                        + '{.unnumbered #guidance-on-the-size-of-csaf-documents}'
-                        + NL
-                    )
-                elif line.rstrip() == '## File Size':
-                    line = line.rstrip().replace('## ', '## C.1 ', 1) + '{.unnumbered #file-size}' + NL
-                elif line.rstrip() == '## Array Length':
-                    line = line.rstrip().replace('## ', '## C.2 ', 1) + '{.unnumbered #array-length}' + NL
-                elif line.rstrip() == '## String Length':
-                    line = line.rstrip().replace('## ', '## C.3 ', 1) + '{.unnumbered #string-length}' + NL
-                elif line.rstrip() == '## Date':
-                    line = line.rstrip().replace('## ', '## C.4 ', 1) + '{.unnumbered #date}' + NL
-                elif line.rstrip() == '## Enum':
-                    line = line.rstrip().replace('## ', '## C.5 ', 1) + '{.unnumbered #enum}' + NL
-                elif line.rstrip() == '## URI Length':
-                    line = line.rstrip().replace('## ', '## C.6 ', 1) + '{.unnumbered #uri-length}' + NL
-                elif line.rstrip() == '## UUID Length':
-                    line = line.rstrip().replace('## ', '## C.7 ', 1) + '{.unnumbered #uuid-length}' + NL
+                # Slightly enhanced document content specific hack
+                terse_line = line.rstrip()
+                if terse_line in APPENDIX_HEAD_REMAP:
+                    transform = APPENDIX_HEAD_REMAP[terse_line]
+                    this, that = transform['replace']
+                    line = terse_line.replace(this, that) + transform['attrs'] + NL
 
                 # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
                 cur_lvl = nxt_lvl
