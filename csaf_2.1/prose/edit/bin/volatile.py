@@ -48,7 +48,7 @@ CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # [cit
 IS_EG_REF = 'eg'
 EG_REF_DETECT = re.compile(r'\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)')  # [eg](#label) pattern
 IS_SEC_REF = 'sec'
-SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)1-9]+)\)')  # [sec](#label) pattern
+SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)')  # [sec](#label) pattern NOTE: we blocked "1-9" initially too
 MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
 # Detecting code block references with label values
@@ -64,6 +64,7 @@ SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>§[0-9.]+)\.')  # e.
 
 SEC_OVER = '[sec]('
 CIT_OVER = '[cite]('
+CIT_TOO_DIRECT = '[cite](http'
 
 # Specific tokens:
 HC_BEG = '<!--'
@@ -82,7 +83,7 @@ CLEAN_MD_START = '# Introduction'
 
 SECTION_DISPLAY_TO_LABEL = {}
 SECTION_LABEL_TO_DISPLAY: dict[str, str] = {}
-SEC_LABEL_TEXT = {}  # Mapping section labels to the display text
+SEC_LABEL_TEXT: dict[str, str] = {}  # Mapping section labels to the display text
 
 TOC_TEMPLATE = {
     1: '$sec_cnt_disp$ [$text$](#$label$)  ',
@@ -215,6 +216,56 @@ def load_eg_global_to_label_lut(path: Union[str, pathlib.Path] = EG_GLOBAL_TO_LA
     """Load the LUT for example global -> labels."""
     with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
         return json.load(handle)
+
+
+def detect_leftovers(records: list[str], marker: str = 'Found') -> list[tuple[int, str]]:
+    """Detect left over citation and section references."""
+    ref_defects = [(n, r) for n, r in enumerate(records) if CIT_OVER in r or SEC_OVER in r]
+    if ref_defects:
+        print(f'{marker} {len(ref_defects)} citation or section reference defects:')
+        for slot, record in ref_defects:
+            print(f'- "{record.strip()}" (slot {slot})')
+            if CIT_TOO_DIRECT in record:
+                print('  ! citation references should use indirect targets (reference section entries) not URLs')
+    return ref_defects
+
+
+def insert_any_citation(record: str) -> str:
+    """Insert citation into citation placeholder or return record unchanged."""
+    if label_in(record):
+        for ref in CITE_REF_DETECT.finditer(record):
+            if ref:
+                # Found citation label in markdown format
+                found = ref.groupdict()
+                trigger_text = found['text']
+                if trigger_text != IS_CITE_REF:
+                    raise RuntimeError(f'false positive cite ref in ({record.rstrip(NL)})')
+                label = found['label']
+                text = label.replace(';', ':')
+                sem_ref = f'[cite](#{label})'
+                evil_ref = f'\\[[{text}](#{label})\\]'  # \[[GFMCMARK](#GFMCMARK)\]
+                record = record.replace(sem_ref, evil_ref)
+    return record
+
+
+def insert_any_section_reference(record: str) -> str:
+    """Insert section reference into section ref placeholder or return record unchanged."""
+    if label_in(record):
+        for ref in SEC_REF_DETECT.finditer(record):
+            if ref:
+                # Found section label in markdown format
+                found = ref.groupdict()
+                trigger_text = found['text']
+                if trigger_text != IS_SEC_REF:
+                    raise RuntimeError(f'false positive sec ref in ({record.rstrip(NL)})')
+                label = found['label']
+                if label not in SEC_LABEL_TEXT:
+                    raise RuntimeError(f'missing register label for sec ref in ({record.rstrip(NL)})')
+                text = SEC_LABEL_TEXT[label]
+                sem_ref = f'[sec](#{label})'
+                evil_ref = f'[{text}](#{label})'  # [GFMCMARK](#GFMCMARK)
+                record = record.replace(sem_ref, evil_ref)
+    return record
 
 
 def main(argv: list[str]) -> int:
@@ -434,20 +485,9 @@ def main(argv: list[str]) -> int:
 
     # Process the text display of citation refs
     for slot, line in enumerate(lines):
-        if label_in(line):
-            for ref in CITE_REF_DETECT.finditer(line):
-                if ref:
-                    # Found citation label in markdown format
-                    found = ref.groupdict()
-                    trigger_text = found['text']
-                    if trigger_text != IS_CITE_REF:
-                        raise RuntimeError(f'false positive cite ref in ({line.rstrip(NL)})')
-                    label = found['label']
-                    text = label.replace(';', ':')
-                    sem_ref = f'[cite](#{label})'
-                    evil_ref = f'\\[[{text}](#{label})\\]'  # \[[GFMCMARK](#GFMCMARK)\]
-                    line = line.replace(sem_ref, evil_ref)
-                    lines[slot] = line
+        completed = insert_any_citation(line)
+        if line != completed:
+            lines[slot] = completed
 
     # Process the text display of example refs
     for slot, line in enumerate(lines):
@@ -499,22 +539,9 @@ def main(argv: list[str]) -> int:
 
     # Process the text display of section refs
     for slot, line in enumerate(lines):
-        if label_in(line):
-            for ref in SEC_REF_DETECT.finditer(line):
-                if ref:
-                    # Found section label in markdown format
-                    found = ref.groupdict()
-                    trigger_text = found['text']
-                    if trigger_text != IS_SEC_REF:
-                        raise RuntimeError(f'false positive sec ref in ({line.rstrip(NL)})')
-                    label = found['label']
-                    if label not in SEC_LABEL_TEXT:
-                        raise RuntimeError(f'missing register label for sec ref in ({line.rstrip(NL)})')
-                    text = SEC_LABEL_TEXT[label]
-                    sem_ref = f'[sec](#{label})'
-                    evil_ref = f'[{text}](#{label})'  # [GFMCMARK](#GFMCMARK)
-                    line = line.replace(sem_ref, evil_ref)
-                    lines[slot] = line
+        completed = insert_any_section_reference(line)
+        if line != completed:
+            lines[slot] = completed
 
     # Process the code blocks for references to map from label to display value
     for slot, line in enumerate(lines):
@@ -559,12 +586,29 @@ def main(argv: list[str]) -> int:
         del lines[-1]
 
     # detect left over citation and section references
-    ref_defects = [(n, r) for n, r in enumerate(lines) if CIT_OVER in r or SEC_OVER in r]
+    ref_defects = detect_leftovers(lines, marker='Found')
     if ref_defects:
-        print(f'Found {len(ref_defects)} citation or section reference defects:')
-        for slot, line in ref_defects:
-            print(f'- "{line.strip()}" (slot {slot})')
-        return 1
+        print(f'+ processing {len(ref_defects)} text lines for citation or section reference insertions ...')
+
+        # Process the text display of citation refs left over in first pass
+        rem_defects = []
+        for slot, record in ref_defects:
+            completed = insert_any_citation(record)
+            if record != completed:
+                lines[slot] = completed
+            else:
+                rem_defects.append((slot, record))
+
+        # Process the text display of section refs left over in first pass
+        for slot, record in rem_defects:
+            completed = insert_any_section_reference(record)
+            if record != completed:
+                lines[slot] = completed
+
+        # detect left over citation and section references again
+        ref_defects = detect_leftovers(lines, marker='Still found')
+        if ref_defects:
+                pass  # return 1
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
