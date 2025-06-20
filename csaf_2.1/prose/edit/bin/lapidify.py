@@ -40,7 +40,9 @@ CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # [cit
 IS_EG_REF = 'eg'
 EG_REF_DETECT = re.compile(r'\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)')  # [eg](#label) pattern
 IS_SEC_REF = 'sec'
-SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)')  # [sec](#label) pattern NOTE: we blocked "1-9" initially too
+SEC_REF_DETECT = re.compile(
+    r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)'
+)  # [sec](#label) pattern NOTE: we blocked "1-9" initially too
 MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
 # Detecting code block references with label values
@@ -50,9 +52,9 @@ SEC_LABEL_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<label>\(#(?P<value>
 SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))\.')
 
 # Reverse detection patterns for documentation purposes
-# e.g. ' # A run object (§3.14).' or ' #  (§3.1.2).'
-SEC_DISP_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<disp>§[0-9.]+)\)\.')
-SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>§[0-9.]+)\.')  # e.g. ' # See §3.14.14.'
+# e.g. ' # A run object (3.14).' or ' #  (3.1.2).'
+SEC_DISP_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<disp>[0-9.]+)\)\.')
+SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>[0-9.]+)\.')  # e.g. ' # See 3.14.14.'
 
 SEC_OVER = '[sec]('
 CIT_OVER = '[cite]('
@@ -116,7 +118,7 @@ APPENDIX_HEAD_REMAP = {
     '# Revision History': {'replace': ['# ', '# Appendix B. '], 'attrs': '{.unnumbered #revision-history}'},
     '# Guidance on the Size of CSAF Documents': {
         'replace': ['# ', '# Appendix C. '],
-        'attrs': '{.unnumbered #guidance-on-the-size-of-csaf-documents}'
+        'attrs': '{.unnumbered #guidance-on-the-size-of-csaf-documents}',
     },
     '## File Size': {'replace': ['## ', '## C.1 '], 'attrs': '{.unnumbered #file-size}'},
     '## Array Length': {'replace': ['## ', '## C.2 '], 'attrs': '{.unnumbered #array-length}'},
@@ -348,7 +350,7 @@ def main(argv: list[str]) -> int:
                     patched.append(line)
             part_lines = [a for a in patched]
 
-        # MAYBE_KEEP_BEAUTY_IN_DEFINITION_LIST_IMPLEMENTQATION_FOR_GLOSSARY
+        # MAYBE_KEEP_BEAUTY_IN_DEFINITION_LIST_IMPLEMENTATION_FOR_GLOSSARY
         if resource.name in GLOSSARY_SOURCES and False:  # TODO: glossary management -> class
             patched = ['<dl>' + NL]
             in_definition = False
@@ -656,7 +658,7 @@ def main(argv: list[str]) -> int:
         # detect left over citation and section references again
         ref_defects = detect_leftovers(lines, marker='Still found')
         if ref_defects:
-                pass  # return 1
+            pass  # return 1
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'pdf.md')

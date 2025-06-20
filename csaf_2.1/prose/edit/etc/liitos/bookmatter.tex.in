@@ -62,19 +62,24 @@ includes:
 \tightlist
 \item
   Aggregator JSON schema:\\
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/aggregator\_json\_schema.json}.\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json}.\\
   Latest stage:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator\_json\_schema.json}.
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}.
 \item
   CSAF JSON schema:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/csaf\_json\_schema.json}.\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json}.\\
   Latest stage:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf\_json\_schema.json}.
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}.
+\item
+  Meta JSON schema:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json}.\\
+  Latest stage:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}.
 \item
   Provider JSON schema:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schemas/provider\_json\_schema.json}.\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json}.\\
   Latest stage:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/provider\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/provider\_json\_schema.json}.
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}.
 \end{itemize}
 
 \paragraph*{Related work:}\label{related-work}
@@ -97,11 +102,13 @@ This specification replaces or supersedes:
 \begin{itemize}
 \tightlist
 \item
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/aggregator\_json\_schema.json}
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}
 \item
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf\_json\_schema.json}
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}
 \item
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/provider\_json\_schema.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/provider\_json\_schema.json}
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}
+\item
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}
 \end{itemize}
 
 \paragraph*{Abstract:}\label{abstract}

@@ -2,21 +2,11 @@
 document:
   common:
     approvals_adjustable_vertical_space: -4.0em
-    approvals_date_and_signature_label: Date and Signature
-    approvals_department_label: Department
-    approvals_department_value: ABC
-    approvals_name_label: Name
-    approvals_role_label: Approvals
     approvals_strategy: south  # one of east or south
     bold_font: LinLibertine_RB
     bold_italic_font: LinLibertine_RBI
     bookmark_title: CSAF v2.1 CSD01
     bookmatter_path: bookmatter.tex.in
-    change_log_author_label: Author
-    change_log_date_label: Date
-    change_log_description_label: Description
-    change_log_issue_label: Iss.
-    change_log_revision_label: Rev.
     change_log_tune_header_sep: 0.1em
     chosen_logo: images/OASISLogo-v3.0.png
     chosen_title_page_logo: images/OASISLogo-v3.0.png
