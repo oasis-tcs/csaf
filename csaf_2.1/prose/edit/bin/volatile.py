@@ -48,7 +48,9 @@ CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # [cit
 IS_EG_REF = 'eg'
 EG_REF_DETECT = re.compile(r'\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)')  # [eg](#label) pattern
 IS_SEC_REF = 'sec'
-SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)')  # [sec](#label) pattern NOTE: we blocked "1-9" initially too
+SEC_REF_DETECT = re.compile(
+    r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)'
+)  # [sec](#label) pattern NOTE: we blocked "1-9" initially too
 MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
 
 # Detecting code block references with label values
@@ -608,7 +610,7 @@ def main(argv: list[str]) -> int:
         # detect left over citation and section references again
         ref_defects = detect_leftovers(lines, marker='Still found')
         if ref_defects:
-                pass  # return 1
+            pass  # return 1
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
