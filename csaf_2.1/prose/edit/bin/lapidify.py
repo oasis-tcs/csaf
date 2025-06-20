@@ -175,7 +175,7 @@ def dump_assembly(text_lines: list[str], to_path: Union[str, pathlib.Path]) -> N
 
 def label_derive_from(text: str) -> str:
     """Transform text to kebab style conventional label assuming no newlines present."""
-    good_nuff = (' ', '.', ',', ';', '?', '!', '_', '(', ')', '[', ']', '{', '}', '<', '>', '\\', '/', '$', ':')
+    good_nuff = (' ', '.', ',', ';', '?', '!', '_', '(', ')', '[', ']', '{', '}', '<', '>', '\\', '/', '$', ':', '+')
     slug = text.strip()
     for bad in good_nuff:
         slug = slug.replace(bad, '-')
