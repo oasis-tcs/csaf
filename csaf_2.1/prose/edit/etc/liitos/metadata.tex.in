@@ -1,0 +1,52 @@
+% Variables from meta data:
+\newcommand{\theMetaTitle}{VALUE.SLOT}%%_PATCH_%_HEADER_%_TITLE_%%
+\newcommand{\theTitleSlug}{VALUE.SLOT}%%_PATCH_%_TITLE_%_SLUG_%%
+\newcommand{\theBoxedTitle}{\textrm{VALUE.SLOT}}%%_PATCH_%_MAIN_%_TITLE_%%
+\newcommand{\theBoxedSubTitle}{\textrm{VALUE.SLOT}}%%_PATCH_%_SUB_%_TITLE_%%
+\newcommand{\theMetaType}{VALUE.SLOT}%%_PATCH_%_TYPE_%%
+\newcommand{\theMetaDocIdLabel}{VALUE.SLOT}%%_PATCH_%_ID_%_LABEL_%%
+\newcommand{\theMetaDocId}{VALUE.SLOT}%%_PATCH_%_ID_%%
+\newcommand{\theMetaIssCode}{VALUE.SLOT}%%_PATCH_%_ISSUE_%%
+\newcommand{\theMetaRevCode}{VALUE.SLOT}%%_PATCH_%_REVISION_%%
+\newcommand{\theMetaDateLabel}{VALUE.SLOT}%%_PATCH_%_DATE_%_LABEL_%%
+\newcommand{\theMetaDate}{VALUE.SLOT}%%_PATCH_%_DATE_%%
+\newcommand{\theMetaPropInfo}{VALUE.SLOT}%%_PATCH_%_FRAME_%_NOTE_%%
+\newcommand{\theMetaPageNumPrefix}{VALUE.SLOT}%%_PATCH_%_FOOT_%_PAGE_%_COUNTER_%_LABEL_%%
+\newcommand{\theChangeLogIssLabel}{VALUE.SLOT}%%_PATCH_%_CHANGELOG_%_ISSUE_%_LABEL_%%
+\newcommand{\theChangeLogRevLabel}{VALUE.SLOT}%%_PATCH_%_CHANGELOG_%_REVISION_%_LABEL_%%
+\newcommand{\theChangeLogDateLabel}{VALUE.SLOT}%%_PATCH_%_CHANGELOG_%_DATE_%_LABEL_%%
+\newcommand{\theChangeLogAuthorLabel}{VALUE.SLOT}%%_PATCH_%_CHANGELOG_%_AUTHOR_%_LABEL_%%
+\newcommand{\theChangeLogDescLabel}{VALUE.SLOT}%%_PATCH_%_CHANGELOG_%_DESCRIPTION_%_LABEL_%%
+\newcommand{\theApprovalsDepartmentLabel}{VALUE.SLOT}%%_PATCH_%_APPROVALS_%_DEPARTMENT_%_LABEL_%%
+\newcommand{\theApprovalsDepartmentValue}{VALUE.SLOT}%%_PATCH_%_APPROVALS_%_DEPARTMENT_%_VALUE_%%
+\newcommand{\theApprovalsRoleLabel}{VALUE.SLOT}%%_PATCH_%_APPROVALS_%_ROLE_%_LABEL_%%
+\newcommand{\theApprovalsNameLabel}{VALUE.SLOT}%%_PATCH_%_APPROVALS_%_NAME_%_LABEL_%%
+\newcommand{\theApprovalsDateAndSignatureLabel}{VALUE.SLOT}%%_PATCH_%_APPROVALS_%_DATE_%_AND_%_SIGNATURE_%_LABEL_%%
+% Combinations exposed to runtime override:
+\newcommand{\theMetaIssRevLabel}{VALUE.SLOT}%%_PATCH_%_ISSUE_%_REVISION_%_COMBINED_%_LABEL_%%
+\newcommand{\theMetaIssRev}{VALUE.SLOT}%%_PATCH_%_ISSUE_%_REVISION_%_COMBINED_%%
+% The blurb:
+\newcommand{\theProprietaryInformation}{VALUE.SLOT}%%_PATCH_%_PROPRIETARY_%_INFORMATION_%_LABEL_%%
+% Vertical adjustable space between subtitle and top of approvals table
+\newcommand{\theApprovalsAdjustableVerticalSpace}{VALUE.SLOT}%%_PATCH_%_APPROVALS_%_ADJUSTABLE_%_VERTICAL_%_SPACE_%%
+% Vertical adjustable space between changes table and top of blurb
+\newcommand{\theBlurbAdjustableVerticalSpace}{VALUE.SLOT}%%_PATCH_%_BLURB_%_ADJUSTABLE_%_VERTICAL_%_SPACE_%%
+% Vertical adjustable space tuning between blurb heading and blurb itself
+\newcommand{\theTuneBlurbHeaderSep}{VALUE.SLOT}%%_PATCH_%_BLURB_%_TUNE_%_HEADER_%_SEP_%%
+% Vertical adjustable space tuning between changes heading and table
+\newcommand{\theTuneChangesHeaderSep}{VALUE.SLOT}%%_PATCH_%_CHANGE_%_LOG_%_TUNE_%_HEADER_%_SEP_%%
+% set stretch (old fixed value was 1.2) impacts paragraphs and tables mainly
+\newcommand{\theStretch}{VALUE.SLOT}%%_PATCH_%_STRETCH_%%
+% center the lists of something headings was previously indent zero (i.e. left aligned)
+\newcommand{\theLOXIndent}{VALUE.SLOT}%%_PATCH_%_LOX_INDENT_%%
+
+% PDF Metadata:
+%\hypersetup{%
+%  pdfinfo = {%
+%    Author={VALUE.SLOT},%%_PATCH_%_PDF_%_META_%_AUTHOR_%%
+%    Title={VALUE.SLOT},%%_PATCH_%_PDF_%_META_%_TITLE_%%
+%    Subject={VALUE.SLOT},%%_PATCH_%_PDF_%_META_%_SUBJECT_%%
+%    Keywords={VALUE.SLOT},%%_PATCH_%_PDF_%_META_%_KEYWORDS_%%
+%    Producer={VALUE.SLOT},%%_PATCH_%_PDF_%_META_%_PRODUCER_%%
+%    Creator={VALUE.SLOT}}}%%_PATCH_%_PDF_%_META_%_CREATOR_%%
+
