@@ -12,6 +12,13 @@ build_pdf = $(build_root)render/pdf/
 liitos_templates = etc/liitos/
 optimize_pdf = qpdf --linearize --replace-input
 
+target_gfm_plus = gfm+vendor_hacks
+target_pdf = pdf
+
+out_html = ../share/csaf-v2.1-draft.html
+out_gfm_plus = ../share/csaf-v2.1-draft.md
+out_pdf = ../share/csaf-v2.1-draft.pdf
+
 .PHONY: all
 all: lint types build
 
@@ -49,9 +56,9 @@ render: render-html
 .PHONY: render-markdown
 render-markdown: inversions
 	bin/volatile.py && \
-	  cp -a build/tmp.md ../share/csaf-v2.1-draft.md && \
+	  cp -a build/tmp.md $(out_gfm_plus) && \
 	  printf "Rendered user facing delivery item in markdown format:\n" && \
-	  ls -l ../share/csaf-v2.1-draft.md
+	  ls -l $(out_gfm_plus)
 
 .PHONY: render-html
 render-html: render-markdown
@@ -61,16 +68,16 @@ render-html: render-markdown
 		--css style/base.css --css style/skin.css --standalone -o build/tmp.html && \
 	  bin/toccata.py && \
 	  timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
-		sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > ../share/csaf-v2.1-draft.html && \
+		sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > $(out_html) && \
 	  printf "Rendered user facing delivery item in html format:\n" && \
-	  ls -l ../share/csaf-v2.1-draft.html
+	  ls -l $(out_html)
 
 .PHONY: render-pdf
 render-pdf:
 	command -v liitos >/dev/null 2>&1 || { echo >&2 "make render-pdf requires liitos but it's not installed - you can install per pip install liitos.  Aborting."; exit 1; }
 	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
 	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
-	bin/lapidify.py && \
+	bin/lapidify.py --target $(target_pdf) && \
 		mkdir -p $(build_pdf) && \
 		printf "pdf.md\n" > $(build_root)bind.txt && \
 		mkdir -p $(build_root)/images/ && \
@@ -90,8 +97,8 @@ render-pdf:
 		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
 		cd $(build_pdf) && liitos render ../../ -t csaf -f pdf -p -l "etiketti --config etiketti.yml --enforce"  && \
 		$(optimize_pdf) -- this.pdf && \
-		cp -a this.pdf ../../../../share/csaf-v2.1-draft.pdf && \
-		open ../../../../share/csaf-v2.1-draft.pdf && cd -
+		cp -a this.pdf ../../../$(out_pdf) && \
+		open ../../../$(out_pdf) && cd -
 
 .PHONY: build
 build: render status
@@ -100,6 +107,12 @@ build: render status
 status:
 	printf "Current version control status:\n"; \
 	git status
+
+.PHONY: diff-pdf
+diff-pdf:
+	printf "Current PDF version control diff:\n"; \
+	command -v iconv >/dev/null 2>&1 || { echo >&2 "make diff-pdf requires iconv but it's not installed - you can search the internets on how to install iconf.  Aborting."; exit 1; }
+	git diff -a $(out_pdf) | iconv --from-code=UTF-8 -c
 
 .PHONY: clean
 clean:
