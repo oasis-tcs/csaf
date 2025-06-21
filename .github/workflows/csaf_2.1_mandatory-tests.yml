@@ -22,7 +22,7 @@ jobs:
       run: |
         cd ..
         git clone https://github.com/secvisogram/csaf-validator-lib.git
-        cd csaf-validator-lib && git checkout 196-csaf-2.1 && npm ci --prod
+        cd csaf-validator-lib && npm ci --prod
     - name: Run mandatory tests on examples
       run:  |
         for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/*.json | grep -Ev 'rhsa-2021_5186.json|rhsa-2021_5217|rhsa-2022_0011.json'`
