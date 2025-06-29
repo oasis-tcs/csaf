@@ -1,0 +1,187 @@
+%% first titlepage (book front matter)
+\pdfbookmark[startatroot,bold]{Common Security Advisory Framework Version 2.1 CSD01}{doctitle}
+\pdfbookmark[section]{Frontmatter}{status}
+\mbox{}\vskip -2em
+\includegraphics{\theChosenTitlePageLogo}
+\vskip 1em
+\hrule
+\section*{Common Security Advisory Framework Version
+2.1}\label{common-security-advisory-framework-version-2.1}
+
+\subsection*{Committee Specification Draft
+01}\label{committee-specification-draft-01}
+
+\subsection*{28 May 2025}\label{may-2025}
+
+\paragraph*{This stage:}\label{this-stage}
+
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md}
+(Authoritative)\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf}
+
+\paragraph*{Previous stage:}\label{previous-stage}
+
+N/A
+
+\paragraph*{Latest stage:}\label{latest-stage}
+
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md}
+(Authoritative)\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf}
+
+\paragraph*{Technical Committee:}\label{technical-committee}
+
+\href{https://www.oasis-open.org/committees/csaf/}{OASIS Common Security
+Advisory Framework (CSAF) TC}
+
+\paragraph*{Chair:}\label{chair}
+
+Justin Murphy (justin.murphy@mail.cisa.dhs.gov),
+\href{https://www.cisa.gov}{DHS Cybersecurity and Infrastructure Security Agency} \\
+Omar Santos (osantos@cisco.com),
+\href{https://cisco.com/}{Cisco Systems} \\
+Stefan Hagen (stefan@hagen.link),
+\href{https://stefan-hagen.website/}{Individual}\\
+
+\paragraph*{Editors:}\label{editors}
+
+Stefan Hagen (stefan@hagen.link),
+\href{https://stefan-hagen.website/}{Individual}\\
+Thomas Schmidt (thomas.schmidt@bsi.bund.de),
+\href{https://www.bsi.bund.de/}{Federal Office for Information Security
+(BSI) Germany}
+
+\paragraph*{Additional artifacts:}\label{additional-artifacts}
+
+This prose specification is one component of a Work Product that also
+includes:
+
+\begin{itemize}
+\tightlist
+\item
+  Aggregator JSON schema:\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json}.\\
+  Latest stage:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}.
+\item
+  CSAF JSON schema:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json}.\\
+  Latest stage:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}.
+\item
+  Meta JSON schema:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json}.\\
+  Latest stage:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}.
+\item
+  Provider JSON schema:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json}.\\
+  Latest stage:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}.
+\end{itemize}
+
+\paragraph*{Related work:}\label{related-work}
+
+This specification replaces or supersedes:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Common Security Advisory Framework Version 2.0}. Edited by
+  Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022.
+  OASIS Standard.
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html}{https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html}.
+  Latest stage:
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html}{https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html}.
+\end{itemize}
+
+\paragraph*{Declared JSON namespaces:}\label{declared-json-namespaces}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}
+\item
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}
+\item
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}
+\item
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}
+\end{itemize}
+
+\paragraph*{Abstract:}\label{abstract}
+
+The Common Security Advisory Framework (CSAF) Version 2.1 is the
+definitive reference for the language which supports creation, update,
+and interoperable exchange of security advisories as structured
+information on products, vulnerabilities and the status of impact and
+remediation among interested parties.
+
+\paragraph*{Status:}\label{status}
+
+This document was last revised or approved by the membership of OASIS on
+the above date. The level of approval is also listed above. Check the
+``Latest stage'' location noted above for possible later revisions of
+this document. Any other numbered Versions and other technical work
+produced by the Technical Committee (TC) are listed at
+https://www.oasis-open.org/committees/tc\_home.php?wg\_abbrev=csaf\#technical.
+
+TC members should send comments on this specification to the TC's email
+list. Others should send comments to the TC's public comment list, after
+subscribing to it by following the instructions at the ``Send A
+Comment'' button on the TC's web page at
+https://www.oasis-open.org/committees/csaf/.
+
+This specification is provided under the
+\href{https://www.oasis-open.org/policies-guidelines/ipr/\#Non-Assertion-Mode}{Non-Assertion}
+Mode of the
+\href{https://www.oasis-open.org/policies-guidelines/ipr/}{OASIS IPR
+Policy}, the mode chosen when the Technical Committee was established.
+For information on whether any patents have been disclosed that may be
+essential to implementing this specification, and any offers of patent
+licensing terms, please refer to the Intellectual Property Rights
+section of the TC's web page
+(https://www.oasis-open.org/committees/csaf/ipr.php).
+
+Note that any machine-readable content
+(\href{https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/\#wpComponentsCompLang}{Computer
+Language Definitions}) declared Normative for this Work Product is
+provided in separate plain text files. In the event of a discrepancy
+between any such plain text file and display content in the Work
+Product's prose narrative document(s), the content in the separate plain
+text file prevails.
+
+\paragraph*{Key words:}\label{key-words}
+
+The key words ``MUST'', ``MUST NOT'', ``REQUIRED'', ``SHALL'', ``SHALL
+NOT'', ``SHOULD'', ``SHOULD NOT'', ``RECOMMENDED'', ``NOT RECOMMENDED'',
+``MAY'', and ``OPTIONAL'' in this document are to be interpreted as
+described in BCP 14 {[}\hyperref[RFC2119]{RFC2119}{]} and
+{[}\hyperref[RFC8174]{RFC8174}{]} when, and only when, they appear in
+all capitals, as shown here.
+
+\paragraph*{Citation format:}\label{citation-format}
+
+When referencing this specification the following citation format should
+be used:
+
+\textbf{{[}csaf-v2.1{]}}
+
+\emph{Common Security Advisory Framework Version 2.1}. Edited by Stefan
+Hagen, and Thomas Schmidt. 28 May 2025. OASIS Committee Specification
+Draft 01.
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}.
+Latest stage: \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}.
+
+\paragraph*{Notices}\label{notices-bookmatter}
+
+Copyright 2024. All Rights Reserved.
+
+Distributed under the terms of the OASIS \href{https://www.oasis-open.org/policies-guidelines/ipr/}{IPR Policy}.
+
+The name ``OASIS'' is a trademark of \href{https://www.oasis-open.org/}{OASIS},
+the owner and developer of this specification, and should be used only to refer to the organization and its official outputs.
+
+For complete copyright information please see the full Notices section in an Appendix \hyperref[notices]{below}.

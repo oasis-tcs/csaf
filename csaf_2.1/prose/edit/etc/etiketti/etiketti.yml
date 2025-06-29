@@ -1,0 +1,26 @@
+---
+label:
+  prefix: MSIP_Label_d9272c50-c515-4861-9939-24c65e703a54_
+  site-id: 199bb307-615a-479c-9793-bae9cca4d8d7
+  action-id: a5682b06-8eb6-4865-809e-a16341072c4e
+  approvals-yml-name: approvals.yml
+  metadata-yml-name: metadata.yml
+  bookmatter-tex-name: bookmatter.tex
+  document-tex-name: document.tex
+  driver-tex-name: driver.tex
+  metadata-tex-name: metadata.tex
+  publisher-tex-name: publisher.tex
+  setup-tex-name: setup.tex
+  this-tex-name: this.tex
+  classification: Public
+  creator:
+  - Stefan Hagen and Thomas Schmidt
+  keywords:
+    - Security
+    - Advisory
+    - Product
+    - Vulnerability
+    - CSAF
+  subject: OASIS Common Security Advisory Framework (CSAF) TC
+  title: Common Security Advisory Framework Version 2.1
+
