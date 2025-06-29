@@ -139,7 +139,7 @@ The single valid value for this `enum` is:
 #### Document Property - Distribution
 
 Rules for sharing document (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
-optional properties Sharing Group (`Sharing Group`) and Text (`text`) describes any constraints on how this document might be shared.
+optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
 
 ```
     "distribution": {
