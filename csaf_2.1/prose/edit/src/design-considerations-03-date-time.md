@@ -13,7 +13,7 @@ In accordance with [cite](#RFC3339) and [cite](#ISO8601-1), the following rules 
   > the support for leap seconds.
   > To ensure interoperability, the decision was made to prohibit leap seconds.
 
-Empty timezones MUST NOT be used.
+* Empty timezones MUST NOT be used.
 * The ABNF of RFC 3339, section 5.6 applies.
 
 -------
