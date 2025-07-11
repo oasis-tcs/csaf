@@ -170,7 +170,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 This profile MAY be used to provide information which is related to vulnerabilities and corresponding remediations,
 e.g. when converting CSAF documents from older CSAF versions or a human-readable format.
 It SHOULD NOT be used for newly created documents.
-The profile "Security Advisory" from section [sec]{#profiles-profile-4-security-advisory} SHOULD be used instead.
+The profile "Security Advisory" from section [sec](#profiles-profile-4-security-advisory) SHOULD be used instead.
 
 > The definition of the profile "Deprecated Security Advisory" in CSAF 2.1 matches the definition of profile "Security Advisory" in CSAF 2.0.
 
