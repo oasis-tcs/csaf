@@ -205,9 +205,13 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   * `/vulnerabilities` which lists all vulnerabilities.
   * `/vulnerabilities[]/notes`
+
     > Provides details about the vulnerability.
+
   * `/vulnerabilities[]/product_status`
+
     > Lists each product's status in regard to the vulnerability.
+
 * The value of `/document/category` SHALL be `csaf_deprecated_security_advisory`.
 
 ## Profile 7: Withdrawn
@@ -220,14 +224,18 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * all elements required by the profile "CSAF Base".
   * `/document[]/notes` with exactly one item using the `category` `description`
     describing the original content and the reasons for the withdrawal
+
     > Other items, such as a legal disclaimer, may exist alongside the required one.
 
     The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
-  * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+  * `/document/tracking/revision_history` with at least 2 entries.
+    Any previous items MUST NOT be removed.
+
     > A CSAF document cannot be withdrawn during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
+
 * The value of `/document/category` SHALL be `csaf_withdrawn`.
 * The elements `/product_tree` and `/vulnerabilities` SHALL NOT exist.
 
@@ -242,14 +250,17 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/document[]/notes` with exactly one item using the `category` `description`
+
       > Other items, such as a legal disclaimer, may exist alongside the required one.
 
     The `title` MUST be `Reasoning for Supersession` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
   * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+
     > A CSAF document cannot be superseded during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
+
   * `/document/references` containing at least one item with `category` `external`
     The `summary` MUST start with `Superseding Document` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
