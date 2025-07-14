@@ -83,7 +83,7 @@ _Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen, and Th
 
 ## Notices
 
-Copyright © OASIS Open 2022. All Rights Reserved.
+Copyright © OASIS Open 2025. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
