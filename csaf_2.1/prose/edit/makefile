@@ -34,10 +34,14 @@ types:
 inversions: invert-sections invert-examples
 
 .PHONY: invert-examples
-invert-examples: ; bin/invert_eg_labels.py
+invert-examples:
+	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-examples requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
+	inverso -agm 4321 etc/example-global-to-local.json etc/example-local-to-global.json
 
 .PHONY: invert-sections
-invert-sections: ; bin/invert_sec_labels.py
+invert-sections:
+	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-sections requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
+	inverso -g etc/section-display-to-label.json etc/section-label-to-display.json
 
 .PHONY: render
 render: render-html
