@@ -84,7 +84,7 @@ The `/product_tree` uses a nested structure for `branches`. Along a single path 
 If a product consists of hardware and software, the hardware part MUST be presented as one product in the product tree and the software part as another one.
 To form the overall product, both parts MUST be combined through a relationship.
 
-*Examples 1:*
+*Example 1:*
 
 ```
   "product_tree": {

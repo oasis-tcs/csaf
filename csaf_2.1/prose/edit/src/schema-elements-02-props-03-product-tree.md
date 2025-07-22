@@ -155,7 +155,7 @@ which is referenced as the first element of the relationship.
 Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to
 the Full Product Name element, which is referenced as the second element of the relationship.
 
-*Examples 1:*
+*Example 1:*
 
 ```
   "product_tree": {
