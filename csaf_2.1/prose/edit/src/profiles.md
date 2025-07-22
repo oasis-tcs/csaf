@@ -75,10 +75,14 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+
     > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide
     > any useful information.
+
   * `/document/references` with at least one item which has a `category` of `external`
+
     > The intended use for this field is to refer to one or more documents or websites which provides more details about the incident.
+
 * The value of `/document/category` SHALL be `csaf_security_incident_response`.
 
 ## Profile 3: Informational Advisory
@@ -90,11 +94,15 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/document/notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+
     > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
+
   * `/document/references` with at least one item which has a `category` of `external`
+
     > The intended use for this field is to refer to one or more documents or websites which provide more details about
     > the issue or its remediation (if possible).
     > This could be a hardening guide, a manual, best practices or any other helpful information.
+
 * The value of `/document/category` SHALL be `csaf_informational_advisory`.
 * The element `/vulnerabilities` SHALL NOT exist.
   If there is any information that would reside in the element `/vulnerabilities` the CSAF document SHOULD use another profile,
@@ -113,18 +121,29 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   * `/vulnerabilities` which lists all vulnerabilities.
   * `/vulnerabilities[]/notes`
+
     > Provides details about the vulnerability.
+
   * `/vulnerabilities[]/product_status`
+
     > Lists each product's status in regard to the vulnerability.
+
   * `/vulnerabilities[]/product_status/known_affected`
+
     > Lists affected products in regard to the vulnerability.
+
   * For each product given in `/vulnerabilities[]/product_status/fixed`, the corresponding affected version SHALL be given.
+
     > Corresponding versions are usually in the same `branches` element.
+
 * The value of `/document/category` SHALL be `csaf_security_advisory`.
 * The following elements SHOULD exist:
   * `/vulnerabilities[]/product_status/fixed`
+
     > Lists fixed products in regard to the vulnerability.
+
   * `/vulnerabilities[]/remediations`
+
     > Lists for each affected product in regard to the vulnerability appropriate remediations.
 
 ## Profile 5: VEX
@@ -148,7 +167,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     * `/vulnerabilities[]/cve`
     * `/vulnerabilities[]/ids`
   * `/vulnerabilities[]/notes`
+
     > Provides details about the vulnerability.
+
 * For each item in
   * `/vulnerabilities[]/product_status/known_not_affected` an impact statement SHALL exist as machine readable flag
     in `/vulnerabilities[]/flags` or as human readable justification in `/vulnerabilities[]/threats`.
@@ -157,12 +178,15 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/vulnerabilities[]/product_status/known_affected` additional product specific information SHALL be provided
     in `/vulnerabilities[]/remediations` as an action statement.
     Optional, additional information MAY also be provide through `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats`.
+
     > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
+
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object.
   > However, it MUST be ensured that for each Product ID the required information according to its product status as stated
   > in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an
   > impact statement and all products with the status `known_affected` MUST have additional product specific information
   > regardless of whether that is referenced through the Product ID or a Product Group ID.
+
 * The value of `/document/category` SHALL be `csaf_vex`.
 
 ## Profile 6: Deprecated Security Advisory
@@ -181,9 +205,13 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   * `/vulnerabilities` which lists all vulnerabilities.
   * `/vulnerabilities[]/notes`
+
     > Provides details about the vulnerability.
+
   * `/vulnerabilities[]/product_status`
+
     > Lists each product's status in regard to the vulnerability.
+
 * The value of `/document/category` SHALL be `csaf_deprecated_security_advisory`.
 
 ## Profile 7: Withdrawn
@@ -196,14 +224,18 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * all elements required by the profile "CSAF Base".
   * `/document[]/notes` with exactly one item using the `category` `description`
     describing the original content and the reasons for the withdrawal
+
     > Other items, such as a legal disclaimer, may exist alongside the required one.
 
     The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
-  * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+  * `/document/tracking/revision_history` with at least 2 entries.
+    Any previous items MUST NOT be removed.
+
     > A CSAF document cannot be withdrawn during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
+
 * The value of `/document/category` SHALL be `csaf_withdrawn`.
 * The elements `/product_tree` and `/vulnerabilities` SHALL NOT exist.
 
@@ -218,14 +250,17 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
   * `/document[]/notes` with exactly one item using the `category` `description`
+
       > Other items, such as a legal disclaimer, may exist alongside the required one.
 
     The `title` MUST be `Reasoning for Supersession` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
   * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+
     > A CSAF document cannot be superseded during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `/document/tracking/status` is kept in `draft`.
+
   * `/document/references` containing at least one item with `category` `external`
     The `summary` MUST start with `Superseding Document` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
