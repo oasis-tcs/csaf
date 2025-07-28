@@ -464,10 +464,12 @@ The relevant path for this test is:
 
 ### Usage of Non-Latest SSVC Decision Point Version
 
-For each SSVC decision point given under `selections` with the `namespace` of `ssvc`, it MUST be tested the latest decision point `version` available at the time of the `timestamp` was used.
+For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested the latest decision point
+`version` available at the time of the `timestamp` was used.
 The test SHALL fail if a later `version` was used.
 
-> A list of all valid decision points including their values is available at the [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
+> A list of all valid decision points of registered namespaces including their values is available at the
+> [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
 
 The relevant path for this test is:
 
