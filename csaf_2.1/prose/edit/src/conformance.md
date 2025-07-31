@@ -252,7 +252,7 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY implement an option to suppress this conversion.
 
-  If the CVRF CSAF converter converter is unable to construct a valid object with the information given, the CVRF CSAF converter converter SHALL
+  If the CVRF CSAF converter is unable to construct a valid object with the information given, the CVRF CSAF converter converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
