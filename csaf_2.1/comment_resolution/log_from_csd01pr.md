@@ -14,6 +14,15 @@ The following abbreviations are used:
 | Item # | Date        | Commenter | Description | Date acknowledged | Resolution | Disposition |
 | ------------- | ------------- |  ------------- |  ------------- |  ------------- |  ------------- |  ------------- |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/potential-error-in-test-file) | 2025-06-17 | Dominik Burgdörfer | [Potential error in test file](https://github.com/oasis-tcs/csaf/issues/1060) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/minor-typo) | 2025-06-17 | Art Manion | [Typo in CSDPR01 3.1.11.2 Version Type - Semantic versioning](https://github.com/oasis-tcs/csaf/issues/1066) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling |  |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/discussion-of-csaf-v21-from-an-end-user) | 2025-06-17 | Michael Hoover | [Add remediation `category` priority](https://github.com/oasis-tcs/csaf/issues/1067) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/discussion-of-csaf-v21-from-an-end-user) | 2025-06-17 | Michael Hoover | [Integrate more BOMs](https://github.com/oasis-tcs/csaf/issues/1068) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/consider-disallowing-md5-and-sha1-1083) | 2025-07-02 | Bernhard Reiter | [disallow MD5 and SHA1 to simplify format and tests](https://github.com/oasis-tcs/csaf/issues/1083) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/clarify-how-paths-are-assembled-for-directory-based-distribution-1084) | 2025-07-02 | Bernhard Reiter | [clarify how paths are assembled for directory based distribution](https://github.com/oasis-tcs/csaf/issues/1084) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/inconsistencies-in-section-6153-example-and-unclear-status-dependency-1085) | 2025-07-02 | Benjamin Dorn | [Inconsistencies in Section 6.1.53 – Example and unclear status dependency](https://github.com/oasis-tcs/csaf/issues/1085) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/enforce-one-canonical-url-for-a-pmd-1087) | 2025-07-04 | Bernhard Reiter | [enforce one canonical URL for a PMD](https://github.com/oasis-tcs/csaf/issues/1087) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/specify-how-to-find-an-aggregatorjson-1088) | 2025-07-04 | Bernhard Reiter | [specify how to find an aggregator.json](https://github.com/oasis-tcs/csaf/issues/1088) |  |  |  |
 
 ## Evaluation of Feedback
 
