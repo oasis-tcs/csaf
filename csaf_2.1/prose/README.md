@@ -6,55 +6,39 @@ In the `share` folder there are the user facing delivery items that offer layout
 optimized for online viewing per
 
 - a typical web interface of a version control server (like Codeberg, GitHub, GitLab, or SourceHut) - the Markdown file
-- any typical browser (like Brave, Chrome, Edge, Firefox, or Safari) - the HTML file
+- any typical browser (like Brave, Chrome, Edge, Firefox, Orion, or Safari) - the HTML file
 
 Inside the `edit` folder we build these delivery items from the source files (also in Markdown format, but
 split by concerns, verifiable per syntax, and offering clean structural constructs for definition lists etc.
 instead of the specific idioms mixed in for ease of use in specific reading tools).
 
-The `csaf-v2.1-editor-draft.md` in this folder is an intermediate file and may vanish at any point in time.
+To generate both the Markdown and the HTML user facing delivery items simply call `make` inside the edit folder.
 
-In general, we try to keep this file identical to the `share/csaf-v2.1-draft.md` file.
+Execution of any `make` target / dependency that uses non-standard tools, will verify the tools are available.
+In case essential tools for the task are missing,
+make will abort printing some information on what is missing and how such tool can be installed.
 
-The latter is generated from the source files below `edit/src/` as collected per `edit/etc/bind.txt` through
-the `edit/bin/volatile.py` script (for now).
 
-To generate the Markdown version and the HTML user facing delivery item simply call make inside the edit folder.
+## Typical Editor Tasks
 
-Else you can call the individual commands as described below:
+When changing section labels, positions of sections, or when adding, moving, or deleting examples,
+the mappings have to be updated
 
-```console
-% cd edit
-% python3 bin/invert_sec_labels.py  # derive inverted label map from section numbers to labels JSON
-% python3 bin/invert_eg_labels.py   # derive inverted label map from example global couinter tto labels JSON
-% python3 bin/volatile.py
-% cp -a build/tmp.md ../share/csaf-v2.1-draft.md
-```
+Please only modify two of the four mapping files. The other two will be derived from the former.
 
-The way to the HTML is a three-step process:
+Changes to section mapping:
 
-First calling pandoc (inside the `edit` folder; at least [version `3.1.11.1`](https://github.com/jgm/pandoc/releases)) as:
+1. Edit `etc/section-display-to-label.json` to align with the document
+2. Eventually (when moving sections or renaming the labels) edit `etc/example-global-to-local.json` too.
+3. Execute `make inversions` to derive the coresponding `etc/section-label-to-display.json` and
+   `etc/example-local-to-global.json` files, or directly call `make`.
+   The latter has the `inversions` target as dependency.
 
-```console
-% pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345  --css style/base.css --css style/skin.css  \
-  --standalone -o build/tmp.html \
-  --metadata title="Common Security Advisory Framework Version 2.1"
-```
+Changes only to examples:
 
-Second, swapping the hacked-up table of contents (for Markdown web-rendered views) with a real HTML one,
-and connecting the skin styles to the elements (reading from the `build/tmp.html` file of the previous step):
+1. Edit `etc/example-global-to-local.json` too.
+2. Execute `make invert-examples` to derive the coresponding `etc/example-local-to-global.json` file, or directly call `make`.
+   The latter has the `inversions` target as dependency.
 
-```console
-% bin/toccata.py
-```
-
-Rewrites the `build/tmp.html` pandoc auto-generated HTML file into a more OASIS alike one at `build/injected.html`.
-
-The third step uses tidy-html5 (at least [version `5.8.0`](https://binaries.html-tidy.org/)) to cleanse the file from non-conforming content and formats.
-
-```console
-% tidy -config etc/tidy-config.txt build/injected.html -ashtml | \
-  sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > ../share/csaf-v2.1-draft.html
-```
-
-Note: Currently we still have 24 warnings in the third step, as the generated HTML is not conforming.
+In case the `make` command does detect `inverso` tool needed for the inversions as missing,
+but does not print out the installation hint: `pip install inverso` should do the trick.

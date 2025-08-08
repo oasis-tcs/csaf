@@ -2483,7 +2483,7 @@ Therefore, they are reserved for implementation-specific situations:
 
 A CSAF document with `TLP:CLEAR` SHOULD NOT contain a sharing group value and SHALL NOT contain any other value for the Sharing Group ID than Max UUID (`ffffffff-ffff-ffff-ffff-ffffffffffff`).
 
-If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for CSAF modifier (cf. section [sec](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of `/document/tracking/id` SHALL be applied.
+If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for CSAF modifier (cf. section [9.1.8](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of `/document/tracking/id` SHALL be applied.
 This implies that usually the sharing group ID is used as a prefix to the original `/document/tracking/id`.
 
 Sharing Group Name (`name`) of value type `string` with one or more characters contains a human-readable name for the sharing group.
@@ -10071,10 +10071,10 @@ The following presets are defined through subsections of the test section:
 
 The following presets are defined through conformance targets:
 
-- `schema`: Check against the JSON schema (see section [sec](#conformance-clause-14-csaf-basic-validator))
-- `basic`: `schema` + `mandatory` (see section [sec](#conformance-clause-14-csaf-basic-validator))
-- `extended`: `basic` + `recommended` (see section [sec](#conformance-clause-15-csaf-extended-validator))
-- `full`: `extended` + `informative` (see section [sec](#conformance-clause-16-csaf-full-validator))
+- `schema`: Check against the JSON schema (see section [9.1.14](#conformance-clause-14-csaf-basic-validator))
+- `basic`: `schema` + `mandatory` (see section [9.1.14](#conformance-clause-14-csaf-basic-validator))
+- `extended`: `basic` + `recommended` (see section [9.1.15](#conformance-clause-15-csaf-extended-validator))
+- `full`: `extended` + `informative` (see section [9.1.16](#conformance-clause-16-csaf-full-validator))
 
 As presets are sets, the operator `+` MUST be interpreted as the union operation.
 
@@ -10227,8 +10227,8 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 
 The `maintained_until` and `maintained_from` properties can be used to indicate that the distributions contained in `provider-metadata.json` at
 the given `canonical_url` are only guaranteed to be maintained until or after the specified date and time. 
-This SHOULD be used to support a transition period between CSAF 2.0 and CSAF 2.1 (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
-CSAF downloaders (cf. section [sec](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json` 
+This SHOULD be used to support a transition period between CSAF 2.0 and CSAF 2.1 (cf. section [7.4](#transition-between-csaf-2-0-and-csaf-2-1)).
+CSAF downloaders (cf. section [9.1.23](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json` 
 SHOULD evaluate this property and emit a warning if the current date is less than 90 days away from `maintained_until` and an error if the current 
 date exceeds `maintained_until`.
 The programs MAY provide a non-default option to use the `provider-metadata.json` anyway.
@@ -10271,7 +10271,7 @@ It is possible to advertise more than one `provider-metadata.json` by adding mul
 e.g. in case of changes to the organizational structure through mergers and acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
 A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
-and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
+and provider metadata of both versions are served simultaneously (cf. section [7.4](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
 ### 7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
@@ -10286,7 +10286,7 @@ The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more 
   https://www.example.com/.well-known/csaf/provider-metadata.json
 ```
 
-As specified in [sec](#transition-between-csaf-2-0-and-csaf-2-1), the value of `canonical_url` MAY differ from the URL that was
+As specified in [7.4](#transition-between-csaf-2-0-and-csaf-2-1), the value of `canonical_url` MAY differ from the URL that was
 requested as a part of this requirement.
 Such state is intended and MUST NOT be reported as error.
 
@@ -10340,7 +10340,7 @@ Therefore, it MUST contain the filename as well as the value of `/document/track
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 The `changes.csv` SHALL be a valid comma separated values format as defined by \[[RFC4180](#RFC4180)\] without double quotes.
 
-> Note: As a consequence of section [sec](#requirement-2-filename) Requirement 2 for filenames and section [sec](#requirement-11-one-folder-per-year)
+> Note: As a consequence of section [7.1.2](#requirement-2-filename) Requirement 2 for filenames and section [7.1.11](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
 *Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-201'></a>
@@ -10913,7 +10913,7 @@ Different scenarios can be encountered:
 - Providers will immediately upgrade all documents as well as the `provider-metadata.json` to CSAF 2.1.
   While this benefits the adoption of CSAF 2.1, consumers that still rely on CSAF 2.0 are cut off.
 - Providers will begin a transition period, in which they continue to serve existing documents in CSAF 2.0, gradually updating the existing
-  document base (e.g. by using a CSAF 2.0 to CSAF 2.1 converter as described in [sec](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter))
+  document base (e.g. by using a CSAF 2.0 to CSAF 2.1 converter as described in [9.1.18](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter))
   and publishing new documents using CSAF 2.1.
 
 ### 7.4.1 Announcing the Transition <a id='announcing-the-transition'></a>
@@ -10951,19 +10951,19 @@ The following process SHOULD be followed:
 - At the begin of the transition period, a `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.0/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
-    Redirects SHALL NOT be used (cf. to requirement [sec](#requirement-9-well-known-url-for-provider-metadata-json))
+    Redirects SHALL NOT be used (cf. to requirement [7.1.9](#requirement-9-well-known-url-for-provider-metadata-json))
 - Sometime before the roll-over-date, all existing CSAF 2.0 documents SHOULD be converted to CSAF 2.1.
 - A the roll-over-date, a `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/provider-metadata.json`.
   - The content of the resource SHALL be equal to the resource accessible at `/.well-known/csaf/v2.1/provider-metadata.json`.
   - For file-based distribution servers, this MAY be achieved by using a symlink.
-    Redirects SHALL NOT be used (cf. to requirement [sec](#requirement-9-well-known-url-for-provider-metadata-json))
+    Redirects SHALL NOT be used (cf. to requirement [7.1.9](#requirement-9-well-known-url-for-provider-metadata-json))
 - At the end of the transition period, the URL of the CSAF 2.0 `provider-metadata.json` SHOULD be removed from the `security.txt`.
   - The unmaintained CSAF 2.0 directory structure and files SHOULD be removed or made inaccessible.
   - The CSAF 2.0 documents MAY be archived.
 
-If a DNS path (cf. section [sec](#requirement-10-dns-path)) is used instead of the well-known URL, the same process SHOULD be followed taking the rules below into account:
+If a DNS path (cf. section [7.1.10](#requirement-10-dns-path)) is used instead of the well-known URL, the same process SHOULD be followed taking the rules below into account:
 
-- The leading and authoritative `provider-metadata.json` is always served according to the DNS path requirement (see section [sec](#requirement-10-dns-path)).
+- The leading and authoritative `provider-metadata.json` is always served according to the DNS path requirement (see section [7.1.10](#requirement-10-dns-path)).
   > This implies that a CSAF 2.0 `provider-metadata.json` is served at the beginning and 
   > replaced by the CSAF 2.1 `provider-metadata.json`  at the roll-over-date.
 - It is recommended to use the folders `v2.0` and `v2.1` to differentiate between the CSAF versions.
@@ -10974,7 +10974,7 @@ The following rules apply for the archival of CSAF document from a previous vers
 
 - This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.tar.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
 - The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section
-  [sec](#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [sec](#requirement-18-integrity).
+  [7.1.11](#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [7.1.18](#requirement-18-integrity).
 - The archive MUST be accompanied by a hash of the same algorithm.
 - Existing signatures MAY also be included into the archive.
   It is NOT RECOMMENDED to renew the signatures in the archive unless the archive is updated with new content.
@@ -11886,7 +11886,7 @@ A program satisfies the "CSAF withdrawer" conformance profile if the program:
 * satisfies the "CSAF post-processor" conformance profile.
 * keeps the original `/document/tracking/id`.
 * adds a new item to the revision history stating the revision metadata of the withdrawal.
-* adds the reasoning for withdrawal as specified in section [sec](#profile-7-withdrawn).
+* adds the reasoning for withdrawal as specified in section [4.7](#profile-7-withdrawn).
 * removes the `/product_tree`.
 * removes the `/vulnerabilities`.
 
@@ -11899,8 +11899,8 @@ A program satisfies the "CSAF superseder" conformance profile if the program:
 * satisfies the "CSAF post-processor" conformance profile.
 * keeps the original `/document/tracking/id`.
 * adds a new item to the revision history stating the revision metadata of the supersession.
-* adds the reasoning for supersession as specified in section [sec](#profile-8-superseded).
-* adds the reference to the superseding document as specified in section [sec](#profile-8-superseded).
+* adds the reasoning for supersession as specified in section [4.8](#profile-8-superseded).
+* adds the reference to the superseding document as specified in section [4.8](#profile-8-superseded).
 * removes the `/product_tree`.
 * removes the `/vulnerabilities`.
 
