@@ -100,10 +100,10 @@ render-pdf:
 		cp -a $(liitos_templates)structure.yml $(build_root) && \
 		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
 		cd $(build_pdf) && \
-		max_print_line=10000 liitos render ../../ -t csaf -f pdf -p -l "etiketti --config etiketti.yml --enforce"  && \
+		max_print_line=10000 liitos render ../../ --target csaf --facet pdf --patch-tables --filters ' ' --label "etiketti --config etiketti.yml --enforce"  && \
 		$(optimize_pdf) -- this.pdf && \
 		cp -a this.pdf ../../../$(out_pdf) && \
-		open ../../../$(out_pdf) && cd -
+		open ../../../$(out_pdf); cd -
 
 .PHONY: build
 build: render status
