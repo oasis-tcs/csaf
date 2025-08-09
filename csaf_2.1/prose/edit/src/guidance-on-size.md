@@ -5,18 +5,20 @@ toc:
   label: Guidance on the Size of CSAF Documents
   enumerate: Appendix C.
   children:
-  - label: File size
+  - label: File Size
     enumerate: C.1
-  - label: Array length
+  - label: Array Length
     enumerate: C.2
-  - label: String length
+  - label: String Length
     enumerate: C.3
-  - label: URI length
+  - label: Date
     enumerate: C.4
   - label: Enum
     enumerate: C.5
-  - label: Date
+  - label: URI Length
     enumerate: C.6
+  - label: UUID Length
+    enumerate: C.7
 ---
 -->
 # Guidance on the Size of CSAF Documents

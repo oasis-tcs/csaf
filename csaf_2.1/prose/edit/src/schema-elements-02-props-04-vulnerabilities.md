@@ -303,13 +303,17 @@ The given values reflect the VEX not affected justifications. See [VEX-Justifica
 
 * `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 * `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+
   > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options)
   > the specific code causing the vulnerability is not present in the component.
+
 * `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
   However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
 * `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
   including non-anticipated states of the product.
+
   > Components that are neither used nor executed by the product.
+
 * `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.

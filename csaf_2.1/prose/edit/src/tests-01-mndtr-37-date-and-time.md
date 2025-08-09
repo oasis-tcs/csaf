@@ -1,6 +1,6 @@
 ### Date and Time{#mandatory-tests--date-and-time}
 
-For each item of type `string` and format `date-time` it MUST be tested that it conforms to the rules given in section [sec]{#date-and-time}.
+For each item of type `string` and format `date-time` it MUST be tested that it conforms to the rules given in section [sec](#date-and-time).
 
 The relevant path for this test is:
 
