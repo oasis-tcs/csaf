@@ -112,7 +112,7 @@ Value type is string with format URI (`uri`).
   ],
 ```
 
-The example [eg](#acknowledgments-type-example-eg-1) above SHOULD lead to the following outcome in a human-readable advisory:
+The above SHOULD lead to the following outcome in a human-readable advisory:
 
 > We thank the following parties for their efforts:
 >
