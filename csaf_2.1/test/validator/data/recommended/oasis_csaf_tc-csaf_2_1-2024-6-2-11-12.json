@@ -16,14 +16,14 @@
     "references": [
       {
         "category": "self",
-        "summary": "A canonical URL.",
-        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-2-11-11.json"
+        "summary": "A non-canonical URL.",
+        "url": "https://example.com/.well-known/csaf/v2.1/2024/oasis_csaf_tc-csaf_2_1-2024-6-2-11-12.json"
       }
     ],
-    "title": "Recommended Test: Missing Canonical URL (valid example 1)",
+    "title": "Recommended Test: Missing Canonical URL (valid example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-11-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-11-12",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
