@@ -54,7 +54,7 @@ The following abbreviations are used:
 | [<add-number-here>](https://groups.oasis-open.org/discussion/inconsistencies-in-section-6153-example-and-unclear-status-dependency-1085) | 2025-07-02 | Benjamin Dorn | [Inconsistencies in Section 6.1.53 – Example and unclear status dependency](https://github.com/oasis-tcs/csaf/issues/1085) | 2025-07-18 | [Test 6.1.53](https://github.com/oasis-tcs/csaf/pull/1096) | Completed |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/enforce-one-canonical-url-for-a-pmd-1087) | 2025-07-04 | Bernhard Reiter | [enforce one canonical URL for a PMD](https://github.com/oasis-tcs/csaf/issues/1087) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/specify-how-to-find-an-aggregatorjson-1088) | 2025-07-04 | Bernhard Reiter | [specify how to find an aggregator.json](https://github.com/oasis-tcs/csaf/issues/1088) |  |  |  |
-| [<add-number-here>](??) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Year of Copyright inaccurate](https://github.com/oasis-tcs/csaf/issues/1089) |  |  |  |
+| [<add-number-here>](??) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Year of Copyright inaccurate](https://github.com/oasis-tcs/csaf/issues/1089) | 2025-07-21 | [Copyright Year Update](https://github.com/oasis-tcs/csaf/pull/1100) | Completed |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1086-from-tc-member) | 2025-07-06 | Christoph Plutte | [Add qualitative severity rating to metrics (in case no CVSS available)](https://github.com/oasis-tcs/csaf/issues/1086) |  |  |  |
 
 ## Evaluation of Feedback
