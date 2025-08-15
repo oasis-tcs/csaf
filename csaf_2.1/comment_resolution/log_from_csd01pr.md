@@ -13,6 +13,7 @@ The following abbreviations are used:
 
 | Item # | Date        | Commenter | Description | Date acknowledged | Resolution | Disposition |
 | ------------- | ------------- |  ------------- |  ------------- |  ------------- |  ------------- |  ------------- |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csaf-test-6113-negative-test-case-02) | 2025-06-16 | Michael Lux | [CSAF test 6.1.13 negative test case 02](https://github.com/oasis-tcs/csaf/issues/1057) | 2025-06-16 | [Treated as user question, pointing to purl `type` specification](https://github.com/oasis-tcs/csaf/issues/1057#issuecomment-2976831743) | No change required |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/potential-error-in-test-file) | 2025-06-17 | Dominik Burgdörfer | [Potential error in test file](https://github.com/oasis-tcs/csaf/issues/1060) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/minor-typo) | 2025-06-17 | Art Manion | [Typo in CSDPR01 3.1.11.2 Version Type - Semantic versioning](https://github.com/oasis-tcs/csaf/issues/1066) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling |  |  |  |  |
