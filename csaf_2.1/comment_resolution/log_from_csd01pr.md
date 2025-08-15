@@ -8,16 +8,38 @@ The item number is a hyperlink to the e-mail on the csaf-comment or CSAF TC mail
 
 The following abbreviations are used:
 
-* SH= Stefan Hagen
+* JM = Justin Murphy
+* SH = Stefan Hagen
 * TS = Thomas Schmidt
 
 | Item # | Date        | Commenter | Description | Date acknowledged | Resolution | Disposition |
 | ------------- | ------------- |  ------------- |  ------------- |  ------------- |  ------------- |  ------------- |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1045-from-tc-member) | 2025-06-10 | SH | [The internal links in the PDF TOC do not work](https://github.com/oasis-tcs/csaf/issues/1045) | 2025-06-10 | [The PDF has been replaced by OASIS staff with now working links.](https://github.com/oasis-tcs/csaf/issues/1045#issuecomment-3017036369) | No change by the TC needed. |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1037-from-tc-member) | 2025-06-10 | SH | [The CSD01 has Duplicated Heading Labels Visible in Appendix C](https://github.com/oasis-tcs/csaf/issues/1037) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1036-from-tc-member-thomas-schmidt) | 2025-06-10 | TS (announced by SH) | [3.2.4.10.1: unnecessary line break](https://github.com/oasis-tcs/csaf/issues/1036) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1035-from-tc-member-thomas-schmidt) | 2025-06-10 | TS (announced by SH) | [2.3: Informative comment not displayed correctly](https://github.com/oasis-tcs/csaf/issues/1035) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1034-from-tc-member-thomas-schmidt) | 2025-06-10 | TS (announced by SH) | [HTML: ToC appendix format and numbers](https://github.com/oasis-tcs/csaf/issues/1034) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1046) | 2025-06-11 | JM | [Proposed change for first sentence in 2.1 Construction Principles](https://github.com/oasis-tcs/csaf/issues/1046) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1047) | 2025-06-11 | JM | [Remove unecessary comma under Citation Format](https://github.com/oasis-tcs/csaf/issues/1047) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1048) | 2025-06-11 | JM | [3.1 Definitions, 3.1.1.1 - 3.1.1.5 Acknowledgments Type consistency issues with "example"](https://github.com/oasis-tcs/csaf/issues/1048) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1051) | 2025-06-13 | JM | [Inconsistencies with Title Case](https://github.com/oasis-tcs/csaf/issues/1051) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1052-from-tc-member) | 2025-06-13 | TS | [6.3.13: remove inconsistent limitation](https://github.com/oasis-tcs/csaf/issues/1052) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1053-from-tc-member) | 2025-06-13 | TS | [6.3.12: Clarify relationship CVSS vs. SSVC](https://github.com/oasis-tcs/csaf/issues/1053) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1056-from-tc-member) | 2025-06-16 | JM | [Proposed change to language in 3. Schema Elements](https://github.com/oasis-tcs/csaf/issues/1056) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/csaf-test-6113-negative-test-case-02) | 2025-06-16 | Michael Lux | [CSAF test 6.1.13 negative test case 02](https://github.com/oasis-tcs/csaf/issues/1057) | 2025-06-16 | [Treated as user question, pointing to purl `type` specification](https://github.com/oasis-tcs/csaf/issues/1057#issuecomment-2976831743) | No change required |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1058-from-tc-member) | 2025-06-16 | JM | [Proposed restructuring for 3.1.3.3.4 Full Name Type - Product Identification Helper - purls](https://github.com/oasis-tcs/csaf/issues/1058) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1059-from-tc-member) | 2025-06-16 | JM | [Inconsistencies with use of numerals vs words](https://github.com/oasis-tcs/csaf/issues/1059) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/potential-error-in-test-file) | 2025-06-17 | Dominik Burgdörfer | [Potential error in test file](https://github.com/oasis-tcs/csaf/issues/1060) |  |  |  |
-| [<add-number-here>](https://groups.oasis-open.org/discussion/minor-typo) | 2025-06-17 | Art Manion | [Typo in CSDPR01 3.1.11.2 Version Type - Semantic versioning](https://github.com/oasis-tcs/csaf/issues/1066) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1062-from-tc-member) | 2025-06-17 | JM | [Appendix A. Acknowledgements TC Members lists need updating](https://github.com/oasis-tcs/csaf/issues/1062) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1063-from-tc-member) | 2025-06-17 | JM | [3.2.2.5 Document Property - Distribution - Sharing Group changes](https://github.com/oasis-tcs/csaf/issues/1063) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1061-from-tc-member) | 2025-06-17 | TS | [Informative comments not rendered correctly](https://github.com/oasis-tcs/csaf/issues/1061) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1064-from-tc-member) | 2025-06-17 | TS | [Invalid references](https://github.com/oasis-tcs/csaf/issues/1064) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1065-from-tc-member) | 2025-06-17 | TS | [`sec` instead of section number](https://github.com/oasis-tcs/csaf/issues/1065) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/discussion-of-csaf-v21-from-an-end-user) | 2025-06-17 | Michael Hoover | [Add remediation `category` priority](https://github.com/oasis-tcs/csaf/issues/1067) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/discussion-of-csaf-v21-from-an-end-user) | 2025-06-17 | Michael Hoover | [Integrate more BOMs](https://github.com/oasis-tcs/csaf/issues/1068) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/minor-typo) | 2025-06-17 | Art Manion | [Typo in CSDPR01 3.1.11.2 Version Type - Semantic versioning](https://github.com/oasis-tcs/csaf/issues/1066) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1069-from-tc-member) | 2025-06-17 | TS | [`sec` instead of reference](https://github.com/oasis-tcs/csaf/issues/1069) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feeback-1070) | 2025-06-18 | Nick Leali | [CVSS v4.0 schema updates](https://github.com/oasis-tcs/csaf/issues/1070) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling | [Section 6.2.6 - Contradicting Product Status](https://github.com/oasis-tcs/csaf/issues/1122) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling | [Section 6.1.7 - Multiple Scores with same Version per Product](https://github.com/oasis-tcs/csaf/issues/1123) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling | [Section 6.1.11 - CWE](https://github.com/oasis-tcs/csaf/issues/1124) |  |  |  |
@@ -25,11 +47,13 @@ The following abbreviations are used:
 | [<add-number-here>](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling | [6.1.37 - Date and Time](https://github.com/oasis-tcs/csaf/issues/1126) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling | [Additional Resources](https://github.com/oasis-tcs/csaf/issues/1127) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/increase-test-coverage-for-mandatory-test-6147) | 2025-06-24 |Christopher Hirschenberger | [Increase test coverage for mandatory test 6.1.47](https://github.com/oasis-tcs/csaf/issues/1076) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1077-from-tc-member) | 2025-07-01 | TS | [Add `extensions`](https://github.com/oasis-tcs/csaf/issues/1077) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/consider-disallowing-md5-and-sha1-1083) | 2025-07-02 | Bernhard Reiter | [disallow MD5 and SHA1 to simplify format and tests](https://github.com/oasis-tcs/csaf/issues/1083) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/clarify-how-paths-are-assembled-for-directory-based-distribution-1084) | 2025-07-02 | Bernhard Reiter | [clarify how paths are assembled for directory based distribution](https://github.com/oasis-tcs/csaf/issues/1084) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/inconsistencies-in-section-6153-example-and-unclear-status-dependency-1085) | 2025-07-02 | Benjamin Dorn | [Inconsistencies in Section 6.1.53 – Example and unclear status dependency](https://github.com/oasis-tcs/csaf/issues/1085) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/enforce-one-canonical-url-for-a-pmd-1087) | 2025-07-04 | Bernhard Reiter | [enforce one canonical URL for a PMD](https://github.com/oasis-tcs/csaf/issues/1087) |  |  |  |
 | [<add-number-here>](https://groups.oasis-open.org/discussion/specify-how-to-find-an-aggregatorjson-1088) | 2025-07-04 | Bernhard Reiter | [specify how to find an aggregator.json](https://github.com/oasis-tcs/csaf/issues/1088) |  |  |  |
+| [<add-number-here>](https://groups.oasis-open.org/discussion/csdpr01-feedback-1086-from-tc-member) | 2025-07-06 | Christoph Plutte | [Add qualitative severity rating to metrics (in case no CVSS available)](https://github.com/oasis-tcs/csaf/issues/1086) |  |  |  |
 
 ## Evaluation of Feedback
 
