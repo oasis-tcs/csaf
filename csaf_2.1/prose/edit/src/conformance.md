@@ -840,7 +840,7 @@ A program satisfies the "CSAF downloader" conformance profile if the program:
 
 > A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
 
-### Conformance Clause 24: CSAF withdrawer
+### Conformance Clause 24: CSAF Withdrawer
 
 A program satisfies the "CSAF withdrawer" conformance profile if the program:
 
