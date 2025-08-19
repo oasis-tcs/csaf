@@ -542,7 +542,7 @@ A CSAF basic validator satisfies the "CSAF extended validator" conformance profi
 
 A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
-### Conformance Clause 16: CSAF full validator
+### Conformance Clause 16: CSAF Full Validator
 
 A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
 
