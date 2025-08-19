@@ -5,7 +5,7 @@ The order does not give any hint about the importance.
 Not all requirements have to be fulfilled to conform to this specification - the sets of
 requirements per conformance clause are defined in section [sec](#roles).
 
-### Requirement 1: Valid CSAF document
+### Requirement 1: Valid CSAF Document
 
 The document is a valid CSAF document (cf. Conformance clause 1).
 
