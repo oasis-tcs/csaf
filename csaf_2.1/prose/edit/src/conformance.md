@@ -789,7 +789,7 @@ A library satisfies the "CSAF library" conformance profile if the library:
 
 > The library MAY implement an option to retrieve the keys unsorted.
 
-### Conformance Clause 20: CSAF library with basic validation
+### Conformance Clause 20: CSAF Library with Basic Validation
 
 A CSAF library satisfies the "CSAF library with basic validation" conformance profile if the CSAF library:
 
