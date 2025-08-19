@@ -413,7 +413,7 @@ The resulting modified document:
   It SHOULD NOT use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### Conformance Clause 9: CSAF translator
+### Conformance Clause 9: CSAF Translator
 
 A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
 
