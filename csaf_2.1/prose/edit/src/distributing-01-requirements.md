@@ -181,7 +181,7 @@ to the IP address of a web server which serves directly the `provider-metadata.j
 That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
-### Requirement 11: One folder per year
+### Requirement 11: One Folder per Year
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
