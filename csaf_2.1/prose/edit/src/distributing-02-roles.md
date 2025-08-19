@@ -4,8 +4,8 @@ This subsection groups the requirements from the previous subsection into named 
 This allows end users to request their suppliers to fulfill a certain set of requirements.
 A supplier can use roles for advertising and marketing.
 
-The roles "CSAF publisher", "CSAF provider", and "CSAF trusted provider" are intended directly for issuing parties and form the first group.
-The second group consists of the roles "CSAF lister" and "CSAF aggregator".
+The roles "CSAF Publisher", "CSAF Provider", and "CSAF Trusted Provider" are intended directly for issuing parties and form the first group.
+The second group consists of the roles "CSAF Lister" and "CSAF Aggregator".
 They collect data from the aforementioned issuing parties of the first group and provide them in a single place to aid in automation.
 Parties of the second group can also issue their own advisories.
 However, they MUST follow the rules for the first group for that.
@@ -23,18 +23,18 @@ Therefore, a CSAF aggregator can list that issuing party if it mirrors the files
 
 ### Role: CSAF Publisher
 
-A distributing party satisfies the "CSAF publisher" role if the party:
+A distributing party satisfies the "CSAF Publisher" role if the party:
 
 * satisfies the requirements 1 to 4 in section [sec](#requirements).
 * distributes only CSAF documents on behalf of its own.
 
 ### Role: CSAF Provider
 
-A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the following three groups of requirements:
+A CSAF publisher satisfies the "CSAF Provider" role if the party fulfills the following three groups of requirements:
 
 Firstly, the party:
 
-* satisfies the "CSAF publisher" role profile.
+* satisfies the "CSAF Publisher" role profile.
 * additionally satisfies the requirements 5 to 7, 24 and 25 in section [sec](#requirements).
 
 Secondly, the party:
@@ -50,14 +50,14 @@ Thirdly, the party:
 
 ### Role: CSAF Trusted Provider
 
-A CSAF provider satisfies the "CSAF trusted provider" role if the party:
+A CSAF provider satisfies the "CSAF Trusted Provider" role if the party:
 
-* satisfies the "CSAF provider" role profile.
+* satisfies the "CSAF Provider" role profile.
 * additionally satisfies the requirements 18 to 20 in section [sec](#requirements).
 
 ### Role: CSAF Lister
 
-A distributing party satisfies the "CSAF lister" role if the party:
+A distributing party satisfies the "CSAF Lister" role if the party:
 
 * satisfies the requirements 6, 21, 22, 24 and 25 in section [sec](#requirements).
 * uses the value `lister` for `/aggregator/category`.
@@ -68,7 +68,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 
 ### Role: CSAF Aggregator
 
-A distributing party satisfies the "CSAF aggregator" role if the party:
+A distributing party satisfies the "CSAF Aggregator" role if the party:
 
 * satisfies the requirements 1 to 6 and 21 to 25 in section [sec](#requirements).
 * uses the value `aggregator` for `/aggregator/category`.
@@ -96,7 +96,7 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 > the corresponding item of the CSAF publishers list (`csaf_publishers`) in their `aggregator.json`.
 > To minimize the implementation efforts and process overhead, a CSAF aggregator MAY upload the CSAF documents of a CSAF publisher into
 > an internal instance of a CSAF provider software.
-> Such construct is called "CSAF proxy provider" as it can be mirrored by the CSAF aggregator software.
+> Such construct is called "CSAF Proxy Provider" as it can be mirrored by the CSAF aggregator software.
 > However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself.
 > Otherwise, that would violate the second rule of section [sec](#role-csaf-publisher).
 > Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
