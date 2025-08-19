@@ -853,7 +853,7 @@ A program satisfies the "CSAF withdrawer" conformance profile if the program:
 
 > A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
 
-### Conformance Clause 25: CSAF superseder
+### Conformance Clause 25: CSAF Superseder
 
 A program satisfies the "CSAF superseder" conformance profile if the program:
 
