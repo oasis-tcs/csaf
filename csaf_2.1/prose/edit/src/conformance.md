@@ -802,7 +802,7 @@ A CSAF library satisfies the "CSAF library with basic validation" conformance pr
 A CSAF library does not satisfies the "CSAF library with basic validation" conformance profile if the CSAF library uses an external library or
 program for the "CSAF basic validator" part and does not enforce its presence.
 
-### Conformance Clause 21: CSAF library with extended validation
+### Conformance Clause 21: CSAF Library with Extended Validation
 
 A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
 
