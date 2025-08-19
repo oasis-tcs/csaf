@@ -588,7 +588,7 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
   * matching that CSAF document at all
   * marked with a given status
 
-### Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter
+### Conformance Clause 18: CSAF 2.0 to CSAF 2.1 Converter
 
 A program satisfies the "CSAF 2.0 to CSAF 2.1 converter" conformance profile if the program fulfills the following two groups of requirements:
 
