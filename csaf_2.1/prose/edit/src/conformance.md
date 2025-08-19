@@ -78,7 +78,7 @@ A program satisfies the "CSAF producer" conformance profile if the program:
 * satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
   are designated as applying to CSAF producers.
 
-### Conformance Clause 3: CSAF direct producer
+### Conformance Clause 3: CSAF Direct Producer
 
 An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
 
