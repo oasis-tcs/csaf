@@ -385,7 +385,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### Conformance Clause 7: CSAF post-processor
+### Conformance Clause 7: CSAF Post-Processor
 
 A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
 
