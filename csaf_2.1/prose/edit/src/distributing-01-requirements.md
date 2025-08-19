@@ -170,7 +170,7 @@ As specified in [sec](#transition-between-csaf-2-0-and-csaf-2-1), the value of `
 requested as a part of this requirement.
 Such state is intended and MUST NOT be reported as error.
 
-### Requirement 10: DNS path
+### Requirement 10: DNS Path
 
 Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
 to the IP address of a web server which serves directly the `provider-metadata.json` according to requirement 7.
