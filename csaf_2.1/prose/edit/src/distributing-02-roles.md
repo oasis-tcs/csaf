@@ -66,7 +66,7 @@ A distributing party satisfies the "CSAF lister" role if the party:
 > The purpose of this role is to provide a list of URLs where to find CSAF documents.
 > It is not assumed that the list will be complete.
 
-### Role: CSAF aggregator
+### Role: CSAF Aggregator
 
 A distributing party satisfies the "CSAF aggregator" role if the party:
 
