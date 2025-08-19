@@ -234,7 +234,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 > Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
 
-### Requirement 14: Directory listings
+### Requirement 14: Directory Listings
 
 Server-side generated directory listing SHALL be enabled to support manual navigation.
 
