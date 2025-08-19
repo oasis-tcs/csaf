@@ -55,7 +55,7 @@ A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 * satisfies the "CSAF provider" role profile.
 * additionally satisfies the requirements 18 to 20 in section [sec](#requirements).
 
-### Role: CSAF lister
+### Role: CSAF Lister
 
 A distributing party satisfies the "CSAF lister" role if the party:
 
