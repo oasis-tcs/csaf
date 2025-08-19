@@ -241,7 +241,7 @@ Server-side generated directory listing SHALL be enabled to support manual navig
 > As the content of the directory listing is more or less static, there is little to no benefit in using of client-side scripts.
 > Moreover, client-side scripts, like JavaScript, are usually not evaluated in text-based browsers and are also hard to check programmatically.
 
-### Requirement 15: ROLIE feed
+### Requirement 15: ROLIE Feed
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
