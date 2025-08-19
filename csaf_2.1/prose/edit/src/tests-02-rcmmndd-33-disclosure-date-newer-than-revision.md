@@ -1,4 +1,4 @@
-### Disclosure Date newer than Revision History
+### Disclosure Date Newer than Revision History
 
 For each vulnerability, it MUST be tested that the `disclosure_date` is earlier or equal to the `date` of the newest item of the `revision_history`
 if the `disclosure_date` is in the past at the time of the test execution.
