@@ -97,7 +97,7 @@ A converter satisfies the “CSAF converter” conformance profile if the conver
 * does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
   are intended to be produced only by direct producers.
 
-### Conformance Clause 5: CVRF CSAF converter
+### Conformance Clause 5: CVRF CSAF Converter
 
 A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
 
