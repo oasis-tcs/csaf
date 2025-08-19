@@ -181,7 +181,7 @@ The relevant paths for this test are:
 
 > The length of the hash value is only 32 characters long.
 
-### Use of non-self referencing URLs Failing to Resolve
+### Use of Non-self Referencing URLs Failing to Resolve
 
 For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from
 the 2xx (Successful) or 3xx (Redirection) class.
