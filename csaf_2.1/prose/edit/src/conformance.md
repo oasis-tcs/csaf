@@ -70,7 +70,7 @@ A text file or data stream satisfies the "CSAF document" conformance profile if 
 * conforms to the syntax and semantics defined in section [sec](#additional-conventions).
 * does not fail any mandatory test defined in section [sec](#mandatory-tests).
 
-### Conformance Clause 2: CSAF producer
+### Conformance Clause 2: CSAF Producer
 
 A program satisfies the "CSAF producer" conformance profile if the program:
 
