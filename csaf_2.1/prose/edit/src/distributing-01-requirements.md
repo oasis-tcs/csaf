@@ -424,7 +424,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3)
 to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
-MD5 and SHA1 MUST NOT be used.
+MD5 and SHA1 SHALL NOT be used.
 
 *Example 1:*
 
