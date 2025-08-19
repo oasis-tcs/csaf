@@ -20,7 +20,7 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 
 Official presets are defined in different parts of the standard.
 
-### Presets defined through Test Subsections
+### Presets Defined through Test Subsections
 
 The following presets are defined through subsections of the test section:
 
