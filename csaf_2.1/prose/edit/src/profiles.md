@@ -70,7 +70,7 @@ This MAY also be used to convey information about an incident that is unrelated 
 > Example Company might use a CSAF document satisfying this profile to respond to a security incident at ACME Inc. and
 the implications on its own products and infrastructure.
 
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Incident Response":
 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
