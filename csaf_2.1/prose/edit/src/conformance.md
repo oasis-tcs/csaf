@@ -281,7 +281,7 @@ Secondly, the program fulfills the following for all items of:
     including the products it was changed for.
 * The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
 
-### Conformance Clause 6: CSAF content management system
+### Conformance Clause 6: CSAF Content Management System
 
 A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
 
