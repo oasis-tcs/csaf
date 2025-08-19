@@ -483,7 +483,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 > Guidance on OpenPGP key strength can be retrieved from technical guidelines of competent authorities.
 
-### Requirement 21: List of CSAF providers
+### Requirement 21: List of CSAF Providers
 
 The file `aggregator.json` MUST be present and valid according to the
 JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
