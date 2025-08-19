@@ -39,7 +39,7 @@ The following abbreviations are used:
 | [23](https://groups.oasis-open.org/discussion/discussion-of-csaf-v21-from-an-end-user) | 2025-06-17 | Michael Hoover | [Add remediation `category` priority](https://github.com/oasis-tcs/csaf/issues/1067) |  |  |  |
 | [24](https://groups.oasis-open.org/discussion/discussion-of-csaf-v21-from-an-end-user) | 2025-06-17 | Michael Hoover | [Integrate more BOMs](https://github.com/oasis-tcs/csaf/issues/1068) |  |  |  |
 | [25](https://groups.oasis-open.org/discussion/minor-typo) | 2025-06-17 | Art Manion | [Typo in CSDPR01 3.1.11.2 Version Type - Semantic versioning](https://github.com/oasis-tcs/csaf/issues/1066) | 2025-07-18 | [Fix typo in version type semantic versioning](https://github.com/oasis-tcs/csaf/pull/1080) | Completed |
-| [26](https://groups.oasis-open.org/discussion/csdpr01-feedback-1069-from-tc-member) | 2025-06-17 | TS | [`sec` instead of reference](https://github.com/oasis-tcs/csaf/issues/1069) |  |  |  |
+| [26](https://groups.oasis-open.org/discussion/csdpr01-feedback-1069-from-tc-member) | 2025-06-17 | TS | [`cite` instead of reference](https://github.com/oasis-tcs/csaf/issues/1069) |  |  |  |
 | [27](https://groups.oasis-open.org/discussion/csdpr01-feeback-1070) | 2025-06-18 | Nick Leali | [CVSS v4.0 schema updates](https://github.com/oasis-tcs/csaf/issues/1070) |  |  |  |
 | [28](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling | [Section 6.2.6 - Contradicting Product Status](https://github.com/oasis-tcs/csaf/issues/1122) |  |  |  |
 | [29](https://groups.oasis-open.org/discussion/some-typos-and-recommendations-for-readability) | 2025-06-20 | Matthew Stradling | [Section 6.1.7 - Multiple Scores with same Version per Product](https://github.com/oasis-tcs/csaf/issues/1123) |  |  |  |
@@ -54,8 +54,9 @@ The following abbreviations are used:
 | [38](https://groups.oasis-open.org/discussion/inconsistencies-in-section-6153-example-and-unclear-status-dependency-1085) | 2025-07-02 | Benjamin Dorn | [Inconsistencies in Section 6.1.53 – Example and unclear status dependency](https://github.com/oasis-tcs/csaf/issues/1085) | 2025-07-18 | [Test 6.1.53](https://github.com/oasis-tcs/csaf/pull/1096) | Completed |
 | [39](https://groups.oasis-open.org/discussion/enforce-one-canonical-url-for-a-pmd-1087) | 2025-07-04 | Bernhard Reiter | [enforce one canonical URL for a PMD](https://github.com/oasis-tcs/csaf/issues/1087) |  |  |  |
 | [40](https://groups.oasis-open.org/discussion/specify-how-to-find-an-aggregatorjson-1088) | 2025-07-04 | Bernhard Reiter | [specify how to find an aggregator.json](https://github.com/oasis-tcs/csaf/issues/1088) |  |  |  |
-| [41](??) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Year of Copyright inaccurate](https://github.com/oasis-tcs/csaf/issues/1089) | 2025-07-21 | [Copyright Year Update](https://github.com/oasis-tcs/csaf/pull/1100) | Completed |
-| [42](https://groups.oasis-open.org/discussion/csdpr01-feedback-1086-from-tc-member) | 2025-07-06 | Christoph Plutte | [Add qualitative severity rating to metrics (in case no CVSS available)](https://github.com/oasis-tcs/csaf/issues/1086) |  |  |  |
+| [41](https://groups.oasis-open.org/discussion/csdpr01-feedback-1089) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Year of Copyright inaccurate](https://github.com/oasis-tcs/csaf/issues/1089) | 2025-07-21 | [Copyright Year Update](https://github.com/oasis-tcs/csaf/pull/1100) | Completed |
+| [42](https://groups.oasis-open.org/discussion/csdpr01-feedback-1090) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Appendix C layout / numbering issue](https://github.com/oasis-tcs/csaf/issues/1090) |  |  |  |
+| [43](https://groups.oasis-open.org/discussion/csdpr01-feedback-1086-from-tc-member) | 2025-07-06 | Christoph Plutte | [Add qualitative severity rating to metrics (in case no CVSS available)](https://github.com/oasis-tcs/csaf/issues/1086) |  |  |  |
 
 ## Evaluation of Feedback
 
