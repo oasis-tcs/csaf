@@ -53,15 +53,15 @@ The entities ("conformance targets") for which this document defines requirement
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
 * **CSAF 2.0 to CSAF 2.1 Converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
 * **CSAF Library**: A library that implements CSAF data capabilities.
-* **CSAF Library with Basic Validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
-* **CSAF Library with Extended Validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
-* **CSAF Library with Full Validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
+* **CSAF Library with Basic Validation**: A CSAF library that also satisfies the conformance target "CSAF Basic Validator".
+* **CSAF Library with Extended Validation**: A CSAF library that also satisfies the conformance target "CSAF Extended Validator".
+* **CSAF Library with Full Validation**: A CSAF library that also satisfies the conformance target "CSAF Full Validator".
 * **CSAF Withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
 * **CSAF Superseder**: A CSAF post-processor that transforms a given CSAF into a superseded one.
 
 ### Conformance Clause 1: CSAF Document
 
-A text file or data stream satisfies the "CSAF document" conformance profile if it:
+A text file or data stream satisfies the "CSAF Document" conformance profile if it:
 
 * conforms to the syntax and semantics defined in section [sec](#format-validation).
 * conforms to the syntax and semantics defined in section [sec](#date-and-time).
@@ -72,17 +72,17 @@ A text file or data stream satisfies the "CSAF document" conformance profile if 
 
 ### Conformance Clause 2: CSAF Producer
 
-A program satisfies the "CSAF producer" conformance profile if the program:
+A program satisfies the "CSAF Producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the conformance profile "CSAF document".
+* produces output in the CSAF format, according to the conformance profile "CSAF Document".
 * satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
   are designated as applying to CSAF producers.
 
 ### Conformance Clause 3: CSAF Direct Producer
 
-An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
+An analysis tool satisfies the "CSAF Direct Producer" conformance profile if the analysis tool:
 
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to "direct producers" or
   to "analysis tools".
 * does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
@@ -92,7 +92,7 @@ An analysis tool satisfies the "CSAF direct producer" conformance profile if the
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
   are intended to be produced only by direct producers.
@@ -103,7 +103,7 @@ A program satisfies the "CVRF CSAF converter" conformance profile if the program
 
 Firstly, the program:
 
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * takes only CVRF documents as input.
 * outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
   The CVRF CSAF converter converter SHALL ignore that additional property during the conversion.
@@ -283,10 +283,10 @@ Secondly, the program fulfills the following for all items of:
 
 ### Conformance Clause 6: CSAF Content Management System
 
-A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
+A CSAF content management system satisfies the "CSAF Content Management System" conformance profile if the content management system:
 
-* satisfies the "CSAF producer" conformance profile.
-* satisfies the "CSAF viewer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
+* satisfies the "CSAF Viewer" conformance profile.
 * provides at least the following management functions:
 
   * create new CSAF documents
@@ -387,19 +387,19 @@ A CSAF content management system satisfies the "CSAF content management system" 
 
 ### Conformance Clause 7: CSAF Post-Processor
 
-A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
+A CSAF post-processor satisfies the "CSAF Post-Processor" conformance profile if the post-processor:
 
-* satisfies the "CSAF consumer" conformance profile.
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Consumer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to post-processors.
 
 ### Conformance Clause 8: CSAF Modifier
 
-A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
+A program satisfies the "CSAF Modifier" conformance profile if the program fulfills the two following groups of requirements:
 
 The program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
 * does not emit any objects, properties, or values which, according to section [sec](#conformance),
   are intended to be produced only by CSAF translators.
@@ -415,11 +415,11 @@ The resulting modified document:
 
 ### Conformance Clause 9: CSAF Translator
 
-A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
+A program satisfies the "CSAF Translator" conformance profile if the program fulfills the two following groups of requirements:
 
 The program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * translates at least one value.
 * preserves the same semantics and form across translations.
 * satisfies the normative requirements given below and does not add or remove other elements than required below.
@@ -443,7 +443,7 @@ The resulting translated document:
 
 ### Conformance Clause 10: CSAF Consumer
 
-A processor satisfies the "CSAF consumer" conformance profile if the processor:
+A processor satisfies the "CSAF Consumer" conformance profile if the processor:
 
 * reads CSAF documents and interprets them according to the semantics defined in section [sec](#schema-elements) and [sec](#additional-conventions).
 * satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
@@ -451,11 +451,11 @@ A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
 ### Conformance Clause 11: CSAF Viewer
 
-A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
+A viewer satisfies the "CSAF Viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
 The viewer:
 
-* satisfies the "CSAF consumer" conformance profile.
+* satisfies the "CSAF Consumer" conformance profile.
 * satisfies the normative requirements given below.
 
 For each CVSS-Score in `/vulnerabilities[]/metrics[]` the viewer:
@@ -466,9 +466,9 @@ For each CVSS-Score in `/vulnerabilities[]/metrics[]` the viewer:
 
 ### Conformance Clause 12: CSAF Management System
 
-A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
+A CSAF management system satisfies the "CSAF Management System" conformance profile if the management system:
 
-* satisfies the "CSAF viewer" conformance profile.
+* satisfies the "CSAF Viewer" conformance profile.
 * provides at least the following management functions:
   * add new CSAF documents (e.g. from file system or URL) to the system
   * list all CSAF documents within the system
@@ -486,9 +486,9 @@ A CSAF management system satisfies the "CSAF management system" conformance prof
 
 ### Conformance Clause 13: CSAF Asset Matching System
 
-A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
+A CSAF asset matching system satisfies the "CSAF Asset Matching System" conformance profile if the asset matching system:
 
-* satisfies the "CSAF management system" conformance profile.
+* satisfies the "CSAF Management System" conformance profile.
 * is an asset database or connects to one.
 * matches the CSAF documents within the system to the respective assets.
   This might be done with a probability which gives the end user the chance to broaden or narrow the results.
@@ -520,7 +520,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
 
 ### Conformance Clause 14: CSAF Basic Validator
 
-A program satisfies the "CSAF basic validator" conformance profile if the program:
+A program satisfies the "CSAF Basic Validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
@@ -535,18 +535,18 @@ A CSAF basic validator MAY provide one or more additional functions:
 
 ### Conformance Clause 15: CSAF Extended Validator
 
-A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
+A CSAF basic validator satisfies the "CSAF Extended Validator" conformance profile if the CSAF basic validator:
 
-* satisfies the "CSAF basic validator" conformance profile.
+* satisfies the "CSAF Basic Validator" conformance profile.
 * additionally performs all tests of the preset `recommended` as given in section [sec](#presets-defined-through-test-subsections).
 
 A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
 
 ### Conformance Clause 16: CSAF Full Validator
 
-A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
+A CSAF extended validator satisfies the "CSAF Full Validator" conformance profile if the CSAF extended validator:
 
-* satisfies the "CSAF extended validator" conformance profile.
+* satisfies the "CSAF Extended Validator" conformance profile.
 * additionally performs all tests of the preset `informative` as given in section [sec](#presets-defined-through-test-subsections).
 * provides an option to additionally use a custom dictionary for test [sec](#spell-check).
 
@@ -554,9 +554,9 @@ A CSAF full validator MAY provide an additional function to only run one or more
 
 ### Conformance Clause 17: CSAF SBOM Matching System
 
-A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformance profile if the SBOM matching system:
+A CSAF SBOM matching system satisfies the "CSAF SBOM Matching System" conformance profile if the SBOM matching system:
 
-* satisfies the "CSAF management system" conformance profile.
+* satisfies the "CSAF Management System" conformance profile.
 * is an SBOM database or connects to one.
   > A repository or any other location that can be queried for SBOMs and their content is also considered an SBOM database.
 * matches the CSAF documents within the system to the respective SBOM components.
@@ -590,11 +590,11 @@ A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformanc
 
 ### Conformance Clause 18: CSAF 2.0 to CSAF 2.1 Converter
 
-A program satisfies the "CSAF 2.0 to CSAF 2.1 converter" conformance profile if the program fulfills the following two groups of requirements:
+A program satisfies the "CSAF 2.0 to CSAF 2.1 Converter" conformance profile if the program fulfills the following two groups of requirements:
 
 Firstly, the program:
 
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * takes only CSAF 2.0 documents as input.
 * outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
   The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
@@ -757,7 +757,7 @@ Secondly, the program fulfills the following for all items of:
 
 ### Conformance Clause 19: CSAF Library
 
-A library satisfies the "CSAF library" conformance profile if the library:
+A library satisfies the "CSAF Library" conformance profile if the library:
 
 * implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#date-and-time), [sec](#schema-elements),
   [sec](#profiles) and [sec](#additional-conventions).
@@ -791,46 +791,46 @@ A library satisfies the "CSAF library" conformance profile if the library:
 
 ### Conformance Clause 20: CSAF Library with Basic Validation
 
-A CSAF library satisfies the "CSAF library with basic validation" conformance profile if the CSAF library:
+A CSAF library satisfies the "CSAF Library with Basic Validation" conformance profile if the CSAF library:
 
-* satisfies the "CSAF library" conformance profile.
-* satisfies the "CSAF basic validator" conformance profile.
-* validates the CSAF document before output according to the "CSAF basic validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF basic validator" and presents the validation
+* satisfies the "CSAF Library" conformance profile.
+* satisfies the "CSAF Basic Validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF Basic Validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF Basic Validator" and presents the validation
   result accordingly.
 
-A CSAF library does not satisfies the "CSAF library with basic validation" conformance profile if the CSAF library uses an external library or
-program for the "CSAF basic validator" part and does not enforce its presence.
+A CSAF library does not satisfies the "CSAF Library with Basic Validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF Basic Validator" part and does not enforce its presence.
 
 ### Conformance Clause 21: CSAF Library with Extended Validation
 
-A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+A CSAF library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF library:
 
-* satisfies the "CSAF library" conformance profile.
-* satisfies the "CSAF extended validator" conformance profile.
-* validates the CSAF document before output according to the "CSAF extended validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF extended validator" and presents the validation
+* satisfies the "CSAF Library" conformance profile.
+* satisfies the "CSAF Extended Validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF Extended Validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF Extended Validator" and presents the validation
   result accordingly.
 
-A CSAF library does not satisfies the "CSAF library with extended validation" conformance profile if the CSAF library uses an external library or
-program for the "CSAF extended validator" part and does not enforce its presence.
+A CSAF library does not satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF Extended Validator" part and does not enforce its presence.
 
 ### Conformance Clause 22: CSAF Library with Full Validation
 
-A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+A CSAF library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF library:
 
-* satisfies the "CSAF library" conformance profile.
-* satisfies the "CSAF full validator" conformance profile.
-* validates the CSAF document before output according to the "CSAF full validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF full validator" and presents the validation
+* satisfies the "CSAF Library" conformance profile.
+* satisfies the "CSAF Full Validator" conformance profile.
+* validates the CSAF document before output according to the "CSAF Full Validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF Full Validator" and presents the validation
   result accordingly.
 
-A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
-program for the "CSAF full validator" part and does not enforce its presence.
+A CSAF library does not satisfies the "CSAF Library with Full Validation" conformance profile if the CSAF library uses an external library or
+program for the "CSAF Full Validator" part and does not enforce its presence.
 
 ### Conformance Clause 23: CSAF Downloader
 
-A program satisfies the "CSAF downloader" conformance profile if the program:
+A program satisfies the "CSAF Downloader" conformance profile if the program:
 
 * conforms to the process defined in section [sec](#retrieving-rules) by executing all parts that are applicable to the given role.
 * supports directory-based and ROLIE-based retrieval.
@@ -842,9 +842,9 @@ A program satisfies the "CSAF downloader" conformance profile if the program:
 
 ### Conformance Clause 24: CSAF Withdrawer
 
-A program satisfies the "CSAF withdrawer" conformance profile if the program:
+A program satisfies the "CSAF Withdrawer" conformance profile if the program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * keeps the original `/document/tracking/id`.
 * adds a new item to the revision history stating the revision metadata of the withdrawal.
 * adds the reasoning for withdrawal as specified in section [sec](#profile-7-withdrawn).
@@ -855,9 +855,9 @@ A program satisfies the "CSAF withdrawer" conformance profile if the program:
 
 ### Conformance Clause 25: CSAF Superseder
 
-A program satisfies the "CSAF superseder" conformance profile if the program:
+A program satisfies the "CSAF Superseder" conformance profile if the program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * keeps the original `/document/tracking/id`.
 * adds a new item to the revision history stating the revision metadata of the supersession.
 * adds the reasoning for supersession as specified in section [sec](#profile-8-superseded).
