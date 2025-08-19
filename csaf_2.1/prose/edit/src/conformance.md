@@ -393,7 +393,7 @@ A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if
 * satisfies the "CSAF producer" conformance profile.
 * additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to post-processors.
 
-### Conformance Clause 8: CSAF modifier
+### Conformance Clause 8: CSAF Modifier
 
 A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
 
