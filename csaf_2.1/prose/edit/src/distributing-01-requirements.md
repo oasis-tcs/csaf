@@ -261,10 +261,10 @@ The file `index.txt` SHALL be located in the folder given as directory URL in th
 │  │  ├─ index.txt
 ```
 
-The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `index.txt` files - one for each TLP label.
-The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
-Example \[[eg](#requirement-12-index-txt-eg-1)\] depicts the content of the `index.txt` within the folder `clear`
-located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
+> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `index.txt` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
+> Example \[[eg](#requirement-12-index-txt-eg-1)\] depicts the content of the `index.txt` within the folder `clear`
+> located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
 
 *Example 3:*
 
@@ -316,13 +316,21 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 *Example 1:*
 
 ```
-2023/esa-2023-09953.json,2023-07-01T10:09:07Z
-2021/esa-2021-03676.json,2023-07-01T10:09:01Z
-2022/esa-2022-02723.json,2022-04-17T15:08:41Z
-2021/esa-2021-31916.json,2022-03-01T06:01:00Z
+2024/esa-2024-430524.json,2025-07-21T11:14:37Z
+2025/esa-2025-421324.json,2025-01-10T00:51:10Z
+2024/esa-2024-470520.json,2025-01-01T15:34:54Z
+2023/esa-2023-450116.json,2024-12-01T17:09:02Z
+2024/esa-2024-620109.json,2024-07-30T23:59:29Z
 ```
 
 > Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
+
+The file `changes.csv` SHALL be located in the folder given as directory URL in the `provider-metadata.json`.
+
+> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
+> Example \[[eg](#requirement-13-changes-csv-eg-1)\] depicts the content of the `changes.csv` within the folder `clear`
+> located at `https://www.example.com/.well-known/csaf/clear/changes.csv`.
 
 ### Requirement 14: Directory listings
 
