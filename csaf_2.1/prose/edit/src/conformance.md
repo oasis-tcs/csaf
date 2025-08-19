@@ -464,7 +464,7 @@ For each CVSS-Score in `/vulnerabilities[]/metrics[]` the viewer:
 * SHOULD prefer the item of `metrics[]` for each `product_id` which originates from the document author (and therefore has no property `source`)
   and has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `metrics[]`.
 
-### Conformance Clause 12: CSAF management system
+### Conformance Clause 12: CSAF Management System
 
 A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
 
