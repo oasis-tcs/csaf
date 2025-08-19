@@ -542,7 +542,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
   }
 ```
 
-### Requirement 22: Two disjoint issuing parties
+### Requirement 22: Two Disjoint Issuing Parties
 
 The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers)
 or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
