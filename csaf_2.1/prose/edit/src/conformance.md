@@ -59,7 +59,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
 * **CSAF superseder**: A CSAF post-processor that transforms a given CSAF into a superseded one.
 
-### Conformance Clause 1: CSAF document
+### Conformance Clause 1: CSAF Document
 
 A text file or data stream satisfies the "CSAF document" conformance profile if it:
 
