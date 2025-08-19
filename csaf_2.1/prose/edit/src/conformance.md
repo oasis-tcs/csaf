@@ -88,7 +88,7 @@ An analysis tool satisfies the "CSAF direct producer" conformance profile if the
 * does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
   are intended to be produced only by converters.
 
-### Conformance Clause 4: CSAF converter
+### Conformance Clause 4: CSAF Converter
 
 A converter satisfies the “CSAF converter” conformance profile if the converter:
 
