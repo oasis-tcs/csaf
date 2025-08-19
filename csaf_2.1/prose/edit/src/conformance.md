@@ -518,7 +518,7 @@ A CSAF asset matching system satisfies the "CSAF asset matching system" conforma
   * matching that CSAF document at all
   * marked with a given status
 
-### Conformance Clause 14: CSAF basic validator
+### Conformance Clause 14: CSAF Basic Validator
 
 A program satisfies the "CSAF basic validator" conformance profile if the program:
 
