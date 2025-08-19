@@ -8,7 +8,7 @@ Informative Comments:
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 24 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF Document**, all other 24 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -23,41 +23,41 @@ Informative Comments:
 
 ## Conformance Targets
 
-This document defines requirements for the CSAF file format and for certain software components that interact with it.
+This document defines requirements for the file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
 
-* **CSAF document**: A security advisory text document in the format defined by this document.
-* **CSAF downloader**: A program that retrieves CSAF documents in an automated fashion.
-* **CSAF producer**: A program which emits output in the CSAF format.
-* **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
-* **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
-* **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
-* **CSAF content management system**: A program that is able to create,
+* **CSAF Document**: A security advisory text document in the format defined by this document.
+* **CSAF Downloader**: A program that retrieves CSAF documents in an automated fashion.
+* **CSAF Producer**: A program which emits output in the CSAF format.
+* **CSAF Direct Producer**: An analysis tool which acts as a CSAF producer.
+* **CSAF Converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+* **CVRF CSAF Converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
+* **CSAF Content Management System**: A program that is able to create,
   review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
-* **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document,
+* **CSAF Post-Processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document,
   for example, by removing or redacting elements according to sharing policies.
-* **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties.
+* **CSAF Modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties.
   The output is a valid CSAF document.
-* **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language.
+* **CSAF Translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language.
   The output is a valid CSAF document.
-* **CSAF consumer**: A program that reads and interprets a CSAF document.
-* **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains,
+* **CSAF Consumer**: A program that reads and interprets a CSAF document.
+* **CSAF Viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains,
   and allows an end user to view each result in the context of the artifact in which it occurs.
-* **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
-* **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required
+* **CSAF Management System**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
+* **CSAF Asset Matching System**: A program that connects to or is an asset database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to assets of the asset database.
-* **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF extended validator**: A CSAF basic validator that additionally performs recommended tests.
-* **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
-* **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
+* **CSAF Basic Validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+* **CSAF Extended Validator**: A CSAF basic validator that additionally performs recommended tests.
+* **CSAF Full Validator**: A CSAF extended validator that additionally performs informative tests.
+* **CSAF SBOM Matching System**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
   by CSAF management system as well as matching them to SBOM components of the SBOM database.
-* **CSAF 2.0 to CSAF 2.1 converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
-* **CSAF library**: A library that implements CSAF data capabilities.
-* **CSAF library with basic validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
-* **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
-* **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
-* **CSAF withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
-* **CSAF superseder**: A CSAF post-processor that transforms a given CSAF into a superseded one.
+* **CSAF 2.0 to CSAF 2.1 Converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
+* **CSAF Library**: A library that implements CSAF data capabilities.
+* **CSAF Library with Basic Validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
+* **CSAF Library with Extended Validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
+* **CSAF Library with Full Validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
+* **CSAF Withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
+* **CSAF Superseder**: A CSAF post-processor that transforms a given CSAF into a superseded one.
 
 ### Conformance Clause 1: CSAF Document
 
