@@ -1,0 +1,40 @@
+\input{setup.tex}
+
+\usepackage{xassoccnt}
+\NewTotalDocumentCounter{totalfigures}
+\NewTotalDocumentCounter{totaltables}
+\NewTotalDocumentCounter{appendixchapters}
+\DeclareAssociatedCounters{figure}{totalfigures}
+\DeclareAssociatedCounters{table}{totaltables}
+
+\setkomafont{caption}{\normalsize}
+
+\begin{document}
+\pagenumbering{arabic}% TODO make consistent with numbering scheme
+\include{bookmatter.tex}
+
+\pagestyle{liitos-header-footer}% TODO make consistent with numbering scheme
+\newpage
+\include{publisher.tex}
+
+\newpage
+\renewcommand*\contentsname{\theLOXIndent Table of Contents}
+{
+\setcounter{tocdepth}{VALUE.SLOT}%%_PATCH_%_TOC_%_LEVEL_%%
+\pdfbookmark[section,bold]{Table of Contents}{toc}
+\tableofcontents
+}
+
+\renewcommand*\listfigurename{\theLOXIndent List of Figures}
+VALUE.SLOT\newpage\listoffigures%%_PATCH_%_LOF_%%
+%%DEBUG There are \TotalValue{totalfigures} figures in this document
+
+\renewcommand*\listtablename{\theLOXIndent List of Tables}
+VALUE.SLOT\newpage\listoftables%%_PATCH_%_LOT_%%
+%%DEBUG There are \TotalValue{totaltables} tables in this document
+%%Note: Subtract 2 from value to get real entry count for lot
+
+\newpage
+\include{document.tex}
+
+\end{document}

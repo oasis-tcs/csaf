@@ -7,6 +7,17 @@ linelength = 120
 black = black -S -l $(linelength) --target-version $(pyversion) --quiet bin
 lint = ruff check bin
 types = mypy bin
+build_root = build/
+build_pdf = $(build_root)render/pdf/
+liitos_templates = etc/liitos/
+optimize_pdf = qpdf --linearize --replace-input
+
+target_gfm_plus = gfm+vendor_hacks
+target_pdf = pdf
+
+out_html = ../share/csaf-v2.1-draft.html
+out_gfm_plus = ../share/csaf-v2.1-draft.md
+out_pdf = ../share/csaf-v2.1-draft.pdf
 
 .PHONY: all
 all: lint types build
@@ -34,10 +45,14 @@ types:
 inversions: invert-sections invert-examples
 
 .PHONY: invert-examples
-invert-examples: ; bin/invert_eg_labels.py
+invert-examples:
+	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-examples requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
+	inverso -agm 4321 etc/example-global-to-local.json etc/example-local-to-global.json
 
 .PHONY: invert-sections
-invert-sections: ; bin/invert_sec_labels.py
+invert-sections:
+	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-sections requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
+	inverso -g etc/section-display-to-label.json etc/section-label-to-display.json
 
 .PHONY: render
 render: render-html
@@ -45,9 +60,9 @@ render: render-html
 .PHONY: render-markdown
 render-markdown: inversions
 	bin/volatile.py && \
-	cp -a build/tmp.md ../share/csaf-v2.1-draft.md && \
-	printf "Rendered user facing delivery item in markdown format:\n" && \
-	ls -l ../share/csaf-v2.1-draft.md
+	  cp -a build/tmp.md $(out_gfm_plus) && \
+	  printf "Rendered user facing delivery item in markdown format:\n" && \
+	  ls -l $(out_gfm_plus)
 
 .PHONY: render-html
 render-html: render-markdown
@@ -55,11 +70,40 @@ render-html: render-markdown
 	command -v tidy >/dev/null 2>&1 || { echo >&2 "make render-html requires tidy but it's not installed - you can get help on installing by searching for it on the wild internets.  Aborting."; exit 1; }
 	pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345  \
 		--css style/base.css --css style/skin.css --standalone -o build/tmp.html && \
-	bin/toccata.py && \
-	timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
-		sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > ../share/csaf-v2.1-draft.html && \
-	printf "Rendered user facing delivery item in html format:\n" && \
-	ls -l ../share/csaf-v2.1-draft.html
+	  bin/toccata.py && \
+	  timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
+		sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > $(out_html) && \
+	  printf "Rendered user facing delivery item in html format:\n" && \
+	  ls -l $(out_html)
+
+.PHONY: render-pdf
+render-pdf:
+	command -v liitos >/dev/null 2>&1 || { echo >&2 "make render-pdf requires liitos but it's not installed - you can install per pip install liitos.  Aborting."; exit 1; }
+	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
+	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
+	bin/lapidify.py --target $(target_pdf) && \
+		mkdir -p $(build_pdf) && \
+		printf "pdf.md\n" > $(build_root)bind.txt && \
+		mkdir -p $(build_root)/images/ && \
+		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
+		mkdir -p $(build_pdf)images/ && \
+		cp -a ../media/OASISLogo-v3.0.png $(build_pdf)images/ && \
+		cp -a $(liitos_templates)approvals.yml $(build_root) && \
+		cp -a $(liitos_templates)bookmatter.tex.in $(build_root) && \
+		cp -a $(liitos_templates)changes.yml $(build_root) && \
+		cp -a $(liitos_templates)driver.tex.in $(build_pdf) && \
+		cp -a $(liitos_templates)meta.yml $(build_root) && \
+		cp -a $(liitos_templates)metadata.tex.in $(build_pdf) && \
+		cp -a $(liitos_templates)patch.yml $(build_root) && \
+		cp -a $(liitos_templates)publisher.tex.in $(build_root) && \
+		cp -a $(liitos_templates)setup.tex.in $(build_pdf) && \
+		cp -a $(liitos_templates)structure.yml $(build_root) && \
+		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
+		cd $(build_pdf) && \
+		max_print_line=10000 liitos render ../../ --target csaf --facet pdf --patch-tables --filters ' ' --label "etiketti --config etiketti.yml --enforce"  && \
+		$(optimize_pdf) -- this.pdf && \
+		cp -a this.pdf ../../../$(out_pdf) && \
+		open ../../../$(out_pdf); cd -
 
 .PHONY: build
 build: render status
@@ -68,3 +112,24 @@ build: render status
 status:
 	printf "Current version control status:\n"; \
 	git status
+
+.PHONY: diff-pdf
+diff-pdf:
+	printf "Current PDF version control diff:\n"; \
+	command -v iconv >/dev/null 2>&1 || { echo >&2 "make diff-pdf requires iconv but it's not installed - you can search the internets on how to install iconf.  Aborting."; exit 1; }
+	git diff -a $(out_pdf) | iconv --from-code=UTF-8 -c
+
+.PHONY: clean
+clean:
+	rm -f $(build_root)approvals.yml \
+	  $(build_root)bind.txt \
+	  $(build_root)bookmatter.tex.in \
+	  $(build_root)changes.yml \
+	  $(build_root)driver.tex.in \
+	  $(build_root)meta.yml \
+	  $(build_root)metadata.tex.in \
+	  $(build_root)patch.yml \
+	  $(build_root)publisher.tex.in \
+	  $(build_root)setup.tex.in \
+	  $(build_root)structure.yml
+	rm -fr $(build_root)src/ $(build_pdf)
