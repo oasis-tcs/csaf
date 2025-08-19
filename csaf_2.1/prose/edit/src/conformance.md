@@ -552,7 +552,7 @@ A CSAF extended validator satisfies the "CSAF full validator" conformance profil
 
 A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
 
-### Conformance Clause 17: CSAF SBOM matching system
+### Conformance Clause 17: CSAF SBOM Matching System
 
 A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformance profile if the SBOM matching system:
 
