@@ -228,7 +228,7 @@ The relevant paths for this test are:
 > The `category` is not set and therefore treated as its default value `external`.
 > A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### Use of self referencing URLs Failing to Resolve
+### Use of Self Referencing URLs Failing to Resolve
 
 For each item in an array of type `references_t` with the category `self` it MUST be tested that
 the URL referenced resolves with a HTTP status code less than 400.
