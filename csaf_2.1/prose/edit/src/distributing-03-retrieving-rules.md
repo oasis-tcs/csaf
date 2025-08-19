@@ -1,4 +1,4 @@
-## Retrieving rules
+## Retrieving Rules
 
 The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section [sec](#requirements)) and
 retrieving CSAF documents.
