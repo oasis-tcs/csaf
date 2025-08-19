@@ -356,7 +356,7 @@ The ROLIE service document SHOULD use the filename `service.json` and reside nex
   }
 ```
 
-### Requirement 17: ROLIE category document
+### Requirement 17: ROLIE Category Document
 
 The use and therefore the existence of ROLIE category document is optional.
 If it is used, each ROLIE category document MUST be a JSON file that conforms with [cite](#RFC8322).
