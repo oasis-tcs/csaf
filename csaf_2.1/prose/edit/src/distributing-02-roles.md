@@ -28,7 +28,7 @@ A distributing party satisfies the "CSAF publisher" role if the party:
 * satisfies the requirements 1 to 4 in section [sec](#requirements).
 * distributes only CSAF documents on behalf of its own.
 
-### Role: CSAF provider
+### Role: CSAF Provider
 
 A CSAF publisher satisfies the "CSAF provider" role if the party fulfills the following three groups of requirements:
 
