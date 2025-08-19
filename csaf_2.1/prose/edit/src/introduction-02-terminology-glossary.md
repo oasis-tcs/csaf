@@ -1,269 +1,269 @@
-advisory
+Advisory
 :    reporting item that describes a condition present in an artifact and that requires action by the consumers
 
-advisory document
+Advisory Document
 :    artifact in which an analysis tool reports a result
 
-advisory management system
+Advisory Management System
 :    software system that consumes the documents produced by analysis tools,
 produces advisories that enable engineering and operating organizations to assess the quality of these
 software artifacts at a point in time, and performs functions such as filing security advisories and
 displaying information about individual advisories.
 **Note**: An advisory management system can interact with a document viewer to display information about individual advisories.
 
-advisory matching
+Advisory Matching
 :    process of determining whether two advisories are targeting the same products and conditions
 
-artifact
+Artifact
 :    sequence of bytes addressable via a URI.
 _Examples_: A physical file in a file system such as a source file, an object file, a configuration file or a data file;
 a specific version of a file in a version control system; a database table accessed via an HTTP request;
 an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
-CSAF 2.0 to CSAF 2.1 converter
+CSAF 2.0 to CSAF 2.1 Converter
 :    A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
 
-CSAF asset matching system
+CSAF Asset Matching System
 :    program that connects to or is an asset database and is able to manage CSAF documents as
 required by CSAF management system
 as well as matching them to assets of the asset database.
 
-CSAF basic validator
+CSAF Basic Validator
 :    A program that reads a document and checks it against the JSON schema and performs mandatory tests.
 
-CSAF consumer
+CSAF Consumer
 :    program that reads and interprets a CSAF document
 
-CSAF content management system
+CSAF Content Management System
 :    program that is able to create, review and manage CSAF documents and is able to preview their details as
 required by CSAF viewer.
 
-CSAF converter
+CSAF Converter
 :    CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format
 
-CSAF direct producer
+CSAF Direct Producer
 :    analysis tool which acts as a CSAF producer
 
-CSAF document
+CSAF Document
 :    security advisory text document in the format defined by this document.
 
-CSAF downloader
+CSAF Downloader
 :    A program that retrieves CSAF documents in an automated fashion.
 
-CSAF extended validator
+CSAF Extended Validator
 :    A CSAF basic validator that additionally performs recommended tests.
 
-CSAF full validator
+CSAF Full Validator
 :    A CSAF extended validator that additionally performs informative tests.
 
-CSAF library
+CSAF Library
 :    A library that implements CSAF data capabilities.
 
-CSAF library with basic validation
+CSAF Library with Basic Validation
 :    A CSAF library that also satisfies the conformance target "CSAF basic validator".
 
-CSAF library with extended validation
+CSAF Library with Extended Validation
 :    A CSAF library that also satisfies the conformance target "CSAF extended validator".
 
-CSAF library with full validation
+CSAF Library with Full validation
 :    A CSAF library that also satisfies the conformance target "CSAF full validator".
 
-CSAF management system
+CSAF Management System
 :    program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
 
-CSAF modifier
+CSAF Modifier
 :    CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties.
 The output is a valid CSAF document.
 
-CSAF post-processor
+CSAF Post-Processor
 :    CSAF producer that transforms an existing CSAF document into a new CSAF document,
 for example, by removing or redacting elements according to sharing policies.
 
-CSAF SBOM matching system
+CSAF SBOM Matching System
 :    A program that connects to or is an SBOM database and is able to manage CSAF documents as
 required by CSAF management system as well as matching them to SBOM components of the SBOM database.
 
-CSAF producer
+CSAF Producer
 :    program that emits output in the CSAF format
 
-CSAF superseder
+CSAF Superseder
 :    A CSAF post-processor that transforms a given CSAF into a superseded one.
 
-CSAF translator
+CSAF Translator
 :    CSAF post-processor which takes a CSAF document as input and translates values of properties into another language.
 The output is a valid CSAF document.
 
-CSAF viewer
+CSAF Viewer
 :    CSAF consumer that reads a CSAF document, displays a list of the results it contains,
 and allows an end user to view each result in the context of the artifact in which it occurs.
 
-CSAF withdrawer
+CSAF Withdrawer
 :    A CSAF post-processor that transforms a given CSAF into a withdrawn one.
 
-CVRF CSAF converter
+CVRF CSAF Converter
 :    CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
 
-document
+Document
 :    output file produced by an analysis tool, which enumerates the results produced by the tool
 
-driver
+Driver
 :    tool component containing an analysis tool’s or converter’s primary executable,
 which controls the tool’s or converter’s execution,
 and which in the case of an analysis tool typically defines a set of analysis rules
 
-embedded link
+Embedded Link
 :    syntactic construct which enables a message string to refer to a location mentioned in the document
 
-empty array
+Empty Array
 :    array that contains no elements, and so has a length of 0
 
-empty object
+Empty Object
 :    object that contains no properties
 
-empty string
+Empty String
 :    string that contains no characters, and so has a length of 0
 
-(end) user
+(End) User
 :    person who uses the information in a document to investigate, triage, or resolve results
 
-engineering system
+Engineering System
 :    software analysis environment within which analysis tools execute.
 **Note**: An engineering system might include a build system, a source control system, a result management system,
 a bug tracking system, a test execution system, and so on.
 
-extension
+Extension
 :    tool component other than the driver (for example, a plugin, a configuration file, or a taxonomy)
 
-external property file
+External Property File
 :    file containing the values of one or more externalized properties
 
-externalizable property
+Externalizable Property
 :    property that can be contained in an external property file
 
-externalized property
+Externalized Property
 :    property stored outside of the CSAF document to which it logically belongs
 
-false positive
+False Positive
 :    result which an end user decides does not actually represent a problem
 
-filter
+Filter
 :    refine a list by selecting entries that match given criteria
 
-fingerprint
+Fingerprint
 :    stable value that can be used by a result management system to uniquely identify a result over time,
 even if a relevant artifact is modified
 
-formatted message
+Formatted Message
 :     message string which contains formatting information such as Markdown formatting characters
 
-fully qualified logical name
+Fully Qualified Logical Name
 :    string that fully identifies the programmatic construct specified by a logical location,
 typically by means of a hierarchical identifier.
 
-hierarchical string
+Hierarchical String
 :    string in the format &lt;component>{/&lt;component>}*
 
-line
+Line
 :    contiguous sequence of characters, starting either at the beginning of an artifact or immediately after
 a newline sequence, and ending at and including the nearest subsequent newline sequence, if one is present,
 or else extending to the end of the artifact
 
-line (number)
+Line (Number)
 :    1-based index of a line within a file.
 **Note**: Abbreviated to "line" when there is no danger of ambiguity with "line" in the sense of a sequence of characters.
 
-localizable
+Localizable
 :    subject to being translated from one natural language to another
 
-message string
+Message String
 :    human-readable string that conveys information relevant to an element in a CSAF document
 
-nested artifact
+Nested Artifact
 :    artifact that is contained within another artifact
 
-newline sequence
+Newline Sequence
 :    sequence of one or more characters representing the end of a line of text.
 **Note**: Some systems represent a newline sequence with a single newline character; others represent it as
 a carriage return character followed by a newline character.
 
-notification
+Notification
 :    reporting item that describes a condition encountered by a tool during its execution
 
-opaque
+Opaque
 :    neither human-readable nor machine-parsable into constituent parts
 
-parent (artifact)
+Parent (Artifact)
 :    artifact which contains one or more nested artifacts
 
-plain text message
+Plain Text Message
 :    message string which does not contain any formatting information
 
-plugin
+Plugin
 :    tool component that defines additional rules
 
-policy
+Policy
 :    set of rule configurations that specify how results that
 violate the rules defined by a particular tool component are to be treated
 
-problem
+Problem
 :    result which indicates a condition that has the potential to detract from the quality of the program.
 _Examples_: A security vulnerability, a deviation from contractual or legal requirements.
 
-product
+Product
 :    is any deliverable (e.g. software, hardware, specification, or service) which can be referred to with a name.
 This applies regardless of the origin, the license model, or the mode of distribution of the deliverable.
 
-property
+Property
 :    attribute of an object consisting of a name and a value associated with the name
 
-redactable property
+Redactable Property
 :    property that potentially contains sensitive information that a CSAF direct producer or
 a CSAF post-processor might wish to redact
 
-reporting item
+Reporting Item
 :    unit of output produced by a tool, either a result or a notification
 
-reporting configuration
+Reporting Configuration
 :    the subset of reporting metadata that a tool can configure at runtime, before performing its scan.
 _Examples_: severity level, rank
 
-repository
+Repository
 :    container for a related set of files in a version control system
 
-search
+Search
 :    compile a list of entries that match given criteria
 
-taxonomy
+Taxonomy
 :    classification of analysis results into a set of categories
 
-tag
+Tag
 :    string that conveys additional information about the CSAF document element to which it applies
 
-text artifact
+Text Artifact
 :    artifact considered as a sequence of characters organized into lines and columns
 
-text region
+Text Region
 :    region representing a contiguous range of zero or more characters in a text artifact
 
-tool component
+Tool Component
 :    component of an analysis tool or converter, either its driver or an extension, consisting of one or more files
 
-top-level artifact
+Top-Level Artifact
 :     artifact which is not contained within any other artifact
 
-translation
+Translation
 :    rendering of a tool component's localizable strings into another language
 
-triage
+Triage
 :    decide whether a result indicates a problem that needs to be corrected
 
-user
+User
 :    see end user.
 
 VCS
 :    version control system
 
-vendor
+Vendor
 :    the community, individual, or organization that created or maintains a product
 (including open source software and hardware providers)
 
@@ -271,14 +271,14 @@ VEX
 :    Vulnerability Exploitability eXchange - enables a supplier or other party to assert whether or not
 a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.
 
-viewer
+Viewer
 :     see CSAF viewer.
 
-vulnerability
+Vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy
 (conforming to ISO/IEC 29147 [[ISO29147](#ISO29147)])
 
-white space
+White Space
 :    code point used to improve text readability or token separation as defined in section 12.2 of [cite](#ECMA-262)
 
 XML
