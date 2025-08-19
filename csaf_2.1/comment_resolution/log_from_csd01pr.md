@@ -55,7 +55,7 @@ The following abbreviations are used:
 | [39](https://groups.oasis-open.org/discussion/enforce-one-canonical-url-for-a-pmd-1087) | 2025-07-04 | Bernhard Reiter | [enforce one canonical URL for a PMD](https://github.com/oasis-tcs/csaf/issues/1087) |  |  |  |
 | [40](https://groups.oasis-open.org/discussion/specify-how-to-find-an-aggregatorjson-1088) | 2025-07-04 | Bernhard Reiter | [specify how to find an aggregator.json](https://github.com/oasis-tcs/csaf/issues/1088) |  |  |  |
 | [41](https://groups.oasis-open.org/discussion/csdpr01-feedback-1089) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Year of Copyright inaccurate](https://github.com/oasis-tcs/csaf/issues/1089) | 2025-07-21 | [Copyright Year Update](https://github.com/oasis-tcs/csaf/pull/1100) | Completed |
-| [42](https://groups.oasis-open.org/discussion/csdpr01-feedback-1090) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Appendix C layout / numbering issue](https://github.com/oasis-tcs/csaf/issues/1090) |  |  |  |
+| [42](https://groups.oasis-open.org/discussion/csdpr01-feedback-1090) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Appendix C layout / numbering issue](https://github.com/oasis-tcs/csaf/issues/1090) | 2025-08-20 | Classified as duplicate, fixed through [Fixed Guidance Appendix Metadata](https://github.com/oasis-tcs/csaf/pull/1038) | Completed |
 | [43](https://groups.oasis-open.org/discussion/csdpr01-feedback-1086-from-tc-member) | 2025-07-06 | Christoph Plutte | [Add qualitative severity rating to metrics (in case no CVSS available)](https://github.com/oasis-tcs/csaf/issues/1086) |  |  |  |
 
 ## Evaluation of Feedback
