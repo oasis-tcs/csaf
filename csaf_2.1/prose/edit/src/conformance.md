@@ -533,7 +533,7 @@ A CSAF basic validator MAY provide one or more additional functions:
 * Apply quick fixes as specified in the standard.
 * Apply additional quick fixes as implemented by the vendor.
 
-### Conformance Clause 15: CSAF extended validator
+### Conformance Clause 15: CSAF Extended Validator
 
 A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
 
