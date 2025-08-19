@@ -48,7 +48,7 @@ Thirdly, the party:
 > If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17.
 > If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
 
-### Role: CSAF trusted provider
+### Role: CSAF Trusted Provider
 
 A CSAF provider satisfies the "CSAF trusted provider" role if the party:
 
