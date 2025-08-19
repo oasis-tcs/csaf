@@ -62,7 +62,7 @@ This SHOULD be done if the issuing party is unable or unwilling to use the value
 > This is important to prepare forward compatibility as later versions of CSAF might add new profiles.
 > Therefore, the values which can be used for the profile "CSAF Base" might change.
 
-## Profile 2: Security incident response
+## Profile 2: Security Incident Response
 
 This profile SHOULD be used to provide a response to a security breach or incident.
 This MAY also be used to convey information about an incident that is unrelated to the issuing party's own products or infrastructure.
