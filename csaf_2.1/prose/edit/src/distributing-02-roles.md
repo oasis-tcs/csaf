@@ -21,7 +21,7 @@ The combination of the value `false` in `list_on_CSAF_aggregators` and `true` in
 the issuing party does not want to be listed without having the CSAF documents mirrored.
 Therefore, a CSAF aggregator can list that issuing party if it mirrors the files.
 
-### Role: CSAF publisher
+### Role: CSAF Publisher
 
 A distributing party satisfies the "CSAF publisher" role if the party:
 
