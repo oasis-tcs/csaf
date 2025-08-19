@@ -828,7 +828,7 @@ A CSAF library satisfies the "CSAF library with extended validation" conformance
 A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
 program for the "CSAF full validator" part and does not enforce its presence.
 
-### Conformance Clause 23: CSAF downloader
+### Conformance Clause 23: CSAF Downloader
 
 A program satisfies the "CSAF downloader" conformance profile if the program:
 
