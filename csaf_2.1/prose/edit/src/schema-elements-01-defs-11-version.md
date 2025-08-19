@@ -47,7 +47,7 @@ The following rules apply:
 5. Build metadata is never included in the version.
 6. Precedence MUST be determined by integer comparison.
 
-#### Version Type - Semantic versioning
+#### Version Type - Semantic Versioning
 
 Semantic versioning derived the rules from [SemVer]. The regular expression for this type is:
 
