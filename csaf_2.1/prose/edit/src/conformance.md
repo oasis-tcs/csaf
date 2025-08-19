@@ -441,7 +441,7 @@ The resulting translated document:
 * MAY contain translations for elements in arrays of `references_t` after the first element.
   However, it MUST keep the original URLs as references at the end.
 
-### Conformance Clause 10: CSAF consumer
+### Conformance Clause 10: CSAF Consumer
 
 A processor satisfies the "CSAF consumer" conformance profile if the processor:
 
