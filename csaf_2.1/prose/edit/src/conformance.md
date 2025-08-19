@@ -755,7 +755,7 @@ Secondly, the program fulfills the following for all items of:
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
 > of the rules above MAY be ignored to avoid data loss.
 
-### Conformance Clause 19: CSAF library
+### Conformance Clause 19: CSAF Library
 
 A library satisfies the "CSAF library" conformance profile if the library:
 
