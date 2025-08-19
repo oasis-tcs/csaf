@@ -565,7 +565,7 @@ The relevant path for this test is:
 > The namespace `x_custom` is a private namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
-### Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document
+### Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document
 
 For each SSVC decision point given under `selections`, it MUST be tested the `namespace` does not use an extension
 if the document is not labeled `TLP:CLEAR`.
