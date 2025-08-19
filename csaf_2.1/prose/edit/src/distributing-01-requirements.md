@@ -321,7 +321,7 @@ the array `link` having the `rel` value of `hash`.
 Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link`
 having the `rel` value of `signature`.
 
-### Requirement 16: ROLIE service document
+### Requirement 16: ROLIE Service Document
 
 The use and therefore the existence of ROLIE service document is optional.
 If it is used, each ROLIE service document MUST be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
