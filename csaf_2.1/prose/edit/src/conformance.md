@@ -449,7 +449,7 @@ A processor satisfies the "CSAF consumer" conformance profile if the processor:
 * satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
   [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF consumers.
 
-### Conformance Clause 11: CSAF viewer
+### Conformance Clause 11: CSAF Viewer
 
 A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
