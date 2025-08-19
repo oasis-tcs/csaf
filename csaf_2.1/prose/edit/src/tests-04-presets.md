@@ -28,7 +28,7 @@ The following presets are defined through subsections of the test section:
 - `recommended`: all tests given in section [sec](#recommended-tests)
 - `informative`: all tests given in section [sec](#informative-tests)
 
-### Presets defined through Conformance Targets
+### Presets Defined through Conformance Targets
 
 The following presets are defined through conformance targets:
 
