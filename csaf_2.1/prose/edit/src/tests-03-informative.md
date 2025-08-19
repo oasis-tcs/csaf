@@ -509,7 +509,7 @@ The relevant path for this test is:
 
 > At the timestamp `2024-01-24T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
 
-### Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document
+### Usage of Private SSVC Decision Point Namespace in Non TLP:CLEAR Document
 
 For each SSVC decision point given under `selections`, it MUST be tested the `namespace` is not a private one if the document is not labeled `TLP:CLEAR`.
 
