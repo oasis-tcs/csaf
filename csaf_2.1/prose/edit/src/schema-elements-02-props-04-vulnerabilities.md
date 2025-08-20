@@ -924,7 +924,7 @@ The remaining discouraged combinations are appended at the end of the list:
 10. `fix_planned` & Not Affected
 11. `no_fix_planned` & Not Affected
 
-CSAF Viewer MAY sort the remediation items accordingly.
+CSAF Viewers MAY sort the remediation items accordingly.
 
 ##### Vulnerabilities Property - Remediations - Date
 
