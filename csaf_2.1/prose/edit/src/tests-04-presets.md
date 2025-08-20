@@ -10,8 +10,10 @@ A CSAF validator MUST implement all tests for any supported preset.
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
 - `x_`: for any CSAF validator specific preset.
+
   > Multiple CSAF validators might use the same preset name for different sets of tests.
   > Users are advised to carefully check the documentation of the tools to avoid incorrect assumptions.
+
 - `org_` followed by an organization identifier and an underscore (`_`): for any preset specified by an organization as a part of a public definition
   that can be implemented by different CSAF validators.
   The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-]`.
@@ -45,8 +47,10 @@ Additional presets are defined as follows:
 
 - `external-request-free`:
   - Description: Any test that can be executed without a request into the Internet or a different network.
+
     > This is intended to be used for browser-based tools as external requests may result in CORS issues.
     > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
+
   - Set: `full` excluding tests [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
     and [sec](#use-of-self-referencing-urls-failing-to-resolve)
 - `consistent-revision-history`:

@@ -143,6 +143,7 @@ Secondly, the program fulfills the following for all items of:
       the CVRF CSAF Converter MUST try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     * If the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
       the CVRF CSAF Converter MUST try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
+
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
     > to the profile.
 
@@ -182,6 +183,7 @@ Secondly, the program fulfills the following for all items of:
     `/document/tracking/current_release_date` of the source document.
     If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
     of the source document SHOULD be used.
+
     > This is done to create a deterministic conversion.
 
     If the CWE does not match at all, the CVRF CSAF Converter MUST omit this CWE and output a warning that an invalid CWE was found and has
@@ -247,8 +249,10 @@ Secondly, the program fulfills the following for all items of:
        (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF Converter outputs a warning that this value was taken from the config.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
   the CVRF CSAF Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+
   > A tool MAY implement an option to suppress this conversion.
-   If the CVRF CSAF Converter is unable to construct a valid object with the information given, the CVRF CSAF Converter SHALL
+
+  If the CVRF CSAF Converter is unable to construct a valid object with the information given, the CVRF CSAF Converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
@@ -314,8 +318,10 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
     the configuration (default: 3 weeks)
   * suggest to publish a new version of the CSAF Document with the document status `final` if the document status was
     `interim` and no new release has be done during the given threshold in the configuration (default: 6 weeks)
+
     > Note that the terms "publish", "publication" and their derived forms are used in this conformance profile independent of
       whether the specified target group is the public or a closed group.
+
   * support the following workflows:
 
     * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments;
@@ -432,8 +438,10 @@ The resulting translated document:
   It SHOULD NOT use the original `/document/tracking/id` as a suffix.
   If an issuer uses a CSAF Translator to publish his advisories in multiple languages they MAY use the combination of
   the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
+
   > Note that the term "publish" is used in this conformance profile independent of whether the specified target group is the public
     or a closed group.
+
 * provides the `/document/lang` property with a value matching the language of the translation.
 * provides the `/document/source_lang` to contain the language of the original document (and SHOULD only be set by CSAF Translators).
 * has the value `translator` set in `/document/publisher/category`
@@ -511,8 +519,10 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
     * when a new CSAF Document is inserted (for this CSAF Document)
     * when a new asset is inserted (for this asset)
     * when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
+
     > These also apply if more than one CSAF Document or asset was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
+
   * Manually and automatically triggered runs SHOULD NOT be pooled.
 * provides at least the following statistics for the count of assets:
   * matching that CSAF Document at all
@@ -558,6 +568,7 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
 
 * satisfies the "CSAF Management System" conformance profile.
 * is an SBOM database or connects to one.
+
   > A repository or any other location that can be queried for SBOMs and their content is also considered an SBOM database.
 * matches the CSAF Documents within the system to the respective SBOM components.
   This might be done with a probability which gives the user the chance to broaden or narrow the results.
@@ -581,9 +592,12 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
     * when a new CSAF Document is inserted (for this CSAF Document)
     * when a new SBOM component is inserted (for this SBOM component)
     * when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
+ 
     > These also apply if more than one CSAF Document or SBOM component was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
+
   > Manually and automatically triggered runs should not be pooled.
+
 * provides at least the following statistics for the count of SBOM component:
   * matching that CSAF Document at all
   * marked with a given status
@@ -655,6 +669,7 @@ Secondly, the program fulfills the following for all items of:
       the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     * If the `/document/title` starts with the string `Withdrawn` or the `/document/category` has the value `Withdrawn` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
+ 
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
     > to the profile.
 
@@ -676,6 +691,7 @@ Secondly, the program fulfills the following for all items of:
   option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
   the CSAF 2.0 to CSAF 2.1 Converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
   both values: the converted one based on the table and the one from the distribution text.
+
   > This is a common case for CSAF 2.0 Documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 Converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
@@ -702,6 +718,7 @@ Secondly, the program fulfills the following for all items of:
     `/document/tracking/current_release_date` of the source document.
     If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
     of the source document SHOULD be used.
+
     > This is done to create a deterministic conversion.
 
     The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
@@ -710,8 +727,10 @@ Secondly, the program fulfills the following for all items of:
   into the `disclosure_date` element.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
   the CSAF 2.0 to CSAF 2.1 Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+  
   > A tool MAY implement an option to suppress this conversion.
-   If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
+
+  If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/metrics/ssvc_v1`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
