@@ -65,7 +65,7 @@ CSAF Library with Basic Validation
 CSAF Library with Extended Validation
 :    A CSAF Library that also satisfies the conformance target "CSAF Extended Validator".
 
-CSAF Library with Full validation
+CSAF Library with Full Validation
 :    A CSAF Library that also satisfies the conformance target "CSAF Full Validator".
 
 CSAF Management System
@@ -101,7 +101,7 @@ CSAF Withdrawer
 :    A CSAF Post-Processor that transforms a given CSAF into a withdrawn one.
 
 CVRF CSAF Converter
-:    CSAF Producer which takes a CVRF Document as input and converts it into a valid CSAF Document.
+:    CSAF Producer which takes a CVRF document as input and converts it into a valid CSAF Document.
 
 Document
 :    output file produced by an analysis tool, which enumerates the results produced by the tool.
