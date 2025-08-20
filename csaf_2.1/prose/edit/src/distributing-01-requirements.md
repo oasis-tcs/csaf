@@ -211,7 +211,7 @@ The last entry MAY skip the newline sequence.
 
 > This can be used to download all CSAF documents.
 
-The file `index.txt` SHALL be located in the folder given as directory URL in the `provider-metadata.json`.
+The file `index.txt` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
 
 > If different TLP labels are used, multiple `index.txt` exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
@@ -325,7 +325,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 > Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
 
-The file `changes.csv` SHALL be located in the folder given as directory URL in the `provider-metadata.json`.
+The file `changes.csv` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
 
 > The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
 > The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
