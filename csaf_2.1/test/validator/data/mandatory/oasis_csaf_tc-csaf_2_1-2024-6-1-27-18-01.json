@@ -10,7 +10,7 @@
     },
     "notes": [
       {
-        "category": "description",
+        "category": "details",
         "text": "This CSAF document contained example data and was superseded to create test data.",
         "title": "Reasoning for Supersession"
       }

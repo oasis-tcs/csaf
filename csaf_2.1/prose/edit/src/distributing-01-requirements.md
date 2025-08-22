@@ -195,23 +195,113 @@ value of `/document/tracking/initial_release_date`.
 
 ### Requirement 12: index.txt
 
-The file index.txt MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+The file `index.txt` MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 Each entry SHALL be terminated by a newline sequence.
 The last entry MAY skip the newline sequence.
-
-> If different TLP labels are used, multiple index.txt exist.
-> However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
 *Example 1:*
 
 ```
-2023/esa-2023-09953.json
-2022/esa-2022-02723.json
-2021/esa-2021-31916.json
-2021/esa-2021-03676.json
+2025/esa-2025-421324.json
+2024/esa-2024-620109.json
+2024/esa-2024-470520.json
+2024/esa-2024-430524.json
+2023/esa-2023-450116.json
 ```
 
 > This can be used to download all CSAF documents.
+
+The file `index.txt` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+
+> If different TLP labels are used, multiple `index.txt` exist.
+> However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
+
+*Example 2:*
+
+```
+.well-known/
+├─ csaf/
+│  ├─ amber/
+│  │  ├─ 2023/
+│  │  │  ├─ esa-2023-540205.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-440412.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ amber+strict/
+│  │  ├─ 2024/
+│  │  │  ├─ esa-2024-451013.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-540204.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ clear/
+│  │  ├─ 2023/
+│  │  │  ├─ esa-2023-450116.json
+│  │  ├─ 2024/
+│  │  │  ├─ esa-2024-430524.json
+│  │  │  ├─ esa-2024-470520.json
+│  │  │  ├─ esa-2024-620109.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-421324.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ green/
+│  │  ├─ 2024/
+│  │  │  ├─ esa-2024-430316.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-431009.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ red/
+│  │  ├─ 2022/
+│  │  │  ├─ esa-2022-431406.json
+│  │  │  ├─ esa-2022-431407.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+```
+
+> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `index.txt` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
+> Example \[[eg](#requirement-12-index-txt-eg-1)\] depicts the content of the `index.txt` within the folder `clear`
+> located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
+
+*Example 3:*
+
+```
+  "distributions": [
+    {
+      "directory": {
+        "tlp_label": "CLEAR",
+        "url": "https://www.example.com/.well-known/csaf/clear/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "GREEN",
+        "url": "https://www.example.com/.well-known/csaf/green/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "AMBER",
+        "url": "https://www.example.com/.well-known/csaf/amber/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "AMBER+STRICT",
+        "url": "https://www.example.com/.well-known/csaf/amber+strict/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "RED",
+        "url": "https://www.example.com/.well-known/csaf/red/",
+      }
+    }
+  ],
+```
 
 ### Requirement 13: changes.csv
 
@@ -226,13 +316,21 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 *Example 1:*
 
 ```
-2023/esa-2023-09953.json,2023-07-01T10:09:07Z
-2021/esa-2021-03676.json,2023-07-01T10:09:01Z
-2022/esa-2022-02723.json,2022-04-17T15:08:41Z
-2021/esa-2021-31916.json,2022-03-01T06:01:00Z
+2024/esa-2024-430524.json,2025-07-21T11:14:37Z
+2025/esa-2025-421324.json,2025-01-10T00:51:10Z
+2024/esa-2024-470520.json,2025-01-01T15:34:54Z
+2023/esa-2023-450116.json,2024-12-01T17:09:02Z
+2024/esa-2024-620109.json,2024-07-30T23:59:29Z
 ```
 
 > Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
+
+The file `changes.csv` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+
+> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
+> Example \[[eg](#requirement-13-changes-csv-eg-1)\] depicts the content of the `changes.csv` within the folder `clear`
+> located at `https://www.example.com/.well-known/csaf/clear/changes.csv`.
 
 ### Requirement 14: Directory Listings
 
@@ -424,7 +522,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3)
 to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
-MD5 and SHA1 SHOULD NOT be used.
+MD5 and SHA1 SHALL NOT be used.
 
 *Example 1:*
 

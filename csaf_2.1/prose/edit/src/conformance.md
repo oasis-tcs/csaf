@@ -464,6 +464,8 @@ A viewer satisfies the "CSAF Viewer" conformance profile if the viewer fulfills 
 The viewer:
 
 * satisfies the "CSAF Consumer" conformance profile.
+* satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
+  [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Viewers.
 * satisfies the normative requirements given below.
 
 For each CVSS-Score in `/vulnerabilities[]/metrics[]` the viewer:

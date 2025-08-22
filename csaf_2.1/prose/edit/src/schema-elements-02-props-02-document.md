@@ -314,13 +314,13 @@ corresponding to IETF BCP 47 / RFC 5646.
 
 License expression (`license_expression`) of value type `string` with 1 or more characters contains the SPDX license expression for the CSAF document.
 It MUST NOT contain a license text.
-See annex B of [cite](#SPDX301) for details.
+See Annex B of [cite](#SPDX301) for details.
 The `DocumentRef` part given in that ABNF MUST NOT be used in CSAF.
 Any SPDX license identifier not from the official SPDX license identifier list MUST contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the entity that provided the
 database this license identifier was found in.
-The unique name MAY be a domain name.
-The same applies for `AdditionRef-` user defined identifiers.
+Unless otherwise previously established, the unique name SHOULD be a domain name.
+The same applies for `AdditionRef-` identifiers.
 
 In addition, the following rules apply:
 
@@ -354,7 +354,7 @@ In addition, the following rules apply:
 
 ```
   CC-BY-4.0
-  LicenseRef-www.example.org-Example-CSAF-License-3.0+
+  LicenseRef-www.example.org-Example-CSAF-License-3.0
   LicenseRef-scancode-public-domain
   MIT OR any-OSI
 ```
