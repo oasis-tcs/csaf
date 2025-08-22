@@ -1,6 +1,7 @@
 ### Contradicting Product Status Remediation Combination
 
-For each item in `/vulnerabilities[]/remediations` it MUST be tested that a product is not member of a contradicting product status group.
+For each item in `/vulnerabilities[]/remediations` it MUST be tested that a product is not member of a
+contradicting product status group (see table [tab](#vulnerabilities-property-remediations-category-tab-2)).
 This takes indirect relations through product groups into account.
 
 The relevant path for this test is:

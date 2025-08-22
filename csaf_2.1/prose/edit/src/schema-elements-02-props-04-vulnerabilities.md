@@ -872,6 +872,8 @@ The following tables shows the allowed and prohibited combinations:
 | `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
 | `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
 
+Table 1: Remediation Combinations
+
 Some category values contradict certain product status groups.
 Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
@@ -886,6 +888,8 @@ The following tables shows the allowed, discouraged and prohibited combinations:
 | `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     | allowed     |
 | `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
 | `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
+
+Table 2: Product Status Remediation Category Combinations
 
 The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
 
