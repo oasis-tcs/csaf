@@ -5,7 +5,7 @@ The order does not give any hint about the importance.
 Not all requirements have to be fulfilled to conform to this specification - the sets of
 requirements per conformance clause are defined in section [sec](#roles).
 
-### Requirement 1: Valid CSAF document
+### Requirement 1: Valid CSAF Document
 
 The document is a valid CSAF document (cf. Conformance clause 1).
 
@@ -154,7 +154,7 @@ A valid use case for temporarily including multiple entries would be a transitio
 and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
-### Requirement 9: Well-known URL for provider-metadata.json
+### Requirement 9: Well-Known URL for provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
@@ -170,7 +170,7 @@ As specified in [sec](#transition-between-csaf-2-0-and-csaf-2-1), the value of `
 requested as a part of this requirement.
 Such state is intended and MUST NOT be reported as error.
 
-### Requirement 10: DNS path
+### Requirement 10: DNS Path
 
 Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
 to the IP address of a web server which serves directly the `provider-metadata.json` according to requirement 7.
@@ -181,7 +181,7 @@ to the IP address of a web server which serves directly the `provider-metadata.j
 That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
-### Requirement 11: One folder per year
+### Requirement 11: One Folder per Year
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
@@ -332,14 +332,14 @@ The file `changes.csv` SHALL be located in the folder given as directory URL und
 > Example \[[eg](#requirement-13-changes-csv-eg-1)\] depicts the content of the `changes.csv` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/changes.csv`.
 
-### Requirement 14: Directory listings
+### Requirement 14: Directory Listings
 
 Server-side generated directory listing SHALL be enabled to support manual navigation.
 
 > As the content of the directory listing is more or less static, there is little to no benefit in using of client-side scripts.
 > Moreover, client-side scripts, like JavaScript, are usually not evaluated in text-based browsers and are also hard to check programmatically.
 
-### Requirement 15: ROLIE feed
+### Requirement 15: ROLIE Feed
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
@@ -419,7 +419,7 @@ the array `link` having the `rel` value of `hash`.
 Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link`
 having the `rel` value of `signature`.
 
-### Requirement 16: ROLIE service document
+### Requirement 16: ROLIE Service Document
 
 The use and therefore the existence of ROLIE service document is optional.
 If it is used, each ROLIE service document MUST be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
@@ -454,7 +454,7 @@ The ROLIE service document SHOULD use the filename `service.json` and reside nex
   }
 ```
 
-### Requirement 17: ROLIE category document
+### Requirement 17: ROLIE Category Document
 
 The use and therefore the existence of ROLIE category document is optional.
 If it is used, each ROLIE category document MUST be a JSON file that conforms with [cite](#RFC8322).
@@ -581,7 +581,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 > Guidance on OpenPGP key strength can be retrieved from technical guidelines of competent authorities.
 
-### Requirement 21: List of CSAF providers
+### Requirement 21: List of CSAF Providers
 
 The file `aggregator.json` MUST be present and valid according to the
 JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
@@ -640,7 +640,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
   }
 ```
 
-### Requirement 22: Two disjoint issuing parties
+### Requirement 22: Two Disjoint Issuing Parties
 
 The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers)
 or one CSAF publisher and one CSAF provider (including CSAF trusted provider).

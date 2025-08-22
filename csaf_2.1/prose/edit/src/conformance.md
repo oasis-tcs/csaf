@@ -8,7 +8,7 @@ Informative Comments:
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF document**, all other 24 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF Document**, all other 24 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -23,45 +23,45 @@ Informative Comments:
 
 ## Conformance Targets
 
-This document defines requirements for the CSAF file format and for certain software components that interact with it.
+This document defines requirements for the file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
 
-* **CSAF document**: A security advisory text document in the format defined by this document.
-* **CSAF downloader**: A program that retrieves CSAF documents in an automated fashion.
-* **CSAF producer**: A program which emits output in the CSAF format.
-* **CSAF direct producer**: An analysis tool which acts as a CSAF producer.
-* **CSAF converter**: A CSAF producer that transforms the output of an analysis tool from its native output format into the CSAF format.
-* **CVRF CSAF converter**: A CSAF producer which takes a CVRF document as input and converts it into a valid CSAF document.
-* **CSAF content management system**: A program that is able to create,
-  review and manage CSAF documents and is able to preview their details as required by CSAF viewer.
-* **CSAF post-processor**: A CSAF producer that transforms an existing CSAF document into a new CSAF document,
+* **CSAF Document**: A security advisory text document in the format defined by this document.
+* **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
+* **CSAF Producer**: A program which emits output in the CSAF format.
+* **CSAF Direct Producer**: An analysis tool which acts as a CSAF Producer.
+* **CSAF Converter**: A CSAF Producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+* **CVRF CSAF Converter**: A CSAF Producer which takes a CVRF document as input and converts it into a valid CSAF Document.
+* **CSAF Content Management System**: A program that is able to create,
+  review and manage CSAF Documents and is able to preview their details as required by CSAF Viewer.
+* **CSAF Post-Processor**: A CSAF Producer that transforms an existing CSAF Document into a new CSAF Document,
   for example, by removing or redacting elements according to sharing policies.
-* **CSAF modifier**: A CSAF post-processor which takes a CSAF document as input and modifies the structure or values of properties.
-  The output is a valid CSAF document.
-* **CSAF translator**: A CSAF post-processor which takes a CSAF document as input and translates values of properties into another language.
-  The output is a valid CSAF document.
-* **CSAF consumer**: A program that reads and interprets a CSAF document.
-* **CSAF viewer**: A CSAF consumer that reads a CSAF document, displays a list of the results it contains,
+* **CSAF Modifier**: A CSAF Post-Processor which takes a CSAF Document as input and modifies the structure or values of properties.
+  The output is a valid CSAF Document.
+* **CSAF Translator**: A CSAF Post-Processor which takes a CSAF Document as input and translates values of properties into another language.
+  The output is a valid CSAF Document.
+* **CSAF Consumer**: A program that reads and interprets a CSAF Document.
+* **CSAF Viewer**: A CSAF Consumer that reads a CSAF Document, displays a list of the results it contains,
   and allows an end user to view each result in the context of the artifact in which it occurs.
-* **CSAF management system**: A program that is able to manage CSAF documents and is able to display their details as required by CSAF viewer.
-* **CSAF asset matching system**: A program that connects to or is an asset database and is able to manage CSAF documents as required
-  by CSAF management system as well as matching them to assets of the asset database.
-* **CSAF basic validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF extended validator**: A CSAF basic validator that additionally performs recommended tests.
-* **CSAF full validator**: A CSAF extended validator that additionally performs informative tests.
-* **CSAF SBOM matching system**: A program that connects to or is an SBOM database and is able to manage CSAF documents as required
-  by CSAF management system as well as matching them to SBOM components of the SBOM database.
-* **CSAF 2.0 to CSAF 2.1 converter**: A CSAF producer which takes a CSAF 2.0 document as input and converts it into a valid CSAF 2.1 document.
-* **CSAF library**: A library that implements CSAF data capabilities.
-* **CSAF library with basic validation**: A CSAF library that also satisfies the conformance target "CSAF basic validator".
-* **CSAF library with extended validation**: A CSAF library that also satisfies the conformance target "CSAF extended validator".
-* **CSAF library with full validation**: A CSAF library that also satisfies the conformance target "CSAF full validator".
-* **CSAF withdrawer**: A CSAF post-processor that transforms a given CSAF into a withdrawn one.
-* **CSAF superseder**: A CSAF post-processor that transforms a given CSAF into a superseded one.
+* **CSAF Management System**: A program that is able to manage CSAF Documents and is able to display their details as required by CSAF Viewer.
+* **CSAF Asset Matching System**: A program that connects to or is an asset database and is able to manage CSAF Documents as required
+  by CSAF Management System as well as matching them to assets of the asset database.
+* **CSAF Basic Validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+* **CSAF Extended Validator**: A CSAF Basic Validator that additionally performs recommended tests.
+* **CSAF Full Validator**: A CSAF Extended Validator that additionally performs informative tests.
+* **CSAF SBOM Matching System**: A program that connects to or is an SBOM database and is able to manage CSAF Documents as required
+  by CSAF Management System as well as matching them to SBOM components of the SBOM database.
+* **CSAF 2.0 to CSAF 2.1 Converter**: A CSAF Producer which takes a CSAF 2.0 Document as input and converts it into a valid CSAF 2.1 Document.
+* **CSAF Library**: A library that implements CSAF data capabilities.
+* **CSAF Library with Basic Validation**: A CSAF Library that also satisfies the conformance target "CSAF Basic Validator".
+* **CSAF Library with Extended Validation**: A CSAF Library that also satisfies the conformance target "CSAF Extended Validator".
+* **CSAF Library with Full Validation**: A CSAF Library that also satisfies the conformance target "CSAF Full Validator".
+* **CSAF Withdrawer**: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
+* **CSAF Superseder**: A CSAF Post-Processor that transforms a given CSAF into a Superseded one.
 
-### Conformance Clause 1: CSAF document
+### Conformance Clause 1: CSAF Document
 
-A text file or data stream satisfies the "CSAF document" conformance profile if it:
+A text file or data stream satisfies the "CSAF Document" conformance profile if it:
 
 * conforms to the syntax and semantics defined in section [sec](#format-validation).
 * conforms to the syntax and semantics defined in section [sec](#date-and-time).
@@ -70,115 +70,115 @@ A text file or data stream satisfies the "CSAF document" conformance profile if 
 * conforms to the syntax and semantics defined in section [sec](#additional-conventions).
 * does not fail any mandatory test defined in section [sec](#mandatory-tests).
 
-### Conformance Clause 2: CSAF producer
+### Conformance Clause 2: CSAF Producer
 
-A program satisfies the "CSAF producer" conformance profile if the program:
+A program satisfies the "CSAF Producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the conformance profile "CSAF document".
+* produces output in the CSAF format, according to the conformance profile "CSAF Document".
 * satisfies those normative requirements in section [sec](#schema-elements) and [sec](#safety-security-and-data-protection-considerations) that
-  are designated as applying to CSAF producers.
+  are designated as applying to CSAF Producers.
 
-### Conformance Clause 3: CSAF direct producer
+### Conformance Clause 3: CSAF Direct Producer
 
-An analysis tool satisfies the "CSAF direct producer" conformance profile if the analysis tool:
+An analysis tool satisfies the "CSAF Direct Producer" conformance profile if the analysis tool:
 
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to "direct producers" or
   to "analysis tools".
 * does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
   are intended to be produced only by converters.
 
-### Conformance Clause 4: CSAF converter
+### Conformance Clause 4: CSAF Converter
 
-A converter satisfies the “CSAF converter” conformance profile if the converter:
+A converter satisfies the “CSAF Converter” conformance profile if the converter:
 
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to converters.
 * does not emit any objects, properties, or values which, according to section [sec](#schema-elements),
   are intended to be produced only by direct producers.
 
-### Conformance Clause 5: CVRF CSAF converter
+### Conformance Clause 5: CVRF CSAF Converter
 
-A program satisfies the "CVRF CSAF converter" conformance profile if the program fulfills the following two groups of requirements:
+A program satisfies the "CVRF CSAF Converter" conformance profile if the program fulfills the following two groups of requirements:
 
 Firstly, the program:
 
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * takes only CVRF documents as input.
 * outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
-  The CVRF CSAF converter SHALL ignore that additional property during the conversion.
+  The CVRF CSAF Converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
-* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF converter MUST replace the seconds
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF Converter MUST replace the seconds
   and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
-  The CVRF CSAF converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
+  The CVRF CSAF Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
 * type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
-  the CVRF CSAF converter replaces those with the category `product_name`.
+  the CVRF CSAF Converter replaces those with the category `product_name`.
   In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning,
   replace the all elements of type `/$defs/version_t` with the corresponding integer version.
-  For that, CVRF CSAF converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF.
+  For that, CVRF CSAF Converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF.
   Then, it replaces the value of `number` with the index number in the array (starting with 1).
   The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item.
   The match MUST be calculated by the original values used in the CVRF document.
   If this conversion was applied, for each Revision the original value of `cvrf:Number` MUST be set as `legacy_version` in the converted document.
 * `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`:
-  If more than one `cvrf:Organization` instance is given, the CVRF CSAF converter converts the first one into the `organization`.
+  If more than one `cvrf:Organization` instance is given, the CVRF CSAF Converter converts the first one into the `organization`.
   In addition, the converter outputs a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 * `/document/category`:
-  * If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF converter MUST try to convert the data
-    into a valid CSAF document in this profile according to CSAF 2.1.
+  * If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF Converter MUST try to convert the data
+    into a valid CSAF Document in this profile according to CSAF 2.1.
 
     > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
 
-    If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
+    If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
   * If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
     the document language of the CVRF document is unspecified,
     the following rules apply:
     * If the `cvrf:DocumentTitle` starts with the string `Superseded` or the `cvrf:DocumentType` starts with `Superseded` (case-insensitive),
-      the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
+      the CVRF CSAF Converter MUST try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     * If the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
-      the CVRF CSAF converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
+      the CVRF CSAF Converter MUST try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
 
-    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
     > to the profile.
 
     > A tool MAY support this detection for other languages.
 
-    If the CVRF CSAF converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category`
-    according to the conversion rules and output a warning a potentially withdrawn CSAF document was created which would result in an invalid CSAF.
+    If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
+    according to the conversion rules and output a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
 * `/document/lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
-  the CVRF CSAF converter converts this value into `lang`.
-  If the values of `xml:lang` attributes are not equal, the CVRF CSAF converter outputs a warning that the language could not be
+  the CVRF CSAF Converter converts this value into `lang`.
+  If the values of `xml:lang` attributes are not equal, the CVRF CSAF Converter outputs a warning that the language could not be
   determined and possibly a document with multiple languages was produced.
   In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
 * `/document/license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains a valid SPDX license expression,
-  the CVRF CSAF converter SHALL convert this value into `license_expression`.
+  the CVRF CSAF Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
 * `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property-notes),
-  where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is a specific product name, version or family.
-  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
+  In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
   Such warning MUST also include the note and the assigned products.
-  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  If the CVRF CSAF Converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
 * `/document/publisher/name` and `/document/publisher/namespace`:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
   The program SHALL NOT use hard-coded values.
 * `/document/tracking/id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
-  the CVRF CSAF converter removes those characters.
+  the CVRF CSAF Converter removes those characters.
   In addition, the converter outputs a warning that the ID was changed.
 * `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given,
-  the CVRF CSAF converter converts the first one into the `full_product_name`.
+  the CVRF CSAF Converter converts the first one into the `full_product_name`.
   In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
 * `/vulnerabilities[]/cwes[]`:
-  * The CVRF CSAF converter MUST remove all preceding and trailing white space from the `name`.
-  * The CVRF CSAF converter MUST determine the CWE specification version the given CWE was selected from by
+  * The CVRF CSAF Converter MUST remove all preceding and trailing white space from the `name`.
+  * The CVRF CSAF Converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document.
     If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
@@ -186,27 +186,27 @@ Secondly, the program fulfills the following for all items of:
 
     > This is done to create a deterministic conversion.
 
-    If the CWE does not match at all, the CVRF CSAF converter MUST omit this CWE and output a warning that an invalid CWE was found and has
+    If the CWE does not match at all, the CVRF CSAF Converter MUST omit this CWE and output a warning that an invalid CWE was found and has
     been removed.
-  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF converter MUST omit this instance and output a
+  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF Converter MUST omit this instance and output a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
-* `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF converter MUST convert its value into the `disclosure_date` element.
-* `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF converter converts it into the first item of the `ids` array.
+* `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF Converter MUST convert its value into the `disclosure_date` element.
+* `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
 * `/vulnerabilities[]/metrics[]`:
-  * For any CVSS v4 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
+  * For any CVSS v4 element, the CVRF CSAF Converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
-  * For any CVSS v3 element, the CVRF CSAF converter MUST compute the `baseSeverity` from the `baseScore` according to
+  * For any CVSS v3 element, the CVRF CSAF Converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard.
-  * If no `product_id` is given, the CVRF CSAF converter appends all Product IDs which are listed under `../product_status` in
+  * If no `product_id` is given, the CVRF CSAF Converter appends all Product IDs which are listed under `../product_status` in
     the arrays `known_affected`, `first_affected` and `last_affected`.
-    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this score element.
-  * If a `vectorString` is missing, the CVRF CSAF converter outputs an error that the CVSS element could not be converted as
+    If none of these arrays exist, the CVRF CSAF Converter outputs an error that no matching Product ID was found for this score element.
+  * If a `vectorString` is missing, the CVRF CSAF Converter outputs an error that the CVSS element could not be converted as
     the CVSS vector was missing.
-    A CVRF CSAF converter MAY offer a configuration option to delete such elements.
-  * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF converter discards
+    A CVRF CSAF Converter MAY offer a configuration option to delete such elements.
+  * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF Converter discards
     the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
   * To determine, which minor version of CVSS v3 is used and to evaluate a CVSS v4 that was wrongly inserted in a CVSS v3 element,
-    the CVRF CSAF converter uses the following steps:
+    the CVRF CSAF Converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
         *Example 1:*
@@ -216,7 +216,7 @@ Secondly, the program fulfills the following for all items of:
         ```
 
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
-       The CVRF CSAF converter outputs a warning that this value was guessed from the element's namespace.
+       The CVRF CSAF Converter outputs a warning that this value was guessed from the element's namespace.
 
         *Example 2:*
 
@@ -235,7 +235,7 @@ Secondly, the program fulfills the following for all items of:
         ```
 
     3. Retrieve the CVSS version from the CVSS namespace given in the root element, if present.
-       The CVRF CSAF converter outputs a warning that this value was guessed from the global namespace.
+       The CVRF CSAF Converter outputs a warning that this value was guessed from the global namespace.
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step MUST be skipped without a decision.
 
@@ -246,77 +246,77 @@ Secondly, the program fulfills the following for all items of:
         ```
 
     4. Retrieve the CVSS version from a config value, which defaults to `3.0`.
-       (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF converter outputs a warning that this value was taken from the config.
+       (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF Converter outputs a warning that this value was taken from the config.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
-  the CVRF CSAF converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+  the CVRF CSAF Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
 
   > A tool MAY implement an option to suppress this conversion.
 
-  If the CVRF CSAF converter is unable to construct a valid object with the information given, the CVRF CSAF converter SHALL
+  If the CVRF CSAF Converter is unable to construct a valid object with the information given, the CVRF CSAF Converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
-  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF converter SHALL try to identify whether that extension is
+  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is
   a specific product name, version or family.
-  In such case, the CVRF CSAF converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
   Such warning MUST also include the note and the assigned products.
-  If the CVRF CSAF converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  If the CVRF CSAF Converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
 * `/vulnerabilities[]/remediations[]`:
-  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF converter appends all Product IDs which are listed under
+  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF Converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
-    If none of these arrays exist, the CVRF CSAF converter outputs an error that no matching Product ID was found for this remediation element.
-  * The CVRF CSAF converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
+    If none of these arrays exist, the CVRF CSAF Converter outputs an error that no matching Product ID was found for this remediation element.
+  * The CVRF CSAF Converter MUST convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
     question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
     Otherwise, the category `vendor_fix` MUST be set.
     If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
-    different product status groups, the CVRF CSAF converter MUST duplicate the remediation, change the category in one instance
+    different product status groups, the CVRF CSAF Converter MUST duplicate the remediation, change the category in one instance
     to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
-  * The CVRF CSAF converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
+  * The CVRF CSAF Converter MUST convert any remediation with the type `None Available` into the category `fix_planned`
     if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
     Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
     If it was the last product in that remediation, the remediation MUST be removed.
-  * The CVRF CSAF converter MUST remove any product from a remediation with the type `None Available`
+  * The CVRF CSAF Converter MUST remove any product from a remediation with the type `None Available`
     if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
     If it was the last product in that remediation, the remediation MUST be removed.
-  * In any other case, the CVRF CSAF converter MUST preserve the product in the remediation of the category `none_available`.
-  * The CVRF CSAF converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+  * In any other case, the CVRF CSAF Converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CVRF CSAF Converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
-* The CVRF CSAF converter SHALL provide the JSON path where the warning occurred together with the warning.
+* The CVRF CSAF Converter SHALL provide the JSON path where the warning occurred together with the warning.
 
-### Conformance Clause 6: CSAF content management system
+### Conformance Clause 6: CSAF Content Management System
 
-A CSAF content management system satisfies the "CSAF content management system" conformance profile if the content management system:
+A CSAF Content Management System satisfies the "CSAF Content Management System" conformance profile if the content management system:
 
-* satisfies the "CSAF producer" conformance profile.
-* satisfies the "CSAF viewer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
+* satisfies the "CSAF Viewer" conformance profile.
 * provides at least the following management functions:
 
-  * create new CSAF documents
-  * prefill CSAF documents based on values given in the configuration (see below)
-  * create a new version of an existing CSAF document
-  * checkout old versions of a CSAF document
-  * show all differences between versions of a CSAF document
-  * list all CSAF documents within the system
-  * delete CSAF documents from the system
-  * review CSAF documents in the system
-  * approve CSAF documents
-  * search for CSAF documents by values of required fields at `document`-level or their children within the system
-  * search for CSAF documents by values of `cve` within the system
-  * search for CSAF documents based on properties of `product_tree`
+  * create new CSAF Documents
+  * prefill CSAF Documents based on values given in the configuration (see below)
+  * create a new version of an existing CSAF Document
+  * checkout old versions of a CSAF Document
+  * show all differences between versions of a CSAF Document
+  * list all CSAF Documents within the system
+  * delete CSAF Documents from the system
+  * review CSAF Documents in the system
+  * approve CSAF Documents
+  * search for CSAF Documents by values of required fields at `document`-level or their children within the system
+  * search for CSAF Documents by values of `cve` within the system
+  * search for CSAF Documents based on properties of `product_tree`
   * filter on all properties which it is required to search for
-  * export of CSAF documents
-  * show an audit log for each CSAF document
-  * identify the latest version of CSAF documents with the same `/document/tracking/id`
+  * export of CSAF Documents
+  * show an audit log for each CSAF Document
+  * identify the latest version of CSAF Documents with the same `/document/tracking/id`
   * suggest a `/document/tracking/id` based on the given configuration.
-  * track of the version of CSAF documents automatically and increment according to the versioning scheme
+  * track of the version of CSAF Documents automatically and increment according to the versioning scheme
     (see also subsections of [sec](#version-type)) selected in the configuration.
   * check that the document version is set correctly based on the changes in comparison to the previous version
     (see also subsections of [sec](#version-type)).
-  * suggest to use the document status `interim` if a CSAF document is updated more frequent than the given threshold in
+  * suggest to use the document status `interim` if a CSAF Document is updated more frequent than the given threshold in
     the configuration (default: 3 weeks)
-  * suggest to publish a new version of the CSAF document with the document status `final` if the document status was
+  * suggest to publish a new version of the CSAF Document with the document status `final` if the document status was
     `interim` and no new release has be done during the given threshold in the configuration (default: 6 weeks)
 
     > Note that the terms "publish", "publication" and their derived forms are used in this conformance profile independent of
@@ -336,11 +336,11 @@ A CSAF content management system satisfies the "CSAF content management system" 
 
 * offers both: publication immediately or at a given date/time.
 * automates handling of date/time and version.
-* provides an API to retrieve all CSAF documents which are currently in the status published.
+* provides an API to retrieve all CSAF Documents which are currently in the status published.
 * optionally provides an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
 * provides a user management and support at least the following roles:
 
-  * _Registered_: Able to see all published CSAF documents (but only in the published version).
+  * _Registered_: Able to see all published CSAF Documents (but only in the published version).
   * _Author_: inherits _Registered_ permissions and also can Create and Edit Own (mostly used for automated creation, see above)
   * _Editor_: inherits _Author_ permissions and can Edit (mostly used in PSIRT)
   * _Publisher_: inherits _Editor_ permissions and can Change state and Review any (mostly used as HEAD of PSIRT or team lead)
@@ -351,7 +351,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
 * may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group.
   In this case, there MUST be a _Group configurator_ which is able to change the values which are used to prefill fields in
   new advisories for that group. He might also do the user management for the group up to a configured level.
-* prefills the following fields in new CSAF documents with the values given below or based on the templates from configuration:
+* prefills the following fields in new CSAF Documents with the values given below or based on the templates from configuration:
 
   * `/$schema` with the value prescribed by the schema
   * `/document/csaf_version` with the value prescribed by the schema
@@ -371,9 +371,9 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/publisher` and children
   * `/document/category` (based on the templates from configuration)
 
-* When updating an existing CSAF document:
+* When updating an existing CSAF Document:
   
-  * prefills all fields which have be present in the existing CSAF document
+  * prefills all fields which have be present in the existing CSAF Document
   * adds a new item in `/document/tracking/revision_history[]`
   * updates the following fields with the values given below or based on the templates from configuration:
     * `/$schema` with the value prescribed by the schema
@@ -391,24 +391,24 @@ A CSAF content management system satisfies the "CSAF content management system" 
     * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
     * `/document/publisher` and children
 
-### Conformance Clause 7: CSAF post-processor
+### Conformance Clause 7: CSAF Post-Processor
 
-A CSAF post-processor satisfies the "CSAF post-processor" conformance profile if the post-processor:
+A CSAF Post-Processor satisfies the "CSAF Post-Processor" conformance profile if the post-processor:
 
-* satisfies the "CSAF consumer" conformance profile.
-* satisfies the "CSAF producer" conformance profile.
+* satisfies the "CSAF Consumer" conformance profile.
+* satisfies the "CSAF Producer" conformance profile.
 * additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to post-processors.
 
-### Conformance Clause 8: CSAF modifier
+### Conformance Clause 8: CSAF Modifier
 
-A program satisfies the "CSAF modifier" conformance profile if the program fulfills the two following groups of requirements:
+A program satisfies the "CSAF Modifier" conformance profile if the program fulfills the two following groups of requirements:
 
 The program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
 * does not emit any objects, properties, or values which, according to section [sec](#conformance),
-  are intended to be produced only by CSAF translators.
+  are intended to be produced only by CSAF Translators.
 * satisfies the normative requirements given below.
 
 The resulting modified document:
@@ -419,13 +419,13 @@ The resulting modified document:
   It SHOULD NOT use the original `/document/tracking/id` as a prefix.
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 
-### Conformance Clause 9: CSAF translator
+### Conformance Clause 9: CSAF Translator
 
-A program satisfies the "CSAF translator" conformance profile if the program fulfills the two following groups of requirements:
+A program satisfies the "CSAF Translator" conformance profile if the program fulfills the two following groups of requirements:
 
 The program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * translates at least one value.
 * preserves the same semantics and form across translations.
 * satisfies the normative requirements given below and does not add or remove other elements than required below.
@@ -436,34 +436,34 @@ The resulting translated document:
   The translated document can use a completely new `/document/tracking/id` or compute one by using the original `/document/tracking/id` as
   a prefix and adding an ID from the naming scheme of the issuer of the translated version.
   It SHOULD NOT use the original `/document/tracking/id` as a suffix.
-  If an issuer uses a CSAF translator to publish his advisories in multiple languages they MAY use the combination of
+  If an issuer uses a CSAF Translator to publish his advisories in multiple languages they MAY use the combination of
   the original `/document/tracking/id` and translated `/document/lang` as a `/document/tracking/id` for the translated document.
 
   > Note that the term "publish" is used in this conformance profile independent of whether the specified target group is the public
     or a closed group.
 
 * provides the `/document/lang` property with a value matching the language of the translation.
-* provides the `/document/source_lang` to contain the language of the original document (and SHOULD only be set by CSAF translators).
+* provides the `/document/source_lang` to contain the language of the original document (and SHOULD only be set by CSAF Translators).
 * has the value `translator` set in `/document/publisher/category`
 * includes a reference to the original advisory as first element of the array `/document/references[]`.
 * MAY contain translations for elements in arrays of `references_t` after the first element.
   However, it MUST keep the original URLs as references at the end.
 
-### Conformance Clause 10: CSAF consumer
+### Conformance Clause 10: CSAF Consumer
 
-A processor satisfies the "CSAF consumer" conformance profile if the processor:
+A processor satisfies the "CSAF Consumer" conformance profile if the processor:
 
-* reads CSAF documents and interprets them according to the semantics defined in section [sec](#schema-elements) and [sec](#additional-conventions).
+* reads CSAF Documents and interprets them according to the semantics defined in section [sec](#schema-elements) and [sec](#additional-conventions).
 * satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
-  [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF consumers.
+  [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Consumers.
 
-### Conformance Clause 11: CSAF viewer
+### Conformance Clause 11: CSAF Viewer
 
-A viewer satisfies the "CSAF viewer" conformance profile if the viewer fulfills the two following groups of requirements:
+A viewer satisfies the "CSAF Viewer" conformance profile if the viewer fulfills the two following groups of requirements:
 
 The viewer:
 
-* satisfies the "CSAF consumer" conformance profile.
+* satisfies the "CSAF Consumer" conformance profile.
 * satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
   [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Viewers.
 * satisfies the normative requirements given below.
@@ -474,163 +474,162 @@ For each CVSS-Score in `/vulnerabilities[]/metrics[]` the viewer:
 * SHOULD prefer the item of `metrics[]` for each `product_id` which originates from the document author (and therefore has no property `source`)
   and has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `metrics[]`.
 
-### Conformance Clause 12: CSAF management system
+### Conformance Clause 12: CSAF Management System
 
-A CSAF management system satisfies the "CSAF management system" conformance profile if the management system:
+A CSAF Management System satisfies the "CSAF Management System" conformance profile if the management system:
 
-* satisfies the "CSAF viewer" conformance profile.
+* satisfies the "CSAF Viewer" conformance profile.
 * provides at least the following management functions:
-  * add new CSAF documents (e.g. from file system or URL) to the system
-  * list all CSAF documents within the system
-  * delete CSAF documents from the system
-  * comment on CSAF documents in the system
-  * mark CSAF documents as read in the system
-  * search for CSAF documents by values of required fields at `document`-level or their children within the system
-  * search for CSAF documents by values of `cve` within the system
-  * search for CSAF documents based on properties of `/product_tree`
+  * add new CSAF Documents (e.g. from file system or URL) to the system
+  * list all CSAF Documents within the system
+  * delete CSAF Documents from the system
+  * comment on CSAF Documents in the system
+  * mark CSAF Documents as read in the system
+  * search for CSAF Documents by values of required fields at `document`-level or their children within the system
+  * search for CSAF Documents by values of `cve` within the system
+  * search for CSAF Documents based on properties of `/product_tree`
   * filter on all properties which it is required to search for
   * sort on all properties which it is required to search for
   * sort on CVSS scores and `/document/aggregate_severity/text`
-* identifies the latest version of CSAF documents with the same `/document/tracking/id`.
-* is able to show the difference between 2 versions of a CSAF document with the same `/document/tracking/id`.
+* identifies the latest version of CSAF Documents with the same `/document/tracking/id`.
+* is able to show the difference between 2 versions of a CSAF Document with the same `/document/tracking/id`.
 
-### Conformance Clause 13: CSAF asset matching system
+### Conformance Clause 13: CSAF Asset Matching System
 
-A CSAF asset matching system satisfies the "CSAF asset matching system" conformance profile if the asset matching system:
+A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conformance profile if the asset matching system:
 
-* satisfies the "CSAF management system" conformance profile.
+* satisfies the "CSAF Management System" conformance profile.
 * is an asset database or connects to one.
-* matches the CSAF documents within the system to the respective assets.
+* matches the CSAF Documents within the system to the respective assets.
   This might be done with a probability which gives the end user the chance to broaden or narrow the results.
   The process of matching is also referred to as "run of the asset matching module".
 * provides for each product of the asset database a list of matched advisories.
 * provides for each asset of the asset database a list of matched advisories.
-* provides for each CSAF document a list of matched product of the asset database.
-* provides for each CSAF document a list of matched asset of the asset database.
-* provides for each vulnerability within a CSAF document the option to mark a matched asset in the asset database as "not remediated",
+* provides for each CSAF Document a list of matched product of the asset database.
+* provides for each CSAF Document a list of matched asset of the asset database.
+* provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
-* does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched product or asset has not changed.
+* does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
 * detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
-    * per CSAF document
-    * per list of CSAF documents
+    * per CSAF Document
+    * per list of CSAF Documents
     * per asset
     * per list of assets
   * automatically:
-    * when a new CSAF document is inserted (for this CSAF document)
+    * when a new CSAF Document is inserted (for this CSAF Document)
     * when a new asset is inserted (for this asset)
-    * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
+    * when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
 
-    > These also apply if more than one CSAF document or asset was added.
+    > These also apply if more than one CSAF Document or asset was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
 
   * Manually and automatically triggered runs SHOULD NOT be pooled.
 * provides at least the following statistics for the count of assets:
-  * matching that CSAF document at all
+  * matching that CSAF Document at all
   * marked with a given status
 
-### Conformance Clause 14: CSAF basic validator
+### Conformance Clause 14: CSAF Basic Validator
 
-A program satisfies the "CSAF basic validator" conformance profile if the program:
+A program satisfies the "CSAF Basic Validator" conformance profile if the program:
 
 * reads documents and performs a check against the JSON schema.
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
-* does not change the CSAF documents.
-* satisfies those normative requirements in section [sec](#presets) that are designated as applying to CSAF validators.
+* does not change the CSAF Documents.
+* satisfies those normative requirements in section [sec](#presets) that are designated as applying to CSAF Validators.
 
-A CSAF basic validator MAY provide one or more additional functions:
+A CSAF Basic Validator MAY provide one or more additional functions:
 
 * Only run one or more selected mandatory tests.
 * Apply quick fixes as specified in the standard.
 * Apply additional quick fixes as implemented by the vendor.
 
-### Conformance Clause 15: CSAF extended validator
+### Conformance Clause 15: CSAF Extended Validator
 
-A CSAF basic validator satisfies the "CSAF extended validator" conformance profile if the CSAF basic validator:
+A CSAF Basic Validator satisfies the "CSAF Extended Validator" conformance profile if the CSAF Basic Validator:
 
-* satisfies the "CSAF basic validator" conformance profile.
+* satisfies the "CSAF Basic Validator" conformance profile.
 * additionally performs all tests of the preset `recommended` as given in section [sec](#presets-defined-through-test-subsections).
 
-A CSAF extended validator MAY provide an additional function to only run one or more selected recommended tests.
+A CSAF Extended Validator MAY provide an additional function to only run one or more selected recommended tests.
 
-### Conformance Clause 16: CSAF full validator
+### Conformance Clause 16: CSAF Full Validator
 
-A CSAF extended validator satisfies the "CSAF full validator" conformance profile if the CSAF extended validator:
+A CSAF Extended Validator satisfies the "CSAF Full Validator" conformance profile if the CSAF Extended Validator:
 
-* satisfies the "CSAF extended validator" conformance profile.
+* satisfies the "CSAF Extended Validator" conformance profile.
 * additionally performs all tests of the preset `informative` as given in section [sec](#presets-defined-through-test-subsections).
 * provides an option to additionally use a custom dictionary for test [sec](#spell-check).
 
-A CSAF full validator MAY provide an additional function to only run one or more selected informative tests.
+A CSAF Full Validator MAY provide an additional function to only run one or more selected informative tests.
 
-### Conformance Clause 17: CSAF SBOM matching system
+### Conformance Clause 17: CSAF SBOM Matching System
 
-A CSAF SBOM matching system satisfies the "CSAF SBOM matching system" conformance profile if the SBOM matching system:
+A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformance profile if the SBOM matching system:
 
-* satisfies the "CSAF management system" conformance profile.
+* satisfies the "CSAF Management System" conformance profile.
 * is an SBOM database or connects to one.
 
   > A repository or any other location that can be queried for SBOMs and their content is also considered an SBOM database.
-
-* matches the CSAF documents within the system to the respective SBOM components.
+* matches the CSAF Documents within the system to the respective SBOM components.
   This might be done with a probability which gives the user the chance to broaden or narrow the results.
   The process of matching is also referred to as "run of the SBOM matching module".
 * provides for each SBOM of the SBOM database a list of matched advisories.
 * provides for each SBOM component of the SBOM database a list of matched advisories.
-* provides for each CSAF document a list of matched SBOMs of the SBOM database.
-* provides for each CSAF document a list of matched SBOM components of the SBOM database.
-* provides for each vulnerability within a CSAF document the option to mark a matched SBOM component in the SBOM database as "not remediated",
+* provides for each CSAF Document a list of matched SBOMs of the SBOM database.
+* provides for each CSAF Document a list of matched SBOM components of the SBOM database.
+* provides for each vulnerability within a CSAF Document the option to mark a matched SBOM component in the SBOM database as "not remediated",
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
-* does not bring up a newer revision of a CSAF document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
+* does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
 * detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
 * is able to trigger a run of the SBOM matching module:
   * manually:
-    * per CSAF document
-    * per list of CSAF documents
+    * per CSAF Document
+    * per list of CSAF Documents
     * per SBOM component
     * per list of SBOM components
   * automatically:
-    * when a new CSAF document is inserted (for this CSAF document)
+    * when a new CSAF Document is inserted (for this CSAF Document)
     * when a new SBOM component is inserted (for this SBOM component)
-    * when the Major version in a CSAF document with semantic versioning changes (for this CSAF document)
-
-    > These also apply if more than one CSAF document or SBOM component was added.
+    * when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
+ 
+    > These also apply if more than one CSAF Document or SBOM component was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
 
   > Manually and automatically triggered runs should not be pooled.
 
 * provides at least the following statistics for the count of SBOM component:
-  * matching that CSAF document at all
+  * matching that CSAF Document at all
   * marked with a given status
 
-### Conformance Clause 18: CSAF 2.0 to CSAF 2.1 converter
+### Conformance Clause 18: CSAF 2.0 to CSAF 2.1 Converter
 
-A program satisfies the "CSAF 2.0 to CSAF 2.1 converter" conformance profile if the program fulfills the following two groups of requirements:
+A program satisfies the "CSAF 2.0 to CSAF 2.1 Converter" conformance profile if the program fulfills the following two groups of requirements:
 
 Firstly, the program:
 
-* satisfies the "CSAF producer" conformance profile.
-* takes only CSAF 2.0 documents as input.
+* satisfies the "CSAF Producer" conformance profile.
+* takes only CSAF 2.0 Documents as input.
 * outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
-  The CSAF 2.0 to CSAF 2.1 converter SHALL ignore that additional property during the conversion.
+  The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
-* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 converter MUST replace
+* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 Converter MUST replace
   the seconds and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
-  The CSAF 2.0 to CSAF 2.1 converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 converter SHOULD removed the
+  The CSAF 2.0 to CSAF 2.1 Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
+* type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:
-  * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 converter SHOULD add a `*` to the end and output a
+  * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial model number was detected and a star has been added.
     Such a warning MUST include the model number.
-  * If the model number contains a `\`, the CSAF 2.0 to CSAF 2.1 converter MUST escape it by inserting an additional `\` before the character.
-  * If the model number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 converter MUST remove the entry and
+  * If the model number contains a `\`, the CSAF 2.0 to CSAF 2.1 Converter MUST escape it by inserting an additional `\` before the character.
+  * If the model number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the entry and
     output a warning that a model number with multiple stars was detected and removed.
     Such a warning MUST include the model number.
 
@@ -641,13 +640,13 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY provide a non-default option to interpret the `*` in all model numbers as part of the model number itself and therefore escape it.
 
 * type `/$defs/full_product_name_t/product_identification_helper/purls`: If a `/$defs/full_product_name_t/product_identification_helper/purl` is given,
-  the CSAF 2.0 to CSAF 2.1 converter MUST convert it into the first item of the corresponding `purls` array.
+  the CSAF 2.0 to CSAF 2.1 Converter MUST convert it into the first item of the corresponding `purls` array.
 * type `/$defs/full_product_name_t/serial_number`:
-  * If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 converter SHOULD add a `*` to the end and output a
+  * If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial serial number was detected and a star has been added.
     Such a warning MUST include the serial number.
-  * If the serial number contains a `\`, the CSAF 2.0 to CSAF 2.1 converter MUST escape it by inserting an additional `\` before the character.
-  * If the serial number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 converter MUST remove the entry and
+  * If the serial number contains a `\`, the CSAF 2.0 to CSAF 2.1 Converter MUST escape it by inserting an additional `\` before the character.
+  * If the serial number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the entry and
     output a warning that a serial number with multiple stars was detected and removed.
     Such a warning MUST include the serial number.
 
@@ -657,31 +656,31 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
 
-* `/$schema`: The CSAF 2.0 to CSAF 2.1 converter MUST set property with the value prescribed by the schema.
+* `/$schema`: The CSAF 2.0 to CSAF 2.1 Converter MUST set property with the value prescribed by the schema.
 * `/document/category`:
-  * If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 converter MUST try to convert the data into a
-    valid CSAF document in this profile according to CSAF 2.1.
+  * If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a
+    valid CSAF Document in this profile according to CSAF 2.1.
     For any version range of affected products that uses the strict `<`, i.e. not `<=`, as comparator of the last version constraint, the CSAF 2.0
-    to CSAF 2.1 converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
-    The CSAF 2.0 to CSAF 2.1 converter MUST output a warning that a product was added to the `product_tree` and the corresponding `/vulnerabilities[]`.
+    to CSAF 2.1 Converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
+    The CSAF 2.0 to CSAF 2.1 Converter MUST output a warning that a product was added to the `product_tree` and the corresponding `/vulnerabilities[]`.
     Such warning MUST contain the full product name and its path as well as the paths of the `/vulnerabilities[]` it was added to.
-    If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category` value to
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
   * If the `/document/lang` is English or unspecified, the following rules apply:
     * If the `/document/title` starts with the string `Superseded` or the `/document/category` has the value `Superseded` (case-insensitive),
-      the CSAF 2.0 to CSAF 2.1 converter MUST try to convert all data into a valid CSAF document in the profile "Superseded" according to CSAF 2.1.
+      the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     * If the `/document/title` starts with the string `Withdrawn` or the `/document/category` has the value `Withdrawn` (case-insensitive),
-      the CSAF 2.0 to CSAF 2.1 converter MUST try to convert all data into a valid CSAF document in the profile "Withdrawn" according to CSAF 2.1.
-
-    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF document according
+      the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
+ 
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
     > to the profile.
 
     > A tool MAY support this detection for other languages.
 
-    If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid CSAF 2.1 document according to the profile, it SHALL set the `category`
-    of the original CSAF document and output a warning a potentially withdrawn CSAF document was created which would result in an invalid CSAF.
-* `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 converter MUST update the value to `2.1`.
-* `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 converter MUST convert it according to the table below:
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
+    of the original CSAF Document and output a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
+* `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter MUST update the value to `2.1`.
+* `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter MUST convert it according to the table below:
   
   | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
   |---------------------------|---------------------------|
@@ -690,33 +689,33 @@ Secondly, the program fulfills the following for all items of:
   | `TLP:AMBER`               | `TLP:AMBER`               |
   | `TLP:RED`                 | `TLP:RED`                 |
 
-  If `/document/distribution/text` contains the string `TLP v2.0: TLP:<ValidTLPLabel>`, the CSAF 2.0 to CSAF 2.1 converter SHOULD provide an
+  If `/document/distribution/text` contains the string `TLP v2.0: TLP:<ValidTLPLabel>`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD provide an
   option to use this label instead. If the TLP label changes through such conversion in a way that is not reflected in the table above, the
-  the CSAF 2.0 to CSAF 2.1 converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
+  the CSAF 2.0 to CSAF 2.1 Converter MUST output a warning that the TLP label was taken from the distribution text. Such a warning MUST include
   both values: the converted one based on the table and the one from the distribution text.
 
-  > This is a common case for CSAF 2.0 documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
+  > This is a common case for CSAF 2.0 Documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
-  If no TLP label was given, the CSAF 2.0 to CSAF 2.1 converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
+  If no TLP label was given, the CSAF 2.0 to CSAF 2.1 Converter SHOULD assign `TLP:CLEAR` and output a warning that the default TLP has been set.
   * `/document/license_expression`: If any `/document/notes` item in with `category` `legal_disclaimer` contains a valid SPDX license expression,
-  the CSAF 2.0 to CSAF 2.1 converter SHALL convert this value into `license_expression`.
+  the CSAF 2.0 to CSAF 2.1 Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
 * `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
-  [sec](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that extension
+  [sec](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
   is a specific product name, version or family.
-  In such case, the CSAF 2.0 to CSAF 2.1 SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  In such case, the CSAF 2.0 to CSAF 2.1 Coverter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
   Such warning MUST also include the note and the assigned products.
-  If the CSAF 2.0 to CSAF 2.1 is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
+  If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
-* `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 converter SHOULD output a warning that some parties have
+* `/document/publisher/category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD output a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning MUST exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
-* `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 converter MUST remove the `/document/tracking/id`
+* `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
 * `/vulnerabilities[]/cwes[]`:
-  * The CSAF 2.0 to CSAF 2.1 converter MUST remove all preceding and trailing white space from the `name`.
-  * The CSAF 2.0 to CSAF 2.1 converter MUST determine the CWE specification version the given CWE was selected from by
+  * The CSAF 2.0 to CSAF 2.1 Converter MUST remove all preceding and trailing white space from the `name`.
+  * The CSAF 2.0 to CSAF 2.1 Converter MUST determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `/document/tracking/current_release_date` of the source document.
     If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
@@ -726,60 +725,60 @@ Secondly, the program fulfills the following for all items of:
 
     The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
-* `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 converter MUST convert its value as value 
+* `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 Converter MUST convert its value as value 
   into the `disclosure_date` element.
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
-  the CSAF 2.0 to CSAF 2.1 converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
-
+  the CSAF 2.0 to CSAF 2.1 Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+  
   > A tool MAY implement an option to suppress this conversion.
 
-   If the CSAF 2.0 to CSAF 2.1 converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 converter SHALL
+  If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 * `/vulnerabilities[]/metrics/ssvc_v1`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
-  vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 converter MUST convert that data into the `ssvc_v1`
+  vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 Converter MUST convert that data into the `ssvc_v1`
   object within the current vulnerability.
-  If the CSAF 2.0 to CSAF 2.1 converter is able to construct a valid object without loosing any information, the corresponding `notes` item SHALL
+  If the CSAF 2.0 to CSAF 2.1 Converter is able to construct a valid object without loosing any information, the corresponding `notes` item SHALL
   be removed.
-  If the CSAF 2.0 to CSAF 2.1 converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 converter SHALL
+  If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the invalid `ssvc_v1` object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data failed.
-  If the CSAF 2.0 to CSAF 2.1 converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 converter SHALL remove the `ssvc_v1`
+  If the CSAF 2.0 to CSAF 2.1 Converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `ssvc_v1`
   object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data would lead to loosing information.
 * `/vulnerabilities[]/notes`: If any `/vulnerabilities[]/notes` item contains one of the `category` and `title` combinations specified in
-  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 converter SHALL try to identify whether that
+  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that
   extension is a specific product name, version or family.
-  In such case, the CSAF 2.0 to CSAF 2.1 converter SHALL try to add the corresponding products to the note item and output a warning that a potential
+  In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and output a warning that a potential
   product specific note has been discovered and products have been assigned to it.
   Such warning MUST also include the note and the assigned products.
-  If the CSAF 2.0 to CSAF 2.1 converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a
+  If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a
   potential product specific note has been discovered and no products could been assigned to it.
 * `/vulnerabilities[]/remediations[]`:
-  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
+  * The CSAF 2.0 to CSAF 2.1 Converter MUST convert any remediation with the category `vendor_fix` into the category `optional_patch`
     if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
     Otherwise, the category `vendor_fix` MUST stay the same.
     If multiple products are associated with the remediation - either directly or through a product group - and the products belong to different
-    product status groups, the CSAF 2.0 to CSAF 2.1 converter MUST duplicate the remediation, change the category in one instance to `optional_patch`
+    product status groups, the CSAF 2.0 to CSAF 2.1 Converter MUST duplicate the remediation, change the category in one instance to `optional_patch`
     and distribute the products accordingly as stated by the conversion rule.
-  * The CSAF 2.0 to CSAF 2.1 converter MUST convert any remediation with the category `none_available` into the category `fix_planned`
+  * The CSAF 2.0 to CSAF 2.1 Converter MUST convert any remediation with the category `none_available` into the category `fix_planned`
     if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the future or no `date` at all.
     Consequently, the product MUST be removed from the remediation of the category `vendor_fix`.
     If it was the last product in that remediation, the remediation MUST be removed.
-  * The CSAF 2.0 to CSAF 2.1 converter MUST remove any product from a remediation with the category `none_available`
+  * The CSAF 2.0 to CSAF 2.1 Converter MUST remove any product from a remediation with the category `none_available`
     if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the past or to the exact same time.
     If it was the last product in that remediation, the remediation MUST be removed.
-  * In any other case, the CSAF 2.0 to CSAF 2.1 converter MUST preserve the product in the remediation of the category `none_available`.
-  * The CSAF 2.0 to CSAF 2.1 converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
+  * In any other case, the CSAF 2.0 to CSAF 2.1 Converter MUST preserve the product in the remediation of the category `none_available`.
+  * The CSAF 2.0 to CSAF 2.1 Converter MUST output a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
-* The CSAF 2.0 to CSAF 2.1 converter SHALL provide the JSON path where the warning occurred together with the warning.
+* The CSAF 2.0 to CSAF 2.1 Converter SHALL provide the JSON path where the warning occurred together with the warning.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
 
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards. Solely in this case, any
 > of the rules above MAY be ignored to avoid data loss.
 
-### Conformance Clause 19: CSAF library
+### Conformance Clause 19: CSAF Library
 
-A library satisfies the "CSAF library" conformance profile if the library:
+A library satisfies the "CSAF Library" conformance profile if the library:
 
 * implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#date-and-time), [sec](#schema-elements),
   [sec](#profiles) and [sec](#additional-conventions).
@@ -787,16 +786,16 @@ A library satisfies the "CSAF library" conformance profile if the library:
 * has a function that checks version ranges.
 * has a function that helps to create version ranges.
 * provides for each element functions that allow to create, add, modify and delete that element.
-* has a function that reads a CSAF document into the data structure from a
+* has a function that reads a CSAF Document into the data structure from a
   * file system.
   * URL.
   * data stream.
 * provides function for sorting the keys and sorts the keys automatically on output.
-* has a function that outputs the data structure as CSAF document
+* has a function that outputs the data structure as CSAF Document
   * on the file system.
   * as string.
   * into a data stream.
-* has a function to determine the filename according to [sec](#filename) and sets the filename per default when saving a CSAF document.
+* has a function to determine the filename according to [sec](#filename) and sets the filename per default when saving a CSAF Document.
 * generates a new `product_id` for each new element of type `full_product_name_t` unless an ID is given during the creation.
 * generates a new `group_id` for each new element of type `product_group_id_t` unless an ID is given during the creation.
 * provides a function to retrieve all elements of type `product_id_t` with its corresponding `full_product_name_t/name` and
@@ -811,62 +810,62 @@ A library satisfies the "CSAF library" conformance profile if the library:
 
 > The library MAY implement an option to retrieve the keys unsorted.
 
-### Conformance Clause 20: CSAF library with basic validation
+### Conformance Clause 20: CSAF Library with Basic Validation
 
-A CSAF library satisfies the "CSAF library with basic validation" conformance profile if the CSAF library:
+A CSAF Library satisfies the "CSAF Library with Basic Validation" conformance profile if the CSAF Library:
 
-* satisfies the "CSAF library" conformance profile.
-* satisfies the "CSAF basic validator" conformance profile.
-* validates the CSAF document before output according to the "CSAF basic validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF basic validator" and presents the validation
+* satisfies the "CSAF Library" conformance profile.
+* satisfies the "CSAF Basic Validator" conformance profile.
+* validates the CSAF Document before output according to the "CSAF Basic Validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF Basic Validator" and presents the validation
   result accordingly.
 
-A CSAF library does not satisfies the "CSAF library with basic validation" conformance profile if the CSAF library uses an external library or
-program for the "CSAF basic validator" part and does not enforce its presence.
+A CSAF Library does not satisfies the "CSAF Library with Basic Validation" conformance profile if the CSAF Library uses an external library or
+program for the "CSAF Basic Validator" part and does not enforce its presence.
 
-### Conformance Clause 21: CSAF library with extended validation
+### Conformance Clause 21: CSAF Library with Extended Validation
 
-A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+A CSAF Library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library:
 
-* satisfies the "CSAF library" conformance profile.
-* satisfies the "CSAF extended validator" conformance profile.
-* validates the CSAF document before output according to the "CSAF extended validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF extended validator" and presents the validation
+* satisfies the "CSAF Library" conformance profile.
+* satisfies the "CSAF Extended Validator" conformance profile.
+* validates the CSAF Document before output according to the "CSAF Extended Validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF Extended Validator" and presents the validation
   result accordingly.
 
-A CSAF library does not satisfies the "CSAF library with extended validation" conformance profile if the CSAF library uses an external library or
-program for the "CSAF extended validator" part and does not enforce its presence.
+A CSAF Library does not satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library uses an external library or
+program for the "CSAF Extended Validator" part and does not enforce its presence.
 
-### Conformance Clause 22: CSAF library with full validation
+### Conformance Clause 22: CSAF Library with Full Validation
 
-A CSAF library satisfies the "CSAF library with extended validation" conformance profile if the CSAF library:
+A CSAF Library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library:
 
-* satisfies the "CSAF library" conformance profile.
-* satisfies the "CSAF full validator" conformance profile.
-* validates the CSAF document before output according to the "CSAF full validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF full validator" and presents the validation
+* satisfies the "CSAF Library" conformance profile.
+* satisfies the "CSAF Full Validator" conformance profile.
+* validates the CSAF Document before output according to the "CSAF Full Validator" and presents the validation result accordingly.
+* provide a function to validate the data structure in its current state according to the "CSAF Full Validator" and presents the validation
   result accordingly.
 
-A CSAF library does not satisfies the "CSAF library with full validation" conformance profile if the CSAF library uses an external library or
-program for the "CSAF full validator" part and does not enforce its presence.
+A CSAF Library does not satisfies the "CSAF Library with Full Validation" conformance profile if the CSAF Library uses an external library or
+program for the "CSAF Full Validator" part and does not enforce its presence.
 
-### Conformance Clause 23: CSAF downloader
+### Conformance Clause 23: CSAF Downloader
 
-A program satisfies the "CSAF downloader" conformance profile if the program:
+A program satisfies the "CSAF Downloader" conformance profile if the program:
 
 * conforms to the process defined in section [sec](#retrieving-rules) by executing all parts that are applicable to the given role.
 * supports directory-based and ROLIE-based retrieval.
 * is able to execute both steps from section [sec](#retrieving-rules) separately.
 * uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
-* satisfies those normative requirements in section [sec](#distributing-csaf-documents) that are designated as applying to CSAF downloaders.
+* satisfies those normative requirements in section [sec](#distributing-csaf-documents) that are designated as applying to CSAF Downloaders.
 
-> A tool MAY implement an option to store CSAF documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
+> A tool MAY implement an option to store CSAF Documents that fail any of the steps in section [sec](#retrieving-csaf-documents).
 
-### Conformance Clause 24: CSAF withdrawer
+### Conformance Clause 24: CSAF Withdrawer
 
-A program satisfies the "CSAF withdrawer" conformance profile if the program:
+A program satisfies the "CSAF Withdrawer" conformance profile if the program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * keeps the original `/document/tracking/id`.
 * adds a new item to the revision history stating the revision metadata of the withdrawal.
 * adds the reasoning for withdrawal as specified in section [sec](#profile-7-withdrawn).
@@ -875,11 +874,11 @@ A program satisfies the "CSAF withdrawer" conformance profile if the program:
 
 > A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
 
-### Conformance Clause 25: CSAF superseder
+### Conformance Clause 25: CSAF Superseder
 
-A program satisfies the "CSAF superseder" conformance profile if the program:
+A program satisfies the "CSAF Superseder" conformance profile if the program:
 
-* satisfies the "CSAF post-processor" conformance profile.
+* satisfies the "CSAF Post-Processor" conformance profile.
 * keeps the original `/document/tracking/id`.
 * adds a new item to the revision history stating the revision metadata of the supersession.
 * adds the reasoning for supersession as specified in section [sec](#profile-8-superseded).

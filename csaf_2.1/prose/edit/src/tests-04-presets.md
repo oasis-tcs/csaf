@@ -22,7 +22,7 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 
 Official presets are defined in different parts of the standard.
 
-### Presets defined through Test Subsections
+### Presets Defined through Test Subsections
 
 The following presets are defined through subsections of the test section:
 
@@ -30,7 +30,7 @@ The following presets are defined through subsections of the test section:
 - `recommended`: all tests given in section [sec](#recommended-tests)
 - `informative`: all tests given in section [sec](#informative-tests)
 
-### Presets defined through Conformance Targets
+### Presets Defined through Conformance Targets
 
 The following presets are defined through conformance targets:
 

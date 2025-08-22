@@ -73,7 +73,7 @@ The use of GitHub-flavoured Markdown is permitted in the following fields:
 
 Other fields MUST NOT contain Markdown.
 
-## Branch recursion
+## Branch Recursion
 
 The `/product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
 

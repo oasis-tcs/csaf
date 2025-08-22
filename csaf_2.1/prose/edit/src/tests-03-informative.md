@@ -6,7 +6,7 @@ It is up to the issuing party to decide whether this was an intended behavior an
 These tests MAY include information about recommended usage.
 A program MUST handle a test failure as a information.
 
-### Use of CVSS v2 as the only Scoring System
+### Use of CVSS v2 As the Only Scoring System
 
 For each item in the list of metrics which contains the `cvss_v2` object under `content` it MUST be tested that is not the only scoring item present.
 The test SHALL pass if a second scoring object is available regarding the specific product.
@@ -181,7 +181,7 @@ The relevant paths for this test are:
 
 > The length of the hash value is only 32 characters long.
 
-### Use of non-self referencing URLs Failing to Resolve
+### Use of Non-self Referencing URLs Failing to Resolve
 
 For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from
 the 2xx (Successful) or 3xx (Redirection) class.
@@ -228,7 +228,7 @@ The relevant paths for this test are:
 > The `category` is not set and therefore treated as its default value `external`.
 > A request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
-### Use of self referencing URLs Failing to Resolve
+### Use of Self Referencing URLs Failing to Resolve
 
 For each item in an array of type `references_t` with the category `self` it MUST be tested that
 the URL referenced resolves with a HTTP status code less than 400.
@@ -511,7 +511,7 @@ The relevant path for this test is:
 
 > At the timestamp `2024-01-24T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
 
-### Usage of Private SSVC Decision Point Namespace in non TLP:CLEAR Document
+### Usage of Private SSVC Decision Point Namespace in Non TLP:CLEAR Document
 
 For each SSVC decision point given under `selections`, it MUST be tested the `namespace` is not a private one if the document is not labeled `TLP:CLEAR`.
 
@@ -567,7 +567,7 @@ The relevant path for this test is:
 > The namespace `x_custom` is a private namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
-### Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document
+### Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document
 
 For each SSVC decision point given under `selections`, it MUST be tested the `namespace` does not use an extension
 if the document is not labeled `TLP:CLEAR`.
