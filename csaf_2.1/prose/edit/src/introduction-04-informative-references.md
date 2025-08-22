@@ -106,7 +106,7 @@ SSVC
 :    _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>
 
 VERS
-:    _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/master/VERSION-RANGE-SPEC.rst>.
+:    _vers: a mostly universal version range specifier_, Part of the package-URL GitHub Project, <https://github.com/package-url/vers-spec>.
 
 VEX
 :    _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.

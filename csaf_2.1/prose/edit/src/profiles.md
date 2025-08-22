@@ -62,7 +62,7 @@ This SHOULD be done if the issuing party is unable or unwilling to use the value
 > This is important to prepare forward compatibility as later versions of CSAF might add new profiles.
 > Therefore, the values which can be used for the profile "CSAF Base" might change.
 
-## Profile 2: Security incident response
+## Profile 2: Security Incident Response
 
 This profile SHOULD be used to provide a response to a security breach or incident.
 This MAY also be used to convey information about an incident that is unrelated to the issuing party's own products or infrastructure.
@@ -70,7 +70,7 @@ This MAY also be used to convey information about an incident that is unrelated 
 > Example Company might use a CSAF document satisfying this profile to respond to a security incident at ACME Inc. and
 the implications on its own products and infrastructure.
 
-A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security incident response":
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Incident Response":
 
 * The following elements MUST exist and be valid:
   * all elements required by the profile "CSAF Base".
@@ -194,7 +194,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 This profile MAY be used to provide information which is related to vulnerabilities and corresponding remediations,
 e.g. when converting CSAF documents from older CSAF versions or a human-readable format.
 It SHOULD NOT be used for newly created documents.
-The profile "Security Advisory" from section [sec](#profiles-profile-4-security-advisory) SHOULD be used instead.
+The profile "Security Advisory" from section [sec](#profile-4-security-advisory) SHOULD be used instead.
 
 > The definition of the profile "Deprecated Security Advisory" in CSAF 2.1 matches the definition of profile "Security Advisory" in CSAF 2.0.
 

@@ -8,11 +8,11 @@
         "label": "CLEAR"
       }
     },
-    "license_expression": "LicenseRef-www.example.org-Example-CSAF-License-3.0+",
+    "license_expression": "LicenseRef-www.example.org-Example-CSAF-License-2.0",
     "notes": [
       {
         "category": "legal_disclaimer",
-        "text": "This is the Example-CSAF-License-3.0 text.",
+        "text": "This is the Example-CSAF-License-2.0 text.",
         "title": "License"
       }
     ],

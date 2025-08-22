@@ -887,6 +887,45 @@ The following tables shows the allowed, discouraged and prohibited combinations:
 | `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
 | `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
 
+The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
+
+1. `vendor_fix` and Recommended
+2. `mitigation` & Recommended
+3. `workaround` & Recommended
+4. `optional_patch` & Recommended
+5. `vendor_fix` & Affected
+6. `mitigation` & Affected
+7. `workaround` & Affected
+8. `optional_patch` & Under Investigation
+9. `optional_patch` & Unknown
+10. `fix_planned` & Recommended
+11. `fix_planned` & Affected
+12. `optional_patch` & Not Affected
+13. `none_available` & Recommended
+14. `no_fix_planned` & Recommended
+15. `none_available` & Affected
+16. `none_available` & Under Investigation
+17. `none_available` & Unknown
+18. `no_fix_planned` & Affected
+19. `no_fix_planned` & Under Investigation
+20. `no_fix_planned` & Unknown
+
+The remaining discouraged combinations are appended at the end of the list:
+
+1. `optional_patch` & Fixed
+2. `vendor_fix` & Under Investigation
+3. `vendor_fix` & Unknown
+4. `mitigation` & Under Investigation
+5. `mitigation` & Unknown
+6. `workaround` & Under Investigation
+7. `workaround` & Unknown
+8. `fix_planned` & Under Investigation
+9. `fix_planned` & Unknown
+10. `fix_planned` & Not Affected
+11. `no_fix_planned` & Not Affected
+
+CSAF Viewers MAY sort the remediation items accordingly.
+
 ##### Vulnerabilities Property - Remediations - Date
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.

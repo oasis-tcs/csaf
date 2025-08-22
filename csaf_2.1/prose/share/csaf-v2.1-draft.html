@@ -3823,8 +3823,8 @@
       A CSAF document with <code>TLP:CLEAR</code> SHOULD NOT contain a sharing group value and SHALL NOT contain any other value for the Sharing Group ID than Max UUID (<code>ffffffff-ffff-ffff-ffff-ffffffffffff</code>).
     </p>
     <p>
-      If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for CSAF modifier (cf. section <a href="#conformance-clause-8-csaf-modifier">sec</a>) regarding the generation of the value of <code>/document/tracking/id</code> SHALL be applied. This implies that usually the sharing group
-      ID is used as a prefix to the original <code>/document/tracking/id</code>.
+      If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for CSAF modifier (cf. section <a href="#conformance-clause-8-csaf-modifier">9.1.8</a>) regarding the generation of the value of <code>/document/tracking/id</code> SHALL be applied. This implies that usually the sharing
+      group ID is used as a prefix to the original <code>/document/tracking/id</code>.
     </p>
     <p>
       Sharing Group Name (<code>name</code>) of value type <code>string</code> with one or more characters contains a human-readable name for the sharing group.
@@ -12321,16 +12321,16 @@
     </p>
     <ul>
       <li>
-        <code>schema</code>: Check against the JSON schema (see section <a href="#conformance-clause-14-csaf-basic-validator">sec</a>)
+        <code>schema</code>: Check against the JSON schema (see section <a href="#conformance-clause-14-csaf-basic-validator">9.1.14</a>)
       </li>
       <li>
-        <code>basic</code>: <code>schema</code> + <code>mandatory</code> (see section <a href="#conformance-clause-14-csaf-basic-validator">sec</a>)
+        <code>basic</code>: <code>schema</code> + <code>mandatory</code> (see section <a href="#conformance-clause-14-csaf-basic-validator">9.1.14</a>)
       </li>
       <li>
-        <code>extended</code>: <code>basic</code> + <code>recommended</code> (see section <a href="#conformance-clause-15-csaf-extended-validator">sec</a>)
+        <code>extended</code>: <code>basic</code> + <code>recommended</code> (see section <a href="#conformance-clause-15-csaf-extended-validator">9.1.15</a>)
       </li>
       <li>
-        <code>full</code>: <code>extended</code> + <code>informative</code> (see section <a href="#conformance-clause-16-csaf-full-validator">sec</a>)
+        <code>full</code>: <code>extended</code> + <code>informative</code> (see section <a href="#conformance-clause-16-csaf-full-validator">9.1.16</a>)
       </li>
     </ul>
     <p>
@@ -12568,9 +12568,9 @@
   }</code></pre>
     <p>
       The <code>maintained_until</code> and <code>maintained_from</code> properties can be used to indicate that the distributions contained in <code>provider-metadata.json</code> at the given <code>canonical_url</code> are only guaranteed to be maintained until or after the specified date and time. This SHOULD be used to support a transition
-      period between CSAF 2.0 and CSAF 2.1 (cf. section <a href="#transition-between-csaf-2-0-and-csaf-2-1">sec</a>). CSAF downloaders (cf. section <a href="#conformance-clause-23-csaf-downloader">sec</a>) and programs retrieving or providing a <code>provider-metadata.json</code> SHOULD evaluate this property and emit a warning if the current
-      date is less than 90 days away from <code>maintained_until</code> and an error if the current date exceeds <code>maintained_until</code>. The programs MAY provide a non-default option to use the <code>provider-metadata.json</code> anyway. Furthermore, such programs SHOULD evaluate the <code>maintained_from</code> property and output a
-      warning if the current date is still before the <code>maintained_from</code> timestamp.
+      period between CSAF 2.0 and CSAF 2.1 (cf. section <a href="#transition-between-csaf-2-0-and-csaf-2-1">7.4</a>). CSAF downloaders (cf. section <a href="#conformance-clause-23-csaf-downloader">9.1.23</a>) and programs retrieving or providing a <code>provider-metadata.json</code> SHOULD evaluate this property and emit a warning if the
+      current date is less than 90 days away from <code>maintained_until</code> and an error if the current date exceeds <code>maintained_until</code>. The programs MAY provide a non-default option to use the <code>provider-metadata.json</code> anyway. Furthermore, such programs SHOULD evaluate the <code>maintained_from</code> property and
+      output a warning if the current date is still before the <code>maintained_from</code> timestamp.
     </p>
     <p>
       If a CSAF publisher (cf. section <a href="#role-csaf-publisher">7.2.1</a>) does not provide the <code>provider-metadata.json</code>, an aggregator SHOULD contact the CSAF publisher in question to determine the values for <code>list_on_CSAF_aggregators</code> and <code>mirror_on_CSAF_aggregators</code>. If that is impossible or if the
@@ -12604,7 +12604,7 @@ CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
     <p>
       It is possible to advertise more than one <code>provider-metadata.json</code> by adding multiple <code>CSAF</code> fields, e.g. in case of changes to the organizational structure through mergers and acquisitions. However, this SHOULD NOT be done and removed as soon as possible. A valid use case for temporarily including multiple entries
-      would be a transition phase between different CSAF versions, in which documents and provider metadata of both versions are served simultaneously (cf. section <a href="#transition-between-csaf-2-0-and-csaf-2-1">sec</a>). If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
+      would be a transition phase between different CSAF versions, in which documents and provider metadata of both versions are served simultaneously (cf. section <a href="#transition-between-csaf-2-0-and-csaf-2-1">7.4</a>). If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
     </p>
     <h3 id="719-requirement-9-well-known-url-for-provider-metadatajson-">
       7.1.9 Requirement 9: Well-known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
@@ -12618,7 +12618,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
     </p>
     <pre><code>  https://www.example.com/.well-known/csaf/provider-metadata.json</code></pre>
     <p>
-      As specified in <a href="#transition-between-csaf-2-0-and-csaf-2-1">sec</a>, the value of <code>canonical_url</code> MAY differ from the URL that was requested as a part of this requirement. Such state is intended and MUST NOT be reported as error.
+      As specified in <a href="#transition-between-csaf-2-0-and-csaf-2-1">7.4</a>, the value of <code>canonical_url</code> MAY differ from the URL that was requested as a part of this requirement. Such state is intended and MUST NOT be reported as error.
     </p>
     <h3 id="7110-requirement-10-dns-path-">
       7.1.10 Requirement 10: DNS path <a id='requirement-10-dns-path'></a>
@@ -12677,7 +12677,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
     </p>
     <blockquote>
       <p>
-        Note: As a consequence of section <a href="#requirement-2-filename">sec</a> Requirement 2 for filenames and section <a href="#requirement-11-one-folder-per-year">sec</a> Requirement for directory names, there must not be any characters within the <code>changes.csv</code> that would require quoting.
+        Note: As a consequence of section <a href="#requirement-2-filename">7.1.2</a> Requirement 2 for filenames and section <a href="#requirement-11-one-folder-per-year">7.1.11</a> Requirement for directory names, there must not be any characters within the <code>changes.csv</code> that would require quoting.
       </p>
     </blockquote>
     <p>
@@ -13346,7 +13346,8 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>Providers will immediately upgrade all documents as well as the <code>provider-metadata.json</code> to CSAF 2.1. While this benefits the adoption of CSAF 2.1, consumers that still rely on CSAF 2.0 are cut off.
       </li>
-      <li>Providers will begin a transition period, in which they continue to serve existing documents in CSAF 2.0, gradually updating the existing document base (e.g. by using a CSAF 2.0 to CSAF 2.1 converter as described in <a href="#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter">sec</a>) and publishing new documents using CSAF 2.1.
+      <li>Providers will begin a transition period, in which they continue to serve existing documents in CSAF 2.0, gradually updating the existing document base (e.g. by using a CSAF 2.0 to CSAF 2.1 converter as described in <a href="#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter">9.1.18</a>) and publishing new documents using CSAF
+      2.1.
       </li>
     </ul>
     <h3 id="741-announcing-the-transition-">
@@ -13426,7 +13427,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         <ul>
           <li>The content of the resource SHALL be equal to the resource accessible at <code>/.well-known/csaf/v2.0/provider-metadata.json</code>.
           </li>
-          <li>For file-based distribution servers, this MAY be achieved by using a symlink. Redirects SHALL NOT be used (cf. to requirement <a href="#requirement-9-well-known-url-for-provider-metadata-json">sec</a>)
+          <li>For file-based distribution servers, this MAY be achieved by using a symlink. Redirects SHALL NOT be used (cf. to requirement <a href="#requirement-9-well-known-url-for-provider-metadata-json">7.1.9</a>)
           </li>
         </ul>
       </li>
@@ -13436,7 +13437,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         <ul>
           <li>The content of the resource SHALL be equal to the resource accessible at <code>/.well-known/csaf/v2.1/provider-metadata.json</code>.
           </li>
-          <li>For file-based distribution servers, this MAY be achieved by using a symlink. Redirects SHALL NOT be used (cf. to requirement <a href="#requirement-9-well-known-url-for-provider-metadata-json">sec</a>)
+          <li>For file-based distribution servers, this MAY be achieved by using a symlink. Redirects SHALL NOT be used (cf. to requirement <a href="#requirement-9-well-known-url-for-provider-metadata-json">7.1.9</a>)
           </li>
         </ul>
       </li>
@@ -13450,10 +13451,10 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
     </ul>
     <p>
-      If a DNS path (cf. section <a href="#requirement-10-dns-path">sec</a>) is used instead of the well-known URL, the same process SHOULD be followed taking the rules below into account:
+      If a DNS path (cf. section <a href="#requirement-10-dns-path">7.1.10</a>) is used instead of the well-known URL, the same process SHOULD be followed taking the rules below into account:
     </p>
     <ul>
-      <li>The leading and authoritative <code>provider-metadata.json</code> is always served according to the DNS path requirement (see section <a href="#requirement-10-dns-path">sec</a>).
+      <li>The leading and authoritative <code>provider-metadata.json</code> is always served according to the DNS path requirement (see section <a href="#requirement-10-dns-path">7.1.10</a>).
         <blockquote>
           <p>
             This implies that a CSAF 2.0 <code>provider-metadata.json</code> is served at the beginning and replaced by the CSAF 2.1 <code>provider-metadata.json</code> at the roll-over-date.
@@ -13472,7 +13473,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     <ul>
       <li>This archive SHOULD be located in <code>/.well-known/csaf/archive/</code> and use the file name <code>v2.0.tar.zst</code>, <code>v2.0.tar.bz2</code> or <code>v2.0.tar.xz</code>.
       </li>
-      <li>The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section <a href="#requirement-11-one-folder-per-year">sec</a> and be accompanied by a hash according to requirement 18 <a href="#requirement-18-integrity">sec</a>.
+      <li>The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section <a href="#requirement-11-one-folder-per-year">7.1.11</a> and be accompanied by a hash according to requirement 18 <a href="#requirement-18-integrity">7.1.18</a>.
       </li>
       <li>The archive MUST be accompanied by a hash of the same algorithm.
       </li>
@@ -15128,7 +15129,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>adds a new item to the revision history stating the revision metadata of the withdrawal.
       </li>
-      <li>adds the reasoning for withdrawal as specified in section <a href="#profile-7-withdrawn">sec</a>.
+      <li>adds the reasoning for withdrawal as specified in section <a href="#profile-7-withdrawn">4.7</a>.
       </li>
       <li>removes the <code>/product_tree</code>.
       </li>
@@ -15153,9 +15154,9 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>adds a new item to the revision history stating the revision metadata of the supersession.
       </li>
-      <li>adds the reasoning for supersession as specified in section <a href="#profile-8-superseded">sec</a>.
+      <li>adds the reasoning for supersession as specified in section <a href="#profile-8-superseded">4.8</a>.
       </li>
-      <li>adds the reference to the superseding document as specified in section <a href="#profile-8-superseded">sec</a>.
+      <li>adds the reference to the superseding document as specified in section <a href="#profile-8-superseded">4.8</a>.
       </li>
       <li>removes the <code>/product_tree</code>.
       </li>

@@ -2093,6 +2093,10 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-54-02.json",
           "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-54-03.json",
+          "valid": false
         }
       ],
       "valid": [
@@ -2102,6 +2106,10 @@
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-54-12.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-54-13.json",
           "valid": true
         }
       ]
@@ -2278,11 +2286,27 @@
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-01.json",
           "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-02.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-03.json",
+          "valid": true
         }
       ],
       "valid": [
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-11.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-12.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-13.json",
           "valid": true
         }
       ]

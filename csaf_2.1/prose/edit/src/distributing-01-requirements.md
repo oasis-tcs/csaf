@@ -5,7 +5,7 @@ The order does not give any hint about the importance.
 Not all requirements have to be fulfilled to conform to this specification - the sets of
 requirements per conformance clause are defined in section [sec](#roles).
 
-### Requirement 1: Valid CSAF document
+### Requirement 1: Valid CSAF Document
 
 The document is a valid CSAF document (cf. Conformance clause 1).
 
@@ -154,7 +154,7 @@ A valid use case for temporarily including multiple entries would be a transitio
 and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
-### Requirement 9: Well-known URL for provider-metadata.json
+### Requirement 9: Well-Known URL for provider-metadata.json
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
@@ -170,7 +170,7 @@ As specified in [sec](#transition-between-csaf-2-0-and-csaf-2-1), the value of `
 requested as a part of this requirement.
 Such state is intended and MUST NOT be reported as error.
 
-### Requirement 10: DNS path
+### Requirement 10: DNS Path
 
 Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
 to the IP address of a web server which serves directly the `provider-metadata.json` according to requirement 7.
@@ -181,7 +181,7 @@ to the IP address of a web server which serves directly the `provider-metadata.j
 That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required.
 
-### Requirement 11: One folder per year
+### Requirement 11: One Folder per Year
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
@@ -195,23 +195,113 @@ value of `/document/tracking/initial_release_date`.
 
 ### Requirement 12: index.txt
 
-The file index.txt MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+The file `index.txt` MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 Each entry SHALL be terminated by a newline sequence.
 The last entry MAY skip the newline sequence.
-
-> If different TLP labels are used, multiple index.txt exist.
-> However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
 *Example 1:*
 
 ```
-2023/esa-2023-09953.json
-2022/esa-2022-02723.json
-2021/esa-2021-31916.json
-2021/esa-2021-03676.json
+2025/esa-2025-421324.json
+2024/esa-2024-620109.json
+2024/esa-2024-470520.json
+2024/esa-2024-430524.json
+2023/esa-2023-450116.json
 ```
 
 > This can be used to download all CSAF documents.
+
+The file `index.txt` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+
+> If different TLP labels are used, multiple `index.txt` exist.
+> However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
+
+*Example 2:*
+
+```
+.well-known/
+├─ csaf/
+│  ├─ amber/
+│  │  ├─ 2023/
+│  │  │  ├─ esa-2023-540205.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-440412.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ amber+strict/
+│  │  ├─ 2024/
+│  │  │  ├─ esa-2024-451013.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-540204.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ clear/
+│  │  ├─ 2023/
+│  │  │  ├─ esa-2023-450116.json
+│  │  ├─ 2024/
+│  │  │  ├─ esa-2024-430524.json
+│  │  │  ├─ esa-2024-470520.json
+│  │  │  ├─ esa-2024-620109.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-421324.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ green/
+│  │  ├─ 2024/
+│  │  │  ├─ esa-2024-430316.json
+│  │  ├─ 2025/
+│  │  │  ├─ esa-2025-431009.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+│  ├─ red/
+│  │  ├─ 2022/
+│  │  │  ├─ esa-2022-431406.json
+│  │  │  ├─ esa-2022-431407.json
+│  │  ├─ changes.csv
+│  │  ├─ index.txt
+```
+
+> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `index.txt` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
+> Example \[[eg](#requirement-12-index-txt-eg-1)\] depicts the content of the `index.txt` within the folder `clear`
+> located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
+
+*Example 3:*
+
+```
+  "distributions": [
+    {
+      "directory": {
+        "tlp_label": "CLEAR",
+        "url": "https://www.example.com/.well-known/csaf/clear/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "GREEN",
+        "url": "https://www.example.com/.well-known/csaf/green/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "AMBER",
+        "url": "https://www.example.com/.well-known/csaf/amber/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "AMBER+STRICT",
+        "url": "https://www.example.com/.well-known/csaf/amber+strict/",
+      }
+    },
+    {
+      "directory": {
+        "tlp_label": "RED",
+        "url": "https://www.example.com/.well-known/csaf/red/",
+      }
+    }
+  ],
+```
 
 ### Requirement 13: changes.csv
 
@@ -226,22 +316,30 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 *Example 1:*
 
 ```
-2023/esa-2023-09953.json,2023-07-01T10:09:07Z
-2021/esa-2021-03676.json,2023-07-01T10:09:01Z
-2022/esa-2022-02723.json,2022-04-17T15:08:41Z
-2021/esa-2021-31916.json,2022-03-01T06:01:00Z
+2024/esa-2024-430524.json,2025-07-21T11:14:37Z
+2025/esa-2025-421324.json,2025-01-10T00:51:10Z
+2024/esa-2024-470520.json,2025-01-01T15:34:54Z
+2023/esa-2023-450116.json,2024-12-01T17:09:02Z
+2024/esa-2024-620109.json,2024-07-30T23:59:29Z
 ```
 
 > Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
 
-### Requirement 14: Directory listings
+The file `changes.csv` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+
+> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
+> Example \[[eg](#requirement-13-changes-csv-eg-1)\] depicts the content of the `changes.csv` within the folder `clear`
+> located at `https://www.example.com/.well-known/csaf/clear/changes.csv`.
+
+### Requirement 14: Directory Listings
 
 Server-side generated directory listing SHALL be enabled to support manual navigation.
 
 > As the content of the directory listing is more or less static, there is little to no benefit in using of client-side scripts.
 > Moreover, client-side scripts, like JavaScript, are usually not evaluated in text-based browsers and are also hard to check programmatically.
 
-### Requirement 15: ROLIE feed
+### Requirement 15: ROLIE Feed
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
@@ -321,7 +419,7 @@ the array `link` having the `rel` value of `hash`.
 Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link`
 having the `rel` value of `signature`.
 
-### Requirement 16: ROLIE service document
+### Requirement 16: ROLIE Service Document
 
 The use and therefore the existence of ROLIE service document is optional.
 If it is used, each ROLIE service document MUST be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
@@ -356,7 +454,7 @@ The ROLIE service document SHOULD use the filename `service.json` and reside nex
   }
 ```
 
-### Requirement 17: ROLIE category document
+### Requirement 17: ROLIE Category Document
 
 The use and therefore the existence of ROLIE category document is optional.
 If it is used, each ROLIE category document MUST be a JSON file that conforms with [cite](#RFC8322).
@@ -424,7 +522,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 All CSAF documents SHALL have at least one hash file computed with a secure cryptographic hash algorithm (e.g. SHA-512 or SHA-3)
 to ensure their integrity. The filename is constructed by appending the file extension which is given by the algorithm.
 
-MD5 and SHA1 SHOULD NOT be used.
+MD5 and SHA1 SHALL NOT be used.
 
 *Example 1:*
 
@@ -483,7 +581,7 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 > Guidance on OpenPGP key strength can be retrieved from technical guidelines of competent authorities.
 
-### Requirement 21: List of CSAF providers
+### Requirement 21: List of CSAF Providers
 
 The file `aggregator.json` MUST be present and valid according to the
 JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
@@ -542,7 +640,7 @@ The file `aggregator.json` SHOULD only list the latest version of the metadata o
   }
 ```
 
-### Requirement 22: Two disjoint issuing parties
+### Requirement 22: Two Disjoint Issuing Parties
 
 The file `aggregator.json` (requirement 21) lists at least two disjoint CSAF providers (including CSAF trusted providers)
 or one CSAF publisher and one CSAF provider (including CSAF trusted provider).

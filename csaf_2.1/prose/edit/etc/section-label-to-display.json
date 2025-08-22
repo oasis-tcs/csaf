@@ -1,5 +1,5 @@
 {
-  "Please do not edit manually!": "Instead, call 'make invert-sections' inside the clone-root/csaf_2.1/prose/edit folder.",
+  "Please do not edit manually!": "Cf. documentation",
   "acknowledgments": "Appendix A.",
   "acknowledgments-type": "3.1.1",
   "acknowledgments-type-example": "3.1.1.5",
@@ -211,6 +211,9 @@
   "profile-3-informational-advisory": "4.3",
   "profile-4-security-advisory": "4.4",
   "profile-5-vex": "4.5",
+  "profile-6-deprecated-security-advisory": "4.6",
+  "profile-7-withdrawn": "4.7",
+  "profile-8-superseded": "4.8",
   "profiles": "4",
   "prohibited-document-category-name": "6.1.26",
   "properties": "3.2",
