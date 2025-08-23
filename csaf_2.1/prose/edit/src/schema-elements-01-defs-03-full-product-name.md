@@ -1,6 +1,6 @@
 ### Full Product Name Type
 
-Full Product Name (`full_product_name_t`) with value type `object` specifies information about the product and assigns the product ID.
+Full Product Name (`full_product_name_t`) of value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
 ```
@@ -22,7 +22,7 @@ The properties `name` and `product_id` are required. The property `product_ident
 
 #### Full Product Name Type - Name
 
-Textual description of the product (`name`) has value type `string` with 1 or more characters.
+Textual description of the product (`name`) has value type `string` with `1` or more characters.
 The value SHOULD be the product's full canonical name, including version number and other attributes,
 as it would be used in a human-friendly document.
 
@@ -42,7 +42,7 @@ Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least
 one method which aids in identifying the product in an asset database.
 Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purls`, `sbom_urls`, `serial_numbers`, `skus`,
-and `x_generic_uris`, one is mandatory.
+and `x_generic_uris`, `1` is mandatory.
 
 ```
     "product_identification_helper": {
@@ -85,7 +85,7 @@ check e.g. the branches hierarchy leading to the product.
 
 ##### Full Product Name Type - Product Identification Helper - CPE
 
-Common Platform Enumeration representation (`cpe`) of value type `string` of 5 or more characters with `pattern` (regular expression):
+Common Platform Enumeration representation (`cpe`) of value type `string` of `5` or more characters with `pattern` (regular expression):
 
 ```
     ^((cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:\\/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6}))$
@@ -98,7 +98,7 @@ See [CPE23-N] for details.
 
 ##### Full Product Name Type - Product Identification Helper - Hashes
 
-List of hashes (`hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes usable to identify files.
+List of hashes (`hashes`) of value type `array` holding at least `1` item contains a list of cryptographic hashes usable to identify files.
 
 ```
     "hashes": {
@@ -110,7 +110,7 @@ List of hashes (`hashes`) of value type `array` holding at least one item contai
 ```
 
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
-Any cryptographic hashes object has the 2 mandatory properties `file_hashes` and `filename`.
+Any cryptographic hashes object has the two mandatory properties `file_hashes` and `filename`.
 
 ```
         "properties": {
@@ -123,7 +123,7 @@ Any cryptographic hashes object has the 2 mandatory properties `file_hashes` and
         }
 ```
 
-List of file hashes (`file_hashes`) of value type `array` holding at least one item contains a list of cryptographic hashes for this file.
+List of file hashes (`file_hashes`) of value type `array` holding at least `1` item contains a list of cryptographic hashes for this file.
 
 ```
     "file_hashes": {
@@ -135,7 +135,7 @@ List of file hashes (`file_hashes`) of value type `array` holding at least one i
 ```
 
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified.
-Any File hash object has the 2 mandatory properties `algorithm` and `value`.
+Any File hash object has the two mandatory properties `algorithm` and `value`.
 
 ```
         "properties": {
@@ -148,7 +148,7 @@ Any File hash object has the 2 mandatory properties `algorithm` and `value`.
         }
 ```
 
-The algorithm of the cryptographic hash representation (`algorithm`) of value type `string` with one or more characters contains
+The algorithm of the cryptographic hash representation (`algorithm`) of value type `string` with `1` or more characters contains
 the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 Secure cryptographic hash algorithms SHOULD be preferred.
@@ -180,7 +180,7 @@ These values are derived from the currently supported digests OpenSSL [cite](#OP
 >  -ssl3-sha1                 -whirlpool
 >```
 
-The Value of the cryptographic hash representation (`value`) of value type `string` of 32 or more characters with `pattern` (regular expression):
+The Value of the cryptographic hash representation (`value`) of value type `string` of `32` or more characters with `pattern` (regular expression):
 
 ```
     ^[0-9a-fA-F]{32,}$
@@ -196,7 +196,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
 ```
 
-The filename representation (`filename`) of value type `string` with one or more characters contains the name of
+The filename representation (`filename`) of value type `string` with `1` or more characters contains the name of
 the file which is identified by the hash values.
 
 *Examples 3:*
@@ -212,7 +212,7 @@ In such cases, the filename SHOULD be used as informational property.
 
 ##### Full Product Name Type - Product Identification Helper - Model Numbers
 
-The list of models (`model_numbers`) of value type `array` with 1 or more unique items contains a list of model numbers.
+The list of models (`model_numbers`) of value type `array` with `1` or more unique items contains a list of model numbers.
 
 A list of models SHOULD only be used if a certain range of model numbers with its corresponding software version is affected,
 or the model numbers change during update.
@@ -229,7 +229,7 @@ If necessary, the software, or any other related part, SHALL be bind to that via
     },
 ```
 
-Any given model number of value type `string` with at least 1 character represents a model number of the component to identify -
+Any given model number of value type `string` with at least `1` character represents a model number of the component to identify -
 possibly with placeholders.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously.
@@ -237,7 +237,8 @@ possibly with placeholders.
 
 If a part of a model number of the component to identify is given,
 it MUST begin at the first and end at the last character position of the string representing the targeted component.
-The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at these positions from matching.
+The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
+these positions from matching.
 This applies also to the first character.
 An unescaped `*` MUST be the only `*` wildcard in the string.
 As part of the model number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
@@ -256,7 +257,7 @@ As part of the model number, the special characters `?`, `*` and `\` MUST be esc
 
 ##### Full Product Name Type - Product Identification Helper - purls
 
-List of purls (`purls`) of value type `array` with 1 or more unique items contains a list of package URL (purl) identifiers.
+List of purls (`purls`) of value type `array` with `1` or more unique items contains a list of package URL (purl) identifiers.
 
 ```
     "purls": {
@@ -267,7 +268,7 @@ List of purls (`purls`) of value type `array` with 1 or more unique items contai
     },
 ```
 
-A package URL representation is a `string` of 7 or more characters with `pattern` (regular expression):
+A package URL representation is a `string` of `7` or more characters with `pattern` (regular expression):
 
 ```
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
@@ -287,7 +288,7 @@ Otherwise, separate product branches SHOULD be used to differentiate between the
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
 
-The list of SBOM URLs (`sbom_urls`) of value type `array` with 1 or more items contains
+The list of SBOM URLs (`sbom_urls`) of value type `array` with `1` or more items contains
 a list of URLs where SBOMs for this product can be retrieved.
 
 > The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
@@ -312,7 +313,7 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
 
 ##### Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with 1 or more unique items contains
+The list of serial numbers (`serial_numbers`) of value type `array` with `1` or more unique items contains
 a list of serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected,
@@ -327,12 +328,13 @@ or the serial numbers change during update.
     },
 ```
 
-Any given serial number of value type `string` with at least 1 character represents a serial number of the component to identify -
+Any given serial number of value type `string` with at least `1` character represents a serial number of the component to identify -
 possibly with placeholders.
 
 If a part of a serial number of the component to identify is given,
 it MUST begin at the first and end at the last character position of the string representing the targeted component.
-The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at these positions from matching.
+The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
+these positions from matching.
 This applies also to the first character.
 An unescaped `*` MUST be the only `*` wildcard in the string.
 As part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
@@ -351,7 +353,7 @@ As part of the serial number, the special characters `?`, `*` and `\` MUST be es
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
 
-The list of stock keeping units (`skus`) of value type `array` with 1 or more items contains a list of full or
+The list of stock keeping units (`skus`) of value type `array` with `1` or more items contains a list of full or
 abbreviated (partial) stock keeping units.
 
 A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software,
@@ -370,7 +372,7 @@ In the latter case the remediations SHALL include the new stock keeping units or
     },
 ```
 
-Any given stock keeping unit of value type `string` with at least 1 character represents a full or
+Any given stock keeping unit of value type `string` with at least `1` character represents a full or
 abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 > Sometimes this is also called "item number", "article number" or "product number".
@@ -382,7 +384,7 @@ Two `*` MUST NOT follow each other.
 
 ##### Full Product Name Type - Product Identification Helper - Generic URIs
 
-List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 item contains a list of identifiers which are
+List of generic URIs (`x_generic_uris`) of value type `array` with at least `1` item contains a list of identifiers which are
 either vendor-specific or derived from a standard not yet supported.
 
 ```
