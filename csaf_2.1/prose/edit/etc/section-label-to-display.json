@@ -245,6 +245,8 @@
   "requirement-21-list-of-csaf-providers": "7.1.21",
   "requirement-22-two-disjoint-issuing-parties": "7.1.22",
   "requirement-23-mirror": "7.1.23",
+  "requirement-24-http-user-agent": "7.1.24",
+  "requirement-25-access-control-allow-origin": "7.1.25",
   "requirement-3-tls": "7.1.3",
   "requirement-4-tlp-clear": "7.1.4",
   "requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red": "7.1.5",
