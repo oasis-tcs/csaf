@@ -1550,7 +1550,7 @@
                 },
                 "restart_required": {
                   "title": "Restart required by remediation",
-                  "description": "Provides information on category of restart is required by this remediation to become effective.",
+                  "description": "Provides information on the category of restart required by this remediation to become effective.",
                   "type": "object",
                   "required": [
                     "category"

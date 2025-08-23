@@ -977,7 +977,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 ##### Vulnerabilities Property - Remediations - Restart Required
 
 Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
-the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
+the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
 
 ```
       "restart_required": {
