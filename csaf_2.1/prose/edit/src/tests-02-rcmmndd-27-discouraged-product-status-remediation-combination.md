@@ -1,7 +1,7 @@
 ### Discouraged Product Status Remediation Combination
 
-For each item in `/vulnerabilities[]/remediations` it MUST be tested that a Product is not member of a discouraged product status group
-remediation category combination.
+For each item in `/vulnerabilities[]/remediations`, it MUST be tested that a Product is not member of a discouraged product status group
+remediation category combination (see table [tab](#vulnerabilities-property-remediations-category-tab-2)).
 This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:

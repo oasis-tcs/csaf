@@ -1,6 +1,7 @@
 ### Contradicting Remediations
 
-For each item in `/vulnerabilities[]/remediations` it MUST be tested that a product is not member of contradicting remediation categories.
+For each item in `/vulnerabilities[]/remediations` it MUST be tested that a product is not member of
+contradicting remediation categories (see table [tab](#vulnerabilities-property-remediations-category-tab-1)).
 This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
