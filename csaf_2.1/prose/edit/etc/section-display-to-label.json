@@ -343,6 +343,8 @@
   "9.1.21": "conformance-clause-21-csaf-library-with-extended-validation",
   "9.1.22": "conformance-clause-22-csaf-library-with-full-validation",
   "9.1.23": "conformance-clause-23-csaf-downloader",
+  "9.1.24": "conformance-clause-24-csaf-withdrawer",
+  "9.1.25": "conformance-clause-25-csaf-superseder",
   "Appendix A.": "acknowledgments",
   "Appendix B.": "revision-history",
   "Appendix C.": "guidance-on-the-size-of-csaf-documents",
