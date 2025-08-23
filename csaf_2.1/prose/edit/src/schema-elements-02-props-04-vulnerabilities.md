@@ -1,6 +1,6 @@
 ### Vulnerabilities Property
 
-Vulnerabilities (`vulnerabilities`) of value type `array` with 1 or more objects representing vulnerabilities and providing 1 or more
+Vulnerabilities (`vulnerabilities`) of value type `array` with `1` or more objects representing vulnerabilities by providing one or more
 properties represents a list of all relevant vulnerability information items.
 
 ```
@@ -12,7 +12,7 @@ properties represents a list of all relevant vulnerability information items.
     }
 ```
 
-The Vulnerability item of value type `object` with 1 or more properties is a container for the aggregation of all fields that are related to
+The Vulnerability item of value type `object` with `1` or more properties is a container for the aggregation of all fields that are related to
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
 Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
@@ -96,7 +96,7 @@ holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking num
 
 #### Vulnerabilities Property - CWEs
 
-List of CWEs (`cwes`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of CWEs.
+List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
 
 ```
     "cwes": {
@@ -109,8 +109,9 @@ List of CWEs (`cwes`) of value type `array` with 1 or more unique items (a set) 
 
 > It is expected that the list of CWEs is ordered from the most specific weakness ID to the least specific one.
 
-Every CWE item of value type `object` with the 3 mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`) holds the
-MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [cite](#CWE).
+Every CWE item of value type `object` with the three mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`)
+holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
+For more information cf. [cite](#CWE).
 
 ```
       "properties": {
@@ -142,7 +143,7 @@ It holds the ID for the weakness associated.
     CWE-79
 ```
 
-The Weakness name (`name`) has value type `string` of 1 or more characters with `pattern` (regular expression):
+The Weakness name (`name`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
 ```
     ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
@@ -185,8 +186,9 @@ the vulnerability was originally disclosed to the public.
 For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the
 intended date for disclosure of the vulnerability.
 This is also sometimes called embargo date.
-As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document to confirm that
-the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new intended date in the future.
+As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document
+to confirm that the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new
+intended date in the future.
 
 #### Vulnerabilities Property - Discovery Date
 
@@ -194,8 +196,8 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 
 #### Vulnerabilities Property - First Known Exploitation Dates
 
-List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with 1 or more unique items (a set) of value type
-`object` contains a list of dates of first known exploitations.
+List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
+contains a list of dates of first known exploitations.
 
 ```
     "first_known_exploitation_dates": {
@@ -206,8 +208,8 @@ List of first known exploitation dates (`first_known_exploitation_dates`) of val
     },
 ```
 
-Every First known exploitation date item of value type `object` with the 2 mandatory properties Date of the information (`date`) and
-Date of the exploitation (`exploitation_date`) holds at least 3 properties and contains information on when this vulnerability was
+Every First known exploitation date item of value type `object` with the two mandatory properties Date of the information (`date`) and
+Date of the exploitation (`exploitation_date`) holds at least `3` properties and contains information on when this vulnerability was
 first known to be exploited in the wild in the products specified.
 At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
 product groups this date is applicable.
@@ -247,7 +249,7 @@ applies to.
 
 #### Vulnerabilities Property - Flags
 
-List of flags (`flags`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of machine readable flags.
+List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
 ```
     "flags": {
@@ -299,7 +301,9 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
     vulnerable_code_not_present
 ```
 
-The given values reflect the VEX not affected justifications. See [VEX-Justification] for more details. The values MUST be used as follows:
+The given values reflect the VEX not affected justifications.
+See [VEX-Justification] for more details.
+The values MUST be used as follows:
 
 * `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 * `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
@@ -320,7 +324,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 
 #### Vulnerabilities Property - IDs
 
-List of IDs (`ids`) of value type `array` with one or more unique ID items of value type `object` represents a list of unique labels or
+List of IDs (`ids`) of value type `array` with `1` or more unique ID items of value type `object` represents a list of unique labels or
 tracking IDs for the vulnerability (if such information exists).
 
 ```
@@ -346,7 +350,7 @@ tracking ID for the vulnerability.
       }
 ```
 
-System name (`system_name`) of value type `string` with 1 or more characters indicates the name of the vulnerability tracking or numbering system.
+System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 
 *Examples 1:*
 
@@ -355,7 +359,7 @@ System name (`system_name`) of value type `string` with 1 or more characters ind
     GitHub Issue
 ```
 
-Text (`text`) of value type `string` with 1 or more characters is unique label or tracking ID for the vulnerability (if such information exists).
+Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
 *Examples 2:*
 
@@ -376,7 +380,7 @@ Text (`text`) of value type `string` with 1 or more characters is unique label o
 
 #### Vulnerabilities Property - Involvements
 
-List of involvements (`involvements`) of value type `array` with 1 or more unique items (a set) of value type `object` contains a list of involvements.
+List of involvements (`involvements`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of involvements.
 
 ```
     "involvements": {
@@ -387,8 +391,8 @@ List of involvements (`involvements`) of value type `array` with 1 or more uniqu
     },
 ```
 
-Every Involvement item of value type `object` with the 2 mandatory properties Party (`party`), Status (`status`) and
-the 5 optional properties Party contact information (`contact`), Date of involvement (`date`), Group IDs (`group_ids`),
+Every Involvement item of value type `object` with the two mandatory properties Party (`party`), Status (`status`) and
+the five optional properties Party contact information (`contact`), Date of involvement (`date`), Group IDs (`group_ids`),
 Product IDs (`product_ids`), and Summary (`summary`) is a container that allows the document producers to comment on the level of
 involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process.
 It can also be used to convey the disclosure timeline.
@@ -486,11 +490,12 @@ It doesn’t indicate anything about the vulnerability remediation effort other 
 the vulnerability report.
 The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
 
-Summary of involvement (`summary`) of value type `string` with 1 or more characters contains additional context regarding what is going on.
+Summary of involvement (`summary`) of value type `string` with `1` or more characters contains additional context regarding what is going on.
 
 #### Vulnerabilities Property - Metrics
 
-List of metrics (`metrics`) of value type `array` with 1 or more unique items (a set) of value type `object` Contains metric objects for the current vulnerability.
+List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
+contains metric objects for the current vulnerability.
 
 ```
     "metrics": {
@@ -501,7 +506,8 @@ List of metrics (`metrics`) of value type `array` with 1 or more unique items (a
     },
 ```
 
-Every Metric item of value type `object` with the mandatory properties `content` and `products` and the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
+Every Metric item of value type `object` with the mandatory properties `content` and `products` and
+the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
 
 ```
         "properties": {
@@ -519,8 +525,10 @@ Every Metric item of value type `object` with the mandatory properties `content`
 
 ##### Vulnerabilities Property - Metrics - Content
 
-Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`), EPSS (`epss`), and SSVC v1 (`ssvc_v1`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
-A Content object has at least 1 property.
+Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
+EPSS (`epss`), and SSVC v1 (`ssvc_v1`) specifies information about (at least one) metric or score for the given products regarding
+the current vulnerability.
+A Content object has at least `1` property.
 
 ```
         "properties": {
@@ -557,7 +565,8 @@ The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema
 The property SSVC v1 (`ssvc_v1`) holding an SSVC Decision Point Value Selection v1.0.1 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json](https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json).
 
-The property EPSS (`epss`) of value type `object` with the 3 mandatory properties Percentile (`percentile`), Probability (`probability`) and EPSS timestamp (`timestamp`) contains the EPSS data.
+The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)
+and EPSS timestamp (`timestamp`) contains the EPSS data.
 
 ```
             "properties": {
@@ -593,9 +602,9 @@ EPSS timestamp (`timestamp`) of value type `string` with format `date-time` hold
 
 ##### Vulnerabilities Property - Metrics - Products
 
-Product IDs (`products`) of value type `products_t` with 1 or more items indicates for which products the given content applies.
+Product IDs (`products`) of value type `products_t` with `1` or more items indicates for which products the given content applies.
 A metric object SHOULD reflect the associated product's status (for example,
-a fixed product no longer contains a vulnerability and should have a CVSS score of 0, or simply no score listed;
+a fixed product no longer contains a vulnerability and should have a CVSS score of `0`, or simply no score listed;
 the known affected versions of that product can list the vulnerability score as it applies to them).
 
 ##### Vulnerabilities Property - Metrics - Source
@@ -627,7 +636,7 @@ If a note is specific to a product or product group it MUST be bound via the `gr
 
 #### Vulnerabilities Property - Product Status
 
-Product status (`product_status`) of value type `object` with 1 or more properties contains different lists of `product_ids` which
+Product status (`product_status`) of value type `object` with `1` or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
 The nine defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
@@ -760,7 +769,7 @@ list of references associated with this vulnerability item.
 
 #### Vulnerabilities Property - Remediations
 
-List of remediations (`remediations`) of value type `array` with 1 or more Remediation items of value type `object` contains a list of remediations.
+List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
 ```
     "remediations": {
@@ -771,7 +780,7 @@ List of remediations (`remediations`) of value type `array` with 1 or more Remed
     },
 ```
 
-Every Remediation item of value type `object` with the 2 mandatory properties Category (`category`) and
+Every Remediation item of value type `object` with the two mandatory properties Category (`category`) and
 Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
 At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which
 products or product groups this remediation is applicable.
@@ -936,12 +945,13 @@ Date of the remediation (`date`) of value type `string` with format `date-time` 
 
 ##### Vulnerabilities Property - Remediations - Details
 
-Details of the remediation (`details`) of value type `string` with 1 or more characters contains a thorough human-readable discussion of the remediation.
+Details of the remediation (`details`) of value type `string` with `1` or more characters contains a thorough human-readable
+discussion of the remediation.
 
 ##### Vulnerabilities Property - Remediations - Entitlements
 
-List of entitlements (`entitlements`) of value type `array` with 1 or more items of type Entitlement of the remediation as `string` with
-1 or more characters contains a list of entitlements.
+List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
+with `1` or more characters contains a list of entitlements.
 
 ```
                 "entitlements": {
@@ -966,7 +976,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 
 ##### Vulnerabilities Property - Remediations - Restart Required
 
-Restart required by remediation (`restart_required`) of value type `object` with the 1 mandatory property Category (`category`) and
+Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on category of restart is required by this remediation to become effective.
 
 ```
@@ -1021,7 +1031,7 @@ The values MUST be used as follows:
 * `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
   This MAY include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
-Additional restart information (`details`) of value type `string` with 1 or more characters provides additional information for the restart.
+Additional restart information (`details`) of value type `string` with `1` or more characters provides additional information for the restart.
 This can include details on procedures, scope or impact.
 
 ##### Vulnerabilities Property - Remediations - URL
@@ -1030,7 +1040,7 @@ URL (`url`) of value type `string` with format `uri` contains the URL where to o
 
 #### Vulnerabilities Property - Threats
 
-List of threats (`threats`) of value type `array` with 1 or more items of value type `object` contains
+List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
 information about a vulnerability that can change with time.
 
 ```
@@ -1095,7 +1105,7 @@ Such terms MAY include: operating system platform, types of products, user segme
 
 Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
 
-Details of the threat (`details`) of value type `string` with 1 or more characters represents a thorough human-readable discussion of the threat.
+Details of the threat (`details`) of value type `string` with `1` or more characters represents a thorough human-readable discussion of the threat.
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current threat item applies to.
 
@@ -1103,7 +1113,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 
 #### Vulnerabilities Property - Title
 
-Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or
+Title (`title`) has value type `string` with `1` or more characters and gives the document producer the ability to apply a canonical name or
 title to the vulnerability.
 
 -------
