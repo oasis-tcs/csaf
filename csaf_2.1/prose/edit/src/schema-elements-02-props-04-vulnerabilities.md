@@ -86,13 +86,13 @@ acknowledgment elements associated with this vulnerability item.
 
 #### Vulnerabilities Property - CVE
 
-CVE (`cve`) of value type `string` with `pattern` (regular expression):
+CVE (`cve`) has value type `string` with `pattern` (regular expression):
 
 ```
     ^CVE-[0-9]{4}-[0-9]{4,}$
 ```
 
-holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
+CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
 #### Vulnerabilities Property - CWEs
 
@@ -590,7 +590,7 @@ Percentile (`percentile`) has value type `string` with `pattern` (regular expres
 
 The value contains the rank ordering of probabilities from highest to lowest.
 
-Probability (`probability`) with `pattern` (regular expression):
+Probability (`probability`) has value type `string` with `pattern` (regular expression):
 
 ```
     ^(([0]\\.([0-9])+)|([1]\\.[0]+))$

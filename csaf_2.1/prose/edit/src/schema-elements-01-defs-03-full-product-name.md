@@ -85,7 +85,7 @@ check e.g. the branches hierarchy leading to the product.
 
 ##### Full Product Name Type - Product Identification Helper - CPE
 
-Common Platform Enumeration representation (`cpe`) of value type `string` of `5` or more characters with `pattern` (regular expression):
+Common Platform Enumeration representation (`cpe`) has value type `string` of `5` or more characters with `pattern` (regular expression):
 
 ```
     ^((cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\"#\\$%&'\\(\\)\\+,\\/:;<=>@\\[\\]\\^`\\{\\|\\}~]))+(\\?*|\\*?))|[\\*\\-])){4})|([c][pP][eE]:\\/[AHOaho]?(:[A-Za-z0-9\\._\\-~%]*){0,6}))$
@@ -180,7 +180,7 @@ These values are derived from the currently supported digests OpenSSL [cite](#OP
 >  -ssl3-sha1                 -whirlpool
 >```
 
-The Value of the cryptographic hash representation (`value`) of value type `string` of `32` or more characters with `pattern` (regular expression):
+The Value of the cryptographic hash representation (`value`) has value type `string` of `32` or more characters with `pattern` (regular expression):
 
 ```
     ^[0-9a-fA-F]{32,}$
@@ -268,7 +268,7 @@ List of purls (`purls`) of value type `array` with `1` or more unique items cont
     },
 ```
 
-A package URL representation is a `string` of `7` or more characters with `pattern` (regular expression):
+A package URL representation has value type `string` of `7` or more characters with `pattern` (regular expression):
 
 ```
     ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+

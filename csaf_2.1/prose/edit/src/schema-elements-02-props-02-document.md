@@ -102,7 +102,7 @@ independent of - and in addition to - any other standard metric for determining 
 
 #### Document Property - Category
 
-Document category (`category`) of value type `string` of `1` or more characters with `pattern` (regular expression):
+Document category (`category`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
 ```
     ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
@@ -192,7 +192,7 @@ the optional property Sharing Group Name (`name`) contains information about the
         },
 ```
 
-Sharing Group ID (`id`) of value type `string` with format `uuid` and `pattern` (regular expression):
+Sharing Group ID (`id`) has value type `string` with format `uuid` and `pattern` (regular expression):
 
 ```
     ^(([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})|([0]{8}-([0]{4}-){3}[0]{12})|([f]{8}-([f]{4}-){3}[f]{12}))$
@@ -682,7 +682,7 @@ Engine version (`version`) of value type `string` with `1` or more characters co
 
 ##### Document Property - Tracking - ID
 
-Unique identifier for the document (`id`) of value type `string` with `1` or more characters with `pattern` (regular expression):
+Unique identifier for the document (`id`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
 ```
     ^[\\S](.*[\\S])?$
