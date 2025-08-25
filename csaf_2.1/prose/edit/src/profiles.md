@@ -229,7 +229,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
     The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
-  * `/document/tracking/revision_history` with at least 2 entries.
+  * `/document/tracking/revision_history` with at least `2` entries.
     Any previous items MUST NOT be removed.
 
     > A CSAF document cannot be withdrawn during the initial release to its specified target group.
@@ -255,7 +255,8 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
     The `title` MUST be `Reasoning for Supersession` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
-  * `/document/tracking/revision_history` with at least 2 entries. Any previous items MUST NOT be removed.
+  * `/document/tracking/revision_history` with at least `2` entries.
+    Any previous items MUST NOT be removed.
 
     > A CSAF document cannot be superseded during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.

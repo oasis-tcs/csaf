@@ -1,6 +1,6 @@
 ### Product Tree Property
 
-Product Tree (`product_tree`) has value type `object` with 1 or more properties is a container for all fully qualified product names that
+Product Tree (`product_tree`) has value type `object` with `1` or more properties is a container for all fully qualified product names that
 can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
 and Relationships (`relationships`).
@@ -31,12 +31,12 @@ List of branches (`branches`) has the value type `branches_t`.
 
 #### Product Tree Property - Full Product Names
 
-List of full product names (`full_product_names`) of value type `array` with 1 or more items of type `full_product_name_t` contains a
+List of full product names (`full_product_names`) of value type `array` with `1` or more items of type `full_product_name_t` contains a
 list of full product names.
 
 #### Product Tree Property - Product Groups
 
-List of product groups (`product_groups`) of value type `array` with 1 or more items of value type `object` contains a list of product groups.
+List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
 ```
     "product_groups": {
@@ -47,7 +47,7 @@ List of product groups (`product_groups`) of value type `array` with 1 or more i
     },
 ```
 
-The product group items are of value type `object` with the 2 mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and
+The product group items are of value type `object` with the two mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and
 the optional Summary (`summary`) property.
 
 ```
@@ -64,7 +64,7 @@ the optional Summary (`summary`) property.
     }
 ```
 
-The summary of the product group (`summary`) of value type `string` with 1 or more characters gives a short, optional description of the group.
+The summary of the product group (`summary`) of value type `string` with `1` or more characters gives a short, optional description of the group.
 
 *Examples 1:*
 
@@ -75,12 +75,12 @@ The summary of the product group (`summary`) of value type `string` with 1 or mo
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
-List of Product IDs (`product_ids`) of value type `array` with 2 or more unique items of value type Product ID (`product_id_t`) lists
+List of Product IDs (`product_ids`) of value type `array` with `2` or more unique items of value type Product ID (`product_id_t`) lists
 the product_ids of those products which known as one group in the document.
 
 #### Product Tree Property - Relationships
 
-List of relationships (`relationships`) of value type `array` with 1 or more items contains a list of relationships.
+List of relationships (`relationships`) of value type `array` with `1` or more items contains a list of relationships.
 
 ```
     "relationships": {
@@ -92,7 +92,8 @@ List of relationships (`relationships`) of value type `array` with 1 or more ite
 ```
 
 The Relationship item is of value type `object` and has four mandatory properties: Relationship category (`category`),
-Full Product Name (`full_product_name`), Product Reference (`product_reference`), and Relates to Product Reference (`relates_to_product_reference`).
+Full Product Name (`full_product_name`), Product Reference (`product_reference`),
+and Relates to Product Reference (`relates_to_product_reference`).
 The Relationship item establishes a link between two existing `full_product_name_t` elements,
 allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 

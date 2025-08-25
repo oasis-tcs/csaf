@@ -1,6 +1,6 @@
 ### References Type
 
-List of references (`references_t`) of value type `array` with 1 or more items of type Reference holds a list of Reference objects.
+List of references (`references_t`) of value type `array` with `1` or more items of type Reference holds a list of Reference objects.
 
 ```
     "references_t": {
@@ -47,6 +47,6 @@ The value `self` indicates, that this document is a reference to this same docum
 
 > This includes links to documents with the same content but different file format (e.g. advisories as PDF or HTML).
 
-Summary of the reference (`summary`) of value type `string` with 1 or more characters indicates what this reference refers to.
+Summary of the reference (`summary`) of value type `string` with `1` or more characters indicates what this reference refers to.
 
 URL of reference (`url`) of value type `string` with format `uri` provides the URL for the reference.

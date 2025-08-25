@@ -1,6 +1,6 @@
 ### Notes Type
 
-List of notes (`notes_t`) of value type `array` with 1 or more items of type `Note` contains notes which are specific to the current context.
+List of notes (`notes_t`) of value type `array` with `1` or more items of type `Note` contains notes which are specific to the current context.
 
 ```
     "notes_t": {
@@ -38,7 +38,7 @@ A Note `object` MAY provide the optional properties `audience`, `group_ids`, `pr
     }
 ```
 
-Audience of note (`audience`) of value type `string` with 1 or more characters indicates who is intended to read it.
+Audience of note (`audience`) of value type `string` with `1` or more characters indicates who is intended to read it.
 
 *Examples 1:*
 
@@ -85,10 +85,10 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) an
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current note item applies to.
 
-Note content (`text`) of value type `string` with 1 or more characters holds the content of the note.
+Note content (`text`) of value type `string` with `1` or more characters holds the content of the note.
 Content varies depending on type.
 
-Title of note (`title`) of value type `string` with 1 or more characters provides a concise description of what
+Title of note (`title`) of value type `string` with `1` or more characters provides a concise description of what
 is contained in the text of the note.
 
 *Examples 2:*

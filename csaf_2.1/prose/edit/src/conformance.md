@@ -315,9 +315,9 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   * check that the document version is set correctly based on the changes in comparison to the previous version
     (see also subsections of [sec](#version-type)).
   * suggest to use the document status `interim` if a CSAF Document is updated more frequent than the given threshold in
-    the configuration (default: 3 weeks)
+    the configuration (default: `3` weeks)
   * suggest to publish a new version of the CSAF Document with the document status `final` if the document status was
-    `interim` and no new release has be done during the given threshold in the configuration (default: 6 weeks)
+    `interim` and no new release has be done during the given threshold in the configuration (default: `6` weeks)
 
     > Note that the terms "publish", "publication" and their derived forms are used in this conformance profile independent of
       whether the specified target group is the public or a closed group.
@@ -492,7 +492,7 @@ A CSAF Management System satisfies the "CSAF Management System" conformance prof
   * sort on all properties which it is required to search for
   * sort on CVSS scores and `/document/aggregate_severity/text`
 * identifies the latest version of CSAF Documents with the same `/document/tracking/id`.
-* is able to show the difference between 2 versions of a CSAF Document with the same `/document/tracking/id`.
+* is able to show the difference between `2` versions of a CSAF Document with the same `/document/tracking/id`.
 
 ### Conformance Clause 13: CSAF Asset Matching System
 

@@ -1,6 +1,6 @@
 ### Branches Type
 
-List of branches (`branches_t`) with value type `array` contains 1 or more branch elements as children of the current element.
+List of branches (`branches_t`) with value type `array` contains `1` or more branch elements as children of the current element.
 
 ```
     "branches_t": {
@@ -11,7 +11,7 @@ List of branches (`branches_t`) with value type `array` contains 1 or more branc
     },
 ```
 
-Every Branch holds exactly 3 properties and is a part of the hierarchical structure of the product tree.
+Every Branch holds exactly `3` properties and is a part of the hierarchical structure of the product tree.
 The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
 
 ```
@@ -97,7 +97,7 @@ The value `vendor` indicates the name of the vendor or manufacturer that makes t
 
 #### Branches Type - Name
 
-Name of the branch (`name`) of value type `string` with 1 or more characters contains the canonical descriptor or 'friendly name' of the branch.
+Name of the branch (`name`) of value type `string` with `1` or more characters contains the canonical descriptor or 'friendly name' of the branch.
 
 *Examples 1:*
 
@@ -154,7 +154,7 @@ The value of MUST obey to exactly one of the following options:
 
     > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [cite](#VERS).
 
-    vers MUST be used in its canonical form. To convey the term "all versions" the special string `vers:all/*` MUST be used.
+    vers MUST be used in its canonical form. To convey the term "all versions", the special string `vers:all/*` MUST be used.
 
     *Examples 1 (for `name` when using `product_version_range` with vers):*
 
