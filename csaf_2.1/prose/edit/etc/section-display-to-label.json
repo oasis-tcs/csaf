@@ -240,7 +240,7 @@
   "6.2.34": "usage-of-unknown-ssvc-decision-point-base-namespace",
   "6.2.35": "usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document",
   "6.2.36": "usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document",
-  "6.2.37": "usage-of-unknown-ssvc-role",
+  "6.2.37": "usage-of-unknown-ssvc-decision-point-without-resource",
   "6.2.38": "usage-of-deprecated-profile",
   "6.2.39": "recommended-profile-tests",
   "6.2.39.1": "missing-fixed-product",

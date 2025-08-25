@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Usage of Unknown SSVC Decision Point Namespace without Resource (valid example 1)",
+    "title": "Recommended Test: Usage of Unknown SSVC Decision Point Namespace without Resource (valid example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-37-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-37-12",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -45,8 +45,12 @@
             "ssvc_v2": {
               "decision_point_resources": [
                 {
-                  "summary": "Specification for Decision Points within 'x_example.test#with-resource/de-DE'",
-                  "uri": "https://test.example/de-DE/ssvc-collection/test#with-resource"
+                  "summary": "Specification for Decision Points within 'x_example.test#with-resource'",
+                  "uri": "https://test.example/ssvc-collection/test#with-resource"
+                },
+                {
+                  "summary": "Specification for Decision Points within 'x_example.test#not-without-resource//en-NZ'",
+                  "uri": "https://test.example/ssvc-collection/test#not-without-resource"
                 }
               ],
               "schemaVersion": "2.0.0",
@@ -54,11 +58,35 @@
                 {
                   "key": "TI",
                   "name": "Technical Impact",
-                  "namespace": "x_example.test#with-resource/de-DE",
+                  "namespace": "test#without-resource/de-DE",
                   "values": [
                     {
                       "key": "T",
                       "name": "Total"
+                    }
+                  ],
+                  "version": "1.0.0"
+                },
+                {
+                  "key": "E",
+                  "name": "Exploitation",
+                  "namespace": "x_example.test#not-without-resource//en-NZ",
+                  "values": [
+                    {
+                      "key": "P",
+                      "name": "Public PoC"
+                    }
+                  ],
+                  "version": "1.1.0"
+                },
+                {
+                  "key": "A",
+                  "name": "Automatable",
+                  "namespace": "x_example.test#with-resource",
+                  "values": [
+                    {
+                      "key": "N",
+                      "name": "No"
                     }
                   ],
                   "version": "1.0.0"
