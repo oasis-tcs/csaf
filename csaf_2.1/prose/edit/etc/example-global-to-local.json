@@ -212,9 +212,10 @@
   "210": "requirement-18-integrity-eg-2",
   "211": "requirement-19-signatures-eg-1",
   "212": "requirement-21-list-of-csaf-providers-eg-1",
-  "213": "requirement-23-mirror-eg-1",
-  "214": "conformance-clause-5-cvrf-csaf-converter-eg-1",
-  "215": "conformance-clause-5-cvrf-csaf-converter-eg-2",
-  "216": "conformance-clause-5-cvrf-csaf-converter-eg-3",
-  "217": "conformance-clause-5-cvrf-csaf-converter-eg-4"
+  "213": "requirement-21-list-of-csaf-providers-eg-2",
+  "214": "requirement-23-mirror-eg-1",
+  "215": "conformance-clause-5-cvrf-csaf-converter-eg-1",
+  "216": "conformance-clause-5-cvrf-csaf-converter-eg-2",
+  "217": "conformance-clause-5-cvrf-csaf-converter-eg-3",
+  "218": "conformance-clause-5-cvrf-csaf-converter-eg-4"
 }
