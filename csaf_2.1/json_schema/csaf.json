@@ -1374,7 +1374,7 @@
                       ]
                     },
                     "cvss_v4": {
-                      "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
+                      "$ref": "https://www.first.org/cvss/cvss-v4.0.1.json"
                     },
                     "epss": {
                       "title": "EPSS",

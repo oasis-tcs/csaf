@@ -1,6 +1,6 @@
 {
   "license": [
-      "Copyright (c) 2023, FIRST.ORG, INC.",
+      "Copyright (c) 2025, FIRST.ORG, INC.",
       "All rights reserved.",
       "",
       "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the ",
@@ -22,8 +22,8 @@
   ],
 
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "JSON Schema for Common Vulnerability Scoring System version 4.0",
-  "$id": "https://www.first.org/cvss/cvss-v4.0.json?20240216",
+  "title": "JSON Schema for Common Vulnerability Scoring System version 4.0, Revision 1",
+  "$id": "https://www.first.org/cvss/cvss-v4.0.1.json?20250704",
   "type": "object",
   "definitions": {
       "attackVectorType": {
@@ -274,113 +274,6 @@
                 }
               }
             }]
-      },
-      {
-          "anyOf": [{
-              "properties": {
-                "threatScore" : {
-                  "$ref": "#/definitions/noneScoreType"
-                },
-                "threatSeverity" : {
-                  "$ref": "#/definitions/noneSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "threatScore" : {
-                  "$ref": "#/definitions/lowScoreType"
-                },
-                "threatSeverity" : {
-                  "$ref": "#/definitions/lowSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "threatScore" : {
-                  "$ref": "#/definitions/mediumScoreType"
-                },
-                "threatSeverity" : {
-                  "$ref": "#/definitions/mediumSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "threatScore" : {
-                  "$ref": "#/definitions/highScoreType"
-                },
-                "threatSeverity" : {
-                  "$ref": "#/definitions/highSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "threatScore" : {
-                  "$ref": "#/definitions/criticalScoreType"
-                },
-                "threatSeverity" : {
-                  "$ref": "#/definitions/criticalSeverityType"
-                }
-              }
-            }
-          ]
-      },
-      {
-          "anyOf": [
-              {
-              "properties": {
-                "environmentalScore" : {
-                  "$ref": "#/definitions/noneScoreType"
-                },
-                "environmentalSeverity" : {
-                  "$ref": "#/definitions/noneSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "environmentalScore" : {
-                  "$ref": "#/definitions/lowScoreType"
-                },
-                "environmentalSeverity" : {
-                  "$ref": "#/definitions/lowSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "environmentalScore" : {
-                  "$ref": "#/definitions/mediumScoreType"
-                },
-                "environmentalSeverity" : {
-                  "$ref": "#/definitions/mediumSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "environmentalScore" : {
-                  "$ref": "#/definitions/highScoreType"
-                },
-                "environmentalSeverity" : {
-                  "$ref": "#/definitions/highSeverityType"
-                }
-              }
-            },
-            {
-              "properties": {
-                "environmentalScore" : {
-                  "$ref": "#/definitions/criticalScoreType"
-                },
-                "environmentalSeverity" : {
-                  "$ref": "#/definitions/criticalSeverityType"
-                }
-              }
-            }
-          ]
       }
   ],
   "required": [ "version", "vectorString", "baseScore", "baseSeverity" ]

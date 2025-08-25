@@ -1,7 +1,7 @@
 ### CVSS for Fixed Products
 
 For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that
-a CVSS applying to this product has an environmental score of `0`.
+a CVSS applying to this product has an overall score of `0`.
 The test SHALL pass if none of the Product IDs listed within product status `fixed` or
 `first_fixed` is found in `products` of any item of the `metrics` element.
 
@@ -54,8 +54,8 @@ The relevant path for this test is:
 
 > A tool MAY remove any Product IDs listed within product status `fixed` or `first_fixed` from `products` of all items of the `metrics` element.
 >
-> Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce score to `0`
-> and compute the `environmentalScore` as quick fix.
+> Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce the overall score to `0`
+> and compute the respective score and severity as quick fix.
 > The following environmental properties have been identified:
 >
 > - CVSS v2: `targetDistribution` to `NONE`

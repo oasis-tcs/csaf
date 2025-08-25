@@ -51,7 +51,7 @@ Delegation to industry best practices technologies is used in referencing schema
     * CWE List: http://cwe.mitre.org/data/index.html
 * Vulnerability Scoring
   * Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)
