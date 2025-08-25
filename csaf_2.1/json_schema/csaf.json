@@ -1361,9 +1361,11 @@
                   "minProperties": 1,
                   "properties": {
                     "cvss_v2": {
+                      "title": "CVSS v2",
                       "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
                     },
                     "cvss_v3": {
+                      "title": "CVSS v3",
                       "oneOf": [
                         {
                           "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
@@ -1374,6 +1376,7 @@
                       ]
                     },
                     "cvss_v4": {
+                      "title": "CVSS v4",
                       "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
                     },
                     "epss": {
@@ -1408,6 +1411,7 @@
                       "additionalProperties": false
                     },
                     "ssvc_v2": {
+                      "title": "SSVC v2",
                       "$ref": "https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json"
                     }
                   },
