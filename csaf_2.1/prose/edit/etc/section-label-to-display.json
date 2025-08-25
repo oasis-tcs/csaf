@@ -107,6 +107,7 @@
   "enum": "C.5",
   "file-size": "C.1",
   "filename": "5.1",
+  "finding-aggregator.json": "7.3.3",
   "finding-provider-metadata.json": "7.3.1",
   "flag-without-product-reference": "6.1.32",
   "format-validation": "2.2",
