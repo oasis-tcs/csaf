@@ -1,6 +1,6 @@
 ### Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document
 
-For each SSVC decision point given under `selections`, it MUST be tested the `namespace` does not use an extension
+For each SSVC decision point given under `selections`, it MUST be tested that the `namespace` does not use an extension
 if the document is labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose MUST be treated as per their definition.
 

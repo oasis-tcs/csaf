@@ -1,11 +1,19 @@
-### Usage of Unknown SSVC Role
+### Usage of Unknown SSVC Decision Point Namespace without Resource
 
-For each SSVC object, it MUST be tested the `role` is one of the case-sensitive registered roles.
+For each SSVC object containing a decision point with a full `namespace` that is not registered,
+it MUST be tested that a Decision Point Resource exists that provides additional context about the
+decision points from this namespace.
+Namespaces reserved for special purpose MUST be treated as per their definition.
+
+>
+> To implement this test it is deemed sufficient to check whether the `summary` contains the full `namespace`.
+
+Namespaces reserved for special purpose MUST be treated as per their definition.
 
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v1/role
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources
 ```
 
 *Example 1 (which fails the test):*

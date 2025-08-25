@@ -1,6 +1,6 @@
 ### Usage of Unregistered SSVC Decision Point Base Namespace in TLP:CLEAR Document
 
-For each SSVC decision point given under `selections`, it MUST be tested the base `namespace` is not an unregistered one
+For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one
 if the document is labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose MUST be treated as per their definition.
 
