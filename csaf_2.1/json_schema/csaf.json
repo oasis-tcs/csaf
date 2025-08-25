@@ -1407,8 +1407,8 @@
                       },
                       "additionalProperties": false
                     },
-                    "ssvc_v1": {
-                      "$ref": "https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json"
+                    "ssvc_v2": {
+                      "$ref": "https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json"
                     }
                   },
                   "additionalProperties": false
