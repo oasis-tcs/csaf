@@ -11,12 +11,14 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    * Lower case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
    * special characters: `+` (0x2B), `-` (0x2D)
+
    > The regex `[^+\-a-z0-9]+` can be used to find a character sequence which has to be replaced by an underscore.
    > However, it SHALL NOT be applied before completing the first step.
    >
    > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations
    > where the conversion rule might lead to multiple consecutive underscores.
    > As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
+
 3. The file extension `.json` MUST be appended.
 
 *Examples 1:*
@@ -71,7 +73,7 @@ The use of GitHub-flavoured Markdown is permitted in the following fields:
 
 Other fields MUST NOT contain Markdown.
 
-## Branch recursion
+## Branch Recursion
 
 The `/product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
 
@@ -84,7 +86,7 @@ The `/product_tree` uses a nested structure for `branches`. Along a single path 
 If a product consists of hardware and software, the hardware part MUST be presented as one product in the product tree and the software part as another one.
 To form the overall product, both parts MUST be combined through a relationship.
 
-*Examples 1:*
+*Example 1:*
 
 ```
   "product_tree": {

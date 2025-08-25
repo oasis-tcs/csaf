@@ -1,4 +1,4 @@
-### PURL Qualifiers
+### purl Qualifiers
 
 For each `product_identification_helper` object containing multiple purls it MUST be tested that the purls only differ in their qualifiers.
 

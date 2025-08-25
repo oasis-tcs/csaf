@@ -1,4 +1,4 @@
-### Use of MD5 as the only Hash Algorithm
+### Use of MD5 As the Only Hash Algorithm
 
 It MUST be tested that the hash algorithm `md5` is not the only one present.
 

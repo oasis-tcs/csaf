@@ -303,13 +303,17 @@ The given values reflect the VEX not affected justifications. See [VEX-Justifica
 
 * `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 * `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+
   > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options)
   > the specific code causing the vulnerability is not present in the component.
+
 * `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
   However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
 * `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
   including non-anticipated states of the product.
+
   > Components that are neither used nor executed by the product.
+
 * `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
@@ -868,6 +872,8 @@ The following tables shows the allowed and prohibited combinations:
 | `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
 | `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
 
+Table 1: Remediation Combinations
+
 Some category values contradict certain product status groups.
 Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
@@ -882,6 +888,47 @@ The following tables shows the allowed, discouraged and prohibited combinations:
 | `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     | allowed     |
 | `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
 | `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
+
+Table 2: Product Status Remediation Category Combinations
+
+The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
+
+1. `vendor_fix` and Recommended
+2. `mitigation` & Recommended
+3. `workaround` & Recommended
+4. `optional_patch` & Recommended
+5. `vendor_fix` & Affected
+6. `mitigation` & Affected
+7. `workaround` & Affected
+8. `optional_patch` & Under Investigation
+9. `optional_patch` & Unknown
+10. `fix_planned` & Recommended
+11. `fix_planned` & Affected
+12. `optional_patch` & Not Affected
+13. `none_available` & Recommended
+14. `no_fix_planned` & Recommended
+15. `none_available` & Affected
+16. `none_available` & Under Investigation
+17. `none_available` & Unknown
+18. `no_fix_planned` & Affected
+19. `no_fix_planned` & Under Investigation
+20. `no_fix_planned` & Unknown
+
+The remaining discouraged combinations are appended at the end of the list:
+
+1. `optional_patch` & Fixed
+2. `vendor_fix` & Under Investigation
+3. `vendor_fix` & Unknown
+4. `mitigation` & Under Investigation
+5. `mitigation` & Unknown
+6. `workaround` & Under Investigation
+7. `workaround` & Unknown
+8. `fix_planned` & Under Investigation
+9. `fix_planned` & Unknown
+10. `fix_planned` & Not Affected
+11. `no_fix_planned` & Not Affected
+
+CSAF Viewers MAY sort the remediation items accordingly.
 
 ##### Vulnerabilities Property - Remediations - Date
 

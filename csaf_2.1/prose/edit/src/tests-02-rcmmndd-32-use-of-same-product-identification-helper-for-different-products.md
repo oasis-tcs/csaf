@@ -1,4 +1,4 @@
-### Use of same Product Identification Helper for different Products
+### Use of Same Product Identification Helper for Different Products
 
 For each Product Identification Helper category it MUST be tested that the same value is not used for multiple products in this category.
 

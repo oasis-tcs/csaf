@@ -1,4 +1,4 @@
-### Use of SHA-1 as the only Hash Algorithm
+### Use of SHA-1 As the Only Hash Algorithm
 
 It MUST be tested that the hash algorithm `sha1` is not the only one present.
 

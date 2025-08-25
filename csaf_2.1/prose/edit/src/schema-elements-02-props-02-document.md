@@ -138,8 +138,8 @@ The single valid value for this `enum` is:
 
 #### Document Property - Distribution
 
-Rules for sharing document (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
-optional properties Sharing Group (`Sharing Group`) and Text (`text`) describes any constraints on how this document might be shared.
+Rules for document sharing (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
+optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
 
 ```
     "distribution": {
@@ -216,9 +216,12 @@ The following ID values SHOULD NOT be used unless there are technical reasons fo
 Therefore, they are reserved for implementation-specific situations:
 
 - A system MAY use the Max UUID for `TLP:CLEAR` CSAF documents.
+
   > For example, the system uses the UUID as an indication whether a user allowed to see the document.
   > The security considerations from [cite](#RFC9562) should be reflected on.
+
 - A system MAY use the Nil UUID for CSAF documents that MUST NOT be shared.
+
   > For example, the CSAF document is just being drafted and the accidental leakage should be prevented.
 
 > Note, that both values do not indicate a closed sharing group.
@@ -311,13 +314,13 @@ corresponding to IETF BCP 47 / RFC 5646.
 
 License expression (`license_expression`) of value type `string` with 1 or more characters contains the SPDX license expression for the CSAF document.
 It MUST NOT contain a license text.
-See annex B of [cite](#SPDX301) for details.
+See Annex B of [cite](#SPDX301) for details.
 The `DocumentRef` part given in that ABNF MUST NOT be used in CSAF.
 Any SPDX license identifier not from the official SPDX license identifier list MUST contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the entity that provided the
 database this license identifier was found in.
-The unique name MAY be a domain name.
-The same applies for `AdditionRef-` user defined identifiers.
+Unless otherwise previously established, the unique name SHOULD be a domain name.
+The same applies for `AdditionRef-` identifiers.
 
 In addition, the following rules apply:
 
@@ -326,11 +329,14 @@ In addition, the following rules apply:
      construct an expression based on a SPDX license identifier.
      Deprecated license identifiers SHOULD NOT be used.
      SPDX license identifiers that were deprecated before the version listed above MUST NOT be used.
+
      > The list is available at <https://spdx.org/licenses/>.
      > It includes also the exceptions.
+
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
      the license database AboutCode's "ScanCode LicenseDB" MUST be consulted as a next step.
      License identifiers from this database MUST use the prefix `LicenseRef-scancode-`.
+
      > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
 
      The construction of a license expression with such an identifier is also allowed.
@@ -348,7 +354,7 @@ In addition, the following rules apply:
 
 ```
   CC-BY-4.0
-  LicenseRef-www.example.org-Example-CSAF-License-3.0+
+  LicenseRef-www.example.org-Example-CSAF-License-3.0
   LicenseRef-scancode-public-domain
   MIT OR any-OSI
 ```
@@ -468,7 +474,7 @@ the authority of the issuing party to release the document, in particular, the p
 
 The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
 
-*Example 1:*
+*Examples 1:*
 
 ```
      BSI
@@ -601,7 +607,7 @@ distinct optional alternative ID used to refer to the document.
 
 ##### Document Property - Tracking - Current Release Date
 
-Current release date (`current_release_date`) with value type `string` with format `date-time` holds the date when
+Current release date (`current_release_date`) of value type `string` with format `date-time` holds the date when
 the current revision of this document was released.
 
 ##### Document Property - Tracking - Generator
@@ -696,7 +702,7 @@ This value is also used to determine the filename for the CSAF document (cf. sec
 
 ##### Document Property - Tracking - Initial Release Date
 
-Initial release date (`initial_release_date`) with value type `string` with format `date-time` holds the date when this document was first released to the specified target group.
+Initial release date (`initial_release_date`) of value type `string` with format `date-time` holds the date when this document was first released to the specified target group.
 
 > For `TLP:CLEAR` documents, this is usually the timestamp when the document was published.
 > For `TLP:GREEN` and higher, this is the timestamp when it was first made available to the specific group.

@@ -1,4 +1,4 @@
-### Multiple Scores with same Version per Product
+### Multiple Scores with Same Version per Product
 
 For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version and same source.
 

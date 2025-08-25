@@ -22,3 +22,5 @@ All other text is normative unless otherwise labeled e.g. like the following inf
 > common pitfalls learned from implementer or operator experience and often given including the rationale.
 
 -------
+
+This document adheres to the Modern Language Association (MLA) style guidelines for formatting titles and terms.

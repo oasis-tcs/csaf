@@ -1,4 +1,4 @@
-## Retrieving rules
+## Retrieving Rules
 
 The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section [sec](#requirements)) and
 retrieving CSAF documents.
@@ -30,7 +30,7 @@ If the retrieving party is only able to process one `provider-metadata.json`, th
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
 its location from an `aggregator.json` (requirement 21 in section [sec](#requirements)) of a CSAF lister or CSAF aggregator.
 
-### Retrieving CSAF documents
+### Retrieving CSAF Documents
 
 Given a `provider-metadata.json`, the following process SHOULD be used to retrieve CSAF documents:
 

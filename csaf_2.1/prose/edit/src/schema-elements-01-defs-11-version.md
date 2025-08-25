@@ -24,7 +24,7 @@ A CSAF document MUST use only one versioning system.
     2.40.0+21AF26D3
 ```
 
-#### Version Type - Integer versioning
+#### Version Type - Integer Versioning
 
 Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one.
 The regular expression for this type is:
@@ -47,7 +47,7 @@ The following rules apply:
 5. Build metadata is never included in the version.
 6. Precedence MUST be determined by integer comparison.
 
-#### Version Type - Semantic versioning
+#### Version Type - Semantic Versioning
 
 Semantic versioning derived the rules from [SemVer]. The regular expression for this type is:
 
@@ -79,7 +79,7 @@ This results in the following rules:
    > In the context of the document this is the case e.g. for spelling mistakes.
 
 6. Minor version Y (x.Y.z | x > 0) MUST be incremented if the content of an existing element changes except for
-   those which are covert through rule 7. It MUST be incremented if substantial new information are introduced or new elements are provided.
+   those which are covered through rule 7. It MUST be incremented if substantial new information are introduced or new elements are provided.
    It MAY include patch level changes. Patch version MUST be reset to 0 when minor version is incremented.
 7. Major version X (X.y.z | X > 0) MUST be incremented if a new comparison with the end user's asset database is required.
    This includes:
