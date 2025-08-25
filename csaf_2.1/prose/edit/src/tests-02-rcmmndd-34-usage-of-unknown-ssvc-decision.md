@@ -1,8 +1,9 @@
-### Usage of Unregistered SSVC Decision Point Base Namespace
+### Usage of Unknown SSVC Decision Point Base Namespace
 
-For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one.
-
+For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is a registered one.
 Namespaces reserved for special purpose MUST be treated as per their definition.
+
+> This test fails on unregistered namespaces as well as registered ones not yet supported by the implementation.
 
 The relevant path for this test is:
 

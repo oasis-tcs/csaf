@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Usage of Unknown SSVC Decision Point Base Namespace (failing example 2)",
+    "title": "Recommended Test: Usage of Unknown SSVC Decision Point Base Namespace (failing example 3)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-34-02",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-34-03",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -48,7 +48,7 @@
                 {
                   "key": "TI",
                   "name": "Technical Impact",
-                  "namespace": "x_example.test#also-unregistered-namespace//.example.other-test#some-extension",
+                  "namespace": "invalid",
                   "values": [
                     {
                       "key": "T",
