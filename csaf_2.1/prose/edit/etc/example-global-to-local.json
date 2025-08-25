@@ -191,7 +191,7 @@
   "189": "usage-of-v-as-version-indicator-eg-1",
   "190": "missing-cvss-v4-0-eg-1",
   "191": "usage-of-non-latest-ssvc-decision-point-version-eg-1",
-  "192": "usage-of-private-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1",
+  "192": "usage-of-unregistered-ssvc-decision-point-namespace-in-non-tlp-clear-document-eg-1",
   "193": "usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1",
   "194": "grammar-check-eg-1",
   "195": "use-of-unregistered-license-eg-1",

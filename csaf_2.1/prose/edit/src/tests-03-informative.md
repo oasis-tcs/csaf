@@ -511,14 +511,16 @@ The relevant path for this test is:
 
 > At the timestamp `2024-01-24T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
 
-### Usage of Private SSVC Decision Point Namespace in Non TLP:CLEAR Document
+### Usage of Unregistered SSVC Decision Point Base Namespace in Non TLP:CLEAR Document
 
-For each SSVC decision point given under `selections`, it MUST be tested the `namespace` is not a private one if the document is not labeled `TLP:CLEAR`.
+For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one
+if the document is not labeled `TLP:CLEAR`.
+Namespaces reserved for special purpose MUST be treated as per their definition.
 
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
 *Example 1 (which fails the test):*
@@ -536,24 +538,19 @@ The relevant path for this test is:
     }
     "vulnerabilities": [
       {
-        "cve": "CVE-1900-0001",
         "metrics": [
           {
             "content": {
-              "ssvc_v1": {
-                "id": "CVE-1900-0001",
-                "schemaVersion": "1-0-1",
+              "ssvc_v2": {
+                // ...
                 "selections": [
                   {
-                    "name": "Technical Impact",
-                    "namespace": "x_custom",
-                    "values": [
-                      "Total"
-                    ],
-                    "version": "1.0.0"
+                    // ...
+                    "namespace": "x_example.unregistered#namespace",
+                    // ...
                   }
                 ],
-                "timestamp": "2024-01-24T10:00:00.000Z"
+                // ...
               }
             },
             // ...
@@ -564,7 +561,7 @@ The relevant path for this test is:
   }
 ```
 
-> The namespace `x_custom` is a private namespace.
+> The namespace `x_example.unregistered#namespace` is an unregistered base namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
 ### Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document
