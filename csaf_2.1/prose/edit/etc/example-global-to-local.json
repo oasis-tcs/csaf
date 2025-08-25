@@ -167,7 +167,7 @@
   "165": "use-of-same-product-identification-helper-for-different-products-eg-1",
   "166": "disclosure-date-newer-than-revision-history-eg-1",
   "167": "usage-of-unknown-ssvc-decision-point-base-namespace-eg-1",
-  "168": "usage-of-private-ssvc-decision-point-namespace-in-tlp-clear-document-eg-1",
+  "168": "usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1",
   "169": "usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1",
   "170": "grammar-check-eg-1",
   "171": "use-of-unregistered-license-eg-1",
