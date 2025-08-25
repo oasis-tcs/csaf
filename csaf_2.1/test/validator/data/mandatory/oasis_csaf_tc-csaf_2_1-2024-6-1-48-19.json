@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: SSVC Decision Points (failing example 6)",
+    "title": "Mandatory Test: SSVC Decision Points (failing example 9)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-48-06",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-48-09",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -47,28 +47,25 @@
               "schemaVersion": "2.0.0",
               "selections": [
                 {
-                  "key": "E",
-                  "name": "Exploit Maturity",
-                  "namespace": "cvss",
+                  "key": "SI",
+                  "name": "Auswirkungen auf die funktionale Sicherheit",
+                  "namespace": "ssvc//.example.test$de-DE",
                   "values": [
                     {
-                      "key": "P",
-                      "name": "Proof-of-Concept"
+                      "key": "M",
+                      "name": "Marginal"
                     },
                     {
-                      "key": "U",
-                      "name": "Unreported"
+                      "key": "C",
+                      "name": "Kritisch"
                     },
                     {
-                      "key": "X",
-                      "name": "Not Defined"
+                      "key": "R",
+                      "name": "Katastrophal"
                     }
                   ],
-                  "version": "3.0.1"
+                  "version": "2.0.0"
                 }
-              ],
-              "target_ids": [
-                "CVE-1900-0001"
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"
             }

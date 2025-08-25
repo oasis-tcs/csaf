@@ -1,14 +1,23 @@
 ### SSVC Decision Points
 
-For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested that given decision point exists,
+For each SSVC decision point given under `selections` within a registered `namespace`, it MUST be tested that given decision point exists,
 is valid and the items in `values` are ordered correctly.
-The test SHALL pass, if a non-registered `namespace` is used.
+
+The test SHALL pass, if a unregistered `namespace` is used.
+
+This test also covers decision points which have use a registered namespace with any number of extensions.
+The rules for namespace extensions as specified by SSVC MUST be applied in such case.
+
+> Extensions can limit the number of available values, but not add new ones or change the order.
+> Extensions can translate or refine the `name` and `description` but not change the `key`.
+
+Namespaces reserved for special purpose MUST be treated as per their definition.
 
 > According to the SSVC project, the following values are currently registered:
 >
 > ```
+>   cisa
 >   cvss
->   nciss
 >   ssvc
 > ```
 >
@@ -18,40 +27,33 @@ The test SHALL pass, if a non-registered `namespace` is used.
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]
 ```
 
 *Example 1 (which fails the test):*
 
 ```
-  "vulnerabilities": [
-    {
-      "cve": "CVE-1900-0001",
-      "metrics": [
-        {
-          "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
-              "selections": [
-                {
-                  "name": "Mission Impact",
-                  "namespace": "ssvc",
-                  "values": [
-                    "None",
-                    "Degraded"
-                  ],
-                  "version": "1.0.0"
-                }
-              ],
-              "timestamp": "2024-01-24T10:00:00.000Z"
-            }
+  "ssvc_v2": {
+    // ...
+    "selections": [
+      {
+        "key": "MI",
+        "namespace": "ssvc",
+        "values": [
+          {
+            "key": "N",
+            "name": "None"
           },
-          // ...
-        }
-      ]
-    }
-  ]
+          {
+            "key": "D",
+            "name": "Degraded"
+          }
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    // ...
+  }
 ```
 
 > The SSVC decision point `Mission Impact` doesn't have the value `Degraded` in version `1.0.0`.
