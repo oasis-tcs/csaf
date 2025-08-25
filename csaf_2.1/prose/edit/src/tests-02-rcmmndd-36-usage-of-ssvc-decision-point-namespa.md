@@ -1,11 +1,13 @@
 ### Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document
 
-For each SSVC decision point given under `selections`, it MUST be tested the `namespace` does not use an extension if the document is labeled `TLP:CLEAR`.
+For each SSVC decision point given under `selections`, it MUST be tested the `namespace` does not use an extension
+if the document is labeled `TLP:CLEAR`.
+Namespaces reserved for special purpose MUST be treated as per their definition.
 
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
 *Example 1 (which fails the test):*
@@ -23,24 +25,19 @@ The relevant path for this test is:
     }
     "vulnerabilities": [
       {
-        "cve": "CVE-1900-0001",
         "metrics": [
           {
             "content": {
-              "ssvc_v1": {
-                "id": "CVE-1900-0001",
-                "schemaVersion": "1-0-1",
-                "selections": [
-                  {
-                    "name": "Technical Impact",
-                    "namespace": "ssvc/additional-technical-impacts",
-                    "values": [
-                      "Total"
-                    ],
-                    "version": "1.0.0"
-                  }
+            "ssvc_v2": {
+              // ...
+              "selections": [
+                {
+                  // ...
+                  "namespace": "ssvc//.example.test#refined-technical-impacts",
+                  // ...
+                }
                 ],
-                "timestamp": "2024-01-24T10:00:00.000Z"
+                // ...
               }
             },
             // ...
@@ -51,5 +48,7 @@ The relevant path for this test is:
   }
 ```
 
-> The namespace contains the extension `additional-technical-impacts`.
+> The namespace contains the extension `.example.test#refined-technical-impacts`.
 > Its decision point definitions might therefore not be known to the reader of the document.
+> However, as per SSVC specification, extensions cannot extend an existing decision point with new values.
+> Thus, they can be treated as decision points from the base namespace, if the extension is unknown.
