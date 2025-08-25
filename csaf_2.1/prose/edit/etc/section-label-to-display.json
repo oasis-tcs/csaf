@@ -133,7 +133,7 @@
   "inconsistent-exploitation-date": "6.1.53",
   "inconsistent-first-known-exploitation-dates": "6.1.52",
   "inconsistent-product-identification-helper": "6.2.42",
-  "inconsistent-ssvc-id": "6.1.47",
+  "inconsistent-ssvc-target-ids": "6.1.47",
   "inconsistent-ssvc-timestamp": "6.1.49",
   "informative-references": "1.4",
   "informative-tests": "6.3",

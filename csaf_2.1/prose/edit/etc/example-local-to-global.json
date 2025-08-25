@@ -70,7 +70,7 @@
   "inconsistent-exploitation-date-eg-1": "126",
   "inconsistent-first-known-exploitation-dates-eg-1": "125",
   "inconsistent-product-identification-helper-eg-1": "180",
-  "inconsistent-ssvc-id-eg-1": "120",
+  "inconsistent-ssvc-target-ids-eg-1": "120",
   "inconsistent-ssvc-timestamp-eg-1": "122",
   "invalid-cvss-computation-eg-1": "63",
   "invalid-cvss-eg-1": "62",

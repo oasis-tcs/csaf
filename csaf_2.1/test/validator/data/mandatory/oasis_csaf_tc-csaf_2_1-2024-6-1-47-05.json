@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: Inconsistent SSVC Target IDs (valid example 2)",
+    "title": "Mandatory Test: Inconsistent SSVC Target IDs (failing example 5)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-12",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-05",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -39,13 +39,6 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
-      "ids": [
-        {
-          "system_name": "Example Company's Bugtracker",
-          "text": "Bug#2723"
-        }
-      ],
       "metrics": [
         {
           "content": {
@@ -64,7 +57,7 @@
                 }
               ],
               "target_ids": [
-                "CVE-1900-0001"
+                "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-15"
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"
             }

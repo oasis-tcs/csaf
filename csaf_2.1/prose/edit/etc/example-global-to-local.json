@@ -119,7 +119,7 @@
   "117": "use-of-multiple-stars-in-serial-number-eg-1",
   "118": "inconsistent-disclosure-date-eg-1",
   "119": "invalid-ssvc-eg-1",
-  "120": "inconsistent-ssvc-id-eg-1",
+  "120": "inconsistent-ssvc-target-ids-eg-1",
   "121": "ssvc-decision-points-eg-1",
   "122": "inconsistent-ssvc-timestamp-eg-1",
   "123": "product-version-range-rules-eg-1",

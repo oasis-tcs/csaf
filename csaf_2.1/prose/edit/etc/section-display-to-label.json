@@ -194,7 +194,7 @@
   "6.1.44": "use-of-multiple-stars-in-serial-number",
   "6.1.45": "inconsistent-disclosure-date",
   "6.1.46": "invalid-ssvc",
-  "6.1.47": "inconsistent-ssvc-id",
+  "6.1.47": "inconsistent-ssvc-target-ids",
   "6.1.48": "ssvc-decision-points",
   "6.1.49": "inconsistent-ssvc-timestamp",
   "6.1.50": "product-version-range-rules",

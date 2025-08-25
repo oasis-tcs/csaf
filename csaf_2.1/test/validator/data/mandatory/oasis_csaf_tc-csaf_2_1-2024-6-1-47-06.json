@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: Inconsistent SSVC Target IDs (valid example 2)",
+    "title": "Mandatory Test: Inconsistent SSVC Target IDs (failing example 6)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-12",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-06",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -42,8 +42,8 @@
       "cve": "CVE-1900-0001",
       "ids": [
         {
-          "system_name": "Example Company's Bugtracker",
-          "text": "Bug#2723"
+          "system_name": "OASIS CSAF TC Test Files",
+          "text": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-06"
         }
       ],
       "metrics": [
@@ -65,6 +65,44 @@
               ],
               "target_ids": [
                 "CVE-1900-0001"
+              ],
+              "timestamp": "2024-01-24T10:00:00.000Z"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    },
+    {
+      "cve": "CVE-1900-0002",
+      "ids": [
+        {
+          "system_name": "OASIS CSAF TC Test Files",
+          "text": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-06"
+        }
+      ],
+      "metrics": [
+        {
+          "content": {
+            "ssvc_v2": {
+              "schemaVersion": "2.0.0",
+              "selections": [
+                {
+                  "key": "E",
+                  "namespace": "ssvc",
+                  "values": [
+                    {
+                      "key": "N"
+                    }
+                  ],
+                  "version": "1.1.0"
+                }
+              ],
+              "target_ids": [
+                "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-47-06",
+                "CVE-1900-0002"
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"
             }
