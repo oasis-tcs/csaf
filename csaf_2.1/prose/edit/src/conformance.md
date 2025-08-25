@@ -735,14 +735,14 @@ Secondly, the program fulfills the following for all items of:
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
-* `/vulnerabilities[]/metrics/ssvc_v1`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
-  vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 Converter MUST convert that data into the `ssvc_v1`
+* `/vulnerabilities[]/metrics/ssvc_v2`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
+  vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 Converter MUST convert that data into the `ssvc_v2`
   object within the current vulnerability.
   If the CSAF 2.0 to CSAF 2.1 Converter is able to construct a valid object without loosing any information, the corresponding `notes` item SHALL
   be removed.
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
-  remove the invalid `ssvc_v1` object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data failed.
-  If the CSAF 2.0 to CSAF 2.1 Converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `ssvc_v1`
+  remove the invalid `ssvc_v2` object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data failed.
+  If the CSAF 2.0 to CSAF 2.1 Converter would loose information during the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `ssvc_v2`
   object, keep the original item of `notes` and output a warning that the automatic conversion of the SSVC data would lead to loosing information.
 * `/vulnerabilities[]/notes`: If any `/vulnerabilities[]/notes` item contains one of the `category` and `title` combinations specified in
   [sec](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that
