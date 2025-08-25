@@ -45,7 +45,7 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
 
 ### Finding aggregator.json
 
-**Direct locating**: The file `aggregator.json` SHOULD be found at the registered `.well-known` path
+**Direct locating**: The file `aggregator.json` SHOULD be located at the registered `.well-known` path
 based on the main domain of the aggregator as specified in requirement 21 in section [sec](#requirements).
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of an `aggregator.json` through an out-of-band channel,
