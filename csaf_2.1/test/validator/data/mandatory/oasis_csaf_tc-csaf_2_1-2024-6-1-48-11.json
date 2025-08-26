@@ -39,20 +39,24 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
       "metrics": [
         {
           "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
+            "ssvc_v2": {
+              "schemaVersion": "2.0.0",
               "selections": [
                 {
-                  "name": "Mission Impact",
+                  "key": "MI",
                   "namespace": "ssvc",
                   "values": [
-                    "None",
-                    "Non-Essential Degraded"
+                    {
+                      "key": "N",
+                      "name": "None"
+                    },
+                    {
+                      "key": "NED",
+                      "name": "Non-Essential Degraded"
+                    }
                   ],
                   "version": "1.0.0"
                 }

@@ -5,19 +5,16 @@ It MUST be tested that the given SSVC object is valid according to the reference
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/metrics[]/content/ssvc_v1
+  /vulnerabilities[]/metrics[]/content/ssvc_v2
 ```
 
 *Example 1 (which fails the test):*
 
 ```
-  "ssvc_v1": {
-    "id": "CVE-1900-0001",
-    "schemaVersion": "1-0-1",
+  "ssvc_v2": {
+    "schemaVersion": "2.0.0",
     "timestamp": "2024-01-24T10:00:00.000Z"
   }
 ```
 
 > The required element `selections` is missing.
-
-> A tool MAY add the missing property `id` based on the values given in `cve` respectively `ids[]/text` as quick fix.

@@ -39,22 +39,33 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
       "metrics": [
         {
           "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
+            "ssvc_v2": {
+              "schemaVersion": "2.0.0",
               "selections": [
                 {
+                  "key": "SI",
                   "name": "Safety Impact",
                   "namespace": "ssvc",
                   "values": [
-                    "Catastrophic",
-                    "Critical",
-                    "Marginal",
-                    "Negligible"
+                    {
+                      "key": "C",
+                      "name": "Catastrophic"
+                    },
+                    {
+                      "key": "R",
+                      "name": "Critical"
+                    },
+                    {
+                      "key": "M",
+                      "name": "Marginal"
+                    },
+                    {
+                      "key": "N",
+                      "name": "Negligible"
+                    }
                   ],
                   "version": "2.0.0"
                 }

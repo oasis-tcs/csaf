@@ -7,7 +7,7 @@ As the timestamps might use different timezones, the sorting MUST take timezones
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/metrics[]/content/ssvc_v1/timestamp
+    /vulnerabilities[]/metrics[]/content/ssvc_v2/timestamp
 ```
 
 *Example 1 (which fails the test):*
@@ -31,23 +31,11 @@ The relevant path for this test is:
   // ...
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
       "metrics": [
         {
           "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
-              "selections": [
-                {
-                  "name": "Exploitation",
-                  "namespace": "ssvc",
-                  "values": [
-                    "Active"
-                  ],
-                  "version": "1.1.0"
-                }
-              ],
+            "ssvc_v2": {
+              // ...
               "timestamp": "2024-07-13T10:00:00.000Z"
             }
           },
