@@ -1407,6 +1407,18 @@
                       },
                       "additionalProperties": false
                     },
+                    "qualitative_severity_rating": {
+                      "title": "Qualitative Severity Rating",
+                      "description": "Contains an assessment of the severity of the vulnerability on a qualitative scale.",
+                      "type": "string",
+                      "enum": [
+                        "critical",
+                        "high",
+                        "low",
+                        "medium",
+                        "none"
+                      ]
+                    },
                     "ssvc_v1": {
                       "$ref": "https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json"
                     }
