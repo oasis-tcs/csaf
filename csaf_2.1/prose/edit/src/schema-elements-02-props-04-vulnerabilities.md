@@ -519,7 +519,9 @@ Every Metric item of value type `object` with the mandatory properties `content`
 
 ##### Vulnerabilities Property - Metrics - Content
 
-Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`), EPSS (`epss`), and SSVC v1 (`ssvc_v1`) specifies information about (at least one) metric or score for the given products regarding the current vulnerability.
+Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
+EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`) and SSVC v1 (`ssvc_v1`) specifies information about
+(at least one) metric or score for the given products regarding the current vulnerability.
 A Content object has at least 1 property.
 
 ```
@@ -538,6 +540,9 @@ A Content object has at least 1 property.
           "epss": {
             // ...
           },
+          "qualitative_severity_rating": {
+            // ...
+          },
           "ssvc_v1": {
             // ....
           }
@@ -554,8 +559,32 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
 [https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
 
-The property SSVC v1 (`ssvc_v1`) holding an SSVC Decision Point Value Selection v1.0.1 value abiding by the schema at
-[https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json](https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json).
+The property Qualitative Severity Rating (`qualitative_severity_rating`) of value type `string` and `enum` contains an assessment
+of the severity of the vulnerability regarding the products on a qualitative scale.
+Valid `enum` values are:
+
+```
+    "critical",
+    "high",
+    "low",
+    "medium",
+    "none"
+```
+
+The value `critical` indicates that this vulnerability allows attackers to fully compromise a system or access sensitive data
+with little or no user interaction.
+
+The value `high` indicates that this vulnerability can lead to significant impact such as unauthorized access or data loss,
+but usually require some conditions or user interaction.
+
+The value `low` indicates that this vulnerability has a minimal impact and low likelihood of exploitation,
+usually causing minor issues or informational leaks.
+
+The value `medium` indicates that this vulnerability can result in moderate impact like partial data exposure or denial of service,
+often needing specific circumstances.
+
+The value `none` indicates that this flaw pose no security risk or impact like false positives or
+informational findings without real threat.
 
 The property EPSS (`epss`) of value type `object` with the 3 mandatory properties Percentile (`percentile`), Probability (`probability`) and EPSS timestamp (`timestamp`) contains the EPSS data.
 
@@ -590,6 +619,9 @@ Probability (`probability`) with `pattern` (regular expression):
 The value contains the likelihood that any exploitation activity for this Vulnerability is being observed in the 30 days following the given timestamp.
 
 EPSS timestamp (`timestamp`) of value type `string` with format `date-time` holds the date and time the EPSS value was recorded.
+
+The property SSVC v1 (`ssvc_v1`) holding an SSVC Decision Point Value Selection v1.0.1 value abiding by the schema at
+[https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json](https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json).
 
 ##### Vulnerabilities Property - Metrics - Products
 

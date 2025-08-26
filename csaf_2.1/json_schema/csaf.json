@@ -1409,7 +1409,7 @@
                     },
                     "qualitative_severity_rating": {
                       "title": "Qualitative Severity Rating",
-                      "description": "Contains an assessment of the severity of the vulnerability on a qualitative scale.",
+                      "description": "Contains an assessment of the severity of the vulnerability regarding the products on a qualitative scale.",
                       "type": "string",
                       "enum": [
                         "critical",
