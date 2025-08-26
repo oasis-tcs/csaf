@@ -586,6 +586,13 @@ often needing specific circumstances.
 The value `none` indicates that this flaw pose no security risk or impact like false positives or
 informational findings without real threat.
 
+> The Qualitative Severity Rating is not a replacement for CVSS.
+> It is intended to be used for sources that provide an assessment on a qualitative scale but no full CVSS vector.
+
+CSAF consumer SHOULD give preference to CVSS if both, Qualitative Severity Rating and CVSS, are present.
+Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency` from the `cvss` namespace to convey
+an additional assessment provided by a party.
+
 The property EPSS (`epss`) of value type `object` with the 3 mandatory properties Percentile (`percentile`), Probability (`probability`) and EPSS timestamp (`timestamp`) contains the EPSS data.
 
 ```
