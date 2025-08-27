@@ -56,7 +56,7 @@ The following abbreviations are used:
 | [40](https://groups.oasis-open.org/discussion/specify-how-to-find-an-aggregatorjson-1088) | 2025-07-04 | Bernhard Reiter | [specify how to find an aggregator.json](https://github.com/oasis-tcs/csaf/issues/1088) | 2025-08-27 | [Comment Resolution CSD01PR: #1088](https://github.com/oasis-tcs/csaf/pull/1158) | Completed |
 | [41](https://groups.oasis-open.org/discussion/csdpr01-feedback-1089) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Year of Copyright inaccurate](https://github.com/oasis-tcs/csaf/issues/1089) | 2025-07-21 | [Copyright Year Update](https://github.com/oasis-tcs/csaf/pull/1100) | Completed |
 | [42](https://groups.oasis-open.org/discussion/csdpr01-feedback-1090) | 2025-07-06 | Sonny van Lingen | [CSAF 2.1 CSD 01-RC2: Appendix C layout / numbering issue](https://github.com/oasis-tcs/csaf/issues/1090) | 2025-08-20 | Classified as duplicate, fixed through [Fixed Guidance Appendix Metadata](https://github.com/oasis-tcs/csaf/pull/1038) | Completed |
-| [43](https://groups.oasis-open.org/discussion/csdpr01-feedback-1086-from-tc-member) | 2025-07-06 | Christoph Plutte | [Add qualitative severity rating to metrics (in case no CVSS available)](https://github.com/oasis-tcs/csaf/issues/1086) |  |  |  |
+| [43](https://groups.oasis-open.org/discussion/csdpr01-feedback-1086-from-tc-member) | 2025-07-06 | Christoph Plutte | [Add qualitative severity rating to metrics (in case no CVSS available)](https://github.com/oasis-tcs/csaf/issues/1086) | 2025-08-27 | [Comment Resolution CSD01PR: #1086](https://github.com/oasis-tcs/csaf/pull/1162) | Completed |
 
 ## Evaluation of Feedback
 
