@@ -44,7 +44,9 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
-If any redirects are used, there SHOULD not be more than 5 and MUST NOT be more than 10 consecutive redirects.
+If any redirects are used, there SHOULD NOT be more than `10`, and MUST NOT be more than `20` consecutive redirects.
+
+> This aligns with section 4.4 of the [cite](#FETCH) specification.
 
 ### Requirement 7: provider-metadata.json
 
@@ -587,16 +589,19 @@ The file `aggregator.json` MUST be present and valid according to the
 JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
 It MUST NOT be stored adjacent to a `provider-metadata.json`.
 
-> Suggested locations to store the `aggregator.json` are:
->
-> * https://www.example.com/.well-known/csaf-aggregator/aggregator.json
-> * https://domain.tld/security/data/aggregator/csaf/aggregator.json
-> * https://psirt.domain.tld/advisories/aggregator/csaf/aggregator.json
-> * https://domain.tld/security/aggregator/csaf/aggregator.json
+The file `aggregator.json` SHOULD be accessible at the registered path in the `.well-known` directory:
+`/.well-known/csaf-aggregator/aggregator.json`.
+
+*Examples 1:*
+
+```
+  https://aggregator.example/.well-known/csaf-aggregator/aggregator.json
+  https://aggregator.example/.well-known/csaf-aggregator/v2.1/aggregator.json
+```
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 1:*
+*Example 2:*
 
 ```
   {

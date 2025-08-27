@@ -420,7 +420,9 @@ The relevant paths for this test are:
 
 ### Missing CVSS v4.0
 
-For each item in the list of metrics it MUST be tested that a `cvss_v4` object is present.
+For each item in the list of metrics that contains any CVSS object it MUST be tested that a `cvss_v4` object is present.
+The test MUST fail, if any Product ID (type `/$defs/product_id_t`) in the product status group Affected (see section [sec](#vulnerabilities-property-product-status)) is not covered by
+any CVSS object.
 
 The relevant path for this test is:
 
