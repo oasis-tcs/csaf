@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: CVSS for Fixed Products (valid example 8)",
+    "title": "Mandatory Test: Invalid CVSS computation (failing example 6)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-19-18",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-08-06",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -43,22 +43,21 @@
         {
           "content": {
             "cvss_v4": {
-              "baseScore": 0.0,
-              "baseSeverity": "NONE",
-              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:P/PR:H/UI:P/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:N/MVI:N/MVA:N/MSC:N/MSI:N/MSA:N",
-              "version": "4.0"
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:P/MAV:A/MPR:L/MUI:P/MVI:N/MVA:N",
+              "baseScore": 10.0,
+              "baseSeverity": "CRITICAL",
+              "threatScore": 9.3,
+              "threatSeverity": "CRITICAL",
+              "environmentalScore": 5.4,
+              "environmentalSeverity": "MEDIUM"
             }
           },
           "products": [
             "CSAFPID-9080700"
           ]
         }
-      ],
-      "product_status": {
-        "first_fixed": [
-          "CSAFPID-9080700"
-        ]
-      }
+      ]
     }
   ]
 }

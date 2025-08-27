@@ -554,7 +554,7 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 See [cite](#CVSS30) respectively [cite](#CVSS31) for details.
 
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
+[https://www.first.org/cvss/cvss-v4.0.1.json](https://www.first.org/cvss/cvss-v4.0.1.json).
 See [cite](#CVSS40) for details.
 
 The property SSVC v1 (`ssvc_v1`) holding an SSVC Decision Point Value Selection v1.0.1 value abiding by the schema at

@@ -6,14 +6,14 @@ CSAF_STRICT_SCHEMA=${STRICT_BUILD}/csaf_strict_schema.json
 CVSS_20_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v2.0_strict.json
 CVSS_30_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.0_strict.json
 CVSS_31_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.1_strict.json
-CVSS_40_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v4.0_strict.json
+CVSS_40_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v4.0.1_strict.json
 META_SCHEMA=csaf_2.1/json_schema/meta.json
 SSVC_101_DP_SCHEMA=csaf_2.1/referenced_schema/certcc/Decision_Point-1-0-1.schema.json
 SSVC_101_DPVS_SCHEMA=csaf_2.1/referenced_schema/certcc/Decision_Point_Value_Selection-1-0-1.schema.json
 VALIDATOR=csaf_2.1/test/validator.py
 STRICT_GENERATOR=csaf_2.1/test/generate_strict_schema.py
 TESTPATH=csaf_2.1/test/validator/data/$1/*.json
-EXCLUDE='oasis_csaf_tc-csaf_2_1-2024-6-1-08-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-09-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-06.json|oasis_csaf_tc-csaf_2_1-2024-6-1-46-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-46-02.json|oasis_csaf_tc-csaf_2_1-2024-6-2-10-01.json|oasis_csaf_tc-csaf_2_1-2024-6-2-20-01.json|oasis_csaf_tc-csaf_2_1-2024-6-2-20-02.json'
+EXCLUDE='oasis_csaf_tc-csaf_2_1-2024-6-1-08-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-08-06.json|oasis_csaf_tc-csaf_2_1-2024-6-1-09-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-02.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-03.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-04.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-05.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-06.json|oasis_csaf_tc-csaf_2_1-2024-6-1-46-01.json|oasis_csaf_tc-csaf_2_1-2024-6-1-46-02.json|oasis_csaf_tc-csaf_2_1-2024-6-2-10-01.json|oasis_csaf_tc-csaf_2_1-2024-6-2-20-01.json|oasis_csaf_tc-csaf_2_1-2024-6-2-20-02.json'
 EXCLUDE_LEAP='oasis_csaf_tc-csaf_2_1-2024-6-1-37-07.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-08.json|oasis_csaf_tc-csaf_2_1-2024-6-1-37-09.json'
 
 FAIL=0
