@@ -25,6 +25,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Dan         | West             | Microsoft                                                      |
 | Dave        | Tamasi           | Google LLC                                                     |
 | David       | Waltermire       | NIST                                                           |
+| Denny       | Page             | Individual                                                     |
 | Diane       | Morris           | Cisco Systems                                                  |
 | Dina        | Truxius          | Federal Office for Information Security (BSI) Germany          |
 | Feng        | Cao              | Oracle                                                         |
