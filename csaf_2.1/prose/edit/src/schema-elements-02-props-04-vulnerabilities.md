@@ -526,8 +526,8 @@ the optional property `source` contains all metadata about the metric including 
 ##### Vulnerabilities Property - Metrics - Content
 
 Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
-EPSS (`epss`), and SSVC v2 (`ssvc_v2`) specifies information about (at least one) metric or score for the given products regarding
-the current vulnerability.
+EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`) and SSVC v2 (`ssvc_v2`) specifies information about
+(at least one) metric or score for the given products regarding the current vulnerability.
 A Content object has at least `1` property.
 
 ```
@@ -544,6 +544,9 @@ A Content object has at least `1` property.
             // ...
           },
           "epss": {
+            // ...
+          },
+          "qualitative_severity_rating": {
             // ...
           },
           "ssvc_v2": {
@@ -564,10 +567,6 @@ See [cite](#CVSS30) respectively [cite](#CVSS31) for details.
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
 [https://www.first.org/cvss/cvss-v4.0.1.json](https://www.first.org/cvss/cvss-v4.0.1.json).
 See [cite](#CVSS40) for details.
-
-The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
-[https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json).
-See [cite](#SSVC) for details.
 
 The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)
 and EPSS timestamp (`timestamp`) contains the EPSS data.
@@ -604,6 +603,44 @@ Probability (`probability`) has value type `string` with `pattern` (regular expr
 The value contains the likelihood that any exploitation activity for this Vulnerability is being observed in the 30 days following the given timestamp.
 
 EPSS timestamp (`timestamp`) of value type `string` with format `date-time` holds the date and time the EPSS value was recorded.
+
+The property Qualitative Severity Rating (`qualitative_severity_rating`) of value type `string` and `enum` contains an assessment
+of the severity of the vulnerability regarding the products on a qualitative scale.
+Valid `enum` values are:
+
+```
+    "critical",
+    "high",
+    "low",
+    "medium",
+    "none"
+```
+
+The value `critical` indicates that this vulnerability allows attackers to fully compromise a system or access sensitive data
+with little or no user interaction.
+
+The value `high` indicates that this vulnerability can lead to significant impact such as unauthorized access or data loss,
+but usually require some conditions or user interaction.
+
+The value `low` indicates that this vulnerability has a minimal impact and low likelihood of exploitation,
+usually causing minor issues or informational leaks.
+
+The value `medium` indicates that this vulnerability can result in moderate impact like partial data exposure or denial of service,
+often needing specific circumstances.
+
+The value `none` indicates that this flaw pose no security risk or impact like false positives or
+informational findings without real threat.
+
+> The Qualitative Severity Rating is not a replacement for CVSS.
+> It is intended to be used for sources that provide an assessment on a qualitative scale but no full CVSS vector.
+
+CSAF consumer SHOULD give preference to CVSS if both, Qualitative Severity Rating and CVSS, are present.
+Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency` from the `cvss` namespace to convey
+an additional assessment provided by a party.
+
+The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
+[https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json).
+See [cite](#SSVC) for details.
 
 ##### Vulnerabilities Property - Metrics - Products
 

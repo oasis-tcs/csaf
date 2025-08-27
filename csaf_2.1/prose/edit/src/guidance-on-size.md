@@ -411,6 +411,7 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnConfidentialityImpact` (4)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnerabilityResponseEffort` (11)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnIntegrityImpact` (4)
+* `/vulnerabilities[]/metrics[]/content/qualitative_severity_rating` (8)
 * `/vulnerabilities[]/metrics[]/content/ssvc_v2/schemaVersion` (5)
 * `/vulnerabilities[]/notes[]/category` (16)
 * `/vulnerabilities[]/references[]/category` (8)
