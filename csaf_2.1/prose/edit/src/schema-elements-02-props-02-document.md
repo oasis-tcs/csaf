@@ -1,9 +1,9 @@
 ### Document Property
 
-Document level meta-data (`document`) of value type `object` with the 6 mandatory properties Category (`category`),
+Document level meta-data (`document`) of value type `object` with the six mandatory properties Category (`category`),
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
-and  Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the 7 optional properties Acknowledgments (`acknowledgments`),
+and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
+In addition, the `document` object MAY provide the seven optional properties Acknowledgments (`acknowledgments`),
 Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
 References (`references`), and Source Language (`source_lang`).
 
@@ -89,7 +89,7 @@ The range of values in this field is defined according to the document producer'
 
 The Namespace of aggregate severity (`namespace`) of value type `string` with format `uri` points to the namespace so referenced.
 
-The Text of aggregate severity (`text`) of value type `string` with 1 or more characters provides a severity which is
+The Text of aggregate severity (`text`) of value type `string` with `1` or more characters provides a severity which is
 independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
 *Examples 1:*
@@ -102,7 +102,7 @@ independent of - and in addition to - any other standard metric for determining 
 
 #### Document Property - Category
 
-Document category (`category`) with value type `string` of 1 or more characters with `pattern` (regular expression):
+Document category (`category`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
 ```
     ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
@@ -170,7 +170,8 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
     Releasable to NATO countries
 ```
 
-> Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated Sharing Group IDs to allow for automation.
+> Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated
+> Sharing Group IDs to allow for automation.
 
 ##### Document Property - Distribution - Sharing Group
 
@@ -191,7 +192,7 @@ the optional property Sharing Group Name (`name`) contains information about the
         },
 ```
 
-Sharing Group ID (`id`) of value type `string` with format `uuid` and `pattern` (regular expression):
+Sharing Group ID (`id`) has value type `string` with format `uuid` and `pattern` (regular expression):
 
 ```
     ^(([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})|([0]{8}-([0]{4}-){3}[0]{12})|([f]{8}-([f]{4}-){3}[f]{12}))$
@@ -226,9 +227,12 @@ Therefore, they are reserved for implementation-specific situations:
 
 > Note, that both values do not indicate a closed sharing group.
 
-A CSAF document with `TLP:CLEAR` SHOULD NOT contain a sharing group value and SHALL NOT contain any other value for the Sharing Group ID than Max UUID (`ffffffff-ffff-ffff-ffff-ffffffffffff`).
+A CSAF document with `TLP:CLEAR` SHOULD NOT contain a sharing group value and SHALL NOT contain any other value for the
+Sharing Group ID than Max UUID (`ffffffff-ffff-ffff-ffff-ffffffffffff`).
 
-If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for CSAF modifier (cf. section [sec](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of `/document/tracking/id` SHALL be applied.
+If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for
+CSAF modifier (cf. section [sec](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of
+`/document/tracking/id` SHALL be applied.
 This implies that usually the sharing group ID is used as a prefix to the original `/document/tracking/id`.
 
 Sharing Group Name (`name`) of value type `string` with one or more characters contains a human-readable name for the sharing group.
@@ -241,7 +245,7 @@ However, the following values are reserved for the conditions below:
 
 ##### Document Property - Distribution - Text
 
-The Textual description (`text`) of value type `string` with 1 or more characters provides a textual description of additional constraints.
+The Textual description (`text`) of value type `string` with `1` or more characters provides a textual description of additional constraints.
 
 *Examples 1:*
 
@@ -281,7 +285,7 @@ Valid values of the `enum` are:
     RED
 ```
 
-> Note: In the TLP specification there are only 4 labels. The part `+STRICT` is an extension to `TLP:AMBER`.
+> Note: In the TLP specification, there are only four labels. The part `+STRICT` is an extension to `TLP:AMBER`.
 > To simplify the JSON structure, avoid additional business level tests and aid in parsing, consumption and
 > processing, it is provided as a label to be selected instead of having a separate field.
 
@@ -312,13 +316,14 @@ corresponding to IETF BCP 47 / RFC 5646.
 
 #### Document Property - License Expression
 
-License expression (`license_expression`) of value type `string` with 1 or more characters contains the SPDX license expression for the CSAF document.
+License expression (`license_expression`) of value type `string` with `1` or more characters contains the
+SPDX license expression for the CSAF document.
 It MUST NOT contain a license text.
 See Annex B of [cite](#SPDX301) for details.
 The `DocumentRef` part given in that ABNF MUST NOT be used in CSAF.
 Any SPDX license identifier not from the official SPDX license identifier list MUST contain a prefix of the form
-`LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the entity that provided the
-database this license identifier was found in.
+`LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
+entity that provided the database this license identifier was found in.
 Unless otherwise previously established, the unique name SHOULD be a domain name.
 The same applies for `AdditionRef-` identifiers.
 
@@ -382,9 +387,9 @@ If a note is specific to a product or product group it MUST be bound via the `gr
 
 #### Document Property - Publisher
 
-Publisher (`publisher`) has value type `object` with the mandatory properties Category (`category`), Name (`name`) and
-Namespace (`namespace`) and provides information on the publishing entity.
-The 2 other optional properties are: `contact_details` and `issuing_authority`.
+Publisher (`publisher`) of value type `object` with the mandatory properties Category (`category`), Name (`name`) and
+Namespace (`namespace`) provides information on the publishing entity.
+The two other optional properties are: `contact_details` and `issuing_authority`.
 
 ```
     "publisher": {
@@ -435,9 +440,10 @@ This includes all manner of researchers.
 The value `multiplier` indicates individuals or organizations that use existing CSAF documents or information that could
 be represented in CSAF, and create their own CSAF documents for distribution to a specific target audience.
 A single multiplier might have target audiences.
+
 > For example, a National CSIRT might create different CSAF documents for the same vulnerability for critical
-  infrastructure companies in different sectors, government agencies, non-critical industry, and the public based on
-  information sharing agreements and threats to the target group.
+> infrastructure companies in different sectors, government agencies, non-critical industry, and the public based on
+> information sharing agreements and threats to the target group.
   
 The creation step can make use of a CSAF modifier that replaces metadata, e.g. the document publisher.
 Currently, this value includes multipliers, republishers, and forwarders.
@@ -456,7 +462,7 @@ open source projects as well as product resellers and distributors, including au
 
 ##### Document Property - Publisher - Contact Details
 
-Contact details (`contact_details`) of value type `string` with 1 or more characters provides information on how to contact the publisher,
+Contact details (`contact_details`) of value type `string` with `1` or more characters provides information on how to contact the publisher,
 possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
 *Example 1:*
@@ -467,12 +473,12 @@ possibly including details such as web sites, email addresses, phone numbers, an
 
 ##### Document Property - Publisher - Issuing Authority
 
-Issuing authority (`issuing_authority`) of value type `string` with 1 or more characters Provides information about
+Issuing authority (`issuing_authority`) of value type `string` with `1` or more characters Provides information about
 the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
 ##### Document Property - Publisher - Name
 
-The Name of publisher (`name`) of value type `string` with 1 or more characters contains the name of the issuing party.
+The Name of publisher (`name`) of value type `string` with `1` or more characters contains the name of the issuing party.
 
 *Examples 1:*
 
@@ -533,7 +539,7 @@ The property SHALL NOT be present if the document was not translated.
 
 #### Document Property - Title
 
-Title of this document (`title`) of value type `string` with 1 or more characters SHOULD be a canonical name for the document,
+Title of this document (`title`) of value type `string` with `1` or more characters SHOULD be a canonical name for the document,
 and sufficiently unique to distinguish it from similar documents.
 
 *Examples 1:*
@@ -545,7 +551,7 @@ and sufficiently unique to distinguish it from similar documents.
 
 #### Document Property - Tracking
 
-Tracking (`tracking`) of value type `object` with the six mandatory properties: Current Release Date (`current_release_date`),
+Tracking (`tracking`) of value type `object` with the six mandatory properties Current Release Date (`current_release_date`),
 Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`),
 and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
@@ -584,7 +590,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
 
 ##### Document Property - Tracking - Aliases
 
-Aliases (`aliases`) of value type `array` with 1 or more unique items (a `set`) representing Alternate Names contains a
+Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
 
 ```
@@ -596,7 +602,7 @@ list of alternate names for the same document.
     },
 ```
 
-Every such Alternate Name of value type `string` with 1 or more characters specifies a non-empty string that represents a
+Every such Alternate Name of value type `string` with `1` or more characters specifies a non-empty string that represents a
 distinct optional alternative ID used to refer to the document.
 
 *Example 1:*
@@ -651,7 +657,7 @@ optional property Engine version (`version`) contains information about the engi
         },
 ```
 
-Engine name (`name`) of value type `string` with 1 or more characters represents the name of the engine that generated the CSAF document.
+Engine name (`name`) of value type `string` with `1` or more characters represents the name of the engine that generated the CSAF document.
 
 *Examples 1:*
 
@@ -661,7 +667,7 @@ Engine name (`name`) of value type `string` with 1 or more characters represents
     TVCE
 ```
 
-Engine version (`version`) of value type `string` with 1 or more characters contains the version of the engine that generated the CSAF document.
+Engine version (`version`) of value type `string` with `1` or more characters contains the version of the engine that generated the CSAF document.
 
 > Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
@@ -676,7 +682,7 @@ Engine version (`version`) of value type `string` with 1 or more characters cont
 
 ##### Document Property - Tracking - ID
 
-Unique identifier for the document (`id`) of value type `string` with 1 or more characters with `pattern` (regular expression):
+Unique identifier for the document (`id`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
 ```
     ^[\\S](.*[\\S])?$
@@ -686,7 +692,8 @@ Unique identifier for the document holds the Identifier.
 It SHALL NOT start or end with a white space and SHALL NOT contain a newline sequence.
 
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
-Its value SHOULD be assigned and maintained by the original document issuing authority. It MUST be unique for that organization.
+Its value SHOULD be assigned and maintained by the original document issuing authority.
+It MUST be unique for that organization.
 
 *Examples 1:*
 
@@ -702,7 +709,8 @@ This value is also used to determine the filename for the CSAF document (cf. sec
 
 ##### Document Property - Tracking - Initial Release Date
 
-Initial release date (`initial_release_date`) of value type `string` with format `date-time` holds the date when this document was first released to the specified target group.
+Initial release date (`initial_release_date`) of value type `string` with format `date-time` holds the date
+when this document was first released to the specified target group.
 
 > For `TLP:CLEAR` documents, this is usually the timestamp when the document was published.
 > For `TLP:GREEN` and higher, this is the timestamp when it was first made available to the specific group.
@@ -713,8 +721,8 @@ This change MUST be tracked with a new entry in the revision history.
 
 ##### Document Property - Tracking - Revision History
 
-The Revision History (`revision_history`) with value type `array` of 1 or more Revision History Entries holds one revision item for each version of
-the CSAF document, including the initial one.
+The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
+for each version of the CSAF document, including the initial one.
 
 ```
         "revision_history": {
@@ -749,7 +757,7 @@ In addition, a Revision MAY expose the optional property `legacy_version`.
 
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
 
-Legacy version of the revision (`legacy_version`) of value type `string` with 1 or more characters contains the version string used
+Legacy version of the revision (`legacy_version`) of value type `string` with `1` or more characters contains the version string used
 in an existing document with the same content.
 
 > This SHOULD be used to aid in the mapping between existing (human-readable) documents which might use a different version scheme and
@@ -758,7 +766,7 @@ in an existing document with the same content.
 
 The Number (`number`) has value type Version (`version_t`).
 
-The Summary of the revision (`summary`) of value type `string` with 1 or more characters holds a single non-empty string representing
+The Summary of the revision (`summary`) of value type `string` with `1` or more characters holds a single non-empty string representing
 a short description of the changes.
 
 Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from the document if the document status is `final`.
