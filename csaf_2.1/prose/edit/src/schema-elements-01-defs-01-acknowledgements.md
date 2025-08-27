@@ -12,7 +12,7 @@ a list of `Acknowledgment` elements.
     },
 ```
 
-The value type of Acknowledgment is `object` with at least one and at most four properties. Every such element acknowledges contributions by
+The value type of Acknowledgment is `object` with at least `1` and at most four properties. Every such element acknowledges contributions by
 describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
