@@ -1,0 +1,46 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json",
+  "title": "CSAF Extension Content",
+  "description": "Representation of additional information extending a CSAF Document.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "category",
+    "critical",
+    "content"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the provider-metadata.json JSON schema which the document promises to be valid for.",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https:\\/\\/[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?(\\.[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?)+\\/([^\\/\\s]+\/)*[^\\/\\s]+_(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\.json$"
+    },
+    "category": {
+      "title": "Extension Category",
+      "description": "Holds the category of the extension content.",
+      "type": "string",
+      "enum": [
+        "critical",
+        "high_value",
+        "informational"
+      ]
+    },
+    "critical": {
+      "title": "Critical",
+      "description": "Determines whether using the extension would fail a mandatory test.",
+      "type": "boolean",
+      "default": false
+    },
+    "content": {
+      "title": "Content",
+      "description": "Holds the additional information in its properties.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
