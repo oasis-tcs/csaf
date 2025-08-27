@@ -134,6 +134,7 @@ tests-02-rcmmndd-43-missing-license-expression.md
 tests-02-rcmmndd-44-deprecated-license-identifier.md
 tests-02-rcmmndd-45-non-existing-license-identifier.md
 tests-02-rcmmndd-46-language-specific-license-text.md
+tests-02-rcmmndd-47-use-of-qualitative-severity-rating-by-issuing-party.md
 tests-03-informative.md
 tests-04-presets.md
 distributing-00.md
