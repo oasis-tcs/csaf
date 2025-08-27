@@ -132,7 +132,7 @@
     },
     "extensions_t": {
       "title": "List of extensions",
-      "description": "Contains a list of extension elements.",
+      "description": "Contains a list of extension elements for the current context.",
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,

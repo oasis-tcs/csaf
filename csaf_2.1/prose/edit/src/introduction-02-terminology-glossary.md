@@ -41,6 +41,9 @@ required by CSAF Viewer.
 CSAF Converter
 :    CSAF Producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 
+CSAF Core
+:    All parts of CSAF except for the parts covering CSAF Extensions.
+
 CSAF Direct Producer
 :    analysis tool which acts as a CSAF Producer.
 
@@ -49,6 +52,12 @@ CSAF Document
 
 CSAF Downloader
 :    A program that retrieves CSAF Documents in an automated fashion.
+
+CSAF Extension
+:    A specified JSON object conveying additional information different from the content that can be conveyed with the CSAF Core elements.
+The Extension content MUST validate against the
+[CSAF Extension Content schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) as well as the schema given
+through its `$schema` property.
 
 CSAF Extended Validator
 :    A CSAF Basic Validator that additionally performs recommended tests.
