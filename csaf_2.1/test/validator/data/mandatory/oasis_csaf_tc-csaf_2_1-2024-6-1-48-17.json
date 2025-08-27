@@ -43,19 +43,28 @@
       "metrics": [
         {
           "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
+            "ssvc_v2": {
+              "schemaVersion": "2.0.0",
               "selections": [
                 {
+                  "key": "SI",
                   "name": "Safety Impact",
-                  "namespace": "x_some-custom-namespace-unsing-an/extension",
+                  "namespace": "x_example.test#some-private-decision-point-collection",
                   "values": [
-                    "Severe",
-                    "Critical",
-                    "Catastrophic"
+                    {
+                      "key": "S",
+                      "name": "Severe"
+                    },
+                    {
+                      "key": "R",
+                      "name": "Critical"
+                    },
+                    {
+                      "key": "C",
+                      "name": "Catastrophic"
+                    }
                   ],
-                  "version": "3.0.0"
+                  "version": "1.9.7"
                 }
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"

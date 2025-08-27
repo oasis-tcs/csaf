@@ -526,7 +526,7 @@ the optional property `source` contains all metadata about the metric including 
 ##### Vulnerabilities Property - Metrics - Content
 
 Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
-EPSS (`epss`), and SSVC v1 (`ssvc_v1`) specifies information about (at least one) metric or score for the given products regarding
+EPSS (`epss`), and SSVC v2 (`ssvc_v2`) specifies information about (at least one) metric or score for the given products regarding
 the current vulnerability.
 A Content object has at least `1` property.
 
@@ -546,7 +546,7 @@ A Content object has at least `1` property.
           "epss": {
             // ...
           },
-          "ssvc_v1": {
+          "ssvc_v2": {
             // ....
           }
         }
@@ -565,8 +565,8 @@ The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema
 [https://www.first.org/cvss/cvss-v4.0.1.json](https://www.first.org/cvss/cvss-v4.0.1.json).
 See [cite](#CVSS40) for details.
 
-The property SSVC v1 (`ssvc_v1`) holding an SSVC Decision Point Value Selection v1.0.1 value abiding by the schema at
-[https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json](https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json).
+The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
+[https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json).
 See [cite](#SSVC) for details.
 
 The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)

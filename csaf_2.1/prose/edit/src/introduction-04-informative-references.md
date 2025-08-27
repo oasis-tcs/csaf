@@ -42,7 +42,7 @@ CVSS40
 CWE
 :    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2006, http://cwe.mitre.org/about/.
 
-CWE
+CWE-A
 :    _CWE - Archive_, MITRE, <https://cwe.mitre.org/data/archive.html>.
 
 CYCLONEDX161

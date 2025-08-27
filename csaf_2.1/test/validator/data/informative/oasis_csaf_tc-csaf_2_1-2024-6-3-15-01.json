@@ -13,7 +13,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative Test: Usage of SSVC Decision Point Namespace with Extension in non TLP:CLEAR Document (failing example 1)",
+    "title": "Informative Test: Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-15-01",
@@ -39,19 +39,21 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
       "metrics": [
         {
           "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
+            "ssvc_v2": {
+              "schemaVersion": "2.0.0",
               "selections": [
                 {
+                  "key": "TI",
                   "name": "Technical Impact",
-                  "namespace": "ssvc/additional-technical-impacts",
+                  "namespace": "ssvc//.example.test#refined-technical-impacts",
                   "values": [
-                    "Total"
+                    {
+                      "key": "T",
+                      "name": "Total"
+                    }
                   ],
                   "version": "1.0.0"
                 }
