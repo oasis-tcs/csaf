@@ -186,5 +186,5 @@ the Full Product Name element, which is referenced as the second element of the 
 > The product `Cisco AnyConnect Secure Mobility Client 4.9.04053"` (Product ID: `CSAFPID-908070601`) and the product `Microsoft Windows`
 > (Product ID: `CSAFPID-908070602`) form together a new product with the separate Product ID `CSAFPID-908070603`.
 > The latter one can be used to refer to that combination in other parts of the CSAF document.
-> In the preceding example 1, it might be the case that `Cisco AnyConnect Secure Mobility Client 4.9.04053"` is only
-> vulnerable when installed on `Microsoft Windows`.
+> In the preceding example, it might be the case that `Cisco AnyConnect Secure Mobility Client 4.9.04053"`
+> is only vulnerable when installed on `Microsoft Windows`.
