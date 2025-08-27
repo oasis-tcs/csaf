@@ -1,6 +1,6 @@
 ### Acknowledgments Type
 
-List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with 1 or more elements contain
+List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with `1` or more elements contain
 a list of `Acknowledgment` elements.
 
 ```
@@ -12,7 +12,7 @@ a list of `Acknowledgment` elements.
     },
 ```
 
-The value type of Acknowledgment is `object` with at least 1 and at most 4 properties. Every such element acknowledges contributions by
+The value type of Acknowledgment is `object` with at least one and at most four properties. Every such element acknowledges contributions by
 describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
@@ -35,8 +35,8 @@ The properties are: `names`, `organization`, `summary`, and `urls`.
 
 #### Acknowledgments Type - Names
 
-List of acknowledged names (`names`) has value type `array` with 1 or more items holds the names of contributors being recognized.
-Every such item of value type `string` with 1 or more characters represents the name of the contributor and contains the name of
+List of acknowledged names (`names`) of value type `array` with `1` or more items holds the names of contributors being recognized.
+Every such item of value type `string` with `1` or more characters represents the name of the contributor and contains the name of
 a single contributor being recognized.
 
 *Examples 1:*
@@ -48,7 +48,7 @@ a single contributor being recognized.
 
 #### Acknowledgments Type - Organization
 
-The contributing organization (`organization`) has value type `string` with 1 or more characters and holds the name of
+The contributing organization (`organization`) of value type `string` with `1` or more characters and holds the name of
 the contributing organization being recognized.
 
 *Examples 1:*
@@ -61,7 +61,7 @@ the contributing organization being recognized.
 
 #### Acknowledgments Type - Summary
 
-Summary of the acknowledgment (`summary`) of value type `string` with 1 or more characters SHOULD represent any contextual details
+Summary of the acknowledgment (`summary`) of value type `string` with `1` or more characters SHOULD represent any contextual details
 the document producers wish to make known about the acknowledgment or acknowledged parties.
 
 *Example 1:*
@@ -72,10 +72,10 @@ the document producers wish to make known about the acknowledgment or acknowledg
 
 #### Acknowledgments Type - URLs
 
-List of URLs (`urls`) of acknowledgment is a container (value type `array`) for 1 or more `string` of type URL that specifies
+List of URLs (`urls`) of acknowledgment is a container (value type `array`) for `1` or more `string` of type URL that specifies
 a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
-Value type is string with format URI (`uri`).
+Value type is `string` with format URI (`uri`).
 
 #### Acknowledgments Type - Example
 
@@ -117,6 +117,6 @@ The above SHOULD lead to the following outcome in a human-readable advisory:
 > We thank the following parties for their efforts:
 >
 > * Johann Sebastian Bach, Georg Philipp Telemann, Georg Friedrich Händel from Baroque composers for wonderful music
-> * CISA for coordination efforts (see: https://cisa.gov)
+> * CISA for coordination efforts (see: <https://cisa.gov>)
 > * BSI for assistance in coordination
 > * Antonio Vivaldi for influencing other composers

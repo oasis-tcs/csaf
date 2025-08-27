@@ -44,7 +44,9 @@ Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects 
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
-If any redirects are used, there SHOULD not be more than 5 and MUST NOT be more than 10 consecutive redirects.
+If any redirects are used, there SHOULD NOT be more than `10`, and MUST NOT be more than `20` consecutive redirects.
+
+> This aligns with section 4.4 of the [cite](#FETCH) specification.
 
 ### Requirement 7: provider-metadata.json
 

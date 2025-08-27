@@ -37,10 +37,13 @@ CVSS31
 :    _Common Vulnerability Scoring System v3.1: Specification Document_, FIRST.Org, Inc., June 2019, https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf.
 
 CVSS40
-:    _Common Vulnerability Scoring System v4.0: Specification Document_, FIRST.Org, Inc., November 9, 2023, https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf.
+:    _Common Vulnerability Scoring System v4.0: Specification Document_, FIRST.Org, Inc., June 6, 2024, https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf.
 
 CWE
 :    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2006, http://cwe.mitre.org/about/.
+
+CWE-A
+:    _CWE - Archive_, MITRE, <https://cwe.mitre.org/data/archive.html>.
 
 CYCLONEDX161
 :    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.6.1_, cyclonedx.org, November 7, 2024, https://github.com/CycloneDX/specification/blob/1.6.1/schema/bom-1.6.schema.json.

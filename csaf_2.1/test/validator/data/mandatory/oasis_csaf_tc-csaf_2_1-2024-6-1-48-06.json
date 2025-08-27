@@ -43,20 +43,32 @@
       "metrics": [
         {
           "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
+            "ssvc_v2": {
+              "schemaVersion": "2.0.0",
               "selections": [
                 {
+                  "key": "E",
                   "name": "Exploit Maturity",
                   "namespace": "cvss",
                   "values": [
-                    "Proof-of-Concept",
-                    "Unreported",
-                    "Not Defined"
+                    {
+                      "key": "P",
+                      "name": "Proof-of-Concept"
+                    },
+                    {
+                      "key": "U",
+                      "name": "Unreported"
+                    },
+                    {
+                      "key": "X",
+                      "name": "Not Defined"
+                    }
                   ],
-                  "version": "2.0.0"
+                  "version": "3.0.1"
                 }
+              ],
+              "target_ids": [
+                "CVE-1900-0001"
               ],
               "timestamp": "2024-01-24T10:00:00.000Z"
             }

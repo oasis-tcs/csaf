@@ -420,7 +420,9 @@ The relevant paths for this test are:
 
 ### Missing CVSS v4.0
 
-For each item in the list of metrics it MUST be tested that a `cvss_v4` object is present.
+For each item in the list of metrics that contains any CVSS object it MUST be tested that a `cvss_v4` object is present.
+The test MUST fail, if any Product ID (type `/$defs/product_id_t`) in the product status group Affected (see section [sec](#vulnerabilities-property-product-status)) is not covered by
+any CVSS object.
 
 The relevant path for this test is:
 
@@ -467,6 +469,7 @@ The relevant path for this test is:
 For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested the latest decision point
 `version` available at the time of the `timestamp` was used.
 The test SHALL fail if a later `version` was used.
+Namespaces reserved for special purpose MUST be treated as per their definition.
 
 > A list of all valid decision points of registered namespaces including their values is available at the
 > [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
@@ -474,51 +477,39 @@ The test SHALL fail if a later `version` was used.
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]
 ```
 
 *Example 1 (which fails the test):*
 
 ```
-  "vulnerabilities": [
-    {
-      "cve": "CVE-1900-0001",
-      "metrics": [
-        {
-          "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "schemaVersion": "1-0-1",
-              "selections": [
-                {
-                  "name": "Mission Impact",
-                  "namespace": "ssvc",
-                  "values": [
-                    "Non-Essential Degraded"
-                  ],
-                  "version": "1.0.0"
-                }
-              ],
-              "timestamp": "2024-01-24T10:00:00.000Z"
-            }
-          },
-          // ...
-        }
-      ]
-    }
-  ]
+  "ssvc_v2": {
+    // ...
+    "selections": [
+      {
+        "key": "MI",
+        "name": "Mission Impact",
+        "namespace": "ssvc",
+        // ...
+        "version": "1.0.0"
+      }
+    ],
+    "timestamp": "2024-01-24T10:00:00.000Z"
+  }
 ```
 
 > At the timestamp `2024-01-24T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
 
-### Usage of Private SSVC Decision Point Namespace in Non TLP:CLEAR Document
+### Usage of Unregistered SSVC Decision Point Base Namespace in Non TLP:CLEAR Document
 
-For each SSVC decision point given under `selections`, it MUST be tested the `namespace` is not a private one if the document is not labeled `TLP:CLEAR`.
+For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one
+if the document is not labeled `TLP:CLEAR`.
+Namespaces reserved for special purpose MUST be treated as per their definition.
 
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
 *Example 1 (which fails the test):*
@@ -536,24 +527,19 @@ The relevant path for this test is:
     }
     "vulnerabilities": [
       {
-        "cve": "CVE-1900-0001",
         "metrics": [
           {
             "content": {
-              "ssvc_v1": {
-                "id": "CVE-1900-0001",
-                "schemaVersion": "1-0-1",
+              "ssvc_v2": {
+                // ...
                 "selections": [
                   {
-                    "name": "Technical Impact",
-                    "namespace": "x_custom",
-                    "values": [
-                      "Total"
-                    ],
-                    "version": "1.0.0"
+                    // ...
+                    "namespace": "x_example.unregistered#namespace",
+                    // ...
                   }
                 ],
-                "timestamp": "2024-01-24T10:00:00.000Z"
+                // ...
               }
             },
             // ...
@@ -564,18 +550,19 @@ The relevant path for this test is:
   }
 ```
 
-> The namespace `x_custom` is a private namespace.
+> The namespace `x_example.unregistered#namespace` is an unregistered base namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
 ### Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document
 
-For each SSVC decision point given under `selections`, it MUST be tested the `namespace` does not use an extension
+For each SSVC decision point given under `selections`, it MUST be tested that the `namespace` does not use an extension
 if the document is not labeled `TLP:CLEAR`.
+Namespaces reserved for special purpose MUST be treated as per their definition.
 
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
 *Example 1 (which fails the test):*
@@ -593,24 +580,19 @@ The relevant path for this test is:
     }
     "vulnerabilities": [
       {
-        "cve": "CVE-1900-0001",
         "metrics": [
           {
             "content": {
-              "ssvc_v1": {
-                "id": "CVE-1900-0001",
-                "schemaVersion": "1-0-1",
+              "ssvc_v2": {
+                // ...
                 "selections": [
                   {
-                    "name": "Technical Impact",
-                    "namespace": "ssvc/additional-technical-impacts",
-                    "values": [
-                      "Total"
-                    ],
-                    "version": "1.0.0"
+                    // ...
+                    "namespace": "ssvc//.example.test#refined-technical-impacts",
+                    // ...
                   }
                 ],
-                "timestamp": "2024-01-24T10:00:00.000Z"
+                // ...
               }
             },
             // ...
@@ -621,7 +603,7 @@ The relevant path for this test is:
   }
 ```
 
-> The namespace contains the extension `additional-technical-impacts`.
+> The namespace contains the extension `.example.test#refined-technical-impacts`.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
 ### Grammar Check
@@ -698,5 +680,51 @@ The relevant path for this test is:
 
 > The `license_expression` contains a license identifier that is neither listed in the official SPDX license identifier list
 > nor AboutCode's "ScanCode LicenseDB".
+
+### Use of Qualitative Severity Rating
+
+For each item in `metrics` it MUST be tested that it does not use the qualitative severity rating.
+
+> This covers all items in `metrics` regardless of their origin.
+> Even though the Qualitative Severity Rating is a specified property, it's usage is discouraged as it provides
+> no information about the assessment inputs.
+> Nevertheless, it can be useful to provide the such limited assessment result, especially for supply chain vulnerabilities
+> where the upstream product just provides a qualitative severity rating.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/metrics[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "metrics": [
+        {
+          "content": {
+            "qualitative_severity_rating": "low"
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "source": "https://upstream.example/advisories/42/an-advisory-with-just-a-severity-without-other-metrics"
+        }
+      ]
+    }
+  ]
+```
+
+> The upstream provided metric for `CSAFPID-9080700` uses a `qualitative_severity_rating`.
 
 -------

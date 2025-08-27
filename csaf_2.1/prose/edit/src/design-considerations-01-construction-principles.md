@@ -45,13 +45,13 @@ Delegation to industry best practices technologies is used in referencing schema
   * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
 * Vulnerability Categorization
   * Stakeholder-Specific Vulnerability Categorization [cite](#SSVC)
-    * JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json
+    * JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json
 * Vulnerability Classification
   * Common Weakness Enumeration (CWE) [cite](#CWE)
     * CWE List: http://cwe.mitre.org/data/index.html
 * Vulnerability Scoring
   * Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)

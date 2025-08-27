@@ -76,3 +76,18 @@ Additional presets are defined as follows:
     - [sec](#inconsistent-epss-timestamp)
     - [sec](#inconsistent-first-known-exploitation-dates)
     - [sec](#inconsistent-exploitation-date)
+- `ssvc`:
+  - Description: Any test that is related to SSVC in CSAF.
+  - Set:
+    - [sec](#invalid-ssvc)
+    - [sec](#inconsistent-ssvc-target-ids)
+    - [sec](#ssvc-decision-points)
+    - [sec](#inconsistent-ssvc-timestamp)
+    - [sec](#missing-metric)
+    - [sec](#usage-of-unknown-ssvc-decision-point-base-namespace)
+    - [sec](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document)
+    - [sec](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)
+    - [sec](#usage-of-unknown-ssvc-decision-point-without-resource)
+    - [sec](#usage-of-non-latest-ssvc-decision-point-version)
+    - [sec](#usage-of-unregistered-ssvc-decision-point-namespace-in-non-tlp-clear-document)
+    - [sec](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)
