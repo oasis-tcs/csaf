@@ -1377,7 +1377,7 @@
                     },
                     "cvss_v4": {
                       "title": "CVSS v4",
-                      "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
+                      "$ref": "https://www.first.org/cvss/cvss-v4.0.1.json"
                     },
                     "epss": {
                       "title": "EPSS",
@@ -1554,7 +1554,7 @@
                 },
                 "restart_required": {
                   "title": "Restart required by remediation",
-                  "description": "Provides information on category of restart is required by this remediation to become effective.",
+                  "description": "Provides information on the category of restart required by this remediation to become effective.",
                   "type": "object",
                   "required": [
                     "category"
