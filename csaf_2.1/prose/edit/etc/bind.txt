@@ -29,6 +29,7 @@ schema-elements-02-props-01-schema.md
 schema-elements-02-props-02-document.md
 schema-elements-02-props-03-product-tree.md
 schema-elements-02-props-04-vulnerabilities.md
+schema-elements-02-props-05-x-extensions.md
 profiles.md
 additional-conventions.md
 tests-00.md

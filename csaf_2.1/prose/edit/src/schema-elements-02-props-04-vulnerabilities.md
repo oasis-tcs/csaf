@@ -1106,4 +1106,13 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 Title (`title`) has value type `string` with 1 or more characters and gives the document producer the ability to apply a canonical name or
 title to the vulnerability.
 
--------
+#### Vulnerabilities Property - Extensions
+
+Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
+at the document property level of the CSAF document.
+
+```
+    "x_extensions": {
+      // ...
+    }
+```
