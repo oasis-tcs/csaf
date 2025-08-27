@@ -45,6 +45,6 @@ As setting the `Access-Control-Allow-Origin` header potentially allows for cross
 it SHOULD only be served on files and directories containing CSAF data.
 For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
 
-All safety, security, and data protection requirements relevant to the context in which CSAF documents are used must be translated into, and consistently enforced through, CSAF implementations and processes.
+All safety, security, and data protection requirements relevant to the context in which CSAF documents are used MUST be translated into, and consistently enforced through, CSAF implementations and processes.
 
 -------
