@@ -546,18 +546,23 @@ A Content object has at least 1 property.
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
 [https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+See [cite](#CVSS2) for details.
 
 The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
 [https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
 [https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+See [cite](#CVSS30) respectively [cite](#CVSS31) for details.
 
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
 [https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
+See [cite](#CVSS40) for details.
 
 The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json).
+See [cite](#SSVC) for details.
 
 The property EPSS (`epss`) of value type `object` with the 3 mandatory properties Percentile (`percentile`), Probability (`probability`) and EPSS timestamp (`timestamp`) contains the EPSS data.
+See [cite](#EPSS) for details.
 
 ```
             "properties": {

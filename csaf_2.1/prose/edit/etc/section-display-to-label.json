@@ -312,6 +312,7 @@
   "7.3": "retrieving-rules",
   "7.3.1": "finding-provider-metadata.json",
   "7.3.2": "retrieving-csaf-documents",
+  "7.3.3": "finding-aggregator.json",
   "7.4": "transition-between-csaf-2-0-and-csaf-2-1",
   "7.4.1": "announcing-the-transition",
   "7.4.2": "transition-process-for-a-csaf-provider",
