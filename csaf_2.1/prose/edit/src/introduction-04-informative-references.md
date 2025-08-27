@@ -42,6 +42,12 @@ CVSS40
 CWE
 :    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2006, http://cwe.mitre.org/about/.
 
+CWE-20
+:   _CWE - CWE-20: Improper Input Validation_, MITRE, <https://cwe.mitre.org/data/definitions/20.html#Vulnerability_Mapping_Notes_20>
+
+CWE-1023
+:   _CWE - CWE-1023: Incomplete Comparison with Missing Factors_, MITRE, <https://cwe.mitre.org/data/definitions/1023.html#Vulnerability_Mapping_Notes_1023>
+
 CWE-A
 :    _CWE - Archive_, MITRE, <https://cwe.mitre.org/data/archive.html>.
 
