@@ -5,7 +5,9 @@ This standard allows for extensions to the standardized schema.
 The following rules apply:
 
 * An extension MUST NOT occur in any other place than specified.
-* An extension MUST satisfy the Conformance Target CSAF Extension.
+* An extension MUST satisfy the Conformance Target "CSAF Extension".
+* The schema specifying the content and properties of the CSAF Extension MUST satisfy the Conformance Target "CSAF Extension Schema".
+* For official and registered extensions a CSAF Extension Package MUST be provided.
 
 ### Classes
 
@@ -31,8 +33,8 @@ There three classes of extensions:
 
 The OASIS CSAF TC maintains:
 
-* a list of official CSAF Extensions,
-* a list of registered CSAF Extensions,
+* a list of official CSAF Extensions and their CSAF Extension Packages,
+* a list of registered CSAF Extensions and their CSAF Extension Packages,
 * a list of deprecated extensions, and
 * a list of deny-listed extensions.
 
@@ -40,10 +42,12 @@ Deprecated extensions can still be used but support for them is removed in near 
 Deny-listed extensions MUST NOT be used.
 The lists of deprecated extensions and deny-listed extensions MAY contain extensions that do not fulfill the conformance target CSAF Extension.
 
+The list MAY contain additional examples.
+
 ### Content Schema
 
 An extension MUST contain exactly the following elements:
-CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`critical`) and Content (`content`)
+CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`critical`) and Content (`content`).
 
 ```
   properties: {
@@ -62,6 +66,8 @@ CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`c
   }
 ```
 
+#### Content Schema Property - Schema
+
 CSAF Extension Schema (`$schema`) has value type `string` with format `uri` and `pattern` (regular expression):
 
 ```
@@ -72,7 +78,17 @@ It contains the URL of the CSAF Extension JSON schema which the JSON object prom
 This SHOULD also be the location where the JSON schema can be retrieved.
 The value SHOULD match the `$id` of the JSON schema that defines the extension.
 The URL SHOULD contain a human-readable name for the extension before the version string.
-The versioning MUST use SemVer.
+The versioning MUST use [cite](#SemVer).
+URLs using a domain mentioned in [cite](#RFC2606) MUST be used according to their defined purpose.
+
+*Examples 1:*
+
+```
+  https://www.example.com/some-path/to-a-csaf-extension/schema/manufacturer-headquarters_1.0.0.json
+  https://oil-and-gas.isac.example/.well-known/csaf/extensions/schema/product-safety_17.41.0.json
+```
+
+#### Content Schema Property - Category
 
 Extension Category (`category`) of value type `string` and `enum` holds the category of the extension content.
 Valid `enum` values are:
@@ -93,9 +109,15 @@ The value `informational` indicates, that the content provided through this exte
 CSAF consumer SHOULD warn if they process a CSAF Document including such sn extension instance and do not have the extension in
 question already implemented.
 
+#### Content Schema Property - Critical
+
 Critical (`critical`) of value type `boolean` determines whether using the extension would fail a mandatory test.
-
-Content (`content`) of value type `object` determines whether using the extension would fail a mandatory test."
-
 The `default` value for this is `false`.
 
+For any failing test, a CSAF Extension Test MUST be provided.
+
+#### Content Schema Property - Content
+
+Content (`content`) of value type `object` contains the additional information in its properties.
+A Content object has at least `1` property.
+The property names (JSON keys) can be chosen freely; they SHOULD characterize the information given in its value.

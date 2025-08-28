@@ -38,6 +38,10 @@ The following presets are defined through conformance targets:
 - `basic`: `schema` + `mandatory` (see section [sec](#conformance-clause-14-csaf-basic-validator))
 - `extended`: `basic` + `recommended` (see section [sec](#conformance-clause-15-csaf-extended-validator))
 - `full`: `extended` + `informative` (see section [sec](#conformance-clause-16-csaf-full-validator))
+- `additional`: all implemented tests that satisfy the CSAF Additional Test conformance profile (see section
+  [sec](#conformance-clause-26-csaf-additional-test))
+
+  > Note: The last preset MAY vary between different implementations as it is implementation specific.
 
 As presets are sets, the operator `+` MUST be interpreted as the union operation.
 

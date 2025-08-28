@@ -23,6 +23,9 @@ an arbitrary stream of bytes returned from an HTTP request, a product URL, a com
 CSAF 2.0 to CSAF 2.1 Converter
 :    A CSAF Producer which takes a CSAF 2.0 Document as input and converts it into a valid CSAF 2.1 Document.
 
+CSAF Additional Test
+:    A test that is not yet defined in section [sec](#tests).
+
 CSAF Asset Matching System
 :    program that connects to or is an asset database and is able to manage CSAF Documents as
 required by CSAF Management System
@@ -42,7 +45,7 @@ CSAF Converter
 :    CSAF Producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 
 CSAF Core
-:    All parts of CSAF except for the parts covering CSAF Extensions.
+:    All parts of CSAF except for the parts covering extensions.
 
 CSAF Direct Producer
 :    analysis tool which acts as a CSAF Producer.
@@ -53,14 +56,34 @@ CSAF Document
 CSAF Downloader
 :    A program that retrieves CSAF Documents in an automated fashion.
 
-CSAF Extension
-:    A specified JSON object conveying additional information different from the content that can be conveyed with the CSAF Core elements.
-The Extension content MUST validate against the
-[CSAF Extension Content schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) as well as the schema given
-through its `$schema` property.
-
 CSAF Extended Validator
 :    A CSAF Basic Validator that additionally performs recommended tests.
+
+CSAF Extension
+:    A specified JSON object conveying additional information different from the content that can be conveyed with the CSAF Core elements.
+
+CSAF Extension Additional Test
+:    A test whose execution depends on the presence of the specifying CSAF Extension that provides additional checks in the context of
+the CSAF Extension or the CSAF Document the extension is embedded in.
+
+CSAF Extension Collection
+:   A set of multiple CSAF Extension Package.
+
+CSAF Extension Overlay Test
+:    A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a  test standardized in this
+specification or a CSAF Additional Test.
+
+CSAF Extension Package
+:    A of compilation of all artifacts related to a single CSAF Extension.
+
+CSAF Extension Schema
+:    A JSON schema specifying the content and properties of a CSAF Extension.
+
+CSAF Extension Specification
+:    The specification of a single CSAF Extension and related material.
+
+CSAF Extension Test
+:    A test that is either a CSAF Extension Overlay Test or a CSAF Extension Additional Test.
 
 CSAF Full Validator
 :    A CSAF Extended Validator that additionally performs informative tests.
