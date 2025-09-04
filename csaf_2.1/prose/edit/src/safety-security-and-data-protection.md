@@ -1,6 +1,10 @@
 # Safety, Security, and Data Protection Considerations
 
+All safety, security, and data protection requirements relevant to the context in which CSAF documents are used MUST be translated into,
+and consistently enforced through, CSAF implementations and processes.
+
 CSAF documents are based on JSON, thus the security considerations of [cite](#RFC8259) apply and are repeated here as service for the reader:
+
 > Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
 >
 > Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's `eval()` function to parse most JSON texts
@@ -28,6 +32,7 @@ CSAF consumers that are not prepared to deal with the security implications of f
 render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can
 be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code.
 Moreover, it SHALL be treated as unsafe (user) input.
+
   > Additional, supporting mitigation measures like retrieving only CSAF documents from trusted sources and check their integrity and
   > signature before parsing the document SHOULD be in place to reduce the risk further.
 

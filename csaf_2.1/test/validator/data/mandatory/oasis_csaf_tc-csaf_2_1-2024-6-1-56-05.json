@@ -1,0 +1,177 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Use of CVSS and Qualitative Severity Rating (failing example 5)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-56-05",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "source": "https://www.example.com/.well-known/csaf/clear/2024/esa-2024-0001.json"
+        },
+        {
+          "content": {
+            "qualitative_severity_rating": "low"
+          },
+          "products": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ],
+          "source": "https://www.example.com/.well-known/csaf/clear/2024/esa-2024-0001.json"
+        }
+      ]
+    },
+    {
+      "metrics": [
+        {
+          "content": {
+            "qualitative_severity_rating": "critical"
+          },
+          "products": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ]
+        },
+        {
+          "content": {
+            "cvss_v3": {
+              "version": "3.0",
+              "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 10,
+              "baseSeverity": "CRITICAL"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ],
+          "source": "https://www.example.com/.well-known/csaf/clear/2024/esa-2024-0001.json"
+        },
+        {
+          "content": {
+            "cvss_v3": {
+              "version": "3.0",
+              "vectorString": "CVSS:3.0/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+              "baseScore": 6.5,
+              "baseSeverity": "MEDIUM"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ],
+          "source": "https://www.example.com/.well-known/csaf/clear/2024/esa-2024-0001.json"
+        }
+      ]
+    },
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:N",
+              "baseScore": 5.5
+            }
+          },
+          "products": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ],
+          "source": "https://www.example.net/awesome-research-blog-post"
+        },
+        {
+          "content": {
+            "qualitative_severity_rating": "high"
+          },
+          "products": [
+            "CSAFPID-9080701"
+          ],
+          "source": "https://www.example.net/awesome-research-blog-post"
+        }
+      ]
+    },
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:N",
+              "baseScore": 5.5
+            },
+            "qualitative_severity_rating": "high"
+          },
+          "products": [
+            "CSAFPID-9080701"
+          ],
+          "source": "https://www.example.net/awesome-research-blog-post"
+        },
+        {
+          "content": {
+            "cvss_v4": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:N/SC:H/SI:N/SA:N",
+              "baseScore": 4.9,
+              "baseSeverity": "MEDIUM"
+            },
+            "qualitative_severity_rating": "low"
+          },
+          "products": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ],
+          "source": "https://www.example.com/.well-known/csaf/clear/2024/esa-2024-0001.json"
+        }
+      ]
+    }
+  ]
+}

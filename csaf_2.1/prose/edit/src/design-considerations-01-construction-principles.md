@@ -1,7 +1,9 @@
 ## Construction Principles
 
-A Security Advisory defined as a CSAF document is the result of complex orchestration of many players and distinct and
-partially difficult to play schemas.
+A Security Advisory represented by a CSAF document is created through the application of multiple schemas during a
+process of collaboration between multiple stakeholders.
+The distinct and in part complex schemas are orchestrated, put into context and connected with each other serving
+the goal of providing actionable, structured, and validated information targeting a high degree of automation.
 
 The format chosen is [JSONSchema] which allows validation and delegation to sub schema providers.
 The latter aligns well with separation of concerns and shares the format family of information interchange utilized by
@@ -43,13 +45,13 @@ Delegation to industry best practices technologies is used in referencing schema
   * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
 * Vulnerability Categorization
   * Stakeholder-Specific Vulnerability Categorization [cite](#SSVC)
-    * JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json
+    * JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json
 * Vulnerability Classification
   * Common Weakness Enumeration (CWE) [cite](#CWE)
     * CWE List: http://cwe.mitre.org/data/index.html
 * Vulnerability Scoring
   * Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)

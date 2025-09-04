@@ -37,10 +37,19 @@ CVSS31
 :    _Common Vulnerability Scoring System v3.1: Specification Document_, FIRST.Org, Inc., June 2019, https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf.
 
 CVSS40
-:    _Common Vulnerability Scoring System v4.0: Specification Document_, FIRST.Org, Inc., November 9, 2023, https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf.
+:    _Common Vulnerability Scoring System v4.0: Specification Document_, FIRST.Org, Inc., June 6, 2024, https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf.
 
 CWE
 :    _Common Weakness Enumeration (CWE) – A Community-Developed List of Software Weakness Types_, MITRE, 2006, http://cwe.mitre.org/about/.
+
+CWE-20
+:   _CWE - CWE-20: Improper Input Validation_, MITRE, <https://cwe.mitre.org/data/definitions/20.html#Vulnerability_Mapping_Notes_20>
+
+CWE-1023
+:   _CWE - CWE-1023: Incomplete Comparison with Missing Factors_, MITRE, <https://cwe.mitre.org/data/definitions/1023.html#Vulnerability_Mapping_Notes_1023>
+
+CWE-A
+:    _CWE - Archive_, MITRE, <https://cwe.mitre.org/data/archive.html>.
 
 CYCLONEDX161
 :    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.6.1_, cyclonedx.org, November 7, 2024, https://github.com/CycloneDX/specification/blob/1.6.1/schema/bom-1.6.schema.json.
@@ -106,7 +115,7 @@ SSVC
 :    _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>
 
 VERS
-:    _vers: a mostly universal version range specifier_, Part of the purl GitHub Project, <https://github.com/package-url/purl-spec/blob/master/VERSION-RANGE-SPEC.rst>.
+:    _vers: a mostly universal version range specifier_, Part of the package-URL GitHub Project, <https://github.com/package-url/vers-spec>.
 
 VEX
 :    _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.

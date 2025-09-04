@@ -1,5 +1,5 @@
 {
-  "$id": "https://www.first.org/cvss/cvss-v4.0.json?20240216",
+  "$id": "https://www.first.org/cvss/cvss-v4.0.1.json?20250704",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "unevaluatedProperties": false,
   "allOf": [
@@ -51,114 +51,6 @@
               "$ref": "#/$defs/criticalScoreType"
             },
             "baseSeverity": {
-              "$ref": "#/$defs/criticalSeverityType"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "anyOf": [
-        {
-          "properties": {
-            "threatScore": {
-              "$ref": "#/$defs/noneScoreType"
-            },
-            "threatSeverity": {
-              "$ref": "#/$defs/noneSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "threatScore": {
-              "$ref": "#/$defs/lowScoreType"
-            },
-            "threatSeverity": {
-              "$ref": "#/$defs/lowSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "threatScore": {
-              "$ref": "#/$defs/mediumScoreType"
-            },
-            "threatSeverity": {
-              "$ref": "#/$defs/mediumSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "threatScore": {
-              "$ref": "#/$defs/highScoreType"
-            },
-            "threatSeverity": {
-              "$ref": "#/$defs/highSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "threatScore": {
-              "$ref": "#/$defs/criticalScoreType"
-            },
-            "threatSeverity": {
-              "$ref": "#/$defs/criticalSeverityType"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "anyOf": [
-        {
-          "properties": {
-            "environmentalScore": {
-              "$ref": "#/$defs/noneScoreType"
-            },
-            "environmentalSeverity": {
-              "$ref": "#/$defs/noneSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "environmentalScore": {
-              "$ref": "#/$defs/lowScoreType"
-            },
-            "environmentalSeverity": {
-              "$ref": "#/$defs/lowSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "environmentalScore": {
-              "$ref": "#/$defs/mediumScoreType"
-            },
-            "environmentalSeverity": {
-              "$ref": "#/$defs/mediumSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "environmentalScore": {
-              "$ref": "#/$defs/highScoreType"
-            },
-            "environmentalSeverity": {
-              "$ref": "#/$defs/highSeverityType"
-            }
-          }
-        },
-        {
-          "properties": {
-            "environmentalScore": {
-              "$ref": "#/$defs/criticalScoreType"
-            },
-            "environmentalSeverity": {
               "$ref": "#/$defs/criticalSeverityType"
             }
           }
@@ -425,7 +317,7 @@
     }
   },
   "license": [
-    "Copyright (c) 2023, FIRST.ORG, INC.",
+    "Copyright (c) 2025, FIRST.ORG, INC.",
     "All rights reserved.",
     "",
     "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the ",
@@ -560,6 +452,6 @@
     "baseScore",
     "baseSeverity"
   ],
-  "title": "JSON Schema for Common Vulnerability Scoring System version 4.0",
+  "title": "JSON Schema for Common Vulnerability Scoring System version 4.0, Revision 1",
   "type": "object"
 }

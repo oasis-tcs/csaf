@@ -12,6 +12,73 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 **CSAF TC Members:**
 
+| First Name  | Last Name        | Company                                                        |
+|:------------|:-----------------|:---------------------------------------------------------------|
+| Aashiq      | Ramachandran     | Cyware Labs                                                    |
+| Alexandre   | Dulaunoy         | CIRCL                                                          |
+| Anthony     | Berglas          | Cryptsoft Pty Ltd.                                             |
+| Avkash      | Kathiriya        | Cyware Labs                                                    |
+| Bernd       | Grobauer         | Siemens AG                                                     |
+| Chok        | Poh              | Oracle                                                         |
+| Christian   | Banse            | Fraunhofer-Gesellschaft e.V. - Fraunhofer AISEC                |
+| Christoph   | Plutte           | Ericsson AB                                                    |
+| Dan         | West             | Microsoft                                                      |
+| Dave        | Tamasi           | Google LLC                                                     |
+| David       | Waltermire       | NIST                                                           |
+| Denny       | Page             | Individual                                                     |
+| Diane       | Morris           | Cisco Systems                                                  |
+| Dina        | Truxius          | Federal Office for Information Security (BSI) Germany          |
+| Feng        | Cao              | Oracle                                                         |
+| Jane        | Ginn             | Individual                                                     |
+| Jared       | Bird             | Hewlett Packard Enterprise (HPE)                               |
+| Jason       | Keirstead        | Pobal Cyber Ltd                                                |
+| Jean-Didier | Stéfaniak        | Dell Technologies                                              |
+| Jeff        | Schutt           | Cisco Systems                                                  |
+| Jennifer    | Victor           | Dell Technologies                                              |
+| Jessica     | Fitzgerald-McKay | National Security Agency                                       |
+| Johannes    | Lorenz           | Siemens AG                                                     |
+| Justin      | Corlett          | Cryptsoft Pty Ltd.                                             |
+| Justin      | Murphy           | US DHS Cybersecurity and Infrastructure Security Agency (CISA) |
+| Liming      | Wu               | Huawei Technologies Co., Ltd.                                  |
+| Martin      | Prpic            | Red Hat                                                        |
+| Michael     | Cantonwine       | Hewlett Packard Enterprise (HPE)                               |
+| Michael     | Reeder           | Dell Technologies                                              |
+| Michael     | Schueler         | Cisco Systems                                                  |
+| Nick        | Leali            | Cisco Systems                                                  |
+| Nicole      | Parrish          | Mitre Corporation                                              |
+| Oliver      | Chang            | Google LLC                                                     |
+| Omar        | Santos           | Cisco Systems                                                  |
+| Patrick     | Maroney          | AT&T                                                           |
+| Qin         | Long             | Alibaba Cloud Computing Ltd.                                   |
+| Richard     | Struse           | Mitre Corporation                                              |
+| Rushyendra  | Velamuri         | Dell Technologies                                              |
+| Samuel      | Cameron          | Cisco Systems                                                  |
+| Sergii      | Demianchuk       | Cisco Systems                                                  |
+| Shrey       | Bagga            | Cisco Systems                                                  |
+| Sonny       | van Lingen       | Huawei Technologies Co., Ltd.                                  |
+| Stefan      | Hagen            | Individual                                                     |
+| Tania       | Ward             | Dell Technologies                                              |
+| Ted         | Bedwell          | Cisco Systems                                                  |
+| Thomas      | Proell           | Siemens AG                                                     |
+| Thomas      | Schaffer         | Cisco Systems                                                  |
+| Thomas      | Schmidt          | Federal Office for Information Security (BSI) Germany          |
+| Tim         | Hudson           | Cryptsoft Pty Ltd.                                             |
+| Tobias      | Limmer           | Siemens AG                                                     |
+| Tyler       | Townes           | BlackBerry Limited                                             |
+| Umair       | Bukhari          | Ericsson AB                                                    |
+| Vic         | Chung            | SAP SE                                                         |
+| Vijay       | Sarvepalli       | Carnegie Mellon University                                     |
+| Vincent     | Danen            | Red Hat                                                        |
+| Vivek       | Nair             | Microsoft                                                      |
+| William     | Ho Thiam Hock    | Huawei Technologies Co., Ltd.                                  |
+| Xiaoyu      | Ge               | Huawei Technologies Co., Ltd.                                  |
+| Yogesh      | Yadav            | Cisco Systems                                                  |
+| Zebin       | Zhang            | Huawei Technologies Co., Ltd.                                  |
+
+The following individuals were members of the OASIS CSAF Technical Committee during the creation of the previous version (CSAF 2.0) of this specification and their contributions are gratefully acknowledged:
+
+**CSAF TC Members:**
+
 | First Name | Last Name        | Company                                               |
 |:-----------|:-----------------|:------------------------------------------------------|
 | Alexandre  | Dulaunoy         | CIRCL                                                 |
@@ -61,73 +128,5 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Vincent    | Danen            | Red Hat                                               |
 | Will       | Rideout          | Arista Networks                                       |
 | Xiaoyu     | Ge               | Huawei Technologies Co., Ltd.                         |
-
-The following individuals were members of the OASIS CSAF Technical Committee during the creation of the previous version (CVRF v1.2) of this specification and their contributions are gratefully acknowledged:
-
-**CSAF TC Members:**
-
-| First Name | Last Name        | Company                                               |
-|:-----------|:-----------------|:------------------------------------------------------|
-| Adam       | Montville        | CIS                                                   |
-| Allan      | Thomson          | LookingGlass                                          |
-| Anthony    | Berglas          | Cryptsoft Pty Ltd.                                    |
-| Art        | Manion           | Carnegie Mellon University                            |
-| Aukjan     | van Belkum       | EclecticIQ                                            |
-| Ben        | Sooter           | Electric Power Research Institute                     |
-| Bernd      | Grobauer         | Siemens AG                                            |
-| Beth       | Pumo             | Kaiser Permanente                                     |
-| Bret       | Jordan           | Symantec Corp.                                        |
-| Bruce      | Rich             | Cryptsoft Pty Ltd.                                    |
-| Chet       | Ensign           | OASIS                                                 |
-| Chok       | Poh              | Oracle                                                |
-| Chris      | Rouland          | Individual                                            |
-| David      | Waltermire       | NIST                                                  |
-| Denny      | Page             | TIBCO Software Inc.                                   |
-| Doron      | Shiloach         | IBM                                                   |
-| Duncan     | Sparrell         | sFractal Consulting LLC                               |
-| Eric       | Johnson          | TIBCO Software Inc.                                   |
-| Feng       | Cao              | Oracle                                                |
-| Greg       | Reaume           | TELUS                                                 |
-| Greg       | Scott            | Cryptsoft Pty Ltd.                                    |
-| Harold     | Booth            | NIST                                                  |
-| Jamison    | Day              | LookingGlass                                          |
-| Jared      | Semrau           | "FireEye, Inc."                                       |
-| Jason      | Masters          | TELUS                                                 |
-| Jerome     | Athias           | Individual                                            |
-| Jessica    | Fitzgerald-McKay | National Security Agency                              |
-| Jonathan   | Bitle            | Kaiser Permanente                                     |
-| Justin     | Corlett          | Cryptsoft Pty Ltd.                                    |
-| Karen      | Scarfone         | Individual                                            |
-| Kazuo      | Noguchi          | "Hitachi, Ltd."                                       |
-| Kent       | Landfield        | McAfee                                                |
-| Lothar     | Braun            | Siemens AG                                            |
-| Louis      | Ronnau           | Cisco Systems                                         |
-| Mark       | Davidson         | NC4                                                   |
-| Mark-David | McLaughlin       | Cisco Systems                                         |
-| Masato     | Terada           | "Hitachi, Ltd."                                       |
-| Masood     | Nasir            | TELUS                                                 |
-| Nicole     | Gong             | Mitre Corporation                                     |
-| Omar       | Santos           | Cisco Systems                                         |
-| Patrick    | Maroney          | Wapack Labs LLC                                       |
-| Paul       | Patrick          | "FireEye, Inc."                                       |
-| Peter      | Allor            | IBM                                                   |
-| Phillip    | Boles            | "FireEye, Inc."                                       |
-| Ravi       | Balupari         | Netskope                                              |
-| Rich       | Reybok           | ServiceNow                                            |
-| Richard    | Struse           | DHS Office of Cybersecurity and Communications (CS&C) |
-| Ritwik     | Ghoshal          | Oracle                                                |
-| Robert     | Coderre          | VeriSign                                              |
-| Robin      | Cover            | OASIS                                                 |
-| Rupert     | Wimmer           | Siemens AG                                            |
-| Sanjiv     | Kalkar           | Individual                                            |
-| Sean       | Barnum           | Mitre Corporation                                     |
-| Stefan     | Hagen            | Individual                                            |
-| Ted        | Bedwell          | Cisco Systems                                         |
-| Thomas     | Schreck          | Siemens AG                                            |
-| Tim        | Hudson           | Cryptsoft Pty Ltd.                                    |
-| Tony       | Cox              | Cryptsoft Pty Ltd.                                    |
-| Trey       | Darley           | "Kingfisher Operations, sprl"                         |
-| Vincent    | Danen            | Red Hat                                               |
-| Zach       | Turk             | Microsoft                                             |
 
 -------

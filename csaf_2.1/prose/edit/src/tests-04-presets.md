@@ -10,8 +10,10 @@ A CSAF validator MUST implement all tests for any supported preset.
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
 - `x_`: for any CSAF validator specific preset.
+
   > Multiple CSAF validators might use the same preset name for different sets of tests.
   > Users are advised to carefully check the documentation of the tools to avoid incorrect assumptions.
+
 - `org_` followed by an organization identifier and an underscore (`_`): for any preset specified by an organization as a part of a public definition
   that can be implemented by different CSAF validators.
   The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-]`.
@@ -20,7 +22,7 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 
 Official presets are defined in different parts of the standard.
 
-### Presets defined through Test Subsections
+### Presets Defined through Test Subsections
 
 The following presets are defined through subsections of the test section:
 
@@ -28,7 +30,7 @@ The following presets are defined through subsections of the test section:
 - `recommended`: all tests given in section [sec](#recommended-tests)
 - `informative`: all tests given in section [sec](#informative-tests)
 
-### Presets defined through Conformance Targets
+### Presets Defined through Conformance Targets
 
 The following presets are defined through conformance targets:
 
@@ -45,8 +47,10 @@ Additional presets are defined as follows:
 
 - `external-request-free`:
   - Description: Any test that can be executed without a request into the Internet or a different network.
+
     > This is intended to be used for browser-based tools as external requests may result in CORS issues.
     > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
+
   - Set: `full` excluding tests [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
     and [sec](#use-of-self-referencing-urls-failing-to-resolve)
 - `consistent-revision-history`:
@@ -72,3 +76,18 @@ Additional presets are defined as follows:
     - [sec](#inconsistent-epss-timestamp)
     - [sec](#inconsistent-first-known-exploitation-dates)
     - [sec](#inconsistent-exploitation-date)
+- `ssvc`:
+  - Description: Any test that is related to SSVC in CSAF.
+  - Set:
+    - [sec](#invalid-ssvc)
+    - [sec](#inconsistent-ssvc-target-ids)
+    - [sec](#ssvc-decision-points)
+    - [sec](#inconsistent-ssvc-timestamp)
+    - [sec](#missing-metric)
+    - [sec](#usage-of-unknown-ssvc-decision-point-base-namespace)
+    - [sec](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document)
+    - [sec](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)
+    - [sec](#usage-of-unknown-ssvc-decision-point-without-resource)
+    - [sec](#usage-of-non-latest-ssvc-decision-point-version)
+    - [sec](#usage-of-unregistered-ssvc-decision-point-namespace-in-non-tlp-clear-document)
+    - [sec](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)

@@ -597,7 +597,7 @@
           ]
         },
         "distribution": {
-          "title": "Rules for sharing document",
+          "title": "Rules for document sharing",
           "description": "Describe any constraints on how this document might be shared.",
           "type": "object",
           "required": [
@@ -1361,9 +1361,11 @@
                   "minProperties": 1,
                   "properties": {
                     "cvss_v2": {
+                      "title": "CVSS v2",
                       "$ref": "https://www.first.org/cvss/cvss-v2.0.json"
                     },
                     "cvss_v3": {
+                      "title": "CVSS v3",
                       "oneOf": [
                         {
                           "$ref": "https://www.first.org/cvss/cvss-v3.0.json"
@@ -1374,7 +1376,8 @@
                       ]
                     },
                     "cvss_v4": {
-                      "$ref": "https://www.first.org/cvss/cvss-v4.0.json"
+                      "title": "CVSS v4",
+                      "$ref": "https://www.first.org/cvss/cvss-v4.0.1.json"
                     },
                     "epss": {
                       "title": "EPSS",
@@ -1407,8 +1410,21 @@
                       },
                       "additionalProperties": false
                     },
-                    "ssvc_v1": {
-                      "$ref": "https://certcc.github.io/SSVC/data/schema/v1/Decision_Point_Value_Selection-1-0-1.schema.json"
+                    "qualitative_severity_rating": {
+                      "title": "Qualitative Severity Rating",
+                      "description": "Contains an assessment of the severity of the vulnerability regarding the products on a qualitative scale.",
+                      "type": "string",
+                      "enum": [
+                        "critical",
+                        "high",
+                        "low",
+                        "medium",
+                        "none"
+                      ]
+                    },
+                    "ssvc_v2": {
+                      "title": "SSVC v2",
+                      "$ref": "https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json"
                     }
                   },
                   "additionalProperties": false
@@ -1550,7 +1566,7 @@
                 },
                 "restart_required": {
                   "title": "Restart required by remediation",
-                  "description": "Provides information on category of restart is required by this remediation to become effective.",
+                  "description": "Provides information on the category of restart required by this remediation to become effective.",
                   "type": "object",
                   "required": [
                     "category"

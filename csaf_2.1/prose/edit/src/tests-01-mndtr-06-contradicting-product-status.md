@@ -1,6 +1,7 @@
 ### Contradicting Product Status
 
-For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of contradicting product status groups.
+For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not a member of contradicting
+product status groups (see section [sec](#vulnerabilities-property-product-status)).
 The sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
 
 The relevant path for this test is:

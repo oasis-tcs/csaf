@@ -1,4 +1,4 @@
-### Public Sharing Group with no Max UUID
+### Public Sharing Group with No Max UUID
 
 It MUST be tested that a CSAF document with the TLP label `CLEAR` use the Max UUID as sharing group ID if any.
 The test SHALL pass if no sharing group is present or the Nil UUID is used and the document status is `draft`.

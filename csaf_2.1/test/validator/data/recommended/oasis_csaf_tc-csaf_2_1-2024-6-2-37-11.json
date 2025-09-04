@@ -13,7 +13,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Usage of Unknown SSVC Role (valid example 1)",
+    "title": "Recommended Test: Usage of Unknown SSVC Decision Point Namespace without Resource (valid example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-37-11",
@@ -39,20 +39,27 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
       "metrics": [
         {
           "content": {
-            "ssvc_v1": {
-              "id": "CVE-1900-0001",
-              "role": "Coordinator",
-              "schemaVersion": "1-0-1",
+            "ssvc_v2": {
+              "decision_point_resources": [
+                {
+                  "summary": "Specification for Decision Points within 'x_example.test#with-resource/de-DE'",
+                  "uri": "https://test.example/de-DE/ssvc-collection/test#with-resource"
+                }
+              ],
+              "schemaVersion": "2.0.0",
               "selections": [
                 {
+                  "key": "TI",
                   "name": "Technical Impact",
-                  "namespace": "ssvc",
+                  "namespace": "x_example.test#with-resource/de-DE",
                   "values": [
-                    "Total"
+                    {
+                      "key": "T",
+                      "name": "Total"
+                    }
                   ],
                   "version": "1.0.0"
                 }

@@ -5,18 +5,20 @@ toc:
   label: Guidance on the Size of CSAF Documents
   enumerate: Appendix C.
   children:
-  - label: File size
+  - label: File Size
     enumerate: C.1
-  - label: Array length
+  - label: Array Length
     enumerate: C.2
-  - label: String length
+  - label: String Length
     enumerate: C.3
-  - label: URI length
+  - label: Date
     enumerate: C.4
   - label: Enum
     enumerate: C.5
-  - label: Date
+  - label: URI Length
     enumerate: C.6
+  - label: UUID Length
+    enumerate: C.7
 ---
 -->
 # Guidance on the Size of CSAF Documents
@@ -80,14 +82,17 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/acknowledgments[]/urls`
   * `/vulnerabilities[]/cwes`
   * `/vulnerabilities[]/ids`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/values`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/values`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/target_ids`
   * `/vulnerabilities[]/remediations[]/entitlements`
 
 * 40 000 items for
   * `/document/notes`
   * `/document/references`
   * `/vulnerabilities[]/involvements`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/references`
   * `/vulnerabilities[]/notes`
   * `/vulnerabilities[]/references`
 
@@ -226,12 +231,12 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
   * `/vulnerabilities[]/metrics[]/content/epss/percentile`
   * `/vulnerabilities[]/metrics[]/content/epss/probability`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/id`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/role`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/name`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/namespace`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/values[]`
-  * `/vulnerabilities[]/metrics[]/content/ssvc_v1/selections[]/version`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/key`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/values[]/key`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/values[]/name`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/version`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/target_ids[]`
   * `/vulnerabilities[]/metrics[]/products[]`
   * `/vulnerabilities[]/notes[]/audience`
   * `/vulnerabilities[]/notes[]/group_ids[]`
@@ -269,12 +274,16 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/relationships[]/full_product_name/product_identification_helper/purls[]`
   * `/vulnerabilities[]/acknowledgments[]/summary`
   * `/vulnerabilities[]/involvements[]/summary`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources[]/summary`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/references[]/summary`
   * `/vulnerabilities[]/references[]/summary`
   * `/vulnerabilities[]/remediations[]/entitlements[]`
 
 * 30 000 for
   * `/document/notes[]/text`
   * `/vulnerabilities[]/notes[]/text`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/description`
+  * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/values[]/description`
 
 * 250 000 for
   * `/vulnerabilities[]/remediations[]/details`
@@ -296,7 +305,7 @@ The maximum length of strings representing a temporal value is given by the form
 * `/vulnerabilities[]/flags[]/date`
 * `/vulnerabilities[]/involvements[]/date`
 * `/vulnerabilities[]/metrics[]/content/epss/timestamp`
-* `/vulnerabilities[]/metrics[]/content/ssvc_v1/timestamp`
+* `/vulnerabilities[]/metrics[]/content/ssvc_v2/timestamp`
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
 
@@ -375,7 +384,6 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/availabilityRequirement` (11)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity` (8)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/confidentialityRequirement` (11)
-* `/vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity` (8)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/exploitMaturity` (16)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/integrityRequirement` (11)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/modifiedAttackComplexity` (11)
@@ -396,7 +404,6 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/subAvailabilityImpact` (4)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/subConfidentialityImpact` (4)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/subIntegrityImpact` (4)
-* `/vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity` (8)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/userInteraction` (7)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/valueDensity` (12)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/version` (3)
@@ -404,7 +411,8 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnConfidentialityImpact` (4)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnerabilityResponseEffort` (11)
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnIntegrityImpact` (4)
-* `/vulnerabilities[]/metrics[]/content/ssvc_v1/schemaVersion` (5)
+* `/vulnerabilities[]/metrics[]/content/qualitative_severity_rating` (8)
+* `/vulnerabilities[]/metrics[]/content/ssvc_v2/schemaVersion` (5)
 * `/vulnerabilities[]/notes[]/category` (16)
 * `/vulnerabilities[]/references[]/category` (8)
 * `/vulnerabilities[]/remediations[]/category` (14)
@@ -433,6 +441,8 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
 * `/vulnerabilities[]/acknowledgments[]/urls[]`
+* `/vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources[]/uri`
+* `/vulnerabilities[]/metrics[]/content/ssvc_v2/references[]/uri`
 * `/vulnerabilities[]/metrics[]/source`
 * `/vulnerabilities[]/references[]/url`
 * `/vulnerabilities[]/remediations[]/url`

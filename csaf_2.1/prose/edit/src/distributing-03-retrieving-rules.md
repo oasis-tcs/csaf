@@ -1,4 +1,4 @@
-## Retrieving rules
+## Retrieving Rules
 
 The retrieving process executes in two phases: Finding the `provider-metadata.json` (requirement 7 in section [sec](#requirements)) and
 retrieving CSAF documents.
@@ -11,7 +11,7 @@ retrieving CSAF documents.
 ### Finding provider-metadata.json
 
 **Direct locating**: The following process SHOULD be used to determine the location of a `provider-metadata.json`
-(requirement 7 in section [sec](#requirements)) based on the main domain of the issuing party. 
+(requirement 7 in section [sec](#requirements)) based on the main domain of the issuing party.
 
 First, an ordered list of possible `provider-metadata.json` candidates SHOULD be generated in the following way:
 
@@ -24,13 +24,13 @@ If the retrieving party is only able to process one `provider-metadata.json`, th
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
 > Try to access the resource and test whether the response provides an expected result as defined in the requirement in section [sec](#requirements).
-> If that is the case, the response is added to the list of candidates - otherwise not. 
+> If that is the case, the response is added to the list of candidates - otherwise not.
 > If the resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
 
 **Indirect locating**: A retrieving party MAY choose to determine the location of a `provider-metadata.json` by retrieving
 its location from an `aggregator.json` (requirement 21 in section [sec](#requirements)) of a CSAF lister or CSAF aggregator.
 
-### Retrieving CSAF documents
+### Retrieving CSAF Documents
 
 Given a `provider-metadata.json`, the following process SHOULD be used to retrieve CSAF documents:
 
@@ -42,5 +42,13 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
    They MUST be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
 4. Execute mandatory tests on the CSAF document.
+
+### Finding aggregator.json
+
+**Direct locating**: The file `aggregator.json` SHOULD be located at the registered `.well-known` path
+based on the main domain of the aggregator as specified in requirement 21 in section [sec](#requirements).
+
+**Indirect locating**: A retrieving party MAY choose to determine the location of an `aggregator.json` through an out-of-band channel,
+e.g. an email list, news articles or a public website.
 
 -------
