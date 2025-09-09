@@ -261,7 +261,7 @@
   \chead*{\upshape{\normalsize Standards Track Work Product}}
   \ohead*{}
   \ifoot*{\upshape{\scriptsize\theMetaPropInfo}}
-  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2024. All Rights Reserved.}}
+  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2025. All Rights Reserved.}}
   \ofoot*{\upshape{\scriptsize VALUE.SLOT}}%%_PATCH_%_NORMAL_%_PAGES_%_OUTER_%_FOOT_%_CONTENT_%_VALUE_%%
   \setlength{\headheight}{10mm}%% ... tuned
   \setlength{\footheight}{10mm}%% ... tuned
@@ -289,7 +289,7 @@
   \chead*{\upshape{\normalsize Standards Track Work Product}}
   \ohead*{}
   \ifoot*{\upshape{\scriptsize\theMetaPropInfo}}
-  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2024. All Rights Reserved.}}
+  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2025. All Rights Reserved.}}
   \ofoot*{\upshape{\scriptsize VALUE.SLOT}}%%_PATCH_%_NORMAL_%_PAGES_%_OUTER_%_FOOT_%_CONTENT_%_VALUE_%%
   \setlength{\headheight}{10mm}%% ... tuned
   \setlength{\footheight}{10mm}%% ... tuned
