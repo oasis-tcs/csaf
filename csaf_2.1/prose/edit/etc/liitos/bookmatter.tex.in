@@ -9,20 +9,23 @@
 2.1}\label{common-security-advisory-framework-version-2.1}
 
 \subsection*{Committee Specification Draft
-01}\label{committee-specification-draft-01}
+02}\label{committee-specification-draft-02}
 
-\subsection*{28 May 2025}\label{may-2025}
+\subsection*{10 September 2025}\label{sep-2025}
 
 \paragraph*{This stage:}\label{this-stage}
+
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md}
+(Authoritative)\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html}\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf}
+
+\paragraph*{Previous stage:}\label{previous-stage}
 
 \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md}
 (Authoritative)\\
 \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}\\
 \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf}
-
-\paragraph*{Previous stage:}\label{previous-stage}
-
-N/A
 
 \paragraph*{Latest stage:}\label{latest-stage}
 
@@ -170,14 +173,14 @@ be used:
 \textbf{{[}csaf-v2.1{]}}
 
 \emph{Common Security Advisory Framework Version 2.1}. Edited by Stefan
-Hagen, and Thomas Schmidt. 28 May 2025. OASIS Committee Specification
-Draft 01.
-\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}.
+Hagen, and Thomas Schmidt. 10 September 2025. OASIS Committee Specification
+Draft 02.
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd02.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html}.
 Latest stage: \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}.
 
 \paragraph*{Notices}\label{notices-bookmatter}
 
-Copyright 2024. All Rights Reserved.
+Copyright 2025. All Rights Reserved.
 
 Distributed under the terms of the OASIS \href{https://www.oasis-open.org/policies-guidelines/ipr/}{IPR Policy}.
 
