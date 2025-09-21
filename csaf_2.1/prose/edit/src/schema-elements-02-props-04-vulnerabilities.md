@@ -247,7 +247,7 @@ first known exploitation date item applies to.
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current first known exploitation date item
 applies to.
 
-#### Vulnerabilities Property - Flags
+#### Vulnerabilities Property - Flags{#vulnerabilities-property-flags}
 
 List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
@@ -656,7 +656,7 @@ If no source is given, then the metric was assigned by the document author.
 
 > For example, this could point to the vendor advisory, discoverer blog post, a multiplier's assessment or other sources that provide metric information.
 
-#### Vulnerabilities Property - Notes
+#### Vulnerabilities Property - Notes{#vulnerabilities-property-notes}
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
@@ -676,7 +676,7 @@ The following combinations of `category` and `title` have a special meaning and 
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
-#### Vulnerabilities Property - Product Status
+#### Vulnerabilities Property - Product Status{#vulnerabilities-property-product-status}
 
 Product status (`product_status`) of value type `object` with `1` or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
@@ -859,7 +859,7 @@ Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`ur
       }
 ```
 
-##### Vulnerabilities Property - Remediations - Category
+##### Vulnerabilities Property - Remediations - Category{#vulnerabilities-property-remediations-category}
 
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:

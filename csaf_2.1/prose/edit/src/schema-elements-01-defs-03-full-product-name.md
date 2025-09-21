@@ -37,7 +37,7 @@ as it would be used in a human-friendly document.
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
-#### Full Product Name Type - Product Identification Helper
+#### Full Product Name Type - Product Identification Helper{#full-product-name-type-product-identification-helper}
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least
 one method which aids in identifying the product in an asset database.

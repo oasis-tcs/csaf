@@ -156,7 +156,7 @@ A valid use case for temporarily including multiple entries would be a transitio
 and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
-### Requirement 9: Well-Known URL for provider-metadata.json
+### Requirement 9: Well-Known URL for provider-metadata.json{#requirement-9-well-known-url-for-provider-metadata-json}
 
 The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of the issuing authority serves directly
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
@@ -195,7 +195,7 @@ value of `/document/tracking/initial_release_date`.
 2023
 ```
 
-### Requirement 12: index.txt
+### Requirement 12: index.txt{#requirement-12-index-txt}
 
 The file `index.txt` MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 Each entry SHALL be terminated by a newline sequence.
@@ -305,7 +305,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
   ],
 ```
 
-### Requirement 13: changes.csv
+### Requirement 13: changes.csv{#requirement-13-changes-csv}
 
 The file `changes.csv` contains a list of CSAF documents in the current TLP level that were changed recently.
 Therefore, it MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
