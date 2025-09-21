@@ -3916,7 +3916,7 @@ Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency`
 an additional assessment provided by a party.
 
 The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
-[https://raw.githubusercontent.com/CERTCC/SSVC/refs/heads/main/data/schema/v2/SelectionList_2_0_0.schema.json](https://raw.githubusercontent.com/CERTCC/SSVC/refs/heads/main/data/schema/v2/SelectionList_2_0_0.schema.json).
+[https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
 See \[[SSVC](#SSVC)\] for details.
 
 ##### 3.2.4.10.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property-metrics-products'></a>
