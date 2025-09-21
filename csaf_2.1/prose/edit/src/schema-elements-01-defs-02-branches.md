@@ -145,7 +145,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 > All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
 
-##### Branches Type - Name under Product Version Range
+##### Branches Type - Name under Product Version Range{#branches-type-name-under-product-version-range}
 
 If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges.
 The value of MUST obey to exactly one of the following options:

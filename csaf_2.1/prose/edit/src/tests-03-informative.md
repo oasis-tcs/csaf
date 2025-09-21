@@ -500,7 +500,7 @@ The relevant path for this test is:
 
 > At the timestamp `2024-01-24T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
 
-### Usage of Unregistered SSVC Decision Point Base Namespace in Non TLP:CLEAR Document
+### Usage of Unregistered SSVC Decision Point Base Namespace in Non TLP:CLEAR Document{#usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document}
 
 For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one
 if the document is not labeled `TLP:CLEAR`.
@@ -553,7 +553,7 @@ The relevant path for this test is:
 > The namespace `x_example.unregistered#namespace` is an unregistered base namespace.
 > Its decision point definitions might therefore not be known to the reader of the document.
 
-### Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document
+### Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document{#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document}
 
 For each SSVC decision point given under `selections`, it MUST be tested that the `namespace` does not use an extension
 if the document is not labeled `TLP:CLEAR`.
