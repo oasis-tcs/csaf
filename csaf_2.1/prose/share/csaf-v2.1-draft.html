@@ -369,8 +369,8 @@
     <h2 id="committee-specification-draft-02">
       Committee Specification Draft 02
     </h2>
-    <h2 id="10-september-2025">
-      10 September 2025
+    <h2 id="29-september-2025">
+      29 September 2025
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -501,7 +501,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 10 September 2025. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 29 September 2025. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -1004,6 +1004,8 @@
                 <li>6.1.54 <a href="#license-expression">License Expression</a>
                 </li>
                 <li>6.1.55 <a href="#license-text">License Text</a>
+                </li>
+                <li>6.1.56 <a href="#use-of-cvss-and-qualitative-severity-rating">Use of CVSS and Qualitative Severity Rating</a>
                 </li>
               </ul>
             </li>
@@ -4378,14 +4380,15 @@
     <pre><code>    Example Company - 2019-YH3234
     RHBA-2019:0024
     cisco-sa-20190513-secureboot</code></pre>
-    <blockquote>
-      <p>
-        The combination of <code>/document/publisher/namespace</code> and <code>/document/tracking/id</code> identifies a CSAF document globally unique.
-      </p>
-    </blockquote>
     <p>
       This value is also used to determine the filename for the CSAF document (cf. section <a href="#filename">5.1</a>).
     </p>
+    <blockquote>
+      <p>
+        The combination of <code>/document/publisher/namespace</code> and <code>/document/tracking/id</code> identifies a CSAF document globally unique. The combination of <code>/document/publisher/namespace</code>, <code>/document/tracking/id</code>, and <code>/document/tracking/version</code> identifies that specific version of the CSAF
+        document globally unique.
+      </p>
+    </blockquote>
     <h5 id="322135-document-property---tracking---initial-release-date-">
       3.2.2.13.5 Document Property - Tracking - Initial Release Date <a id='document-property-tracking-initial-release-date'></a>
     </h5>
@@ -9987,6 +9990,66 @@
         The note has the correct title. However, it uses the wrong category.
       </p>
     </blockquote>
+    <h3 id="6156-use-of-cvss-and-qualitative-severity-rating-">
+      6.1.56 Use of CVSS and Qualitative Severity Rating <a id='use-of-cvss-and-qualitative-severity-rating'></a>
+    </h3>
+    <p>
+      For each item in <code>/vulnerabilities</code> it MUST be tested that no Qualitative Severity Rating and CVSS values are listed for the tuple of Product ID and source.
+    </p>
+    <blockquote>
+      <p>
+        Different source might assign different metrics for the same product.
+      </p>
+    </blockquote>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>    /vulnerabilities[]/metrics[]</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-and-qualitative-severity-rating-eg-1'></a><a id='sec-6-1-56-eg-1'></a><a id='example-130'></a>
+    </p>
+    <pre><code>  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              // ...
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        },
+        {
+          "content": {
+            "qualitative_severity_rating": "critical"
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]</code></pre>
+    <blockquote>
+      <p>
+        A CVSS v3.1 score and a Qualitative Severity Rating is given for <code>CSAFPID-9080700</code> by the document author.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY remove the <code>qualitative_severity_rating</code> as quick fix.
+      </p>
+    </blockquote>
     <h2 id="62-recommended-tests-">
       6.2 Recommended Tests <a id='recommended-tests'></a>
     </h2>
@@ -11021,9 +11084,9 @@
     <p>
       The relevant paths for this test are:
     </p>
-    <pre><code>  /product_tree/branches[](/branches[])*/product/product_id
-  /product_tree/full_product_names[]/product_id
-  /product_tree/relationships[]/full_product_name/product_id</code></pre>
+    <pre><code>  /product_tree/branches[](/branches[])*/product
+  /product_tree/full_product_names[]
+  /product_tree/relationships[]/full_product_name</code></pre>
     <p>
       <em>Example 1 (which fails the test):</em><a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-166'></a>
     </p>
@@ -11059,6 +11122,11 @@
     <blockquote>
       <p>
         The <code>product_tree</code> mentions the hardware product Example Company Controller A and combines it with the Firmware version 4.1.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A correct representation for hardware and software in the <code>product_tree</code> is given in example [[<a href="#hardware-and-software-within-the-product-tree-eg-1">1 (of section 5.6)</a>]] in section <a href="#hardware-and-software-within-the-product-tree">5.6</a>.
       </p>
     </blockquote>
     <h3 id="6232-use-of-same-product-identification-helper-for-different-products-">
@@ -17313,6 +17381,20 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </td>
           <td style="text-align: left;">
             2025-09-10
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Editor Revision for CSD02
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
+            csaf-v2.1-wd20251029-dev
+          </td>
+          <td style="text-align: left;">
+            2025-10-29
           </td>
           <td style="text-align: left;">
             Stefan Hagen and Thomas Schmidt
