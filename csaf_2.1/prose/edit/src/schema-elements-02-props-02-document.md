@@ -703,9 +703,11 @@ It MUST be unique for that organization.
     cisco-sa-20190513-secureboot
 ```
 
-> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
-
 This value is also used to determine the filename for the CSAF document (cf. section [sec](#filename)).
+
+> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
+> The combination of `/document/publisher/namespace`, `/document/tracking/id`, and `/document/tracking/version` identifies
+> that specific version of the CSAF document globally unique.
 
 ##### Document Property - Tracking - Initial Release Date
 
