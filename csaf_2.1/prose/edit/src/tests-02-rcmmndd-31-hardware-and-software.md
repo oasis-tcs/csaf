@@ -10,9 +10,9 @@ For each product containing at least one of the Product Identification Helpers `
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/product/product_id
-  /product_tree/full_product_names[]/product_id
-  /product_tree/relationships[]/full_product_name/product_id
+  /product_tree/branches[](/branches[])*/product
+  /product_tree/full_product_names[]
+  /product_tree/relationships[]/full_product_name
 ```
 
 *Example 1 (which fails the test):*
@@ -50,3 +50,6 @@ The relevant paths for this test are:
 ```
 
 > The `product_tree` mentions the hardware product Example Company Controller A and combines it with the Firmware version 4.1.
+
+> A correct representation for hardware and software in the `product_tree` is given in example
+> \[[eg](#hardware-and-software-within-the-product-tree-eg-1)\] in section [sec](#hardware-and-software-within-the-product-tree).
