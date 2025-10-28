@@ -31,5 +31,5 @@ The relevant path for this test is:
     }
 ```
 
-> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T1100:00.000Z` which is the `date` of
+> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T11:00:00.000Z` which is the `date` of
 > the newest item in Revision History.
