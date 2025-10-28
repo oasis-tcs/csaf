@@ -369,8 +369,8 @@
     <h2 id="committee-specification-draft-02">
       Committee Specification Draft 02
     </h2>
-    <h2 id="29-september-2025">
-      29 September 2025
+    <h2 id="29-october-2025">
+      29 October 2025
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -501,7 +501,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 29 September 2025. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 29 October 2025. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -7505,11 +7505,12 @@
   /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalScore
   /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity
   /vulnerabilities[]/metrics[]/content/cvss_v4/baseScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity</code></pre>
+  /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity</code></pre>
+    <blockquote>
+      <p>
+        Note: CVSS v4 does not define <code>threatScore</code>, <code>threatSeverity</code>, <code>environmentalScore</code> and <code>environmentalSeverity</code>. The existence of these JSON keys in an older version of the schema was fixed with version <code>4.0.1</code>.
+      </p>
+    </blockquote>
     <p>
       <em>Example 1 (which fails the test):</em><a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-63'></a>
     </p>
@@ -10264,7 +10265,7 @@
     }</code></pre>
     <blockquote>
       <p>
-        The current release date <code>2023-09-06T10:00:00.000Z</code> is older than <code>2023-09-23T1100:00.000Z</code> which is the <code>date</code> of the newest item in Revision History.
+        The current release date <code>2023-09-06T10:00:00.000Z</code> is older than <code>2023-09-23T11:00:00.000Z</code> which is the <code>date</code> of the newest item in Revision History.
       </p>
     </blockquote>
     <h3 id="627-missing-date-in-involvements-">
@@ -10895,6 +10896,9 @@
       <p>
         Currently, this includes the two usage state <code>Allowed</code> and <code>Allowed-with-Review</code>.
       </p>
+      <p>
+        Note: The property <code>Usage</code> within the <code>MappingNotesType</code> was introduced in version <code>7.0</code> of the CWE schema definition. As a consequence, this information might not be available before CWE version <code>4.12</code>.
+      </p>
     </blockquote>
     <p>
       The relevant path for this test is:
@@ -10924,6 +10928,9 @@
     <blockquote>
       <p>
         Reasoning: CWEs marked with a vulnerability mapping state of <code>Allowed-with-Review</code> should only be used if a thorough review was done. This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
+      </p>
+      <p>
+        Note: The property <code>Usage</code> within the <code>MappingNotesType</code> was introduced in version <code>7.0</code> of the CWE schema definition. As a consequence, this information might not be available before CWE version <code>4.12</code>.
       </p>
     </blockquote>
     <p>

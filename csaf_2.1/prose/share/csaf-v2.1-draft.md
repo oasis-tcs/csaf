@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 02
 
-## 29 September 2025
+## 29 October 2025
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
@@ -78,7 +78,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 29 September 2025. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 29 October 2025. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -5294,11 +5294,10 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity
   /vulnerabilities[]/metrics[]/content/cvss_v4/baseScore
   /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity
 ```
+
+> Note: CVSS v4 does not define `threatScore`, `threatSeverity`, `environmentalScore` and `environmentalSeverity`.
+> The existence of these JSON keys in an older version of the schema was fixed with version `4.0.1`.
 
 *Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-63'></a>
 
@@ -7994,7 +7993,7 @@ The relevant path for this test is:
     }
 ```
 
-> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T1100:00.000Z` which is the `date` of
+> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T11:00:00.000Z` which is the `date` of
 > the newest item in Revision History.
 
 ### 6.2.7 Missing Date in Involvements <a id='missing-date-in-involvements'></a>
@@ -8559,6 +8558,9 @@ The relevant path for this test is:
 For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
 
 > Currently, this includes the two usage state `Allowed` and `Allowed-with-Review`.
+>
+> Note: The property `Usage` within the `MappingNotesType` was introduced in version `7.0` of the CWE schema definition.
+> As a consequence, this information might not be available before CWE version `4.12`.
 
 The relevant path for this test is:
 
@@ -8586,6 +8588,9 @@ For each item in the CWE array it MUST be tested that the vulnerability mapping 
 
 > Reasoning: CWEs marked with a vulnerability mapping state of `Allowed-with-Review` should only be used if a thorough review was done.
 > This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
+>
+> Note: The property `Usage` within the `MappingNotesType` was introduced in version `7.0` of the CWE schema definition.
+> As a consequence, this information might not be available before CWE version `4.12`.
 
 The relevant path for this test is:
 
