@@ -779,8 +779,9 @@ Build metadata SHOULD NOT be included in the `number` of any revision item.
 Any issuing party using a CSAF document as basis and modifying it MUST create a new revision history tracking the modified document.
 This applies especially to CSAF multiplier.
 
-> The new revision history ensures that the CSAF document can be found and downloaded by CSAF downloaders that retrieve just those
-> CSAF documents that have a newer `current_release_date` than the timestamp of their last visit at this source (incremental download).
+> The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
+> and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
+> of their last visit at this source (incremental download).
 
 ##### Document Property - Tracking - Status
 
