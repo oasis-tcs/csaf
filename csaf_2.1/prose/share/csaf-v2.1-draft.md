@@ -3057,6 +3057,13 @@ Versions of the document which are pre-release SHALL NOT have its own revision i
 All changes MUST be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision item.
 
+Any issuing party using a CSAF document as basis and modifying it MUST create a new revision history tracking the modified document.
+This applies especially to CSAF multiplier.
+
+> The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
+> and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
+> of their last visit at this source (incremental download).
+
 ##### 3.2.2.13.7 Document Property - Tracking - Status <a id='document-property-tracking-status'></a>
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
