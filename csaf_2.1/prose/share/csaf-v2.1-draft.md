@@ -3394,7 +3394,8 @@ List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set
     },
 ```
 
-> It is expected that the list of CWEs is ordered from the most specific weakness ID to the least specific one.
+If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first.
+A CSAF viewer MAY decide to display just the first CWE item.
 
 Every CWE item of value type `object` with the three mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`)
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.

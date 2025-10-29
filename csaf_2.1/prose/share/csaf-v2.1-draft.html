@@ -4766,11 +4766,9 @@
         // ...
       }
     },</code></pre>
-    <blockquote>
-      <p>
-        It is expected that the list of CWEs is ordered from the most specific weakness ID to the least specific one.
-      </p>
-    </blockquote>
+    <p>
+      If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first. A CSAF viewer MAY decide to display just the first CWE item.
+    </p>
     <p>
       Every CWE item of value type <code>object</code> with the three mandatory properties Weakness ID (<code>id</code>), Weakness Name (<code>name</code>), CWE version (<code>version</code>) holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated. For more information cf. [<a href="#CWE">CWE</a>].
     </p>
