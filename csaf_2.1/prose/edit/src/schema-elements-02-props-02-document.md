@@ -703,9 +703,11 @@ It MUST be unique for that organization.
     cisco-sa-20190513-secureboot
 ```
 
-> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
-
 This value is also used to determine the filename for the CSAF document (cf. section [sec](#filename)).
+
+> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
+> The combination of `/document/publisher/namespace`, `/document/tracking/id`, and `/document/tracking/version` identifies
+> that specific version of the CSAF document globally unique.
 
 ##### Document Property - Tracking - Initial Release Date
 
@@ -773,6 +775,13 @@ Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from t
 Versions of the document which are pre-release SHALL NOT have its own revision item.
 All changes MUST be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision item.
+
+Any issuing party using a CSAF document as basis and modifying it MUST create a new revision history tracking the modified document.
+This applies especially to CSAF multiplier.
+
+> The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
+> and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
+> of their last visit at this source (incremental download).
 
 ##### Document Property - Tracking - Status
 

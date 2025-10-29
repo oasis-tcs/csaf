@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 02
 
-## 10 September 2025
+## 29 October 2025
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
@@ -78,7 +78,7 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 10 September 2025. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 29 October 2025. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -313,6 +313,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.1.53 [Inconsistent Exploitation Date](#inconsistent-exploitation-date)  
 		6.1.54 [License Expression](#license-expression)  
 		6.1.55 [License Text](#license-text)  
+		6.1.56 [Use of CVSS and Qualitative Severity Rating](#use-of-cvss-and-qualitative-severity-rating)  
 	6.2 [Recommended Tests](#recommended-tests)  
 		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
 		6.2.2 [Missing Remediation](#missing-remediation)  
@@ -2983,9 +2984,11 @@ It MUST be unique for that organization.
     cisco-sa-20190513-secureboot
 ```
 
-> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
-
 This value is also used to determine the filename for the CSAF document (cf. section [5.1](#filename)).
+
+> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
+> The combination of `/document/publisher/namespace`, `/document/tracking/id`, and `/document/tracking/version` identifies
+> that specific version of the CSAF document globally unique.
 
 ##### 3.2.2.13.5 Document Property - Tracking - Initial Release Date <a id='document-property-tracking-initial-release-date'></a>
 
@@ -3053,6 +3056,13 @@ Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from t
 Versions of the document which are pre-release SHALL NOT have its own revision item.
 All changes MUST be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision item.
+
+Any issuing party using a CSAF document as basis and modifying it MUST create a new revision history tracking the modified document.
+This applies especially to CSAF multiplier.
+
+> The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
+> and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
+> of their last visit at this source (incremental download).
 
 ##### 3.2.2.13.7 Document Property - Tracking - Status <a id='document-property-tracking-status'></a>
 
@@ -3384,7 +3394,8 @@ List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set
     },
 ```
 
-> It is expected that the list of CWEs is ordered from the most specific weakness ID to the least specific one.
+If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first.
+A CSAF viewer MAY decide to display just the first CWE item.
 
 Every CWE item of value type `object` with the three mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`)
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
@@ -5291,11 +5302,10 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity
   /vulnerabilities[]/metrics[]/content/cvss_v4/baseScore
   /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity
 ```
+
+> Note: CVSS v4 does not define `threatScore`, `threatSeverity`, `environmentalScore` and `environmentalSeverity`.
+> The existence of these JSON keys in an older version of the schema was fixed with version `4.0.1`.
 
 *Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-63'></a>
 
@@ -7729,6 +7739,60 @@ The relevant path for this test is:
 
 > The note has the correct title. However, it uses the wrong category.
 
+### 6.1.56 Use of CVSS and Qualitative Severity Rating <a id='use-of-cvss-and-qualitative-severity-rating'></a>
+
+For each item in `/vulnerabilities` it MUST be tested that no Qualitative Severity Rating and CVSS values are listed for the tuple of Product ID
+and source.
+
+> Different source might assign different metrics for the same product.
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/metrics[]
+```
+
+*Example 1 (which fails the test):*<a id='use-of-cvss-and-qualitative-severity-rating-eg-1'></a><a id='sec-6-1-56-eg-1'></a><a id='example-130'></a>
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              // ...
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        },
+        {
+          "content": {
+            "qualitative_severity_rating": "critical"
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]
+```
+
+> A CVSS v3.1 score and a Qualitative Severity Rating is given for `CSAFPID-9080700` by the document author.
+
+> A tool MAY remove the `qualitative_severity_rating` as quick fix.
+
 ## 6.2 Recommended Tests <a id='recommended-tests'></a>
 
 Recommended tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
@@ -7937,7 +8001,7 @@ The relevant path for this test is:
     }
 ```
 
-> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T1100:00.000Z` which is the `date` of
+> The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T11:00:00.000Z` which is the `date` of
 > the newest item in Revision History.
 
 ### 6.2.7 Missing Date in Involvements <a id='missing-date-in-involvements'></a>
@@ -8502,6 +8566,9 @@ The relevant path for this test is:
 For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
 
 > Currently, this includes the two usage state `Allowed` and `Allowed-with-Review`.
+>
+> Note: The property `Usage` within the `MappingNotesType` was introduced in version `7.0` of the CWE schema definition.
+> As a consequence, this information might not be available before CWE version `4.12`.
 
 The relevant path for this test is:
 
@@ -8529,6 +8596,9 @@ For each item in the CWE array it MUST be tested that the vulnerability mapping 
 
 > Reasoning: CWEs marked with a vulnerability mapping state of `Allowed-with-Review` should only be used if a thorough review was done.
 > This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
+>
+> Note: The property `Usage` within the `MappingNotesType` was introduced in version `7.0` of the CWE schema definition.
+> As a consequence, this information might not be available before CWE version `4.12`.
 
 The relevant path for this test is:
 
@@ -8675,9 +8745,9 @@ For each product containing at least one of the Product Identification Helpers `
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/product/product_id
-  /product_tree/full_product_names[]/product_id
-  /product_tree/relationships[]/full_product_name/product_id
+  /product_tree/branches[](/branches[])*/product
+  /product_tree/full_product_names[]
+  /product_tree/relationships[]/full_product_name
 ```
 
 *Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-166'></a>
@@ -8715,6 +8785,9 @@ The relevant paths for this test are:
 ```
 
 > The `product_tree` mentions the hardware product Example Company Controller A and combines it with the Firmware version 4.1.
+
+> A correct representation for hardware and software in the `product_tree` is given in example
+> \[\[[1 (of section 5.6)](#hardware-and-software-within-the-product-tree-eg-1)\]\] in section [5.6](#hardware-and-software-within-the-product-tree).
 
 ### 6.2.32 Use of Same Product Identification Helper for Different Products <a id='use-of-same-product-identification-helper-for-different-products'></a>
 
@@ -12422,6 +12495,8 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.1-wd20250528-dev | 2025-05-28 | Stefan Hagen and Thomas Schmidt | Next Editor Revision                        |
 | csaf-v2.1-wd20250827-dev | 2025-08-27 | Stefan Hagen and Thomas Schmidt | Editor Revision containing CSD01PR feedback |
 | csaf-v2.1-wd20250910-dev | 2025-09-10 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
+| csaf-v2.1-wd20251029-dev | 2025-10-29 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
+
 -------
 
 # Appendix C. Guidance on the Size of CSAF Documents <a id='guidance-on-the-size-of-csaf-documents'></a>
