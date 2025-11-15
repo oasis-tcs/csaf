@@ -5,5 +5,5 @@
     - # <reference-instance>:
       category: String
       summary: String
-      url: String
+      url: String.URI
     # ...

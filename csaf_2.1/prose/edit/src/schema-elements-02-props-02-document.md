@@ -234,7 +234,7 @@ the optional property URL (`url`) provides details about the TLP classification 
       # ...
       tlp:
         label: String
-        url: String
+        url: String.URI
     # ...
 ```
 
@@ -478,7 +478,7 @@ Document references (`references`) of value type References Type (`references_t`
     - # <reference-instance>:
       category: String
       summary: String
-      url: String
+      url: String.URI
     # ...
 ```
 
@@ -520,10 +520,10 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
     # ...
     tracking:
       aliases: Sequence
-      current_release_date: String
+      current_release_date: String.DateTime
       generator: Mapping
       id: String
-      initial_release_date: String
+      initial_release_date: String.DateTime
       revision_history: Sequence
       status: String
       version: $defs.version_t

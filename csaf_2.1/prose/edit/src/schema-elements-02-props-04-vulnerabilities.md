@@ -23,8 +23,8 @@ Threats (`threats`), and Title (`title`).
     acknowledgments: $defs.acknowledgments_t
     cve: String
     cwes: Sequence
-    disclosure_date: String
-    discovery_date: String
+    disclosure_date: String.DateTime
+    discovery_date: String.DateTime
     first_known_exploitation_dates: Sequence
     flags: Sequence
     ids: Sequence
@@ -197,8 +197,8 @@ product groups this date is applicable.
     # ...
     first_known_exploitation_dates:
     - # <event-instance>:
-      date: String
-      exploitation_date: String
+      date: String.DateTime
+      exploitation_date: String.DateTime
       group_ids: $defs.product_groups_t
       product_ids: $defs.products_t
     # ...
@@ -352,13 +352,13 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 
 List of involvements (`involvements`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of involvements.
 
-```
-    "involvements": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    involvements: Sequence
+    # ...
 ```
 
 Every Involvement item of value type `object` with the two mandatory properties Party (`party`), Status (`status`) and
@@ -368,30 +368,21 @@ involvement (or engagement) of themselves (or third parties) in the vulnerabilit
 It can also be used to convey the disclosure timeline.
 The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
 
-```
-        "properties": {
-          "contact": {
-            // ...
-          },
-          "date": {
-            // ...
-          },
-          "group_ids" {
-            // ...
-          },
-          "party": {
-            // ...
-          },
-          "product_ids": {
-            // ...
-          },
-          "status": {
-            // ...
-          },
-          "summary": {
-            // ...
-          }
-        }
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    involvements:
+    - # <involvement-instance>:
+      contact: String
+      date: String.DateTime
+      group_ids: $defs.product_groups_t
+      party: String.Enum
+      product_ids: $defs.products_t
+      status: String.Enum
+      summary: String
+    # ...
 ```
 
 Party contact information (`contact`) contains the contact information of the party that was used in this state.
@@ -654,39 +645,22 @@ The nine defined properties are First affected (`first_affected`), First fixed (
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
 Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
 
-```
-    "product_status": {
-      // ...
-      "properties": {
-        "first_affected": {
-          // ...
-        },
-        "first_fixed": {
-          // ...
-        },
-        "fixed": {
-          // ...
-        },
-        "known_affected": {
-          // ...
-        },
-        "known_not_affected": {
-          // ...
-        },
-        "last_affected": {
-          // ...
-        },
-        "recommended": {
-          // ...
-        },
-        "under_investigation": {
-          // ...
-        },
-        "unknown": {
-          // ...
-        }
-      }
-    },
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    product_status:
+      first_affected: $defs.products_t
+      first_fixed: $defs.products_t
+      fixed: $defs.products_t
+      known_affected: $defs.products_t
+      known_not_affected: $defs.products_t
+      last_affected: $defs.products_t
+      recommended: $defs.products_t
+      under_investigation: $defs.products_t
+      unknown: $defs.products_t
+    # ...
 ```
 
 First affected (`first_affected`) of value type Products (`products_t`) represents that these are the first versions of the releases known to be
@@ -783,13 +757,13 @@ list of references associated with this vulnerability item.
 
 List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
-```
-    "remediations": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations: Sequence
+    # ...
 ```
 
 Every Remediation item of value type `object` with the two mandatory properties Category (`category`) and
@@ -800,33 +774,22 @@ products or product groups this remediation is applicable.
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
 Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
-```
-      "properties": {
-        "category": {
-          // ...
-        },
-        "date": {
-          // ...
-        },
-        "details": {
-          // ...
-        },
-        "entitlements": {
-          // ...
-        },
-        "group_ids": {
-          // ...
-        },
-        "product_ids": {
-          // ...
-        },
-        "restart_required": {
-          // ...
-        },
-        "url": {
-          // ...
-        }
-      }
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      category: String.Enum
+      date: String.DateTime
+      details: String
+      entitlements: Sequence
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      restart_required: Mapping
+      url: String.URI
+    # ...
 ```
 
 ##### Vulnerabilities Property - Remediations - Category{#vulnerabilities-property-remediations-category}

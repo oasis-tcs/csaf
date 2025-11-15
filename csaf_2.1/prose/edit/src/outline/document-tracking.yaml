@@ -3,10 +3,10 @@
     # ...
     tracking:
       aliases: Sequence
-      current_release_date: String
+      current_release_date: String.DateTime
       generator: Mapping
       id: String
-      initial_release_date: String
+      initial_release_date: String.DateTime
       revision_history: Sequence
       status: String
       version: $defs.version_t

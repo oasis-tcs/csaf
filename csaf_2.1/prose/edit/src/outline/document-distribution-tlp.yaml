@@ -5,5 +5,5 @@
       # ...
       tlp:
         label: String
-        url: String
+        url: String.URI
     # ...
