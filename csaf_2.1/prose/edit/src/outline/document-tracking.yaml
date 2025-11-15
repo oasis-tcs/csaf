@@ -1,0 +1,12 @@
+<advisory-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      current_release_date: String
+      generator: Mapping
+      id: String
+      initial_release_date: String
+      revision_history: Sequence
+      status: String
+      version: $defs.version_t

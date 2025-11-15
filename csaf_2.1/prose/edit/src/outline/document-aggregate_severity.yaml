@@ -1,0 +1,7 @@
+<advisory-instance>:
+  document:
+    # ...
+    aggregate_severity:
+      namespace: String
+      text: String
+    # ...

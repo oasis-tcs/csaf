@@ -1,0 +1,6 @@
+<advisory-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      # ...

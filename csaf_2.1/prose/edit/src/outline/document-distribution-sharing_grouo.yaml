@@ -1,0 +1,9 @@
+<advisory-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group:
+        id: String
+        name: String
+      # ...
+    # ...

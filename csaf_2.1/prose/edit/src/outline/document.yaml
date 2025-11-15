@@ -1,0 +1,15 @@
+<advisory-instance>:
+  document:
+    acknowledgments: $defs.acknowledgments_t
+    aggregate_severity: Mapping
+    category: String
+    csaf_version: String
+    distribution: Mapping
+    lang: $defs.lang_t
+    license_expression: String
+    notes: $defs.notes_t
+    publisher: Mapping
+    references: $defs.references_t
+    source_lang: $defs.lang_t
+    title: String
+    tracking: Mapping

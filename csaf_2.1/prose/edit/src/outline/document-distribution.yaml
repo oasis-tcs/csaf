@@ -1,0 +1,8 @@
+<advisory-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group: Mapping
+      text: String
+      tlp: Mapping
+    # ...

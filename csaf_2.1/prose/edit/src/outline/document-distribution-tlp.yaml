@@ -1,0 +1,9 @@
+<advisory-instance>:
+  document:
+    # ...
+    distribution:
+      # ...
+      tlp:
+        label: String
+        url: String
+    # ...

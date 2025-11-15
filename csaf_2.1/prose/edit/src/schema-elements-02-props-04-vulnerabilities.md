@@ -3,13 +3,9 @@
 Vulnerabilities (`vulnerabilities`) of value type `array` with `1` or more objects representing vulnerabilities by providing one or more
 properties represents a list of all relevant vulnerability information items.
 
-```
-    "vulnerabilities": {
-      // ...
-      "items": {
-        // ...
-      }
-    }
+```yaml
+<advisory-instance>:
+  vulnerabilities: Sequence
 ```
 
 The Vulnerability item of value type `object` with `1` or more properties is a container for the aggregation of all fields that are related to
@@ -20,57 +16,26 @@ List of first known exploitation dates (`first_known_exploitation_dates`), Flags
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), and Title (`title`).
 
-```
-    "properties": {
-      "acknowledgments": {
-        // ...
-      },
-      "cve": {
-        // ...
-      },
-      "cwes": {
-        // ...
-      },
-      "disclosure_date": {
-        // ...
-      },
-      "discovery_date": {
-        // ...
-      },
-      "first_known_exploitation_dates": {
-        // ...
-      },
-      "flags": {
-        // ...
-      },
-      "ids": {
-        // ...
-      },
-      "involvements": {
-        // ...
-      },
-      "metrics": {
-        // ...
-      },
-      "notes": {
-        // ...
-      },
-      "product_status": {
-        // ...
-      },
-      "references": {
-        // ...
-      },
-      "remediations": {
-        // ...
-      },
-      "threats": {
-        // ...
-      },
-      "title": {
-        // ...
-      }
-    }
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - <vulnerability-instance>:
+    acknowledgments: $defs.acknowledgments_t
+    cve: String
+    cwes: Sequence
+    disclosure_date: String
+    discovery_date: String
+    first_known_exploitation_dates: Sequence
+    flags: Sequence
+    ids: Sequence
+    involvements: Sequence
+    metrics: Sequence
+    notes: $defs.notes_t
+    product_status: Mapping
+    references: $defs.references_t
+    remediations: Sequence
+    threats: Sequence
+    title: String
 ```
 
 #### Vulnerabilities Property - Acknowledgments

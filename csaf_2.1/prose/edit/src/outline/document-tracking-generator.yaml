@@ -1,0 +1,8 @@
+<advisory-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        date: String
+        engine: Mapping
+      # ...

@@ -5,24 +5,13 @@ can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
 and Relationships (`relationships`).
 
-```
-    "product_tree": {
-      // ...
-      "properties": {
-        "branches": {
-          // ...
-        },
-        "full_product_names": {
-          // ...
-        },
-        "product_groups": {
-          // ...
-        },
-        "relationships": {
-          // ...
-        }
-      }
-    },
+```yaml
+<advisory-instance>:
+  product_tree:
+    branches: $defs.branches_t
+    full_product_names: Mapping
+    product_groups: Sequence
+    relationships: Sequence
 ```
 
 #### Product Tree Property - Branches
