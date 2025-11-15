@@ -30,10 +30,17 @@ References (`references`), and Source Language (`source_lang`).
 Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains
 a list of acknowledgment elements associated with the whole document.
 
-```
-    "acknowledgments": {
-      // ...
-    },
+```yaml
+<advisory-instance>:
+  document:
+    acknowledgements:  # $defs.acknowledgments_t
+    - # <acknowledgement-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
 ```
 
 #### Document Property - Aggregate Severity
@@ -463,15 +470,15 @@ an incremented (patch) version which has no other changes than:
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
-```
+```yaml
 <advisory-instance>:
   document:
     # ...
     references:  # $defs.references_t
-    - <reference-instance>:
-        category: String
-        summary: String
-        url: String
+    - # <reference-instance>:
+      category: String
+      summary: String
+      url: String
     # ...
 ```
 
@@ -678,11 +685,11 @@ In addition, a Revision MAY expose the optional property `legacy_version`.
     tracking:
       # ...
       revision_history:
-      - <revision-instance>:
-          date: String
-          legacy_version: String
-          number: $defs.version_t
-          summary: String
+      - # <revision-instance>:
+        date: String
+        legacy_version: String
+        number: $defs.version_t
+        summary: String
       # ...
 ```
 

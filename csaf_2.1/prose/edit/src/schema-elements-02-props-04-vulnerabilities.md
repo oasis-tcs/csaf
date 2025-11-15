@@ -19,7 +19,7 @@ Threats (`threats`), and Title (`title`).
 ```yaml
 <advisory-instance>:
   vulnerabilities:
-  - <vulnerability-instance>:
+  - # <vulnerability-instance>:
     acknowledgments: $defs.acknowledgments_t
     cve: String
     cwes: Sequence
@@ -43,10 +43,18 @@ Threats (`threats`), and Title (`title`).
 Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of
 acknowledgment elements associated with this vulnerability item.
 
-```
-    "acknowledgments": {
-      // ...
-    },
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    acknowledgements:  # $defs.acknowledgments_t
+    - # <acknowledgement-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
 ```
 
 #### Vulnerabilities Property - CVE

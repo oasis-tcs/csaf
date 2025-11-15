@@ -4,9 +4,9 @@
     tracking:
       # ...
       revision_history:
-      - <revision-instance>:
-          date: String
-          legacy_version: String
-          number: $defs.version_t
-          summary: String
+      - # <revision-instance>:
+        date: String
+        legacy_version: String
+        number: $defs.version_t
+        summary: String
       # ...
