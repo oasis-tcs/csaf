@@ -71,13 +71,13 @@ CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
 
 List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
 
-```
-    "cwes": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes: Sequence
+    # ...
 ```
 
 If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first.
@@ -87,18 +87,17 @@ Every CWE item of value type `object` with the three mandatory properties Weakne
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 For more information cf. [cite](#CWE).
 
-```
-      "properties": {
-        "id": {
-          // ...
-        },
-        "name": {
-          // ...
-        },
-        "version": {
-          // ...
-        }
-      }
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes:
+    - # <cwe-instance>:
+      id: String
+      name: String
+      version: String
+    # ...
 ```
 
 The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):
@@ -173,13 +172,13 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
 contains a list of dates of first known exploitations.
 
-```
-    "first_known_exploitation_dates": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates: Sequence
+    # ...
 ```
 
 Every First known exploitation date item of value type `object` with the two mandatory properties Date of the information (`date`) and
@@ -191,21 +190,18 @@ product groups this date is applicable.
 > This information can be helpful to determine the risk of compromise.
 > It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
 
-```
-    "properties": {
-      "date": {
-        // ...
-      },
-      "exploitation_date": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-    }
+```yaml
+<advisory-instance>:
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates:
+    - # <event-instance>:
+      date: String
+      exploitation_date: String
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+    # ...
 ```
 
 Date of the information (`date`) of value type `string` with format `date-time` contains the date when the information was last updated.
