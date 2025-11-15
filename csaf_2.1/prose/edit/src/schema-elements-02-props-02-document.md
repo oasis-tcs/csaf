@@ -13,7 +13,7 @@ References (`references`), and Source Language (`source_lang`).
     acknowledgments: $defs.acknowledgments_t
     aggregate_severity: Mapping
     category: String
-    csaf_version: String
+    csaf_version: String.Enum
     distribution: Mapping
     lang: $defs.lang_t
     license_expression: String
