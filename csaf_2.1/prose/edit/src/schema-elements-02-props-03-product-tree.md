@@ -27,30 +27,30 @@ list of full product names.
 
 List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
-```
-    "product_groups": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml
+<advisory-instance>:
+  # ...
+  product_tree:
+    # ...
+    product_groups: Sequence
+  # ...
 ```
 
 The product group items are of value type `object` with the two mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and
 the optional Summary (`summary`) property.
 
-```
-    "properties": {
-      "group_id": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      },
-      "summary": {
-        // ...
-      }
-    }
+```yaml
+<advisory-instance>:
+  # ...
+  product_tree:
+    # ...
+    product_groups:
+    - # <product_group-instance>:
+      group_id: $defs.product_group_id_t
+      product_ids: Sequence
+      summary: String
+    # ...
+  # ...
 ```
 
 The summary of the product group (`summary`) of value type `string` with `1` or more characters gives a short, optional description of the group.
@@ -71,13 +71,13 @@ the product_ids of those products which known as one group in the document.
 
 List of relationships (`relationships`) of value type `array` with `1` or more items contains a list of relationships.
 
-```
-    "relationships": {
-      // ...
-      "items": {
-        // ...
-      }
-    }
+```yaml
+<advisory-instance>:
+  # ...
+  product_tree:
+    # ...
+    relationships: Sequence
+  # ...
 ```
 
 The Relationship item is of value type `object` and has four mandatory properties: Relationship category (`category`),
@@ -86,21 +86,19 @@ and Relates to Product Reference (`relates_to_product_reference`).
 The Relationship item establishes a link between two existing `full_product_name_t` elements,
 allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
-```
-    "properties": {
-      "category": {
-        // ...
-      },
-      "full_product_name": {
-        // ...
-      },
-      "product_reference": {
-        // ...
-      },
-      "relates_to_product_reference": {
-        // ...
-      }
-    }
+```yaml
+<advisory-instance>:
+  # ...
+  product_tree:
+    # ...
+    relationships:
+    - # <relationship-instance>:
+      category: String.Enum
+      full_product_name: $defs.full_product_name_t
+      product_reference: $defs.product_id_t
+      relates_to_product_reference: $defs.product_id_t
+    # ...
+  # ...
 ```
 
 > The situation where a need for declaring a Relationship arises,
