@@ -21,7 +21,7 @@ Threats (`threats`), and Title (`title`).
   vulnerabilities:
   - # <vulnerability-instance>:
     acknowledgments: $defs.acknowledgments_t
-    cve: String
+    cve: String.Pattern
     cwes: Sequence
     disclosure_date: String.DateTime
     discovery_date: String.DateTime
@@ -94,9 +94,9 @@ For more information cf. [cite](#CWE).
     # ...
     cwes:
     - # <cwe-instance>:
-      id: String
-      name: String
-      version: String
+      id: String.Pattern
+      name: String.Pattern
+      version: String.Pattern
     # ...
 ```
 

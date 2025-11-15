@@ -12,7 +12,7 @@ References (`references`), and Source Language (`source_lang`).
   document:
     acknowledgments: $defs.acknowledgments_t
     aggregate_severity: Mapping
-    category: String
+    category: String.Pattern
     csaf_version: String.Enum
     distribution: Mapping
     lang: $defs.lang_t
@@ -152,7 +152,7 @@ the optional property Sharing Group Name (`name`) contains information about the
     # ...
     distribution:
       sharing_group:
-        id: String
+        id: String.Pattern
         name: String
       # ...
     # ...
@@ -522,10 +522,10 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
       aliases: Sequence
       current_release_date: String.DateTime
       generator: Mapping
-      id: String
+      id: String.Pattern
       initial_release_date: String.DateTime
       revision_history: Sequence
-      status: String
+      status: String.Enum
       version: $defs.version_t
 ```
 
