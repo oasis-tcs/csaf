@@ -86,10 +86,12 @@ Document category defines a short canonical name, chosen by the document produce
 
 > It is directly related to the profiles defined in section [sec](#profiles).
 
-```
-    "category": {
-      // ...
-    }
+```yaml
+<advisory-instance>:
+  document:
+    # ...
+    category:  String.Pattern
+    # ...
 ```
 
 *Examples 1:*
@@ -332,10 +334,20 @@ In addition, the following rules apply:
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
-```
-    "notes": {
-      // ...
-    },
+```yaml
+<advisory-instance>:
+  document:
+    # ...
+    notes:  # $defs.notes_t
+    - # <note-instance>:
+      audience: String
+      category: String.Enum
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      text: String
+      title: String
+      # ...
+    # ...
 ```
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
