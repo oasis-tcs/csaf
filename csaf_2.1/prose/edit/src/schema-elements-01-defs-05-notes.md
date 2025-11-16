@@ -2,40 +2,29 @@
 
 List of notes (`notes_t`) of value type `array` with `1` or more items of type `Note` contains notes which are specific to the current context.
 
-```
-    "notes_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml
+$defs:
+  # ...
+  notes_t: Sequence
+  # ...
 ```
 
 Value type of every such Note item is `object` with the mandatory properties `category` and `text` providing a place to put
 all manner of text blobs related to the current context.
 A Note `object` MAY provide the optional properties `audience`, `group_ids`, `product_ids` and `title`.
 
-```
-    "properties": {
-      "audience": {
-        // ...
-      },
-      "category": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-      "text": {
-        // ...
-      },
-      "title": {
-        // ...
-      }
-    }
+```yaml
+$defs:
+  # ...
+  notes_t:
+  - # <note-instance>:
+    audience: String
+    category: String.Enum
+    group_ids: $defs.product_groups_t
+    product_ids: $defs.products_t
+    text: String
+    title: String
+  # ...
 ```
 
 Audience of note (`audience`) of value type `string` with `1` or more characters indicates who is intended to read it.

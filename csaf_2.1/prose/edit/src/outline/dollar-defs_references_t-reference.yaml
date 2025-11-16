@@ -1,0 +1,8 @@
+$defs:
+  # ...
+  references:
+  - # <reference-instance>:
+    category: String
+    summary: String
+    url: String.URI
+  # ...

@@ -3,34 +3,25 @@
 List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with `1` or more elements contain
 a list of `Acknowledgment` elements.
 
-```
-    "acknowledgments_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml
+$defs:
+  acknowledgments_t: Sequence
+  # ...
 ```
 
 The value type of Acknowledgment is `object` with at least `1` and at most four properties. Every such element acknowledges contributions by
 describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
-```
-        "properties": {
-          "names": {
-            // ...
-          },
-          "organization": {
-            // ...
-          },
-          "summary": {
-            // ...
-          },
-          "urls": {
-            // ...
-          }
-        }
+```yaml
+$defs:
+  acknowledgments_t:
+  - # <acknowledgment-instance>:
+    names: Sequence
+    organization: String
+    summary: String
+    urls: Sequence
+  # ...
 ```
 
 #### Acknowledgments Type - Names

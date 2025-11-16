@@ -38,6 +38,7 @@ Threats (`threats`), and Title (`title`).
     remediations: Sequence
     threats: Sequence
     title: String
+  # ...
 ```
 
 #### Vulnerabilities Property - Acknowledgments
