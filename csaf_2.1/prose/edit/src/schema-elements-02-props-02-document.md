@@ -346,7 +346,6 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
       product_ids: $defs.products_t
       text: String
       title: String
-      # ...
     # ...
 ```
 

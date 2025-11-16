@@ -7,6 +7,7 @@ and Relationships (`relationships`).
 
 ```yaml
 <advisory-instance>:
+  # ...
   product_tree:
     branches: $defs.branches_t
     full_product_names: Mapping
