@@ -697,7 +697,7 @@ In addition, a Revision MAY expose the optional property `legacy_version`.
       # ...
       revision_history:
       - # <revision-instance>:
-        date: String
+        date: String.DateTime
         legacy_version: String
         number: $defs.version_t
         summary: String
