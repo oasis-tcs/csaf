@@ -5,7 +5,7 @@ The value is a token required to identify a `full_product_name` so that it can b
 There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of
 the current document.
 
-```yaml
+```yaml <!--json-path($['$defs'].product_id_t)-->
 $defs:
   # ...
   product_id_t: String

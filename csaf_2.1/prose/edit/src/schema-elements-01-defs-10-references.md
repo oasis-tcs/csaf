@@ -2,7 +2,7 @@
 
 List of references (`references_t`) of value type `array` with `1` or more items of type Reference holds a list of Reference objects.
 
-```yaml
+```yaml <!--json-path($['$defs'].references_t)-->
 $defs:
   # ...
   references_t: Sequence
@@ -14,7 +14,7 @@ papers, advisories, and other resources that are related and considered related 
 the entire document and to be of value to the document consumer.
 A reference `object` MAY provide the optional property `category`.
 
-```yaml
+```yaml <!--json-path($['$defs'].references_t[*].properties)-->
 $defs:
   # ...
   references:

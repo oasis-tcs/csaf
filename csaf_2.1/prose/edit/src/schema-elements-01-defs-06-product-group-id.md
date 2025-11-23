@@ -5,7 +5,7 @@ The value is a token required to identify a group of products so that it can be 
 There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies
 a product group in the context of the current document.
 
-```yaml
+```yaml <!--json-path($['$defs']..product_group_id_t)-->
 $defs:
   # ...
   product_group_id_t: String

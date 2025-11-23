@@ -3,7 +3,7 @@
 List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with `1` or more elements contain
 a list of `Acknowledgment` elements.
 
-```yaml
+```yaml <!--json-path($['$defs'].acknowledgments_t)-->
 $defs:
   acknowledgments_t: Sequence
   # ...
@@ -13,7 +13,7 @@ The value type of Acknowledgment is `object` with at least `1` and at most four 
 describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
-```yaml
+```yaml <!--json-path($['$defs'].acknowledgments_t[*].properties)-->
 $defs:
   acknowledgments_t:
   - # <acknowledgment-instance>:

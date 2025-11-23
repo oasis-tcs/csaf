@@ -5,7 +5,7 @@ can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
 and Relationships (`relationships`).
 
-```yaml
+```yaml <!--json-path($..product_tree.properties)-->
 <advisory-instance>:
   # ...
   product_tree:
@@ -28,7 +28,7 @@ list of full product names.
 
 List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
-```yaml
+```yaml <!--json-path($..product_tree..product_groups)-->
 <advisory-instance>:
   # ...
   product_tree:
@@ -40,7 +40,7 @@ List of product groups (`product_groups`) of value type `array` with `1` or more
 The product group items are of value type `object` with the two mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and
 the optional Summary (`summary`) property.
 
-```yaml
+```yaml <!--json-path($..product_tree..product_groups..properties)-->
 <advisory-instance>:
   # ...
   product_tree:
@@ -72,7 +72,7 @@ the product_ids of those products which known as one group in the document.
 
 List of relationships (`relationships`) of value type `array` with `1` or more items contains a list of relationships.
 
-```yaml
+```yaml <!--json-path($..product_tree..relationships)-->
 <advisory-instance>:
   # ...
   product_tree:
@@ -87,7 +87,7 @@ and Relates to Product Reference (`relates_to_product_reference`).
 The Relationship item establishes a link between two existing `full_product_name_t` elements,
 allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
-```yaml
+```yaml <!--json-path($..product_tree..relationships..properties)-->
 <advisory-instance>:
   # ...
   product_tree:

@@ -2,7 +2,7 @@
 
 List of notes (`notes_t`) of value type `array` with `1` or more items of type `Note` contains notes which are specific to the current context.
 
-```yaml
+```yaml <!--json-path($['$defs'].notes_t)-->
 $defs:
   # ...
   notes_t: Sequence
@@ -13,7 +13,7 @@ Value type of every such Note item is `object` with the mandatory properties `ca
 all manner of text blobs related to the current context.
 A Note `object` MAY provide the optional properties `audience`, `group_ids`, `product_ids` and `title`.
 
-```yaml
+```yaml <!--json-path($['$defs'].notes_t[*].properties)-->
 $defs:
   # ...
   notes_t:

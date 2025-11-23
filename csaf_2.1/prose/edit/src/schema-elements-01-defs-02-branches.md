@@ -2,7 +2,7 @@
 
 List of branches (`branches_t`) with value type `array` contains `1` or more branch elements as children of the current element.
 
-```yaml
+```yaml <!--json-path($['$defs'].branches_t)-->
 $defs:
   # ...
   branches_t: Sequence
@@ -12,7 +12,7 @@ $defs:
 Every Branch holds exactly `3` properties and is a part of the hierarchical structure of the product tree.
 The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
 
-```yaml
+```yaml <!--json-path($['$defs'].branches_t[*].properties)-->
 $defs:
   # ...
   branches_t:
