@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 """Validate YAML partial information models against their underlying JSON schema."""
+import glob
 import importlib.util
 import json
 import os
@@ -163,8 +164,8 @@ def find_type(mapping) -> str:
     return 'UNKNOWN'
 
 
-def level_warp(raw_finds: dict[str, str]) -> dict[str, str]:
-    """Into and out of the fold ..."""
+def level_warp(raw_finds: dict[str, str], jpath: str) -> None:
+    """Inplace into and out of the fold ..."""
     if 'type' in raw_finds:
         return {jpath.split(DOT)[-1]: raw_finds['type']}
     if '$ref' in raw_finds:
@@ -172,65 +173,81 @@ def level_warp(raw_finds: dict[str, str]) -> dict[str, str]:
     return raw_finds
 
 
-try:
-    in_md = sys.argv[1]
-except IndexError:
-    try:
-        some_path = pathlib.Path(__file__).absolute().relative_to(pathlib.Path().absolute())
-    except:  # noqa
-        some_path = __file__
-    print(f'usage: {some_path} markdown-file-with-yaml-outline-fenced-code-block')
-    sys.exit(2)
+def main(args: list[str]) -> int:
+    """Drive the validation."""
+    if not args:
+        try:
+            some_path = pathlib.Path(__file__).absolute().relative_to(pathlib.Path().absolute())
+        except:  # noqa
+            some_path = __file__
+        print(f'usage: {some_path} markdown-file(s)-or-glob-with-yaml-outline-fenced-code-block')
+        return 2
 
 
-with open(CSAF_JSON_SCHEMA, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
-    data = json.load(handle)
+    with open(CSAF_JSON_SCHEMA, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+        data = json.load(handle)
 
-with open(in_md, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
-    paths, snippets = extract_paths_and_snippets([line.rstrip(NL) for line in handle])
+    passes = True
+    for arg in args:
+        file_paths = glob.glob(arg)
+        for file_path in file_paths:
+            with open(file_path, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+                paths, snippets = extract_paths_and_snippets([line.rstrip(NL) for line in handle])
 
-for slot, jpaths in paths.items():
-    print(slot)
-    stripped_yaml = yaml_strip(snippets[slot])
-    print(DASH * 69)
-    for y_line in stripped_yaml:
-        print(y_line)
-    print(DASH * 69)
-    leaf_types = yaml_leaf_types(stripped_yaml)
-    for x in leaf_types:
-        if len(x) != 2:
-            print('ERROR: Not a pair of leaf and type:', x)
-        print(x[0], '<--', x[1])
-    print(DASH * 69)
-    for jslot, jpath in enumerate(jpaths):
-        found = level_warp(jp.findall(jpath, data)[0])
-        print(' ', jpath, '==>', LS.join(found.keys()))
-        for k, v in found.items():
-            vd = find_type(v)
-            print('   ', k, '-->', vd)
-        print('- ' * 34)
-        for (ln, lt), (k, v) in zip(leaf_types, found.items()):
-            vd = find_type(v)
-            if len(jpaths) > 1 and jslot:
-                if ln != k:
-                    print(f'ERROR: leaf {ln} does not match expected field {k}')
-                if vd == 'string':
-                    if lt.lower() != vd and not lt.lower().startswith(vd):
-                        print(
-                            f'ERROR: leaf type {lt} of {ln}'
-                            f' does not match expected string type {vd}'
-                        )
-                if vd == 'array':
-                    if lt.lower() != 'sequence':
-                        print(
-                            f'ERROR: {jslot};{len(jpaths)}leaf type {lt} of {ln}'
-                            f' does not match expected sequence type {vd}'
-                        )
-                if vd == 'object':
-                    if lt.lower() != 'mapping':
-                        print(
-                            f'ERROR: leaf type {lt} of {ln}'
-                            ' does not match expected mapping type {vd}'
-                        )
-            print('   ', lt, '<-->', vd)
-    print(EQ * 69)
+            for slot, jpaths in paths.items():
+                print(slot)
+                stripped_yaml = yaml_strip(snippets[slot])
+                print(DASH * 69)
+                for y_line in stripped_yaml:
+                    print(y_line)
+                print(DASH * 69)
+                leaf_types = yaml_leaf_types(stripped_yaml)
+                for x in leaf_types:
+                    if len(x) != 2:
+                        print('ERROR: Not a pair of leaf and type:', x)
+                        passes = False
+                    print(x[0], '<--', x[1])
+                print(DASH * 69)
+                for jslot, jpath in enumerate(jpaths):
+                    found = jp.findall(jpath, data)[0]
+                    level_warp(found, jpath)
+                    print(' ', jpath, '==>', LS.join(found.keys()))
+                    for k, v in found.items():
+                        vd = find_type(v)
+                        print('   ', k, '-->', vd)
+                    print('- ' * 34)
+                    for (ln, lt), (k, v) in zip(leaf_types, found.items()):
+                        vd = find_type(v)
+                        if len(jpaths) > 1 and jslot:
+                            if ln != k:
+                                print(f'ERROR: leaf {ln} does not match expected field {k}')
+                                passes = False
+                            if vd == 'string':
+                                if lt.lower() != vd and not lt.lower().startswith(vd):
+                                    print(
+                                        f'ERROR: leaf type {lt} of {ln}'
+                                        f' does not match expected string type {vd}'
+                                    )
+                                    passes = False
+                            if vd == 'array':
+                                if lt.lower() != 'sequence':
+                                    print(
+                                        f'ERROR: {jslot};{len(jpaths)}leaf type {lt} of {ln}'
+                                        f' does not match expected sequence type {vd}'
+                                    )
+                                    passes = False
+                            if vd == 'object':
+                                if lt.lower() != 'mapping':
+                                    print(
+                                        f'ERROR: leaf type {lt} of {ln}'
+                                        ' does not match expected mapping type {vd}'
+                                    )
+                                    passes = False
+                        print('   ', lt, '<-->', vd)
+                print(EQ * 69)
+
+    return 0 if passes else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))
