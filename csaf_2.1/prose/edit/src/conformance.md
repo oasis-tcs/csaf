@@ -532,7 +532,8 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
 
 A program satisfies the "CSAF Basic Validator" conformance profile if the program:
 
-* reads documents and performs a check against the JSON schema.
+* reads documents and performs a check against the JSON schema,
+  including also the format validation (cf. section [sec](#format-validation)).
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
 * satisfies those normative requirements in section [sec](#presets) that are designated as applying to CSAF Validators.
