@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-"""Validate outlines against schema."""
+"""Validate YAML partial information models against their underlying JSON schema."""
 import importlib.util
 import json
 import os
@@ -131,7 +131,23 @@ def find_type(mapping) -> str:
 
     if isinstance(mapping, dict):
         try:
-            return mapping['type']
+            main_type = mapping['type']
+            if main_type == 'string':
+                if sub_type := mapping.get('format', ''):
+                    if sub_type == 'date-time':
+                        return 'string.datetime'
+                    if sub_type == 'uri':
+                        return 'string.uri'
+                if 'enum' in mapping:
+                    return 'string.enum'
+                if 'pattern' in mapping:
+                    return 'string.pattern'
+            return main_type
+        except KeyError:
+            pass
+        try:
+            _ = mapping['enum']
+            return 'string.enum'
         except KeyError:
             pass
         try:
