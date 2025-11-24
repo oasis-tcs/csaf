@@ -40,7 +40,7 @@ if not pathlib.Path(CSAF_JSON_SCHEMA).is_file():
 
 def extract_paths(complete_line: str, line_no: int) -> list[str]:
     """Extract the json-path(s) from fenced YAML code block starts."""
-    paths: list[str] = []
+    json_paths: list[str] = []
     if complete_line.startswith('```yaml '):
         line = complete_line[8:].strip()
         if line.startswith(HC_ON) and line.endswith(HC_OFF):
@@ -51,8 +51,8 @@ def extract_paths(complete_line: str, line_no: int) -> list[str]:
                     raise ValueError(
                         f'Use json-paths/n instead of json-path/1 in "{complete_line}"'
                     )
-                paths.append(line[10:-1])
-                return paths
+                json_paths.append(line[10:-1])
+                return json_paths
 
             if line.startswith('json-paths(') and line.endswith(')'):
                 line = line[11:-1]
@@ -64,9 +64,9 @@ def extract_paths(complete_line: str, line_no: int) -> list[str]:
                     raise ValueError(
                         f'Add comma or use json-path/1 instead of json-paths/n in "{complete_line}"'
                     )
-                paths.extend(part.strip() for part in line.split(','))
+                json_paths.extend(part.strip() for part in line.split(','))
 
-    return paths
+    return json_paths
 
 
 def extract_paths_and_snippets(lines: list[str]) -> tuple[SomeType, SomeType]:
@@ -114,14 +114,14 @@ def yaml_leaf_types(yaml_lines: list[str]) -> list[tuple[str, str]]:
         indents.append(indent)
     leaf_indent = max(indents)
 
-    leaf_types: list[tuple[str, str]] = []
+    collected: list[tuple[str, str]] = []
     for indent, line in zip(indents, yaml_lines):
         if indent < leaf_indent:
             continue
         leaf, leaf_type = line.strip().split(COLON)
-        leaf_types.append((leaf, leaf_type.strip()))
+        collected.append((leaf, leaf_type.strip()))
 
-    return leaf_types
+    return collected
 
 
 def find_type(mapping) -> str:
@@ -151,7 +151,7 @@ def find_type(mapping) -> str:
         except KeyError:
             pass
         try:
-            return mapping['$ref']
+            return mapping['$ref'].replace('#/$defs/', '$defs.')
         except KeyError:
             pass
         try:
@@ -161,6 +161,15 @@ def find_type(mapping) -> str:
             pass
 
     return 'UNKNOWN'
+
+
+def level_warp(raw_finds: dict[str, str]) -> dict[str, str]:
+    """Into and out of the fold ..."""
+    if 'type' in raw_finds:
+        return {jpath.split(DOT)[-1]: raw_finds['type']}
+    if '$ref' in raw_finds:
+        return {jpath.split(DOT)[-1]: raw_finds['$ref'].replace('#/$defs/', '$defs.')}
+    return raw_finds
 
 
 try:
@@ -194,15 +203,7 @@ for slot, jpaths in paths.items():
         print(x[0], '<--', x[1])
     print(DASH * 69)
     for jslot, jpath in enumerate(jpaths):
-        found = jp.findall(jpath, data)[0]
-        if 'type' in found:
-            rekey = jpath.split(DOT)[-1]
-            refound = {rekey: found['type']}
-            found = refound
-        elif '$ref' in found:
-            rekey = jpath.split(DOT)[-1]
-            refound = {rekey: found['$ref']}
-            found = refound
+        found = level_warp(jp.findall(jpath, data)[0])
         print(' ', jpath, '==>', LS.join(found.keys()))
         for k, v in found.items():
             vd = find_type(v)
