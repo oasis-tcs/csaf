@@ -639,7 +639,7 @@ CSAF consumer SHOULD give preference to CVSS if both, Qualitative Severity Ratin
 Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency` from the `cvss` namespace to convey
 an additional assessment provided by a party.
 
-The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
+The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
 See [cite](#SSVC) for details.
 
