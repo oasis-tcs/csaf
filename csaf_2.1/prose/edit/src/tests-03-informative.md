@@ -472,7 +472,7 @@ The test SHALL fail if a later `version` was used.
 Namespaces reserved for special purpose MUST be treated as per their definition.
 
 > A list of all valid decision points of registered namespaces including their values is available at the
-> [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
+> SSVC repository (see [cite](#SSVC-DP)).
 
 The relevant path for this test is:
 

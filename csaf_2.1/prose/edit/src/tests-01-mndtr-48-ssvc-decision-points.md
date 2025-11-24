@@ -7,7 +7,8 @@ Namespaces reserved for special purpose MUST be treated as per their definition.
 
 > A list of all currently registered namespaces is a available in the SSVC documentation at [cite](#SSVC-RNS).
 >
-> A list of all valid decision points including their values is available at the [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
+> A list of all valid decision points of registered namespaces including their values is available at the
+> SSVC repository (see [cite](#SSVC-DP)).
 > The items in `values` need to have the same order as in their definition.
 >
 > This test also covers decision points which use a registered base namespace with any number of extensions.
