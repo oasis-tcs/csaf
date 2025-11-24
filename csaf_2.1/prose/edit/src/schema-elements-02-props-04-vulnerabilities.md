@@ -407,7 +407,7 @@ The ordered tuple of the values of `party` and `date` (if present) SHALL be uniq
           "date": {
             // ...
           },
-          "group_ids" {
+          "group_ids": {
             // ...
           },
           "party": {
