@@ -778,8 +778,8 @@ Secondly, the program fulfills the following for all items of:
 
 A library satisfies the "CSAF Library" conformance profile if the library:
 
-* implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#date-and-time), [sec](#schema-elements),
-  [sec](#profiles) and [sec](#additional-conventions).
+* implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#format-validation),
+  [sec](#date-and-time), [sec](#schema-elements), [sec](#profiles) and [sec](#additional-conventions).
 * checks all elements according to the patterns provided in the JSON schema.
 * has a function that checks version ranges.
 * has a function that helps to create version ranges.
