@@ -3,6 +3,6 @@
     tracking:
       # ...
       generator:
-        date: String
+        date: String.DateTime
         engine: Mapping
       # ...

@@ -580,7 +580,7 @@ These items will reference when the document was actually created, including the
     tracking:
       # ...
       generator:
-        date: String
+        date: String.DateTime
         engine: Mapping
       # ...
 ```
