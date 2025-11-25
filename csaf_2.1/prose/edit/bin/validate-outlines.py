@@ -30,12 +30,16 @@ YAML_FCB_OFF = '```'
 HC_ON = '<!--'
 HC_OFF = '-->'
 
+OK = 'OK'
+FAIL = 'FAIL'
+
+PathLike = str | pathlib.Path
 SomeType = dict[int, list[str]]
 
-CSAF_JSON_SCHEMA = os.getenv('CSAF_JSON_SCHEMA', '../../json_schema/csaf.json')
+VALERY_JSON_SCHEMA = os.getenv('VALERY_JSON_SCHEMA', '../../json_schema/csaf.json')
 
-if not pathlib.Path(CSAF_JSON_SCHEMA).is_file():
-    print('Please set environment variable CSAF_JSON_SCHEMA to location of CSAF JSON Schema file')
+if not pathlib.Path(VALERY_JSON_SCHEMA).is_file():
+    print('Please set environment variable VALERY_JSON_SCHEMA to location of targeted JSON schema file')
     sys.exit(2)
 
 
@@ -173,78 +177,175 @@ def level_warp(raw_finds: dict[str, str], jpath: str) -> None:
     return raw_finds
 
 
+def rel_path_or(to_loc: PathLike, from_loc: PathLike = None, fallback: PathLike | None = None) -> str:
+    """Derive the relative path from src to tgt or on failure the fallback."""
+    if from_loc is None:
+        from_loc = pathlib.Path()  # Default is the current working dir
+    if fallback is None:
+        fallback = to_loc  # Default is the "to" location
+    try:
+        return str(pathlib.Path(to_loc).absolute().relative_to(pathlib.Path(from_loc).absolute()))
+    except:  # noqa
+        return fallback
+
+
+def extract_verbosity_if(args: list[str]) -> bool:
+    """Extract any verbosity arguments and return the result."""
+    verbosity = False
+    for pos, arg in enumerate(list(args)):
+        if arg in ('-v', '--verbose'):
+            verbosity = True
+            del args[pos]
+    return verbosity
+
+
+def extract_quietness_if(args: list[str]) -> bool:
+    """Extract any quietness arguments and return the result."""
+    quietness = False
+    for pos, arg in enumerate(list(args)):
+        if arg in ('-q', '--quiet'):
+            quietness = True
+            del args[pos]
+    return quietness
+
+
+def do_that(ln, lt, k, vd, vadet) -> str:
+    """Later."""
+    jp_status = OK
+    if ln != k:
+        vadet.append(f'ERROR: leaf {ln} does not match expected field {k}')
+        jp_status = FAIL
+    if vd == 'string':
+        if lt.lower() != vd and not lt.lower().startswith(vd):
+            vadet.append(
+                f'ERROR: leaf type {lt} of {ln}'
+                f' does not match expected string type {vd}'
+            )
+            jp_status = FAIL
+    elif vd == 'array':
+        if lt.lower() != 'sequence':
+            vadet.append(
+                f'ERROR: leaf type {lt} of {ln}'
+                f' does not match expected sequence type {vd}'
+            )
+            jp_status = FAIL
+    elif vd == 'object':
+        if lt.lower() != 'mapping':
+            vadet.append(
+                f'ERROR: leaf type {lt} of {ln}'
+                ' does not match expected mapping type {vd}'
+            )
+            jp_status = FAIL
+    elif lt.startswith('$defs.'):
+        if lt != vd:
+            vadet.append(
+                f'ERROR: leaf type {lt} of {ln}'
+                ' does not match expected mapping type reference {vd}'
+            )
+            jp_status = FAIL
+    return jp_status
+
+
+def leaf_types_shape_ok(leaf_types: list[tuple[str, str]], vadet: list[str]) -> bool:
+    """Iterate over leaf name-type pairs and return false if any is not a pair."""
+    valid = True
+    for x in leaf_types:
+        if len(x) != 2:
+            vadet.append(f'ERROR: Not a pair of leaf and type: {x}')
+            valid = False
+    return valid
+
+
 def main(args: list[str]) -> int:
     """Drive the validation."""
+    quiet = extract_quietness_if(args)
+    verbose = extract_verbosity_if(args)
+    if quiet:
+        verbose = False
     if not args:
-        try:
-            some_path = pathlib.Path(__file__).absolute().relative_to(pathlib.Path().absolute())
-        except:  # noqa
-            some_path = __file__
+        some_path = rel_path_or(__file__)
         print(f'usage: {some_path} markdown-file(s)-or-glob-with-yaml-outline-fenced-code-block')
         return 2
 
 
-    with open(CSAF_JSON_SCHEMA, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+    with open(VALERY_JSON_SCHEMA, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         data = json.load(handle)
 
+    file_paths = sorted(set(file_path for arg in args for file_path in glob.glob(arg)))
     passes = True
-    for arg in args:
-        file_paths = glob.glob(arg)
-        for file_path in file_paths:
-            with open(file_path, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
-                paths, snippets = extract_paths_and_snippets([line.rstrip(NL) for line in handle])
-
-            for slot, jpaths in paths.items():
-                print(slot)
-                stripped_yaml = yaml_strip(snippets[slot])
-                print(DASH * 69)
-                for y_line in stripped_yaml:
-                    print(y_line)
-                print(DASH * 69)
-                leaf_types = yaml_leaf_types(stripped_yaml)
-                for x in leaf_types:
-                    if len(x) != 2:
-                        print('ERROR: Not a pair of leaf and type:', x)
+    varep = []
+    file_count = len(file_paths)
+    for file_no, file_path in enumerate(file_paths):
+        record = []
+        with open(file_path, 'rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+            paths, snippets = extract_paths_and_snippets([line.rstrip(NL) for line in handle])
+        valog = f'file({rel_path_or(file_path)}): $file_status$'
+        file_status = OK
+        snip_count = len(paths)
+        snap = 0
+        for slot, jpaths in paths.items():
+            snap += 1
+            fence_length = len(snippets[slot])
+            vasnip = f'snip({rel_path_or(file_path)})[{slot + 1},{slot + 1 + fence_length + 1}]: $snip_status$'
+            snip_status = OK
+            snip_rep = []
+            stripped_yaml = yaml_strip(snippets[slot])
+            vadet = [EQ * 69]
+            vadet.extend(stripped_yaml)
+            leaf_types = yaml_leaf_types(stripped_yaml)
+            if not leaf_types_shape_ok(leaf_types, vadet):
+                snip_status = FAIL
+                file_status = FAIL
+                passes = False
+            jp_count = len(jpaths)
+            for jslot, jpath in enumerate(jpaths):
+                vadet.append(DASH * 69)
+                vapath = f'path({rel_path_or(file_path)})[{slot + 1},{slot + 1 + fence_length + 1}]{{{jpath}}}: $jp_status$'
+                jp_status = OK
+                jp_rep = []
+                found = jp.findall(jpath, data)[0]
+                level_warp(found, jpath)
+                vadet.append(f'  json-path({jslot+1}/{jp_count}): {jpath} ==> {LS.join(found.keys())}')
+                for k, v in found.items():
+                    vd = find_type(v)
+                    vadet.append(f'    {k} --> {vd}')
+                vadet.append('- ' * 35)
+                for (ln, lt), (k, v) in zip(leaf_types, found.items()):
+                    vd = find_type(v)
+                    if not jslot:
+                        pass  # Later alligator - lots of expansions needed for many use cases
+                    else:
+                        jp_status = do_that(ln, lt, k, vd, vadet)
+                    vadet.append(f'    {lt} ~ {vd}')
+                    if jp_status == FAIL:
+                        snip_status = FAIL
+                        file_status = FAIL
                         passes = False
-                    print(x[0], '<--', x[1])
-                print(DASH * 69)
-                for jslot, jpath in enumerate(jpaths):
-                    found = jp.findall(jpath, data)[0]
-                    level_warp(found, jpath)
-                    print(' ', jpath, '==>', LS.join(found.keys()))
-                    for k, v in found.items():
-                        vd = find_type(v)
-                        print('   ', k, '-->', vd)
-                    print('- ' * 34)
-                    for (ln, lt), (k, v) in zip(leaf_types, found.items()):
-                        vd = find_type(v)
-                        if len(jpaths) > 1 and jslot:
-                            if ln != k:
-                                print(f'ERROR: leaf {ln} does not match expected field {k}')
-                                passes = False
-                            if vd == 'string':
-                                if lt.lower() != vd and not lt.lower().startswith(vd):
-                                    print(
-                                        f'ERROR: leaf type {lt} of {ln}'
-                                        f' does not match expected string type {vd}'
-                                    )
-                                    passes = False
-                            if vd == 'array':
-                                if lt.lower() != 'sequence':
-                                    print(
-                                        f'ERROR: {jslot};{len(jpaths)}leaf type {lt} of {ln}'
-                                        f' does not match expected sequence type {vd}'
-                                    )
-                                    passes = False
-                            if vd == 'object':
-                                if lt.lower() != 'mapping':
-                                    print(
-                                        f'ERROR: leaf type {lt} of {ln}'
-                                        ' does not match expected mapping type {vd}'
-                                    )
-                                    passes = False
-                        print('   ', lt, '<-->', vd)
-                print(EQ * 69)
+
+                    if jp_status == FAIL:
+                        jp_rep.append(vapath.replace('$jp_status$', jp_status))
+
+                if snip_status == FAIL or not quiet:
+                    snip_rep.extend(jp_rep)
+                    if jslot == len(jpaths) - 1:
+                        if snip_status == FAIL:
+                            snip_rep.append('= ' * 35)
+                        snip_rep.append(vasnip.replace('$snip_status$', snip_status))
+
+                if snip_status == FAIL:
+                    snip_rep.extend(vadet)
+
+            if snip_status == FAIL or not quiet:
+                varep.extend(snip_rep)
+            record.append('.' if snip_status == OK else 'x')
+
+        if snap == snip_count:
+            record_disp =  SP + ''.join(record) if not quiet else ''
+            varep.append(valog.replace('$file_status$', f'{file_status}{record_disp}'))
+            if verbose:
+                varep.append('* ' * 35)
+
+    print(NL.join(varep))
 
     return 0 if passes else 1
 
