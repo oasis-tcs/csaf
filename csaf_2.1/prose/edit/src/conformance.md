@@ -113,9 +113,13 @@ Secondly, the program fulfills the following for all items of:
   and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CVRF CSAF Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
-  the CVRF CSAF Converter replaces those with the category `product_name`.
-  In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
+* type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Legacy`, `Realm`, or `Resource`,
+  the CVRF CSAF Converter MUST replace those with the category `product_name`.
+  In addition, the converter outputs a warning that those types do not exist in CSAF 2.1 and have been replaced with the category `product_name`.
+
+  > There is a chance, that this replacement is incorrect or another category is a better fit.
+  > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning,
   replace the all elements of type `/$defs/version_t` with the corresponding integer version.
   For that, CVRF CSAF Converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF.
@@ -621,6 +625,13 @@ Secondly, the program fulfills the following for all items of:
   the seconds and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CSAF 2.0 to CSAF 2.1 Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
+* type `/$defs/branches_t`: If a branch item uses the category `legacy`,
+  the CSAF 2.0 to CSAF 2.1 Converter MUST replace it with the category `product_name`.
+  In addition, the converter outputs a warning that this type does not exist in CSAF 2.1 and have been replaced with the category `product_name`.
+
+  > There is a chance, that this replacement is incorrect or another category is a better fit.
+  > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:

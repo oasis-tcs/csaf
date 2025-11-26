@@ -50,7 +50,6 @@ Valid `enum` values are:
     architecture
     host_name
     language
-    legacy
     patch_level
     platform
     product_family
@@ -67,8 +66,6 @@ The value `architecture` indicates the architecture for which the product is int
 The value `host_name` indicates the host name of a system/service.
 
 The value `language` indicates the language of the product.
-
-The value `legacy` indicates an entry that has reached its end of life.
 
 The value `patch_level` indicates the patch level of the product.
 
