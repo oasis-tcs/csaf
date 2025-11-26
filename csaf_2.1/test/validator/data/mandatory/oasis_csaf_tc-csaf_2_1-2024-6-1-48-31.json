@@ -51,7 +51,7 @@
                   "namespace": "test",
                   "values": [
                     {
-                      "description": "Anything is valid in here as reserved for tests.",
+                      "definition": "Anything is valid in here as reserved for tests.",
                       "key": "A",
                       "name": "Any"
                     }

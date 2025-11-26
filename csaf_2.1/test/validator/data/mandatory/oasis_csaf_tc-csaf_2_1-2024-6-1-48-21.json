@@ -51,7 +51,7 @@
                   "namespace": "invalid",
                   "values": [
                     {
-                      "description": "Everything is invalid in here.",
+                      "definition": "Everything is invalid in here.",
                       "key": "E",
                       "name": "Everything"
                     }

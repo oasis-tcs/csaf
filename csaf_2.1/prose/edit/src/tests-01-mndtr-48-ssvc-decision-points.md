@@ -5,15 +5,10 @@ is valid and the items in `values` are ordered correctly.
 The test SHALL pass, if a unregistered `namespace` is used.
 Namespaces reserved for special purpose MUST be treated as per their definition.
 
-> According to the SSVC project, the following values are currently registered:
+> A list of all currently registered namespaces is a available in the SSVC documentation at [cite](#SSVC-RNS).
 >
-> ```
->   cisa
->   cvss
->   ssvc
-> ```
->
-> A list of all valid decision points including their values is available at the [SSVC repository](https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points).
+> A list of all valid decision points of registered namespaces including their values is available at the
+> SSVC repository (see [cite](#SSVC-DP)).
 > The items in `values` need to have the same order as in their definition.
 >
 > This test also covers decision points which use a registered base namespace with any number of extensions.
@@ -21,8 +16,7 @@ Namespaces reserved for special purpose MUST be treated as per their definition.
 > Note that:
 >
 > - Extensions can limit the number of available values, but not add new ones or change the order.
-> - Extensions can translate or refine the `name` and `description`, but not change the `key`.
-
+> - Extensions can translate or refine the `name` and `definition`, but not change the `key`.
 
 The relevant path for this test is:
 
