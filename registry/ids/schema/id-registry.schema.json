@@ -1,0 +1,121 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/ids/schema/id-registry.schema.json",
+  "title": "Registry for Vulnerability IDs for CSAF",
+  "description": "Representation of the data provided for the registry used to identify registered vulnerability id systems and their naming constraints. See also section 3.2.4.8.",
+  "type": "object",
+  "$defs": {
+    "entry_t": {
+      "title": "Registry entry",
+      "description": "Contains all necessary data for a single ID system.",
+      "type": "object",
+      "required": [
+        "common_name",
+        "example_identifiers",
+        "published",
+        "summary",
+        "system_name",
+        "text_pattern",
+        "updated"
+      ],
+      "properties": {
+        "common_name": {
+          "title": "Common name",
+          "description": "Contains a human-readable short name for the system.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "OASIS Open CSAF TC GitHub Issues",
+            "Cisco Bugtracker"
+          ]
+        },
+        "example_identifiers": {
+          "title": "Example identifier",
+          "description": "Contains a list of example identifiers from the system.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/properties/vulnerabilities/items/properties/ids/items/properties/text"
+          }
+        },
+        "published": {
+          "title": "Published",
+          "description": "Holds the date and time when the entry was add to the registry.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "summary": {
+          "title": "Summary",
+          "description": "Contains a short human-readable summary about the system.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "Contains identifiers for issues in the official standard repository of the OASIS Open CSAF TC."
+          ]
+        },
+        "system_name": {
+          "title": "System name",
+          "description": "Indicates the registered URL of the vulnerability tracking or numbering system.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https:\/\/",
+          "minLength": 12,
+          "examples": [
+            "https://github.com/oasis-tcs/csaf"
+          ]
+        },
+        "text_pattern": {
+          "title": "Text pattern",
+          "description": "Contains an anchored JSON pattern that can be used to validate the identifiers.",
+          "type": "string",
+          "pattern": "^\\^.+\\$$"
+        },
+        "updated": {
+          "title": "Updated",
+          "description": "Holds the date and time when the entry was last updated in the registry.",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "entries",
+    "last_updated",
+    "registry_version"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for test data which the document promises to be valid for.",
+      "type": "string",
+      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/ids/schema/id-registry.schema.json"
+    },
+    "entries": {
+      "title": "List of registry entries",
+      "description": "Contains the registry entries.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/entry_t"
+      }
+    },
+    "last_updated": {
+      "title": "Last updated",
+      "description": "Holds the date and time when the document was last updated.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "registry_version": {
+      "title": "Registry schema version",
+      "description": "Contains the current version of this schema",
+      "type": "number",
+      "const": "1"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/ids/schema/id-registry.schema.json",
+  "entries": [
+    {
+      "common_name": "OASIS Open CSAF TC GitHub Issues",
+      "example_identifiers": [
+        "#1217"
+      ],
+      "published": "2025-11-26T17:45:00Z",
+      "summary": "Contains identifiers for issues in the official standard repository of the OASIS Open CSAF TC.",
+      "system_name": "https://github.com/oasis-tcs/csaf",
+      "text_pattern": "^#\\d+$",
+      "updated": "2025-11-26T17:45:00Z"
+    }
+  ],
+  "last_updated": "2025-11-26T17:45:00Z",
+  "registry_version": "1"
+}
