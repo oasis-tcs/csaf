@@ -82,12 +82,20 @@ The value `product_version` indicates exactly a single version of the product.
 The value of the adjacent `name` property can be numeric or some other descriptor.
 However, it MUST NOT contain version ranges of any kind.
 
-> It is recommended to enumerate versions wherever possible. Nevertheless, the TC understands that this is sometimes impossible.
+> It is recommended to enumerate versions wherever possible.
+> Nevertheless, the TC understands that this is sometimes impossible.
 > To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced.
 > See next section for details.
 
 The value `product_version_range` indicates a range of versions for the product.
 The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
+
+> In most cases, product version ranges hinder the use of product identification helpers as they need to identify a product completely.
+> In such case, the product identification and also therefore matching, independent whether that is against SBOMs or assets,
+> solely relies on the categorized strings.
+> This contradicts the goal of using unique product identifiers which would resolve the naming and identification issue for products
+> and are a next major step towards more automation and providing only relevant information to users.
+> Therefore, the use of product version ranges should be avoided, whenever possible.
 
 The value `service_pack` indicates the service pack of the product.
 
