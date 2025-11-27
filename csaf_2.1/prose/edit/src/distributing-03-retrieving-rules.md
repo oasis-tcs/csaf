@@ -23,7 +23,7 @@ Second, select one or more `provider-metadata.json` to use from the list of vali
 If the retrieving party is only able to process one `provider-metadata.json`, the first one in the list SHOULD be chosen.
 
 > The term "checking" used in the listing above SHOULD be understood as follows:
-> Try to access the resource and test whether the response provides an expected result as defined in the requirement in section [sec](#requirements).
+> Try to access the resource and test whether the response provides an expected result as defined in the respective requirement (of that step) in section [sec](#requirements).
 > If that is the case, the response is added to the list of candidates - otherwise not.
 > If the resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
 
