@@ -369,7 +369,7 @@ through the ecosystem.
 
 > Restrictive licenses can prevent users to easily utilize tools that are hosted in the cloud as the tool providers cannot pre-import
 > CSAF document but users need at least to activate the sources themselves.
-> This applies for both, commercial and non-commercial, services and tools.
+> This is relevant for services and tools, regardless of whether they are commercial or not.
 
 #### Document Property - Notes{#document-property-notes}
 
