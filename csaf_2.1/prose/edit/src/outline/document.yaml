@@ -1,4 +1,4 @@
-<advisory-instance>:
+<csaf-instance>:
   document:
     acknowledgments: $defs.acknowledgments_t
     aggregate_severity: Mapping

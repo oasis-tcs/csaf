@@ -6,7 +6,7 @@ The properties are Branches (`branches`), Full Product Names (`full_product_name
 and Relationships (`relationships`).
 
 ```yaml <!--json-path($..product_tree.properties)-->
-<advisory-instance>:
+<csaf-instance>:
   # ...
   product_tree:
     branches: $defs.branches_t
@@ -29,7 +29,7 @@ list of full product names.
 List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
 ```yaml <!--json-path($..product_tree..product_groups)-->
-<advisory-instance>:
+<csaf-instance>:
   # ...
   product_tree:
     # ...
@@ -41,7 +41,7 @@ The product group items are of value type `object` with the two mandatory proper
 the optional Summary (`summary`) property.
 
 ```yaml <!--json-path($..product_tree..product_groups..properties)-->
-<advisory-instance>:
+<csaf-instance>:
   # ...
   product_tree:
     # ...
@@ -73,7 +73,7 @@ the product_ids of those products which known as one group in the document.
 List of relationships (`relationships`) of value type `array` with `1` or more items contains a list of relationships.
 
 ```yaml <!--json-path($..product_tree..relationships)-->
-<advisory-instance>:
+<csaf-instance>:
   # ...
   product_tree:
     # ...
@@ -88,7 +88,7 @@ The Relationship item establishes a link between two existing `full_product_name
 allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
 ```yaml <!--json-path($..product_tree..relationships..properties)-->
-<advisory-instance>:
+<csaf-instance>:
   # ...
   product_tree:
     # ...

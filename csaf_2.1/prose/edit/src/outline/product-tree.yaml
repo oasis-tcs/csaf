@@ -1,4 +1,4 @@
-<advisory-instance>:
+<csaf-instance>:
   # ...
   product_tree:
     branches: $defs.branches_t
