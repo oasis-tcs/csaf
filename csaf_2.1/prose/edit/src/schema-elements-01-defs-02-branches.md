@@ -153,6 +153,8 @@ The value of MUST obey to exactly one of the following options:
 
     vers MUST be used in its canonical form. To convey the term "all versions", the special string `vers:all/*` MUST be used.
 
+   > According to the interpretation used here, the canonical form requires that the vers is normalized.
+
     *Examples 1 (for `name` when using `product_version_range` with vers):*
 
     ```
