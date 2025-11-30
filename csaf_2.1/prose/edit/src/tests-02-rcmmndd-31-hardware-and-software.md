@@ -51,5 +51,4 @@ The relevant paths for this test are:
 
 > The `product_tree` mentions the hardware product Example Company Controller A and combines it with the Firmware version 4.1.
 
-> A correct representation for hardware and software in the `product_tree` is given in example
-> \[[eg](#hardware-and-software-within-the-product-tree-eg-1)\] in section [sec](#hardware-and-software-within-the-product-tree).
+> A correct representation for hardware and software in the `product_tree` is given in example 1 in section [sec](#hardware-and-software-within-the-product-tree).
