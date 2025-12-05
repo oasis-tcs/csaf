@@ -369,8 +369,8 @@
     <h2 id="committee-specification-draft-02">
       Committee Specification Draft 02
     </h2>
-    <h2 id="29-october-2025">
-      29 October 2025
+    <h2 id="26-november-2025">
+      26 November 2025
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -501,7 +501,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 29 October 2025. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 26 November 2025. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -1114,6 +1114,8 @@
                 <li>6.2.46 <a href="#language-specific-license-text">Language Specific License Text</a>
                 </li>
                 <li>6.2.47 <a href="#use-of-qualitative-severity-rating-by-issuing-party">Use of Qualitative Severity Rating by Issuing Party</a>
+                </li>
+                <li>6.2.48 <a href="#misuse-at-vendor-name">Misuse at Vendor Name</a>
                 </li>
               </ul>
             </li>
@@ -2058,6 +2060,13 @@
       <strong>[</strong><span id="SSVC" class="anchor"></span><strong>SSVC]</strong> <em>SSVC: Stakeholder-Specific Vulnerability Categorization</em>, CERT/CC, <a href="https://certcc.github.io/SSVC/reference/">https://certcc.github.io/SSVC/reference/</a>
     </p>
     <p>
+      <strong>[</strong><span id="SSVC-RNS" class="anchor"></span><strong>SSVC-RNS]</strong> <em>Namespaces - SSVC: Stakeholder-Specific Vulnerability Categorization</em>, CERT/CC, <a href=
+      "https://certcc.github.io/SSVC/reference/code/namespaces/#registered-namespace">https://certcc.github.io/SSVC/reference/code/namespaces/#registered-namespace</a>
+    </p>
+    <p>
+      <strong>[</strong><span id="SSVC-DP" class="anchor"></span><strong>SSVC-DP]</strong> <em>SSVC/data/json/decision_points at main · CERTCC/SSVC</em>, CERT/CC, <a href="https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points">https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points</a>
+    </p>
+    <p>
       <strong>[</strong><span id="VERS" class="anchor"></span><strong>VERS]</strong> <em>vers: a mostly universal version range specifier</em>, Part of the package-URL GitHub Project, <a href="https://github.com/package-url/vers-spec">https://github.com/package-url/vers-spec</a>.
     </p>
     <p>
@@ -2197,7 +2206,7 @@
         <ul>
           <li>Stakeholder-Specific Vulnerability Categorization [<a href="#SSVC">SSVC</a>]
             <ul>
-              <li>JSON Schema Reference: <a href="https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json">https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json</a>
+              <li>JSON Schema Reference: <a href="https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json">https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json</a>
               </li>
             </ul>
           </li>
@@ -2562,7 +2571,6 @@
     <pre><code>    architecture
     host_name
     language
-    legacy
     patch_level
     platform
     product_family
@@ -2580,9 +2588,6 @@
     </p>
     <p>
       The value <code>language</code> indicates the language of the product.
-    </p>
-    <p>
-      The value <code>legacy</code> indicates an entry that has reached its end of life.
     </p>
     <p>
       The value <code>patch_level</code> indicates the patch level of the product.
@@ -2607,6 +2612,12 @@
     <p>
       The value <code>product_version_range</code> indicates a range of versions for the product. The value of the adjacent <code>name</code> property SHOULD NOT be used to convey a single version.
     </p>
+    <blockquote>
+      <p>
+        In most cases, product version ranges hinder the use of product identification helpers as they need to identify a product completely. In such case, the product identification and also therefore matching, independent whether that is against SBOMs or assets, solely relies on the categorized strings. This contradicts the goal of using
+        unique product identifiers which would resolve the naming and identification issue for products and are a next major step towards more automation and providing only relevant information to users. Therefore, the use of product version ranges should be avoided, whenever possible.
+      </p>
+    </blockquote>
     <p>
       The value <code>service_pack</code> indicates the service pack of the product.
     </p>
@@ -2687,6 +2698,11 @@
         <p>
           vers MUST be used in its canonical form. To convey the term "all versions", the special string <code>vers:all/*</code> MUST be used.
         </p>
+        <blockquote>
+          <p>
+            According to the interpretation used here, the canonical form requires that the vers is normalized.
+          </p>
+        </blockquote>
         <p>
           <em>Examples 1 (for <code>name</code> when using <code>product_version_range</code> with vers):</em><a id='branches-type-name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-8'></a>
         </p>
@@ -4005,6 +4021,14 @@
   LicenseRef-www.example.org-Example-CSAF-License-3.0
   LicenseRef-scancode-public-domain
   MIT OR any-OSI</code></pre>
+    <p>
+      When choosing a license expression, CSAF issuing parties SHALL consider to use a permissive license to enable the flow of information through the ecosystem.
+    </p>
+    <blockquote>
+      <p>
+        Restrictive licenses can prevent users to easily utilize tools that are hosted in the cloud as the tool providers cannot pre-import CSAF document but users need at least to activate the sources themselves. This is relevant for services and tools, regardless of whether they are commercial or not.
+      </p>
+    </blockquote>
     <h4 id="3228-document-property---notes-">
       3.2.2.8 Document Property - Notes <a id='document-property-notes'></a>
     </h4>
@@ -5068,7 +5092,7 @@
           "date": {
             // ...
           },
-          "group_ids" {
+          "group_ids": {
             // ...
           },
           "party": {
@@ -5281,8 +5305,7 @@
       CSAF consumer SHOULD give preference to CVSS if both, Qualitative Severity Rating and CVSS, are present. Issuing parties SHOULD consider using the SSVC decision point <code>Provider Urgency</code> from the <code>cvss</code> namespace to convey an additional assessment provided by a party.
     </p>
     <p>
-      The property SSVC v2 (<code>ssvc_v2</code>) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at <a href="https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json"><span>https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json</span></a>. See [<a href=
-      "#SSVC">SSVC</a>] for details.
+      The property SSVC v2 (<code>ssvc_v2</code>) holding an SSVC Selection List v2.0.0 value abiding by the schema at <a href="https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json"><span>https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json</span></a>. See [<a href="#SSVC">SSVC</a>] for details.
     </p>
     <h5 id="324102-vulnerabilities-property---metrics---products-">
       3.2.4.10.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property-metrics-products'></a>
@@ -9683,13 +9706,10 @@
     </p>
     <blockquote>
       <p>
-        According to the SSVC project, the following values are currently registered:
+        A list of all currently registered namespaces is a available in the SSVC documentation at [<a href="#SSVC-RNS">SSVC-RNS</a>].
       </p>
-      <pre><code>  cisa
-  cvss
-  ssvc</code></pre>
       <p>
-        A list of all valid decision points including their values is available at the <a href="https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points">SSVC repository</a>. The items in <code>values</code> need to have the same order as in their definition.
+        A list of all valid decision points of registered namespaces including their values is available at the SSVC repository (see [<a href="#SSVC-DP">SSVC-DP</a>]). The items in <code>values</code> need to have the same order as in their definition.
       </p>
       <p>
         This test also covers decision points which use a registered base namespace with any number of extensions. The rules for namespace extensions as specified by SSVC must be applied in such case. Note that:
@@ -9697,7 +9717,7 @@
       <ul>
         <li>Extensions can limit the number of available values, but not add new ones or change the order.
         </li>
-        <li>Extensions can translate or refine the <code>name</code> and <code>description</code>, but not change the <code>key</code>.
+        <li>Extensions can translate or refine the <code>name</code> and <code>definition</code>, but not change the <code>key</code>.
         </li>
       </ul>
     </blockquote>
@@ -10603,7 +10623,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/ids[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-152'></a>
+      <em>Example 1 (which fails the test):</em><a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-147'></a>
     </p>
     <pre><code>      "ids": [
         {
@@ -10638,7 +10658,7 @@
     </p>
     <pre><code>  /product_tree/branches[](/branches[])*/name</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-153'></a>
+      <em>Example 1 (which fails the test):</em><a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-148'></a>
     </p>
     <pre><code>            "branches": [
               {
@@ -10665,7 +10685,7 @@
     <pre><code>  /vulnerabilities[]/product_status/first_fixed[]
   /vulnerabilities[]/product_status/fixed[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-154'></a>
+      <em>Example 1 (which fails the test):</em><a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-149'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -10744,7 +10764,7 @@
       </p>
     </blockquote>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-155'></a>
+      <em>Example 1 (which fails the test):</em><a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-150'></a>
     </p>
     <pre><code>            "cvss_v3": {
               "baseScore": 6.4,
@@ -10774,7 +10794,7 @@
     </p>
     <pre><code>  /document/tracking/revision_history[]/date</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-156'></a>
+      <em>Example 1 (which fails the test):</em><a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-151'></a>
     </p>
     <pre><code>  "revision_history": [
     {
@@ -10804,7 +10824,7 @@
     </p>
     <pre><code>  /document/title</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-157'></a>
+      <em>Example 1 (which fails the test):</em><a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-152'></a>
     </p>
     <pre><code>    "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
     "tracking": {
@@ -10833,7 +10853,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-158'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-153'></a>
     </p>
     <pre><code>     "cwes": [
         {
@@ -10863,7 +10883,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-159'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-154'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -10912,7 +10932,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-160'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-155'></a>
     </p>
     <pre><code>      "cwes": [
         {
@@ -10945,7 +10965,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cwes[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-161'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-156'></a>
     </p>
     <pre><code>      "cwes": [
         {
@@ -10970,7 +10990,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/remediations[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-162'></a>
+      <em>Example 1 (which fails the test):</em><a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-157'></a>
     </p>
     <pre><code>      "product_status": {
         "known_not_affected": [
@@ -11002,7 +11022,7 @@
     </p>
     <pre><code>  /document/distribution/sharing_group/id</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-163'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-158'></a>
     </p>
     <pre><code>    "distribution": {
       "sharing_group": {
@@ -11032,7 +11052,7 @@
     </p>
     <pre><code>  /document/distribution/sharing_group/id</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-164'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-159'></a>
     </p>
     <pre><code>    "distribution": {
       "sharing_group": {
@@ -11062,7 +11082,7 @@
     </p>
     <pre><code>  /document/distribution/sharing_group</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-165'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-160'></a>
     </p>
     <pre><code>    "distribution": {
       "sharing_group": {
@@ -11102,7 +11122,7 @@
   /product_tree/full_product_names[]
   /product_tree/relationships[]/full_product_name</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-166'></a>
+      <em>Example 1 (which fails the test):</em><a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-161'></a>
     </p>
     <pre><code>  "product_tree": {
     "branches": [
@@ -11165,7 +11185,7 @@
   /product_tree/full_product_names[]/product_id/product_identification_helper
   /product_tree/relationships[]/full_product_name/product_id/product_identification_helper</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-167'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-162'></a>
     </p>
     <pre><code>  "product_tree": {
     "branches": [
@@ -11231,7 +11251,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/disclosure_date</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-168'></a>
+      <em>Example 1 (which fails the test):</em><a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-163'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -11282,7 +11302,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-169'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-164'></a>
     </p>
     <pre><code>  "ssvc_v2": {
     "schemaVersion": "2.0.0",
@@ -11311,7 +11331,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-170'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-165'></a>
     </p>
     <pre><code>  {
     "document": {
@@ -11362,7 +11382,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-171'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-166'></a>
     </p>
     <pre><code>  {
     "document": {
@@ -11422,7 +11442,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-172'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-167'></a>
     </p>
     <pre><code>  "content": {
     "ssvc_v2": {
@@ -11459,7 +11479,7 @@
     </p>
     <pre><code>   /document/category</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-173'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-168'></a>
     </p>
     <pre><code>    "category": "csaf_deprecated_security_advisory",
 </code></pre>
@@ -11491,7 +11511,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/product_status</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-174'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-169'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -11543,7 +11563,7 @@
     </p>
     <pre><code>  /document/notes</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-175'></a>
+      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-170'></a>
     </p>
     <pre><code>    "notes": [
       {
@@ -11578,7 +11598,7 @@
     </p>
     <pre><code>  /document/notes</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-176'></a>
+      <em>Example 1 (which fails the test):</em><a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-171'></a>
     </p>
     <pre><code>    "notes": [
       {
@@ -11613,7 +11633,7 @@
     </p>
     <pre><code>  /document/references</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-177'></a>
+      <em>Example 1 (which fails the test):</em><a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-172'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -11646,7 +11666,7 @@
     </p>
     <pre><code>  /document/notes[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-178'></a>
+      <em>Example 1 (which fails the test):</em><a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-173'></a>
     </p>
     <pre><code>    "notes": [
       {
@@ -11672,7 +11692,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics[]/content/epss/timestamp</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-179'></a>
+      <em>Example 1 (which fails the test):</em><a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-174'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -11748,7 +11768,7 @@
     <pre><code>    /product_tree/branches[](/branches[])*/product/product_identification_helper/cpe
     /product_tree/branches[](/branches[])*/product/product_identification_helper/purl</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-180'></a>
+      <em>Example 1 (which fails the test):</em><a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-175'></a>
     </p>
     <pre><code>  "product_tree": {
     "branches": [
@@ -11804,7 +11824,7 @@
     </p>
     <pre><code>  /document/license_expression</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-147'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-176'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -11830,7 +11850,7 @@
     </p>
     <pre><code>  /document/license_expression</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-148'></a>
+      <em>Example 1 (which fails the test):</em><a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-177'></a>
     </p>
     <pre><code>  "license_expression": "GFDL-1.1",</code></pre>
     <blockquote>
@@ -11849,7 +11869,7 @@
     </p>
     <pre><code>  /document/license_expression</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-149'></a>
+      <em>Example 1 (which fails the test):</em><a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-178'></a>
     </p>
     <pre><code>  "license_expression": "A-License-Identifier-That-Does-Not-Exist",</code></pre>
     <blockquote>
@@ -11869,7 +11889,7 @@
     </p>
     <pre><code>  /document/notes</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-150'></a>
+      <em>Example 1 (which fails the test):</em><a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-179'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -11905,7 +11925,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-151'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-180'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -11939,6 +11959,50 @@
         A tool MAY recommend other metrics or guide a CVSS assessment.
       </p>
     </blockquote>
+    <h3 id="6248-misuse-at-vendor-name-">
+      6.2.48 Misuse at Vendor Name <a id='misuse-at-vendor-name'></a>
+    </h3>
+    <p>
+      For each item in <code>branches</code> with category <code>vendor</code> it MUST be tested that the <code>name</code> is not <code>Open Source</code>. The comparison is case and white space insensitive.
+    </p>
+    <blockquote>
+      <p>
+        Some issuing parties use <code>Open Source</code> as a vendor name for all open source products. This usage hinders efficient matching and is most likely not true. However, if there is a vendor whose official name is exactly <code>Open Source</code> it would be expected and acceptable to fail this test. This does not apply, if the
+        official name differs, e.g. <code>Open Source Ltd.</code>.
+      </p>
+    </blockquote>
+    <p>
+      The relevant path for this test is:
+    </p>
+    <pre><code>    /product_tree/branches[](/branches[])*/name</code></pre>
+    <p>
+      <em>Example 1 (which fails the test):</em><a id='misuse-at-vendor-name-eg-1'></a><a id='sec-6-2-48-eg-1'></a><a id='example-181'></a>
+    </p>
+    <pre><code>  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            // ...
+            "category": "product_name",
+            "name": "ISDuBA"
+          }
+        ],
+        "category": "vendor",
+        "name": "Open Source"
+      }
+    ]
+  }</code></pre>
+    <blockquote>
+      <p>
+        The issuing party used <code>Open Source</code> as vendor name for the open source product <code>ISDuBA</code>.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY replace the vendor name with the correct one as a quick fix.
+      </p>
+    </blockquote>
     <h2 id="63-informative-tests-">
       6.3 Informative Tests <a id='informative-tests'></a>
     </h2>
@@ -11962,7 +12026,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-181'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-182'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -12013,7 +12077,7 @@
     <pre><code>  /vulnerabilities[]/metrics[]/content/cvss_v3/version
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-182'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-183'></a>
     </p>
     <pre><code>  "cvss_v3": {
     "version": "3.0",
@@ -12049,7 +12113,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cve</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-183'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-184'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -12078,7 +12142,7 @@
     </p>
     <pre><code>  /vulnerabilities[]/cwes</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-184'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-185'></a>
     </p>
     <pre><code>  "vulnerabilities": [
     {
@@ -12104,7 +12168,7 @@
   /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/value
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-185'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-186'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -12167,7 +12231,7 @@
   /vulnerabilities[]/references[]/url
   /vulnerabilities[]/remediations[]/url</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-186'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-187'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -12197,7 +12261,7 @@
     <pre><code>  /document/references[]/url
   /vulnerabilities[]/references[]/url</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-187'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-188'></a>
     </p>
     <pre><code>    "references": [
       {
@@ -12258,7 +12322,7 @@
   /vulnerabilities[]/threats[]/details
   /vulnerabilities[]/title</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-188'></a>
+      <em>Example 1 (which fails the test):</em><a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-189'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -12293,7 +12357,7 @@
     </p>
     <pre><code>  /product_tree/branches</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-189'></a>
+      <em>Example 1 (which fails the test):</em><a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-190'></a>
     </p>
     <pre><code>    "branches": [
       {
@@ -12338,7 +12402,7 @@
     </p>
     <pre><code>  /product_tree/branches[](/branches[])*/category</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-190'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-191'></a>
     </p>
     <pre><code>                "category": "product_version_range",</code></pre>
     <blockquote>
@@ -12363,7 +12427,7 @@
     </p>
     <pre><code>  /product_tree/branches[](/branches[])*/name</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-191'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-192'></a>
     </p>
     <pre><code>            "branches": [
               {
@@ -12389,7 +12453,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics[]/content</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-192'></a>
+      <em>Example 1 (which fails the test):</em><a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-193'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -12432,7 +12496,7 @@
     </p>
     <blockquote>
       <p>
-        A list of all valid decision points of registered namespaces including their values is available at the <a href="https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points">SSVC repository</a>.
+        A list of all valid decision points of registered namespaces including their values is available at the SSVC repository (see [<a href="#SSVC-DP">SSVC-DP</a>]).
       </p>
     </blockquote>
     <p>
@@ -12440,7 +12504,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-193'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-194'></a>
     </p>
     <pre><code>  "ssvc_v2": {
     // ...
@@ -12471,7 +12535,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-194'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-195'></a>
     </p>
     <pre><code>  {
     "document": {
@@ -12522,7 +12586,7 @@
     </p>
     <pre><code>   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-195'></a>
+      <em>Example 1 (which fails the test):</em><a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-196'></a>
     </p>
     <pre><code>  {
     "document": {
@@ -12594,7 +12658,7 @@
   /vulnerabilities[]/threats[]/details
   /vulnerabilities[]/title</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-196'></a>
+      <em>Example 1 (which fails the test):</em><a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-197'></a>
     </p>
     <pre><code>  "document": {
     // ...
@@ -12632,7 +12696,7 @@
     </p>
     <pre><code>  /document/license_expression</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-197'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-198'></a>
     </p>
     <pre><code>    "license_expression": "LicenseRef-www.example.com-no-work-pd",</code></pre>
     <blockquote>
@@ -12657,7 +12721,7 @@
     </p>
     <pre><code>    /vulnerabilities[]/metrics[]</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-198'></a>
+      <em>Example 1 (which fails the test):</em><a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-199'></a>
     </p>
     <pre><code>  "product_tree": {
     "full_product_names": [
@@ -13013,7 +13077,7 @@
       </ul>
     </blockquote>
     <p>
-      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-199'></a>
+      <em>Example 1 (minimal with ROLIE document):</em><a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-200'></a>
     </p>
     <pre><code>  {
     "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
@@ -13079,7 +13143,7 @@
       </p>
     </blockquote>
     <p>
-      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-200'></a>
+      <em>Examples 1:</em><a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-201'></a>
     </p>
     <pre><code>CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
 CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
@@ -13097,7 +13161,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-201'></a>
+      <em>Example 1:</em><a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-202'></a>
     </p>
     <pre><code>  https://www.example.com/.well-known/csaf/provider-metadata.json</code></pre>
     <p>
@@ -13124,7 +13188,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       The CSAF documents MUST be located within folders named <code>&lt;YYYY&gt;</code> where <code>&lt;YYYY&gt;</code> is the year given in the value of <code>/document/tracking/initial_release_date</code>.
     </p>
     <p>
-      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-202'></a>
+      <em>Examples 1:</em><a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-203'></a>
     </p>
     <pre><code>2024
 2023</code></pre>
@@ -13135,7 +13199,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       The file <code>index.txt</code> MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames. Each entry SHALL be terminated by a newline sequence. The last entry MAY skip the newline sequence.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-203'></a>
+      <em>Example 1:</em><a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-204'></a>
     </p>
     <pre><code>2025/esa-2025-421324.json
 2024/esa-2024-620109.json
@@ -13156,7 +13220,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       </p>
     </blockquote>
     <p>
-      <em>Example 2:</em><a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-204'></a>
+      <em>Example 2:</em><a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-205'></a>
     </p>
     <pre><code>.well-known/
 ├─ csaf/
@@ -13205,7 +13269,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       </p>
     </blockquote>
     <p>
-      <em>Example 3:</em><a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-205'></a>
+      <em>Example 3:</em><a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-206'></a>
     </p>
     <pre><code>  "distributions": [
     {
@@ -13252,7 +13316,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       </p>
     </blockquote>
     <p>
-      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-206'></a>
+      <em>Example 1:</em><a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-207'></a>
     </p>
     <pre><code>2024/esa-2024-430524.json,2025-07-21T11:14:37Z
 2025/esa-2025-421324.json,2025-01-10T00:51:10Z
@@ -13304,7 +13368,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       The ROLIE feed document MUST contain a feed category with the registered ROLIE information type <code>csaf</code>. The <code>scheme</code> for this category MUST be <code>urn:ietf:params:rolie:category:information-type</code>.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-207'></a>
+      <em>Example 1:</em><a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-208'></a>
     </p>
     <pre><code>  {
     "feed": {
@@ -13370,7 +13434,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       the filename <code>service.json</code> and reside next to the <code>provider-metadata.json</code>.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-208'></a>
+      <em>Example 1:</em><a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-209'></a>
     </p>
     <pre><code>  {
     "service": {
@@ -13437,7 +13501,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
           type of product
         </p>
         <p>
-          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-209'></a>
+          <em>Examples 1:</em><a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-210'></a>
         </p>
         <pre><code>  CPU
   Firewall
@@ -13453,7 +13517,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
           areas or sectors, the products are used in
         </p>
         <p>
-          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-210'></a>
+          <em>Examples 2:</em><a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-211'></a>
         </p>
         <pre><code>  Chemical
   Commercial
@@ -13471,7 +13535,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       </li>
     </ul>
     <p>
-      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-211'></a>
+      <em>Example 3:</em><a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-212'></a>
     </p>
     <pre><code>  {
     "categories": {
@@ -13495,16 +13559,16 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
       MD5 and SHA1 SHALL NOT be used.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-212'></a>
+      <em>Example 1:</em><a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-213'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of SHA-256 hash file: esa-2022-02723.json.sha256
 File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
     <p>
-      The file content SHALL start with the first byte of the hexadecimal hash value. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
+      The file content SHALL start with the first byte of the hexadecimal hash value. The hash value SHALL be represented in lower case. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
     </p>
     <p>
-      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-213'></a>
+      <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-214'></a>
     </p>
     <pre><code>ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json</code></pre>
     <p>
@@ -13517,7 +13581,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
       All CSAF documents SHALL have at least one OpenPGP signature file which is provided under the same filename which is extended by the appropriate extension. This signature SHALL be presented as an ASCII armored file. See [<a href="#RFC4880">RFC4880</a>] for more details.
     </p>
     <p>
-      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-214'></a>
+      <em>Example 1:</em><a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-215'></a>
     </p>
     <pre><code>File name of CSAF document: esa-2022-02723.json
 File name of signature file: esa-2022-02723.json.asc</code></pre>
@@ -13564,7 +13628,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       The file <code>aggregator.json</code> SHOULD be accessible at the registered path in the <code>.well-known</code> directory: <code>/.well-known/csaf-aggregator/aggregator.json</code>.
     </p>
     <p>
-      <em>Examples 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-215'></a>
+      <em>Examples 1:</em><a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-216'></a>
     </p>
     <pre><code>  https://aggregator.example/.well-known/csaf-aggregator/aggregator.json
   https://aggregator.example/.well-known/csaf-aggregator/v2.1/aggregator.json</code></pre>
@@ -13572,7 +13636,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       The file <code>aggregator.json</code> SHOULD only list the latest version of the metadata of a CSAF provider.
     </p>
     <p>
-      <em>Example 2:</em><a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-216'></a>
+      <em>Example 2:</em><a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-217'></a>
     </p>
     <pre><code>  {
     "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
@@ -13632,7 +13696,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
     </ul>
     <p>
-      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-217'></a>
+      <em>Example 1:</em><a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-218'></a>
     </p>
     <pre><code>  {
     "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
@@ -13881,8 +13945,8 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     </p>
     <blockquote>
       <p>
-        The term "checking" used in the listing above SHOULD be understood as follows: Try to access the resource and test whether the response provides an expected result as defined in the requirement in section <a href="#requirements">7.1</a>. If that is the case, the response is added to the list of candidates - otherwise not. If the
-        resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
+        The term "checking" used in the listing above SHOULD be understood as follows: Try to access the resource and test whether the response provides an expected result as defined in the respective requirement of that step as defined in section <a href="#requirements">7.1</a>. If that is the case, the response is added to the list of
+        candidates - otherwise not. If the resource yields more than one response, the responses are added to the list in the order they are returned from the resource.
       </p>
     </blockquote>
     <p>
@@ -14182,9 +14246,6 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     <p>
       In the only subsection of this section, the conformance targets and clauses are listed. The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
     </p>
-    <p>
-      Informative Comments:
-    </p>
     <blockquote>
       <p>
         The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is no natural order on such diverse roles participating in the document exchanging ecosystem.
@@ -14215,9 +14276,6 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     <ul>
       <li>
         <strong>CSAF Document</strong>: A security advisory text document in the format defined by this document.
-      </li>
-      <li>
-        <strong>CSAF Downloader</strong>: A program that retrieves CSAF Documents in an automated fashion.
       </li>
       <li>
         <strong>CSAF Producer</strong>: A program which emits output in the CSAF format.
@@ -14281,6 +14339,9 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <strong>CSAF Library with Full Validation</strong>: A CSAF Library that also satisfies the conformance target "CSAF Full Validator".
+      </li>
+      <li>
+        <strong>CSAF Downloader</strong>: A program that retrieves CSAF Documents in an automated fashion.
       </li>
       <li>
         <strong>CSAF Withdrawer</strong>: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
@@ -14380,9 +14441,14 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
-          type <code>/$defs/branches_t</code>: If any <code>prod:Branch</code> instance has the type <code>Realm</code> or <code>Resource</code>, the CVRF CSAF Converter replaces those with the category <code>product_name</code>. In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the
-          category <code>product_name</code>.
+          type <code>/$defs/branches_t</code>: If any <code>prod:Branch</code> instance has the type <code>Legacy</code>, <code>Realm</code>, or <code>Resource</code>, the CVRF CSAF Converter MUST replace those with the category <code>product_name</code>. In addition, the converter outputs a warning that those types do not exist in CSAF 2.1
+          and have been replaced with the category <code>product_name</code>.
         </p>
+        <blockquote>
+          <p>
+            There is a chance, that this replacement is incorrect or another category is a better fit. Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+          </p>
+        </blockquote>
       </li>
       <li>
         <p>
@@ -14539,7 +14605,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS vector, if present.
                 </p>
                 <p>
-                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-218'></a>
+                  <em>Example 1:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-219'></a>
                 </p>
                 <pre><code>  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H =&gt; 3.1</code></pre>
               </li>
@@ -14548,7 +14614,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   Retrieve the CVSS version from the CVSS element's namespace, if present. The CVRF CSAF Converter outputs a warning that this value was guessed from the element's namespace.
                 </p>
                 <p>
-                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-219'></a>
+                  <em>Example 2:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-220'></a>
                 </p>
                 <pre><code>  xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
   &lt;!-- --&gt;
@@ -14557,7 +14623,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   is handled the same as
                 </p>
                 <p>
-                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-220'></a>
+                  <em>Example 3:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-221'></a>
                 </p>
                 <pre><code>  &lt;ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd"&gt;</code></pre>
               </li>
@@ -14567,7 +14633,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
                   decision.
                 </p>
                 <p>
-                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-221'></a>
+                  <em>Example 4:</em><a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-222'></a>
                 </p>
                 <pre><code>  xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" =&gt; 3.0</code></pre>
               </li>
@@ -15222,7 +15288,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       A program satisfies the "CSAF Basic Validator" conformance profile if the program:
     </p>
     <ul>
-      <li>reads documents and performs a check against the JSON schema.
+      <li>reads documents and performs a check against the JSON schema, including also the format validation (cf. section <a href="#format-validation">2.2</a>).
       </li>
       <li>performs all tests of the preset <code>mandatory</code> as given in section <a href="#presets-defined-through-test-subsections">6.4.1</a>.
       </li>
@@ -15421,6 +15487,17 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           value type <code>string</code> with format <code>date-time</code>: If the value contains a <code>60</code> in the seconds place, the CSAF 2.0 to CSAF 2.1 Converter MUST replace the seconds and their fractions with <code>59.999999</code>. In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and
           the value has been replaced. The CSAF 2.0 to CSAF 2.1 Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
         </p>
+      </li>
+      <li>
+        <p>
+          type <code>/$defs/branches_t</code>: If a branch item uses the category <code>legacy</code>, the CSAF 2.0 to CSAF 2.1 Converter MUST replace it with the category <code>product_name</code>. In addition, the converter outputs a warning that this type does not exist in CSAF 2.1 and have been replaced with the category
+          <code>product_name</code>.
+        </p>
+        <blockquote>
+          <p>
+            There is a chance, that this replacement is incorrect or another category is a better fit. Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+          </p>
+        </blockquote>
       </li>
       <li>
         <p>
@@ -15728,7 +15805,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       A library satisfies the "CSAF Library" conformance profile if the library:
     </p>
     <ul>
-      <li>implements all elements as data structures conforming to the syntax and semantics defined in section <a href="#date-and-time">2.3</a>, <a href="#schema-elements">3</a>, <a href="#profiles">4</a> and <a href="#additional-conventions">5</a>.
+      <li>implements all elements as data structures conforming to the syntax and semantics defined in section <a href="#format-validation">2.2</a>, <a href="#date-and-time">2.3</a>, <a href="#schema-elements">3</a>, <a href="#profiles">4</a> and <a href="#additional-conventions">5</a>.
       </li>
       <li>checks all elements according to the patterns provided in the JSON schema.
       </li>
@@ -17417,6 +17494,20 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             Editor Revision for CSD02
           </td>
         </tr>
+        <tr>
+          <td style="text-align: left;">
+            csaf-v2.1-wd20251126-dev
+          </td>
+          <td style="text-align: left;">
+            2025-11-26
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Editor Revision for CSD02
+          </td>
+        </tr>
       </tbody>
     </table>
     <hr />
@@ -17442,7 +17533,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       C.1 File Size <a id='file-size'></a>
     </h2>
     <p>
-      A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 50 MiB.
+      A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content, e.g.: 150 MiB.
     </p>
     <blockquote>
       <p>
