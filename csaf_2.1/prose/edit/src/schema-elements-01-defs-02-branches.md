@@ -2,33 +2,26 @@
 
 List of branches (`branches_t`) with value type `array` contains `1` or more branch elements as children of the current element.
 
-```
-    "branches_t": {
-      //...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].branches_t)-->
+$defs:
+  # ...
+  branches_t: Sequence
+  # ...
 ```
 
 Every Branch holds exactly `3` properties and is a part of the hierarchical structure of the product tree.
 The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
 
-```
-        "properties": {
-          "branches": {
-            // ...
-          },
-          "category": {
-            // ...
-          },
-          "name": {
-            // ...
-          },
-          "product": {
-            // ...
-          }
-        }
+```yaml <!--json-path($['$defs'].branches_t[*].properties)-->
+$defs:
+  # ...
+  branches_t:
+  - # <branch-instance>:
+    branches: $defs.branches_t
+    category: String.Enum
+    name: String
+    product: $defs.full_product_name_t
+  # ...
 ```
 
 > `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and

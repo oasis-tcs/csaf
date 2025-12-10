@@ -1,0 +1,8 @@
+$defs:
+  acknowledgments_t:
+  - # <acknowledgment-instance>:
+    names: Sequence
+    organization: String
+    summary: String
+    urls: Sequence
+  # ...
