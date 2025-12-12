@@ -8,7 +8,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 
 1. The value `/document/tracking/id` is converted into lowercase.
 2. Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (`_`):
-   * Lowercase ASCII letters (0x61 - 0x7A)
+   * lower-case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
    * special characters: `+` (0x2B), `-` (0x2D)
 
