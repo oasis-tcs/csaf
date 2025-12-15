@@ -95,7 +95,6 @@
               "architecture",
               "host_name",
               "language",
-              "legacy",
               "patch_level",
               "platform",
               "product_family",
@@ -1424,7 +1423,7 @@
                     },
                     "ssvc_v2": {
                       "title": "SSVC v2",
-                      "$ref": "https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json"
+                      "$ref": "https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json"
                     }
                   },
                   "additionalProperties": false

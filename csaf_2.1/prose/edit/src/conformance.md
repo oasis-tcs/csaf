@@ -3,8 +3,6 @@
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
 
-Informative Comments:
-
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
@@ -27,7 +25,6 @@ This document defines requirements for the file format and for certain software 
 The entities ("conformance targets") for which this document defines requirements are:
 
 * **CSAF Document**: A security advisory text document in the format defined by this document.
-* **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
 * **CSAF Producer**: A program which emits output in the CSAF format.
 * **CSAF Direct Producer**: An analysis tool which acts as a CSAF Producer.
 * **CSAF Converter**: A CSAF Producer that transforms the output of an analysis tool from its native output format into the CSAF format.
@@ -56,6 +53,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF Library with Basic Validation**: A CSAF Library that also satisfies the conformance target "CSAF Basic Validator".
 * **CSAF Library with Extended Validation**: A CSAF Library that also satisfies the conformance target "CSAF Extended Validator".
 * **CSAF Library with Full Validation**: A CSAF Library that also satisfies the conformance target "CSAF Full Validator".
+* **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
 * **CSAF Withdrawer**: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
 * **CSAF Superseder**: A CSAF Post-Processor that transforms a given CSAF into a Superseded one.
 
@@ -115,9 +113,13 @@ Secondly, the program fulfills the following for all items of:
   and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CVRF CSAF Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Realm` or `Resource`,
-  the CVRF CSAF Converter replaces those with the category `product_name`.
-  In addition, the converter outputs a warning that those types do not exist in CSAF and have been replaced with the category `product_name`.
+* type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Legacy`, `Realm`, or `Resource`,
+  the CVRF CSAF Converter MUST replace those with the category `product_name`.
+  In addition, the converter outputs a warning that those types do not exist in CSAF 2.1 and have been replaced with the category `product_name`.
+
+  > There is a chance, that this replacement is incorrect or another category is a better fit.
+  > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning,
   replace the all elements of type `/$defs/version_t` with the corresponding integer version.
   For that, CVRF CSAF Converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF.
@@ -534,7 +536,8 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
 
 A program satisfies the "CSAF Basic Validator" conformance profile if the program:
 
-* reads documents and performs a check against the JSON schema.
+* reads documents and performs a check against the JSON schema,
+  including also the format validation (cf. section [sec](#format-validation)).
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
 * satisfies those normative requirements in section [sec](#presets) that are designated as applying to CSAF Validators.
@@ -622,6 +625,13 @@ Secondly, the program fulfills the following for all items of:
   the seconds and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CSAF 2.0 to CSAF 2.1 Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
+* type `/$defs/branches_t`: If a branch item uses the category `legacy`,
+  the CSAF 2.0 to CSAF 2.1 Converter MUST replace it with the category `product_name`.
+  In addition, the converter outputs a warning that this type does not exist in CSAF 2.1 and have been replaced with the category `product_name`.
+
+  > There is a chance, that this replacement is incorrect or another category is a better fit.
+  > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/model_number`:
@@ -780,8 +790,8 @@ Secondly, the program fulfills the following for all items of:
 
 A library satisfies the "CSAF Library" conformance profile if the library:
 
-* implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#date-and-time), [sec](#schema-elements),
-  [sec](#profiles) and [sec](#additional-conventions).
+* implements all elements as data structures conforming to the syntax and semantics defined in section [sec](#format-validation),
+  [sec](#date-and-time), [sec](#schema-elements), [sec](#profiles) and [sec](#additional-conventions).
 * checks all elements according to the patterns provided in the JSON schema.
 * has a function that checks version ranges.
 * has a function that helps to create version ranges.
