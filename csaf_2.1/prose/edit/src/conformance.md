@@ -722,7 +722,7 @@ Secondly, the program fulfills the following for all items of:
   been regrouped into the new value `multiplier`. An option to suppress this warning MUST exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the `/document/tracking/id`
-  from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
+  from the `/document/title`. In addition, separating characters including but not limited to white space, colon, dash and brackets MUST be removed.
 * `/vulnerabilities[]/cwes[]`:
   * The CSAF 2.0 to CSAF 2.1 Converter MUST remove all preceding and trailing white space from the `name`.
   * The CSAF 2.0 to CSAF 2.1 Converter MUST determine the CWE specification version the given CWE was selected from by
@@ -813,7 +813,7 @@ A library satisfies the "CSAF Library" conformance profile if the library:
 * provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
 * provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
   and, where necessary according to the profile, the impact statement respectively the action statement.
-* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by whitespace
+* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by white space
   of the elements along the path towards this leaf.
 * calculates the CVSS scores and severities for existing data for all CVSS versions.
 * validates the CVSS scores and severities for existing data for all CVSS versions.
