@@ -1,0 +1,184 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Stacked Branch Categories (failing example 3)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-49-03",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "branches": [
+                  {
+                    "category": "product_name",
+                    "name": "BG",
+                    "product": {
+                      "name": "Example Company A BG x86",
+                      "product_id": "CSAFPID-908070601"
+                    }
+                  }
+                ],
+                "category": "architecture",
+                "name": "x86"
+              },
+              {
+                "branches": [
+                  {
+                    "branches": [
+                      {
+                        "branches": [
+                          {
+                            "branches": [
+                              {
+                                "category": "product_version",
+                                "name": "1",
+                                "product": {
+                                  "name": "Example Company A ATA ARMv7-A 1",
+                                  "product_id": "CSAFPID-908070602"
+                                }
+                              },
+                              {
+                                "category": "product_version",
+                                "name": "2",
+                                "product": {
+                                  "name": "Example Company A ATA ARMv7-A 2",
+                                  "product_id": "CSAFPID-908070603"
+                                }
+                              }
+                            ],
+                            "category": "product_name",
+                            "name": "ATA"
+                          },
+                          {
+                            "branches": [
+                              {
+                                "category": "product_version",
+                                "name": "1",
+                                "product": {
+                                  "name": "Example Company A ATC ARMv7-A 1",
+                                  "product_id": "CSAFPID-908070604"
+                                }
+                              }
+                            ],
+                            "category": "product_name",
+                            "name": "ATC"
+                          }
+                        ],
+                        "category": "architecture",
+                        "name": "ARMv7-A"
+                      },
+                      {
+                        "branches": [
+                          {
+                            "branches": [
+                              {
+                                "category": "product_version",
+                                "name": "143",
+                                "product": {
+                                  "name": "Example Company A ATR ARMv7-R 143",
+                                  "product_id": "CSAFPID-908070605"
+                                }
+                              }
+                            ],
+                            "category": "product_name",
+                            "name": "ATR"
+                          },
+                          {
+                            "branches": [
+                              {
+                                "category": "product_version",
+                                "name": "354",
+                                "product": {
+                                  "name": "Example Company A ATQ ARMv7-R 354",
+                                  "product_id": "CSAFPID-908070606"
+                                }
+                              }
+                            ],
+                            "category": "product_name",
+                            "name": "ATQ"
+                          }
+                        ],
+                        "category": "architecture",
+                        "name": "ARMv7-R"
+                      }
+                    ],
+                    "category": "architecture",
+                    "name": "ARMv7"
+                  },
+                  {
+                    "branches": [
+                      {
+                        "branches": [
+                          {
+                            "category": "product_name",
+                            "name": "ABA",
+                            "product": {
+                              "name": "Example Company A ABA ARMv8-A",
+                              "product_id": "CSAFPID-908070607"
+                            }
+                          }
+                        ],
+                        "category": "architecture",
+                        "name": "ARMv8-A"
+                      },
+                      {
+                        "branches": [
+                          {
+                            "category": "product_name",
+                            "name": "ABR",
+                            "product": {
+                              "name": "Example Company A ABR ARMv8-R",
+                              "product_id": "CSAFPID-908070608"
+                            }
+                          }
+                        ],
+                        "category": "architecture",
+                        "name": "ARMv8-R"
+                      }
+                    ],
+                    "category": "architecture",
+                    "name": "ARMv8"
+                  }
+                ],
+                "category": "architecture",
+                "name": "arm"
+              }
+            ],
+            "category": "product_family",
+            "name": "Family A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  }
+}
