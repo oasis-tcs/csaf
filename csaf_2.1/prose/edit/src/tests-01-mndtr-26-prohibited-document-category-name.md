@@ -1,7 +1,7 @@
 ### Prohibited Document Category Name
 
 It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
-value of any other profile than "CSAF Base". Any occurrences of dash, whitespace,
+value of any other profile than "CSAF Base". Any occurrences of dash, white space,
 and underscore characters are removed from the values on both sides before the match.
 Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
 

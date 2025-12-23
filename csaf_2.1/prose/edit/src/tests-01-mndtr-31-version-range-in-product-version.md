@@ -3,7 +3,7 @@
 For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that
 the value of `name` does not contain a version range.
 
-> To implement this test it is deemed sufficient that, when converted to lower case, the value of `name` satisfies the two requirements below:
+> To implement this test it is deemed sufficient that, when converted to lowercase, the value of `name` satisfies the two requirements below:
 >
 > 1. It does not contain any of the following operators:
 >
@@ -14,7 +14,7 @@ the value of `name` does not contain a version range.
 >      >=
 >    ```
 >
-> 2. If interpreted as a list of individual words separated by whitespace, the list does not contain any of the following keywords:
+> 2. If interpreted as a list of individual words separated by white space, the list does not contain any of the following keywords:
 >
 >    ```
 >      after

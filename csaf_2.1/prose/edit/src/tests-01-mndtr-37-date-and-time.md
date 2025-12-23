@@ -25,4 +25,4 @@ The relevant path for this test is:
       "current_release_date": "2024-01-24 10:00:00.000Z",
 ```
 
-> The `current_release_date` uses a whitespace as separator instead the letter `T`.
+> The `current_release_date` uses a white space as separator instead the letter `T`.

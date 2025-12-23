@@ -535,7 +535,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512
 ```
 
 The file content SHALL start with the first byte of the hexadecimal hash value.
-The hash value SHALL be represented in lower case.
+The hash value SHALL be represented in lowercase.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
 *Example 2:*

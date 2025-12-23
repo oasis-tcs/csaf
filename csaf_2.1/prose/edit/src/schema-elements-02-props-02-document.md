@@ -210,7 +210,7 @@ It MUST differ if a different sharing group is addressed.
 
 > It is assumed that the ID is globally unique, if constructed according to the specification for UUID Version 4.
 
-The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lower case.
+The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lowercase.
 The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. `TLP:GREEN` and above.
 
 The following ID values SHOULD NOT be used unless there are technical reasons for them.
