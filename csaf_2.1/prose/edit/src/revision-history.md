@@ -30,5 +30,6 @@ toc:
 | csaf-v2.1-wd20251029-dev | 2025-10-29 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20251126-dev | 2025-11-26 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20251217-dev | 2025-12-17 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
+| csaf-v2.1-wd20260128-dev | 2025-01-28 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 
 -------
