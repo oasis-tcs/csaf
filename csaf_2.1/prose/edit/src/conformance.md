@@ -113,12 +113,35 @@ Secondly, the program fulfills the following for all items of:
   and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CVRF CSAF Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `/$defs/branches_t`: If any `prod:Branch` instance has the type `Legacy`, `Realm`, or `Resource`,
-  the CVRF CSAF Converter MUST replace those with the category `product_name`.
-  In addition, the converter outputs a warning that those types do not exist in CSAF 2.1 and have been replaced with the category `product_name`.
+* type `/$defs/branches_t`:
+  * If any `prod:Branch` instance has the type `Legacy`, `Realm`, or `Resource`,
+    the CVRF CSAF Converter MUST replace those with the category `product_name`.
+    In addition, the converter outputs a warning that those types do not exist in CSAF 2.1 and have been replaced with the category `product_name`.
 
-  > There is a chance, that this replacement is incorrect or another category is a better fit.
-  > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+    > There is a chance, that this replacement is incorrect or another category is a better fit.
+    > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+
+  * If any `Branch Type` appears multiple times along a path under `/prod:ProductTree/prod:Branch` and the `Branch Type` does not map to
+    an excepted category according to test [sec](#stacked-branch-categories), the CVRF CSAF Converter MUST try to convert the data into
+    a valid product tree by applying the following steps to the path:
+    1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` and `unknown`
+       (white space, dash and case insensitive) MUST be removed.
+    2. If the stacked `Branch Type` is `Product Version` and the item directly before the first `Product Version` is a `Product Name`:
+       * the category of the original `Product Name` item MUST be changed to `product_family` and
+       * the category of the first `Product Version` item MUST be changed to `product_name` and
+       * the value of the newly created `product_family` item MUST be prepended at the value of the newly created `product_name` item.
+
+    If the CVRF CSAF Converter is able to create a valid product tree,
+    it MUST output a warning that an invalid product tree with stacked branch types was detected and resolved.
+    Such a warning MUST include the invalid path as well as the branch types that were present multiple times.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    If the CVRF CSAF Converter is unable to create a valid product tree,
+    it MUST output an error that an invalid product tree with stacked branch types was detected and could not be resolved.
+    Such a error MUST include the invalid path as well as the branch types that were present multiple times.
+
+    > A tool MAY provide a non-default option to output the invalid document.
 
 * type `/$defs/version_t`: If any element doesn't match the semantic versioning,
   replace the all elements of type `/$defs/version_t` with the corresponding integer version.
@@ -625,12 +648,35 @@ Secondly, the program fulfills the following for all items of:
   the seconds and their fractions with `59.999999`.
   In addition, the converter outputs a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CSAF 2.0 to CSAF 2.1 Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `/$defs/branches_t`: If a branch item uses the category `legacy`,
-  the CSAF 2.0 to CSAF 2.1 Converter MUST replace it with the category `product_name`.
-  In addition, the converter outputs a warning that this type does not exist in CSAF 2.1 and have been replaced with the category `product_name`.
+* type `/$defs/branches_t`:
+  * If a branch item uses the category `legacy`,
+    the CSAF 2.0 to CSAF 2.1 Converter MUST replace it with the category `product_name`.
+    In addition, the converter outputs a warning that this type does not exist in CSAF 2.1 and have been replaced with the category `product_name`.
 
-  > There is a chance, that this replacement is incorrect or another category is a better fit.
-  > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+    > There is a chance, that this replacement is incorrect or another category is a better fit.
+    > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
+  
+  * If any branch category appears multiple times along a path under `/product_tree/branches` and the category is not an excepted one according to
+    test [sec](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
+    applying the following steps to the path:
+    1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION` and `unknown`
+       (white space, dash and case insensitive) MUST be removed.
+    2. If the stacked branch category is `product_version` and the item directly before the first `product_version` is a `product_name`:
+       * the category of the original `product_name` item MUST be changed to `product_family` and
+       * the category of the first `product_version` item MUST be changed to `product_name` and
+       * the value of the newly created `product_family` item MUST be prepended at the value of the newly created `product_name` item.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
+    it MUST output a warning that an invalid product tree with stacked branch categories was detected and resolved.
+    Such a warning MUST include the invalid path as well as the branch categories that were present multiple times.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid product tree,
+    it MUST output an error that an invalid product tree with stacked branch categories was detected and could not be resolved.
+    Such a error MUST include the invalid path as well as the branch categories that were present multiple times.
+
+    > A tool MAY provide a non-default option to output the invalid document.
 
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
