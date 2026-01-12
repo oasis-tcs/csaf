@@ -12,6 +12,11 @@
 - The CPE pattern is not anchored correctly which allows invalid CPEs.
   See [#693](https://github.com/oasis-tcs/csaf/issues/693).
   Addressed in CSAF 2.0 through the [FAQ](./guidance/faq.md#the-cpe-pattern-changed-from-csaf-20-to-csaf-21-why).
+- In [test 6.1.31](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6131-version-range-in-product-version),
+  the informative comment regarding the implementation is misleading as it does not clearly differentiate between substrings and tokens.
+  The [valid example 2 for this test case](https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.0/test/validator/data/mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-31-12.json)
+  is correct.
+  See [#825](https://github.com/oasis-tcs/csaf/issues/825).
 - The prose mentions in different places `/document/language` and `/$defs/language_t` which are not defined in the schema.
   See [#897](https://github.com/oasis-tcs/csaf/issues/897).
 - The tests 6.1.1 and 6.1.4 are missing the `flags` path.
