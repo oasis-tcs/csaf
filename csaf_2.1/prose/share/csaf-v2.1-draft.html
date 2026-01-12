@@ -369,8 +369,8 @@
     <h2 id="committee-specification-draft-02">
       Committee Specification Draft 02
     </h2>
-    <h2 id="26-november-2025">
-      26 November 2025
+    <h2 id="28-january-2026">
+      28 January 2026
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -501,7 +501,7 @@
       <strong>[csaf-v2.1]</strong>
     </p>
     <p>
-      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 26 November 2025. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
+      <em>Common Security Advisory Framework Version 2.1</em>. Edited by Stefan Hagen and Thomas Schmidt. 28 January 2026. OASIS Committee Specification Draft 02. <a href="https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html</a>. Latest stage: <a href=
       "https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html">https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html</a>.
     </p>
     <hr />
@@ -509,7 +509,7 @@
       Notices
     </h2>
     <p>
-      Copyright © OASIS Open 2025. All Rights Reserved.
+      Copyright © OASIS Open 2026. All Rights Reserved.
     </p>
     <p>
       All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full <a href="https://www.oasis-open.org/policies-guidelines/ipr/">Policy</a> may be found at the OASIS website.
@@ -3840,7 +3840,7 @@
       </p>
     </blockquote>
     <p>
-      The ID SHALL be valid according to [<a href="#RFC9562">RFC9562</a>] and recorded in the 8-4-4-4-12 notation in lower case. The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. <code>TLP:GREEN</code> and above.
+      The ID SHALL be valid according to [<a href="#RFC9562">RFC9562</a>] and recorded in the 8-4-4-4-12 notation in lowercase. The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. <code>TLP:GREEN</code> and above.
     </p>
     <p>
       The following ID values SHOULD NOT be used unless there are technical reasons for them. Therefore, they are reserved for implementation-specific situations:
@@ -6402,7 +6402,7 @@
           </li>
         </ul>
       </li>
-      <li>The value of <code>/document/category</code> SHALL NOT be equal to any value that is intended to only be used by another profile nor to the (case insensitive) name of any other profile from the standard. This does not differentiate between underscore, dash or whitespace. To explicitly select the use of this profile the value <code>
+      <li>The value of <code>/document/category</code> SHALL NOT be equal to any value that is intended to only be used by another profile nor to the (case insensitive) name of any other profile from the standard. This does not differentiate between underscore, dash or white space. To explicitly select the use of this profile the value <code>
         csaf_base</code> SHOULD be used.
       </li>
     </ul>
@@ -6936,7 +6936,7 @@
     <ol type="1">
       <li>
         <p>
-          The value <code>/document/tracking/id</code> is converted into lower case.
+          The value <code>/document/tracking/id</code> is converted into lowercase.
         </p>
       </li>
       <li>
@@ -6944,7 +6944,7 @@
           Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (<code>_</code>):
         </p>
         <ul>
-          <li>Lower case ASCII letters (0x61 - 0x7A)
+          <li>lower-case ASCII letters (0x61 - 0x7A)
           </li>
           <li>digits (0x30 - 0x39)
           </li>
@@ -8063,8 +8063,8 @@
       6.1.26 Prohibited Document Category Name <a id='prohibited-document-category-name'></a>
     </h3>
     <p>
-      It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix <code>csaf_</code>) or value of any other profile than "CSAF Base". Any occurrences of dash, whitespace, and underscore characters are removed from the values on both sides before the match. Also the value MUST NOT start with the
-      reserved prefix <code>csaf_</code> except if the value is <code>csaf_base</code>.
+      It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix <code>csaf_</code>) or value of any other profile than "CSAF Base". Any occurrences of dash, white space, and underscore characters are removed from the values on both sides before the match. Also the value MUST NOT start with
+      the reserved prefix <code>csaf_</code> except if the value is <code>csaf_base</code>.
     </p>
     <p>
       This test does only apply for CSAF documents with the profile "CSAF Base". Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
@@ -8922,7 +8922,7 @@
     </p>
     <blockquote>
       <p>
-        To implement this test it is deemed sufficient that, when converted to lower case, the value of <code>name</code> satisfies the two requirements below:
+        To implement this test it is deemed sufficient that, when converted to lowercase, the value of <code>name</code> satisfies the two requirements below:
       </p>
       <ol type="1">
         <li>
@@ -8936,7 +8936,7 @@
         </li>
         <li>
           <p>
-            If interpreted as a list of individual words separated by whitespace, the list does not contain any of the following keywords:
+            If interpreted as a list of individual words separated by white space, the list does not contain any of the following keywords:
           </p>
           <pre><code>  after
   all
@@ -9369,7 +9369,7 @@
     <pre><code>      "current_release_date": "2024-01-24 10:00:00.000Z",</code></pre>
     <blockquote>
       <p>
-        The <code>current_release_date</code> uses a whitespace as separator instead the letter <code>T</code>.
+        The <code>current_release_date</code> uses a white space as separator instead the letter <code>T</code>.
       </p>
     </blockquote>
     <h3 id="6138-non-public-sharing-group-with-max-uuid-">
@@ -10839,7 +10839,7 @@
     </blockquote>
     <blockquote>
       <p>
-        A tool MAY remove the document tracking id from the document title. It SHOULD also remove any separating characters including whitespace, colon, dash and brackets.
+        A tool MAY remove the document tracking id from the document title. It SHOULD also remove any separating characters including white space, colon, dash and brackets.
       </p>
     </blockquote>
     <h3 id="6223-usage-of-deprecated-cwe-">
@@ -13565,7 +13565,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json</code></pre>
 File name of SHA-256 hash file: esa-2022-02723.json.sha256
 File name of SHA-512 hash file: esa-2022-02723.json.sha512</code></pre>
     <p>
-      The file content SHALL start with the first byte of the hexadecimal hash value. The hash value SHALL be represented in lower case. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
+      The file content SHALL start with the first byte of the hexadecimal hash value. The hash value SHALL be represented in lowercase. Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
     </p>
     <p>
       <em>Example 2:</em><a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-214'></a>
@@ -15698,7 +15698,8 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
-          <code>/document/title</code>: If the value contains the <code>/document/tracking/id</code>, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the <code>/document/tracking/id</code> from the <code>/document/title</code>. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
+          <code>/document/title</code>: If the value contains the <code>/document/tracking/id</code>, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the <code>/document/tracking/id</code> from the <code>/document/title</code>. In addition, separating characters including but not limited to white space, colon, dash and brackets MUST be
+          removed.
         </p>
       </li>
       <li>
@@ -15849,7 +15850,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status and, where necessary according to the profile, the impact statement respectively the action statement.
       </li>
-      <li>provides a function to generate a <code>full_product_name_t/name</code> with in <code>branches</code> through concatenating the <code>name</code> values separated by whitespace of the elements along the path towards this leaf.
+      <li>provides a function to generate a <code>full_product_name_t/name</code> with in <code>branches</code> through concatenating the <code>name</code> values separated by white space of the elements along the path towards this leaf.
       </li>
       <li>calculates the CVSS scores and severities for existing data for all CVSS versions.
       </li>
@@ -17500,6 +17501,34 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </td>
           <td style="text-align: left;">
             2025-11-26
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Editor Revision for CSD02
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
+            csaf-v2.1-wd20251217-dev
+          </td>
+          <td style="text-align: left;">
+            2025-12-17
+          </td>
+          <td style="text-align: left;">
+            Stefan Hagen and Thomas Schmidt
+          </td>
+          <td style="text-align: left;">
+            Editor Revision for CSD02
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
+            csaf-v2.1-wd20260128-dev
+          </td>
+          <td style="text-align: left;">
+            2026-01-28
           </td>
           <td style="text-align: left;">
             Stefan Hagen and Thomas Schmidt

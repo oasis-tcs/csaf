@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 02
 
-## 26 November 2025
+## 28 January 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
@@ -78,14 +78,14 @@ When referencing this specification the following citation format should be used
 
 **[csaf-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 26 November 2025. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 28 January 2026. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
 
 ## Notices
 
-Copyright © OASIS Open 2025. All Rights Reserved.
+Copyright © OASIS Open 2026. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr/) may be found at the OASIS website.
 
@@ -2503,7 +2503,7 @@ It MUST differ if a different sharing group is addressed.
 
 > It is assumed that the ID is globally unique, if constructed according to the specification for UUID Version 4.
 
-The ID SHALL be valid according to \[[RFC9562](#RFC9562)\] and recorded in the 8-4-4-4-12 notation in lower case.
+The ID SHALL be valid according to \[[RFC9562](#RFC9562)\] and recorded in the 8-4-4-4-12 notation in lowercase.
 The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. `TLP:GREEN` and above.
 
 The following ID values SHOULD NOT be used unless there are technical reasons for them.
@@ -4517,7 +4517,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/version`
 * The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor to the
   (case insensitive) name of any other profile from the standard.
-  This does not differentiate between underscore, dash or whitespace.
+  This does not differentiate between underscore, dash or white space.
   To explicitly select the use of this profile the value `csaf_base` SHOULD be used.
 
 > Neither `CSAF Security Advisory` nor `csaf security advisory` are valid values for `/document/category`.
@@ -4747,9 +4747,9 @@ This section provides additional rules for handling CSAF documents.
 
 The following rules MUST be applied to determine the filename for the CSAF document:
 
-1. The value `/document/tracking/id` is converted into lower case.
+1. The value `/document/tracking/id` is converted into lowercase.
 2. Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (`_`):
-   * Lower case ASCII letters (0x61 - 0x7A)
+   * lower-case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
    * special characters: `+` (0x2B), `-` (0x2D)
 
@@ -5827,7 +5827,7 @@ The relevant paths for this test are:
 ### 6.1.26 Prohibited Document Category Name <a id='prohibited-document-category-name'></a>
 
 It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
-value of any other profile than "CSAF Base". Any occurrences of dash, whitespace,
+value of any other profile than "CSAF Base". Any occurrences of dash, white space,
 and underscore characters are removed from the values on both sides before the match.
 Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
 
@@ -6695,7 +6695,7 @@ The relevant paths for this test are:
 For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that
 the value of `name` does not contain a version range.
 
-> To implement this test it is deemed sufficient that, when converted to lower case, the value of `name` satisfies the two requirements below:
+> To implement this test it is deemed sufficient that, when converted to lowercase, the value of `name` satisfies the two requirements below:
 >
 > 1. It does not contain any of the following operators:
 >
@@ -6706,7 +6706,7 @@ the value of `name` does not contain a version range.
 >      >=
 >    ```
 >
-> 2. If interpreted as a list of individual words separated by whitespace, the list does not contain any of the following keywords:
+> 2. If interpreted as a list of individual words separated by white space, the list does not contain any of the following keywords:
 >
 >    ```
 >      after
@@ -7139,7 +7139,7 @@ The relevant path for this test is:
       "current_release_date": "2024-01-24 10:00:00.000Z",
 ```
 
-> The `current_release_date` uses a whitespace as separator instead the letter `T`.
+> The `current_release_date` uses a white space as separator instead the letter `T`.
 
 ### 6.1.38 Non-Public Sharing Group with Max UUID <a id='non-public-sharing-group-with-max-uuid'></a>
 
@@ -8507,7 +8507,7 @@ The relevant path for this test is:
 > The document title contains the document tracking id.
 
 > A tool MAY remove the document tracking id from the document title.
-> It SHOULD also remove any separating characters including whitespace, colon, dash and brackets.
+> It SHOULD also remove any separating characters including white space, colon, dash and brackets.
 
 ### 6.2.23 Usage of Deprecated CWE <a id='usage-of-deprecated-cwe'></a>
 
@@ -11001,7 +11001,7 @@ File name of SHA-512 hash file: esa-2022-02723.json.sha512
 ```
 
 The file content SHALL start with the first byte of the hexadecimal hash value.
-The hash value SHALL be represented in lower case.
+The hash value SHALL be represented in lowercase.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
 *Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-214'></a>
@@ -12236,7 +12236,7 @@ Secondly, the program fulfills the following for all items of:
   been regrouped into the new value `multiplier`. An option to suppress this warning MUST exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the `/document/tracking/id`
-  from the `/document/title`. In addition, separating characters including but not limited to whitespace, colon, dash and brackets MUST be removed.
+  from the `/document/title`. In addition, separating characters including but not limited to white space, colon, dash and brackets MUST be removed.
 * `/vulnerabilities[]/cwes[]`:
   * The CSAF 2.0 to CSAF 2.1 Converter MUST remove all preceding and trailing white space from the `name`.
   * The CSAF 2.0 to CSAF 2.1 Converter MUST determine the CWE specification version the given CWE was selected from by
@@ -12327,7 +12327,7 @@ A library satisfies the "CSAF Library" conformance profile if the library:
 * provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
 * provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
   and, where necessary according to the profile, the impact statement respectively the action statement.
-* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by whitespace
+* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by white space
   of the elements along the path towards this leaf.
 * calculates the CVSS scores and severities for existing data for all CVSS versions.
 * validates the CVSS scores and severities for existing data for all CVSS versions.
@@ -12562,6 +12562,8 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.1-wd20250910-dev | 2025-09-10 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20251029-dev | 2025-10-29 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20251126-dev | 2025-11-26 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
+| csaf-v2.1-wd20251217-dev | 2025-12-17 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
+| csaf-v2.1-wd20260128-dev | 2026-01-28 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 
 -------
 
