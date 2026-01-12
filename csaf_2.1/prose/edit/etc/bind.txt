@@ -88,6 +88,7 @@ tests-01-mndtr-53-inconsistent-exploitation-date.md
 tests-01-mndtr-54-license-expression.md
 tests-01-mndtr-55-license-text.md
 tests-01-mndtr-56-use-of-cvss-and-qualitative-severity-rating.md
+tests-01-mndtr-57-stacked-branch-categories.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
@@ -137,7 +138,6 @@ tests-02-rcmmndd-45-non-existing-license-identifier.md
 tests-02-rcmmndd-46-language-specific-license-text.md
 tests-02-rcmmndd-47-use-of-qualitative-severity-rating-by-issuing-party.md
 tests-02-rcmmndd-48-misuse-at-vendor-name.md
-tests-02-rcmmndd-49-stacked-branch-categories.md
 tests-03-informative.md
 tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
 tests-03-nfrmtv-02-use-of-cvss-v3-0.md
