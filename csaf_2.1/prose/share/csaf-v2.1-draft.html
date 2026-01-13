@@ -15506,7 +15506,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
-          type <code>/$defs/full_product_name_t/model_number</code>:
+          type <code>/$defs/full_product_name_t/product_identification_helper/model_number</code>:
         </p>
         <ul>
           <li>If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a <code>*</code> to the end and output a warning that a partial model number was detected and a star has been added. Such a warning MUST include the model number.
@@ -15539,7 +15539,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
-          type <code>/$defs/full_product_name_t/serial_number</code>:
+          type <code>/$defs/full_product_name_t/product_identification_helper/serial_number</code>:
         </p>
         <ul>
           <li>If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a <code>*</code> to the end and output a warning that a partial serial number was detected and a star has been added. Such a warning MUST include the serial number.
@@ -15676,12 +15676,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         <p>
           If no TLP label was given, the CSAF 2.0 to CSAF 2.1 Converter SHOULD assign <code>TLP:CLEAR</code> and output a warning that the default TLP has been set.
         </p>
-        <ul>
-          <li>
-            <code>/document/license_expression</code>: If any <code>/document/notes</code> item in with <code>category</code> <code>legal_disclaimer</code> contains a valid SPDX license expression, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert this value into <code>license_expression</code>. In addition, the converter outputs an
-            information that license expression was found and set as document license expression.
-          </li>
-        </ul>
+      </li>
+      <li>
+        <p>
+          <code>/document/license_expression</code>: If any <code>/document/notes</code> item in with <code>category</code> <code>legal_disclaimer</code> contains a valid SPDX license expression, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert this value into <code>license_expression</code>. In addition, the converter outputs an information
+          that license expression was found and set as document license expression.
+        </p>
       </li>
       <li>
         <p>
