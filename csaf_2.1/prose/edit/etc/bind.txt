@@ -88,6 +88,7 @@ tests-01-mndtr-53-inconsistent-exploitation-date.md
 tests-01-mndtr-54-license-expression.md
 tests-01-mndtr-55-license-text.md
 tests-01-mndtr-56-use-of-cvss-and-qualitative-severity-rating.md
+tests-01-mndtr-57-stacked-branch-categories.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
