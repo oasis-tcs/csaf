@@ -25,3 +25,6 @@
   See [#935](https://github.com/oasis-tcs/csaf/issues/935).
 - The link in the reference to [VERS](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#vers) is not longer working.
   See [#1117](https://github.com/oasis-tcs/csaf/issues/1117).
+- The last informative comment in [test 6.2.18](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6218-product-version-range-without-vers)
+  contains a typo, stating `vsl` instead of `vls`.
+  See [#1265](https://github.com/oasis-tcs/csaf/issues/1265).
