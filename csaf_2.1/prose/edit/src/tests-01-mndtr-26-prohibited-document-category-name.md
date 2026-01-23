@@ -16,7 +16,7 @@ case insensitive match.
 > * Non-breaking hyphen
 
 This applies for both, the comparison against the name and value.
-Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
+Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is exactly `csaf_base`.
 
 This test does only apply for CSAF documents with the profile "CSAF Base".
 Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
@@ -50,6 +50,7 @@ The relevant path for this test is:
   security-incident-response
   Security      Advisory
   csafvex
+  CsaF_VeX
   veX
   V_eX
   Deprecated Security Advisory
