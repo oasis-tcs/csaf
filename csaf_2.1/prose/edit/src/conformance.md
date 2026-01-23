@@ -124,8 +124,8 @@ Secondly, the program fulfills the following for all items of:
   * If any `Branch Type` appears multiple times along a path under `/prod:ProductTree/prod:Branch` and the `Branch Type` does not map to
     an excepted category according to test [sec](#stacked-branch-categories), the CVRF CSAF Converter MUST try to convert the data into
     a valid product tree by applying the following steps to the path:
-    1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` and `unknown`
-       (white space, dash and case insensitive) MUST be removed.
+    1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` `undefined` and `unknown`
+       (white space, dash, hyphen, minus, underscore and case insensitive) MUST be removed.
     2. If the stacked `Branch Type` is `Product Version` and the item directly before the first `Product Version` is a `Product Name`:
        * the category of the original `Product Name` item MUST be changed to `product_family` and
        * the category of the first `Product Version` item MUST be changed to `product_name` and
@@ -659,8 +659,8 @@ Secondly, the program fulfills the following for all items of:
   * If any branch category appears multiple times along a path under `/product_tree/branches` and the category is not an excepted one according to
     test [sec](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
     applying the following steps to the path:
-    1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION` and `unknown`
-       (white space, dash and case insensitive) MUST be removed.
+    1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION`, `undefined` and `unknown`
+       (white space, dash, hyphen, minus, underscore and case insensitive) MUST be removed.
     2. If the stacked branch category is `product_version` and the item directly before the first `product_version` is a `product_name`:
        * the category of the original `product_name` item MUST be changed to `product_family` and
        * the category of the first `product_version` item MUST be changed to `product_name` and
