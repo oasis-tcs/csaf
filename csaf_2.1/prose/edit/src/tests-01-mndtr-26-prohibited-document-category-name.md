@@ -7,9 +7,9 @@ case insensitive match.
 
 > Dash and hyphen characters (independent of their graphical variants) include, but are not limited to:
 >
-> * Figure dash
-> * En dash
 > * Em dash
+> * En dash
+> * Figure dash
 > * Horizontal bar
 > * Hyphen
 > * Hyphen-minus
@@ -25,13 +25,13 @@ Therefore, it MUST be skipped if the document category matches one of the values
 >
 > ```
 >  csaf_base
->  csaf_security_incident_response
+>  csaf_deprecated_security_advisory
 >  csaf_informational_advisory
 >  csaf_security_advisory
->  csaf_vex
->  csaf_deprecated_security_advisory
->  csaf_withdrawn
+>  csaf_security_incident_response
 >  csaf_superseded
+>  csaf_vex
+>  csaf_withdrawn
 > ```
 
 This is the only mandatory test related to the profile "CSAF Base" as the required fields SHALL be checked by validating the JSON schema.
@@ -46,17 +46,17 @@ The relevant path for this test is:
 
 ```
   Csaf_a
-  Informational Advisory
-  security-incident-response
-  Security      Advisory
-  csafvex
   CsaF_VeX
-  veX
-  V_eX
-  Deprecated Security Advisory
   CSafDeprecatedSecurity—Advisory
-  withdrawn
+  csafvex
+  Deprecated Security Advisory
+  Informational Advisory
+  Security      Advisory
+  security-incident-response
   Superseded
+  V_eX
+  veX
+  withdrawn
 ```
 
 *Example 2 (which fails the test):*
