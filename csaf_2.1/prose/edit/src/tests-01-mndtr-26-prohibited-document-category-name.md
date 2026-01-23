@@ -1,8 +1,21 @@
 ### Prohibited Document Category Name
 
 It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
-value of any other profile than "CSAF Base". Any occurrences of dash, white space,
-and underscore characters are removed from the values on both sides before the match.
+value of any other profile than "CSAF Base".
+Any occurrences of dash, hyphen, minus, white space, and underscore characters are removed from the values on both sides before the
+case insensitive match.
+
+> Dash and hyphen characters (independent of their graphical variants) include, but are not limited to:
+>
+> * Figure dash
+> * En dash
+> * Em dash
+> * Horizontal bar
+> * Hyphen
+> * Hyphen-minus
+> * Non-breaking hyphen
+
+This applies for both, the comparison against the name and value.
 Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is `csaf_base`.
 
 This test does only apply for CSAF documents with the profile "CSAF Base".
@@ -36,9 +49,11 @@ The relevant path for this test is:
   Informational Advisory
   security-incident-response
   Security      Advisory
+  csafvex
   veX
   V_eX
   Deprecated Security Advisory
+  CSafDeprecatedSecurity—Advisory
   withdrawn
   Superseded
 ```
