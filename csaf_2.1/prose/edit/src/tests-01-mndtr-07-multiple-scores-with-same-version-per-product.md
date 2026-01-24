@@ -4,7 +4,7 @@ For each item in `/vulnerabilities` it MUST be tested that the same Product ID i
 
 > Different source might assign different scores for the same product.
 
-> The test also applies for versions not known by CSAF.
+> The test also applies for versions not included in CSAF.
 
 The relevant path for this test is:
 
