@@ -85,7 +85,7 @@ However, it MUST NOT contain version ranges of any kind.
 > See next section for details.
 
 The value `product_version_range` indicates a range of versions for the product.
-The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
+The value of the adjacent `name` property SHALL NOT be used to convey a single version.
 
 > In most cases, product version ranges hinder the use of product identification helpers as they need to identify a product completely.
 > In such case, the product identification and also therefore matching, independent whether that is against SBOMs or assets,
