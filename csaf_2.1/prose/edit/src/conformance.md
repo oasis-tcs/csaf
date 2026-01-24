@@ -124,8 +124,8 @@ Secondly, the program fulfills the following for all items of:
   * If any `Branch Type` appears multiple times along a path under `/prod:ProductTree/prod:Branch` and the `Branch Type` does not map to
     an excepted category according to test [sec](#stacked-branch-categories), the CVRF CSAF Converter MUST try to convert the data into
     a valid product tree by applying the following steps to the path:
-    1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` and `unknown`
-       (white space, dash and case insensitive) MUST be removed.
+    1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` `undefined` and `unknown`
+       (white space, dash, hyphen, minus, underscore and case insensitive) MUST be removed.
     2. If the stacked `Branch Type` is `Product Version` and the item directly before the first `Product Version` is a `Product Name`:
        * the category of the original `Product Name` item MUST be changed to `product_family` and
        * the category of the first `Product Version` item MUST be changed to `product_name` and
@@ -659,8 +659,8 @@ Secondly, the program fulfills the following for all items of:
   * If any branch category appears multiple times along a path under `/product_tree/branches` and the category is not an excepted one according to
     test [sec](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
     applying the following steps to the path:
-    1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION` and `unknown`
-       (white space, dash and case insensitive) MUST be removed.
+    1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION`, `undefined` and `unknown`
+       (white space, dash, hyphen, minus, underscore and case insensitive) MUST be removed.
     2. If the stacked branch category is `product_version` and the item directly before the first `product_version` is a `product_name`:
        * the category of the original `product_name` item MUST be changed to `product_family` and
        * the category of the first `product_version` item MUST be changed to `product_name` and
@@ -675,6 +675,34 @@ Secondly, the program fulfills the following for all items of:
     If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid product tree,
     it MUST output an error that an invalid product tree with stacked branch categories was detected and could not be resolved.
     Such a error MUST include the invalid path as well as the branch categories that were present multiple times.
+
+    > A tool MAY provide a non-default option to output the invalid document.
+
+  * If the branch categories `product_version` and `product_version_range` appear along a path under `/product_tree/branches`,
+    the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
+    applying the following steps to the path:
+
+    1. If the branch category `product_version` occurs before the `product_version_range` and the item directly before the first
+       `product_version` is a `product_name`:
+       * the category of the original `product_name` item MUST be changed to `product_family` and
+       * the category of the first `product_version` item MUST be changed to `product_name` and
+       * the value of the newly created `product_family` item MUST be prepended at the value of the newly created `product_name` item.
+    2. If the branch category `product_version` occurs before the `product_version_range` and the item directly before the first
+       `product_version` is a `product_family`:
+       * the category of the first `product_version` item MUST be changed to `product_name` and
+       * the value of the direct ancestor `product_family` item MUST be prepended at the value of the newly created `product_name` item.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
+    it MUST output a warning that an invalid product tree with branch categories `product_version` and `product_version_range` in
+    one path was detected and resolved.
+    Such a warning MUST include the invalid path as well as the branch category items changed.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid product tree,
+    it MUST output an error that an invalid product tree with  branch categories `product_version` and `product_version_range` in
+    one path was detected and could not be resolved.
+    Such a error MUST include the invalid path as well as the branch category items.
 
     > A tool MAY provide a non-default option to output the invalid document.
 
