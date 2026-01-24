@@ -1,4 +1,4 @@
-### Use of `product_version` in one Path with `product_version_range`
+### Use of `product_version` in one Path with `product_version_range`{#use-of-product-version-in-one-path-with-product-version-range}
 
 For each `full_product_name_t` element under `/product_tree/branches`, it MUST be tested that only one of the branch categories
 `product_version` and `product_version_range` is used along the path leading to the `full_product_name_t` element.
