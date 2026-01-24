@@ -290,6 +290,7 @@
   "translator": "6.1.15",
   "typographical-conventions": "1.5",
   "unused-definition-of-product-id": "6.2.1",
+  "upper-open-ended-product-version-range": "6.2.49",
   "uri-length": "C.6",
   "usage-of-cwe-allowed-with-review-for-vulnerability-mapping": "6.2.26",
   "usage-of-cwe-not-allowed-for-vulnerability-mapping": "6.2.25",
