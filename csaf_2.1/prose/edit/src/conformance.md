@@ -712,10 +712,10 @@ Secondly, the program fulfills the following for all items of:
 
     1. If value of `name` is in the vers format:
        * the category of the original `product_version_range` item MUST be changed to `product_version` and
-       * the version constraint MUST be extracted from the vers string and set as new value of `name`.
+       * the version MUST be extracted from the version constraint and set as new value of `name`.
     2. If value of `name` is in the vls format:
        * the category of the original `product_version_range` item MUST be changed to `product_version` and
-       * the value `name` is kept unchanged.
+       * the value `name` MUST be kept unchanged.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
     it MUST output a warning that an invalid product tree with a `product_version` declared as `product_version_range` in
@@ -725,7 +725,7 @@ Secondly, the program fulfills the following for all items of:
     > A tool MAY provide a non-default option to suppress this conversion step.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid product tree,
-    it MUST output an error that an invalid product tree  with a `product_version` declared as `product_version_range` in
+    it MUST output an error that an invalid product tree with a `product_version` declared as `product_version_range` in
     one path was detected and could not be resolved.
     Such a error MUST include the invalid path as well as value of the product version.
 
