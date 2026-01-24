@@ -206,6 +206,7 @@
   "6.1.56": "use-of-cvss-and-qualitative-severity-rating",
   "6.1.57": "stacked-branch-categories",
   "6.1.58": "use-of-product-version-in-one-path-with-product-version-range",
+  "6.1.59": "single-version-as-product-version-range",
   "6.2": "recommended-tests",
   "6.2.1": "unused-definition-of-product-id",
   "6.2.2": "missing-remediation",

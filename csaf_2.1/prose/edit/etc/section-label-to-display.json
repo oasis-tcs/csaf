@@ -275,6 +275,7 @@
   "schema-elements": "3",
   "schema-property": "3.2.1",
   "separation-in-data-stream": "5.2",
+  "single-version-as-product-version-range": "6.1.59",
   "sorted-revision-history": "6.1.14",
   "spell-check": "6.3.8",
   "ssvc-decision-points": "6.1.48",
