@@ -152,7 +152,7 @@ The algorithm of the cryptographic hash representation (`algorithm`) has value t
 with `pattern` (regular expression):
 
 ```
-    ^[0-9a-f][0-9a-f-]*$
+    ^[0-9a-z][0-9a-z-]*$
 ```
 
 The algorithm of the cryptographic hash representation contains the name of the cryptographic hash algorithm used to calculate the value.

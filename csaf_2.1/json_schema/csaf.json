@@ -197,7 +197,7 @@
                           "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
                           "type": "string",
                           "default": "sha256",
-                          "pattern": "^[0-9a-f][0-9a-f-]*$",
+                          "pattern": "^[0-9a-z][0-9a-z-]*$",
                           "minLength": 1,
                           "examples": [
                             "blake2b512",
