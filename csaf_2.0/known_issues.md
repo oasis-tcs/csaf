@@ -29,3 +29,6 @@
   does not clearly state that given matching and preprocessing rules apply for names and values.
   Also, it does not provide guidance regarding the dash characters.
   See [#1250](https://github.com/oasis-tcs/csaf/issues/1250).
+- The last informative comment in [test 6.2.18](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6218-product-version-range-without-vers)
+  contains a typo, stating `vsl` instead of `vls`.
+  See [#1265](https://github.com/oasis-tcs/csaf/issues/1265).

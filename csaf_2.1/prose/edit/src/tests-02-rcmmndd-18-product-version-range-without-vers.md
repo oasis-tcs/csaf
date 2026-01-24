@@ -27,4 +27,4 @@ The relevant paths for this test are:
             ]
 ```
 
-> The version range `>4.2` is a valid vsl but not valid according to the vers specification.
+> The version range `>4.2` is a valid vls but not valid according to the vers specification.
