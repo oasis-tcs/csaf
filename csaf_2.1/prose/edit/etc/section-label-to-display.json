@@ -317,6 +317,7 @@
   "use-of-multiple-stars-in-serial-number": "6.1.44",
   "use-of-non-self-referencing-urls-failing-to-resolve": "6.3.6",
   "use-of-private-language": "6.2.14",
+  "use-of-product-version-in-one-path-with-product-version-range": "6.1.58",
   "use-of-qualitative-severity-rating": "6.3.18",
   "use-of-qualitative-severity-rating-by-issuing-party": "6.2.47",
   "use-of-same-product-identification-helper-for-different-products": "6.2.32",

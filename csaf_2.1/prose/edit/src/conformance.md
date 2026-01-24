@@ -678,6 +678,34 @@ Secondly, the program fulfills the following for all items of:
 
     > A tool MAY provide a non-default option to output the invalid document.
 
+  * If the branch categories `product_version` and `product_version_range` appear along a path under `/product_tree/branches`,
+    the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
+    applying the following steps to the path:
+
+    1. If the branch category `product_version` occurs before the `product_version_range` and the item directly before the first
+       `product_version` is a `product_name`:
+       * the category of the original `product_name` item MUST be changed to `product_family` and
+       * the category of the first `product_version` item MUST be changed to `product_name` and
+       * the value of the newly created `product_family` item MUST be prepended at the value of the newly created `product_name` item.
+    2. If the branch category `product_version` occurs before the `product_version_range` and the item directly before the first
+       `product_version` is a `product_family`:
+       * the category of the first `product_version` item MUST be changed to `product_name` and
+       * the value of the direct ancestor `product_family` item MUST be prepended at the value of the newly created `product_name` item.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
+    it MUST output a warning that an invalid product tree with branch categories `product_version` and `product_version_range` in
+    one path was detected and resolved.
+    Such a warning MUST include the invalid path as well as the branch category items changed.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid product tree,
+    it MUST output an error that an invalid product tree with  branch categories `product_version` and `product_version_range` in
+    one path was detected and could not be resolved.
+    Such a error MUST include the invalid path as well as the branch category items.
+
+    > A tool MAY provide a non-default option to output the invalid document.
+
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
 * type `/$defs/full_product_name_t/product_identification_helper/model_number`:
