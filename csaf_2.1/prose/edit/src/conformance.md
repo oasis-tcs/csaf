@@ -706,6 +706,32 @@ Secondly, the program fulfills the following for all items of:
 
     > A tool MAY provide a non-default option to output the invalid document.
 
+  * If the value of `name` of an item categorized as `product_version_range` and contains an upper open ended product version range,
+    the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
+    applying the following steps to the path:
+
+    1. If value of `name` consists only of one version constraint:
+       * the category of the original `product_version_range` item MUST be changed to `product_version` and
+       * the version MUST be extracted from the original value and set as new value of `name`.
+    2. If value of `name` consists of more than one version constraint and the upper open range is the last version constraint:
+       * the category of the original `product_version_range` item MUST be kept and
+       * the value `name` MUST be converted into the product version range ending with the version the upper open ended product version
+         if that does not change the inclusion boundaries.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
+    it MUST output a warning that an invalid product tree with an upper open ended product version range in
+    one path was detected and resolved.
+    Such a warning MUST include the invalid path as well as the original and new value.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid product tree,
+    it MUST output an error that an invalid product tree with an upper open ended product version range in
+    one path was detected and could not be resolved.
+    Such a error MUST include the invalid path as well as the original and new value.
+
+    > A tool MAY provide a non-default option to output the invalid document.
+
   * If the value of `name` of an item categorized as `product_version_range` contains just a single version,
     the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
     applying the following steps to the path:
