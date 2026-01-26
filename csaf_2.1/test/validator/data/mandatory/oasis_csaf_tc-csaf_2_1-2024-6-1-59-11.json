@@ -37,7 +37,7 @@
             "branches": [
               {
                 "category": "product_version",
-                "name": "vers:intdot/4.2.0",
+                "name": "4.2.0",
                 "product": {
                   "name": "Example Company Product A 4.2.0",
                   "product_id": "CSAFPID-9080700"
