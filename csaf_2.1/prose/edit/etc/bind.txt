@@ -161,6 +161,7 @@ tests-03-nfrmtv-15-usage-of-ssvc-decision-point-namespace-with-extension-in-non-
 tests-03-nfrmtv-16-grammar-check.md
 tests-03-nfrmtv-17-use-of-unregistered-license.md
 tests-03-nfrmtv-18-use-of-qualitative-severity-rating.md
+tests-03-nfrmtv-19-overlapping-version-range.md
 tests-04-presets.md
 distributing-00.md
 distributing-01-requirements.md
