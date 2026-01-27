@@ -186,6 +186,7 @@
   "184": "misuse-at-vendor-name-eg-1",
   "185": "upper-open-ended-product-version-range-eg-1",
   "185a": "overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1",
+  "185b": "overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1",
   "186": "use-of-cvss-v2-as-the-only-scoring-system-eg-1",
   "187": "use-of-cvss-v3-0-eg-1",
   "188": "missing-cve-eg-1",

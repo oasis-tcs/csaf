@@ -263,6 +263,7 @@
   "6.2.49": "upper-open-ended-product-version-range",
   "6.2.50": "overlapping-product-version-range",
   "6.2.50.1": "overlapping-product-version-range-with-vers-in-contradicting-product-status-group",
+  "6.2.50.2": "overlapping-product-version-range-with-vers-in-contradicting-product-status-group",
   "6.3": "informative-tests",
   "6.3.1": "use-of-cvss-v2-as-the-only-scoring-system",
   "6.3.2": "use-of-cvss-v3-0",
