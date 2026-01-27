@@ -3,6 +3,12 @@
 This subsubsection structures the recommended tests for overlapping product version ranges.
 The following definitions apply to all tests:
 
+* Two product version ranges `a` and `b` are overlapping if the intersection of their sets of product versions `a'` and `b'` does not
+  result in an empty set.
+
+  > As the intersect operation is commutative it is sufficient to test one order.
+
+* A product version `c` overlaps with a product version range `a` if `c` is included in `a`.
 * An element of type `/$defs/full_product_name_t` which has a branch category of `product_version_range` in the path leading to it,
   is called "element with product version range" (`EPVR`).
 * The corresponding Product ID identifying such an `EPVR` is called "EPVR Product ID" (`EPVRPID`).
@@ -40,8 +46,8 @@ The following definitions apply to all tests:
 #### Overlapping Product Version Range with vers in Contradicting Product Status Group
 
 For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` are not member of a contradicting
-product status groups (see section [sec](#vulnerabilities-property-product-status)).
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
+member of a contradicting product status groups (see section [sec](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
 
