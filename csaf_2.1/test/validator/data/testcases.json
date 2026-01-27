@@ -4148,6 +4148,30 @@
           "valid": true
         }
       ]
+    },
+    {
+      "id": "6.3.19.4",
+      "group": "informative",
+      "failures": [
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-19-04-01.json",
+          "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-19-04-02.json",
+          "valid": true
+        }
+      ],
+      "valid": [
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-19-04-11.json",
+          "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-19-04-12.json",
+          "valid": true
+        }
+      ]
     }
   ]
 }

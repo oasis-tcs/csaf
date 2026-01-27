@@ -197,3 +197,42 @@ The relevant path for this test is:
 > The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap and they are members of the same group "Fixed".
 
 > A tool MAY exclude the overlapping product version from the product version range as a quick fix.
+
+#### Overlapping Product Version Range with Product Version Range in Branch
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that all product version ranges of elements in `PVRSS+b` do not overlap with `CTPVR`.
+
+The relevant path for this test is:
+
+```
+     /product_tree/branches[](/branches[])*/name
+```
+
+*Example 1 (which fails the test):*
+
+```
+    {
+      "branches": [
+        {
+          "branches": [
+            // ...
+          ],
+          "category": "product_version_range",
+          "name": "vers:intdot/>2.1.0|<4.2.0"
+        },
+        {
+          "branches": [
+            // ...
+          ],
+          "category": "product_version_range",
+          "name": "vers:intdot/>1.2.0|<2.4.0"
+        }
+      ],
+      // ...
+    }
+```
+
+> The product version ranges overlap.
+
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
