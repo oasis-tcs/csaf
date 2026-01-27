@@ -108,7 +108,7 @@ The relevant path for this test is:
 > and "Not affected".
 > For the version range `vers:intdot/>2.1.0|<2.4.0` it cannot be determined which product status is applicable.
 
-> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution a quick fix.
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
 
 #### Overlapping Product Version Range with vls in Contradicting Product Status Group
 
@@ -175,4 +175,71 @@ The relevant path for this test is:
 > and "Not affected".
 > For the version range `>2.1.0|<2.4.0` it cannot be determined which product status is applicable.
 
-> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution a quick fix.
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
+
+#### Overlapping Product Version Range with Product Version in Contradicting Product Status Group
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
+member of a contradicting product status groups (see section [sec](#vulnerabilities-property-product-status)).
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "vers:intdot/>2.1.0|<4.2.0",
+                "product": {
+                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.4.0",
+                "product": {
+                  "name": "Example Company Product A 2.4.0",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ],
+        "known_not_affected": [
+          "CSAFPID-9080701"
+        ]
+      }
+    }
+  ]
+```
+
+> The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap but they are members of the contradicting groups "Affected"
+> and "Not affected".
+> For the product version `2.4.0` it cannot be determined which product status is applicable.
+
+> A tool MAY exclude the overlapping product version from the product version range as a quick fix.
