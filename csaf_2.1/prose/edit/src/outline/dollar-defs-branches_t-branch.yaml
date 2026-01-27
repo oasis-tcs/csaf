@@ -1,0 +1,9 @@
+$defs:
+  # ...
+  branches_t:
+  - # <branch-instance>:
+    branches: $defs.branches_t
+    category: String.Enum
+    name: String
+    product: $defs.full_product_name_t
+  # ...

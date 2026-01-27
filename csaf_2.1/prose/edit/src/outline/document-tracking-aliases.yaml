@@ -1,0 +1,6 @@
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      # ...

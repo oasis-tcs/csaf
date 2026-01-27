@@ -7,51 +7,22 @@ In addition, the `document` object MAY provide the seven optional properties Ack
 Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
 References (`references`), and Source Language (`source_lang`).
 
-```
-    "document": {
-      // ...
-      "properties": {
-        "acknowledgments": {
-          // ...
-        },
-        "aggregate_severity" : {
-          // ...
-        },
-        "category": {
-          // ...
-        },
-        "csaf_version": {
-          // ...
-        },
-        "distribution": {
-          // ...
-        },
-        "lang": {
-          // ...
-        },
-        "license_expression": {
-          // ...
-        },
-        "notes": {
-          // ...
-        },
-        "publisher": {
-          // ...
-        },
-        "references": {
-          // ...
-        },
-        "source_lang": {
-          // ...
-        },
-        "title": {
-          // ...
-        },
-        "tracking": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document.properties)-->
+<csaf-instance>:
+  document:
+    acknowledgments: $defs.acknowledgments_t
+    aggregate_severity: Mapping
+    category: String.Pattern
+    csaf_version: String.Enum
+    distribution: Mapping
+    lang: $defs.lang_t
+    license_expression: String
+    notes: $defs.notes_t
+    publisher: Mapping
+    references: $defs.references_t
+    source_lang: $defs.lang_t
+    title: String
+    tracking: Mapping
 ```
 
 #### Document Property - Acknowledgments
@@ -59,10 +30,17 @@ References (`references`), and Source Language (`source_lang`).
 Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains
 a list of acknowledgment elements associated with the whole document.
 
-```
-    "acknowledgments": {
-      // ...
-    },
+```yaml <!--json-paths($..document..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+<csaf-instance>:
+  document:
+    acknowledgements:  # $defs.acknowledgments_t
+    - # <acknowledgement-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
 ```
 
 #### Document Property - Aggregate Severity
@@ -73,18 +51,14 @@ criticality with which the one or more vulnerabilities reported should be addres
 It is a document-level metric and applied to the document as a whole — not any specific vulnerability.
 The range of values in this field is defined according to the document producer's policies and procedures.
 
-```
-    "aggregate_severity": {
-      // ...
-      "properties": {
-        "namespace": {
-          // ...
-        },
-        "text": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..aggregate_severity.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    aggregate_severity:
+      namespace: String
+      text: String
+    # ...
 ```
 
 The Namespace of aggregate severity (`namespace`) of value type `string` with format `uri` points to the namespace so referenced.
@@ -112,10 +86,12 @@ Document category defines a short canonical name, chosen by the document produce
 
 > It is directly related to the profiles defined in section [sec](#profiles).
 
-```
-    "category": {
-      // ...
-    }
+```yaml <!--json-path($..document.properties.category)-->
+<csaf-instance>:
+  document:
+    # ...
+    category:  String.Pattern
+    # ...
 ```
 
 *Examples 1:*
@@ -141,21 +117,15 @@ The single valid value for this `enum` is:
 Rules for document sharing (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
 optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
 
-```
-    "distribution": {
-      // ...
-      "properties": {
-        "sharing_group": {
-          // ...
-        },
-        "text": {
-          // ...
-        },
-        "tlp": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..distribution.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group: Mapping
+      text: String
+      tlp: Mapping
+    # ...
 ```
 
 If multiple values are present, the TLP information SHOULD be preferred as this aids in automation.
@@ -178,18 +148,16 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
 the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
 
-```
-        "sharing_group": {
-          // ...
-          "properties": {
-            "id": {
-              // ...
-            },
-            "name": {
-              // ...
-            }
-          }
-        },
+```yaml <!--json-path($..document..distribution..sharing_group.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group:
+        id: String.Pattern
+        name: String
+      # ...
+    # ...
 ```
 
 Sharing Group ID (`id`) has value type `string` with format `uuid` and `pattern` (regular expression):
@@ -260,18 +228,16 @@ The Textual description (`text`) of value type `string` with `1` or more charact
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and
 the optional property URL (`url`) provides details about the TLP classification of the document.
 
-```
-    "tlp": {
-      // ...
-      "properties": {
-        "label": {
-          // ...
-        },
-        "url": {
-          // ...
-        }
-      }
-    }
+```yaml <!--json-path($..document..distribution..tlp.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      # ...
+      tlp:
+        label: String
+        url: String.URI
+    # ...
 ```
 
 The Label of TLP (`label`) with value type `string` and `enum` provides the TLP label of the document.
@@ -375,10 +341,19 @@ through the ecosystem.
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
-```
-    "notes": {
-      // ...
-    },
+```yaml <!--json-paths($..document..notes, $['$defs'].notes_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    notes:  # $defs.notes_t
+    - # <note-instance>:
+      audience: String
+      category: String.Enum
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      text: String
+      title: String
+    # ...
 ```
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
@@ -398,27 +373,15 @@ Publisher (`publisher`) of value type `object` with the mandatory properties Cat
 Namespace (`namespace`) provides information on the publishing entity.
 The two other optional properties are: `contact_details` and `issuing_authority`.
 
-```
-    "publisher": {
-      // ...
-      "properties": {
-        "category": {
-          // ...
-        },
-        "contact_details": {
-          // ...
-        },
-        "issuing_authority": {
-          // ...
-        },
-        "name": {
-          // ...
-        }
-        "namespace": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..publisher.properties)-->
+<csaf-instance>:
+  document:
+    publisher:
+      category: String
+      contact_details: String
+      issuing_authority: String
+      name: String
+      namespace: String
 ```
 
 ##### Document Property - Publisher - Category{#document-property-publisher-category}
@@ -525,10 +488,16 @@ an incremented (patch) version which has no other changes than:
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
-```
-    "references": {
-      // ...
-    },
+```yaml <!--json-paths($..document..references, $['$defs'].references_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    references:  # $defs.references_t
+    - # <reference-instance>:
+      category: String
+      summary: String
+      url: String.URI
+    # ...
 ```
 
 #### Document Property - Source Language
@@ -563,36 +532,19 @@ Identifier (`id`), Initial Release Date (`initial_release_date`), Revision Histo
 and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
 
-```
-    "tracking": {
-      // ...
-      "properties": {
-        "aliases": {
-          // ...
-        },
-        "current_release_date": {
-          // ...
-        },
-        "generator": {
-          // ...
-        },
-        "id": {
-          // ...
-        },
-        "initial_release_date": {
-          // ...
-        },
-        "revision_history": {
-          // ...
-        },
-        "status": {
-          // ...
-        },
-        "version": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..tracking..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      current_release_date: String.DateTime
+      generator: Mapping
+      id: String.Pattern
+      initial_release_date: String.DateTime
+      revision_history: Sequence
+      status: String.Enum
+      version: $defs.version_t
 ```
 
 ##### Document Property - Tracking - Aliases
@@ -600,13 +552,13 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
 Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
 
-```
-    "aliases": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..document..tracking..aliases)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      # ...
 ```
 
 Every such Alternate Name of value type `string` with `1` or more characters specifies a non-empty string that represents a
@@ -629,18 +581,15 @@ Document Generator (`generator`) of value type `object` with mandatory property 
 optional property Date (`date`) is a container to hold all elements related to the generation of the document.
 These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
-```
-        "generator": {
-          // ...
-          "properties": {
-            "date": {
-              // ...
-            },
-            "engine": {
-              // ...
-            }
-          }
-        },
+```yaml <!--json-path($..document..tracking..generator.properties)-->
+<csaf-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        date: String.DateTime
+        engine: Mapping
+      # ...
 ```
 
 Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated.
@@ -650,18 +599,17 @@ this field MAY be different from the Initial Release Date and Current Release Da
 Engine of document generation (`engine`) of value type `object` with mandatory property Engine name (`name`) and
 optional property Engine version (`version`) contains information about the engine that generated the CSAF document.
 
-```
-        "engine": {
-          // ...
-          "properties": {
-            "name": {
-              // ...
-            },
-            "version": {
-              // ...
-            }
-          }
-        },
+```yaml <!--json-path($..document..tracking..generator..engine.properties)-->
+<csaf-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        # ...
+        engine:
+          name: String
+          version: String
+      # ...
 ```
 
 Engine name (`name`) of value type `string` with `1` or more characters represents the name of the engine that generated the CSAF document.
@@ -733,13 +681,14 @@ This change MUST be tracked with a new entry in the revision history.
 The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
 for each version of the CSAF document, including the initial one.
 
-```
-        "revision_history": {
-          // ...
-          "items": {
-            // ...
-          }
-        },
+```yaml <!--json-path($..document..tracking..revision_history)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      # ...
+      revision_history: Sequence
+      # ...
 ```
 
 Each Revision contains all the information elements required to track the evolution of a CSAF document.
@@ -747,21 +696,19 @@ Revision History Entry items are of value type `object` with the three mandatory
 and Summary (`summary`).
 In addition, a Revision MAY expose the optional property `legacy_version`.
 
-```
-        "properties": {
-          "date": {
-            // ...
-          },
-          "legacy_version": {
-            // ...
-          },
-          "number": {
-            // ...
-          },
-          "summary": {
-            // ...
-          }
-        }
+```yaml <!--json-path($..document..tracking..revision_history..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      # ...
+      revision_history:
+      - # <revision-instance>:
+        date: String.DateTime
+        legacy_version: String
+        number: $defs.version_t
+        summary: String
+      # ...
 ```
 
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.

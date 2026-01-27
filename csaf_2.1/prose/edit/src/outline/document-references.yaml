@@ -1,0 +1,9 @@
+<csaf-instance>:
+  document:
+    # ...
+    references:  # $defs.references_t
+    - # <reference-instance>:
+      category: String
+      summary: String
+      url: String.URI
+    # ...

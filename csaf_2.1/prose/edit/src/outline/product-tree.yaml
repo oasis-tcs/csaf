@@ -1,0 +1,7 @@
+<csaf-instance>:
+  # ...
+  product_tree:
+    branches: $defs.branches_t
+    full_product_names: Mapping
+    product_groups: Sequence
+    relationships: Sequence
