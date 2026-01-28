@@ -210,6 +210,7 @@
   "203b": "overlapping-product-version-range-with-vls-in-same-product-status-group-eg-1",
   "203c": "overlapping-product-version-range-with-product-version-in-same-product-status-group-eg-1",
   "203d": "overlapping-product-version-range-with-product-version-range-in-branch-eg-1",
+  "203e": "overlapping-product-version-range-with-product-version-in-branch-eg-1",
   "204": "requirement-7-provider-metadata-json-eg-1",
   "205": "requirement-8-security-txt-eg-1",
   "206": "requirement-9-well-known-url-for-provider-metadata-json-eg-1",

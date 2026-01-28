@@ -289,6 +289,7 @@
   "6.3.19.2": "overlapping-product-version-range-with-vls-in-same-product-status-group",
   "6.3.19.3": "overlapping-product-version-range-with-product-version-in-same-product-status-group",
   "6.3.19.4": "overlapping-product-version-range-with-product-version-range-in-branch",
+  "6.3.19.5": "overlapping-product-version-range-with-product-version-in-branch",
   "6.4": "presets",
   "6.4.1": "presets-defined-through-test-subsections",
   "6.4.2": "presets-defined-through-conformance-targets",

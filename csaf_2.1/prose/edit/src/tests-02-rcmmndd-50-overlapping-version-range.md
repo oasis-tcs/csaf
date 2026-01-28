@@ -27,6 +27,10 @@ The following definitions apply to all tests:
   1. Elements that contain the `branches` as only optional property form the "product version range sibling set with branches" (`PVRSS+b`).
   2. Elements that contain the `product` as only optional property form the "product version range sibling set with leaf" (`PVRSS+l`).
   3. Elements that do not fall into 1 or 2 form the "product version range sibling set - invalid branch" (`PVRSS+i`).
+* Similar, `PVSS` elements can be grouped into three pairwise disjoint sets:
+  1. Elements that contain the `branches` as only optional property form the "product version sibling set with branches" (`PVSS+b`).
+  2. Elements that contain the `product` as only optional property form the "product version sibling set with leaf" (`PVSS+l`).
+  3. Elements that do not fall into 1 or 2 form the "product version sibling set - invalid branch" (`PVSS+i`).
 * Attributes of `PVRSS` elements can be combined:
   1. Product version range sibling set with branches - vers (`PVRSS+b-vers`): Intersection of `PVRSS+b` and `PVRSS-vers`
   2. Product version range sibling set with branches - vls (`PVRSS+b-vls`): Intersection of `PVRSS+b` and `PVRSS-vls`
@@ -38,9 +42,9 @@ The following definitions apply to all tests:
   8. Product version range sibling set - invalid branch - vls (`PVRSS+i-vls`): Intersection of `PVRSS+i` and `PVRSS-vls`
   9. Product version range sibling set - invalid branch - invalid (`PVRSS+i-invalid`): Intersection of `PVRSS+i` and `PVRSS-invalid`
 
-> Elements in the set `PVRSS+i` are detectable via the validation of the JSON schema and therefore ignored in these tests.
-> The exact characteristic of the product version range is of minor importance as the tests cannot produce any valuable result in such an
-> invalid product tree.
+> Elements in the sets `PVRSS+i` and `PVSS+i` are detectable via the validation of the JSON schema and therefore ignored in these tests.
+> The exact characteristic of the product version range is of minor importance as the tests cannot produce any meaningful result in such
+> an invalid product tree.
 > Elements in `PVRSS-invalid` should be detected by test [sec](#product-version-range-rules).
 
 #### Overlapping Product Version Range with vers in Contradicting Product Status Group
@@ -180,7 +184,7 @@ The relevant path for this test is:
 #### Overlapping Product Version Range with Product Version in Contradicting Product Status Group
 
 For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS+l` that overlap with `CTPVR` are not
 member of a contradicting product status groups (see section [sec](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
