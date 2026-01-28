@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
   "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/ids/schema/id-registry.schema.json",
-  "title": "Registry for Vulnerability IDs for CSAF",
+  "title": "Registry for Vulnerability ID Systems for CSAF (RVISC)",
   "description": "Representation of the data provided for the registry used to identify registered vulnerability id systems and their naming constraints. See also section 3.2.4.8.",
   "type": "object",
   "$defs": {
