@@ -142,6 +142,7 @@ tests-02-rcmmndd-47-use-of-qualitative-severity-rating-by-issuing-party.md
 tests-02-rcmmndd-48-misuse-at-vendor-name.md
 tests-02-rcmmndd-49-upper-open-ended-product-version-range.md
 tests-02-rcmmndd-51-unknown-version-scheme-in-vers.md
+tests-02-rcmmndd-52-unknown-hash-algorithm.md
 tests-03-informative.md
 tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
 tests-03-nfrmtv-02-use-of-cvss-v3-0.md
