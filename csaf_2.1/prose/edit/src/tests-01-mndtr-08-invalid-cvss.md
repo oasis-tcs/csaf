@@ -23,4 +23,4 @@ The relevant paths for this test are:
 > The required element `baseSeverity` is missing.
 
 > A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on
-> the values given in `vectorString` as quick fix.
+> the values given in `vectorString` as a quick fix.
