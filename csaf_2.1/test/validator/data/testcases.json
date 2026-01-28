@@ -4256,6 +4256,22 @@
           "valid": true
         }
       ]
+    },
+    {
+      "id": "6.3.20",
+      "group": "informative",
+      "failures": [
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-20-01.json",
+          "valid": true
+        }
+      ],
+      "valid": [
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-20-11.json",
+          "valid": true
+        }
+      ]
     }
   ]
 }
