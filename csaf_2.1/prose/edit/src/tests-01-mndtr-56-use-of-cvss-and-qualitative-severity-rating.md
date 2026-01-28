@@ -50,4 +50,4 @@ The relevant path for this test is:
 
 > A CVSS v3.1 score and a Qualitative Severity Rating is given for `CSAFPID-9080700` by the document author.
 
-> A tool MAY remove the `qualitative_severity_rating` as quick fix.
+> A tool MAY remove the `qualitative_severity_rating` as a quick fix.

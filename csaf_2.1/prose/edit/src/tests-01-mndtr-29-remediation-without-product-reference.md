@@ -21,4 +21,4 @@ The relevant path for this test is:
 
 > The given remediation does not specify to which products it should be applied.
 
-> A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
+> A tool MAY add all products of the affected group of this vulnerability to the remediation as a quick fix.

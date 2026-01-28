@@ -46,9 +46,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   * `/document/tracking/revision_history[]/summary`
   * `/document/tracking/status`
   * `/document/tracking/version`
-* The value of `/document/category` SHALL NOT be equal to any value that is intended to only be used by another profile nor to the
-  (case insensitive) name of any other profile from the standard.
-  This does not differentiate between underscore, dash or white space.
+* The value of `/document/category` SHALL NOT be equal to or a close match for any value that is intended to only be used by
+  another profile nor to the (case insensitive) name of any other profile from the standard.
+  Such case insensitive matching does not take occurrences of dash, hyphen, minus, white space, and underscore characters into account.
   To explicitly select the use of this profile the value `csaf_base` SHOULD be used.
 
 > Neither `CSAF Security Advisory` nor `csaf security advisory` are valid values for `/document/category`.

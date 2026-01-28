@@ -1,0 +1,218 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Stacked Branch Categories (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-57-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "branches": [
+                  {
+                    "branches": [
+                      {
+                        "branches": [
+                          {
+                            "branches": [
+                              {
+                                "branches": [
+                                  {
+                                    "branches": [
+                                      {
+                                        "branches": [
+                                          {
+                                            "branches": [
+                                              {
+                                                "branches": [
+                                                  {
+                                                    "branches": [
+                                                      {
+                                                        "branches": [
+                                                          {
+                                                            "branches": [
+                                                              {
+                                                                "branches": [
+                                                                  {
+                                                                    "branches": [
+                                                                      {
+                                                                        "branches": [
+                                                                          {
+                                                                            "branches": [
+                                                                              {
+                                                                                "branches": [
+                                                                                  {
+                                                                                    "branches": [
+                                                                                      {
+                                                                                        "branches": [
+                                                                                          {
+                                                                                            "branches": [
+                                                                                              {
+                                                                                                "branches": [
+                                                                                                  {
+                                                                                                    "branches": [
+                                                                                                      {
+                                                                                                        "branches": [
+                                                                                                          {
+                                                                                                            "branches": [
+                                                                                                              {
+                                                                                                                "branches": [
+                                                                                                                  {
+                                                                                                                    "branches": [
+                                                                                                                      {
+                                                                                                                        "branches": [
+                                                                                                                          {
+                                                                                                                            "category": "service_pack",
+                                                                                                                            "name": "branches",
+                                                                                                                            "product": {
+                                                                                                                              "name": "Example Company uses a deeply nested structure for this hypothetical product which seem still unnecessary and unrealistic but they are testing the limits again and pass the test with 30 branches",
+                                                                                                                              "product_id": "CSAFPID-9080700"
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        ],
+                                                                                                                        "category": "product_version",
+                                                                                                                        "name": "30"
+                                                                                                                      }
+                                                                                                                    ],
+                                                                                                                    "category": "product_name",
+                                                                                                                    "name": "with"
+                                                                                                                  }
+                                                                                                                ],
+                                                                                                                "category": "product_family",
+                                                                                                                "name": "test"
+                                                                                                              }
+                                                                                                            ],
+                                                                                                            "category": "product_family",
+                                                                                                            "name": "the"
+                                                                                                          }
+                                                                                                        ],
+                                                                                                        "category": "product_family",
+                                                                                                        "name": "pass"
+                                                                                                      }
+                                                                                                    ],
+                                                                                                    "category": "product_family",
+                                                                                                    "name": "and"
+                                                                                                  }
+                                                                                                ],
+                                                                                                "category": "product_family",
+                                                                                                "name": "again"
+                                                                                              }
+                                                                                            ],
+                                                                                            "category": "product_family",
+                                                                                            "name": "limits"
+                                                                                          }
+                                                                                        ],
+                                                                                        "category": "product_family",
+                                                                                        "name": "the"
+                                                                                      }
+                                                                                    ],
+                                                                                    "category": "product_family",
+                                                                                    "name": "testing"
+                                                                                  }
+                                                                                ],
+                                                                                "category": "product_family",
+                                                                                "name": "are"
+                                                                              }
+                                                                            ],
+                                                                            "category": "product_family",
+                                                                            "name": "they"
+                                                                          }
+                                                                        ],
+                                                                        "category": "product_family",
+                                                                        "name": "but"
+                                                                      }
+                                                                    ],
+                                                                    "category": "product_family",
+                                                                    "name": "unrealistic"
+                                                                  }
+                                                                ],
+                                                                "category": "product_family",
+                                                                "name": "and"
+                                                              }
+                                                            ],
+                                                            "category": "product_family",
+                                                            "name": "unnecessary"
+                                                          }
+                                                        ],
+                                                        "category": "product_family",
+                                                        "name": "still"
+                                                      }
+                                                    ],
+                                                    "category": "product_family",
+                                                    "name": "seem"
+                                                  }
+                                                ],
+                                                "category": "product_name",
+                                                "name": "which"
+                                              }
+                                            ],
+                                            "category": "product_family",
+                                            "name": "product"
+                                          }
+                                        ],
+                                        "category": "product_family",
+                                        "name": "hypothetical"
+                                      }
+                                    ],
+                                    "category": "product_family",
+                                    "name": "this"
+                                  }
+                                ],
+                                "category": "product_family",
+                                "name": "for"
+                              }
+                            ],
+                            "category": "product_family",
+                            "name": "structure"
+                          }
+                        ],
+                        "category": "product_family",
+                        "name": "nested"
+                      }
+                    ],
+                    "category": "product_family",
+                    "name": "deeply"
+                  }
+                ],
+                "category": "product_family",
+                "name": "a"
+              }
+            ],
+            "category": "product_family",
+            "name": "uses"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  }
+}

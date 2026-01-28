@@ -36,4 +36,4 @@ The relevant paths for this test are:
 
 > Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.
 
-> A tool MAY set the correct values as computed according to the specification as quick fix.
+> A tool MAY set the correct values as computed according to the specification as a quick fix.
