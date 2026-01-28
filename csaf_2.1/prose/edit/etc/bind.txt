@@ -141,6 +141,7 @@ tests-02-rcmmndd-46-language-specific-license-text.md
 tests-02-rcmmndd-47-use-of-qualitative-severity-rating-by-issuing-party.md
 tests-02-rcmmndd-48-misuse-at-vendor-name.md
 tests-02-rcmmndd-49-upper-open-ended-product-version-range.md
+tests-02-rcmmndd-50-overlapping-version-range.md
 tests-03-informative.md
 tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
 tests-03-nfrmtv-02-use-of-cvss-v3-0.md
@@ -160,6 +161,7 @@ tests-03-nfrmtv-15-usage-of-ssvc-decision-point-namespace-with-extension-in-non-
 tests-03-nfrmtv-16-grammar-check.md
 tests-03-nfrmtv-17-use-of-unregistered-license.md
 tests-03-nfrmtv-18-use-of-qualitative-severity-rating.md
+tests-03-nfrmtv-19-overlapping-version-range.md
 tests-04-presets.md
 distributing-00.md
 distributing-01-requirements.md
