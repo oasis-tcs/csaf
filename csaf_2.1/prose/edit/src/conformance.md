@@ -759,6 +759,17 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/algorithm`:
+  If the algorithm is known to the implementation or mentioned in this standard, the CSAF 2.0 to CSAF 2.1 Converter MUST ensure its spelling
+  is exactly as prescribed by this standard.
+  If the algorithm is unknown to the implementation, the CSAF 2.0 to CSAF 2.1 Converter MUST convert it to lowercase and output a warning that
+  an unknown hash algorithm was detected and converted.
+  Such a warning MUST include the invalid path as well as value of the algorithm.
+
+  > A tool MAY provide a non-default option to suppress this conversion step.
+
+* type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/value`: The CSAF 2.0 to CSAF 2.1 Converter MUST convert
+  the value into a lowercase string.
 * type `/$defs/full_product_name_t/product_identification_helper/model_number`:
   * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial model number was detected and a star has been added.
