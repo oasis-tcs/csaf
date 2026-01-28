@@ -189,6 +189,7 @@
   "185b": "overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1",
   "185c": "overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1",
   "185d": "unknown-version-scheme-in-vers-eg-1",
+  "185e": "unknown-hash-algorithm-eg-1",
   "186": "use-of-cvss-v2-as-the-only-scoring-system-eg-1",
   "187": "use-of-cvss-v3-0-eg-1",
   "188": "missing-cve-eg-1",
