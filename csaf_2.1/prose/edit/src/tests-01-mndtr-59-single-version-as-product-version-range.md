@@ -21,4 +21,4 @@ The relevant path for this test is:
 
 > The version range given identifies just a single version.
 
-> A tool MAY change the branch category to `product_version` and replace the value for `name` with the version as quick fix.
+> A tool MAY change the branch category to `product_version` and replace the value for `name` with the version as a quick fix.
