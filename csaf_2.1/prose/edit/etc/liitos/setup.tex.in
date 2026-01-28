@@ -21,6 +21,8 @@
   openlevel=1,
   numbered,
 }
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
 \IfFileExists{microtype.sty}{% use microtype if available
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
@@ -85,6 +87,7 @@
   urlcolor=oasis-links,
 }
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -261,7 +264,7 @@
   \chead*{\upshape{\normalsize Standards Track Work Product}}
   \ohead*{}
   \ifoot*{\upshape{\scriptsize\theMetaPropInfo}}
-  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2025. All Rights Reserved.}}
+  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2026. All Rights Reserved.}}
   \ofoot*{\upshape{\scriptsize VALUE.SLOT}}%%_PATCH_%_NORMAL_%_PAGES_%_OUTER_%_FOOT_%_CONTENT_%_VALUE_%%
   \setlength{\headheight}{10mm}%% ... tuned
   \setlength{\footheight}{10mm}%% ... tuned
@@ -289,7 +292,7 @@
   \chead*{\upshape{\normalsize Standards Track Work Product}}
   \ohead*{}
   \ifoot*{\upshape{\scriptsize\theMetaPropInfo}}
-  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2025. All Rights Reserved.}}
+  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2026. All Rights Reserved.}}
   \ofoot*{\upshape{\scriptsize VALUE.SLOT}}%%_PATCH_%_NORMAL_%_PAGES_%_OUTER_%_FOOT_%_CONTENT_%_VALUE_%%
   \setlength{\headheight}{10mm}%% ... tuned
   \setlength{\footheight}{10mm}%% ... tuned

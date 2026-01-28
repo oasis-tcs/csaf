@@ -1,0 +1,52 @@
+### Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document{#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document}
+
+For each SSVC decision point given under `selections`, it MUST be tested that the `namespace` does not use an extension
+if the document is not labeled `TLP:CLEAR`.
+Namespaces reserved for special purpose MUST be treated as per their definition.
+
+The relevant path for this test is:
+
+```
+   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    "document": {
+      // ...
+      "distribution": {
+        "tlp": {
+          "label": "GREEN"
+        }
+      },
+      // ...
+    }
+    "vulnerabilities": [
+      {
+        "metrics": [
+          {
+            "content": {
+              "ssvc_v2": {
+                // ...
+                "selections": [
+                  {
+                    // ...
+                    "namespace": "ssvc//.example.test#refined-technical-impacts",
+                    // ...
+                  }
+                ],
+                // ...
+              }
+            },
+            // ...
+          }
+        ]
+      }
+    ]
+  }
+```
+
+> The namespace contains the extension `.example.test#refined-technical-impacts`.
+> Its decision point definitions might therefore not be known to the reader of the document.
