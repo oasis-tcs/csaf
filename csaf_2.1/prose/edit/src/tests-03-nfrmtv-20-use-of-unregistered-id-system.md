@@ -1,6 +1,6 @@
 ### Use of Unregistered ID System
 
-For each item in `/vulnerabilities[]/ids`it MUST be tested that the the value of `system_name` belongs to a
+For each item in `/vulnerabilities[]/ids` it MUST be tested that the the value of `system_name` belongs to a
 registered vulnerability ID system in RVISC.
 
 > The RVISC is available at [cite](#RVISC).
