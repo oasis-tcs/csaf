@@ -1,4 +1,4 @@
-name: ID Test (Registry)
+name: RVISC ID Test (Registry)
 
 on:
   push:
@@ -27,5 +27,5 @@ jobs:
         pip3 install jsonschema[format]
     - name: Check jsonschema version
       run: python3 -c "from importlib.metadata import version; print(version('jsonschema'))"
-    - name: Test registry/id/id-registry.json against RVIS schema
+    - name: Test registry/id/id-registry.json against RVISC schema
       run: ./registry/id/test/run_tests.sh

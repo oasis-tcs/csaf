@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/ids/schema/id-registry.schema.json",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-registry.schema.json",
   "entries": [
     {
       "common_name": "OASIS Open CSAF TC GitHub Issues",

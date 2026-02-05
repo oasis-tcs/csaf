@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/ids/schema/id-registry.schema.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-registry.schema.json",
   "title": "Registry for Vulnerability ID Systems for CSAF (RVISC)",
   "description": "Representation of the data provided for the registry used to identify registered vulnerability id systems and their naming constraints. See also section 3.2.4.8.",
   "type": "object",
@@ -92,7 +92,7 @@
       "title": "JSON schema",
       "description": "Contains the URL of the JSON schema for test data which the document promises to be valid for.",
       "type": "string",
-      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/ids/schema/id-registry.schema.json"
+      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-registry.schema.json"
     },
     "entries": {
       "title": "List of registry entries",
