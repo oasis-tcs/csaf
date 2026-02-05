@@ -1,0 +1,31 @@
+name: ID Test (Registry)
+
+on:
+  push:
+    paths:
+      - 'registry/id/**'
+  pull_request:
+    paths:
+      - 'registry/id/**'
+
+jobs:
+  validator-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Prepare environment
+      run: |
+        sudo apt-get remove python3-jsonschema
+        sudo apt-get update -q && sudo apt-get install -y --no-install-recommends -qq \
+          python3 \
+          python3-simplejson \
+          python3-jsonpath-rw \
+          python3-pip \
+          python3-setuptools \
+          python3-wheel
+        pip3 install jsonschema[format]
+    - name: Check jsonschema version
+      run: python3 -c "from importlib.metadata import version; print(version('jsonschema'))"
+    - name: Test registry/id/id-registry.json against RVIS schema
+      run: ./registry/id/test/run_tests.sh
