@@ -114,7 +114,7 @@
       "title": "Registry schema version",
       "description": "Contains the current version of this schema",
       "type": "number",
-      "const": "1"
+      "const": 1
     }
   },
   "additionalProperties": false
