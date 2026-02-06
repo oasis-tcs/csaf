@@ -9,7 +9,7 @@ on:
       - 'registry/id/**'
 
 jobs:
-  validator-test:
+  registry-check:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
