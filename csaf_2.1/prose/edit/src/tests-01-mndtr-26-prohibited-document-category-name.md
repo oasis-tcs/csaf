@@ -5,7 +5,9 @@ value of any other profile than "CSAF Base".
 Any occurrences of dash, hyphen, minus, white space, and underscore characters are removed from the values on both sides before the
 case insensitive match.
 
-> Dash and hyphen characters (independent of their graphical variants) include, but are not limited to:
+> The characters listed above are independent of their graphical variants.
+> In general, all corresponding unicode characters are part of the group.
+> For example, dash, hyphen and underscore characters include, but are not limited to:
 >
 > * Em dash
 > * En dash
@@ -14,6 +16,9 @@ case insensitive match.
 > * Hyphen
 > * Hyphen-minus
 > * Non-breaking hyphen
+> * Low line
+> * Combining low line
+> * Fullwidth low line
 
 This applies for both, the comparison against the name and value.
 Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is exactly `csaf_base`.
