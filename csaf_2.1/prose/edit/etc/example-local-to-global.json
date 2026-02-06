@@ -128,7 +128,7 @@
   "overlapping-product-version-range-with-product-version-in-same-product-status-group-eg-1": "212",
   "overlapping-product-version-range-with-product-version-range-in-branch-eg-1": "213",
   "overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1": "186",
-  "overlapping-product-version-range-with-vers-in-same-contradicting-product-status-group-eg-1": "210",
+  "overlapping-product-version-range-with-vers-in-same-product-status-group-eg-1": "210",
   "overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1": "187",
   "overlapping-product-version-range-with-vls-in-same-product-status-group-eg-1": "211",
   "product-description-without-product-reference-eg-1": "176",
