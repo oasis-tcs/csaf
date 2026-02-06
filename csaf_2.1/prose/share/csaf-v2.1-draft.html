@@ -8137,11 +8137,11 @@
       6.1.26 Prohibited Document Category Name <a id='prohibited-document-category-name'></a>
     </h3>
     <p>
-      It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix <code>csaf_</code>) or value of any other profile than "CSAF Base". Any occurrences of dash, hyphen, minus, white space, and underscore characters are removed from the values on both sides before the case insensitive match.
+      It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix <code>csaf_</code>) or value of any other profile than "CSAF Base". Any occurrences of dash, hyphen, minus, underscore, and white space characters are removed from the values on both sides before the case insensitive match.
     </p>
     <blockquote>
       <p>
-        Dash and hyphen characters (independent of their graphical variants) include, but are not limited to:
+        The characters listed above are independent of their graphical variants. In general, all corresponding unicode characters are part of the group. For example, dash, hyphen and underscore characters include, but are not limited to:
       </p>
       <ul>
         <li>Em dash
@@ -8157,6 +8157,12 @@
         <li>Hyphen-minus
         </li>
         <li>Non-breaking hyphen
+        </li>
+        <li>Low line
+        </li>
+        <li>Combining low line
+        </li>
+        <li>Fullwidth low line
         </li>
       </ul>
     </blockquote>
