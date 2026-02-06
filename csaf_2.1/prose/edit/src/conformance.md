@@ -217,6 +217,42 @@ Secondly, the program fulfills the following for all items of:
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF Converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
+  Then, the CVRF CSAF Converter MUST execute the following steps at the converted object:
+  * If an `system_name` was given, the CVRF CSAF Converter MUST test whether it belongs to a registered
+  vulnerability ID system in RVISC.
+  * If the `system_name` belongs to an RVISC entry, the CVRF CSAF Converter MUST execute
+    test [sec](#match-text-for-registered-id-system).
+    * If the test passes, no further action is needed.
+    * If the test fails, the CVRF CSAF Converter MUST try to convert the entry based on the mapping
+      given in [cite](#RVISC-M).
+      * If the mapping succeeds and passes test [sec](#match-text-for-registered-id-system), the CVRF CSAF Converter MUST output
+        a warning that an ID from a registered vulnerability system was detected and converted.
+      * If the mapping succeeds but does not passes test [sec](#match-text-for-registered-id-system) or the mapping fails,
+        the CVRF CSAF Converter MUST output a warning that an ID from a registered vulnerability system was detected and
+        but could not be converted automatically.
+        Such warning MUST state the reason for failure.
+        This includes also if the mapping is not implemented.
+
+      > A tool MAY provide a non-default option to suppress this conversion step.
+
+      The output MUST include the original values and, if applicable, the converted ones.
+
+  * If the `system_name` does not belong to an RVISC entry, the CVRF CSAF Converter MUST try to convert the entry based on the
+    mapping given in [cite](#RVISC-M).
+    * If no matching mapping exists, the CVRF CSAF Converter MUST output an information that an ID from a potentially
+      unregistered vulnerability system was detected and no change occurred.
+    * If the mapping succeeds and passes test [sec](#match-text-for-registered-id-system), the CVRF CSAF Converter MUST
+      output a warning that an ID from a vulnerability system with a known mapping was detected and converted.
+    * If the mapping succeeds but does not passes test [sec](#match-text-for-registered-id-system) or the mapping fails otherwise,
+      the CVRF CSAF Converter MUST output a warning that an ID from a vulnerability system with a known mapping was detected
+      and but could not be converted automatically.
+      Such warning MUST state the reason for failure.
+      This includes also if the mapping is not implemented.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    The output MUST include the original values and, if applicable, the converted ones.
+
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF Converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
