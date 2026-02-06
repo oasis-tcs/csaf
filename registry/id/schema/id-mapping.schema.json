@@ -1,0 +1,142 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-mapping.schema.json",
+  "title": "Mapping for RVISC",
+  "description": "Representation of the mapping from `system_name` values used in the wild the registered RVISC entries",
+  "type": "object",
+  "$defs": {
+    "entry_t": {
+      "title": "Mapping entry",
+      "description": "Contains all necessary data for the mapping.",
+      "type": "object",
+      "minProperties": 2,
+      "required": [
+        "ambiguous",
+        "old_system_name"
+      ],
+      "properties": {
+        "ambiguous": {
+          "title": "Ambiguous entry",
+          "description": "States whether the old system name is being using for multiple different vulnerability ID systems and therefore not automatically mappable.",
+          "type": "boolean"
+        },
+        "old_system_name": {
+          "title": "Old system name",
+          "description": "Contains the value to be mapped to a registered RVISC entry.",
+          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/properties/vulnerabilities/items/properties/ids/items/properties/system_name"
+        }
+      },
+      "if": {
+        "properties": {
+          "ambiguous": {
+            "const": false
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "registered_system_name",
+          "text_conversion_rules"
+        ],
+        "properties": {
+          "registered_system_name": {
+            "title": "Registered system name",
+            "description": "Contains the registered system name that the value should be mapped to.",
+            "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-registry.schema.json#/$defs/entry_t/properties/system_name"
+          },
+          "text_conversion_rules": {
+            "title": "List of text conversion rules",
+            "description": "Contains a list of different potential conversion rules.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "title": "Text conversion rule",
+              "description": "Contains a human readable description of a single conversion rule and its preconditions for the value in `text`.",
+              "type": "object",
+              "properties": {
+                "pattern_precondition": {
+                  "title": "Pattern Precondition",
+                  "description": "Contains the precondition for the rule as JSON pattern.",
+                  "type": "string",
+                  "pattern": "^\\^.+\\$$"
+                },
+                "rule": {
+                  "title": "Rule",
+                  "description": "Contains a human readable description of a single conversion rule for the value in `text` and its preconditions, if applicable.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "else": {
+        "maxProperties": 4,
+        "minProperties": 3,
+        "properties": {
+          "potentially_matching_registered_system_names": {
+            "title": "List of potentially matching registered system names",
+            "description": "Contains a list of registered system names that might match the ambiguous entry.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-registry.schema.json#/$defs/entry_t/properties/system_name"
+            }
+          },
+          "potentially_matching_unregistered_system_names": {
+            "title": "List of potentially matching unregistered system names",
+            "description": "Contains a list of system names that might match the ambiguous entry but are not part of the RVISC.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/properties/vulnerabilities/items/properties/ids/items/properties/system_name"
+            }
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "entries",
+    "last_updated",
+    "mapping_version"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for test data which the document promises to be valid for.",
+      "type": "string",
+      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-mapping.schema.json"
+    },
+    "entries": {
+      "title": "List of mapping entries",
+      "description": "Contains the mapping entries.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/entry_t"
+      }
+    },
+    "last_updated": {
+      "title": "Last updated",
+      "description": "Holds the date and time when the document was last updated.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "mapping_version": {
+      "title": "Mapping schema version",
+      "description": "Contains the current version of this schema",
+      "type": "number",
+      "const": 1
+    }
+  },
+  "unevaluatedProperties": false
+}

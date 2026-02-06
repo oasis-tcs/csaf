@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-mapping.schema.json",
+  "entries": [
+    {
+      "ambiguous": false,
+      "old_system_name": "OASIS Open CSAF TC GitHub Issues",
+      "registered_system_name": "https://github.com/oasis-tcs/csaf",
+      "text_conversion_rules": [
+        {
+          "pattern_precondition": "^[Ii][Ss]{2}[Uu][Ee][Ss]?\\s[#]?\\d+$",
+          "rule": "Remove the number and case insensitive substring 'Issue' as well as any following white space. Take the remaining string and insert a '#' at the beginning if the string does not start with one. Then, remove all zeros after the '#' and before the first non-zero digit."
+        },
+        {
+          "pattern_precondition": "^\\d+$",
+          "rule": "Insert a '#' at the beginning if the string does not start with one. Then, remove all zeros after the '#' and before the first non-zero digit."
+        }
+      ]
+    }
+  ],
+  "last_updated": "2026-02-06T00:55:00Z",
+  "mapping_version": 1
+}

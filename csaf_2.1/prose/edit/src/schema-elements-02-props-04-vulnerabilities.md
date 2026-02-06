@@ -314,8 +314,8 @@ tracking IDs for the vulnerability (if such information exists).
     # ...
 ```
 
-Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single unique label or
-tracking ID for the vulnerability.
+Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
+unique label or tracking ID for the vulnerability.
 
 ```yaml <!--json-path($..vulnerabilities..ids..properties)-->
 <csaf-instance>:
@@ -337,6 +337,7 @@ System name (`system_name`) of value type `string` with `1` or more characters i
 ```
     Cisco Bug ID
     GitHub Issue
+    https://github.com/oasis-tcs/csaf
 ```
 
 Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
@@ -346,6 +347,7 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 ```
     CSCso66472
     oasis-tcs/csaf#210
+    #1217
 ```
 
 > General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
@@ -354,6 +356,8 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 > * a GitHub Issue number,
 > * an ID from a Bugzilla system, or
 > * an ID from a public vulnerability database such as the X-Force Database.
+>
+> The list of registered vulnerability id systems is available via [cite](#RVISC).
 >
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
@@ -620,7 +624,7 @@ CSAF consumer SHOULD give preference to CVSS if both, Qualitative Severity Ratin
 Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency` from the `cvss` namespace to convey
 an additional assessment provided by a party.
 
-The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
+The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
 See [cite](#SSVC) for details.
 

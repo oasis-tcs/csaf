@@ -178,7 +178,7 @@ It MUST differ if a different sharing group is addressed.
 
 > It is assumed that the ID is globally unique, if constructed according to the specification for UUID Version 4.
 
-The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lower case.
+The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lowercase.
 The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. `TLP:GREEN` and above.
 
 The following ID values SHOULD NOT be used unless there are technical reasons for them.
@@ -329,6 +329,13 @@ In addition, the following rules apply:
   LicenseRef-scancode-public-domain
   MIT OR any-OSI
 ```
+
+When choosing a license expression, CSAF issuing parties SHALL consider to use a permissive license to enable the flow of information
+through the ecosystem.
+
+> Restrictive licenses can prevent users to easily utilize tools that are hosted in the cloud as the tool providers cannot pre-import
+> CSAF document but users need at least to activate the sources themselves.
+> This is relevant for services and tools, regardless of whether they are commercial or not.
 
 #### Document Property - Notes{#document-property-notes}
 
