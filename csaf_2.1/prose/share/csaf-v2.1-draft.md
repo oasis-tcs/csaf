@@ -371,6 +371,13 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.47 [Use of Qualitative Severity Rating by Issuing Party](#use-of-qualitative-severity-rating-by-issuing-party)  
 		6.2.48 [Misuse at Vendor Name](#misuse-at-vendor-name)  
 		6.2.49 [Upper Open Ended Product Version Range](#upper-open-ended-product-version-range)  
+		6.2.50 [Overlapping Product Version Range](#overlapping-product-version-range)  
+			6.2.50.1 [Overlapping Product Version Range with vers in Contradicting Product Status Group](#overlapping-product-version-range-with-vers-in-contradicting-product-status-group)  
+			6.2.50.2 [Overlapping Product Version Range with vls in Contradicting Product Status Group](#overlapping-product-version-range-with-vls-in-contradicting-product-status-group)  
+			6.2.50.3 [Overlapping Product Version Range with Product Version in Contradicting Product Status Group](#overlapping-product-version-range-with-product-version-in-contradicting-product-status-group)  
+		6.2.51 [Unknown Version Scheme in vers](#unknown-version-scheme-in-vers)  
+		6.2.52 [Unknown Hash Algorithm](#unknown-hash-algorithm)  
+		6.2.53 [Matching Text for Registered ID System](#matching-text-for-registered-id-system)  
 	6.3 [Informative Tests](#informative-tests)  
 		6.3.1 [Use of CVSS v2 As the Only Scoring System](#use-of-cvss-v2-as-the-only-scoring-system)  
 		6.3.2 [Use of CVSS v3.0](#use-of-cvss-v3-0)  
@@ -390,6 +397,13 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.3.16 [Grammar Check](#grammar-check)  
 		6.3.17 [Use of Unregistered License](#use-of-unregistered-license)  
 		6.3.18 [Use of Qualitative Severity Rating](#use-of-qualitative-severity-rating)  
+		6.3.19 [Overlapping Product Version Range{informative-tests--overlapping-product-version-range}](#overlapping-product-version-range-informative-tests-overlapping-product-version-range)  
+			6.3.19.1 [Overlapping Product Version Range with vers in Same Product Status Group](#overlapping-product-version-range-with-vers-in-same-product-status-group)  
+			6.3.19.2 [Overlapping Product Version Range with vls in Same Product Status Group](#overlapping-product-version-range-with-vls-in-same-product-status-group)  
+			6.3.19.3 [Overlapping Product Version Range with Product Version in Same Product Status Group](#overlapping-product-version-range-with-product-version-in-same-product-status-group)  
+			6.3.19.4 [Overlapping Product Version Range with Product Version Range in Branch](#overlapping-product-version-range-with-product-version-range-in-branch)  
+			6.3.19.5 [Overlapping Product Version Range with Product Version in Branch](#overlapping-product-version-range-with-product-version-in-branch)  
+		6.3.20 [Use of Unregistered ID System](#use-of-unregistered-id-system)  
 	6.4 [Presets](#presets)  
 		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)  
 		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)  
@@ -802,6 +816,10 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="RFC9116" class="anchor"></span>**RFC9116\]** Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, <https://www.rfc-editor.org/info/rfc9116>.
 
+**\[**<span id="RVISC" class="anchor"></span>**RVISC\]** _Registry for Vulnerability ID Systems for CSAF (RVISC)_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id.
+
+**\[**<span id="RVISC-M" class="anchor"></span>**RVISC-M\]** _Mapping for RVISC_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id/mapping.json.
+
 **\[**<span id="SCAP12" class="anchor"></span>**SCAP12\]** _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
 
 **\[**<span id="SECURITY-TXT" class="anchor"></span>**SECURITY-TXT\]** Foudil, E. and Shafranovich, Y., _Security.txt Project_, <https://securitytxt.org/>.
@@ -961,20 +979,33 @@ The JSON schema 2020-12 dialect per default uses the `format` keyword just as an
 To be able to ensure that the format constraints are validated as intended, the following metaschema is defined.
 
 ```
-  {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
-    "$dynamicAnchor": "meta",
-    "$vocabulary": {
-      "https://json-schema.org/draft/2020-12/vocab/core": true,
-      "https://json-schema.org/draft/2020-12/vocab/format-assertion": true
-    },
-    "allOf": [
-      { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
-      { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
-    ]
-  }
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$dynamicAnchor": "meta",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2020-12/vocab/core": true,
+    "https://json-schema.org/draft/2020-12/vocab/applicator": true,
+    "https://json-schema.org/draft/2020-12/vocab/unevaluated": true,
+    "https://json-schema.org/draft/2020-12/vocab/validation": true,
+    "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
+    "https://json-schema.org/draft/2020-12/vocab/format-assertion": true,
+    "https://json-schema.org/draft/2020-12/vocab/content": true
+  },
+  "allOf": [
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/applicator" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/unevaluated" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/validation" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/meta-data" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/content" }
+  ]
+}
 ```
+
+> All vocabularies that can be used are defined in this metaschema as JSON schema 2020-12 dialect has the rule of
+> non-inheritability of vocabularies.
 
 It is then consequently used in all JSON schemas defined in this standard and replaces the reference to the JSON schema 2020-12.
 
@@ -1384,7 +1415,9 @@ The value of MUST obey to exactly one of the following options:
 
     This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part.
     It is a fallback option and SHOULD NOT be used unless really necessary.
+
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+    > Also, different tools might come to different results regarding this question.
 
     Tools MAY support this on best effort basis.
 
@@ -1553,8 +1586,14 @@ Any File hash object has the two mandatory properties `algorithm` and `value`.
         }
 ```
 
-The algorithm of the cryptographic hash representation (`algorithm`) of value type `string` with `1` or more characters contains
-the name of the cryptographic hash algorithm used to calculate the value.
+The algorithm of the cryptographic hash representation (`algorithm`) has value type `string` with `1` or more characters
+with `pattern` (regular expression):
+
+```
+    ^[0-9a-z][0-9a-z-]*$
+```
+
+The algorithm of the cryptographic hash representation contains the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 Secure cryptographic hash algorithms SHOULD be preferred.
 
@@ -1588,10 +1627,10 @@ These values are derived from the currently supported digests OpenSSL \[[OPENSSL
 The Value of the cryptographic hash representation (`value`) has value type `string` of `32` or more characters with `pattern` (regular expression):
 
 ```
-    ^[0-9a-fA-F]{32,}$
+    ^[0-9a-f]{32,}$
 ```
 
-The Value of the cryptographic hash attribute contains the cryptographic hash value in hexadecimal representation.
+The Value of the cryptographic hash attribute contains the cryptographic hash value in lowercase hexadecimal representation.
 
 *Examples 2:*<a id='full-product-name-type-product-identification-helper-hashes-eg-2'></a><a id='sec-3-1-3-3-2-eg-2'></a><a id='example-12'></a>
 
@@ -3647,8 +3686,8 @@ tracking IDs for the vulnerability (if such information exists).
     },
 ```
 
-Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single unique label or
-tracking ID for the vulnerability.
+Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
+unique label or tracking ID for the vulnerability.
 
 ```
       "properties": {
@@ -3668,6 +3707,7 @@ System name (`system_name`) of value type `string` with `1` or more characters i
 ```
     Cisco Bug ID
     GitHub Issue
+    https://github.com/oasis-tcs/csaf
 ```
 
 Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
@@ -3677,6 +3717,7 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 ```
     CSCso66472
     oasis-tcs/csaf#210
+    #1217
 ```
 
 > General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
@@ -3685,6 +3726,8 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 > * a GitHub Issue number,
 > * an ID from a Bugzilla system, or
 > * an ID from a public vulnerability database such as the X-Force Database.
+>
+> The list of registered vulnerability id systems is available via \[[RVISC](#RVISC)\].
 >
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
@@ -5305,7 +5348,7 @@ The relevant paths for this test are:
 > The required element `baseSeverity` is missing.
 
 > A tool MAY add one or more of the missing properties `version`, `baseScore` and `baseSeverity` based on
-> the values given in `vectorString` as quick fix.
+> the values given in `vectorString` as a quick fix.
 
 ### 6.1.9 Invalid CVSS Computation <a id='invalid-cvss-computation'></a>
 
@@ -5345,7 +5388,7 @@ The relevant paths for this test are:
 
 > Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.
 
-> A tool MAY set the correct values as computed according to the specification as quick fix.
+> A tool MAY set the correct values as computed according to the specification as a quick fix.
 
 ### 6.1.10 Inconsistent CVSS <a id='inconsistent-cvss'></a>
 
@@ -5380,7 +5423,7 @@ The relevant paths for this test are:
 
 > The values in CVSS vector differs from values of the properties `attackVector`, `scope` and `availabilityImpact`.
 
-> A tool MAY overwrite contradicting values according to the `vectorString` as quick fix.
+> A tool MAY overwrite contradicting values according to the `vectorString` as a quick fix.
 
 ### 6.1.11 CWE <a id='mandatory-tests--cwe'></a>
 
@@ -6646,7 +6689,7 @@ The relevant path for this test is:
 >
 > Note: A translation from `en-US` to `en-GB` would pass the test.
 
-> A tool MAY remove the source language as quick fix.
+> A tool MAY remove the source language as a quick fix.
 
 ### 6.1.29 Remediation without Product Reference <a id='remediation-without-product-reference'></a>
 
@@ -6671,7 +6714,7 @@ The relevant path for this test is:
 
 > The given remediation does not specify to which products it should be applied.
 
-> A tool MAY add all products of the affected group of this vulnerability to the remediation as quick fix.
+> A tool MAY add all products of the affected group of this vulnerability to the remediation as a quick fix.
 
 ### 6.1.30 Mixed Integer and Semantic Versioning <a id='mixed-integer-and-semantic-versioning'></a>
 
@@ -7569,6 +7612,8 @@ The relevant path for this test is:
 
 For each element of type `/$defs/branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` complies with
 the rules given in section [3.1.2.3.2](#branches-type-name-under-product-version-range).
+Version schemes of vers not supported by the implementation SHALL result in a warning which MUST include the version scheme name use.
+Nevertheless, all other rules MUST be checked to the extend possible.
 
 The relevant path for this test is:
 
@@ -7826,7 +7871,7 @@ The relevant path for this test is:
 
 > A CVSS v3.1 score and a Qualitative Severity Rating is given for `CSAFPID-9080700` by the document author.
 
-> A tool MAY remove the `qualitative_severity_rating` as quick fix.
+> A tool MAY remove the `qualitative_severity_rating` as a quick fix.
 
 ### 6.1.57 Stacked Branch Categories <a id='stacked-branch-categories'></a>
 
@@ -7923,7 +7968,7 @@ The relevant path for this test is:
 
 > The version range given identifies just a single version.
 
-> A tool MAY change the branch category to `product_version` and replace the value for `name` with the version as quick fix.
+> A tool MAY change the branch category to `product_version` and replace the value for `name` with the version as a quick fix.
 
 ## 6.2 Recommended Tests <a id='recommended-tests'></a>
 
@@ -7961,7 +8006,7 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` was defined but never used.
 
-> A tool MAY remove the unused definition as quick fix. However, such quick fix shall not be applied if the test was skipped.
+> A tool MAY remove the unused definition as a quick fix. However, such quick fix shall not be applied if the test was skipped.
 
 ### 6.2.2 Missing Remediation <a id='missing-remediation'></a>
 
@@ -8448,13 +8493,22 @@ The relevant paths for this test are:
 ### 6.2.18 Product Version Range without vers <a id='product-version-range-without-vers'></a>
 
 For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that
-the value of `name` conforms the vers specification.
+the value of `name` indicates that the product version range is using vers.
 
+> Compliance with the vers specification itself is enforced via test [6.1.50](#product-version-range-rules).
+> Unknown version schemes are detected via test [6.2.51](#unknown-version-scheme-in-vers).
+>
 > To implement this test it is deemed sufficient that the value of `name` matches the following regex:
 >
 > ```
 >   ^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+
 > ```
+
+The warning MUST clearly advise to carefully check whether vers can be used or the versions can be enumerated as
+the use of vls is only a fallback option.
+For more details, see sections [3.1.2.2](#branches-type-category) and [3.1.2.3.2](#branches-type-name-under-product-version-range).
+
+> It is planned to deprecate and finally remove the support for vls in future versions of this standard.
 
 The relevant paths for this test are:
 
@@ -8533,7 +8587,7 @@ The relevant path for this test is:
 > A tool MAY remove any Product IDs listed within product status `fixed` or `first_fixed` from `products` of all items of the `metrics` element.
 >
 > Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce the overall score to `0`
-> and compute the respective score and severity as quick fix.
+> and compute the respective score and severity as a quick fix.
 > The following environmental properties have been identified:
 >
 > - CVSS v2: `targetDistribution` to `NONE`
@@ -9783,6 +9837,347 @@ The relevant path for this test is:
 > constraint, a tool MAY convert it into the product version range ending with the version the upper open ended product version as a quick
 > fix, if applicable.
 
+### 6.2.50 Overlapping Product Version Range <a id='overlapping-product-version-range'></a>
+
+This subsubsection structures the recommended tests for overlapping product version ranges.
+The following definitions apply to all tests:
+
+* Two product version ranges `a` and `b` are overlapping if the intersection of their sets of product versions `a'` and `b'` does not
+  result in an empty set.
+
+  > As the intersect operation is commutative it is sufficient to test one order.
+
+* A product version `c` overlaps with a product version range `a` if `c` is included in `a`.
+* An element of type `/$defs/full_product_name_t` which has a branch category of `product_version_range` in the path leading to it,
+  is called "element with product version range" (`EPVR`).
+* The corresponding Product ID identifying such an `EPVR` is called "EPVR Product ID" (`EPVRPID`).
+* For each element of type `/$defs/branches_t` with `category` of `product_version_range` which is called
+  "currently tested product version range" (`CTPVR`), all sibling elements on the same level form the
+  "group of sibling elements of the product version range" (`GSEPVR`).
+* The group `GSEPVR` is divided in three pairwise disjoint sets:
+  1. Elements that have the branch category `product_version_range` form the "product version range sibling set" (`PVRSS`).
+  2. Elements that have the branch category `product_version` form the "product version sibling set" (`PVSS`).
+  3. Elements that do not fall into 1 or 2 form the "other branch category sibling set" (`OBCSS`).
+* `PVRSS` is divided in three pairwise disjoint sets:
+  1. Elements that use valid vers form the "product version range sibling set - vers" (`PVRSS-vers`).
+  2. Elements that use valid vls form the "product version range sibling set - vls" (`PVRSS-vls`).
+  3. Elements that do not fall into 1 or 2 form the "product version range sibling set - invalid" (`PVRSS-invalid`).
+* `PVRSS` elements can also be grouped into three pairwise disjoint sets:
+  1. Elements that contain the `branches` as only optional property form the "product version range sibling set with branches" (`PVRSS+b`).
+  2. Elements that contain the `product` as only optional property form the "product version range sibling set with leaf" (`PVRSS+l`).
+  3. Elements that do not fall into 1 or 2 form the "product version range sibling set - invalid branch" (`PVRSS+i`).
+* Similar, `PVSS` elements can be grouped into three pairwise disjoint sets:
+  1. Elements that contain the `branches` as only optional property form the "product version sibling set with branches" (`PVSS+b`).
+  2. Elements that contain the `product` as only optional property form the "product version sibling set with leaf" (`PVSS+l`).
+  3. Elements that do not fall into 1 or 2 form the "product version sibling set - invalid branch" (`PVSS+i`).
+* Attributes of `PVRSS` elements can be combined:
+  1. Product version range sibling set with branches - vers (`PVRSS+b-vers`): Intersection of `PVRSS+b` and `PVRSS-vers`
+  2. Product version range sibling set with branches - vls (`PVRSS+b-vls`): Intersection of `PVRSS+b` and `PVRSS-vls`
+  3. Product version range sibling set with leaf - vers (`PVRSS+l-vers`): Intersection of `PVRSS+l` and `PVRSS-vers`
+  4. Product version range sibling set with leaf - vls (`PVRSS+l-vls`): Intersection of `PVRSS+l` and `PVRSS-vls`
+  5. Product version range sibling set with branches - invalid (`PVRSS+b-invalid`): Intersection of `PVRSS+b` and `PVRSS-invalid`
+  6. Product version range sibling set with leaf - invalid (`PVRSS+l-invalid`): Intersection of `PVRSS+l` and `PVRSS-invalid`
+  7. Product version range sibling set - invalid branch - vers (`PVRSS+i-vers`): Intersection of `PVRSS+i` and `PVRSS-vers`
+  8. Product version range sibling set - invalid branch - vls (`PVRSS+i-vls`): Intersection of `PVRSS+i` and `PVRSS-vls`
+  9. Product version range sibling set - invalid branch - invalid (`PVRSS+i-invalid`): Intersection of `PVRSS+i` and `PVRSS-invalid`
+
+> Elements in the sets `PVRSS+i` and `PVSS+i` are detectable via the validation of the JSON schema and therefore ignored in these tests.
+> The exact characteristic of the product version range is of minor importance as the tests cannot produce any meaningful result in such
+> an invalid product tree.
+> Elements in `PVRSS-invalid` should be detected by test [6.1.50](#product-version-range-rules).
+
+#### 6.2.50.1 Overlapping Product Version Range with vers in Contradicting Product Status Group <a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
+member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-1-eg-1'></a><a id='example-186'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "vers:intdot/>2.1.0|<4.2.0",
+                "product": {
+                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": "vers:intdot/>1.2.0|<2.4.0",
+                "product": {
+                  "name": "Example Company Product A >1.2.0|<2.4.0",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ],
+        "known_not_affected": [
+          "CSAFPID-9080701"
+        ]
+      }
+    }
+  ]
+```
+
+> The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap but they are members of the contradicting groups "Affected"
+> and "Not affected".
+> For the version range `vers:intdot/>2.1.0|<2.4.0` it cannot be determined which product status is applicable.
+
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
+
+#### 6.2.50.2 Overlapping Product Version Range with vls in Contradicting Product Status Group <a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
+member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-2-eg-1'></a><a id='example-187'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": ">2.1.0|<4.2.0",
+                "product": {
+                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": ">1.2.0|<2.4.0",
+                "product": {
+                  "name": "Example Company Product A >1.2.0|<2.4.0",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ],
+        "known_not_affected": [
+          "CSAFPID-9080701"
+        ]
+      }
+    }
+  ]
+```
+
+> The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap but they are members of the contradicting groups "Affected"
+> and "Not affected".
+> For the version range `>2.1.0|<2.4.0` it cannot be determined which product status is applicable.
+
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
+
+#### 6.2.50.3 Overlapping Product Version Range with Product Version in Contradicting Product Status Group <a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS+l` that overlap with `CTPVR` are not
+member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-3-eg-1'></a><a id='example-188'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "vers:intdot/>2.1.0|<4.2.0",
+                "product": {
+                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.4.0",
+                "product": {
+                  "name": "Example Company Product A 2.4.0",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ],
+        "known_not_affected": [
+          "CSAFPID-9080701"
+        ]
+      }
+    }
+  ]
+```
+
+> The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap but they are members of the contradicting groups "Affected"
+> and "Not affected".
+> For the product version `2.4.0` it cannot be determined which product status is applicable.
+
+> A tool MAY exclude the overlapping product version from the product version range as a quick fix.
+
+### 6.2.51 Unknown Version Scheme in vers <a id='unknown-version-scheme-in-vers'></a>
+
+For each element of type `/$defs/branches_t` with `category` of `product_version_range` which indicates that it is using vers,
+it MUST be tested that the version scheme is supported by the implementation.
+The warning MUST differentiate between officially registered version schemes and those that are not in this state.
+
+> Different implementations might support different version schemes.
+> Usually, unknown version schemes hinder the automated evaluation of vers.
+> However, it is expected that the test is able to recognize all officially registered version schemes.
+> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/name
+```
+
+*Example 1 (which fails the test):*<a id='unknown-version-scheme-in-vers-eg-1'></a><a id='sec-6-2-51-eg-1'></a><a id='example-189'></a>
+
+```
+    {
+      "category": "product_version_range",
+      "name": "vers:someweirdunknownversionscheme/<4.2.0|>3.91.1|!=3.2.0|<1.2",
+      // ...
+    }
+```
+
+> The version scheme `someweirdunknownversionscheme` is a not an officially registered vers version scheme.
+> Note: An implementation would also have to state whether it supports this version scheme.
+
+### 6.2.52 Unknown Hash Algorithm <a id='unknown-hash-algorithm'></a>
+
+For each element of type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/algorithm`,
+it MUST be tested that the hash algorithm is supported by the implementation.
+The warning MUST differentiate between the values mentioned in section [3.1.3.3.2](#full-product-name-type-product-identification-helper-hashes)
+and those not mentioned there.
+
+> Different implementations might support different hash algorithms.
+> Usually, unknown hash algorithms might hinder the automated matching of hashes.
+> However, it is expected that the test is able to recognize all algorithms mentioned in the standard.
+> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
+
+The relevant paths for this test are:
+
+```
+  /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/algorithm
+  /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/algorithm
+  /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm
+```
+
+*Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-190'></a>
+
+```
+    {
+      "category": "product_version_range",
+      "name": "vers:someweirdunknownversionscheme/<4.2.0|>3.91.1|!=3.2.0|<1.2",
+      // ...
+    }
+```
+
+> The version scheme `someweirdunknownversionscheme` is a not an officially registered vers version scheme.
+> Note: An implementation would also have to state whether it supports this version scheme.
+
+### 6.2.53 Matching Text for Registered ID System <a id='matching-text-for-registered-id-system'></a>
+
+For each item in `/vulnerabilities[]/ids` that the value of a registered vulnerability ID system as `system_name`,
+it MUST be tested that the `text` in the CSAF document matches the `text_pattern` given by the
+"Registry for Vulnerability ID Systems for CSAF" (RVISC).
+
+> The RVISC is available at \[[RVISC](#RVISC)\].
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/ids[]/text
+```
+
+*Example 1 (which fails the test):*<a id='matching-text-for-registered-id-system-eg-1'></a><a id='sec-6-2-53-eg-1'></a><a id='example-191'></a>
+
+```
+    "ids": [
+      {
+        "system_name": "https://github.com/oasis-tcs/csaf",
+        "text": "Issue 1217"
+      }
+    ]
+```
+
+> The `system_name` contains a registered vulnerability ID system but the value of `text` does not match the `text_pattern`
+> stated for "OASIS Open CSAF TC GitHub Issues" in the RVISC.
+
 ## 6.3 Informative Tests <a id='informative-tests'></a>
 
 Informative tests provide insights in common mistakes and bad practices.
@@ -9805,7 +10200,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-186'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-192'></a>
 
 ```
   "product_tree": {
@@ -9853,7 +10248,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-187'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-193'></a>
 
 ```
   "cvss_v3": {
@@ -9870,7 +10265,7 @@ Recommendation:
 
 It is recommended to upgrade to CVSS v3.1.
 
-> A tool MAY upgrade to CVSS v3.1 as quick fix.
+> A tool MAY upgrade to CVSS v3.1 as a quick fix.
 > However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`.
 > The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if
 > the necessary fields for computing their value are present and set.
@@ -9885,7 +10280,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cve
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-188'></a>
+*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-194'></a>
 
 ```
   "vulnerabilities": [
@@ -9913,7 +10308,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-189'></a>
+*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-195'></a>
 
 ```
   "vulnerabilities": [
@@ -9938,7 +10333,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-190'></a>
+*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-196'></a>
 
 ```
   "product_tree": {
@@ -9999,7 +10394,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/remediations[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-191'></a>
+*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-197'></a>
 
 ```
     "references": [
@@ -10028,7 +10423,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/references[]/url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-192'></a>
+*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-198'></a>
 
 ```
     "references": [
@@ -10090,7 +10485,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-193'></a>
+*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-199'></a>
 
 ```
   "document": {
@@ -10122,7 +10517,7 @@ The relevant paths for this test are:
   /product_tree/branches
 ```
 
-*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-194'></a>
+*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-200'></a>
 
 ```
     "branches": [
@@ -10164,7 +10559,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-195'></a>
+*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-201'></a>
 
 ```
                 "category": "product_version_range",
@@ -10189,7 +10584,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-196'></a>
+*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-202'></a>
 
 ```
             "branches": [
@@ -10215,7 +10610,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-197'></a>
+*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-203'></a>
 
 ```
   "product_tree": {
@@ -10265,7 +10660,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-198'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-204'></a>
 
 ```
   "ssvc_v2": {
@@ -10297,7 +10692,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-199'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-205'></a>
 
 ```
   {
@@ -10350,7 +10745,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-200'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-206'></a>
 
 ```
   {
@@ -10424,7 +10819,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/title
 ```
 
-*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-201'></a>
+*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-207'></a>
 
 ```
   "document": {
@@ -10457,7 +10852,7 @@ The relevant path for this test is:
   /document/license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-202'></a>
+*Example 1 (which fails the test):*<a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-208'></a>
 
 ```
     "license_expression": "LicenseRef-www.example.com-no-work-pd",
@@ -10482,7 +10877,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-203'></a>
+*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-209'></a>
 
 ```
   "product_tree": {
@@ -10513,6 +10908,308 @@ The relevant path for this test is:
 > The upstream provided metric for `CSAFPID-9080700` uses a `qualitative_severity_rating`.
 
 -------
+
+### 6.3.19 Overlapping Product Version Range{informative-tests--overlapping-product-version-range} <a id='overlapping-product-version-range-informative-tests-overlapping-product-version-range'></a>
+
+This subsubsection structures the informative tests for overlapping product version ranges.
+These tests provide weak indicators of potential errors in the construction of the product tree.
+
+#### 6.3.19.1 Overlapping Product Version Range with vers in Same Product Status Group <a id='overlapping-product-version-range-with-vers-in-same-product-status-group'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
+member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-1-eg-1'></a><a id='example-210'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "vers:intdot/>2.1.0|<4.2.0",
+                "product": {
+                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": "vers:intdot/>1.2.0|<2.4.0",
+                "product": {
+                  "name": "Example Company Product A >1.2.0|<2.4.0",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "first_fixed": [
+          "CSAFPID-9080701"
+        ],
+        "fixed": [
+          "CSAFPID-9080700"
+        ]
+      }
+    }
+  ]
+```
+
+> The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap and they are members of the same group "Fixed".
+
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
+
+#### 6.3.19.2 Overlapping Product Version Range with vls in Same Product Status Group <a id='overlapping-product-version-range-with-vls-in-same-product-status-group'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
+member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-2-eg-1'></a><a id='example-211'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": ">2.1.0|<4.2.0",
+                "product": {
+                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version_range",
+                "name": ">1.2.0|<2.4.0",
+                "product": {
+                  "name": "Example Company Product A >1.2.0|<2.4.0",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "first_fixed": [
+          "CSAFPID-9080701"
+        ],
+        "fixed": [
+          "CSAFPID-9080700"
+        ]
+      }
+    }
+  ]
+```
+
+> The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap and they are members of the same group "Fixed".
+
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
+
+#### 6.3.19.3 Overlapping Product Version Range with Product Version in Same Product Status Group <a id='overlapping-product-version-range-with-product-version-in-same-product-status-group'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
+member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+
+The relevant path for this test is:
+
+```
+    /vulnerabilities[]/product_status
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-3-eg-1'></a><a id='example-212'></a>
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version_range",
+                "name": "vers:intdot/>2.1.0|<4.2.0",
+                "product": {
+                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2.4.0",
+                "product": {
+                  "name": "Example Company Product A 2.4.0",
+                  "product_id": "CSAFPID-9080701"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "first_fixed": [
+          "CSAFPID-9080701"
+        ],
+        "fixed": [
+          "CSAFPID-9080700"
+        ]
+      }
+    }
+  ]
+```
+
+> The product version ranges of `CSAFPID-9080700` and `CSAFPID-9080701` overlap and they are members of the same group "Fixed".
+
+> A tool MAY exclude the overlapping product version from the product version range as a quick fix.
+
+#### 6.3.19.4 Overlapping Product Version Range with Product Version Range in Branch <a id='overlapping-product-version-range-with-product-version-range-in-branch'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that all product version ranges of elements in `PVRSS+b` do not overlap with `CTPVR`.
+
+The relevant path for this test is:
+
+```
+     /product_tree/branches[](/branches[])*/name
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-range-in-branch-eg-1'></a><a id='sec-6-3-19-4-eg-1'></a><a id='example-213'></a>
+
+```
+    {
+      "branches": [
+        {
+          "branches": [
+            // ...
+          ],
+          "category": "product_version_range",
+          "name": "vers:intdot/>2.1.0|<4.2.0"
+        },
+        {
+          "branches": [
+            // ...
+          ],
+          "category": "product_version_range",
+          "name": "vers:intdot/>1.2.0|<2.4.0"
+        }
+      ],
+      // ...
+    }
+```
+
+> The product version ranges overlap.
+
+> A tool MAY split overlapping product version ranges into non-overlapping ones to simplify the resolution as a quick fix.
+
+#### 6.3.19.5 Overlapping Product Version Range with Product Version in Branch <a id='overlapping-product-version-range-with-product-version-in-branch'></a>
+
+For each item in `/vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
+For each `EPVR` (as `CTPVR`), it MUST be tested that all product versions of elements in `PVSS+b` do not overlap with `CTPVR`.
+
+The relevant path for this test is:
+
+```
+     /product_tree/branches[](/branches[])*/name
+```
+
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-branch-eg-1'></a><a id='sec-6-3-19-5-eg-1'></a><a id='example-214'></a>
+
+```
+    {
+      "branches": [
+        {
+          "branches": [
+            // ...
+          ],
+          "category": "product_version_range",
+          "name": "vers:intdot/>2.1.0|<4.2.0"
+        },
+        {
+          "branches": [
+            // ...
+          ],
+          "category": "product_version",
+          "name": "3.0.0"
+        }
+      ],
+      // ...
+    }
+```
+
+> The product version is part of the product version range.
+
+### 6.3.20 Use of Unregistered ID System <a id='use-of-unregistered-id-system'></a>
+
+For each item in `/vulnerabilities[]/ids` it MUST be tested that the the value of `system_name` belongs to a
+registered vulnerability ID system in RVISC.
+
+> The RVISC is available at \[[RVISC](#RVISC)\].
+
+The relevant paths for this test are:
+
+```
+  /vulnerabilities[]/ids[]/system_name
+```
+
+*Example 1 (which fails the test):*<a id='use-of-unregistered-id-system-eg-1'></a><a id='sec-6-3-20-eg-1'></a><a id='example-215'></a>
+
+```
+    "ids": [
+      {
+        "system_name": "OASIS Open CSAF TC GitHub Issues",
+        "text": "Issue 1217"
+      }
+    ]
+```
+
+> The `system_name` is not one that is registered in RVISC.
 
 ## 6.4 Presets <a id='presets'></a>
 
@@ -10684,7 +11381,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-204'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-216'></a>
 
 ```
   {
@@ -10756,7 +11453,7 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
 > The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-205'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-217'></a>
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -10778,7 +11475,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-206'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-218'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -10804,7 +11501,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `/document/tracking/initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-207'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-219'></a>
 
 ```
 2024
@@ -10817,7 +11514,7 @@ The file `index.txt` MUST contain the list of all filenames of CSAF documents wh
 Each entry SHALL be terminated by a newline sequence.
 The last entry MAY skip the newline sequence.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-208'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-220'></a>
 
 ```
 2025/esa-2025-421324.json
@@ -10834,7 +11531,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > If different TLP labels are used, multiple `index.txt` exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
-*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-209'></a>
+*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-221'></a>
 
 ```
 .well-known/
@@ -10884,7 +11581,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > Example \[\[[1](#requirement-12-index-txt-eg-1)\]\] depicts the content of the `index.txt` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
 
-*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-210'></a>
+*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-222'></a>
 
 ```
   "distributions": [
@@ -10931,7 +11628,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by \
 > Note: As a consequence of section [7.1.2](#requirement-2-filename) Requirement 2 for filenames and section [7.1.11](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-211'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-223'></a>
 
 ```
 2024/esa-2024-430524.json,2025-07-21T11:14:37Z
@@ -10975,7 +11672,7 @@ Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC
 The ROLIE feed document MUST contain a feed category with the registered ROLIE information type `csaf`.
 The `scheme` for this category MUST be `urn:ietf:params:rolie:category:information-type`.
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-212'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-224'></a>
 
 ```
   {
@@ -11044,7 +11741,7 @@ If it is used, each ROLIE service document MUST be a JSON file that conforms wit
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-213'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-225'></a>
 
 ```
   {
@@ -11088,7 +11785,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   * `product_version`
 * type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-214'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-226'></a>
 
   ```
     CPU
@@ -11103,7 +11800,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-215'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-227'></a>
 
   ```
     Chemical
@@ -11118,7 +11815,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 * any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-216'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-228'></a>
 
 ```
   {
@@ -11142,7 +11839,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHALL NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-217'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-229'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -11154,7 +11851,7 @@ The file content SHALL start with the first byte of the hexadecimal hash value.
 The hash value SHALL be represented in lowercase.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-218'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-230'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -11169,7 +11866,7 @@ extended by the appropriate extension.
 This signature SHALL be presented as an ASCII armored file.
 See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-219'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-231'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -11209,7 +11906,7 @@ It MUST NOT be stored adjacent to a `provider-metadata.json`.
 The file `aggregator.json` SHOULD be accessible at the registered path in the `.well-known` directory:
 `/.well-known/csaf-aggregator/aggregator.json`.
 
-*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-220'></a>
+*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-232'></a>
 
 ```
   https://aggregator.example/.well-known/csaf-aggregator/aggregator.json
@@ -11218,7 +11915,7 @@ The file `aggregator.json` SHOULD be accessible at the registered path in the `.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-221'></a>
+*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-233'></a>
 
 ```
   {
@@ -11277,7 +11974,7 @@ Each such folder MUST at least:
 * provide a `provider-metadata.json` for the current issuing party.
 * provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-222'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-234'></a>
 
 ```
   {
@@ -11881,6 +12578,42 @@ Secondly, the program fulfills the following for all items of:
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
 * `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given, the CVRF CSAF Converter MUST convert its value into the `disclosure_date` element.
 * `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
+  Then, the CVRF CSAF Converter MUST execute the following steps at the converted object:
+  * If an `system_name` was given, the CVRF CSAF Converter MUST test whether it belongs to a registered
+  vulnerability ID system in RVISC.
+  * If the `system_name` belongs to an RVISC entry, the CVRF CSAF Converter MUST execute
+    test [6.2.53](#matching-text-for-registered-id-system).
+    * If the test passes, no further action is needed.
+    * If the test fails, the CVRF CSAF Converter MUST try to convert the entry based on the mapping
+      given in \[[RVISC-M](#RVISC-M)\].
+      * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CVRF CSAF Converter MUST output
+        a warning that an ID from a registered vulnerability system was detected and converted.
+      * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails,
+        the CVRF CSAF Converter MUST output a warning that an ID from a registered vulnerability system was detected and
+        but could not be converted automatically.
+        Such warning MUST state the reason for failure.
+        This includes also if the mapping is not implemented.
+
+      > A tool MAY provide a non-default option to suppress this conversion step.
+
+      The output MUST include the original values and, if applicable, the converted ones.
+
+  * If the `system_name` does not belong to an RVISC entry, the CVRF CSAF Converter MUST try to convert the entry based on the
+    mapping given in \[[RVISC-M](#RVISC-M)\].
+    * If no matching mapping exists, the CVRF CSAF Converter MUST output an information that an ID from a potentially
+      unregistered vulnerability system was detected and no change occurred.
+    * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CVRF CSAF Converter MUST
+      output a warning that an ID from a vulnerability system with a known mapping was detected and converted.
+    * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails otherwise,
+      the CVRF CSAF Converter MUST output a warning that an ID from a vulnerability system with a known mapping was detected
+      and but could not be converted automatically.
+      Such warning MUST state the reason for failure.
+      This includes also if the mapping is not implemented.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    The output MUST include the original values and, if applicable, the converted ones.
+
 * `/vulnerabilities[]/metrics[]`:
   * For any CVSS v4 element, the CVRF CSAF Converter MUST compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
@@ -11898,7 +12631,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF Converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-223'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-235'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -11907,7 +12640,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF Converter outputs a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-224'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-236'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -11917,7 +12650,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-225'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-237'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -11928,7 +12661,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step MUST be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-226'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-238'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -11936,7 +12669,7 @@ Secondly, the program fulfills the following for all items of:
 
     4. Retrieve the CVSS version from a config value, which defaults to `3.0`.
        (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF Converter outputs a warning that this value was taken from the config.
-* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+* `/vulnerabilities[]/metrics[]/content/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
   the CVRF CSAF Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
 
   > A tool MAY implement an option to suppress this conversion.
@@ -12284,7 +13017,7 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
     * when a new CSAF Document is inserted (for this CSAF Document)
     * when a new SBOM component is inserted (for this SBOM component)
     * when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
- 
+
     > These also apply if more than one CSAF Document or SBOM component was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
 
@@ -12423,6 +13156,17 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD removed the
   invalid value and output a warning that an invalid CPE was detected and removed. Such a warning MUST include the invalid CPE.
+* type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/algorithm`:
+  If the algorithm is known to the implementation or mentioned in this standard, the CSAF 2.0 to CSAF 2.1 Converter MUST ensure its spelling
+  is exactly as prescribed by this standard.
+  If the algorithm is unknown to the implementation, the CSAF 2.0 to CSAF 2.1 Converter MUST convert it to lowercase and output a warning that
+  an unknown hash algorithm was detected and converted.
+  Such a warning MUST include the invalid path as well as value of the algorithm.
+
+  > A tool MAY provide a non-default option to suppress this conversion step.
+
+* type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/value`: The CSAF 2.0 to CSAF 2.1 Converter MUST convert
+  the value into a lowercase string.
 * type `/$defs/full_product_name_t/product_identification_helper/model_number`:
   * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial model number was detected and a star has been added.
@@ -12502,7 +13246,7 @@ Secondly, the program fulfills the following for all items of:
 * `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
   [3.2.2.8](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
   is a specific product name, version or family.
-  In such case, the CSAF 2.0 to CSAF 2.1 Coverter SHALL try to add the corresponding products to the note item and output a warning that a potential product
+  In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
   Such warning MUST also include the note and the assigned products.
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid object, it MUST remove the reference to the products and output a warning that a potential
@@ -12524,17 +13268,53 @@ Secondly, the program fulfills the following for all items of:
 
     The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
-* `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 Converter MUST convert its value as value 
+* `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 Converter MUST convert its value as value
   into the `disclosure_date` element.
-* `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
-  the CSAF 2.0 to CSAF 2.1 Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
+* `/vulnerabilities[]/ids`:  If an `system_name` was given, the CSAF 2.0 to CSAF 2.1 Converter MUST test whether it belongs to a registered
+  vulnerability ID system in RVISC.
+  * If the `system_name` belongs to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter MUST execute
+    test [6.2.53](#matching-text-for-registered-id-system).
+    * If the test passes, no further action is needed.
+    * If the test fails, the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the entry based on the mapping
+      given in \[[RVISC-M](#RVISC-M)\].
+      * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter MUST output
+        a warning that an ID from a registered vulnerability system was detected and converted.
+      * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails,
+        the CSAF 2.0 to CSAF 2.1 Converter MUST output a warning that an ID from a registered vulnerability system was detected and
+        but could not be converted automatically.
+        Such warning MUST state the reason for failure.
+        This includes also if the mapping is not implemented.
+
+      > A tool MAY provide a non-default option to suppress this conversion step.
+
+      The output MUST include the original values and, if applicable, the converted ones.
+
+  * If the `system_name` does not belong to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the entry based on the
+    mapping given in \[[RVISC-M](#RVISC-M)\].
+    * If no matching mapping exists, the CSAF 2.0 to CSAF 2.1 Converter MUST output an information that an ID from a potentially
+      unregistered vulnerability system was detected and no change occurred.
+    * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter MUST
+      output a warning that an ID from a vulnerability system with a known mapping was detected and converted.
+    * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails otherwise,
+      the CSAF 2.0 to CSAF 2.1 Converter MUST output a warning that an ID from a vulnerability system with a known mapping was detected
+      and but could not be converted automatically.
+      Such warning MUST state the reason for failure.
+      This includes also if the mapping is not implemented.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    The output MUST include the original values and, if applicable, the converted ones.
+
+* `/vulnerabilities[]/metrics[]/content/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0
+  calculator exists, the CSAF 2.0 to CSAF 2.1 Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all
+  affected products of the vulnerability.
   
   > A tool MAY implement an option to suppress this conversion.
 
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the invalid `cvss_v4` object and output a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
-* `/vulnerabilities[]/metrics/ssvc_v2`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
+* `/vulnerabilities[]/metrics[]/content/ssvc_v2`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
   vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 Converter MUST convert that data into the `ssvc_v2`
   object within the current vulnerability.
   If the CSAF 2.0 to CSAF 2.1 Converter is able to construct a valid object without loosing any information, the corresponding `notes` item SHALL
