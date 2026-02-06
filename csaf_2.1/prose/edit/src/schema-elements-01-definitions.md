@@ -5,7 +5,7 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
 Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`), Product ID (`product_id_t`), Products (`products_t`),
 References (`references_t`), and Version (`version_t`).
 
-```yaml
+```yaml <!--json-path($..['$defs'])-->
 $defs:
   acknowledgments_t: Sequence
   branches_t: Sequence
