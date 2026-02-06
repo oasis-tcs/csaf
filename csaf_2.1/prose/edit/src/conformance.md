@@ -873,6 +873,41 @@ Secondly, the program fulfills the following for all items of:
 
 * `/vulnerabilities[]/disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 Converter MUST convert its value as value 
   into the `disclosure_date` element.
+* `/vulnerabilities[]/ids`:  If an `system_name` was given, the CSAF 2.0 to CSAF 2.1 Converter MUST test whether it belongs to a registered
+  vulnerability ID system in RVISC.
+  * If the `system_name` belongs to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter MUST execute
+    test [sec](#match-text-for-registered-id-system).
+    * If the test passes, no further action is needed.
+    * If the test fails, the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the entry based on the mapping
+      given in [cite](#RVISC-M).
+      * If the mapping succeeds and passes test [sec](#match-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter MUST output
+        a warning that an ID from a registered vulnerability system was detected and converted.
+      * If the mapping succeeds but does not passes test [sec](#match-text-for-registered-id-system) or the mapping fails,
+        the CSAF 2.0 to CSAF 2.1 Converter MUST output a warning that an ID from a registered vulnerability system was detected and
+        but could not be converted automatically.
+        Such warning MUST state the reason for failure.
+        This includes also if the mapping is not implemented.
+
+      > A tool MAY provide a non-default option to suppress this conversion step.
+
+      The output MUST include the original values and, if applicable, the converted ones.
+
+  * If the `system_name` does not belong to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the entry based on the
+    mapping given in [cite](#RVISC-M).
+    * If no matching mapping exists, the CSAF 2.0 to CSAF 2.1 Converter MUST output an information that an ID from a potentially
+      unregistered vulnerability system was detected and no change occurred.
+    * If the mapping succeeds and passes test [sec](#match-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter MUST
+      output a warning that an ID from a vulnerability system with a known mapping was detected and converted.
+    * If the mapping succeeds but does not passes test [sec](#match-text-for-registered-id-system) or the mapping fails otherwise,
+      the CSAF 2.0 to CSAF 2.1 Converter MUST output a warning that an ID from a vulnerability system with a known mapping was detected
+      and but could not be converted automatically.
+      Such warning MUST state the reason for failure.
+      This includes also if the mapping is not implemented.
+
+    > A tool MAY provide a non-default option to suppress this conversion step.
+
+    The output MUST include the original values and, if applicable, the converted ones.
+
 * `/vulnerabilities[]/metrics/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
   the CSAF 2.0 to CSAF 2.1 Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
   
