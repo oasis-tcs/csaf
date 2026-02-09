@@ -10145,15 +10145,14 @@ The relevant paths for this test are:
 *Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-190'></a>
 
 ```
-    {
-      "category": "product_version_range",
-      "name": "vers:someweirdunknownversionscheme/<4.2.0|>3.91.1|!=3.2.0|<1.2",
-      // ...
-    }
+  {
+    "algorithm": "unknown-algorithm",
+    "value": "026a37919b182ef7c63791e82c9645e2f897a3f0b73c7a6028c7febf62e93838"
+  }
 ```
 
-> The version scheme `someweirdunknownversionscheme` is a not an officially registered vers version scheme.
-> Note: An implementation would also have to state whether it supports this version scheme.
+> The hash algorithm `unknown-algorithm` is not listed in section [3.1.3.3.2](#full-product-name-type-product-identification-helper-hashes).
+> Note: An implementation would also have to state whether it supports this algorithm.
 
 ### 6.2.53 Matching Text for Registered ID System <a id='matching-text-for-registered-id-system'></a>
 
