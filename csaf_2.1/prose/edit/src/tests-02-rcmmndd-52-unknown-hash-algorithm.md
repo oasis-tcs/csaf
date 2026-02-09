@@ -27,5 +27,5 @@ The relevant paths for this test are:
   }
 ```
 
-> The hash algorithm `unknown-algorithm` is not mentioned in section [sec](#full-product-name-type-product-identification-helper-hashes).
+> The hash algorithm `unknown-algorithm` is not listed in section [sec](#full-product-name-type-product-identification-helper-hashes).
 > Note: An implementation would also have to state whether it supports this algorithm.
