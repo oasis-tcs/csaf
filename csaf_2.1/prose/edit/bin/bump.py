@@ -41,12 +41,13 @@ MONTHS_EN = (
 here = pathlib.Path().absolute()
 tool = pathlib.Path(__file__)
 path = tool.relative_to(here)
+usage = f'usage: {path} [--commit] "DD Month YYYY"'
 
 args = sys.argv[1:]
 
 if not args:
-    print(f'usage: {path} [--commit] "DD Month YYYY"')
-    sys.exit(2)
+    print(usage)
+    sys.exit(0)
 
 commit = False
 for slot, arg in enumerate(args):
@@ -54,15 +55,15 @@ for slot, arg in enumerate(args):
         commit = True
         del args[slot]
 
-if not commit:
-    print('INFO: Dry-run only - only diffs are shown and no files changed.')
-else:
-    print('INFO: Commit mode - the magical four files will be bumped.')
-
 try:
     DD, Month, YYYY = args[0].split(SPACE)
 except ValueError:
-    print(f'usage: {path} "DD Month YYYY"')
+    print(usage)
+    print(f'ERROR: Parsing date value ({args[0]})')
+    sys.exit(2)
+except IndexError:
+    print(usage)
+    print(f'ERROR: Not enough arguments')
     sys.exit(2)
 
 PUB_DAY = DD
@@ -121,6 +122,11 @@ _, max_days_of_month = cal.monthrange(y, m)
 if d > max_days_of_month:
     print(f'ERROR: Day part must be inside days of month [1, {max_days_of_month}]')
     sys.exit(2)
+
+if not commit:
+    print('INFO: Dry-run only - only diffs are shown and no files changed.')
+else:
+    print('INFO: Commit mode - the magical four files will be bumped.')
 
 PUB_DATE = f'{PUB_DAY} {PUB_MONTH_EN} {PUB_YEAR}'
 DEBUG = bool(os.getenv('BUMP_DEBUG', ''))
@@ -303,6 +309,8 @@ sys.stdout.writelines(difflib.unified_diff(
 if commit:
     with open(SRC_HISTORY, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
         target.write(NL.join(bumped) + NL)
-
-print()
-print('Bumped - OK')
+    print()
+    print('Bumped - OK')
+else:
+    print()
+    print('Dry-Bumped - OK')
