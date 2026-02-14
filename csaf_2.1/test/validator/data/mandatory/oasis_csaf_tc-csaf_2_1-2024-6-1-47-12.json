@@ -42,7 +42,7 @@
       "cve": "CVE-1900-0001",
       "ids": [
         {
-          "system_name": "Example Company's Bugtracker",
+          "system_name": "Example Company's Bug Tracker",
           "text": "Bug#2723"
         }
       ],

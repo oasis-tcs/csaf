@@ -102,6 +102,12 @@ RFC8615
 RFC9116
 :    Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, <https://www.rfc-editor.org/info/rfc9116>.
 
+RVISC
+:    _Registry for Vulnerability ID Systems for CSAF (RVISC)_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id.
+
+RVISC-M
+:    _Mapping for RVISC_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id/mapping.json.
+
 SCAP12
 :    _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
 

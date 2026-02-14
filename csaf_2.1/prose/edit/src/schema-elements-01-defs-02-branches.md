@@ -85,7 +85,7 @@ However, it MUST NOT contain version ranges of any kind.
 > See next section for details.
 
 The value `product_version_range` indicates a range of versions for the product.
-The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
+The value of the adjacent `name` property SHALL NOT be used to convey a single version.
 
 > In most cases, product version ranges hinder the use of product identification helpers as they need to identify a product completely.
 > In such case, the product identification and also therefore matching, independent whether that is against SBOMs or assets,
@@ -178,7 +178,9 @@ The value of MUST obey to exactly one of the following options:
 
     This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part.
     It is a fallback option and SHOULD NOT be used unless really necessary.
+
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+    > Also, different tools might come to different results regarding this question.
 
     Tools MAY support this on best effort basis.
 

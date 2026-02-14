@@ -197,6 +197,7 @@
                           "description": "Contains the name of the cryptographic hash algorithm used to calculate the value.",
                           "type": "string",
                           "default": "sha256",
+                          "pattern": "^[0-9a-z][0-9a-z-]*$",
                           "minLength": 1,
                           "examples": [
                             "blake2b512",
@@ -208,9 +209,9 @@
                         },
                         "value": {
                           "title": "Value of the cryptographic hash",
-                          "description": "Contains the cryptographic hash value in hexadecimal representation.",
+                          "description": "Contains the cryptographic hash value in lowercase hexadecimal representation.",
                           "type": "string",
-                          "pattern": "^[0-9a-fA-F]{32,}$",
+                          "pattern": "^[0-9a-f]{32,}$",
                           "minLength": 32,
                           "examples": [
                             "37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3",
@@ -1253,7 +1254,8 @@
                   "minLength": 1,
                   "examples": [
                     "Cisco Bug ID",
-                    "GitHub Issue"
+                    "GitHub Issue",
+                    "https://github.com/oasis-tcs/csaf"
                   ]
                 },
                 "text": {
@@ -1263,7 +1265,8 @@
                   "minLength": 1,
                   "examples": [
                     "CSCso66472",
-                    "oasis-tcs/csaf#210"
+                    "oasis-tcs/csaf#210",
+                    "#1217"
                   ]
                 }
               },
