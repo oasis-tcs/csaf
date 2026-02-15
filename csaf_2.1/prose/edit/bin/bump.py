@@ -325,6 +325,7 @@ with open(SRC_HISTORY, 'rt', encoding=ENCODING, errors=ENC_ERRS) as source:
 bumped = []
 do_amend = True
 past_table = None  # State machine: None -> False -> True -> None
+trigger_prefix = '|:-------------------------'
 prefix = '| csaf-v2.1-wd'
 in_between = f'{PUB_YEAR}{PUB_MONTH}{PUB_DAY}-dev | {PUB_YEAR}-{PUB_MONTH}-{PUB_DAY}'
 stop_token = prefix + in_between
@@ -332,8 +333,7 @@ postfix = ' | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02       
 for line in lines:
     # | csaf-v2.1-wd20260128-dev | 2025-01-28 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
     # <-- append here when past_table is True
-    prefix = '| csaf-v2.1-wd'
-    if line.startswith(prefix) and past_table is None:
+    if line.startswith(trigger_prefix) and past_table is None:
         past_table = False
         bumped.append(line)
         continue
@@ -349,6 +349,7 @@ for line in lines:
         if do_amend:
             bumped.append(prefix + in_between + postfix)
             DEBUG and print(f'DEBUG: Appended with in_between ({in_between})')
+            do_amend = False
         else:
             DEBUG and print(f'DEBUG: Did NOT append duplicate ({in_between})')
         bumped.append(line)
