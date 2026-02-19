@@ -12,7 +12,7 @@ displaying information about individual advisories.
 **Note**: An Advisory Management System can interact with a document viewer to display information about individual advisories.
 
 Advisory Matching
-:    process of determining whether two advisories are targeting the same products and conditions
+:    process of determining whether two advisories are targeting the same products and conditions.
 
 Artifact
 :    sequence of bytes addressable via a URI.
@@ -84,7 +84,7 @@ CSAF SBOM Matching System
 required by CSAF Management System as well as matching them to SBOM components of the SBOM database.
 
 CSAF Producer
-:    program that emits output in the CSAF format
+:    program that emits output in the CSAF format.
 
 CSAF Superseder
 :    A CSAF Post-Processor that transforms a given CSAF into a superseded one.
@@ -115,13 +115,13 @@ Embedded Link
 :    syntactic construct which enables a message string to refer to a location mentioned in the document.
 
 Empty Array
-:    array that contains no elements, and so has a length of 0.
+:    array that contains no elements, and so has a length of zero.
 
 Empty Object
 :    object that contains no properties.
 
 Empty String
-:    string that contains no characters, and so has a length of 0.
+:    string that contains no characters, and so has a length of zero.
 
 (End) User
 :    person who uses the information in a document to investigate, triage, or resolve results.
