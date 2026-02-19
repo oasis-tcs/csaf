@@ -107,7 +107,8 @@ List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set
     },
 ```
 
-> It is expected that the list of CWEs is ordered from the most specific weakness ID to the least specific one.
+If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first.
+A CSAF viewer MAY decide to display just the first CWE item.
 
 Every CWE item of value type `object` with the three mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`)
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
@@ -247,7 +248,7 @@ first known exploitation date item applies to.
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current first known exploitation date item
 applies to.
 
-#### Vulnerabilities Property - Flags
+#### Vulnerabilities Property - Flags{#vulnerabilities-property-flags}
 
 List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
@@ -336,8 +337,8 @@ tracking IDs for the vulnerability (if such information exists).
     },
 ```
 
-Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single unique label or
-tracking ID for the vulnerability.
+Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
+unique label or tracking ID for the vulnerability.
 
 ```
       "properties": {
@@ -357,6 +358,7 @@ System name (`system_name`) of value type `string` with `1` or more characters i
 ```
     Cisco Bug ID
     GitHub Issue
+    https://github.com/oasis-tcs/csaf
 ```
 
 Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
@@ -366,6 +368,7 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 ```
     CSCso66472
     oasis-tcs/csaf#210
+    #1217
 ```
 
 > General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
@@ -374,6 +377,8 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 > * a GitHub Issue number,
 > * an ID from a Bugzilla system, or
 > * an ID from a public vulnerability database such as the X-Force Database.
+>
+> The list of registered vulnerability id systems is available via [cite](#RVISC).
 >
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
@@ -406,7 +411,7 @@ The ordered tuple of the values of `party` and `date` (if present) SHALL be uniq
           "date": {
             // ...
           },
-          "group_ids" {
+          "group_ids": {
             // ...
           },
           "party": {
@@ -638,8 +643,8 @@ CSAF consumer SHOULD give preference to CVSS if both, Qualitative Severity Ratin
 Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency` from the `cvss` namespace to convey
 an additional assessment provided by a party.
 
-The property SSVC v2 (`ssvc_v2`) holding an SSVC Decision Point Value Selection v2.0.0 value abiding by the schema at
-[https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/Decision_Point_Value_Selection-2-0-0.schema.json).
+The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
+[https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
 See [cite](#SSVC) for details.
 
 ##### Vulnerabilities Property - Metrics - Products
@@ -656,7 +661,7 @@ If no source is given, then the metric was assigned by the document author.
 
 > For example, this could point to the vendor advisory, discoverer blog post, a multiplier's assessment or other sources that provide metric information.
 
-#### Vulnerabilities Property - Notes
+#### Vulnerabilities Property - Notes{#vulnerabilities-property-notes}
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
@@ -676,7 +681,7 @@ The following combinations of `category` and `title` have a special meaning and 
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
-#### Vulnerabilities Property - Product Status
+#### Vulnerabilities Property - Product Status{#vulnerabilities-property-product-status}
 
 Product status (`product_status`) of value type `object` with `1` or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
@@ -859,7 +864,7 @@ Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`ur
       }
 ```
 
-##### Vulnerabilities Property - Remediations - Category
+##### Vulnerabilities Property - Remediations - Category{#vulnerabilities-property-remediations-category}
 
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:

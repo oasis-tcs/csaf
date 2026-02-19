@@ -31,4 +31,4 @@ The relevant paths for this test are:
 
 > The values in CVSS vector differs from values of the properties `attackVector`, `scope` and `availabilityImpact`.
 
-> A tool MAY overwrite contradicting values according to the `vectorString` as quick fix.
+> A tool MAY overwrite contradicting values according to the `vectorString` as a quick fix.

@@ -37,7 +37,7 @@ as it would be used in a human-friendly document.
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
-#### Full Product Name Type - Product Identification Helper
+#### Full Product Name Type - Product Identification Helper{#full-product-name-type-product-identification-helper}
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least
 one method which aids in identifying the product in an asset database.
@@ -148,8 +148,14 @@ Any File hash object has the two mandatory properties `algorithm` and `value`.
         }
 ```
 
-The algorithm of the cryptographic hash representation (`algorithm`) of value type `string` with `1` or more characters contains
-the name of the cryptographic hash algorithm used to calculate the value.
+The algorithm of the cryptographic hash representation (`algorithm`) has value type `string` with `1` or more characters
+with `pattern` (regular expression):
+
+```
+    ^[0-9a-z][0-9a-z-]*$
+```
+
+The algorithm of the cryptographic hash representation contains the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 Secure cryptographic hash algorithms SHOULD be preferred.
 
@@ -183,10 +189,10 @@ These values are derived from the currently supported digests OpenSSL [cite](#OP
 The Value of the cryptographic hash representation (`value`) has value type `string` of `32` or more characters with `pattern` (regular expression):
 
 ```
-    ^[0-9a-fA-F]{32,}$
+    ^[0-9a-f]{32,}$
 ```
 
-The Value of the cryptographic hash attribute contains the cryptographic hash value in hexadecimal representation.
+The Value of the cryptographic hash attribute contains the cryptographic hash value in lowercase hexadecimal representation.
 
 *Examples 2:*
 

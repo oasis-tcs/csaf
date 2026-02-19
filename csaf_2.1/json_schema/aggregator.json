@@ -10,7 +10,7 @@
       "description": "Contains a URL.",
       "type": "string",
       "format": "uri",
-      "pattern": "/aggregator\\.json$"
+      "pattern": "\\/aggregator\\.json$"
     },
     "metadata_t": {
       "title": "CSAF issuing party metadata.",

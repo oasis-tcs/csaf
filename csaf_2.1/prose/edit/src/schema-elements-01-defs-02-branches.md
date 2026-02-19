@@ -50,7 +50,6 @@ Valid `enum` values are:
     architecture
     host_name
     language
-    legacy
     patch_level
     platform
     product_family
@@ -68,8 +67,6 @@ The value `host_name` indicates the host name of a system/service.
 
 The value `language` indicates the language of the product.
 
-The value `legacy` indicates an entry that has reached its end of life.
-
 The value `patch_level` indicates the patch level of the product.
 
 The value `platform` indicates the (CPU) platform for which the product is intended.
@@ -82,12 +79,20 @@ The value `product_version` indicates exactly a single version of the product.
 The value of the adjacent `name` property can be numeric or some other descriptor.
 However, it MUST NOT contain version ranges of any kind.
 
-> It is recommended to enumerate versions wherever possible. Nevertheless, the TC understands that this is sometimes impossible.
+> It is recommended to enumerate versions wherever possible.
+> Nevertheless, the TC understands that this is sometimes impossible.
 > To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced.
 > See next section for details.
 
 The value `product_version_range` indicates a range of versions for the product.
-The value of the adjacent `name` property SHOULD NOT be used to convey a single version.
+The value of the adjacent `name` property SHALL NOT be used to convey a single version.
+
+> In most cases, product version ranges hinder the use of product identification helpers as they need to identify a product completely.
+> In such case, the product identification and also therefore matching, independent whether that is against SBOMs or assets,
+> solely relies on the categorized strings.
+> This contradicts the goal of using unique product identifiers which would resolve the naming and identification issue for products
+> and are a next major step towards more automation and providing only relevant information to users.
+> Therefore, the use of product version ranges should be avoided, whenever possible.
 
 The value `service_pack` indicates the service pack of the product.
 
@@ -145,7 +150,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 > All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
 
-##### Branches Type - Name under Product Version Range
+##### Branches Type - Name under Product Version Range{#branches-type-name-under-product-version-range}
 
 If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges.
 The value of MUST obey to exactly one of the following options:
@@ -155,6 +160,8 @@ The value of MUST obey to exactly one of the following options:
     > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [cite](#VERS).
 
     vers MUST be used in its canonical form. To convey the term "all versions", the special string `vers:all/*` MUST be used.
+
+   > According to the interpretation used here, the canonical form requires that the vers is normalized.
 
     *Examples 1 (for `name` when using `product_version_range` with vers):*
 
@@ -171,7 +178,9 @@ The value of MUST obey to exactly one of the following options:
 
     This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part.
     It is a fallback option and SHOULD NOT be used unless really necessary.
+
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+    > Also, different tools might come to different results regarding this question.
 
     Tools MAY support this on best effort basis.
 

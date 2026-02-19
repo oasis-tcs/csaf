@@ -12,6 +12,11 @@
 - The CPE pattern is not anchored correctly which allows invalid CPEs.
   See [#693](https://github.com/oasis-tcs/csaf/issues/693).
   Addressed in CSAF 2.0 through the [FAQ](./guidance/faq.md#the-cpe-pattern-changed-from-csaf-20-to-csaf-21-why).
+- In [test 6.1.31](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6131-version-range-in-product-version),
+  the informative comment regarding the implementation is misleading as it does not clearly differentiate between substrings and tokens.
+  The [valid example 2 for this test case](https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.0/test/validator/data/mandatory/oasis_csaf_tc-csaf_2_0-2021-6-1-31-12.json)
+  is correct.
+  See [#825](https://github.com/oasis-tcs/csaf/issues/825).
 - The prose mentions in different places `/document/language` and `/$defs/language_t` which are not defined in the schema.
   See [#897](https://github.com/oasis-tcs/csaf/issues/897).
 - The tests 6.1.1 and 6.1.4 are missing the `flags` path.
@@ -23,3 +28,12 @@
 - In [section 3.2.3.9 Product Status](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#3239-vulnerabilities-property---product-status),
   the standard does not mention `flags` as a potential source for more information regarding the reasoning for `known_not_affected`.
   See [#935](https://github.com/oasis-tcs/csaf/issues/935).
+- The link in the reference to [VERS](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#vers) is not longer working.
+  See [#1117](https://github.com/oasis-tcs/csaf/issues/1117).
+- The test description of [test 6.1.26](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6126-prohibited-document-category-name)
+  does not clearly state that given matching and preprocessing rules apply for names and values.
+  Also, it does not provide guidance regarding the dash characters.
+  See [#1250](https://github.com/oasis-tcs/csaf/issues/1250).
+- The last informative comment in [test 6.2.18](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6218-product-version-range-without-vers)
+  contains a typo, stating `vsl` instead of `vls`.
+  See [#1265](https://github.com/oasis-tcs/csaf/issues/1265).

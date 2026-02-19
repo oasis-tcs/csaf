@@ -173,7 +173,7 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 > Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated
 > Sharing Group IDs to allow for automation.
 
-##### Document Property - Distribution - Sharing Group
+##### Document Property - Distribution - Sharing Group{#document-property-distribution-sharing-group}
 
 Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
 the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
@@ -210,7 +210,7 @@ It MUST differ if a different sharing group is addressed.
 
 > It is assumed that the ID is globally unique, if constructed according to the specification for UUID Version 4.
 
-The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lower case.
+The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lowercase.
 The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. `TLP:GREEN` and above.
 
 The following ID values SHOULD NOT be used unless there are technical reasons for them.
@@ -314,7 +314,7 @@ The default value is the URL to the definition by FIRST:
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
 corresponding to IETF BCP 47 / RFC 5646.
 
-#### Document Property - License Expression
+#### Document Property - License Expression{#document-property-license-expression}
 
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
@@ -364,7 +364,14 @@ In addition, the following rules apply:
   MIT OR any-OSI
 ```
 
-#### Document Property - Notes
+When choosing a license expression, CSAF issuing parties SHALL consider to use a permissive license to enable the flow of information
+through the ecosystem.
+
+> Restrictive licenses can prevent users to easily utilize tools that are hosted in the cloud as the tool providers cannot pre-import
+> CSAF document but users need at least to activate the sources themselves.
+> This is relevant for services and tools, regardless of whether they are commercial or not.
+
+#### Document Property - Notes{#document-property-notes}
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
@@ -414,7 +421,7 @@ The two other optional properties are: `contact_details` and `issuing_authority`
     },
 ```
 
-##### Document Property - Publisher - Category
+##### Document Property - Publisher - Category{#document-property-publisher-category}
 
 The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of
 publisher releasing the document.
@@ -703,9 +710,11 @@ It MUST be unique for that organization.
     cisco-sa-20190513-secureboot
 ```
 
-> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
-
 This value is also used to determine the filename for the CSAF document (cf. section [sec](#filename)).
+
+> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
+> The combination of `/document/publisher/namespace`, `/document/tracking/id`, and `/document/tracking/version` identifies
+> that specific version of the CSAF document globally unique.
 
 ##### Document Property - Tracking - Initial Release Date
 
@@ -773,6 +782,13 @@ Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from t
 Versions of the document which are pre-release SHALL NOT have its own revision item.
 All changes MUST be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision item.
+
+Any issuing party using a CSAF document as basis and modifying it MUST create a new revision history tracking the modified document.
+This applies especially to CSAF multiplier.
+
+> The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
+> and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
+> of their last visit at this source (incremental download).
 
 ##### Document Property - Tracking - Status
 

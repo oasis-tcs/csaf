@@ -18,11 +18,10 @@ The relevant paths for this test are:
   /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity
   /vulnerabilities[]/metrics[]/content/cvss_v4/baseScore
   /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/threatSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/environmentalSeverity
 ```
+
+> Note: CVSS v4 does not define `threatScore`, `threatSeverity`, `environmentalScore` and `environmentalSeverity`.
+> The existence of these JSON keys in an older version of the schema was fixed with version `4.0.1`.
 
 *Example 1 (which fails the test):*
 
@@ -37,4 +36,4 @@ The relevant paths for this test are:
 
 > Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.
 
-> A tool MAY set the correct values as computed according to the specification as quick fix.
+> A tool MAY set the correct values as computed according to the specification as a quick fix.

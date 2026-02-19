@@ -25,4 +25,4 @@ The relevant path for this test is:
 >
 > Note: A translation from `en-US` to `en-GB` would pass the test.
 
-> A tool MAY remove the source language as quick fix.
+> A tool MAY remove the source language as a quick fix.

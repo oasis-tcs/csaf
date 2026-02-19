@@ -28,4 +28,4 @@ The relevant paths for this test are:
 
 > `CSAFPID-9080700` was defined but never used.
 
-> A tool MAY remove the unused definition as quick fix. However, such quick fix shall not be applied if the test was skipped.
+> A tool MAY remove the unused definition as a quick fix. However, such quick fix shall not be applied if the test was skipped.
