@@ -250,6 +250,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/product_status/last_affected[]`
   * `/vulnerabilities[]/product_status/recommended[]`
   * `/vulnerabilities[]/product_status/under_investigation[]`
+  * `/vulnerabilities[]/product_status/unknown[]`
   * `/vulnerabilities[]/remediations[]/group_ids[]`
   * `/vulnerabilities[]/remediations[]/product_ids[]`
   * `/vulnerabilities[]/threats[]/group_ids[]`
