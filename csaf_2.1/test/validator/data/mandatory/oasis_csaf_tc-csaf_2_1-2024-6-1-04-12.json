@@ -1,0 +1,220 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "notes": [
+      {
+        "category": "description",
+        "group_ids": [
+          "CSAFGID-1020304"
+        ],
+        "text": "Product A is a software to plan and simulate IACS. It is mainly used during the design and construction phase. However, it can be extended to provide the functionality of a digital twin.",
+        "title": "Product description"
+      }
+    ],
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Missing Definition of Product Group ID (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-04-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "branches": [
+                  {
+                    "category": "product_version",
+                    "name": "1.0.0",
+                    "product": {
+                      "name": "Example Company Product A 1.0.0",
+                      "product_id": "CSAFPID-9080700"
+                    }
+                  },
+                  {
+                    "category": "product_version",
+                    "name": "1.1.0",
+                    "product": {
+                      "name": "Example Company Product A 1.1.0",
+                      "product_id": "CSAFPID-9080701"
+                    }
+                  },
+                  {
+                    "category": "product_version",
+                    "name": "1.2.0",
+                    "product": {
+                      "name": "Example Company Product A 1.2.0",
+                      "product_id": "CSAFPID-9080702"
+                    }
+                  },
+                  {
+                    "category": "product_version",
+                    "name": "2.0.0",
+                    "product": {
+                      "name": "Example Company Product A 2.0.0",
+                      "product_id": "CSAFPID-9080703"
+                    }
+                  },
+                  {
+                    "category": "product_version",
+                    "name": "3.0.0",
+                    "product": {
+                      "name": "Example Company Product A 3.0.0",
+                      "product_id": "CSAFPID-9080704"
+                    }
+                  }
+                ],
+                "category": "product_name",
+                "name": "Product A"
+              }
+            ],
+            "category": "product_family",
+            "name": "IACS Software"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-1020301",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ],
+        "summary": "Products with reliable exploits."
+      },
+      {
+        "group_id": "CSAFGID-1020302",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ],
+        "summary": "Affected products."
+      },
+      {
+        "group_id": "CSAFGID-1020303",
+        "product_ids": [
+          "CSAFPID-9080703",
+          "CSAFPID-9080704"
+        ],
+        "summary": "Products known not affected."
+      },
+      {
+        "group_id": "CSAFGID-1020304",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702",
+          "CSAFPID-9080703",
+          "CSAFPID-9080704"
+        ],
+        "summary": "All versions of Product A (at the time of publication)."
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "flags": [
+        {
+          "group_ids": [
+            "CSAFGID-1020303"
+          ],
+          "label": "vulnerable_code_not_present"
+        }
+      ],
+      "involvements": [
+        {
+          "date": "2023-02-02T10:00:00.000Z",
+          "group_ids": [
+            "CSAFGID-1020302"
+          ],
+          "party": "discoverer",
+          "status": "contact_attempted",
+          "summary": "The discoverer sent a detailed report regarding the vulnerability for Product A in versions 1.0.0 up to 1.2.0."
+        },
+        {
+          "date": "2023-12-23T11:00:00.000Z",
+          "group_ids": [
+            "CSAFGID-1020301"
+          ],
+          "party": "other",
+          "status": "in_progress",
+          "summary": "An unknown party starts to publish exploits for the vulnerability to Metasploit."
+        },
+        {
+          "date": "2024-01-10T11:00:00.000Z",
+          "group_ids": [
+            "CSAFGID-1020302"
+          ],
+          "party": "other",
+          "status": "completed",
+          "summary": "The unknown party states that it has completed the publication of exploits as they are reliable for Product A in version 1.0.0 and 1.1.0."
+        },
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "group_ids": [
+            "CSAFGID-1020304"
+          ],
+          "party": "vendor",
+          "status": "completed",
+          "summary": "With the release of this advisory, the vendor has completed the CVD process."
+        }
+      ],
+      "notes": [
+        {
+          "category": "description",
+          "group_ids": [
+            "CSAFGID-1020302"
+          ],
+          "text": "The attacker must have a local account on the machine and be able to interact with the software.",
+          "title": "Preconditions"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to the latest version, but at least to version 2.0.0",
+          "group_ids": [
+            "CSAFGID-1020302"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "Reliable exploits integrated in Metasploit.",
+          "group_ids": [
+            "CSAFGID-1020301"
+          ]
+        }
+      ]
+    }
+  ]
+}

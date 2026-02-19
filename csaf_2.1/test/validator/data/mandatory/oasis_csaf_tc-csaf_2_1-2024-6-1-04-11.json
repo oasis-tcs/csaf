@@ -1,0 +1,66 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Missing Definition of Product Group ID (valid example 1)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-04-11",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      },
+      {
+        "product_id": "CSAFPID-9080701",
+        "name": "Product B"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-1020301",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "Reliable exploits integrated in Metasploit.",
+          "group_ids": [
+            "CSAFGID-1020301"
+          ]
+        }
+      ]
+    }
+  ]
+}
