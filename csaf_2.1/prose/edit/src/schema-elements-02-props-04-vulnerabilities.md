@@ -531,8 +531,9 @@ the optional property `source` contains all metadata about the metric including 
 ##### Vulnerabilities Property - Metrics - Content
 
 Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
-EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`) and SSVC v2 (`ssvc_v2`) specifies information about
-(at least one) metric or score for the given products regarding the current vulnerability.
+EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`), SSVC v2 (`ssvc_v2`),
+and Metrics-content-level Extensions (`x_extensions`) specifies information about (at least one) metric or score
+for the given products regarding the current vulnerability.
 A Content object has at least `1` property.
 
 ```
@@ -555,7 +556,10 @@ A Content object has at least `1` property.
             // ...
           },
           "ssvc_v2": {
-            // ....
+            // ...
+          },
+          "x_extensions": {
+            // ...
           }
         }
 ```
@@ -646,6 +650,19 @@ an additional assessment provided by a party.
 The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
 See [cite](#SSVC) for details.
+
+The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
+valid at the metrics-content-level of the CSAF document and associated with this metric element.
+
+```
+    "x_extensions": {
+      // ...
+    }
+```
+
+> This extension point can be used for metrics that are not supported in the CSAF standard (yet).
+> For new versions of an official supported standard, the OASIS CSAF TC will consider providing an official extension
+> to ensure interoperability.
 
 ##### Vulnerabilities Property - Metrics - Products
 
@@ -1166,7 +1183,7 @@ title to the vulnerability.
 #### Vulnerabilities Property - Extensions
 
 Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
-at the document property level of the CSAF document.
+at the vulnerability item level of the CSAF document and associated with this vulnerability element.
 
 ```
     "x_extensions": {

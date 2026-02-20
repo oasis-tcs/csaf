@@ -821,8 +821,8 @@ Version has the value type Version (`version_t`).
 
 #### Document Property - Extensions
 
-Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid at
-the vulnerability item level of the CSAF document.
+Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
+at the document property level of the CSAF document and associated with this document metadata.
 
 ```
     "x_extensions": {

@@ -348,7 +348,7 @@
         },
         "x_extensions": {
           "title": "Product-level Extensions",
-          "description": "Contains a list of extensions valid at the full product name element level of the CSAF document.",
+          "description": "Contains a list of extensions valid at the full product name element level of the CSAF document and associated with this full product name element.",
           "$ref": "#/$defs/extensions_t"
         }
       },
@@ -969,7 +969,7 @@
         },
         "x_extensions": {
           "title": "Document-level Extensions",
-          "description": "Contains a list of extensions valid at the document property level of the CSAF document.",
+          "description": "Contains a list of extensions valid at the document property level of the CSAF document and associated with this document metadata.",
           "$ref": "#/$defs/extensions_t"
         }
       },
@@ -1447,6 +1447,11 @@
                     "ssvc_v2": {
                       "title": "SSVC v2",
                       "$ref": "https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json"
+                    },
+                    "x_extensions": {
+                      "title": "Metrics-content-level Extensions",
+                      "description": "Contains a list of extensions valid at the metrics-content-level of the CSAF document and associated with this metric element.",
+                      "$ref": "#/$defs/extensions_t"
                     }
                   },
                   "additionalProperties": false
@@ -1683,7 +1688,7 @@
           },
           "x_extensions": {
             "title": "Vulnerability-level Extensions",
-            "description": "Contains a list of extensions valid at the vulnerability item level of the CSAF document.",
+            "description": "Contains a list of extensions valid at the vulnerability item level of the CSAF document and associated with this vulnerability element.",
             "$ref": "#/$defs/extensions_t"
           }
         },
@@ -1692,7 +1697,7 @@
     },
     "x_extensions": {
       "title": "Root-level Extensions",
-      "description": "Contains a list of extensions valid at the root-level of the CSAF document.",
+      "description": "Contains a list of extensions valid at the root-level of the CSAF document and associated with this CSAF document.",
       "$ref": "#/$defs/extensions_t"
     }
   },
