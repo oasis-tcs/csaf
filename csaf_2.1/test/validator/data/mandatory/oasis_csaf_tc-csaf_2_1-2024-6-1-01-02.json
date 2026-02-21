@@ -1,0 +1,242 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "notes": [
+      {
+        "category": "description",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702",
+          "CSAFPID-9080703",
+          "CSAFPID-9080704"
+        ],
+        "text": "Product A is a software to plan and simulate bridges. It is mainly used during the design and construction phase. However, it can be extended to provide the functionality of a digital twin.",
+        "title": "Product description"
+      }
+    ],
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Missing Definition of Product ID (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "generator": {
+        "date": "2026-02-19T14:06:11.633Z",
+        "engine": {
+          "name": "Secvisogram",
+          "version": "2.5.43"
+        }
+      },
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-01-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.0.0",
+                "product": {
+                  "name": "Example Company Product A 1.0.0",
+                  "product_id": "CSAFPID-9080700"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          },
+          {
+            "category": "product_name",
+            "name": "Extension I",
+            "product": {
+              "name": "Example Company Extension I",
+              "product_id": "CSAFPID-9080705"
+            }
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-1020300",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702",
+          "CSAFPID-9080703",
+          "CSAFPID-9080704"
+        ],
+        "summary": "All versions of Product A (at the time of publication)."
+      }
+    ],
+    "relationships": [
+      {
+        "category": "installed_with",
+        "full_product_name": {
+          "name": "Example Company Product A 1.0.0 installed with Example Company Extension I",
+          "product_id": "CSAFPID-9080716"
+        },
+        "product_reference": "CSAFPID-9080700",
+        "relates_to_product_reference": "CSAFPID-9080715"
+      },
+      {
+        "category": "installed_with",
+        "full_product_name": {
+          "name": "Example Company Product A 1.1.0 installed with Example Company Extension I",
+          "product_id": "CSAFPID-9080717"
+        },
+        "product_reference": "CSAFPID-9080701",
+        "relates_to_product_reference": "CSAFPID-9080705"
+      },
+      {
+        "category": "installed_with",
+        "full_product_name": {
+          "name": "Example Company Product A 1.2.0 installed with Example Company Extension I",
+          "product_id": "CSAFPID-9080718"
+        },
+        "product_reference": "CSAFPID-9080702",
+        "relates_to_product_reference": "CSAFPID-9080715"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "first_known_exploitation_dates": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "exploitation_date": "2024-01-11T15:53:00.000Z",
+          "product_ids": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ]
+        }
+      ],
+      "flags": [
+        {
+          "label": "vulnerable_code_not_present",
+          "product_ids": [
+            "CSAFPID-9080704"
+          ]
+        }
+      ],
+      "involvements": [
+        {
+          "date": "2023-02-02T10:00:00.000Z",
+          "party": "discoverer",
+          "product_ids": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701",
+            "CSAFPID-9080702"
+          ],
+          "status": "contact_attempted",
+          "summary": "The discoverer sent a detailed report regarding the vulnerability for Product A in versions 1.0.0 up to 1.2.0."
+        }
+      ],
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              "baseScore": 8.9,
+              "baseSeverity": "HIGH",
+              "vectorString": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
+              "version": "3.1"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701",
+            "CSAFPID-9080702"
+          ]
+        }
+      ],
+      "notes": [
+        {
+          "category": "description",
+          "product_ids": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701",
+            "CSAFPID-9080702"
+          ],
+          "text": "The attacker must have a local account on the machine and be able to interact with the software.",
+          "title": "Preconditions"
+        }
+      ],
+      "product_status": {
+        "first_affected": [
+          "CSAFPID-9080710"
+        ],
+        "first_fixed": [
+          "CSAFPID-9080703"
+        ],
+        "fixed": [
+          "CSAFPID-9080704"
+        ],
+        "known_affected": [
+          "CSAFPID-9080701"
+        ],
+        "known_not_affected": [
+          "CSAFPID-9080715"
+        ],
+        "last_affected": [
+          "CSAFPID-9080702"
+        ],
+        "recommended": [
+          "CSAFPID-9080704"
+        ],
+        "under_investigation": [
+          "CSAFPID-9080706"
+        ],
+        "unknown": [
+          "CSAFPID-9080707",
+          "CSAFPID-9080708"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to the latest version, but at least to version 2.0.0",
+          "product_ids": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701",
+            "CSAFPID-9080702"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "Reliable exploits integrated in Metasploit.",
+          "product_ids": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ]
+        }
+      ]
+    }
+  ]
+}

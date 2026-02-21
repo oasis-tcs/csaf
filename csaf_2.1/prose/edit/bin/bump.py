@@ -63,7 +63,7 @@ except ValueError:
     sys.exit(2)
 except IndexError:
     print(usage)
-    print(f'ERROR: Not enough arguments')
+    print('ERROR: Not enough arguments')
     sys.exit(2)
 
 PUB_DAY = DD
@@ -125,8 +125,10 @@ if d > max_days_of_month:
 
 if not commit:
     print('INFO: Dry-run only - only diffs are shown and no files changed.')
+    print()
 else:
-    print('INFO: Commit mode - the magical four files will be bumped.')
+    print('INFO: Commit mode - the magical five files will be bumped.')
+    print()
 
 PUB_DATE = f'{PUB_DAY} {PUB_MONTH_EN} {PUB_YEAR}'
 DEBUG = bool(os.getenv('BUMP_DEBUG', ''))
@@ -134,8 +136,11 @@ DEBUG = bool(os.getenv('BUMP_DEBUG', ''))
 # Configuration and runtime parameter candidates:
 PDF_BOOKMATTER_IN = pathlib.Path('etc/liitos/bookmatter.tex.in')
 PDF_META_YAML = pathlib.Path('etc/liitos/meta.yml')
+PDF_SETUP_IN = pathlib.Path('etc/liitos/setup.tex.in')
 SRC_FRONTMATTER = pathlib.Path('src/frontmatter.md')
 SRC_HISTORY = pathlib.Path('src/revision-history.md')
+
+any_changes = False
 
 with open(PDF_BOOKMATTER_IN, 'rt', encoding=ENCODING, errors=ENC_ERRS) as source:
     lines = [line.rstrip(NL) for line in source.readlines()]
@@ -164,18 +169,22 @@ for line in lines:
 
     bumped.append(line)
 
-print(f'# - - - 8< - -(( {PDF_BOOKMATTER_IN} )) - - - - - - - - - - - - - - >')
-print()
-sys.stdout.writelines(difflib.unified_diff(
-    tuple(line + NL for line in lines),
-    tuple(line + NL for line in bumped),
-    fromfile='bookmatter.tex.in',
-    tofile='bookmatter-bumped.tex.in',
-))
-
-if commit:
-    with open(PDF_BOOKMATTER_IN, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
-        target.write(NL.join(bumped) + NL)
+if lines != bumped:
+    if not any_changes:
+        any_changes = True
+    print(f'# - - - 8< - -(( {PDF_BOOKMATTER_IN} )) - - - - - - - - - - - - - - >')
+    print()
+    sys.stdout.writelines(difflib.unified_diff(
+        tuple(line + NL for line in lines),
+        tuple(line + NL for line in bumped),
+        fromfile='bookmatter.tex.in',
+        tofile='bookmatter-bumped.tex.in',
+    ))
+    if commit:
+        with open(PDF_BOOKMATTER_IN, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
+            target.write(NL.join(bumped) + NL)
+else:
+    print(f'INFO: No changes to {PDF_BOOKMATTER_IN}')
 
 with open(PDF_META_YAML, 'rt', encoding=ENCODING, errors=ENC_ERRS) as source:
     lines = [line.rstrip(NL) for line in source.readlines()]
@@ -194,19 +203,59 @@ for line in lines:
 
     bumped.append(line)
 
-print()
-print(f'# - - - 8< - -(( {PDF_META_YAML} )) - - - - - - - - - - - - - - - - - - >')
-print()
-sys.stdout.writelines(difflib.unified_diff(
-    tuple(line + NL for line in lines),
-    tuple(line + NL for line in bumped),
-    fromfile='meta.yml',
-    tofile='meta-bumped.yml',
-))
+if lines != bumped:
+    if not any_changes:
+        any_changes = True
+    print()
+    print(f'# - - - 8< - -(( {PDF_META_YAML} )) - - - - - - - - - - - - - - - - - - >')
+    print()
+    sys.stdout.writelines(difflib.unified_diff(
+        tuple(line + NL for line in lines),
+        tuple(line + NL for line in bumped),
+        fromfile='meta.yml',
+        tofile='meta-bumped.yml',
+    ))
+    if commit:
+        with open(PDF_META_YAML, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
+            target.write(NL.join(bumped) + NL)
+else:
+    print(f'INFO: No changes to {PDF_META_YAML}')
 
-if commit:
-    with open(PDF_META_YAML, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
-        target.write(NL.join(bumped) + NL)
+with open(PDF_SETUP_IN, 'rt', encoding=ENCODING, errors=ENC_ERRS) as source:
+    lines = [line.rstrip(NL) for line in source.readlines()]
+
+bumped = []
+for line in lines:
+    prefix = r'  \cfoot*{\upshape{\scriptsize Copyright © OASIS Open '
+    postfix = r'. All Rights Reserved.}}'
+    #   \cfoot*{\upshape{\scriptsize Copyright © OASIS Open 2026. All Rights Reserved.}}
+    if line.startswith(prefix) and line.endswith(postfix):
+        copyright_year = line.replace(prefix, '').replace(postfix, '')
+        DEBUG and print(f'DEBUG: Found prior copyright-year ({copyright_year})')
+        bumped.append(prefix + PUB_YEAR + postfix)
+        DEBUG and print(f'DEBUG: Bumped to ({PUB_YEAR})')
+        continue
+
+    bumped.append(line)
+
+if lines != bumped:
+    if not any_changes:
+        any_changes = True
+    print()
+    print(f'# - - - 8< - -(( {PDF_SETUP_IN} )) - - - - - - - - - - - - - - >')
+    print()
+    sys.stdout.writelines(difflib.unified_diff(
+        tuple(line + NL for line in lines),
+        tuple(line + NL for line in bumped),
+        fromfile='setup.tex.in',
+        tofile='setup-bumped.tex.in',
+    ))
+    if commit:
+        with open(PDF_SETUP_IN, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
+            target.write(NL.join(bumped) + NL)
+else:
+    print(f'INFO: No changes to {PDF_SETUP_IN}')
+
 
 with open(SRC_FRONTMATTER, 'rt', encoding=ENCODING, errors=ENC_ERRS) as source:
     lines = [line.rstrip(NL) for line in source.readlines()]
@@ -252,65 +301,83 @@ for line in lines:
 
     bumped.append(line)
 
-print()
-print(f'# - - - 8< - -(( {SRC_FRONTMATTER} )) - - - - - - - - - - - - - - - - - - >')
-print()
-sys.stdout.writelines(difflib.unified_diff(
-    tuple(line + NL for line in lines),
-    tuple(line + NL for line in bumped),
-    fromfile='frontmatter.md',
-    tofile='frontmatter-bumped.md',
-))
-
-if commit:
-    with open(SRC_FRONTMATTER, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
-        target.write(NL.join(bumped) + NL)
+if lines != bumped:
+    if not any_changes:
+        any_changes = True
+    print()
+    print(f'# - - - 8< - -(( {SRC_FRONTMATTER} )) - - - - - - - - - - - - - - - - - - >')
+    print()
+    sys.stdout.writelines(difflib.unified_diff(
+        tuple(line + NL for line in lines),
+        tuple(line + NL for line in bumped),
+        fromfile='frontmatter.md',
+        tofile='frontmatter-bumped.md',
+    ))
+    if commit:
+        with open(SRC_FRONTMATTER, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
+            target.write(NL.join(bumped) + NL)
+else:
+    print(f'INFO: No changes to {SRC_FRONTMATTER}')
 
 with open(SRC_HISTORY, 'rt', encoding=ENCODING, errors=ENC_ERRS) as source:
     lines = [line.rstrip(NL) for line in source.readlines()]
 
 bumped = []
+do_amend = True
 past_table = None  # State machine: None -> False -> True -> None
+trigger_prefix = '|:-------------------------'
 prefix = '| csaf-v2.1-wd'
 in_between = f'{PUB_YEAR}{PUB_MONTH}{PUB_DAY}-dev | {PUB_YEAR}-{PUB_MONTH}-{PUB_DAY}'
+stop_token = prefix + in_between
 postfix = ' | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |'
 for line in lines:
     # | csaf-v2.1-wd20260128-dev | 2025-01-28 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
     # <-- append here when past_table is True
-    prefix = '| csaf-v2.1-wd'
-    if line.startswith(prefix) and past_table is None:
+    if line.startswith(trigger_prefix) and past_table is None:
         past_table = False
         bumped.append(line)
         continue
 
     if line.startswith(prefix) and past_table is False:
         bumped.append(line)
+        if line.startswith(stop_token):
+            do_amend = False
         continue
 
     if not line.strip() and past_table is False:
         DEBUG and print('DEBUG: Found empty line following revision history table')
-        bumped.append(prefix + in_between + postfix)
-        DEBUG and print(f'DEBUG: Appended with in_between ({in_between})')
+        if do_amend:
+            bumped.append(prefix + in_between + postfix)
+            DEBUG and print(f'DEBUG: Appended with in_between ({in_between})')
+            do_amend = False
+        else:
+            DEBUG and print(f'DEBUG: Did NOT append duplicate ({in_between})')
         bumped.append(line)
         continue
 
     bumped.append(line)
 
-print()
-print(f'# - - - 8< - -(( {SRC_HISTORY} )) - - - - - - - - - - - - - - - - - - >')
-print()
-sys.stdout.writelines(difflib.unified_diff(
-    tuple(line + NL for line in lines),
-    tuple(line + NL for line in bumped),
-    fromfile='revision-history.md',
-    tofile='revision-history-bumped.md',
-))
-
-if commit:
-    with open(SRC_HISTORY, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
-        target.write(NL.join(bumped) + NL)
+if lines != bumped:
+    if not any_changes:
+        any_changes = True
     print()
-    print('Bumped - OK')
+    print(f'# - - - 8< - -(( {SRC_HISTORY} )) - - - - - - - - - - - - - - - - - - >')
+    print()
+    sys.stdout.writelines(difflib.unified_diff(
+        tuple(line + NL for line in lines),
+        tuple(line + NL for line in bumped),
+        fromfile='revision-history.md',
+        tofile='revision-history-bumped.md',
+    ))
+    if commit:
+        with open(SRC_HISTORY, 'wt', encoding=ENCODING, errors=ENC_ERRS) as target:
+            target.write(NL.join(bumped) + NL)
+        print()
 else:
-    print()
-    print('Dry-Bumped - OK')
+    print(f'INFO: No changes to {SRC_HISTORY}')
+
+print()
+if any_changes:
+    print('INFO: Bumped - OK') if commit else print('INFO: Dry-Bumped - OK')
+else:
+    print('INFO: No changes - no commit - OK') if commit else print('INFO: No dry-changes - nothing would be committed - OK')

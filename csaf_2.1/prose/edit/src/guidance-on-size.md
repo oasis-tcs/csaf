@@ -223,9 +223,11 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/cwes[]/version`
   * `/vulnerabilities[]/flags[]/group_ids[]`
   * `/vulnerabilities[]/flags[]/product_ids[]`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/group_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
   * `/vulnerabilities[]/involvements[]/contact`
+  * `/vulnerabilities[]/involvements[]/group_ids[]`
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
@@ -250,6 +252,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/product_status/last_affected[]`
   * `/vulnerabilities[]/product_status/recommended[]`
   * `/vulnerabilities[]/product_status/under_investigation[]`
+  * `/vulnerabilities[]/product_status/unknown[]`
   * `/vulnerabilities[]/remediations[]/group_ids[]`
   * `/vulnerabilities[]/remediations[]/product_ids[]`
   * `/vulnerabilities[]/threats[]/group_ids[]`
