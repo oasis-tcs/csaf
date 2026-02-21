@@ -106,7 +106,7 @@ RVISC
 :    _Registry for Vulnerability ID Systems for CSAF (RVISC)_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id.
 
 RVISC-M
-:    _Mapping for RVISC_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id/mapping.json.
+:    _Mapping for RVISC_, Part of the OASIS CSAF TC GitHub Repository, https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/registry/id/id-mapping.json.
 
 SCAP12
 :    _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
