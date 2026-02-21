@@ -852,6 +852,14 @@ Keywords defined by this specification use this `monospaced` font.
     Normative source code uses this paragraph style.
 ```
 
+The information models of the CSAF schemata are illustrated in the prose in a generic YAML format in the shape of outlines.
+In contrast to extracts of JSON snippets in prior versions of this specification such YAML snippets can be annotated and validated both as being well-formed and matching the schema part.
+These outlines are directly extractable per JSON Paths from the corresponding CSAF schema as documented in the normative format of this specification.
+The types used are the general `Mapping`, `Sequence`, and `String` types.
+The latter may be further constrained to specific facets like for example enumerations noted as `String.Enum`.
+General instances (like a CSAF document) are noted as such in angle brackets to emphasize the topology.
+Items of sequences are noted as YAML sequence items and annotated per comments naming the kind of sequence item they represent.
+
 Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
 
 *Example 1:*<a id='typographical-conventions-eg-1'></a><a id='sec-1-5-eg-1'></a><a id='example-4321'></a>
@@ -1074,42 +1082,19 @@ Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Full Product Nam
 Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`), Product ID (`product_id_t`), Products (`products_t`),
 References (`references_t`), and Version (`version_t`).
 
-```
-    "$defs": {
-        "acknowledgments_t": {
-            // ...
-        },
-        "branches_t": {
-            // ...
-        },
-        "full_product_name_t": {
-            // ...
-        },
-        "lang_t": {
-            // ...
-        },
-        "notes_t": {
-            // ...
-        },
-        "product_group_id_t": {
-            // ...
-        },
-        "product_groups_t": {
-             // ...
-        },
-        "product_id_t": {
-            // ...
-        },
-        "products_t": {
-            // ...
-        },
-        "references_t": {
-            // ...
-        },
-        "version_t": {
-            // ...
-        }
-    },
+```yaml <!--json-path($..['$defs'])-->
+$defs:
+  acknowledgments_t: Sequence
+  branches_t: Sequence
+  full_product_name_t: Mapping
+  lang_t: String.Pattern
+  notes_t: Sequence
+  product_group_id_t: String
+  product_groups_t: Sequence
+  product_id_t: String
+  products_t: Sequence
+  references_t: Sequence
+  version_t: String.Pattern
 ```
 
 ### 3.1.1 Acknowledgments Type <a id='acknowledgments-type'></a>
@@ -1117,34 +1102,25 @@ References (`references_t`), and Version (`version_t`).
 List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with `1` or more elements contain
 a list of `Acknowledgment` elements.
 
-```
-    "acknowledgments_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].acknowledgments_t)-->
+$defs:
+  acknowledgments_t: Sequence
+  # ...
 ```
 
 The value type of Acknowledgment is `object` with at least `1` and at most four properties. Every such element acknowledges contributions by
 describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
-```
-        "properties": {
-          "names": {
-            // ...
-          },
-          "organization": {
-            // ...
-          },
-          "summary": {
-            // ...
-          },
-          "urls": {
-            // ...
-          }
-        }
+```yaml <!--json-path($['$defs'].acknowledgments_t[*].properties)-->
+$defs:
+  acknowledgments_t:
+  - # <acknowledgment-instance>:
+    names: Sequence
+    organization: String
+    summary: String
+    urls: Sequence
+  # ...
 ```
 
 #### 3.1.1.1 Acknowledgments Type - Names <a id='acknowledgments-type-names'></a>
@@ -1239,33 +1215,26 @@ The above SHOULD lead to the following outcome in a human-readable advisory:
 
 List of branches (`branches_t`) with value type `array` contains `1` or more branch elements as children of the current element.
 
-```
-    "branches_t": {
-      //...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].branches_t)-->
+$defs:
+  # ...
+  branches_t: Sequence
+  # ...
 ```
 
 Every Branch holds exactly `3` properties and is a part of the hierarchical structure of the product tree.
 The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
 
-```
-        "properties": {
-          "branches": {
-            // ...
-          },
-          "category": {
-            // ...
-          },
-          "name": {
-            // ...
-          },
-          "product": {
-            // ...
-          }
-        }
+```yaml <!--json-path($['$defs'].branches_t[*].properties)-->
+$defs:
+  # ...
+  branches_t:
+  - # <branch-instance>:
+    branches: $defs.branches_t
+    category: String.Enum
+    name: String
+    product: $defs.full_product_name_t
+  # ...
 ```
 
 > `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and
@@ -1441,21 +1410,14 @@ Product (`product`) has the value type Full Product Name (`full_product_name_t`)
 Full Product Name (`full_product_name_t`) of value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
-```
-    "full_product_name_t": {
-      // ...
-      "properties": {
-        "name": {
-          // ...
-        },
-        "product_id": {
-          // ...
-        },
-        "product_identification_helper": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t.properties)-->
+$defs:
+  # ...
+  full_product_name_t:
+    name: String
+    product_id: $defs.product_id_t
+    product_identification_helper: Mapping
+  # ...
 ```
 
 #### 3.1.3.1 Full Product Name Type - Name <a id='full-product-name-type-name'></a>
@@ -1482,36 +1444,21 @@ one method which aids in identifying the product in an asset database.
 Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purls`, `sbom_urls`, `serial_numbers`, `skus`,
 and `x_generic_uris`, `1` is mandatory.
 
-```
-    "product_identification_helper": {
-      // ...
-      "properties": { 
-        "cpe": {
-          // ...
-        },
-        "hashes": {
-          // ...
-        },
-        "model_numbers": {
-          // ...
-        },
-        "purls": {
-          // ...
-        },
-        "sbom_urls": {
-          // ...
-        },
-        "serial_numbers": {
-          // ...
-        },
-        "skus": {
-          // ...
-        },
-        "x_generic_uris": {
-          // ...
-        }
-      }
-    }
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper.properties)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      cpe: String.Pattern
+      hashes: Sequence
+      model_numbers: Sequence
+      purls: Sequence
+      sbom_urls: Sequence
+      serial_numbers: Sequence
+      skus: Sequence
+      x_generic_uris: Sequence
+  # ...
 ```
 
 A helper to identify the product SHALL identify the product described by the `name` in its entirety.
@@ -1538,52 +1485,69 @@ See [CPE23-N] for details.
 
 List of hashes (`hashes`) of value type `array` holding at least `1` item contains a list of cryptographic hashes usable to identify files.
 
-```
-    "hashes": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      hashes: Sequence
+      # ...
+  # ...
 ```
 
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
 Any cryptographic hashes object has the two mandatory properties `file_hashes` and `filename`.
 
-```
-        "properties": {
-          "file_hashes": {
-            // ...
-          },
-          "filename": {
-            // ...
-          }
-        }
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..properties)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      hashes:
+        file_hashes: Sequence
+        filename: String
+      # ...
+  # ...
 ```
 
 List of file hashes (`file_hashes`) of value type `array` holding at least `1` item contains a list of cryptographic hashes for this file.
 
-```
-    "file_hashes": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      hashes:
+        file_hashes: Sequence
+        # ...
+      # ...
+  # ...
 ```
 
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified.
 Any File hash object has the two mandatory properties `algorithm` and `value`.
 
-```
-        "properties": {
-          "algorithm": {
-            // ...
-          },
-          "value": {
-            // ...
-          }
-        }
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes..properties)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      hashes:
+        file_hashes:
+        - # <file_hash-instance>:
+          algorithm: String
+          value: String
+        # ...
+      # ...
+  # ...
 ```
 
 The algorithm of the cryptographic hash representation (`algorithm`) has value type `string` with `1` or more characters
@@ -1664,13 +1628,16 @@ or the model numbers change during update.
 This can also be used to identify hardware.
 If necessary, the software, or any other related part, SHALL be bind to that via a product relationship.
 
-```
-    "model_numbers": {
-        //...
-      "items": {
-        //...
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..model_numbers)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      model_numbers: Sequence
+      # ...
+  # ...
 ```
 
 Any given model number of value type `string` with at least `1` character represents a model number of the component to identify -
@@ -1703,13 +1670,16 @@ As part of the model number, the special characters `?`, `*` and `\` MUST be esc
 
 List of purls (`purls`) of value type `array` with `1` or more unique items contains a list of package URL (purl) identifiers.
 
-```
-    "purls": {
-        //...
-      "items": {
-        //...
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..purls)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      purls: Sequence
+      # ...
+  # ...
 ```
 
 A package URL representation has value type `string` of `7` or more characters with `pattern` (regular expression):
@@ -1737,13 +1707,16 @@ a list of URLs where SBOMs for this product can be retrieved.
 
 > The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
 
-```
-    "sbom_urls": {
-        //...
-      "items": {
-        //...
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..sbom_urls)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      sbom_urls: Sequence
+      # ...
+  # ...
 ```
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
@@ -1763,13 +1736,16 @@ a list of serial numbers.
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected,
 or the serial numbers change during update.
 
-```
-    "serial_numbers": {
-        //...
-      "items": {
-        //...
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..serial_numbers)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      serial_numbers: Sequence
+      # ...
+  # ...
 ```
 
 Any given serial number of value type `string` with at least `1` character represents a serial number of the component to identify -
@@ -1807,13 +1783,16 @@ In the latter case the remediations SHALL include the new stock keeping units or
 > The use of the list of relationships in the first case is important.
 > Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
 
-```
-    "skus": {
-        //...  
-      "items": {
-        //...  
-      }
-    },
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..skus)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      skus: Sequence
+      # ...
+  # ...
 ```
 
 Any given stock keeping unit of value type `string` with at least `1` character represents a full or
@@ -1831,26 +1810,31 @@ Two `*` MUST NOT follow each other.
 List of generic URIs (`x_generic_uris`) of value type `array` with at least `1` item contains a list of identifiers which are
 either vendor-specific or derived from a standard not yet supported.
 
-```
-    "x_generic_uris": {
-      // ...
-      "items": {
-        // ...
-      }
-    }  
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..x_generic_uris)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      x_generic_uris: Sequence
+  # ...
 ```
 
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
 
-```
-        "properties": {
-          "namespace": {
-            // ...
-          },
-          "uri": {
-            // ...
-          }
-        }
+```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..x_generic_uris..properties)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    product_identification_helper:
+      # ...
+      x_generic_uris:
+      - # <x_generic_uri-instance>:
+        namespace: String.URI
+        uri: String.URI
+  # ...
 ```
 
 The namespace of the generic URI (`namespace`) of value type `string` with format `uri` refers to a URL which provides
@@ -1911,40 +1895,29 @@ See IETF language registry: <https://www.iana.org/assignments/language-subtag-re
 
 List of notes (`notes_t`) of value type `array` with `1` or more items of type `Note` contains notes which are specific to the current context.
 
-```
-    "notes_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].notes_t)-->
+$defs:
+  # ...
+  notes_t: Sequence
+  # ...
 ```
 
 Value type of every such Note item is `object` with the mandatory properties `category` and `text` providing a place to put
 all manner of text blobs related to the current context.
 A Note `object` MAY provide the optional properties `audience`, `group_ids`, `product_ids` and `title`.
 
-```
-    "properties": {
-      "audience": {
-        // ...
-      },
-      "category": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-      "text": {
-        // ...
-      },
-      "title": {
-        // ...
-      }
-    }
+```yaml <!--json-path($['$defs'].notes_t[*].properties)-->
+$defs:
+  # ...
+  notes_t:
+  - # <note-instance>:
+    audience: String
+    category: String.Enum
+    group_ids: $defs.product_groups_t
+    product_ids: $defs.products_t
+    text: String
+    title: String
+  # ...
 ```
 
 Audience of note (`audience`) of value type `string` with `1` or more characters indicates who is intended to read it.
@@ -2016,10 +1989,11 @@ The value is a token required to identify a group of products so that it can be 
 There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies
 a product group in the context of the current document.
 
-```
-    "product_group_id_t": {
-      // ...
-    },
+```yaml <!--json-path($['$defs']..product_group_id_t)-->
+$defs:
+  # ...
+  product_group_id_t: String
+  # ...
 ```
 
 *Examples 1:*<a id='product-group-id-type-eg-1'></a><a id='sec-3-1-6-eg-1'></a><a id='example-23'></a>
@@ -2038,13 +2012,11 @@ a product group in the context of the current document.
 List of Product Group ID (`product_groups_t`) of value type `array` with `1` or more unique items (a `set`) of type
 Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
 
-```
-    "product_groups_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs']..product_groups_t)-->
+$defs:
+  # ...
+  product_groups_t: Sequence
+  # ...
 ```
 
 ### 3.1.8 Product ID Type <a id='product-id-type'></a>
@@ -2054,10 +2026,11 @@ The value is a token required to identify a `full_product_name` so that it can b
 There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of
 the current document.
 
-```
-    "product_id_t": {
-      // ...
-    },
+```yaml <!--json-path($['$defs'].product_id_t)-->
+$defs:
+  # ...
+  product_id_t: String
+  # ...
 ```
 
 *Examples 1:*<a id='product-id-type-eg-1'></a><a id='sec-3-1-8-eg-1'></a><a id='example-24'></a>
@@ -2075,26 +2048,22 @@ the current document.
 List of Product IDs (`products_t`) of value type `array` with `1` or more unique items (a `set`) of type
 Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
-```
-    "products_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].products_t)-->
+$defs:
+  # ...
+  products_t: Sequence
+  # ...
 ```
 
 ### 3.1.10 References Type <a id='references-type'></a>
 
 List of references (`references_t`) of value type `array` with `1` or more items of type Reference holds a list of Reference objects.
 
-```
-    "references_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].references_t)-->
+$defs:
+  # ...
+  references_t: Sequence
+  # ...
 ```
 
 Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences,
@@ -2102,18 +2071,15 @@ papers, advisories, and other resources that are related and considered related 
 the entire document and to be of value to the document consumer.
 A reference `object` MAY provide the optional property `category`.
 
-```
-    "properties": {
-      "category": {
-        // ...
-      },
-      "summary": {
-        // ...
-      },
-      "url": {
-        // ...
-      }
-    }
+```yaml <!--json-path($['$defs'].references_t[*].properties)-->
+$defs:
+  # ...
+  references:
+  - # <reference-instance>:
+    category: String
+    summary: String
+    url: String.URI
+  # ...
 ```
 
 Category of reference (`category`) of value type `string` and `enum` indicates whether the reference points to the same document or
@@ -2343,51 +2309,22 @@ In addition, the `document` object MAY provide the seven optional properties Ack
 Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
 References (`references`), and Source Language (`source_lang`).
 
-```
-    "document": {
-      // ...
-      "properties": {
-        "acknowledgments": {
-          // ...
-        },
-        "aggregate_severity" : {
-          // ...
-        },
-        "category": {
-          // ...
-        },
-        "csaf_version": {
-          // ...
-        },
-        "distribution": {
-          // ...
-        },
-        "lang": {
-          // ...
-        },
-        "license_expression": {
-          // ...
-        },
-        "notes": {
-          // ...
-        },
-        "publisher": {
-          // ...
-        },
-        "references": {
-          // ...
-        },
-        "source_lang": {
-          // ...
-        },
-        "title": {
-          // ...
-        },
-        "tracking": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document.properties)-->
+<csaf-instance>:
+  document:
+    acknowledgments: $defs.acknowledgments_t
+    aggregate_severity: Mapping
+    category: String.Pattern
+    csaf_version: String.Enum
+    distribution: Mapping
+    lang: $defs.lang_t
+    license_expression: String
+    notes: $defs.notes_t
+    publisher: Mapping
+    references: $defs.references_t
+    source_lang: $defs.lang_t
+    title: String
+    tracking: Mapping
 ```
 
 #### 3.2.2.1 Document Property - Acknowledgments <a id='document-property-acknowledgments'></a>
@@ -2395,10 +2332,17 @@ References (`references`), and Source Language (`source_lang`).
 Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains
 a list of acknowledgment elements associated with the whole document.
 
-```
-    "acknowledgments": {
-      // ...
-    },
+```yaml <!--json-paths($..document..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+<csaf-instance>:
+  document:
+    acknowledgements:  # $defs.acknowledgments_t
+    - # <acknowledgement-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
 ```
 
 #### 3.2.2.2 Document Property - Aggregate Severity <a id='document-property-aggregate-severity'></a>
@@ -2409,18 +2353,14 @@ criticality with which the one or more vulnerabilities reported should be addres
 It is a document-level metric and applied to the document as a whole — not any specific vulnerability.
 The range of values in this field is defined according to the document producer's policies and procedures.
 
-```
-    "aggregate_severity": {
-      // ...
-      "properties": {
-        "namespace": {
-          // ...
-        },
-        "text": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..aggregate_severity.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    aggregate_severity:
+      namespace: String
+      text: String
+    # ...
 ```
 
 The Namespace of aggregate severity (`namespace`) of value type `string` with format `uri` points to the namespace so referenced.
@@ -2448,10 +2388,12 @@ Document category defines a short canonical name, chosen by the document produce
 
 > It is directly related to the profiles defined in section [4](#profiles).
 
-```
-    "category": {
-      // ...
-    }
+```yaml <!--json-path($..document.properties.category)-->
+<csaf-instance>:
+  document:
+    # ...
+    category:  String.Pattern
+    # ...
 ```
 
 *Examples 1:*<a id='document-property-category-eg-1'></a><a id='sec-3-2-2-3-eg-1'></a><a id='example-33'></a>
@@ -2477,21 +2419,15 @@ The single valid value for this `enum` is:
 Rules for document sharing (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
 optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
 
-```
-    "distribution": {
-      // ...
-      "properties": {
-        "sharing_group": {
-          // ...
-        },
-        "text": {
-          // ...
-        },
-        "tlp": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..distribution.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group: Mapping
+      text: String
+      tlp: Mapping
+    # ...
 ```
 
 If multiple values are present, the TLP information SHOULD be preferred as this aids in automation.
@@ -2514,18 +2450,16 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
 the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
 
-```
-        "sharing_group": {
-          // ...
-          "properties": {
-            "id": {
-              // ...
-            },
-            "name": {
-              // ...
-            }
-          }
-        },
+```yaml <!--json-path($..document..distribution..sharing_group.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group:
+        id: String.Pattern
+        name: String
+      # ...
+    # ...
 ```
 
 Sharing Group ID (`id`) has value type `string` with format `uuid` and `pattern` (regular expression):
@@ -2596,18 +2530,16 @@ The Textual description (`text`) of value type `string` with `1` or more charact
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and
 the optional property URL (`url`) provides details about the TLP classification of the document.
 
-```
-    "tlp": {
-      // ...
-      "properties": {
-        "label": {
-          // ...
-        },
-        "url": {
-          // ...
-        }
-      }
-    }
+```yaml <!--json-path($..document..distribution..tlp.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      # ...
+      tlp:
+        label: String
+        url: String.URI
+    # ...
 ```
 
 The Label of TLP (`label`) with value type `string` and `enum` provides the TLP label of the document.
@@ -2711,10 +2643,19 @@ through the ecosystem.
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
-```
-    "notes": {
-      // ...
-    },
+```yaml <!--json-paths($..document..notes, $['$defs'].notes_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    notes:  # $defs.notes_t
+    - # <note-instance>:
+      audience: String
+      category: String.Enum
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      text: String
+      title: String
+    # ...
 ```
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
@@ -2734,27 +2675,15 @@ Publisher (`publisher`) of value type `object` with the mandatory properties Cat
 Namespace (`namespace`) provides information on the publishing entity.
 The two other optional properties are: `contact_details` and `issuing_authority`.
 
-```
-    "publisher": {
-      // ...
-      "properties": {
-        "category": {
-          // ...
-        },
-        "contact_details": {
-          // ...
-        },
-        "issuing_authority": {
-          // ...
-        },
-        "name": {
-          // ...
-        }
-        "namespace": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..publisher.properties)-->
+<csaf-instance>:
+  document:
+    publisher:
+      category: String
+      contact_details: String
+      issuing_authority: String
+      name: String
+      namespace: String
 ```
 
 ##### 3.2.2.9.1 Document Property - Publisher - Category <a id='document-property-publisher-category'></a>
@@ -2861,10 +2790,16 @@ an incremented (patch) version which has no other changes than:
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
-```
-    "references": {
-      // ...
-    },
+```yaml <!--json-paths($..document..references, $['$defs'].references_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    references:  # $defs.references_t
+    - # <reference-instance>:
+      category: String
+      summary: String
+      url: String.URI
+    # ...
 ```
 
 #### 3.2.2.11 Document Property - Source Language <a id='document-property-source-language'></a>
@@ -2899,36 +2834,19 @@ Identifier (`id`), Initial Release Date (`initial_release_date`), Revision Histo
 and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
 
-```
-    "tracking": {
-      // ...
-      "properties": {
-        "aliases": {
-          // ...
-        },
-        "current_release_date": {
-          // ...
-        },
-        "generator": {
-          // ...
-        },
-        "id": {
-          // ...
-        },
-        "initial_release_date": {
-          // ...
-        },
-        "revision_history": {
-          // ...
-        },
-        "status": {
-          // ...
-        },
-        "version": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..document..tracking..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      current_release_date: String.DateTime
+      generator: Mapping
+      id: String.Pattern
+      initial_release_date: String.DateTime
+      revision_history: Sequence
+      status: String.Enum
+      version: $defs.version_t
 ```
 
 ##### 3.2.2.13.1 Document Property - Tracking - Aliases <a id='document-property-tracking-aliases'></a>
@@ -2936,13 +2854,13 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
 Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
 
-```
-    "aliases": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..document..tracking..aliases)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      # ...
 ```
 
 Every such Alternate Name of value type `string` with `1` or more characters specifies a non-empty string that represents a
@@ -2965,18 +2883,15 @@ Document Generator (`generator`) of value type `object` with mandatory property 
 optional property Date (`date`) is a container to hold all elements related to the generation of the document.
 These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
-```
-        "generator": {
-          // ...
-          "properties": {
-            "date": {
-              // ...
-            },
-            "engine": {
-              // ...
-            }
-          }
-        },
+```yaml <!--json-path($..document..tracking..generator.properties)-->
+<csaf-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        date: String.DateTime
+        engine: Mapping
+      # ...
 ```
 
 Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated.
@@ -2986,18 +2901,17 @@ this field MAY be different from the Initial Release Date and Current Release Da
 Engine of document generation (`engine`) of value type `object` with mandatory property Engine name (`name`) and
 optional property Engine version (`version`) contains information about the engine that generated the CSAF document.
 
-```
-        "engine": {
-          // ...
-          "properties": {
-            "name": {
-              // ...
-            },
-            "version": {
-              // ...
-            }
-          }
-        },
+```yaml <!--json-path($..document..tracking..generator..engine.properties)-->
+<csaf-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        # ...
+        engine:
+          name: String
+          version: String
+      # ...
 ```
 
 Engine name (`name`) of value type `string` with `1` or more characters represents the name of the engine that generated the CSAF document.
@@ -3069,13 +2983,14 @@ This change MUST be tracked with a new entry in the revision history.
 The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
 for each version of the CSAF document, including the initial one.
 
-```
-        "revision_history": {
-          // ...
-          "items": {
-            // ...
-          }
-        },
+```yaml <!--json-path($..document..tracking..revision_history)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      # ...
+      revision_history: Sequence
+      # ...
 ```
 
 Each Revision contains all the information elements required to track the evolution of a CSAF document.
@@ -3083,21 +2998,19 @@ Revision History Entry items are of value type `object` with the three mandatory
 and Summary (`summary`).
 In addition, a Revision MAY expose the optional property `legacy_version`.
 
-```
-        "properties": {
-          "date": {
-            // ...
-          },
-          "legacy_version": {
-            // ...
-          },
-          "number": {
-            // ...
-          },
-          "summary": {
-            // ...
-          }
-        }
+```yaml <!--json-path($..document..tracking..revision_history..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      # ...
+      revision_history:
+      - # <revision-instance>:
+        date: String.DateTime
+        legacy_version: String
+        number: $defs.version_t
+        summary: String
+      # ...
 ```
 
 The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
@@ -3162,24 +3075,14 @@ can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
 and Relationships (`relationships`).
 
-```
-    "product_tree": {
-      // ...
-      "properties": {
-        "branches": {
-          // ...
-        },
-        "full_product_names": {
-          // ...
-        },
-        "product_groups": {
-          // ...
-        },
-        "relationships": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..product_tree.properties)-->
+<csaf-instance>:
+  # ...
+  product_tree:
+    branches: $defs.branches_t
+    full_product_names: Mapping
+    product_groups: Sequence
+    relationships: Sequence
 ```
 
 #### 3.2.3.1 Product Tree Property - Branches <a id='product-tree-property-branches'></a>
@@ -3195,30 +3098,30 @@ list of full product names.
 
 List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
-```
-    "product_groups": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..product_tree..product_groups)-->
+<csaf-instance>:
+  # ...
+  product_tree:
+    # ...
+    product_groups: Sequence
+  # ...
 ```
 
 The product group items are of value type `object` with the two mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and
 the optional Summary (`summary`) property.
 
-```
-    "properties": {
-      "group_id": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      },
-      "summary": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..product_tree..product_groups..properties)-->
+<csaf-instance>:
+  # ...
+  product_tree:
+    # ...
+    product_groups:
+    - # <product_group-instance>:
+      group_id: $defs.product_group_id_t
+      product_ids: Sequence
+      summary: String
+    # ...
+  # ...
 ```
 
 The summary of the product group (`summary`) of value type `string` with `1` or more characters gives a short, optional description of the group.
@@ -3239,13 +3142,13 @@ the product_ids of those products which known as one group in the document.
 
 List of relationships (`relationships`) of value type `array` with `1` or more items contains a list of relationships.
 
-```
-    "relationships": {
-      // ...
-      "items": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..product_tree..relationships)-->
+<csaf-instance>:
+  # ...
+  product_tree:
+    # ...
+    relationships: Sequence
+  # ...
 ```
 
 The Relationship item is of value type `object` and has four mandatory properties: Relationship category (`category`),
@@ -3254,21 +3157,19 @@ and Relates to Product Reference (`relates_to_product_reference`).
 The Relationship item establishes a link between two existing `full_product_name_t` elements,
 allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
 
-```
-    "properties": {
-      "category": {
-        // ...
-      },
-      "full_product_name": {
-        // ...
-      },
-      "product_reference": {
-        // ...
-      },
-      "relates_to_product_reference": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..product_tree..relationships..properties)-->
+<csaf-instance>:
+  # ...
+  product_tree:
+    # ...
+    relationships:
+    - # <relationship-instance>:
+      category: String.Enum
+      full_product_name: $defs.full_product_name_t
+      product_reference: $defs.product_id_t
+      relates_to_product_reference: $defs.product_id_t
+    # ...
+  # ...
 ```
 
 > The situation where a need for declaring a Relationship arises,
@@ -3352,13 +3253,10 @@ the Full Product Name element, which is referenced as the second element of the 
 Vulnerabilities (`vulnerabilities`) of value type `array` with `1` or more objects representing vulnerabilities by providing one or more
 properties represents a list of all relevant vulnerability information items.
 
-```
-    "vulnerabilities": {
-      // ...
-      "items": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities: Sequence
 ```
 
 The Vulnerability item of value type `object` with `1` or more properties is a container for the aggregation of all fields that are related to
@@ -3369,57 +3267,28 @@ List of first known exploitation dates (`first_known_exploitation_dates`), Flags
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), and Title (`title`).
 
-```
-    "properties": {
-      "acknowledgments": {
-        // ...
-      },
-      "cve": {
-        // ...
-      },
-      "cwes": {
-        // ...
-      },
-      "disclosure_date": {
-        // ...
-      },
-      "discovery_date": {
-        // ...
-      },
-      "first_known_exploitation_dates": {
-        // ...
-      },
-      "flags": {
-        // ...
-      },
-      "ids": {
-        // ...
-      },
-      "involvements": {
-        // ...
-      },
-      "metrics": {
-        // ...
-      },
-      "notes": {
-        // ...
-      },
-      "product_status": {
-        // ...
-      },
-      "references": {
-        // ...
-      },
-      "remediations": {
-        // ...
-      },
-      "threats": {
-        // ...
-      },
-      "title": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    acknowledgments: $defs.acknowledgments_t
+    cve: String.Pattern
+    cwes: Sequence
+    disclosure_date: String.DateTime
+    discovery_date: String.DateTime
+    first_known_exploitation_dates: Sequence
+    flags: Sequence
+    ids: Sequence
+    involvements: Sequence
+    metrics: Sequence
+    notes: $defs.notes_t
+    product_status: Mapping
+    references: $defs.references_t
+    remediations: Sequence
+    threats: Sequence
+    title: String
+  # ...
 ```
 
 #### 3.2.4.1 Vulnerabilities Property - Acknowledgments <a id='vulnerabilities-property-acknowledgments'></a>
@@ -3427,10 +3296,19 @@ Threats (`threats`), and Title (`title`).
 Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of
 acknowledgment elements associated with this vulnerability item.
 
-```
-    "acknowledgments": {
-      // ...
-    },
+```yaml <!--json-paths($..vulnerabilities..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    acknowledgments:  # $defs.acknowledgments_t
+    - # <acknowledgment-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
 ```
 
 #### 3.2.4.2 Vulnerabilities Property - CVE <a id='vulnerabilities-property-cve'></a>
@@ -3447,13 +3325,14 @@ CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
 
 List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
 
-```
-    "cwes": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..cwes)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes: Sequence
+    # ...
 ```
 
 If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first.
@@ -3463,18 +3342,18 @@ Every CWE item of value type `object` with the three mandatory properties Weakne
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 For more information cf. \[[CWE](#CWE)\].
 
-```
-      "properties": {
-        "id": {
-          // ...
-        },
-        "name": {
-          // ...
-        },
-        "version": {
-          // ...
-        }
-      }
+```yaml <!--json-path($..vulnerabilities..cwes..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes:
+    - # <cwe-instance>:
+      id: String.Pattern
+      name: String.Pattern
+      version: String.Pattern
+    # ...
 ```
 
 The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):
@@ -3549,13 +3428,14 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
 contains a list of dates of first known exploitations.
 
-```
-    "first_known_exploitation_dates": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates: Sequence
+    # ...
 ```
 
 Every First known exploitation date item of value type `object` with the two mandatory properties Date of the information (`date`) and
@@ -3567,21 +3447,19 @@ product groups this date is applicable.
 > This information can be helpful to determine the risk of compromise.
 > It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
 
-```
-    "properties": {
-      "date": {
-        // ...
-      },
-      "exploitation_date": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates:
+    - # <event-instance>:
+      date: String.DateTime
+      exploitation_date: String.DateTime
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+    # ...
 ```
 
 Date of the information (`date`) of value type `string` with format `date-time` contains the date when the information was last updated.
@@ -3601,13 +3479,14 @@ applies to.
 
 List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
-```
-    "flags": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..flags)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    flags: Sequence
+    # ...
 ```
 
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to
@@ -3620,21 +3499,19 @@ product groups this flag is applicable.
 
 In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
-```
-    "properties": {
-      "date": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "label": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..flags..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    flags:
+    - # <flag-instance>:
+      date: String.DateTime
+      group_ids: $defs.product_groups_t
+      label: String.Enum
+      product_ids: $defs.products_t
+    # ...
 ```
 
 Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
@@ -3677,27 +3554,30 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 List of IDs (`ids`) of value type `array` with `1` or more unique ID items of value type `object` represents a list of unique labels or
 tracking IDs for the vulnerability (if such information exists).
 
-```
-    "ids": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..ids)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    ids: Sequence
+    # ...
 ```
 
 Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
 unique label or tracking ID for the vulnerability.
 
-```
-      "properties": {
-        "system_name": {
-          // ...
-        },
-        "text": {
-          // ...
-        }
-      }
+```yaml <!--json-path($..vulnerabilities..ids..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    ids:
+    - # <id-instance>:
+      system_name: String
+      text: String
+    # ...
 ```
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
@@ -3736,13 +3616,14 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 
 List of involvements (`involvements`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of involvements.
 
-```
-    "involvements": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..involvements)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    involvements: Sequence
+    # ...
 ```
 
 Every Involvement item of value type `object` with the two mandatory properties Party (`party`), Status (`status`) and
@@ -3752,30 +3633,22 @@ involvement (or engagement) of themselves (or third parties) in the vulnerabilit
 It can also be used to convey the disclosure timeline.
 The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
 
-```
-        "properties": {
-          "contact": {
-            // ...
-          },
-          "date": {
-            // ...
-          },
-          "group_ids": {
-            // ...
-          },
-          "party": {
-            // ...
-          },
-          "product_ids": {
-            // ...
-          },
-          "status": {
-            // ...
-          },
-          "summary": {
-            // ...
-          }
-        }
+```yaml <!--json-path($..vulnerabilities..involvements..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    involvements:
+    - # <involvement-instance>:
+      contact: String
+      date: String.DateTime
+      group_ids: $defs.product_groups_t
+      party: String.Enum
+      product_ids: $defs.products_t
+      status: String.Enum
+      summary: String
+    # ...
 ```
 
 Party contact information (`contact`) contains the contact information of the party that was used in this state.
@@ -3851,30 +3724,31 @@ Summary of involvement (`summary`) of value type `string` with `1` or more chara
 List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
 contains metric objects for the current vulnerability.
 
-```
-    "metrics": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..metrics)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics: Sequence
+    # ...
 ```
 
 Every Metric item of value type `object` with the mandatory properties `content` and `products` and
 the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
 
-```
-        "properties": {
-          "content": {
-            // ...
-          },
-          "products": {
-            // ...
-          },
-          "source": {
-            // ...
-          }
-        }
+```yaml <!--json-path($..vulnerabilities..metrics[*].properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content: Mapping
+      products: $defs.products_t
+      source: String
+    # ...
 ```
 
 ##### 3.2.4.10.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property-metrics-content'></a>
@@ -3884,29 +3758,32 @@ EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`) and S
 (at least one) metric or score for the given products regarding the current vulnerability.
 A Content object has at least `1` property.
 
-```
-        "properties": {
-          "cvss_v2": {
-            // ...
-          },
-          "cvss_v3": {
-            "oneOf": [
-              // ...
-            ]
-          },
-          "cvss_v4": {
-            // ...
-          },
-          "epss": {
-            // ...
-          },
-          "qualitative_severity_rating": {
-            // ...
-          },
-          "ssvc_v2": {
-            // ....
-          }
-        }
+```yaml <!--json-path($..vulnerabilities..metrics..content.properties)-->
+# &CERTCC-SSVC https://certcc.github.io/SSVC/data/schema/v2/
+# &FIRST-CVSS https://www.first.org/cvss/
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        cvss_v2: $ref.eval(concat( *FIRST-CVSS 'cvss-v2.0.json' ))
+        cvss_v3:
+          # !OneOf<
+          - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.0.json' ))
+          - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.1.json' ))
+          # >
+        cvss_v4: $ref.eval(concat( *FIRST-CVSS 'cvss-v4.0.1.json' ))
+        epss: Mapping
+        qualitative_severity_rating: String.Enum
+        ssvc_v2:
+          $ref.eval(concat(
+            *CERTCC-SSVC 'Decision_Point_Value_Selection-2-0-0.schema.json'
+          ))
+      # ...
+    # ...
 ```
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
@@ -3926,18 +3803,23 @@ The property EPSS (`epss`) of value type `object` with the three mandatory prope
 and EPSS timestamp (`timestamp`) contains the EPSS data.
 See \[[EPSS](#EPSS)\] for details.
 
-```
-            "properties": {
-              "percentile": {
-                // ...
-              },
-              "probability": {
-                // ...
-              },
-              "timestamp": {
-                // ...
-              }
-            }
+```yaml <!--json-path($..vulnerabilities..metrics..content..epss.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        # ...
+        epss:
+          percentile: String.Pattern
+          probability: String.Pattern
+          timestamp: String.DateTime
+        # ...
+      # ...
+    # ...
 ```
 
 Percentile (`percentile`) has value type `string` with `pattern` (regular expression):
@@ -4014,10 +3896,22 @@ If no source is given, then the metric was assigned by the document author.
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
-```
-    "notes": {
-      // ...
-    },
+```yaml <!--json-paths($..vulnerabilities..notes, $['$defs'].notes_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    notes:  # $defs.notes_t
+    - # <note-instance>:
+      audience: String
+      category: String.Enum
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      text: String
+      title: String
+    # ...
+  # ...
 ```
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
@@ -4038,39 +3932,23 @@ The nine defined properties are First affected (`first_affected`), First fixed (
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
 Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
 
-```
-    "product_status": {
-      // ...
-      "properties": {
-        "first_affected": {
-          // ...
-        },
-        "first_fixed": {
-          // ...
-        },
-        "fixed": {
-          // ...
-        },
-        "known_affected": {
-          // ...
-        },
-        "known_not_affected": {
-          // ...
-        },
-        "last_affected": {
-          // ...
-        },
-        "recommended": {
-          // ...
-        },
-        "under_investigation": {
-          // ...
-        },
-        "unknown": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..product_status.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    product_status:
+      first_affected: $defs.products_t
+      first_fixed: $defs.products_t
+      fixed: $defs.products_t
+      known_affected: $defs.products_t
+      known_not_affected: $defs.products_t
+      last_affected: $defs.products_t
+      recommended: $defs.products_t
+      under_investigation: $defs.products_t
+      unknown: $defs.products_t
+    # ...
 ```
 
 First affected (`first_affected`) of value type Products (`products_t`) represents that these are the first versions of the releases known to be
@@ -4157,23 +4035,33 @@ the sets formed by the contradicting groups within one vulnerability item MUST b
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
 
-```
-    "references": {
-      // ...
-    },
+```yaml <!--json-paths($..vulnerabilities..references, $['$defs'].references_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    references:  # $defs.references_t
+    - # <reference-instance>:
+      category: String.Enum
+      summary: String
+      url: String.URI
+    # ...
+  # ...
 ```
 
 #### 3.2.4.14 Vulnerabilities Property - Remediations <a id='vulnerabilities-property-remediations'></a>
 
 List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
-```
-    "remediations": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..remediations)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations: Sequence
+    # ...
 ```
 
 Every Remediation item of value type `object` with the two mandatory properties Category (`category`) and
@@ -4184,33 +4072,23 @@ products or product groups this remediation is applicable.
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
 Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
-```
-      "properties": {
-        "category": {
-          // ...
-        },
-        "date": {
-          // ...
-        },
-        "details": {
-          // ...
-        },
-        "entitlements": {
-          // ...
-        },
-        "group_ids": {
-          // ...
-        },
-        "product_ids": {
-          // ...
-        },
-        "restart_required": {
-          // ...
-        },
-        "url": {
-          // ...
-        }
-      }
+```yaml <!--json-path($..vulnerabilities..remediations[*].properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      category: String.Enum
+      date: String.DateTime
+      details: String
+      entitlements: Sequence
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      restart_required: Mapping
+      url: String.URI
+    # ...
 ```
 
 ##### 3.2.4.14.1 Vulnerabilities Property - Remediations - Category <a id='vulnerabilities-property-remediations-category'></a>
@@ -4299,39 +4177,39 @@ Table 2: Product Status Remediation Category Combinations
 The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
 
 1. `vendor_fix` and Recommended
-2. `mitigation` & Recommended
-3. `workaround` & Recommended
-4. `optional_patch` & Recommended
-5. `vendor_fix` & Affected
-6. `mitigation` & Affected
-7. `workaround` & Affected
-8. `optional_patch` & Under Investigation
-9. `optional_patch` & Unknown
-10. `fix_planned` & Recommended
-11. `fix_planned` & Affected
-12. `optional_patch` & Not Affected
-13. `none_available` & Recommended
-14. `no_fix_planned` & Recommended
-15. `none_available` & Affected
-16. `none_available` & Under Investigation
-17. `none_available` & Unknown
-18. `no_fix_planned` & Affected
-19. `no_fix_planned` & Under Investigation
-20. `no_fix_planned` & Unknown
+2. `mitigation` and Recommended
+3. `workaround` and Recommended
+4. `optional_patch` and Recommended
+5. `vendor_fix` and Affected
+6. `mitigation` and Affected
+7. `workaround` and Affected
+8. `optional_patch` and Under Investigation
+9. `optional_patch` and Unknown
+10. `fix_planned` and Recommended
+11. `fix_planned` and Affected
+12. `optional_patch` and Not Affected
+13. `none_available` and Recommended
+14. `no_fix_planned` and Recommended
+15. `none_available` and Affected
+16. `none_available` and Under Investigation
+17. `none_available` and Unknown
+18. `no_fix_planned` and Affected
+19. `no_fix_planned` and Under Investigation
+20. `no_fix_planned` and Unknown
 
 The remaining discouraged combinations are appended at the end of the list:
 
-1. `optional_patch` & Fixed
-2. `vendor_fix` & Under Investigation
-3. `vendor_fix` & Unknown
-4. `mitigation` & Under Investigation
-5. `mitigation` & Unknown
-6. `workaround` & Under Investigation
-7. `workaround` & Unknown
-8. `fix_planned` & Under Investigation
-9. `fix_planned` & Unknown
-10. `fix_planned` & Not Affected
-11. `no_fix_planned` & Not Affected
+1. `optional_patch` and Fixed
+2. `vendor_fix` and Under Investigation
+3. `vendor_fix` and Unknown
+4. `mitigation` and Under Investigation
+5. `mitigation` and Unknown
+6. `workaround` and Under Investigation
+7. `workaround` and Unknown
+8. `fix_planned` and Under Investigation
+9. `fix_planned` and Unknown
+10. `fix_planned` and Not Affected
+11. `no_fix_planned` and Not Affected
 
 CSAF Viewers MAY sort the remediation items accordingly.
 
@@ -4349,13 +4227,18 @@ discussion of the remediation.
 List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
 with `1` or more characters contains a list of entitlements.
 
-```
-                "entitlements": {
-                  // ....
-                  "items": {
-                    // ...
-                  }
-                },
+```yaml <!--json-path($..vulnerabilities..remediations..entitlements)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      # ...
+      entitlements: Sequence
+      # ...
+    # ...
 ```
 
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that
@@ -4375,18 +4258,20 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
 
-```
-      "restart_required": {
-        // ...
-        "properties": {
-          "category": {
-            // ...
-          }
-          "details": {
-            // ...
-          }
-        }
-      },
+```yaml <!--json-path($..vulnerabilities..remediations..restart_required.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      # ...
+      restart_required:
+        category: String.Enum
+        details: String
+      # ...
+    # ...
 ```
 
 Category of restart (`category`) of value type `string` and `enum` specifies what category of restart is required by
@@ -4439,13 +4324,15 @@ URL (`url`) of value type `string` with format `uri` contains the URL where to o
 List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
 information about a vulnerability that can change with time.
 
-```
-    "threats": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..threats)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    threats: Sequence
+    # ...
+  # ...
 ```
 
 Every Threat item of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) contains
@@ -4453,24 +4340,20 @@ the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
-```
-    "properties": {
-      "category": {
-        // ...
-      }
-      "date": {
-        // ...
-      },
-      "details": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..threats..properties)-->
+ <csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    threats:
+      category: String.Enum
+      date: String.DateTime
+      details: String
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+    # ...
+  # ...
 ```
 
 Category of the threat (`category`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
@@ -8479,7 +8362,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids[]
 ```
 
-*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-150'></a>
+*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-163'></a>
 
 ```
       "ids": [
@@ -8521,7 +8404,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-151'></a>
+*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-164'></a>
 
 ```
             "branches": [
@@ -8549,7 +8432,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status/fixed[]
 ```
 
-*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-152'></a>
+*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-165'></a>
 
 ```
   "product_tree": {
@@ -8615,7 +8498,7 @@ The relevant path for this test is:
 > To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated
 > and sets `additionalProperties` respectively `unevaluatedProperties` to `false` at all appropriate places to detect additional properties.
 
-*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-153'></a>
+*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-166'></a>
 
 ```
             "cvss_v3": {
@@ -8642,7 +8525,7 @@ The relevant path for this test is:
   /document/tracking/revision_history[]/date
 ```
 
-*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-154'></a>
+*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-167'></a>
 
 ```
   "revision_history": [
@@ -8671,7 +8554,7 @@ The relevant path for this test is:
   /document/title
 ```
 
-*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-155'></a>
+*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-168'></a>
 
 ```
     "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
@@ -8697,7 +8580,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-156'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-169'></a>
 
 ```
      "cwes": [
@@ -8724,7 +8607,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-157'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-170'></a>
 
 ```
   "document": {
@@ -8767,7 +8650,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-158'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-171'></a>
 
 ```
       "cwes": [
@@ -8797,7 +8680,7 @@ The relevant path for this test is:
   /vulnerabilities[]/cwes[]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-159'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-172'></a>
 
 ```
       "cwes": [
@@ -8823,7 +8706,7 @@ The relevant path for this test is:
   /vulnerabilities[]/remediations[]
 ```
 
-*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-160'></a>
+*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-173'></a>
 
 ```
       "product_status": {
@@ -8854,7 +8737,7 @@ The relevant path for this test is:
   /document/distribution/sharing_group/id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-161'></a>
+*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-174'></a>
 
 ```
     "distribution": {
@@ -8880,7 +8763,7 @@ The relevant path for this test is:
   /document/distribution/sharing_group/id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-162'></a>
+*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-175'></a>
 
 ```
     "distribution": {
@@ -8906,7 +8789,7 @@ The relevant path for this test is:
   /document/distribution/sharing_group
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-163'></a>
+*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-176'></a>
 
 ```
     "distribution": {
@@ -8941,7 +8824,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name
 ```
 
-*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-164'></a>
+*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-177'></a>
 
 ```
   "product_tree": {
@@ -9001,7 +8884,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_id/product_identification_helper
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-165'></a>
+*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-178'></a>
 
 ```
   "product_tree": {
@@ -9065,7 +8948,7 @@ The relevant path for this test is:
     /vulnerabilities[]/disclosure_date
 ```
 
-*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-166'></a>
+*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-179'></a>
 
 ```
   "document": {
@@ -9113,7 +8996,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-167'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-180'></a>
 
 ```
   "ssvc_v2": {
@@ -9144,7 +9027,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-168'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-181'></a>
 
 ```
   {
@@ -9197,7 +9080,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-169'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-182'></a>
 
 ```
   {
@@ -9258,7 +9141,7 @@ The relevant path for this test is:
    /vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-170'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-183'></a>
 
 ```
   "content": {
@@ -9295,7 +9178,7 @@ The relevant path for this test is:
    /document/category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-171'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-184'></a>
 
 ```
     "category": "csaf_deprecated_security_advisory",
@@ -9332,7 +9215,7 @@ The relevant path for this test is:
   /vulnerabilities[]/product_status
 ```
 
-*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-172'></a>
+*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-185'></a>
 
 ```
   "vulnerabilities": [
@@ -9382,7 +9265,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-173'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-186'></a>
 
 ```
     "notes": [
@@ -9417,7 +9300,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-174'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-187'></a>
 
 ```
     "notes": [
@@ -9452,7 +9335,7 @@ The relevant path for this test is:
   /document/references
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-175'></a>
+*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-188'></a>
 
 ```
     "references": [
@@ -9483,7 +9366,7 @@ The relevant path for this test is:
   /document/notes[]
 ```
 
-*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-176'></a>
+*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-189'></a>
 
 ```
     "notes": [
@@ -9509,7 +9392,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]/content/epss/timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-177'></a>
+*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-190'></a>
 
 ```
   "document": {
@@ -9580,7 +9463,7 @@ The relevant paths for this test are:
     /product_tree/branches[](/branches[])*/product/product_identification_helper/purl
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-178'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-191'></a>
 
 ```
   "product_tree": {
@@ -9636,7 +9519,7 @@ The relevant path for this test is:
   /document/license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-179'></a>
+*Example 1 (which fails the test):*<a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-150'></a>
 
 ```
   "document": {
@@ -9663,7 +9546,7 @@ The relevant path for this test is:
   /document/license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-180'></a>
+*Example 1 (which fails the test):*<a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-151'></a>
 
 ```
   "license_expression": "GFDL-1.1",
@@ -9683,7 +9566,7 @@ The relevant path for this test is:
   /document/license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-181'></a>
+*Example 1 (which fails the test):*<a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-152'></a>
 
 ```
   "license_expression": "A-License-Identifier-That-Does-Not-Exist",
@@ -9705,7 +9588,7 @@ The relevant path for this test is:
   /document/notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-182'></a>
+*Example 1 (which fails the test):*<a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-153'></a>
 
 ```
   "document": {
@@ -9739,7 +9622,7 @@ The relevant path for this test is:
     /vulnerabilities[]/metrics[]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-183'></a>
+*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-154'></a>
 
 ```
   "product_tree": {
@@ -9787,7 +9670,7 @@ The relevant path for this test is:
     /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='misuse-at-vendor-name-eg-1'></a><a id='sec-6-2-48-eg-1'></a><a id='example-184'></a>
+*Example 1 (which fails the test):*<a id='misuse-at-vendor-name-eg-1'></a><a id='sec-6-2-48-eg-1'></a><a id='example-155'></a>
 
 ```
   "product_tree": {
@@ -9824,7 +9707,7 @@ The relevant path for this test is:
     /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='upper-open-ended-product-version-range-eg-1'></a><a id='sec-6-2-49-eg-1'></a><a id='example-185'></a>
+*Example 1 (which fails the test):*<a id='upper-open-ended-product-version-range-eg-1'></a><a id='sec-6-2-49-eg-1'></a><a id='example-156'></a>
 
 ```
         {
@@ -9903,7 +9786,7 @@ The relevant path for this test is:
     /vulnerabilities[]/product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-1-eg-1'></a><a id='example-186'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-1-eg-1'></a><a id='example-157'></a>
 
 ```
   "product_tree": {
@@ -9970,7 +9853,7 @@ The relevant path for this test is:
     /vulnerabilities[]/product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-2-eg-1'></a><a id='example-187'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-2-eg-1'></a><a id='example-158'></a>
 
 ```
   "product_tree": {
@@ -10037,7 +9920,7 @@ The relevant path for this test is:
     /vulnerabilities[]/product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-3-eg-1'></a><a id='example-188'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-3-eg-1'></a><a id='example-159'></a>
 
 ```
   "product_tree": {
@@ -10109,7 +9992,7 @@ The relevant paths for this test are:
   /product_tree/branches[](/branches[])*/name
 ```
 
-*Example 1 (which fails the test):*<a id='unknown-version-scheme-in-vers-eg-1'></a><a id='sec-6-2-51-eg-1'></a><a id='example-189'></a>
+*Example 1 (which fails the test):*<a id='unknown-version-scheme-in-vers-eg-1'></a><a id='sec-6-2-51-eg-1'></a><a id='example-160'></a>
 
 ```
     {
@@ -10142,7 +10025,7 @@ The relevant paths for this test are:
   /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm
 ```
 
-*Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-190'></a>
+*Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-161'></a>
 
 ```
   {
@@ -10168,7 +10051,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/ids[]/text
 ```
 
-*Example 1 (which fails the test):*<a id='matching-text-for-registered-id-system-eg-1'></a><a id='sec-6-2-53-eg-1'></a><a id='example-191'></a>
+*Example 1 (which fails the test):*<a id='matching-text-for-registered-id-system-eg-1'></a><a id='sec-6-2-53-eg-1'></a><a id='example-162'></a>
 
 ```
     "ids": [

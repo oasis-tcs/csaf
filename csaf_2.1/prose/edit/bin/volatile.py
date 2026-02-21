@@ -82,6 +82,7 @@ TOC_HEADER = f"""{YAML_X_SEP}
 # Table of Contents
 """
 CLEAN_MD_START = '# Introduction'
+FENCED_BLOCK_FLIP_FLOP = '```'
 
 SECTION_DISPLAY_TO_LABEL = {}
 SECTION_LABEL_TO_DISPLAY: dict[str, str] = {}
@@ -403,7 +404,10 @@ def main(argv: list[str]) -> int:
     clean_headings = False
     current_cs = None
     CS_OF_SLOT = [None for _ in lines]
+    in_fenced_block = False
     for slot, line in enumerate(lines):
+        if line.startswith(FENCED_BLOCK_FLIP_FLOP):
+            in_fenced_block = not in_fenced_block
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
         is_plain = True  # No special meta data needed
@@ -411,7 +415,7 @@ def main(argv: list[str]) -> int:
             clean_headings = True
         CS_OF_SLOT[slot] = current_cs
         for tag in sec_cnt:
-            if line.startswith(tag) and clean_headings:
+            if line.startswith(tag) and clean_headings and not in_fenced_block:
                 # manage counter
                 if not meta_hook:
                     # auto counters

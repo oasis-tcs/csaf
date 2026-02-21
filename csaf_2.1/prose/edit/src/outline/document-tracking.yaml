@@ -1,0 +1,12 @@
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      current_release_date: String.DateTime
+      generator: Mapping
+      id: String.Pattern
+      initial_release_date: String.DateTime
+      revision_history: Sequence
+      status: String.Enum
+      version: $defs.version_t

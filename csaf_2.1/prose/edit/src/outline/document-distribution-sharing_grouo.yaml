@@ -1,0 +1,9 @@
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group:
+        id: String.Pattern
+        name: String
+      # ...
+    # ...

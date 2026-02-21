@@ -3,13 +3,10 @@
 Vulnerabilities (`vulnerabilities`) of value type `array` with `1` or more objects representing vulnerabilities by providing one or more
 properties represents a list of all relevant vulnerability information items.
 
-```
-    "vulnerabilities": {
-      // ...
-      "items": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities: Sequence
 ```
 
 The Vulnerability item of value type `object` with `1` or more properties is a container for the aggregation of all fields that are related to
@@ -20,57 +17,28 @@ List of first known exploitation dates (`first_known_exploitation_dates`), Flags
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), and Title (`title`).
 
-```
-    "properties": {
-      "acknowledgments": {
-        // ...
-      },
-      "cve": {
-        // ...
-      },
-      "cwes": {
-        // ...
-      },
-      "disclosure_date": {
-        // ...
-      },
-      "discovery_date": {
-        // ...
-      },
-      "first_known_exploitation_dates": {
-        // ...
-      },
-      "flags": {
-        // ...
-      },
-      "ids": {
-        // ...
-      },
-      "involvements": {
-        // ...
-      },
-      "metrics": {
-        // ...
-      },
-      "notes": {
-        // ...
-      },
-      "product_status": {
-        // ...
-      },
-      "references": {
-        // ...
-      },
-      "remediations": {
-        // ...
-      },
-      "threats": {
-        // ...
-      },
-      "title": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    acknowledgments: $defs.acknowledgments_t
+    cve: String.Pattern
+    cwes: Sequence
+    disclosure_date: String.DateTime
+    discovery_date: String.DateTime
+    first_known_exploitation_dates: Sequence
+    flags: Sequence
+    ids: Sequence
+    involvements: Sequence
+    metrics: Sequence
+    notes: $defs.notes_t
+    product_status: Mapping
+    references: $defs.references_t
+    remediations: Sequence
+    threats: Sequence
+    title: String
+  # ...
 ```
 
 #### Vulnerabilities Property - Acknowledgments
@@ -78,10 +46,19 @@ Threats (`threats`), and Title (`title`).
 Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of
 acknowledgment elements associated with this vulnerability item.
 
-```
-    "acknowledgments": {
-      // ...
-    },
+```yaml <!--json-paths($..vulnerabilities..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    acknowledgments:  # $defs.acknowledgments_t
+    - # <acknowledgment-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
 ```
 
 #### Vulnerabilities Property - CVE
@@ -98,13 +75,14 @@ CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
 
 List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
 
-```
-    "cwes": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..cwes)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes: Sequence
+    # ...
 ```
 
 If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first.
@@ -114,18 +92,18 @@ Every CWE item of value type `object` with the three mandatory properties Weakne
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 For more information cf. [cite](#CWE).
 
-```
-      "properties": {
-        "id": {
-          // ...
-        },
-        "name": {
-          // ...
-        },
-        "version": {
-          // ...
-        }
-      }
+```yaml <!--json-path($..vulnerabilities..cwes..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes:
+    - # <cwe-instance>:
+      id: String.Pattern
+      name: String.Pattern
+      version: String.Pattern
+    # ...
 ```
 
 The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):
@@ -200,13 +178,14 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
 contains a list of dates of first known exploitations.
 
-```
-    "first_known_exploitation_dates": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates: Sequence
+    # ...
 ```
 
 Every First known exploitation date item of value type `object` with the two mandatory properties Date of the information (`date`) and
@@ -218,21 +197,19 @@ product groups this date is applicable.
 > This information can be helpful to determine the risk of compromise.
 > It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
 
-```
-    "properties": {
-      "date": {
-        // ...
-      },
-      "exploitation_date": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates:
+    - # <event-instance>:
+      date: String.DateTime
+      exploitation_date: String.DateTime
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+    # ...
 ```
 
 Date of the information (`date`) of value type `string` with format `date-time` contains the date when the information was last updated.
@@ -252,13 +229,14 @@ applies to.
 
 List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
-```
-    "flags": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..flags)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    flags: Sequence
+    # ...
 ```
 
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to
@@ -271,21 +249,19 @@ product groups this flag is applicable.
 
 In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
-```
-    "properties": {
-      "date": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "label": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..flags..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    flags:
+    - # <flag-instance>:
+      date: String.DateTime
+      group_ids: $defs.product_groups_t
+      label: String.Enum
+      product_ids: $defs.products_t
+    # ...
 ```
 
 Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
@@ -328,27 +304,30 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 List of IDs (`ids`) of value type `array` with `1` or more unique ID items of value type `object` represents a list of unique labels or
 tracking IDs for the vulnerability (if such information exists).
 
-```
-    "ids": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..ids)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    ids: Sequence
+    # ...
 ```
 
 Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
 unique label or tracking ID for the vulnerability.
 
-```
-      "properties": {
-        "system_name": {
-          // ...
-        },
-        "text": {
-          // ...
-        }
-      }
+```yaml <!--json-path($..vulnerabilities..ids..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    ids:
+    - # <id-instance>:
+      system_name: String
+      text: String
+    # ...
 ```
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
@@ -387,13 +366,14 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 
 List of involvements (`involvements`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of involvements.
 
-```
-    "involvements": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..involvements)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    involvements: Sequence
+    # ...
 ```
 
 Every Involvement item of value type `object` with the two mandatory properties Party (`party`), Status (`status`) and
@@ -403,30 +383,22 @@ involvement (or engagement) of themselves (or third parties) in the vulnerabilit
 It can also be used to convey the disclosure timeline.
 The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
 
-```
-        "properties": {
-          "contact": {
-            // ...
-          },
-          "date": {
-            // ...
-          },
-          "group_ids": {
-            // ...
-          },
-          "party": {
-            // ...
-          },
-          "product_ids": {
-            // ...
-          },
-          "status": {
-            // ...
-          },
-          "summary": {
-            // ...
-          }
-        }
+```yaml <!--json-path($..vulnerabilities..involvements..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    involvements:
+    - # <involvement-instance>:
+      contact: String
+      date: String.DateTime
+      group_ids: $defs.product_groups_t
+      party: String.Enum
+      product_ids: $defs.products_t
+      status: String.Enum
+      summary: String
+    # ...
 ```
 
 Party contact information (`contact`) contains the contact information of the party that was used in this state.
@@ -502,30 +474,31 @@ Summary of involvement (`summary`) of value type `string` with `1` or more chara
 List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
 contains metric objects for the current vulnerability.
 
-```
-    "metrics": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..metrics)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics: Sequence
+    # ...
 ```
 
 Every Metric item of value type `object` with the mandatory properties `content` and `products` and
 the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
 
-```
-        "properties": {
-          "content": {
-            // ...
-          },
-          "products": {
-            // ...
-          },
-          "source": {
-            // ...
-          }
-        }
+```yaml <!--json-path($..vulnerabilities..metrics[*].properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content: Mapping
+      products: $defs.products_t
+      source: String
+    # ...
 ```
 
 ##### Vulnerabilities Property - Metrics - Content
@@ -535,29 +508,32 @@ EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`) and S
 (at least one) metric or score for the given products regarding the current vulnerability.
 A Content object has at least `1` property.
 
-```
-        "properties": {
-          "cvss_v2": {
-            // ...
-          },
-          "cvss_v3": {
-            "oneOf": [
-              // ...
-            ]
-          },
-          "cvss_v4": {
-            // ...
-          },
-          "epss": {
-            // ...
-          },
-          "qualitative_severity_rating": {
-            // ...
-          },
-          "ssvc_v2": {
-            // ....
-          }
-        }
+```yaml <!--json-path($..vulnerabilities..metrics..content.properties)-->
+# &CERTCC-SSVC https://certcc.github.io/SSVC/data/schema/v2/
+# &FIRST-CVSS https://www.first.org/cvss/
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        cvss_v2: $ref.eval(concat( *FIRST-CVSS 'cvss-v2.0.json' ))
+        cvss_v3:
+          # !OneOf<
+          - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.0.json' ))
+          - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.1.json' ))
+          # >
+        cvss_v4: $ref.eval(concat( *FIRST-CVSS 'cvss-v4.0.1.json' ))
+        epss: Mapping
+        qualitative_severity_rating: String.Enum
+        ssvc_v2:
+          $ref.eval(concat(
+            *CERTCC-SSVC 'Decision_Point_Value_Selection-2-0-0.schema.json'
+          ))
+      # ...
+    # ...
 ```
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
@@ -577,18 +553,23 @@ The property EPSS (`epss`) of value type `object` with the three mandatory prope
 and EPSS timestamp (`timestamp`) contains the EPSS data.
 See [cite](#EPSS) for details.
 
-```
-            "properties": {
-              "percentile": {
-                // ...
-              },
-              "probability": {
-                // ...
-              },
-              "timestamp": {
-                // ...
-              }
-            }
+```yaml <!--json-path($..vulnerabilities..metrics..content..epss.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        # ...
+        epss:
+          percentile: String.Pattern
+          probability: String.Pattern
+          timestamp: String.DateTime
+        # ...
+      # ...
+    # ...
 ```
 
 Percentile (`percentile`) has value type `string` with `pattern` (regular expression):
@@ -665,10 +646,22 @@ If no source is given, then the metric was assigned by the document author.
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
-```
-    "notes": {
-      // ...
-    },
+```yaml <!--json-paths($..vulnerabilities..notes, $['$defs'].notes_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    notes:  # $defs.notes_t
+    - # <note-instance>:
+      audience: String
+      category: String.Enum
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      text: String
+      title: String
+    # ...
+  # ...
 ```
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
@@ -689,39 +682,23 @@ The nine defined properties are First affected (`first_affected`), First fixed (
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
 Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
 
-```
-    "product_status": {
-      // ...
-      "properties": {
-        "first_affected": {
-          // ...
-        },
-        "first_fixed": {
-          // ...
-        },
-        "fixed": {
-          // ...
-        },
-        "known_affected": {
-          // ...
-        },
-        "known_not_affected": {
-          // ...
-        },
-        "last_affected": {
-          // ...
-        },
-        "recommended": {
-          // ...
-        },
-        "under_investigation": {
-          // ...
-        },
-        "unknown": {
-          // ...
-        }
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..product_status.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    product_status:
+      first_affected: $defs.products_t
+      first_fixed: $defs.products_t
+      fixed: $defs.products_t
+      known_affected: $defs.products_t
+      known_not_affected: $defs.products_t
+      last_affected: $defs.products_t
+      recommended: $defs.products_t
+      under_investigation: $defs.products_t
+      unknown: $defs.products_t
+    # ...
 ```
 
 First affected (`first_affected`) of value type Products (`products_t`) represents that these are the first versions of the releases known to be
@@ -808,23 +785,33 @@ the sets formed by the contradicting groups within one vulnerability item MUST b
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
 
-```
-    "references": {
-      // ...
-    },
+```yaml <!--json-paths($..vulnerabilities..references, $['$defs'].references_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    references:  # $defs.references_t
+    - # <reference-instance>:
+      category: String.Enum
+      summary: String
+      url: String.URI
+    # ...
+  # ...
 ```
 
 #### Vulnerabilities Property - Remediations
 
 List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
-```
-    "remediations": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..remediations)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations: Sequence
+    # ...
 ```
 
 Every Remediation item of value type `object` with the two mandatory properties Category (`category`) and
@@ -835,33 +822,23 @@ products or product groups this remediation is applicable.
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
 Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
-```
-      "properties": {
-        "category": {
-          // ...
-        },
-        "date": {
-          // ...
-        },
-        "details": {
-          // ...
-        },
-        "entitlements": {
-          // ...
-        },
-        "group_ids": {
-          // ...
-        },
-        "product_ids": {
-          // ...
-        },
-        "restart_required": {
-          // ...
-        },
-        "url": {
-          // ...
-        }
-      }
+```yaml <!--json-path($..vulnerabilities..remediations[*].properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      category: String.Enum
+      date: String.DateTime
+      details: String
+      entitlements: Sequence
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      restart_required: Mapping
+      url: String.URI
+    # ...
 ```
 
 ##### Vulnerabilities Property - Remediations - Category{#vulnerabilities-property-remediations-category}
@@ -950,39 +927,39 @@ Table 2: Product Status Remediation Category Combinations
 The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
 
 1. `vendor_fix` and Recommended
-2. `mitigation` & Recommended
-3. `workaround` & Recommended
-4. `optional_patch` & Recommended
-5. `vendor_fix` & Affected
-6. `mitigation` & Affected
-7. `workaround` & Affected
-8. `optional_patch` & Under Investigation
-9. `optional_patch` & Unknown
-10. `fix_planned` & Recommended
-11. `fix_planned` & Affected
-12. `optional_patch` & Not Affected
-13. `none_available` & Recommended
-14. `no_fix_planned` & Recommended
-15. `none_available` & Affected
-16. `none_available` & Under Investigation
-17. `none_available` & Unknown
-18. `no_fix_planned` & Affected
-19. `no_fix_planned` & Under Investigation
-20. `no_fix_planned` & Unknown
+2. `mitigation` and Recommended
+3. `workaround` and Recommended
+4. `optional_patch` and Recommended
+5. `vendor_fix` and Affected
+6. `mitigation` and Affected
+7. `workaround` and Affected
+8. `optional_patch` and Under Investigation
+9. `optional_patch` and Unknown
+10. `fix_planned` and Recommended
+11. `fix_planned` and Affected
+12. `optional_patch` and Not Affected
+13. `none_available` and Recommended
+14. `no_fix_planned` and Recommended
+15. `none_available` and Affected
+16. `none_available` and Under Investigation
+17. `none_available` and Unknown
+18. `no_fix_planned` and Affected
+19. `no_fix_planned` and Under Investigation
+20. `no_fix_planned` and Unknown
 
 The remaining discouraged combinations are appended at the end of the list:
 
-1. `optional_patch` & Fixed
-2. `vendor_fix` & Under Investigation
-3. `vendor_fix` & Unknown
-4. `mitigation` & Under Investigation
-5. `mitigation` & Unknown
-6. `workaround` & Under Investigation
-7. `workaround` & Unknown
-8. `fix_planned` & Under Investigation
-9. `fix_planned` & Unknown
-10. `fix_planned` & Not Affected
-11. `no_fix_planned` & Not Affected
+1. `optional_patch` and Fixed
+2. `vendor_fix` and Under Investigation
+3. `vendor_fix` and Unknown
+4. `mitigation` and Under Investigation
+5. `mitigation` and Unknown
+6. `workaround` and Under Investigation
+7. `workaround` and Unknown
+8. `fix_planned` and Under Investigation
+9. `fix_planned` and Unknown
+10. `fix_planned` and Not Affected
+11. `no_fix_planned` and Not Affected
 
 CSAF Viewers MAY sort the remediation items accordingly.
 
@@ -1000,13 +977,18 @@ discussion of the remediation.
 List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
 with `1` or more characters contains a list of entitlements.
 
-```
-                "entitlements": {
-                  // ....
-                  "items": {
-                    // ...
-                  }
-                },
+```yaml <!--json-path($..vulnerabilities..remediations..entitlements)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      # ...
+      entitlements: Sequence
+      # ...
+    # ...
 ```
 
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that
@@ -1026,18 +1008,20 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
 
-```
-      "restart_required": {
-        // ...
-        "properties": {
-          "category": {
-            // ...
-          }
-          "details": {
-            // ...
-          }
-        }
-      },
+```yaml <!--json-path($..vulnerabilities..remediations..restart_required.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      # ...
+      restart_required:
+        category: String.Enum
+        details: String
+      # ...
+    # ...
 ```
 
 Category of restart (`category`) of value type `string` and `enum` specifies what category of restart is required by
@@ -1090,13 +1074,15 @@ URL (`url`) of value type `string` with format `uri` contains the URL where to o
 List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
 information about a vulnerability that can change with time.
 
-```
-    "threats": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($..vulnerabilities..threats)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    threats: Sequence
+    # ...
+  # ...
 ```
 
 Every Threat item of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) contains
@@ -1104,24 +1090,20 @@ the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
-```
-    "properties": {
-      "category": {
-        // ...
-      }
-      "date": {
-        // ...
-      },
-      "details": {
-        // ...
-      },
-      "group_ids": {
-        // ...
-      },
-      "product_ids": {
-        // ...
-      }
-    }
+```yaml <!--json-path($..vulnerabilities..threats..properties)-->
+ <csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    threats:
+      category: String.Enum
+      date: String.DateTime
+      details: String
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+    # ...
+  # ...
 ```
 
 Category of the threat (`category`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.

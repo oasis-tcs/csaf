@@ -2,13 +2,11 @@
 
 List of references (`references_t`) of value type `array` with `1` or more items of type Reference holds a list of Reference objects.
 
-```
-    "references_t": {
-      // ...
-      "items": {
-        // ...
-      }
-    },
+```yaml <!--json-path($['$defs'].references_t)-->
+$defs:
+  # ...
+  references_t: Sequence
+  # ...
 ```
 
 Value type of every such Reference item is `object` with the mandatory properties `url` and `summary` holding any reference to conferences,
@@ -16,18 +14,15 @@ papers, advisories, and other resources that are related and considered related 
 the entire document and to be of value to the document consumer.
 A reference `object` MAY provide the optional property `category`.
 
-```
-    "properties": {
-      "category": {
-        // ...
-      },
-      "summary": {
-        // ...
-      },
-      "url": {
-        // ...
-      }
-    }
+```yaml <!--json-path($['$defs'].references_t[*].properties)-->
+$defs:
+  # ...
+  references:
+  - # <reference-instance>:
+    category: String
+    summary: String
+    url: String.URI
+  # ...
 ```
 
 Category of reference (`category`) of value type `string` and `enum` indicates whether the reference points to the same document or

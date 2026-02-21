@@ -1,0 +1,12 @@
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      # ...
+      revision_history:
+      - # <revision-instance>:
+        date: String.DateTime
+        legacy_version: String
+        number: $defs.version_t
+        summary: String
+      # ...

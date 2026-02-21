@@ -1,0 +1,9 @@
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      # ...
+      tlp:
+        label: String
+        url: String.URI
+    # ...

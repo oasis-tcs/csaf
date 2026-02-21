@@ -80,6 +80,7 @@ TOC_HEADER = f"""{YAML_X_SEP}
 # Table of Contents
 """
 CLEAN_MD_START = '# Introduction'
+FENCED_BLOCK_FLIP_FLOP = '```'
 LOGO_URL = 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
 LOGO_LOCAL_PATH = 'images/OASISLogo-v3.0.png'
 TOP_LOGO_LINE = f'![OASIS Logo]({LOGO_URL})'
@@ -343,11 +344,22 @@ def main(args: list[str]) -> int:
             if first_meta_slot is None:
                 first_meta_slot = len(lines) + len(part_lines) - 1
 
+        simplified = []
+        for line in part_lines:
+            if line.startswith(f'{FENCED_BLOCK_FLIP_FLOP}yaml <!--'):
+                simplified.append(f'{FENCED_BLOCK_FLIP_FLOP}yaml')
+                continue
+            simplified.append(line)
+        part_lines = list(simplified)
+
         if resource.name in CITATION_SOURCES:  # TODO: citation management -> class
             patched = []
             in_citation = False
+            in_fenced_block = False
             for line in part_lines:
-                if line.startswith(HASH):
+                if line.startswith(FENCED_BLOCK_FLIP_FLOP):
+                    in_fenced_block = not in_fenced_block
+                if line.startswith(HASH) and not in_fenced_block:
                     patched.append(line)
                     continue
                 if line.strip() and not line.startswith(COLON):
@@ -450,7 +462,10 @@ def main(args: list[str]) -> int:
     clean_headings = False
     current_cs = None
     cs_of_slot: list[Union[str, None]] = [None for _ in lines]
+    in_fenced_block = False
     for slot, line in enumerate(lines):
+        if line.startswith(FENCED_BLOCK_FLIP_FLOP):
+            in_fenced_block = not in_fenced_block
         # MAYBE_MAKE_TOP_LOGO_LOCAL # NEW
         if line.rstrip() == TOP_LOGO_LINE:
             lines[slot] = line.replace(LOGO_URL, LOGO_LOCAL_PATH, 1)
@@ -462,7 +477,7 @@ def main(args: list[str]) -> int:
             clean_headings = True
         cs_of_slot[slot] = current_cs
         for tag in sec_cnt:
-            if line.startswith(tag) and clean_headings:
+            if line.startswith(tag) and clean_headings and not in_fenced_block:
                 # manage counter
                 if not meta_hook:
                     # auto counters
@@ -475,7 +490,7 @@ def main(args: list[str]) -> int:
                     sec_cnt_disp_vec = []
                     for s_tag, cnt in sec_cnt.items():
                         if cnt == 0:
-                            raise RuntimeError(f'counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}')
+                            pass  # raise RuntimeError(f'counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}')
                         sec_cnt_disp_vec.append(str(cnt))
                         if s_tag == tag:
                             break

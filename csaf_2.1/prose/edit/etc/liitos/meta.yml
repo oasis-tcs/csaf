@@ -10,7 +10,7 @@ document:
     change_log_tune_header_sep: 0.1em
     chosen_logo: images/OASISLogo-v3.0.png
     chosen_title_page_logo: images/OASISLogo-v3.0.png
-    code_fontsize: \tiny
+    code_fontsize: \footnotesize  # \tiny
     driver_path: driver.tex.in
     fixed_font_package: sourcecodepro
     font_path: /opt/fonts/

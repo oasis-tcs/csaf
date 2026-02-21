@@ -1,0 +1,10 @@
+<csaf-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        # ...
+        engine:
+          name: String
+          version: String
+      # ...
