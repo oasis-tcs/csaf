@@ -141,6 +141,15 @@
   },
   "vulnerabilities": [
     {
+      "first_known_exploitation_dates": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "exploitation_date": "2024-01-11T15:53:00.000Z",
+          "group_ids": [
+            "CSAFGID-1020301"
+          ]
+        }
+      ],
       "flags": [
         {
           "group_ids": [
