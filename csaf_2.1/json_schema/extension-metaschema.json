@@ -1,0 +1,322 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2020-12/vocab/core": true,
+    "https://json-schema.org/draft/2020-12/vocab/applicator": true,
+    "https://json-schema.org/draft/2020-12/vocab/unevaluated": true,
+    "https://json-schema.org/draft/2020-12/vocab/validation": true,
+    "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
+    "https://json-schema.org/draft/2020-12/vocab/format-assertion": true,
+    "https://json-schema.org/draft/2020-12/vocab/content": true
+  },
+  "allOf": [
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/applicator" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/unevaluated" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/validation" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/meta-data" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" },
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/content" }
+  ],
+  "$defs": {
+    "content_schema_t": {
+      "title": "CSAF Extension Content $schema Type",
+      "description": "Contains the actual value of the $schema property.",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^(?!https:\\/\\/docs\\.oasis-open\\.org\\/csaf\\/csaf\\/v2\\.1\\/([^\\/\\s]+\/)*schema\\/extension-content\\.json)(https:\\/\\/[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?(\\.[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?)+\\/([^\\/\\s]+\/)*[^\\/\\s]+_(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\.json)$"
+    },
+    "schema": {
+      "$dynamicAnchor": "meta",
+      "allOf": [
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/applicator" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/unevaluated" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/validation" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/meta-data" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
+      ]
+    }
+  },
+  "$ref": "#/$defs/schema",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "title",
+    "description",
+    "type",
+    "required",
+    "properties",
+    "additionalProperties"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "CSAF Extension Metaschema",
+      "description": "Contains the URL of the CSAF Extension Metaschema JSON schema which the JSON schema promises to be valid for.",
+      "type": "string",
+      "const": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json"
+    },
+    "$id": {
+      "title": "CSAF Extension Schema ID",
+      "description": "Contains the ID as URL of the CSAF Extension JSON schema which identifies the CSAF Extension Schema.",
+      "$ref": "#/$defs/content_schema_t"
+    },
+    "title": {
+      "title": "Title of the CSAF Extension",
+      "description": "Contains the title for the CSAF Extension Schema.",
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "title": "Description of the CSAF Extension",
+      "description": "Contains the description for the CSAF Extension Schema detailing what the CSAF Extension is about.",
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "title": "Type of CSAF Extension Schema",
+      "description": "Contains the type of the CSAF Extension Schema which is always `object`.",
+      "type": "string",
+      "const": "object"
+    },
+    "required": {
+      "title": "CSAF Extension Schema Required Properties",
+      "description": "Contains the list of required properties.",
+      "type": "array",
+      "const": [
+        "$schema",
+        "category",
+        "critical",
+        "content"
+      ]
+    },
+    "properties": {
+      "title": "CSAF Extension Schema Properties",
+      "description": "Contains the definition of the properties a CSAF Extension Schema needs.",
+      "type": "object",
+      "required": [
+        "$schema",
+        "category",
+        "critical",
+        "content"
+      ],
+      "properties": {
+        "$schema": {
+          "title": "CSAF Extension Schema",
+          "description": "Contains the definition of the object of the CSAF Extension JSON schema which the JSON object promises to be valid for.",
+          "type": "object",
+          "maxProperties": 5,
+          "minProperties": 5,
+          "required": [
+            "title",
+            "description",
+            "type",
+            "format"
+          ],
+          "properties": {
+            "title": {
+              "title": "Title of the CSAF Extension $schema value",
+              "description": "Contains the title for the CSAF Extension $schema.",
+              "type": "string",
+              "default": "CSAF Extension Schema",
+              "minLength": 1
+            },
+            "description": {
+              "title": "Description of the CSAF Extension $schema value",
+              "description": "Contains the description for the CSAF Extension $schema value.",
+              "type": "string",
+              "default": "Contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.",
+              "minLength": 1
+            },
+            "type": {
+              "title": "Type of the CSAF Extension $schema value",
+              "description": "Contains the type of the $schema value which is `string`.",
+              "type": "string",
+              "const": "string"
+            },
+            "format": {
+              "title": "Format of the CSAF Extension $schema value",
+              "description": "Contains the format of the $schema value which is `uri`.",
+              "type": "string",
+              "const": "uri"
+            },
+            "const": {
+              "title": "CSAF Extension $schema value",
+              "description": "Contains the actual value of the $schema property.",
+              "$ref": "#/$defs/content_schema_t"
+            },
+            "pattern": {
+              "title": "CSAF Extension $schema pattern",
+              "description": "Contains the pattern for value of the $schema property.",
+              "type": "string",
+              "const": "^(?!https:\\/\\/docs\\.oasis-open\\.org\\/csaf\\/csaf\\/v2\\.1\\/([^\\/\\s]+\/)*schema\\/extension-content\\.json)(https:\\/\\/[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?(\\.[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?)+\\/([^\\/\\s]+\/)*[^\\/\\s]+_(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\.json)$"
+            }
+          },
+          "additionalProperties": false
+        },
+        "category": {
+          "title": "CSAF Extension Category",
+          "description": "Contains the definition of the object of the CSAF Extension Category.",
+          "type": "object",
+          "required": [
+            "title",
+            "description",
+            "type",
+            "enum"
+          ],
+          "properties": {
+            "title": {
+              "title": "Title of the CSAF Extension Category value",
+              "description": "Contains the title for the CSAF Extension category.",
+              "type": "string",
+              "default": "Extension Category",
+              "minLength": 1
+            },
+            "description": {
+              "title": "Description of the CSAF Extension Category value",
+              "description": "Contains the description for the CSAF Extension category value.",
+              "type": "string",
+              "default": "Holds the category of the extension content.",
+              "minLength": 1
+            },
+            "type": {
+              "title": "Type of the CSAF Extension Category value",
+              "description": "Contains the type of the category value which is `string`.",
+              "type": "string",
+              "const": "string"
+            },
+            "enum": {
+              "title": "Options of the CSAF Extension Category value",
+              "description": "Contains the possible options for the category.",
+              "type": "array",
+              "maxItems": 3,
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "critical",
+                  "high_value",
+                  "informational"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "critical": {
+          "title": "CSAF Extension Critical",
+          "description": "Contains the definition of the object of the CSAF Extension critical.",
+          "type": "object",
+          "maxProperties": 5,
+          "required": [
+            "title",
+            "description",
+            "type"
+          ],
+          "properties": {
+            "title": {
+              "title": "Title of the CSAF Extension Critical value",
+              "description": "Contains the title for the CSAF Extension critical.",
+              "type": "string",
+              "default": "Critical",
+              "minLength": 1
+            },
+            "description": {
+              "title": "Description of the CSAF Extension Critical value",
+              "description": "Contains the description for the CSAF Extension critical value.",
+              "type": "string",
+              "default": "Determines whether using the extension would fail a mandatory test.",
+              "minLength": 1
+            },
+            "type": {
+              "title": "Type of the CSAF Extension Critical value",
+              "description": "Contains the type of the critical value which is `boolean`.",
+              "type": "string",
+              "const": "boolean"
+            },
+            "default": {
+              "title": "Default of the CSAF Extension Critical value",
+              "description": "Contains the default of the critical value - either `true` or `false`.",
+              "type": "string",
+              "enum": [
+                "false",
+                "true"
+              ]
+            },
+            "const": {
+              "title": "Constant value of the CSAF Extension Critical value",
+              "description": "Contains the only allowed value of the critical value as defined by the CSAF Extension Schema - either `true` or `false`.",
+              "type": "boolean",
+              "enum": [
+                false,
+                true
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "content": {
+          "title": "CSAF Extension Content",
+          "description": "Contains the definition of the object of the CSAF Extension content.",
+          "type": "object",
+          "minProperties": 6,
+          "required": [
+            "title",
+            "description",
+            "type",
+            "minProperties",
+            "properties",
+            "unevaluatedProperties"
+          ],
+          "properties": {
+            "title": {
+              "title": "Title of the CSAF Extension Content object",
+              "description": "Contains the title for the CSAF Extension content.",
+              "type": "string",
+              "default": "Content",
+              "minLength": 1
+            },
+            "description": {
+              "title": "Description of the CSAF Extension Content object",
+              "description": "Contains the description for the CSAF Extension content object.",
+              "type": "string",
+              "default": "Contains the additional information in its properties.",
+              "minLength": 1
+            },
+            "type": {
+              "title": "Type of the CSAF Extension Content object",
+              "description": "Contains the type of the content object which is `object`.",
+              "type": "string",
+              "const": "object"
+            },
+            "minProperties": {
+              "title": "Minimum count of properties of the CSAF Extension Content object",
+              "description": "Contains the number of properties within the `object`.",
+              "type": "integer",
+              "minimum": 1,
+              "multipleOf": 1
+            },
+            "unevaluatedProperties": {
+              "title": "Unevaluated properties of the CSAF Extension Content object",
+              "description": "Contains the fact that no properties can be unevaluated within the CSAF Extension Content object.",
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "additionalProperties": {
+      "title": "CSAF Extension Schema Required Properties",
+      "description": "Prohibits additional properties on this level.",
+      "type": "boolean",
+      "const": false
+    }
+
+  },
+  "unevaluatedProperties": false
+}

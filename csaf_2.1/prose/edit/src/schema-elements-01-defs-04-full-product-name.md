@@ -443,3 +443,14 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
             }
           ]
 ```
+
+#### Full Product Name Type - Extensions
+
+Product-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
+at the full product name element level of the CSAF document and associated with this full product name element.
+
+```
+    "x_extensions": {
+      // ...
+    }
+```

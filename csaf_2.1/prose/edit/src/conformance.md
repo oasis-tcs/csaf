@@ -6,7 +6,7 @@ The clauses, matching the targets one to one, are listed in separate sub-subsect
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF Document**, all other 24 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF Document**, all other 33 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -56,6 +56,18 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
 * **CSAF Withdrawer**: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
 * **CSAF Superseder**: A CSAF Post-Processor that transforms a given CSAF into a Superseded one.
+* **CSAF Additional Test**: A test that is not yet defined in section [sec](#tests).
+* **CSAF Extension**: A specified JSON object conveying additional information different from the content that can be conveyed with the
+  CSAF Core elements.
+* **CSAF Extension Schema**: A JSON schema specifying the content and properties of a CSAF Extension.
+* **CSAF Extension Overlay Test**: A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a
+  test standardized in this specification or a CSAF Additional Test.
+* **CSAF Extension Additional Test**: A test whose execution depends on the presence of the specifying CSAF Extension that provides additional
+  checks in the context of the CSAF Extension or the CSAF Document the extension is embedded in.
+* **CSAF Extension Test**: A test that is either a CSAF Extension Overlay Test or a CSAF Extension Additional Test.
+* **CSAF Extension Specification**: The specification of a single CSAF Extension and related material.
+* **CSAF Extension Package**: A of compilation of all artifacts related to a single CSAF Extension.
+* **CSAF Extension Collection**: A set of multiple CSAF Extension Package.
 
 ### Conformance Clause 1: CSAF Document
 
@@ -66,7 +78,10 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 * conforms to the syntax and semantics defined in section [sec](#schema-elements).
 * satisfies at least one profile defined in section [sec](#profiles).
 * conforms to the syntax and semantics defined in section [sec](#additional-conventions).
-* does not fail any mandatory test defined in section [sec](#mandatory-tests).
+* does not fail any mandatory test defined in section [sec](#mandatory-tests) respectively its corresponding CSAF Extension Test.
+* contains no extension that does not fulfill the conformance profile "CSAF Extension".
+* contains no extension at any other path than the specified ones in sections [sec](#full-product-name-type-extensions),
+  [sec](#document-property-extensions), [sec](#vulnerabilities-property-extensions) and [sec](#extensions-property).
 
 ### Conformance Clause 2: CSAF Producer
 
@@ -607,6 +622,9 @@ A CSAF Basic Validator MAY provide one or more additional functions:
 * Apply quick fixes as specified in the standard.
 * Apply additional quick fixes as implemented by the vendor.
 
+A CSAF Basic Validator MAY implement CSAF Additional Tests.
+In that case, it MUST make through its documentation available which tests are implemented.
+
 ### Conformance Clause 15: CSAF Extended Validator
 
 A CSAF Basic Validator satisfies the "CSAF Extended Validator" conformance profile if the CSAF Basic Validator:
@@ -1105,5 +1123,114 @@ A program satisfies the "CSAF Superseder" conformance profile if the program:
 * removes the `/vulnerabilities`.
 
 > A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
+
+### Conformance Clause 26: CSAF Additional Test
+
+A test satisfies the "CSAF Additional Test" conformance profile if it:
+
+* covers a requirement of the standard.
+* operates on a CSAF Document.
+* outputs a result object that aligns with result objects provided for tests specified in section [sec](#tests).
+* has a name starting with `AdditionalTest_` followed by a name of the specifying entity conforming to the rules prefixes of test presets
+  (cf. section [sec](#test-presets)) and an unique number for the test within that entity.
+* has its definition specified in the same structure as in section [sec](#tests).
+
+### Conformance Clause 27: CSAF Extension
+
+A JSON object satisfies the "CSAF Extension" conformance profile if it:
+
+* conforms to the syntax and semantics defined in section [sec](#extensions).
+* validates against the [CSAF Extension Content Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
+  and the schema given through its `$schema` property.
+* uses the value of `$id` of its CSAF Extension Schema as the value of its `$schema` property.
+* conveys additional information that cannot be conveyed with the CSAF Core elements.
+* does not convey any content that can be conveyed with the CSAF Core elements.
+* does not contradict the content or purpose of this specification.
+
+### Conformance Clause 28: CSAF Extension Schema
+
+A JSON schema satisfies the "CSAF Extension Schema" conformance profile if fulfills the following two groups of requirements:
+
+Firstly, it:
+
+* describes a JSON object satisfying the "CSAF Extension" conformance profile.
+* validates against the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json).
+* uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
+  as the value of its `$schema` property.
+* is versioned according to [cite](#SemVer).
+* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [sec](#content-schema-property-schema).
+* does not allow unevaluated properties.
+  It MAY include `patternProperties` if they are typed.
+
+  > `patternProperties` are typed if they can't have more than one `type` and that `type` is given through the schema.
+
+Secondly, it:
+
+* SHOULD avoid unpredictable JSON key names.
+
+  > Implementations usually ignore any additional properties as they are hard to access, process and may imply security risks.
+
+### Conformance Clause 29: CSAF Extension Overlay Test
+
+A test satisfies the "CSAF Extension Overlay Test" conformance profile if it:
+
+* is executed only if the specifying CSAF Extension is present.
+
+  > To reuse a test from a different CSAF Extension, it is sufficient to assign it a name according to the rules below
+  > and point to the specification of the test it reuses.
+
+* extends or replaces a test specified in this standard in section [sec](#tests) or a CSAF Additional Test.
+* has a name starting with `Extension_Overlay_Test_` followed by a name of the specifying entity conforming to the
+  rules prefixes of test presets (cf. section [sec](#test-presets)) and the name of the tests that it replaces.
+* has its definition specified in the same structure as in section [sec](#tests).
+
+### Conformance Clause 30: CSAF Extension Additional Test
+
+A test satisfies the "CSAF Extension Additional Test" conformance profile if it:
+
+* is executed only if the specifying CSAF Extension is present.
+
+  > To reuse a test from a different CSAF Extension, it is sufficient to assign it a name according to the rules below
+  > and point to the specification of the test it reuses.
+
+* provides additional checks in the context of the CSAF Extension or the CSAF Document the extension is embedded in.
+* has a name starting with `Extension_Additional_Test_` followed by a name of the specifying entity conforming to the
+  rules prefixes of test presets (cf. section [sec](#test-presets)) and an unique number for the test within that entity.
+* has its definition specified in the same structure as in section [sec](#tests).
+
+### Conformance Clause 31: CSAF Extension Test
+
+A test satisfies the "CSAF Extension Test" conformance profile if it:
+
+* satisfies the "CSAF Extension Overlay Test" conformance profile or the "CSAF Extension Additional Test" conformance profile.
+
+### Conformance Clause 32: CSAF Extension Specification
+
+A specification satisfies the "CSAF Extension Specification" conformance profile if:
+
+* it defines exactly one extension satisfying the "CSAF Extension" conformance profile.
+* it defines exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
+* all tests contained in it satisfy the "CSAF Extension Test" conformance profile.
+* it contains all tests needed for the validation of the extension.
+
+  > This includes tests that check for prerequisites in the CSAF document, if applicable.
+
+### Conformance Clause 33: CSAF Extension Package
+
+A compilation of artifacts satisfies the "CSAF Extension Package" conformance profile if:
+
+* it defines exactly one extension satisfying the "CSAF Extension" conformance profile.
+* it defines exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
+* all tests contained in it satisfy the "CSAF Extension Test" conformance profile.
+* it contains all tests needed for the validation of the extension.
+* has a name that it can be referred to.
+
+### Conformance Clause 34: CSAF Extension Collection
+
+A set of artifacts satisfies the "CSAF Extension Collection" conformance profile if it:
+
+* contains one or more named compilation of artifacts that satisfy the "CSAF Extension Package" conformance profile.
+* does not contain any compilation of artifacts that looks like a CSAF Extension Package
+  but does not satisfy the "CSAF Extension Package" conformance profile.
 
 -------

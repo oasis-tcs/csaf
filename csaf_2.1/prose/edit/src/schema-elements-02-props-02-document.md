@@ -818,3 +818,14 @@ Once the rate slows down it MUST be changed to `final`. This MAY be done in a pa
 ##### Document Property - Tracking - Version
 
 Version has the value type Version (`version_t`).
+
+#### Document Property - Extensions
+
+Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
+at the document property level of the CSAF document and associated with this document metadata.
+
+```
+    "x_extensions": {
+      // ...
+    }
+```
