@@ -106,7 +106,7 @@ The value `high_value` indicates, that the content provided through this extensi
 overall content of the CSAF document.
 
 The value `informational` indicates, that the content provided through this extension just provides additional information.
-CSAF consumer SHOULD warn if they process a CSAF Document including such sn extension instance and do not have the extension in
+CSAF consumer SHOULD warn if they process a CSAF Document including such an extension instance and do not have the extension in
 question already implemented.
 
 #### Content Schema Property - Critical

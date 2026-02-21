@@ -1,0 +1,54 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
+  "title": "CSAF Extension: Documentation 11",
+  "description": "Representation of a valid extension used for documentation purposes.",
+  "type": "object",
+  "required": [
+    "$schema",
+    "category",
+    "critical",
+    "content"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "CSAF Extension Schema",
+      "description": "Contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.",
+      "type": "string",
+      "format": "uri",
+      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json"
+    },
+    "category": {
+      "title": "Extension Category",
+      "description": "Holds the category of the extension content.",
+      "type": "string",
+      "enum": [
+        "critical",
+        "high_value",
+        "informational"
+      ]
+    },
+    "critical": {
+      "title": "Critical",
+      "description": "Determines whether using the extension would fail a mandatory test.",
+      "type": "boolean",
+      "const": false
+    },
+    "content": {
+      "title": "Content",
+      "description": "Contains the additional information in its properties.",
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "documentation": {
+          "title": "Documentation content",
+          "description": "Contains a constant string to clarify that this is for documentation purposes only and not to be used in production.",
+          "type": "string",
+          "const": "This extension is for documentation and test purposed only. It is valid. It is not allowed to be used in a production CSAF."
+        }
+      },
+      "unevaluatedProperties": false
+    }
+  },
+  "additionalProperties": false
+}
