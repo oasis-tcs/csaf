@@ -44,7 +44,9 @@ The lists of deprecated extensions and deny-listed extensions MAY contain extens
 
 The list MAY contain additional examples.
 
-###
+### Metaschema
+
+The CSAF Extension Metaschema MUST be used to validate a CSAF Extension Schema.
 
 ### Content Schema
 
@@ -67,6 +69,9 @@ CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`c
     }
   }
 ```
+
+> The CSAF Extension Content Schema works an interface definition.
+> It is used in the CSAF Schema and defines a common structure for all CSAF Extensions.
 
 #### Content Schema Property - Schema
 
