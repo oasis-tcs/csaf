@@ -93,6 +93,7 @@ tests-01-mndtr-56-use-of-cvss-and-qualitative-severity-rating.md
 tests-01-mndtr-57-stacked-branch-categories.md
 tests-01-mndtr-58-use-of-product-version-in-one-path-with-product-version-range.md
 tests-01-mndtr-59-single-version-as-product-version-range.md
+tests-01-mndtr-60-extension-tests.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md

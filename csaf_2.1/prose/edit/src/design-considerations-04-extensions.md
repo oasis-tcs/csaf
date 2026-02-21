@@ -44,6 +44,8 @@ The lists of deprecated extensions and deny-listed extensions MAY contain extens
 
 The list MAY contain additional examples.
 
+###
+
 ### Content Schema
 
 An extension MUST contain exactly the following elements:
@@ -68,13 +70,7 @@ CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`c
 
 #### Content Schema Property - Schema
 
-CSAF Extension Schema (`$schema`) has value type `string` with format `uri` and `pattern` (regular expression):
-
-```
-  ^(?!https:\\/\\/docs\\.oasis-open\\.org\\/csaf\\/csaf\\/v2.1\\/([^\\/\\s]+\/)*schema\\/extension-content\\.json)(https:\\/\\/[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?(\\.[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?)+\\/([^\\/\\s]+\/)*[^\\/\\s]+_(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\.json)$
-```
-
-It contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.
+CSAF Extension Schema (`$schema`) of value type CSAF Extension Content $schema Type (`content_schema_t`) contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.
 This SHOULD also be the location where the JSON schema can be retrieved.
 The value SHOULD match the `$id` of the JSON schema that defines the extension.
 The URL SHOULD contain a human-readable name for the extension before the version string.

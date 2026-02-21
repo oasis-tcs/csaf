@@ -45,6 +45,8 @@ Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
 * Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/extension-content.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
+* Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/extension-metaschema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
 * Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/meta.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
 * Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/provider.json. \
@@ -60,6 +62,7 @@ This specification replaces or supersedes:
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 

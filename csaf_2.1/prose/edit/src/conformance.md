@@ -1154,7 +1154,9 @@ A JSON schema satisfies the "CSAF Extension Schema" conformance profile if fulfi
 Firstly, it:
 
 * describes a JSON object satisfying the "CSAF Extension" conformance profile.
-* uses the [CSAF Meta Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json) as the value of its `$schema` property.
+* validates against the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json).
+* uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
+  as the value of its `$schema` property.
 * is versioned according to [cite](#SemVer).
 * has an `$id` that conforms to the `pattern` given for the property `$schema` in section [sec](#content-schema-property-schema).
 * does not allow unevaluated properties.

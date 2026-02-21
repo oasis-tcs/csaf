@@ -14,7 +14,7 @@
     "$schema": {
       "title": "CSAF Extension Schema",
       "description": "Contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.",
-      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json#/properties/properties/properties/$schema/properties/const"
+      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json#/$defs/content_schema_t"
     },
     "category": {
       "title": "Extension Category",

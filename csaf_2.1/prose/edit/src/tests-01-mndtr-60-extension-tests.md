@@ -1,11 +1,11 @@
-### Extension Tests{#mandatory-extension-tests}
+### Extension Tests{#mandatory-tests--extension-tests}
 
 This subsubsection structures the mandatory tests for extensions.
 Each of the following tests SHOULD be treated as they where listed similar to the other tests.
 
 > An application MAY group these tests when providing the additional function to only run one or more selected tests.
 
-#### Content Schema{#mandatory-extension-tests-content-schema}
+#### Content Schema{#mandatory-tests--extension-tests-content-schema}
 
 For each item in an element of type `#/$defs/extensions_t` it MUST be tested that the item is valid against the Extension Content Schema.
 

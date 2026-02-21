@@ -20,6 +20,13 @@
     { "$ref": "https://json-schema.org/draft/2020-12/meta/content" }
   ],
   "$defs": {
+    "content_schema_t": {
+      "title": "CSAF Extension Content $schema Type",
+      "description": "Contains the actual value of the $schema property.",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^(?!https:\\/\\/docs\\.oasis-open\\.org\\/csaf\\/csaf\\/v2\\.1\\/([^\\/\\s]+\/)*schema\\/extension-content\\.json)(https:\\/\\/[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?(\\.[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?)+\\/([^\\/\\s]+\/)*[^\\/\\s]+_(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\.json)$"
+    },
     "schema": {
       "$dynamicAnchor": "meta",
       "allOf": [
@@ -54,9 +61,7 @@
     "$id": {
       "title": "CSAF Extension Schema ID",
       "description": "Contains the ID as URL of the CSAF Extension JSON schema which identifies the CSAF Extension Schema.",
-      "type": "string",
-      "format": "uri",
-      "pattern": "^(?!https:\\/\\/docs\\.oasis-open\\.org\\/csaf\\/csaf\\/v2.1\\/([^\\/\\s]+\/)*schema\\/extension-content\\.json)(https:\\/\\/[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?(\\.[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?)+\\/([^\\/\\s]+\/)*[^\\/\\s]+_(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\.json)$"
+      "$ref": "#/$defs/content_schema_t"
     },
     "title": {
       "title": "Title of the CSAF Extension",
@@ -71,7 +76,7 @@
       "minLength": 1
     },
     "type": {
-      "title": "CSAF Extension Schema Type",
+      "title": "Type of CSAF Extension Schema",
       "description": "Contains the type of the CSAF Extension Schema which is always `object`.",
       "type": "string",
       "const": "object"
@@ -140,9 +145,7 @@
             "const": {
               "title": "CSAF Extension $schema value",
               "description": "Contains the actual value of the $schema property.",
-              "type": "string",
-              "format": "uri",
-              "pattern": "^(?!https:\\/\\/docs\\.oasis-open\\.org\\/csaf\\/csaf\\/v2\\.1\\/([^\\/\\s]+\/)*schema\\/extension-content\\.json)(https:\\/\\/[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?(\\.[a-z0-9](([a-z0-9-]){0,61}[a-z0-9])?)+\\/([^\\/\\s]+\/)*[^\\/\\s]+_(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\.json)$"
+              "$ref": "#/$defs/content_schema_t"
             },
             "pattern": {
               "title": "CSAF Extension $schema pattern",
