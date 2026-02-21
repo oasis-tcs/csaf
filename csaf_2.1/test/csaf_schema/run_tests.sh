@@ -7,6 +7,8 @@ CVSS_20_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v2.0_strict.json
 CVSS_30_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.0_strict.json
 CVSS_31_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v3.1_strict.json
 CVSS_40_STRICT_SCHEMA=csaf_2.1/referenced_schema/first/cvss-v4.0.1_strict.json
+EXTENSION_CONTENT_SCHEMA=csaf_2.1/json_schema/extension-content.json
+EXTENSION_META_SCHEMA=csaf_2.1/json_schema/extension-metaschema.json
 META_SCHEMA=csaf_2.1/json_schema/meta.json
 SSVC_200_SL_SCHEMA=csaf_2.1/referenced_schema/certcc/SelectionList_2_0_0.schema.json
 VALIDATOR=csaf_2.1/test/validator.py
@@ -20,7 +22,7 @@ cd `dirname $0`/../../..
 
 validate() {
   printf "%s" "Testing file $1 against schema ${SCHEMA} ... "
-  if python3 ${VALIDATOR} ${SCHEMA} $1 ${CVSS_20_STRICT_SCHEMA} ${CVSS_30_STRICT_SCHEMA} ${CVSS_31_STRICT_SCHEMA} ${CVSS_40_STRICT_SCHEMA} ${META_SCHEMA} ${SSVC_200_SL_SCHEMA}; then
+  if python3 ${VALIDATOR} ${SCHEMA} $1 ${CVSS_20_STRICT_SCHEMA} ${CVSS_30_STRICT_SCHEMA} ${CVSS_31_STRICT_SCHEMA} ${CVSS_40_STRICT_SCHEMA} ${META_SCHEMA} ${SSVC_200_SL_SCHEMA} ${EXTENSION_CONTENT_SCHEMA} ${EXTENSION_META_SCHEMA}; then
     printf "%s\n" SUCCESS
   else
     printf "%s\n" FAILED
