@@ -1,6 +1,6 @@
 ### Extensions Type
 
-List of extensions (`extensions_t`) of value type `array` with 1 or more unique items (a `set`) contains a list of extension elements
+List of extensions (`extensions_t`) of value type `array` with `1` or more unique items (a `set`) contains a list of extension elements
 for the current context.
 
 ```

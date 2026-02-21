@@ -136,7 +136,7 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json"
+        "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json"
       }
     },
     "full_product_name_t": {
