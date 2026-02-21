@@ -126,6 +126,16 @@
   },
   "vulnerabilities": [
     {
+      "first_known_exploitation_dates": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "exploitation_date": "2024-01-11T15:53:00.000Z",
+          "product_ids": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701"
+          ]
+        }
+      ],
       "flags": [
         {
           "label": "vulnerable_code_not_present",
