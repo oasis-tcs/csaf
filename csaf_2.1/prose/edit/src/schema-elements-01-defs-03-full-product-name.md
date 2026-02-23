@@ -277,7 +277,7 @@ List of purls (`purls`) of value type `array` with `1` or more unique items cont
 A package URL representation has value type `string` of `7` or more characters with `pattern` (regular expression):
 
 ```
-    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
+    ^pkg:[a-z][a-z0-9\\.\\-]*\\/.+
 ```
 
 > The given pattern does not completely evaluate whether a purl is valid according to the [cite](#PURL) specification.
