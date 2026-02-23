@@ -1221,6 +1221,7 @@ A compilation of artifacts satisfies the "CSAF Extension Package" conformance pr
 
 * it defines exactly one extension satisfying the "CSAF Extension" conformance profile.
 * it defines exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
+* it defines exactly one JSON object satisfying the "CSAF Extension Metadata Schema".
 * all tests contained in it satisfy the "CSAF Extension Test" conformance profile.
 * it contains all tests needed for the validation of the extension.
 * has a name that it can be referred to.

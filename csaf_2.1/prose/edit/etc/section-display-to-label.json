@@ -285,6 +285,7 @@
   "6.2.54": "recommended-tests--extension-tests",
   "6.2.54.1": "registered-extension",
   "6.2.54.2": "official-extension",
+  "6.2.54.3": "critical-extension",
   "6.3": "informative-tests",
   "6.3.1": "use-of-cvss-v2-as-the-only-scoring-system",
   "6.3.2": "use-of-cvss-v3-0",

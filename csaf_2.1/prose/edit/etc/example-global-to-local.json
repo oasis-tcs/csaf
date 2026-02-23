@@ -197,6 +197,7 @@
   "192": "matching-text-for-registered-id-system-eg-1",
   "192a": "registered-extension-eg-1",
   "192b": "official-extension-eg-1",
+  "192c": "critical-extension-eg-1",
   "193": "use-of-cvss-v2-as-the-only-scoring-system-eg-1",
   "194": "use-of-cvss-v3-0-eg-1",
   "195": "missing-cve-eg-1",
