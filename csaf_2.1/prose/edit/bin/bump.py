@@ -32,7 +32,7 @@ SEMI = ';'
 SPACE = ' '
 CSEP = COMMA + SPACE
 TM = '™'
-LANG_CODE = 'en_US'
+LANG_CODE = 'C'
 
 # Generate tuple with English month names in title case
 locale.setlocale(locale.LC_ALL, LANG_CODE)
