@@ -37,3 +37,5 @@
 - The last informative comment in [test 6.2.18](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6218-product-version-range-without-vers)
   contains a typo, stating `vsl` instead of `vls`.
   See [#1265](https://github.com/oasis-tcs/csaf/issues/1265).
+- Confusion could occur around the depth of PURL checking in test [6.1.13](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6113-purl).
+  See [#1303](https://github.com/oasis-tcs/csaf/issues/1303).
