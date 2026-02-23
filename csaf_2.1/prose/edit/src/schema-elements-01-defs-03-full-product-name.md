@@ -261,9 +261,9 @@ As part of the model number, the special characters `?`, `*` and `\` MUST be esc
     IC25T060ATCS05-0
 ```
 
-##### Full Product Name Type - Product Identification Helper - purls
+##### Full Product Name Type - Product Identification Helper - PURLs
 
-List of purls (`purls`) of value type `array` with `1` or more unique items contains a list of package URL (purl) identifiers.
+List of PURLs (`purls`) of value type `array` with `1` or more unique items contains a list of Package-URL (PURL) identifiers.
 
 ```
     "purls": {
@@ -274,22 +274,22 @@ List of purls (`purls`) of value type `array` with `1` or more unique items cont
     },
 ```
 
-A package URL representation has value type `string` of `7` or more characters with `pattern` (regular expression):
+A Package-URL representation has value type `string` of `7` or more characters with `pattern` (regular expression):
 
 ```
-    ^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+
+    ^pkg:[a-z][a-z0-9\\.\\-]*\\/.+
 ```
 
-> The given pattern does not completely evaluate whether a purl is valid according to the [cite](#PURL) specification.
+> The given pattern does not completely evaluate whether a PURL is valid according to the [cite](#ECMA-427) specification.
 > It provides a more generic approach and general guidance to enable forward compatibility.
-> CSAF uses only the canonical form of purl to conform with section 3.3 of [cite](#RFC3986).
+> CSAF uses only the canonical form of PURL to conform with section 3.3 of [cite](#RFC3986).
 > Therefore, URLs starting with `pkg://` are considered invalid.
 
-The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.
-See [cite](#PURL) for details.
-Multiple purls can be specified to allow for identifiers to locate identical components in different locations.
+The PURL attribute refers to a method for reliably identifying and locating software packages external to this specification.
+See [cite](#ECMA-427) and [cite](#PURL) for details.
+Multiple PURLs can be specified to allow for identifiers to locate identical components in different locations.
 
-If multiple purls are specified, they SHALL only differ in their qualifiers.
+If multiple PURLs are specified, they SHALL only differ in their qualifiers.
 Otherwise, separate product branches SHOULD be used to differentiate between the components.
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
