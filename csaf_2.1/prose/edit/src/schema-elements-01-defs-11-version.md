@@ -56,7 +56,7 @@ Semantic versioning derived the rules from [SemVer]. The regular expression for 
 ```
 
 The goal of this structure is to provide additional information to the end user whether a new comparison with the asset database is needed.
-The "public API" in regards to CSAF is the CSAF document with its structure and content.
+The "public API" in regard to CSAF is the CSAF document with its structure and content.
 This results in the following rules:
 
 1. A normal version number MUST take the form `X.Y.Z` where `X`, `Y`, and `Z` are non-negative integers, and MUST NOT contain leading zeroes.
