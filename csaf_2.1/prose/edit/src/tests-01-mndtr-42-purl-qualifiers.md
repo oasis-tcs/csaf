@@ -1,6 +1,6 @@
-### purl Qualifiers
+### PURL Qualifiers
 
-For each `product_identification_helper` object containing multiple purls it MUST be tested that the purls only differ in their qualifiers.
+For each `product_identification_helper` object containing multiple PURLs it MUST be tested that the PURLs only differ in their qualifiers.
 
 The relevant paths for this test are:
 
@@ -29,4 +29,4 @@ The relevant paths for this test are:
   }
 ```
 
-> The two purls differ in the name component.
+> The two PURLs differ in the name component.

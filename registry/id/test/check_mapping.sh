@@ -1,13 +1,13 @@
 #!/bin/bash
 
-SCHEMA=registry/id/schema/id-mapping.schema.json
+SCHEMA=registry/id/schema/mapping.schema.json
 CSAF_SCHEMA=csaf_2.1/json_schema/csaf.json
 META_SCHEMA=csaf_2.1/json_schema/meta.json
-ID_REGISTRY_SCHEMA=registry/id/schema/id-registry.schema.json
+ID_REGISTRY_SCHEMA=registry/id/schema/registry.schema.json
 VALIDATOR=csaf_2.1/test/validator.py
 ID_PATH=registry/id/
-MAPPING_FILE=id-mapping.json
-REGISTRY_FILE=id-registry.json
+MAPPING_FILE=mapping.json
+REGISTRY_FILE=registry.json
 
 FAIL=0
 REGISTRY_SYSTEM_NAMES=""

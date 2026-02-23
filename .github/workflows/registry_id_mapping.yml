@@ -27,5 +27,5 @@ jobs:
         pip3 install jsonschema[format]
     - name: Check jsonschema version
       run: python3 -c "from importlib.metadata import version; print(version('jsonschema'))"
-    - name: Test registry/id/id-mapping.json against RVISC Mapping schema and for consistency
-      run: ./registry/id/test/check_id-mapping.sh
+    - name: Test registry/id/mapping.json against RVISC Mapping schema and for consistency
+      run: ./registry/id/test/check_mapping.sh

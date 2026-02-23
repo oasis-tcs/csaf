@@ -41,6 +41,8 @@ Delegation to industry best practices technologies is used in referencing schema
     * Default Definition: https://www.first.org/tlp/
 * Exploit Prediction
   * Exploit Prediction Scoring System (EPSS) [cite](#EPSS)
+* Package Data
+  * Package-URL (PURL) [cite](#ECMA-427)
 * Platform Data
   * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
 * Vulnerability Categorization

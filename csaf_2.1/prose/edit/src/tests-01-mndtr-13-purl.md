@@ -1,6 +1,10 @@
-### purl
+### PURL
 
-It MUST be tested that all given purls are valid.
+It MUST be tested that all given PURLs are valid.
+
+> It is not sufficient to just test against the `pattern` provided in section [sec](#full-product-name-type-product-identification-helper-purls).
+> The PURL must be validated against the requirements in the [cite](#ECMA-427) specification and the additional constraints given in
+> section [sec](#full-product-name-type-product-identification-helper-purls).
 
 The relevant paths for this test are:
 
@@ -28,4 +32,4 @@ The relevant paths for this test are:
   }
 ```
 
-> Any valid purl has a name component.
+> Any valid PURL has a name component.

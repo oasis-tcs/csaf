@@ -8,6 +8,7 @@ The relevant paths for this test are:
 
 ```
   /document/notes[]/group_ids[]
+  /vulnerabilities[]/first_known_exploitation_dates[]/group_ids[]
   /vulnerabilities[]/flags[]/group_ids[]
   /vulnerabilities[]/involvements[]/group_ids[]
   /vulnerabilities[]/notes[]/group_ids[]

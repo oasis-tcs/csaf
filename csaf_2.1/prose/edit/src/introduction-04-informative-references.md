@@ -54,6 +54,9 @@ CWE-A
 CYCLONEDX161
 :    _CycloneDX Software Bill-of-Material Specification JSON schema version 1.6.1_, cyclonedx.org, November 7, 2024, https://github.com/CycloneDX/specification/blob/1.6.1/schema/bom-1.6.schema.json.
 
+ECMA-427
+:    _Package-URL (PURL) specification_, EMCA-427, 1st Edition, December 2025, <https://ecma-international.org/wp-content/uploads/ECMA-427_1st_edition_december_2025.pdf>
+
 EPSS
 :    _Exploit Prediction Scoring System (EPSS)_,  FIRST.Org, Inc., https://www.first.org/epss/
 
@@ -76,7 +79,7 @@ OPENSSL
 :    _GTLS/SSL and crypto library_, OpenSSL Software Foundation, https://www.openssl.org/.
 
 PURL
-:    _Package URL (purl)_, GitHub Project, https://github.com/package-url/purl-spec.
+:    _Package URL (PURL)_, GitHub Project, <https://github.com/package-url/purl-spec>.
 
 RFC3552
 :    Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, <https://www.rfc-editor.org/info/rfc3552>.
@@ -103,10 +106,10 @@ RFC9116
 :    Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, <https://www.rfc-editor.org/info/rfc9116>.
 
 RVISC
-:    _Registry for Vulnerability ID Systems for CSAF (RVISC)_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id.
+:    _Registry for Vulnerability ID Systems for CSAF (RVISC)_, Part of the OASIS CSAF TC Registry, <https://registry.csaf.dev/id/>.
 
 RVISC-M
-:    _Mapping for RVISC_, Part of the OASIS CSAF TC GitHub Repository, https://github.com/oasis-tcs/csaf/tree/master/registry/id/mapping.json.
+:    _Mapping for RVISC_, Mapping Part of the OASIS CSAF TC Registry, <https://registry.csaf.dev/id/mapping/>.
 
 SCAP12
 :    _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
