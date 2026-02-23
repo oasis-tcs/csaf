@@ -1,0 +1,31 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json",
+  "extension_schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
+  "incompatible_extensions": [
+    "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-12/documentation-12-content_1.0.0.json"
+  ],
+  "last_updated": "2026-02-23T15:28:11.479Z",
+  "requirement": {
+    "$.document.x_extensions": {
+      "max_occurrence": 1
+    },
+    "$.product_tree.branches..product.x_extensions": {
+      "max_occurrence": 1
+    },
+    "$.product_tree.full_product_names[*].x_extensions": {
+      "max_occurrence": 1
+    },
+    "$.product_tree.relationships[*].full_product_name.x_extensions": {
+      "max_occurrence": 1
+    },
+    "$.vulnerabilities[*].metrics[*].content.x_extensions": {
+      "max_occurrence": 1
+    },
+    "$.vulnerabilities[*].x_extensions": {
+      "max_occurrence": 1
+    },
+    "$.x_extensions": {
+      "max_occurrence": 1
+    }
+  }
+}

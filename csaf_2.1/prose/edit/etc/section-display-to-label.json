@@ -14,6 +14,7 @@
   "2.4.2": "lists",
   "2.4.3": "metaschema",
   "2.4.4": "content-schema",
+  "2.4.5": "metadata",
   "3": "schema-elements",
   "3.1": "definitions",
   "3.1.1": "acknowledgments-type",

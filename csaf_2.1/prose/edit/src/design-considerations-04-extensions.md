@@ -122,3 +122,15 @@ For any failing test, a CSAF Extension Test MUST be provided.
 Content (`content`) of value type `object` contains the additional information in its properties.
 A Content object has at least `1` property.
 The property names (JSON keys) can be chosen freely; they SHOULD characterize the information given in its value.
+
+### Metadata
+
+The CSAF Extension Metadata is a representation of metadata for a CSAF Extension.
+It is used to provide information for automated tools on certain requirements and incompatibilities the CSAF Extension has.
+
+*Examples 1:*
+
+```
+  https://www.example.com/some-path/to-a-csaf-extension/metadata/manufacturer-headquarters_1.0.0.json
+  https://oil-and-gas.isac.example/.well-known/csaf/extensions/metadata/product-safety_17.41.0.json
+```
