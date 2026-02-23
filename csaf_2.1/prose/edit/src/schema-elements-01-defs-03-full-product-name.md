@@ -263,7 +263,7 @@ As part of the model number, the special characters `?`, `*` and `\` MUST be esc
 
 ##### Full Product Name Type - Product Identification Helper - PURLs
 
-List of Purls (`purls`) of value type `array` with `1` or more unique items contains a list of Package-URL (PURL) identifiers.
+List of PURLs (`purls`) of value type `array` with `1` or more unique items contains a list of Package-URL (PURL) identifiers.
 
 ```
     "purls": {
@@ -282,7 +282,7 @@ A Package-URL representation has value type `string` of `7` or more characters w
 
 > The given pattern does not completely evaluate whether a PURL is valid according to the [cite](#ECMA-427) specification.
 > It provides a more generic approach and general guidance to enable forward compatibility.
-> CSAF uses only the canonical form of PRUL to conform with section 3.3 of [cite](#RFC3986).
+> CSAF uses only the canonical form of PURL to conform with section 3.3 of [cite](#RFC3986).
 > Therefore, URLs starting with `pkg://` are considered invalid.
 
 The PURL attribute refers to a method for reliably identifying and locating software packages external to this specification.
