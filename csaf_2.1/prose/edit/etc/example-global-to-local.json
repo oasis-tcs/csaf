@@ -229,6 +229,7 @@
   "216b": "usage-of-experimental-extension-in-tlp-clear-document-eg-1",
   "216c": "usage-of-extension-at-document-level-eg-1",
   "216d": "usage-of-extension-in-product-tree-branch-path-eg-1",
+  "216e": "usage-of-extension-in-product-tree-full-product-names-path-eg-1",
   "217": "requirement-7-provider-metadata-json-eg-1",
   "218": "requirement-8-security-txt-eg-1",
   "219": "requirement-9-well-known-url-for-provider-metadata-json-eg-1",

@@ -100,10 +100,7 @@ The relevant path for this test is:
     "document": {
       // ...
       "x_extensions": [
-        {
-          "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
-          // ...
-        }
+        // ...
       ]
     }
   }
@@ -135,9 +132,7 @@ The relevant path for this test is:
                 "product": {
                   // ...
                   "x_extensions": [
-                    {
-                      // ...
-                    }
+                    // ...
                   ]
                 }
               }
@@ -152,3 +147,30 @@ The relevant path for this test is:
 ```
 
 > The element `x_extensions` exists in a path that starts with `/product_tree/branches`.
+
+#### Usage of Extension in Product Tree Full Product Names Path
+
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/full_product_names`.
+
+The relevant path for this test is:
+
+```
+  /product_tree/full_product_names[]/x_extensions
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        // ...
+        "x_extensions": [
+          // ...
+        ]
+      }
+    ]
+  }
+```
+
+> The element `x_extensions` exists in a path that starts with `/product_tree/full_product_names`.
