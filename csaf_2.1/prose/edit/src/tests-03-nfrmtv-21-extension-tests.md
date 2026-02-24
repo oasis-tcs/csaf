@@ -174,3 +174,35 @@ The relevant path for this test is:
 ```
 
 > The element `x_extensions` exists in a path that starts with `/product_tree/full_product_names`.
+
+#### Usage of Extension in Product Tree Relationships Path
+
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/relationships`.
+
+The relevant path for this test is:
+
+```
+  /product_tree/relationships[]/full_product_name/x_extensions
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    // ...
+    "relationships": [
+      {
+        // ...
+        "full_product_name": {
+          // ...
+          "x_extensions": [
+            // ...
+          ]
+        },
+        // ...
+      }
+    ]
+  }
+```
+
+> The element `x_extensions` exists in a path that starts with `/product_tree/relationships`.
