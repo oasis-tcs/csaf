@@ -66,8 +66,11 @@ CSAF Extension Additional Test
 :    A test whose execution depends on the presence of the specifying CSAF Extension that provides additional checks in the context of
 the CSAF Extension or the CSAF Document the extension is embedded in.
 
+CSAF Extension Bundle
+:   A of compilation of machine-readable artifacts related to a single CSAF Extension.
+
 CSAF Extension Collection
-:   A set of multiple CSAF Extension Package.
+:   A set of multiple CSAF Extension Packages.
 
 CSAF Extension Overlay Test
 :    A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a  test standardized in this

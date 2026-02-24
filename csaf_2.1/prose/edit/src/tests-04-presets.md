@@ -7,6 +7,7 @@ The content of a preset MAY vary in different CSAF versions.
 A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator.
 A CSAF validator MAY provide or support additional presets.
 A CSAF validator MUST implement all tests for any supported preset.
+
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
 - `x_`: for any CSAF validator specific preset.
@@ -14,11 +15,16 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
   > Multiple CSAF validators might use the same preset name for different sets of tests.
   > Users are advised to carefully check the documentation of the tools to avoid incorrect assumptions.
 
-- `org_` followed by an organization identifier and an underscore (`_`): for any preset specified by an organization as a part of a public definition
+- `org_` followed by an organization identifier and an underscore (`_`):
+  for any preset specified by an organization as a part of a public definition
   that can be implemented by different CSAF validators.
-  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-]`.
-  The organization identifier MUST be registered with the OASIS CSAF TC.
+  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
+  The organization identifier MUST be registered with the OASIS CSAF TC prior to the publication of the definition.
+
 - `csaf_`: for any preset defined later on by the OASIS CSAF TC.
+
+To avoid collisions especially in the `x_` namespace,
+the reverse DNS notation for a domain under the author's own control MAY be used.
 
 Official presets are defined in different parts of the standard.
 
