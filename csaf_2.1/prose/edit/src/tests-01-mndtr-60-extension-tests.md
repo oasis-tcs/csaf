@@ -37,6 +37,40 @@ The relevant paths for this test are:
 
 > The extension is missing the required property `critical`.
 
+#### Extension Schema{#mandatory-tests--extension-tests-extension-schema}
+
+For each item in an element of type `#/$defs/extensions_t` it MUST be tested that the item is valid against the declared CSAF Extension Schema.
+CSAF Extensions not supported by the implementation SHALL result in a warning which MUST include the value of `$schema` of the extension.
+Such warning SHALL differentiate between the different classes of extensions.
+
+The relevant paths for this test are:
+
+```
+  /document/x_extensions[]
+  /product_tree/branches[](/branches[])*/product/x_extensions[]
+  /product_tree/full_product_names[]/x_extensions[]
+  /product_tree/relationships[]/full_product_name/x_extensions[]
+  /vulnerabilities[]/metrics[]/content/x_extensions[]
+  /vulnerabilities[]/x_extensions[]
+  /x_extensions[]
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "x_extensions": [
+    {
+      "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-12/documentation-12-content_1.0.0.json",
+      // ...
+      "content": {
+        
+      }
+    }
+  ]
+```
+
+> The extension is missing the property `documentation` which is required by the declared CSAF Extension Schema.
+
 #### Extension Metadata{#mandatory-tests--extension-tests-metadata}
 
 For each element of type `#/$defs/extensions_t` it MUST be tested that the requirements provided through its metadata are fulfilled
