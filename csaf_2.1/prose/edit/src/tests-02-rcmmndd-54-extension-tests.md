@@ -101,7 +101,7 @@ The relevant paths for this test are:
 For each item in an element of type `#/$defs/extensions_t` it MUST be tested that no experimental extension is used
 if the document is labeled `TLP:CLEAR`.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```
   /document/x_extensions[]
