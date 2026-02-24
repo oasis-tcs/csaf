@@ -81,3 +81,33 @@ The relevant paths for this test are:
 
 > The extension is an experimental CSAF Extension.
 > Its properties and meaning might therefore not be known to the reader of the document.
+
+#### Usage of Extension at Document Level
+
+It MUST be tested that the element `/document/x_extensions` does not exist.
+
+The relevant path for this test is:
+
+```
+  /document/x_extensions
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    // ...
+    "document": {
+
+      // ...
+      "x_extensions": [
+        {
+          "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
+          // ...
+        }
+      ]
+    }
+  }
+```
+
+> The element `/document/x_extensions` exists.
