@@ -322,6 +322,7 @@
   "6.3.21.4": "usage-of-extension-in-product-tree-branch-path",
   "6.3.21.5": "usage-of-extension-in-product-tree-full-product-names-path",
   "6.3.21.6": "usage-of-extension-in-product-tree-relationships-path",
+  "6.3.21.7": "usage-of-extension-in-vulnerabilities-metrics-path",
   "6.4": "presets",
   "6.4.1": "presets-defined-through-test-subsections",
   "6.4.2": "presets-defined-through-conformance-targets",

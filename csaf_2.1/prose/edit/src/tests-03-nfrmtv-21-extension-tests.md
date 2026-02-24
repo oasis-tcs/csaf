@@ -206,3 +206,34 @@ The relevant path for this test is:
 ```
 
 > The element `x_extensions` exists in a path that starts with `/product_tree/relationships`.
+
+#### Usage of Extension in Vulnerabilities Metrics Path
+
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/vulnerabilities[]/metrics`.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/metrics[]/content/x_extensions
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "vulnerabilities": [
+    {
+      "metrics": [
+        {
+          "content": {
+            "x_extensions": [
+              // ...
+            ]
+          },
+          // ...
+        }
+      ]
+    }
+  ]
+```
+
+> The element `x_extensions` exists in a path that starts with `/vulnerabilities[]/metrics`.
