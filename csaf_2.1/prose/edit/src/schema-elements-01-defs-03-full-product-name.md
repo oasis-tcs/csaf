@@ -47,7 +47,7 @@ and `x_generic_uris`, `1` is mandatory.
 ```
     "product_identification_helper": {
       // ...
-      "properties": { 
+      "properties": {
         "cpe": {
           // ...
         },
@@ -175,7 +175,7 @@ These values are derived from the currently supported digests OpenSSL [cite](#OP
 >
 >```
 >  Supported digests:
->  -blake2b512                -blake2s256                -md4                      
+>  -blake2b512                -blake2s256                -md4
 >  -md5                       -md5-sha1                  -mdc2
 >  -ripemd                    -ripemd160                 -rmd160
 >  -sha1                      -sha224                    -sha256
@@ -371,9 +371,9 @@ In the latter case the remediations SHALL include the new stock keeping units or
 
 ```
     "skus": {
-        //...  
+        //...
       "items": {
-        //...  
+        //...
       }
     },
 ```
@@ -385,7 +385,7 @@ abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of
 the stock keeping unit and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 ##### Full Product Name Type - Product Identification Helper - Generic URIs
@@ -399,7 +399,7 @@ either vendor-specific or derived from a standard not yet supported.
       "items": {
         // ...
       }
-    }  
+    }
 ```
 
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).

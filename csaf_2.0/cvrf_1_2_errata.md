@@ -2,7 +2,7 @@
 
 No description of best practices for xml:lang attribute.
 
-## Typos 
+## Typos
 
 ### Section 2.2.7
 
@@ -28,4 +28,3 @@ prod:Relationship.
 ### Section 5.1.3
 
 Refers to element "prod:Tree". Presumably intended as "prod:ProductTree".
-

@@ -24,7 +24,7 @@ The relevant path for this test is:
       ],
       "category": "product_version",
       "name": "1.1"
-    },       
+    },
 ```
 
 > Both categories `product_version` and `product_version_range` were used along the path.

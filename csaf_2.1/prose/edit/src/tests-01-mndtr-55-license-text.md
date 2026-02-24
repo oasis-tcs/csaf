@@ -25,7 +25,7 @@ The relevant path for this test is:
       }
     ],
     // ...
-  }  
+  }
 ```
 
 > The note has the correct title. However, it uses the wrong category.

@@ -118,9 +118,9 @@ Note that text paragraphs in markdown should be separated by a blank line betwee
 Otherwise the separate paragraphs will be joined together when the HTML is generated.
 Even if the text appears to be separate lines in the markdown source.
 
-To avoid having the usual vertical space between paragraphs,  
-append two or more space characters to the end of the lines  
-which will generate an HTML break tag instead of a new paragraph tag  
+To avoid having the usual vertical space between paragraphs,
+append two or more space characters to the end of the lines
+which will generate an HTML break tag instead of a new paragraph tag
 (as demonstrated here).
 
 ### 1.3.1 Figures and Captions
@@ -164,7 +164,7 @@ text.
 | **content** | Message body as specified by content_type and msg_type. |
 
 Here is a reference to the table caption:
-Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction) 
+Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction)
 
 
 ### 1.3.3 Lists
@@ -195,8 +195,8 @@ _Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0_. Edited by
 
 - reference text has to be on a separate line below the tag
 
-- format cross-references (citations of the references) like: `see [[OpenC2-HTTPS-v1.0](#openc2-https-v10)]`  
-"see [[OpenC2-HTTPS-v1.0](#openc2-https-v10)]"  
+- format cross-references (citations of the references) like: `see [[OpenC2-HTTPS-v1.0](#openc2-https-v10)]`
+"see [[OpenC2-HTTPS-v1.0](#openc2-https-v10)]"
 (note the outer square brackets in markdown will appear in the visible HTML text)
 
 - The text in the Reference tag (following ###### ) will become an HTML anchor using the following conversion rules:
@@ -219,7 +219,7 @@ Text to appear as an indented code block with grey background and monospace font
 Note the actual backticks will not appear in the HTML version. If it's necessary to display visible backticks, place a back-slash before them like: \``` .
 
 ```
-{   
+{
     "target": {
         "x_kmip_2.0": {
             {"kmip_type": "json"},
@@ -230,7 +230,7 @@ Note the actual backticks will not appear in the HTML version. If it's necessary
 }
 ```
 
-Text to be highlighted as code can also be surrounded by a single "backtick" character: 
+Text to be highlighted as code can also be surrounded by a single "backtick" character:
 `code text`
 
 ## 1.4 Page Breaks
@@ -270,10 +270,10 @@ This appendix contains the informative references that are used in this document
 While any hyperlinks included in this appendix were valid at the time of publication, OASIS cannot guarantee their long-term validity.
 
 (Reference sources:
-For references to IETF RFCs, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/ietf-rfc-list/ietf-rfc-list.html.  
-For references to W3C Recommendations, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/w3c-recommendations-list/w3c-recommendations-list.html.  
+For references to IETF RFCs, use the approved citation formats at:
+http://docs.oasis-open.org/templates/ietf-rfc-list/ietf-rfc-list.html.
+For references to W3C Recommendations, use the approved citation formats at:
+http://docs.oasis-open.org/templates/w3c-recommendations-list/w3c-recommendations-list.html.
 Remove this note before submitting for publication.)
 
 ###### [CSAF-v2.0]
@@ -285,7 +285,7 @@ _CSAF Common Vulnerability Reporting Framework (CVRF) Version 1.2_. Edited by St
 
 # Appendix B. Acknowledgments
 
-(Note: A Work Product approved by the TC must include a list of people who participated in the development of the Work Product. This is generally done by collecting the list of names in this appendix. This list shall be initially compiled by the Chair, and any Member of the TC may add or remove their names from the list by request.  
+(Note: A Work Product approved by the TC must include a list of people who participated in the development of the Work Product. This is generally done by collecting the list of names in this appendix. This list shall be initially compiled by the Chair, and any Member of the TC may add or remove their names from the list by request.
 Remove this note before submitting for publication.)
 
 ## B.1 Special Thanks

@@ -109,386 +109,386 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 # Table of Contents
 
-1. [Introduction](#introduction)  
-	1.1 [IPR Policy](#ipr-policy)  
-	1.2 [Terminology](#terminology)  
-	1.3 [Normative References](#normative-references)  
-	1.4 [Informative References](#informative-references)  
-	1.5 [Typographical Conventions](#typographical-conventions)  
-2. [Design Considerations](#design-considerations)  
-	2.1 [Construction Principles](#construction-principles)  
-	2.2 [Format Validation](#format-validation)  
-	2.3 [Date and Time](#date-and-time)  
-3. [Schema Elements](#schema-elements)  
-	3.1 [Definitions](#definitions)  
-		3.1.1 [Acknowledgments Type](#acknowledgments-type)  
-			3.1.1.1 [Acknowledgments Type - Names](#acknowledgments-type-names)  
-			3.1.1.2 [Acknowledgments Type - Organization](#acknowledgments-type-organization)  
-			3.1.1.3 [Acknowledgments Type - Summary](#acknowledgments-type-summary)  
-			3.1.1.4 [Acknowledgments Type - URLs](#acknowledgments-type-urls)  
-			3.1.1.5 [Acknowledgments Type - Example](#acknowledgments-type-example)  
-		3.1.2 [Branches Type](#branches-type)  
-			3.1.2.1 [Branches Type - Branches](#branches-type-branches)  
-			3.1.2.2 [Branches Type - Category](#branches-type-category)  
-			3.1.2.3 [Branches Type - Name](#branches-type-name)  
-				3.1.2.3.1 [Branches Type - Name under Product Version](#branches-type-name-under-product-version)  
-				3.1.2.3.2 [Branches Type - Name under Product Version Range](#branches-type-name-under-product-version-range)  
-			3.1.2.4 [Branches Type - Product](#branches-type-product)  
-		3.1.3 [Full Product Name Type](#full-product-name-type)  
-			3.1.3.1 [Full Product Name Type - Name](#full-product-name-type-name)  
-			3.1.3.2 [Full Product Name Type - Product ID](#full-product-name-type-product-id)  
-			3.1.3.3 [Full Product Name Type - Product Identification Helper](#full-product-name-type-product-identification-helper)  
-				3.1.3.3.1 [Full Product Name Type - Product Identification Helper - CPE](#full-product-name-type-product-identification-helper-cpe)  
-				3.1.3.3.2 [Full Product Name Type - Product Identification Helper - Hashes](#full-product-name-type-product-identification-helper-hashes)  
-				3.1.3.3.3 [Full Product Name Type - Product Identification Helper - Model Numbers](#full-product-name-type-product-identification-helper-model-numbers)  
-				3.1.3.3.4 [Full Product Name Type - Product Identification Helper - purls](#full-product-name-type-product-identification-helper-purls)  
-				3.1.3.3.5 [Full Product Name Type - Product Identification Helper - SBOM URLs](#full-product-name-type-product-identification-helper-sbom-urls)  
-				3.1.3.3.6 [Full Product Name Type - Product Identification Helper - Serial Numbers](#full-product-name-type-product-identification-helper-serial-numbers)  
-				3.1.3.3.7 [Full Product Name Type - Product Identification Helper - SKUs](#full-product-name-type-product-identification-helper-skus)  
-				3.1.3.3.8 [Full Product Name Type - Product Identification Helper - Generic URIs](#full-product-name-type-product-identification-helper-generic-uris)  
-		3.1.4 [Language Type](#language-type)  
-		3.1.5 [Notes Type](#notes-type)  
-		3.1.6 [Product Group ID Type](#product-group-id-type)  
-		3.1.7 [Product Groups Type](#product-groups-type)  
-		3.1.8 [Product ID Type](#product-id-type)  
-		3.1.9 [Products Type](#products-type)  
-		3.1.10 [References Type](#references-type)  
-		3.1.11 [Version Type](#version-type)  
-			3.1.11.1 [Version Type - Integer Versioning](#version-type-integer-versioning)  
-			3.1.11.2 [Version Type - Semantic Versioning](#version-type-semantic-versioning)  
-	3.2 [Properties](#properties)  
-		3.2.1 [Schema Property](#schema-property)  
-		3.2.2 [Document Property](#document-property)  
-			3.2.2.1 [Document Property - Acknowledgments](#document-property-acknowledgments)  
-			3.2.2.2 [Document Property - Aggregate Severity](#document-property-aggregate-severity)  
-			3.2.2.3 [Document Property - Category](#document-property-category)  
-			3.2.2.4 [Document Property - CSAF Version](#document-property-csaf-version)  
-			3.2.2.5 [Document Property - Distribution](#document-property-distribution)  
-				3.2.2.5.1 [Document Property - Distribution - Sharing Group](#document-property-distribution-sharing-group)  
-				3.2.2.5.2 [Document Property - Distribution - Text](#document-property-distribution-text)  
-				3.2.2.5.3 [Document Property - Distribution - TLP](#document-property-distribution-tlp)  
-			3.2.2.6 [Document Property - Language](#document-property-language)  
-			3.2.2.7 [Document Property - License Expression](#document-property-license-expression)  
-			3.2.2.8 [Document Property - Notes](#document-property-notes)  
-			3.2.2.9 [Document Property - Publisher](#document-property-publisher)  
-				3.2.2.9.1 [Document Property - Publisher - Category](#document-property-publisher-category)  
-				3.2.2.9.2 [Document Property - Publisher - Contact Details](#document-property-publisher-contact-details)  
-				3.2.2.9.3 [Document Property - Publisher - Issuing Authority](#document-property-publisher-issuing-authority)  
-				3.2.2.9.4 [Document Property - Publisher - Name](#document-property-publisher-name)  
-				3.2.2.9.5 [Document Property - Publisher - Namespace](#document-property-publisher-namespace)  
-			3.2.2.10 [Document Property - References](#document-property-references)  
-			3.2.2.11 [Document Property - Source Language](#document-property-source-language)  
-			3.2.2.12 [Document Property - Title](#document-property-title)  
-			3.2.2.13 [Document Property - Tracking](#document-property-tracking)  
-				3.2.2.13.1 [Document Property - Tracking - Aliases](#document-property-tracking-aliases)  
-				3.2.2.13.2 [Document Property - Tracking - Current Release Date](#document-property-tracking-current-release-date)  
-				3.2.2.13.3 [Document Property - Tracking - Generator](#document-property-tracking-generator)  
-				3.2.2.13.4 [Document Property - Tracking - ID](#document-property-tracking-id)  
-				3.2.2.13.5 [Document Property - Tracking - Initial Release Date](#document-property-tracking-initial-release-date)  
-				3.2.2.13.6 [Document Property - Tracking - Revision History](#document-property-tracking-revision-history)  
-				3.2.2.13.7 [Document Property - Tracking - Status](#document-property-tracking-status)  
-				3.2.2.13.8 [Document Property - Tracking - Version](#document-property-tracking-version)  
-		3.2.3 [Product Tree Property](#product-tree-property)  
-			3.2.3.1 [Product Tree Property - Branches](#product-tree-property-branches)  
-			3.2.3.2 [Product Tree Property - Full Product Names](#product-tree-property-full-product-names)  
-			3.2.3.3 [Product Tree Property - Product Groups](#product-tree-property-product-groups)  
-			3.2.3.4 [Product Tree Property - Relationships](#product-tree-property-relationships)  
-		3.2.4 [Vulnerabilities Property](#vulnerabilities-property)  
-			3.2.4.1 [Vulnerabilities Property - Acknowledgments](#vulnerabilities-property-acknowledgments)  
-			3.2.4.2 [Vulnerabilities Property - CVE](#vulnerabilities-property-cve)  
-			3.2.4.3 [Vulnerabilities Property - CWEs](#vulnerabilities-property-cwes)  
-			3.2.4.4 [Vulnerabilities Property - Disclosure Date](#vulnerabilities-property-disclosure-date)  
-			3.2.4.5 [Vulnerabilities Property - Discovery Date](#vulnerabilities-property-discovery-date)  
-			3.2.4.6 [Vulnerabilities Property - First Known Exploitation Dates](#vulnerabilities-property-first-known-exploitation-dates)  
-			3.2.4.7 [Vulnerabilities Property - Flags](#vulnerabilities-property-flags)  
-			3.2.4.8 [Vulnerabilities Property - IDs](#vulnerabilities-property-ids)  
-			3.2.4.9 [Vulnerabilities Property - Involvements](#vulnerabilities-property-involvements)  
-			3.2.4.10 [Vulnerabilities Property - Metrics](#vulnerabilities-property-metrics)  
-				3.2.4.10.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property-metrics-content)  
-				3.2.4.10.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property-metrics-products)  
-				3.2.4.10.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property-metrics-source)  
-			3.2.4.11 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
-			3.2.4.12 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
-			3.2.4.13 [Vulnerabilities Property - References](#vulnerabilities-property-references)  
-			3.2.4.14 [Vulnerabilities Property - Remediations](#vulnerabilities-property-remediations)  
-				3.2.4.14.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
-				3.2.4.14.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property-remediations-date)  
-				3.2.4.14.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property-remediations-details)  
-				3.2.4.14.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property-remediations-entitlements)  
-				3.2.4.14.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property-remediations-group-ids)  
-				3.2.4.14.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property-remediations-product-ids)  
-				3.2.4.14.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property-remediations-restart-required)  
-				3.2.4.14.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property-remediations-url)  
-			3.2.4.15 [Vulnerabilities Property - Threats](#vulnerabilities-property-threats)  
-			3.2.4.16 [Vulnerabilities Property - Title](#vulnerabilities-property-title)  
-4. [Profiles](#profiles)  
-	4.1 [Profile 1: CSAF Base](#profile-1-csaf-base)  
-	4.2 [Profile 2: Security Incident Response](#profile-2-security-incident-response)  
-	4.3 [Profile 3: Informational Advisory](#profile-3-informational-advisory)  
-	4.4 [Profile 4: Security Advisory](#profile-4-security-advisory)  
-	4.5 [Profile 5: VEX](#profile-5-vex)  
-	4.6 [Profile 6: Deprecated Security Advisory](#profile-6-deprecated-security-advisory)  
-	4.7 [Profile 7: Withdrawn](#profile-7-withdrawn)  
-	4.8 [Profile 8: Superseded](#profile-8-superseded)  
-5. [Additional Conventions](#additional-conventions)  
-	5.1 [Filename](#filename)  
-	5.2 [Separation in Data Stream](#separation-in-data-stream)  
-	5.3 [Sorting](#additional-conventions--sorting)  
-	5.4 [Usage of Markdown](#usage-of-markdown)  
-	5.5 [Branch Recursion](#branch-recursion)  
-	5.6 [Hardware and Software within the Product Tree](#hardware-and-software-within-the-product-tree)  
-6. [Tests](#tests)  
-	6.1 [Mandatory Tests](#mandatory-tests)  
-		6.1.1 [Missing Definition of Product ID](#missing-definition-of-product-id)  
-		6.1.2 [Multiple Definition of Product ID](#multiple-definition-of-product-id)  
-		6.1.3 [Circular Definition of Product ID](#circular-definition-of-product-id)  
-		6.1.4 [Missing Definition of Product Group ID](#missing-definition-of-product-group-id)  
-		6.1.5 [Multiple Definition of Product Group ID](#multiple-definition-of-product-group-id)  
-		6.1.6 [Contradicting Product Status](#contradicting-product-status)  
-		6.1.7 [Multiple Scores with Same Version per Product](#multiple-scores-with-same-version-per-product)  
-		6.1.8 [Invalid CVSS](#invalid-cvss)  
-		6.1.9 [Invalid CVSS Computation](#invalid-cvss-computation)  
-		6.1.10 [Inconsistent CVSS](#inconsistent-cvss)  
-		6.1.11 [CWE](#mandatory-tests--cwe)  
-		6.1.12 [Language](#language)  
-		6.1.13 [purl](#purl)  
-		6.1.14 [Sorted Revision History](#sorted-revision-history)  
-		6.1.15 [Translator](#translator)  
-		6.1.16 [Latest Document Version](#latest-document-version)  
-		6.1.17 [Document Status Draft](#document-status-draft)  
-		6.1.18 [Released Revision History](#released-revision-history)  
-		6.1.19 [Revision History Entries for Pre-release Versions](#revision-history-entries-for-pre-release-versions)  
-		6.1.20 [Non-Draft Document Version](#non-draft-document-version)  
-		6.1.21 [Missing Item in Revision History](#missing-item-in-revision-history)  
-		6.1.22 [Multiple Definition in Revision History](#multiple-definition-in-revision-history)  
-		6.1.23 [Multiple Use of Same CVE](#multiple-use-of-same-cve)  
-		6.1.24 [Multiple Definition in Involvements](#multiple-definition-in-involvements)  
-		6.1.25 [Multiple Use of Same Hash Algorithm](#multiple-use-of-same-hash-algorithm)  
-		6.1.26 [Prohibited Document Category Name](#prohibited-document-category-name)  
-		6.1.27 [Profile Tests](#mandatory-profile-tests)  
-			6.1.27.1 [Document Notes](#document-notes-for-informational-advisory-and-security-incident-response)  
-			6.1.27.2 [Document References](#document-references-for-informational-advisory-and-security-incident-response)  
-			6.1.27.3 [Vulnerabilities](#vulnerabilities-for-informational-advisory)  
-			6.1.27.4 [Product Tree](#product-tree-for-security-advisory-vex-deprecated-security-advisory)  
-			6.1.27.5 [Vulnerability Notes](#vulnerability-notes)  
-			6.1.27.6 [Product Status](#product-status)  
-			6.1.27.7 [VEX Product Status](#vex-product-status)  
-			6.1.27.8 [Vulnerability ID](#vulnerability-id)  
-			6.1.27.9 [Impact Statement](#impact-statement)  
-			6.1.27.10 [Action Statement](#action-statement)  
-			6.1.27.11 [Vulnerabilities](#vulnerabilities-for-security-advisory-or-vex)  
-			6.1.27.12 [Affected Products](#affected-products)  
-			6.1.27.13 [Corresponding Affected Products](#corresponding-affected-products)  
-			6.1.27.14 [Document Notes](#document-notes-for-withdrawn-and-superseded)  
-			6.1.27.15 [Product Tree](#product-tree-for-withdrawn-and-superseded)  
-			6.1.27.16 [Revision History](#revision-history-for-withdrawn-and-superseded)  
-			6.1.27.17 [Reasoning for Withdrawal](#reasoning-for-withdrawal)  
-			6.1.27.18 [Reasoning for Supersession](#reasoning-for-supersession)  
-			6.1.27.19 [Reference to Superseding Document](#reference-to-superseding-document)  
-		6.1.28 [Translation](#translation)  
-		6.1.29 [Remediation without Product Reference](#remediation-without-product-reference)  
-		6.1.30 [Mixed Integer and Semantic Versioning](#mixed-integer-and-semantic-versioning)  
-		6.1.31 [Version Range in Product Version](#version-range-in-product-version)  
-		6.1.32 [Flag without Product Reference](#flag-without-product-reference)  
-		6.1.33 [Multiple Flags with VEX Justification Codes per Product](#multiple-flags-with-vex-justification-codes-per-product)  
-		6.1.34 [Branches Recursion Depth](#mandatory-tests--branches-recursion-depth)  
-		6.1.35 [Contradicting Remediations](#contradicting-remediations)  
-		6.1.36 [Contradicting Product Status Remediation Combination](#contradicting-product-status-remediation-combination)  
-		6.1.37 [Date and Time](#mandatory-tests--date-and-time)  
-		6.1.38 [Non-Public Sharing Group with Max UUID](#non-public-sharing-group-with-max-uuid)  
-		6.1.39 [Public Sharing Group with No Max UUID](#public-sharing-group-with-no-max-uuid)  
-		6.1.40 [Invalid Sharing Group Name](#invalid-sharing-group-name)  
-		6.1.41 [Missing Sharing Group Name](#missing-sharing-group-name)  
-		6.1.42 [purl Qualifiers](#purl-qualifiers)  
-		6.1.43 [Use of Multiple Stars in Model Number](#use-of-multiple-stars-in-model-number)  
-		6.1.44 [Use of Multiple Stars in Serial Number](#use-of-multiple-stars-in-serial-number)  
-		6.1.45 [Inconsistent Disclosure Date](#inconsistent-disclosure-date)  
-		6.1.46 [Invalid SSVC](#invalid-ssvc)  
-		6.1.47 [Inconsistent SSVC Target IDs](#inconsistent-ssvc-target-ids)  
-		6.1.48 [SSVC Decision Points](#ssvc-decision-points)  
-		6.1.49 [Inconsistent SSVC Timestamp](#inconsistent-ssvc-timestamp)  
-		6.1.50 [Product Version Range Rules](#product-version-range-rules)  
-		6.1.51 [Inconsistent EPSS Timestamp](#inconsistent-epss-timestamp)  
-		6.1.52 [Inconsistent First Known Exploitation Dates](#inconsistent-first-known-exploitation-dates)  
-		6.1.53 [Inconsistent Exploitation Date](#inconsistent-exploitation-date)  
-		6.1.54 [License Expression](#license-expression)  
-		6.1.55 [License Text](#license-text)  
-		6.1.56 [Use of CVSS and Qualitative Severity Rating](#use-of-cvss-and-qualitative-severity-rating)  
-		6.1.57 [Stacked Branch Categories](#stacked-branch-categories)  
-		6.1.58 [Use of `product_version` in one Path with `product_version_range`](#use-of-product-version-in-one-path-with-product-version-range)  
-		6.1.59 [Single Version as Product Version Range](#single-version-as-product-version-range)  
-	6.2 [Recommended Tests](#recommended-tests)  
-		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
-		6.2.2 [Missing Remediation](#missing-remediation)  
-		6.2.3 [Missing Metric](#missing-metric)  
-		6.2.4 [Build Metadata in Revision History](#build-metadata-in-revision-history)  
-		6.2.5 [Older Initial Release Date than Revision History](#older-initial-release-date-than-revision-history)  
-		6.2.6 [Older Current Release Date than Revision History](#older-current-release-date-than-revision-history)  
-		6.2.7 [Missing Date in Involvements](#missing-date-in-involvements)  
-		6.2.8 [Use of MD5 As the Only Hash Algorithm](#use-of-md5-as-the-only-hash-algorithm)  
-		6.2.9 [Use of SHA-1 As the Only Hash Algorithm](#use-of-sha-1-as-the-only-hash-algorithm)  
-		6.2.10 [Missing TLP Label (Obsolete)](#missing-tlp-label)  
-		6.2.11 [Missing Canonical URL](#missing-canonical-url)  
-		6.2.12 [Missing Document Language](#missing-document-language)  
-		6.2.13 [Sorting](#recommended-tests--sorting)  
-		6.2.14 [Use of Private Language](#use-of-private-language)  
-		6.2.15 [Use of Default Language](#use-of-default-language)  
-		6.2.16 [Missing Product Identification Helper](#missing-product-identification-helper)  
-		6.2.17 [CVE in Field IDs](#cve-in-field-ids)  
-		6.2.18 [Product Version Range without vers](#product-version-range-without-vers)  
-		6.2.19 [CVSS for Fixed Products](#cvss-for-fixed-products)  
-		6.2.20 [Additional Properties](#additional-properties)  
-		6.2.21 [Same Timestamps in Revision History](#same-timestamps-in-revision-history)  
-		6.2.22 [Document Tracking ID in Title](#document-tracking-id-in-title)  
-		6.2.23 [Usage of Deprecated CWE](#usage-of-deprecated-cwe)  
-		6.2.24 [Usage of Non-Latest CWE Version](#usage-of-non-latest-cwe-version)  
-		6.2.25 [Usage of CWE Not Allowed for Vulnerability Mapping](#usage-of-cwe-not-allowed-for-vulnerability-mapping)  
-		6.2.26 [Usage of CWE Allowed with Review for Vulnerability Mapping](#usage-of-cwe-allowed-with-review-for-vulnerability-mapping)  
-		6.2.27 [Discouraged Product Status Remediation Combination](#discouraged-product-status-remediation-combination)  
-		6.2.28 [Usage of Max UUID](#usage-of-max-uuid)  
-		6.2.29 [Usage of Nil UUID](#usage-of-nil-uuid)  
-		6.2.30 [Usage of Sharing Group on TLP:CLEAR](#usage-of-sharing-group-on-tlp-clear)  
-		6.2.31 [Hardware and Software](#hardware-and-software)  
-		6.2.32 [Use of Same Product Identification Helper for Different Products](#use-of-same-product-identification-helper-for-different-products)  
-		6.2.33 [Disclosure Date Newer than Revision History](#disclosure-date-newer-than-revision-history)  
-		6.2.34 [Usage of Unknown SSVC Decision Point Base Namespace](#usage-of-unknown-ssvc-decision-point-base-namespace)  
-		6.2.35 [Usage of Unregistered SSVC Decision Point Base Namespace in TLP:CLEAR Document](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document)  
-		6.2.36 [Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)  
-		6.2.37 [Usage of Unknown SSVC Decision Point Namespace without Resource](#usage-of-unknown-ssvc-decision-point-namespace-without-resource)  
-		6.2.38 [Usage of Deprecated Profile](#usage-of-deprecated-profile)  
-		6.2.39 [Profile Tests](#recommended-profile-tests)  
-			6.2.39.1 [Missing Fixed Product](#missing-fixed-product)  
-			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)  
-			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)  
-			6.2.39.4 [Language Specific Superseding Document](#language-specific-superseding-document)  
-		6.2.40 [Product Description without Product Reference](#product-description-without-product-reference)  
-		6.2.41 [Old EPSS Timestamp](#old-epss-timestamp)  
-		6.2.42 [Inconsistent Product Identification Helper](#inconsistent-product-identification-helper)  
-		6.2.43 [Missing License Expression](#missing-license-expression)  
-		6.2.44 [Deprecated License Identifier](#deprecated-license-identifier)  
-		6.2.45 [Non-Existing License Identifier](#non-existing-license-identifier)  
-		6.2.46 [Language Specific License Text](#language-specific-license-text)  
-		6.2.47 [Use of Qualitative Severity Rating by Issuing Party](#use-of-qualitative-severity-rating-by-issuing-party)  
-		6.2.48 [Misuse at Vendor Name](#misuse-at-vendor-name)  
-		6.2.49 [Upper Open Ended Product Version Range](#upper-open-ended-product-version-range)  
-		6.2.50 [Overlapping Product Version Range](#overlapping-product-version-range)  
-			6.2.50.1 [Overlapping Product Version Range with vers in Contradicting Product Status Group](#overlapping-product-version-range-with-vers-in-contradicting-product-status-group)  
-			6.2.50.2 [Overlapping Product Version Range with vls in Contradicting Product Status Group](#overlapping-product-version-range-with-vls-in-contradicting-product-status-group)  
-			6.2.50.3 [Overlapping Product Version Range with Product Version in Contradicting Product Status Group](#overlapping-product-version-range-with-product-version-in-contradicting-product-status-group)  
-		6.2.51 [Unknown Version Scheme in vers](#unknown-version-scheme-in-vers)  
-		6.2.52 [Unknown Hash Algorithm](#unknown-hash-algorithm)  
-		6.2.53 [Matching Text for Registered ID System](#matching-text-for-registered-id-system)  
-	6.3 [Informative Tests](#informative-tests)  
-		6.3.1 [Use of CVSS v2 As the Only Scoring System](#use-of-cvss-v2-as-the-only-scoring-system)  
-		6.3.2 [Use of CVSS v3.0](#use-of-cvss-v3-0)  
-		6.3.3 [Missing CVE](#missing-cve)  
-		6.3.4 [Missing CWE](#missing-cwe)  
-		6.3.5 [Use of Short Hash](#use-of-short-hash)  
-		6.3.6 [Use of Non-self Referencing URLs Failing to Resolve](#use-of-non-self-referencing-urls-failing-to-resolve)  
-		6.3.7 [Use of Self Referencing URLs Failing to Resolve](#use-of-self-referencing-urls-failing-to-resolve)  
-		6.3.8 [Spell Check](#spell-check)  
-		6.3.9 [Branch Categories](#branch-categories)  
-		6.3.10 [Usage of Product Version Range](#usage-of-product-version-range)  
-		6.3.11 [Usage of V as Version Indicator](#usage-of-v-as-version-indicator)  
-		6.3.12 [Missing CVSS v4.0](#missing-cvss-v4-0)  
-		6.3.13 [Usage of Non-Latest SSVC Decision Point Version](#usage-of-non-latest-ssvc-decision-point-version)  
-		6.3.14 [Usage of Unregistered SSVC Decision Point Base Namespace in Non TLP:CLEAR Document](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document)  
-		6.3.15 [Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)  
-		6.3.16 [Grammar Check](#grammar-check)  
-		6.3.17 [Use of Unregistered License](#use-of-unregistered-license)  
-		6.3.18 [Use of Qualitative Severity Rating](#use-of-qualitative-severity-rating)  
-		6.3.19 [Overlapping Product Version Range{informative-tests--overlapping-product-version-range}](#overlapping-product-version-range-informative-tests-overlapping-product-version-range)  
-			6.3.19.1 [Overlapping Product Version Range with vers in Same Product Status Group](#overlapping-product-version-range-with-vers-in-same-product-status-group)  
-			6.3.19.2 [Overlapping Product Version Range with vls in Same Product Status Group](#overlapping-product-version-range-with-vls-in-same-product-status-group)  
-			6.3.19.3 [Overlapping Product Version Range with Product Version in Same Product Status Group](#overlapping-product-version-range-with-product-version-in-same-product-status-group)  
-			6.3.19.4 [Overlapping Product Version Range with Product Version Range in Branch](#overlapping-product-version-range-with-product-version-range-in-branch)  
-			6.3.19.5 [Overlapping Product Version Range with Product Version in Branch](#overlapping-product-version-range-with-product-version-in-branch)  
-		6.3.20 [Use of Unregistered ID System](#use-of-unregistered-id-system)  
-	6.4 [Presets](#presets)  
-		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)  
-		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)  
-		6.4.3 [Additional Presets](#additional-presets)  
-7. [Distributing CSAF Documents](#distributing-csaf-documents)  
-	7.1 [Requirements](#requirements)  
-		7.1.1 [Requirement 1: Valid CSAF Document](#requirement-1-valid-csaf-document)  
-		7.1.2 [Requirement 2: Filename](#requirement-2-filename)  
-		7.1.3 [Requirement 3: TLS](#requirement-3-tls)  
-		7.1.4 [Requirement 4: TLP:CLEAR](#requirement-4-tlp-clear)  
-		7.1.5 [Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED](#requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red)  
-		7.1.6 [Requirement 6: No Redirects](#requirement-6-no-redirects)  
-		7.1.7 [Requirement 7: provider-metadata.json](#requirement-7-provider-metadata-json)  
-		7.1.8 [Requirement 8: security.txt](#requirement-8-security-txt)  
-		7.1.9 [Requirement 9: Well-Known URL for provider-metadata.json](#requirement-9-well-known-url-for-provider-metadata-json)  
-		7.1.10 [Requirement 10: DNS Path](#requirement-10-dns-path)  
-		7.1.11 [Requirement 11: One Folder per Year](#requirement-11-one-folder-per-year)  
-		7.1.12 [Requirement 12: index.txt](#requirement-12-index-txt)  
-		7.1.13 [Requirement 13: changes.csv](#requirement-13-changes-csv)  
-		7.1.14 [Requirement 14: Directory Listings](#requirement-14-directory-listings)  
-		7.1.15 [Requirement 15: ROLIE Feed](#requirement-15-rolie-feed)  
-		7.1.16 [Requirement 16: ROLIE Service Document](#requirement-16-rolie-service-document)  
-		7.1.17 [Requirement 17: ROLIE Category Document](#requirement-17-rolie-category-document)  
-		7.1.18 [Requirement 18: Integrity](#requirement-18-integrity)  
-		7.1.19 [Requirement 19: Signatures](#requirement-19-signatures)  
-		7.1.20 [Requirement 20: Public OpenPGP Key](#requirement-20-public-openpgp-key)  
-		7.1.21 [Requirement 21: List of CSAF Providers](#requirement-21-list-of-csaf-providers)  
-		7.1.22 [Requirement 22: Two Disjoint Issuing Parties](#requirement-22-two-disjoint-issuing-parties)  
-		7.1.23 [Requirement 23: Mirror](#requirement-23-mirror)  
-		7.1.24 [Requirement 24: HTTP User-Agent](#requirement-24-http-user-agent)  
-		7.1.25 [Requirement 25: Access-Control-Allow-Origin](#requirement-25-access-control-allow-origin)  
-	7.2 [Roles](#roles)  
-		7.2.1 [Role: CSAF Publisher](#role-csaf-publisher)  
-		7.2.2 [Role: CSAF Provider](#role-csaf-provider)  
-		7.2.3 [Role: CSAF Trusted Provider](#role-csaf-trusted-provider)  
-		7.2.4 [Role: CSAF Lister](#role-csaf-lister)  
-		7.2.5 [Role: CSAF Aggregator](#role-csaf-aggregator)  
-	7.3 [Retrieving Rules](#retrieving-rules)  
-		7.3.1 [Finding provider-metadata.json](#finding-provider-metadata-json)  
-		7.3.2 [Retrieving CSAF Documents](#retrieving-csaf-documents)  
-		7.3.3 [Finding aggregator.json](#finding-aggregator-json)  
-	7.4 [Transition between CSAF 2.0 and CSAF 2.1](#transition-between-csaf-2-0-and-csaf-2-1)  
-		7.4.1 [Announcing the Transition](#announcing-the-transition)  
-		7.4.2 [Transition Process for a CSAF Provider](#transition-process-for-a-csaf-provider)  
-		7.4.3 [Archive of CSAF Document from Previous Version](#archive-of-csaf-document-from-previous-version)  
-		7.4.4 [Transition Process for a CSAF Aggregator](#transition-process-for-a-csaf-aggregator)  
-8. [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)  
-9. [Conformance](#conformance)  
-	9.1 [Conformance Targets](#conformance-targets)  
-		9.1.1 [Conformance Clause 1: CSAF Document](#conformance-clause-1-csaf-document)  
-		9.1.2 [Conformance Clause 2: CSAF Producer](#conformance-clause-2-csaf-producer)  
-		9.1.3 [Conformance Clause 3: CSAF Direct Producer](#conformance-clause-3-csaf-direct-producer)  
-		9.1.4 [Conformance Clause 4: CSAF Converter](#conformance-clause-4-csaf-converter)  
-		9.1.5 [Conformance Clause 5: CVRF CSAF Converter](#conformance-clause-5-cvrf-csaf-converter)  
-		9.1.6 [Conformance Clause 6: CSAF Content Management System](#conformance-clause-6-csaf-content-management-system)  
-		9.1.7 [Conformance Clause 7: CSAF Post-Processor](#conformance-clause-7-csaf-post-processor)  
-		9.1.8 [Conformance Clause 8: CSAF Modifier](#conformance-clause-8-csaf-modifier)  
-		9.1.9 [Conformance Clause 9: CSAF Translator](#conformance-clause-9-csaf-translator)  
-		9.1.10 [Conformance Clause 10: CSAF Consumer](#conformance-clause-10-csaf-consumer)  
-		9.1.11 [Conformance Clause 11: CSAF Viewer](#conformance-clause-11-csaf-viewer)  
-		9.1.12 [Conformance Clause 12: CSAF Management System](#conformance-clause-12-csaf-management-system)  
-		9.1.13 [Conformance Clause 13: CSAF Asset Matching System](#conformance-clause-13-csaf-asset-matching-system)  
-		9.1.14 [Conformance Clause 14: CSAF Basic Validator](#conformance-clause-14-csaf-basic-validator)  
-		9.1.15 [Conformance Clause 15: CSAF Extended Validator](#conformance-clause-15-csaf-extended-validator)  
-		9.1.16 [Conformance Clause 16: CSAF Full Validator](#conformance-clause-16-csaf-full-validator)  
-		9.1.17 [Conformance Clause 17: CSAF SBOM Matching System](#conformance-clause-17-csaf-sbom-matching-system)  
-		9.1.18 [Conformance Clause 18: CSAF 2.0 to CSAF 2.1 Converter](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter)  
-		9.1.19 [Conformance Clause 19: CSAF Library](#conformance-clause-19-csaf-library)  
-		9.1.20 [Conformance Clause 20: CSAF Library with Basic Validation](#conformance-clause-20-csaf-library-with-basic-validation)  
-		9.1.21 [Conformance Clause 21: CSAF Library with Extended Validation](#conformance-clause-21-csaf-library-with-extended-validation)  
-		9.1.22 [Conformance Clause 22: CSAF Library with Full Validation](#conformance-clause-22-csaf-library-with-full-validation)  
-		9.1.23 [Conformance Clause 23: CSAF Downloader](#conformance-clause-23-csaf-downloader)  
-		9.1.24 [Conformance Clause 24: CSAF Withdrawer](#conformance-clause-24-csaf-withdrawer)  
-		9.1.25 [Conformance Clause 25: CSAF Superseder](#conformance-clause-25-csaf-superseder)  
+1. [Introduction](#introduction)
+	1.1 [IPR Policy](#ipr-policy)
+	1.2 [Terminology](#terminology)
+	1.3 [Normative References](#normative-references)
+	1.4 [Informative References](#informative-references)
+	1.5 [Typographical Conventions](#typographical-conventions)
+2. [Design Considerations](#design-considerations)
+	2.1 [Construction Principles](#construction-principles)
+	2.2 [Format Validation](#format-validation)
+	2.3 [Date and Time](#date-and-time)
+3. [Schema Elements](#schema-elements)
+	3.1 [Definitions](#definitions)
+		3.1.1 [Acknowledgments Type](#acknowledgments-type)
+			3.1.1.1 [Acknowledgments Type - Names](#acknowledgments-type-names)
+			3.1.1.2 [Acknowledgments Type - Organization](#acknowledgments-type-organization)
+			3.1.1.3 [Acknowledgments Type - Summary](#acknowledgments-type-summary)
+			3.1.1.4 [Acknowledgments Type - URLs](#acknowledgments-type-urls)
+			3.1.1.5 [Acknowledgments Type - Example](#acknowledgments-type-example)
+		3.1.2 [Branches Type](#branches-type)
+			3.1.2.1 [Branches Type - Branches](#branches-type-branches)
+			3.1.2.2 [Branches Type - Category](#branches-type-category)
+			3.1.2.3 [Branches Type - Name](#branches-type-name)
+				3.1.2.3.1 [Branches Type - Name under Product Version](#branches-type-name-under-product-version)
+				3.1.2.3.2 [Branches Type - Name under Product Version Range](#branches-type-name-under-product-version-range)
+			3.1.2.4 [Branches Type - Product](#branches-type-product)
+		3.1.3 [Full Product Name Type](#full-product-name-type)
+			3.1.3.1 [Full Product Name Type - Name](#full-product-name-type-name)
+			3.1.3.2 [Full Product Name Type - Product ID](#full-product-name-type-product-id)
+			3.1.3.3 [Full Product Name Type - Product Identification Helper](#full-product-name-type-product-identification-helper)
+				3.1.3.3.1 [Full Product Name Type - Product Identification Helper - CPE](#full-product-name-type-product-identification-helper-cpe)
+				3.1.3.3.2 [Full Product Name Type - Product Identification Helper - Hashes](#full-product-name-type-product-identification-helper-hashes)
+				3.1.3.3.3 [Full Product Name Type - Product Identification Helper - Model Numbers](#full-product-name-type-product-identification-helper-model-numbers)
+				3.1.3.3.4 [Full Product Name Type - Product Identification Helper - purls](#full-product-name-type-product-identification-helper-purls)
+				3.1.3.3.5 [Full Product Name Type - Product Identification Helper - SBOM URLs](#full-product-name-type-product-identification-helper-sbom-urls)
+				3.1.3.3.6 [Full Product Name Type - Product Identification Helper - Serial Numbers](#full-product-name-type-product-identification-helper-serial-numbers)
+				3.1.3.3.7 [Full Product Name Type - Product Identification Helper - SKUs](#full-product-name-type-product-identification-helper-skus)
+				3.1.3.3.8 [Full Product Name Type - Product Identification Helper - Generic URIs](#full-product-name-type-product-identification-helper-generic-uris)
+		3.1.4 [Language Type](#language-type)
+		3.1.5 [Notes Type](#notes-type)
+		3.1.6 [Product Group ID Type](#product-group-id-type)
+		3.1.7 [Product Groups Type](#product-groups-type)
+		3.1.8 [Product ID Type](#product-id-type)
+		3.1.9 [Products Type](#products-type)
+		3.1.10 [References Type](#references-type)
+		3.1.11 [Version Type](#version-type)
+			3.1.11.1 [Version Type - Integer Versioning](#version-type-integer-versioning)
+			3.1.11.2 [Version Type - Semantic Versioning](#version-type-semantic-versioning)
+	3.2 [Properties](#properties)
+		3.2.1 [Schema Property](#schema-property)
+		3.2.2 [Document Property](#document-property)
+			3.2.2.1 [Document Property - Acknowledgments](#document-property-acknowledgments)
+			3.2.2.2 [Document Property - Aggregate Severity](#document-property-aggregate-severity)
+			3.2.2.3 [Document Property - Category](#document-property-category)
+			3.2.2.4 [Document Property - CSAF Version](#document-property-csaf-version)
+			3.2.2.5 [Document Property - Distribution](#document-property-distribution)
+				3.2.2.5.1 [Document Property - Distribution - Sharing Group](#document-property-distribution-sharing-group)
+				3.2.2.5.2 [Document Property - Distribution - Text](#document-property-distribution-text)
+				3.2.2.5.3 [Document Property - Distribution - TLP](#document-property-distribution-tlp)
+			3.2.2.6 [Document Property - Language](#document-property-language)
+			3.2.2.7 [Document Property - License Expression](#document-property-license-expression)
+			3.2.2.8 [Document Property - Notes](#document-property-notes)
+			3.2.2.9 [Document Property - Publisher](#document-property-publisher)
+				3.2.2.9.1 [Document Property - Publisher - Category](#document-property-publisher-category)
+				3.2.2.9.2 [Document Property - Publisher - Contact Details](#document-property-publisher-contact-details)
+				3.2.2.9.3 [Document Property - Publisher - Issuing Authority](#document-property-publisher-issuing-authority)
+				3.2.2.9.4 [Document Property - Publisher - Name](#document-property-publisher-name)
+				3.2.2.9.5 [Document Property - Publisher - Namespace](#document-property-publisher-namespace)
+			3.2.2.10 [Document Property - References](#document-property-references)
+			3.2.2.11 [Document Property - Source Language](#document-property-source-language)
+			3.2.2.12 [Document Property - Title](#document-property-title)
+			3.2.2.13 [Document Property - Tracking](#document-property-tracking)
+				3.2.2.13.1 [Document Property - Tracking - Aliases](#document-property-tracking-aliases)
+				3.2.2.13.2 [Document Property - Tracking - Current Release Date](#document-property-tracking-current-release-date)
+				3.2.2.13.3 [Document Property - Tracking - Generator](#document-property-tracking-generator)
+				3.2.2.13.4 [Document Property - Tracking - ID](#document-property-tracking-id)
+				3.2.2.13.5 [Document Property - Tracking - Initial Release Date](#document-property-tracking-initial-release-date)
+				3.2.2.13.6 [Document Property - Tracking - Revision History](#document-property-tracking-revision-history)
+				3.2.2.13.7 [Document Property - Tracking - Status](#document-property-tracking-status)
+				3.2.2.13.8 [Document Property - Tracking - Version](#document-property-tracking-version)
+		3.2.3 [Product Tree Property](#product-tree-property)
+			3.2.3.1 [Product Tree Property - Branches](#product-tree-property-branches)
+			3.2.3.2 [Product Tree Property - Full Product Names](#product-tree-property-full-product-names)
+			3.2.3.3 [Product Tree Property - Product Groups](#product-tree-property-product-groups)
+			3.2.3.4 [Product Tree Property - Relationships](#product-tree-property-relationships)
+		3.2.4 [Vulnerabilities Property](#vulnerabilities-property)
+			3.2.4.1 [Vulnerabilities Property - Acknowledgments](#vulnerabilities-property-acknowledgments)
+			3.2.4.2 [Vulnerabilities Property - CVE](#vulnerabilities-property-cve)
+			3.2.4.3 [Vulnerabilities Property - CWEs](#vulnerabilities-property-cwes)
+			3.2.4.4 [Vulnerabilities Property - Disclosure Date](#vulnerabilities-property-disclosure-date)
+			3.2.4.5 [Vulnerabilities Property - Discovery Date](#vulnerabilities-property-discovery-date)
+			3.2.4.6 [Vulnerabilities Property - First Known Exploitation Dates](#vulnerabilities-property-first-known-exploitation-dates)
+			3.2.4.7 [Vulnerabilities Property - Flags](#vulnerabilities-property-flags)
+			3.2.4.8 [Vulnerabilities Property - IDs](#vulnerabilities-property-ids)
+			3.2.4.9 [Vulnerabilities Property - Involvements](#vulnerabilities-property-involvements)
+			3.2.4.10 [Vulnerabilities Property - Metrics](#vulnerabilities-property-metrics)
+				3.2.4.10.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property-metrics-content)
+				3.2.4.10.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property-metrics-products)
+				3.2.4.10.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property-metrics-source)
+			3.2.4.11 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)
+			3.2.4.12 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)
+			3.2.4.13 [Vulnerabilities Property - References](#vulnerabilities-property-references)
+			3.2.4.14 [Vulnerabilities Property - Remediations](#vulnerabilities-property-remediations)
+				3.2.4.14.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)
+				3.2.4.14.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property-remediations-date)
+				3.2.4.14.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property-remediations-details)
+				3.2.4.14.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property-remediations-entitlements)
+				3.2.4.14.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property-remediations-group-ids)
+				3.2.4.14.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property-remediations-product-ids)
+				3.2.4.14.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property-remediations-restart-required)
+				3.2.4.14.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property-remediations-url)
+			3.2.4.15 [Vulnerabilities Property - Threats](#vulnerabilities-property-threats)
+			3.2.4.16 [Vulnerabilities Property - Title](#vulnerabilities-property-title)
+4. [Profiles](#profiles)
+	4.1 [Profile 1: CSAF Base](#profile-1-csaf-base)
+	4.2 [Profile 2: Security Incident Response](#profile-2-security-incident-response)
+	4.3 [Profile 3: Informational Advisory](#profile-3-informational-advisory)
+	4.4 [Profile 4: Security Advisory](#profile-4-security-advisory)
+	4.5 [Profile 5: VEX](#profile-5-vex)
+	4.6 [Profile 6: Deprecated Security Advisory](#profile-6-deprecated-security-advisory)
+	4.7 [Profile 7: Withdrawn](#profile-7-withdrawn)
+	4.8 [Profile 8: Superseded](#profile-8-superseded)
+5. [Additional Conventions](#additional-conventions)
+	5.1 [Filename](#filename)
+	5.2 [Separation in Data Stream](#separation-in-data-stream)
+	5.3 [Sorting](#additional-conventions--sorting)
+	5.4 [Usage of Markdown](#usage-of-markdown)
+	5.5 [Branch Recursion](#branch-recursion)
+	5.6 [Hardware and Software within the Product Tree](#hardware-and-software-within-the-product-tree)
+6. [Tests](#tests)
+	6.1 [Mandatory Tests](#mandatory-tests)
+		6.1.1 [Missing Definition of Product ID](#missing-definition-of-product-id)
+		6.1.2 [Multiple Definition of Product ID](#multiple-definition-of-product-id)
+		6.1.3 [Circular Definition of Product ID](#circular-definition-of-product-id)
+		6.1.4 [Missing Definition of Product Group ID](#missing-definition-of-product-group-id)
+		6.1.5 [Multiple Definition of Product Group ID](#multiple-definition-of-product-group-id)
+		6.1.6 [Contradicting Product Status](#contradicting-product-status)
+		6.1.7 [Multiple Scores with Same Version per Product](#multiple-scores-with-same-version-per-product)
+		6.1.8 [Invalid CVSS](#invalid-cvss)
+		6.1.9 [Invalid CVSS Computation](#invalid-cvss-computation)
+		6.1.10 [Inconsistent CVSS](#inconsistent-cvss)
+		6.1.11 [CWE](#mandatory-tests--cwe)
+		6.1.12 [Language](#language)
+		6.1.13 [purl](#purl)
+		6.1.14 [Sorted Revision History](#sorted-revision-history)
+		6.1.15 [Translator](#translator)
+		6.1.16 [Latest Document Version](#latest-document-version)
+		6.1.17 [Document Status Draft](#document-status-draft)
+		6.1.18 [Released Revision History](#released-revision-history)
+		6.1.19 [Revision History Entries for Pre-release Versions](#revision-history-entries-for-pre-release-versions)
+		6.1.20 [Non-Draft Document Version](#non-draft-document-version)
+		6.1.21 [Missing Item in Revision History](#missing-item-in-revision-history)
+		6.1.22 [Multiple Definition in Revision History](#multiple-definition-in-revision-history)
+		6.1.23 [Multiple Use of Same CVE](#multiple-use-of-same-cve)
+		6.1.24 [Multiple Definition in Involvements](#multiple-definition-in-involvements)
+		6.1.25 [Multiple Use of Same Hash Algorithm](#multiple-use-of-same-hash-algorithm)
+		6.1.26 [Prohibited Document Category Name](#prohibited-document-category-name)
+		6.1.27 [Profile Tests](#mandatory-profile-tests)
+			6.1.27.1 [Document Notes](#document-notes-for-informational-advisory-and-security-incident-response)
+			6.1.27.2 [Document References](#document-references-for-informational-advisory-and-security-incident-response)
+			6.1.27.3 [Vulnerabilities](#vulnerabilities-for-informational-advisory)
+			6.1.27.4 [Product Tree](#product-tree-for-security-advisory-vex-deprecated-security-advisory)
+			6.1.27.5 [Vulnerability Notes](#vulnerability-notes)
+			6.1.27.6 [Product Status](#product-status)
+			6.1.27.7 [VEX Product Status](#vex-product-status)
+			6.1.27.8 [Vulnerability ID](#vulnerability-id)
+			6.1.27.9 [Impact Statement](#impact-statement)
+			6.1.27.10 [Action Statement](#action-statement)
+			6.1.27.11 [Vulnerabilities](#vulnerabilities-for-security-advisory-or-vex)
+			6.1.27.12 [Affected Products](#affected-products)
+			6.1.27.13 [Corresponding Affected Products](#corresponding-affected-products)
+			6.1.27.14 [Document Notes](#document-notes-for-withdrawn-and-superseded)
+			6.1.27.15 [Product Tree](#product-tree-for-withdrawn-and-superseded)
+			6.1.27.16 [Revision History](#revision-history-for-withdrawn-and-superseded)
+			6.1.27.17 [Reasoning for Withdrawal](#reasoning-for-withdrawal)
+			6.1.27.18 [Reasoning for Supersession](#reasoning-for-supersession)
+			6.1.27.19 [Reference to Superseding Document](#reference-to-superseding-document)
+		6.1.28 [Translation](#translation)
+		6.1.29 [Remediation without Product Reference](#remediation-without-product-reference)
+		6.1.30 [Mixed Integer and Semantic Versioning](#mixed-integer-and-semantic-versioning)
+		6.1.31 [Version Range in Product Version](#version-range-in-product-version)
+		6.1.32 [Flag without Product Reference](#flag-without-product-reference)
+		6.1.33 [Multiple Flags with VEX Justification Codes per Product](#multiple-flags-with-vex-justification-codes-per-product)
+		6.1.34 [Branches Recursion Depth](#mandatory-tests--branches-recursion-depth)
+		6.1.35 [Contradicting Remediations](#contradicting-remediations)
+		6.1.36 [Contradicting Product Status Remediation Combination](#contradicting-product-status-remediation-combination)
+		6.1.37 [Date and Time](#mandatory-tests--date-and-time)
+		6.1.38 [Non-Public Sharing Group with Max UUID](#non-public-sharing-group-with-max-uuid)
+		6.1.39 [Public Sharing Group with No Max UUID](#public-sharing-group-with-no-max-uuid)
+		6.1.40 [Invalid Sharing Group Name](#invalid-sharing-group-name)
+		6.1.41 [Missing Sharing Group Name](#missing-sharing-group-name)
+		6.1.42 [purl Qualifiers](#purl-qualifiers)
+		6.1.43 [Use of Multiple Stars in Model Number](#use-of-multiple-stars-in-model-number)
+		6.1.44 [Use of Multiple Stars in Serial Number](#use-of-multiple-stars-in-serial-number)
+		6.1.45 [Inconsistent Disclosure Date](#inconsistent-disclosure-date)
+		6.1.46 [Invalid SSVC](#invalid-ssvc)
+		6.1.47 [Inconsistent SSVC Target IDs](#inconsistent-ssvc-target-ids)
+		6.1.48 [SSVC Decision Points](#ssvc-decision-points)
+		6.1.49 [Inconsistent SSVC Timestamp](#inconsistent-ssvc-timestamp)
+		6.1.50 [Product Version Range Rules](#product-version-range-rules)
+		6.1.51 [Inconsistent EPSS Timestamp](#inconsistent-epss-timestamp)
+		6.1.52 [Inconsistent First Known Exploitation Dates](#inconsistent-first-known-exploitation-dates)
+		6.1.53 [Inconsistent Exploitation Date](#inconsistent-exploitation-date)
+		6.1.54 [License Expression](#license-expression)
+		6.1.55 [License Text](#license-text)
+		6.1.56 [Use of CVSS and Qualitative Severity Rating](#use-of-cvss-and-qualitative-severity-rating)
+		6.1.57 [Stacked Branch Categories](#stacked-branch-categories)
+		6.1.58 [Use of `product_version` in one Path with `product_version_range`](#use-of-product-version-in-one-path-with-product-version-range)
+		6.1.59 [Single Version as Product Version Range](#single-version-as-product-version-range)
+	6.2 [Recommended Tests](#recommended-tests)
+		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)
+		6.2.2 [Missing Remediation](#missing-remediation)
+		6.2.3 [Missing Metric](#missing-metric)
+		6.2.4 [Build Metadata in Revision History](#build-metadata-in-revision-history)
+		6.2.5 [Older Initial Release Date than Revision History](#older-initial-release-date-than-revision-history)
+		6.2.6 [Older Current Release Date than Revision History](#older-current-release-date-than-revision-history)
+		6.2.7 [Missing Date in Involvements](#missing-date-in-involvements)
+		6.2.8 [Use of MD5 As the Only Hash Algorithm](#use-of-md5-as-the-only-hash-algorithm)
+		6.2.9 [Use of SHA-1 As the Only Hash Algorithm](#use-of-sha-1-as-the-only-hash-algorithm)
+		6.2.10 [Missing TLP Label (Obsolete)](#missing-tlp-label)
+		6.2.11 [Missing Canonical URL](#missing-canonical-url)
+		6.2.12 [Missing Document Language](#missing-document-language)
+		6.2.13 [Sorting](#recommended-tests--sorting)
+		6.2.14 [Use of Private Language](#use-of-private-language)
+		6.2.15 [Use of Default Language](#use-of-default-language)
+		6.2.16 [Missing Product Identification Helper](#missing-product-identification-helper)
+		6.2.17 [CVE in Field IDs](#cve-in-field-ids)
+		6.2.18 [Product Version Range without vers](#product-version-range-without-vers)
+		6.2.19 [CVSS for Fixed Products](#cvss-for-fixed-products)
+		6.2.20 [Additional Properties](#additional-properties)
+		6.2.21 [Same Timestamps in Revision History](#same-timestamps-in-revision-history)
+		6.2.22 [Document Tracking ID in Title](#document-tracking-id-in-title)
+		6.2.23 [Usage of Deprecated CWE](#usage-of-deprecated-cwe)
+		6.2.24 [Usage of Non-Latest CWE Version](#usage-of-non-latest-cwe-version)
+		6.2.25 [Usage of CWE Not Allowed for Vulnerability Mapping](#usage-of-cwe-not-allowed-for-vulnerability-mapping)
+		6.2.26 [Usage of CWE Allowed with Review for Vulnerability Mapping](#usage-of-cwe-allowed-with-review-for-vulnerability-mapping)
+		6.2.27 [Discouraged Product Status Remediation Combination](#discouraged-product-status-remediation-combination)
+		6.2.28 [Usage of Max UUID](#usage-of-max-uuid)
+		6.2.29 [Usage of Nil UUID](#usage-of-nil-uuid)
+		6.2.30 [Usage of Sharing Group on TLP:CLEAR](#usage-of-sharing-group-on-tlp-clear)
+		6.2.31 [Hardware and Software](#hardware-and-software)
+		6.2.32 [Use of Same Product Identification Helper for Different Products](#use-of-same-product-identification-helper-for-different-products)
+		6.2.33 [Disclosure Date Newer than Revision History](#disclosure-date-newer-than-revision-history)
+		6.2.34 [Usage of Unknown SSVC Decision Point Base Namespace](#usage-of-unknown-ssvc-decision-point-base-namespace)
+		6.2.35 [Usage of Unregistered SSVC Decision Point Base Namespace in TLP:CLEAR Document](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document)
+		6.2.36 [Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)
+		6.2.37 [Usage of Unknown SSVC Decision Point Namespace without Resource](#usage-of-unknown-ssvc-decision-point-namespace-without-resource)
+		6.2.38 [Usage of Deprecated Profile](#usage-of-deprecated-profile)
+		6.2.39 [Profile Tests](#recommended-profile-tests)
+			6.2.39.1 [Missing Fixed Product](#missing-fixed-product)
+			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)
+			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)
+			6.2.39.4 [Language Specific Superseding Document](#language-specific-superseding-document)
+		6.2.40 [Product Description without Product Reference](#product-description-without-product-reference)
+		6.2.41 [Old EPSS Timestamp](#old-epss-timestamp)
+		6.2.42 [Inconsistent Product Identification Helper](#inconsistent-product-identification-helper)
+		6.2.43 [Missing License Expression](#missing-license-expression)
+		6.2.44 [Deprecated License Identifier](#deprecated-license-identifier)
+		6.2.45 [Non-Existing License Identifier](#non-existing-license-identifier)
+		6.2.46 [Language Specific License Text](#language-specific-license-text)
+		6.2.47 [Use of Qualitative Severity Rating by Issuing Party](#use-of-qualitative-severity-rating-by-issuing-party)
+		6.2.48 [Misuse at Vendor Name](#misuse-at-vendor-name)
+		6.2.49 [Upper Open Ended Product Version Range](#upper-open-ended-product-version-range)
+		6.2.50 [Overlapping Product Version Range](#overlapping-product-version-range)
+			6.2.50.1 [Overlapping Product Version Range with vers in Contradicting Product Status Group](#overlapping-product-version-range-with-vers-in-contradicting-product-status-group)
+			6.2.50.2 [Overlapping Product Version Range with vls in Contradicting Product Status Group](#overlapping-product-version-range-with-vls-in-contradicting-product-status-group)
+			6.2.50.3 [Overlapping Product Version Range with Product Version in Contradicting Product Status Group](#overlapping-product-version-range-with-product-version-in-contradicting-product-status-group)
+		6.2.51 [Unknown Version Scheme in vers](#unknown-version-scheme-in-vers)
+		6.2.52 [Unknown Hash Algorithm](#unknown-hash-algorithm)
+		6.2.53 [Matching Text for Registered ID System](#matching-text-for-registered-id-system)
+	6.3 [Informative Tests](#informative-tests)
+		6.3.1 [Use of CVSS v2 As the Only Scoring System](#use-of-cvss-v2-as-the-only-scoring-system)
+		6.3.2 [Use of CVSS v3.0](#use-of-cvss-v3-0)
+		6.3.3 [Missing CVE](#missing-cve)
+		6.3.4 [Missing CWE](#missing-cwe)
+		6.3.5 [Use of Short Hash](#use-of-short-hash)
+		6.3.6 [Use of Non-self Referencing URLs Failing to Resolve](#use-of-non-self-referencing-urls-failing-to-resolve)
+		6.3.7 [Use of Self Referencing URLs Failing to Resolve](#use-of-self-referencing-urls-failing-to-resolve)
+		6.3.8 [Spell Check](#spell-check)
+		6.3.9 [Branch Categories](#branch-categories)
+		6.3.10 [Usage of Product Version Range](#usage-of-product-version-range)
+		6.3.11 [Usage of V as Version Indicator](#usage-of-v-as-version-indicator)
+		6.3.12 [Missing CVSS v4.0](#missing-cvss-v4-0)
+		6.3.13 [Usage of Non-Latest SSVC Decision Point Version](#usage-of-non-latest-ssvc-decision-point-version)
+		6.3.14 [Usage of Unregistered SSVC Decision Point Base Namespace in Non TLP:CLEAR Document](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document)
+		6.3.15 [Usage of SSVC Decision Point Namespace with Extension in Non TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)
+		6.3.16 [Grammar Check](#grammar-check)
+		6.3.17 [Use of Unregistered License](#use-of-unregistered-license)
+		6.3.18 [Use of Qualitative Severity Rating](#use-of-qualitative-severity-rating)
+		6.3.19 [Overlapping Product Version Range{informative-tests--overlapping-product-version-range}](#overlapping-product-version-range-informative-tests-overlapping-product-version-range)
+			6.3.19.1 [Overlapping Product Version Range with vers in Same Product Status Group](#overlapping-product-version-range-with-vers-in-same-product-status-group)
+			6.3.19.2 [Overlapping Product Version Range with vls in Same Product Status Group](#overlapping-product-version-range-with-vls-in-same-product-status-group)
+			6.3.19.3 [Overlapping Product Version Range with Product Version in Same Product Status Group](#overlapping-product-version-range-with-product-version-in-same-product-status-group)
+			6.3.19.4 [Overlapping Product Version Range with Product Version Range in Branch](#overlapping-product-version-range-with-product-version-range-in-branch)
+			6.3.19.5 [Overlapping Product Version Range with Product Version in Branch](#overlapping-product-version-range-with-product-version-in-branch)
+		6.3.20 [Use of Unregistered ID System](#use-of-unregistered-id-system)
+	6.4 [Presets](#presets)
+		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)
+		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)
+		6.4.3 [Additional Presets](#additional-presets)
+7. [Distributing CSAF Documents](#distributing-csaf-documents)
+	7.1 [Requirements](#requirements)
+		7.1.1 [Requirement 1: Valid CSAF Document](#requirement-1-valid-csaf-document)
+		7.1.2 [Requirement 2: Filename](#requirement-2-filename)
+		7.1.3 [Requirement 3: TLS](#requirement-3-tls)
+		7.1.4 [Requirement 4: TLP:CLEAR](#requirement-4-tlp-clear)
+		7.1.5 [Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED](#requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red)
+		7.1.6 [Requirement 6: No Redirects](#requirement-6-no-redirects)
+		7.1.7 [Requirement 7: provider-metadata.json](#requirement-7-provider-metadata-json)
+		7.1.8 [Requirement 8: security.txt](#requirement-8-security-txt)
+		7.1.9 [Requirement 9: Well-Known URL for provider-metadata.json](#requirement-9-well-known-url-for-provider-metadata-json)
+		7.1.10 [Requirement 10: DNS Path](#requirement-10-dns-path)
+		7.1.11 [Requirement 11: One Folder per Year](#requirement-11-one-folder-per-year)
+		7.1.12 [Requirement 12: index.txt](#requirement-12-index-txt)
+		7.1.13 [Requirement 13: changes.csv](#requirement-13-changes-csv)
+		7.1.14 [Requirement 14: Directory Listings](#requirement-14-directory-listings)
+		7.1.15 [Requirement 15: ROLIE Feed](#requirement-15-rolie-feed)
+		7.1.16 [Requirement 16: ROLIE Service Document](#requirement-16-rolie-service-document)
+		7.1.17 [Requirement 17: ROLIE Category Document](#requirement-17-rolie-category-document)
+		7.1.18 [Requirement 18: Integrity](#requirement-18-integrity)
+		7.1.19 [Requirement 19: Signatures](#requirement-19-signatures)
+		7.1.20 [Requirement 20: Public OpenPGP Key](#requirement-20-public-openpgp-key)
+		7.1.21 [Requirement 21: List of CSAF Providers](#requirement-21-list-of-csaf-providers)
+		7.1.22 [Requirement 22: Two Disjoint Issuing Parties](#requirement-22-two-disjoint-issuing-parties)
+		7.1.23 [Requirement 23: Mirror](#requirement-23-mirror)
+		7.1.24 [Requirement 24: HTTP User-Agent](#requirement-24-http-user-agent)
+		7.1.25 [Requirement 25: Access-Control-Allow-Origin](#requirement-25-access-control-allow-origin)
+	7.2 [Roles](#roles)
+		7.2.1 [Role: CSAF Publisher](#role-csaf-publisher)
+		7.2.2 [Role: CSAF Provider](#role-csaf-provider)
+		7.2.3 [Role: CSAF Trusted Provider](#role-csaf-trusted-provider)
+		7.2.4 [Role: CSAF Lister](#role-csaf-lister)
+		7.2.5 [Role: CSAF Aggregator](#role-csaf-aggregator)
+	7.3 [Retrieving Rules](#retrieving-rules)
+		7.3.1 [Finding provider-metadata.json](#finding-provider-metadata-json)
+		7.3.2 [Retrieving CSAF Documents](#retrieving-csaf-documents)
+		7.3.3 [Finding aggregator.json](#finding-aggregator-json)
+	7.4 [Transition between CSAF 2.0 and CSAF 2.1](#transition-between-csaf-2-0-and-csaf-2-1)
+		7.4.1 [Announcing the Transition](#announcing-the-transition)
+		7.4.2 [Transition Process for a CSAF Provider](#transition-process-for-a-csaf-provider)
+		7.4.3 [Archive of CSAF Document from Previous Version](#archive-of-csaf-document-from-previous-version)
+		7.4.4 [Transition Process for a CSAF Aggregator](#transition-process-for-a-csaf-aggregator)
+8. [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)
+9. [Conformance](#conformance)
+	9.1 [Conformance Targets](#conformance-targets)
+		9.1.1 [Conformance Clause 1: CSAF Document](#conformance-clause-1-csaf-document)
+		9.1.2 [Conformance Clause 2: CSAF Producer](#conformance-clause-2-csaf-producer)
+		9.1.3 [Conformance Clause 3: CSAF Direct Producer](#conformance-clause-3-csaf-direct-producer)
+		9.1.4 [Conformance Clause 4: CSAF Converter](#conformance-clause-4-csaf-converter)
+		9.1.5 [Conformance Clause 5: CVRF CSAF Converter](#conformance-clause-5-cvrf-csaf-converter)
+		9.1.6 [Conformance Clause 6: CSAF Content Management System](#conformance-clause-6-csaf-content-management-system)
+		9.1.7 [Conformance Clause 7: CSAF Post-Processor](#conformance-clause-7-csaf-post-processor)
+		9.1.8 [Conformance Clause 8: CSAF Modifier](#conformance-clause-8-csaf-modifier)
+		9.1.9 [Conformance Clause 9: CSAF Translator](#conformance-clause-9-csaf-translator)
+		9.1.10 [Conformance Clause 10: CSAF Consumer](#conformance-clause-10-csaf-consumer)
+		9.1.11 [Conformance Clause 11: CSAF Viewer](#conformance-clause-11-csaf-viewer)
+		9.1.12 [Conformance Clause 12: CSAF Management System](#conformance-clause-12-csaf-management-system)
+		9.1.13 [Conformance Clause 13: CSAF Asset Matching System](#conformance-clause-13-csaf-asset-matching-system)
+		9.1.14 [Conformance Clause 14: CSAF Basic Validator](#conformance-clause-14-csaf-basic-validator)
+		9.1.15 [Conformance Clause 15: CSAF Extended Validator](#conformance-clause-15-csaf-extended-validator)
+		9.1.16 [Conformance Clause 16: CSAF Full Validator](#conformance-clause-16-csaf-full-validator)
+		9.1.17 [Conformance Clause 17: CSAF SBOM Matching System](#conformance-clause-17-csaf-sbom-matching-system)
+		9.1.18 [Conformance Clause 18: CSAF 2.0 to CSAF 2.1 Converter](#conformance-clause-18-csaf-2-0-to-csaf-2-1-converter)
+		9.1.19 [Conformance Clause 19: CSAF Library](#conformance-clause-19-csaf-library)
+		9.1.20 [Conformance Clause 20: CSAF Library with Basic Validation](#conformance-clause-20-csaf-library-with-basic-validation)
+		9.1.21 [Conformance Clause 21: CSAF Library with Extended Validation](#conformance-clause-21-csaf-library-with-extended-validation)
+		9.1.22 [Conformance Clause 22: CSAF Library with Full Validation](#conformance-clause-22-csaf-library-with-full-validation)
+		9.1.23 [Conformance Clause 23: CSAF Downloader](#conformance-clause-23-csaf-downloader)
+		9.1.24 [Conformance Clause 24: CSAF Withdrawer](#conformance-clause-24-csaf-withdrawer)
+		9.1.25 [Conformance Clause 25: CSAF Superseder](#conformance-clause-25-csaf-superseder)
 
-Appendix A. [Acknowledgments](#acknowledgments)  
-Appendix B. [Revision History](#revision-history)  
-Appendix C. [Guidance on the Size of CSAF Documents](#guidance-on-the-size-of-csaf-documents)  
-	C.1 [File Size](#file-size)  
-	C.2 [Array Length](#array-length)  
-	C.3 [String Length](#string-length)  
-	C.4 [Date](#date)  
-	C.5 [Enum](#enum)  
-	C.6 [URI Length](#uri-length)  
-	C.7 [UUID Length](#uuid-length)  
+Appendix A. [Acknowledgments](#acknowledgments)
+Appendix B. [Revision History](#revision-history)
+Appendix C. [Guidance on the Size of CSAF Documents](#guidance-on-the-size-of-csaf-documents)
+	C.1 [File Size](#file-size)
+	C.2 [Array Length](#array-length)
+	C.3 [String Length](#string-length)
+	C.4 [Date](#date)
+	C.5 [Enum](#enum)
+	C.6 [URI Length](#uri-length)
+	C.7 [UUID Length](#uuid-length)
 -------
 
 # 1. Introduction <a id='introduction'></a>
@@ -1485,7 +1485,7 @@ and `x_generic_uris`, `1` is mandatory.
 ```
     "product_identification_helper": {
       // ...
-      "properties": { 
+      "properties": {
         "cpe": {
           // ...
         },
@@ -1613,7 +1613,7 @@ These values are derived from the currently supported digests OpenSSL \[[OPENSSL
 >
 >```
 >  Supported digests:
->  -blake2b512                -blake2s256                -md4                      
+>  -blake2b512                -blake2s256                -md4
 >  -md5                       -md5-sha1                  -mdc2
 >  -ripemd                    -ripemd160                 -rmd160
 >  -sha1                      -sha224                    -sha256
@@ -1809,9 +1809,9 @@ In the latter case the remediations SHALL include the new stock keeping units or
 
 ```
     "skus": {
-        //...  
+        //...
       "items": {
-        //...  
+        //...
       }
     },
 ```
@@ -1823,7 +1823,7 @@ abbreviated (partial) stock keeping unit (SKU) of the component to identify.
 
 If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of
 the stock keeping unit and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 ##### 3.1.3.3.8 Full Product Name Type - Product Identification Helper - Generic URIs <a id='full-product-name-type-product-identification-helper-generic-uris'></a>
@@ -1837,7 +1837,7 @@ either vendor-specific or derived from a standard not yet supported.
       "items": {
         // ...
       }
-    }  
+    }
 ```
 
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
@@ -2787,7 +2787,7 @@ A single multiplier might have target audiences.
 > For example, a National CSIRT might create different CSAF documents for the same vulnerability for critical
 > infrastructure companies in different sectors, government agencies, non-critical industry, and the public based on
 > information sharing agreements and threats to the target group.
-  
+
 The creation step can make use of a CSAF modifier that replaces metadata, e.g. the document publisher.
 Currently, this value includes multipliers, republishers, and forwarders.
 
@@ -5301,7 +5301,7 @@ The relevant path for this test is:
           }
           "products": [
             "CSAFPID-9080700"
-          ]          
+          ]
         },
         {
           "content": {
@@ -5314,7 +5314,7 @@ The relevant path for this test is:
           }
           "products": [
             "CSAFPID-9080700"
-          ]          
+          ]
         }
       ]
     }
@@ -7819,7 +7819,7 @@ The relevant path for this test is:
       }
     ],
     // ...
-  }  
+  }
 ```
 
 > The note has the correct title. However, it uses the wrong category.
@@ -7941,7 +7941,7 @@ The relevant path for this test is:
       ],
       "category": "product_version",
       "name": "1.1"
-    },       
+    },
 ```
 
 > Both categories `product_version` and `product_version_range` were used along the path.
@@ -8023,7 +8023,7 @@ a remediation exists.
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/known_affected[]
   /vulnerabilities[]/product_status/last_affected[]
   /vulnerabilities[]/product_status/under_investigation[]
@@ -8061,7 +8061,7 @@ a metric object exists which covers this product.
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/known_affected[]
   /vulnerabilities[]/product_status/last_affected[]
 ```
@@ -9720,7 +9720,7 @@ The relevant path for this test is:
       }
     ],
     // ...
-  }  
+  }
 ```
 
 > The note has the correct title. However, it uses the wrong category.
@@ -10101,7 +10101,7 @@ The warning MUST differentiate between officially registered version schemes and
 > Different implementations might support different version schemes.
 > Usually, unknown version schemes hinder the automated evaluation of vers.
 > However, it is expected that the test is able to recognize all officially registered version schemes.
-> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
+> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.
 
 The relevant paths for this test are:
 
@@ -10132,7 +10132,7 @@ and those not mentioned there.
 > Different implementations might support different hash algorithms.
 > Usually, unknown hash algorithms might hinder the automated matching of hashes.
 > However, it is expected that the test is able to recognize all algorithms mentioned in the standard.
-> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
+> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.
 
 The relevant paths for this test are:
 
@@ -11425,10 +11425,10 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 ```
 
 The `maintained_until` and `maintained_from` properties can be used to indicate that the distributions contained in `provider-metadata.json` at
-the given `canonical_url` are only guaranteed to be maintained until or after the specified date and time. 
+the given `canonical_url` are only guaranteed to be maintained until or after the specified date and time.
 This SHOULD be used to support a transition period between CSAF 2.0 and CSAF 2.1 (cf. section [7.4](#transition-between-csaf-2-0-and-csaf-2-1)).
-CSAF downloaders (cf. section [9.1.23](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json` 
-SHOULD evaluate this property and emit a warning if the current date is less than 90 days away from `maintained_until` and an error if the current 
+CSAF downloaders (cf. section [9.1.23](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json`
+SHOULD evaluate this property and emit a warning if the current date is less than 90 days away from `maintained_until` and an error if the current
 date exceeds `maintained_until`.
 The programs MAY provide a non-default option to use the `provider-metadata.json` anyway.
 Furthermore, such programs SHOULD evaluate the `maintained_from` property and output a warning if the current date is still before the `maintained_from` timestamp.
@@ -11469,7 +11469,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
 e.g. in case of changes to the organizational structure through mergers and acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
-A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
+A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents
 and provider metadata of both versions are served simultaneously (cf. section [7.4](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
 
@@ -12305,7 +12305,7 @@ The following rules apply for the archival of CSAF document from a previous vers
 Similarly, to the transition process for a CSAF provider, the same process SHOULD be used for a CSAF aggregator.
 It is RECOMMENDED to use the following URLs during the process:
 
-- `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.  
+- `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.
 - `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
 - `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
 
@@ -12798,7 +12798,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   * `/document/category` (based on the templates from configuration)
 
 * When updating an existing CSAF Document:
-  
+
   * prefills all fields which have be present in the existing CSAF Document
   * adds a new item in `/document/tracking/revision_history[]`
   * updates the following fields with the values given below or based on the templates from configuration:
@@ -13056,7 +13056,7 @@ Secondly, the program fulfills the following for all items of:
 
     > There is a chance, that this replacement is incorrect or another category is a better fit.
     > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
-  
+
   * If any branch category appears multiple times along a path under `/product_tree/branches` and the category is not an excepted one according to
     test [6.1.57](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
     applying the following steps to the path:
@@ -13218,7 +13218,7 @@ Secondly, the program fulfills the following for all items of:
       the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     * If the `/document/title` starts with the string `Withdrawn` or the `/document/category` has the value `Withdrawn` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
- 
+
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
     > to the profile.
 
@@ -13228,7 +13228,7 @@ Secondly, the program fulfills the following for all items of:
     of the original CSAF Document and output a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter MUST convert it according to the table below:
-  
+
   | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
   |---------------------------|---------------------------|
   | `TLP:WHITE`               | `TLP:CLEAR`               |
@@ -13312,7 +13312,7 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0
   calculator exists, the CSAF 2.0 to CSAF 2.1 Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all
   affected products of the vulnerability.
-  
+
   > A tool MAY implement an option to suppress this conversion.
 
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL

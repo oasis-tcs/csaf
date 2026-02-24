@@ -7,7 +7,7 @@ The warning MUST differentiate between officially registered version schemes and
 > Different implementations might support different version schemes.
 > Usually, unknown version schemes hinder the automated evaluation of vers.
 > However, it is expected that the test is able to recognize all officially registered version schemes.
-> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
+> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.
 
 The relevant paths for this test are:
 

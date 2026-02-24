@@ -2,7 +2,7 @@ accessibility-check: 0 (Tidy Classic)
 add-meta-charset: no
 add-xml-decl: no
 add-xml-space: no
-alt-text: 
+alt-text:
 anchor-as-name: yes
 ascii-chars: no
 assume-xml-procins: no
@@ -20,7 +20,7 @@ drop-empty-paras: yes
 drop-proprietary-attributes: no
 enclose-block-text: no
 enclose-text: no
-error-file: 
+error-file:
 escape-cdata: no
 escape-scripts: yes
 fix-backslash: yes
@@ -49,24 +49,24 @@ markup: yes
 merge-divs: auto
 merge-emphasis: yes
 merge-spans: auto
-mute: 
+mute:
 mute-id: no
 ncr: yes
-new-blocklevel-tags: 
-new-empty-tags: 
-new-inline-tags: 
-new-pre-tags: 
+new-blocklevel-tags:
+new-empty-tags:
+new-inline-tags:
+new-pre-tags:
 newline: LF
 numeric-entities: no
 omit-optional-tags: no
 output-bom: auto
 output-encoding: utf8
-output-file: 
+output-file:
 output-html: no
 output-xhtml: no
 output-xml: no
 preserve-entities: no
-priority-attributes: 
+priority-attributes:
 punctuation-wrap: no
 quiet: no
 quote-ampersand: yes

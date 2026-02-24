@@ -91,7 +91,7 @@ The following rules apply for the archival of CSAF document from a previous vers
 Similarly, to the transition process for a CSAF provider, the same process SHOULD be used for a CSAF aggregator.
 It is RECOMMENDED to use the following URLs during the process:
 
-- `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.  
+- `/.well-known/csaf-aggregator/aggregator.json` for the currently valid aggregator metadata.
 - `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
 - `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
 

@@ -11,7 +11,7 @@ The following abbreviations are used:
 * SH= Stefan Hagen
 * TS = Thomas Schmidt
 
-| Item # | Date        | Commenter | Description | Date acknowledged | Resolution | Disposition | 
+| Item # | Date        | Commenter | Description | Date acknowledged | Resolution | Disposition |
 | ------------- | ------------- |  ------------- |  ------------- |  ------------- |  ------------- |  ------------- |
 | [1](https://lists.oasis-open.org/archives/csaf-comment/202108/msg00001.html) | 2021-08-24 | Eliot Lear | [Section 7.1.6: Redirects](https://github.com/oasis-tcs/csaf/issues/342) | 2021-08-25 | Discussed at TC call | No change required |
 | [2](https://lists.oasis-open.org/archives/csaf-comment/202108/msg00001.html) | 2021-08-24 | Eliot Lear | [Section 5.1 filename - #343](https://github.com/oasis-tcs/csaf/issues/343) | 2021-08-25 | Discussed at TC call | No change required |

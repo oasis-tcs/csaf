@@ -37,7 +37,7 @@ The relevant path for this test is:
           }
           "products": [
             "CSAFPID-9080700"
-          ]          
+          ]
         },
         {
           "content": {
@@ -50,7 +50,7 @@ The relevant path for this test is:
           }
           "products": [
             "CSAFPID-9080700"
-          ]          
+          ]
         }
       ]
     }

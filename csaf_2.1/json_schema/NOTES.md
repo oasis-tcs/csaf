@@ -102,6 +102,6 @@ product_status : {
 
 ## Examples in the schema?
 
-JSON Schema allows for examples. 
+JSON Schema allows for examples.
 Do we want to put examples in?
 Or leave that to the specification document?

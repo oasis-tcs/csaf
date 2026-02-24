@@ -866,7 +866,7 @@ Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purl`, `sbom_ur
 ```
     "product_identification_helper": {
       // ...
-      "properties": { 
+      "properties": {
         "cpe": {
           // ...
         },
@@ -974,14 +974,14 @@ These values are derived from the currently supported digests OpenSSL [OPENSSL].
 >
 >```
 >  Supported digests:
->  -blake2b512                -blake2s256                -md4                      
->  -md5                       -md5-sha1                  -ripemd                   
->  -ripemd160                 -rmd160                    -sha1                     
->  -sha224                    -sha256                    -sha3-224                 
->  -sha3-256                  -sha3-384                  -sha3-512                 
->  -sha384                    -sha512                    -sha512-224               
->  -sha512-256                -shake128                  -shake256                 
->  -sm3                       -ssl3-md5                  -ssl3-sha1                
+>  -blake2b512                -blake2s256                -md4
+>  -md5                       -md5-sha1                  -ripemd
+>  -ripemd160                 -rmd160                    -sha1
+>  -sha224                    -sha256                    -sha3-224
+>  -sha3-256                  -sha3-384                  -sha3-512
+>  -sha384                    -sha512                    -sha512-224
+>  -sha512-256                -shake128                  -shake256
+>  -sm3                       -ssl3-md5                  -ssl3-sha1
 >  -whirlpool
 >```
 
@@ -1035,7 +1035,7 @@ Any given model number of value type `string` with at least 1 character represen
 > The terms "model", "model number" and "model variant" are mostly used synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
 
 If a part of a model number of the component to identify is given, it SHOULD begin with the first character of the model number and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 *Examples 14:*
@@ -1101,7 +1101,7 @@ A list of serial numbers SHOULD only be used if a certain range of serial number
 Any given serial number of value type `string` with at least 1 character represents a full or abbreviated (partial) serial number of the component to identify.
 
 If a part of a serial number of the component to identify is given, it SHOULD begin with the first character of the serial number and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 ##### 3.1.3.3.7 Full Product Name Type - Product Identification Helper - SKUs
@@ -1114,9 +1114,9 @@ A list of stock keeping units SHOULD only be used if the list of relationships i
 
 ```
     "skus": {
-        //...  
+        //...
       "items": {
-        //...  
+        //...
       }
     },
 ```
@@ -1126,7 +1126,7 @@ Any given stock keeping unit of value type `string` with at least 1 character re
 > Sometimes this is also called "item number", "article number" or "product number".
 
 If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of the stock keeping unit and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
+Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).
 Two `*` MUST NOT follow each other.
 
 ##### 3.1.3.3.8 Full Product Name Type - Product Identification Helper - Generic URIs
@@ -1139,7 +1139,7 @@ List of generic URIs (`x_generic_uris`) of value type `array` with at least 1 it
       "items": {
         // ...
       }
-    }  
+    }
 ```
 
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
@@ -2749,7 +2749,7 @@ This value contradicts with the categories `none_available` and `no_fix_planned`
 The value `none_available` indicates that there is currently no fix or other remediation available. The text in field `details` SHOULD contain details about why there is no fix or other remediation.
 The values `none_available` and `vendor_fix` are mutually exclusive per product.
 
-> An issuing party might choose to use this category to announce that a fix is currently developed. It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.  
+> An issuing party might choose to use this category to announce that a fix is currently developed. It is recommended that this also includes a date when a customer can expect the fix to be ready and distributed.
 
 The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time. This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated. The text in field `details` SHOULD contain details about why there will be no fix issued.
 The values `no_fix_planned` and `vendor_fix` are mutually exclusive per product.
@@ -3319,7 +3319,7 @@ Contradiction groups are:
 * Affected:
 
    ```
-   /vulnerabilities[]/product_status/first_affected[]  
+   /vulnerabilities[]/product_status/first_affected[]
    /vulnerabilities[]/product_status/known_affected[]
    /vulnerabilities[]/product_status/last_affected[]
    ```
@@ -4681,7 +4681,7 @@ For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Af
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/known_affected[]
   /vulnerabilities[]/product_status/last_affected[]
   /vulnerabilities[]/product_status/under_investigation[]
@@ -4718,7 +4718,7 @@ For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Af
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status/first_affected[]  
+  /vulnerabilities[]/product_status/first_affected[]
   /vulnerabilities[]/product_status/known_affected[]
   /vulnerabilities[]/product_status/last_affected[]
 ```
@@ -5855,7 +5855,7 @@ MUST exist. Each ROLIE feed document MUST be a JSON file that conforms with [RFC
           "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-white.json"
         }
       ],
-      "category": [ 
+      "category": [
         {
           "scheme": "urn:ietf:params:rolie:category:information-type",
           "term": "csaf"
@@ -6485,7 +6485,7 @@ A CSAF content management system satisfies the "CSAF content management system" 
   * `/document/category` (based on the templates from configuration)
 
 * When updating an existing CSAF document:
-  
+
   * prefills all fields which have be present in the existing CSAF document
   * adds a new item in `/document/tracking/revision_history[]`
   * updates the following fields with the values given below or based on the templates from configuration:

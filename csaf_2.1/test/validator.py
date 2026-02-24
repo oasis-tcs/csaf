@@ -20,7 +20,7 @@ def create_resource_with_specification(schema):
         # If that fails, explicitly use Draft 2020-12
         resource = Resource(schema, DRAFT202012)
     return resource
-   
+
 
 if len(sys.argv) < 3:
     print("<command> <schema.json> <validated.json> [<referenced-schema-01.json> [.. <referenced-schema-n.json>]]")
@@ -55,7 +55,7 @@ with open(json_input, 'r') as f:
     input_data = f.read()
     input_obj = json.loads(input_data, parse_float=decimal.Decimal)
 
-# Even though the meta schema should enforce the validation, we need to set the validator here 
+# Even though the meta schema should enforce the validation, we need to set the validator here
 # due to the missing support for custom dialects
 # Nevertheless, this implementation will check correctly whether the format is valid
 validator = Draft202012Validator(schema, registry=registry, format_checker=Draft202012Validator.FORMAT_CHECKER)

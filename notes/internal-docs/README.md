@@ -60,4 +60,3 @@ After the TC verifies that the HTML file derived from the markdown is correct, t
 - the .css style sheet, in a "styles" directory
 - any other files which are a part of the Work Product
 - there is usually no need to include an HTML version in the ZIP file
-

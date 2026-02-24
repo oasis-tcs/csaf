@@ -1,7 +1,7 @@
 # License Terms
 
 Content in this GitHub code repository has been [contributed](https://www.oasis-open.org/policies-guidelines/ipr#def-contribution)
-by OASIS TC Members, and is governed by the OASIS policies, including the 
+by OASIS TC Members, and is governed by the OASIS policies, including the
 [Intellectual Property Rights (IPR) Policy](https://www.oasis-open.org/policies-guidelines/ipr),
 the [Technical Committee (TC) Process](https://www.oasis-open.org/policies-guidelines/tc-process),
 [Bylaws](https://www.oasis-open.org/policies-guidelines/bylaws),

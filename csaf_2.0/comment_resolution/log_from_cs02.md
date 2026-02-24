@@ -6,7 +6,7 @@ A status of "Completed" in the Disposition column indicates that the editors hav
 
 The item number is a hyperlink to the issue number in this OASIS TC CASF repository at https://github.com/oasis-tcs/csaf/.
 
-| Item #                                             | Date       | Commenter      | Description                            | Date acknowledged | Resolution           | Disposition                                             | 
+| Item #                                             | Date       | Commenter      | Description                            | Date acknowledged | Resolution           | Disposition                                             |
 |----------------------------------------------------|------------|----------------|----------------------------------------|-------------------|----------------------|---------------------------------------------------------|
 | [1](https://github.com/oasis-tcs/csaf/pull/568/commits/97873fda3bca57e2dee91955f4281e8ff7378893)  | 2022-07-06 | Paul Knight (OASIS Staff)  | Several instances of improperly formed key words (non-compliance to RFC 2119/8174)  | 2022-07-20        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/568) |
 | [2](https://github.com/oasis-tcs/csaf/pull/566/files)  | 2022-07-14 | Denny Page  | Example 129 uses quotes inconsistent and has a trailing space after commas      | 2022-07-20        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/566) |

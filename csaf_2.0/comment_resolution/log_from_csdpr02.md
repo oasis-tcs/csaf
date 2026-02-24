@@ -6,7 +6,7 @@ A status of "Completed" in the Disposition column indicates that the editors hav
 
 The item number is a hyperlink to the issue number in this OASIS TC CASF repository at https://github.com/oasis-tcs/csaf/.
 
-| Item #                                             | Date       | Commenter      | Description                            | Date acknowledged | Resolution           | Disposition                                             | 
+| Item #                                             | Date       | Commenter      | Description                            | Date acknowledged | Resolution           | Disposition                                             |
 |----------------------------------------------------|------------|----------------|----------------------------------------|-------------------|----------------------|---------------------------------------------------------|
 | [1](https://github.com/oasis-tcs/csaf/issues/512)  | 2022-04-27 | Thomas Proell  | Remediations are confusing             | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/540) |
 | [2](https://github.com/oasis-tcs/csaf/issues/513)  | 2022-04-27 | Thomas Schmidt | Clarify aggregator requirements        | 2022-04-27        | Discussed at TC call | [TC agrees. Editors added clarifications and explanations as needed.](https://github.com/oasis-tcs/csaf/pull/543) |

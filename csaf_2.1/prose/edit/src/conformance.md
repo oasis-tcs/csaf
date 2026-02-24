@@ -433,7 +433,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   * `/document/category` (based on the templates from configuration)
 
 * When updating an existing CSAF Document:
-  
+
   * prefills all fields which have be present in the existing CSAF Document
   * adds a new item in `/document/tracking/revision_history[]`
   * updates the following fields with the values given below or based on the templates from configuration:
@@ -691,7 +691,7 @@ Secondly, the program fulfills the following for all items of:
 
     > There is a chance, that this replacement is incorrect or another category is a better fit.
     > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
-  
+
   * If any branch category appears multiple times along a path under `/product_tree/branches` and the category is not an excepted one according to
     test [sec](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert the data into a valid product tree by
     applying the following steps to the path:
@@ -853,7 +853,7 @@ Secondly, the program fulfills the following for all items of:
       the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     * If the `/document/title` starts with the string `Withdrawn` or the `/document/category` has the value `Withdrawn` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter MUST try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
- 
+
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
     > to the profile.
 
@@ -863,7 +863,7 @@ Secondly, the program fulfills the following for all items of:
     of the original CSAF Document and output a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
 * `/document/csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter MUST update the value to `2.1`.
 * `/document/distribution/tlp/label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter MUST convert it according to the table below:
-  
+
   | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
   |---------------------------|---------------------------|
   | `TLP:WHITE`               | `TLP:CLEAR`               |
@@ -947,7 +947,7 @@ Secondly, the program fulfills the following for all items of:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0
   calculator exists, the CSAF 2.0 to CSAF 2.1 Converter MUST convert the vector given in the fragment into a `cvss_v4` object linked to all
   affected products of the vulnerability.
-  
+
   > A tool MAY implement an option to suppress this conversion.
 
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL

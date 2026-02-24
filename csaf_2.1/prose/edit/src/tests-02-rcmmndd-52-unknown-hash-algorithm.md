@@ -8,7 +8,7 @@ and those not mentioned there.
 > Different implementations might support different hash algorithms.
 > Usually, unknown hash algorithms might hinder the automated matching of hashes.
 > However, it is expected that the test is able to recognize all algorithms mentioned in the standard.
-> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
+> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.
 
 The relevant paths for this test are:
 
