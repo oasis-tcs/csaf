@@ -59,7 +59,8 @@
               "category": "informational",
               "content": {
                 "documentation": "This extension is for documentation and test purposed only. It is valid. It is not allowed to be used in a production CSAF."
-              }
+              },
+              "critical": false
             }
           ]
         },
