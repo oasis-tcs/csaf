@@ -317,7 +317,7 @@
   "6.3.20": "use-of-unregistered-id-system",
   "6.3.21": "informative-tests--extension-tests",
   "6.3.21.1": "extension-category-critical",
-  "6.3.21.2": "usage-of-experimental-extension-in-tlp-clear-document",
+  "6.3.21.2": "usage-of-experimental-extension-in-non-tlp-clear-document",
   "6.3.21.3": "usage-of-extension-at-document-level",
   "6.3.21.4": "usage-of-extension-in-product-tree-branch-path",
   "6.3.21.5": "usage-of-extension-in-product-tree-full-product-names-path",

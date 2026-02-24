@@ -226,7 +226,7 @@
   "215": "overlapping-product-version-range-with-product-version-in-branch-eg-1",
   "216": "use-of-unregistered-id-system-eg-1",
   "216a": "extension-category-critical-eg-1",
-  "216b": "usage-of-experimental-extension-in-tlp-clear-document-eg-1",
+  "216b": "usage-of-experimental-extension-in-non-tlp-clear-document-eg-1",
   "216c": "usage-of-extension-at-document-level-eg-1",
   "216d": "usage-of-extension-in-product-tree-branch-path-eg-1",
   "216e": "usage-of-extension-in-product-tree-full-product-names-path-eg-1",

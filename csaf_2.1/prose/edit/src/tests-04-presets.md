@@ -95,3 +95,33 @@ Additional presets are defined as follows:
     - [sec](#usage-of-non-latest-ssvc-decision-point-version)
     - [sec](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document)
     - [sec](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)
+- `extensions`:
+  - Description: Any test that is related to CSAF Extensions.
+  - Set:
+    -[sec](#mandatory-tests--extension-tests-content-schema)
+    -[sec](#mandatory-tests--extension-tests-extension-schema)
+    -[sec](#mandatory-tests--extension-tests-metadata)
+    -[sec](#extension-in-superseded-or-withdrawn-document)
+    -[sec](#registered-extension)
+    -[sec](#official-extension)
+    -[sec](#critical-extension)
+    -[sec](#usage-of-experimental-extension-in-tlp-clear-document)
+    -[sec](#extension-category-critical)
+    -[sec](#usage-of-experimental-extension-in-non-tlp-clear-document)
+    -[sec](#usage-of-extension-at-document-level)
+    -[sec](#usage-of-extension-in-product-tree-branch-path)
+    -[sec](#usage-of-extension-in-product-tree-full-product-names-path)
+    -[sec](#usage-of-extension-in-product-tree-relationships-path)
+    -[sec](#usage-of-extension-in-vulnerabilities-metrics-path)
+    -[sec](#usage-of-extension-at-vulnerabilities-level)
+    -[sec](#usage-of-extension-at-root-level)
+- `extensions-exist`:
+  - Description: Detects CSAF Extensions in all places.
+  - Set:
+    -[sec](#usage-of-extension-at-document-level)
+    -[sec](#usage-of-extension-in-product-tree-branch-path)
+    -[sec](#usage-of-extension-in-product-tree-full-product-names-path)
+    -[sec](#usage-of-extension-in-product-tree-relationships-path)
+    -[sec](#usage-of-extension-in-vulnerabilities-metrics-path)
+    -[sec](#usage-of-extension-at-vulnerabilities-level)
+    -[sec](#usage-of-extension-at-root-level)
