@@ -98,7 +98,6 @@ The relevant path for this test is:
   {
     // ...
     "document": {
-
       // ...
       "x_extensions": [
         {
@@ -111,3 +110,45 @@ The relevant path for this test is:
 ```
 
 > The element `/document/x_extensions` exists.
+
+#### Usage of Extension in Product Tree Branch Path
+
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/branches`.
+
+The relevant path for this test is:
+
+```
+  /product_tree/branches[](/branches[])*/product/x_extensions
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                // ...
+                "product": {
+                  // ...
+                  "x_extensions": [
+                    {
+                      // ...
+                    }
+                  ]
+                }
+              }
+            ],
+            // ...
+          }
+        ],
+        // ...
+      }
+    ]
+  }
+```
+
+> The element `x_extensions` exists in a path that starts with `/product_tree/branches`.
