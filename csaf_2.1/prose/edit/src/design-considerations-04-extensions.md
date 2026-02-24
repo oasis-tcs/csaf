@@ -8,6 +8,7 @@ The following rules apply:
 * An extension MUST satisfy the Conformance Target "CSAF Extension".
 * The schema specifying the content and properties of the CSAF Extension MUST satisfy the Conformance Target "CSAF Extension Schema".
 * For official and registered extensions a CSAF Extension Package MUST be provided.
+* CSAF Extensions SHOULD NOT provide CSAF Extension Overlay Tests for tests in the preset extension.
 
 ### Classes
 

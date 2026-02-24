@@ -617,6 +617,7 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
 * satisfies those normative requirements in section [sec](#presets) that are designated as applying to CSAF Validators.
+* outputs a warning if an "not implemented warning" occurs as the validation status might not be correct.
 
 A CSAF Basic Validator MAY provide one or more additional functions:
 
@@ -1183,10 +1184,15 @@ A test satisfies the "CSAF Extension Overlay Test" conformance profile if it:
   > The referenced specification in such case must be accessible to anyone that can retrieve the referencing CSAF Extension.
 
 * extends or replaces a test specified in this standard in section [sec](#tests) or a CSAF Additional Test.
+* does not adversely affect the purpose of the test in question.
 * has a name starting with `Extension_Overlay_Test_` followed by a name of the specifying entity conforming to the
   rules for prefixes of test presets (cf. section [sec](#test-presets)) and the name of the tests that it replaces.
 * has its definition specified in the same structure as in section [sec](#tests).
-* only differs in the paths or the document categories it is applied to.
+
+The CSAF Extension Overlay Test SHOULD only differ in the paths or the document categories it is applied to.
+
+> This ensures maximum compatibility with other extensions as multiple CSAF Extension can define
+> CSAF Extension Overlay Tests for the same test which are then executed as a union set.
 
 ### Conformance Clause 30: CSAF Extension Additional Test
 
