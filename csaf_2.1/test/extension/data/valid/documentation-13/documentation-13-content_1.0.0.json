@@ -5,6 +5,16 @@
   "description": "Representation of a valid extension for configurations used for documentation purposes.",
   "type": "object",
   "$defs": {
+    "configuration_id_t": {
+      "title": "Reference token for configuration instance",
+      "description": "Token required to identify a configuration so that it can be referred to from other parts in the document. There is no predefined or required format for the configuration_id as long as it uniquely identifies a configuration in the context of the current document.",
+      "type": "string",
+      "minLength": 1,
+      "examples": [
+        "CSAFCID-0001",
+        "CSAFCID-0002"
+      ]
+    },
     "configuration_t": {
       "title": "Configuration",
       "description": "Contains the description of a configuration and assigns it a configuration id.",
@@ -25,16 +35,6 @@
         }
       },
       "additionalProperties": false
-    },
-    "configuration_id_t": {
-      "title": "Reference token for configuration instance",
-      "description": "Token required to identify a configuration so that it can be referred to from other parts in the document. There is no predefined or required format for the configuration_id as long as it uniquely identifies a configuration in the context of the current document.",
-      "type": "string",
-      "minLength": 1,
-      "examples": [
-        "CSAFCID-0001",
-        "CSAFCID-0002"
-      ]
     },
     "relationship_t": {
       "title": "Relationship",
@@ -87,12 +87,6 @@
         "informational"
       ]
     },
-    "critical": {
-      "title": "Critical",
-      "description": "Determines whether using the extension would fail a mandatory test.",
-      "type": "boolean",
-      "const": true
-    },
     "content": {
       "title": "Content",
       "description": "Contains the additional information in its properties.",
@@ -132,6 +126,12 @@
         }
       },
       "unevaluatedProperties": false
+    },
+    "critical": {
+      "title": "Critical",
+      "description": "Determines whether using the extension would fail a mandatory test.",
+      "type": "boolean",
+      "const": true
     }
   },
   "additionalProperties": false
