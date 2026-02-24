@@ -225,6 +225,7 @@
   "214": "overlapping-product-version-range-with-product-version-range-in-branch-eg-1",
   "215": "overlapping-product-version-range-with-product-version-in-branch-eg-1",
   "216": "use-of-unregistered-id-system-eg-1",
+  "216a": "extension-category-critical-eg-1",
   "217": "requirement-7-provider-metadata-json-eg-1",
   "218": "requirement-8-security-txt-eg-1",
   "219": "requirement-9-well-known-url-for-provider-metadata-json-eg-1",

@@ -315,6 +315,8 @@
   "6.3.19.4": "overlapping-product-version-range-with-product-version-range-in-branch",
   "6.3.19.5": "overlapping-product-version-range-with-product-version-in-branch",
   "6.3.20": "use-of-unregistered-id-system",
+  "6.3.21": "informative-tests--extension-tests",
+  "6.3.21.1": "extension-category-critical",
   "6.4": "presets",
   "6.4.1": "presets-defined-through-test-subsections",
   "6.4.2": "presets-defined-through-conformance-targets",
