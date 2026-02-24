@@ -9,7 +9,7 @@ Each of the following tests SHOULD be treated as they where listed similar to th
 
 For each item in an element of type `#/$defs/extensions_t` it MUST be tested that the item is valid against the Extension Content Schema.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```
   /document/x_extensions[]
@@ -50,7 +50,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 > * The extension is not used more often than allowed.
 > * The extension is not used with other incompatible extensions.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```
   /document/x_extensions
