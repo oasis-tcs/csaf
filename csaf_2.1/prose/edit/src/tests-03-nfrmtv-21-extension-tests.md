@@ -237,3 +237,31 @@ The relevant path for this test is:
 ```
 
 > The element `x_extensions` exists in a path that starts with `/vulnerabilities[]/metrics`.
+
+#### Usage of Extension at Vulnerabilities Level
+
+For each item `/vulnerabilities` it MUST be tested that the element `x_extensions` does not exist.
+
+The relevant path for this test is:
+
+```
+  /vulnerabilities[]/x_extensions
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    // ...
+    "vulnerabilities": [
+      {
+        // ...
+        "x_extensions": [
+          // ...
+        ]
+      }
+    ]
+  }
+```
+
+> The element `x_extensions` exists inside a `vulnerabilities` item.
