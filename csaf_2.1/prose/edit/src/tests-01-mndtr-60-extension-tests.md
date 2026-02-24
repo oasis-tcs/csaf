@@ -63,7 +63,10 @@ The relevant paths for this test are:
       "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-12/documentation-12-content_1.0.0.json",
       // ...
       "content": {
-        
+        "notes": [
+          "This instance is invalid even though it validates against the CSAF Content Schema.",
+          "It misses the property `documentation` as required by the declared schema."
+        ]
       }
     }
   ]
