@@ -1,6 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json",
+  "title": "CSAF Extension Metaschema",
+  "description": "Representation of a CSAF Extension Schema",
   "$vocabulary": {
     "https://json-schema.org/draft/2020-12/vocab/core": true,
     "https://json-schema.org/draft/2020-12/vocab/applicator": true,
@@ -10,15 +12,6 @@
     "https://json-schema.org/draft/2020-12/vocab/format-assertion": true,
     "https://json-schema.org/draft/2020-12/vocab/content": true
   },
-  "allOf": [
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/applicator" },
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/unevaluated" },
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/validation" },
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/meta-data" },
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" },
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/content" }
-  ],
   "$defs": {
     "content_schema_t": {
       "title": "CSAF Extension Content $schema Type",
@@ -39,7 +32,6 @@
       ]
     }
   },
-  "$ref": "#/$defs/schema",
   "type": "object",
   "required": [
     "$schema",
@@ -80,6 +72,12 @@
       "description": "Contains the type of the CSAF Extension Schema which is always `object`.",
       "type": "string",
       "const": "object"
+    },
+    "$defs": {
+      "title": "CSAF Extension Schema Definitions",
+      "description": "Contains the definitions as object of the CSAF Extension Schema.",
+      "$ref": "#/$defs/schema",
+      "minProperties": 1
     },
     "required": {
       "title": "CSAF Extension Schema Required Properties",
@@ -262,6 +260,7 @@
           "title": "CSAF Extension Content",
           "description": "Contains the definition of the object of the CSAF Extension content.",
           "type": "object",
+          "$ref": "#/$defs/schema",
           "minProperties": 6,
           "required": [
             "title",
@@ -316,7 +315,6 @@
       "type": "boolean",
       "const": false
     }
-
   },
   "unevaluatedProperties": false
 }

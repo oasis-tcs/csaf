@@ -26,18 +26,18 @@
         "informational"
       ]
     },
-    "critical": {
-      "title": "Critical",
-      "description": "Determines whether using the extension would fail a mandatory test.",
-      "type": "boolean",
-      "default": false
-    },
     "content": {
       "title": "Content",
       "description": "Contains the additional information in its properties.",
       "type": "object",
       "minProperties": 1,
       "additionalProperties": true
+    },
+    "critical": {
+      "title": "Critical",
+      "description": "Determines whether using the extension would fail a mandatory test.",
+      "type": "boolean",
+      "default": false
     }
   },
   "additionalProperties": false

@@ -110,9 +110,9 @@
           "description": "Contains requirements for this extension on the root path.",
           "$ref": "#/$defs/location_t"
         }
-      }
-    },
-    "additionalProperties": false
+      },
+      "additionalProperties": false
+    }
   },
   "additionalProperties": false
 }
