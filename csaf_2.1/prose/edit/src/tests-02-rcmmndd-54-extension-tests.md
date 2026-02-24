@@ -73,13 +73,13 @@ For each item in an element of type `#/$defs/extensions_t` it MUST be tested tha
 The relevant paths for this test are:
 
 ```
-  /document/x_extensions[]
-  /product_tree/branches[](/branches[])*/product/x_extensions[]
-  /product_tree/full_product_names[]/x_extensions[]
-  /product_tree/relationships[]/full_product_name/x_extensions[]
-  /vulnerabilities[]/metrics[]/content/x_extensions[]
-  /vulnerabilities[]/x_extensions[]
-  /x_extensions[]
+  /document/x_extensions[]/critical
+  /product_tree/branches[](/branches[])*/product/x_extensions[]/critical
+  /product_tree/full_product_names[]/x_extensions[]/critical
+  /product_tree/relationships[]/full_product_name/x_extensions[]/critical
+  /vulnerabilities[]/metrics[]/content/x_extensions[]/critical
+  /vulnerabilities[]/x_extensions[]/critical
+  /x_extensions[]/critical
 ```
 
 *Example 1 (which fails the test):*
@@ -104,13 +104,13 @@ if the document is labeled `TLP:CLEAR`.
 The relevant path for this test is:
 
 ```
-  /document/x_extensions[]/critical
-  /product_tree/branches[](/branches[])*/product/x_extensions[]/critical
-  /product_tree/full_product_names[]/x_extensions[]/critical
-  /product_tree/relationships[]/full_product_name/x_extensions[]/critical
-  /vulnerabilities[]/metrics[]/content/x_extensions[]/critical
-  /vulnerabilities[]/x_extensions[]/critical
-  /x_extensions[]/critical
+  /document/x_extensions[]
+  /product_tree/branches[](/branches[])*/product/x_extensions[]
+  /product_tree/full_product_names[]/x_extensions[]
+  /product_tree/relationships[]/full_product_name/x_extensions[]
+  /vulnerabilities[]/metrics[]/content/x_extensions[]
+  /vulnerabilities[]/x_extensions[]
+  /x_extensions[]
 ```
 
 *Example 1 (which fails the test):*

@@ -44,6 +44,15 @@
       }
     ]
   },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080701"
+        ]
+      }
+    }
+  ],
   "x_extensions": [
     {
       "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-13/documentation-13-content_1.0.0.json",
@@ -54,7 +63,7 @@
           "configurations": [
             {
               "configuration_id": "CSAFCID-12233400",
-              "details": "This is a very long an detailed description of all the values this configuration consist of and where to find them.",
+              "details": "This is a very long and detailed description of all the values this configuration consist of and where to find them.",
               "name": "Configuration 1"
             }
           ],
