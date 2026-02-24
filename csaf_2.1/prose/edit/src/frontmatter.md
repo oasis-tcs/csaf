@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 02
 
-## 28 January 2026
+## 25 February 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
@@ -76,9 +76,9 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
-**[csaf-v2.1]**
+**[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 28 January 2026. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------

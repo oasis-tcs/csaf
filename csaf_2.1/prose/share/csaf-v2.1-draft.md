@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 02
 
-## 28 January 2026
+## 25 February 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
@@ -76,9 +76,9 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
-**[csaf-v2.1]**
+**[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 28 January 2026. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------
@@ -4904,8 +4904,9 @@ The relevant paths for this test are:
   /product_tree/product_groups[]/product_ids[]
   /product_tree/relationships[]/product_reference
   /product_tree/relationships[]/relates_to_product_reference
-  /vulnerabilities[]/involvements[]/product_ids[]
+  /vulnerabilities[]/first_known_exploitation_dates[]/product_ids[]
   /vulnerabilities[]/flags[]/product_ids[]
+  /vulnerabilities[]/involvements[]/product_ids[]
   /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/notes[]/product_ids[]
   /vulnerabilities[]/product_status/first_affected[]
@@ -4916,6 +4917,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
   /vulnerabilities[]/product_status/recommended[]
   /vulnerabilities[]/product_status/under_investigation[]
+  /vulnerabilities[]/product_status/unknown[]
   /vulnerabilities[]/remediations[]/product_ids[]
   /vulnerabilities[]/threats[]/product_ids[]
 ```
@@ -5021,6 +5023,7 @@ The relevant paths for this test are:
 
 ```
   /document/notes[]/group_ids[]
+  /vulnerabilities[]/first_known_exploitation_dates[]/group_ids[]
   /vulnerabilities[]/flags[]/group_ids[]
   /vulnerabilities[]/involvements[]/group_ids[]
   /vulnerabilities[]/notes[]/group_ids[]
@@ -13506,6 +13509,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | csaf-v2.1-wd20251126-dev | 2025-11-26 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20251217-dev | 2025-12-17 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20260128-dev | 2026-01-28 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
+| csaf-v2.1-wd20260225-dev | 2026-02-25 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 
 -------
 
@@ -13711,9 +13715,11 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/cwes[]/version`
   * `/vulnerabilities[]/flags[]/group_ids[]`
   * `/vulnerabilities[]/flags[]/product_ids[]`
+  * `/vulnerabilities[]/first_known_exploitation_dates[]/group_ids[]`
   * `/vulnerabilities[]/ids[]/system_name`
   * `/vulnerabilities[]/ids[]/text`
   * `/vulnerabilities[]/involvements[]/contact`
+  * `/vulnerabilities[]/involvements[]/group_ids[]`
   * `/vulnerabilities[]/metrics[]/content/cvss_v2/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v3/vectorString`
   * `/vulnerabilities[]/metrics[]/content/cvss_v4/vectorString`
@@ -13738,6 +13744,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/product_status/last_affected[]`
   * `/vulnerabilities[]/product_status/recommended[]`
   * `/vulnerabilities[]/product_status/under_investigation[]`
+  * `/vulnerabilities[]/product_status/unknown[]`
   * `/vulnerabilities[]/remediations[]/group_ids[]`
   * `/vulnerabilities[]/remediations[]/product_ids[]`
   * `/vulnerabilities[]/threats[]/group_ids[]`

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/id-mapping.schema.json",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/registry/id/schema/mapping.schema.json",
   "entries": [
     {
       "ambiguous": false,

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-SCHEMA=registry/id/schema/id-registry.schema.json
+SCHEMA=registry/id/schema/registry.schema.json
 CSAF_SCHEMA=csaf_2.1/json_schema/csaf.json
 META_SCHEMA=csaf_2.1/json_schema/meta.json
 VALIDATOR=csaf_2.1/test/validator.py
 ID_PATH=registry/id/
-REGISTRY_FILE=id-registry.json
+REGISTRY_FILE=registry.json
 
 REGISTRY_SYSTEM_NAMES=""
 FAIL=0
