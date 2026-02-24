@@ -265,3 +265,26 @@ The relevant path for this test is:
 ```
 
 > The element `x_extensions` exists inside a `vulnerabilities` item.
+
+#### Usage of Extension at Root Level
+
+It MUST be tested that the element `/x_extensions` does not exist.
+
+The relevant path for this test is:
+
+```
+  /x_extensions
+```
+
+*Example 1 (which fails the test):*
+
+```
+  {
+    // ...
+    "x_extensions": [
+      // ...
+    ]
+  }
+```
+
+> The element `/x_extensions` exists.

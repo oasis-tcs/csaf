@@ -233,6 +233,7 @@
   "216f": "usage-of-extension-in-product-tree-relationships-path-eg-1",
   "216g": "usage-of-extension-in-vulnerabilities-metrics-path-eg-1",
   "216h": "usage-of-extension-at-vulnerabilities-level-eg-1",
+  "216i": "usage-of-extension-at-root-level-eg-1",
   "217": "requirement-7-provider-metadata-json-eg-1",
   "218": "requirement-8-security-txt-eg-1",
   "219": "requirement-9-well-known-url-for-provider-metadata-json-eg-1",
