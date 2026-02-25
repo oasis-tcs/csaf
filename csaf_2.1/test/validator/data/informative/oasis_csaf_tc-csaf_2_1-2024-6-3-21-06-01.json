@@ -16,13 +16,6 @@
     "title": "Informative Test: Usage of Extension in Product Tree Relationships Path (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "generator": {
-        "date": "2026-02-24T16:51:01.186Z",
-        "engine": {
-          "name": "Secvisogram",
-          "version": "2.5.43"
-        }
-      },
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-21-06-01",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [

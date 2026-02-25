@@ -67,7 +67,8 @@ The relevant paths for this test are:
           "This instance is invalid even though it validates against the CSAF Content Schema.",
           "It misses the property `documentation` as required by the declared schema."
         ]
-      }
+      },
+      // ...
     }
   ]
 ```
@@ -108,18 +109,12 @@ The relevant paths for this test are:
       {
         "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
         "category": "high_value",
-        "critical": false,
-        "content": {
-          "documentation": "This extension is for documentation and test purposed only. It is valid. It is not allowed to be used in a production CSAF."
-        }
+        // ...
       },
       {
         "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
         "category": "informational",
-        "critical": false,
-        "content": {
-          "documentation": "This extension is for documentation and test purposed only. It is valid. It is not allowed to be used in a production CSAF."
-        }
+        // ...
       }
     ]
   }

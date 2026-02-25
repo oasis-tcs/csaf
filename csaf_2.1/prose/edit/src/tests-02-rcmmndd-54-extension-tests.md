@@ -88,8 +88,7 @@ The relevant paths for this test are:
   "x_extensions": [
     {
       // ...
-      "critical": true,
-      // ...
+      "critical": true
     }
   ]
 ```

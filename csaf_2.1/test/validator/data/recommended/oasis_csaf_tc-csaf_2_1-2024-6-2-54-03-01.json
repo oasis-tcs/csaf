@@ -16,13 +16,6 @@
     "title": "Recommended Test: Critical Extension (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "generator": {
-        "date": "2026-01-28T17:28:58.163Z",
-        "engine": {
-          "name": "Secvisogram",
-          "version": "2.5.42"
-        }
-      },
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-54-03-01",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
@@ -39,8 +32,8 @@
   "product_tree": {
     "full_product_names": [
       {
-        "product_id": "CSAFPID-9080700",
-        "name": "Product A"
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
       }
     ]
   },
@@ -57,7 +50,6 @@
     {
       "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-13/documentation-13-content_1.0.0.json",
       "category": "critical",
-      "critical": true,
       "content": {
         "configuration_tree": {
           "configurations": [
@@ -78,7 +70,8 @@
             }
           ]
         }
-      }
+      },
+      "critical": true
     }
   ]
 }
