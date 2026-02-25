@@ -136,8 +136,8 @@ $defs:
       hashes:
         file_hashes:
         - # <file_hash-instance>:
-          algorithm: String
-          value: String
+          algorithm: String.Pattern
+          value: String.Pattern
         # ...
       # ...
   # ...
