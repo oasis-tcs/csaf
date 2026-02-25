@@ -143,6 +143,8 @@ def find_type(mapping) -> str:
                         return 'string.datetime'
                     if sub_type == 'uri':
                         return 'string.uri'
+                if 'const' in mapping:
+                    return 'string.const'
                 if 'enum' in mapping:
                     return 'string.enum'
                 if 'pattern' in mapping:
