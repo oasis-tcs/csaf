@@ -101,15 +101,19 @@ Valid `enum` values are:
   informational
 ```
 
-The value `critical` indicates, that the content provided through this extension is crucial to understand of the CSAF document this extension is included in.
-CSAF consumer MUST warn if they process a CSAF Document including such extension instance and do not have the extension in question already implement.
+The value `critical` indicates, that the content provided through this extension is crucial to understand of the CSAF document
+this extension is included in.
+CSAF consumers and CSAF validators MUST warn if they process a CSAF Document including such extension instance and
+do not have the extension in question already implement.
 
-The value `high_value` indicates, that the content provided through this extension is highly relevant and significantly aids in understanding the
-overall content of the CSAF document.
+The value `high_value` indicates, that the content provided through this extension is highly relevant and significantly aids
+in understanding the overall content of the CSAF document.
+CSAF consumers and CSAF validators SHOULD warn if they process a CSAF Document including such an extension instance and
+do not have the extension in question already implemented.
 
 The value `informational` indicates, that the content provided through this extension just provides additional information.
-CSAF consumer SHOULD warn if they process a CSAF Document including such an extension instance and do not have the extension in
-question already implemented.
+CSAF consumers and CSAF validators MAY warn if they process a CSAF Document including such an extension instance and
+do not have the extension in question already implemented.
 
 #### Content Schema Property - Critical
 

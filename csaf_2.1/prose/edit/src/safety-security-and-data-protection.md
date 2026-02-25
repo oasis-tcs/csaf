@@ -48,11 +48,17 @@ As setting the `Access-Control-Allow-Origin` header potentially allows for cross
 it SHOULD only be served on files and directories containing CSAF data.
 For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
 
-CSAF producers and CSAF consumers SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
+CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
 Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.
-If CSAF producers or CSAF consumers provide a option to interactively or automatically load missing schemes,
+If CSAF producers, CSAF consumers or CSAF validators provide a option to interactively or automatically load missing schemes,
 they SHALL point out the risks of setting the option and actively warn the user about it.
 Such option SHALL NOT be set by default.
+CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks.
+Tool developers SHOULD ensure to regularly check that those copies still reflect the current version of those schemas as they could
+have been altered, e.g. by an Errata to fix a bug.
+It is RECOMMENDED to do them at least before a release.
+
+> Such checks can be automated, e.g. in the CI/CD pipeline.
 
 -------

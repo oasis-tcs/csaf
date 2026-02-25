@@ -76,6 +76,7 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 
 * conforms to the syntax and semantics defined in section [sec](#format-validation).
 * conforms to the syntax and semantics defined in section [sec](#date-and-time).
+* conforms to the syntax and semantics defined in section [sec](#extensions).
 * conforms to the syntax and semantics defined in section [sec](#schema-elements).
 * satisfies at least one profile defined in section [sec](#profiles).
 * conforms to the syntax and semantics defined in section [sec](#additional-conventions).
@@ -532,7 +533,7 @@ The resulting translated document:
 A processor satisfies the "CSAF Consumer" conformance profile if the processor:
 
 * reads CSAF Documents and interprets them according to the semantics defined in section [sec](#schema-elements) and [sec](#additional-conventions).
-* satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
+* satisfies those normative requirements in section [sec](#extensions), [sec](#schema-elements), [sec](#additional-conventions) and
   [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Consumers.
 
 ### Conformance Clause 11: CSAF Viewer
@@ -616,7 +617,8 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
   including also the format validation (cf. section [sec](#format-validation)).
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
-* satisfies those normative requirements in section [sec](#presets) that are designated as applying to CSAF Validators.
+* satisfies those normative requirements in sections [sec](#extensions), [sec](#mandatory-tests), [sec](#presets), and
+  [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Validators.
 * outputs a warning if an "not implemented warning" occurs as the validation status might not be correct.
 
 A CSAF Basic Validator MAY provide one or more additional functions:
@@ -634,6 +636,8 @@ A CSAF Basic Validator satisfies the "CSAF Extended Validator" conformance profi
 
 * satisfies the "CSAF Basic Validator" conformance profile.
 * additionally performs all tests of the preset `recommended` as given in section [sec](#presets-defined-through-test-subsections).
+* additionally satisfies those normative requirements in section [sec](#recommended-tests)
+  that are designated as applying to CSAF Validators.
 
 A CSAF Extended Validator MAY provide an additional function to only run one or more selected recommended tests.
 
@@ -644,6 +648,8 @@ A CSAF Extended Validator satisfies the "CSAF Full Validator" conformance profil
 * satisfies the "CSAF Extended Validator" conformance profile.
 * additionally performs all tests of the preset `informative` as given in section [sec](#presets-defined-through-test-subsections).
 * provides an option to additionally use a custom dictionary for test [sec](#spell-check).
+* additionally satisfies those normative requirements in section [sec](#informative-tests)
+  that are designated as applying to CSAF Validators.
 
 A CSAF Full Validator MAY provide an additional function to only run one or more selected informative tests.
 
