@@ -259,7 +259,7 @@ As part of the model number, the special characters `?`, `*` and `\` MUST be esc
     IC25T060ATCS05-0
 ```
 
-##### Full Product Name Type - Product Identification Helper - PURLs
+##### Full Product Name Type - Product Identification Helper - PURLs{#full-product-name-type-product-identification-helper-purls}
 
 List of PURLs (`purls`) of value type `array` with `1` or more unique items contains a list of Package-URL (PURL) identifiers.
 
