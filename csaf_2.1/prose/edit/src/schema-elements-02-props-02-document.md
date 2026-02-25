@@ -532,7 +532,7 @@ Identifier (`id`), Initial Release Date (`initial_release_date`), Revision Histo
 and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
 
-```yaml <!--json-path($..document..tracking..properties)-->
+```yaml <!--json-path($..document..tracking.properties)-->
 <csaf-instance>:
   document:
     # ...
