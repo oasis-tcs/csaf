@@ -3,7 +3,7 @@
 Product Tree (`product_tree`) has value type `object` with `1` or more properties is a container for all fully qualified product names that
 can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
-and Relationships (`relationships`).
+and Product Paths (`product_paths`).
 
 ```
     "product_tree": {
@@ -18,7 +18,7 @@ and Relationships (`relationships`).
         "product_groups": {
           // ...
         },
-        "relationships": {
+        "product_paths": {
           // ...
         }
       }
