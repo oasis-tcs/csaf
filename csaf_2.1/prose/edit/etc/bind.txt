@@ -22,7 +22,8 @@ schema-elements-01-defs-07-product-groups.md
 schema-elements-01-defs-08-product-id.md
 schema-elements-01-defs-09-products.md
 schema-elements-01-defs-10-references.md
-schema-elements-01-defs-11-version.md
+schema-elements-01-defs-11-subpath.md
+schema-elements-01-defs-12-version.md
 schema-elements-02-properties.md
 schema-elements-02-props-01-schema.md
 schema-elements-02-props-02-document.md
