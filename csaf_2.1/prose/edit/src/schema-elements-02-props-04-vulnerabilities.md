@@ -497,7 +497,7 @@ the optional property `source` contains all metadata about the metric including 
     - # <metric-instance>:
       content: Mapping
       products: $defs.products_t
-      source: String
+      source: String.URI
     # ...
 ```
 
