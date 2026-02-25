@@ -1,8 +1,0 @@
-<csaf-instance>:
-  document:
-    publisher:
-      category: String
-      contact_details: String
-      issuing_authority: String
-      name: String
-      namespace: String

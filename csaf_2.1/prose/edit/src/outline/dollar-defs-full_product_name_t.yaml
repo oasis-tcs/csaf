@@ -1,7 +1,0 @@
-$defs:
-  # ...
-  full_product_name_t:
-    name: String
-    product_id: $defs.product_id_t
-    product_identification_helper: Mapping
-  # ...

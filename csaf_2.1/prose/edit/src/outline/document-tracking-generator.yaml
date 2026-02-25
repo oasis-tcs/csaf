@@ -1,8 +1,0 @@
-<csaf-instance>:
-  document:
-    tracking:
-      # ...
-      generator:
-        date: String.DateTime
-        engine: Mapping
-      # ...
