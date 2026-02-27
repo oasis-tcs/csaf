@@ -359,8 +359,7 @@ As part of the serial number, the special characters `?`, `*` and `\` MUST be es
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
 
-The list of stock keeping units (`skus`) of value type `array` with `1` or more items contains a list of full or
-abbreviated (partial) stock keeping units.
+The list of stock keeping units (`skus`) of value type `array` with `1` or more items contains a list of stock keeping units.
 
 A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software,
 or the stock keeping units change during update.
@@ -378,15 +377,30 @@ In the latter case the remediations SHALL include the new stock keeping units or
     },
 ```
 
-Any given stock keeping unit of value type `string` with at least `1` character represents a full or
-abbreviated (partial) stock keeping unit (SKU) of the component to identify.
+Any given stock keeping unit of value type `string` with at least `1` character represents a stock keeping unit (SKU)
+of the component to identify - possibly with placeholders.
 
 > Sometimes this is also called "item number", "article number" or "product number".
 
-If a part of a stock keeping unit of the component to identify is given, it SHOULD begin with the first character of
-the stock keeping unit and stop at any point.
-Characters which SHOULD NOT be matched MUST be replaced by either `?` (for a single character) or `*` (for zero or more characters).  
-Two `*` MUST NOT follow each other.
+If a part of a stock keeping unit of the component to identify is given,
+it MUST begin at the first and end at the last character position of the string representing the targeted component.
+The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
+these positions from matching.
+This applies also to the first character.
+An unescaped `*` MUST be the only `*` wildcard in the string.
+As part of the stock keeping unit, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+
+> Note: A backslash MUST be escaped itself in a JSON string.
+
+*Examples 1:*
+
+```
+    11????2
+    320196154130703
+    i800*
+    i8005-5.0
+    2.063.*.?:221-A
+```
 
 ##### Full Product Name Type - Product Identification Helper - Generic URIs
 
