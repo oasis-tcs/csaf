@@ -45,6 +45,7 @@
   "conformance-clause-22-csaf-library-with-full-validation": "9.1.22",
   "conformance-clause-23-csaf-downloader": "9.1.23",
   "conformance-clause-24-csaf-withdrawer": "9.1.24",
+  "conformance-clause-25-csaf-rvisc-id-updater": "9.1.26",
   "conformance-clause-25-csaf-superseder": "9.1.25",
   "conformance-clause-3-csaf-direct-producer": "9.1.3",
   "conformance-clause-4-csaf-converter": "9.1.4",
