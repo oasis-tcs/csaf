@@ -1072,7 +1072,7 @@
                 "type": "array",
                 "minItems": 1,
                 "items": {
-                  "$ref": "#/$defs/product_id_t"
+                  "$ref": "#/$defs/subpath_t"
                 }
               }
             },
