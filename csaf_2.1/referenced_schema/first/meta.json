@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.first.org/cvss/meta.json",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2020-12/vocab/core": true,
+    "https://json-schema.org/draft/2020-12/vocab/applicator": true,
+    "https://json-schema.org/draft/2020-12/vocab/unevaluated": true,
+    "https://json-schema.org/draft/2020-12/vocab/validation": true,
+    "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
+    "https://json-schema.org/draft/2020-12/vocab/format-assertion": true
+  },
+  "$defs": {
+    "schema": {
+      "$dynamicAnchor": "meta",
+      "allOf": [
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/core" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/applicator" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/unevaluated" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/validation" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/meta-data" },
+        { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
+      ]
+    }
+  },
+  "$ref": "#/$defs/schema",
+  "type": "object",
+  "required": [
+    "license"
+  ],
+  "properties": {
+    "license": {
+      "title": "License",
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "prefixItems": [
+        {"type": "string", "pattern": "^Copyright \\(c\\) [1-9][0-9]{3}, FIRST\\.ORG, INC\\.$" },
+        {"type": "string", "const": "All rights reserved."},
+        {"type": "string", "const": ""},
+        {"type": "string", "const": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the "},
+        {"type": "string", "const": "following conditions are met:"},
+        {"type": "string", "const": "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following "},
+        {"type": "string", "const": "   disclaimer."},
+        {"type": "string", "const": "2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the "},
+        {"type": "string", "const": "   following disclaimer in the documentation and/or other materials provided with the distribution."},
+        {"type": "string", "const": "3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote "},
+        {"type": "string", "const": "   products derived from this software without specific prior written permission."},
+        {"type": "string", "const": ""},
+        {"type": "string", "const": "THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, "},
+        {"type": "string", "const": "INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE "},
+        {"type": "string", "const": "DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, "},
+        {"type": "string", "const": "SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR "},
+        {"type": "string", "const": "SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, "},
+        {"type": "string", "const": "WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE "},
+        {"type": "string", "const": "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."}
+      ],
+      "unevaluatedItems": false
+    }
+  },
+  "unevaluatedProperties": false
+}
