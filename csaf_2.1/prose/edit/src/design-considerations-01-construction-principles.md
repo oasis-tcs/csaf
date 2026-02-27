@@ -70,7 +70,7 @@ The JSON schemas defined in this standard do not allow the use of additional pro
 
 Sole exception are the dedicated extension points (`x_extensions`) which allow the usage of extension defined outside this specification.
 To still ensure interoperability and guide tools how to deal with this data a CSAF Extension Content Schema
-and CSAF Extension Metaschema has been defined and must be adhered to (cf. section [sec](#extensions)).
+and CSAF Extension Metaschema has been defined and MUST be adhered to (cf. section [sec](#extensions)).
 Document issuers are advised to always balance pros and cons regarding the use of extension.
 
 Section [sec](#profiles) defined profiles that are used to ensure a common understanding of which fields are required in a given use case.
