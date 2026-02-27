@@ -121,6 +121,9 @@ required by CSAF Management System as well as matching them to SBOM components o
 CSAF Producer
 :    program that emits output in the CSAF format.
 
+CSAF RVISC ID Updater
+:    A CSAF Post-Processor that updates vulnerability IDs in a given CSAF based on the entries in RVISC.
+
 CSAF Superseder
 :    A CSAF Post-Processor that transforms a given CSAF into a superseded one.
 

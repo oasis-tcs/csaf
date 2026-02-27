@@ -56,6 +56,7 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
 * **CSAF Withdrawer**: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
 * **CSAF Superseder**: A CSAF Post-Processor that transforms a given CSAF into a Superseded one.
+* **CSAF RVISC ID Updater**: A CSAF Post-Processor that updates vulnerability IDs in a given CSAF based on the entries in [cite](#RVISC).
 * **CSAF Additional Test**: A test that is not yet defined in section [sec](#tests).
 * **CSAF Extension**: A specified JSON object conveying additional information different from the content that can be conveyed with the
   CSAF Core elements.
@@ -1133,7 +1134,35 @@ A program satisfies the "CSAF Superseder" conformance profile if the program:
 
 > A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
 
-### Conformance Clause 26: CSAF Additional Test
+### Conformance Clause 26: CSAF RVISC ID Updater
+
+A program satisfies the "CSAF RVISC ID Updater" conformance profile if the program fulfills the two following groups of requirements:
+
+The program:
+
+* satisfies the "CSAF Post-Processor" conformance profile.
+* applies the corresponding assignment from [cite](#RVISC-M) to each item in `/vulnerabilities[]/ids[]`
+  whose `system_name` is not contained in [cite](#RVISC-R).
+* applies the corresponding assignment from [cite](#RVISC-M) to each item in `/vulnerabilities[]/ids[]`
+  whose `system_name` is contained in [cite](#RVISC-R) but the `text` does not conform the entry.
+* satisfies the normative requirements given below.
+
+The program MUST provide the following options:
+
+* an option to insert an automatically generated revision history entry detailing the changes applied and
+  make necessary updates to elements in `/document/tracking` (commit mode).
+* an option to set selected or all parameters for the commit mode manually which take precedence over the automated generated values.
+* an option to do a dry-run which does not apply the changes but just displays them.
+* an option to interactively accept or discard changes.
+* an option to ignore certain values for `system_name`.
+* an option to output all items in `/vulnerabilities[]/ids[]` whose `system_name` is not contained in [cite](#RVISC-R).
+* an option to output all items in `/vulnerabilities[]/ids[]` whose `system_name` is contained in [cite](#RVISC-R)
+  but the `text` does not conform the entry.
+* an option to map an existing `system_name` to a new value or apply a transformation to a `text`
+  based on the `system_name` value and a `precondition`.
+
+
+### Conformance Clause 27: CSAF Additional Test
 
 A test satisfies the "CSAF Additional Test" conformance profile if it:
 
@@ -1144,7 +1173,7 @@ A test satisfies the "CSAF Additional Test" conformance profile if it:
   test presets (cf. section [sec](#test-presets)) and an unique name for the test within that entity.
 * has its definition specified in the same structure as in section [sec](#tests).
 
-### Conformance Clause 27: CSAF Extension
+### Conformance Clause 28: CSAF Extension
 
 A JSON object satisfies the "CSAF Extension" conformance profile if it:
 
@@ -1156,7 +1185,7 @@ A JSON object satisfies the "CSAF Extension" conformance profile if it:
 * does not convey any content that can be conveyed with the CSAF Core elements.
 * does not contradict the content or purpose of this specification.
 
-### Conformance Clause 28: CSAF Extension Schema
+### Conformance Clause 29: CSAF Extension Schema
 
 A JSON schema satisfies the "CSAF Extension Schema" conformance profile if fulfills the following two groups of requirements:
 
@@ -1179,7 +1208,7 @@ Secondly, it:
 
   > Implementations usually ignore any additional properties as they are hard to access, process and may imply security risks.
 
-### Conformance Clause 29: CSAF Extension Overlay Test
+### Conformance Clause 30: CSAF Extension Overlay Test
 
 A test satisfies the "CSAF Extension Overlay Test" conformance profile if it:
 
@@ -1200,7 +1229,7 @@ The CSAF Extension Overlay Test SHOULD only differ in the paths or the document 
 > This ensures maximum compatibility with other extensions as multiple CSAF Extension can define
 > CSAF Extension Overlay Tests for the same test which are then executed as a union set.
 
-### Conformance Clause 30: CSAF Extension Additional Test
+### Conformance Clause 31: CSAF Extension Additional Test
 
 A test satisfies the "CSAF Extension Additional Test" conformance profile if it:
 
@@ -1215,13 +1244,13 @@ A test satisfies the "CSAF Extension Additional Test" conformance profile if it:
   rules for prefixes of test presets (cf. section [sec](#test-presets)) and an unique number for the test within that entity.
 * has its definition specified in the same structure as in section [sec](#tests).
 
-### Conformance Clause 31: CSAF Extension Test
+### Conformance Clause 32: CSAF Extension Test
 
 A test satisfies the "CSAF Extension Test" conformance profile if it:
 
 * satisfies the "CSAF Extension Overlay Test" conformance profile or the "CSAF Extension Additional Test" conformance profile.
 
-### Conformance Clause 32: CSAF Extension Specification
+### Conformance Clause 33: CSAF Extension Specification
 
 A specification satisfies the "CSAF Extension Specification" conformance profile if:
 
@@ -1236,7 +1265,7 @@ A specification satisfies the "CSAF Extension Specification" conformance profile
 
 * all requirements above are fulfilled for the same extension.
 
-### Conformance Clause 33: CSAF Extension Bundle
+### Conformance Clause 34: CSAF Extension Bundle
 
 A compilation of artifacts satisfies the "CSAF Extension Bundle" conformance profile if:
 
@@ -1246,7 +1275,7 @@ A compilation of artifacts satisfies the "CSAF Extension Bundle" conformance pro
 * all necessary test files to implement the "CSAF Extension Test" for this extension.
 * has a name that it can be referred to.
 
-### Conformance Clause 34: CSAF Extension Package
+### Conformance Clause 35: CSAF Extension Package
 
 A compilation of artifacts satisfies the "CSAF Extension Package" conformance profile if:
 
@@ -1254,7 +1283,7 @@ A compilation of artifacts satisfies the "CSAF Extension Package" conformance pr
 * it contains exactly one compilation of artifacts satisfying the "CSAF Extension Bundle" conformance profile.
 * has a name that it can be referred to.
 
-### Conformance Clause 35: CSAF Extension Collection
+### Conformance Clause 36: CSAF Extension Collection
 
 A set of artifacts satisfies the "CSAF Extension Collection" conformance profile if it:
 
