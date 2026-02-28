@@ -475,7 +475,10 @@ The relevant path for this test is:
 For each product listed in the product status group fixed in any vulnerability,
 it MUST be tested that a corresponding version of the product is listed as affected in the same vulnerability.
 
-> For a relationship `installed_with` the product without any relationship is a corresponding product.
+> For a product path including the `installed_with` relationship the product path leading to but not including the relationship
+> is a corresponding product.
+> Such product path could also be just the product identified by `beginning_product_reference` if the first subpath element
+> has the category `installed_with`.
 
 The relevant value for `/document/category` is:
 

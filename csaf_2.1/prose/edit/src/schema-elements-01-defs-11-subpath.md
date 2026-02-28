@@ -1,6 +1,6 @@
 ### Subpath Type
 
-Subpath (`subpath_t`) of value type `object` contains the next node along the current path its relationship to the previous node.
+Subpath (`subpath_t`) of value type `object` contains the next node along the current path and its relationship to the previous node.
 The properties `category` and `next_product_reference` are required.
 
 ```

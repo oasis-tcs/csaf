@@ -503,7 +503,7 @@
     },
     "subpath_t": {
       "title": "Subpath",
-      "description": "Contains the next node along the current path its relationship to the previous node.",
+      "description": "Contains the next node along the current path and its relationship to the previous node.",
       "type": "object",
       "required": [
         "category",
