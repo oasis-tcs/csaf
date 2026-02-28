@@ -369,6 +369,7 @@
   "9.1.23": "conformance-clause-23-csaf-downloader",
   "9.1.24": "conformance-clause-24-csaf-withdrawer",
   "9.1.25": "conformance-clause-25-csaf-superseder",
+  "9.1.26": "conformance-clause-25-csaf-rvisc-id-updater",
   "Appendix A.": "acknowledgments",
   "Appendix B.": "revision-history",
   "Appendix C.": "guidance-on-the-size-of-csaf-documents",
