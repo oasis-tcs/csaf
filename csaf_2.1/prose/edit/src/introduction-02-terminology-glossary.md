@@ -79,15 +79,15 @@ CSAF Post-Processor
 :    CSAF Producer that transforms an existing CSAF Document into a new CSAF Document,
 for example, by removing or redacting elements according to sharing policies.
 
-CSAF SBOM Matching System
-:    A program that connects to or is an SBOM database and is able to manage CSAF Documents as
-required by CSAF Management System as well as matching them to SBOM components of the SBOM database.
-
 CSAF Producer
 :    program that emits output in the CSAF format.
 
 CSAF RVISC ID Updater
 :    A CSAF Post-Processor that updates vulnerability IDs in a given CSAF based on the entries in RVISC.
+
+CSAF SBOM Matching System
+:    A program that connects to or is an SBOM database and is able to manage CSAF Documents as
+required by CSAF Management System as well as matching them to SBOM components of the SBOM database.
 
 CSAF Superseder
 :    A CSAF Post-Processor that transforms a given CSAF into a superseded one.
