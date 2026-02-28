@@ -1,6 +1,6 @@
 ### Multiple Use of Same Hash Algorithm
 
-It MUST be tested that the same hash algorithm is not used multiple times in one item of hashes.
+It MUST be tested that the same hash algorithm is not used multiple times in one item of file hashes.
 
 The relevant paths for this test are:
 
@@ -40,4 +40,4 @@ The relevant paths for this test are:
   }
 ```
 
-> The hash algorithm `sha256` is used two times in one item of hashes.
+> The hash algorithm `sha256` is used two times in one item of file hashes.
