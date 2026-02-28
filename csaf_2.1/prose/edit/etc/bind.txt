@@ -178,3 +178,4 @@ conformance.md
 acknowledgements.md
 revision-history.md
 guidance-on-size.md
+collapsing-product-path.md

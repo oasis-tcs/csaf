@@ -377,5 +377,6 @@
   "C.3": "string-length",
   "C.4": "date",
   "C.5": "enum",
-  "C.6": "uri-length"
+  "C.6": "uri-length",
+  "D": "collapsing-product-paths"
 }
