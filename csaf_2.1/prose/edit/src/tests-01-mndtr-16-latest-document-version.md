@@ -35,3 +35,5 @@ The relevant path for this test is:
 ```
 
 > The value of `number` of the last item after sorting is `2`. However, the document version is `1`.
+
+> A tool MAY set the document version to the value of `number` of the last item in the revision history after sorting as a quick fix.
