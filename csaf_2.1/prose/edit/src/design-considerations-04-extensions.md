@@ -86,7 +86,7 @@ URLs using a domain mentioned in [cite](#RFC2606) MUST be used according to thei
 *Examples 1:*
 
 ```
-  https://www.example.com/some-path/to-a-csaf-extension/schema/manufacturer-headquarters_1.0.0.json
+  https://www.example.com/some-path/to-a-csaf-extension/schema/our-awesome-metric_1.0.0.json
   https://oil-and-gas.isac.example/.well-known/csaf/extensions/schema/product-safety_17.41.0.json
 ```
 
@@ -136,6 +136,6 @@ It is used to provide information for automated tools on certain requirements an
 *Examples 1:*
 
 ```
-  https://www.example.com/some-path/to-a-csaf-extension/metadata/manufacturer-headquarters_1.0.0.json
+  https://www.example.com/some-path/to-a-csaf-extension/metadata/our-awesome-metric_1.0.0.json
   https://oil-and-gas.isac.example/.well-known/csaf/extensions/metadata/product-safety_17.41.0.json
 ```
