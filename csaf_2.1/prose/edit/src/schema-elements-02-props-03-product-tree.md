@@ -72,12 +72,12 @@ the product_ids of those products which known as one group in the document.
 
 List of product paths (`product_paths`) of value type `array` with `1` or more items contains a list of product paths.
 
-```yaml <!--json-path($..product_tree..relationships)-->
+```yaml <!--json-path($..product_tree..product_paths)-->
 <csaf-instance>:
   # ...
   product_tree:
     # ...
-    relationships: Sequence
+    product_path: Sequence
   # ...
 ```
 
@@ -87,17 +87,16 @@ Full Product Name (`full_product_name`), and Subpaths (`subpaths`).
 The Product path item establishes a path along existing full_product_name_t elements,
 allowing the document producer to define a path of multiple products that form a new full_product_name entry.
 
-```yaml <!--json-path($..product_tree..relationships..properties)-->
+```yaml <!--json-path($..product_tree..product_paths..properties)-->
 <csaf-instance>:
   # ...
   product_tree:
     # ...
-    relationships:
-    - # <relationship-instance>:
-      category: String.Enum
+    product_paths:
+    - # <product_path-instance>:
+      beginning_product_reference: $defs.product_id_t
       full_product_name: $defs.full_product_name_t
-      product_reference: $defs.product_id_t
-      relates_to_product_reference: $defs.product_id_t
+      subpaths: Sequence
     # ...
   # ...
 ```
@@ -117,13 +116,19 @@ List of product subpaths (`subpaths`) of value type `array` with `1` or more ite
 contains an ordered list of product subpaths,
 each one relating to the path defined by all previous elements up to the beginning node of the product path.
 
-```
-      "subpaths": {
-        // ...
-        "items": {
-          // ...
-        }
-      }
+```yaml <!--json-path($..product_tree..product_paths..properties..subpaths)-->
+<csaf-instance>:
+  # ...
+  product_tree:
+    # ...
+    product_paths:
+    - # <product_path-instance>:
+      # ...
+      subpaths:
+      - # <subpath-instance>: $defs.subpath_t
+      # ...
+    # ...
+  # ...
 ```
 
 *Example 1:*

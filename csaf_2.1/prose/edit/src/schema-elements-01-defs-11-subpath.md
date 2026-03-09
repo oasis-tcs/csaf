@@ -3,15 +3,13 @@
 Subpath (`subpath_t`) of value type `object` contains the next node along the current path and its relationship to the previous node.
 The properties `category` and `next_product_reference` are required.
 
-```
-      "properties": {
-        "category": {
-          // ...
-        },
-        "next_product_reference": {
-          // ...
-        }
-      },
+```yaml <!--json-path($['$defs'].subpath_t)-->
+$defs:
+  # ...
+  subpath_t:
+    category: String.Enum
+    next_product_reference: $defs.product_id_t
+  # ...
 ```
 
 Relationship category (`category`) of value type `string` and `enum` defines the category of relationship between the previous item
