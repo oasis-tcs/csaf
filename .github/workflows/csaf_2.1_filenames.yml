@@ -24,6 +24,8 @@ jobs:
       run: ./csaf_2.1/test/filenames/run_tests.sh ./csaf_2.1/examples/csaf/*.json
     - name: Test filenames of CSAF examples - profile specific folders
       run: ./csaf_2.1/test/filenames/run_tests.sh ./csaf_2.1/examples/csaf/csaf_*/*.json
+    - name: Test filenames of CSAF examples - appendix folders
+      run: ./csaf_2.1/test/filenames/run_tests.sh ./csaf_2.1/examples/csaf/appendix/*.json
     - name: Test filenames of CSAF test files in validator/data/mandatory
       run: ./csaf_2.1/test/filenames/run_tests.sh ./csaf_2.1/test/validator/data/mandatory/*.json
     - name: Test filenames of CSAF test files in validator/data/recommended

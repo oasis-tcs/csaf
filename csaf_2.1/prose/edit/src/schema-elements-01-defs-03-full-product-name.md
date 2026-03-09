@@ -219,7 +219,7 @@ A list of models SHOULD only be used if a certain range of model numbers with it
 or the model numbers change during update.
 
 This can also be used to identify hardware.
-If necessary, the software, or any other related part, SHALL be bind to that via a product relationship.
+If necessary, the software, or any other related part, SHALL be bind to that via a product path.
 
 ```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..model_numbers)-->
 $defs:
@@ -369,11 +369,11 @@ As part of the serial number, the special characters `?`, `*` and `\` MUST be es
 The list of stock keeping units (`skus`) of value type `array` with `1` or more items contains a list of full or
 abbreviated (partial) stock keeping units.
 
-A list of stock keeping units SHOULD only be used if the list of relationships is used to decouple e.g. hardware from the software,
+A list of stock keeping units SHOULD only be used if the list of product paths is used to decouple e.g. hardware from the software,
 or the stock keeping units change during update.
 In the latter case the remediations SHALL include the new stock keeping units or a description how it can be obtained.
 
-> The use of the list of relationships in the first case is important.
+> The use of the list of product paths in the first case is important.
 > Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
 
 ```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..skus)-->
