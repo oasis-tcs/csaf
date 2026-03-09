@@ -1,0 +1,266 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Collapsing Product Paths (example 1)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-D-11",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.0.0",
+                "product": {
+                  "name": "Example Company Product A 1.0.0",
+                  "product_id": "CSAFPID-908070601"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "1.1.0",
+                "product": {
+                  "name": "Example Company Product A 1.1.0",
+                  "product_id": "CSAFPID-908070602"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "2023",
+                "product": {
+                  "name": "Example Company Product B 2023",
+                  "product_id": "CSAFPID-908070603"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "2024",
+                "product": {
+                  "name": "Example Company Product B 2024",
+                  "product_id": "CSAFPID-908070604"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product B"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "EU",
+                "product": {
+                  "name": "Example Company Product C EU",
+                  "product_id": "CSAFPID-908070605"
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "US",
+                "product": {
+                  "name": "Example Company Product C US",
+                  "product_id": "CSAFPID-908070606"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product C"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ],
+    "product_paths": [
+      {
+        "beginning_product_reference": "CSAFPID-908070601",
+        "full_product_name": {
+          "name": "Example Company Product A 1.0.0 installed on Example Company Product B 2023",
+          "product_id": "CSAFPID-908070607"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070603"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070601",
+        "full_product_name": {
+          "name": "Example Company Product A 1.0.0 installed on Example Company Product B 2024",
+          "product_id": "CSAFPID-908070608"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070604"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070602",
+        "full_product_name": {
+          "name": "Example Company Product A 1.1.0 installed on Example Company Product B 2023",
+          "product_id": "CSAFPID-908070609"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070603"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070602",
+        "full_product_name": {
+          "name": "Example Company Product A 1.1.0 installed on Example Company Product B 2024",
+          "product_id": "CSAFPID-908070610"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070604"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070607",
+        "full_product_name": {
+          "name": "Example Company Product A 1.0.0 installed on Example Company Product B 2023 installed on Example Company Product C EU",
+          "product_id": "CSAFPID-908070611"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070605"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070607",
+        "full_product_name": {
+          "name": "Example Company Product A 1.0.0 installed on Example Company Product B 2023 installed on Example Company Product C US",
+          "product_id": "CSAFPID-908070612"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070606"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070608",
+        "full_product_name": {
+          "name": "Example Company Product A 1.0.0 installed on Example Company Product B 2024 installed on Example Company Product C EU",
+          "product_id": "CSAFPID-908070613"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070605"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070608",
+        "full_product_name": {
+          "name": "Example Company Product A 1.0.0 installed on Example Company Product B 2024 installed on Example Company Product C US",
+          "product_id": "CSAFPID-908070614"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070606"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070609",
+        "full_product_name": {
+          "name": "Example Company Product A 1.1.0 installed on Example Company Product B 2023 installed on Example Company Product C EU",
+          "product_id": "CSAFPID-908070615"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070605"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070609",
+        "full_product_name": {
+          "name": "Example Company Product A 1.1.0 installed on Example Company Product B 2023 installed on Example Company Product C US",
+          "product_id": "CSAFPID-908070616"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070606"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070610",
+        "full_product_name": {
+          "name": "Example Company Product A 1.1.0 installed on Example Company Product B 2024 installed on Example Company Product C EU",
+          "product_id": "CSAFPID-908070617"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070605"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-908070610",
+        "full_product_name": {
+          "name": "Example Company Product A 1.1.0 installed on Example Company Product B 2024 installed on Example Company Product C US",
+          "product_id": "CSAFPID-908070618"
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070606"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -133,33 +133,45 @@
         "name": "Red Hat"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "openshift4/ose-metering-ansible-operator-bundle:v4.6.0.202112161349.p0.gd74112d.assembly.art3595-1",
         "full_product_name": {
           "name": "openshift4/ose-metering-ansible-operator-bundle:v4.6.0.202112161349.p0.gd74112d.assembly.art3595-1 as a component of Red Hat OpenShift Container Platform 4.6",
           "product_id": "8Base-RHOSE-4.6:openshift4/ose-metering-ansible-operator-bundle:v4.6.0.202112161349.p0.gd74112d.assembly.art3595-1"
         },
-        "product_reference": "openshift4/ose-metering-ansible-operator-bundle:v4.6.0.202112161349.p0.gd74112d.assembly.art3595-1",
-        "relates_to_product_reference": "8Base-RHOSE-4.6"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "8Base-RHOSE-4.6"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "openshift4/ose-metering-ansible-operator:v4.6.0-202112161349.p0.gd74112d.assembly.art3595",
         "full_product_name": {
           "name": "openshift4/ose-metering-ansible-operator:v4.6.0-202112161349.p0.gd74112d.assembly.art3595 as a component of Red Hat OpenShift Container Platform 4.6",
           "product_id": "8Base-RHOSE-4.6:openshift4/ose-metering-ansible-operator:v4.6.0-202112161349.p0.gd74112d.assembly.art3595"
         },
-        "product_reference": "openshift4/ose-metering-ansible-operator:v4.6.0-202112161349.p0.gd74112d.assembly.art3595",
-        "relates_to_product_reference": "8Base-RHOSE-4.6"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "8Base-RHOSE-4.6"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "openshift4/ose-metering-hive:v4.6.0-202112160147.p0.gf139e12.assembly.stream",
         "full_product_name": {
           "name": "openshift4/ose-metering-hive:v4.6.0-202112160147.p0.gf139e12.assembly.stream as a component of Red Hat OpenShift Container Platform 4.6",
           "product_id": "8Base-RHOSE-4.6:openshift4/ose-metering-hive:v4.6.0-202112160147.p0.gf139e12.assembly.stream"
         },
-        "product_reference": "openshift4/ose-metering-hive:v4.6.0-202112160147.p0.gf139e12.assembly.stream",
-        "relates_to_product_reference": "8Base-RHOSE-4.6"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "8Base-RHOSE-4.6"
+          }
+        ]
       }
     ]
   },

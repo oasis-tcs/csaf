@@ -94,9 +94,9 @@
         }
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-908070604",
         "full_product_name": {
           "name": "Product D installed on Example Company Product A 1.0",
           "product_id": "CSAFPID-908070605",
@@ -107,8 +107,12 @@
             ]
           }
         },
-        "product_reference": "CSAFPID-908070604",
-        "relates_to_product_reference": "CSAFPID-908070601"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070601"
+          }
+        ]
       }
     ]
   }

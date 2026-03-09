@@ -82,42 +82,58 @@
         "name": "Example Company"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-9080703",
         "full_product_name": {
           "name": "Example Company Product B 0.8.15 installed on Example Company Product A 4.2",
           "product_id": "CSAFPID-9080705"
         },
-        "product_reference": "CSAFPID-9080703",
-        "relates_to_product_reference": "CSAFPID-9080700"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-9080700"
+          }
+        ]
       },
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-9080704",
         "full_product_name": {
           "name": "Example Company Product B 0.8.14 installed on Example Company Product A 4.1",
           "product_id": "CSAFPID-9080706"
         },
-        "product_reference": "CSAFPID-9080704",
-        "relates_to_product_reference": "CSAFPID-9080701"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-9080701"
+          }
+        ]
       },
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-9080704",
         "full_product_name": {
           "name": "Example Company Product B 0.8.14 installed on Example Company Product A 4.2",
           "product_id": "CSAFPID-9080707"
         },
-        "product_reference": "CSAFPID-9080704",
-        "relates_to_product_reference": "CSAFPID-9080700"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-9080700"
+          }
+        ]
       },
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-9080703",
         "full_product_name": {
           "name": "Example Company Product B 0.8.15 installed on Example Company Product A 4.1",
           "product_id": "CSAFPID-9080708"
         },
-        "product_reference": "CSAFPID-9080703",
-        "relates_to_product_reference": "CSAFPID-9080701"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-9080701"
+          }
+        ]
       }
     ]
   },

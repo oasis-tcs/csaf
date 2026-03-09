@@ -3,7 +3,7 @@
 Product Tree (`product_tree`) has value type `object` with `1` or more properties is a container for all fully qualified product names that
 can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
-and Relationships (`relationships`).
+and Product Paths (`product_paths`).
 
 ```
     "product_tree": {
@@ -18,7 +18,7 @@ and Relationships (`relationships`).
         "product_groups": {
           // ...
         },
-        "relationships": {
+        "product_paths": {
           // ...
         }
       }
@@ -78,12 +78,12 @@ Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 List of Product IDs (`product_ids`) of value type `array` with `2` or more unique items of value type Product ID (`product_id_t`) lists
 the product_ids of those products which known as one group in the document.
 
-#### Product Tree Property - Relationships
+#### Product Tree Property - Product Paths
 
-List of relationships (`relationships`) of value type `array` with `1` or more items contains a list of relationships.
+List of product paths (`product_paths`) of value type `array` with `1` or more items contains a list of product paths.
 
 ```
-    "relationships": {
+    "product_paths": {
       // ...
       "items": {
         // ...
@@ -91,70 +91,49 @@ List of relationships (`relationships`) of value type `array` with `1` or more i
     }
 ```
 
-The Relationship item is of value type `object` and has four mandatory properties: Relationship category (`category`),
-Full Product Name (`full_product_name`), Product Reference (`product_reference`),
-and Relates to Product Reference (`relates_to_product_reference`).
-The Relationship item establishes a link between two existing `full_product_name_t` elements,
-allowing the document producer to define a combination of two products that form a new `full_product_name` entry.
+The Product path item is of value type `object` and has three mandatory properties:
+Beginning product reference (`beginning_product_reference`),
+Full Product Name (`full_product_name`), and Subpaths (`subpaths`).
+The Product path item establishes a path along existing full_product_name_t elements,
+allowing the document producer to define a path of multiple products that form a new full_product_name entry.
 
 ```
     "properties": {
-      "category": {
+      "beginning_product_reference": {
         // ...
       },
       "full_product_name": {
         // ...
       },
-      "product_reference": {
-        // ...
-      },
-      "relates_to_product_reference": {
+      "subpaths": {
         // ...
       }
     }
 ```
 
-> The situation where a need for declaring a Relationship arises,
+> The situation where a need for declaring a Product path arises,
 > is given when a product is e.g. vulnerable only when installed together with another, or to describe operating system components.
 
-Relationship category (`category`) of value type `string` and `enum` defines the category of relationship for the referenced component.
-The valid values are:
+Beginning product reference (`beginning_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID
+that refers to the Full Product Name element, which is the beginning node of the product path.
+It is also the product, the first node in `subpaths` links to.
 
-```
-    default_component_of
-    external_component_of
-    installed_on
-    installed_with
-    optional_component_of
-```
-
-The value `default_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is a default component of
-an entity with another Product ID (e.g. CSAFPID-0002).
-These Product IDs SHOULD NOT be identical to provide minimal redundancy.
-
-The value `external_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an external component of
-an entity with another Product ID (e.g. CSAFPID-0002).
-These Product IDs SHOULD NOT be identical to provide minimal redundancy.
-
-The value `installed_on` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is installed on a platform entity with
-another Product ID (e.g. CSAFPID-0002).
-These Product IDs SHOULD NOT be identical to provide minimal redundancy.
-
-The value `installed_with` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is installed alongside
-an entity with another Product ID (e.g. CSAFPID-0002).
-These Product IDs SHOULD NOT be identical to provide minimal redundancy.
-
-The value `optional_component_of` indicates that the entity labeled with one Product ID (e.g. CSAFPID-0001) is an optional component of
-an entity with another Product ID (e.g. CSAFPID-0002).
-These Product IDs SHOULD NOT be identical to provide minimal redundancy.
+> The product referenced in `beginning_product_reference` is usually the product that is more closely identified by the product path.
 
 Full Product Name (`full_product_name`) of value type Full Product Name Type (`full_product_name_t`).
 
-Product Reference (`product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to the Full Product Name element,
-which is referenced as the first element of the relationship.
+List of product subpaths (`subpaths`) of value type `array` with `1` or more items of type Subpath (`subpath_t`)
+contains an ordered list of product subpaths,
+each one relating to the path defined by all previous elements up to the beginning node of the product path.
 
-Relates to Product Reference (`relates_to_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers to
-the Full Product Name element, which is referenced as the second element of the relationship.
+```
+      "subpaths": {
+        // ...
+        "items": {
+          // ...
+        }
+      }
+```
 
 *Example 1:*
 
@@ -170,22 +149,27 @@ the Full Product Name element, which is referenced as the second element of the 
         "name": "Microsoft Windows"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "product_reference": "CSAFPID-908070601",
-        "category": "installed_on",
-        "relates_to_product_reference": "CSAFPID-908070602",
+        "beginning_product_reference": "CSAFPID-908070601",
         "full_product_name": {
           "product_id": "CSAFPID-908070603",
           "name": "Cisco AnyConnect Secure Mobility Client 4.9.04053 installed on Microsoft Windows"
-        }
+        },
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070602",
+          }
+        ]
       }
     ]
   }
 ```
 
-> The product `Cisco AnyConnect Secure Mobility Client 4.9.04053"` (Product ID: `CSAFPID-908070601`) and the product `Microsoft Windows`
-> (Product ID: `CSAFPID-908070602`) form together a new product with the separate Product ID `CSAFPID-908070603`.
+> The product `Cisco AnyConnect Secure Mobility Client 4.9.04053"` (Product ID: `CSAFPID-908070601`) and
+> the product `Microsoft Windows` (Product ID: `CSAFPID-908070602`) form together
+> a new product with the separate Product ID `CSAFPID-908070603`.
 > The latter one can be used to refer to that combination in other parts of the CSAF document.
 > In the preceding example, it might be the case that `Cisco AnyConnect Secure Mobility Client 4.9.04053"`
 > is only vulnerable when installed on `Microsoft Windows`.

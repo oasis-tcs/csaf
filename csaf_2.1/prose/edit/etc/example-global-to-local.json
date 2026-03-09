@@ -215,6 +215,7 @@
   "213": "overlapping-product-version-range-with-product-version-range-in-branch-eg-1",
   "214": "overlapping-product-version-range-with-product-version-in-branch-eg-1",
   "215": "use-of-unregistered-id-system-eg-1",
+  "215j": "nested-product-path-eg-1",
   "216": "requirement-7-provider-metadata-json-eg-1",
   "217": "requirement-8-security-txt-eg-1",
   "218": "requirement-9-well-known-url-for-provider-metadata-json-eg-1",
@@ -237,5 +238,9 @@
   "235": "conformance-clause-5-cvrf-csaf-converter-eg-1",
   "236": "conformance-clause-5-cvrf-csaf-converter-eg-2",
   "237": "conformance-clause-5-cvrf-csaf-converter-eg-3",
-  "238": "conformance-clause-5-cvrf-csaf-converter-eg-4"
+  "238": "conformance-clause-5-cvrf-csaf-converter-eg-4",
+  "238a": "collapsing-product-paths-eg-1",
+  "238b": "collapsing-product-paths-eg-2",
+  "238c": "collapsing-product-paths-eg-3",
+  "238d": "collapsing-product-paths-eg-4"
 }

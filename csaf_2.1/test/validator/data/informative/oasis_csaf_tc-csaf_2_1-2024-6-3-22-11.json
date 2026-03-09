@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: Circular Definition of Product ID (failing example 1)",
+    "title": "Informative Test: Nested Product Path (valid example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-03-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-22-11",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -33,20 +33,32 @@
     "full_product_names": [
       {
         "name": "Product A",
-        "product_id": "CSAFPID-9080700"
+        "product_id": "CSAFPID-908070601"
+      },
+      {
+        "name": "Product B",
+        "product_id": "CSAFPID-908070602"
+      },
+      {
+        "name": "Product C",
+        "product_id": "CSAFPID-908070603"
       }
     ],
     "product_paths": [
       {
-        "beginning_product_reference": "CSAFPID-9080700",
+        "beginning_product_reference": "CSAFPID-908070601",
         "full_product_name": {
-          "name": "Product B",
-          "product_id": "CSAFPID-9080701"
+          "name": "Product A installed on Product B installed on Product C",
+          "product_id": "CSAFPID-908070605"
         },
         "subpaths": [
           {
             "category": "installed_on",
-            "next_product_reference": "CSAFPID-9080701"
+            "next_product_reference": "CSAFPID-908070602"
+          },
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070603"
           }
         ]
       }
