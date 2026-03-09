@@ -87,33 +87,45 @@
         "summary": "All versions of Product A (at the time of publication)."
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_with",
+        "beginning_product_reference": "CSAFPID-9080700",
         "full_product_name": {
           "name": "Example Company Product A 1.0.0 installed with Example Company Extension I",
           "product_id": "CSAFPID-9080716"
         },
-        "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080715"
+        "subpaths": [
+          {
+            "category": "installed_with",
+            "next_product_reference": "CSAFPID-9080715"
+          }
+        ]
       },
       {
-        "category": "installed_with",
+        "beginning_product_reference": "CSAFPID-9080701",
         "full_product_name": {
           "name": "Example Company Product A 1.1.0 installed with Example Company Extension I",
           "product_id": "CSAFPID-9080717"
         },
-        "product_reference": "CSAFPID-9080701",
-        "relates_to_product_reference": "CSAFPID-9080705"
+        "subpaths": [
+          {
+            "category": "installed_with",
+            "next_product_reference": "CSAFPID-9080705"
+          }
+        ]
       },
       {
-        "category": "installed_with",
+        "beginning_product_reference": "CSAFPID-9080702",
         "full_product_name": {
           "name": "Example Company Product A 1.2.0 installed with Example Company Extension I",
           "product_id": "CSAFPID-9080718"
         },
-        "product_reference": "CSAFPID-9080702",
-        "relates_to_product_reference": "CSAFPID-9080715"
+        "subpaths": [
+          {
+            "category": "installed_with",
+            "next_product_reference": "CSAFPID-9080715"
+          }
+        ]
       }
     ]
   },

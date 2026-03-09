@@ -1,13 +1,13 @@
 ### Multiple Use of Same Hash Algorithm
 
-It MUST be tested that the same hash algorithm is not used multiple times in one item of hashes.
+It MUST be tested that the same hash algorithm is not used multiple times in one item of file hashes.
 
 The relevant paths for this test are:
 
 ```
   /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes
   /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes
-  /product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes
+  /product_tree/product_paths[]/full_product_name/product_identification_helper/hashes[]/file_hashes
 ```
 
 *Example 1 (which fails the test):*
@@ -40,4 +40,4 @@ The relevant paths for this test are:
   }
 ```
 
-> The hash algorithm `sha256` is used two times in one item of hashes.
+> The hash algorithm `sha256` is used two times in one item of file hashes.

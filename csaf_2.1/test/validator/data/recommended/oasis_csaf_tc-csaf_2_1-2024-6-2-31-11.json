@@ -73,15 +73,19 @@
         "name": "Example Company"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-908070602",
         "full_product_name": {
           "name": "Example Company Controller A Firmware 4.1 installed on Example Company Controller A",
           "product_id": "CSAFPID-908070603"
         },
-        "product_reference": "CSAFPID-908070602",
-        "relates_to_product_reference": "CSAFPID-908070601"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070601"
+          }
+        ]
       }
     ]
   }

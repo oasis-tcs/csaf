@@ -501,6 +501,35 @@
         "additionalProperties": false
       }
     },
+    "subpath_t": {
+      "title": "Subpath",
+      "description": "Contains the next node along the current path and its relationship to the previous node.",
+      "type": "object",
+      "required": [
+        "category",
+        "next_product_reference"
+      ],
+      "properties": {
+        "category": {
+          "title": "Relationship category",
+          "description": "Defines the category of relationship between the previous item and the referenced next product.",
+          "type": "string",
+          "enum": [
+            "default_component_of",
+            "external_component_of",
+            "installed_on",
+            "installed_with",
+            "optional_component_of"
+          ]
+        },
+        "next_product_reference": {
+          "title": "Next product reference",
+          "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
+          "$ref": "#/$defs/product_id_t"
+        }
+      },
+      "additionalProperties": false
+    },
     "version_t": {
       "title": "Version",
       "description": "Specifies a version string to denote clearly the evolution of the content of the document. Format must be either integer or semantic versioning.",
@@ -1014,46 +1043,37 @@
             "additionalProperties": false
           }
         },
-        "relationships": {
-          "title": "List of relationships",
-          "description": "Contains a list of relationships.",
+        "product_paths": {
+          "title": "List of product paths",
+          "description": "Contains a list of product paths.",
           "type": "array",
           "minItems": 1,
           "items": {
-            "title": "Relationship",
-            "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
+            "title": "Product path",
+            "description": "Establishes a path along existing full_product_name_t elements, allowing the document producer to define a path of multiple products that form a new full_product_name entry.",
             "type": "object",
             "required": [
-              "category",
+              "beginning_product_reference",
               "full_product_name",
-              "product_reference",
-              "relates_to_product_reference"
+              "subpaths"
             ],
             "properties": {
-              "category": {
-                "title": "Relationship category",
-                "description": "Defines the category of relationship for the referenced component.",
-                "type": "string",
-                "enum": [
-                  "default_component_of",
-                  "external_component_of",
-                  "installed_on",
-                  "installed_with",
-                  "optional_component_of"
-                ]
+              "beginning_product_reference": {
+                "title": "Beginning product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is the beginning node of the product path.",
+                "$ref": "#/$defs/product_id_t"
               },
               "full_product_name": {
                 "$ref": "#/$defs/full_product_name_t"
               },
-              "product_reference": {
-                "title": "Product reference",
-                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.",
-                "$ref": "#/$defs/product_id_t"
-              },
-              "relates_to_product_reference": {
-                "title": "Relates to product reference",
-                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
-                "$ref": "#/$defs/product_id_t"
+              "subpaths": {
+                "title": "List of product subpaths",
+                "description": "Contains an ordered list of product subpaths, each one relating to the path defined by all previous elements up to the beginning node of the product path.",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/subpath_t"
+                }
               }
             },
             "additionalProperties": false
@@ -1379,7 +1399,7 @@
                     },
                     "cvss_v4": {
                       "title": "CVSS v4",
-                      "$ref": "https://www.first.org/cvss/cvss-v4.0.1.json"
+                      "$ref": "https://www.first.org/cvss/cvss-v4.0.2.json"
                     },
                     "epss": {
                       "title": "EPSS",
