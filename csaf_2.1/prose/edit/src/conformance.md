@@ -217,9 +217,23 @@ Secondly, the program fulfills the following for all items of:
 * `/document/tracking/id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
   the CVRF CSAF Converter removes those characters.
   In addition, the converter outputs a warning that the ID was changed.
-* `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given,
-  the CVRF CSAF Converter converts the first one into the `full_product_name`.
-  In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
+* `/product_tree/product_path[]`: For each element `prod:Relationship`, the CVRF CSAF Converter MUST apply the following rules:
+  * The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
+  * The first `prod:FullProductName` instance is converted into the `full_product_name`.
+    If more than one `prod:FullProductName` instance is given,
+    the CVRF CSAF Converter MUST output a warning that information might be lost during conversion of product paths.
+    Such warning SHOULD contain the values of all `prod:FullProductName` instances skipped.
+  * The CVRF CSAF Converter constructs the first item of `subpaths` by converting the value of `RelationType` into `category`
+    and the value of the attribute `RelatesToProductReference` into `next_product_reference`.
+
+    > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
+    > if this is possible without the loss of correct information.
+    > Usually, collapsing chained product paths is not possible if
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
+    >   element.
+    > For examples, see appendix [sec](#collapsing-product-paths).
+
 * `/vulnerabilities[]/cwes[]`:
   * The CVRF CSAF Converter MUST remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF Converter MUST determine the CWE specification version the given CWE was selected from by
@@ -834,7 +848,7 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/value`: The CSAF 2.0 to CSAF 2.1 Converter MUST convert
   the value into a lowercase string.
-* type `/$defs/full_product_name_t/product_identification_helper/model_number`:
+* type `/$defs/full_product_name_t/product_identification_helper/model_numbers[]`:
   * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial model number was detected and a star has been added.
     Such a warning MUST include the model number.
@@ -851,7 +865,7 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/purls`: If a `/$defs/full_product_name_t/product_identification_helper/purl` is given,
   the CSAF 2.0 to CSAF 2.1 Converter MUST convert it into the first item of the corresponding `purls` array.
-* type `/$defs/full_product_name_t/product_identification_helper/serial_number`:
+* type `/$defs/full_product_name_t/product_identification_helper/serial_numbers[]`:
   * If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial serial number was detected and a star has been added.
     Such a warning MUST include the serial number.
@@ -865,6 +879,24 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY provide a non-default option to interpret the `?` in all serial numbers as part of the serial number itself and therefore escape it.
 
   > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
+
+* type `/$defs/full_product_name_t/product_identification_helper/skus[]`:
+  * If a stock keeping unit is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
+    warning that a partial stock keeping unit was detected and a star has been added.
+    Such a warning MUST include the stock keeping unit.
+  * If the stock keeping unit contains a `\`,
+    the CSAF 2.0 to CSAF 2.1 Converter MUST escape it by inserting an additional `\` before the character.
+  * If the stock keeping unit contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the entry and
+    output a warning that a stock keeping unit with multiple stars was detected and removed.
+    Such a warning MUST include the stock keeping unit.
+
+  > A tool MAY provide a non-default option to interpret all stock keeping units as complete and therefore does not add any stars.
+
+  > A tool MAY provide a non-default option to interpret the `?` in all stock keeping units as part of the stock keeping unit
+  > itself and therefore escape it.
+
+  > A tool MAY provide a non-default option to interpret the `*` in all stock keeping units as part of the stock keeping unit
+  > itself and therefore escape it.
 
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 Converter MUST set property with the value prescribed by the schema.
 * `/document/category`:
@@ -923,6 +955,20 @@ Secondly, the program fulfills the following for all items of:
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to white space, colon, dash and brackets MUST be removed.
+* `/product_tree/product_path[]`: For each element in `/product_tree/relationships[]`, the CSAF 2.0 to CSAF 2.1 Converter
+  MUST apply the following rules:
+  * The value of `product_reference` is set as the value of `beginning_product_reference`.
+  * The CSAF 2.0 to CSAF 2.1 Converter constructs the first item of `subpaths` by setting the value of `category` into `category`
+    and the value of `relates_to_product_reference` into `next_product_reference`.
+
+    > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
+    > if this is possible without the loss of correct information.
+    > Usually, collapsing chained product paths is not possible if
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
+    >   element.
+    > For examples, see appendix [sec](#collapsing-product-paths).
+
 * `/vulnerabilities[]/cwes[]`:
   * The CSAF 2.0 to CSAF 2.1 Converter MUST remove all preceding and trailing white space from the `name`.
   * The CSAF 2.0 to CSAF 2.1 Converter MUST determine the CWE specification version the given CWE was selected from by
@@ -1049,8 +1095,14 @@ A library satisfies the "CSAF Library" conformance profile if the library:
 * provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
 * provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
   and, where necessary according to the profile, the impact statement respectively the action statement.
-* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by white space
+* provides a function to generate a `full_product_name_t/name` within `branches` through concatenating the `name` values separated by white space
   of the elements along the path towards this leaf.
+* provides a function to generate a combined subpath name for an element of type `subpath_t` through concatenating separated by white space:
+  * the `category` with `_` replaced by white space and
+  * the `name` value of the product identified by the Product ID in `next_product_reference`.
+* provides a function to generate a `full_product_name_t/name` within `product_paths` through concatenating separated by white space:
+  * the `name` value of the product identified by the Product ID in `beginning_product_reference` and
+  * the combined subpath name for all elements in `subpaths` in their order.
 * calculates the CVSS scores and severities for existing data for all CVSS versions.
 * validates the CVSS scores and severities for existing data for all CVSS versions.
 

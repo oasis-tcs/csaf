@@ -83,8 +83,9 @@ The `/product_tree` uses a nested structure for `branches`. Along a single path 
 
 ## Hardware and Software within the Product Tree
 
-If a product consists of hardware and software, the hardware part MUST be presented as one product in the product tree and the software part as another one.
-To form the overall product, both parts MUST be combined through a relationship.
+If a product consists of hardware and software, the hardware part MUST be presented as one product in the product tree
+and the software part as another one.
+To form the overall product, both parts MUST be combined through a product path.
 
 *Example 1:*
 
@@ -165,24 +166,32 @@ To form the overall product, both parts MUST be combined through a relationship.
         "name": "Example Company"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-908070602",
         "full_product_name": {
           "name": "Example Company Controller A Firmware 4.1 installed on Example Company Controller A 1.0",
           "product_id": "CSAFPID-908070604"
         },
-        "product_reference": "CSAFPID-908070602",
-        "relates_to_product_reference": "CSAFPID-908070601"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070601"
+          }
+        ]
       },
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-908070603",
         "full_product_name": {
           "name": "Example Company Controller A Firmware 4.2 installed on Example Company Controller A 1.0",
           "product_id": "CSAFPID-908070605"
         },
-        "product_reference": "CSAFPID-908070603",
-        "relates_to_product_reference": "CSAFPID-908070601"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070601"
+          }
+        ]
       }
     ]
   }
@@ -192,7 +201,7 @@ To form the overall product, both parts MUST be combined through a relationship.
 > The serial number `143-D-354` identifies the `Example Company Controller A 1.0` which is in this example the hardware in its version 1.0.
 > The hash `3fb9d502d096b1dfbcdfe60eed80ddecd98c8771bf21a82bbe1752735c4dc9e2` identifies the software in the version 4.1;
 > the hash `0a853ce2337f0608489ac596a308dc5b7b19d35a52b10bf31261586ac368b175` identifies the software in the version 4.2.
-> The relationships combine the software and hardware part and form new products.
+> The product paths combine the software and hardware part and form new products.
 > These are used e.g. to assign the product status in the vulnerability section.
 >
 > A matching tool searches in a first step for the product identification helper, e.g the serial number in an asset database to identify

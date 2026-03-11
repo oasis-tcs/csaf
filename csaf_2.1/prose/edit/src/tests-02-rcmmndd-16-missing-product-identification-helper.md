@@ -7,7 +7,7 @@ The relevant paths for this test are:
 ```
   /product_tree/branches[](/branches[])*/product
   /product_tree/full_product_names[]
-  /product_tree/relationships[]/full_product_name
+  /product_tree/product_paths[]/full_product_name
 ```
 
 *Example 1 (which fails the test):*

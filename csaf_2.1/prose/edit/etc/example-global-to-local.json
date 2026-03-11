@@ -48,7 +48,7 @@
   "44": "document-property-tracking-generator-eg-2",
   "45": "document-property-tracking-id-eg-1",
   "46": "product-tree-property-product-groups-eg-1",
-  "47": "product-tree-property-relationships-eg-1",
+  "47": "product-tree-property-product-paths-eg-1",
   "48": "vulnerabilities-property-cwes-eg-1",
   "49": "vulnerabilities-property-cwes-eg-2",
   "50": "vulnerabilities-property-cwes-eg-3",
@@ -138,6 +138,7 @@
   "133a": "mandatory-tests--extension-tests-content-schema-eg-1",
   "133b": "mandatory-tests--extension-tests-extension-schema-eg-1",
   "133c": "mandatory-tests--extension-tests-metadata-eg-1",
+  "133d": "use-of-multiple-stars-in-sku-eg-1",
   "134": "unused-definition-of-product-id-eg-1",
   "135": "missing-remediation-eg-1",
   "136": "missing-metric-eg-1",
@@ -234,6 +235,7 @@
   "215g": "usage-of-extension-in-vulnerabilities-metrics-path-eg-1",
   "215h": "usage-of-extension-at-vulnerabilities-level-eg-1",
   "215i": "usage-of-extension-at-root-level-eg-1",
+  "215j": "nested-product-path-eg-1",
   "216": "requirement-7-provider-metadata-json-eg-1",
   "217": "requirement-8-security-txt-eg-1",
   "218": "requirement-9-well-known-url-for-provider-metadata-json-eg-1",
@@ -256,5 +258,9 @@
   "235": "conformance-clause-5-cvrf-csaf-converter-eg-1",
   "236": "conformance-clause-5-cvrf-csaf-converter-eg-2",
   "237": "conformance-clause-5-cvrf-csaf-converter-eg-3",
-  "238": "conformance-clause-5-cvrf-csaf-converter-eg-4"
+  "238": "conformance-clause-5-cvrf-csaf-converter-eg-4",
+  "238a": "collapsing-product-paths-eg-1",
+  "238b": "collapsing-product-paths-eg-2",
+  "238c": "collapsing-product-paths-eg-3",
+  "238d": "collapsing-product-paths-eg-4"
 }

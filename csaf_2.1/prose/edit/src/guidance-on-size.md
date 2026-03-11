@@ -81,12 +81,12 @@ An array SHOULD NOT have more than:
   * `/product_tree/full_product_names[]/product_identification_helper/sbom_urls`
   * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris`
   * `/product_tree/full_product_names[]/x_extensions`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/purls`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris`
-  * `/product_tree/relationships[]/full_product_name/x_extensions`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/hashes`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/hashes[]/file_hashes`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/purls`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/sbom_urls`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris`
+  * `/product_tree/product_paths[]/full_product_name/x_extensions`
   * `/vulnerabilities[]/acknowledgments`
   * `/vulnerabilities[]/acknowledgments[]/names`
   * `/vulnerabilities[]/acknowledgments[]/urls`
@@ -124,14 +124,15 @@ An array SHOULD NOT have more than:
   * `/product_tree/full_product_names[]/product_identification_helper/serial_numbers`
   * `/product_tree/full_product_names[]/product_identification_helper/skus`
   * `/product_tree/product_groups[]/product_ids`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/model_numbers`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/model_numbers`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/serial_numbers`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/skus`
+  * `/product_tree/product_paths[]/subpaths`
   * `/vulnerabilities`
 
 * 10 000 000 for
   * `/product_tree/product_groups`
-  * `/product_tree/relationships`
+  * `/product_tree/product_paths`
   * `/vulnerabilities[]/remediations[]/group_ids`
 
 * 100 000 000 for
@@ -218,16 +219,16 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/full_product_names[]/product_identification_helper/skus[]`
   * `/product_tree/product_groups[]/group_id`
   * `/product_tree/product_groups[]/product_ids[]`
-  * `/product_tree/relationships[]/full_product_name/name`
-  * `/product_tree/relationships[]/full_product_name/product_id`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/hashes[]/filename`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/model_numbers[]`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/serial_numbers[]`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/skus[]`
-  * `/product_tree/relationships[]/product_reference`
-  * `/product_tree/relationships[]/relates_to_product_reference`
+  * `/product_tree/product_paths[]/full_product_name/name`
+  * `/product_tree/product_paths[]/full_product_name/product_id`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/value`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/hashes[]/filename`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/model_numbers[]`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/serial_numbers[]`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/skus[]`
+  * `/product_tree/product_paths[]/beginning_product_reference`
+  * `/product_tree/product_paths[]/subpaths[]/next_product_reference`
   * `/vulnerabilities[]/acknowledgments[]/names[]`
   * `/vulnerabilities[]/acknowledgments[]/organization`
   * `/vulnerabilities[]/cve`
@@ -286,8 +287,8 @@ A string SHOULD NOT have a length greater than:
   * `/product_tree/full_product_names[]/product_identification_helper/cpe`
   * `/product_tree/full_product_names[]/product_identification_helper/purls[]`
   * `/product_tree/product_groups[]/summary`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/cpe`
-  * `/product_tree/relationships[]/full_product_name/product_identification_helper/purls[]`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/cpe`
+  * `/product_tree/product_paths[]/full_product_name/product_identification_helper/purls[]`
   * `/vulnerabilities[]/acknowledgments[]/summary`
   * `/vulnerabilities[]/involvements[]/summary`
   * `/vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources[]/summary`
@@ -352,8 +353,8 @@ This applies to:
 * `/product_tree/branches[]/category` (15)
 * `/product_tree/branches[]/product/x_extensions[]/category` (13)
 * `/product_tree/full_product_names[]/x_extensions[]/category` (13)
-* `/product_tree/relationships[]/category` (21)
-* `/product_tree/relationships[]/full_product_name/x_extensions[]/category` (13)
+* `/product_tree/product_paths[]/category` (21)
+* `/product_tree/product_paths[]/full_product_name/x_extensions[]/category` (13)
 * `/vulnerabilities[]/flags[]/label` (49)
 * `/vulnerabilities[]/involvements[]/party` (11)
 * `/vulnerabilities[]/involvements[]/status` (17)
@@ -465,10 +466,10 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri`
 * `/product_tree/full_product_names[]/x_extensions[]/$schema`
-* `/product_tree/relationships[]/full_product_name/product_identification_helper/sbom_urls[]`
-* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
-* `/product_tree/relationships[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
-* `/product_tree/relationships[]/full_product_name/x_extensions[]/$schema`
+* `/product_tree/product_paths[]/full_product_name/product_identification_helper/sbom_urls[]`
+* `/product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
+* `/product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/product_paths[]/full_product_name/x_extensions[]/$schema`
 * `/vulnerabilities[]/acknowledgments[]/urls[]`
 * `/vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources[]/uri`
 * `/vulnerabilities[]/metrics[]/content/ssvc_v2/references[]/uri`

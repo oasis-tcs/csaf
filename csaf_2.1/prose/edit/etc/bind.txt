@@ -23,7 +23,8 @@ schema-elements-01-defs-08-product-groups.md
 schema-elements-01-defs-09-product-id.md
 schema-elements-01-defs-10-products.md
 schema-elements-01-defs-11-references.md
-schema-elements-01-defs-12-version.md
+schema-elements-01-defs-12-subpath.md
+schema-elements-01-defs-13-version.md
 schema-elements-02-properties.md
 schema-elements-02-props-01-schema.md
 schema-elements-02-props-02-document.md
@@ -94,6 +95,7 @@ tests-01-mndtr-57-stacked-branch-categories.md
 tests-01-mndtr-58-use-of-product-version-in-one-path-with-product-version-range.md
 tests-01-mndtr-59-single-version-as-product-version-range.md
 tests-01-mndtr-60-extension-tests.md
+tests-01-mndtr-61-use-of-multiple-stars-in-sku.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
@@ -171,6 +173,7 @@ tests-03-nfrmtv-18-use-of-qualitative-severity-rating.md
 tests-03-nfrmtv-19-overlapping-version-range.md
 tests-03-nfrmtv-20-use-of-unregistered-id-system.md
 tests-03-nfrmtv-21-extension-tests.md
+tests-03-nfrmtv-22-nested-product-path.md
 tests-04-presets.md
 distributing-00.md
 distributing-01-requirements.md
@@ -182,3 +185,4 @@ conformance.md
 acknowledgements.md
 revision-history.md
 guidance-on-size.md
+collapsing-product-path.md
