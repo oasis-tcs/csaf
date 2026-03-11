@@ -838,7 +838,7 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/purls`: If a `/$defs/full_product_name_t/product_identification_helper/purl` is given,
   the CSAF 2.0 to CSAF 2.1 Converter MUST convert it into the first item of the corresponding `purls` array.
-* type `/$defs/full_product_name_t/product_identification_helper/serial_number[]`:
+* type `/$defs/full_product_name_t/product_identification_helper/serial_numbers[]`:
   * If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial serial number was detected and a star has been added.
     Such a warning MUST include the serial number.
