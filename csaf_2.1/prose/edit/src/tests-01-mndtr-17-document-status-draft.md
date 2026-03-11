@@ -19,3 +19,5 @@ The relevant path for this test is:
 ```
 
 > The `/document/tracking/version` is `0.9.5` but the document status is `final`.
+
+> A tool MAY set the document status to `draft` as a quick fix.

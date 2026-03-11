@@ -19,3 +19,5 @@ The relevant path for this test is:
 ```
 
 > The document status is `interim` but the document version contains the pre-release part `-alpha`.
+
+> A tool MAY remove the pre-release part from the document version as a quick fix.
