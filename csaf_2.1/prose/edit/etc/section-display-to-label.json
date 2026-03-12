@@ -332,7 +332,7 @@
   "6.3.21.8": "usage-of-extension-at-vulnerabilities-level",
   "6.3.21.9": "usage-of-extension-at-root-level",
   "6.3.22": "nested-product-path",
-  "6.4": "presets",
+  "6.4": "test-presets",
   "6.4.1": "presets-defined-through-test-subsections",
   "6.4.2": "presets-defined-through-conformance-targets",
   "6.4.3": "additional-presets",

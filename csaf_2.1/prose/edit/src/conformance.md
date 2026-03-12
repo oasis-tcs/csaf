@@ -634,7 +634,7 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
   including also the format validation (cf. section [sec](#format-validation)).
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
-* satisfies those normative requirements in sections [sec](#extensions), [sec](#mandatory-tests), [sec](#presets), and
+* satisfies those normative requirements in sections [sec](#extensions), [sec](#mandatory-tests), [sec](#test-presets), and
   [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Validators.
 * outputs a warning if an "not implemented warning" occurs as the validation status might not be correct.
 

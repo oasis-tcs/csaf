@@ -1,4 +1,4 @@
-## Presets
+## Test Presets
 
 A test preset is a predefined set of tests that was given a name.
 It MAY contain any number of tests.
@@ -45,7 +45,7 @@ The following presets are defined through conformance targets:
 - `extended`: `basic` + `recommended` (see section [sec](#conformance-clause-15-csaf-extended-validator))
 - `full`: `extended` + `informative` (see section [sec](#conformance-clause-16-csaf-full-validator))
 - `additional`: all implemented tests that satisfy the CSAF Additional Test conformance profile (see section
-  [sec](#conformance-clause-26-csaf-additional-test))
+  [sec](#conformance-clause-27-csaf-additional-test))
 
   > Note: The last preset MAY vary between different implementations as it is implementation specific.
 
