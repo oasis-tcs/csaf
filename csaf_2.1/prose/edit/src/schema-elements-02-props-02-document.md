@@ -3,9 +3,9 @@
 Document level meta-data (`document`) of value type `object` with the six mandatory properties Category (`category`),
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the seven optional properties Acknowledgments (`acknowledgments`),
+In addition, the `document` object MAY provide the eight optional properties Acknowledgments (`acknowledgments`),
 Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
-References (`references`), and Source Language (`source_lang`).
+References (`references`), Source Language (`source_lang`), and Document-level Extensions (`x_extensions`) .
 
 ```yaml <!--json-path($..document.properties)-->
 <csaf-instance>:
@@ -23,6 +23,7 @@ References (`references`), and Source Language (`source_lang`).
     source_lang: $defs.lang_t
     title: String
     tracking: Mapping
+    x_extensions: $defs.extensions_t
 ```
 
 #### Document Property - Acknowledgments
@@ -771,8 +772,15 @@ Version has the value type Version (`version_t`).
 Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the document property level of the CSAF document and associated with this document metadata.
 
-```
-    "x_extensions": {
-      // ...
-    }
+```yaml <!--json-paths($..document..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    x_extensions:  # $defs.extensions_t
+    - # <x_extension-instance>:
+      $schema: String
+      category: String.Enum
+      content: Mapping
+      critical: Boolean
+      # ...
 ```

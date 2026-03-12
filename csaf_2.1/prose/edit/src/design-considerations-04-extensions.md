@@ -54,21 +54,11 @@ The CSAF Extension Metaschema MUST be used to validate a CSAF Extension Schema.
 An extension MUST contain exactly the following elements:
 CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`critical`) and Content (`content`).
 
-```
-  properties: {
-    "$schema": {
-      // ...
-    },
-    "category": {
-      // ...
-    },
-    "critical": {
-      // ...
-    },
-    "content": {
-      // ...
-    }
-  }
+```yaml <!--json-path($.properties)-->
+$schema: String
+category: String.Enum
+content: Mapping
+critical: Boolean
 ```
 
 > The CSAF Extension Content Schema works an interface definition.
@@ -115,18 +105,18 @@ The value `informational` indicates, that the content provided through this exte
 CSAF consumers and CSAF validators MAY warn if they process a CSAF Document including such an extension instance and
 do not have the extension in question already implemented.
 
+#### Content Schema Property - Content
+
+Content (`content`) of value type `object` contains the additional information in its properties.
+A Content object has at least `1` property.
+The property names (JSON keys) can be chosen freely; they SHOULD characterize the information given in its value.
+
 #### Content Schema Property - Critical
 
 Critical (`critical`) of value type `boolean` determines whether using the extension would fail a mandatory test.
 The `default` value for this is `false`.
 
 For any failing test, a CSAF Extension Test MUST be provided.
-
-#### Content Schema Property - Content
-
-Content (`content`) of value type `object` contains the additional information in its properties.
-A Content object has at least `1` property.
-The property names (JSON keys) can be chosen freely; they SHOULD characterize the information given in its value.
 
 ### Metadata
 

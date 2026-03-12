@@ -15,7 +15,7 @@ Any vulnerability MAY provide the optional properties Acknowledgments (`acknowle
 Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
 List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
-Threats (`threats`), and Title (`title`).
+Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
 
 ```yaml <!--json-path($..vulnerabilities..properties)-->
 <csaf-instance>:
@@ -38,6 +38,7 @@ Threats (`threats`), and Title (`title`).
     remediations: Sequence
     threats: Sequence
     title: String
+    x_extensions: $defs.extensions_t
   # ...
 ```
 
@@ -533,6 +534,7 @@ A Content object has at least `1` property.
           $ref.eval(concat(
             *CERTCC-SSVC 'Decision_Point_Value_Selection-2-0-0.schema.json'
           ))
+        x_extensions: $defs.extensions_t
       # ...
     # ...
 ```
@@ -632,10 +634,26 @@ See [cite](#SSVC) for details.
 The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
 valid at the metrics-content-level of the CSAF document and associated with this metric element.
 
-```
-    "x_extensions": {
-      // ...
-    }
+```yaml <!--json-paths($..vulnerabilities..metrics..content..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        # ...
+        x_extensions:  # $defs.extensions_t
+        - # <x_extension-instance>:
+          $schema: String
+          category: String.Enum
+          content: Mapping
+          critical: Boolean
+          # ...
+      # ...
+    # ...
+  # ...
 ```
 
 > This extension point can be used for metrics that are not supported in the CSAF standard (yet).
@@ -1164,8 +1182,17 @@ title to the vulnerability.
 Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
 at the vulnerability item level of the CSAF document and associated with this vulnerability element.
 
-```
-    "x_extensions": {
-      // ...
-    }
+```yaml <!--json-paths($..vulnerabilities[*]..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    x_extensions:  # $defs.extensions_t
+    - # <x_extension-instance>:
+      $schema: String
+      category: String.Enum
+      content: Mapping
+      critical: Boolean
+      # ...
 ```
