@@ -66,7 +66,7 @@ critical: Boolean
 
 #### Content Schema Property - Schema
 
-CSAF Extension Schema (`$schema`) of value type CSAF Extension Content $schema Type (`content_schema_t`) contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.
+CSAF Extension Schema (`$schema`) of value type CSAF Extension Content `$schema` Type (`content_schema_t`) contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.
 This SHOULD also be the location where the JSON schema can be retrieved.
 The value SHOULD match the `$id` of the JSON schema that defines the extension.
 The URL SHOULD contain a human-readable name for the extension before the version string.
