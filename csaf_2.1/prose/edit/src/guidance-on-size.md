@@ -35,9 +35,14 @@ All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits
 
 > If you come across a case where these limits are exceeded, please provide feedback to the TC.
 
+Boolean values are usually represented as a native data type and therefore omitted here.
+Structures in the `content` object of items of type `/$defs/extensions_t` are not listed in the subsections below
+as they depend upon on the extension.
+
 ## File Size
 
-A CSAF document in the specified JSON format encoded in UTF-8 SHOULD conform to known size limits of current technologies parsing JSON content,
+A CSAF document including any extensions used in the document in the specified JSON format encoded in UTF-8 SHOULD
+conform to known size limits of current technologies parsing JSON content,
 e.g.: 150 MiB.
 
 > The CSAF documents observed in the wild expose strongly varying sizes as per the use cases they serve.
@@ -57,26 +62,31 @@ An array SHOULD NOT have more than:
   * `/document/acknowledgments[]/names`
   * `/document/acknowledgments[]/urls`
   * `/document/tracking/aliases`
+  * `/document/x_extensions`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/purls`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls`
   * `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris`
+  * `/product_tree/branches[](/branches[])*/product/x_extensions`
   * `/product_tree/branches[]/product/product_identification_helper/hashes`
   * `/product_tree/branches[]/product/product_identification_helper/hashes[]/file_hashes`
   * `/product_tree/branches[]/product/product_identification_helper/purls`
   * `/product_tree/branches[]/product/product_identification_helper/sbom_urls`
   * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris`
+  * `/product_tree/branches[]/product/x_extensions`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes`
   * `/product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes`
   * `/product_tree/full_product_names[]/product_identification_helper/purls`
   * `/product_tree/full_product_names[]/product_identification_helper/sbom_urls`
   * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris`
+  * `/product_tree/full_product_names[]/x_extensions`
   * `/product_tree/product_paths[]/full_product_name/product_identification_helper/hashes`
   * `/product_tree/product_paths[]/full_product_name/product_identification_helper/hashes[]/file_hashes`
   * `/product_tree/product_paths[]/full_product_name/product_identification_helper/purls`
   * `/product_tree/product_paths[]/full_product_name/product_identification_helper/sbom_urls`
   * `/product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris`
+  * `/product_tree/product_paths[]/full_product_name/x_extensions`
   * `/vulnerabilities[]/acknowledgments`
   * `/vulnerabilities[]/acknowledgments[]/names`
   * `/vulnerabilities[]/acknowledgments[]/urls`
@@ -86,7 +96,10 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections`
   * `/vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/values`
   * `/vulnerabilities[]/metrics[]/content/ssvc_v2/target_ids`
+  * `/vulnerabilities[]/metrics[]/content/x_extensions`
   * `/vulnerabilities[]/remediations[]/entitlements`
+  * `/vulnerabilities[]/x_extensions`
+  * `/x_extensions`
 
 * 40 000 items for
   * `/document/notes`
@@ -334,9 +347,14 @@ This applies to:
 * `/document/publisher/category` (11)
 * `/document/references[]/category` (8)
 * `/document/tracking/status` (7)
+* `/document/x_extensions[]/category` (13)
 * `/product_tree/branches[](/branches[])*/category` (15)
+* `/product_tree/branches[](/branches[])*/product/x_extensions[]/category` (13)
 * `/product_tree/branches[]/category` (15)
-* `/product_tree/product_paths[]/subpaths[]/category` (21)
+* `/product_tree/branches[]/product/x_extensions[]/category` (13)
+* `/product_tree/full_product_names[]/x_extensions[]/category` (13)
+* `/product_tree/product_paths[]/category` (21)
+* `/product_tree/product_paths[]/full_product_name/x_extensions[]/category` (13)
 * `/vulnerabilities[]/flags[]/label` (49)
 * `/vulnerabilities[]/involvements[]/party` (11)
 * `/vulnerabilities[]/involvements[]/status` (17)
@@ -417,11 +435,14 @@ This applies to:
 * `/vulnerabilities[]/metrics[]/content/cvss_v4/vulnIntegrityImpact` (4)
 * `/vulnerabilities[]/metrics[]/content/qualitative_severity_rating` (8)
 * `/vulnerabilities[]/metrics[]/content/ssvc_v2/schemaVersion` (5)
+* `/vulnerabilities[]/metrics[]/content/x_extensions[]/category` (13)
 * `/vulnerabilities[]/notes[]/category` (16)
 * `/vulnerabilities[]/references[]/category` (8)
 * `/vulnerabilities[]/remediations[]/category` (14)
 * `/vulnerabilities[]/remediations[]/restart_required/category` (20)
 * `/vulnerabilities[]/threats[]/category` (14)
+* `/vulnerabilities[]/x_extensions[]/category` (13)
+* `/x_extensions[]/category` (13)
 
 ## URI Length
 
@@ -432,24 +453,32 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/document/distribution/tlp/url`
 * `/document/publisher/namespace`
 * `/document/references[]/url`
+* `/document/x_extensions[]/$schema`
 * `/product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls[]`
 * `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/branches[](/branches[])*/product/x_extensions[]/$schema`
 * `/product_tree/branches[]/product/product_identification_helper/sbom_urls[]`
 * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/branches[]/product/x_extensions[]/$schema`
 * `/product_tree/full_product_names[]/product_identification_helper/sbom_urls[]`
 * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/full_product_names[]/x_extensions[]/$schema`
 * `/product_tree/product_paths[]/full_product_name/product_identification_helper/sbom_urls[]`
 * `/product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace`
 * `/product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris[]/uri`
+* `/product_tree/product_paths[]/full_product_name/x_extensions[]/$schema`
 * `/vulnerabilities[]/acknowledgments[]/urls[]`
 * `/vulnerabilities[]/metrics[]/content/ssvc_v2/decision_point_resources[]/uri`
 * `/vulnerabilities[]/metrics[]/content/ssvc_v2/references[]/uri`
+* `/vulnerabilities[]/metrics[]/content/x_extensions[]/$schema`
 * `/vulnerabilities[]/metrics[]/source`
 * `/vulnerabilities[]/references[]/url`
 * `/vulnerabilities[]/remediations[]/url`
+* `/vulnerabilities[]/x_extensions[]/$schema`
+* `/x_extensions[]/$schema`
 
 ## UUID Length
 

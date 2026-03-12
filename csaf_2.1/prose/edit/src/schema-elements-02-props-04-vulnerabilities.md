@@ -15,7 +15,7 @@ Any vulnerability MAY provide the optional properties Acknowledgments (`acknowle
 Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
 List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
-Threats (`threats`), and Title (`title`).
+Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
 
 ```yaml <!--json-path($..vulnerabilities..properties)-->
 <csaf-instance>:
@@ -38,6 +38,7 @@ Threats (`threats`), and Title (`title`).
     remediations: Sequence
     threats: Sequence
     title: String
+    x_extensions: $defs.extensions_t
   # ...
 ```
 
@@ -504,8 +505,9 @@ the optional property `source` contains all metadata about the metric including 
 ##### Vulnerabilities Property - Metrics - Content
 
 Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
-EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`) and SSVC v2 (`ssvc_v2`) specifies information about
-(at least one) metric or score for the given products regarding the current vulnerability.
+EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`), SSVC v2 (`ssvc_v2`),
+and Metrics-content-level Extensions (`x_extensions`) specifies information about (at least one) metric or score
+for the given products regarding the current vulnerability.
 A Content object has at least `1` property.
 
 ```yaml <!--json-path($..vulnerabilities..metrics..content.properties)-->
@@ -532,6 +534,7 @@ A Content object has at least `1` property.
           $ref.eval(concat(
             *CERTCC-SSVC 'Decision_Point_Value_Selection-2-0-0.schema.json'
           ))
+        x_extensions: $defs.extensions_t
       # ...
     # ...
 ```
@@ -627,6 +630,35 @@ an additional assessment provided by a party.
 The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
 [https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
 See [cite](#SSVC) for details.
+
+The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
+valid at the metrics-content-level of the CSAF document and associated with this metric element.
+
+```yaml <!--json-paths($..vulnerabilities..metrics..content..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        # ...
+        x_extensions:  # $defs.extensions_t
+        - # <x_extension-instance>:
+          $schema: String
+          category: String.Enum
+          content: Mapping
+          critical: Boolean
+          # ...
+      # ...
+    # ...
+  # ...
+```
+
+> This extension point can be used for metrics that are not supported in the CSAF standard (yet).
+> For new versions of an official supported standard, the OASIS CSAF TC will consider providing an official extension
+> to ensure interoperability.
 
 ##### Vulnerabilities Property - Metrics - Products
 
@@ -1145,4 +1177,22 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 Title (`title`) has value type `string` with `1` or more characters and gives the document producer the ability to apply a canonical name or
 title to the vulnerability.
 
--------
+#### Vulnerabilities Property - Extensions
+
+Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
+at the vulnerability item level of the CSAF document and associated with this vulnerability element.
+
+```yaml <!--json-paths($..vulnerabilities[*]..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    x_extensions:  # $defs.extensions_t
+    - # <x_extension-instance>:
+      $schema: String
+      category: String.Enum
+      content: Mapping
+      critical: Boolean
+      # ...
+```
