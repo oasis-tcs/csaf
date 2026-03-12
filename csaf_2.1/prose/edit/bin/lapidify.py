@@ -131,6 +131,7 @@ APPENDIX_HEAD_REMAP = {
     '## Enum': {'replace': ['## ', '## C.5 '], 'attrs': '{.unnumbered #enum}'},
     '## URI Length': {'replace': ['## ', '## C.6 '], 'attrs': '{.unnumbered #uri-length}'},
     '## UUID Length': {'replace': ['## ', '## C.7 '], 'attrs': '{.unnumbered #uuid-length}'},
+    '# Collapsing Product Paths': {'replace': ['# ', '# Appendix D. '], 'attrs': '{.unnumbered #collapsing-product-paths}'},
 }
 
 
