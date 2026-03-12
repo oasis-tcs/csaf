@@ -12,7 +12,7 @@ and Product Paths (`product_paths`).
     branches: $defs.branches_t
     full_product_names: Mapping
     product_groups: Sequence
-    relationships: Sequence
+    product_paths: Sequence
 ```
 
 #### Product Tree Property - Branches
@@ -48,7 +48,7 @@ the optional Summary (`summary`) property.
     product_groups:
     - # <product_group-instance>:
       group_id: $defs.product_group_id_t
-      product_ids: Sequence
+      product_ids: $defs.product_id_t
       summary: String
     # ...
   # ...
@@ -116,7 +116,7 @@ List of product subpaths (`subpaths`) of value type `array` with `1` or more ite
 contains an ordered list of product subpaths,
 each one relating to the path defined by all previous elements up to the beginning node of the product path.
 
-```yaml <!--json-path($..product_tree..product_paths..properties..subpaths)-->
+```yaml <!--json-paths($..product_tree..product_paths..properties..subpaths, $['$defs'].subpath_t..properties)-->
 <csaf-instance>:
   # ...
   product_tree:
@@ -126,6 +126,8 @@ each one relating to the path defined by all previous elements up to the beginni
       # ...
       subpaths:
       - # <subpath-instance>: $defs.subpath_t
+        category: String.Enum
+        next_product_reference: $defs.product_id_t
       # ...
     # ...
   # ...
