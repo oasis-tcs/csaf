@@ -1,6 +1,6 @@
 ### Translator
 
-It MUST be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
+It MUST be tested that `/document/source_lang` is present if the value `translator` is used for `/document/publisher/category`.
 
 The relevant path for this test is:
 

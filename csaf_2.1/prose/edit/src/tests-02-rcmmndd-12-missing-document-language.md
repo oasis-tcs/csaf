@@ -1,6 +1,6 @@
 ### Missing Document Language
 
-It MUST be tested that the document language is present and set.
+It MUST be tested that the document language member is present.
 
 The relevant path for this test is:
 
