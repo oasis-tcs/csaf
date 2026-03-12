@@ -406,6 +406,11 @@ def main(argv: list[str]) -> int:
     CS_OF_SLOT = [None for _ in lines]
     in_fenced_block = False
     for slot, line in enumerate(lines):
+        if line.strip() and line.startswith(r'\columns='):
+            line = HC_BEG + line.rstrip() + HC_END
+            lines[slot] = line
+            print(f'INFO: Wrapped columns command for HTML and GFM-Plus targets in {slot=}:')
+            print(f'INFO: - {line}')
         if line.startswith(FENCED_BLOCK_FLIP_FLOP):
             in_fenced_block = not in_fenced_block
         if meta_hooks.get(slot) is not None:
