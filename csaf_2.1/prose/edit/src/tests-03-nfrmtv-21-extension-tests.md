@@ -18,7 +18,7 @@ The relevant paths for this test are:
   /document/x_extensions[]/category
   /product_tree/branches[](/branches[])*/product/x_extensions[]/category
   /product_tree/full_product_names[]/x_extensions[]/category
-  /product_tree/relationships[]/full_product_name/x_extensions[]/category
+  /product_tree/product_paths[]/full_product_name/x_extensions[]/category
   /vulnerabilities[]/metrics[]/content/x_extensions[]/category
   /vulnerabilities[]/x_extensions[]/category
   /x_extensions[]/category
@@ -50,7 +50,7 @@ The relevant paths for this test are:
   /document/x_extensions[]
   /product_tree/branches[](/branches[])*/product/x_extensions[]
   /product_tree/full_product_names[]/x_extensions[]
-  /product_tree/relationships[]/full_product_name/x_extensions[]
+  /product_tree/product_paths[]/full_product_name/x_extensions[]
   /vulnerabilities[]/metrics[]/content/x_extensions[]
   /vulnerabilities[]/x_extensions[]
   /x_extensions[]
@@ -175,14 +175,14 @@ The relevant path for this test is:
 
 > The element `x_extensions` exists in a path that starts with `/product_tree/full_product_names`.
 
-#### Usage of Extension in Product Tree Relationships Path
+#### Usage of Extension in Product Tree Product Paths Path
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/relationships`.
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/product_paths`.
 
 The relevant path for this test is:
 
 ```
-  /product_tree/relationships[]/full_product_name/x_extensions
+  /product_tree/product_paths[]/full_product_name/x_extensions
 ```
 
 *Example 1 (which fails the test):*
@@ -190,7 +190,7 @@ The relevant path for this test is:
 ```
   "product_tree": {
     // ...
-    "relationships": [
+    "product_paths": [
       {
         // ...
         "full_product_name": {
@@ -205,7 +205,7 @@ The relevant path for this test is:
   }
 ```
 
-> The element `x_extensions` exists in a path that starts with `/product_tree/relationships`.
+> The element `x_extensions` exists in a path that starts with `/product_tree/product_paths`.
 
 #### Usage of Extension in Vulnerabilities Metrics Path
 

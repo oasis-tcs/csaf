@@ -15,7 +15,7 @@ The relevant paths for this test are:
   /document/x_extensions[]
   /product_tree/branches[](/branches[])*/product/x_extensions[]
   /product_tree/full_product_names[]/x_extensions[]
-  /product_tree/relationships[]/full_product_name/x_extensions[]
+  /product_tree/product_paths[]/full_product_name/x_extensions[]
   /vulnerabilities[]/metrics[]/content/x_extensions[]
   /vulnerabilities[]/x_extensions[]
   /x_extensions[]
@@ -49,7 +49,7 @@ The relevant paths for this test are:
   /document/x_extensions[]
   /product_tree/branches[](/branches[])*/product/x_extensions[]
   /product_tree/full_product_names[]/x_extensions[]
-  /product_tree/relationships[]/full_product_name/x_extensions[]
+  /product_tree/product_paths[]/full_product_name/x_extensions[]
   /vulnerabilities[]/metrics[]/content/x_extensions[]
   /vulnerabilities[]/x_extensions[]
   /x_extensions[]
@@ -94,7 +94,7 @@ The relevant paths for this test are:
   /document/x_extensions
   /product_tree/branches[](/branches[])*/product/x_extensions
   /product_tree/full_product_names[]/x_extensions
-  /product_tree/relationships[]/full_product_name/x_extensions
+  /product_tree/product_paths[]/full_product_name/x_extensions
   /vulnerabilities[]/metrics[]/content/x_extensions
   /vulnerabilities[]/x_extensions
   /x_extensions

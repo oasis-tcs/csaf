@@ -13,7 +13,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative Test: Usage of Extension in Product Tree Relationships Path (failing example 1)",
+    "title": "Informative Test: Usage of Extension in Product Tree Product Paths Path (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-21-06-01",
@@ -40,9 +40,9 @@
         "product_id": "CSAFPID-9080701"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-9080700",
         "full_product_name": {
           "name": "Product A installed on Product B",
           "product_id": "CSAFPID-9080702",
@@ -57,8 +57,12 @@
             }
           ]
         },
-        "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-9080701"
+          }
+        ]
       }
     ]
   }
