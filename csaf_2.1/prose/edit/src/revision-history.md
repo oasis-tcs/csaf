@@ -8,6 +8,8 @@ toc:
 -->
 # Revision History
 
+\columns=25%,10%,40%,
+
 | Revision                 | Date       | Editor                          | Changes Made                                |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------|
 | csaf-v2.1-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision           |
