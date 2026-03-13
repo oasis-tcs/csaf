@@ -1,0 +1,138 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-13/documentation-13-content_1.0.0.json",
+  "title": "CSAF Extension: Documentation 13",
+  "description": "Representation of a valid extension for configurations used for documentation purposes.",
+  "type": "object",
+  "$defs": {
+    "configuration_id_t": {
+      "title": "Reference token for configuration instance",
+      "description": "Token required to identify a configuration so that it can be referred to from other parts in the document. There is no predefined or required format for the configuration_id as long as it uniquely identifies a configuration in the context of the current document.",
+      "type": "string",
+      "minLength": 1,
+      "examples": [
+        "CSAFCID-0001",
+        "CSAFCID-0002"
+      ]
+    },
+    "configuration_t": {
+      "title": "Configuration",
+      "description": "Contains the description of a configuration and assigns it a configuration id.",
+      "type": "object",
+      "required": [
+        "configuration_id",
+        "details"
+      ],
+      "properties": {
+        "configuration_id": {
+          "$ref": "#/$defs/configuration_id_t"
+        },
+        "details": {
+          "title": "Details of the Configuration",
+          "description": "Contains all details as human-readable description on how to identify the configuration.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "relationship_t": {
+      "title": "Relationship",
+      "description": "Establishes a link between an existing full_product_name_t element and a configuration, allowing the document producer to define a combination that form a new full_product_name entry.",
+      "type": "object",
+      "required": [
+        "configuration_reference",
+        "full_product_name",
+        "product_reference"
+      ],
+      "properties": {
+        "configuration_reference": {
+          "title": "Configuration Reference",
+          "description": "Holds a Configuration ID that refers to the Configuration element, which is referenced as the second element of the relationship.",
+          "$ref": "#/$defs/configuration_id_t"
+        },
+        "full_product_name": {
+          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/$defs/full_product_name_t"
+        },
+        "product_reference": {
+          "title": "Product reference",
+          "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.",
+          "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json#/$defs/product_id_t"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "category",
+    "critical",
+    "content"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "CSAF Extension Schema",
+      "description": "Contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.",
+      "type": "string",
+      "format": "uri",
+      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-13/documentation-13-content_1.0.0.json"
+    },
+    "category": {
+      "title": "Extension Category",
+      "description": "Holds the category of the extension content.",
+      "type": "string",
+      "enum": [
+        "critical",
+        "high_value",
+        "informational"
+      ]
+    },
+    "content": {
+      "title": "Content",
+      "description": "Contains the additional information in its properties.",
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "configuration_tree": {
+          "title": "Configuration Tree",
+          "description": "Contains configurations and their bindings to products.",
+          "type": "object",
+          "required": [
+            "configurations",
+            "relationships"
+          ],
+          "properties": {
+            "configurations": {
+              "title": "List of Configurations",
+              "description": "Contains a list of configuration elements.",
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/configuration_t"
+              }
+            },
+            "relationships": {
+              "title": "List of Relationships",
+              "description": "Contains a list of product-configuration combinations.",
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/relationship_t"
+              }
+            }
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "critical": {
+      "title": "Critical",
+      "description": "Determines whether using the extension would fail a mandatory test.",
+      "type": "boolean",
+      "const": true
+    }
+  },
+  "additionalProperties": false
+}

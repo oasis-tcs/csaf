@@ -30,3 +30,6 @@ The relevant path for this test is:
 ```
 
 > The item for version `2` is missing.
+
+> A tool MAY add a stub for the missing item to the revision history as a quick fix.
+> The stub might miss the `date` and `summary` which have to be provided by the user or other data sources.

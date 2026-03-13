@@ -200,141 +200,201 @@
         "name": "Red Hat"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-1:0.17-65.el7_6.src",
         "full_product_name": {
           "name": "telnet-1:0.17-65.el7_6.src as a component of Red Hat Enterprise Linux Server AUS (v. 7.6)",
           "product_id": "7Server-7.6.AUS:telnet-1:0.17-65.el7_6.src"
         },
-        "product_reference": "telnet-1:0.17-65.el7_6.src",
-        "relates_to_product_reference": "7Server-7.6.AUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.AUS"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server AUS (v. 7.6)",
           "product_id": "7Server-7.6.AUS:telnet-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.AUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.AUS"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-debuginfo-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-debuginfo-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server AUS (v. 7.6)",
           "product_id": "7Server-7.6.AUS:telnet-debuginfo-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-debuginfo-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.AUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.AUS"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-server-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-server-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server AUS (v. 7.6)",
           "product_id": "7Server-7.6.AUS:telnet-server-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-server-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.AUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.AUS"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-1:0.17-65.el7_6.ppc64le",
         "full_product_name": {
           "name": "telnet-1:0.17-65.el7_6.ppc64le as a component of Red Hat Enterprise Linux Server E4S (v. 7.6)",
           "product_id": "7Server-7.6.E4S:telnet-1:0.17-65.el7_6.ppc64le"
         },
-        "product_reference": "telnet-1:0.17-65.el7_6.ppc64le",
-        "relates_to_product_reference": "7Server-7.6.E4S"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.E4S"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-1:0.17-65.el7_6.src",
         "full_product_name": {
           "name": "telnet-1:0.17-65.el7_6.src as a component of Red Hat Enterprise Linux Server E4S (v. 7.6)",
           "product_id": "7Server-7.6.E4S:telnet-1:0.17-65.el7_6.src"
         },
-        "product_reference": "telnet-1:0.17-65.el7_6.src",
-        "relates_to_product_reference": "7Server-7.6.E4S"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.E4S"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server E4S (v. 7.6)",
           "product_id": "7Server-7.6.E4S:telnet-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.E4S"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.E4S"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-debuginfo-1:0.17-65.el7_6.ppc64le",
         "full_product_name": {
           "name": "telnet-debuginfo-1:0.17-65.el7_6.ppc64le as a component of Red Hat Enterprise Linux Server E4S (v. 7.6)",
           "product_id": "7Server-7.6.E4S:telnet-debuginfo-1:0.17-65.el7_6.ppc64le"
         },
-        "product_reference": "telnet-debuginfo-1:0.17-65.el7_6.ppc64le",
-        "relates_to_product_reference": "7Server-7.6.E4S"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.E4S"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-debuginfo-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-debuginfo-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server E4S (v. 7.6)",
           "product_id": "7Server-7.6.E4S:telnet-debuginfo-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-debuginfo-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.E4S"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.E4S"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-server-1:0.17-65.el7_6.ppc64le",
         "full_product_name": {
           "name": "telnet-server-1:0.17-65.el7_6.ppc64le as a component of Red Hat Enterprise Linux Server E4S (v. 7.6)",
           "product_id": "7Server-7.6.E4S:telnet-server-1:0.17-65.el7_6.ppc64le"
         },
-        "product_reference": "telnet-server-1:0.17-65.el7_6.ppc64le",
-        "relates_to_product_reference": "7Server-7.6.E4S"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.E4S"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-server-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-server-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server E4S (v. 7.6)",
           "product_id": "7Server-7.6.E4S:telnet-server-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-server-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.E4S"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.E4S"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-1:0.17-65.el7_6.src",
         "full_product_name": {
           "name": "telnet-1:0.17-65.el7_6.src as a component of Red Hat Enterprise Linux Server TUS (v. 7.6)",
           "product_id": "7Server-7.6.TUS:telnet-1:0.17-65.el7_6.src"
         },
-        "product_reference": "telnet-1:0.17-65.el7_6.src",
-        "relates_to_product_reference": "7Server-7.6.TUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.TUS"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server TUS (v. 7.6)",
           "product_id": "7Server-7.6.TUS:telnet-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.TUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.TUS"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-debuginfo-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-debuginfo-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server TUS (v. 7.6)",
           "product_id": "7Server-7.6.TUS:telnet-debuginfo-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-debuginfo-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.TUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.TUS"
+          }
+        ]
       },
       {
-        "category": "default_component_of",
+        "beginning_product_reference": "telnet-server-1:0.17-65.el7_6.x86_64",
         "full_product_name": {
           "name": "telnet-server-1:0.17-65.el7_6.x86_64 as a component of Red Hat Enterprise Linux Server TUS (v. 7.6)",
           "product_id": "7Server-7.6.TUS:telnet-server-1:0.17-65.el7_6.x86_64"
         },
-        "product_reference": "telnet-server-1:0.17-65.el7_6.x86_64",
-        "relates_to_product_reference": "7Server-7.6.TUS"
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "7Server-7.6.TUS"
+          }
+        ]
       }
     ]
   },

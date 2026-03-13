@@ -12,7 +12,7 @@ displaying information about individual advisories.
 **Note**: An Advisory Management System can interact with a document viewer to display information about individual advisories.
 
 Advisory Matching
-:    process of determining whether two advisories are targeting the same products and conditions
+:    process of determining whether two advisories are targeting the same products and conditions.
 
 Artifact
 :    sequence of bytes addressable via a URI.
@@ -22,6 +22,9 @@ an arbitrary stream of bytes returned from an HTTP request, a product URL, a com
 
 CSAF 2.0 to CSAF 2.1 Converter
 :    A CSAF Producer which takes a CSAF 2.0 Document as input and converts it into a valid CSAF 2.1 Document.
+
+CSAF Additional Test
+:    A test that is not yet defined in section [sec](#tests).
 
 CSAF Asset Matching System
 :    program that connects to or is an asset database and is able to manage CSAF Documents as
@@ -41,6 +44,9 @@ required by CSAF Viewer.
 CSAF Converter
 :    CSAF Producer that transforms the output of an analysis tool from its native output format into the CSAF format.
 
+CSAF Core
+:    All parts of CSAF except for the parts covering extensions.
+
 CSAF Direct Producer
 :    analysis tool which acts as a CSAF Producer.
 
@@ -52,6 +58,35 @@ CSAF Downloader
 
 CSAF Extended Validator
 :    A CSAF Basic Validator that additionally performs recommended tests.
+
+CSAF Extension
+:    A specified JSON object conveying additional information different from the content that can be conveyed with the CSAF Core elements.
+
+CSAF Extension Additional Test
+:    A test whose execution depends on the presence of the specifying CSAF Extension that provides additional checks in the context of
+the CSAF Extension or the CSAF Document the extension is embedded in.
+
+CSAF Extension Bundle
+:   A of compilation of machine-readable artifacts related to a single CSAF Extension.
+
+CSAF Extension Collection
+:   A set of multiple CSAF Extension Packages.
+
+CSAF Extension Overlay Test
+:    A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a  test standardized in this
+specification or a CSAF Additional Test.
+
+CSAF Extension Package
+:    A of compilation of all artifacts related to a single CSAF Extension.
+
+CSAF Extension Schema
+:    A JSON schema specifying the content and properties of a CSAF Extension.
+
+CSAF Extension Specification
+:    The specification of a single CSAF Extension and related material.
+
+CSAF Extension Test
+:    A test that is either a CSAF Extension Overlay Test or a CSAF Extension Additional Test.
 
 CSAF Full Validator
 :    A CSAF Extended Validator that additionally performs informative tests.
@@ -79,12 +114,15 @@ CSAF Post-Processor
 :    CSAF Producer that transforms an existing CSAF Document into a new CSAF Document,
 for example, by removing or redacting elements according to sharing policies.
 
+CSAF Producer
+:    program that emits output in the CSAF format.
+
+CSAF RVISC ID Updater
+:    A CSAF Post-Processor that updates vulnerability IDs in a given CSAF based on the entries in RVISC.
+
 CSAF SBOM Matching System
 :    A program that connects to or is an SBOM database and is able to manage CSAF Documents as
 required by CSAF Management System as well as matching them to SBOM components of the SBOM database.
-
-CSAF Producer
-:    program that emits output in the CSAF format
 
 CSAF Superseder
 :    A CSAF Post-Processor that transforms a given CSAF into a superseded one.
@@ -115,13 +153,13 @@ Embedded Link
 :    syntactic construct which enables a message string to refer to a location mentioned in the document.
 
 Empty Array
-:    array that contains no elements, and so has a length of 0.
+:    array that contains no elements, and so has a length of zero.
 
 Empty Object
 :    object that contains no properties.
 
 Empty String
-:    string that contains no characters, and so has a length of 0.
+:    string that contains no characters, and so has a length of zero.
 
 (End) User
 :    person who uses the information in a document to investigate, triage, or resolve results.

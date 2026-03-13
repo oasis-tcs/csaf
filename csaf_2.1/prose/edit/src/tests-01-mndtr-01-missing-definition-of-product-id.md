@@ -9,10 +9,11 @@ The relevant paths for this test are:
 ```
   /document/notes[]/product_ids[]
   /product_tree/product_groups[]/product_ids[]
-  /product_tree/relationships[]/product_reference
-  /product_tree/relationships[]/relates_to_product_reference
-  /vulnerabilities[]/involvements[]/product_ids[]
+  /product_tree/product_paths[]/beginning_product_reference
+  /product_tree/product_paths[]/subpaths[]/next_product_reference
+  /vulnerabilities[]/first_known_exploitation_dates[]/product_ids[]
   /vulnerabilities[]/flags[]/product_ids[]
+  /vulnerabilities[]/involvements[]/product_ids[]
   /vulnerabilities[]/metrics[]/products[]
   /vulnerabilities[]/notes[]/product_ids[]
   /vulnerabilities[]/product_status/first_affected[]
@@ -23,6 +24,7 @@ The relevant paths for this test are:
   /vulnerabilities[]/product_status/last_affected[]
   /vulnerabilities[]/product_status/recommended[]
   /vulnerabilities[]/product_status/under_investigation[]
+  /vulnerabilities[]/product_status/unknown[]
   /vulnerabilities[]/remediations[]/product_ids[]
   /vulnerabilities[]/threats[]/product_ids[]
 ```

@@ -41,6 +41,8 @@ Delegation to industry best practices technologies is used in referencing schema
     * Default Definition: https://www.first.org/tlp/
 * Exploit Prediction
   * Exploit Prediction Scoring System (EPSS) [cite](#EPSS)
+* Package Data
+  * Package-URL (PURL) [cite](#ECMA-427)
 * Platform Data
   * Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
 * Vulnerability Categorization
@@ -51,7 +53,7 @@ Delegation to industry best practices technologies is used in referencing schema
     * CWE List: http://cwe.mitre.org/data/index.html
 * Vulnerability Scoring
   * Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.1.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.2.json
   * Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)
@@ -65,6 +67,11 @@ The JSON schemas defined in this standard do not allow the use of additional pro
 
 > The standardized fields allow for scalability across different issuing parties and dramatically reduce the human effort and
 > need for dedicated parsers as well as other tools on the side of the consuming parties.
+
+Sole exception are the dedicated extension points (`x_extensions`) which allow the usage of extension defined outside this specification.
+To still ensure interoperability and guide tools how to deal with this data a CSAF Extension Content Schema
+and CSAF Extension Metaschema has been defined and MUST be adhered to (cf. section [sec](#extensions)).
+Document issuers are advised to always balance pros and cons regarding the use of extension.
 
 Section [sec](#profiles) defined profiles that are used to ensure a common understanding of which fields are required in a given use case.
 Additional conventions are stated in section [sec](#additional-conventions).

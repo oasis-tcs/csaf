@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 02
 
-## 28 January 2026
+## 25 February 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
@@ -43,6 +43,12 @@ This prose specification is one component of a Work Product that also includes:
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
 * CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/csaf.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
+* Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/extension-content.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
+* Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/extension-metadata.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
+* Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/extension-metaschema.json. \
+Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
 * Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/meta.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
 * Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/provider.json. \
@@ -57,6 +63,9 @@ This specification replaces or supersedes:
 
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json)
+* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
@@ -76,9 +85,9 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 #### Citation format:
 When referencing this specification the following citation format should be used:
 
-**[csaf-v2.1]**
+**[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 28 January 2026. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 
 -------

@@ -129,6 +129,16 @@
         "additionalProperties": false
       }
     },
+    "extensions_t": {
+      "title": "List of extensions",
+      "description": "Contains a list of extension elements for the current context.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json"
+      }
+    },
     "full_product_name_t": {
       "title": "Full product name",
       "description": "Specifies information about the product and assigns the product_id.",
@@ -252,17 +262,17 @@
               }
             },
             "purls": {
-              "title": "List of package URLs",
-              "description": "Contains a list of package URLs (purl).",
+              "title": "List of PURLs",
+              "description": "Contains a list of Package-URLs (PURL).",
               "type": "array",
               "minItems": 1,
               "uniqueItems": true,
               "items": {
-                "title": "package URL representation",
-                "description": "The package URL (purl) attribute refers to a method for reliably identifying and locating software packages external to this specification.",
+                "title": "Package-URL representation",
+                "description": "The Package-URL (PURL) attribute refers to a method for reliably identifying and locating software packages external to this specification.",
                 "type": "string",
                 "format": "uri",
-                "pattern": "^pkg:[A-Za-z\\.\\-\\+][A-Za-z0-9\\.\\-\\+]*\\/.+",
+                "pattern": "^pkg:[a-z][a-z0-9\\.\\-]*\\/.+",
                 "minLength": 7
               }
             },
@@ -293,12 +303,12 @@
             },
             "skus": {
               "title": "List of stock keeping units",
-              "description": "Contains a list of full or abbreviated (partial) stock keeping units.",
+              "description": "Contains a list of stock keeping units.",
               "type": "array",
               "minItems": 1,
               "items": {
                 "title": "Stock keeping unit",
-                "description": "Contains a full or abbreviated (partial) stock keeping unit (SKU) which is used in the ordering process to identify the component.",
+                "description": "Contains a stock keeping unit (SKU) which is used in the ordering process to identify the component - possibly with placeholders.",
                 "type": "string",
                 "minLength": 1
               }
@@ -335,6 +345,11 @@
             }
           },
           "additionalProperties": false
+        },
+        "x_extensions": {
+          "title": "Product-level Extensions",
+          "description": "Contains a list of extensions valid at the full product name element level of the CSAF document and associated with this full product name element.",
+          "$ref": "#/$defs/extensions_t"
         }
       },
       "additionalProperties": false
@@ -500,6 +515,35 @@
         },
         "additionalProperties": false
       }
+    },
+    "subpath_t": {
+      "title": "Subpath",
+      "description": "Contains the next node along the current path and its relationship to the previous node.",
+      "type": "object",
+      "required": [
+        "category",
+        "next_product_reference"
+      ],
+      "properties": {
+        "category": {
+          "title": "Relationship category",
+          "description": "Defines the category of relationship between the previous item and the referenced next product.",
+          "type": "string",
+          "enum": [
+            "default_component_of",
+            "external_component_of",
+            "installed_on",
+            "installed_with",
+            "optional_component_of"
+          ]
+        },
+        "next_product_reference": {
+          "title": "Next product reference",
+          "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
+          "$ref": "#/$defs/product_id_t"
+        }
+      },
+      "additionalProperties": false
     },
     "version_t": {
       "title": "Version",
@@ -951,6 +995,11 @@
             }
           },
           "additionalProperties": false
+        },
+        "x_extensions": {
+          "title": "Document-level Extensions",
+          "description": "Contains a list of extensions valid at the document property level of the CSAF document and associated with this document metadata.",
+          "$ref": "#/$defs/extensions_t"
         }
       },
       "additionalProperties": false
@@ -1014,46 +1063,37 @@
             "additionalProperties": false
           }
         },
-        "relationships": {
-          "title": "List of relationships",
-          "description": "Contains a list of relationships.",
+        "product_paths": {
+          "title": "List of product paths",
+          "description": "Contains a list of product paths.",
           "type": "array",
           "minItems": 1,
           "items": {
-            "title": "Relationship",
-            "description": "Establishes a link between two existing full_product_name_t elements, allowing the document producer to define a combination of two products that form a new full_product_name entry.",
+            "title": "Product path",
+            "description": "Establishes a path along existing full_product_name_t elements, allowing the document producer to define a path of multiple products that form a new full_product_name entry.",
             "type": "object",
             "required": [
-              "category",
+              "beginning_product_reference",
               "full_product_name",
-              "product_reference",
-              "relates_to_product_reference"
+              "subpaths"
             ],
             "properties": {
-              "category": {
-                "title": "Relationship category",
-                "description": "Defines the category of relationship for the referenced component.",
-                "type": "string",
-                "enum": [
-                  "default_component_of",
-                  "external_component_of",
-                  "installed_on",
-                  "installed_with",
-                  "optional_component_of"
-                ]
+              "beginning_product_reference": {
+                "title": "Beginning product reference",
+                "description": "Holds a Product ID that refers to the Full Product Name element, which is the beginning node of the product path.",
+                "$ref": "#/$defs/product_id_t"
               },
               "full_product_name": {
                 "$ref": "#/$defs/full_product_name_t"
               },
-              "product_reference": {
-                "title": "Product reference",
-                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the first element of the relationship.",
-                "$ref": "#/$defs/product_id_t"
-              },
-              "relates_to_product_reference": {
-                "title": "Relates to product reference",
-                "description": "Holds a Product ID that refers to the Full Product Name element, which is referenced as the second element of the relationship.",
-                "$ref": "#/$defs/product_id_t"
+              "subpaths": {
+                "title": "List of product subpaths",
+                "description": "Contains an ordered list of product subpaths, each one relating to the path defined by all previous elements up to the beginning node of the product path.",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/subpath_t"
+                }
               }
             },
             "additionalProperties": false
@@ -1379,7 +1419,7 @@
                     },
                     "cvss_v4": {
                       "title": "CVSS v4",
-                      "$ref": "https://www.first.org/cvss/cvss-v4.0.1.json"
+                      "$ref": "https://www.first.org/cvss/cvss-v4.0.2.json"
                     },
                     "epss": {
                       "title": "EPSS",
@@ -1427,6 +1467,11 @@
                     "ssvc_v2": {
                       "title": "SSVC v2",
                       "$ref": "https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json"
+                    },
+                    "x_extensions": {
+                      "title": "Metrics-content-level Extensions",
+                      "description": "Contains a list of extensions valid at the metrics-content-level of the CSAF document and associated with this metric element.",
+                      "$ref": "#/$defs/extensions_t"
                     }
                   },
                   "additionalProperties": false
@@ -1660,10 +1705,20 @@
             "description": "Gives the document producer the ability to apply a canonical name or title to the vulnerability.",
             "type": "string",
             "minLength": 1
+          },
+          "x_extensions": {
+            "title": "Vulnerability-level Extensions",
+            "description": "Contains a list of extensions valid at the vulnerability item level of the CSAF document and associated with this vulnerability element.",
+            "$ref": "#/$defs/extensions_t"
           }
         },
         "additionalProperties": false
       }
+    },
+    "x_extensions": {
+      "title": "Root-level Extensions",
+      "description": "Contains a list of extensions valid at the root-level of the CSAF document and associated with this CSAF document.",
+      "$ref": "#/$defs/extensions_t"
     }
   },
   "additionalProperties": false

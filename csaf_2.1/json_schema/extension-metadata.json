@@ -1,0 +1,118 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json",
+  "title": "CSAF Extension Metadata",
+  "description": "Representation of metadata for a CSAF Extension.",
+  "type": "object",
+  "$defs": {
+    "location_t": {
+      "title": "Location",
+      "description": "Contains all necessary information for a single location.",
+      "type": "object",
+      "required": [
+        "max_occurrence"
+      ],
+      "properties": {
+        "max_occurrence": {
+          "title": "Maximum Occurrence",
+          "description": "Contains the number how often the extension can be present in this path.",
+          "type": "integer",
+          "default": 1,
+          "minimum": 0,
+          "multipleOf": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "extension_schema",
+    "last_updated",
+    "requirement"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "CSAF Extension Metadata Schema",
+      "description": "Contains the URL of the CSAF Extension Metadata JSON schema which the JSON object promises to be valid for.",
+      "type": "string",
+      "const": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json"
+    },
+    "extension_schema": {
+      "title": "Extension Schema",
+      "description": "Holds the `$id` value of the CSAF Extension Schema this metadata applies to.",
+      "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json#/$defs/content_schema_t"
+    },
+    "incompatible_extensions": {
+      "title": "List of Incompatible Extensions",
+      "description": "Contains a list of incompatible extensions.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "title": "Incompatible extension",
+        "description": "Contains the `$id` value of a CSAF Extension Schema which is incompatible with this extension.",
+        "$ref": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json#/$defs/content_schema_t"
+      }
+    },
+    "last_updated": {
+      "title": "Last updated",
+      "description": "Holds the date and time when the document was last updated.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "requirement": {
+      "title": "Requirement",
+      "description": "Contains the requirement for all possible paths.",
+      "type": "object",
+      "required": [
+        "$.document.x_extensions",
+        "$.product_tree.branches..product.x_extensions",
+        "$.product_tree.full_product_names[*].x_extensions",
+        "$.product_tree.relationships[*].full_product_name.x_extensions",
+        "$.vulnerabilities[*].metrics[*].content.x_extensions",
+        "$.vulnerabilities[*].x_extensions",
+        "$.x_extensions"
+      ],
+      "properties": {
+        "$.document.x_extensions": {
+          "title": "Document extension path",
+          "description": "Contains requirements for this extension on document path.",
+          "$ref": "#/$defs/location_t"
+        },
+        "$.product_tree.branches..product.x_extensions": {
+          "title": "Product Tree Branch extension path",
+          "description": "Contains requirements for this extension on the Product Tree Branch path.",
+          "$ref": "#/$defs/location_t"
+        },
+        "$.product_tree.full_product_names[*].x_extensions": {
+          "title": "Product Tree Full Product Names extension path",
+          "description": "Contains requirements for this extension on the Product Tree Full Product Names path.",
+          "$ref": "#/$defs/location_t"
+        },
+        "$.product_tree.relationships[*].full_product_name.x_extensions": {
+          "title": "Product Tree Relationship extension path",
+          "description": "Contains requirements for this extension on the Product Tree Relationships path.",
+          "$ref": "#/$defs/location_t"
+        },
+        "$.vulnerabilities[*].metrics[*].content.x_extensions": {
+          "title": "Vulnerabilities Metrics extension path",
+          "description": "Contains requirements for this extension on the Vulnerabilities Metrics path.",
+          "$ref": "#/$defs/location_t"
+        },
+        "$.vulnerabilities[*].x_extensions": {
+          "title": "Vulnerabilities extension path",
+          "description": "Contains requirements for this extension on the Vulnerabilities path.",
+          "$ref": "#/$defs/location_t"
+        },
+        "$.x_extensions": {
+          "title": "Root extension path",
+          "description": "Contains requirements for this extension on the root path.",
+          "$ref": "#/$defs/location_t"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

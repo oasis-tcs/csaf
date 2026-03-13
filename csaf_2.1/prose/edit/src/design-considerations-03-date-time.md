@@ -15,5 +15,3 @@ In contrast to the aforementioned standards, leap seconds MUST NOT be used.
   > While a full support of [cite](#RFC3339) would be preferred, significant challenges have been mentioned by implementers
   > as most libraries are lacking the support for leap seconds.
   > To ensure interoperability, the decision was made to prohibit leap seconds.
-
--------

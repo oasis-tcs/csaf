@@ -31,3 +31,5 @@ The relevant path for this test is:
 ```
 
 > The document status is `final` but the revision history includes an item which has `0` as value for `number`.
+
+> A tool MAY remove the items with a `number` of `0` or `0.y.z` from the revision history as a quick fix.

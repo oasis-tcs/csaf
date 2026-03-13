@@ -1,6 +1,7 @@
 ### Hardware and Software
 
-For each product containing at least one of the Product Identification Helpers `serial_numbers` or `model_numbers` it MUST be tested that a relationship exists referencing this product.
+For each product containing at least one of the Product Identification Helpers `serial_numbers` or `model_numbers` it MUST be tested
+that a product path exists referencing this product.
 
 > This tests detects a potential situation where hardware and software have been mixed in the `product_tree`.
 > Note: This test will fail if the CSAF document contains in its `product_tree` only hardware.
@@ -12,7 +13,7 @@ The relevant paths for this test are:
 ```
   /product_tree/branches[](/branches[])*/product
   /product_tree/full_product_names[]
-  /product_tree/relationships[]/full_product_name
+  /product_tree/product_paths[]/full_product_name
 ```
 
 *Example 1 (which fails the test):*
