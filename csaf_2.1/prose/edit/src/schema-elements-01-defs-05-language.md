@@ -13,6 +13,9 @@ See IETF language registry: <https://www.iana.org/assignments/language-subtag-re
 > Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem.
 > It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
+CSAF Producers SHALL follow the conventions for the capitalization of the subtags.
+CSAF Validators SHALL treat subtags as case-insensitive unless stated otherwise in the test.
+
 *Examples 1:*
 
 ```
