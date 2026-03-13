@@ -1,6 +1,8 @@
 ### Missing Document Language
 
-It MUST be tested that the document language member is present.
+It MUST be tested that the document language member is present and set.
+A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+not being present at all.
 
 The relevant path for this test is:
 
