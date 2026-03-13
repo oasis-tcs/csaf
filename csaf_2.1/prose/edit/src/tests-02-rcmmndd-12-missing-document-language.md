@@ -29,3 +29,6 @@ The relevant path for this test is:
 ```
 
 > The document language is not defined.
+
+> A tool MAY add the key as a quick fix.
+> In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
