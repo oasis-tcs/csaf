@@ -42,5 +42,7 @@
 - The test [6.1.25](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#6125-multiple-use-of-same-hash-algorithm)
   is missing the word "file" in the description and explanation but shows the correct relevant paths.
   See [#1330](https://github.com/oasis-tcs/csaf/issues/1330).
+- The expectations to differentiate the error messages for CSAF Validators regarding the phrase "present and set" where not stated clearly.
+  See [#1345](https://github.com/oasis-tcs/csaf/issues/1345).
 - The case handling requirements of subtags for languages was unclear.
   See [#1347](https://github.com/oasis-tcs/csaf/issues/1347).
