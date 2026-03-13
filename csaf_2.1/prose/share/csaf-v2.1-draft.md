@@ -2152,6 +2152,9 @@ See IETF language registry: <https://www.iana.org/assignments/language-subtag-re
 > Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem.
 > It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
+CSAF Producers SHALL follow the conventions for the capitalization of the subtags.
+CSAF Validators SHALL treat subtags as case-insensitive unless stated otherwise in the test.
+
 *Examples 1:*<a id='language-type-eg-1'></a><a id='sec-3-1-5-eg-1'></a><a id='example-23'></a>
 
 ```
@@ -5844,7 +5847,9 @@ The relevant path for this test is:
 
 ### 6.1.15 Translator <a id='translator'></a>
 
-It MUST be tested that `/document/source_lang` is present if the value `translator` is used for `/document/publisher/category`.
+It MUST be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
+A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+not being present at all.
 
 The relevant path for this test is:
 
@@ -5868,6 +5873,9 @@ The relevant path for this test is:
 ```
 
 > The required element `source_lang` is missing.
+
+> A tool MAY add the key as a quick fix.
+> In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
 
 ### 6.1.16 Latest Document Version <a id='latest-document-version'></a>
 
@@ -8820,7 +8828,9 @@ The relevant path for this test is:
 
 ### 6.2.12 Missing Document Language <a id='missing-document-language'></a>
 
-It MUST be tested that the document language member is present.
+It MUST be tested that the document language member is present and set.
+A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+not being present at all.
 
 The relevant path for this test is:
 
@@ -8847,6 +8857,9 @@ The relevant path for this test is:
 ```
 
 > The document language is not defined.
+
+> A tool MAY add the key as a quick fix.
+> In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
 
 ### 6.2.13 Sorting <a id='recommended-tests--sorting'></a>
 
@@ -10144,6 +10157,8 @@ The relevant paths for this test are:
 ### 6.2.43 Missing License Expression <a id='missing-license-expression'></a>
 
 It MUST be tested that the license expression is present and set.
+A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+not being present at all.
 
 The relevant path for this test is:
 
@@ -10165,6 +10180,9 @@ The relevant path for this test is:
 ```
 
 > The license expression is not defined.
+
+> A tool MAY add the key as a quick fix.
+> In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
 
 ### 6.2.44 Deprecated License Identifier <a id='deprecated-license-identifier'></a>
 
@@ -14066,8 +14084,9 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
   including also the format validation (cf. section [2.2](#format-validation)).
 * performs all tests of the preset `mandatory` as given in section [6.4.1](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
-* satisfies those normative requirements in sections [2.4](#extensions), [6.1](#mandatory-tests), [6.4](#test-presets), and
-  [8](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Validators.
+* satisfies those normative requirements in sections [2.4](#extensions), [3](#schema-elements)  [6.1](#mandatory-tests),
+  [6.4](#test-presets), and [8](#safety-security-and-data-protection-considerations) that are designated as applying to
+  CSAF Validators.
 * outputs a warning if an "not implemented warning" occurs as the validation status might not be correct.
 
 A CSAF Basic Validator MAY provide one or more additional functions:

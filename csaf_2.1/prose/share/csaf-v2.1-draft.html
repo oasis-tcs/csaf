@@ -3737,6 +3737,9 @@
       </p>
     </blockquote>
     <p>
+      CSAF Producers SHALL follow the conventions for the capitalization of the subtags. CSAF Validators SHALL treat subtags as case-insensitive unless stated otherwise in the test.
+    </p>
+    <p>
       <em>Examples 1:</em><a id='language-type-eg-1'></a><a id='sec-3-1-5-eg-1'></a><a id='example-23'></a>
     </p>
     <pre><code>    de
@@ -8452,7 +8455,7 @@
       6.1.15 Translator <a id='translator'></a>
     </h3>
     <p>
-      It MUST be tested that <code>/document/source_lang</code> is present if the value <code>translator</code> is used for <code>/document/publisher/category</code>.
+      It MUST be tested that <code>/document/source_lang</code> is present and set if the value <code>translator</code> is used for <code>/document/publisher/category</code>. A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and not being present at all.
     </p>
     <p>
       The relevant path for this test is:
@@ -8474,6 +8477,11 @@
     <blockquote>
       <p>
         The required element <code>source_lang</code> is missing.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY add the key as a quick fix. In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
       </p>
     </blockquote>
     <h3 id="6116-latest-document-version-">
@@ -11539,7 +11547,7 @@
       6.2.12 Missing Document Language <a id='missing-document-language'></a>
     </h3>
     <p>
-      It MUST be tested that the document language member is present.
+      It MUST be tested that the document language member is present and set. A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and not being present at all.
     </p>
     <p>
       The relevant path for this test is:
@@ -11564,6 +11572,11 @@
     <blockquote>
       <p>
         The document language is not defined.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY add the key as a quick fix. In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
       </p>
     </blockquote>
     <h3 id="6213-sorting-">
@@ -12930,7 +12943,7 @@
       6.2.43 Missing License Expression <a id='missing-license-expression'></a>
     </h3>
     <p>
-      It MUST be tested that the license expression is present and set.
+      It MUST be tested that the license expression is present and set. A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and not being present at all.
     </p>
     <p>
       The relevant path for this test is:
@@ -12950,6 +12963,11 @@
     <blockquote>
       <p>
         The license expression is not defined.
+      </p>
+    </blockquote>
+    <blockquote>
+      <p>
+        A tool MAY add the key as a quick fix. In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
       </p>
     </blockquote>
     <h3 id="6244-deprecated-license-identifier-">
@@ -17924,7 +17942,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>does not change the CSAF Documents.
       </li>
-      <li>satisfies those normative requirements in sections <a href="#extensions">2.4</a>, <a href="#mandatory-tests">6.1</a>, <a href="#test-presets">6.4</a>, and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Validators.
+      <li>satisfies those normative requirements in sections <a href="#extensions">2.4</a>, <a href="#schema-elements">3</a> <a href="#mandatory-tests">6.1</a>, <a href="#test-presets">6.4</a>, and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Validators.
       </li>
       <li>outputs a warning if an "not implemented warning" occurs as the validation status might not be correct.
       </li>
