@@ -123,20 +123,24 @@ GLOSSARY_SOURCES = ('introduction-02-terminology-glossary.md',)
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 
 APPENDIX_HEAD_REMAP = {
-    '# Acknowledgments': {'replace': ['# ', '# Appendix A. '], 'attrs': '{.unnumbered #acknowledgments}'},
-    '# Revision History': {'replace': ['# ', '# Appendix B. '], 'attrs': '{.unnumbered #revision-history}'},
-    '# Guidance on the Size of CSAF Documents': {
-        'replace': ['# ', '# Appendix C. '],
+    '# Appendix A. Acknowledgments': {'prepend': [r'\newpage', ''], 'attrs': '{.unnumbered #acknowledgments}'},
+    '# Appendix B. Revision History': {'prepend': [r'\newpage', ''], 'attrs': '{.unnumbered #revision-history}'},
+    '# Appendix C. Guidance on the Size of CSAF Documents': {
+        'prepend': [r'\newpage', ''],
         'attrs': '{.unnumbered #guidance-on-the-size-of-csaf-documents}',
     },
-    '## File Size': {'replace': ['## ', '## C.1 '], 'attrs': '{.unnumbered #file-size}'},
-    '## Array Length': {'replace': ['## ', '## C.2 '], 'attrs': '{.unnumbered #array-length}'},
-    '## String Length': {'replace': ['## ', '## C.3 '], 'attrs': '{.unnumbered #string-length}'},
-    '## Date': {'replace': ['## ', '## C.4 '], 'attrs': '{.unnumbered #date}'},
-    '## Enum': {'replace': ['## ', '## C.5 '], 'attrs': '{.unnumbered #enum}'},
-    '## URI Length': {'replace': ['## ', '## C.6 '], 'attrs': '{.unnumbered #uri-length}'},
-    '## UUID Length': {'replace': ['## ', '## C.7 '], 'attrs': '{.unnumbered #uuid-length}'},
-    '# Collapsing Product Paths': {'replace': ['# ', '# Appendix D. '], 'attrs': '{.unnumbered #collapsing-product-paths}'},
+    '## C.1 File Size': {'attrs': '{.unnumbered #file-size}'},
+    '## C.2 Array Length': {'attrs': '{.unnumbered #array-length}'},
+    '## C.3 String Length': {'attrs': '{.unnumbered #string-length}'},
+    '## C.4 Date': {'attrs': '{.unnumbered #date}'},
+    '## C.5 Enum': {'attrs': '{.unnumbered #enum}'},
+    '## C.6 URI Length': {'attrs': '{.unnumbered #uri-length}'},
+    '## C.7 UUID Length': {'attrs': '{.unnumbered #uuid-length}'},
+    '# Appendix D. Collapsing Product Paths{#collapsing-product-paths}{#collapsing-product-paths}': {
+        'prepend': [r'\newpage', ''],
+        'replace': ['{#collapsing-product-paths}', ''],
+        'attrs': '{.unnumbered #collapsing-product-paths}'
+    },
 }
 
 
@@ -501,6 +505,12 @@ def main(args: list[str]) -> int:
     current_cs = None
     cs_of_slot: list[Union[str, None]] = [None for _ in lines]
     in_fenced_block = False
+
+    db = []
+    is_appendix = False
+    root: int = 0
+    appr = ''
+
     for slot, line in enumerate(lines):
         if line.startswith(FENCED_BLOCK_FLIP_FLOP):
             in_fenced_block = not in_fenced_block
@@ -510,7 +520,6 @@ def main(args: list[str]) -> int:
 
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
-        is_plain = True  # No special meta data needed
         if line.startswith(CLEAN_MD_START):
             clean_headings = True
         cs_of_slot[slot] = current_cs
@@ -518,41 +527,52 @@ def main(args: list[str]) -> int:
             if line.startswith(tag) and clean_headings and not in_fenced_block:
                 # manage counter
                 if not meta_hook:
-                    # auto counters
-                    is_plain = True
-                    nxt_lvl = sec_lvl[tag]
-                    sec_cnt[tag] += 1
-                    if nxt_lvl < cur_lvl:
-                        for level in range(nxt_lvl + 1, lvl_sup):
-                            sec_cnt[lvl_sec[level]] = 0
-                    sec_cnt_disp_vec = []
-                    for s_tag, cnt in sec_cnt.items():
-                        if cnt == 0:
-                            raise RuntimeError(f'counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}')
-                        sec_cnt_disp_vec.append(str(cnt))
-                        if s_tag == tag:
-                            break
-                    sec_cnt_disp = FULL_STOP.join(sec_cnt_disp_vec)
-                    # Hack to amend first level numeric section counter displays with a full stop - do not ask ...
-                    if FULL_STOP not in sec_cnt_disp:
-                        sec_cnt_disp += FULL_STOP
+                    display = ''
+                    level = len(line.split(SPACE, 1)[0])
+                    if level == 1:
+                        root += 1
+                    text_plus = line[level + 1:].rstrip()
+                    if text_plus.startswith('Appendix '):
+                        appr = text_plus.replace('Appendix ', '')[0]
+                        display = f'Appendix {appr}.'
+                        text_plus = text_plus.replace(f'{display} ', '')
+                        is_appendix = True
+                    else:
+                        match = APPENDIX_INNER_PATTERN.match(text_plus)
+                        if match:
+                            found = match.groupdict()
+                            display = found['display']
+                            text_plus = text_plus.replace(f'{display} ', '')
+                    if TOK_LAB in text_plus:
+                        text, slug = text_plus.rstrip(SPACE).rstrip('}').split(TOK_LAB, 1)
+                    else:
+                        text = text_plus.rstrip(SPACE)
+                        slug = slugify(text)
+                    if not is_appendix:
+                        a_root = str(root)
+                    else:
+                        a_root = appr
+
+                    if not is_appendix:
+                        tag = f'{HASH * level} '
+                        nxt_lvl = sec_lvl[tag]
+                        sec_cnt[tag] += 1
+                        if nxt_lvl < cur_lvl:
+                            for lvl in range(nxt_lvl + 1, lvl_sup):
+                                sec_cnt[lvl_sec[lvl]] = 0
+                        sec_cnt_disp_vec = []
+                        for s_tag, cnt in sec_cnt.items():
+                            if cnt == 0:
+                                raise RuntimeError(f'ERROR: Counting is hard: {sec_cnt} at {tag} for {text}')
+                            sec_cnt_disp_vec.append(str(cnt))
+                            if s_tag == tag:
+                                break
+                        sec_cnt_disp = FULL_STOP.join(sec_cnt_disp_vec)
+                        display = sec_cnt_disp.rstrip(DOT)
+                        db.append([is_appendix, a_root, level, display, text, slug])
                 else:
-                    # pull in counters from meta
-                    is_plain = False
-                    app_lvl = 1  # belt and braces ...
-                    text = line.split(tag, 1)[1].rstrip()
-                    if TOK_LAB in text:
-                        # special label
-                        label = text.split(TOK_LAB, 1)[1].rstrip(CB_END)
-                        text = text.split(TOK_LAB, 1)[0]
-                    if text == meta_hook[TOC][LABEL]:
-                        sec_cnt_disp = meta_hook[TOC][ENUMERATE]  # type: ignore
-                        app_lvl = 1
-                    elif meta_hook[TOC].get(CHILDREN):
-                        for cand in meta_hook[TOC][CHILDREN]:  # type: ignore
-                            if text == cand[LABEL]:  # type: ignore
-                                sec_cnt_disp = cand[ENUMERATE]  # type: ignore
-                                app_lvl = 2
+                    print('WARNING: deprecated out-of-band appendix handling triggered in manage-counter')
+                    return 1
 
                 # manage label
                 text = line.split(tag, 1)[1].rstrip()
@@ -565,9 +585,10 @@ def main(args: list[str]) -> int:
                     # reduced_text = text.split(TOK_LAB, 1)[0]
                 else:
                     label = slugify(text)
-                clean_sec_cnt_disp = (f'{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
+                clean_sec_cnt_disp = (f'{sec_cnt_disp}' if is_appendix else sec_cnt_disp).rstrip(FULL_STOP)
                 SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
+                # line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
                 #                    MAYBE_NO_HTML_A_FOR_HEADING #
                 line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
                 # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WILL_YOU_?
@@ -576,20 +597,26 @@ def main(args: list[str]) -> int:
                 terse_line = line.rstrip()
                 if terse_line in APPENDIX_HEAD_REMAP:
                     transform = APPENDIX_HEAD_REMAP[terse_line]
-                    this, that = transform['replace']
-                    line = terse_line.replace(this, that) + transform['attrs'] + NL  # type: ignore
+                    if 'prepend' in transform:
+                        lines[slot - 1] = lines[slot - 1] + NL + NL.join(transform['prepend'])
+                    if 'replace' in transform:
+                        this, that = transform['replace']
+                        terse_line = terse_line.replace(this, that)
+                    line = terse_line + transform['attrs'] + NL  # type: ignore
 
                 # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
                 cur_lvl = nxt_lvl
-                if not did_appendix_sep and meta_hook and slot < first_meta_slot:  # type: ignore
+                if not did_appendix_sep and not is_appendix:  # meta_hook and slot < first_meta_slot:  # type: ignore
                     tic_toc.append(TOC_VERTICAL_SPACER)
                     did_appendix_sep = True
-                toc_template = TOC_TEMPLATE[cur_lvl if not meta_hook else app_lvl]
+                toc_template = TOC_TEMPLATE[cur_lvl if not is_appendix else level]  # meta_hook else app_lvl]
                 extended = 0
-                if sec_cnt_disp.upper().isupper():
+                if is_appendix:  # sec_cnt_disp.upper().isupper():  # at least one lettersec_cnt_disp.upper().isupper():
                     extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
+                    DEBUG and print(f'DEBUG: appendixer-main at {slot=} and {extended=} on line {line.rstrip()}')
                     if extended == 2:
                         extended = sec_cnt_disp.count(DOT) + 1
+                        DEBUG and print(f'DEBUG: - appendixer-indent at {slot=} and {extended=} with {sec_cnt_disp}')
                 if '{#' in text and label in text:
                     debug and print(f'{slot=}: Fixed ToC for {line=}')
                     debug and print(
@@ -616,6 +643,13 @@ def main(args: list[str]) -> int:
             # MAYBE_SEC_NO_TOC_BEFORE_INTRODUCTION # NEW
             if line.startswith(tag) and not clean_headings:
                 lines[slot] = line.rstrip() + SEC_NO_TOC_POSTFIX + NL
+
+    if DEBUG:
+        for is_appendix, a_root, level, display, text, slug in db:  # type: ignore
+            print(
+                f'{"        " if not is_appendix else "APPENDIX"} | {a_root} |'
+                f' {(HASH * level).rjust(7)} "{text}" <-- {slug}'
+            )
 
     # Process the text display of citation refs
     for slot, line in enumerate(lines):
@@ -773,9 +807,7 @@ def main(args: list[str]) -> int:
     if DUMP_LUT:
         with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
             json.dump(SECTION_DISPLAY_TO_LABEL, handle, indent=2)
-        section_label_to_display = {
-            label: disp for label, disp in sorted((label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items())
-        }
+        section_label_to_display = dict(sorted(((label, disp) for (disp, label) in SECTION_DISPLAY_TO_LABEL.items())))
         with SECTION_LABEL_TO_DISPLAY_AT.open('wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
             json.dump(section_label_to_display, handle, indent=2)
 
