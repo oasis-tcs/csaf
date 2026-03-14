@@ -105,6 +105,9 @@ RFC8615
 RFC9116
 :    Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, <https://www.rfc-editor.org/info/rfc9116>.
 
+RFC9535
+:    S. Gössner, Ed., G. Normington, Ed., and C. Bormann, Ed., "JSONPath: Query Expressions for JSON", RFC 9535, DOI 10.17487/RFC9535, February 2024, <https://www.rfc-editor.org/info/rfc9535>.
+
 RVISC
 :    _Registry for Vulnerability ID Systems for CSAF (RVISC)_, Part of the OASIS CSAF TC Registry, <https://registry.csaf.dev/id/>.
 
