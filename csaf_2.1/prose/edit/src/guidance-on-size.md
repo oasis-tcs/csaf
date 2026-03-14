@@ -1,27 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: Guidance on the Size of CSAF Documents
-  enumerate: Appendix C.
-  children:
-  - label: File Size
-    enumerate: C.1
-  - label: Array Length
-    enumerate: C.2
-  - label: String Length
-    enumerate: C.3
-  - label: Date
-    enumerate: C.4
-  - label: Enum
-    enumerate: C.5
-  - label: URI Length
-    enumerate: C.6
-  - label: UUID Length
-    enumerate: C.7
----
--->
-# Guidance on the Size of CSAF Documents
+# Appendix C. Guidance on the Size of CSAF Documents
 
 This appendix provides informative guidance on the size of CSAF documents.
 
@@ -39,7 +16,7 @@ Boolean values are usually represented as a native data type and therefore omitt
 Structures in the `content` object of items of type `/$defs/extensions_t` are not listed in the subsections below
 as they depend upon on the extension.
 
-## File Size
+## C.1 File Size
 
 A CSAF document including any extensions used in the document in the specified JSON format encoded in UTF-8 SHOULD
 conform to known size limits of current technologies parsing JSON content,
@@ -53,7 +30,7 @@ e.g.: 150 MiB.
 > In addition, the BSON format adds length information for the entries inside the document,
 > which adds to the size when storing CSAF document content in a BSON format.
 
-## Array Length
+## C.2 Array Length
 
 An array SHOULD NOT have more than:
 
@@ -165,7 +142,7 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/threats[]/group_ids`
   * `/vulnerabilities[]/threats[]/product_ids`
 
-## String Length
+## C.3 String Length
 
 A string SHOULD NOT have a length greater than:
 
@@ -307,7 +284,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/remediations[]/restart_required/details`
   * `/vulnerabilities[]/threats[]/details`
 
-## Date
+## C.4 Date
 
 The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
@@ -326,7 +303,7 @@ The maximum length of strings representing a temporal value is given by the form
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
 
-## Enum
+## C.5 Enum
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
@@ -444,7 +421,7 @@ This applies to:
 * `/vulnerabilities[]/x_extensions[]/category` (13)
 * `/x_extensions[]/category` (13)
 
-## URI Length
+## C.6 URI Length
 
 A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
 
@@ -480,7 +457,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/vulnerabilities[]/x_extensions[]/$schema`
 * `/x_extensions[]/$schema`
 
-## UUID Length
+## C.7 UUID Length
 
 A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
 

@@ -14,7 +14,7 @@ the value of `name` indicates that the product version range is using vers.
 
 The warning MUST clearly advise to carefully check whether vers can be used or the versions can be enumerated as
 the use of vls is only a fallback option.
-For more details, see sections [sec](#branches-type-category) and [sec](#branches-type-name-under-product-version-range).
+For more details, see sections [sec](#branches-type---category) and [sec](#branches-type---name-under-product-version-range).
 
 > It is planned to deprecate and finally remove the support for vls in future versions of this standard.
 

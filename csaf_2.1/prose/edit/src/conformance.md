@@ -83,9 +83,9 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 * conforms to the syntax and semantics defined in section [sec](#additional-conventions).
 * does not fail any mandatory test defined in section [sec](#mandatory-tests) respectively its corresponding CSAF Extension Test.
 * contains no extension that does not fulfill the conformance profile "CSAF Extension".
-* contains no extension at any other path than the specified ones in sections [sec](#full-product-name-type-extensions),
-  [sec](#document-property-extensions), [sec](#vulnerabilities-property-metrics-content),
-  [sec](#vulnerabilities-property-extensions) and [sec](#extensions-property).
+* contains no extension at any other path than the specified ones in sections [sec](#full-product-name-type---extensions),
+  [sec](#document-property---extensions), [sec](#vulnerabilities-property---metrics---content),
+  [sec](#vulnerabilities-property---extensions) and [sec](#extensions-property).
 
 ### Conformance Clause 2: CSAF Producer
 
@@ -205,7 +205,7 @@ Secondly, the program fulfills the following for all items of:
 * `/document/license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains a valid SPDX license expression,
   the CVRF CSAF Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
-* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property-notes),
+* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -606,7 +606,7 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
 * provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [sec](#version-type---semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF Document
@@ -690,7 +690,7 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [sec](#version-type---semantic-versioning)).
 * is able to trigger a run of the SBOM matching module:
   * manually:
     * per CSAF Document
@@ -948,7 +948,7 @@ Secondly, the program fulfills the following for all items of:
   the CSAF 2.0 to CSAF 2.1 Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
 * `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
-  [sec](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
+  [sec](#document-property---notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
   is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -1253,7 +1253,7 @@ Firstly, it:
 * uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
   as the value of its `$schema` property.
 * is versioned according to [cite](#SemVer).
-* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [sec](#content-schema-property-schema).
+* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [sec](#content-schema-property---schema).
 * does not allow unevaluated properties.
   It MAY include `patternProperties` if they are typed.
 
