@@ -189,18 +189,6 @@ def slugify(
     )()
 
 
-def label_derive_from(text: str) -> str:
-    """Transform text to kebab style conventional label assuming no newlines present."""
-    return slugify(text)
-    # good_nuff = (' ', '.', ',', ';', '?', '!', '_', '(', ')', '[', ']', '{', '}', '<', '>', '\\', '/', '$', ':')
-    # slug = text.strip()
-    # for bad in good_nuff:
-    #     slug = slug.replace(bad, '-')
-    # parts = slug.split('-')
-    # slug = '-'.join(s for s in parts if s and s != '-')
-    # return slug.lower()
-
-
 def label_in(text: str) -> bool:
     """Detect if the text line contains a label."""
     return '](#' in text
@@ -390,7 +378,7 @@ def main(argv: list[str]) -> int:
                     in_definition = True
                     # prepare the data triplet
                     term = line.strip()
-                    label = 'def;' + label_derive_from(term)
+                    label = 'def;' + slugify(term)
                     definition = ''
                     continue
                 if in_definition:
