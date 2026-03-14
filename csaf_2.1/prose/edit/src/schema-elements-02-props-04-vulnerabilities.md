@@ -422,7 +422,7 @@ Valid values are:
     vendor
 ```
 
-These values follow the same definitions as given for the publisher category (cf. section [sec](#document-property-publisher-category)).
+These values follow the same definitions as given for the publisher category (cf. section [sec](#document-property---publisher-category)).
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current
 involvement item applies to.

@@ -205,7 +205,7 @@ Secondly, the program fulfills the following for all items of:
 * `/document/license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains a valid SPDX license expression,
   the CVRF CSAF Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
-* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property-notes),
+* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -606,7 +606,7 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
 * provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [sec](#version-type---semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF Document
@@ -690,7 +690,7 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [sec](#version-type---semantic-versioning)).
 * is able to trigger a run of the SBOM matching module:
   * manually:
     * per CSAF Document
@@ -948,7 +948,7 @@ Secondly, the program fulfills the following for all items of:
   the CSAF 2.0 to CSAF 2.1 Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
 * `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
-  [sec](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
+  [sec](#document-property---notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
   is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
