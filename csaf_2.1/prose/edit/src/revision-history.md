@@ -1,12 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: Revision History
-  enumerate: Appendix B.
----
--->
-# Revision History
+# Appendix B. Revision History
 
 \columns=25%,10%,40%,
 

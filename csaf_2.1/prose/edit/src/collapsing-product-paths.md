@@ -1,12 +1,4 @@
-<!--
----
-toc:
-  auto: false
-  label: Collapsing Product Paths
-  enumerate: Appendix D.
----
--->
-# Collapsing Product Paths
+# Appendix D. Collapsing Product Paths{#collapsing-product-paths}
 
 The following examples are intended to aid in understanding under which circumstances product paths can be collapsed.
 

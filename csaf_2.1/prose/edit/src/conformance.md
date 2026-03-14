@@ -83,9 +83,9 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 * conforms to the syntax and semantics defined in section [sec](#additional-conventions).
 * does not fail any mandatory test defined in section [sec](#mandatory-tests) respectively its corresponding CSAF Extension Test.
 * contains no extension that does not fulfill the conformance profile "CSAF Extension".
-* contains no extension at any other path than the specified ones in sections [sec](#full-product-name-type-extensions),
-  [sec](#document-property-extensions), [sec](#vulnerabilities-property-metrics-content),
-  [sec](#vulnerabilities-property-extensions) and [sec](#extensions-property).
+* contains no extension at any other path than the specified ones in sections [sec](#full-product-name-type---extensions),
+  [sec](#document-property---extensions), [sec](#vulnerabilities-property---metrics---content),
+  [sec](#vulnerabilities-property---extensions) and [sec](#extensions-property).
 
 ### Conformance Clause 2: CSAF Producer
 
@@ -1253,7 +1253,7 @@ Firstly, it:
 * uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
   as the value of its `$schema` property.
 * is versioned according to [cite](#SemVer).
-* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [sec](#content-schema-property-schema).
+* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [sec](#content-schema-property---schema).
 * does not allow unevaluated properties.
   It MAY include `patternProperties` if they are typed.
 

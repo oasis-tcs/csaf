@@ -16,7 +16,9 @@ from typing import Union
 import yaml
 
 ENCODING = 'utf-8'
+ENC_ERRS = 'ignore'
 NL = '\n'
+RS = chr(30)  # Record Separator
 CB_END = '}'
 COLON = ':'
 DASH = '-'
@@ -34,11 +36,13 @@ DEBUG = bool(os.getenv('DEBUG_VOLATILE', ''))
 DUMP_LUT = bool(os.getenv('DUMP_LUT', ''))
 
 # Configuration and runtime parameter candidates:
+GREMLINS = ' .,;?!_()[]{}<>\\/$:"\'`´'
 BINDER_AT = pathlib.Path('etc') / 'bind.txt'
 SOURCE_AT = pathlib.Path('src')
 BUILD_AT = pathlib.Path('build')
 SECTION_DISPLAY_TO_LABEL_AT = pathlib.Path('etc') / 'section-display-to-label.json'
 SECTION_LABEL_TO_DISPLAY_AT = pathlib.Path('etc') / 'section-label-to-display.json'
+SECTION_DISPLAY_TO_TEXT_AT = pathlib.Path('etc') / 'section-display-to-text.json'
 EG_GLOBAL_TO_LABEL_AT = pathlib.Path('etc') / 'example-global-to-local.json'
 EG_LABEL_TO_GLOBAL_AT = pathlib.Path('etc') / 'example-local-to-global.json'
 
@@ -120,7 +124,7 @@ META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 
 def load_binder(binder_at: Union[str, pathlib.Path]) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
-    with open(binder_at, 'rt', encoding=ENCODING) as resource:
+    with open(binder_at, 'rt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         return [pathlib.Path(entry.strip()) for entry in resource.readlines() if entry.strip()]
 
 
@@ -147,25 +151,56 @@ def detect_meta(text_lines: list[str]) -> tuple[META_TOC_TYPE, list[str]]:
 
 def load_document(path: Union[str, pathlib.Path]) -> tuple[META_TOC_TYPE, list[str]]:
     """Load the text file into a list of strings and harvest any YAML meta info (if present remove the lines)."""
-    with open(path, 'rt', encoding=ENCODING) as resource:
+    with open(path, 'rt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         return detect_meta(resource.readlines())
 
 
 def dump_assembly(text_lines: list[str], to_path: Union[str, pathlib.Path]) -> None:
     """Dump the lines of text into the text file at path."""
-    with open(to_path, 'wt', encoding=ENCODING) as resource:
+    with open(to_path, 'wt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         resource.write(''.join(text_lines))
+
+
+def slugify(
+    text: str,
+    connector: str = DASH,
+    marker: str = RS,
+    gremlins: str = GREMLINS,
+    policy: str = 'lower',
+) -> str:
+    """Derive kebab style slug from text.
+
+    Implementer notes:
+
+    - Every character not in gremlins is kept.
+    - Incoming connector chars (default dashes) are preserved by
+      sandwich transform to and from marker char (default ASCII RS).
+      If the marker char occurs in the text, it will be replaced
+      with the connector char during the back transform.
+    """
+    ds = connector
+    rs = marker
+
+    sl = text.strip().replace(ds, rs)
+    for gremlin in gremlins:
+        sl = sl.replace(gremlin, ds)
+
+    return getattr(
+        ds.join(s.replace(rs, ds) for s in sl.split(ds) if s and s != ds),
+        policy
+    )()
 
 
 def label_derive_from(text: str) -> str:
     """Transform text to kebab style conventional label assuming no newlines present."""
-    good_nuff = (' ', '.', ',', ';', '?', '!', '_', '(', ')', '[', ']', '{', '}', '<', '>', '\\', '/', '$', ':')
-    slug = text.strip()
-    for bad in good_nuff:
-        slug = slug.replace(bad, '-')
-    parts = slug.split('-')
-    slug = '-'.join(s for s in parts if s and s != '-')
-    return slug.lower()
+    return slugify(text)
+    # good_nuff = (' ', '.', ',', ';', '?', '!', '_', '(', ')', '[', ']', '{', '}', '<', '>', '\\', '/', '$', ':')
+    # slug = text.strip()
+    # for bad in good_nuff:
+    #     slug = slug.replace(bad, '-')
+    # parts = slug.split('-')
+    # slug = '-'.join(s for s in parts if s and s != '-')
+    # return slug.lower()
 
 
 def label_in(text: str) -> bool:
@@ -199,25 +234,31 @@ def code_block_label_in(text: str) -> bool:
 
 def load_label_to_display_lut(path: Union[str, pathlib.Path] = SECTION_LABEL_TO_DISPLAY_AT) -> dict[str, str]:
     """Load the LUT for section labels -> display."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_display_to_label_lut(path: Union[str, pathlib.Path] = SECTION_DISPLAY_TO_LABEL_AT) -> dict[str, str]:
     """Load the LUT for section display -> labels."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+        return json.load(handle)
+
+
+def load_display_to_text_lut(path: Union[str, pathlib.Path] = SECTION_DISPLAY_TO_TEXT_AT) -> dict[str, str]:
+    """Load the LUT for section display -> labels."""
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_eg_label_to_global_lut(path: Union[str, pathlib.Path] = EG_LABEL_TO_GLOBAL_AT) -> dict[str, str]:
     """Load the LUT for example labels -> global."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_eg_global_to_label_lut(path: Union[str, pathlib.Path] = EG_GLOBAL_TO_LABEL_AT) -> dict[str, str]:
     """Load the LUT for example global -> labels."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
@@ -251,7 +292,7 @@ def insert_any_citation(record: str) -> str:
     return record
 
 
-def insert_any_section_reference(record: str) -> str:
+def insert_any_section_reference(record: str, heading_text_lut: dict[str, str]) -> str:
     """Insert section reference into section ref placeholder or return record unchanged."""
     if label_in(record):
         for ref in SEC_REF_DETECT.finditer(record):
@@ -263,8 +304,16 @@ def insert_any_section_reference(record: str) -> str:
                     raise RuntimeError(f'false positive sec ref in ({record.rstrip(NL)})')
                 label = found['label']
                 if label not in SEC_LABEL_TEXT:
+                    print(f'ERROR: in insert-any-section-reference ({record=})')
+                    print(f'ERROR-CONTEXT: {record=} - {trigger_text=}')
+                    print(f'ERROR-CONTEXT: {record=} - {label=}')
+                    for skey in SEC_LABEL_TEXT:
+                        if skey.startswith(label[:len(label) // 2]):
+                            print(f'DEBUG: - similar {skey=} exists')
+                    print(f'DEBUG: You may want to execute grep -n {label} src/*.md')
                     raise RuntimeError(f'missing register label for sec ref in ({record.rstrip(NL)})')
                 text = SEC_LABEL_TEXT[label]
+                heading_text = heading_text_lut.get(text, 'HEADING-NOT-FOUND')
                 sem_ref = f'[sec](#{label})'
                 evil_ref = f'[{text}](#{label})'  # [GFMCMARK](#GFMCMARK)
                 record = record.replace(sem_ref, evil_ref)
@@ -282,6 +331,7 @@ def main(argv: list[str]) -> int:
             return 1
 
     display_from = load_label_to_display_lut()
+    heading_text_of = load_display_to_text_lut()
     eg_global_from = load_eg_label_to_global_lut()
 
     lines: list[str] = []
@@ -509,12 +559,32 @@ def main(argv: list[str]) -> int:
             pl_anchor = TOK_EG.replace('$thing$', magic_label)
             line = line.rstrip(NL) + pl_anchor + NL
             # now the UX bonus:
-            sec_disp = 'sec-' + display_from[section].replace(FULL_STOP, '-')  # type: ignore
+            try:
+                sec_disp_context_part = display_from[section]  # type: ignore
+            except KeyError as err:
+                print(f'ERROR: {slot=} in example-refs-processing ({err})')
+                print(f'ERROR-CONTEXT: {slot=} - {line=}')
+                print(f'ERROR-CONTEXT: {slot=} - {section=}')
+                for skey in display_from:
+                    if skey.startswith(section[:len(section) // 2]):
+                        print(f'DEBUG: - similar {skey=} exists')
+                return 1
+            sec_disp = 'sec-' + sec_disp_context_part.replace(FULL_STOP, '-')  # type: ignore
             sec_disp_num_label = f'{sec_disp}-eg-{num}'
             sec_disp_num_anchor = TOK_EG.replace('$thing$', sec_disp_num_label)
             line = line.rstrip(NL) + sec_disp_num_anchor + NL
             # now the global counter extra:
-            global_example_num = eg_global_from[magic_label]
+            try:
+                global_example_num = eg_global_from[magic_label]
+            except KeyError as err:
+                print(f'ERROR: {slot=} in example-refs-global-counter-lookup ({err})')
+                print(f'ERROR-CONTEXT: {slot=} - {line=}')
+                print(f'ERROR-CONTEXT: {slot=} - {magic_label=}')
+                for ekey in eg_global_from:
+                    if ekey.startswith(magic_label[:len(magic_label) // 2]):
+                        print(f'DEBUG: - similar {ekey=} exists')
+                return 1
+
             global_example_num_label = f'example-{global_example_num}'
             global_example_num_anchor = TOK_EG.replace('$thing$', global_example_num_label)
             line = line.rstrip(NL) + global_example_num_anchor + NL
@@ -550,7 +620,7 @@ def main(argv: list[str]) -> int:
 
     # Process the text display of section refs
     for slot, line in enumerate(lines):
-        completed = insert_any_section_reference(line)
+        completed = insert_any_section_reference(line, heading_text_of)
         if line != completed:
             lines[slot] = completed
 
@@ -620,6 +690,11 @@ def main(argv: list[str]) -> int:
         ref_defects = detect_leftovers(lines, marker='Still found')
         if ref_defects:
             pass  # return 1
+
+    # Remove LaTeX and liitos commands:
+    for slot, line in enumerate(lines):
+        if line.startswith(r'\scale'):
+            lines[slot] = f'<!--{line.rstrip(NL)}-->{NL}'
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
