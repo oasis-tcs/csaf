@@ -38,3 +38,12 @@ jobs:
           printf "%s%s\n" "Starting test of " $i
           ../csaf-validator-lib/scripts/runTest.js -f $i -t base -c 2.1
         done
+    # Commented out as not yet supported by the test tools
+    # Only temporary until examples in the repo are reorganized
+    #- name: Run mandatory tests on examples/appendix
+    #  run:  |
+    #    for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/appendix/*.json`
+    #    do
+    #      printf "%s%s\n" "Starting test of " $i
+    #      ../csaf-validator-lib/scripts/runTest.js -f $i -t base -c 2.1
+    #    done

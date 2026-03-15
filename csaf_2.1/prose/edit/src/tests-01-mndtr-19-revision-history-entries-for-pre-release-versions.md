@@ -26,3 +26,7 @@ The relevant path for this test is:
 ```
 
 > The revision history contains an item which has a `number` that indicates that this is pre-release.
+
+> A tool MAY merge each item of the revision history that has a `number` which includes pre-release information into
+> the corresponding item which contains the same `number` without pre-release information as a quick fix.
+> If no such item exists, the tool MAY just remove the pre-release information from the `number` instead of merging the item.

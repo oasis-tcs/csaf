@@ -66,15 +66,19 @@
         "name": "Example Company"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_with",
+        "beginning_product_reference": "CSAFPID-9080700",
         "full_product_name": {
           "name": "Example Company Product A 4.2 installed with Example Company Hotfix for Product A 47-11",
           "product_id": "CSAFPID-0009"
         },
-        "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701"
+        "subpaths": [
+          {
+            "category": "installed_with",
+            "next_product_reference": "CSAFPID-9080701"
+          }
+        ]
       }
     ]
   },

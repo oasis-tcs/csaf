@@ -1,0 +1,70 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Multiple Use of Same Hash Algorithm (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-25-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "sha256",
+                  "value": "026a37919b182ef7c63791e82c9645e2f897a3f0b73c7a6028c7febf62e93838"
+                },
+                {
+                  "algorithm": "sha384",
+                  "value": "35fe8d330025569f903b84f434fb0cbbc5bb5706bc89e101de3eb2aef36c8328b62f3bbc1bb5685bd383465ddb764632"
+                }
+              ],
+              "filename": "product_a-one-file.so"
+            },
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "sha384",
+                  "value": "25222e538a6c9256ee1e876414f8d4fc443f7b7ade2b1ab81d43d007e159fbbca21bb54bfbc7c1ca9bf93a95b73bd6ed"
+                },
+                {
+                  "algorithm": "sha256",
+                  "value": "af13a3ac44eb4e528246608f5dc18b5403b51046e7a6a32828fa4349345afcda"
+                }
+              ],
+              "filename": "product_a-another-file.so"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -30,7 +30,7 @@ The relevant paths for this test are:
   /product_tree/branches[]/product/name
   /product_tree/full_product_names[]/name
   /product_tree/product_groups[]/summary
-  /product_tree/relationships[]/full_product_name/name
+  /product_tree/product_paths[]/full_product_name/name
   /vulnerabilities[]/acknowledgments[]/names[]
   /vulnerabilities[]/acknowledgments[]/organization
   /vulnerabilities[]/acknowledgments[]/summary

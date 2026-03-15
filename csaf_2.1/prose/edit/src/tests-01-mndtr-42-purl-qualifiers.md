@@ -1,13 +1,13 @@
-### purl Qualifiers
+### PURL Qualifiers
 
-For each `product_identification_helper` object containing multiple purls it MUST be tested that the purls only differ in their qualifiers.
+For each `product_identification_helper` object containing multiple PURLs it MUST be tested that the PURLs only differ in their qualifiers.
 
 The relevant paths for this test are:
 
 ```
   /product_tree/branches[](/branches[])*/product/product_identification_helper/purls[]
   /product_tree/full_product_names[]/product_identification_helper/purls[]
-  /product_tree/relationships[]/full_product_name/product_identification_helper/purls[]
+  /product_tree/product_paths[]/full_product_name/product_identification_helper/purls[]
 ```
 
 *Example 1 (which fails the test):*
@@ -29,4 +29,4 @@ The relevant paths for this test are:
   }
 ```
 
-> The two purls differ in the name component.
+> The two PURLs differ in the name component.

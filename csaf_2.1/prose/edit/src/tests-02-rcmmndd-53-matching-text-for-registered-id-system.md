@@ -6,7 +6,7 @@ it MUST be tested that the `text` in the CSAF document matches the `text_pattern
 
 > The RVISC is available at [cite](#RVISC).
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```
   /vulnerabilities[]/ids[]/text

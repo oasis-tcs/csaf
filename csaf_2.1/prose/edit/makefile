@@ -99,11 +99,11 @@ render-pdf:
 		cp -a $(liitos_templates)setup.tex.in $(build_pdf) && \
 		cp -a $(liitos_templates)structure.yml $(build_root) && \
 		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
-		cd $(build_pdf) && \
+		pushd $(build_pdf) && \
 		max_print_line=10000 liitos render ../../ --target csaf --facet pdf --patch-tables --filters ' ' --label "etiketti --config etiketti.yml --enforce"  && \
 		$(optimize_pdf) -- this.pdf && \
 		cp -a this.pdf ../../../$(out_pdf) && \
-		open ../../../$(out_pdf); cd -
+		open ../../../$(out_pdf) && popd
 
 .PHONY: build
 build: render status

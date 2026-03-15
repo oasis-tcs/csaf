@@ -10,13 +10,13 @@ document:
     change_log_tune_header_sep: 0.1em
     chosen_logo: images/OASISLogo-v3.0.png
     chosen_title_page_logo: images/OASISLogo-v3.0.png
-    code_fontsize: \tiny
+    code_fontsize: \footnotesize  # \tiny
     driver_path: driver.tex.in
     fixed_font_package: sourcecodepro
     font_path: /opt/fonts/
     font_suffix: .otf
     footer_frame_note: csaf-v2.1-csd02
-    footer_outer_field_normal_pages: 28 January 2026 - \theMetaPageNumPrefix { } \thepage { } of \pageref{LastPage}
+    footer_outer_field_normal_pages: 25 February 2026 - \theMetaPageNumPrefix { } \thepage { } of \pageref{LastPage}
     footer_page_number_prefix: Page
     has_approvals: false
     has_changes: false

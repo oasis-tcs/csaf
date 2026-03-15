@@ -6,7 +6,7 @@ The clauses, matching the targets one to one, are listed in separate sub-subsect
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF Document**, all other 24 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF Document**, all other 33 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
 > In any case, there are no capabilities organized in increasing quality levels for targets because
@@ -56,6 +56,20 @@ The entities ("conformance targets") for which this document defines requirement
 * **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
 * **CSAF Withdrawer**: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
 * **CSAF Superseder**: A CSAF Post-Processor that transforms a given CSAF into a Superseded one.
+* **CSAF RVISC ID Updater**: A CSAF Post-Processor that updates vulnerability IDs in a given CSAF based on the entries in [cite](#RVISC).
+* **CSAF Additional Test**: A test that is not yet defined in section [sec](#tests).
+* **CSAF Extension**: A specified JSON object conveying additional information different from the content that can be conveyed with the
+  CSAF Core elements.
+* **CSAF Extension Schema**: A JSON schema specifying the content and properties of a CSAF Extension.
+* **CSAF Extension Overlay Test**: A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a
+  test standardized in this specification or a CSAF Additional Test.
+* **CSAF Extension Additional Test**: A test whose execution depends on the presence of the specifying CSAF Extension that provides additional
+  checks in the context of the CSAF Extension or the CSAF Document the extension is embedded in.
+* **CSAF Extension Test**: A test that is either a CSAF Extension Overlay Test or a CSAF Extension Additional Test.
+* **CSAF Extension Specification**: The specification of a single CSAF Extension and related material.
+* **CSAF Extension Bundle**: A of compilation of machine-readable artifacts related to a single CSAF Extension.
+* **CSAF Extension Package**: A of compilation of all artifacts related to a single CSAF Extension.
+* **CSAF Extension Collection**: A set of multiple CSAF Extension Package.
 
 ### Conformance Clause 1: CSAF Document
 
@@ -63,10 +77,15 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 
 * conforms to the syntax and semantics defined in section [sec](#format-validation).
 * conforms to the syntax and semantics defined in section [sec](#date-and-time).
+* conforms to the syntax and semantics defined in section [sec](#extensions).
 * conforms to the syntax and semantics defined in section [sec](#schema-elements).
 * satisfies at least one profile defined in section [sec](#profiles).
 * conforms to the syntax and semantics defined in section [sec](#additional-conventions).
-* does not fail any mandatory test defined in section [sec](#mandatory-tests).
+* does not fail any mandatory test defined in section [sec](#mandatory-tests) respectively its corresponding CSAF Extension Test.
+* contains no extension that does not fulfill the conformance profile "CSAF Extension".
+* contains no extension at any other path than the specified ones in sections [sec](#full-product-name-type---extensions),
+  [sec](#document-property---extensions), [sec](#vulnerabilities-property---metrics---content),
+  [sec](#vulnerabilities-property---extensions) and [sec](#extensions-property).
 
 ### Conformance Clause 2: CSAF Producer
 
@@ -104,7 +123,9 @@ Firstly, the program:
 * satisfies the "CSAF Producer" conformance profile.
 * takes only CVRF documents as input.
 * outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  Such a warning MUST include the additional property and its path.
   The CVRF CSAF Converter SHALL ignore that additional property during the conversion.
+* includes in every warning the relevant paths and values ​​from the original file that triggered the alert, unless otherwise specified in this standard.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
@@ -184,7 +205,7 @@ Secondly, the program fulfills the following for all items of:
 * `/document/license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains a valid SPDX license expression,
   the CVRF CSAF Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
-* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property-notes),
+* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -198,9 +219,23 @@ Secondly, the program fulfills the following for all items of:
 * `/document/tracking/id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
   the CVRF CSAF Converter removes those characters.
   In addition, the converter outputs a warning that the ID was changed.
-* `/product_tree/relationships[]`: If more than one `prod:FullProductName` instance is given,
-  the CVRF CSAF Converter converts the first one into the `full_product_name`.
-  In addition, the converter outputs a warning that information might be lost during conversion of product relationships.
+* `/product_tree/product_path[]`: For each element `prod:Relationship`, the CVRF CSAF Converter MUST apply the following rules:
+  * The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
+  * The first `prod:FullProductName` instance is converted into the `full_product_name`.
+    If more than one `prod:FullProductName` instance is given,
+    the CVRF CSAF Converter MUST output a warning that information might be lost during conversion of product paths.
+    Such warning SHOULD contain the values of all `prod:FullProductName` instances skipped.
+  * The CVRF CSAF Converter constructs the first item of `subpaths` by converting the value of `RelationType` into `category`
+    and the value of the attribute `RelatesToProductReference` into `next_product_reference`.
+
+    > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
+    > if this is possible without the loss of correct information.
+    > Usually, collapsing chained product paths is not possible if
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
+    >   element.
+    > For examples, see appendix [sec](#collapsing-product-paths).
+
 * `/vulnerabilities[]/cwes[]`:
   * The CVRF CSAF Converter MUST remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF Converter MUST determine the CWE specification version the given CWE was selected from by
@@ -515,7 +550,7 @@ The resulting translated document:
 A processor satisfies the "CSAF Consumer" conformance profile if the processor:
 
 * reads CSAF Documents and interprets them according to the semantics defined in section [sec](#schema-elements) and [sec](#additional-conventions).
-* satisfies those normative requirements in section [sec](#schema-elements), [sec](#additional-conventions) and
+* satisfies those normative requirements in section [sec](#extensions), [sec](#schema-elements), [sec](#additional-conventions) and
   [sec](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Consumers.
 
 ### Conformance Clause 11: CSAF Viewer
@@ -571,7 +606,7 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
 * provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [sec](#version-type---semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF Document
@@ -599,7 +634,10 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
   including also the format validation (cf. section [sec](#format-validation)).
 * performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
-* satisfies those normative requirements in section [sec](#presets) that are designated as applying to CSAF Validators.
+* satisfies those normative requirements in sections [sec](#extensions), [sec](#schema-elements)  [sec](#mandatory-tests),
+  [sec](#test-presets), and [sec](#safety-security-and-data-protection-considerations) that are designated as applying to
+  CSAF Validators.
+* outputs a warning if an "not implemented warning" occurs as the validation status might not be correct.
 
 A CSAF Basic Validator MAY provide one or more additional functions:
 
@@ -607,12 +645,17 @@ A CSAF Basic Validator MAY provide one or more additional functions:
 * Apply quick fixes as specified in the standard.
 * Apply additional quick fixes as implemented by the vendor.
 
+A CSAF Basic Validator MAY implement CSAF Additional Tests.
+In that case, it MUST make through its documentation available which tests are implemented.
+
 ### Conformance Clause 15: CSAF Extended Validator
 
 A CSAF Basic Validator satisfies the "CSAF Extended Validator" conformance profile if the CSAF Basic Validator:
 
 * satisfies the "CSAF Basic Validator" conformance profile.
 * additionally performs all tests of the preset `recommended` as given in section [sec](#presets-defined-through-test-subsections).
+* additionally satisfies those normative requirements in section [sec](#recommended-tests)
+  that are designated as applying to CSAF Validators.
 
 A CSAF Extended Validator MAY provide an additional function to only run one or more selected recommended tests.
 
@@ -623,6 +666,8 @@ A CSAF Extended Validator satisfies the "CSAF Full Validator" conformance profil
 * satisfies the "CSAF Extended Validator" conformance profile.
 * additionally performs all tests of the preset `informative` as given in section [sec](#presets-defined-through-test-subsections).
 * provides an option to additionally use a custom dictionary for test [sec](#spell-check).
+* additionally satisfies those normative requirements in section [sec](#informative-tests)
+  that are designated as applying to CSAF Validators.
 
 A CSAF Full Validator MAY provide an additional function to only run one or more selected informative tests.
 
@@ -645,7 +690,7 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-* detects the usage semantic version (as described in section [sec](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [sec](#version-type---semantic-versioning)).
 * is able to trigger a run of the SBOM matching module:
   * manually:
     * per CSAF Document
@@ -675,7 +720,9 @@ Firstly, the program:
 * satisfies the "CSAF Producer" conformance profile.
 * takes only CSAF 2.0 Documents as input.
 * outputs a warning that an additional property was detected and not converted if it detects an additional property in the input.
+  Such a warning MUST include the additional property and its path.
   The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
+* includes in every warning the relevant paths and values ​​from the original file that triggered the alert, unless otherwise specified in this standard.
 * additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
@@ -806,7 +853,7 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/value`: The CSAF 2.0 to CSAF 2.1 Converter MUST convert
   the value into a lowercase string.
-* type `/$defs/full_product_name_t/product_identification_helper/model_number`:
+* type `/$defs/full_product_name_t/product_identification_helper/model_numbers[]`:
   * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial model number was detected and a star has been added.
     Such a warning MUST include the model number.
@@ -823,7 +870,7 @@ Secondly, the program fulfills the following for all items of:
 
 * type `/$defs/full_product_name_t/product_identification_helper/purls`: If a `/$defs/full_product_name_t/product_identification_helper/purl` is given,
   the CSAF 2.0 to CSAF 2.1 Converter MUST convert it into the first item of the corresponding `purls` array.
-* type `/$defs/full_product_name_t/product_identification_helper/serial_number`:
+* type `/$defs/full_product_name_t/product_identification_helper/serial_numbers[]`:
   * If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
     warning that a partial serial number was detected and a star has been added.
     Such a warning MUST include the serial number.
@@ -837,6 +884,24 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY provide a non-default option to interpret the `?` in all serial numbers as part of the serial number itself and therefore escape it.
 
   > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
+
+* type `/$defs/full_product_name_t/product_identification_helper/skus[]`:
+  * If a stock keeping unit is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and output a
+    warning that a partial stock keeping unit was detected and a star has been added.
+    Such a warning MUST include the stock keeping unit.
+  * If the stock keeping unit contains a `\`,
+    the CSAF 2.0 to CSAF 2.1 Converter MUST escape it by inserting an additional `\` before the character.
+  * If the stock keeping unit contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the entry and
+    output a warning that a stock keeping unit with multiple stars was detected and removed.
+    Such a warning MUST include the stock keeping unit.
+
+  > A tool MAY provide a non-default option to interpret all stock keeping units as complete and therefore does not add any stars.
+
+  > A tool MAY provide a non-default option to interpret the `?` in all stock keeping units as part of the stock keeping unit
+  > itself and therefore escape it.
+
+  > A tool MAY provide a non-default option to interpret the `*` in all stock keeping units as part of the stock keeping unit
+  > itself and therefore escape it.
 
 * `/$schema`: The CSAF 2.0 to CSAF 2.1 Converter MUST set property with the value prescribed by the schema.
 * `/document/category`:
@@ -883,7 +948,7 @@ Secondly, the program fulfills the following for all items of:
   the CSAF 2.0 to CSAF 2.1 Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
 * `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
-  [sec](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
+  [sec](#document-property---notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
   is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -895,6 +960,20 @@ Secondly, the program fulfills the following for all items of:
   set the value to `multiplier`.
 * `/document/title`: If the value contains the `/document/tracking/id`, the CSAF 2.0 to CSAF 2.1 Converter MUST remove the `/document/tracking/id`
   from the `/document/title`. In addition, separating characters including but not limited to white space, colon, dash and brackets MUST be removed.
+* `/product_tree/product_path[]`: For each element in `/product_tree/relationships[]`, the CSAF 2.0 to CSAF 2.1 Converter
+  MUST apply the following rules:
+  * The value of `product_reference` is set as the value of `beginning_product_reference`.
+  * The CSAF 2.0 to CSAF 2.1 Converter constructs the first item of `subpaths` by setting the value of `category` into `category`
+    and the value of `relates_to_product_reference` into `next_product_reference`.
+
+    > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
+    > if this is possible without the loss of correct information.
+    > Usually, collapsing chained product paths is not possible if
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
+    > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
+    >   element.
+    > For examples, see appendix [sec](#collapsing-product-paths).
+
 * `/vulnerabilities[]/cwes[]`:
   * The CSAF 2.0 to CSAF 2.1 Converter MUST remove all preceding and trailing white space from the `name`.
   * The CSAF 2.0 to CSAF 2.1 Converter MUST determine the CWE specification version the given CWE was selected from by
@@ -1021,8 +1100,14 @@ A library satisfies the "CSAF Library" conformance profile if the library:
 * provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
 * provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
   and, where necessary according to the profile, the impact statement respectively the action statement.
-* provides a function to generate a `full_product_name_t/name` with in `branches` through concatenating the `name` values separated by white space
+* provides a function to generate a `full_product_name_t/name` within `branches` through concatenating the `name` values separated by white space
   of the elements along the path towards this leaf.
+* provides a function to generate a combined subpath name for an element of type `subpath_t` through concatenating separated by white space:
+  * the `category` with `_` replaced by white space and
+  * the `name` value of the product identified by the Product ID in `next_product_reference`.
+* provides a function to generate a `full_product_name_t/name` within `product_paths` through concatenating separated by white space:
+  * the `name` value of the product identified by the Product ID in `beginning_product_reference` and
+  * the combined subpath name for all elements in `subpaths` in their order.
 * calculates the CVSS scores and severities for existing data for all CVSS versions.
 * validates the CVSS scores and severities for existing data for all CVSS versions.
 
@@ -1105,5 +1190,162 @@ A program satisfies the "CSAF Superseder" conformance profile if the program:
 * removes the `/vulnerabilities`.
 
 > A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
+
+### Conformance Clause 26: CSAF RVISC ID Updater
+
+A program satisfies the "CSAF RVISC ID Updater" conformance profile if the program fulfills the two following groups of requirements:
+
+The program:
+
+* satisfies the "CSAF Post-Processor" conformance profile.
+* applies the corresponding assignment from [cite](#RVISC-M) to each item in `/vulnerabilities[]/ids[]`
+  whose `system_name` is not contained in [cite](#RVISC-R).
+* applies the corresponding assignment from [cite](#RVISC-M) to each item in `/vulnerabilities[]/ids[]`
+  whose `system_name` is contained in [cite](#RVISC-R) but the `text` does not conform the entry.
+* satisfies the normative requirements given below.
+
+The program MUST provide the following options:
+
+* an option to insert an automatically generated revision history entry detailing the changes applied and
+  make necessary updates to elements in `/document/tracking` (commit mode).
+* an option to set selected or all parameters for the commit mode manually which take precedence over the automated generated values.
+* an option to do a dry-run which does not apply the changes but just displays them.
+* an option to interactively accept or discard changes.
+* an option to ignore certain values for `system_name`.
+* an option to output all items in `/vulnerabilities[]/ids[]` whose `system_name` is not contained in [cite](#RVISC-R).
+* an option to output all items in `/vulnerabilities[]/ids[]` whose `system_name` is contained in [cite](#RVISC-R)
+  but the `text` does not conform the entry.
+* an option to map an existing `system_name` to a new value or apply a transformation to a `text`
+  based on the `system_name` value and a `precondition`.
+
+
+### Conformance Clause 27: CSAF Additional Test
+
+A test satisfies the "CSAF Additional Test" conformance profile if it:
+
+* covers a requirement of the standard.
+* operates on a CSAF Document.
+* outputs a result object that aligns with result objects provided for tests specified in section [sec](#tests).
+* has a name starting with `AdditionalTest_` followed by a name of the specifying entity conforming to the rules for prefixes of
+  test presets (cf. section [sec](#test-presets)) and an unique name for the test within that entity.
+* has its definition specified in the same structure as in section [sec](#tests).
+
+### Conformance Clause 28: CSAF Extension
+
+A JSON object satisfies the "CSAF Extension" conformance profile if it:
+
+* conforms to the syntax and semantics defined in section [sec](#extensions).
+* validates against the [CSAF Extension Content Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
+  and the schema given through its `$schema` property.
+* uses the value of `$id` of its CSAF Extension Schema as the value of its `$schema` property.
+* conveys additional information that cannot be conveyed with the CSAF Core elements.
+* does not convey any content that can be conveyed with the CSAF Core elements.
+* does not contradict the content or purpose of this specification.
+
+### Conformance Clause 29: CSAF Extension Schema
+
+A JSON schema satisfies the "CSAF Extension Schema" conformance profile if fulfills the following two groups of requirements:
+
+Firstly, it:
+
+* describes a JSON object satisfying the "CSAF Extension" conformance profile.
+* validates against the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json).
+* uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
+  as the value of its `$schema` property.
+* is versioned according to [cite](#SemVer).
+* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [sec](#content-schema-property---schema).
+* does not allow unevaluated properties.
+  It MAY include `patternProperties` if they are typed.
+
+  > `patternProperties` are typed if they can't have more than one `type` and that `type` is given through the schema.
+
+Secondly, it:
+
+* SHOULD avoid unpredictable JSON key names.
+
+  > Implementations usually ignore any additional properties as they are hard to access, process and may imply security risks.
+
+### Conformance Clause 30: CSAF Extension Overlay Test
+
+A test satisfies the "CSAF Extension Overlay Test" conformance profile if it:
+
+* is executed only if the specifying CSAF Extension is present.
+
+  > To reuse a test from a different CSAF Extension, it is sufficient to assign it a name according to the rules below
+  > and point to the specification of the test it reuses.
+  > The referenced specification in such case must be accessible to anyone that can retrieve the referencing CSAF Extension.
+
+* extends or replaces a test specified in this standard in section [sec](#tests) or a CSAF Additional Test.
+* does not adversely affect the purpose of the test in question.
+* has a name starting with `Extension_Overlay_Test_` followed by a name of the specifying entity conforming to the
+  rules for prefixes of test presets (cf. section [sec](#test-presets)) and the name of the tests that it replaces.
+* has its definition specified in the same structure as in section [sec](#tests).
+
+The CSAF Extension Overlay Test SHOULD only differ in the paths or the document categories it is applied to.
+
+> This ensures maximum compatibility with other extensions as multiple CSAF Extension can define
+> CSAF Extension Overlay Tests for the same test which are then executed as a union set.
+
+### Conformance Clause 31: CSAF Extension Additional Test
+
+A test satisfies the "CSAF Extension Additional Test" conformance profile if it:
+
+* is executed only if the specifying CSAF Extension is present.
+
+  > To reuse a test from a different CSAF Extension, it is sufficient to assign it a name according to the rules below
+  > and point to the specification of the test it reuses.
+  > The referenced specification in such case must be accessible to anyone that can retrieve the referencing CSAF Extension.
+
+* provides additional checks in the context of the CSAF Extension or the CSAF Document the extension is embedded in.
+* has a name starting with `Extension_Additional_Test_` followed by a name of the specifying entity conforming to the
+  rules for prefixes of test presets (cf. section [sec](#test-presets)) and an unique number for the test within that entity.
+* has its definition specified in the same structure as in section [sec](#tests).
+
+### Conformance Clause 32: CSAF Extension Test
+
+A test satisfies the "CSAF Extension Test" conformance profile if it:
+
+* satisfies the "CSAF Extension Overlay Test" conformance profile or the "CSAF Extension Additional Test" conformance profile.
+
+### Conformance Clause 33: CSAF Extension Specification
+
+A specification satisfies the "CSAF Extension Specification" conformance profile if:
+
+* it defines exactly one extension satisfying the "CSAF Extension" conformance profile.
+* it defines exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
+* all tests defined in it satisfy the "CSAF Extension Test" conformance profile.
+* it contains all tests needed for the validation of the extension.
+
+  > This includes tests that check for prerequisites in the CSAF document, if applicable.
+  > Referencing an existing test is considered to fulfill the "contains" requirement,
+  > if the referenced test is accessible to anyone that can access the referencing specification.
+
+* all requirements above are fulfilled for the same extension.
+
+### Conformance Clause 34: CSAF Extension Bundle
+
+A compilation of artifacts satisfies the "CSAF Extension Bundle" conformance profile if:
+
+* it contains exactly one extension satisfying the "CSAF Extension" conformance profile.
+* it contains exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
+* it contains exactly one JSON object satisfying the "CSAF Extension Metadata Schema".
+* all necessary test files to implement the "CSAF Extension Test" for this extension.
+* has a name that it can be referred to.
+
+### Conformance Clause 35: CSAF Extension Package
+
+A compilation of artifacts satisfies the "CSAF Extension Package" conformance profile if:
+
+* it contains exactly one specification satisfying the "CSAF Extension Specification" conformance profile.
+* it contains exactly one compilation of artifacts satisfying the "CSAF Extension Bundle" conformance profile.
+* has a name that it can be referred to.
+
+### Conformance Clause 36: CSAF Extension Collection
+
+A set of artifacts satisfies the "CSAF Extension Collection" conformance profile if it:
+
+* contains one or more named compilation of artifacts that satisfy the "CSAF Extension Package" conformance profile.
+* does not contain any compilation of artifacts that looks like a CSAF Extension Package
+  but does not satisfy the "CSAF Extension Package" conformance profile.
 
 -------

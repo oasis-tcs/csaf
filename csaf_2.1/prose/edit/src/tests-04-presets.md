@@ -1,4 +1,4 @@
-## Presets
+## Test Presets
 
 A test preset is a predefined set of tests that was given a name.
 It MAY contain any number of tests.
@@ -7,6 +7,7 @@ The content of a preset MAY vary in different CSAF versions.
 A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator.
 A CSAF validator MAY provide or support additional presets.
 A CSAF validator MUST implement all tests for any supported preset.
+
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
 - `x_`: for any CSAF validator specific preset.
@@ -14,11 +15,16 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
   > Multiple CSAF validators might use the same preset name for different sets of tests.
   > Users are advised to carefully check the documentation of the tools to avoid incorrect assumptions.
 
-- `org_` followed by an organization identifier and an underscore (`_`): for any preset specified by an organization as a part of a public definition
+- `org_` followed by an organization identifier and an underscore (`_`):
+  for any preset specified by an organization as a part of a public definition
   that can be implemented by different CSAF validators.
-  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-]`.
-  The organization identifier MUST be registered with the OASIS CSAF TC.
+  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
+  The organization identifier MUST be registered with the OASIS CSAF TC prior to the publication of the definition.
+
 - `csaf_`: for any preset defined later on by the OASIS CSAF TC.
+
+To avoid collisions especially in the `x_` namespace,
+the reverse DNS notation for a domain under the author's own control MAY be used.
 
 Official presets are defined in different parts of the standard.
 
@@ -38,6 +44,10 @@ The following presets are defined through conformance targets:
 - `basic`: `schema` + `mandatory` (see section [sec](#conformance-clause-14-csaf-basic-validator))
 - `extended`: `basic` + `recommended` (see section [sec](#conformance-clause-15-csaf-extended-validator))
 - `full`: `extended` + `informative` (see section [sec](#conformance-clause-16-csaf-full-validator))
+- `additional`: all implemented tests that satisfy the CSAF Additional Test conformance profile (see section
+  [sec](#conformance-clause-27-csaf-additional-test))
+
+  > Note: The last preset MAY vary between different implementations as it is implementation specific.
 
 As presets are sets, the operator `+` MUST be interpreted as the union operation.
 
@@ -91,3 +101,33 @@ Additional presets are defined as follows:
     - [sec](#usage-of-non-latest-ssvc-decision-point-version)
     - [sec](#usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document)
     - [sec](#usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document)
+- `extensions`:
+  - Description: Any test that is related to CSAF Extensions.
+  - Set:
+    -[sec](#mandatory-tests--extension-tests-content-schema)
+    -[sec](#mandatory-tests--extension-tests-extension-schema)
+    -[sec](#mandatory-tests--extension-tests-metadata)
+    -[sec](#extension-in-superseded-or-withdrawn-document)
+    -[sec](#registered-extension)
+    -[sec](#official-extension)
+    -[sec](#critical-extension)
+    -[sec](#usage-of-experimental-extension-in-tlp-clear-document)
+    -[sec](#extension-category-critical)
+    -[sec](#usage-of-experimental-extension-in-non-tlp-clear-document)
+    -[sec](#usage-of-extension-at-document-level)
+    -[sec](#usage-of-extension-in-product-tree-branch-path)
+    -[sec](#usage-of-extension-in-product-tree-full-product-names-path)
+    -[sec](#usage-of-extension-in-product-tree-product-paths-path)
+    -[sec](#usage-of-extension-in-vulnerabilities-metrics-path)
+    -[sec](#usage-of-extension-at-vulnerabilities-level)
+    -[sec](#usage-of-extension-at-root-level)
+- `extensions-exist`:
+  - Description: Detects CSAF Extensions in all places.
+  - Set:
+    -[sec](#usage-of-extension-at-document-level)
+    -[sec](#usage-of-extension-in-product-tree-branch-path)
+    -[sec](#usage-of-extension-in-product-tree-full-product-names-path)
+    -[sec](#usage-of-extension-in-product-tree-product-paths-path)
+    -[sec](#usage-of-extension-in-vulnerabilities-metrics-path)
+    -[sec](#usage-of-extension-at-vulnerabilities-level)
+    -[sec](#usage-of-extension-at-root-level)

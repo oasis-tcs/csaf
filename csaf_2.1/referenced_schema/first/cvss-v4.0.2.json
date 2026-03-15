@@ -1,0 +1,457 @@
+{
+  "license": [
+    "Copyright (c) 2025, FIRST.ORG, INC.",
+    "All rights reserved.",
+    "",
+    "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the ",
+    "following conditions are met:",
+    "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following ",
+    "   disclaimer.",
+    "2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the ",
+    "   following disclaimer in the documentation and/or other materials provided with the distribution.",
+    "3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote ",
+    "   products derived from this software without specific prior written permission.",
+    "",
+    "THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, ",
+    "INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE ",
+    "DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, ",
+    "SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR ",
+    "SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, ",
+    "WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE ",
+    "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  ],
+  "$schema": "https://www.first.org/cvss/meta.json",
+  "$id": "https://www.first.org/cvss/cvss-v4.0.2.json?20260226",
+  "title": "JSON Schema for Common Vulnerability Scoring System version 4.0, Revision 2",
+  "type": "object",
+    "$defs": {
+    "attackComplexityType": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "attackRequirementsType": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "PRESENT"
+      ]
+    },
+    "attackVectorType": {
+      "type": "string",
+      "enum": [
+        "NETWORK",
+        "ADJACENT",
+        "LOCAL",
+        "PHYSICAL"
+      ]
+    },
+    "automatableType": {
+      "type": "string",
+      "enum": [
+        "NO",
+        "YES",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "ciaRequirementType": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "criticalScoreType": {
+      "type": "number",
+      "maximum": 10,
+      "minimum": 9,
+      "multipleOf": 0.1
+    },
+    "criticalSeverityType": {
+      "const": "CRITICAL"
+    },
+    "exploitMaturityType": {
+      "type": "string",
+      "enum": [
+        "UNREPORTED",
+        "PROOF_OF_CONCEPT",
+        "ATTACKED",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "highScoreType": {
+      "type": "number",
+      "maximum": 8.9,
+      "minimum": 7
+    },
+    "highSeverityType": {
+      "const": "HIGH"
+    },
+    "lowScoreType": {
+      "type": "number",
+      "maximum": 3.9,
+      "minimum": 0.1,
+      "multipleOf": 0.1
+    },
+    "lowSeverityType": {
+      "const": "LOW"
+    },
+    "mediumScoreType": {
+      "type": "number",
+      "maximum": 6.9,
+      "minimum": 4,
+      "multipleOf": 0.1
+    },
+    "mediumSeverityType": {
+      "const": "MEDIUM"
+    },
+    "modifiedAttackComplexityType": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "modifiedAttackRequirementsType": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "PRESENT",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "modifiedAttackVectorType": {
+      "type": "string",
+      "enum": [
+        "NETWORK",
+        "ADJACENT",
+        "LOCAL",
+        "PHYSICAL",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "modifiedPrivilegesRequiredType": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NONE",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "modifiedSubCType": {
+      "type": "string",
+      "enum": [
+        "NEGLIGIBLE",
+        "LOW",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "modifiedSubIaType": {
+      "type": "string",
+      "enum": [
+        "NEGLIGIBLE",
+        "LOW",
+        "HIGH",
+        "SAFETY",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "modifiedUserInteractionType": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "PASSIVE",
+        "ACTIVE",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "modifiedVulnCiaType": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "noneScoreType": {
+      "type": "number",
+      "maximum": 0,
+      "minimum": 0
+    },
+    "noneSeverityType": {
+      "const": "NONE"
+    },
+    "privilegesRequiredType": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NONE"
+      ]
+    },
+    "providerUrgencyType": {
+      "type": "string",
+      "enum": [
+        "CLEAR",
+        "GREEN",
+        "AMBER",
+        "RED",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "recoveryType": {
+      "type": "string",
+      "enum": [
+        "AUTOMATIC",
+        "USER",
+        "IRRECOVERABLE",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "safetyType": {
+      "type": "string",
+      "enum": [
+        "NEGLIGIBLE",
+        "PRESENT",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "subCiaType": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH"
+      ]
+    },
+    "userInteractionType": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "PASSIVE",
+        "ACTIVE"
+      ]
+    },
+    "valueDensityType": {
+      "type": "string",
+      "enum": [
+        "DIFFUSE",
+        "CONCENTRATED",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    },
+    "vulnCiaType": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH"
+      ]
+    },
+    "vulnerabilityResponseEffortType": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MODERATE",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "default": "NOT_DEFINED"
+    }
+  },
+  "required": [
+    "version",
+    "vectorString",
+    "baseScore",
+    "baseSeverity"
+  ],
+  "properties": {
+    "Automatable": {
+      "$ref": "#/$defs/automatableType"
+    },
+    "Recovery": {
+      "$ref": "#/$defs/recoveryType"
+    },
+    "Safety": {
+      "$ref": "#/$defs/safetyType"
+    },
+    "attackComplexity": {
+      "$ref": "#/$defs/attackComplexityType"
+    },
+    "attackRequirements": {
+      "$ref": "#/$defs/attackRequirementsType"
+    },
+    "attackVector": {
+      "$ref": "#/$defs/attackVectorType"
+    },
+    "availabilityRequirement": {
+      "$ref": "#/$defs/ciaRequirementType"
+    },
+    "confidentialityRequirement": {
+      "$ref": "#/$defs/ciaRequirementType"
+    },
+    "exploitMaturity": {
+      "$ref": "#/$defs/exploitMaturityType"
+    },
+    "integrityRequirement": {
+      "$ref": "#/$defs/ciaRequirementType"
+    },
+    "modifiedAttackComplexity": {
+      "$ref": "#/$defs/modifiedAttackComplexityType"
+    },
+    "modifiedAttackRequirements": {
+      "$ref": "#/$defs/modifiedAttackRequirementsType"
+    },
+    "modifiedAttackVector": {
+      "$ref": "#/$defs/modifiedAttackVectorType"
+    },
+    "modifiedPrivilegesRequired": {
+      "$ref": "#/$defs/modifiedPrivilegesRequiredType"
+    },
+    "modifiedSubAvailabilityImpact": {
+      "$ref": "#/$defs/modifiedSubIaType"
+    },
+    "modifiedSubConfidentialityImpact": {
+      "$ref": "#/$defs/modifiedSubCType"
+    },
+    "modifiedSubIntegrityImpact": {
+      "$ref": "#/$defs/modifiedSubIaType"
+    },
+    "modifiedUserInteraction": {
+      "$ref": "#/$defs/modifiedUserInteractionType"
+    },
+    "modifiedVulnAvailabilityImpact": {
+      "$ref": "#/$defs/modifiedVulnCiaType"
+    },
+    "modifiedVulnConfidentialityImpact": {
+      "$ref": "#/$defs/modifiedVulnCiaType"
+    },
+    "modifiedVulnIntegrityImpact": {
+      "$ref": "#/$defs/modifiedVulnCiaType"
+    },
+    "privilegesRequired": {
+      "$ref": "#/$defs/privilegesRequiredType"
+    },
+    "providerUrgency": {
+      "$ref": "#/$defs/providerUrgencyType"
+    },
+    "subAvailabilityImpact": {
+      "$ref": "#/$defs/subCiaType"
+    },
+    "subConfidentialityImpact": {
+      "$ref": "#/$defs/subCiaType"
+    },
+    "subIntegrityImpact": {
+      "$ref": "#/$defs/subCiaType"
+    },
+    "userInteraction": {
+      "$ref": "#/$defs/userInteractionType"
+    },
+    "valueDensity": {
+      "$ref": "#/$defs/valueDensityType"
+    },
+    "vectorString": {
+      "type": "string",
+      "pattern": "^CVSS:4[.]0/AV:[NALP]/AC:[LH]/AT:[NP]/PR:[NLH]/UI:[NPA]/VC:[HLN]/VI:[HLN]/VA:[HLN]/SC:[HLN]/SI:[HLN]/SA:[HLN](/E:[XAPU])?(/CR:[XHML])?(/IR:[XHML])?(/AR:[XHML])?(/MAV:[XNALP])?(/MAC:[XLH])?(/MAT:[XNP])?(/MPR:[XNLH])?(/MUI:[XNPA])?(/MVC:[XNLH])?(/MVI:[XNLH])?(/MVA:[XNLH])?(/MSC:[XNLH])?(/MSI:[XNLHS])?(/MSA:[XNLHS])?(/S:[XNP])?(/AU:[XNY])?(/R:[XAUI])?(/V:[XDC])?(/RE:[XLMH])?(/U:(X|Clear|Green|Amber|Red))?$"
+    },
+    "version": {
+      "description": "CVSS Version",
+      "type": "string",
+      "enum": [
+        "4.0"
+      ]
+    },
+    "vulnAvailabilityImpact": {
+      "$ref": "#/$defs/vulnCiaType"
+    },
+    "vulnConfidentialityImpact": {
+      "$ref": "#/$defs/vulnCiaType"
+    },
+    "vulnIntegrityImpact": {
+      "$ref": "#/$defs/vulnCiaType"
+    },
+    "vulnerabilityResponseEffort": {
+      "$ref": "#/$defs/vulnerabilityResponseEffortType"
+    }
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/$defs/noneScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/$defs/noneSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/$defs/lowScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/$defs/lowSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/$defs/mediumScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/$defs/mediumSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/$defs/highScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/$defs/highSeverityType"
+            }
+          }
+        },
+        {
+          "properties": {
+            "baseScore": {
+              "$ref": "#/$defs/criticalScoreType"
+            },
+            "baseSeverity": {
+              "$ref": "#/$defs/criticalSeverityType"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

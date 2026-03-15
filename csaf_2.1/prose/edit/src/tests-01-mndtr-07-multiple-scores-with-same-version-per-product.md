@@ -1,8 +1,8 @@
 ### Multiple Scores with Same Version per Product
 
-For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not member of more than one CVSS-Vectors with the same version and same source.
+For each item in `/vulnerabilities` it MUST be tested that the same Product ID is not a member of more than one CVSS vector with the same version and same source.
 
-> Different source might assign different scores for the same product.
+> Different sources might assign different scores for the same product.
 
 > The test also applies for versions not included in CSAF.
 
@@ -34,7 +34,7 @@ The relevant path for this test is:
               "baseScore": 10,
               "baseSeverity": "CRITICAL"
            }
-          }
+          },
           "products": [
             "CSAFPID-9080700"
           ]          
@@ -47,7 +47,7 @@ The relevant path for this test is:
               "baseScore": 6.5,
               "baseSeverity": "MEDIUM"
             }
-          }
+          },
           "products": [
             "CSAFPID-9080700"
           ]          

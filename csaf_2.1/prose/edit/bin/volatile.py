@@ -16,7 +16,9 @@ from typing import Union
 import yaml
 
 ENCODING = 'utf-8'
+ENC_ERRS = 'ignore'
 NL = '\n'
+RS = chr(30)  # Record Separator
 CB_END = '}'
 COLON = ':'
 DASH = '-'
@@ -34,11 +36,13 @@ DEBUG = bool(os.getenv('DEBUG_VOLATILE', ''))
 DUMP_LUT = bool(os.getenv('DUMP_LUT', ''))
 
 # Configuration and runtime parameter candidates:
+GREMLINS = ' .,;?!_()[]{}<>\\/$:"\'`´'
 BINDER_AT = pathlib.Path('etc') / 'bind.txt'
 SOURCE_AT = pathlib.Path('src')
 BUILD_AT = pathlib.Path('build')
 SECTION_DISPLAY_TO_LABEL_AT = pathlib.Path('etc') / 'section-display-to-label.json'
 SECTION_LABEL_TO_DISPLAY_AT = pathlib.Path('etc') / 'section-label-to-display.json'
+SECTION_DISPLAY_TO_TEXT_AT = pathlib.Path('etc') / 'section-display-to-text.json'
 EG_GLOBAL_TO_LABEL_AT = pathlib.Path('etc') / 'example-global-to-local.json'
 EG_LABEL_TO_GLOBAL_AT = pathlib.Path('etc') / 'example-local-to-global.json'
 
@@ -82,9 +86,10 @@ TOC_HEADER = f"""{YAML_X_SEP}
 # Table of Contents
 """
 CLEAN_MD_START = '# Introduction'
+FENCED_BLOCK_FLIP_FLOP = '```'
+APPENDIX_INNER_PATTERN = re.compile(r'(?P<display>[A-Z][\.0-9]+)\ +(?P<rest>.+)')
 
 SECTION_DISPLAY_TO_LABEL = {}
-SECTION_LABEL_TO_DISPLAY: dict[str, str] = {}
 SEC_LABEL_TEXT: dict[str, str] = {}  # Mapping section labels to the display text
 
 TOC_TEMPLATE = {
@@ -107,8 +112,6 @@ ENUMERATE = 'enumerate'
 LABEL = 'label'
 TOC = 'toc'
 
-CS_OF_SLOT: list[Union[str, None]] = []
-
 CITE_COSMETICS_TEMPLATE = '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
 CITATION_SOURCES = ('introduction-03-normative-references.md', 'introduction-04-informative-references.md')
 GLOSSARY_SOURCES = ('introduction-02-terminology-glossary.md',)
@@ -119,7 +122,7 @@ META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 
 def load_binder(binder_at: Union[str, pathlib.Path]) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
-    with open(binder_at, 'rt', encoding=ENCODING) as resource:
+    with open(binder_at, 'rt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         return [pathlib.Path(entry.strip()) for entry in resource.readlines() if entry.strip()]
 
 
@@ -146,25 +149,44 @@ def detect_meta(text_lines: list[str]) -> tuple[META_TOC_TYPE, list[str]]:
 
 def load_document(path: Union[str, pathlib.Path]) -> tuple[META_TOC_TYPE, list[str]]:
     """Load the text file into a list of strings and harvest any YAML meta info (if present remove the lines)."""
-    with open(path, 'rt', encoding=ENCODING) as resource:
+    with open(path, 'rt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         return detect_meta(resource.readlines())
 
 
 def dump_assembly(text_lines: list[str], to_path: Union[str, pathlib.Path]) -> None:
     """Dump the lines of text into the text file at path."""
-    with open(to_path, 'wt', encoding=ENCODING) as resource:
+    with open(to_path, 'wt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         resource.write(''.join(text_lines))
 
 
-def label_derive_from(text: str) -> str:
-    """Transform text to kebab style conventional label assuming no newlines present."""
-    good_nuff = (' ', '.', ',', ';', '?', '!', '_', '(', ')', '[', ']', '{', '}', '<', '>', '\\', '/', '$', ':')
-    slug = text.strip()
-    for bad in good_nuff:
-        slug = slug.replace(bad, '-')
-    parts = slug.split('-')
-    slug = '-'.join(s for s in parts if s and s != '-')
-    return slug.lower()
+def slugify(
+    text: str,
+    connector: str = DASH,
+    marker: str = RS,
+    gremlins: str = GREMLINS,
+    policy: str = 'lower',
+) -> str:
+    """Derive kebab style slug from text.
+
+    Implementer notes:
+
+    - Every character not in gremlins is kept.
+    - Incoming connector chars (default dashes) are preserved by
+      sandwich transform to and from marker char (default ASCII RS).
+      If the marker char occurs in the text, it will be replaced
+      with the connector char during the back transform.
+    """
+    ds = connector
+    rs = marker
+
+    sl = text.strip().replace(ds, rs)
+    for gremlin in gremlins:
+        sl = sl.replace(gremlin, ds)
+
+    return getattr(
+        ds.join(s.replace(rs, ds) for s in sl.split(ds) if s and s != ds),
+        policy
+    )()
 
 
 def label_in(text: str) -> bool:
@@ -198,25 +220,31 @@ def code_block_label_in(text: str) -> bool:
 
 def load_label_to_display_lut(path: Union[str, pathlib.Path] = SECTION_LABEL_TO_DISPLAY_AT) -> dict[str, str]:
     """Load the LUT for section labels -> display."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_display_to_label_lut(path: Union[str, pathlib.Path] = SECTION_DISPLAY_TO_LABEL_AT) -> dict[str, str]:
     """Load the LUT for section display -> labels."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+        return json.load(handle)
+
+
+def load_display_to_text_lut(path: Union[str, pathlib.Path] = SECTION_DISPLAY_TO_TEXT_AT) -> dict[str, str]:
+    """Load the LUT for section display -> labels."""
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_eg_label_to_global_lut(path: Union[str, pathlib.Path] = EG_LABEL_TO_GLOBAL_AT) -> dict[str, str]:
     """Load the LUT for example labels -> global."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_eg_global_to_label_lut(path: Union[str, pathlib.Path] = EG_GLOBAL_TO_LABEL_AT) -> dict[str, str]:
     """Load the LUT for example global -> labels."""
-    with pathlib.Path(path).open('rt', encoding=ENCODING) as handle:
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
@@ -262,6 +290,13 @@ def insert_any_section_reference(record: str) -> str:
                     raise RuntimeError(f'false positive sec ref in ({record.rstrip(NL)})')
                 label = found['label']
                 if label not in SEC_LABEL_TEXT:
+                    print(f'ERROR: in insert-any-section-reference ({record=})')
+                    print(f'ERROR-CONTEXT: {record=} - {trigger_text=}')
+                    print(f'ERROR-CONTEXT: {record=} - {label=}')
+                    for skey in SEC_LABEL_TEXT:
+                        if skey.startswith(label[:len(label) // 2]):
+                            print(f'DEBUG: - similar {skey=} exists')
+                    print(f'DEBUG: You may want to execute grep -n {label} src/*.md')
                     raise RuntimeError(f'missing register label for sec ref in ({record.rstrip(NL)})')
                 text = SEC_LABEL_TEXT[label]
                 sem_ref = f'[sec](#{label})'
@@ -281,6 +316,7 @@ def main(argv: list[str]) -> int:
             return 1
 
     display_from = load_label_to_display_lut()
+    # heading_text_of = load_display_to_text_lut()
     eg_global_from = load_eg_label_to_global_lut()
 
     lines: list[str] = []
@@ -331,7 +367,7 @@ def main(argv: list[str]) -> int:
                         continue
                 else:
                     patched.append(line)
-            part_lines = [a for a in patched]
+            part_lines = list(patched)
 
         if resource.name in GLOSSARY_SOURCES:  # TODO: glossary management -> class
             patched = ['<dl>' + NL]
@@ -342,7 +378,7 @@ def main(argv: list[str]) -> int:
                     in_definition = True
                     # prepare the data triplet
                     term = line.strip()
-                    label = 'def;' + label_derive_from(term)
+                    label = 'def;' + slugify(term)
                     definition = ''
                     continue
                 if in_definition:
@@ -384,7 +420,7 @@ def main(argv: list[str]) -> int:
                 else:
                     patched.append(line)
             patched.append('</dl>' + NL + NL)
-            part_lines = [a for a in patched]
+            part_lines = list(patched)
 
         lines.extend(part_lines)
 
@@ -402,88 +438,124 @@ def main(argv: list[str]) -> int:
     did_appendix_sep = False
     clean_headings = False
     current_cs = None
-    CS_OF_SLOT = [None for _ in lines]
+    cs_of_slot: list[Union[str, None]] = [None for _ in lines]
+    in_fenced_block = False
+
+    db = []
+    is_appendix = False
+    root: int = 0
+    appr = ''
+
     for slot, line in enumerate(lines):
+        if line.strip() and line.startswith(r'\columns='):
+            line = HC_BEG + line.rstrip() + HC_END
+            lines[slot] = line
+            print(f'INFO: Wrapped columns command for HTML and GFM-Plus targets in {slot=}:')
+            print(f'INFO: - {line}')
+        if line.startswith(FENCED_BLOCK_FLIP_FLOP):
+            in_fenced_block = not in_fenced_block
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
-        is_plain = True  # No special meta data needed
         if line.startswith(CLEAN_MD_START):
             clean_headings = True
-        CS_OF_SLOT[slot] = current_cs
+        cs_of_slot[slot] = current_cs
         for tag in sec_cnt:
-            if line.startswith(tag) and clean_headings:
+            if line.startswith(tag) and clean_headings and not in_fenced_block:
                 # manage counter
                 if not meta_hook:
-                    # auto counters
-                    is_plain = True
-                    nxt_lvl = sec_lvl[tag]
-                    sec_cnt[tag] += 1
-                    if nxt_lvl < cur_lvl:
-                        for level in range(nxt_lvl + 1, lvl_sup):
-                            sec_cnt[lvl_sec[level]] = 0
-                    sec_cnt_disp_vec = []
-                    for s_tag, cnt in sec_cnt.items():
-                        if cnt == 0:
-                            raise RuntimeError(f'counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}')
-                        sec_cnt_disp_vec.append(str(cnt))
-                        if s_tag == tag:
-                            break
-                    sec_cnt_disp = FULL_STOP.join(sec_cnt_disp_vec)
-                    # Hack to amend first level numeric section counter displays with a full stop - do not ask ...
-                    if FULL_STOP not in sec_cnt_disp:
-                        sec_cnt_disp += FULL_STOP
+                    display = ''
+                    level = len(line.split(SPACE, 1)[0])
+                    if level == 1:
+                        root += 1
+                    text_plus = line[level + 1:].rstrip()
+                    if text_plus.startswith('Appendix '):
+                        appr = text_plus.replace('Appendix ', '')[0]
+                        display = f'Appendix {appr}.'
+                        text_plus = text_plus.replace(f'{display} ', '')
+                        is_appendix = True
+                    else:
+                        match = APPENDIX_INNER_PATTERN.match(text_plus)
+                        if match:
+                            found = match.groupdict()
+                            display = found['display']
+                            text_plus = text_plus.replace(f'{display} ', '')
+                    if TOK_LAB in text_plus:
+                        text, slug = text_plus.rstrip(SPACE).rstrip('}').split(TOK_LAB, 1)
+                    else:
+                        text = text_plus.rstrip(SPACE)
+                        slug = slugify(text)
+                    if not is_appendix:
+                        a_root = str(root)
+                    else:
+                        a_root = appr
+
+                    if not is_appendix:
+                        tag = f'{HASH * level} '
+                        nxt_lvl = sec_lvl[tag]
+                        sec_cnt[tag] += 1
+                        if nxt_lvl < cur_lvl:
+                            for lvl in range(nxt_lvl + 1, lvl_sup):
+                                sec_cnt[lvl_sec[lvl]] = 0
+                        sec_cnt_disp_vec = []
+                        for s_tag, cnt in sec_cnt.items():
+                            if cnt == 0:
+                                raise RuntimeError(f'ERROR: Counting is hard: {sec_cnt} at {tag} for {text}')
+                            sec_cnt_disp_vec.append(str(cnt))
+                            if s_tag == tag:
+                                break
+                        sec_cnt_disp = FULL_STOP.join(sec_cnt_disp_vec)
+                        display = sec_cnt_disp.rstrip(DOT)
+                    else:
+                        sec_cnt_disp = display  # display, text = text.split(SPACE, 1)
+
+                    cur_lvl = nxt_lvl
+
+                    if DEBUG:
+                        print(f' {display} "{text}" <-- {slug}')
+                    label = slug
+                    db.append([is_appendix, a_root, level, display, text, slug])
                 else:
-                    # pull in counters from meta
-                    is_plain = False
-                    app_lvl = 1  # belt and braces ...
-                    text = line.split(tag, 1)[1].rstrip()
-                    if TOK_LAB in text:
-                        # special label
-                        label = text.split(TOK_LAB, 1)[1].rstrip(CB_END)
-                        text = text.split(TOK_LAB, 1)[0]
-                    if text == meta_hook[TOC][LABEL]:
-                        sec_cnt_disp = meta_hook[TOC][ENUMERATE]  # type: ignore
-                        app_lvl = 1
-                    elif meta_hook[TOC].get(CHILDREN):
-                        for cand in meta_hook[TOC][CHILDREN]:  # type: ignore
-                            if text == cand[LABEL]:  # type: ignore
-                                sec_cnt_disp = cand[ENUMERATE]  # type: ignore
-                                app_lvl = 2
+                    print('WARNING: deprecated out-of-band appendix handling triggered in manage-counter')
+                    return 1
 
                 # manage label
-                text = line.split(tag, 1)[1].rstrip()
-                if TOK_LAB in text:
-                    # special label
-                    label = text.split(TOK_LAB, 1)[1].rstrip(CB_END)
-                    text = text.split(TOK_LAB, 1)[0]
-                else:
-                    label = label_derive_from(text)
-                clean_sec_cnt_disp = (f'{sec_cnt_disp}' if is_plain else sec_cnt_disp).rstrip(FULL_STOP)
+                clean_sec_cnt_disp = (f'{sec_cnt_disp}' if is_appendix else sec_cnt_disp).rstrip(FULL_STOP)
                 SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
                 line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
 
                 line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
                 lines[slot] = line
-                cur_lvl = nxt_lvl
-                if not did_appendix_sep and meta_hook and slot < first_meta_slot:  # type: ignore
+                if not did_appendix_sep and not is_appendix:  # meta_hook and slot < first_meta_slot:  # type: ignore
+                    DEBUG and print(f'DEBUG: inserted toc-vertical-spacer at {slot=} triggered by line {line.rstrip()}')
                     tic_toc.append(TOC_VERTICAL_SPACER)
                     did_appendix_sep = True
-                toc_template = TOC_TEMPLATE[cur_lvl if not meta_hook else app_lvl]
+                toc_template = TOC_TEMPLATE[cur_lvl if not is_appendix else level]  # app_lvl]  # meta_hook else app_lvl]
                 tic_toc.append(
                     toc_template.replace('$sec_cnt_disp$', sec_cnt_disp)
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
                 extended = 0
-                if sec_cnt_disp.upper().isupper():
+                if is_appendix:  # sec_cnt_disp.upper().isupper():  # at least one letter
                     extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
+                    DEBUG and print(f'DEBUG: appendixer-main at {slot=} and {extended=} on line {line.rstrip()}')
                     if extended == 2:
                         extended = sec_cnt_disp.count(DOT) + 1
+                        DEBUG and print(f'DEBUG: - appendixer-indent at {slot=} and {extended=} with {sec_cnt_disp}')
                 mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
                 current_cs = label  # Update state for label in non tag lines
                 # correct the default state assignment
-                CS_OF_SLOT[slot] = current_cs  # type: ignore
+                cs_of_slot[slot] = current_cs  # type: ignore
+
+
+    if DEBUG:
+        for is_appendix, a_root, level, display, text, slug in db:  # type: ignore
+            print(
+                f'{"        " if not is_appendix else "APPENDIX"} | {a_root} |'
+                f' {(HASH * level).rjust(7)} "{text}" <-- {slug}'
+            )
+
 
     # Process the text display of citation refs
     for slot, line in enumerate(lines):
@@ -495,17 +567,37 @@ def main(argv: list[str]) -> int:
     for slot, line in enumerate(lines):
         if example_in(line):
             num = example_local_number(line)
-            section = CS_OF_SLOT[slot]
+            section = cs_of_slot[slot]
             magic_label = f'{section}-eg-{num}'
             pl_anchor = TOK_EG.replace('$thing$', magic_label)
             line = line.rstrip(NL) + pl_anchor + NL
             # now the UX bonus:
-            sec_disp = 'sec-' + display_from[section].replace(FULL_STOP, '-')  # type: ignore
+            try:
+                sec_disp_context_part = display_from[section]  # type: ignore
+            except KeyError as err:
+                print(f'ERROR: {slot=} in example-refs-processing ({err})')
+                print(f'ERROR-CONTEXT: {slot=} - {line=}')
+                print(f'ERROR-CONTEXT: {slot=} - {section=}')
+                for skey in display_from:
+                    if skey.startswith(section[:len(section) // 2]):  # type: ignore
+                        print(f'DEBUG: - similar {skey=} exists')
+                return 1
+            sec_disp = 'sec-' + sec_disp_context_part.replace(FULL_STOP, '-')  # type: ignore
             sec_disp_num_label = f'{sec_disp}-eg-{num}'
             sec_disp_num_anchor = TOK_EG.replace('$thing$', sec_disp_num_label)
             line = line.rstrip(NL) + sec_disp_num_anchor + NL
             # now the global counter extra:
-            global_example_num = eg_global_from[magic_label]
+            try:
+                global_example_num = eg_global_from[magic_label]
+            except KeyError as err:
+                print(f'ERROR: {slot=} in example-refs-global-counter-lookup ({err})')
+                print(f'ERROR-CONTEXT: {slot=} - {line=}')
+                print(f'ERROR-CONTEXT: {slot=} - {magic_label=}')
+                for ekey in eg_global_from:
+                    if ekey.startswith(magic_label[:len(magic_label) // 2]):
+                        print(f'DEBUG: - similar {ekey=} exists')
+                return 1
+
             global_example_num_label = f'example-{global_example_num}'
             global_example_num_anchor = TOK_EG.replace('$thing$', global_example_num_label)
             line = line.rstrip(NL) + global_example_num_anchor + NL
@@ -526,7 +618,7 @@ def main(argv: list[str]) -> int:
                     if '-eg-' not in label:  # TODO - refactor and clean up
                         raise RuntimeError(f'bad label for example in ({line.rstrip(NL)})')
                     section, number = label.split('-eg-', 1)
-                    if section == CS_OF_SLOT[slot]:
+                    if section == cs_of_slot[slot]:
                         DEBUG and print(f'detected local reference for {label} in ({line.rstrip(NL)})')
                         evil_ref = f'\\[[{number}](#{label})\\]'  # [1](#a-sec-eg-1)
                     else:
@@ -612,6 +704,11 @@ def main(argv: list[str]) -> int:
         if ref_defects:
             pass  # return 1
 
+    # Remove LaTeX and liitos commands:
+    for slot, line in enumerate(lines):
+        if line.startswith(r'\scale'):
+            lines[slot] = f'<!--{line.rstrip(NL)}-->{NL}'
+
     BUILD_AT.mkdir(parents=True, exist_ok=True)
     dump_assembly(lines, BUILD_AT / 'tmp.md')
 
@@ -621,11 +718,9 @@ def main(argv: list[str]) -> int:
     if DUMP_LUT:
         with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING) as handle:
             json.dump(SECTION_DISPLAY_TO_LABEL, handle, indent=2)
-        SECTION_LABEL_TO_DISPLAY = {
-            label: disp for label, disp in sorted((label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items())
-        }
+        section_label_to_display = dict(sorted(((label, disp) for (disp, label) in SECTION_DISPLAY_TO_LABEL.items())))
         with SECTION_LABEL_TO_DISPLAY_AT.open('wt', encoding=ENCODING) as handle:
-            json.dump(SECTION_LABEL_TO_DISPLAY, handle, indent=2)
+            json.dump(section_label_to_display, handle, indent=2)
 
     return 0
 

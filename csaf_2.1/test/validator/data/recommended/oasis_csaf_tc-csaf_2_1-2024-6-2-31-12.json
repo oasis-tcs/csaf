@@ -118,42 +118,58 @@
         "name": "Example Company"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-908070603",
         "full_product_name": {
           "name": "Example Company Controller A Firmware 4.1 installed on Example Company Controller A 1.0",
           "product_id": "CSAFPID-908070605"
         },
-        "product_reference": "CSAFPID-908070603",
-        "relates_to_product_reference": "CSAFPID-908070601"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070601"
+          }
+        ]
       },
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-908070604",
         "full_product_name": {
           "name": "Example Company Controller A Firmware 4.2 installed on Example Company Controller A 1.0",
           "product_id": "CSAFPID-908070606"
         },
-        "product_reference": "CSAFPID-908070604",
-        "relates_to_product_reference": "CSAFPID-908070601"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070601"
+          }
+        ]
       },
-            {
-        "category": "installed_on",
+      {
+        "beginning_product_reference": "CSAFPID-908070603",
         "full_product_name": {
           "name": "Example Company Controller A Firmware 4.1 installed on Example Company Controller A 2.0",
           "product_id": "CSAFPID-908070607"
         },
-        "product_reference": "CSAFPID-908070603",
-        "relates_to_product_reference": "CSAFPID-908070602"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070602"
+          }
+        ]
       },
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-908070604",
         "full_product_name": {
           "name": "Example Company Controller A Firmware 4.2 installed on Example Company Controller A 2.0",
           "product_id": "CSAFPID-908070608"
         },
-        "product_reference": "CSAFPID-908070604",
-        "relates_to_product_reference": "CSAFPID-908070602"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-908070602"
+          }
+        ]
       }
     ]
   }

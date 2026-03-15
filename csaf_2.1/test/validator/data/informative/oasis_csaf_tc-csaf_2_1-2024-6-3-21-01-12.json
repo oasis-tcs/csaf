@@ -1,0 +1,92 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Informative Test: Extension Category Critical (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-21-01-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ]
+      }
+    }
+  ],
+  "x_extensions": [
+    {
+      "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-13/documentation-13-content_1.0.0.json",
+      "category": "high_value",
+      "content": {
+        "configuration_tree": {
+          "configurations": [
+            {
+              "configuration_id": "CSAFCID-12233400",
+              "details": "This is a very long and detailed description of all the values this specific configuration consist of and where to find them.",
+              "name": "Configuration 1"
+            },
+            {
+              "configuration_id": "CSAFCID-12233401",
+              "details": "This is a very long and detailed description of all the values this other configuration consist of and where to find them.",
+              "name": "Configuration 2"
+            }
+          ],
+          "relationships": [
+            {
+              "configuration_reference": "CSAFCID-12233400",
+              "full_product_name": {
+                "name": "Product A with Configuration 1",
+                "product_id": "CSAFPID-9080701"
+              },
+              "product_reference": "CSAFPID-9080700"
+            },
+            {
+              "configuration_reference": "CSAFCID-12233401",
+              "full_product_name": {
+                "name": "Product A with Configuration 2",
+                "product_id": "CSAFPID-9080702"
+              },
+              "product_reference": "CSAFPID-9080700"
+            }
+          ]
+        }
+      },
+      "critical": true
+    }
+  ]
+}

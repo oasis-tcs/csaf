@@ -1,12 +1,6 @@
-<!--
----
-toc:
-  auto: false
-  label: Revision History
-  enumerate: Appendix B.
----
--->
-# Revision History
+# Appendix B. Revision History
+
+\columns=25%,10%,40%,
 
 | Revision                 | Date       | Editor                          | Changes Made                                |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------|
@@ -31,5 +25,6 @@ toc:
 | csaf-v2.1-wd20251126-dev | 2025-11-26 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20251217-dev | 2025-12-17 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 | csaf-v2.1-wd20260128-dev | 2026-01-28 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
+| csaf-v2.1-wd20260225-dev | 2026-02-25 | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |
 
 -------

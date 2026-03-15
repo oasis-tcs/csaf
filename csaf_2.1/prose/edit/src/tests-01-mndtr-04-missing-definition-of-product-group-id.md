@@ -8,6 +8,7 @@ The relevant paths for this test are:
 
 ```
   /document/notes[]/group_ids[]
+  /vulnerabilities[]/first_known_exploitation_dates[]/group_ids[]
   /vulnerabilities[]/flags[]/group_ids[]
   /vulnerabilities[]/involvements[]/group_ids[]
   /vulnerabilities[]/notes[]/group_ids[]
@@ -21,8 +22,8 @@ The relevant paths for this test are:
   "product_tree": {
     "full_product_names": [
       {
-        "product_id": "CSAFPID-9080700",
-        "name": "Product A"
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
       }
     ]
   },

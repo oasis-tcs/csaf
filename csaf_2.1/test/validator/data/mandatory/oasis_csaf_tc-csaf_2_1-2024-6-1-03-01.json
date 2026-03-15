@@ -32,19 +32,23 @@
   "product_tree": {
     "full_product_names": [
       {
-        "product_id": "CSAFPID-9080700",
-        "name": "Product A"
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
       }
     ],
-    "relationships": [
+    "product_paths": [
       {
-        "category": "installed_on",
+        "beginning_product_reference": "CSAFPID-9080700",
         "full_product_name": {
           "name": "Product B",
           "product_id": "CSAFPID-9080701"
         },
-        "product_reference": "CSAFPID-9080700",
-        "relates_to_product_reference": "CSAFPID-9080701"
+        "subpaths": [
+          {
+            "category": "installed_on",
+            "next_product_reference": "CSAFPID-9080701"
+          }
+        ]
       }
     ]
   }

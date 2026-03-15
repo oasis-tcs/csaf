@@ -1,7 +1,8 @@
-### Overlapping Product Version Range{informative-tests--overlapping-product-version-range}
+### Overlapping Product Version Range{#informative-tests--overlapping-product-version-range}
 
 This subsubsection structures the informative tests for overlapping product version ranges.
 These tests provide weak indicators of potential errors in the construction of the product tree.
+The abbreviations for groups are defined in section [sec](#overlapping-product-version-range).
 
 #### Overlapping Product Version Range with vers in Same Product Status Group
 
