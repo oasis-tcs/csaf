@@ -118,13 +118,14 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 # Table of Contents
 
-1. [Introduction](#introduction)  
+
+1 [Introduction](#introduction)  
 	1.1 [IPR Policy](#ipr-policy)  
 	1.2 [Terminology](#terminology)  
 	1.3 [Normative References](#normative-references)  
 	1.4 [Informative References](#informative-references)  
 	1.5 [Typographical Conventions](#typographical-conventions)  
-2. [Design Considerations](#design-considerations)  
+2 [Design Considerations](#design-considerations)  
 	2.1 [Construction Principles](#construction-principles)  
 	2.2 [Format Validation](#format-validation)  
 	2.3 [Date and Time](#date-and-time)  
@@ -133,40 +134,40 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		2.4.2 [Lists](#lists)  
 		2.4.3 [Metaschema](#metaschema)  
 		2.4.4 [Content Schema](#content-schema)  
-			2.4.4.1 [Content Schema Property - Schema](#content-schema-property-schema)  
-			2.4.4.2 [Content Schema Property - Category](#content-schema-property-category)  
-			2.4.4.3 [Content Schema Property - Content](#content-schema-property-content)  
-			2.4.4.4 [Content Schema Property - Critical](#content-schema-property-critical)  
+			2.4.4.1 [Content Schema Property - Schema](#content-schema-property---schema)  
+			2.4.4.2 [Content Schema Property - Category](#content-schema-property---category)  
+			2.4.4.3 [Content Schema Property - Content](#content-schema-property---content)  
+			2.4.4.4 [Content Schema Property - Critical](#content-schema-property---critical)  
 		2.4.5 [Metadata](#metadata)  
-3. [Schema Elements](#schema-elements)  
+3 [Schema Elements](#schema-elements)  
 	3.1 [Definitions](#definitions)  
 		3.1.1 [Acknowledgments Type](#acknowledgments-type)  
-			3.1.1.1 [Acknowledgments Type - Names](#acknowledgments-type-names)  
-			3.1.1.2 [Acknowledgments Type - Organization](#acknowledgments-type-organization)  
-			3.1.1.3 [Acknowledgments Type - Summary](#acknowledgments-type-summary)  
-			3.1.1.4 [Acknowledgments Type - URLs](#acknowledgments-type-urls)  
-			3.1.1.5 [Acknowledgments Type - Example](#acknowledgments-type-example)  
+			3.1.1.1 [Acknowledgments Type - Names](#acknowledgments-type---names)  
+			3.1.1.2 [Acknowledgments Type - Organization](#acknowledgments-type---organization)  
+			3.1.1.3 [Acknowledgments Type - Summary](#acknowledgments-type---summary)  
+			3.1.1.4 [Acknowledgments Type - URLs](#acknowledgments-type---urls)  
+			3.1.1.5 [Acknowledgments Type - Example](#acknowledgments-type---example)  
 		3.1.2 [Branches Type](#branches-type)  
-			3.1.2.1 [Branches Type - Branches](#branches-type-branches)  
-			3.1.2.2 [Branches Type - Category](#branches-type-category)  
-			3.1.2.3 [Branches Type - Name](#branches-type-name)  
-				3.1.2.3.1 [Branches Type - Name under Product Version](#branches-type-name-under-product-version)  
-				3.1.2.3.2 [Branches Type - Name under Product Version Range](#branches-type-name-under-product-version-range)  
-			3.1.2.4 [Branches Type - Product](#branches-type-product)  
+			3.1.2.1 [Branches Type - Branches](#branches-type---branches)  
+			3.1.2.2 [Branches Type - Category](#branches-type---category)  
+			3.1.2.3 [Branches Type - Name](#branches-type---name)  
+				3.1.2.3.1 [Branches Type - Name under Product Version](#branches-type---name-under-product-version)  
+				3.1.2.3.2 [Branches Type - Name under Product Version Range](#branches-type---name-under-product-version-range)  
+			3.1.2.4 [Branches Type - Product](#branches-type---product)  
 		3.1.3 [Extensions Type](#extensions-type)  
 		3.1.4 [Full Product Name Type](#full-product-name-type)  
-			3.1.4.1 [Full Product Name Type - Name](#full-product-name-type-name)  
-			3.1.4.2 [Full Product Name Type - Product ID](#full-product-name-type-product-id)  
+			3.1.4.1 [Full Product Name Type - Name](#full-product-name-type---name)  
+			3.1.4.2 [Full Product Name Type - Product ID](#full-product-name-type---product-id)  
 			3.1.4.3 [Full Product Name Type - Product Identification Helper](#full-product-name-type-product-identification-helper)  
-				3.1.4.3.1 [Full Product Name Type - Product Identification Helper - CPE](#full-product-name-type-product-identification-helper-cpe)  
-				3.1.4.3.2 [Full Product Name Type - Product Identification Helper - Hashes](#full-product-name-type-product-identification-helper-hashes)  
-				3.1.4.3.3 [Full Product Name Type - Product Identification Helper - Model Numbers](#full-product-name-type-product-identification-helper-model-numbers)  
+				3.1.4.3.1 [Full Product Name Type - Product Identification Helper - CPE](#full-product-name-type---product-identification-helper---cpe)  
+				3.1.4.3.2 [Full Product Name Type - Product Identification Helper - Hashes](#full-product-name-type---product-identification-helper---hashes)  
+				3.1.4.3.3 [Full Product Name Type - Product Identification Helper - Model Numbers](#full-product-name-type---product-identification-helper---model-numbers)  
 				3.1.4.3.4 [Full Product Name Type - Product Identification Helper - PURLs](#full-product-name-type-product-identification-helper-purls)  
-				3.1.4.3.5 [Full Product Name Type - Product Identification Helper - SBOM URLs](#full-product-name-type-product-identification-helper-sbom-urls)  
-				3.1.4.3.6 [Full Product Name Type - Product Identification Helper - Serial Numbers](#full-product-name-type-product-identification-helper-serial-numbers)  
-				3.1.4.3.7 [Full Product Name Type - Product Identification Helper - SKUs](#full-product-name-type-product-identification-helper-skus)  
-				3.1.4.3.8 [Full Product Name Type - Product Identification Helper - Generic URIs](#full-product-name-type-product-identification-helper-generic-uris)  
-			3.1.4.4 [Full Product Name Type - Extensions](#full-product-name-type-extensions)  
+				3.1.4.3.5 [Full Product Name Type - Product Identification Helper - SBOM URLs](#full-product-name-type---product-identification-helper---sbom-urls)  
+				3.1.4.3.6 [Full Product Name Type - Product Identification Helper - Serial Numbers](#full-product-name-type---product-identification-helper---serial-numbers)  
+				3.1.4.3.7 [Full Product Name Type - Product Identification Helper - SKUs](#full-product-name-type---product-identification-helper---skus)  
+				3.1.4.3.8 [Full Product Name Type - Product Identification Helper - Generic URIs](#full-product-name-type---product-identification-helper---generic-uris)  
+			3.1.4.4 [Full Product Name Type - Extensions](#full-product-name-type---extensions)  
 		3.1.5 [Language Type](#language-type)  
 		3.1.6 [Notes Type](#notes-type)  
 		3.1.7 [Product Group ID Type](#product-group-id-type)  
@@ -176,77 +177,77 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		3.1.11 [References Type](#references-type)  
 		3.1.12 [Subpath Type](#subpath-type)  
 		3.1.13 [Version Type](#version-type)  
-			3.1.13.1 [Version Type - Integer Versioning](#version-type-integer-versioning)  
-			3.1.13.2 [Version Type - Semantic Versioning](#version-type-semantic-versioning)  
+			3.1.13.1 [Version Type - Integer Versioning](#version-type---integer-versioning)  
+			3.1.13.2 [Version Type - Semantic Versioning](#version-type---semantic-versioning)  
 	3.2 [Properties](#properties)  
 		3.2.1 [Schema Property](#schema-property)  
 		3.2.2 [Document Property](#document-property)  
-			3.2.2.1 [Document Property - Acknowledgments](#document-property-acknowledgments)  
-			3.2.2.2 [Document Property - Aggregate Severity](#document-property-aggregate-severity)  
-			3.2.2.3 [Document Property - Category](#document-property-category)  
-			3.2.2.4 [Document Property - CSAF Version](#document-property-csaf-version)  
-			3.2.2.5 [Document Property - Distribution](#document-property-distribution)  
-				3.2.2.5.1 [Document Property - Distribution - Sharing Group](#document-property-distribution-sharing-group)  
-				3.2.2.5.2 [Document Property - Distribution - Text](#document-property-distribution-text)  
-				3.2.2.5.3 [Document Property - Distribution - TLP](#document-property-distribution-tlp)  
-			3.2.2.6 [Document Property - Language](#document-property-language)  
-			3.2.2.7 [Document Property - License Expression](#document-property-license-expression)  
-			3.2.2.8 [Document Property - Notes](#document-property-notes)  
-			3.2.2.9 [Document Property - Publisher](#document-property-publisher)  
-				3.2.2.9.1 [Document Property - Publisher - Category](#document-property-publisher-category)  
-				3.2.2.9.2 [Document Property - Publisher - Contact Details](#document-property-publisher-contact-details)  
-				3.2.2.9.3 [Document Property - Publisher - Issuing Authority](#document-property-publisher-issuing-authority)  
-				3.2.2.9.4 [Document Property - Publisher - Name](#document-property-publisher-name)  
-				3.2.2.9.5 [Document Property - Publisher - Namespace](#document-property-publisher-namespace)  
-			3.2.2.10 [Document Property - References](#document-property-references)  
-			3.2.2.11 [Document Property - Source Language](#document-property-source-language)  
-			3.2.2.12 [Document Property - Title](#document-property-title)  
-			3.2.2.13 [Document Property - Tracking](#document-property-tracking)  
-				3.2.2.13.1 [Document Property - Tracking - Aliases](#document-property-tracking-aliases)  
-				3.2.2.13.2 [Document Property - Tracking - Current Release Date](#document-property-tracking-current-release-date)  
-				3.2.2.13.3 [Document Property - Tracking - Generator](#document-property-tracking-generator)  
-				3.2.2.13.4 [Document Property - Tracking - ID](#document-property-tracking-id)  
-				3.2.2.13.5 [Document Property - Tracking - Initial Release Date](#document-property-tracking-initial-release-date)  
-				3.2.2.13.6 [Document Property - Tracking - Revision History](#document-property-tracking-revision-history)  
-				3.2.2.13.7 [Document Property - Tracking - Status](#document-property-tracking-status)  
-				3.2.2.13.8 [Document Property - Tracking - Version](#document-property-tracking-version)  
-			3.2.2.14 [Document Property - Extensions](#document-property-extensions)  
+			3.2.2.1 [Document Property - Acknowledgments](#document-property---acknowledgments)  
+			3.2.2.2 [Document Property - Aggregate Severity](#document-property---aggregate-severity)  
+			3.2.2.3 [Document Property - Category](#document-property---category)  
+			3.2.2.4 [Document Property - CSAF Version](#document-property---csaf-version)  
+			3.2.2.5 [Document Property - Distribution](#document-property---distribution)  
+				3.2.2.5.1 [Document Property - Distribution - Sharing Group](#document-property---distribution-sharing-group)  
+				3.2.2.5.2 [Document Property - Distribution - Text](#document-property---distribution---text)  
+				3.2.2.5.3 [Document Property - Distribution - TLP](#document-property---distribution---tlp)  
+			3.2.2.6 [Document Property - Language](#document-property---language)  
+			3.2.2.7 [Document Property - License Expression](#document-property---license-expression)  
+			3.2.2.8 [Document Property - Notes](#document-property---notes)  
+			3.2.2.9 [Document Property - Publisher](#document-property---publisher)  
+				3.2.2.9.1 [Document Property - Publisher - Category](#document-property---publisher-category)  
+				3.2.2.9.2 [Document Property - Publisher - Contact Details](#document-property---publisher---contact-details)  
+				3.2.2.9.3 [Document Property - Publisher - Issuing Authority](#document-property---publisher---issuing-authority)  
+				3.2.2.9.4 [Document Property - Publisher - Name](#document-property---publisher---name)  
+				3.2.2.9.5 [Document Property - Publisher - Namespace](#document-property---publisher---namespace)  
+			3.2.2.10 [Document Property - References](#document-property---references)  
+			3.2.2.11 [Document Property - Source Language](#document-property---source-language)  
+			3.2.2.12 [Document Property - Title](#document-property---title)  
+			3.2.2.13 [Document Property - Tracking](#document-property---tracking)  
+				3.2.2.13.1 [Document Property - Tracking - Aliases](#document-property---tracking---aliases)  
+				3.2.2.13.2 [Document Property - Tracking - Current Release Date](#document-property---tracking---current-release-date)  
+				3.2.2.13.3 [Document Property - Tracking - Generator](#document-property---tracking---generator)  
+				3.2.2.13.4 [Document Property - Tracking - ID](#document-property---tracking---id)  
+				3.2.2.13.5 [Document Property - Tracking - Initial Release Date](#document-property---tracking---initial-release-date)  
+				3.2.2.13.6 [Document Property - Tracking - Revision History](#document-property---tracking---revision-history)  
+				3.2.2.13.7 [Document Property - Tracking - Status](#document-property---tracking---status)  
+				3.2.2.13.8 [Document Property - Tracking - Version](#document-property---tracking---version)  
+			3.2.2.14 [Document Property - Extensions](#document-property---extensions)  
 		3.2.3 [Product Tree Property](#product-tree-property)  
-			3.2.3.1 [Product Tree Property - Branches](#product-tree-property-branches)  
-			3.2.3.2 [Product Tree Property - Full Product Names](#product-tree-property-full-product-names)  
-			3.2.3.3 [Product Tree Property - Product Groups](#product-tree-property-product-groups)  
-			3.2.3.4 [Product Tree Property - Product Paths](#product-tree-property-product-paths)  
+			3.2.3.1 [Product Tree Property - Branches](#product-tree-property---branches)  
+			3.2.3.2 [Product Tree Property - Full Product Names](#product-tree-property---full-product-names)  
+			3.2.3.3 [Product Tree Property - Product Groups](#product-tree-property---product-groups)  
+			3.2.3.4 [Product Tree Property - Product Paths](#product-tree-property---product-paths)  
 		3.2.4 [Vulnerabilities Property](#vulnerabilities-property)  
-			3.2.4.1 [Vulnerabilities Property - Acknowledgments](#vulnerabilities-property-acknowledgments)  
-			3.2.4.2 [Vulnerabilities Property - CVE](#vulnerabilities-property-cve)  
-			3.2.4.3 [Vulnerabilities Property - CWEs](#vulnerabilities-property-cwes)  
-			3.2.4.4 [Vulnerabilities Property - Disclosure Date](#vulnerabilities-property-disclosure-date)  
-			3.2.4.5 [Vulnerabilities Property - Discovery Date](#vulnerabilities-property-discovery-date)  
-			3.2.4.6 [Vulnerabilities Property - First Known Exploitation Dates](#vulnerabilities-property-first-known-exploitation-dates)  
+			3.2.4.1 [Vulnerabilities Property - Acknowledgments](#vulnerabilities-property---acknowledgments)  
+			3.2.4.2 [Vulnerabilities Property - CVE](#vulnerabilities-property---cve)  
+			3.2.4.3 [Vulnerabilities Property - CWEs](#vulnerabilities-property---cwes)  
+			3.2.4.4 [Vulnerabilities Property - Disclosure Date](#vulnerabilities-property---disclosure-date)  
+			3.2.4.5 [Vulnerabilities Property - Discovery Date](#vulnerabilities-property---discovery-date)  
+			3.2.4.6 [Vulnerabilities Property - First Known Exploitation Dates](#vulnerabilities-property---first-known-exploitation-dates)  
 			3.2.4.7 [Vulnerabilities Property - Flags](#vulnerabilities-property-flags)  
-			3.2.4.8 [Vulnerabilities Property - IDs](#vulnerabilities-property-ids)  
-			3.2.4.9 [Vulnerabilities Property - Involvements](#vulnerabilities-property-involvements)  
-			3.2.4.10 [Vulnerabilities Property - Metrics](#vulnerabilities-property-metrics)  
-				3.2.4.10.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property-metrics-content)  
-				3.2.4.10.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property-metrics-products)  
-				3.2.4.10.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property-metrics-source)  
+			3.2.4.8 [Vulnerabilities Property - IDs](#vulnerabilities-property---ids)  
+			3.2.4.9 [Vulnerabilities Property - Involvements](#vulnerabilities-property---involvements)  
+			3.2.4.10 [Vulnerabilities Property - Metrics](#vulnerabilities-property---metrics)  
+				3.2.4.10.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property---metrics---content)  
+				3.2.4.10.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property---metrics---products)  
+				3.2.4.10.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property---metrics---source)  
 			3.2.4.11 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
 			3.2.4.12 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
-			3.2.4.13 [Vulnerabilities Property - References](#vulnerabilities-property-references)  
-			3.2.4.14 [Vulnerabilities Property - Remediations](#vulnerabilities-property-remediations)  
+			3.2.4.13 [Vulnerabilities Property - References](#vulnerabilities-property---references)  
+			3.2.4.14 [Vulnerabilities Property - Remediations](#vulnerabilities-property---remediations)  
 				3.2.4.14.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
-				3.2.4.14.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property-remediations-date)  
-				3.2.4.14.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property-remediations-details)  
-				3.2.4.14.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property-remediations-entitlements)  
-				3.2.4.14.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property-remediations-group-ids)  
-				3.2.4.14.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property-remediations-product-ids)  
-				3.2.4.14.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property-remediations-restart-required)  
-				3.2.4.14.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property-remediations-url)  
-			3.2.4.15 [Vulnerabilities Property - Threats](#vulnerabilities-property-threats)  
-			3.2.4.16 [Vulnerabilities Property - Title](#vulnerabilities-property-title)  
-			3.2.4.17 [Vulnerabilities Property - Extensions](#vulnerabilities-property-extensions)  
+				3.2.4.14.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property---remediations---date)  
+				3.2.4.14.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property---remediations---details)  
+				3.2.4.14.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property---remediations---entitlements)  
+				3.2.4.14.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property---remediations---group-ids)  
+				3.2.4.14.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property---remediations---product-ids)  
+				3.2.4.14.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property---remediations---restart-required)  
+				3.2.4.14.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property---remediations---url)  
+			3.2.4.15 [Vulnerabilities Property - Threats](#vulnerabilities-property---threats)  
+			3.2.4.16 [Vulnerabilities Property - Title](#vulnerabilities-property---title)  
+			3.2.4.17 [Vulnerabilities Property - Extensions](#vulnerabilities-property---extensions)  
 		3.2.5 [Extensions Property](#extensions-property)  
-4. [Profiles](#profiles)  
+4 [Profiles](#profiles)  
 	4.1 [Profile 1: CSAF Base](#profile-1-csaf-base)  
 	4.2 [Profile 2: Security Incident Response](#profile-2-security-incident-response)  
 	4.3 [Profile 3: Informational Advisory](#profile-3-informational-advisory)  
@@ -255,14 +256,14 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	4.6 [Profile 6: Deprecated Security Advisory](#profile-6-deprecated-security-advisory)  
 	4.7 [Profile 7: Withdrawn](#profile-7-withdrawn)  
 	4.8 [Profile 8: Superseded](#profile-8-superseded)  
-5. [Additional Conventions](#additional-conventions)  
+5 [Additional Conventions](#additional-conventions)  
 	5.1 [Filename](#filename)  
 	5.2 [Separation in Data Stream](#separation-in-data-stream)  
 	5.3 [Sorting](#additional-conventions--sorting)  
 	5.4 [Usage of Markdown](#usage-of-markdown)  
 	5.5 [Branch Recursion](#branch-recursion)  
 	5.6 [Hardware and Software within the Product Tree](#hardware-and-software-within-the-product-tree)  
-6. [Tests](#tests)  
+6 [Tests](#tests)  
 	6.1 [Mandatory Tests](#mandatory-tests)  
 		6.1.1 [Missing Definition of Product ID](#missing-definition-of-product-id)  
 		6.1.2 [Multiple Definition of Product ID](#multiple-definition-of-product-id)  
@@ -455,7 +456,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)  
 		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)  
 		6.4.3 [Additional Presets](#additional-presets)  
-7. [Distributing CSAF Documents](#distributing-csaf-documents)  
+7 [Distributing CSAF Documents](#distributing-csaf-documents)  
 	7.1 [Requirements](#requirements)  
 		7.1.1 [Requirement 1: Valid CSAF Document](#requirement-1-valid-csaf-document)  
 		7.1.2 [Requirement 2: Filename](#requirement-2-filename)  
@@ -497,8 +498,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		7.4.2 [Transition Process for a CSAF Provider](#transition-process-for-a-csaf-provider)  
 		7.4.3 [Archive of CSAF Document from Previous Version](#archive-of-csaf-document-from-previous-version)  
 		7.4.4 [Transition Process for a CSAF Aggregator](#transition-process-for-a-csaf-aggregator)  
-8. [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)  
-9. [Conformance](#conformance)  
+8 [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)  
+9 [Conformance](#conformance)  
 	9.1 [Conformance Targets](#conformance-targets)  
 		9.1.1 [Conformance Clause 1: CSAF Document](#conformance-clause-1-csaf-document)  
 		9.1.2 [Conformance Clause 2: CSAF Producer](#conformance-clause-2-csaf-producer)  
@@ -536,7 +537,6 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		9.1.34 [Conformance Clause 34: CSAF Extension Bundle](#conformance-clause-34-csaf-extension-bundle)  
 		9.1.35 [Conformance Clause 35: CSAF Extension Package](#conformance-clause-35-csaf-extension-package)  
 		9.1.36 [Conformance Clause 36: CSAF Extension Collection](#conformance-clause-36-csaf-extension-collection)  
-
 Appendix A. [Acknowledgments](#acknowledgments)  
 Appendix B. [Revision History](#revision-history)  
 Appendix C. [Guidance on the Size of CSAF Documents](#guidance-on-the-size-of-csaf-documents)  
@@ -550,7 +550,7 @@ Appendix C. [Guidance on the Size of CSAF Documents](#guidance-on-the-size-of-cs
 Appendix D. [Collapsing Product Paths](#collapsing-product-paths)  
 -------
 
-# 1. Introduction <a id='introduction'></a>
+# 1 Introduction <a id='introduction'></a>
 
 ## 1.1 IPR Policy <a id='ipr-policy'></a>
 
@@ -905,6 +905,8 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="RFC9116" class="anchor"></span>**RFC9116\]** Foudil, E. and Y. Shafranovich, "A File Format to Aid in Security Vulnerability Disclosure", RFC 9116, DOI 10.17487/RFC9116, April 2022, <https://www.rfc-editor.org/info/rfc9116>.
 
+**\[**<span id="RFC9535" class="anchor"></span>**RFC9535\]** S. Gössner, Ed., G. Normington, Ed., and C. Bormann, Ed., "JSONPath: Query Expressions for JSON", RFC 9535, DOI 10.17487/RFC9535, February 2024, <https://www.rfc-editor.org/info/rfc9535>.
+
 **\[**<span id="RVISC" class="anchor"></span>**RVISC\]** _Registry for Vulnerability ID Systems for CSAF (RVISC)_, Part of the OASIS CSAF TC Registry, <https://registry.csaf.dev/id/>.
 
 **\[**<span id="RVISC-M" class="anchor"></span>**RVISC-M\]** _Mapping for RVISC_, RVISC Mapping Part of the OASIS CSAF TC Registry, <https://registry.csaf.dev/id/mapping/>.
@@ -970,7 +972,7 @@ All other text is normative unless otherwise labeled e.g. like the following inf
 
 This document adheres to the Modern Language Association (MLA) style guidelines for formatting titles and terms.
 
-# 2. Design Considerations <a id='design-considerations'></a>
+# 2 Design Considerations <a id='design-considerations'></a>
 
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 
@@ -1211,7 +1213,7 @@ critical: Boolean
 > The CSAF Extension Content Schema works an interface definition.
 > It is used in the CSAF Schema and defines a common structure for all CSAF Extensions.
 
-#### 2.4.4.1 Content Schema Property - Schema <a id='content-schema-property-schema'></a>
+#### 2.4.4.1 Content Schema Property - Schema <a id='content-schema-property---schema'></a>
 
 CSAF Extension Schema (`$schema`) of value type CSAF Extension Content `$schema` Type (`content_schema_t`) contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.
 This SHOULD also be the location where the JSON schema can be retrieved.
@@ -1220,14 +1222,14 @@ The URL SHOULD contain a human-readable name for the extension before the versio
 The versioning MUST use \[[SemVer](#SemVer)\].
 URLs using a domain mentioned in \[[RFC2606](#RFC2606)\] MUST be used according to their defined purpose.
 
-*Examples 1:*<a id='content-schema-property-schema-eg-1'></a><a id='sec-2-4-4-1-eg-1'></a><a id='example-2'></a>
+*Examples 1:*<a id='content-schema-property---schema-eg-1'></a><a id='sec-2-4-4-1-eg-1'></a><a id='example-2'></a>
 
 ```
   https://www.example.com/some-path/to-a-csaf-extension/schema/our-awesome-metric_1.0.0.json
   https://oil-and-gas.isac.example/.well-known/csaf/extensions/schema/product-safety_17.41.0.json
 ```
 
-#### 2.4.4.2 Content Schema Property - Category <a id='content-schema-property-category'></a>
+#### 2.4.4.2 Content Schema Property - Category <a id='content-schema-property---category'></a>
 
 Extension Category (`category`) of value type `string` and `enum` holds the category of the extension content.
 Valid `enum` values are:
@@ -1252,13 +1254,13 @@ The value `informational` indicates, that the content provided through this exte
 CSAF consumers and CSAF validators MAY warn if they process a CSAF Document including such an extension instance and
 do not have the extension in question already implemented.
 
-#### 2.4.4.3 Content Schema Property - Content <a id='content-schema-property-content'></a>
+#### 2.4.4.3 Content Schema Property - Content <a id='content-schema-property---content'></a>
 
 Content (`content`) of value type `object` contains the additional information in its properties.
 A Content object has at least `1` property.
 The property names (JSON keys) can be chosen freely; they SHOULD characterize the information given in its value.
 
-#### 2.4.4.4 Content Schema Property - Critical <a id='content-schema-property-critical'></a>
+#### 2.4.4.4 Content Schema Property - Critical <a id='content-schema-property---critical'></a>
 
 Critical (`critical`) of value type `boolean` determines whether using the extension would fail a mandatory test.
 The `default` value for this is `false`.
@@ -1277,7 +1279,7 @@ It is used to provide information for automated tools on certain requirements an
   https://oil-and-gas.isac.example/.well-known/csaf/extensions/metadata/product-safety_17.41.0.json
 ```
 
-# 3. Schema Elements <a id='schema-elements'></a>
+# 3 Schema Elements <a id='schema-elements'></a>
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
@@ -1353,25 +1355,25 @@ $defs:
   # ...
 ```
 
-#### 3.1.1.1 Acknowledgments Type - Names <a id='acknowledgments-type-names'></a>
+#### 3.1.1.1 Acknowledgments Type - Names <a id='acknowledgments-type---names'></a>
 
 List of acknowledged names (`names`) of value type `array` with `1` or more items holds the names of contributors being recognized.
 Every such item of value type `string` with `1` or more characters represents the name of the contributor and contains the name of
 a single contributor being recognized.
 
-*Examples 1:*<a id='acknowledgments-type-names-eg-1'></a><a id='sec-3-1-1-1-eg-1'></a><a id='example-4'></a>
+*Examples 1:*<a id='acknowledgments-type---names-eg-1'></a><a id='sec-3-1-1-1-eg-1'></a><a id='example-4'></a>
 
 ```
     Albert Einstein
     Johann Sebastian Bach
 ```
 
-#### 3.1.1.2 Acknowledgments Type - Organization <a id='acknowledgments-type-organization'></a>
+#### 3.1.1.2 Acknowledgments Type - Organization <a id='acknowledgments-type---organization'></a>
 
 The contributing organization (`organization`) of value type `string` with `1` or more characters and holds the name of
 the contributing organization being recognized.
 
-*Examples 1:*<a id='acknowledgments-type-organization-eg-1'></a><a id='sec-3-1-1-2-eg-1'></a><a id='example-5'></a>
+*Examples 1:*<a id='acknowledgments-type---organization-eg-1'></a><a id='sec-3-1-1-2-eg-1'></a><a id='example-5'></a>
 
 ```
     CISA
@@ -1379,27 +1381,27 @@ the contributing organization being recognized.
     Talos
 ```
 
-#### 3.1.1.3 Acknowledgments Type - Summary <a id='acknowledgments-type-summary'></a>
+#### 3.1.1.3 Acknowledgments Type - Summary <a id='acknowledgments-type---summary'></a>
 
 Summary of the acknowledgment (`summary`) of value type `string` with `1` or more characters SHOULD represent any contextual details
 the document producers wish to make known about the acknowledgment or acknowledged parties.
 
-*Example 1:*<a id='acknowledgments-type-summary-eg-1'></a><a id='sec-3-1-1-3-eg-1'></a><a id='example-6'></a>
+*Example 1:*<a id='acknowledgments-type---summary-eg-1'></a><a id='sec-3-1-1-3-eg-1'></a><a id='example-6'></a>
 
 ```
     First analysis of Coordinated Multi-Stream Attack (CMSA)
 ```
 
-#### 3.1.1.4 Acknowledgments Type - URLs <a id='acknowledgments-type-urls'></a>
+#### 3.1.1.4 Acknowledgments Type - URLs <a id='acknowledgments-type---urls'></a>
 
 List of URLs (`urls`) of acknowledgment is a container (value type `array`) for `1` or more `string` of type URL that specifies
 a list of URLs or location of the reference to be acknowledged.
 Any URL of acknowledgment contains the URL or location of the reference to be acknowledged.
 Value type is `string` with format URI (`uri`).
 
-#### 3.1.1.5 Acknowledgments Type - Example <a id='acknowledgments-type-example'></a>
+#### 3.1.1.5 Acknowledgments Type - Example <a id='acknowledgments-type---example'></a>
 
-*Example 1:*<a id='acknowledgments-type-example-eg-1'></a><a id='sec-3-1-1-5-eg-1'></a><a id='example-7'></a>
+*Example 1:*<a id='acknowledgments-type---example-eg-1'></a><a id='sec-3-1-1-5-eg-1'></a><a id='example-7'></a>
 
 ```
   "acknowledgments": [
@@ -1473,11 +1475,11 @@ $defs:
 > It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support
 > the identification and matching of products on the consumer side.
 
-#### 3.1.2.1 Branches Type - Branches <a id='branches-type-branches'></a>
+#### 3.1.2.1 Branches Type - Branches <a id='branches-type---branches'></a>
 
 List of branches (`branches`) has the value type `branches_t`.
 
-#### 3.1.2.2 Branches Type - Category <a id='branches-type-category'></a>
+#### 3.1.2.2 Branches Type - Category <a id='branches-type---category'></a>
 
 Category of the branch (`category`) of value type `string` and `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
@@ -1536,11 +1538,11 @@ The value `specification` indicates the specification such as a standard, best c
 
 The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
 
-#### 3.1.2.3 Branches Type - Name <a id='branches-type-name'></a>
+#### 3.1.2.3 Branches Type - Name <a id='branches-type---name'></a>
 
 Name of the branch (`name`) of value type `string` with `1` or more characters contains the canonical descriptor or 'friendly name' of the branch.
 
-*Examples 1:*<a id='branches-type-name-eg-1'></a><a id='sec-3-1-2-3-eg-1'></a><a id='example-8'></a>
+*Examples 1:*<a id='branches-type---name-eg-1'></a><a id='sec-3-1-2-3-eg-1'></a><a id='example-8'></a>
 
 ```
     10
@@ -1556,11 +1558,11 @@ Name of the branch (`name`) of value type `string` with `1` or more characters c
 A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is
 part of the product version as given by the vendor.
 
-##### 3.1.2.3.1 Branches Type - Name under Product Version <a id='branches-type-name-under-product-version'></a>
+##### 3.1.2.3.1 Branches Type - Name under Product Version <a id='branches-type---name-under-product-version'></a>
 
 If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
 
-*Examples 1 (for `name` when using `product_version`):*<a id='branches-type-name-under-product-version-eg-1'></a><a id='sec-3-1-2-3-1-eg-1'></a><a id='example-9'></a>
+*Examples 1 (for `name` when using `product_version`):*<a id='branches-type---name-under-product-version-eg-1'></a><a id='sec-3-1-2-3-1-eg-1'></a><a id='example-9'></a>
 
 ```
     10
@@ -1573,7 +1575,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 > If both version strings are the same, it is a match - otherwise not.
 > Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
 
-*Examples 2 (for `name` when using `product_version` which are invalid):*<a id='branches-type-name-under-product-version-eg-2'></a><a id='sec-3-1-2-3-1-eg-2'></a><a id='example-10'></a>
+*Examples 2 (for `name` when using `product_version` which are invalid):*<a id='branches-type---name-under-product-version-eg-2'></a><a id='sec-3-1-2-3-1-eg-2'></a><a id='example-10'></a>
 
 ```
     8.0.0 - 8.0.1
@@ -1586,7 +1588,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 > All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
 
-##### 3.1.2.3.2 Branches Type - Name under Product Version Range <a id='branches-type-name-under-product-version-range'></a>
+##### 3.1.2.3.2 Branches Type - Name under Product Version Range <a id='branches-type---name-under-product-version-range'></a>
 
 If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges.
 The value of MUST obey to exactly one of the following options:
@@ -1599,7 +1601,7 @@ The value of MUST obey to exactly one of the following options:
 
    > According to the interpretation used here, the canonical form requires that the vers is normalized.
 
-    *Examples 1 (for `name` when using `product_version_range` with vers):*<a id='branches-type-name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-11'></a>
+    *Examples 1 (for `name` when using `product_version_range` with vers):*<a id='branches-type---name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-11'></a>
 
     ```
         vers:gem/>=2.2.0|!=2.2.1|<2.3.0
@@ -1620,7 +1622,7 @@ The value of MUST obey to exactly one of the following options:
 
     Tools MAY support this on best effort basis.
 
-    *Examples 2 (for `name` when using `product_version_range` with vls):*<a id='branches-type-name-under-product-version-range-eg-2'></a><a id='sec-3-1-2-3-2-eg-2'></a><a id='example-12'></a>
+    *Examples 2 (for `name` when using `product_version_range` with vls):*<a id='branches-type---name-under-product-version-range-eg-2'></a><a id='sec-3-1-2-3-2-eg-2'></a><a id='example-12'></a>
 
     ```
         <=2
@@ -1631,7 +1633,7 @@ The value of MUST obey to exactly one of the following options:
         <2024-4-pabc0019|>2024-10-pefd0010|<2024-12-pjkl2010|>2024-12-pjkl5010|<=2025-1-pghi1001
     ```
 
-#### 3.1.2.4 Branches Type - Product <a id='branches-type-product'></a>
+#### 3.1.2.4 Branches Type - Product <a id='branches-type---product'></a>
 
 Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
@@ -1666,20 +1668,20 @@ $defs:
   # ...
 ```
 
-#### 3.1.4.1 Full Product Name Type - Name <a id='full-product-name-type-name'></a>
+#### 3.1.4.1 Full Product Name Type - Name <a id='full-product-name-type---name'></a>
 
 Textual description of the product (`name`) has value type `string` with `1` or more characters.
 The value SHOULD be the product's full canonical name, including version number and other attributes,
 as it would be used in a human-friendly document.
 
-*Examples 1:*<a id='full-product-name-type-name-eg-1'></a><a id='sec-3-1-4-1-eg-1'></a><a id='example-13'></a>
+*Examples 1:*<a id='full-product-name-type---name-eg-1'></a><a id='sec-3-1-4-1-eg-1'></a><a id='example-13'></a>
 
 ```
     Cisco AnyConnect Secure Mobility Client 2.3.185
     Microsoft Host Integration Server 2006 Service Pack 1
 ```
 
-#### 3.1.4.2 Full Product Name Type - Product ID <a id='full-product-name-type-product-id'></a>
+#### 3.1.4.2 Full Product Name Type - Product ID <a id='full-product-name-type---product-id'></a>
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
@@ -1714,7 +1716,7 @@ check e.g. the branches hierarchy leading to the product.
 > Therefore, it is, for example, prohibited to omit the version from the CPE if a `product_version` was given in branches hierarchy
 > leading to the product.
 
-##### 3.1.4.3.1 Full Product Name Type - Product Identification Helper - CPE <a id='full-product-name-type-product-identification-helper-cpe'></a>
+##### 3.1.4.3.1 Full Product Name Type - Product Identification Helper - CPE <a id='full-product-name-type---product-identification-helper---cpe'></a>
 
 Common Platform Enumeration representation (`cpe`) has value type `string` of `5` or more characters with `pattern` (regular expression):
 
@@ -1727,7 +1729,7 @@ See [CPE23-N] for details.
 
 > Both, CPE 2.2 and CPE 2.3, are supported in CSAF.
 
-##### 3.1.4.3.2 Full Product Name Type - Product Identification Helper - Hashes <a id='full-product-name-type-product-identification-helper-hashes'></a>
+##### 3.1.4.3.2 Full Product Name Type - Product Identification Helper - Hashes <a id='full-product-name-type---product-identification-helper---hashes'></a>
 
 List of hashes (`hashes`) of value type `array` holding at least `1` item contains a list of cryptographic hashes usable to identify files.
 
@@ -1807,7 +1809,7 @@ The algorithm of the cryptographic hash representation contains the name of the 
 The default value for `algorithm` is `sha256`.
 Secure cryptographic hash algorithms SHOULD be preferred.
 
-*Examples 1:*<a id='full-product-name-type-product-identification-helper-hashes-eg-1'></a><a id='sec-3-1-4-3-2-eg-1'></a><a id='example-14'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---hashes-eg-1'></a><a id='sec-3-1-4-3-2-eg-1'></a><a id='example-14'></a>
 
 ```
       blake2b512
@@ -1842,7 +1844,7 @@ The Value of the cryptographic hash representation (`value`) has value type `str
 
 The Value of the cryptographic hash attribute contains the cryptographic hash value in lowercase hexadecimal representation.
 
-*Examples 2:*<a id='full-product-name-type-product-identification-helper-hashes-eg-2'></a><a id='sec-3-1-4-3-2-eg-2'></a><a id='example-15'></a>
+*Examples 2:*<a id='full-product-name-type---product-identification-helper---hashes-eg-2'></a><a id='sec-3-1-4-3-2-eg-2'></a><a id='example-15'></a>
 
 ```
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
@@ -1853,7 +1855,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
 The filename representation (`filename`) of value type `string` with `1` or more characters contains the name of
 the file which is identified by the hash values.
 
-*Examples 3:*<a id='full-product-name-type-product-identification-helper-hashes-eg-3'></a><a id='sec-3-1-4-3-2-eg-3'></a><a id='example-16'></a>
+*Examples 3:*<a id='full-product-name-type---product-identification-helper---hashes-eg-3'></a><a id='sec-3-1-4-3-2-eg-3'></a><a id='example-16'></a>
 
 ```
     WINWORD.EXE
@@ -1864,7 +1866,7 @@ the file which is identified by the hash values.
 If the value of the hash matches and the filename does not, a user SHOULD prefer the hash value.
 In such cases, the filename SHOULD be used as informational property.
 
-##### 3.1.4.3.3 Full Product Name Type - Product Identification Helper - Model Numbers <a id='full-product-name-type-product-identification-helper-model-numbers'></a>
+##### 3.1.4.3.3 Full Product Name Type - Product Identification Helper - Model Numbers <a id='full-product-name-type---product-identification-helper---model-numbers'></a>
 
 The list of models (`model_numbers`) of value type `array` with `1` or more unique items contains a list of model numbers.
 
@@ -1902,7 +1904,7 @@ As part of the model number, the special characters `?`, `*` and `\` MUST be esc
 
 > Note: A backslash MUST be escaped itself in a JSON string.
 
-*Examples 1:*<a id='full-product-name-type-product-identification-helper-model-numbers-eg-1'></a><a id='sec-3-1-4-3-3-eg-1'></a><a id='example-17'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---model-numbers-eg-1'></a><a id='sec-3-1-4-3-3-eg-1'></a><a id='example-17'></a>
 
 ```
     *-G109A/EU?
@@ -1946,7 +1948,7 @@ Multiple PURLs can be specified to allow for identifiers to locate identical com
 If multiple PURLs are specified, they SHALL only differ in their qualifiers.
 Otherwise, separate product branches SHOULD be used to differentiate between the components.
 
-##### 3.1.4.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs <a id='full-product-name-type-product-identification-helper-sbom-urls'></a>
+##### 3.1.4.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs <a id='full-product-name-type---product-identification-helper---sbom-urls'></a>
 
 The list of SBOM URLs (`sbom_urls`) of value type `array` with `1` or more items contains
 a list of URLs where SBOMs for this product can be retrieved.
@@ -1967,14 +1969,14 @@ $defs:
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
 
-*Examples 1:*<a id='full-product-name-type-product-identification-helper-sbom-urls-eg-1'></a><a id='sec-3-1-4-3-5-eg-1'></a><a id='example-18'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---sbom-urls-eg-1'></a><a id='sec-3-1-4-3-5-eg-1'></a><a id='example-18'></a>
 
 ```
     https://raw.githubusercontent.com/CycloneDX/bom-examples/master/SBOM/keycloak-10.0.2/bom.json
     https://swinslow.net/spdx-examples/example4/main-bin-v2
 ```
 
-##### 3.1.4.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers <a id='full-product-name-type-product-identification-helper-serial-numbers'></a>
+##### 3.1.4.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers <a id='full-product-name-type---product-identification-helper---serial-numbers'></a>
 
 The list of serial numbers (`serial_numbers`) of value type `array` with `1` or more unique items contains
 a list of serial numbers.
@@ -2007,7 +2009,7 @@ As part of the serial number, the special characters `?`, `*` and `\` MUST be es
 
 > Note: A backslash MUST be escaped itself in a JSON string.
 
-*Examples 1:*<a id='full-product-name-type-product-identification-helper-serial-numbers-eg-1'></a><a id='sec-3-1-4-3-6-eg-1'></a><a id='example-19'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---serial-numbers-eg-1'></a><a id='sec-3-1-4-3-6-eg-1'></a><a id='example-19'></a>
 
 ```
     *RF8R71YR???
@@ -2017,7 +2019,7 @@ As part of the serial number, the special characters `?`, `*` and `\` MUST be es
     L234.696.30.044.712
 ```
 
-##### 3.1.4.3.7 Full Product Name Type - Product Identification Helper - SKUs <a id='full-product-name-type-product-identification-helper-skus'></a>
+##### 3.1.4.3.7 Full Product Name Type - Product Identification Helper - SKUs <a id='full-product-name-type---product-identification-helper---skus'></a>
 
 The list of stock keeping units (`skus`) of value type `array` with `1` or more items contains a list of stock keeping units.
 
@@ -2055,7 +2057,7 @@ As part of the stock keeping unit, the special characters `?`, `*` and `\` MUST 
 
 > Note: A backslash MUST be escaped itself in a JSON string.
 
-*Examples 1:*<a id='full-product-name-type-product-identification-helper-skus-eg-1'></a><a id='sec-3-1-4-3-7-eg-1'></a><a id='example-20'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---skus-eg-1'></a><a id='sec-3-1-4-3-7-eg-1'></a><a id='example-20'></a>
 
 ```
     11????2
@@ -2065,7 +2067,7 @@ As part of the stock keeping unit, the special characters `?`, `*` and `\` MUST 
     2.063.*.?:221-A
 ```
 
-##### 3.1.4.3.8 Full Product Name Type - Product Identification Helper - Generic URIs <a id='full-product-name-type-product-identification-helper-generic-uris'></a>
+##### 3.1.4.3.8 Full Product Name Type - Product Identification Helper - Generic URIs <a id='full-product-name-type---product-identification-helper---generic-uris'></a>
 
 List of generic URIs (`x_generic_uris`) of value type `array` with at least `1` item contains a list of identifiers which are
 either vendor-specific or derived from a standard not yet supported.
@@ -2104,7 +2106,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 
 > These elements can be used to reference a specific component from an SBOM:
 
-*Example 1 (linking a component from a CycloneDX SBOM using the bomlink mechanism):*<a id='full-product-name-type-product-identification-helper-generic-uris-eg-1'></a><a id='sec-3-1-4-3-8-eg-1'></a><a id='example-21'></a>
+*Example 1 (linking a component from a CycloneDX SBOM using the bomlink mechanism):*<a id='full-product-name-type---product-identification-helper---generic-uris-eg-1'></a><a id='sec-3-1-4-3-8-eg-1'></a><a id='example-21'></a>
 
 ```
           "x_generic_uris": [
@@ -2115,7 +2117,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
           ]
 ```
 
-*Example 2 (linking a component from an SPDX SBOM):*<a id='full-product-name-type-product-identification-helper-generic-uris-eg-2'></a><a id='sec-3-1-4-3-8-eg-2'></a><a id='example-22'></a>
+*Example 2 (linking a component from an SPDX SBOM):*<a id='full-product-name-type---product-identification-helper---generic-uris-eg-2'></a><a id='sec-3-1-4-3-8-eg-2'></a><a id='example-22'></a>
 
 ```
           "x_generic_uris": [
@@ -2126,7 +2128,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
           ]
 ```
 
-#### 3.1.4.4 Full Product Name Type - Extensions <a id='full-product-name-type-extensions'></a>
+#### 3.1.4.4 Full Product Name Type - Extensions <a id='full-product-name-type---extensions'></a>
 
 Product-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the full product name element level of the CSAF document and associated with this full product name element.
@@ -2452,7 +2454,7 @@ A CSAF document MUST use only one versioning system.
     2.40.0+21AF26D3
 ```
 
-#### 3.1.13.1 Version Type - Integer Versioning <a id='version-type-integer-versioning'></a>
+#### 3.1.13.1 Version Type - Integer Versioning <a id='version-type---integer-versioning'></a>
 
 Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one.
 The regular expression for this type is:
@@ -2475,7 +2477,7 @@ The following rules apply:
 5. Build metadata is never included in the version.
 6. Precedence MUST be determined by integer comparison.
 
-#### 3.1.13.2 Version Type - Semantic Versioning <a id='version-type-semantic-versioning'></a>
+#### 3.1.13.2 Version Type - Semantic Versioning <a id='version-type---semantic-versioning'></a>
 
 Semantic versioning derived the rules from [SemVer]. The regular expression for this type is:
 
@@ -2534,7 +2536,7 @@ This results in the following rules:
    A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as
    denoted by its associated normal version.
 
-   *Examples 1:*<a id='version-type-semantic-versioning-eg-1'></a><a id='sec-3-1-13-2-eg-1'></a><a id='example-29'></a>
+   *Examples 1:*<a id='version-type---semantic-versioning-eg-1'></a><a id='sec-3-1-13-2-eg-1'></a><a id='example-29'></a>
 
    ```
    1.0.0-0.3.7
@@ -2550,7 +2552,7 @@ This results in the following rules:
     Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence.
     Thus two versions that differ only in the build metadata, have the same precedence.
 
-    *Examples 2:*<a id='version-type-semantic-versioning-eg-2'></a><a id='sec-3-1-13-2-eg-2'></a><a id='example-30'></a>
+    *Examples 2:*<a id='version-type---semantic-versioning-eg-2'></a><a id='sec-3-1-13-2-eg-2'></a><a id='example-30'></a>
 
     ```
     1.0.0+20130313144700
@@ -2566,7 +2568,7 @@ This results in the following rules:
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows:
        Major, minor, and patch versions are always compared numerically.
 
-       *Example 3:*<a id='version-type-semantic-versioning-eg-3'></a><a id='sec-3-1-13-2-eg-3'></a><a id='example-31'></a>
+       *Example 3:*<a id='version-type---semantic-versioning-eg-3'></a><a id='sec-3-1-13-2-eg-3'></a><a id='example-31'></a>
 
        ```
        1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
@@ -2574,7 +2576,7 @@ This results in the following rules:
 
     3. When major, minor, and patch are equal, a pre-release version has lower precedence than a normal version:
 
-       *Example 4:*<a id='version-type-semantic-versioning-eg-4'></a><a id='sec-3-1-13-2-eg-4'></a><a id='example-32'></a>
+       *Example 4:*<a id='version-type---semantic-versioning-eg-4'></a><a id='sec-3-1-13-2-eg-4'></a><a id='example-32'></a>
 
        ```
        1.0.0-alpha < 1.0.0
@@ -2588,7 +2590,7 @@ This results in the following rules:
        3. Numeric identifiers always have lower precedence than non-numeric identifiers.
        4. A larger set of pre-release fields has a higher precedence than a smaller set, if all of the preceding identifiers are equal.
 
-       *Example 5:*<a id='version-type-semantic-versioning-eg-5'></a><a id='sec-3-1-13-2-eg-5'></a><a id='example-33'></a>
+       *Example 5:*<a id='version-type---semantic-versioning-eg-5'></a><a id='sec-3-1-13-2-eg-5'></a><a id='example-33'></a>
 
        ```
        1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
@@ -2596,7 +2598,7 @@ This results in the following rules:
 
 Note, that the following values do no conform the semantic versioning described above.
 
-*Examples 6 (which are invalid):*<a id='version-type-semantic-versioning-eg-6'></a><a id='sec-3-1-13-2-eg-6'></a><a id='example-34'></a>
+*Examples 6 (which are invalid):*<a id='version-type---semantic-versioning-eg-6'></a><a id='sec-3-1-13-2-eg-6'></a><a id='example-34'></a>
 
 ```
   1.16.13.14-Cor
@@ -2652,7 +2654,7 @@ References (`references`), Source Language (`source_lang`), and Document-level E
     x_extensions: $defs.extensions_t
 ```
 
-#### 3.2.2.1 Document Property - Acknowledgments <a id='document-property-acknowledgments'></a>
+#### 3.2.2.1 Document Property - Acknowledgments <a id='document-property---acknowledgments'></a>
 
 Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains
 a list of acknowledgment elements associated with the whole document.
@@ -2670,7 +2672,7 @@ a list of acknowledgment elements associated with the whole document.
     # ...
 ```
 
-#### 3.2.2.2 Document Property - Aggregate Severity <a id='document-property-aggregate-severity'></a>
+#### 3.2.2.2 Document Property - Aggregate Severity <a id='document-property---aggregate-severity'></a>
 
 Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and
 the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and
@@ -2693,7 +2695,7 @@ The Namespace of aggregate severity (`namespace`) of value type `string` with fo
 The Text of aggregate severity (`text`) of value type `string` with `1` or more characters provides a severity which is
 independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
-*Examples 1:*<a id='document-property-aggregate-severity-eg-1'></a><a id='sec-3-2-2-2-eg-1'></a><a id='example-35'></a>
+*Examples 1:*<a id='document-property---aggregate-severity-eg-1'></a><a id='sec-3-2-2-2-eg-1'></a><a id='example-35'></a>
 
 ```
     Critical
@@ -2701,7 +2703,7 @@ independent of - and in addition to - any other standard metric for determining 
     Moderate
 ```
 
-#### 3.2.2.3 Document Property - Category <a id='document-property-category'></a>
+#### 3.2.2.3 Document Property - Category <a id='document-property---category'></a>
 
 Document category (`category`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
@@ -2721,7 +2723,7 @@ Document category defines a short canonical name, chosen by the document produce
     # ...
 ```
 
-*Examples 1:*<a id='document-property-category-eg-1'></a><a id='sec-3-2-2-3-eg-1'></a><a id='example-36'></a>
+*Examples 1:*<a id='document-property---category-eg-1'></a><a id='sec-3-2-2-3-eg-1'></a><a id='example-36'></a>
 
 ```
     csaf_base
@@ -2730,7 +2732,7 @@ Document category defines a short canonical name, chosen by the document produce
     Example Company Security Notice
 ```
 
-#### 3.2.2.4 Document Property - CSAF Version <a id='document-property-csaf-version'></a>
+#### 3.2.2.4 Document Property - CSAF Version <a id='document-property---csaf-version'></a>
 
 CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
 The single valid value for this `enum` is:
@@ -2739,7 +2741,7 @@ The single valid value for this `enum` is:
     2.1
 ```
 
-#### 3.2.2.5 Document Property - Distribution <a id='document-property-distribution'></a>
+#### 3.2.2.5 Document Property - Distribution <a id='document-property---distribution'></a>
 
 Rules for document sharing (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
 optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
@@ -2759,7 +2761,7 @@ If multiple values are present, the TLP information SHOULD be preferred as this 
 The Sharing Group SHALL be interpreted as specification to the TLP information.
 Therefore, the Sharing Group MAY also be used to convey special TLP restrictions:
 
-*Examples 1:*<a id='document-property-distribution-eg-1'></a><a id='sec-3-2-2-5-eg-1'></a><a id='example-37'></a>
+*Examples 1:*<a id='document-property---distribution-eg-1'></a><a id='sec-3-2-2-5-eg-1'></a><a id='example-37'></a>
 
 ```
     E-ISAC members-only
@@ -2770,7 +2772,7 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 > Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated
 > Sharing Group IDs to allow for automation.
 
-##### 3.2.2.5.1 Document Property - Distribution - Sharing Group <a id='document-property-distribution-sharing-group'></a>
+##### 3.2.2.5.1 Document Property - Distribution - Sharing Group <a id='document-property---distribution-sharing-group'></a>
 
 Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
 the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
@@ -2838,11 +2840,11 @@ However, the following values are reserved for the conditions below:
 - For the Max UUID, the value of `name` SHALL exist and be `Public`.
 - For the Nil UUID, the value of `name` SHALL exist and be `No sharing allowed`.
 
-##### 3.2.2.5.2 Document Property - Distribution - Text <a id='document-property-distribution-text'></a>
+##### 3.2.2.5.2 Document Property - Distribution - Text <a id='document-property---distribution---text'></a>
 
 The Textual description (`text`) of value type `string` with `1` or more characters provides a textual description of additional constraints.
 
-*Examples 1:*<a id='document-property-distribution-text-eg-1'></a><a id='sec-3-2-2-5-2-eg-1'></a><a id='example-38'></a>
+*Examples 1:*<a id='document-property---distribution---text-eg-1'></a><a id='sec-3-2-2-5-2-eg-1'></a><a id='example-38'></a>
 
 ```
     Copyright 2024, Example Company, All Rights Reserved.
@@ -2850,7 +2852,7 @@ The Textual description (`text`) of value type `string` with `1` or more charact
     Share only on a need-to-know-basis only.
 ```
 
-##### 3.2.2.5.3 Document Property - Distribution - TLP <a id='document-property-distribution-tlp'></a>
+##### 3.2.2.5.3 Document Property - Distribution - TLP <a id='document-property---distribution---tlp'></a>
 
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and
 the optional property URL (`url`) provides details about the TLP classification of the document.
@@ -2895,19 +2897,19 @@ The default value is the URL to the definition by FIRST:
     https://www.first.org/tlp/
 ```
 
-*Examples 1:*<a id='document-property-distribution-tlp-eg-1'></a><a id='sec-3-2-2-5-3-eg-1'></a><a id='example-39'></a>
+*Examples 1:*<a id='document-property---distribution---tlp-eg-1'></a><a id='sec-3-2-2-5-3-eg-1'></a><a id='example-39'></a>
 
 ```
     https://www.us-cert.gov/tlp
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/TLP/merkblatt-tlp.pdf
 ```
 
-#### 3.2.2.6 Document Property - Language <a id='document-property-language'></a>
+#### 3.2.2.6 Document Property - Language <a id='document-property---language'></a>
 
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
 corresponding to IETF BCP 47 / RFC 5646.
 
-#### 3.2.2.7 Document Property - License Expression <a id='document-property-license-expression'></a>
+#### 3.2.2.7 Document Property - License Expression <a id='document-property---license-expression'></a>
 
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
@@ -2948,7 +2950,7 @@ In addition, the following rules apply:
 - License similarity:
   - Annex C of \[[SPDX301](#SPDX301)\] applies.
 
-*Examples 1:*<a id='document-property-license-expression-eg-1'></a><a id='sec-3-2-2-6-eg-1'></a><a id='example-40'></a>
+*Examples 1:*<a id='document-property---license-expression-eg-1'></a><a id='sec-3-2-2-7-eg-1'></a><a id='example-40'></a>
 
 ```
   CC-BY-4.0
@@ -2964,7 +2966,7 @@ through the ecosystem.
 > CSAF document but users need at least to activate the sources themselves.
 > This is relevant for services and tools, regardless of whether they are commercial or not.
 
-#### 3.2.2.8 Document Property - Notes <a id='document-property-notes'></a>
+#### 3.2.2.8 Document Property - Notes <a id='document-property---notes'></a>
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
@@ -2994,7 +2996,7 @@ The following combinations of `category` and `title` have a special meaning and 
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
-#### 3.2.2.9 Document Property - Publisher <a id='document-property-publisher'></a>
+#### 3.2.2.9 Document Property - Publisher <a id='document-property---publisher'></a>
 
 Publisher (`publisher`) of value type `object` with the mandatory properties Category (`category`), Name (`name`) and
 Namespace (`namespace`) provides information on the publishing entity.
@@ -3011,7 +3013,7 @@ The two other optional properties are: `contact_details` and `issuing_authority`
       namespace: String
 ```
 
-##### 3.2.2.9.1 Document Property - Publisher - Category <a id='document-property-publisher-category'></a>
+##### 3.2.2.9.1 Document Property - Publisher - Category <a id='document-property---publisher-category'></a>
 
 The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of
 publisher releasing the document.
@@ -3057,27 +3059,27 @@ The value `vendor` indicates developers or maintainers of information system pro
 This includes all authoritative product vendors, product security incident response teams (PSIRTs),
 open source projects as well as product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.2.9.2 Document Property - Publisher - Contact Details <a id='document-property-publisher-contact-details'></a>
+##### 3.2.2.9.2 Document Property - Publisher - Contact Details <a id='document-property---publisher---contact-details'></a>
 
 Contact details (`contact_details`) of value type `string` with `1` or more characters provides information on how to contact the publisher,
 possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
 
-*Example 1:*<a id='document-property-publisher-contact-details-eg-1'></a><a id='sec-3-2-2-9-2-eg-1'></a><a id='example-41'></a>
+*Example 1:*<a id='document-property---publisher---contact-details-eg-1'></a><a id='sec-3-2-2-9-2-eg-1'></a><a id='example-41'></a>
 
 ```
     Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
 ```
 
-##### 3.2.2.9.3 Document Property - Publisher - Issuing Authority <a id='document-property-publisher-issuing-authority'></a>
+##### 3.2.2.9.3 Document Property - Publisher - Issuing Authority <a id='document-property---publisher---issuing-authority'></a>
 
 Issuing authority (`issuing_authority`) of value type `string` with `1` or more characters Provides information about
 the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### 3.2.2.9.4 Document Property - Publisher - Name <a id='document-property-publisher-name'></a>
+##### 3.2.2.9.4 Document Property - Publisher - Name <a id='document-property---publisher---name'></a>
 
 The Name of publisher (`name`) of value type `string` with `1` or more characters contains the name of the issuing party.
 
-*Examples 1:*<a id='document-property-publisher-name-eg-1'></a><a id='sec-3-2-2-9-4-eg-1'></a><a id='example-42'></a>
+*Examples 1:*<a id='document-property---publisher---name-eg-1'></a><a id='sec-3-2-2-9-4-eg-1'></a><a id='example-42'></a>
 
 ```
      BSI
@@ -3085,7 +3087,7 @@ The Name of publisher (`name`) of value type `string` with `1` or more character
      Siemens ProductCERT
 ```
 
-##### 3.2.2.9.5 Document Property - Publisher - Namespace <a id='document-property-publisher-namespace'></a>
+##### 3.2.2.9.5 Document Property - Publisher - Namespace <a id='document-property---publisher---namespace'></a>
 
 The Namespace of publisher (`namespace`) of value type `string` with format `uri` contains a URL which
 is under control of the issuing party and can be used as a globally unique identifier for that issuing party.
@@ -3104,14 +3106,14 @@ an incremented (patch) version which has no other changes than:
 * the updated item in `/document/references[]` which points to the new version of the CSAF document
 * an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Examples 1:*<a id='document-property-publisher-namespace-eg-1'></a><a id='sec-3-2-2-9-5-eg-1'></a><a id='example-43'></a>
+*Examples 1:*<a id='document-property---publisher---namespace-eg-1'></a><a id='sec-3-2-2-9-5-eg-1'></a><a id='example-43'></a>
 
 ```
     https://csaf.io
     https://www.example.com
 ```
 
-#### 3.2.2.10 Document Property - References <a id='document-property-references'></a>
+#### 3.2.2.10 Document Property - References <a id='document-property---references'></a>
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
@@ -3127,7 +3129,7 @@ Document references (`references`) of value type References Type (`references_t`
     # ...
 ```
 
-#### 3.2.2.11 Document Property - Source Language <a id='document-property-source-language'></a>
+#### 3.2.2.11 Document Property - Source Language <a id='document-property---source-language'></a>
 
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is
 a translation then the value of this property describes from which language this document was translated.
@@ -3140,19 +3142,19 @@ The property SHALL NOT be present if the document was not translated.
 > The issuing party can retain its original publisher information including the `category`.
 > However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
 
-#### 3.2.2.12 Document Property - Title <a id='document-property-title'></a>
+#### 3.2.2.12 Document Property - Title <a id='document-property---title'></a>
 
 Title of this document (`title`) of value type `string` with `1` or more characters SHOULD be a canonical name for the document,
 and sufficiently unique to distinguish it from similar documents.
 
-*Examples 1:*<a id='document-property-title-eg-1'></a><a id='sec-3-2-2-12-eg-1'></a><a id='example-44'></a>
+*Examples 1:*<a id='document-property---title-eg-1'></a><a id='sec-3-2-2-12-eg-1'></a><a id='example-44'></a>
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
     Example Company Cross-Site-Scripting Vulnerability in Example Generator
 ```
 
-#### 3.2.2.13 Document Property - Tracking <a id='document-property-tracking'></a>
+#### 3.2.2.13 Document Property - Tracking <a id='document-property---tracking'></a>
 
 Tracking (`tracking`) of value type `object` with the six mandatory properties Current Release Date (`current_release_date`),
 Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`),
@@ -3174,7 +3176,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
       version: $defs.version_t
 ```
 
-##### 3.2.2.13.1 Document Property - Tracking - Aliases <a id='document-property-tracking-aliases'></a>
+##### 3.2.2.13.1 Document Property - Tracking - Aliases <a id='document-property---tracking---aliases'></a>
 
 Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
@@ -3191,18 +3193,18 @@ list of alternate names for the same document.
 Every such Alternate Name of value type `string` with `1` or more characters specifies a non-empty string that represents a
 distinct optional alternative ID used to refer to the document.
 
-*Example 1:*<a id='document-property-tracking-aliases-eg-1'></a><a id='sec-3-2-2-13-1-eg-1'></a><a id='example-45'></a>
+*Example 1:*<a id='document-property---tracking---aliases-eg-1'></a><a id='sec-3-2-2-13-1-eg-1'></a><a id='example-45'></a>
 
 ```
     CVE-2019-12345
 ```
 
-##### 3.2.2.13.2 Document Property - Tracking - Current Release Date <a id='document-property-tracking-current-release-date'></a>
+##### 3.2.2.13.2 Document Property - Tracking - Current Release Date <a id='document-property---tracking---current-release-date'></a>
 
 Current release date (`current_release_date`) of value type `string` with format `date-time` holds the date when
 the current revision of this document was released.
 
-##### 3.2.2.13.3 Document Property - Tracking - Generator <a id='document-property-tracking-generator'></a>
+##### 3.2.2.13.3 Document Property - Tracking - Generator <a id='document-property---tracking---generator'></a>
 
 Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and
 optional property Date (`date`) is a container to hold all elements related to the generation of the document.
@@ -3241,7 +3243,7 @@ optional property Engine version (`version`) contains information about the engi
 
 Engine name (`name`) of value type `string` with `1` or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 1:*<a id='document-property-tracking-generator-eg-1'></a><a id='sec-3-2-2-13-3-eg-1'></a><a id='example-46'></a>
+*Examples 1:*<a id='document-property---tracking---generator-eg-1'></a><a id='sec-3-2-2-13-3-eg-1'></a><a id='example-46'></a>
 
 ```
     Red Hat rhsa-to-cvrf
@@ -3254,7 +3256,7 @@ Engine version (`version`) of value type `string` with `1` or more characters co
 > Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 2:*<a id='document-property-tracking-generator-eg-2'></a><a id='sec-3-2-2-13-3-eg-2'></a><a id='example-47'></a>
+*Examples 2:*<a id='document-property---tracking---generator-eg-2'></a><a id='sec-3-2-2-13-3-eg-2'></a><a id='example-47'></a>
 
 ```
     0.6.0
@@ -3262,7 +3264,7 @@ Engine version (`version`) of value type `string` with `1` or more characters co
     2
 ```
 
-##### 3.2.2.13.4 Document Property - Tracking - ID <a id='document-property-tracking-id'></a>
+##### 3.2.2.13.4 Document Property - Tracking - ID <a id='document-property---tracking---id'></a>
 
 Unique identifier for the document (`id`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
@@ -3277,7 +3279,7 @@ The ID is a simple label that provides for a wide range of numbering values, typ
 Its value SHOULD be assigned and maintained by the original document issuing authority.
 It MUST be unique for that organization.
 
-*Examples 1:*<a id='document-property-tracking-id-eg-1'></a><a id='sec-3-2-2-13-4-eg-1'></a><a id='example-48'></a>
+*Examples 1:*<a id='document-property---tracking---id-eg-1'></a><a id='sec-3-2-2-13-4-eg-1'></a><a id='example-48'></a>
 
 ```
     Example Company - 2019-YH3234
@@ -3291,7 +3293,7 @@ This value is also used to determine the filename for the CSAF document (cf. sec
 > The combination of `/document/publisher/namespace`, `/document/tracking/id`, and `/document/tracking/version` identifies
 > that specific version of the CSAF document globally unique.
 
-##### 3.2.2.13.5 Document Property - Tracking - Initial Release Date <a id='document-property-tracking-initial-release-date'></a>
+##### 3.2.2.13.5 Document Property - Tracking - Initial Release Date <a id='document-property---tracking---initial-release-date'></a>
 
 Initial release date (`initial_release_date`) of value type `string` with format `date-time` holds the date
 when this document was first released to the specified target group.
@@ -3303,7 +3305,7 @@ when this document was first released to the specified target group.
 If the timestamp of the initial release date was set incorrectly, it MUST be corrected.
 This change MUST be tracked with a new entry in the revision history.
 
-##### 3.2.2.13.6 Document Property - Tracking - Revision History <a id='document-property-tracking-revision-history'></a>
+##### 3.2.2.13.6 Document Property - Tracking - Revision History <a id='document-property---tracking---revision-history'></a>
 
 The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
 for each version of the CSAF document, including the initial one.
@@ -3364,7 +3366,7 @@ This applies especially to CSAF multiplier.
 > and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
 > of their last visit at this source (incremental download).
 
-##### 3.2.2.13.7 Document Property - Tracking - Status <a id='document-property-tracking-status'></a>
+##### 3.2.2.13.7 Document Property - Tracking - Status <a id='document-property---tracking---status'></a>
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
 The value MUST be one of the following:
@@ -3389,11 +3391,11 @@ Once the rate slows down it MUST be changed to `final`. This MAY be done in a pa
 > This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation.
 > It can be used as an indication to pull the CSAF document more frequently.
 
-##### 3.2.2.13.8 Document Property - Tracking - Version <a id='document-property-tracking-version'></a>
+##### 3.2.2.13.8 Document Property - Tracking - Version <a id='document-property---tracking---version'></a>
 
 Version has the value type Version (`version_t`).
 
-#### 3.2.2.14 Document Property - Extensions <a id='document-property-extensions'></a>
+#### 3.2.2.14 Document Property - Extensions <a id='document-property---extensions'></a>
 
 Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the document property level of the CSAF document and associated with this document metadata.
@@ -3428,16 +3430,16 @@ and Product Paths (`product_paths`).
     product_paths: Sequence
 ```
 
-#### 3.2.3.1 Product Tree Property - Branches <a id='product-tree-property-branches'></a>
+#### 3.2.3.1 Product Tree Property - Branches <a id='product-tree-property---branches'></a>
 
 List of branches (`branches`) has the value type `branches_t`.
 
-#### 3.2.3.2 Product Tree Property - Full Product Names <a id='product-tree-property-full-product-names'></a>
+#### 3.2.3.2 Product Tree Property - Full Product Names <a id='product-tree-property---full-product-names'></a>
 
 List of full product names (`full_product_names`) of value type `array` with `1` or more items of type `full_product_name_t` contains a
 list of full product names.
 
-#### 3.2.3.3 Product Tree Property - Product Groups <a id='product-tree-property-product-groups'></a>
+#### 3.2.3.3 Product Tree Property - Product Groups <a id='product-tree-property---product-groups'></a>
 
 List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
@@ -3469,7 +3471,7 @@ the optional Summary (`summary`) property.
 
 The summary of the product group (`summary`) of value type `string` with `1` or more characters gives a short, optional description of the group.
 
-*Examples 1:*<a id='product-tree-property-product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-49'></a>
+*Examples 1:*<a id='product-tree-property---product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-49'></a>
 
 ```
     Products supporting Modbus.
@@ -3481,7 +3483,7 @@ Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 List of Product IDs (`product_ids`) of value type `array` with `2` or more unique items of value type Product ID (`product_id_t`) lists
 the product_ids of those products which known as one group in the document.
 
-#### 3.2.3.4 Product Tree Property - Product Paths <a id='product-tree-property-product-paths'></a>
+#### 3.2.3.4 Product Tree Property - Product Paths <a id='product-tree-property---product-paths'></a>
 
 List of product paths (`product_paths`) of value type `array` with `1` or more items contains a list of product paths.
 
@@ -3546,7 +3548,7 @@ each one relating to the path defined by all previous elements up to the beginni
   # ...
 ```
 
-*Example 1:*<a id='product-tree-property-product-paths-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-50'></a>
+*Example 1:*<a id='product-tree-property---product-paths-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-50'></a>
 
 ```
   "product_tree": {
@@ -3629,7 +3631,7 @@ Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_ext
   # ...
 ```
 
-#### 3.2.4.1 Vulnerabilities Property - Acknowledgments <a id='vulnerabilities-property-acknowledgments'></a>
+#### 3.2.4.1 Vulnerabilities Property - Acknowledgments <a id='vulnerabilities-property---acknowledgments'></a>
 
 Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of
 acknowledgment elements associated with this vulnerability item.
@@ -3649,7 +3651,7 @@ acknowledgment elements associated with this vulnerability item.
     # ...
 ```
 
-#### 3.2.4.2 Vulnerabilities Property - CVE <a id='vulnerabilities-property-cve'></a>
+#### 3.2.4.2 Vulnerabilities Property - CVE <a id='vulnerabilities-property---cve'></a>
 
 CVE (`cve`) has value type `string` with `pattern` (regular expression):
 
@@ -3659,7 +3661,7 @@ CVE (`cve`) has value type `string` with `pattern` (regular expression):
 
 CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
 
-#### 3.2.4.3 Vulnerabilities Property - CWEs <a id='vulnerabilities-property-cwes'></a>
+#### 3.2.4.3 Vulnerabilities Property - CWEs <a id='vulnerabilities-property---cwes'></a>
 
 List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
 
@@ -3702,7 +3704,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 It holds the ID for the weakness associated.
 
-*Examples 1:*<a id='vulnerabilities-property-cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-51'></a>
+*Examples 1:*<a id='vulnerabilities-property---cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-51'></a>
 
 ```
     CWE-22
@@ -3718,7 +3720,7 @@ The Weakness name (`name`) has value type `string` of `1` or more characters wit
 
 The Weakness name holds the full name of the weakness as given in the CWE specification.
 
-*Examples 2:*<a id='vulnerabilities-property-cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-52'></a>
+*Examples 2:*<a id='vulnerabilities-property---cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-52'></a>
 
 ```
     Cross-Site Request Forgery (CSRF)
@@ -3735,7 +3737,7 @@ The CWE version (`version`) has value type `string` with `pattern` (regular expr
 It holds the version string of the CWE specification this weakness was extracted from.
 When creating or modifying a CSAF document, the latest published version of the CWE specification SHOULD be used.
 
-*Examples 3:*<a id='vulnerabilities-property-cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-53'></a>
+*Examples 3:*<a id='vulnerabilities-property---cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-53'></a>
 
 ```
     "1.0",
@@ -3745,7 +3747,7 @@ When creating or modifying a CSAF document, the latest published version of the 
     "4.12"
 ```
 
-#### 3.2.4.4 Vulnerabilities Property - Disclosure Date <a id='vulnerabilities-property-disclosure-date'></a>
+#### 3.2.4.4 Vulnerabilities Property - Disclosure Date <a id='vulnerabilities-property---disclosure-date'></a>
 
 Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
 the vulnerability was originally disclosed to the public.
@@ -3757,11 +3759,11 @@ As disclosure dates may change during a vulnerability disclosure process, an iss
 to confirm that the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new
 intended date in the future.
 
-#### 3.2.4.5 Vulnerabilities Property - Discovery Date <a id='vulnerabilities-property-discovery-date'></a>
+#### 3.2.4.5 Vulnerabilities Property - Discovery Date <a id='vulnerabilities-property---discovery-date'></a>
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
 
-#### 3.2.4.6 Vulnerabilities Property - First Known Exploitation Dates <a id='vulnerabilities-property-first-known-exploitation-dates'></a>
+#### 3.2.4.6 Vulnerabilities Property - First Known Exploitation Dates <a id='vulnerabilities-property---first-known-exploitation-dates'></a>
 
 List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
 contains a list of dates of first known exploitations.
@@ -3887,7 +3889,7 @@ The values MUST be used as follows:
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
-#### 3.2.4.8 Vulnerabilities Property - IDs <a id='vulnerabilities-property-ids'></a>
+#### 3.2.4.8 Vulnerabilities Property - IDs <a id='vulnerabilities-property---ids'></a>
 
 List of IDs (`ids`) of value type `array` with `1` or more unique ID items of value type `object` represents a list of unique labels or
 tracking IDs for the vulnerability (if such information exists).
@@ -3920,7 +3922,7 @@ unique label or tracking ID for the vulnerability.
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Examples 1:*<a id='vulnerabilities-property-ids-eg-1'></a><a id='sec-3-2-4-8-eg-1'></a><a id='example-54'></a>
+*Examples 1:*<a id='vulnerabilities-property---ids-eg-1'></a><a id='sec-3-2-4-8-eg-1'></a><a id='example-54'></a>
 
 ```
     Cisco Bug ID
@@ -3930,7 +3932,7 @@ System name (`system_name`) of value type `string` with `1` or more characters i
 
 Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Examples 2:*<a id='vulnerabilities-property-ids-eg-2'></a><a id='sec-3-2-4-8-eg-2'></a><a id='example-55'></a>
+*Examples 2:*<a id='vulnerabilities-property---ids-eg-2'></a><a id='sec-3-2-4-8-eg-2'></a><a id='example-55'></a>
 
 ```
     CSCso66472
@@ -3950,7 +3952,7 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
-#### 3.2.4.9 Vulnerabilities Property - Involvements <a id='vulnerabilities-property-involvements'></a>
+#### 3.2.4.9 Vulnerabilities Property - Involvements <a id='vulnerabilities-property---involvements'></a>
 
 List of involvements (`involvements`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of involvements.
 
@@ -4009,7 +4011,7 @@ Valid values are:
     vendor
 ```
 
-These values follow the same definitions as given for the publisher category (cf. section [3.2.2.9.1](#document-property-publisher-category)).
+These values follow the same definitions as given for the publisher category (cf. section [3.2.2.9.1](#document-property---publisher-category)).
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current
 involvement item applies to.
@@ -4057,7 +4059,7 @@ The use of this status by a vendor indicates that future updates from the vendor
 
 Summary of involvement (`summary`) of value type `string` with `1` or more characters contains additional context regarding what is going on.
 
-#### 3.2.4.10 Vulnerabilities Property - Metrics <a id='vulnerabilities-property-metrics'></a>
+#### 3.2.4.10 Vulnerabilities Property - Metrics <a id='vulnerabilities-property---metrics'></a>
 
 List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
 contains metric objects for the current vulnerability.
@@ -4089,7 +4091,7 @@ the optional property `source` contains all metadata about the metric including 
     # ...
 ```
 
-##### 3.2.4.10.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property-metrics-content'></a>
+##### 3.2.4.10.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property---metrics---content'></a>
 
 Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
 EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`), SSVC v2 (`ssvc_v2`),
@@ -4247,14 +4249,14 @@ valid at the metrics-content-level of the CSAF document and associated with this
 > For new versions of an official supported standard, the OASIS CSAF TC will consider providing an official extension
 > to ensure interoperability.
 
-##### 3.2.4.10.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property-metrics-products'></a>
+##### 3.2.4.10.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property---metrics---products'></a>
 
 Product IDs (`products`) of value type `products_t` with `1` or more items indicates for which products the given content applies.
 A metric object SHOULD reflect the associated product's status (for example,
 a fixed product no longer contains a vulnerability and should have a CVSS score of `0`, or simply no score listed;
 the known affected versions of that product can list the vulnerability score as it applies to them).
 
-##### 3.2.4.10.3 Vulnerabilities Property - Metrics - Source <a id='vulnerabilities-property-metrics-source'></a>
+##### 3.2.4.10.3 Vulnerabilities Property - Metrics - Source <a id='vulnerabilities-property---metrics---source'></a>
 
 Source (`source`) of value type `string` with format `uri` contains the URL of the source that originally determined the metric.
 If no source is given, then the metric was assigned by the document author.
@@ -4399,7 +4401,7 @@ the sets formed by the contradicting groups within one vulnerability item MUST b
 > Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
-#### 3.2.4.13 Vulnerabilities Property - References <a id='vulnerabilities-property-references'></a>
+#### 3.2.4.13 Vulnerabilities Property - References <a id='vulnerabilities-property---references'></a>
 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
@@ -4419,7 +4421,7 @@ list of references associated with this vulnerability item.
   # ...
 ```
 
-#### 3.2.4.14 Vulnerabilities Property - Remediations <a id='vulnerabilities-property-remediations'></a>
+#### 3.2.4.14 Vulnerabilities Property - Remediations <a id='vulnerabilities-property---remediations'></a>
 
 List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
@@ -4582,16 +4584,16 @@ The remaining discouraged combinations are appended at the end of the list:
 
 CSAF Viewers MAY sort the remediation items accordingly.
 
-##### 3.2.4.14.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property-remediations-date'></a>
+##### 3.2.4.14.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property---remediations---date'></a>
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-##### 3.2.4.14.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property-remediations-details'></a>
+##### 3.2.4.14.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property---remediations---details'></a>
 
 Details of the remediation (`details`) of value type `string` with `1` or more characters contains a thorough human-readable
 discussion of the remediation.
 
-##### 3.2.4.14.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property-remediations-entitlements'></a>
+##### 3.2.4.14.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property---remediations---entitlements'></a>
 
 List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
 with `1` or more characters contains a list of entitlements.
@@ -4613,16 +4615,16 @@ with `1` or more characters contains a list of entitlements.
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that
 fully resolves the vulnerability.
 
-##### 3.2.4.14.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property-remediations-group-ids'></a>
+##### 3.2.4.14.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property---remediations---group-ids'></a>
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of
 Product Groups the current remediation item applies to.
 
-##### 3.2.4.14.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property-remediations-product-ids'></a>
+##### 3.2.4.14.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property---remediations---product-ids'></a>
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
-##### 3.2.4.14.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property-remediations-restart-required'></a>
+##### 3.2.4.14.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property---remediations---restart-required'></a>
 
 Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
@@ -4684,11 +4686,11 @@ The values MUST be used as follows:
 Additional restart information (`details`) of value type `string` with `1` or more characters provides additional information for the restart.
 This can include details on procedures, scope or impact.
 
-##### 3.2.4.14.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property-remediations-url'></a>
+##### 3.2.4.14.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property---remediations---url'></a>
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
-#### 3.2.4.15 Vulnerabilities Property - Threats <a id='vulnerabilities-property-threats'></a>
+#### 3.2.4.15 Vulnerabilities Property - Threats <a id='vulnerabilities-property---threats'></a>
 
 List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
 information about a vulnerability that can change with time.
@@ -4759,12 +4761,12 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) an
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
 
-#### 3.2.4.16 Vulnerabilities Property - Title <a id='vulnerabilities-property-title'></a>
+#### 3.2.4.16 Vulnerabilities Property - Title <a id='vulnerabilities-property---title'></a>
 
 Title (`title`) has value type `string` with `1` or more characters and gives the document producer the ability to apply a canonical name or
 title to the vulnerability.
 
-#### 3.2.4.17 Vulnerabilities Property - Extensions <a id='vulnerabilities-property-extensions'></a>
+#### 3.2.4.17 Vulnerabilities Property - Extensions <a id='vulnerabilities-property---extensions'></a>
 
 Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
 at the vulnerability item level of the CSAF document and associated with this vulnerability element.
@@ -4803,7 +4805,7 @@ at the root-level of the CSAF document and associated with this CSAF document.
 
 -------
 
-# 4. Profiles <a id='profiles'></a>
+# 4 Profiles <a id='profiles'></a>
 
 CSAF documents do not have many required fields as they can be used for different purposes.
 To ensure a common understanding of which fields are required in a given use case the standard defines profiles.
@@ -5075,7 +5077,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 -------
 
-# 5. Additional Conventions <a id='additional-conventions'></a>
+# 5 Additional Conventions <a id='additional-conventions'></a>
 
 This section provides additional rules for handling CSAF documents.
 
@@ -5296,7 +5298,7 @@ To form the overall product, both parts MUST be combined through a product path.
 
 -------
 
-# 6. Tests <a id='tests'></a>
+# 6 Tests <a id='tests'></a>
 
 The first three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
 The fourth subsection groups tests into preset.
@@ -7601,7 +7603,7 @@ The relevant path for this test is:
 
 ### 6.1.40 Invalid Sharing Group Name <a id='invalid-sharing-group-name'></a>
 
-It MUST be tested that the value of sharing group name does not equal the reserved values from section [3.2.2.5.1](#document-property-distribution-sharing-group) if the precondition is not fulfilled.
+It MUST be tested that the value of sharing group name does not equal the reserved values from section [3.2.2.5.1](#document-property---distribution-sharing-group) if the precondition is not fulfilled.
 
 The relevant path for this test is:
 
@@ -7627,7 +7629,7 @@ The relevant path for this test is:
 
 ### 6.1.41 Missing Sharing Group Name <a id='missing-sharing-group-name'></a>
 
-It MUST be tested that the sharing group name exists and equals the predefined reserved value from section [3.2.2.5.1](#document-property-distribution-sharing-group) if the precondition is fulfilled.
+It MUST be tested that the sharing group name exists and equals the predefined reserved value from section [3.2.2.5.1](#document-property---distribution-sharing-group) if the precondition is fulfilled.
 
 The relevant path for this test is:
 
@@ -7948,7 +7950,7 @@ The relevant path for this test is:
 ### 6.1.50 Product Version Range Rules <a id='product-version-range-rules'></a>
 
 For each element of type `/$defs/branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` complies with
-the rules given in section [3.1.2.3.2](#branches-type-name-under-product-version-range).
+the rules given in section [3.1.2.3.2](#branches-type---name-under-product-version-range).
 Version schemes of vers not supported by the implementation SHALL result in a warning which MUST include the version scheme name used.
 Nevertheless, all other rules MUST be checked to the extend possible.
 
@@ -7968,7 +7970,7 @@ The relevant path for this test is:
         }
 ```
 
-> The version range given does not comply with the rules given in section [3.1.2.3.2](#branches-type-name-under-product-version-range).
+> The version range given does not comply with the rules given in section [3.1.2.3.2](#branches-type---name-under-product-version-range).
 
 ### 6.1.51 Inconsistent EPSS Timestamp <a id='inconsistent-epss-timestamp'></a>
 
@@ -8108,7 +8110,7 @@ The relevant path for this test is:
 It MUST be tested that the license expression is valid.
 
 > To implement this test, it it deemed sufficient to check for the ABNF defined in annex B of \[[SPDX301](#SPDX301)\] and
-> the restriction on the `DocumentRef` part given in [3.2.2.7](#document-property-license-expression).
+> the restriction on the `DocumentRef` part given in [3.2.2.7](#document-property---license-expression).
 
 The relevant path for this test is:
 
@@ -8996,7 +8998,7 @@ the value of `name` indicates that the product version range is using vers.
 
 The warning MUST clearly advise to carefully check whether vers can be used or the versions can be enumerated as
 the use of vls is only a fallback option.
-For more details, see sections [3.1.2.2](#branches-type-category) and [3.1.2.3.2](#branches-type-name-under-product-version-range).
+For more details, see sections [3.1.2.2](#branches-type---category) and [3.1.2.3.2](#branches-type---name-under-product-version-range).
 
 > It is planned to deprecate and finally remove the support for vls in future versions of this standard.
 
@@ -9978,7 +9980,7 @@ The relevant paths for this test are:
   /x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-5-eg-1'></a><a id='example-183'></a>
+*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-4-1-eg-1'></a><a id='example-183'></a>
 
 ```
   {
@@ -9999,7 +10001,7 @@ The relevant paths for this test are:
 For each product description it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
 > If the document language is English or unspecified, the product description can be identified by checking for a note containing the corresponding
-> `category` and `title` combination from [3.2.2.8](#document-property-notes).
+> `category` and `title` combination from [3.2.2.8](#document-property---notes).
 > For other languages, the language specific translation is used.
 
 If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no translation for
@@ -10659,7 +10661,7 @@ The relevant paths for this test are:
 
 For each element of type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/algorithm`,
 it MUST be tested that the hash algorithm is supported by the implementation.
-The warning MUST differentiate between the values mentioned in section [3.1.4.3.2](#full-product-name-type-product-identification-helper-hashes)
+The warning MUST differentiate between the values mentioned in section [3.1.4.3.2](#full-product-name-type---product-identification-helper---hashes)
 and those not mentioned there.
 
 > Different implementations might support different hash algorithms.
@@ -10684,7 +10686,7 @@ The relevant paths for this test are:
   }
 ```
 
-> The hash algorithm `unknown-algorithm` is not listed in section [3.1.4.3.2](#full-product-name-type-product-identification-helper-hashes).
+> The hash algorithm `unknown-algorithm` is not listed in section [3.1.4.3.2](#full-product-name-type---product-identification-helper---hashes).
 > Note: An implementation would also have to state whether it supports this algorithm.
 
 ### 6.2.53 Matching Text for Registered ID System <a id='matching-text-for-registered-id-system'></a>
@@ -12381,7 +12383,7 @@ Additional presets are defined as follows:
     -[6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
     -[6.3.21.9](#usage-of-extension-at-root-level)
 
-# 7. Distributing CSAF Documents <a id='distributing-csaf-documents'></a>
+# 7 Distributing CSAF Documents <a id='distributing-csaf-documents'></a>
 
 This section lists requirements and roles defined for distributing CSAF documents.
 The first subsection provides all requirements - the second one the roles.
@@ -13383,7 +13385,7 @@ It is RECOMMENDED to use the following URLs during the process:
 
 A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 publishers and providers.
 
-# 8. Safety, Security, and Data Protection Considerations <a id='safety-security-and-data-protection-considerations'></a>
+# 8 Safety, Security, and Data Protection Considerations <a id='safety-security-and-data-protection-considerations'></a>
 
 All safety, security, and data protection requirements relevant to the context in which CSAF documents are used MUST be translated into,
 and consistently enforced through, CSAF implementations and processes.
@@ -13448,7 +13450,7 @@ It is RECOMMENDED to do them at least before a release.
 
 -------
 
-# 9. Conformance <a id='conformance'></a>
+# 9 Conformance <a id='conformance'></a>
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -13533,9 +13535,9 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 * conforms to the syntax and semantics defined in section [5](#additional-conventions).
 * does not fail any mandatory test defined in section [6.1](#mandatory-tests) respectively its corresponding CSAF Extension Test.
 * contains no extension that does not fulfill the conformance profile "CSAF Extension".
-* contains no extension at any other path than the specified ones in sections [3.1.4.4](#full-product-name-type-extensions),
-  [3.2.2.14](#document-property-extensions), [3.2.4.10.1](#vulnerabilities-property-metrics-content),
-  [3.2.4.17](#vulnerabilities-property-extensions) and [3.2.5](#extensions-property).
+* contains no extension at any other path than the specified ones in sections [3.1.4.4](#full-product-name-type---extensions),
+  [3.2.2.14](#document-property---extensions), [3.2.4.10.1](#vulnerabilities-property---metrics---content),
+  [3.2.4.17](#vulnerabilities-property---extensions) and [3.2.5](#extensions-property).
 
 ### 9.1.2 Conformance Clause 2: CSAF Producer <a id='conformance-clause-2-csaf-producer'></a>
 
@@ -13655,7 +13657,7 @@ Secondly, the program fulfills the following for all items of:
 * `/document/license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains a valid SPDX license expression,
   the CVRF CSAF Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
-* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [3.2.2.8](#document-property-notes),
+* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [3.2.2.8](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -14056,7 +14058,7 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
 * provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section [3.1.13.2](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
 * is able to trigger a run of the asset matching module:
   * manually:
     * per CSAF Document
@@ -14140,7 +14142,7 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
 * does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-* detects the usage semantic version (as described in section [3.1.13.2](#version-type-semantic-versioning)).
+* detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
 * is able to trigger a run of the SBOM matching module:
   * manually:
     * per CSAF Document
@@ -14398,7 +14400,7 @@ Secondly, the program fulfills the following for all items of:
   the CSAF 2.0 to CSAF 2.1 Converter SHALL convert this value into `license_expression`.
   In addition, the converter outputs an information that license expression was found and set as document license expression.
 * `/document/notes`: If any `/document/notes` item contains one of the `category` and `title` combinations specified in
-  [3.2.2.8](#document-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
+  [3.2.2.8](#document-property---notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
   is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and output a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -14703,7 +14705,7 @@ Firstly, it:
 * uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
   as the value of its `$schema` property.
 * is versioned according to \[[SemVer](#SemVer)\].
-* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [2.4.4.1](#content-schema-property-schema).
+* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [2.4.4.1](#content-schema-property---schema).
 * does not allow unevaluated properties.
   It MAY include `patternProperties` if they are typed.
 
@@ -15424,7 +15426,7 @@ A string with format `uuid` SHOULD NOT have a length greater than 50. This appli
 
 The following examples are intended to aid in understanding under which circumstances product paths can be collapsed.
 
-*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-D-eg-1'></a><a id='example-261'></a>
+*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-Appendix D--eg-1'></a><a id='example-261'></a>
 
 ```
   "product_tree": {
@@ -15516,7 +15518,7 @@ The following examples are intended to aid in understanding under which circumst
 
 > Product paths in example 1 above can be collapse as shown in example 2 below.
 
-*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-D-eg-2'></a><a id='example-262'></a>
+*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-Appendix D--eg-2'></a><a id='example-262'></a>
 
 ```
   "product_tree": {
@@ -15596,7 +15598,7 @@ The following examples are intended to aid in understanding under which circumst
   }
 ```
 
-*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-D-eg-3'></a><a id='example-263'></a>
+*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-Appendix D--eg-3'></a><a id='example-263'></a>
 
 ```
   "product_tree": {
@@ -15734,7 +15736,7 @@ The following examples are intended to aid in understanding under which circumst
 > Product paths in example 3 cannot be collapsed without information loss.
 > For example, the `cpe` of the product identified by `CSAFPID-908070607` would be lost.
 
-*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-D-eg-4'></a><a id='example-264'></a>
+*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-Appendix D--eg-4'></a><a id='example-264'></a>
 
 ```
   {

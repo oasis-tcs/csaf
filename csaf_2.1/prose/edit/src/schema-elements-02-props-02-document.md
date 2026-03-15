@@ -144,7 +144,7 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 > Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated
 > Sharing Group IDs to allow for automation.
 
-##### Document Property - Distribution - Sharing Group{#document-property-distribution-sharing-group}
+##### Document Property - Distribution - Sharing Group{#document-property---distribution-sharing-group}
 
 Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
 the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
@@ -281,7 +281,7 @@ The default value is the URL to the definition by FIRST:
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
 corresponding to IETF BCP 47 / RFC 5646.
 
-#### Document Property - License Expression{#document-property-license-expression}
+#### Document Property - License Expression{#document-property---license-expression}
 
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
@@ -338,7 +338,7 @@ through the ecosystem.
 > CSAF document but users need at least to activate the sources themselves.
 > This is relevant for services and tools, regardless of whether they are commercial or not.
 
-#### Document Property - Notes{#document-property-notes}
+#### Document Property - Notes{#document-property---notes}
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
@@ -385,7 +385,7 @@ The two other optional properties are: `contact_details` and `issuing_authority`
       namespace: String
 ```
 
-##### Document Property - Publisher - Category{#document-property-publisher-category}
+##### Document Property - Publisher - Category{#document-property---publisher-category}
 
 The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of
 publisher releasing the document.
