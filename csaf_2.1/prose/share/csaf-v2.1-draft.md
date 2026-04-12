@@ -3,40 +3,40 @@
 
 -------
 
-# Common Security Advisory Framework Version 2.1{.unnumbered .unlisted}
+# Common Security Advisory Framework Version 2.1
 
-## Committee Specification Draft 02{.unnumbered .unlisted}
+## Committee Specification Draft 02
 
-## 25 February 2026{.unnumbered .unlisted}
+## 25 February 2026
 
-#### This stage:{.unnumbered .unlisted}
+#### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf
 
-#### Previous stage:{.unnumbered .unlisted}
+#### Previous stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf
 
-#### Latest stage:{.unnumbered .unlisted}
+#### Latest stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
 
-#### Technical Committee:{.unnumbered .unlisted}
+#### Technical Committee:
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
 
-#### Chairs:{.unnumbered .unlisted}
+#### Chairs:
 Justin Murphy (justin.murphy@mail.cisa.dhs.gov), [DHS Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov) \
 Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
 
-#### Editors:{.unnumbered .unlisted}
+#### Editors:
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
-#### Additional artifacts:{.unnumbered .unlisted}
+#### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
 * Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/aggregator.json. \
@@ -54,12 +54,12 @@ Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
 * Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/provider.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
-#### Related work:{.unnumbered .unlisted}
+#### Related work:
 This specification replaces or supersedes:
 
 * _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
-#### Declared JSON namespaces:{.unnumbered .unlisted}
+#### Declared JSON namespaces:
 
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
@@ -70,10 +70,10 @@ This specification replaces or supersedes:
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
 
-#### Abstract:{.unnumbered .unlisted}
+#### Abstract:
 The Common Security Advisory Framework (CSAF) Version 2.1 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
-#### Status:{.unnumbered .unlisted}
+#### Status:
 This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical.
 
 TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at https://www.oasis-open.org/committees/csaf/.
@@ -82,7 +82,7 @@ This specification is provided under the [Non-Assertion](https://www.oasis-open.
 
 Note that any machine-readable content ([Computer Language Definitions](https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang)) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
 
-#### Citation format:{.unnumbered .unlisted}
+#### Citation format:
 When referencing this specification the following citation format should be used:
 
 **[CSAF-v2.1]**
@@ -92,7 +92,7 @@ _Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Tho
 
 -------
 
-## Notices{.unnumbered .unlisted}
+## Notices
 
 Copyright © OASIS Open 2026. All Rights Reserved.
 

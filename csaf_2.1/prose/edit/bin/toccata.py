@@ -109,8 +109,6 @@ def main(argv: list[str]) -> int:
     outgoing = []
     in_toc = False
     for line in incoming:
-        if '{.unnumbered .unlisted}' in line:
-            line = line.replace('{.unnumbered .unlisted}', '')  # TODO: Fix that in assemble.py instead
         if in_toc:
             if line.startswith(INTRO_STARTSWITH_TRIGGER):
                 in_toc = False

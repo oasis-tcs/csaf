@@ -627,7 +627,7 @@ def main(argv: list[str]) -> int:
                 cs_of_slot[slot] = current_cs  # type: ignore
 
             # MAYBE_SEC_NO_TOC_BEFORE_INTRODUCTION
-            if line.startswith(tag) and not clean_headings:
+            if line.startswith(tag) and not clean_headings and target == TARGET_PDF:
                 lines[slot] = line.rstrip() + SEC_NO_TOC_POSTFIX + NL
 
     # Process citation refs
