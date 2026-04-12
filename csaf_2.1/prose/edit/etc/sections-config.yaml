@@ -1,0 +1,6 @@
+---
+# Per-spec configuration for bin/assemble.py
+# sec-ref-style values: number | number-title | section-sign-number
+sec-ref-style: number
+clean-md-start: '# Introduction'
+track-examples: true

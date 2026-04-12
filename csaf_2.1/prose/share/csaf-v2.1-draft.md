@@ -3,40 +3,40 @@
 
 -------
 
-# Common Security Advisory Framework Version 2.1
+# Common Security Advisory Framework Version 2.1{.unnumbered .unlisted}
 
-## Committee Specification Draft 02
+## Committee Specification Draft 02{.unnumbered .unlisted}
 
-## 25 February 2026
+## 25 February 2026{.unnumbered .unlisted}
 
-#### This stage:
+#### This stage:{.unnumbered .unlisted}
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf
 
-#### Previous stage:
+#### Previous stage:{.unnumbered .unlisted}
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf
 
-#### Latest stage:
+#### Latest stage:{.unnumbered .unlisted}
 https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
 
-#### Technical Committee:
+#### Technical Committee:{.unnumbered .unlisted}
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
 
-#### Chairs:
+#### Chairs:{.unnumbered .unlisted}
 Justin Murphy (justin.murphy@mail.cisa.dhs.gov), [DHS Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov) \
 Omar Santos (osantos@cisco.com), [Cisco Systems](https://cisco.com/) \
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/)
 
-#### Editors:
+#### Editors:{.unnumbered .unlisted}
 Stefan Hagen (stefan@hagen.link), [Individual](https://stefan-hagen.website/) \
 Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Security (BSI) Germany](https://www.bsi.bund.de/)
 
-#### Additional artifacts:
+#### Additional artifacts:{.unnumbered .unlisted}
 This prose specification is one component of a Work Product that also includes:
 
 * Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/aggregator.json. \
@@ -54,12 +54,12 @@ Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
 * Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/schema/provider.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
-#### Related work:
+#### Related work:{.unnumbered .unlisted}
 This specification replaces or supersedes:
 
 * _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
-#### Declared JSON namespaces:
+#### Declared JSON namespaces:{.unnumbered .unlisted}
 
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
@@ -70,10 +70,10 @@ This specification replaces or supersedes:
 * [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
 
-#### Abstract:
+#### Abstract:{.unnumbered .unlisted}
 The Common Security Advisory Framework (CSAF) Version 2.1 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
-#### Status:
+#### Status:{.unnumbered .unlisted}
 This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical.
 
 TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at https://www.oasis-open.org/committees/csaf/.
@@ -82,7 +82,7 @@ This specification is provided under the [Non-Assertion](https://www.oasis-open.
 
 Note that any machine-readable content ([Computer Language Definitions](https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang)) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
 
-#### Citation format:
+#### Citation format:{.unnumbered .unlisted}
 When referencing this specification the following citation format should be used:
 
 **[CSAF-v2.1]**
@@ -92,7 +92,7 @@ _Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Tho
 
 -------
 
-## Notices
+## Notices{.unnumbered .unlisted}
 
 Copyright © OASIS Open 2026. All Rights Reserved.
 
@@ -118,14 +118,13 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 # Table of Contents
 
-
-1 [Introduction](#introduction)  
+1. [Introduction](#introduction)  
 	1.1 [IPR Policy](#ipr-policy)  
 	1.2 [Terminology](#terminology)  
 	1.3 [Normative References](#normative-references)  
 	1.4 [Informative References](#informative-references)  
 	1.5 [Typographical Conventions](#typographical-conventions)  
-2 [Design Considerations](#design-considerations)  
+2. [Design Considerations](#design-considerations)  
 	2.1 [Construction Principles](#construction-principles)  
 	2.2 [Format Validation](#format-validation)  
 	2.3 [Date and Time](#date-and-time)  
@@ -139,7 +138,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			2.4.4.3 [Content Schema Property - Content](#content-schema-property---content)  
 			2.4.4.4 [Content Schema Property - Critical](#content-schema-property---critical)  
 		2.4.5 [Metadata](#metadata)  
-3 [Schema Elements](#schema-elements)  
+3. [Schema Elements](#schema-elements)  
 	3.1 [Definitions](#definitions)  
 		3.1.1 [Acknowledgments Type](#acknowledgments-type)  
 			3.1.1.1 [Acknowledgments Type - Names](#acknowledgments-type---names)  
@@ -247,7 +246,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			3.2.4.16 [Vulnerabilities Property - Title](#vulnerabilities-property---title)  
 			3.2.4.17 [Vulnerabilities Property - Extensions](#vulnerabilities-property---extensions)  
 		3.2.5 [Extensions Property](#extensions-property)  
-4 [Profiles](#profiles)  
+4. [Profiles](#profiles)  
 	4.1 [Profile 1: CSAF Base](#profile-1-csaf-base)  
 	4.2 [Profile 2: Security Incident Response](#profile-2-security-incident-response)  
 	4.3 [Profile 3: Informational Advisory](#profile-3-informational-advisory)  
@@ -256,14 +255,14 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 	4.6 [Profile 6: Deprecated Security Advisory](#profile-6-deprecated-security-advisory)  
 	4.7 [Profile 7: Withdrawn](#profile-7-withdrawn)  
 	4.8 [Profile 8: Superseded](#profile-8-superseded)  
-5 [Additional Conventions](#additional-conventions)  
+5. [Additional Conventions](#additional-conventions)  
 	5.1 [Filename](#filename)  
 	5.2 [Separation in Data Stream](#separation-in-data-stream)  
 	5.3 [Sorting](#additional-conventions--sorting)  
 	5.4 [Usage of Markdown](#usage-of-markdown)  
 	5.5 [Branch Recursion](#branch-recursion)  
 	5.6 [Hardware and Software within the Product Tree](#hardware-and-software-within-the-product-tree)  
-6 [Tests](#tests)  
+6. [Tests](#tests)  
 	6.1 [Mandatory Tests](#mandatory-tests)  
 		6.1.1 [Missing Definition of Product ID](#missing-definition-of-product-id)  
 		6.1.2 [Multiple Definition of Product ID](#multiple-definition-of-product-id)  
@@ -456,7 +455,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)  
 		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)  
 		6.4.3 [Additional Presets](#additional-presets)  
-7 [Distributing CSAF Documents](#distributing-csaf-documents)  
+7. [Distributing CSAF Documents](#distributing-csaf-documents)  
 	7.1 [Requirements](#requirements)  
 		7.1.1 [Requirement 1: Valid CSAF Document](#requirement-1-valid-csaf-document)  
 		7.1.2 [Requirement 2: Filename](#requirement-2-filename)  
@@ -498,8 +497,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		7.4.2 [Transition Process for a CSAF Provider](#transition-process-for-a-csaf-provider)  
 		7.4.3 [Archive of CSAF Document from Previous Version](#archive-of-csaf-document-from-previous-version)  
 		7.4.4 [Transition Process for a CSAF Aggregator](#transition-process-for-a-csaf-aggregator)  
-8 [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)  
-9 [Conformance](#conformance)  
+8. [Safety, Security, and Data Protection Considerations](#safety-security-and-data-protection-considerations)  
+9. [Conformance](#conformance)  
 	9.1 [Conformance Targets](#conformance-targets)  
 		9.1.1 [Conformance Clause 1: CSAF Document](#conformance-clause-1-csaf-document)  
 		9.1.2 [Conformance Clause 2: CSAF Producer](#conformance-clause-2-csaf-producer)  
@@ -537,20 +536,21 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		9.1.34 [Conformance Clause 34: CSAF Extension Bundle](#conformance-clause-34-csaf-extension-bundle)  
 		9.1.35 [Conformance Clause 35: CSAF Extension Package](#conformance-clause-35-csaf-extension-package)  
 		9.1.36 [Conformance Clause 36: CSAF Extension Collection](#conformance-clause-36-csaf-extension-collection)  
+
 Appendix A. [Acknowledgments](#acknowledgments)  
 Appendix B. [Revision History](#revision-history)  
 Appendix C. [Guidance on the Size of CSAF Documents](#guidance-on-the-size-of-csaf-documents)  
-	C.1 [File Size](#file-size)  
-	C.2 [Array Length](#array-length)  
-	C.3 [String Length](#string-length)  
-	C.4 [Date](#date)  
-	C.5 [Enum](#enum)  
-	C.6 [URI Length](#uri-length)  
-	C.7 [UUID Length](#uuid-length)  
+	C.1. [File Size](#file-size)  
+	C.2. [Array Length](#array-length)  
+	C.3. [String Length](#string-length)  
+	C.4. [Date](#date)  
+	C.5. [Enum](#enum)  
+	C.6. [URI Length](#uri-length)  
+	C.7. [UUID Length](#uuid-length)  
 Appendix D. [Collapsing Product Paths](#collapsing-product-paths)  
 -------
 
-# 1 Introduction <a id='introduction'></a>
+# 1. Introduction <a id='introduction'></a>
 
 ## 1.1 IPR Policy <a id='ipr-policy'></a>
 
@@ -972,7 +972,7 @@ All other text is normative unless otherwise labeled e.g. like the following inf
 
 This document adheres to the Modern Language Association (MLA) style guidelines for formatting titles and terms.
 
-# 2 Design Considerations <a id='design-considerations'></a>
+# 2. Design Considerations <a id='design-considerations'></a>
 
 The Common Security Advisory Framework (CSAF) is a language to exchange Security Advisories formulated in JSON.
 
@@ -1279,7 +1279,7 @@ It is used to provide information for automated tools on certain requirements an
   https://oil-and-gas.isac.example/.well-known/csaf/extensions/metadata/product-safety_17.41.0.json
 ```
 
-# 3 Schema Elements <a id='schema-elements'></a>
+# 3. Schema Elements <a id='schema-elements'></a>
 
 The CSAF schema describes how to represent security advisory information as a JSON document.
 
@@ -4805,7 +4805,7 @@ at the root-level of the CSAF document and associated with this CSAF document.
 
 -------
 
-# 4 Profiles <a id='profiles'></a>
+# 4. Profiles <a id='profiles'></a>
 
 CSAF documents do not have many required fields as they can be used for different purposes.
 To ensure a common understanding of which fields are required in a given use case the standard defines profiles.
@@ -5077,7 +5077,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 -------
 
-# 5 Additional Conventions <a id='additional-conventions'></a>
+# 5. Additional Conventions <a id='additional-conventions'></a>
 
 This section provides additional rules for handling CSAF documents.
 
@@ -5298,7 +5298,7 @@ To form the overall product, both parts MUST be combined through a product path.
 
 -------
 
-# 6 Tests <a id='tests'></a>
+# 6. Tests <a id='tests'></a>
 
 The first three subsections list a number of tests which all will have a short description and an excerpt of an example which fails the test.
 The fourth subsection groups tests into preset.
@@ -12383,7 +12383,7 @@ Additional presets are defined as follows:
     -[6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
     -[6.3.21.9](#usage-of-extension-at-root-level)
 
-# 7 Distributing CSAF Documents <a id='distributing-csaf-documents'></a>
+# 7. Distributing CSAF Documents <a id='distributing-csaf-documents'></a>
 
 This section lists requirements and roles defined for distributing CSAF documents.
 The first subsection provides all requirements - the second one the roles.
@@ -13385,7 +13385,7 @@ It is RECOMMENDED to use the following URLs during the process:
 
 A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 publishers and providers.
 
-# 8 Safety, Security, and Data Protection Considerations <a id='safety-security-and-data-protection-considerations'></a>
+# 8. Safety, Security, and Data Protection Considerations <a id='safety-security-and-data-protection-considerations'></a>
 
 All safety, security, and data protection requirements relevant to the context in which CSAF documents are used MUST be translated into,
 and consistently enforced through, CSAF implementations and processes.
@@ -13450,7 +13450,7 @@ It is RECOMMENDED to do them at least before a release.
 
 -------
 
-# 9 Conformance <a id='conformance'></a>
+# 9. Conformance <a id='conformance'></a>
 
 In the only subsection of this section, the conformance targets and clauses are listed.
 The clauses, matching the targets one to one, are listed in separate sub-subsections of the targets listing subsection.
@@ -13686,7 +13686,7 @@ Secondly, the program fulfills the following for all items of:
     > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
     > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
     >   element.
-    > For examples, see appendix [Appendix D](#collapsing-product-paths).
+    > For examples, see appendix [Appendix D.](#collapsing-product-paths).
 
 * `/vulnerabilities[]/cwes[]`:
   * The CVRF CSAF Converter MUST remove all preceding and trailing white space from the `name`.
@@ -14424,7 +14424,7 @@ Secondly, the program fulfills the following for all items of:
     > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
     > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
     >   element.
-    > For examples, see appendix [Appendix D](#collapsing-product-paths).
+    > For examples, see appendix [Appendix D.](#collapsing-product-paths).
 
 * `/vulnerabilities[]/cwes[]`:
   * The CSAF 2.0 to CSAF 2.1 Converter MUST remove all preceding and trailing white space from the `name`.
@@ -14930,6 +14930,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 # Appendix B. Revision History <a id='revision-history'></a>
 
 <!--\columns=25%,10%,40%,-->
+
 | Revision                 | Date       | Editor                          | Changes Made                                |
 |:-------------------------|:-----------|:--------------------------------|:--------------------------------------------|
 | csaf-v2.1-wd20240124-dev | 2024-01-24 | Stefan Hagen and Thomas Schmidt | Preparing initial Editor Revision           |
@@ -14975,7 +14976,7 @@ Boolean values are usually represented as a native data type and therefore omitt
 Structures in the `content` object of items of type `/$defs/extensions_t` are not listed in the subsections below
 as they depend upon on the extension.
 
-## C.1 File Size <a id='file-size'></a>
+## C.1. File Size <a id='file-size'></a>
 
 A CSAF document including any extensions used in the document in the specified JSON format encoded in UTF-8 SHOULD
 conform to known size limits of current technologies parsing JSON content,
@@ -14989,7 +14990,7 @@ e.g.: 150 MiB.
 > In addition, the BSON format adds length information for the entries inside the document,
 > which adds to the size when storing CSAF document content in a BSON format.
 
-## C.2 Array Length <a id='array-length'></a>
+## C.2. Array Length <a id='array-length'></a>
 
 An array SHOULD NOT have more than:
 
@@ -15101,7 +15102,7 @@ An array SHOULD NOT have more than:
   * `/vulnerabilities[]/threats[]/group_ids`
   * `/vulnerabilities[]/threats[]/product_ids`
 
-## C.3 String Length <a id='string-length'></a>
+## C.3. String Length <a id='string-length'></a>
 
 A string SHOULD NOT have a length greater than:
 
@@ -15243,7 +15244,7 @@ A string SHOULD NOT have a length greater than:
   * `/vulnerabilities[]/remediations[]/restart_required/details`
   * `/vulnerabilities[]/threats[]/details`
 
-## C.4 Date <a id='date'></a>
+## C.4. Date <a id='date'></a>
 
 The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
@@ -15262,7 +15263,7 @@ The maximum length of strings representing a temporal value is given by the form
 * `/vulnerabilities[]/remediations[]/date`
 * `/vulnerabilities[]/threats[]/date`
 
-## C.5 Enum <a id='enum'></a>
+## C.5. Enum <a id='enum'></a>
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
@@ -15380,7 +15381,7 @@ This applies to:
 * `/vulnerabilities[]/x_extensions[]/category` (13)
 * `/x_extensions[]/category` (13)
 
-## C.6 URI Length <a id='uri-length'></a>
+## C.6. URI Length <a id='uri-length'></a>
 
 A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
 
@@ -15416,7 +15417,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `/vulnerabilities[]/x_extensions[]/$schema`
 * `/x_extensions[]/$schema`
 
-## C.7 UUID Length <a id='uuid-length'></a>
+## C.7. UUID Length <a id='uuid-length'></a>
 
 A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
 

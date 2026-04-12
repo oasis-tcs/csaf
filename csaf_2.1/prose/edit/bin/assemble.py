@@ -1,5 +1,13 @@
 #! /usr/bin/env python
-"""Lapidify - turning markdown to stone (PDF)."""
+"""Assemble prose sources along the gfm-plus and pdf channels (html is default and a gfm-plus derivate).
+
+Select output format with -t (html is default):
+
+  html -> build/tmp.md  + build/toc-mint.json  (input for pandoc -> toccata.py) - - > html delivery item
+                +-> (is gfm-plus delivery item)
+  pdf  -> build/pdf.md                         (input for liitos) - - > pdf delivery item
+
+"""
 import json
 import pathlib
 import re
@@ -12,7 +20,6 @@ import yaml
 ENCODING = 'utf-8'
 ENC_ERRS = 'ignore'
 NL = '\n'
-RS = chr(30)  # Record Separator
 CB_END = '}'
 COLON = ':'
 DASH = '-'
@@ -20,62 +27,54 @@ DOT = '.'
 FULL_STOP = '.'
 HASH = '#'
 PARA = '§'
+RS = chr(30)
 SEMI = ';'
 SPACE = ' '
 TM = '™'
 
-DEBUG = bool(os.getenv('DEBUG_LAPIDIFY', ''))
+DEBUG = bool(os.getenv('ASSEMBLE_DEBUG', ''))
 TARGETS = (
-    PDF := 'pdf',
-    GFM_PLUS := 'gfm+vendor_hacks',
+    TARGET_HTML := 'html',
+    TARGET_PDF := 'pdf',
 )
 
-# Optionally dump the look-up tables (LUT)s for section display and label:
+# Optionally dump look-up tables back to etc/ as a cross-check against sections.py output:
 DUMP_LUT = bool(os.getenv('DUMP_LUT', ''))
 
-# Configuration and runtime parameter candidates:
+# Paths:
 GREMLINS = ' .,;?!_()[]{}<>\\/$:"\'`´'
 BINDER_AT = pathlib.Path('etc') / 'bind.txt'
 SOURCE_AT = pathlib.Path('src')
 BUILD_AT = pathlib.Path('build')
+CONFIG_AT = pathlib.Path('etc') / 'sections-config.yaml'
 SECTION_DISPLAY_TO_LABEL_AT = pathlib.Path('etc') / 'section-display-to-label.json'
 SECTION_LABEL_TO_DISPLAY_AT = pathlib.Path('etc') / 'section-label-to-display.json'
 SECTION_DISPLAY_TO_TEXT_AT = pathlib.Path('etc') / 'section-display-to-text.json'
 EG_GLOBAL_TO_LABEL_AT = pathlib.Path('etc') / 'example-global-to-local.json'
 EG_LABEL_TO_GLOBAL_AT = pathlib.Path('etc') / 'example-local-to-global.json'
 
-# Parsers and magical literals:
+# Parsers:
 IS_CITE_REF = 'cite'
-CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')  # [cite](#label) pattern
+CITE_REF_DETECT = re.compile(r'\[(?P<text>cite)\]\(#(?P<label>[^)]+)\)')
 IS_EG_REF = 'eg'
-EG_REF_DETECT = re.compile(r'\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)')  # [eg](#label) pattern
+EG_REF_DETECT = re.compile(r'\[(?P<text>eg)\]\(#(?P<label>[^)]+)\)')
 IS_SEC_REF = 'sec'
-SEC_REF_DETECT = re.compile(
-    r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)'
-)  # [sec](#label) pattern NOTE: we blocked "1-9" initially too
-MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')  # [ref](#anylabel) pattern
+SEC_REF_DETECT = re.compile(r'\[(?P<text>sec)\]\(#(?P<label>[^)]+)\)')
+MD_REF_DETECT = re.compile(r'\[(?P<text>[^]]+)\]\(#(?P<target>[^)]+)\)')
 
-# Detecting code block references with label values
-# e.g. ' #  ((#run-object)).'
+# Code block label reference patterns (label values inside inline comments):
 SEC_LABEL_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<label>\(#(?P<value>[0-9a-z-]+)\))\)\.')
-# e.g. ' #  (#run-object).'
 SEC_LABEL_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<label>\(#(?P<value>[0-9a-z-]+)\))\.')
-
-# Reverse detection patterns for documentation purposes
-# e.g. ' # A run object (3.14).' or ' #  (3.1.2).'
-SEC_DISP_BRACKET_CB_DETECT = re.compile(r'\ +#\ +[^(]+\((?P<disp>[0-9.]+)\)\.')
-SEC_DISP_FREE_CB_DETECT = re.compile(r'\ +#\ +[^(]+(?P<disp>[0-9.]+)\.')  # e.g. ' # See 3.14.14.'
 
 SEC_OVER = '[sec]('
 CIT_OVER = '[cite]('
 CIT_TOO_DIRECT = '[cite](http'
 
-# Specific tokens:
 HC_BEG = '<!--'
 HC_END = '-->'
 YAML_SEP = '---'
-TOK_TOC = '(#$thing$)'  # Transform phase ToC label string template replacing $thing$ with the old value
-TOK_SEC = "<a id='$thing$'></a>"  # Transform phase section title label string template ($thing$ -> old value)
+TOK_TOC = '(#$thing$)'
+TOK_SEC = "<a id='$thing$'></a>"
 TOK_LAB = '{#'
 H = '#'
 YAML_X_SEP = DASH * 7
@@ -85,15 +84,17 @@ TOC_HEADER = f"""{YAML_X_SEP}
 """
 CLEAN_MD_START = '# Introduction'
 FENCED_BLOCK_FLIP_FLOP = '```'
-APPENDIX_INNER_PATTERN = re.compile(r'(?P<display>[A-Z][\.0-9]+)\ +(?P<rest>.+)')
+
+# Matches inner appendix sub-headings like "C.1 File Size" or "F.2 Something"
+APPENDIX_INNER_PATTERN = re.compile(r'(?P<display>[A-Z][.0-9]+\.?) +(?P<rest>.+)')
 LOGO_URL = 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
 LOGO_LOCAL_PATH = 'images/OASISLogo-v3.0.png'
 TOP_LOGO_LINE = f'![OASIS Logo]({LOGO_URL})'
 
 SEC_NO_TOC_POSTFIX = '{.unnumbered .unlisted}'
 
-SECTION_DISPLAY_TO_LABEL = {}
-SEC_LABEL_TEXT: dict[str, str] = {}  # Mapping section labels to the display text
+SECTION_DISPLAY_TO_LABEL: dict[str, str] = {}
+SEC_LABEL_TEXT: dict[str, str] = {}
 
 TOC_TEMPLATE = {
     1: '$sec_cnt_disp$ [$text$](#$label$)  ',
@@ -103,61 +104,34 @@ TOC_TEMPLATE = {
     5: '\t\t\t\t$sec_cnt_disp$ [$text$](#$label$)  ',
 }
 
-TOK_EG = "<a id='$thing$'></a>"  # Transform phase example title label string template ($thing$ -> old value)
-EG_LABEL_TEXT: dict[str, str] = {}  # Mapping example labels to the display text
-
-# This value leads to empty line needed on GitHub to respect the new line for non-numerically starting lines
+TOK_EG = "<a id='$thing$'></a>"
 TOC_VERTICAL_SPACER = ''
 
-# Data interface robustness hacks:
-CHILDREN = 'children'
-ENUMERATE = 'enumerate'
-LABEL = 'label'
-TOC = 'toc'
-
 CITE_COSMETICS_TEMPLATE = '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
-CITATION_SOURCES = ('introduction-03-normative-references.md', 'introduction-04-informative-references.md')
+CITATION_SOURCES = (
+    'introduction-03-normative-references.md',
+    'introduction-04-informative-references.md',
+)
 GLOSSARY_SOURCES = ('introduction-02-terminology-glossary.md',)
 
 # Type declarations:
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
 
-APPENDIX_HEAD_REMAP = {
-    '# Appendix A. Acknowledgments': {'prepend': [r'\newpage', ''], 'attrs': '{.unnumbered #acknowledgments}'},
-    '# Appendix B. Revision History': {'prepend': [r'\newpage', ''], 'attrs': '{.unnumbered #revision-history}'},
-    '# Appendix C. Guidance on the Size of CSAF Documents': {
-        'prepend': [r'\newpage', ''],
-        'attrs': '{.unnumbered #guidance-on-the-size-of-csaf-documents}',
-    },
-    '## C.1 File Size': {'attrs': '{.unnumbered #file-size}'},
-    '## C.2 Array Length': {'attrs': '{.unnumbered #array-length}'},
-    '## C.3 String Length': {'attrs': '{.unnumbered #string-length}'},
-    '## C.4 Date': {'attrs': '{.unnumbered #date}'},
-    '## C.5 Enum': {'attrs': '{.unnumbered #enum}'},
-    '## C.6 URI Length': {'attrs': '{.unnumbered #uri-length}'},
-    '## C.7 UUID Length': {'attrs': '{.unnumbered #uuid-length}'},
-    '# Appendix D. Collapsing Product Paths{#collapsing-product-paths}{#collapsing-product-paths}': {
-        'prepend': [r'\newpage', ''],
-        'replace': ['{#collapsing-product-paths}', ''],
-        'attrs': '{.unnumbered #collapsing-product-paths}'
-    },
-}
-
 
 def load_binder(binder_at: Union[str, pathlib.Path], ignores: Union[list[str], None] = None) -> list[pathlib.Path]:
     """Load the linear binder text file into a list of file paths."""
     with open(binder_at, 'rt', encoding=ENCODING, errors=ENC_ERRS) as resource:
-        collation = (pathlib.Path(entry.strip()) for entry in resource.readlines() if entry.strip())
-    return [path for path in collation if str(path) not in ignores] if ignores else list(collation)
+        collation = [pathlib.Path(entry.strip()) for entry in resource.readlines() if entry.strip()]
+    return [path for path in collation if str(path) not in ignores] if ignores else collation
 
 
 def end_of_toc_in(text: str) -> bool:
-    """Detect the end of the table of contents."""
+    """Detect the end of the table of contents placeholder."""
     return text.startswith('#') and ' Introduction' in text
 
 
 def detect_meta(text_lines: list[str]) -> tuple[META_TOC_TYPE, list[str]]:
-    """Extract any YAML data from top, remove used lines from text lines, and yield meta as well as remaining lines."""
+    """Extract YAML data from top of file, remove those lines, return (meta, remaining)."""
     meta_lines = []
     if text_lines[0].startswith(HC_BEG) and text_lines[1].startswith(YAML_SEP):
         for line in text_lines[2:]:
@@ -173,13 +147,13 @@ def detect_meta(text_lines: list[str]) -> tuple[META_TOC_TYPE, list[str]]:
 
 
 def load_document(path: Union[str, pathlib.Path]) -> tuple[META_TOC_TYPE, list[str]]:
-    """Load the text file into a list of strings and harvest any YAML meta info (if present remove the lines)."""
+    """Load text file into list of strings, harvesting any YAML meta."""
     with open(path, 'rt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         return detect_meta(resource.readlines())
 
 
 def dump_assembly(text_lines: list[str], to_path: Union[str, pathlib.Path]) -> None:
-    """Dump the lines of text into the text file at path."""
+    """Write lines of text to file at path."""
     with open(to_path, 'wt', encoding=ENCODING, errors=ENC_ERRS) as resource:
         resource.write(''.join(text_lines))
 
@@ -191,36 +165,29 @@ def slugify(
     gremlins: str = GREMLINS,
     policy: str = 'lower',
 ) -> str:
-    """Derive kebab style slug from text.
+    """Derive kebab-style slug from text.
 
-    Implementer notes:
-
-    - Every character not in gremlins is kept.
-    - Incoming connector chars (default dashes) are preserved by
-      sandwich transform to and from marker char (default ASCII RS).
-      If the marker char occurs in the text, it will be replaced
-      with the connector char during the back transform.
+    Every character not in gremlins is kept. Incoming connector chars are
+    preserved via a sandwich transform through the marker char.
     """
     ds = connector
     rs = marker
-
     sl = text.strip().replace(ds, rs)
     for gremlin in gremlins:
         sl = sl.replace(gremlin, ds)
-
     return getattr(
         ds.join(s.replace(rs, ds) for s in sl.split(ds) if s and s != ds),
-        policy
+        policy,
     )()
 
 
 def label_in(text: str) -> bool:
-    """Detect if the text line contains a label."""
+    """Detect if the line contains a label reference."""
     return '](#' in text
 
 
 def example_local_number(text: str) -> int:
-    """Harvest integer local number of example or zero (0) if failed."""
+    """Return local example number from *Example N: line, or 0."""
     ls_text = text.lstrip()
     if ls_text.startswith('*Example ') or ls_text.startswith('*Examples '):
         rest = ls_text.split(SPACE, 1)[1]
@@ -234,47 +201,53 @@ def example_local_number(text: str) -> int:
 
 
 def example_in(text: str) -> bool:
-    """Detect if the text line contains a magic example token."""
+    """Detect if the line contains a magic example token."""
     return example_local_number(text) > 0
 
 
 def code_block_label_in(text: str) -> bool:
-    """Detect if the text line contains a code block section label."""
+    """Detect if the line contains a code block section label."""
     return '(#' in text and ' # ' in text
 
 
+def load_config(path: Union[str, pathlib.Path] = CONFIG_AT) -> dict:  # type: ignore[type-arg]
+    """Load per-spec sections configuration."""
+    with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+        return yaml.safe_load(handle) or {}
+
+
 def load_label_to_display_lut(path: Union[str, pathlib.Path] = SECTION_LABEL_TO_DISPLAY_AT) -> dict[str, str]:
-    """Load the LUT for section labels -> display."""
+    """Load section label → display LUT."""
     with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_display_to_label_lut(path: Union[str, pathlib.Path] = SECTION_DISPLAY_TO_LABEL_AT) -> dict[str, str]:
-    """Load the LUT for section display -> labels."""
+    """Load section display → label LUT."""
     with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_display_to_text_lut(path: Union[str, pathlib.Path] = SECTION_DISPLAY_TO_TEXT_AT) -> dict[str, str]:
-    """Load the LUT for section display -> labels."""
+    """Load section display → heading text LUT."""
     with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_eg_label_to_global_lut(path: Union[str, pathlib.Path] = EG_LABEL_TO_GLOBAL_AT) -> dict[str, str]:
-    """Load the LUT for example labels -> global."""
+    """Load example label → global number LUT."""
     with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def load_eg_global_to_label_lut(path: Union[str, pathlib.Path] = EG_GLOBAL_TO_LABEL_AT) -> dict[str, str]:
-    """Load the LUT for example global -> labels."""
+    """Load example global number → label LUT."""
     with pathlib.Path(path).open('rt', encoding=ENCODING, errors=ENC_ERRS) as handle:
         return json.load(handle)
 
 
 def detect_leftovers(records: list[str], marker: str = 'Found') -> list[tuple[int, str]]:
-    """Detect left over citation and section references."""
+    """Detect unresolved citation and section references."""
     ref_defects = [(n, r) for n, r in enumerate(records) if CIT_OVER in r or SEC_OVER in r]
     if ref_defects:
         print(f'{marker} {len(ref_defects)} citation or section reference defects:')
@@ -286,11 +259,10 @@ def detect_leftovers(records: list[str], marker: str = 'Found') -> list[tuple[in
 
 
 def insert_any_citation(record: str) -> str:
-    """Insert citation into citation placeholder or return record unchanged."""
+    """Expand [cite](#label) placeholder or return record unchanged."""
     if label_in(record):
         for ref in CITE_REF_DETECT.finditer(record):
             if ref:
-                # Found citation label in markdown format
                 found = ref.groupdict()
                 trigger_text = found['text']
                 if trigger_text != IS_CITE_REF:
@@ -298,52 +270,72 @@ def insert_any_citation(record: str) -> str:
                 label = found['label']
                 text = label.replace(';', ':')
                 sem_ref = f'[cite](#{label})'
-                evil_ref = f'\\[[{text}](#{label})\\]'  # \[[GFMCMARK](#GFMCMARK)\]
+                evil_ref = f'\\[[{text}](#{label})\\]'
                 record = record.replace(sem_ref, evil_ref)
     return record
 
 
-def insert_any_section_reference(record: str) -> str:
-    """Insert section reference into section ref placeholder or return record unchanged."""
-    if label_in(record):
-        for ref in SEC_REF_DETECT.finditer(record):
-            if ref:
-                # Found section label in markdown format
-                found = ref.groupdict()
-                trigger_text = found['text']
-                if trigger_text != IS_SEC_REF:
-                    raise RuntimeError(f'false positive sec ref in ({record.rstrip(NL)})')
-                label = found['label']
-                if label not in SEC_LABEL_TEXT:
-                    print(f'ERROR: in insert-any-section-reference ({record=})')
-                    print(f'ERROR-CONTEXT: {record=} - {trigger_text=}')
-                    print(f'ERROR-CONTEXT: {record=} - {label=}')
-                    for skey in SEC_LABEL_TEXT:
-                        if skey.startswith(label[:len(label) // 2]):
-                            print(f'DEBUG: - similar {skey=} exists')
-                    print(f'DEBUG: You may want to execute grep -n {label} src/*.md')
-                    raise RuntimeError(f'missing register label for sec ref in ({record.rstrip(NL)})')
-                text = SEC_LABEL_TEXT[label]
-                sem_ref = f'[sec](#{label})'
-                evil_ref = f'[{text}](#{label})'  # [GFMCMARK](#GFMCMARK)
-                record = record.replace(sem_ref, evil_ref)
+def insert_any_section_reference(
+    record: str,
+    label_to_display: dict[str, str],
+    display_to_text: dict[str, str],
+    sec_ref_style: str,
+) -> str:
+    """Expand [sec](#label) placeholder or return record unchanged.
+
+    Rendering depends on sec-ref-style from sections-config.yaml:
+      number              → [1.2.3](#label)
+      number-title        → [1.2.3 Heading Text](#label)
+      section-sign-number → [§1.2.3](#label)
+    """
+    if not label_in(record):
+        return record
+    for ref in SEC_REF_DETECT.finditer(record):
+        if ref:
+            found = ref.groupdict()
+            trigger_text = found['text']
+            if trigger_text != IS_SEC_REF:
+                raise RuntimeError(f'false positive sec ref in ({record.rstrip(NL)})')
+            label = found['label']
+            if label not in label_to_display:
+                print(f'ERROR: in insert-any-section-reference ({record=})')
+                print(f'ERROR-CONTEXT: {record=} - {trigger_text=}')
+                print(f'ERROR-CONTEXT: {record=} - {label=}')
+                for skey in label_to_display:
+                    if skey.startswith(label[:len(label) // 2]):
+                        print(f'DEBUG: - similar {skey=} exists')
+                print(f'DEBUG: You may want to execute grep -n {label} src/*.md')
+                raise RuntimeError(f'missing register label for sec ref in ({record.rstrip(NL)})')
+            display = label_to_display[label]
+            sem_ref = f'[sec](#{label})'
+            if sec_ref_style == 'number-title':
+                heading_text = display_to_text.get(display, '')
+                link_text = f'{display} {heading_text}'.strip()
+            elif sec_ref_style == 'section-sign-number':
+                link_text = f'{PARA}{display}'
+            else:  # 'number' is the default
+                link_text = display
+            evil_ref = f'[{link_text}](#{label})'
+            record = record.replace(sem_ref, evil_ref)
     return record
 
 
-def main(args: list[str]) -> int:
-    """Drive the lapidification."""
+def main(argv: list[str]) -> int:
+    """Drive the assembly."""
     debug = DEBUG
     bind_seq_path = BINDER_AT
-    target = TARGETS[0]
+    target = TARGET_HTML
+    args = list(argv)
     for slot, arg in enumerate(args):
         if arg.lower() in ('-h', '--help', '/h', '-?'):
-            print('USAGE: bin/lapidify.py [-d|--debug] [-b path|--binder path] [-t format|--target format]')
-            print(f'       with known targets being: [{", ".join(TARGETS)}] and default is {TARGETS[0]}')
+            print('USAGE: bin/assemble.py [-d|--debug] [-b path|--binder path] [-t format|--target format]')
+            print(f'       known targets: [{", ".join(TARGETS)}], default: {TARGET_HTML}')
             return 0
     for slot, arg in enumerate(args):
         if arg in ('-d', '--debug'):
             debug = True
             del args[slot]
+            break
     for slot, arg in enumerate(args):
         if arg in ('-b', '--binder'):
             bind_seq_path = pathlib.Path(args[slot + 1])
@@ -351,7 +343,6 @@ def main(args: list[str]) -> int:
             del args[slot]
             break
     for slot, arg in enumerate(args):
-        print(slot, arg, '<--', args)
         if arg in ('-t', '--target'):
             target = args[slot + 1].lower()
             del args[slot + 1]
@@ -361,21 +352,28 @@ def main(args: list[str]) -> int:
                 return 2
             break
     if args:
-        print('USAGE: bin/lapidify.py [-d|--debug] [-b path|--binder path] [-t format|--target format]')
         print(f'WARNING: Unprocessed {args=}')
 
-    binder = load_binder(bind_seq_path, ['frontmatter.md'])
+    # PDF path skips frontmatter.md — liitos provides its own title page via etc/liitos/ templates.
+    binder_ignores = ['frontmatter.md'] if target == TARGET_PDF else None
+    binder = load_binder(bind_seq_path, binder_ignores)
     for resource in binder:
         if not (SOURCE_AT / resource).is_file():
             print(f'Problem reading {resource}')
             return 1
 
-    display_from = load_label_to_display_lut()
-    eg_global_from = load_eg_label_to_global_lut()
+    config = load_config()
+    sec_ref_style: str = str(config.get('sec-ref-style', 'number'))
+    clean_md_start: str = str(config.get('clean-md-start', CLEAN_MD_START))
+    track_examples: bool = bool(config.get('track-examples', False))
 
+    display_from = load_label_to_display_lut()
+    display_to_text = load_display_to_text_lut()
+    eg_global_from = load_eg_label_to_global_lut() if track_examples else {}
+
+    # Assemble source files into flat line list, expanding citations and glossary.
     lines: list[str] = []
-    meta_hooks = {}
-    first_meta_slot = None
+    meta_hooks: dict[int, META_TOC_TYPE] = {}
     for resource in binder:
         meta, part_lines = load_document(SOURCE_AT / resource)
         if part_lines[-1] != NL:
@@ -383,18 +381,18 @@ def main(args: list[str]) -> int:
         if meta:
             meta_hooks[len(lines)] = meta
             meta_hooks[len(lines) + len(part_lines) - 1] = {}
-            if first_meta_slot is None:
-                first_meta_slot = len(lines) + len(part_lines) - 1
 
-        simplified = []
-        for line in part_lines:
-            if line.startswith(f'{FENCED_BLOCK_FLIP_FLOP}yaml <!--'):
-                simplified.append(f'{FENCED_BLOCK_FLIP_FLOP}yaml')
-                continue
-            simplified.append(line)
-        part_lines = list(simplified)
+        # PDF: strip HTML comments from yaml fenced block openers (liitos/pdflatex can't handle them)
+        if target == TARGET_PDF:
+            simplified = []
+            for line in part_lines:
+                if line.startswith(f'{FENCED_BLOCK_FLIP_FLOP}yaml <!--'):
+                    simplified.append(f'{FENCED_BLOCK_FLIP_FLOP}yaml\n')
+                    continue
+                simplified.append(line)
+            part_lines = list(simplified)
 
-        if resource.name in CITATION_SOURCES:  # TODO: citation management -> class
+        if resource.name in CITATION_SOURCES:  # TODO: citation management → class
             patched = []
             in_citation = False
             in_fenced_block = False
@@ -405,9 +403,7 @@ def main(args: list[str]) -> int:
                     patched.append(line)
                     continue
                 if line.strip() and not line.startswith(COLON):
-                    # the term -> citation code, the visible text in the square brackets
                     in_citation = True
-                    # prepare the data triplet
                     code = line.strip()
                     label = code.replace(COLON, SEMI).rstrip(TM)
                     text = ''
@@ -434,14 +430,13 @@ def main(args: list[str]) -> int:
                     patched.append(line)
             part_lines = list(patched)
 
-        if target == GFM_PLUS and resource.name in GLOSSARY_SOURCES:  # TODO: glossary management -> class
+        # Glossary <dl> expansion: HTML needs raw HTML for rendering; PDF uses LaTeX definition lists.
+        if target != TARGET_PDF and resource.name in GLOSSARY_SOURCES:  # TODO: glossary management → class
             patched = ['<dl>' + NL]
             in_definition = False
             for line in part_lines:
                 if not in_definition and line.strip() and not line.startswith(COLON):
-                    # the term -> glossary term, the visible text in the square brackets for refs
                     in_definition = True
-                    # prepare the data triplet
                     term = line.strip()
                     label = 'def;' + slugify(term)
                     definition = ''
@@ -449,7 +444,6 @@ def main(args: list[str]) -> int:
                 if in_definition:
                     if line.startswith(COLON):
                         definition += line.lstrip(COLON).strip()
-                        # HACK A DID ACK
                         definition = (
                             definition.replace('_Examples_', '<em>Examples</em>')
                             .replace('_Example_', '<em>Example</em>')
@@ -459,7 +453,6 @@ def main(args: list[str]) -> int:
                         continue
                     if line.strip():
                         definition += NL + ' ' * 6 + line.strip()
-                        # HACK A DID ACK
                         definition = (
                             definition.replace('_Examples_', '<em>Examples</em>')
                             .replace('_Example_', '<em>Example</em>')
@@ -470,14 +463,12 @@ def main(args: list[str]) -> int:
                     if not line.strip():
                         for ref in MD_REF_DETECT.finditer(definition):
                             if ref:
-                                # Found ref in markdown format
                                 found = ref.groupdict()
-                                text = found['text']
-                                target = found['target']
-                                md_ref = f'[{text}](#{target})'
-                                html_ref = f'<a href="#{target}">{text}</a>'
+                                ref_text = found['text']
+                                ref_anchor = found['target']
+                                md_ref = f'[{ref_text}](#{ref_anchor})'
+                                html_ref = f'<a href="#{ref_anchor}">{ref_text}</a>'
                                 definition = definition.replace(md_ref, html_ref)
-
                         item = f'{" " * 2}<dt id="{label}">{term}</dt>\n{" " * 2}<dd>{definition}</dd>\n'
                         in_definition = False
                         patched.append(item)
@@ -489,73 +480,68 @@ def main(args: list[str]) -> int:
 
         lines.extend(part_lines)
 
-    # TODO: counter management -> class
+    # Heading scan: build TOC, track section context per line, rewrite heading lines.
+    # TODO: counter management → class
     lvl_min, lvl_sup = 1, 7
     sec_cnt = {f'{H * level} ': 0 for level in range(lvl_min, lvl_sup)}
     sec_lvl = {f'{H * level} ': level for level in range(lvl_min, lvl_sup)}
     lvl_sec = {level: f'{H * level} ' for level in range(lvl_min, lvl_sup)}
-    h1 = f'{H} '
-    cur_lvl = sec_lvl[h1]
-    meta_hook = {}
-    # TODO: ToC builder -> class
+    cur_lvl = sec_lvl[f'{H} ']
+    meta_hook: META_TOC_TYPE = {}
+    # TODO: ToC builder → class
     tic_toc = [TOC_HEADER]
     mint = []
     did_appendix_sep = False
+    is_appendix = False
     clean_headings = False
     current_cs = None
-    cs_of_slot: list[Union[str, None]] = [None for _ in lines]
+    cs_of_slot: list[Union[None, str]] = [None for _ in lines]
     in_fenced_block = False
 
-    db = []
-    is_appendix = False
-    root: int = 0
-    appr = ''
-
     for slot, line in enumerate(lines):
+        # HTML: wrap \columns= LaTeX commands in HTML comments (unsupported in HTML/GFM rendering)
+        if target == TARGET_HTML and line.strip() and line.startswith(r'\columns='):
+            line = HC_BEG + line.rstrip() + HC_END + NL
+            lines[slot] = line
+            print(f'INFO: Wrapped columns command for HTML target in {slot=}:')
+            print(f'INFO: - {line.rstrip()}')
+
+        # PDF: replace remote logo URL with local copy for offline rendering
+        if target == TARGET_PDF and line.rstrip() == TOP_LOGO_LINE:
+            lines[slot] = line.replace(LOGO_URL, LOGO_LOCAL_PATH, 1)
+            line = lines[slot]
+
         if line.startswith(FENCED_BLOCK_FLIP_FLOP):
             in_fenced_block = not in_fenced_block
-        # MAYBE_MAKE_TOP_LOGO_LOCAL # NEW
-        if line.rstrip() == TOP_LOGO_LINE:
-            lines[slot] = line.replace(LOGO_URL, LOGO_LOCAL_PATH, 1)
-
         if meta_hooks.get(slot) is not None:
             meta_hook = meta_hooks[slot]
-        if line.startswith(CLEAN_MD_START):
+        if line.startswith(clean_md_start):
             clean_headings = True
         cs_of_slot[slot] = current_cs
         for tag in sec_cnt:
             if line.startswith(tag) and clean_headings and not in_fenced_block:
-                # manage counter
-                if not meta_hook:
-                    display = ''
-                    level = len(line.split(SPACE, 1)[0])
-                    if level == 1:
-                        root += 1
-                    text_plus = line[level + 1:].rstrip()
-                    if text_plus.startswith('Appendix '):
-                        appr = text_plus.replace('Appendix ', '')[0]
-                        display = f'Appendix {appr}.'
-                        text_plus = text_plus.replace(f'{display} ', '')
-                        is_appendix = True
+                if meta_hook:
+                    print('WARNING: deprecated out-of-band appendix handling - remove YAML frontmatter from source')
+                    return 1
+                text_plus = line.split(tag, 1)[1].rstrip()
+                nxt_lvl = sec_lvl[tag]
+                level = nxt_lvl
+                if text_plus.startswith('Appendix '):
+                    # top-level appendix heading: "Appendix A. Acknowledgments"
+                    appr = text_plus.split(SPACE)[1].rstrip(FULL_STOP)
+                    sec_cnt_disp = f'Appendix {appr}.'
+                    text_plus = text_plus[len(sec_cnt_disp):].lstrip(SPACE)
+                    is_appendix = True
+                elif is_appendix:
+                    match = APPENDIX_INNER_PATTERN.match(text_plus)
+                    if match:
+                        # inner appendix heading with letter-number prefix: "C.1 File Size"
+                        sec_cnt_disp = match.group('display')
+                        if not sec_cnt_disp.endswith(FULL_STOP):
+                            sec_cnt_disp += FULL_STOP
+                        text_plus = match.group('rest')
                     else:
-                        match = APPENDIX_INNER_PATTERN.match(text_plus)
-                        if match:
-                            found = match.groupdict()
-                            display = found['display']
-                            text_plus = text_plus.replace(f'{display} ', '')
-                    if TOK_LAB in text_plus:
-                        text, slug = text_plus.rstrip(SPACE).rstrip('}').split(TOK_LAB, 1)
-                    else:
-                        text = text_plus.rstrip(SPACE)
-                        slug = slugify(text)
-                    if not is_appendix:
-                        a_root = str(root)
-                    else:
-                        a_root = appr
-
-                    if not is_appendix:
-                        tag = f'{HASH * level} '
-                        nxt_lvl = sec_lvl[tag]
+                        # unnumbered sub-heading inside appendix — auto-number
                         sec_cnt[tag] += 1
                         if nxt_lvl < cur_lvl:
                             for lvl in range(nxt_lvl + 1, lvl_sup):
@@ -563,101 +549,94 @@ def main(args: list[str]) -> int:
                         sec_cnt_disp_vec = []
                         for s_tag, cnt in sec_cnt.items():
                             if cnt == 0:
-                                raise RuntimeError(f'ERROR: Counting is hard: {sec_cnt} at {tag} for {text}')
+                                raise RuntimeError(
+                                    f'counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}'
+                                )
                             sec_cnt_disp_vec.append(str(cnt))
                             if s_tag == tag:
                                 break
                         sec_cnt_disp = FULL_STOP.join(sec_cnt_disp_vec)
-                        display = sec_cnt_disp.rstrip(DOT)
-                        db.append([is_appendix, a_root, level, display, text, slug])
+                        if FULL_STOP not in sec_cnt_disp:
+                            sec_cnt_disp += FULL_STOP
                 else:
-                    print('WARNING: deprecated out-of-band appendix handling triggered in manage-counter')
-                    return 1
-
+                    # normal numeric auto-counter
+                    sec_cnt[tag] += 1
+                    if nxt_lvl < cur_lvl:
+                        for lvl in range(nxt_lvl + 1, lvl_sup):
+                            sec_cnt[lvl_sec[lvl]] = 0
+                    sec_cnt_disp_vec = []
+                    for s_tag, cnt in sec_cnt.items():
+                        if cnt == 0:
+                            raise RuntimeError(
+                                f'counting is hard: {sec_cnt} at {tag} for {slot}:{line.rstrip(NL)}'
+                            )
+                        sec_cnt_disp_vec.append(str(cnt))
+                        if s_tag == tag:
+                            break
+                    sec_cnt_disp = FULL_STOP.join(sec_cnt_disp_vec)
+                    if FULL_STOP not in sec_cnt_disp:
+                        sec_cnt_disp += FULL_STOP
                 # manage label
-                text = line.split(tag, 1)[1].rstrip()
-                link_attributes = ''
-                if '{' in line:
-                    link_attributes = '{' + line.split('{', 1)[1]
-                if TOK_LAB in text:
-                    # special label
-                    label = text.split(TOK_LAB, 1)[1].rstrip(CB_END)
-                    # reduced_text = text.split(TOK_LAB, 1)[0]
+                if TOK_LAB in text_plus:
+                    label = text_plus.split(TOK_LAB, 1)[1].rstrip(CB_END).strip()
+                    text = text_plus.split(TOK_LAB, 1)[0].rstrip(SPACE)
                 else:
+                    text = text_plus.rstrip(SPACE)
                     label = slugify(text)
-                clean_sec_cnt_disp = (f'{sec_cnt_disp}' if is_appendix else sec_cnt_disp).rstrip(FULL_STOP)
+                clean_sec_cnt_disp = sec_cnt_disp.rstrip(FULL_STOP)
                 SEC_LABEL_TEXT[label] = clean_sec_cnt_disp
                 SECTION_DISPLAY_TO_LABEL[clean_sec_cnt_disp] = label
-                # line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
-                #                    MAYBE_NO_HTML_A_FOR_HEADING #
-                line = tag + text + link_attributes  # + ' ' + TOK_SEC.replace('$thing$', label)
-                # MAYBE_FIND_THE_APPENDIX_UNDO_BUG_WILL_YOU_?
-
-                # Slightly enhanced document content specific hack
-                terse_line = line.rstrip()
-                if terse_line in APPENDIX_HEAD_REMAP:
-                    transform = APPENDIX_HEAD_REMAP[terse_line]
-                    if 'prepend' in transform:
-                        lines[slot - 1] = lines[slot - 1] + NL + NL.join(transform['prepend'])
-                    if 'replace' in transform:
-                        this, that = transform['replace']
-                        terse_line = terse_line.replace(this, that)
-                    line = terse_line + transform['attrs'] + NL  # type: ignore
-
-                # MAYBE_NO_SECTION_NUMBERS_AS_PART_OF_HEADING # line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
-                cur_lvl = nxt_lvl
-                if not did_appendix_sep and not is_appendix:  # meta_hook and slot < first_meta_slot:  # type: ignore
+                # Build heading line per target:
+                # HTML: inject <a id> anchor + section number prefix on every heading.
+                # PDF:  appendix headings get section number + {.unnumbered #label} pandoc attrs;
+                #       top-level appendix headings additionally get \newpage before them;
+                #       normal headings are emitted as-is (LaTeX auto-numbers them).
+                if target == TARGET_HTML:
+                    line = tag + text + ' ' + TOK_SEC.replace('$thing$', label)
+                    line = line.replace(tag, f'{tag}{sec_cnt_disp} ', 1) + NL
+                else:  # TARGET_PDF
+                    if is_appendix:
+                        if level == 1:
+                            # inject LaTeX page break before each top-level appendix heading
+                            lines[slot - 1] = lines[slot - 1] + NL + r'\newpage' + NL
+                        line = f'{tag}{sec_cnt_disp} {text} {{.unnumbered #{label}}}\n'
+                    else:
+                        line = tag + text + NL
+                lines[slot] = line
+                if not is_appendix:
+                    cur_lvl = nxt_lvl
+                if not did_appendix_sep and is_appendix:
                     tic_toc.append(TOC_VERTICAL_SPACER)
                     did_appendix_sep = True
-                toc_template = TOC_TEMPLATE[cur_lvl if not is_appendix else level]  # meta_hook else app_lvl]
+                toc_template = TOC_TEMPLATE[cur_lvl if not is_appendix else level]
                 extended = 0
-                if is_appendix:  # sec_cnt_disp.upper().isupper():  # at least one lettersec_cnt_disp.upper().isupper():
+                if is_appendix:
                     extended = 2 if set(sec_cnt_disp).intersection('0123456789') else 1
-                    DEBUG and print(f'DEBUG: appendixer-main at {slot=} and {extended=} on line {line.rstrip()}')
                     if extended == 2:
                         extended = sec_cnt_disp.count(DOT) + 1
-                        DEBUG and print(f'DEBUG: - appendixer-indent at {slot=} and {extended=} with {sec_cnt_disp}')
                 if '{#' in text and label in text:
                     debug and print(f'{slot=}: Fixed ToC for {line=}')
-                    debug and print(
-                        f'{slot=}: --> {list(sec_cnt.values())},{extended=},{sec_cnt_disp=},{text=},{label=}'
-                    )
                     text = text.replace('{#' + label + '}', '')
                 tic_toc.append(
                     toc_template.replace('$sec_cnt_disp$', sec_cnt_disp)
                     .replace('$text$', text)
                     .replace('$label$', label)
                 )
-                if line.startswith('#') and '{#' in line:
-                    hack = '{#' + label + '}'
-                    hackhack = f'{hack}{hack}'
-                    if hackhack in line:
-                        line = line.replace(hackhack, hack)
-                        debug and print(f'{slot=}: Fixed {line=} in collector')
-                lines[slot] = line
                 mint.append([list(sec_cnt.values()), extended, sec_cnt_disp, text, label])
-                current_cs = label  # Update state for label in non tag lines
-                # correct the default state assignment
+                current_cs = label
                 cs_of_slot[slot] = current_cs  # type: ignore
 
-            # MAYBE_SEC_NO_TOC_BEFORE_INTRODUCTION # NEW
+            # MAYBE_SEC_NO_TOC_BEFORE_INTRODUCTION
             if line.startswith(tag) and not clean_headings:
                 lines[slot] = line.rstrip() + SEC_NO_TOC_POSTFIX + NL
 
-    if DEBUG:
-        for is_appendix, a_root, level, display, text, slug in db:  # type: ignore
-            print(
-                f'{"        " if not is_appendix else "APPENDIX"} | {a_root} |'
-                f' {(HASH * level).rjust(7)} "{text}" <-- {slug}'
-            )
-
-    # Process the text display of citation refs
+    # Process citation refs
     for slot, line in enumerate(lines):
         completed = insert_any_citation(line)
         if line != completed:
             lines[slot] = completed
 
-    # Process the text display of example refs
+    # Process example refs
     for slot, line in enumerate(lines):
         if example_in(line):
             num = example_local_number(line)
@@ -665,7 +644,7 @@ def main(args: list[str]) -> int:
             magic_label = f'{section}-eg-{num}'
             pl_anchor = TOK_EG.replace('$thing$', magic_label)
             line = line.rstrip(NL) + pl_anchor + NL
-            # now the UX bonus:
+            # UX bonus: anchor keyed by section display number
             try:
                 sec_disp_context_part = display_from[section]  # type: ignore
             except KeyError as err:
@@ -680,7 +659,7 @@ def main(args: list[str]) -> int:
             sec_disp_num_label = f'{sec_disp}-eg-{num}'
             sec_disp_num_anchor = TOK_EG.replace('$thing$', sec_disp_num_label)
             line = line.rstrip(NL) + sec_disp_num_anchor + NL
-            # now the global counter extra:
+            # Global counter anchor
             try:
                 global_example_num = eg_global_from[magic_label]
             except KeyError as err:
@@ -691,94 +670,87 @@ def main(args: list[str]) -> int:
                     if ekey.startswith(magic_label[:len(magic_label) // 2]):
                         print(f'DEBUG: - similar {ekey=} exists')
                 return 1
-
             global_example_num_label = f'example-{global_example_num}'
             global_example_num_anchor = TOK_EG.replace('$thing$', global_example_num_label)
             line = line.rstrip(NL) + global_example_num_anchor + NL
-            # Update the list of lines
             lines[slot] = line
 
         if label_in(line):
             for ref in EG_REF_DETECT.finditer(line):
                 if ref:
-                    # Found example label in markdown format
                     found = ref.groupdict()
                     trigger_text = found['text']
                     if trigger_text != IS_EG_REF:
                         raise RuntimeError(f'false positive example ref in ({line.rstrip(NL)})')
                     label = found['label']
-                    text = label.replace(';', ':')
                     sem_ref = f'[eg](#{label})'
-                    if '-eg-' not in label:  # TODO - refactor and clean up
+                    if '-eg-' not in label:
                         raise RuntimeError(f'bad label for example in ({line.rstrip(NL)})')
                     section, number = label.split('-eg-', 1)
                     if section == cs_of_slot[slot]:
                         debug and print(f'detected local reference for {label} in ({line.rstrip(NL)})')
-                        evil_ref = f'\\[[{number}](#{label})\\]'  # [1](#a-sec-eg-1)
+                        evil_ref = f'\\[[{number}](#{label})\\]'
                     else:
                         debug and print(f'detected remote reference for {label} in ({line.rstrip(NL)})')
                         sec_disp = display_from[section]
-                        evil_ref = (
-                            f'\\[[{number} (of section {sec_disp})](#{label})\\]'  # [1 (of section 1.2.3)](#a-sec-eg-1)
-                        )
+                        evil_ref = f'\\[[{number} (of section {sec_disp})](#{label})\\]'
                     line = line.replace(sem_ref, evil_ref)
                     debug and print(line.rstrip(NL))
                     lines[slot] = line
 
-    # Process the text display of section refs
+    # Process section refs
     for slot, line in enumerate(lines):
-        completed = insert_any_section_reference(line)
+        completed = insert_any_section_reference(line, display_from, display_to_text, sec_ref_style)
         if line != completed:
             lines[slot] = completed
 
-    # Process the code blocks for references to map from label to display value
+    # Process code block label references
     for slot, line in enumerate(lines):
         if code_block_label_in(line):
             for ref in SEC_LABEL_BRACKET_CB_DETECT.finditer(line):
                 if ref:
-                    # Found bracketed label ref to section in code block
                     found = ref.groupdict()
                     value = found['value']
                     if not value or value not in display_from:
                         continue
                     label = found['label']
                     display = display_from[value]
-                    sem_ref = label
-                    disp_ref = display
-                    line = line.replace(sem_ref, disp_ref)
+                    line = line.replace(label, display)
                     lines[slot] = line
             for ref in SEC_LABEL_FREE_CB_DETECT.finditer(line):
                 if ref:
-                    # Found free label ref to section in code block
                     found = ref.groupdict()
                     value = found['value']
                     if not value or value not in display_from:
                         continue
                     label = found['label']
                     display = display_from[value]
-                    sem_ref = label
-                    disp_ref = display
-                    line = line.replace(sem_ref, disp_ref)
+                    line = line.replace(label, display)
                     lines[slot] = line
 
-    tic_toc.append(YAML_X_SEP)
-    tic_toc.append(NL)
-    # Inject the table of contents:
-    for slot, line in enumerate(lines):
-        if end_of_toc_in(line):
-            # MAYBE_NO_TOC # lines[slot] = NL.join(tic_toc) + line
-            break
+    # HTML only: wrap \scale LaTeX commands in HTML comments
+    if target == TARGET_HTML:
+        for slot, line in enumerate(lines):
+            if line.startswith(r'\scale'):
+                lines[slot] = f'{HC_BEG}{line.rstrip(NL)}{HC_END}{NL}'
 
-    # remove any trailing blank line
+    # HTML only: inject table of contents before the Introduction heading
+    if target == TARGET_HTML:
+        tic_toc.append(YAML_X_SEP)
+        tic_toc.append(NL)
+        for slot, line in enumerate(lines):
+            if end_of_toc_in(line):
+                lines[slot] = NL.join(tic_toc) + line
+                break
+
+    # Remove trailing blank lines
     while lines[-1] == NL:
         del lines[-1]
 
-    # detect left over citation and section references
+    # Detect and attempt to fix leftover unresolved references
     ref_defects = detect_leftovers(lines, marker='Found')
     if ref_defects:
         print(f'+ processing {len(ref_defects)} text lines for citation or section reference insertions ...')
-
-        # Process the text display of citation refs left over in first pass
         rem_defects = []
         for slot, record in ref_defects:
             completed = insert_any_citation(record)
@@ -786,28 +758,27 @@ def main(args: list[str]) -> int:
                 lines[slot] = completed
             else:
                 rem_defects.append((slot, record))
-
-        # Process the text display of section refs left over in first pass
         for slot, record in rem_defects:
-            completed = insert_any_section_reference(record)
+            completed = insert_any_section_reference(record, display_from, display_to_text, sec_ref_style)
             if record != completed:
                 lines[slot] = completed
-
-        # detect left over citation and section references again
         ref_defects = detect_leftovers(lines, marker='Still found')
         if ref_defects:
             pass  # return 1
 
     BUILD_AT.mkdir(parents=True, exist_ok=True)
-    dump_assembly(lines, BUILD_AT / 'pdf.md')
-
-    with open(BUILD_AT / 'toc-mint.json', 'wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
-        json.dump(mint, handle, indent=2)
+    if target == TARGET_HTML:
+        dump_assembly(lines, BUILD_AT / 'tmp.md')
+        with open(BUILD_AT / 'toc-mint.json', 'wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
+            json.dump(mint, handle, indent=2)
+    else:  # TARGET_PDF
+        dump_assembly(lines, BUILD_AT / 'pdf.md')
+        # toc-mint.json not written: liitos/LaTeX handles the TOC natively
 
     if DUMP_LUT:
         with SECTION_DISPLAY_TO_LABEL_AT.open('wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
             json.dump(SECTION_DISPLAY_TO_LABEL, handle, indent=2)
-        section_label_to_display = dict(sorted(((label, disp) for (disp, label) in SECTION_DISPLAY_TO_LABEL.items())))
+        section_label_to_display = dict(sorted((label, disp) for disp, label in SECTION_DISPLAY_TO_LABEL.items()))
         with SECTION_LABEL_TO_DISPLAY_AT.open('wt', encoding=ENCODING, errors=ENC_ERRS) as handle:
             json.dump(section_label_to_display, handle, indent=2)
 

@@ -74,7 +74,7 @@
   "3.2.2.7": "document-property---license-expression",
   "3.2.2.8": "document-property---notes",
   "3.2.2.9": "document-property---publisher",
-  "3.2.2.9.1": "document-property-publisher-category",
+  "3.2.2.9.1": "document-property---publisher-category",
   "3.2.2.9.2": "document-property---publisher---contact-details",
   "3.2.2.9.3": "document-property---publisher---issuing-authority",
   "3.2.2.9.4": "document-property---publisher---name",

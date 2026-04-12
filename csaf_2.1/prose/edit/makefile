@@ -54,12 +54,16 @@ invert-sections:
 	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-sections requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
 	inverso -g etc/section-display-to-label.json etc/section-label-to-display.json
 
+.PHONY: sections
+sections:
+	bin/sections.py
+
 .PHONY: render
 render: render-html
 
 .PHONY: render-markdown
-render-markdown: inversions
-	bin/volatile.py && \
+render-markdown: sections invert-examples
+	bin/assemble.py && \
 	  cp -a build/tmp.md $(out_gfm_plus) && \
 	  printf "Rendered user facing delivery item in markdown format:\n" && \
 	  ls -l $(out_gfm_plus)
@@ -81,7 +85,7 @@ render-pdf:
 	command -v liitos >/dev/null 2>&1 || { echo >&2 "make render-pdf requires liitos but it's not installed - you can install per pip install liitos.  Aborting."; exit 1; }
 	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
 	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
-	bin/lapidify.py --target $(target_pdf) && \
+	bin/assemble.py -t $(target_pdf) && \
 		mkdir -p $(build_pdf) && \
 		printf "pdf.md\n" > $(build_root)bind.txt && \
 		mkdir -p $(build_root)/images/ && \
@@ -111,7 +115,7 @@ build: render status
 .PHONY: status
 status:
 	printf "Current version control status:\n"; \
-	git status
+	git status || true
 
 .PHONY: diff-pdf
 diff-pdf:
@@ -121,6 +125,12 @@ diff-pdf:
 
 .PHONY: clean
 clean:
+	rm -rf `find . -name __pycache__`
+	rm -f `find . -type f -name '*.py[co]' `
+	rm -f `find . -type f -name '*~' `
+	rm -f `find . -type f -name '.*~' `
+	rm -rf .cache .*_cache
+	rm -f .DS_Store
 	rm -f $(build_root)approvals.yml \
 	  $(build_root)bind.txt \
 	  $(build_root)bookmatter.tex.in \
@@ -133,3 +143,9 @@ clean:
 	  $(build_root)setup.tex.in \
 	  $(build_root)structure.yml
 	rm -fr $(build_root)src/ $(build_pdf)
+
+.PHONY: clone-info
+clone-info:
+	printf "Revision-info:\n"
+	printf "%s revision.is(): sha1:%s\n" "-" "$$(git rev-parse HEAD)"
+	printf "%s node.id(): '%s'\n" "-" "$$(python -c 'import platform; import uuid; print(str(uuid.uuid3(uuid.NAMESPACE_DNS, platform.node())))')"
