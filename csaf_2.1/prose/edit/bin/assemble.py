@@ -108,11 +108,6 @@ TOK_EG = "<a id='$thing$'></a>"
 TOC_VERTICAL_SPACER = ''
 
 CITE_COSMETICS_TEMPLATE = '**\\[**<span id="$label$" class="anchor"></span>**$code$\\]** $text$'
-CITATION_SOURCES = (
-    'introduction-03-normative-references.md',
-    'introduction-04-informative-references.md',
-)
-GLOSSARY_SOURCES = ('introduction-02-terminology-glossary.md',)
 
 # Type declarations:
 META_TOC_TYPE = dict[str, dict[str, Union[bool, str, list[dict[str, str]]]]]
@@ -125,9 +120,15 @@ def load_binder(binder_at: Union[str, pathlib.Path], ignores: Union[list[str], N
     return [path for path in collation if str(path) not in ignores] if ignores else collation
 
 
-def end_of_toc_in(text: str) -> bool:
-    """Detect the end of the table of contents placeholder."""
-    return text.startswith('#') and ' Introduction' in text
+def end_of_toc_in(text: str, marker: str) -> bool:
+    """Detect the end of the table of contents placeholder.
+
+    marker is the clean-md-start value (e.g. '# Introduction').
+    By the time this runs, headings have been numbered (e.g. '# 1 Introduction'),
+    so we match by presence of the heading word as a substring, not by prefix.
+    """
+    marker_text = marker.lstrip('#').strip()
+    return text.startswith(HASH) and f' {marker_text}' in text
 
 
 def detect_meta(text_lines: list[str]) -> tuple[META_TOC_TYPE, list[str]]:
@@ -366,6 +367,9 @@ def main(argv: list[str]) -> int:
     sec_ref_style: str = str(config.get('sec-ref-style', 'number'))
     clean_md_start: str = str(config.get('clean-md-start', CLEAN_MD_START))
     track_examples: bool = bool(config.get('track-examples', False))
+    citation_sources: tuple[str, ...] = tuple(config.get('citation-sources', []))
+    glossary_sources: tuple[str, ...] = tuple(config.get('glossary-sources', []))
+    citation_skip_prefixes: tuple[str, ...] = tuple(config.get('citation-skip-prefixes', ['#']))
 
     display_from = load_label_to_display_lut()
     display_to_text = load_display_to_text_lut()
@@ -392,14 +396,14 @@ def main(argv: list[str]) -> int:
                 simplified.append(line)
             part_lines = list(simplified)
 
-        if resource.name in CITATION_SOURCES:  # TODO: citation management → class
+        if resource.name in citation_sources:  # TODO: citation management → class
             patched = []
             in_citation = False
             in_fenced_block = False
             for line in part_lines:
                 if line.startswith(FENCED_BLOCK_FLIP_FLOP):
                     in_fenced_block = not in_fenced_block
-                if line.startswith(HASH) and not in_fenced_block:
+                if line.startswith(citation_skip_prefixes) and not in_fenced_block:
                     patched.append(line)
                     continue
                 if line.strip() and not line.startswith(COLON):
@@ -431,7 +435,7 @@ def main(argv: list[str]) -> int:
             part_lines = list(patched)
 
         # Glossary <dl> expansion: HTML needs raw HTML for rendering; PDF uses LaTeX definition lists.
-        if target != TARGET_PDF and resource.name in GLOSSARY_SOURCES:  # TODO: glossary management → class
+        if target != TARGET_PDF and resource.name in glossary_sources:  # TODO: glossary management → class
             patched = ['<dl>' + NL]
             in_definition = False
             for line in part_lines:
@@ -627,6 +631,7 @@ def main(argv: list[str]) -> int:
                 cs_of_slot[slot] = current_cs  # type: ignore
 
             # MAYBE_SEC_NO_TOC_BEFORE_INTRODUCTION
+            # Only meaningful for PDF/LaTeX; HTML TOC is built by toccata.py independently.
             if line.startswith(tag) and not clean_headings and target == TARGET_PDF:
                 lines[slot] = line.rstrip() + SEC_NO_TOC_POSTFIX + NL
 
@@ -739,7 +744,7 @@ def main(argv: list[str]) -> int:
         tic_toc.append(YAML_X_SEP)
         tic_toc.append(NL)
         for slot, line in enumerate(lines):
-            if end_of_toc_in(line):
+            if end_of_toc_in(line, clean_md_start):
                 lines[slot] = NL.join(tic_toc) + line
                 break
 

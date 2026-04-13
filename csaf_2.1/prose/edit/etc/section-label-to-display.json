@@ -1,5 +1,5 @@
 {
-  "Please do not edit manually!": "Cf. documentation",
+  "Please do not edit manually!": "Cf. sections-config.yaml and bin/sections.py",
   "acknowledgments": "Appendix A.",
   "acknowledgments-type": "3.1.1",
   "acknowledgments-type---example": "3.1.1.5",
