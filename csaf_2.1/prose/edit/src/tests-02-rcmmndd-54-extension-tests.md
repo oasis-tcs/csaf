@@ -1,7 +1,7 @@
 ### Extension Tests{#recommended-tests--extension-tests}
 
 This subsubsection structures the recommended tests for extensions.
-Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
 > An application MAY group these tests when providing the additional function to only run one or more selected tests.
 
