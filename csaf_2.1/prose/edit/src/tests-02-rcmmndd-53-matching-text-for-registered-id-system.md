@@ -1,6 +1,6 @@
 ### Matching Text for Registered ID System
 
-For each item in `/vulnerabilities[]/ids` that the value of a registered vulnerability ID system as `system_name`,
+For each item in `/vulnerabilities[]/ids` that has the value of a registered vulnerability ID system as `system_name`,
 it MUST be tested that the `text` in the CSAF document matches the `text_pattern` given by the
 "Registry for Vulnerability ID Systems for CSAF" (RVISC).
 
