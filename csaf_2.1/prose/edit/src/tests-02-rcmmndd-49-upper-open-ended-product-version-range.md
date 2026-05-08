@@ -1,6 +1,6 @@
 ### Upper Open Ended Product Version Range
 
-For each element of type `/$defs/branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` is not an
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` is not an
 upper open ended product version range.
 
 > Usually, the last including version constraint of an upper open ended product version range contains as comparator either `>` or `>=`.

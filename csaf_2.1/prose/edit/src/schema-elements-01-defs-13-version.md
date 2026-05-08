@@ -26,7 +26,7 @@ A CSAF document MUST use only one versioning system.
 
 #### Version Type - Integer Versioning
 
-Integer versioning increments for each version where the `/document/tracking/status` is `final` the version number by one.
+Integer versioning increments for each version where the `$.document.tracking.status` is `final` the version number by one.
 The regular expression for this type is:
 
 ```
@@ -40,7 +40,7 @@ The following rules apply:
 2. Version zero (`0`) is for initial development before the `initial_release_date`.
    The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
 3. Version `1` defines the initial release to the specified target group.
-   Each new version where `/document/tracking/status` is `final` has a version number incremented by one.
+   Each new version where `$.document.tracking.status` is `final` has a version number incremented by one.
 4. Pre-release versions (document status `draft`) MUST carry the new version number.
    Sole exception is before the initial release (see rule 2).
    The combination of document status `draft` and version `1` MAY be used to indicate that the content is unlikely to change.
@@ -86,16 +86,16 @@ This results in the following rules:
 7. Major version `X` (`X.y.z` | `X > 0`) MUST be incremented if a new comparison with the end user's asset database is required.
    This includes:
 
-   * changes (adding, removing elements or modifying content) in `/product_tree` or elements which contain `/product_tree` in their path
-   * adding or removing items of `/vulnerabilities`
+   * changes (adding, removing elements or modifying content) in `$.product_tree` or elements which contain `$.product_tree` in their path
+   * adding or removing items of `$.vulnerabilities`
    * adding or removing elements in:
-     * `/vulnerabilities[]/product_status/first_affected`
-     * `/vulnerabilities[]/product_status/known_affected`
-     * `/vulnerabilities[]/product_status/last_affected`
+     * `$.vulnerabilities[*].product_status.first_affected`
+     * `$.vulnerabilities[*].product_status.known_affected`
+     * `$.vulnerabilities[*].product_status.last_affected`
    * removing elements from:
-     * `/vulnerabilities[]/product_status/first_fixed`
-     * `/vulnerabilities[]/product_status/fixed`
-     * `/vulnerabilities[]/product_status/known_not_affected`
+     * `$.vulnerabilities[*].product_status.first_fixed`
+     * `$.vulnerabilities[*].product_status.fixed`
+     * `$.vulnerabilities[*].product_status.known_not_affected`
 
    It MAY also include minor and patch level changes.
    Patch and minor version MUST be reset to `0` when major version is incremented.
@@ -116,7 +116,7 @@ This results in the following rules:
    1.0.0-x.7.z.92
    ```
 
-9. Pre-release MUST NOT be included if `/document/tracking/status` is `final`.
+9. Pre-release MUST NOT be included if `$.document.tracking.status` is `final`.
 10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following
     the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
     Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence.

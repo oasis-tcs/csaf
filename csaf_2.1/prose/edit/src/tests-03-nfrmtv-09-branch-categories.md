@@ -1,6 +1,6 @@
 ### Branch Categories
 
-For each element of type `/$defs/full_product_name_t` in `/product_tree/branches` it MUST be tested that
+For each element of type `$['$defs'].full_product_name_t` in `$.product_tree.branches` it MUST be tested that
 ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that
 order starting with the Product tree node.
 

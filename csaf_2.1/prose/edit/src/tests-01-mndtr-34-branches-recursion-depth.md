@@ -1,6 +1,6 @@
 ### Branches Recursion Depth{#mandatory-tests--branches-recursion-depth}
 
-For each product defined under `/product_tree/branches[]` it MUST be tested that the complete JSON path
+For each product defined under `$.product_tree.branches[*]` it MUST be tested that the complete JSON path
 does not contain more than 30 instances of `branches`.
 
 The relevant path for this test is:

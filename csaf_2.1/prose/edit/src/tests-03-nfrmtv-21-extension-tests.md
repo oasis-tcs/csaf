@@ -84,7 +84,7 @@ The relevant paths for this test are:
 
 #### Usage of Extension at Document Level
 
-It MUST be tested that the element `/document/x_extensions` does not exist.
+It MUST be tested that the element `$.document.x_extensions` does not exist.
 
 The relevant path for this test is:
 
@@ -106,11 +106,11 @@ The relevant path for this test is:
   }
 ```
 
-> The element `/document/x_extensions` exists.
+> The element `$.document.x_extensions` exists.
 
 #### Usage of Extension in Product Tree Branch Path
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/branches`.
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.branches`.
 
 The relevant path for this test is:
 
@@ -146,11 +146,11 @@ The relevant path for this test is:
   }
 ```
 
-> The element `x_extensions` exists in a path that starts with `/product_tree/branches`.
+> The element `x_extensions` exists in a path that starts with `$.product_tree.branches`.
 
 #### Usage of Extension in Product Tree Full Product Names Path
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/full_product_names`.
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.full_product_names`.
 
 The relevant path for this test is:
 
@@ -173,11 +173,11 @@ The relevant path for this test is:
   }
 ```
 
-> The element `x_extensions` exists in a path that starts with `/product_tree/full_product_names`.
+> The element `x_extensions` exists in a path that starts with `$.product_tree.full_product_names`.
 
 #### Usage of Extension in Product Tree Product Paths Path
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/product_tree/product_paths`.
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.product_paths`.
 
 The relevant path for this test is:
 
@@ -205,11 +205,11 @@ The relevant path for this test is:
   }
 ```
 
-> The element `x_extensions` exists in a path that starts with `/product_tree/product_paths`.
+> The element `x_extensions` exists in a path that starts with `$.product_tree.product_paths`.
 
 #### Usage of Extension in Vulnerabilities Metrics Path
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `/vulnerabilities[]/metrics`.
+It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.vulnerabilities[*].metrics`.
 
 The relevant path for this test is:
 
@@ -236,11 +236,11 @@ The relevant path for this test is:
   ]
 ```
 
-> The element `x_extensions` exists in a path that starts with `/vulnerabilities[]/metrics`.
+> The element `x_extensions` exists in a path that starts with `$.vulnerabilities[*].metrics`.
 
 #### Usage of Extension at Vulnerabilities Level
 
-For each item `/vulnerabilities` it MUST be tested that the element `x_extensions` does not exist.
+For each item `$.vulnerabilities` it MUST be tested that the element `x_extensions` does not exist.
 
 The relevant path for this test is:
 
@@ -268,7 +268,7 @@ The relevant path for this test is:
 
 #### Usage of Extension at Root Level
 
-It MUST be tested that the element `/x_extensions` does not exist.
+It MUST be tested that the element `$.x_extensions` does not exist.
 
 The relevant path for this test is:
 
@@ -287,4 +287,4 @@ The relevant path for this test is:
   }
 ```
 
-> The element `/x_extensions` exists.
+> The element `$.x_extensions` exists.

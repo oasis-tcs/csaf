@@ -1,6 +1,6 @@
 ### Unknown Hash Algorithm
 
-For each element of type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/algorithm`,
+For each element of type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`,
 it MUST be tested that the hash algorithm is supported by the implementation.
 The warning MUST differentiate between the values mentioned in section [sec](#full-product-name-type---product-identification-helper---hashes)
 and those not mentioned there.

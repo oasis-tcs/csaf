@@ -1,6 +1,6 @@
 ### Multiple Definition of Product Group ID
 
-For each Product Group ID (type `/$defs/product_group_id_t`) Product Group elements (`/product_tree/product_groups[]`) it
+For each Product Group ID (type `$['$defs'].product_group_id_t`) Product Group elements (`$.product_tree.product_groups[*]`) it
 MUST be tested that the `group_id` was not already defined within the same document.
 
 The relevant path for this test is:

@@ -1,8 +1,8 @@
 ### Missing Definition of Product ID
 
-For each element of type `/$defs/product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and
+For each element of type `$['$defs'].product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and
 therefore reference an element within the `product_tree` it MUST be tested that the Full Product Name element with the matching `product_id` exists.
-The same applies for all items of elements of type `/$defs/products_t`.
+The same applies for all items of elements of type `$['$defs'].products_t`.
 
 The relevant paths for this test are:
 

@@ -747,7 +747,7 @@ Actions are recommended to remediate or address this vulnerability.
 
 > This could include for instance learning more about the vulnerability and context,
 > and/or making a risk-based decision to patch or apply defense-in-depth measures.
-> See `/vulnerabilities[]/remediations`, `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats` for more details.
+> See `$.vulnerabilities[*].remediations`, `$.vulnerabilities[*].notes` and `$.vulnerabilities[*].threats` for more details.
 
 Known not affected (`known_not_affected`) of value type Products (`products_t`) represents that these versions are known not to be affected by
 the vulnerability.
@@ -755,7 +755,7 @@ No remediation is required regarding this vulnerability.
 
 > This could for instance be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist,
 > or other factors.
-> See `/vulnerabilities[]/flags` and `/vulnerabilities[]/threats` in category `impact` for more details.
+> See `$.vulnerabilities[*].flags` and `$.vulnerabilities[*].threats` in category `impact` for more details.
 
 Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be
 affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
@@ -809,7 +809,7 @@ The individual properties form the following product status groups:
 As the aforementioned product status groups contradict each other,
 the sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
 
-> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
+> Note: An issuer might recommend (`$.vulnerabilities[*].product_status.recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
 #### Vulnerabilities Property - References

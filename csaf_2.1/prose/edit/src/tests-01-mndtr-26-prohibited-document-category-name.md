@@ -26,7 +26,7 @@ Also the value MUST NOT start with the reserved prefix `csaf_` except if the val
 This test does only apply for CSAF documents with the profile "CSAF Base".
 Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
 
-> For CSAF 2.1, the test must be skipped for the following values in `/document/category`:
+> For CSAF 2.1, the test must be skipped for the following values in `$.document.category`:
 >
 > ```
 >  csaf_base

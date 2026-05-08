@@ -2,7 +2,7 @@
 
 It MUST be tested that the CSAF document has a canonical URL.
 
-> To implement this test it is deemed sufficient that one item in `/document/references` fulfills all of the following:
+> To implement this test it is deemed sufficient that one item in `$.document.references` fulfills all of the following:
 >
 > * It has the category `self`.
 > * The `url` starts with `https://`.

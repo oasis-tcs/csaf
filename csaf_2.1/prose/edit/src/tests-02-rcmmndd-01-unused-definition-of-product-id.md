@@ -1,6 +1,6 @@
 ### Unused Definition of Product ID
 
-For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it MUST be tested that
+For each Product ID (type `$['$defs'].product_id_t`) in Full Product Name elements (type: `$['$defs'].full_product_name_t`) it MUST be tested that
 the `product_id` is referenced somewhere within the same document.
 
 This test SHALL be skipped for CSAF documents conforming the profile "Informational Advisory".

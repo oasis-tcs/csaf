@@ -1,6 +1,6 @@
 ### Use of Private Language
 
-For each element of type `/$defs/lang_t` it MUST be tested that the language code does not contain subtags reserved for private use.
+For each element of type `$['$defs'].lang_t` it MUST be tested that the language code does not contain subtags reserved for private use.
 
 The relevant paths for this test are:
 

@@ -1,6 +1,6 @@
 ### Missing Metric
 
-For each Product ID (type `/$defs/product_id_t`) in the Product Status groups Affected it MUST be tested that
+For each Product ID (type `$['$defs'].product_id_t`) in the Product Status groups Affected it MUST be tested that
 a metric object exists which covers this product.
 
 The relevant paths for this test are:

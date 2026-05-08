@@ -1,6 +1,6 @@
 ### Multiple Definition of Product ID
 
-For each Product ID (type `/$defs/product_id_t`) in Full Product Name elements (type: `/$defs/full_product_name_t`) it
+For each Product ID (type `$['$defs'].product_id_t`) in Full Product Name elements (type: `$['$defs'].full_product_name_t`) it
 MUST be tested that the `product_id` was not already defined within the same document.
 
 The relevant paths for this test are:

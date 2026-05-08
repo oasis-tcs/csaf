@@ -1,6 +1,6 @@
 ### Multiple Flags with VEX Justification Codes per Product
 
-For each item in `/vulnerabilities[]` it MUST be tested that a Product is not member of more than one Flag item with
+For each item in `$.vulnerabilities[*]` it MUST be tested that a Product is not member of more than one Flag item with
 a VEX justification code (see section [sec](#vulnerabilities-property-flags)).
 This takes indirect relations through Product Groups into account.
 

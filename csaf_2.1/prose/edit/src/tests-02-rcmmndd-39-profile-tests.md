@@ -14,7 +14,7 @@ The test MUST NOT be skipped, if there is an indication, that such a version of 
 Indicators include an affected product version range with the comparator `<` in the last version constraint and
 a remediation item with the categories `vendor_fix` referring to the affected product.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_security_advisory
@@ -64,7 +64,7 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_withdrawn
@@ -99,7 +99,7 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_superseded
@@ -134,7 +134,7 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_superseded
@@ -164,7 +164,7 @@ The relevant path for this test is:
 
 It MUST be tested that the document does not contain an extension.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_withdrawn

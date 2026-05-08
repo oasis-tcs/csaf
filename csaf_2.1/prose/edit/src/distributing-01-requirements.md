@@ -186,7 +186,7 @@ The use of the scheme "HTTPS" is required.
 ### Requirement 11: One Folder per Year
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
-value of `/document/tracking/initial_release_date`.
+value of `$.document.tracking.initial_release_date`.
 
 *Examples 1:*
 
@@ -213,7 +213,7 @@ The last entry MAY skip the newline sequence.
 
 > This can be used to download all CSAF documents.
 
-The file `index.txt` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+The file `index.txt` SHALL be located in the folder given as directory URL under `$.distributions[*].directory.url` in the `provider-metadata.json`.
 
 > If different TLP labels are used, multiple `index.txt` exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
@@ -308,7 +308,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 ### Requirement 13: changes.csv{#requirement-13-changes-csv}
 
 The file `changes.csv` contains a list of CSAF documents in the current TLP level that were changed recently.
-Therefore, it MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
+Therefore, it MUST contain the filename as well as the value of `$.document.tracking.current_release_date` for each
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 The `changes.csv` SHALL be a valid comma separated values format as defined by [cite](#RFC4180) without double quotes.
 
@@ -327,7 +327,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 > Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
 
-The file `changes.csv` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+The file `changes.csv` SHALL be located in the folder given as directory URL under `$.distributions[*].directory.url` in the `provider-metadata.json`.
 
 > The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
 > The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].

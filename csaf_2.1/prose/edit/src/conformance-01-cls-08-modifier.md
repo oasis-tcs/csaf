@@ -12,8 +12,8 @@ The program:
 
 The resulting modified document:
 
-* does not have the same `/document/tracking/id` as the original document.
-  The modified document can use a completely new `/document/tracking/id` or compute one by appending the original `/document/tracking/id` as
+* does not have the same `$.document.tracking.id` as the original document.
+  The modified document can use a completely new `$.document.tracking.id` or compute one by appending the original `$.document.tracking.id` as
   a suffix after an ID from the naming scheme of the issuer of the modified version.
-  It SHOULD NOT use the original `/document/tracking/id` as a prefix.
-* includes a reference to the original advisory as first element of the array `/document/references[]`.
+  It SHOULD NOT use the original `$.document.tracking.id` as a prefix.
+* includes a reference to the original advisory as first element of the array `$.document.references[*]`.

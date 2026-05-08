@@ -1,6 +1,6 @@
 ### Usage of Product Version Range
 
-For each element of type `/$defs/branches_t` it MUST be tested that the `category` is not `product_version_range`.
+For each element of type `$['$defs'].branches_t` it MUST be tested that the `category` is not `product_version_range`.
 
 > It is usually hard decide for machines whether a product version matches a product version ranges.
 > Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.

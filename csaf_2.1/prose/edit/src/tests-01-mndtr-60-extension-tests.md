@@ -120,4 +120,4 @@ The relevant paths for this test are:
   }
 ```
 
-> The extension is only allowed once in the path `/x_extensions`.
+> The extension is only allowed once in the path `$.x_extensions`.

@@ -1,6 +1,6 @@
 ### Product Version Range without vers
 
-For each element of type `/$defs/branches_t` with `category` of `product_version_range` it MUST be tested that
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` it MUST be tested that
 the value of `name` indicates that the product version range is using vers.
 
 > Compliance with the vers specification itself is enforced via test [sec](#product-version-range-rules).

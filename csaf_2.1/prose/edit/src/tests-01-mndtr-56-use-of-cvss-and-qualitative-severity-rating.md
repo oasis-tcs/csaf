@@ -1,6 +1,6 @@
 ### Use of CVSS and Qualitative Severity Rating
 
-For each item in `/vulnerabilities` it MUST be tested that no Qualitative Severity Rating and CVSS values are listed for the tuple of Product ID
+For each item in `$.vulnerabilities` it MUST be tested that no Qualitative Severity Rating and CVSS values are listed for the tuple of Product ID
 and source.
 
 > Different source might assign different metrics for the same product.

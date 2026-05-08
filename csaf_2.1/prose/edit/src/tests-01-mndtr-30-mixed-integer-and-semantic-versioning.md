@@ -1,6 +1,6 @@
 ### Mixed Integer and Semantic Versioning
 
-It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or
+It MUST be tested that all elements of type `$['$defs'].version_t` follow either integer versioning or
 semantic versioning homogeneously within the same document.
 
 The relevant paths for this test are:

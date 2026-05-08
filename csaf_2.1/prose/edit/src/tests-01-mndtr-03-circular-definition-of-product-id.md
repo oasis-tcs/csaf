@@ -1,6 +1,6 @@
 ### Circular Definition of Product ID
 
-For each new defined Product ID (type `/$defs/product_id_t`) in items of product paths (`/product_tree/product_paths`) it
+For each new defined Product ID (type `$['$defs'].product_id_t`) in items of product paths (`$.product_tree.product_paths`) it
 MUST be tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:

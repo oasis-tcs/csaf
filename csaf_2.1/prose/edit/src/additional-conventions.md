@@ -6,7 +6,7 @@ This section provides additional rules for handling CSAF documents.
 
 The following rules MUST be applied to determine the filename for the CSAF document:
 
-1. The value `/document/tracking/id` is converted into lowercase.
+1. The value `$.document.tracking.id` is converted into lowercase.
 2. Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (`_`):
    * lower-case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
@@ -17,7 +17,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    >
    > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations
    > where the conversion rule might lead to multiple consecutive underscores.
-   > As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
+   > As a result, a `$.document.tracking.id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 
 3. The file extension `.json` MUST be appended.
 
@@ -75,7 +75,7 @@ Other fields MUST NOT contain Markdown.
 
 ## Branch Recursion
 
-The `/product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
+The `$.product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
 
 ```
 /product_tree/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/product
