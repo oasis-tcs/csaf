@@ -15,6 +15,8 @@ The relevant path for this test is:
   /vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date
   /vulnerabilities[]/flags[]/date
   /vulnerabilities[]/involvements[]/date
+  /vulnerabilities[]/metrics[]/content/epss/timestamp
+  /vulnerabilities[]/metrics[]/content/ssvc_v2/timestamp
   /vulnerabilities[]/remediations[]/date
   /vulnerabilities[]/threats[]/date
 ```

@@ -51,7 +51,7 @@ For any restricted feeds, standard authentication methods SHOULD be used that ar
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
 Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.
-If CSAF producers, CSAF consumers or CSAF validators provide a option to interactively or automatically load missing schemes,
+If CSAF producers, CSAF consumers or CSAF validators provide an option to interactively or automatically load missing schemes,
 they SHALL point out the risks of setting the option and actively warn the user about it.
 Such option SHALL NOT be set by default.
 CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks.

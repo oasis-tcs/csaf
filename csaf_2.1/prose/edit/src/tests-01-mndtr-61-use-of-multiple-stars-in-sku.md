@@ -1,6 +1,6 @@
 ### Use of Multiple Stars in SKU
 
-For each stock keeping unit it MUST be tested that the it does not contain multiple unescaped stars.
+For each stock keeping unit it MUST be tested that it does not contain multiple unescaped stars.
 
 > Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
 
