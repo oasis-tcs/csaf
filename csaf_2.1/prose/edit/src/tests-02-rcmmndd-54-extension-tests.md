@@ -14,12 +14,12 @@ The relevant paths for this test are:
 
 ```
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product$.x_extensions[]
+  $.product_tree.branches[*]..product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
   $.vulnerabilities[*].x_extensions[*]
-  $.x_extensions[]
+  $.x_extensions[*]
 ```
 
 *Example 1 (which fails the test):*
@@ -43,12 +43,12 @@ The relevant paths for this test are:
 
 ```
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product$.x_extensions[]
+  $.product_tree.branches[*]..product$.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
   $.vulnerabilities[*].x_extensions[*]
-  $.x_extensions[]
+  $.x_extensions[*]
 ```
 
 *Example 1 (which fails the test):*
@@ -104,12 +104,12 @@ The relevant paths for this test are:
 
 ```
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product$.x_extensions[]
+  $.product_tree.branches[*]..product$.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
   $.vulnerabilities[*].x_extensions[*]
-  $.x_extensions[]
+  $.x_extensions[*]
 ```
 
 *Example 1 (which fails the test):*
