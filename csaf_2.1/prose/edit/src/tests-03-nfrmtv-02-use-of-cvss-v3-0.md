@@ -5,8 +5,8 @@ For each item in the list of metrics which contains the `cvss_v3` object under `
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/metrics[]/content/cvss_v3/version
-  /vulnerabilities[]/metrics[]/content/cvss_v3/vectorString
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.version
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString
 ```
 
 *Example 1 (which fails the test):*

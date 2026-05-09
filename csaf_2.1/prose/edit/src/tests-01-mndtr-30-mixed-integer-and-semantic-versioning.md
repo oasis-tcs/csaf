@@ -6,8 +6,8 @@ semantic versioning homogeneously within the same document.
 The relevant paths for this test are:
 
 ```
-  /document/tracking/revision_history[]/number
-  /document/tracking/version
+  $.document.tracking.revision_history[*].number
+  $.document.tracking.version
 ```
 
 *Example 1 (which fails the test):*

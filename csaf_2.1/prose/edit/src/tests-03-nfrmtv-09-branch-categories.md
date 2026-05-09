@@ -9,7 +9,7 @@ order starting with the Product tree node.
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches
+  $.product_tree.branches
 ```
 
 *Example 1 (which fails the test):*

@@ -5,7 +5,7 @@ For each item in `$.vulnerabilities[*].flags` it MUST be tested that it includes
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/flags[]
+  $.vulnerabilities[*].flags[]
 ```
 
 *Example 1 (which fails the test):*

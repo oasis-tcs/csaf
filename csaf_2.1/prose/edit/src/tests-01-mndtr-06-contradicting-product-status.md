@@ -7,7 +7,7 @@ The sets formed by the contradicting groups within one vulnerability item MUST b
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/product_status
+    $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*

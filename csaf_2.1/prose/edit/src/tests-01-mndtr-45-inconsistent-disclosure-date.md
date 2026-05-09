@@ -7,7 +7,7 @@ As the timestamps might use different timezones, the sorting MUST take timezones
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/disclosure_date
+    $.vulnerabilities[*].disclosure_date
 ```
 
 *Example 1 (which fails the test):*

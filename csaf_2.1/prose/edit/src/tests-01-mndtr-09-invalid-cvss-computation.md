@@ -7,17 +7,17 @@ It MUST be tested that the given CVSS object has the values computed correctly a
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/metrics[]/content/cvss_v2/baseScore
-  /vulnerabilities[]/metrics[]/content/cvss_v2/temporalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v2/environmentalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v3/baseScore
-  /vulnerabilities[]/metrics[]/content/cvss_v3/baseSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v3/temporalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v3/temporalSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalScore
-  /vulnerabilities[]/metrics[]/content/cvss_v3/environmentalSeverity
-  /vulnerabilities[]/metrics[]/content/cvss_v4/baseScore
-  /vulnerabilities[]/metrics[]/content/cvss_v4/baseSeverity
+  $.vulnerabilities[*].metrics[*].content.cvss_v2.baseScore
+  $.vulnerabilities[*].metrics[*].content.cvss_v2.temporalScore
+  $.vulnerabilities[*].metrics[*].content.cvss_v2.environmentalScore
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.baseScore
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.baseSeverity
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.temporalScore
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.temporalSeverity
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.environmentalScore
+  $.vulnerabilities[*].metrics[*].content.cvss_v3.environmentalSeverity
+  $.vulnerabilities[*].metrics[*].content.cvss_v4.baseScore
+  $.vulnerabilities[*].metrics[*].content.cvss_v4.baseSeverity
 ```
 
 > Note: CVSS v4 does not define `threatScore`, `threatSeverity`, `environmentalScore` and `environmentalSeverity`.

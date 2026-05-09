@@ -6,7 +6,7 @@ For each `full_product_name_t` element under `$.product_tree.branches`, it MUST 
 The relevant path for this test is:
 
 ```
-    /product_tree/branches[](/branches[])*/category
+    $.product_tree.branches[*]..category
 ```
 
 *Example 1 (which fails the test):*

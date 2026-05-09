@@ -776,34 +776,34 @@ The individual properties form the following product status groups:
 * Affected:
 
    ```
-   /vulnerabilities[]/product_status/first_affected[]
-   /vulnerabilities[]/product_status/known_affected[]
-   /vulnerabilities[]/product_status/last_affected[]
+   $.vulnerabilities[*].product_status.first_affected[*]
+   $.vulnerabilities[*].product_status.known_affected[*]
+   $.vulnerabilities[*].product_status.last_affected[*]
    ```
 
 * Not affected:
 
   ```
-  /vulnerabilities[]/product_status/known_not_affected[]
+  $.vulnerabilities[*].product_status.known_not_affected[*]
   ```
 
 * Fixed:
 
   ```
-  /vulnerabilities[]/product_status/first_fixed[]
-  /vulnerabilities[]/product_status/fixed[]
+  $.vulnerabilities[*].product_status.first_fixed[*]
+  $.vulnerabilities[*].product_status.fixed[*]
   ```
 
 * Under investigation:
 
   ```
-  /vulnerabilities[]/product_status/under_investigation[]
+  $.vulnerabilities[*].product_status.under_investigation[*]
   ```
 
 * Unknown:
 
   ```
-  /vulnerabilities[]/product_status/unknown[]
+  $.vulnerabilities[*].product_status.unknown[*]
   ```
 
 As the aforementioned product status groups contradict each other,

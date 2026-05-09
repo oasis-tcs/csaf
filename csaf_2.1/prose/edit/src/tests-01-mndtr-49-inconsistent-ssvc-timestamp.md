@@ -7,7 +7,7 @@ As the timestamps might use different timezones, the sorting MUST take timezones
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/metrics[]/content/ssvc_v2/timestamp
+    $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
 ```
 
 *Example 1 (which fails the test):*

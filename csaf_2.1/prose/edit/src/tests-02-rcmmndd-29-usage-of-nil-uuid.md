@@ -5,7 +5,7 @@ It MUST be tested that the Nil UUID is not used as sharing group id.
 The relevant path for this test is:
 
 ```
-  /document/distribution/sharing_group/id
+  $.document.distribution.sharing_group.id
 ```
 
 *Example 1 (which fails the test):*

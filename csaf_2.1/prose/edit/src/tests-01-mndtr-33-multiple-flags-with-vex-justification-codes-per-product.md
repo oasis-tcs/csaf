@@ -10,7 +10,7 @@ This takes indirect relations through Product Groups into account.
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/flags
+  $.vulnerabilities[*].flags
 ```
 
 *Example 1 (which fails the test):*

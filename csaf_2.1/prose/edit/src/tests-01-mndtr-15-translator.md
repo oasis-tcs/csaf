@@ -7,7 +7,7 @@ not being present at all.
 The relevant path for this test is:
 
 ```
-    /document/source_lang
+    $.document.source_lang
 ```
 
 *Example 1 (which fails the test):*

@@ -8,7 +8,7 @@ registered vulnerability ID system in RVISC.
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/ids[]/system_name
+  $.vulnerabilities[*].ids[*].system_name
 ```
 
 *Example 1 (which fails the test):*

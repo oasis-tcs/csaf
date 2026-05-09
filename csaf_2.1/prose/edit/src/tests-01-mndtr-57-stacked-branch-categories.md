@@ -8,7 +8,7 @@ Therefore, `product_family` MUST be ignored in the test.
 The relevant path for this test is:
 
 ```
-    /product_tree/branches[](/branches[])*/category
+    $.product_tree.branches[*]..category
 ```
 
 *Example 1 (which fails the test):*

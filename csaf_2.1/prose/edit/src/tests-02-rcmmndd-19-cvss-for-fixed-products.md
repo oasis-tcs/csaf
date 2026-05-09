@@ -8,8 +8,8 @@ The test SHALL pass if none of the Product IDs listed within product status `fix
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/product_status/first_fixed[]
-  /vulnerabilities[]/product_status/fixed[]
+  $.vulnerabilities[*].product_status.first_fixed[*]
+  $.vulnerabilities[*].product_status.fixed[*]
 ```
 
 *Example 1 (which fails the test):*

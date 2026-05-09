@@ -9,7 +9,7 @@ For each item in `metrics` provided by the issuing party it MUST be tested that 
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/metrics[]
+    $.vulnerabilities[*].metrics[*]
 ```
 
 *Example 1 (which fails the test):*

@@ -8,7 +8,7 @@ Any `id` that refers to a CWE Category or View MUST fail the test.
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/cwes[]
+    $.vulnerabilities[*].cwes[*]
 ```
 
 *Example 1 (which fails the test):*

@@ -6,7 +6,7 @@ MUST be tested that the `product_id` does not end up in a circle.
 The relevant path for this test is:
 
 ```
-  /product_tree/product_paths[]/full_product_name/product_id
+  $.product_tree.product_paths[*].full_product_name.product_id
 ```
 
 > As this can be quite complex a program for large CSAF documents, a program could check first whether

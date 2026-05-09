@@ -10,8 +10,8 @@ For each item in `$.product_tree.product_paths[*]` it MUST be tested that all re
 The relevant paths for this test are:
 
 ```
-  /product_tree/product_paths[]/beginning_product_reference
-  /product_tree/product_paths[]/subpaths[]/next_product_reference
+  $.product_tree.product_paths[*].beginning_product_reference
+  $.product_tree.product_paths[*].subpaths[*].next_product_reference
 ```
 
 *Example 1 (which fails the test):*

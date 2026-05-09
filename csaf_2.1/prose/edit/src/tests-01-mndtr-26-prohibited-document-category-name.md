@@ -44,7 +44,7 @@ This is the only mandatory test related to the profile "CSAF Base" as the requir
 The relevant path for this test is:
 
 ```
-  /document/category
+  $.document.category
 ```
 
 *Examples 1 (for currently prohibited values):*

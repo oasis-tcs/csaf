@@ -8,7 +8,7 @@ For each element of type `$['$defs'].branches_t` it MUST be tested that the `cat
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/category
+  $.product_tree.branches[*]..category
 ```
 
 *Example 1 (which fails the test):*

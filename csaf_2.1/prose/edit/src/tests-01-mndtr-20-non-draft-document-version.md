@@ -5,7 +5,7 @@ It MUST be tested that document version does not contain a pre-release part if t
 The relevant path for this test is:
 
 ```
-    /document/tracking/version
+    $.document.tracking.version
 ```
 
 *Example 1 (which fails the test):*

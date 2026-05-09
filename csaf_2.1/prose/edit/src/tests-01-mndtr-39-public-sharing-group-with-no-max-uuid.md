@@ -6,7 +6,7 @@ The test SHALL pass if no sharing group is present or the Nil UUID is used and t
 The relevant path for this test is:
 
 ```
-  /document/distribution/sharing_group/id
+  $.document.distribution.sharing_group.id
 ```
 
 *Example 1 (which fails the test):*

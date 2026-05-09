@@ -5,7 +5,7 @@ It MUST be tested that a CVE is not used in multiple vulnerability items.
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/cve
+    $.vulnerabilities[*].cve
 ```
 
 *Example 1 (which fails the test):*

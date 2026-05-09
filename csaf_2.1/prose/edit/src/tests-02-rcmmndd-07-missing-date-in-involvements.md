@@ -5,7 +5,7 @@ For each item in the list of involvements it MUST be tested that it includes the
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/involvements
+    $.vulnerabilities[*].involvements
 ```
 
 *Example 1 (which fails the test):*

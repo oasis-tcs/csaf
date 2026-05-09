@@ -7,7 +7,7 @@ This takes indirect relations through product groups into account.
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/remediations[]
+  $.vulnerabilities[*].remediations[*]
 ```
 
 *Example 1 (which fails the test):*

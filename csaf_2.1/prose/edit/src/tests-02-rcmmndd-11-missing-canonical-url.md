@@ -11,7 +11,7 @@ It MUST be tested that the CSAF document has a canonical URL.
 The relevant path for this test is:
 
 ```
-  /document/references
+  $.document.references
 ```
 
 *Example 1 (which fails the test):*

@@ -23,7 +23,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/product_status
+  $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -73,7 +73,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /document/notes
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -108,7 +108,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /document/notes
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -143,7 +143,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /document/references
+  $.document.references
 ```
 
 *Example 1 (which fails the test):*
@@ -174,8 +174,8 @@ The relevant values for `$.document.category` are:
 The relevant paths for this test are:
 
 ```
-  /document/x_extensions
-  /x_extensions
+  $.document.x_extensions
+  $.x_extensions
 ```
 
 *Example 1 (which fails the test):*

@@ -6,7 +6,7 @@ The test SHALL fail if a later CWE version was used.
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/cwes[]
+  $.vulnerabilities[*].cwes[*]
 ```
 
 *Example 1 (which fails the test):*

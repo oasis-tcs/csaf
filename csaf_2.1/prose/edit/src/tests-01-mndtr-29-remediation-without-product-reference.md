@@ -5,7 +5,7 @@ For each item in `$.vulnerabilities[*].remediations` it MUST be tested that it i
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/remediations[]
+  $.vulnerabilities[*].remediations[*]
 ```
 
 *Example 1 (which fails the test):*

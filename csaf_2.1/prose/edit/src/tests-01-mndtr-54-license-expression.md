@@ -10,7 +10,7 @@ It MUST be tested that the license expression is valid.
 The relevant path for this test is:
 
 ```
-  /document/license_expression
+  $.document.license_expression
 ```
 
 *Example 1 (which fails the test):*

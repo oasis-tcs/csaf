@@ -9,7 +9,7 @@ For each item in `$.vulnerabilities` it MUST be tested that the same Product ID 
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/metrics[]
+    $.vulnerabilities[*].metrics[*]
 ```
 
 *Example 1 (which fails the test):*

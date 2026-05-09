@@ -13,7 +13,7 @@ member of the same product status group (see section [sec](#vulnerabilities-prop
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/product_status
+    $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -78,7 +78,7 @@ member of the same product status group (see section [sec](#vulnerabilities-prop
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/product_status
+    $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -143,7 +143,7 @@ member of the same product status group (see section [sec](#vulnerabilities-prop
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/product_status
+    $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -207,7 +207,7 @@ For each `EPVR` (as `CTPVR`), it MUST be tested that all product version ranges 
 The relevant path for this test is:
 
 ```
-     /product_tree/branches[](/branches[])*/name
+     $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*
@@ -246,7 +246,7 @@ For each `EPVR` (as `CTPVR`), it MUST be tested that all product versions of ele
 The relevant path for this test is:
 
 ```
-     /product_tree/branches[](/branches[])*/name
+     $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

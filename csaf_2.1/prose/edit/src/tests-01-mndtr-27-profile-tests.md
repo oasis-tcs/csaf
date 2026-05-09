@@ -21,7 +21,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /document/notes
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -52,7 +52,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /document/references
+  $.document.references
 ```
 
 *Example 1 (which fails the test):*
@@ -84,7 +84,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities
+  $.vulnerabilities
 ```
 
 *Example 1 (which fails the test):*
@@ -116,7 +116,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /product_tree
+  $.product_tree
 ```
 
 *Example 1 (which fails the test):*
@@ -149,7 +149,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/notes
+  $.vulnerabilities[*].notes
 ```
 
 *Example 1 (which fails the test):*
@@ -183,7 +183,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/product_status
+  $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -212,10 +212,10 @@ The relevant value for `$.document.category` is:
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/product_status/fixed
-  /vulnerabilities[]/product_status/known_affected
-  /vulnerabilities[]/product_status/known_not_affected
-  /vulnerabilities[]/product_status/under_investigation
+  $.vulnerabilities[*].product_status.fixed
+  $.vulnerabilities[*].product_status.known_affected
+  $.vulnerabilities[*].product_status.known_not_affected
+  $.vulnerabilities[*].product_status.under_investigation
 ```
 
 *Example 1 (which fails the test):*
@@ -246,8 +246,8 @@ The relevant value for `$.document.category` is:
 The relevant paths for this test are:
 
 ```
-  /vulnerabilities[]/cve
-  /vulnerabilities[]/ids
+  $.vulnerabilities[*].cve
+  $.vulnerabilities[*].ids
 ```
 
 *Example 1 (which fails the test):*
@@ -277,8 +277,8 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/flags
-  /vulnerabilities[]/threats
+  $.vulnerabilities[*].flags
+  $.vulnerabilities[*].threats
 ```
 
 *Example 1 (which fails the test):*
@@ -350,7 +350,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/remediations
+  $.vulnerabilities[*].remediations
 ```
 
 *Example 1 (which fails the test):*
@@ -424,7 +424,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities
+  $.vulnerabilities
 ```
 
 *Example 1 (which fails the test):*
@@ -455,7 +455,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/product_status/known_affected
+  $.vulnerabilities[*].product_status.known_affected
 ```
 
 *Example 1 (which fails the test):*
@@ -489,7 +489,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/product_status/known_affected
+  $.vulnerabilities[*].product_status.known_affected
 ```
 
 *Example 1 (which fails the test):*
@@ -550,7 +550,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /document/notes
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -581,7 +581,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /product_tree
+  $.product_tree
 ```
 
 *Example 1 (which fails the test):*
@@ -608,7 +608,7 @@ The relevant values for `$.document.category` are:
 The relevant path for this test is:
 
 ```
-  /document/tracking/revision_history
+  $.document.tracking.revision_history
 ```
 
 *Example 1 (which fails the test):*
@@ -640,7 +640,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /document/notes
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -672,7 +672,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /document/notes
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -704,7 +704,7 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```
-  /document/references
+  $.document.references
 ```
 
 *Example 1 (which fails the test):*

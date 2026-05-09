@@ -7,9 +7,9 @@ For each serial number it MUST be tested that it does not contain multiple unesc
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/serial_numbers[]
-  /product_tree/full_product_names[]/product_identification_helper/serial_numbers[]
-  /product_tree/product_paths[]/full_product_name/product_identification_helper/serial_numbers[]
+  $.product_tree.branches[*]..product.product_identification_helper.serial_numbers[*]
+  $.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]
 ```
 
 *Example 1 (which fails the test):*

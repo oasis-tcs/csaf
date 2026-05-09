@@ -6,7 +6,7 @@ does not contain more than 30 instances of `branches`.
 The relevant path for this test is:
 
 ```
-  /product_tree/branches[](/branches[])*/product
+  $.product_tree.branches[*]..product
 ```
 
 *Example 1 (which fails the test):*

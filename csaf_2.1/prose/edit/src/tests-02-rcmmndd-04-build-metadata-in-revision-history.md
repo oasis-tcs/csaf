@@ -5,7 +5,7 @@ For each item in revision history it MUST be tested that `number` does not inclu
 The relevant path for this test is:
 
 ```
-    /document/tracking/revision_history[]/number
+    $.document.tracking.revision_history[*].number
 ```
 
 *Example 1 (which fails the test):*

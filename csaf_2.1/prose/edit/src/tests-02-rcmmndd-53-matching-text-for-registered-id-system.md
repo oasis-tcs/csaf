@@ -9,7 +9,7 @@ it MUST be tested that the `text` in the CSAF document matches the `text_pattern
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/ids[]/text
+  $.vulnerabilities[*].ids[*].text
 ```
 
 *Example 1 (which fails the test):*

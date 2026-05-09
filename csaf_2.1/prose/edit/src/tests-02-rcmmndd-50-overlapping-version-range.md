@@ -56,7 +56,7 @@ member of a contradicting product status groups (see section [sec](#vulnerabilit
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/product_status
+    $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -123,7 +123,7 @@ member of a contradicting product status groups (see section [sec](#vulnerabilit
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/product_status
+    $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -190,7 +190,7 @@ member of a contradicting product status groups (see section [sec](#vulnerabilit
 The relevant path for this test is:
 
 ```
-    /vulnerabilities[]/product_status
+    $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*

@@ -5,8 +5,8 @@ For each element of type `$['$defs'].lang_t` it MUST be tested that the language
 The relevant paths for this test are:
 
 ```
-  /document/lang
-  /document/source_lang
+  $.document.lang
+  $.document.source_lang
 ```
 
 *Example 1 (which fails the test):*

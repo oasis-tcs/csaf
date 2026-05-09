@@ -21,7 +21,7 @@ For more details, see sections [sec](#branches-type---category) and [sec](#branc
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/name
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

@@ -5,7 +5,7 @@ It MUST be tested that the value of sharing group name does not equal the reserv
 The relevant path for this test is:
 
 ```
-  /document/distribution/sharing_group/name
+  $.document.distribution.sharing_group.name
 ```
 
 *Example 1 (which fails the test):*

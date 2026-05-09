@@ -9,7 +9,7 @@ a Major version of 0 or 1 in the case of semantic versioning.
 The relevant path for this test is:
 
 ```
-    /document/tracking/revision_history
+    $.document.tracking.revision_history
 ```
 
 *Example 1 (which fails the test):*

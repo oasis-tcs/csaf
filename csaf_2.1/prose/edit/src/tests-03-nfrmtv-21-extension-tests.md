@@ -7,7 +7,7 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 #### Extension Category Critical
 
-For each item in an element of type `#/$defs/extensions_t` it MUST be tested that the extension `category` of the item
+For each item in an element of type `#$['$defs'].extensions_t` it MUST be tested that the extension `category` of the item
 is not `critical`.
 
 > It is sufficient to check whether the value of `category` is not `critical`.
@@ -15,13 +15,13 @@ is not `critical`.
 The relevant paths for this test are:
 
 ```
-  /document/x_extensions[]/category
-  /product_tree/branches[](/branches[])*/product/x_extensions[]/category
-  /product_tree/full_product_names[]/x_extensions[]/category
-  /product_tree/product_paths[]/full_product_name/x_extensions[]/category
-  /vulnerabilities[]/metrics[]/content/x_extensions[]/category
-  /vulnerabilities[]/x_extensions[]/category
-  /x_extensions[]/category
+  $.document.x_extensions[*].category
+  $.product_tree.branches[*]..product.x_extensions[*].category
+  $.product_tree.full_product_names[*].x_extensions[*].category
+  $.product_tree.product_paths[*].full_product_name.x_extensions[*].category
+  $.vulnerabilities[*].metrics[*].content.x_extensions[*].category
+  $.vulnerabilities[*].x_extensions[*].category
+  $.x_extensions[*].category
 ```
 
 *Example 1 (which fails the test):*
@@ -41,19 +41,19 @@ The relevant paths for this test are:
 
 #### Usage of Experimental Extension in Non TLP:CLEAR Document{#usage-of-experimental-extension-in-non-tlp-clear-document}
 
-For each item in an element of type `#/$defs/extensions_t` it MUST be tested that no experimental extension is used
+For each item in an element of type `#$['$defs'].extensions_t` it MUST be tested that no experimental extension is used
 if the document is not labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
 ```
-  /document/x_extensions[]
-  /product_tree/branches[](/branches[])*/product/x_extensions[]
-  /product_tree/full_product_names[]/x_extensions[]
-  /product_tree/product_paths[]/full_product_name/x_extensions[]
-  /vulnerabilities[]/metrics[]/content/x_extensions[]
-  /vulnerabilities[]/x_extensions[]
-  /x_extensions[]
+  $.document.x_extensions[*]
+  $.product_tree.branches[*]..product$.x_extensions[]
+  $.product_tree.full_product_names[*].x_extensions[*]
+  $.product_tree.product_paths[*].full_product_name.x_extensions[*]
+  $.vulnerabilities[*].metrics[*].content.x_extensions[*]
+  $.vulnerabilities[*].x_extensions[*]
+  $.x_extensions[]
 ```
 
 *Example 1 (which fails the test):*
@@ -89,7 +89,7 @@ It MUST be tested that the element `$.document.x_extensions` does not exist.
 The relevant path for this test is:
 
 ```
-  /document/x_extensions
+  $.document.x_extensions
 ```
 
 *Example 1 (which fails the test):*
@@ -115,7 +115,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 The relevant path for this test is:
 
 ```
-  /product_tree/branches[](/branches[])*/product/x_extensions
+  $.product_tree.branches[*]..product$.x_extensions
 ```
 
 *Example 1 (which fails the test):*
@@ -155,7 +155,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 The relevant path for this test is:
 
 ```
-  /product_tree/full_product_names[]/x_extensions
+  $.product_tree.full_product_names[*].x_extensions
 ```
 
 *Example 1 (which fails the test):*
@@ -182,7 +182,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 The relevant path for this test is:
 
 ```
-  /product_tree/product_paths[]/full_product_name/x_extensions
+  $.product_tree.product_paths[*].full_product_name.x_extensions
 ```
 
 *Example 1 (which fails the test):*
@@ -214,7 +214,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/metrics[]/content/x_extensions
+  $.vulnerabilities[*].metrics[*].content.x_extensions
 ```
 
 *Example 1 (which fails the test):*
@@ -245,7 +245,7 @@ For each item `$.vulnerabilities` it MUST be tested that the element `x_extensio
 The relevant path for this test is:
 
 ```
-  /vulnerabilities[]/x_extensions
+  $.vulnerabilities[*].x_extensions
 ```
 
 *Example 1 (which fails the test):*
@@ -273,7 +273,7 @@ It MUST be tested that the element `$.x_extensions` does not exist.
 The relevant path for this test is:
 
 ```
-  /x_extensions
+  $.x_extensions
 ```
 
 *Example 1 (which fails the test):*

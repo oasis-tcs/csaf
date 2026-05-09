@@ -7,28 +7,28 @@ It SHALL fail if the given language is not supported.
 The relevant paths for this test are:
 
 ```
-  /document/acknowledgments[]/summary
-  /document/aggregate_severity/text
-  /document/distribution/text
-  /document/notes[]/audience
-  /document/notes[]/text
-  /document/notes[]/title
-  /document/publisher/issuing_authority
-  /document/references[]/summary
-  /document/title
-  /document/tracking/revision_history[]/summary
-  /product_tree/product_groups[]/summary
-  /vulnerabilities[]/acknowledgments[]/summary
-  /vulnerabilities[]/involvements[]/summary
-  /vulnerabilities[]/notes[]/audience
-  /vulnerabilities[]/notes[]/text
-  /vulnerabilities[]/notes[]/title
-  /vulnerabilities[]/references[]/summary
-  /vulnerabilities[]/remediations[]/details
-  /vulnerabilities[]/remediations[]/entitlements[]
-  /vulnerabilities[]/remediations[]/restart_required/details
-  /vulnerabilities[]/threats[]/details
-  /vulnerabilities[]/title
+  $.document.acknowledgments[*].summary
+  $.document.aggregate_severity.text
+  $.document.distribution.text
+  $.document.notes[*].audience
+  $.document.notes[*].text
+  $.document.notes[*].title
+  $.document.publisher.issuing_authority
+  $.document.references[*].summary
+  $.document.title
+  $.document.tracking.revision_history[*].summary
+  $.product_tree.product_groups[*].summary
+  $.vulnerabilities[*].acknowledgments[*].summary
+  $.vulnerabilities[*].involvements[*].summary
+  $.vulnerabilities[*].notes[*].audience
+  $.vulnerabilities[*].notes[*].text
+  $.vulnerabilities[*].notes[*].title
+  $.vulnerabilities[*].references[*].summary
+  $.vulnerabilities[*].remediations[*].details
+  $.vulnerabilities[*].remediations[*].entitlements[*]
+  $.vulnerabilities[*].remediations[*].restart_required.details
+  $.vulnerabilities[*].threats[*].details
+  $.vulnerabilities[*].title
 ```
 
 *Example 1 (which fails the test):*

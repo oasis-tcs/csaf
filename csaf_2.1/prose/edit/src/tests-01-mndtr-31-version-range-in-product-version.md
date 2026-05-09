@@ -29,7 +29,7 @@ the value of `name` does not contain a version range.
 The relevant paths for this test are:
 
 ```
-  /product_tree/branches[](/branches[])*/name
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

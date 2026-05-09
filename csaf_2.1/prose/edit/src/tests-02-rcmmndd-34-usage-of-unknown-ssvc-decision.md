@@ -8,7 +8,7 @@ Namespaces reserved for special purpose MUST be treated as per their definition.
 The relevant path for this test is:
 
 ```
-   /vulnerabilities[]/metrics[]/content/ssvc_v2/selections[]/namespace
+   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
 *Example 1 (which fails the test):*
