@@ -11,7 +11,7 @@ For each item in `metrics` it MUST be tested that it does not use the qualitativ
 The relevant path for this test is:
 
 ```
-    $.vulnerabilities[*].metrics[*]
+  $.vulnerabilities[*].metrics[*]
 ```
 
 *Example 1 (which fails the test):*

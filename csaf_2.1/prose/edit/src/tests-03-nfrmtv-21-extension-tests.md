@@ -7,7 +7,7 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 #### Extension Category Critical
 
-For each item in an element of type `#$['$defs'].extensions_t` it MUST be tested that the extension `category` of the item
+For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the extension `category` of the item
 is not `critical`.
 
 > It is sufficient to check whether the value of `category` is not `critical`.
@@ -41,7 +41,7 @@ The relevant paths for this test are:
 
 #### Usage of Experimental Extension in Non TLP:CLEAR Document{#usage-of-experimental-extension-in-non-tlp-clear-document}
 
-For each item in an element of type `#$['$defs'].extensions_t` it MUST be tested that no experimental extension is used
+For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that no experimental extension is used
 if the document is not labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
@@ -53,7 +53,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
   $.vulnerabilities[*].x_extensions[*]
-  .x_extensions[*]
+  $.x_extensions[*]
 ```
 
 *Example 1 (which fails the test):*

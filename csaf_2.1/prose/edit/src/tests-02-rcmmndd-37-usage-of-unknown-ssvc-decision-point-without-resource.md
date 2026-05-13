@@ -13,7 +13,7 @@ Namespaces reserved for special purpose MUST be treated as per their definition.
 The relevant path for this test is:
 
 ```
-   $.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources
+  $.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources
 ```
 
 *Example 1 (which fails the test):*

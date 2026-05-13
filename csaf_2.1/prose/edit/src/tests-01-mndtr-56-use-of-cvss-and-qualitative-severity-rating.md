@@ -8,7 +8,7 @@ and source.
 The relevant path for this test is:
 
 ```
-    $.vulnerabilities[*].metrics[*]
+  $.vulnerabilities[*].metrics[*]
 ```
 
 *Example 1 (which fails the test):*

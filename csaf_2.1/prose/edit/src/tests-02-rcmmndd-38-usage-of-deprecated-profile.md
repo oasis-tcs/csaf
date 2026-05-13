@@ -8,7 +8,7 @@ It MUST be tested that the `$.document.category` does not start with `csaf_depre
 The relevant path for this test is:
 
 ```
-   $.document.category
+  $.document.category
 ```
 
 *Example 1 (which fails the test):*

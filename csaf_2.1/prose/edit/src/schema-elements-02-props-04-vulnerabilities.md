@@ -775,11 +775,11 @@ The individual properties form the following product status groups:
 
 * Affected:
 
-   ```
-   $.vulnerabilities[*].product_status.first_affected[*]
-   $.vulnerabilities[*].product_status.known_affected[*]
-   $.vulnerabilities[*].product_status.last_affected[*]
-   ```
+  ```
+  $.vulnerabilities[*].product_status.first_affected[*]
+  $.vulnerabilities[*].product_status.known_affected[*]
+  $.vulnerabilities[*].product_status.last_affected[*]
+  ```
 
 * Not affected:
 

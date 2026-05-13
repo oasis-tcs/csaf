@@ -12,7 +12,7 @@ The comparison is case and white space insensitive.
 The relevant path for this test is:
 
 ```
-    $.product_tree.branches[*]..name
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

@@ -5,7 +5,7 @@ It MUST be tested that all keys in a CSAF document are sorted alphabetically.
 The relevant path for this test is:
 
 ```
-  /
+  $
 ```
 
 *Example 1 (which fails the test):*

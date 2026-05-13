@@ -7,7 +7,7 @@ any CVSS object.
 The relevant path for this test is:
 
 ```
-    $.vulnerabilities[*].metrics[*]/content
+  $.vulnerabilities[*].metrics[*].content
 ```
 
 *Example 1 (which fails the test):*

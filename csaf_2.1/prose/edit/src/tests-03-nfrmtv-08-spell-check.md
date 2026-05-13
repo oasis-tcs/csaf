@@ -25,7 +25,7 @@ The relevant paths for this test are:
   $.document.tracking.generator.engine.name
   $.document.tracking.revision_history[*].summary
   $.product_tree.branches[*]..name
-  $.product_tree.branches[*]..product/name
+  $.product_tree.branches[*]..product.name
   $.product_tree.branches[*].name
   $.product_tree.branches[*].product.name
   $.product_tree.full_product_names[*].name

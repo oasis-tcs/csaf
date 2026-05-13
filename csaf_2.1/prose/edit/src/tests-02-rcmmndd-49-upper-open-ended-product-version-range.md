@@ -8,7 +8,7 @@ upper open ended product version range.
 The relevant path for this test is:
 
 ```
-    $.product_tree.branches[*]..name
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

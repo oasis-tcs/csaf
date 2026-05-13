@@ -14,7 +14,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 The relevant path for this test is:
 
 ```
-  /
+  $
 ```
 
 > To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated

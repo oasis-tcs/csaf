@@ -7,7 +7,7 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 #### Content Schema{#mandatory-tests--extension-tests-content-schema}
 
-For each item in an element of type `#$['$defs'].extensions_t` it MUST be tested that the item is valid against the Extension Content Schema.
+For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the item is valid against the Extension Content Schema.
 
 The relevant paths for this test are:
 
@@ -18,7 +18,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
   $.vulnerabilities[*].x_extensions[*]
-  .x_extensions[*]
+  $.x_extensions[*]
 ```
 
 *Example 1 (which fails the test):*
@@ -39,7 +39,7 @@ The relevant paths for this test are:
 
 #### Extension Schema{#mandatory-tests--extension-tests-extension-schema}
 
-For each item in an element of type `#$['$defs'].extensions_t` it MUST be tested that the item is valid against the declared CSAF Extension Schema.
+For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the item is valid against the declared CSAF Extension Schema.
 CSAF Extensions not supported by the implementation SHALL result in a warning which MUST include the value of `$schema` of the extension.
 Such warning SHALL differentiate between the different classes of extensions.
 
@@ -52,7 +52,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
   $.vulnerabilities[*].x_extensions[*]
-  .x_extensions[*]
+  $.x_extensions[*]
 ```
 
 *Example 1 (which fails the test):*
@@ -77,7 +77,7 @@ The relevant paths for this test are:
 
 #### Extension Metadata{#mandatory-tests--extension-tests-metadata}
 
-For each element of type `#$['$defs'].extensions_t` it MUST be tested that the requirements provided through its metadata are fulfilled
+For each element of type `$['$defs'].extensions_t` it MUST be tested that the requirements provided through its metadata are fulfilled
 for each CSAF Extension used.
 CSAF Extensions not supported by the implementation SHALL result in a warning which MUST include the value of `$schema` of the extension.
 Such warning SHALL differentiate between the different classes of extensions.
