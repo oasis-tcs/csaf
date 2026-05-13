@@ -52,6 +52,8 @@ Implementors are reminded that the evaluation of JSONPath can lead to multiple e
 Especially CSAF validators SHALL NOT stop the evaluation of the result array after the first instance unless instructed explicitly
 by a non-default option even though the specification might just expect one instance.
 Otherwise, test results could be incomplete or wrong.
+To avoid ambiguity, it is RECOMMENDED to use JSON pointer (see [cite](#RFC6901)) when identifying or referring to a specific key or instance
+within a CSAF document.
 
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
