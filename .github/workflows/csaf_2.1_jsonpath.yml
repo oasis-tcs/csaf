@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     - name: Prepare environment
       run: |
         sudo apt-get update -q && sudo apt-get install -y --no-install-recommends -qq \
@@ -21,8 +21,8 @@ jobs:
           python3-pip \
           python3-setuptools \
           python3-wheel
-        pip3 install jsonpath
-    - name: Check jsonpath version
-      run: python3 -c "from importlib.metadata import version; print(version('jsonpath'))"
-    - name: Test syntax of jsonpath
-      run: ./csaf_2.1/test/jsonpath/check_jsonpaths.py ./csaf_2.1/prose/edit/src/*.md
+        pip3 install python-jsonpath
+    - name: Check python-jsonpath version
+      run: python3 -c "from importlib.metadata import version; print(version('python-jsonpath'))"
+    - name: Test syntax of JSONPath
+      run: python3 ./csaf_2.1/test/jsonpath/check_jsonpaths.py ./csaf_2.1/prose/edit/src/*.md

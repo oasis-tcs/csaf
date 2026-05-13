@@ -4,11 +4,13 @@ Extract and check all JSONPaths
 """
 
 import jsonpath
+import re
 import sys
 from pathlib import Path
 
 FENCE = "```"
 LOJP = "list-of-jsonpaths"
+INLINE = re.compile(r'`(\$|\$\..*?)\`')
 
 def walk_through(text: str) -> str:
     olines = text.splitlines()
@@ -18,12 +20,18 @@ def walk_through(text: str) -> str:
 
     for index, line  in enumerate(olines):
         sline = line.strip()
+        # Is this a code block marker?
         if sline.startswith(FENCE):
             inside_fence = not inside_fence
             last_lang = sline[3:]
             continue
+        # Are we inside a LOJP code block?
         if inside_fence and last_lang == LOJP:
-            jlines.append({"number": index, "line": sline})
+            jlines.append({"number": index, "path": sline})
+        # Let's also check inline JSONPath...
+        if not inside_fence:
+            for instance in re.finditer(INLINE, sline):
+                jlines.append({"number": index, "path": instance.group(1)})
     return jlines
 
 def process_file(path: Path) -> int:
@@ -35,9 +43,9 @@ def process_file(path: Path) -> int:
     jsonpaths = walk_through(text)
     for current in jsonpaths:
         try:
-            jsonpath.compile(current["line"], strict=True)
+            jsonpath.compile(current["path"], strict=True)
         except Exception as e:
-            print(path.name + ":" + str(current["number"]+1)+"\t" + e.message + "(" + current["line"]+")")
+            print(path.name + ":" + str(current["number"]+1)+"\t" + e.message + "(" + current["path"]+")")
             result = 2
     return result
 
