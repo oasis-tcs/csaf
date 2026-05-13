@@ -430,32 +430,32 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 * `$.document.distribution.tlp.url`
 * `$.document.publisher.namespace`
 * `$.document.references[*].url`
-* `$.document.x_extensions[*].$schema`
+* `$.document.x_extensions[*]['$schema']`
 * `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]`
 * `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace`
 * `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.branches[*]..product.x_extensions[*].$schema`
+* `$.product_tree.branches[*]..product.x_extensions[*]['$schema']`
 * `$.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]`
 * `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace`
 * `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.branches[*].product.x_extensions[*].$schema`
+* `$.product_tree.branches[*].product.x_extensions[*]['$schema']`
 * `$.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]`
 * `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace`
 * `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.full_product_names[*].x_extensions[*].$schema`
+* `$.product_tree.full_product_names[*].x_extensions[*]['$schema']`
 * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.sbom_urls[*]`
 * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].namespace`
 * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.product_paths[*].full_product_name.x_extensions[*].$schema`
+* `$.product_tree.product_paths[*].full_product_name.x_extensions[*]['$schema']`
 * `$.vulnerabilities[*].acknowledgments[*].urls[*]`
 * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].uri`
 * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].uri`
-* `$.vulnerabilities[*].metrics[*].content.x_extensions[*].$schema`
+* `$.vulnerabilities[*].metrics[*].content.x_extensions[*]['$schema']`
 * `$.vulnerabilities[*].metrics[*].source`
 * `$.vulnerabilities[*].references[*].url`
 * `$.vulnerabilities[*].remediations[*].url`
-* `$.vulnerabilities[*].x_extensions[*].$schema`
-* `$.x_extensions[*].$schema`
+* `$.vulnerabilities[*].x_extensions[*]['$schema']`
+* `$.x_extensions[*]['$schema']`
 
 ## C.7 UUID Length
 

@@ -115,7 +115,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product$.x_extensions
+  $.product_tree.branches[*]..product.x_extensions
 ```
 
 *Example 1 (which fails the test):*

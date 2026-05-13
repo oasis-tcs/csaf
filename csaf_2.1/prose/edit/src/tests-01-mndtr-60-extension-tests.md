@@ -92,7 +92,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions
-  $.product_tree.branches[*]..product$.x_extensions
+  $.product_tree.branches[*]..product.x_extensions
   $.product_tree.full_product_names[*].x_extensions
   $.product_tree.product_paths[*].full_product_name.x_extensions
   $.vulnerabilities[*].metrics[*].content.x_extensions
