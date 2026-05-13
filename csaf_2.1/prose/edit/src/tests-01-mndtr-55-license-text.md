@@ -7,7 +7,7 @@ The category of this item MUST be `legal_disclaimer`.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 

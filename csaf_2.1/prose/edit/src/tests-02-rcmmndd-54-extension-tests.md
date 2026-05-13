@@ -12,7 +12,7 @@ The test MUST be skipped for official CSAF Extensions.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*]
   $.product_tree.branches[*]..product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -41,7 +41,7 @@ For each item in an element of type `$['$defs'].extensions_t` it MUST be tested 
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*]
   $.product_tree.branches[*]..product$.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -72,7 +72,7 @@ For each item in an element of type `$['$defs'].extensions_t` it MUST be tested 
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*].critical
   $.product_tree.branches[*]..product$.x_extensions[*].critical
   $.product_tree.full_product_names[*].x_extensions[*].critical
@@ -102,7 +102,7 @@ if the document is labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*]
   $.product_tree.branches[*]..product$.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]

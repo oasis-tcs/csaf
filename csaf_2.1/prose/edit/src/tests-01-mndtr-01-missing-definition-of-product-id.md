@@ -6,7 +6,7 @@ The same applies for all items of elements of type `$['$defs'].products_t`.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.notes[*].product_ids[*]
   $.product_tree.product_groups[*].product_ids[*]
   $.product_tree.product_paths[*].beginning_product_reference

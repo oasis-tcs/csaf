@@ -4,7 +4,7 @@ It MUST be tested that the sharing group name exists and equals the predefined r
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.distribution.sharing_group.name
 ```
 

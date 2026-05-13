@@ -6,7 +6,7 @@ It MUST be tested that the given CVSS object has the values computed correctly a
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.cvss_v2.baseScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.temporalScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.environmentalScore

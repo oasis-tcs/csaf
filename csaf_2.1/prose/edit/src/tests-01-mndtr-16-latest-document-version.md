@@ -8,8 +8,8 @@ Any pre-release part is also ignored if the document status is `draft`.
 
 The relevant path for this test is:
 
-```
-    $.document.tracking.version
+```list-of-jsonpaths
+  $.document.tracking.version
 ```
 
 *Example 1 (which fails the test):*

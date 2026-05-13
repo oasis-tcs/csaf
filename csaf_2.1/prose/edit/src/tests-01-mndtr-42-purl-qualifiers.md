@@ -4,7 +4,7 @@ For each `product_identification_helper` object containing multiple PURLs it MUS
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..product.product_identification_helper.purls[*]
   $.product_tree.full_product_names[*].product_identification_helper.purls[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]

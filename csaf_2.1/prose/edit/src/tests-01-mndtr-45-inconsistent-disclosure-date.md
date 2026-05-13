@@ -6,7 +6,7 @@ As the timestamps might use different timezones, the sorting MUST take timezones
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].disclosure_date
 ```
 

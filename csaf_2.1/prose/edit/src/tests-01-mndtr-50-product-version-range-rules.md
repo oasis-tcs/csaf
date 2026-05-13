@@ -7,7 +7,7 @@ Nevertheless, all other rules MUST be checked to the extent possible.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..name
 ```
 

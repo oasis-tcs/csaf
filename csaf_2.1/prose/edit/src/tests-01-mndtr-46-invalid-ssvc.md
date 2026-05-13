@@ -4,7 +4,7 @@ It MUST be tested that the given SSVC object is valid according to the reference
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.ssvc_v2
 ```
 

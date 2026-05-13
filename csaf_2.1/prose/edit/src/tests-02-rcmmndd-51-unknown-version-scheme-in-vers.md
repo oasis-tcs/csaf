@@ -11,7 +11,7 @@ The warning MUST differentiate between officially registered version schemes and
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..name
 ```
 

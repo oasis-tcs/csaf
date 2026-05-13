@@ -7,7 +7,7 @@ Therefore, `product_family` MUST be ignored in the test.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..category
 ```
 

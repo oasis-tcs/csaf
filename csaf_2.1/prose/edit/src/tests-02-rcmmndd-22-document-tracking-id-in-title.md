@@ -4,7 +4,7 @@ It MUST be tested that the `$.document.title` does not contain the `$.document.t
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.title
 ```
 

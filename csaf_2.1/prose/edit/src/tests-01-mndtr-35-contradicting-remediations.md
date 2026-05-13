@@ -6,7 +6,7 @@ This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].remediations[*]
 ```
 

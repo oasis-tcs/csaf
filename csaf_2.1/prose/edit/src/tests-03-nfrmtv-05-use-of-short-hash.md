@@ -4,7 +4,7 @@ It MUST be tested that the length of the hash value is not shorter than 64 chara
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value

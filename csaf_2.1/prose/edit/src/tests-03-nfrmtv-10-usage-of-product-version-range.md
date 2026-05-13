@@ -7,7 +7,7 @@ For each element of type `$['$defs'].branches_t` it MUST be tested that the `cat
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..category
 ```
 

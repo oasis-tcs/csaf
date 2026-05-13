@@ -7,7 +7,7 @@ upper open ended product version range.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..name
 ```
 

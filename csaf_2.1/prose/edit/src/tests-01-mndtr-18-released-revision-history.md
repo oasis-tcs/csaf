@@ -4,8 +4,8 @@ It MUST be tested that no item of the revision history has a `number` of `0` or 
 
 The relevant path for this test is:
 
-```
-    $.document.tracking.revision_history[*].number
+```list-of-jsonpaths
+  $.document.tracking.revision_history[*].number
 ```
 
 *Example 1 (which fails the test):*

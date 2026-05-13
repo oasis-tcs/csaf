@@ -7,7 +7,7 @@ This test SHALL be skipped for CSAF documents conforming the profile "Informatio
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id

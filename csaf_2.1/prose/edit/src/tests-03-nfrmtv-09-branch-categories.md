@@ -8,7 +8,7 @@ order starting with the Product tree node.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches
 ```
 

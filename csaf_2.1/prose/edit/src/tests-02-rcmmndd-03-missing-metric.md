@@ -5,8 +5,8 @@ a metric object exists which covers this product.
 
 The relevant paths for this test are:
 
-```
-  $.vulnerabilities[*].product_status.first_affected[*]  
+```list-of-jsonpaths
+  $.vulnerabilities[*].product_status.first_affected[*]
   $.vulnerabilities[*].product_status.known_affected[*]
   $.vulnerabilities[*].product_status.last_affected[*]
 ```

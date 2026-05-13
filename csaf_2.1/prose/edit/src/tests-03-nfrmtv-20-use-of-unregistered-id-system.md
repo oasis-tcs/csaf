@@ -7,7 +7,7 @@ registered vulnerability ID system in RVISC.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].ids[*].system_name
 ```
 

@@ -4,8 +4,8 @@ It MUST be tested that items of the list of involvements do not contain the same
 
 The relevant path for this test is:
 
-```
-    $.vulnerabilities[*].involvements
+```list-of-jsonpaths
+  $.vulnerabilities[*].involvements
 ```
 
 *Example 1 (which fails the test):*

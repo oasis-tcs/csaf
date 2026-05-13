@@ -5,7 +5,7 @@ The test SHALL pass if no sharing group is present or the Nil UUID is used and t
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.distribution.sharing_group.id
 ```
 

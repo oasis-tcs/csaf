@@ -53,7 +53,7 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 
 The use of GitHub-flavoured Markdown is permitted in the following fields:
 
-```
+```list-of-jsonpaths
   $.document.acknowledgments[*].summary
   $.document.distribution.text
   $.document.notes[*].text
@@ -77,8 +77,8 @@ Other fields MUST NOT contain Markdown.
 
 The `$.product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
 
-```
-$.product_tree.branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].product
+```list-of-jsonpaths
+  $.product_tree.branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].product
 ```
 
 ## Hardware and Software within the Product Tree

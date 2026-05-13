@@ -55,7 +55,7 @@ member of a contradicting product status groups (see section [sec](#vulnerabilit
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status
 ```
 
@@ -122,7 +122,7 @@ member of a contradicting product status groups (see section [sec](#vulnerabilit
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status
 ```
 
@@ -189,7 +189,7 @@ member of a contradicting product status groups (see section [sec](#vulnerabilit
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status
 ```
 

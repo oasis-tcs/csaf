@@ -11,7 +11,7 @@ the value of `name` does not start with `v` or `V` before the version.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..name
 ```
 

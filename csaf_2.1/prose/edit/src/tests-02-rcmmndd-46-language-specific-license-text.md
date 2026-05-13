@@ -8,7 +8,7 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 

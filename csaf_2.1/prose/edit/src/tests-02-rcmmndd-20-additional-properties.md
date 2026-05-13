@@ -13,7 +13,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $
 ```
 

@@ -4,7 +4,7 @@ For each item of type `string` and format `date-time` it MUST be tested that it 
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.tracking.current_release_date
   $.document.tracking.generator.date
   $.document.tracking.initial_release_date

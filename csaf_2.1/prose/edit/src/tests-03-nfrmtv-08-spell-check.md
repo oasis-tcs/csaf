@@ -7,7 +7,7 @@ The value of `$.document.category` SHOULD NOT be tested if the CSAF document doe
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.acknowledgments[*].names[*]
   $.document.acknowledgments[*].organization
   $.document.acknowledgments[*].summary

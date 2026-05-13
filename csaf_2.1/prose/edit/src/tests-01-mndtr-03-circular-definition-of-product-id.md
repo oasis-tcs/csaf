@@ -5,7 +5,7 @@ MUST be tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
 

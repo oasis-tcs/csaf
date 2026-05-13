@@ -4,7 +4,7 @@ It MUST be tested that the given CVSS object is valid according to the reference
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.cvss_v2
   $.vulnerabilities[*].metrics[*].content.cvss_v3
   $.vulnerabilities[*].metrics[*].content.cvss_v4

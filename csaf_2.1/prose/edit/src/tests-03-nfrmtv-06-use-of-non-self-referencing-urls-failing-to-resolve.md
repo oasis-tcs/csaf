@@ -8,7 +8,7 @@ the 2xx (Successful) or 3xx (Redirection) class.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.acknowledgments[*].urls[*]
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url

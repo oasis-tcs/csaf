@@ -6,7 +6,7 @@ not being present at all.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.license_expression
 ```
 

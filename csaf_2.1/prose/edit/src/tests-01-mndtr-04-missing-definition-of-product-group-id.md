@@ -6,7 +6,7 @@ The same applies for all items of elements of type `$['$defs'].product_groups_t`
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
   $.vulnerabilities[*].flags[*].group_ids[*]

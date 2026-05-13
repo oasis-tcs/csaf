@@ -5,7 +5,7 @@ semantic versioning homogeneously within the same document.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.tracking.revision_history[*].number
   $.document.tracking.version
 ```

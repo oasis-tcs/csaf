@@ -17,7 +17,7 @@ Information that cannot be represented in the specific product identification he
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..product.product_identification_helper.cpe
   $.product_tree.branches[*]..product.product_identification_helper.purls[*]
 ```

@@ -11,7 +11,7 @@ For each item in an element of type `$['$defs'].extensions_t` it MUST be tested 
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*]
   $.product_tree.branches[*]..product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -45,7 +45,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*]
   $.product_tree.branches[*]..product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -90,7 +90,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions
   $.product_tree.branches[*]..product$.x_extensions
   $.product_tree.full_product_names[*].x_extensions

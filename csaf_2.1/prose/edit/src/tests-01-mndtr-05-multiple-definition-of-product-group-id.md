@@ -5,8 +5,8 @@ MUST be tested that the `group_id` was not already defined within the same docum
 
 The relevant path for this test is:
 
-```
-    $.product_tree.product_groups[*].group_id
+```list-of-jsonpaths
+  $.product_tree.product_groups[*].group_id
 ```
 
 *Example 1 (which fails the test):*

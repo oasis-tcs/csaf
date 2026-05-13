@@ -14,7 +14,7 @@ is not `critical`.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*].category
   $.product_tree.branches[*]..product.x_extensions[*].category
   $.product_tree.full_product_names[*].x_extensions[*].category
@@ -46,7 +46,7 @@ if the document is not labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions[*]
   $.product_tree.branches[*]..product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -88,7 +88,7 @@ It MUST be tested that the element `$.document.x_extensions` does not exist.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions
 ```
 
@@ -114,7 +114,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..product$.x_extensions
 ```
 
@@ -154,7 +154,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree.full_product_names[*].x_extensions
 ```
 
@@ -181,7 +181,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree.product_paths[*].full_product_name.x_extensions
 ```
 
@@ -213,7 +213,7 @@ It MUST be tested that the element `x_extensions` does not exist in any path tha
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.x_extensions
 ```
 
@@ -244,7 +244,7 @@ For each item `$.vulnerabilities` it MUST be tested that the element `x_extensio
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].x_extensions
 ```
 
@@ -272,7 +272,7 @@ It MUST be tested that the element `$.x_extensions` does not exist.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.x_extensions
 ```
 

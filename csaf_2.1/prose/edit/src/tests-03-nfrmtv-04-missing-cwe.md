@@ -4,7 +4,7 @@ It MUST be tested that at least one CWE is given.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].cwes
 ```
 

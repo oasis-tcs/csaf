@@ -4,7 +4,7 @@ For each element of type `$['$defs'].full_product_name_t` it MUST be tested that
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.product_tree.branches[*]..product
   $.product_tree.full_product_names[*]
   $.product_tree.product_paths[*].full_product_name

@@ -7,7 +7,7 @@ and source.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*]
 ```
 

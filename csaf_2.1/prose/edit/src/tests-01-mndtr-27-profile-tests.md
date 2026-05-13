@@ -20,7 +20,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 
@@ -51,7 +51,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.references
 ```
 
@@ -83,7 +83,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities
 ```
 
@@ -115,7 +115,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree
 ```
 
@@ -148,7 +148,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].notes
 ```
 
@@ -182,7 +182,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status
 ```
 
@@ -211,7 +211,7 @@ The relevant value for `$.document.category` is:
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status.fixed
   $.vulnerabilities[*].product_status.known_affected
   $.vulnerabilities[*].product_status.known_not_affected
@@ -245,7 +245,7 @@ The relevant value for `$.document.category` is:
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].cve
   $.vulnerabilities[*].ids
 ```
@@ -276,7 +276,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].flags
   $.vulnerabilities[*].threats
 ```
@@ -349,7 +349,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].remediations
 ```
 
@@ -423,7 +423,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities
 ```
 
@@ -454,7 +454,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status.known_affected
 ```
 
@@ -488,7 +488,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status.known_affected
 ```
 
@@ -549,7 +549,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 
@@ -580,7 +580,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.product_tree
 ```
 
@@ -607,7 +607,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.tracking.revision_history
 ```
 
@@ -639,7 +639,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 
@@ -671,7 +671,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 
@@ -703,7 +703,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.references
 ```
 

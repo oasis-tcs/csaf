@@ -22,7 +22,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].product_status
 ```
 
@@ -72,7 +72,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 
@@ -107,7 +107,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.notes
 ```
 
@@ -142,7 +142,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.references
 ```
 
@@ -173,7 +173,7 @@ The relevant values for `$.document.category` are:
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.document.x_extensions
   $.x_extensions
 ```

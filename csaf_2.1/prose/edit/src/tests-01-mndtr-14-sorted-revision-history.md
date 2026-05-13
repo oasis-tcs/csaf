@@ -6,8 +6,8 @@ As the timestamps might use different timezones, the sorting MUST take timezones
 
 The relevant path for this test is:
 
-```
-    $.document.tracking.revision_history
+```list-of-jsonpaths
+  $.document.tracking.revision_history
 ```
 
 *Example 1 (which fails the test):*

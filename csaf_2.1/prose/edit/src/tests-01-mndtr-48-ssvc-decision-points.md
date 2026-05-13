@@ -20,7 +20,7 @@ Namespaces reserved for special purpose MUST be treated as per their definition.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 

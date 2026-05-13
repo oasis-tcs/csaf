@@ -4,7 +4,7 @@ For each item in the list of metrics which contains the `cvss_v3` object under `
 
 The relevant paths for this test are:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.cvss_v3.version
   $.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString
 ```

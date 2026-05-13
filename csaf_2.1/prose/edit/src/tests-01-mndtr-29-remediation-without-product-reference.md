@@ -4,7 +4,7 @@ For each item in `$.vulnerabilities[*].remediations` it MUST be tested that it i
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].remediations[*]
 ```
 

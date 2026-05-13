@@ -4,7 +4,7 @@ For each item in `$.vulnerabilities[*].flags` it MUST be tested that it includes
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].flags[*]
 ```
 

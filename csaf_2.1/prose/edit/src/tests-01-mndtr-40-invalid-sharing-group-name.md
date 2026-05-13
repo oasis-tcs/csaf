@@ -4,7 +4,7 @@ It MUST be tested that the value of sharing group name does not equal the reserv
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.distribution.sharing_group.name
 ```
 

@@ -4,7 +4,7 @@ It MUST be tested that the given source language and document language are not t
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.lang
   $.document.source_lang
 ```

@@ -8,8 +8,8 @@ For each item in `$.vulnerabilities` it MUST be tested that the same Product ID 
 
 The relevant path for this test is:
 
-```
-    $.vulnerabilities[*].metrics[*]
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics[*]
 ```
 
 *Example 1 (which fails the test):*

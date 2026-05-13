@@ -7,7 +7,7 @@ It MUST be tested that the `$.document.category` does not start with `csaf_depre
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.document.category
 ```
 

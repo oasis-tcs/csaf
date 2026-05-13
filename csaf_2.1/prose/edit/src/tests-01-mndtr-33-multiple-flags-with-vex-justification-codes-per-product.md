@@ -9,7 +9,7 @@ This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:
 
-```
+```list-of-jsonpaths
   $.vulnerabilities[*].flags
 ```
 
