@@ -598,11 +598,11 @@ of the severity of the vulnerability regarding the products on a qualitative sca
 Valid `enum` values are:
 
 ```
-    "critical",
-    "high",
-    "low",
-    "medium",
-    "none"
+    critical
+    high
+    low
+    medium
+    none
 ```
 
 The value `critical` indicates that this vulnerability allows attackers to fully compromise a system or access sensitive data
