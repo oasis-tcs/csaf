@@ -1052,7 +1052,7 @@ Delegation to industry best practices technologies is used in referencing schema
     * CWE List: http://cwe.mitre.org/data/index.html
 * Vulnerability Scoring
   * Common Vulnerability Scoring System (CVSS) Version 4.0 \[[CVSS40](#CVSS40)\]
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.2.json
+    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
   * Common Vulnerability Scoring System (CVSS) Version 3.1 \[[CVSS31](#CVSS31)\]
     * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
   * Common Vulnerability Scoring System (CVSS) Version 3.0 \[[CVSS30](#CVSS30)\]
@@ -4137,7 +4137,7 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 See \[[CVSS30](#CVSS30)\] respectively \[[CVSS31](#CVSS31)\] for details.
 
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v4.0.2.json](https://www.first.org/cvss/cvss-v4.0.2.json).
+[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
 See \[[CVSS40](#CVSS40)\] for details.
 
 The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)
@@ -6281,7 +6281,7 @@ The relevant path for this test is:
 
 This subsubsection structures the mandatory tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
-Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
 > An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests.
 > This results in one virtual test per profile.
@@ -7532,6 +7532,8 @@ The relevant path for this test is:
   /vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date
   /vulnerabilities[]/flags[]/date
   /vulnerabilities[]/involvements[]/date
+  /vulnerabilities[]/metrics[]/content/epss/timestamp
+  /vulnerabilities[]/metrics[]/content/ssvc_v2/timestamp
   /vulnerabilities[]/remediations[]/date
   /vulnerabilities[]/threats[]/date
 ```
@@ -7686,7 +7688,7 @@ The relevant paths for this test are:
 
 ### 6.1.43 Use of Multiple Stars in Model Number <a id='use-of-multiple-stars-in-model-number'></a>
 
-For each model number it MUST be tested that the it does not contain multiple unescaped stars.
+For each model number it MUST be tested that it does not contain multiple unescaped stars.
 
 > Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
 
@@ -7710,7 +7712,7 @@ The relevant paths for this test are:
 
 ### 6.1.44 Use of Multiple Stars in Serial Number <a id='use-of-multiple-stars-in-serial-number'></a>
 
-For each serial number it MUST be tested that the it does not contain multiple unescaped stars.
+For each serial number it MUST be tested that it does not contain multiple unescaped stars.
 
 > Multiple `*` that match zero or multiple characters within a serial number introduce ambiguity and are therefore prohibited.
 
@@ -7898,7 +7900,7 @@ The relevant path for this test is:
 
 ### 6.1.49 Inconsistent SSVC Timestamp <a id='inconsistent-ssvc-timestamp'></a>
 
-For each vulnerability, it MUST be tested that the each SSVC `timestamp` is earlier than or equal to the `date` of the newest item of the
+For each vulnerability, it MUST be tested that each SSVC `timestamp` is earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`.
 As the timestamps might use different timezones, the sorting MUST take timezones into account.
 
@@ -7951,7 +7953,7 @@ The relevant path for this test is:
 For each element of type `/$defs/branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` complies with
 the rules given in section [3.1.2.3.2](#branches-type---name-under-product-version-range).
 Version schemes of vers not supported by the implementation SHALL result in a warning which MUST include the version scheme name used.
-Nevertheless, all other rules MUST be checked to the extend possible.
+Nevertheless, all other rules MUST be checked to the extent possible.
 
 The relevant path for this test is:
 
@@ -7973,7 +7975,7 @@ The relevant path for this test is:
 
 ### 6.1.51 Inconsistent EPSS Timestamp <a id='inconsistent-epss-timestamp'></a>
 
-For each vulnerability, it MUST be tested that the each EPSS `timestamp` is earlier than or equal to the `date` of the newest item of the
+For each vulnerability, it MUST be tested that each EPSS `timestamp` is earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`.
 As the timestamps might use different timezones, the sorting MUST take timezones into account.
 
@@ -8108,7 +8110,7 @@ The relevant path for this test is:
 
 It MUST be tested that the license expression is valid.
 
-> To implement this test, it it deemed sufficient to check for the ABNF defined in annex B of \[[SPDX301](#SPDX301)\] and
+> To implement this test, it is deemed sufficient to check for the ABNF defined in annex B of \[[SPDX301](#SPDX301)\] and
 > the restriction on the `DocumentRef` part given in [3.2.2.7](#document-property---license-expression).
 > Although a match against the SPDX License List (`license-id`) or a specific `LicenseRef` or `AdditionalRef` list
 > is not in scope for this test, it checks all other constraints given in the ABNF.
@@ -8313,7 +8315,7 @@ The relevant path for this test is:
 ### 6.1.60 Extension Tests <a id='mandatory-tests--extension-tests'></a>
 
 This subsubsection structures the mandatory tests for extensions.
-Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
 > An application MAY group these tests when providing the additional function to only run one or more selected tests.
 
@@ -8436,7 +8438,7 @@ The relevant paths for this test are:
 
 ### 6.1.61 Use of Multiple Stars in SKU <a id='use-of-multiple-stars-in-sku'></a>
 
-For each stock keeping unit it MUST be tested that the it does not contain multiple unescaped stars.
+For each stock keeping unit it MUST be tested that it does not contain multiple unescaped stars.
 
 > Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
 
@@ -9808,7 +9810,7 @@ The relevant path for this test is:
 
 This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
-Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
 #### 6.2.39.1 Missing Fixed Product <a id='missing-fixed-product'></a>
 
@@ -10695,7 +10697,7 @@ The relevant paths for this test are:
 
 ### 6.2.53 Matching Text for Registered ID System <a id='matching-text-for-registered-id-system'></a>
 
-For each item in `/vulnerabilities[]/ids` that the value of a registered vulnerability ID system as `system_name`,
+For each item in `/vulnerabilities[]/ids` that has the value of a registered vulnerability ID system as `system_name`,
 it MUST be tested that the `text` in the CSAF document matches the `text_pattern` given by the
 "Registry for Vulnerability ID Systems for CSAF" (RVISC).
 
@@ -10724,7 +10726,7 @@ The relevant path for this test is:
 ### 6.2.54 Extension Tests <a id='recommended-tests--extension-tests'></a>
 
 This subsubsection structures the recommended tests for extensions.
-Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
 > An application MAY group these tests when providing the additional function to only run one or more selected tests.
 
@@ -11869,7 +11871,7 @@ The relevant path for this test is:
 
 ### 6.3.20 Use of Unregistered ID System <a id='use-of-unregistered-id-system'></a>
 
-For each item in `/vulnerabilities[]/ids` it MUST be tested that the the value of `system_name` belongs to a
+For each item in `/vulnerabilities[]/ids` it MUST be tested that the value of `system_name` belongs to a
 registered vulnerability ID system in RVISC.
 
 > The RVISC is available at \[[RVISC](#RVISC)\].
@@ -11896,7 +11898,7 @@ The relevant paths for this test are:
 ### 6.3.21 Extension Tests <a id='informative-tests--extension-tests'></a>
 
 This subsubsection structures the informative tests for extensions.
-Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
 > An application MAY group these tests when providing the additional function to only run one or more selected tests.
 
@@ -13440,7 +13442,7 @@ For any restricted feeds, standard authentication methods SHOULD be used that ar
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
 Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.
-If CSAF producers, CSAF consumers or CSAF validators provide a option to interactively or automatically load missing schemes,
+If CSAF producers, CSAF consumers or CSAF validators provide an option to interactively or automatically load missing schemes,
 they SHALL point out the risks of setting the option and actively warn the user about it.
 Such option SHALL NOT be set by default.
 CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks.
@@ -14097,7 +14099,7 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
   including also the format validation (cf. section [2.2](#format-validation)).
 * performs all tests of the preset `mandatory` as given in section [6.4.1](#presets-defined-through-test-subsections).
 * does not change the CSAF Documents.
-* satisfies those normative requirements in sections [2.4](#extensions), [3](#schema-elements)  [6.1](#mandatory-tests),
+* satisfies those normative requirements in sections [2.4](#extensions), [3](#schema-elements), [6.1](#mandatory-tests),
   [6.4](#test-presets), and [8](#safety-security-and-data-protection-considerations) that are designated as applying to
   CSAF Validators.
 * issues a warning if an "not implemented warning" occurs as the validation status might not be correct.

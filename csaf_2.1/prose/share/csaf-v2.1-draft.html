@@ -2560,7 +2560,7 @@
         <ul>
           <li>Common Vulnerability Scoring System (CVSS) Version 4.0 [<a href="#CVSS40">CVSS40</a>]
             <ul>
-              <li>JSON Schema Reference: <a href="https://www.first.org/cvss/cvss-v4.0.2.json">https://www.first.org/cvss/cvss-v4.0.2.json</a>
+              <li>JSON Schema Reference: <a href="https://www.first.org/cvss/cvss-v4.0.json">https://www.first.org/cvss/cvss-v4.0.json</a>
               </li>
             </ul>
           </li>
@@ -5856,7 +5856,7 @@
       [<a href="#CVSS30">CVSS30</a>] respectively [<a href="#CVSS31">CVSS31</a>] for details.
     </p>
     <p>
-      The property CVSS v4 (<code>cvss_v4</code>) holding a CVSS v4.0 value abiding by the schema at <a href="https://www.first.org/cvss/cvss-v4.0.2.json"><span>https://www.first.org/cvss/cvss-v4.0.2.json</span></a>. See [<a href="#CVSS40">CVSS40</a>] for details.
+      The property CVSS v4 (<code>cvss_v4</code>) holding a CVSS v4.0 value abiding by the schema at <a href="https://www.first.org/cvss/cvss-v4.0.json"><span>https://www.first.org/cvss/cvss-v4.0.json</span></a>. See [<a href="#CVSS40">CVSS40</a>] for details.
     </p>
     <p>
       The property EPSS (<code>epss</code>) of value type <code>object</code> with the three mandatory properties Percentile (<code>percentile</code>), Probability (<code>probability</code>) and EPSS timestamp (<code>timestamp</code>) contains the EPSS data. See [<a href="#EPSS">EPSS</a>] for details.
@@ -8916,7 +8916,7 @@
       6.1.27 Profile Tests <a id='mandatory-profile-tests'></a>
     </h3>
     <p>
-      This subsubsection structures the mandatory tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+      This subsubsection structures the mandatory tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they were listed similar to the other tests.
     </p>
     <blockquote>
       <p>
@@ -10164,6 +10164,8 @@
   /vulnerabilities[]/first_known_exploitation_dates[]/exploitation_date
   /vulnerabilities[]/flags[]/date
   /vulnerabilities[]/involvements[]/date
+  /vulnerabilities[]/metrics[]/content/epss/timestamp
+  /vulnerabilities[]/metrics[]/content/ssvc_v2/timestamp
   /vulnerabilities[]/remediations[]/date
   /vulnerabilities[]/threats[]/date</code></pre>
     <p>
@@ -10335,7 +10337,7 @@
       6.1.43 Use of Multiple Stars in Model Number <a id='use-of-multiple-stars-in-model-number'></a>
     </h3>
     <p>
-      For each model number it MUST be tested that the it does not contain multiple unescaped stars.
+      For each model number it MUST be tested that it does not contain multiple unescaped stars.
     </p>
     <blockquote>
       <p>
@@ -10363,7 +10365,7 @@
       6.1.44 Use of Multiple Stars in Serial Number <a id='use-of-multiple-stars-in-serial-number'></a>
     </h3>
     <p>
-      For each serial number it MUST be tested that the it does not contain multiple unescaped stars.
+      For each serial number it MUST be tested that it does not contain multiple unescaped stars.
     </p>
     <blockquote>
       <p>
@@ -10566,8 +10568,8 @@
       6.1.49 Inconsistent SSVC Timestamp <a id='inconsistent-ssvc-timestamp'></a>
     </h3>
     <p>
-      For each vulnerability, it MUST be tested that the each SSVC <code>timestamp</code> is earlier than or equal to the <code>date</code> of the newest item of the <code>revision_history</code> if the document status is <code>final</code> or <code>interim</code>. As the timestamps might use different timezones, the sorting MUST take
-      timezones into account.
+      For each vulnerability, it MUST be tested that each SSVC <code>timestamp</code> is earlier than or equal to the <code>date</code> of the newest item of the <code>revision_history</code> if the document status is <code>final</code> or <code>interim</code>. As the timestamps might use different timezones, the sorting MUST take timezones
+      into account.
     </p>
     <p>
       The relevant path for this test is:
@@ -10617,7 +10619,7 @@
     </h3>
     <p>
       For each element of type <code>/$defs/branches_t</code> with <code>category</code> of <code>product_version_range</code>, it MUST be tested that the value of <code>name</code> complies with the rules given in section <a href="#branches-type---name-under-product-version-range">3.1.2.3.2</a>. Version schemes of vers not supported by the
-      implementation SHALL result in a warning which MUST include the version scheme name used. Nevertheless, all other rules MUST be checked to the extend possible.
+      implementation SHALL result in a warning which MUST include the version scheme name used. Nevertheless, all other rules MUST be checked to the extent possible.
     </p>
     <p>
       The relevant path for this test is:
@@ -10640,8 +10642,8 @@
       6.1.51 Inconsistent EPSS Timestamp <a id='inconsistent-epss-timestamp'></a>
     </h3>
     <p>
-      For each vulnerability, it MUST be tested that the each EPSS <code>timestamp</code> is earlier than or equal to the <code>date</code> of the newest item of the <code>revision_history</code> if the document status is <code>final</code> or <code>interim</code>. As the timestamps might use different timezones, the sorting MUST take
-      timezones into account.
+      For each vulnerability, it MUST be tested that each EPSS <code>timestamp</code> is earlier than or equal to the <code>date</code> of the newest item of the <code>revision_history</code> if the document status is <code>final</code> or <code>interim</code>. As the timestamps might use different timezones, the sorting MUST take timezones
+      into account.
     </p>
     <p>
       The relevant path for this test is:
@@ -10775,7 +10777,7 @@
     </p>
     <blockquote>
       <p>
-        To implement this test, it it deemed sufficient to check for the ABNF defined in annex B of [<a href="#SPDX301">SPDX301</a>] and the restriction on the <code>DocumentRef</code> part given in <a href="#document-property---license-expression">3.2.2.7</a>. Although a match against the SPDX License List (<code>license-id</code>) or a
+        To implement this test, it is deemed sufficient to check for the ABNF defined in annex B of [<a href="#SPDX301">SPDX301</a>] and the restriction on the <code>DocumentRef</code> part given in <a href="#document-property---license-expression">3.2.2.7</a>. Although a match against the SPDX License List (<code>license-id</code>) or a
         specific <code>LicenseRef</code> or <code>AdditionalRef</code> list is not in scope for this test, it checks all other constraints given in the ABNF.
       </p>
     </blockquote>
@@ -10991,7 +10993,7 @@
       6.1.60 Extension Tests <a id='mandatory-tests--extension-tests'></a>
     </h3>
     <p>
-      This subsubsection structures the mandatory tests for extensions. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+      This subsubsection structures the mandatory tests for extensions. Each of the following tests SHOULD be treated as they were listed similar to the other tests.
     </p>
     <blockquote>
       <p>
@@ -11126,7 +11128,7 @@
       6.1.61 Use of Multiple Stars in SKU <a id='use-of-multiple-stars-in-sku'></a>
     </h3>
     <p>
-      For each stock keeping unit it MUST be tested that the it does not contain multiple unescaped stars.
+      For each stock keeping unit it MUST be tested that it does not contain multiple unescaped stars.
     </p>
     <blockquote>
       <p>
@@ -12591,7 +12593,7 @@
       6.2.39 Profile Tests <a id='recommended-profile-tests'></a>
     </h3>
     <p>
-      This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+      This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles. Tests SHOULD be skipped if the document category does not match the one given in the test. Each of the following tests SHOULD be treated as they were listed similar to the other tests.
     </p>
     <h4 id="62391-missing-fixed-product-">
       6.2.39.1 Missing Fixed Product <a id='missing-fixed-product'></a>
@@ -13564,7 +13566,7 @@
       6.2.53 Matching Text for Registered ID System <a id='matching-text-for-registered-id-system'></a>
     </h3>
     <p>
-      For each item in <code>/vulnerabilities[]/ids</code> that the value of a registered vulnerability ID system as <code>system_name</code>, it MUST be tested that the <code>text</code> in the CSAF document matches the <code>text_pattern</code> given by the "Registry for Vulnerability ID Systems for CSAF" (RVISC).
+      For each item in <code>/vulnerabilities[]/ids</code> that has the value of a registered vulnerability ID system as <code>system_name</code>, it MUST be tested that the <code>text</code> in the CSAF document matches the <code>text_pattern</code> given by the "Registry for Vulnerability ID Systems for CSAF" (RVISC).
     </p>
     <blockquote>
       <p>
@@ -13593,7 +13595,7 @@
       6.2.54 Extension Tests <a id='recommended-tests--extension-tests'></a>
     </h3>
     <p>
-      This subsubsection structures the recommended tests for extensions. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+      This subsubsection structures the recommended tests for extensions. Each of the following tests SHOULD be treated as they were listed similar to the other tests.
     </p>
     <blockquote>
       <p>
@@ -14778,7 +14780,7 @@
       6.3.20 Use of Unregistered ID System <a id='use-of-unregistered-id-system'></a>
     </h3>
     <p>
-      For each item in <code>/vulnerabilities[]/ids</code> it MUST be tested that the the value of <code>system_name</code> belongs to a registered vulnerability ID system in RVISC.
+      For each item in <code>/vulnerabilities[]/ids</code> it MUST be tested that the value of <code>system_name</code> belongs to a registered vulnerability ID system in RVISC.
     </p>
     <blockquote>
       <p>
@@ -14807,7 +14809,7 @@
       6.3.21 Extension Tests <a id='informative-tests--extension-tests'></a>
     </h3>
     <p>
-      This subsubsection structures the informative tests for extensions. Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+      This subsubsection structures the informative tests for extensions. Each of the following tests SHOULD be treated as they were listed similar to the other tests.
     </p>
     <blockquote>
       <p>
@@ -16709,7 +16711,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
     </p>
     <p>
       CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents as this poses a security risk. Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation. If CSAF producers, CSAF consumers or CSAF validators
-      provide a option to interactively or automatically load missing schemes, they SHALL point out the risks of setting the option and actively warn the user about it. Such option SHALL NOT be set by default. CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks. Tool
+      provide an option to interactively or automatically load missing schemes, they SHALL point out the risks of setting the option and actively warn the user about it. Such option SHALL NOT be set by default. CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks. Tool
       developers SHOULD ensure to regularly check that those copies still reflect the current version of those schemas as they could have been altered, e.g. by an Errata to fix a bug. It is RECOMMENDED to do them at least before a release.
     </p>
     <blockquote>
@@ -17957,7 +17959,7 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>does not change the CSAF Documents.
       </li>
-      <li>satisfies those normative requirements in sections <a href="#extensions">2.4</a>, <a href="#schema-elements">3</a> <a href="#mandatory-tests">6.1</a>, <a href="#test-presets">6.4</a>, and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Validators.
+      <li>satisfies those normative requirements in sections <a href="#extensions">2.4</a>, <a href="#schema-elements">3</a>, <a href="#mandatory-tests">6.1</a>, <a href="#test-presets">6.4</a>, and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Validators.
       </li>
       <li>issues a warning if an "not implemented warning" occurs as the validation status might not be correct.
       </li>
