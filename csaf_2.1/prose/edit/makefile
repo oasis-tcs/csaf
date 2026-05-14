@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+
 .POSIX:
 .SILENT:
 .DEFAULT_GOAL = build
