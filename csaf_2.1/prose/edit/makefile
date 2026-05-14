@@ -1,5 +1,3 @@
-SHELL=/bin/bash
-
 .POSIX:
 .SILENT:
 .DEFAULT_GOAL = build
@@ -84,11 +82,9 @@ render-pdf:
 	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
 	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
 	bin/lapidify.py --target $(target_pdf) && \
-		mkdir -p $(build_pdf) && \
+		mkdir -p $(build_pdf)images $(build_root)images && \
 		printf "pdf.md\n" > $(build_root)bind.txt && \
-		mkdir -p $(build_root)/images/ && \
 		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
-		mkdir -p $(build_pdf)images/ && \
 		cp -a ../media/OASISLogo-v3.0.png $(build_pdf)images/ && \
 		cp -a $(liitos_templates)approvals.yml $(build_root) && \
 		cp -a $(liitos_templates)bookmatter.tex.in $(build_root) && \
@@ -101,11 +97,11 @@ render-pdf:
 		cp -a $(liitos_templates)setup.tex.in $(build_pdf) && \
 		cp -a $(liitos_templates)structure.yml $(build_root) && \
 		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
-		pushd $(build_pdf) && \
+		cd $(build_pdf) && \
 		max_print_line=10000 liitos render ../../ --target csaf --facet pdf --patch-tables --filters ' ' --label "etiketti --config etiketti.yml --enforce"  && \
 		$(optimize_pdf) -- this.pdf && \
 		cp -a this.pdf ../../../$(out_pdf) && \
-		open ../../../$(out_pdf) && popd
+		open ../../../$(out_pdf)
 
 .PHONY: build
 build: render status
