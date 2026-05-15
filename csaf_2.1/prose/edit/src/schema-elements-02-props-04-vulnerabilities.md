@@ -527,7 +527,7 @@ A Content object has at least `1` property.
           - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.0.json' ))
           - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.1.json' ))
           # >
-        cvss_v4: $ref.eval(concat( *FIRST-CVSS 'cvss-v4.0.1.json' ))
+        cvss_v4: $ref.eval(concat( *FIRST-CVSS 'cvss-v4.0.json' ))
         epss: Mapping
         qualitative_severity_rating: String.Enum
         ssvc_v2:
@@ -598,11 +598,11 @@ of the severity of the vulnerability regarding the products on a qualitative sca
 Valid `enum` values are:
 
 ```
-    "critical",
-    "high",
-    "low",
-    "medium",
-    "none"
+    critical
+    high
+    low
+    medium
+    none
 ```
 
 The value `critical` indicates that this vulnerability allows attackers to fully compromise a system or access sensitive data

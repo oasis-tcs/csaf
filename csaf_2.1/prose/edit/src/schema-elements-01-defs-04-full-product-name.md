@@ -478,8 +478,17 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 Product-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the full product name element level of the CSAF document and associated with this full product name element.
 
-```
-    "x_extensions": {
-      // ...
-    }
+```yaml <!--json-paths($['$defs'].full_product_name_t..x_extensions, $['$defs'].extensions_t..properties)-->
+$defs:
+  # ...
+  full_product_name_t:
+    # ...
+    x_extensions:  # $defs.extensions_t
+    - # <x_extension-instance>:
+      $schema: String
+      category: String.Enum
+      content: Mapping
+      critical: Boolean
+      # ...
+  # ...
 ```
