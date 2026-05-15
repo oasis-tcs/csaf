@@ -48,6 +48,13 @@ As setting the `Access-Control-Allow-Origin` header potentially allows for cross
 it SHOULD only be served on files and directories containing CSAF data.
 For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
 
+Implementors are reminded that the evaluation of JSONPath can lead to multiple elements within the result array.
+Especially CSAF validators SHALL NOT stop the evaluation of the result array after the first instance unless instructed explicitly
+by a non-default option even though the specification might just expect one instance.
+Otherwise, test results could be incomplete or wrong.
+To avoid ambiguity, it is RECOMMENDED to use JSON pointer (see [cite](#RFC6901)) when identifying or referring to a specific key or instance
+within a CSAF document.
+
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
 Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.

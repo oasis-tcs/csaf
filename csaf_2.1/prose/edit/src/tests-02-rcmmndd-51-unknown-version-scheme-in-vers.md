@@ -1,6 +1,6 @@
 ### Unknown Version Scheme in vers
 
-For each element of type `/$defs/branches_t` with `category` of `product_version_range` which indicates that it is using vers,
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` which indicates that it is using vers,
 it MUST be tested that the version scheme is supported by the implementation.
 The warning MUST differentiate between officially registered version schemes and those that are not in this state.
 
@@ -11,8 +11,8 @@ The warning MUST differentiate between officially registered version schemes and
 
 The relevant paths for this test are:
 
-```
-  /product_tree/branches[](/branches[])*/name
+```list-of-jsonpaths
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

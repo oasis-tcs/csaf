@@ -10,8 +10,8 @@ For each item in `metrics` it MUST be tested that it does not use the qualitativ
 
 The relevant path for this test is:
 
-```
-    /vulnerabilities[]/metrics[]
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics[*]
 ```
 
 *Example 1 (which fails the test):*

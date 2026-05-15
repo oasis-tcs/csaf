@@ -2,12 +2,12 @@
 
 For each `ssvc_v2` object it MUST be tested that each item in `target_ids` is either the CVE of the vulnerability given in `cve`
 or the `text` of an item in the `ids` array of the vulnerability.
-The test MUST fail, if the target ID equals the `/document/tracking/id` and the CSAF document contains more than one vulnerability.
+The test MUST fail, if the target ID equals the `$.document.tracking.id` and the CSAF document contains more than one vulnerability.
 
 The relevant path for this test is:
 
-```
-   /vulnerabilities[]/metrics[]/content/ssvc_v2/target_ids[]
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]
 ```
 
 *Example 1 (which fails the test):*

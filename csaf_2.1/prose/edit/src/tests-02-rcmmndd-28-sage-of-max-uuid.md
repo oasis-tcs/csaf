@@ -4,8 +4,8 @@ It MUST be tested that the Max UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
-```
-  /document/distribution/sharing_group/id
+```list-of-jsonpaths
+  $.document.distribution.sharing_group.id
 ```
 
 *Example 1 (which fails the test):*

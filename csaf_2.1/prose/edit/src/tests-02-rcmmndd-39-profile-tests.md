@@ -14,7 +14,7 @@ The test MUST NOT be skipped, if there is an indication, that such a version of 
 Indicators include an affected product version range with the comparator `<` in the last version constraint and
 a remediation item with the categories `vendor_fix` referring to the affected product.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_security_advisory
@@ -22,8 +22,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/product_status
+```list-of-jsonpaths
+  $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -64,7 +64,7 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_withdrawn
@@ -72,8 +72,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /document/notes
+```list-of-jsonpaths
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -99,7 +99,7 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_superseded
@@ -107,8 +107,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /document/notes
+```list-of-jsonpaths
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -134,7 +134,7 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_superseded
@@ -142,8 +142,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /document/references
+```list-of-jsonpaths
+  $.document.references
 ```
 
 *Example 1 (which fails the test):*
@@ -164,7 +164,7 @@ The relevant path for this test is:
 
 It MUST be tested that the document does not contain an extension.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_withdrawn
@@ -173,9 +173,9 @@ The relevant values for `/document/category` are:
 
 The relevant paths for this test are:
 
-```
-  /document/x_extensions
-  /x_extensions
+```list-of-jsonpaths
+  $.document.x_extensions
+  $.x_extensions
 ```
 
 *Example 1 (which fails the test):*

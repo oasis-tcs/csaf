@@ -8,27 +8,27 @@ the 2xx (Successful) or 3xx (Redirection) class.
 
 The relevant paths for this test are:
 
-```
-  /document/acknowledgments[]/urls[]
-  /document/aggregate_severity/namespace
-  /document/distribution/tlp/url
-  /document/references[]/url
-  /document/publisher/namespace
-  /product_tree/branches[]/product/product_identification_helper/sbom_urls[]
-  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/branches[]/product/product_identification_helper/x_generic_uris[]/uri
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/sbom_urls[]
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/x_generic_uris[]/uri
-  /product_tree/full_product_names[]/product_identification_helper/sbom_urls[]
-  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/full_product_names[]/product_identification_helper/x_generic_uris[]/uri
-  /product_tree/product_paths[]/full_product_name/product_identification_helper/sbom_urls[]
-  /product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris[]/namespace
-  /product_tree/product_paths[]/full_product_name/product_identification_helper/x_generic_uris[]/uri
-  /vulnerabilities[]/acknowledgments[]/urls[]
-  /vulnerabilities[]/references[]/url
-  /vulnerabilities[]/remediations[]/url
+```list-of-jsonpaths
+  $.document.acknowledgments[*].urls[*]
+  $.document.aggregate_severity.namespace
+  $.document.distribution.tlp.url
+  $.document.references[*].url
+  $.document.publisher.namespace
+  $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
+  $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
+  $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri
+  $.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]
+  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace
+  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri
+  $.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]
+  $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace
+  $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.sbom_urls[*]
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].namespace
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].uri
+  $.vulnerabilities[*].acknowledgments[*].urls[*]
+  $.vulnerabilities[*].references[*].url
+  $.vulnerabilities[*].remediations[*].url
 ```
 
 *Example 1 (which fails the test):*

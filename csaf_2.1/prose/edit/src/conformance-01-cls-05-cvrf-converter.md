@@ -19,7 +19,7 @@ Secondly, the program fulfills the following for all items of:
   and their fractions with `59.999999`.
   In addition, the converter issues a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CVRF CSAF Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `/$defs/branches_t`:
+* type `$['$defs'].branches_t`:
   * If any `prod:Branch` instance has the type `Legacy`, `Realm`, or `Resource`,
     the CVRF CSAF Converter SHALL replace those with the category `product_name`.
     In addition, the converter issues a warning that those types do not exist in CSAF 2.1 and have been replaced with the category `product_name`.
@@ -48,19 +48,19 @@ Secondly, the program fulfills the following for all items of:
     Such a error SHALL include the invalid path as well as the branch types that were present multiple times.
 
     > A tool MAY provide a non-default option to output the invalid document.
-* type `/$defs/full_product_name_t/product_identification_helper/cpe`: If a CPE is invalid,
+* type `$['$defs'].full_product_name_t..product_identification_helper.cpe`: If a CPE is invalid,
   the CVRF CSAF Converter SHOULD remove the invalid value and issue a warning that an invalid CPE was detected and removed.
-* type `/$defs/version_t`: If any element doesn't match the semantic versioning,
-  replace the all elements of type `/$defs/version_t` with the corresponding integer version.
-  For that, CVRF CSAF Converter sorts the items of `/document/tracking/revision_history` by `number` ascending according to the rules of CVRF.
+* type `$['$defs'].version_t`: If any element doesn't match the semantic versioning,
+  replace the all elements of type `$['$defs'].version_t` with the corresponding integer version.
+  For that, CVRF CSAF Converter sorts the items of `$.document.tracking.revision_history` by `number` ascending according to the rules of CVRF.
   Then, it replaces the value of `number` with the index number in the array (starting with 1).
-  The value of `/document/tracking/version` is replaced by value of `number` of the corresponding revision item.
+  The value of `$.document.tracking.version` is replaced by value of `number` of the corresponding revision item.
   The match SHALL be calculated by the original values used in the CVRF document.
   If this conversion was applied, for each Revision the original value of `cvrf:Number` SHALL be set as `legacy_version` in the converted document.
-* `/document/acknowledgments[]/organization` and `/vulnerabilities[]/acknowledgments[]/organization`:
+* `$.document.acknowledgments[*].organization` and `$.vulnerabilities[*].acknowledgments[*].organization`:
   If more than one `cvrf:Organization` instance is given, the CVRF CSAF Converter converts the first one into the `organization`.
   In addition, the converter issues a warning that information might be lost during conversion of document or vulnerability acknowledgment.
-* `/document/category`:
+* `$.document.category`:
   * If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF Converter SHALL try to convert the data
     into a valid CSAF Document in this profile according to CSAF 2.1.
 
@@ -83,12 +83,12 @@ Secondly, the program fulfills the following for all items of:
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
     according to the conversion rules and issue a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
-* `/document/lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
+* `$.document.lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
   the CVRF CSAF Converter converts this value into `lang`.
   If the values of `xml:lang` attributes are not equal, the CVRF CSAF Converter issues a warning that the language could not be
   determined and possibly a document with multiple languages was produced.
   In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
-* `/document/license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains valid SPDX license expressions,
+* `$.document.license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains valid SPDX license expressions,
   the CVRF CSAF Converter SHALL apply the following rules to the list of candidates:
   * If the list contains only one element, the CVRF CSAF Converter SHALL set this value as value of `license_expression`.
     In addition, the converter issues a warning that a license expression was found and set as the document license expression.
@@ -98,21 +98,21 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY implement an option to suppress this conversion.
 
-* `/document/notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property---notes),
+* `$.document.notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
-* `/document/publisher/name` and `/document/publisher/namespace`:
+* `$.document.publisher.name` and `$.document.publisher.namespace`:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
   The program SHALL NOT use hard-coded values.
-* `/document/tracking/id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
+* `$.document.tracking.id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
   the CVRF CSAF Converter removes those characters.
   In addition, the converter issues a warning that the ID was changed.
-* `/product_tree/product_path[]`: For each element `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following rules:
+* `$.product_tree.product_paths[*]`: For each element `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following rules:
   * The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
   * The first `prod:FullProductName` instance is converted into the `full_product_name`.
     If more than one `prod:FullProductName` instance is given,
@@ -129,12 +129,12 @@ Secondly, the program fulfills the following for all items of:
     >   element.
     > For examples, see appendix [sec](#collapsing-product-paths).
 
-* `/vulnerabilities[]/cwes[]`:
+* `$.vulnerabilities[*].cwes[*]`:
   * The CVRF CSAF Converter SHALL remove all preceding and trailing white space from the `name`.
   * The CVRF CSAF Converter SHALL determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
-    `/document/tracking/current_release_date` of the source document.
-    If no such version exist, the first matching version published after the value of `/document/tracking/current_release_date`
+    `$.document.tracking.current_release_date` of the source document.
+    If no such version exist, the first matching version published after the value of `$.document.tracking.current_release_date`
     of the source document SHOULD be used.
 
     > This is done to create a deterministic conversion.
@@ -143,9 +143,9 @@ Secondly, the program fulfills the following for all items of:
     been removed.
   * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF Converter SHALL omit this instance and issues a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
-* `/vulnerabilities[]/disclosure_date`: If a `vuln:ReleaseDate` was given,
+* `$.vulnerabilities[*].disclosure_date`: If a `vuln:ReleaseDate` was given,
   the CVRF CSAF Converter SHALL convert its value into the `disclosure_date` element.
-* `/vulnerabilities[]/ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
+* `$.vulnerabilities[*].ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
   Then, the CVRF CSAF Converter SHALL execute the following steps at the converted object:
   * If an `system_name` was given, the CVRF CSAF Converter SHALL test whether it belongs to a registered
   vulnerability ID system in RVISC.
@@ -182,7 +182,7 @@ Secondly, the program fulfills the following for all items of:
 
     The output SHALL include the original values and, if applicable, the converted ones.
 
-* `/vulnerabilities[]/metrics[]`:
+* `$.vulnerabilities[*].metrics[*]`:
   * For any CVSS v4 element, the CVRF CSAF Converter SHALL compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
   * For any CVSS v3 element, the CVRF CSAF Converter SHALL compute the `baseSeverity` from the `baseScore` according to
@@ -237,7 +237,7 @@ Secondly, the program fulfills the following for all items of:
 
     4. Retrieve the CVSS version from a config value, which defaults to `3.0`.
        (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF Converter issues a warning that this value was taken from the config.
-* `/vulnerabilities[]/metrics[]/content/cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+* `$.vulnerabilities[*].metrics[*].content.cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
   the CVRF CSAF Converter SHALL convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
 
   > A tool MAY implement an option to suppress this conversion.
@@ -245,7 +245,7 @@ Secondly, the program fulfills the following for all items of:
   If the CVRF CSAF Converter is unable to construct a valid object with the information given, the CVRF CSAF Converter SHALL
   remove the invalid `cvss_v4` object and issue a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
-* `/vulnerabilities[]/notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
+* `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
   [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is
   a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
@@ -253,7 +253,7 @@ Secondly, the program fulfills the following for all items of:
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
-* `/vulnerabilities[]/remediations[]`:
+* `$.vulnerabilities[*].remediations[*]`:
   * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF Converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
     If none of these arrays exist, the CVRF CSAF Converter issues an error that no matching Product ID was found for this remediation element.

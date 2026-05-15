@@ -21,8 +21,8 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   * filter on all properties which it is required to search for
   * export of CSAF Documents
   * show an audit log for each CSAF Document
-  * identify the latest version of CSAF Documents with the same `/document/tracking/id`
-  * suggest a `/document/tracking/id` based on the given configuration.
+  * identify the latest version of CSAF Documents with the same `$.document.tracking.id`
+  * suggest a `$.document.tracking.id` based on the given configuration.
   * track of the version of CSAF Documents automatically and increment according to the versioning scheme
     (see also subsections of [sec](#version-type)) selected in the configuration.
   * check that the document version is set correctly based on the changes in comparison to the previous version
@@ -66,40 +66,40 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   new advisories for that group. He might also do the user management for the group up to a configured level.
 * prefills the following fields in new CSAF Documents with the values given below or based on the templates from configuration:
 
-  * `/$schema` with the value prescribed by the schema
-  * `/document/csaf_version` with the value prescribed by the schema
-  * `/document/lang`
-  * `/document/notes`
+  * `$['$schema']` with the value prescribed by the schema
+  * `$.document.csaf_version` with the value prescribed by the schema
+  * `$.document.lang`
+  * `$.document.notes`
     * `legal_disclaimer` (Terms of use from the configuration)
     * `general` (General Security recommendations from the configuration)
-  * `/document/tracking/current_release_date` with the current date
-  * `/document/tracking/generator` and children
-  * `/document/tracking/initial_release_date` with the current date
-  * `/document/tracking/revision_history`
+  * `$.document.tracking.current_release_date` with the current date
+  * `$.document.tracking.generator` and children
+  * `$.document.tracking.initial_release_date` with the current date
+  * `$.document.tracking.revision_history`
     * `date` with the current date
     * `number` (based on the templates according to the versioning scheme configured)
     * `summary` (based on the templates from configuration; default: "Initial version.")
-  * `/document/tracking/status` with `draft`
-  * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
-  * `/document/publisher` and children
-  * `/document/category` (based on the templates from configuration)
+  * `$.document.tracking.status` with `draft`
+  * `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
+  * `$.document.publisher` and children
+  * `$.document.category` (based on the templates from configuration)
 
 * When updating an existing CSAF Document:
   
   * prefills all fields which have be present in the existing CSAF Document
-  * adds a new item in `/document/tracking/revision_history[]`
+  * adds a new item in `$.document.tracking.revision_history[*]`
   * updates the following fields with the values given below or based on the templates from configuration:
-    * `/$schema` with the value prescribed by the schema
-    * `/document/csaf_version` with the value prescribed by the schema
-    * `/document/lang`
-    * `/document/notes`
+    * `$['$schema']` with the value prescribed by the schema
+    * `$.document.csaf_version` with the value prescribed by the schema
+    * `$.document.lang`
+    * `$.document.notes`
       * `legal_disclaimer` (Terms of use from the configuration)
       * `general` (General Security recommendations from the configuration)
-    * `/document/tracking/current_release_date` with the current date
-    * `/document/tracking/generator` and children
-    * the new item in `/document/tracking/revision_history[]`
+    * `$.document.tracking.current_release_date` with the current date
+    * `$.document.tracking.generator` and children
+    * the new item in `$.document.tracking.revision_history[*]`
       * `date` with the current date
       * `number` (based on the templates according to the versioning scheme configured)
-    * `/document/tracking/status` with `draft`
-    * `/document/tracking/version` with the value of `number` the latest `/document/tracking/revision_history[]` element
-    * `/document/publisher` and children
+    * `$.document.tracking.status` with `draft`
+    * `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
+    * `$.document.publisher` and children

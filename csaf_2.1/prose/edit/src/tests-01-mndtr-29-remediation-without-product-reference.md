@@ -1,11 +1,11 @@
 ### Remediation without Product Reference
 
-For each item in `/vulnerabilities[]/remediations` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+For each item in `$.vulnerabilities[*].remediations` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/remediations[]
+```list-of-jsonpaths
+  $.vulnerabilities[*].remediations[*]
 ```
 
 *Example 1 (which fails the test):*

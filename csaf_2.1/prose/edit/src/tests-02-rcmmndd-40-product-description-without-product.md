@@ -11,8 +11,8 @@ product description is known.
 
 The relevant path for this test is:
 
-```
-  /document/notes[]
+```list-of-jsonpaths
+  $.document.notes[*]
 ```
 
 *Example 1 (which fails the test):*

@@ -4,8 +4,8 @@ It MUST be tested that items of the revision history do not contain the same ver
 
 The relevant path for this test is:
 
-```
-    /document/tracking/revision_history
+```list-of-jsonpaths
+  $.document.tracking.revision_history
 ```
 
 *Example 1 (which fails the test):*

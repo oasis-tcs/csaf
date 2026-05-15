@@ -1,6 +1,6 @@
 ### Unknown Hash Algorithm
 
-For each element of type `/$defs/full_product_name_t/product_identification_helper/hashes[]/file_hashes[]/algorithm`,
+For each element of type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`,
 it MUST be tested that the hash algorithm is supported by the implementation.
 The warning MUST differentiate between the values mentioned in section [sec](#full-product-name-type---product-identification-helper---hashes)
 and those not mentioned there.
@@ -12,10 +12,10 @@ and those not mentioned there.
 
 The relevant paths for this test are:
 
-```
-  /product_tree/branches[](/branches[])*/product/product_identification_helper/hashes[]/file_hashes[]/algorithm
-  /product_tree/full_product_names[]/product_identification_helper/hashes[]/file_hashes[]/algorithm
-  /product_tree/product_paths[]/full_product_name/product_identification_helper/hashes[]/file_hashes[]/algorithm
+```list-of-jsonpaths
+  $.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].algorithm
+  $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm
 ```
 
 *Example 1 (which fails the test):*
