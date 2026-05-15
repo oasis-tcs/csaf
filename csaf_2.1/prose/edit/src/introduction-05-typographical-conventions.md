@@ -18,7 +18,7 @@ Items of sequences are noted as YAML sequence items and annotated per comments n
 JSONPath is also used within the standard as syntax for specifying paths or referring to elements relevant to the current context.
 They can have multiple results when being applied to a JSON instance or schema.
 However, when referring to a schema with one of the keywords `$ref` or `$dynamicRef` the value is a `URI-Reference`
-(cf. section 8.2.3 of [cite](JSON-Schema-Core)).
+(cf. section 8.2.3 of [cite](#JSON-Schema-Core)).
 
 Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
 

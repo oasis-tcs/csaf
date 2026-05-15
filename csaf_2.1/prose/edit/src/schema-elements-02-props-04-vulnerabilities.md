@@ -1123,7 +1123,7 @@ This information can change as the vulnerability ages and new information become
 In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
 ```yaml <!--json-path($..vulnerabilities..threats..properties)-->
- <csaf-instance>:
+<csaf-instance>:
   # ...
   vulnerabilities:
   - # <vulnerability-instance>:
