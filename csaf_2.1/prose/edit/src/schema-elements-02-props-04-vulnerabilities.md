@@ -283,20 +283,20 @@ The given values reflect the VEX not affected justifications.
 See [VEX-Justification] for more details.
 The values MUST be used as follows:
 
-* `component_not_present`: The software is not affected because the vulnerable component is not in the product.
-* `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+- `component_not_present`: The software is not affected because the vulnerable component is not in the product.
+- `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
 
   > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options)
   > the specific code causing the vulnerability is not present in the component.
 
-* `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
+- `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
   However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
-* `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
+- `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
   including non-anticipated states of the product.
 
   > Components that are neither used nor executed by the product.
 
-* `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
+- `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
@@ -773,7 +773,7 @@ There is also no investigation and therefore the status might never be determine
 
 The individual properties form the following product status groups:
 
-* Affected:
+- Affected:
 
   ```
   $.vulnerabilities[*].product_status.first_affected[*]
@@ -781,26 +781,26 @@ The individual properties form the following product status groups:
   $.vulnerabilities[*].product_status.last_affected[*]
   ```
 
-* Not affected:
+- Not affected:
 
   ```
   $.vulnerabilities[*].product_status.known_not_affected[*]
   ```
 
-* Fixed:
+- Fixed:
 
   ```
   $.vulnerabilities[*].product_status.first_fixed[*]
   $.vulnerabilities[*].product_status.fixed[*]
   ```
 
-* Under investigation:
+- Under investigation:
 
   ```
   $.vulnerabilities[*].product_status.under_investigation[*]
   ```
 
-* Unknown:
+- Unknown:
 
   ```
   $.vulnerabilities[*].product_status.unknown[*]
@@ -1074,24 +1074,24 @@ Valid values are:
 
 The values MUST be used as follows:
 
-* `none`: No restart required.
-* `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
+- `none`: No restart required.
+- `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
    needs to be restarted.
-* `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
-* `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
+- `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
+- `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
   to restart the vulnerable component or process values / context is only given at the start of the parent process.
-* `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted.
+- `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted.
   This could be the case e.g. for a core service of a software.
-* `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication)
+- `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication)
   to the vulnerable component need to be restarted.
-* `machine`: The machine on which the vulnerable component is installed on needs to be restarted.
+- `machine`: The machine on which the vulnerable component is installed on needs to be restarted.
   This is the value which SHOULD be used if an OS needs to be restarted.
   It is typically the case for OS upgrades.
-* `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted.
+- `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted.
   This value might be useful for a remediation if no patch is available.
   If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at
   the same time and restart afterwards can leave one with a clean system.
-* `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
+- `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
   This MAY include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
 Additional restart information (`details`) of value type `string` with `1` or more characters provides additional information for the restart.

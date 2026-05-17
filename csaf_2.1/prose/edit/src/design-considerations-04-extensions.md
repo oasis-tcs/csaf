@@ -4,11 +4,11 @@ This standard allows for extensions to the standardized schema.
 
 The following rules apply:
 
-* An extension MUST NOT occur in any other place than specified.
-* An extension MUST satisfy the Conformance Target "CSAF Extension".
-* The schema specifying the content and properties of the CSAF Extension MUST satisfy the Conformance Target "CSAF Extension Schema".
-* For official and registered extensions a CSAF Extension Package MUST be provided.
-* CSAF Extensions SHOULD NOT provide CSAF Extension Overlay Tests for tests in the preset `extensions`.
+- An extension MUST NOT occur in any other place than specified.
+- An extension MUST satisfy the Conformance Target "CSAF Extension".
+- The schema specifying the content and properties of the CSAF Extension MUST satisfy the Conformance Target "CSAF Extension Schema".
+- For official and registered extensions a CSAF Extension Package MUST be provided.
+- CSAF Extensions SHOULD NOT provide CSAF Extension Overlay Tests for tests in the preset `extensions`.
 
 ### Classes
 
@@ -34,10 +34,10 @@ There three classes of extensions:
 
 The OASIS CSAF TC maintains:
 
-* a list of official CSAF Extensions and their CSAF Extension Packages,
-* a list of registered CSAF Extensions and their CSAF Extension Packages,
-* a list of deprecated extensions, and
-* a list of deny-listed extensions.
+- a list of official CSAF Extensions and their CSAF Extension Packages,
+- a list of registered CSAF Extensions and their CSAF Extension Packages,
+- a list of deprecated extensions, and
+- a list of deny-listed extensions.
 
 Deprecated extensions can still be used but support for them is removed in near future. If avoidable, they SHOULD NOT be used.
 Deny-listed extensions MUST NOT be used.

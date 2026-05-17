@@ -217,4 +217,4 @@ To form the overall product, both parts MUST be combined through a product path.
 > Having multiple products with the same `product_identification_helper` in different `product_status` for the same vulnerability
 > would make it undecidable for machines what the `product_status` actually is.
 
--------
+---

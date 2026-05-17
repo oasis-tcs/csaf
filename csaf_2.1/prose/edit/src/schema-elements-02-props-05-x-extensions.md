@@ -15,4 +15,4 @@ at the root-level of the CSAF document and associated with this CSAF document.
     # ...
 ```
 
--------
+---

@@ -1,7 +1,7 @@
 
 ![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
--------
+---
 
 # Common Security Advisory Framework Version 2.1
 
@@ -39,35 +39,35 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json. \
+- Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json. \
+- CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
-* Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-content.json. \
+- Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-content.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
-* Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metadata.json. \
+- Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metadata.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
-* Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metaschema.json. \
+- Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metaschema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
-* Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json. \
+- Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json. \
+- Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
 #### Related work:
 This specification replaces or supersedes:
 
-* _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+- _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 #### Declared JSON namespaces:
 
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
 
 #### Abstract:
@@ -89,7 +89,7 @@ When referencing this specification the following citation format should be used
 
 _Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
--------
+---
 
 ## Notices
 
