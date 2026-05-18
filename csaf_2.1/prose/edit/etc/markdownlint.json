@@ -14,7 +14,7 @@
     "style": "atx"
   },
   "hr-style": {
-    "style": "-------"
+    "style": "---"
   },
   "line-length": false,
   "link-fragments": false,
@@ -55,6 +55,6 @@
     "style": "asterisk"
   },
   "ul-style": {
-    "style": "asterisk"
+    "style": "dash"
   }
 }

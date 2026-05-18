@@ -473,10 +473,10 @@ identifies a CSAF document globally unique.
 If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with
 an incremented (patch) version which has no other changes than:
 
-* the new publisher information
-* the updated revision history
-* the updated item in `$.document.references[*]` which points to the new version of the CSAF document
-* an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
+- the new publisher information
+- the updated revision history
+- the updated item in `$.document.references[*]` which points to the new version of the CSAF document
+- an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
 
 *Examples 1:*
 

@@ -350,8 +350,8 @@ Additional ROLIE feeds might exist that contain only a subset of the CSAF docume
 The selection criteria SHOULD be described through the summary.
 At least one of the feeds
 
-* TLP:CLEAR
-* TLP:GREEN
+- TLP:CLEAR
+- TLP:GREEN
 
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322).
@@ -463,14 +463,14 @@ If it is used, each ROLIE category document MUST be a JSON file that conforms wi
 A ROLIE category document SHOULD reside next to the corresponding ROLIE feed.
 ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
-* document category
-* document language
-* values of the branch category within the Product Tree including but not limited to
-  * `vendor`
-  * `product_family`
-  * `product_name`
-  * `product_version`
-* type of product
+- document category
+- document language
+- values of the branch category within the Product Tree including but not limited to
+  - `vendor`
+  - `product_family`
+  - `product_name`
+  - `product_version`
+- type of product
 
   *Examples 1:*
 
@@ -485,7 +485,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
     Server
   ```
 
-* areas or sectors, the products are used in
+- areas or sectors, the products are used in
 
   *Examples 2:*
 
@@ -500,7 +500,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
     Water
   ```
 
-* any other categorization useful to the consumers
+- any other categorization useful to the consumers
 
 *Example 3:*
 
@@ -567,10 +567,10 @@ CSAF document signatures, the signing party SHOULD adhere to or surpass the prev
 regarding key length.
 Tools SHOULD treat the violation of the rules given in the first sentence as:
 
-* warning if the signature is only valid for 90 days or less at the time of the verification,
-* error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
+- warning if the signature is only valid for 90 days or less at the time of the verification,
+- error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
   the verification and
-* error if the signature is expired at the time of the verification.
+- error if the signature is expired at the time of the verification.
 
 ### Requirement 20: Public OpenPGP Key
 
@@ -658,8 +658,8 @@ The folder name SHOULD be retrieved from the name of the issuing authority.
 This folders MUST be adjacent to the `aggregator.json` (requirement 21).
 Each such folder MUST at least:
 
-* provide a `provider-metadata.json` for the current issuing party.
-* provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
+- provide a `provider-metadata.json` for the current issuing party.
+- provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
 *Example 1:*
 

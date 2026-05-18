@@ -9,8 +9,8 @@ The Version (`version_t`) type has value type `string` with `pattern` (regular e
 The version specifies a version string to denote clearly the evolution of the content of the document.
 There are two options how it can be used:
 
-* semantic versioning (preferred; according to the rules below)
-* integer versioning
+- semantic versioning (preferred; according to the rules below)
+- integer versioning
 
 A CSAF document MUST use only one versioning system.
 
