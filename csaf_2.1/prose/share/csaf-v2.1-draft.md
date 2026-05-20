@@ -1,7 +1,7 @@
 
 ![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
--------
+---
 
 # Common Security Advisory Framework Version 2.1
 
@@ -39,35 +39,35 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts:
 This prose specification is one component of a Work Product that also includes:
 
-* Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json. \
+- Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
-* CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json. \
+- CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
-* Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-content.json. \
+- Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-content.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
-* Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metadata.json. \
+- Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metadata.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
-* Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metaschema.json. \
+- Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metaschema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
-* Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json. \
+- Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
-* Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json. \
+- Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
 #### Related work:
 This specification replaces or supersedes:
 
-* _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+- _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
 
 #### Declared JSON namespaces:
 
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
-* [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
+- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
 
 
 #### Abstract:
@@ -89,7 +89,7 @@ When referencing this specification the following citation format should be used
 
 _Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
--------
+---
 
 ## Notices
 
@@ -975,7 +975,7 @@ All other text is normative unless otherwise labeled e.g. like the following inf
 > This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or
 > common pitfalls learned from implementer or operator experience and often given including the rationale.
 
--------
+---
 
 This document adheres to the Modern Language Association (MLA) style guidelines for formatting titles and terms.
 
@@ -1043,30 +1043,30 @@ Proven and intended usage patterns from practice are given where possible.
 
 Delegation to industry best practices technologies is used in referencing schemas for:
 
-* Classification for Document Distribution
-  * Traffic Light Protocol (TLP)
-    * Default Definition: https://www.first.org/tlp/
-* Exploit Prediction
-  * Exploit Prediction Scoring System (EPSS) \[[EPSS](#EPSS)\]
-* Package Data
-  * Package-URL (PURL) \[[ECMA-427](#ECMA-427)\]
-* Platform Data
-  * Common Platform Enumeration (CPE) Version 2.3 \[[CPE23-N](#CPE23-N)\]
-* Vulnerability Categorization
-  * Stakeholder-Specific Vulnerability Categorization \[[SSVC](#SSVC)\]
-    * JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json
-* Vulnerability Classification
-  * Common Weakness Enumeration (CWE) \[[CWE](#CWE)\]
-    * CWE List: http://cwe.mitre.org/data/index.html
-* Vulnerability Scoring
-  * Common Vulnerability Scoring System (CVSS) Version 4.0 \[[CVSS40](#CVSS40)\]
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
-  * Common Vulnerability Scoring System (CVSS) Version 3.1 \[[CVSS31](#CVSS31)\]
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
-  * Common Vulnerability Scoring System (CVSS) Version 3.0 \[[CVSS30](#CVSS30)\]
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v3.0.json
-  * Common Vulnerability Scoring System (CVSS) Version 2.0 \[[CVSS2](#CVSS2)\]
-    * JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
+- Classification for Document Distribution
+  - Traffic Light Protocol (TLP)
+    - Default Definition: https://www.first.org/tlp/
+- Exploit Prediction
+  - Exploit Prediction Scoring System (EPSS) \[[EPSS](#EPSS)\]
+- Package Data
+  - Package-URL (PURL) \[[ECMA-427](#ECMA-427)\]
+- Platform Data
+  - Common Platform Enumeration (CPE) Version 2.3 \[[CPE23-N](#CPE23-N)\]
+- Vulnerability Categorization
+  - Stakeholder-Specific Vulnerability Categorization \[[SSVC](#SSVC)\]
+    - JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json
+- Vulnerability Classification
+  - Common Weakness Enumeration (CWE) \[[CWE](#CWE)\]
+    - CWE List: http://cwe.mitre.org/data/index.html
+- Vulnerability Scoring
+  - Common Vulnerability Scoring System (CVSS) Version 4.0 \[[CVSS40](#CVSS40)\]
+    - JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
+  - Common Vulnerability Scoring System (CVSS) Version 3.1 \[[CVSS31](#CVSS31)\]
+    - JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
+  - Common Vulnerability Scoring System (CVSS) Version 3.0 \[[CVSS30](#CVSS30)\]
+    - JSON Schema Reference: https://www.first.org/cvss/cvss-v3.0.json
+  - Common Vulnerability Scoring System (CVSS) Version 2.0 \[[CVSS2](#CVSS2)\]
+    - JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
 
 Even though not all - especially the referenced - JSON schemas prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
@@ -1141,12 +1141,12 @@ The format validation is enforced by setting the corresponding vocabulary as req
 This standard uses the `date-time` format as defined in JSON Schema Draft 2020-12 Section 7.3.1.
 In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the following rules apply:
 
-* The letter `T` separating the date and time SHALL be upper case.
-* The separator between date and time MUST be the letter `T`.
-* The letter `Z` indicating the timezone UTC SHALL be upper case.
-* Fractions of seconds are allowed as specified in the standards mention above with the full stop (`.`) as separator.
-* Empty timezones MUST NOT be used.
-* The ABNF of RFC 3339, section 5.6 applies.
+- The letter `T` separating the date and time SHALL be upper case.
+- The separator between date and time MUST be the letter `T`.
+- The letter `Z` indicating the timezone UTC SHALL be upper case.
+- Fractions of seconds are allowed as specified in the standards mention above with the full stop (`.`) as separator.
+- Empty timezones MUST NOT be used.
+- The ABNF of RFC 3339, section 5.6 applies.
 
 In contrast to the aforementioned standards, leap seconds MUST NOT be used.
 
@@ -1160,11 +1160,11 @@ This standard allows for extensions to the standardized schema.
 
 The following rules apply:
 
-* An extension MUST NOT occur in any other place than specified.
-* An extension MUST satisfy the Conformance Target "CSAF Extension".
-* The schema specifying the content and properties of the CSAF Extension MUST satisfy the Conformance Target "CSAF Extension Schema".
-* For official and registered extensions a CSAF Extension Package MUST be provided.
-* CSAF Extensions SHOULD NOT provide CSAF Extension Overlay Tests for tests in the preset `extensions`.
+- An extension MUST NOT occur in any other place than specified.
+- An extension MUST satisfy the Conformance Target "CSAF Extension".
+- The schema specifying the content and properties of the CSAF Extension MUST satisfy the Conformance Target "CSAF Extension Schema".
+- For official and registered extensions a CSAF Extension Package MUST be provided.
+- CSAF Extensions SHOULD NOT provide CSAF Extension Overlay Tests for tests in the preset `extensions`.
 
 ### 2.4.1 Classes <a id='classes'></a>
 
@@ -1190,10 +1190,10 @@ There three classes of extensions:
 
 The OASIS CSAF TC maintains:
 
-* a list of official CSAF Extensions and their CSAF Extension Packages,
-* a list of registered CSAF Extensions and their CSAF Extension Packages,
-* a list of deprecated extensions, and
-* a list of deny-listed extensions.
+- a list of official CSAF Extensions and their CSAF Extension Packages,
+- a list of registered CSAF Extensions and their CSAF Extension Packages,
+- a list of deprecated extensions, and
+- a list of deny-listed extensions.
 
 Deprecated extensions can still be used but support for them is removed in near future. If avoidable, they SHOULD NOT be used.
 Deny-listed extensions MUST NOT be used.
@@ -1304,8 +1304,8 @@ The schema identifier is:
 
 The further documentation of the schema is organized via Definitions and Properties.
 
-* Definitions provide types that extend the JSON schema model
-* Properties use these types to support assembling security advisories
+- Definitions provide types that extend the JSON schema model
+- Properties use these types to support assembling security advisories
 
 Types and properties together provide the vocabulary for the domain specific language supporting security advisories.
 
@@ -2456,8 +2456,8 @@ The Version (`version_t`) type has value type `string` with `pattern` (regular e
 The version specifies a version string to denote clearly the evolution of the content of the document.
 There are two options how it can be used:
 
-* semantic versioning (preferred; according to the rules below)
-* integer versioning
+- semantic versioning (preferred; according to the rules below)
+- integer versioning
 
 A CSAF document MUST use only one versioning system.
 
@@ -3118,10 +3118,10 @@ identifies a CSAF document globally unique.
 If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with
 an incremented (patch) version which has no other changes than:
 
-* the new publisher information
-* the updated revision history
-* the updated item in `$.document.references[*]` which points to the new version of the CSAF document
-* an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
+- the new publisher information
+- the updated revision history
+- the updated item in `$.document.references[*]` which points to the new version of the CSAF document
+- an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
 
 *Examples 1:*<a id='document-property---publisher---namespace-eg-1'></a><a id='sec-3-2-2-9-5-eg-1'></a><a id='example-43'></a>
 
@@ -3889,20 +3889,20 @@ The given values reflect the VEX not affected justifications.
 See [VEX-Justification] for more details.
 The values MUST be used as follows:
 
-* `component_not_present`: The software is not affected because the vulnerable component is not in the product.
-* `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+- `component_not_present`: The software is not affected because the vulnerable component is not in the product.
+- `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
 
   > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options)
   > the specific code causing the vulnerability is not present in the component.
 
-* `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
+- `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
   However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
-* `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
+- `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
   including non-anticipated states of the product.
 
   > Components that are neither used nor executed by the product.
 
-* `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
+- `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
@@ -4379,7 +4379,7 @@ There is also no investigation and therefore the status might never be determine
 
 The individual properties form the following product status groups:
 
-* Affected:
+- Affected:
 
   ```
   $.vulnerabilities[*].product_status.first_affected[*]
@@ -4387,26 +4387,26 @@ The individual properties form the following product status groups:
   $.vulnerabilities[*].product_status.last_affected[*]
   ```
 
-* Not affected:
+- Not affected:
 
   ```
   $.vulnerabilities[*].product_status.known_not_affected[*]
   ```
 
-* Fixed:
+- Fixed:
 
   ```
   $.vulnerabilities[*].product_status.first_fixed[*]
   $.vulnerabilities[*].product_status.fixed[*]
   ```
 
-* Under investigation:
+- Under investigation:
 
   ```
   $.vulnerabilities[*].product_status.under_investigation[*]
   ```
 
-* Unknown:
+- Unknown:
 
   ```
   $.vulnerabilities[*].product_status.unknown[*]
@@ -4680,24 +4680,24 @@ Valid values are:
 
 The values MUST be used as follows:
 
-* `none`: No restart required.
-* `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
+- `none`: No restart required.
+- `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
    needs to be restarted.
-* `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
-* `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
+- `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
+- `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
   to restart the vulnerable component or process values / context is only given at the start of the parent process.
-* `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted.
+- `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted.
   This could be the case e.g. for a core service of a software.
-* `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication)
+- `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication)
   to the vulnerable component need to be restarted.
-* `machine`: The machine on which the vulnerable component is installed on needs to be restarted.
+- `machine`: The machine on which the vulnerable component is installed on needs to be restarted.
   This is the value which SHOULD be used if an OS needs to be restarted.
   It is typically the case for OS upgrades.
-* `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted.
+- `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted.
   This value might be useful for a remediation if no patch is available.
   If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at
   the same time and restart afterwards can leave one with a clean system.
-* `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
+- `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
   This MAY include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
 Additional restart information (`details`) of value type `string` with `1` or more characters provides additional information for the restart.
@@ -4820,7 +4820,7 @@ at the root-level of the CSAF document and associated with this CSAF document.
     # ...
 ```
 
--------
+---
 
 # 4 Profiles <a id='profiles'></a>
 
@@ -4853,24 +4853,24 @@ Furthermore, it is the foundation all other profiles are build on.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "CSAF Base":
 
-* The following elements MUST exist and be valid:
-  * `$['$schema']`
-  * `$.document.category`
-  * `$.document.csaf_version`
-  * `$.document.distribution.tlp.label`
-  * `$.document.publisher.category`
-  * `$.document.publisher.name`
-  * `$.document.publisher.namespace`
-  * `$.document.title`
-  * `$.document.tracking.current_release_date`
-  * `$.document.tracking.id`
-  * `$.document.tracking.initial_release_date`
-  * `$.document.tracking.revision_history[*].date`
-  * `$.document.tracking.revision_history[*].number`
-  * `$.document.tracking.revision_history[*].summary`
-  * `$.document.tracking.status`
-  * `$.document.tracking.version`
-* The value of `$.document.category` SHALL NOT be equal to or a close match for any value that is intended to only be used by
+- The following elements MUST exist and be valid:
+  - `$['$schema']`
+  - `$.document.category`
+  - `$.document.csaf_version`
+  - `$.document.distribution.tlp.label`
+  - `$.document.publisher.category`
+  - `$.document.publisher.name`
+  - `$.document.publisher.namespace`
+  - `$.document.title`
+  - `$.document.tracking.current_release_date`
+  - `$.document.tracking.id`
+  - `$.document.tracking.initial_release_date`
+  - `$.document.tracking.revision_history[*].date`
+  - `$.document.tracking.revision_history[*].number`
+  - `$.document.tracking.revision_history[*].summary`
+  - `$.document.tracking.status`
+  - `$.document.tracking.version`
+- The value of `$.document.category` SHALL NOT be equal to or a close match for any value that is intended to only be used by
   another profile nor to the (case insensitive) name of any other profile from the standard.
   Such case insensitive matching does not take occurrences of dash, hyphen, minus, white space, and underscore characters into account.
   To explicitly select the use of this profile the value `csaf_base` SHOULD be used.
@@ -4896,18 +4896,18 @@ the implications on its own products and infrastructure.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Incident Response":
 
-* The following elements MUST exist and be valid:
-  * all elements required by the profile "CSAF Base".
-  * `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+- The following elements MUST exist and be valid:
+  - all elements required by the profile "CSAF Base".
+  - `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
 
     > Reasoning: Without at least one note item which contains information about response to the event referred to this doesn't provide
     > any useful information.
 
-  * `$.document.references` with at least one item which has a `category` of `external`
+  - `$.document.references` with at least one item which has a `category` of `external`
 
     > The intended use for this field is to refer to one or more documents or websites which provides more details about the incident.
 
-* The value of `$.document.category` SHALL be `csaf_security_incident_response`.
+- The value of `$.document.category` SHALL be `csaf_security_incident_response`.
 
 ## 4.3 Profile 3: Informational Advisory <a id='profile-3-informational-advisory'></a>
 
@@ -4915,20 +4915,20 @@ This profile SHOULD be used to provide information which are **not related to a 
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
 
-* The following elements MUST exist and be valid:
-  * all elements required by the profile "CSAF Base".
-  * `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
+- The following elements MUST exist and be valid:
+  - all elements required by the profile "CSAF Base".
+  - `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
 
     > Reasoning: Without at least one note item which contains information about the "issue" which is the topic of the advisory it is useless.
 
-  * `$.document.references` with at least one item which has a `category` of `external`
+  - `$.document.references` with at least one item which has a `category` of `external`
 
     > The intended use for this field is to refer to one or more documents or websites which provide more details about
     > the issue or its remediation (if possible).
     > This could be a hardening guide, a manual, best practices or any other helpful information.
 
-* The value of `$.document.category` SHALL be `csaf_informational_advisory`.
-* The element `$.vulnerabilities` SHALL NOT exist.
+- The value of `$.document.category` SHALL be `csaf_informational_advisory`.
+- The element `$.vulnerabilities` SHALL NOT exist.
   If there is any information that would reside in the element `$.vulnerabilities` the CSAF document SHOULD use another profile,
   e.g. "Security Advisory".
 
@@ -4940,33 +4940,33 @@ This profile SHOULD be used to provide information which is related to vulnerabi
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
 
-* The following elements MUST exist and be valid:
-  * all elements required by the profile "CSAF Base".
-  * `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
-  * `$.vulnerabilities` which lists all vulnerabilities.
-  * `$.vulnerabilities[*].notes`
+- The following elements MUST exist and be valid:
+  - all elements required by the profile "CSAF Base".
+  - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  - `$.vulnerabilities` which lists all vulnerabilities.
+  - `$.vulnerabilities[*].notes`
 
     > Provides details about the vulnerability.
 
-  * `$.vulnerabilities[*].product_status`
+  - `$.vulnerabilities[*].product_status`
 
     > Lists each product's status in regard to the vulnerability.
 
-  * `$.vulnerabilities[*].product_status.known_affected`
+  - `$.vulnerabilities[*].product_status.known_affected`
 
     > Lists affected products in regard to the vulnerability.
 
-  * For each product given in `$.vulnerabilities[*].product_status.fixed`, the corresponding affected version SHALL be given.
+  - For each product given in `$.vulnerabilities[*].product_status.fixed`, the corresponding affected version SHALL be given.
 
     > Corresponding versions are usually in the same `branches` element.
 
-* The value of `$.document.category` SHALL be `csaf_security_advisory`.
-* The following elements SHOULD exist:
-  * `$.vulnerabilities[*].product_status.fixed`
+- The value of `$.document.category` SHALL be `csaf_security_advisory`.
+- The following elements SHOULD exist:
+  - `$.vulnerabilities[*].product_status.fixed`
 
     > Lists fixed products in regard to the vulnerability.
 
-  * `$.vulnerabilities[*].remediations`
+  - `$.vulnerabilities[*].remediations`
 
     > Lists for each affected product in regard to the vulnerability appropriate remediations.
 
@@ -4978,28 +4978,28 @@ See \[[VEX](#VEX)\] for details.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
-* The following elements MUST exist and be valid:
-  * all elements required by the profile "CSAF Base".
-  * `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
-  * `$.vulnerabilities` which lists all vulnerabilities.
-  * at least one of
-    * `$.vulnerabilities[*].product_status.fixed`
-    * `$.vulnerabilities[*].product_status.known_affected`
-    * `$.vulnerabilities[*].product_status.known_not_affected`
-    * `$.vulnerabilities[*].product_status.under_investigation`
-  * at least one of
-    * `$.vulnerabilities[*].cve`
-    * `$.vulnerabilities[*].ids`
-  * `$.vulnerabilities[*].notes`
+- The following elements MUST exist and be valid:
+  - all elements required by the profile "CSAF Base".
+  - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  - `$.vulnerabilities` which lists all vulnerabilities.
+  - at least one of
+    - `$.vulnerabilities[*].product_status.fixed`
+    - `$.vulnerabilities[*].product_status.known_affected`
+    - `$.vulnerabilities[*].product_status.known_not_affected`
+    - `$.vulnerabilities[*].product_status.under_investigation`
+  - at least one of
+    - `$.vulnerabilities[*].cve`
+    - `$.vulnerabilities[*].ids`
+  - `$.vulnerabilities[*].notes`
 
     > Provides details about the vulnerability.
 
-* For each item in
-  * `$.vulnerabilities[*].product_status.known_not_affected` an impact statement SHALL exist as machine readable flag
+- For each item in
+  - `$.vulnerabilities[*].product_status.known_not_affected` an impact statement SHALL exist as machine readable flag
     in `$.vulnerabilities[*].flags` or as human readable justification in `$.vulnerabilities[*].threats`.
     For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain
     a description why the vulnerability cannot be exploited.
-  * `$.vulnerabilities[*].product_status.known_affected` additional product specific information SHALL be provided
+  - `$.vulnerabilities[*].product_status.known_affected` additional product specific information SHALL be provided
     in `$.vulnerabilities[*].remediations` as an action statement.
     Optional, additional information MAY also be provide through `$.vulnerabilities[*].notes` and `$.vulnerabilities[*].threats`.
 
@@ -5011,7 +5011,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   > impact statement and all products with the status `known_affected` MUST have additional product specific information
   > regardless of whether that is referenced through the Product ID or a Product Group ID.
 
-* The value of `$.document.category` SHALL be `csaf_vex`.
+- The value of `$.document.category` SHALL be `csaf_vex`.
 
 ## 4.6 Profile 6: Deprecated Security Advisory <a id='profile-6-deprecated-security-advisory'></a>
 
@@ -5024,19 +5024,19 @@ The profile "Security Advisory" from section [4.4](#profile-4-security-advisory)
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Deprecated Security Advisory":
 
-* The following elements MUST exist and be valid:
-  * all elements required by the profile "CSAF Base".
-  * `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
-  * `$.vulnerabilities` which lists all vulnerabilities.
-  * `$.vulnerabilities[*].notes`
+- The following elements MUST exist and be valid:
+  - all elements required by the profile "CSAF Base".
+  - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  - `$.vulnerabilities` which lists all vulnerabilities.
+  - `$.vulnerabilities[*].notes`
 
     > Provides details about the vulnerability.
 
-  * `$.vulnerabilities[*].product_status`
+  - `$.vulnerabilities[*].product_status`
 
     > Lists each product's status in regard to the vulnerability.
 
-* The value of `$.document.category` SHALL be `csaf_deprecated_security_advisory`.
+- The value of `$.document.category` SHALL be `csaf_deprecated_security_advisory`.
 
 ## 4.7 Profile 7: Withdrawn <a id='profile-7-withdrawn'></a>
 
@@ -5044,24 +5044,24 @@ This profile MUST be used for any CSAF document that is withdrawn. It MUST NOT b
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Withdrawn":
 
-* The following elements MUST exist and be valid:
-  * all elements required by the profile "CSAF Base".
-  * `$.document.notes` with exactly one item using the `category` `description`
+- The following elements MUST exist and be valid:
+  - all elements required by the profile "CSAF Base".
+  - `$.document.notes` with exactly one item using the `category` `description`
     describing the original content and the reasons for the withdrawal
 
     > Other items, such as a legal disclaimer, may exist alongside the required one.
 
     The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
-  * `$.document.tracking.revision_history` with at least `2` entries.
+  - `$.document.tracking.revision_history` with at least `2` entries.
     Any previous items MUST NOT be removed.
 
     > A CSAF document cannot be withdrawn during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `$.document.tracking.status` is kept in `draft`.
 
-* The value of `$.document.category` SHALL be `csaf_withdrawn`.
-* The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.
+- The value of `$.document.category` SHALL be `csaf_withdrawn`.
+- The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.
 
 The CSAF document MAY link to additional information through `$.document.references`.
 
@@ -5071,28 +5071,28 @@ This profile MUST be used for any CSAF document that is superseded. It MUST NOT 
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Superseded":
 
-* The following elements MUST exist and be valid:
-  * all elements required by the profile "CSAF Base".
-  * `$.document.notes` with exactly one item using the `category` `description`
+- The following elements MUST exist and be valid:
+  - all elements required by the profile "CSAF Base".
+  - `$.document.notes` with exactly one item using the `category` `description`
 
       > Other items, such as a legal disclaimer, may exist alongside the required one.
 
     The `title` MUST be `Reasoning for Supersession` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
-  * `$.document.tracking.revision_history` with at least `2` entries.
+  - `$.document.tracking.revision_history` with at least `2` entries.
     Any previous items MUST NOT be removed.
 
     > A CSAF document cannot be superseded during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `$.document.tracking.status` is kept in `draft`.
 
-  * `$.document.references` containing at least one item with `category` `external`
+  - `$.document.references` containing at least one item with `category` `external`
     The `summary` MUST start with `Superseding Document` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
-* The value of `$.document.category` SHALL be `csaf_superseded`.
-* The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.
+- The value of `$.document.category` SHALL be `csaf_superseded`.
+- The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.
 
--------
+---
 
 # 5 Additional Conventions <a id='additional-conventions'></a>
 
@@ -5313,7 +5313,7 @@ To form the overall product, both parts MUST be combined through a product path.
 > Having multiple products with the same `product_identification_helper` in different `product_status` for the same vulnerability
 > would make it undecidable for machines what the `product_status` actually is.
 
--------
+---
 
 # 6 Tests <a id='tests'></a>
 
@@ -10406,35 +10406,35 @@ The relevant path for this test is:
 This subsubsection structures the recommended tests for overlapping product version ranges.
 The following definitions apply to all tests:
 
-* Two product version ranges `a` and `b` are overlapping if the intersection of their sets of product versions `a'` and `b'` does not
+- Two product version ranges `a` and `b` are overlapping if the intersection of their sets of product versions `a'` and `b'` does not
   result in an empty set.
 
   > As the intersect operation is commutative it is sufficient to test one order.
 
-* A product version `c` overlaps with a product version range `a` if `c` is included in `a`.
-* An element of type `$['$defs'].full_product_name_t` which has a branch category of `product_version_range` in the path leading to it,
+- A product version `c` overlaps with a product version range `a` if `c` is included in `a`.
+- An element of type `$['$defs'].full_product_name_t` which has a branch category of `product_version_range` in the path leading to it,
   is called "element with product version range" (`EPVR`).
-* The corresponding Product ID identifying such an `EPVR` is called "EPVR Product ID" (`EPVRPID`).
-* For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` which is called
+- The corresponding Product ID identifying such an `EPVR` is called "EPVR Product ID" (`EPVRPID`).
+- For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` which is called
   "currently tested product version range" (`CTPVR`), all sibling elements on the same level form the
   "group of sibling elements of the product version range" (`GSEPVR`).
-* The group `GSEPVR` is divided in three pairwise disjoint sets:
+- The group `GSEPVR` is divided in three pairwise disjoint sets:
   1. Elements that have the branch category `product_version_range` form the "product version range sibling set" (`PVRSS`).
   2. Elements that have the branch category `product_version` form the "product version sibling set" (`PVSS`).
   3. Elements that do not fall into 1 or 2 form the "other branch category sibling set" (`OBCSS`).
-* `PVRSS` is divided in three pairwise disjoint sets:
+- `PVRSS` is divided in three pairwise disjoint sets:
   1. Elements that use valid vers form the "product version range sibling set - vers" (`PVRSS-vers`).
   2. Elements that use valid vls form the "product version range sibling set - vls" (`PVRSS-vls`).
   3. Elements that do not fall into 1 or 2 form the "product version range sibling set - invalid" (`PVRSS-invalid`).
-* `PVRSS` elements can also be grouped into three pairwise disjoint sets:
+- `PVRSS` elements can also be grouped into three pairwise disjoint sets:
   1. Elements that contain the `branches` as only optional property form the "product version range sibling set with branches" (`PVRSS+b`).
   2. Elements that contain the `product` as only optional property form the "product version range sibling set with leaf" (`PVRSS+l`).
   3. Elements that do not fall into 1 or 2 form the "product version range sibling set - invalid branch" (`PVRSS+i`).
-* Similar, `PVSS` elements can be grouped into three pairwise disjoint sets:
+- Similar, `PVSS` elements can be grouped into three pairwise disjoint sets:
   1. Elements that contain the `branches` as only optional property form the "product version sibling set with branches" (`PVSS+b`).
   2. Elements that contain the `product` as only optional property form the "product version sibling set with leaf" (`PVSS+l`).
   3. Elements that do not fall into 1 or 2 form the "product version sibling set - invalid branch" (`PVSS+i`).
-* Attributes of `PVRSS` elements can be combined:
+- Attributes of `PVRSS` elements can be combined:
   1. Product version range sibling set with branches - vers (`PVRSS+b-vers`): Intersection of `PVRSS+b` and `PVRSS-vers`
   2. Product version range sibling set with branches - vls (`PVRSS+b-vls`): Intersection of `PVRSS+b` and `PVRSS-vls`
   3. Product version range sibling set with leaf - vers (`PVRSS+l-vers`): Intersection of `PVRSS+l` and `PVRSS-vers`
@@ -12763,8 +12763,8 @@ Additional ROLIE feeds might exist that contain only a subset of the CSAF docume
 The selection criteria SHOULD be described through the summary.
 At least one of the feeds
 
-* TLP:CLEAR
-* TLP:GREEN
+- TLP:CLEAR
+- TLP:GREEN
 
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
@@ -12876,14 +12876,14 @@ If it is used, each ROLIE category document MUST be a JSON file that conforms wi
 A ROLIE category document SHOULD reside next to the corresponding ROLIE feed.
 ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
-* document category
-* document language
-* values of the branch category within the Product Tree including but not limited to
-  * `vendor`
-  * `product_family`
-  * `product_name`
-  * `product_version`
-* type of product
+- document category
+- document language
+- values of the branch category within the Product Tree including but not limited to
+  - `vendor`
+  - `product_family`
+  - `product_name`
+  - `product_version`
+- type of product
 
   *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-248'></a>
 
@@ -12898,7 +12898,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
     Server
   ```
 
-* areas or sectors, the products are used in
+- areas or sectors, the products are used in
 
   *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-249'></a>
 
@@ -12913,7 +12913,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
     Water
   ```
 
-* any other categorization useful to the consumers
+- any other categorization useful to the consumers
 
 *Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-250'></a>
 
@@ -12980,10 +12980,10 @@ CSAF document signatures, the signing party SHOULD adhere to or surpass the prev
 regarding key length.
 Tools SHOULD treat the violation of the rules given in the first sentence as:
 
-* warning if the signature is only valid for 90 days or less at the time of the verification,
-* error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
+- warning if the signature is only valid for 90 days or less at the time of the verification,
+- error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
   the verification and
-* error if the signature is expired at the time of the verification.
+- error if the signature is expired at the time of the verification.
 
 ### 7.1.20 Requirement 20: Public OpenPGP Key <a id='requirement-20-public-openpgp-key'></a>
 
@@ -13071,8 +13071,8 @@ The folder name SHOULD be retrieved from the name of the issuing authority.
 This folders MUST be adjacent to the `aggregator.json` (requirement 21).
 Each such folder MUST at least:
 
-* provide a `provider-metadata.json` for the current issuing party.
-* provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
+- provide a `provider-metadata.json` for the current issuing party.
+- provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
 *Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-256'></a>
 
@@ -13177,8 +13177,8 @@ Therefore, a CSAF aggregator can list that issuing party if it mirrors the files
 
 A distributing party satisfies the "CSAF Publisher" role if the party:
 
-* satisfies the requirements 1 to 4 in section [7.1](#requirements).
-* distributes only CSAF documents on behalf of its own.
+- satisfies the requirements 1 to 4 in section [7.1](#requirements).
+- distributes only CSAF documents on behalf of its own.
 
 ### 7.2.2 Role: CSAF Provider <a id='role-csaf-provider'></a>
 
@@ -13186,16 +13186,16 @@ A CSAF publisher satisfies the "CSAF Provider" role if the party fulfills the fo
 
 Firstly, the party:
 
-* satisfies the "CSAF Publisher" role profile.
-* additionally satisfies the requirements 5 to 7, 24 and 25 in section [7.1](#requirements).
+- satisfies the "CSAF Publisher" role profile.
+- additionally satisfies the requirements 5 to 7, 24 and 25 in section [7.1](#requirements).
 
 Secondly, the party:
 
-* satisfies at least one of the requirements 8 to 10 in section [7.1](#requirements).
+- satisfies at least one of the requirements 8 to 10 in section [7.1](#requirements).
 
 Thirdly, the party:
 
-* satisfies the requirements 11 to 14 in section [7.1](#requirements) or requirements 15 to 17 in section [7.1](#requirements).
+- satisfies the requirements 11 to 14 in section [7.1](#requirements) or requirements 15 to 17 in section [7.1](#requirements).
 
 > If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17.
 > If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
@@ -13204,16 +13204,16 @@ Thirdly, the party:
 
 A CSAF provider satisfies the "CSAF Trusted Provider" role if the party:
 
-* satisfies the "CSAF Provider" role profile.
-* additionally satisfies the requirements 18 to 20 in section [7.1](#requirements).
+- satisfies the "CSAF Provider" role profile.
+- additionally satisfies the requirements 18 to 20 in section [7.1](#requirements).
 
 ### 7.2.4 Role: CSAF Lister <a id='role-csaf-lister'></a>
 
 A distributing party satisfies the "CSAF Lister" role if the party:
 
-* satisfies the requirements 6, 21, 22, 24 and 25 in section [7.1](#requirements).
-* uses the value `lister` for `$.aggregator.category`.
-* does not list any mirror pointing to a domain under its own control.
+- satisfies the requirements 6, 21, 22, 24 and 25 in section [7.1](#requirements).
+- uses the value `lister` for `$.aggregator.category`.
+- does not list any mirror pointing to a domain under its own control.
 
 > The purpose of this role is to provide a list of URLs where to find CSAF documents.
 > It is not assumed that the list will be complete.
@@ -13222,12 +13222,12 @@ A distributing party satisfies the "CSAF Lister" role if the party:
 
 A distributing party satisfies the "CSAF Aggregator" role if the party:
 
-* satisfies the requirements 1 to 6 and 21 to 25 in section [7.1](#requirements).
-* uses the value `aggregator` for `$.aggregator.category`.
-* lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
-* links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
+- satisfies the requirements 1 to 6 and 21 to 25 in section [7.1](#requirements).
+- uses the value `aggregator` for `$.aggregator.category`.
+- lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
+- links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
   the corresponding `provider-metadata.json`.
-* provides for each CSAF document that is mirrored a signature (requirement 19) and a hash (requirement 18).
+- provides for each CSAF document that is mirrored a signature (requirement 19) and a hash (requirement 18).
   Both SHALL be listed in the ROLIE feed. If the issuing party provides those files for a CSAF document, they SHOULD be copied as well.
   If the issuing party does not provide those files, they SHALL be created by the CSAF aggregator.
   Such a signature does not imply any liability of CSAF aggregator for the content of the corresponding CSAF document.
@@ -13306,7 +13306,7 @@ based on the main domain of the aggregator as specified in requirement 21 in sec
 **Indirect locating**: A retrieving party MAY choose to determine the location of an `aggregator.json` through an out-of-band channel,
 e.g. an email list, news articles or a public website.
 
--------
+---
 
 ## 7.4 Transition between CSAF 2.0 and CSAF 2.1 <a id='transition-between-csaf-2-0-and-csaf-2-1'></a>
 
@@ -13425,16 +13425,16 @@ CSAF documents are based on JSON, thus the security considerations of \[[RFC8259
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 
-* CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
+- CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
   To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer,
   e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
-* Deeply nested markup can cause a stack overflow in the Markdown processor \[[GFMENG](#GFMENG)\].
+- Deeply nested markup can cause a stack overflow in the Markdown processor \[[GFMENG](#GFMENG)\].
   To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the `cmark` Markdown processor \[[GFMCMARK](#GFMCMARK)\].
-* To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
+- To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
   CSAF consumers SHALL either disable HTML processing (for example, by using the `--safe` option in the `cmark` Markdown processor)
   or run the resulting HTML through an HTML sanitizer.
-* To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, `javascript:` links),
+- To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, `javascript:` links),
   CSAF consumers SHALL either remove all actions from links (for example, by displaying them as standard text)
 or render only those actionable that are known to be safe (for example, determining that via the media type).
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to
@@ -13477,7 +13477,7 @@ It is RECOMMENDED to do them at least before a release.
 
 > Such checks can be automated, e.g. in the CI/CD pipeline.
 
--------
+---
 
 # 9 Conformance <a id='conformance'></a>
 
@@ -13505,66 +13505,66 @@ The clauses, matching the targets one to one, are listed in separate sub-subsect
 This document defines requirements for the file format and for certain software components that interact with it.
 The entities ("conformance targets") for which this document defines requirements are:
 
-* **CSAF Document**: A security advisory text document in the format defined by this document.
-* **CSAF Producer**: A program which emits output in the CSAF format.
-* **CSAF Direct Producer**: An analysis tool which acts as a CSAF Producer.
-* **CSAF Converter**: A CSAF Producer that transforms the output of an analysis tool from its native output format into the CSAF format.
-* **CVRF CSAF Converter**: A CSAF Producer which takes a CVRF document as input and converts it into a valid CSAF Document.
-* **CSAF Content Management System**: A program that is able to create,
+- **CSAF Document**: A security advisory text document in the format defined by this document.
+- **CSAF Producer**: A program which emits output in the CSAF format.
+- **CSAF Direct Producer**: An analysis tool which acts as a CSAF Producer.
+- **CSAF Converter**: A CSAF Producer that transforms the output of an analysis tool from its native output format into the CSAF format.
+- **CVRF CSAF Converter**: A CSAF Producer which takes a CVRF document as input and converts it into a valid CSAF Document.
+- **CSAF Content Management System**: A program that is able to create,
   review and manage CSAF Documents and is able to preview their details as required by CSAF Viewer.
-* **CSAF Post-Processor**: A CSAF Producer that transforms an existing CSAF Document into a new CSAF Document,
+- **CSAF Post-Processor**: A CSAF Producer that transforms an existing CSAF Document into a new CSAF Document,
   for example, by removing or redacting elements according to sharing policies.
-* **CSAF Modifier**: A CSAF Post-Processor which takes a CSAF Document as input and modifies the structure or values of properties.
+- **CSAF Modifier**: A CSAF Post-Processor which takes a CSAF Document as input and modifies the structure or values of properties.
   The output is a valid CSAF Document.
-* **CSAF Translator**: A CSAF Post-Processor which takes a CSAF Document as input and translates values of properties into another language.
+- **CSAF Translator**: A CSAF Post-Processor which takes a CSAF Document as input and translates values of properties into another language.
   The output is a valid CSAF Document.
-* **CSAF Consumer**: A program that reads and interprets a CSAF Document.
-* **CSAF Viewer**: A CSAF Consumer that reads a CSAF Document, displays a list of the results it contains,
+- **CSAF Consumer**: A program that reads and interprets a CSAF Document.
+- **CSAF Viewer**: A CSAF Consumer that reads a CSAF Document, displays a list of the results it contains,
   and allows an end user to view each result in the context of the artifact in which it occurs.
-* **CSAF Management System**: A program that is able to manage CSAF Documents and is able to display their details as required by CSAF Viewer.
-* **CSAF Asset Matching System**: A program that connects to or is an asset database and is able to manage CSAF Documents as required
+- **CSAF Management System**: A program that is able to manage CSAF Documents and is able to display their details as required by CSAF Viewer.
+- **CSAF Asset Matching System**: A program that connects to or is an asset database and is able to manage CSAF Documents as required
   by CSAF Management System as well as matching them to assets of the asset database.
-* **CSAF Basic Validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
-* **CSAF Extended Validator**: A CSAF Basic Validator that additionally performs recommended tests.
-* **CSAF Full Validator**: A CSAF Extended Validator that additionally performs informative tests.
-* **CSAF SBOM Matching System**: A program that connects to or is an SBOM database and is able to manage CSAF Documents as required
+- **CSAF Basic Validator**: A program that reads a document and checks it against the JSON schema and performs mandatory tests.
+- **CSAF Extended Validator**: A CSAF Basic Validator that additionally performs recommended tests.
+- **CSAF Full Validator**: A CSAF Extended Validator that additionally performs informative tests.
+- **CSAF SBOM Matching System**: A program that connects to or is an SBOM database and is able to manage CSAF Documents as required
   by CSAF Management System as well as matching them to SBOM components of the SBOM database.
-* **CSAF 2.0 to CSAF 2.1 Converter**: A CSAF Producer which takes a CSAF 2.0 Document as input and converts it into a valid CSAF 2.1 Document.
-* **CSAF Library**: A library that implements CSAF data capabilities.
-* **CSAF Library with Basic Validation**: A CSAF Library that also satisfies the conformance target "CSAF Basic Validator".
-* **CSAF Library with Extended Validation**: A CSAF Library that also satisfies the conformance target "CSAF Extended Validator".
-* **CSAF Library with Full Validation**: A CSAF Library that also satisfies the conformance target "CSAF Full Validator".
-* **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
-* **CSAF Withdrawer**: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
-* **CSAF Superseder**: A CSAF Post-Processor that transforms a given CSAF into a Superseded one.
-* **CSAF RVISC ID Updater**: A CSAF Post-Processor that updates vulnerability IDs in a given CSAF based on the entries in \[[RVISC](#RVISC)\].
-* **CSAF Additional Test**: A test that is not yet defined in section [6](#tests).
-* **CSAF Extension**: A specified JSON object conveying additional information different from the content that can be conveyed with the
+- **CSAF 2.0 to CSAF 2.1 Converter**: A CSAF Producer which takes a CSAF 2.0 Document as input and converts it into a valid CSAF 2.1 Document.
+- **CSAF Library**: A library that implements CSAF data capabilities.
+- **CSAF Library with Basic Validation**: A CSAF Library that also satisfies the conformance target "CSAF Basic Validator".
+- **CSAF Library with Extended Validation**: A CSAF Library that also satisfies the conformance target "CSAF Extended Validator".
+- **CSAF Library with Full Validation**: A CSAF Library that also satisfies the conformance target "CSAF Full Validator".
+- **CSAF Downloader**: A program that retrieves CSAF Documents in an automated fashion.
+- **CSAF Withdrawer**: A CSAF Post-Processor that transforms a given CSAF into a Withdrawn one.
+- **CSAF Superseder**: A CSAF Post-Processor that transforms a given CSAF into a Superseded one.
+- **CSAF RVISC ID Updater**: A CSAF Post-Processor that updates vulnerability IDs in a given CSAF based on the entries in \[[RVISC](#RVISC)\].
+- **CSAF Additional Test**: A test that is not yet defined in section [6](#tests).
+- **CSAF Extension**: A specified JSON object conveying additional information different from the content that can be conveyed with the
   CSAF Core elements.
-* **CSAF Extension Schema**: A JSON schema specifying the content and properties of a CSAF Extension.
-* **CSAF Extension Overlay Test**: A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a
+- **CSAF Extension Schema**: A JSON schema specifying the content and properties of a CSAF Extension.
+- **CSAF Extension Overlay Test**: A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a
   test standardized in this specification or a CSAF Additional Test.
-* **CSAF Extension Additional Test**: A test whose execution depends on the presence of the specifying CSAF Extension that provides additional
+- **CSAF Extension Additional Test**: A test whose execution depends on the presence of the specifying CSAF Extension that provides additional
   checks in the context of the CSAF Extension or the CSAF Document the extension is embedded in.
-* **CSAF Extension Test**: A test that is either a CSAF Extension Overlay Test or a CSAF Extension Additional Test.
-* **CSAF Extension Specification**: The specification of a single CSAF Extension and related material.
-* **CSAF Extension Bundle**: A of compilation of machine-readable artifacts related to a single CSAF Extension.
-* **CSAF Extension Package**: A of compilation of all artifacts related to a single CSAF Extension.
-* **CSAF Extension Collection**: A set of multiple CSAF Extension Package.
+- **CSAF Extension Test**: A test that is either a CSAF Extension Overlay Test or a CSAF Extension Additional Test.
+- **CSAF Extension Specification**: The specification of a single CSAF Extension and related material.
+- **CSAF Extension Bundle**: A of compilation of machine-readable artifacts related to a single CSAF Extension.
+- **CSAF Extension Package**: A of compilation of all artifacts related to a single CSAF Extension.
+- **CSAF Extension Collection**: A set of multiple CSAF Extension Package.
 
 ### 9.1.1 Conformance Clause 1: CSAF Document <a id='conformance-clause-1-csaf-document'></a>
 
 A text file or data stream satisfies the "CSAF Document" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section [2.2](#format-validation).
-* conforms to the syntax and semantics defined in section [2.3](#date-and-time).
-* conforms to the syntax and semantics defined in section [2.4](#extensions).
-* conforms to the syntax and semantics defined in section [3](#schema-elements).
-* satisfies at least one profile defined in section [4](#profiles).
-* conforms to the syntax and semantics defined in section [5](#additional-conventions).
-* does not fail any mandatory test defined in section [6.1](#mandatory-tests) respectively its corresponding CSAF Extension Test.
-* contains no extension that does not fulfill the conformance profile "CSAF Extension".
-* contains no extension at any other path than the specified ones in sections [3.1.4.4](#full-product-name-type---extensions),
+- conforms to the syntax and semantics defined in section [2.2](#format-validation).
+- conforms to the syntax and semantics defined in section [2.3](#date-and-time).
+- conforms to the syntax and semantics defined in section [2.4](#extensions).
+- conforms to the syntax and semantics defined in section [3](#schema-elements).
+- satisfies at least one profile defined in section [4](#profiles).
+- conforms to the syntax and semantics defined in section [5](#additional-conventions).
+- does not fail any mandatory test defined in section [6.1](#mandatory-tests) respectively its corresponding CSAF Extension Test.
+- contains no extension that does not fulfill the conformance profile "CSAF Extension".
+- contains no extension at any other path than the specified ones in sections [3.1.4.4](#full-product-name-type---extensions),
   [3.2.2.14](#document-property---extensions), [3.2.4.10.1](#vulnerabilities-property---metrics---content),
   [3.2.4.17](#vulnerabilities-property---extensions) and [3.2.5](#extensions-property).
 
@@ -13572,27 +13572,27 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 
 A program satisfies the "CSAF Producer" conformance profile if the program:
 
-* produces output in the CSAF format, according to the conformance profile "CSAF Document".
-* satisfies those normative requirements in section [3](#schema-elements) and [8](#safety-security-and-data-protection-considerations) that
+- produces output in the CSAF format, according to the conformance profile "CSAF Document".
+- satisfies those normative requirements in section [3](#schema-elements) and [8](#safety-security-and-data-protection-considerations) that
   are designated as applying to CSAF Producers.
 
 ### 9.1.3 Conformance Clause 3: CSAF Direct Producer <a id='conformance-clause-3-csaf-direct-producer'></a>
 
 An analysis tool satisfies the "CSAF Direct Producer" conformance profile if the analysis tool:
 
-* satisfies the "CSAF Producer" conformance profile.
-* additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to "direct producers" or
+- satisfies the "CSAF Producer" conformance profile.
+- additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to "direct producers" or
   to "analysis tools".
-* does not emit any objects, properties, or values which, according to section [3](#schema-elements),
+- does not emit any objects, properties, or values which, according to section [3](#schema-elements),
   are intended to be produced only by converters.
 
 ### 9.1.4 Conformance Clause 4: CSAF Converter <a id='conformance-clause-4-csaf-converter'></a>
 
 A converter satisfies the “CSAF Converter” conformance profile if the converter:
 
-* satisfies the "CSAF Producer" conformance profile.
-* additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to converters.
-* does not emit any objects, properties, or values which, according to section [3](#schema-elements),
+- satisfies the "CSAF Producer" conformance profile.
+- additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to converters.
+- does not emit any objects, properties, or values which, according to section [3](#schema-elements),
   are intended to be produced only by direct producers.
 
 ### 9.1.5 Conformance Clause 5: CVRF CSAF Converter <a id='conformance-clause-5-cvrf-csaf-converter'></a>
@@ -13601,30 +13601,30 @@ A program satisfies the "CVRF CSAF Converter" conformance profile if the program
 
 Firstly, the program:
 
-* satisfies the "CSAF Producer" conformance profile.
-* takes only CVRF documents as input.
-* issues a warning that an additional property was detected and not converted if it detects an additional property in the input.
+- satisfies the "CSAF Producer" conformance profile.
+- takes only CVRF documents as input.
+- issues a warning that an additional property was detected and not converted if it detects an additional property in the input.
   Such a warning SHALL include the additional property and its path.
   The CVRF CSAF Converter SHALL ignore that additional property during the conversion.
-* includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
+- includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
   unless otherwise specified in this standard.
-* additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
-* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF Converter SHALL replace the seconds
+- value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CVRF CSAF Converter SHALL replace the seconds
   and their fractions with `59.999999`.
   In addition, the converter issues a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CVRF CSAF Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `$['$defs'].branches_t`:
-  * If any `prod:Branch` instance has the type `Legacy`, `Realm`, or `Resource`,
+- type `$['$defs'].branches_t`:
+  - If any `prod:Branch` instance has the type `Legacy`, `Realm`, or `Resource`,
     the CVRF CSAF Converter SHALL replace those with the category `product_name`.
     In addition, the converter issues a warning that those types do not exist in CSAF 2.1 and have been replaced with the category `product_name`.
 
     > There is a chance, that this replacement is incorrect or another category is a better fit.
     > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
 
-  * If any `Branch Type` appears multiple times along a path under `/prod:ProductTree/prod:Branch` and the `Branch Type` does not map to
+  - If any `Branch Type` appears multiple times along a path under `/prod:ProductTree/prod:Branch` and the `Branch Type` does not map to
     an excepted category according to test [6.1.57](#stacked-branch-categories), the CVRF CSAF Converter SHALL try to convert the data into
     a valid product tree by applying the following steps to the path:
     1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` `undefined` and `unknown`
@@ -13645,32 +13645,32 @@ Secondly, the program fulfills the following for all items of:
     Such a error SHALL include the invalid path as well as the branch types that were present multiple times.
 
     > A tool MAY provide a non-default option to output the invalid document.
-* type `$['$defs'].full_product_name_t..product_identification_helper.cpe`: If a CPE is invalid,
+- type `$['$defs'].full_product_name_t..product_identification_helper.cpe`: If a CPE is invalid,
   the CVRF CSAF Converter SHOULD remove the invalid value and issue a warning that an invalid CPE was detected and removed.
-* type `$['$defs'].version_t`: If any element doesn't match the semantic versioning,
+- type `$['$defs'].version_t`: If any element doesn't match the semantic versioning,
   replace the all elements of type `$['$defs'].version_t` with the corresponding integer version.
   For that, CVRF CSAF Converter sorts the items of `$.document.tracking.revision_history` by `number` ascending according to the rules of CVRF.
   Then, it replaces the value of `number` with the index number in the array (starting with 1).
   The value of `$.document.tracking.version` is replaced by value of `number` of the corresponding revision item.
   The match SHALL be calculated by the original values used in the CVRF document.
   If this conversion was applied, for each Revision the original value of `cvrf:Number` SHALL be set as `legacy_version` in the converted document.
-* `$.document.acknowledgments[*].organization` and `$.vulnerabilities[*].acknowledgments[*].organization`:
+- `$.document.acknowledgments[*].organization` and `$.vulnerabilities[*].acknowledgments[*].organization`:
   If more than one `cvrf:Organization` instance is given, the CVRF CSAF Converter converts the first one into the `organization`.
   In addition, the converter issues a warning that information might be lost during conversion of document or vulnerability acknowledgment.
-* `$.document.category`:
-  * If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF Converter SHALL try to convert the data
+- `$.document.category`:
+  - If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF Converter SHALL try to convert the data
     into a valid CSAF Document in this profile according to CSAF 2.1.
 
     > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
-  * If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
+  - If one or more CVRF elements containing an `xml:lang` attribute exist and their value is English or
     the document language of the CVRF document is unspecified,
     the following rules apply:
-    * If the `cvrf:DocumentTitle` starts with the string `Superseded` or the `cvrf:DocumentType` starts with `Superseded` (case-insensitive),
+    - If the `cvrf:DocumentTitle` starts with the string `Superseded` or the `cvrf:DocumentType` starts with `Superseded` (case-insensitive),
       the CVRF CSAF Converter SHALL try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
-    * If the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
+    - If the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
       the CVRF CSAF Converter SHALL try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
 
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
@@ -13680,42 +13680,42 @@ Secondly, the program fulfills the following for all items of:
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
     according to the conversion rules and issue a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
-* `$.document.lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
+- `$.document.lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
   the CVRF CSAF Converter converts this value into `lang`.
   If the values of `xml:lang` attributes are not equal, the CVRF CSAF Converter issues a warning that the language could not be
   determined and possibly a document with multiple languages was produced.
   In addition, it SHOULD also present all values of `xml:lang` attributes as a set in the warning.
-* `$.document.license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains valid SPDX license expressions,
+- `$.document.license_expression`: If any `cvrf:Note` item with `Type` `Legal Disclaimer` contains valid SPDX license expressions,
   the CVRF CSAF Converter SHALL apply the following rules to the list of candidates:
-  * If the list contains only one element, the CVRF CSAF Converter SHALL set this value as value of `license_expression`.
+  - If the list contains only one element, the CVRF CSAF Converter SHALL set this value as value of `license_expression`.
     In addition, the converter issues a warning that a license expression was found and set as the document license expression.
-  * If multiple SPDX license expressions are found, the CVRF CSAF Converter issues a warning that multiple SPDX license expressions were found
+  - If multiple SPDX license expressions are found, the CVRF CSAF Converter issues a warning that multiple SPDX license expressions were found
     and therefore no document license expression could be determined.
     This warning SHALL include the list of all SPDX license expressions and their associated paths.
 
   > A tool MAY implement an option to suppress this conversion.
 
-* `$.document.notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [3.2.2.8](#document-property---notes),
+- `$.document.notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [3.2.2.8](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
-* `$.document.publisher.name` and `$.document.publisher.namespace`:
+- `$.document.publisher.name` and `$.document.publisher.namespace`:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
   The program SHALL NOT use hard-coded values.
-* `$.document.tracking.id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
+- `$.document.tracking.id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
   the CVRF CSAF Converter removes those characters.
   In addition, the converter issues a warning that the ID was changed.
-* `$.product_tree.product_paths[*]`: For each element `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following rules:
-  * The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
-  * The first `prod:FullProductName` instance is converted into the `full_product_name`.
+- `$.product_tree.product_paths[*]`: For each element `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following rules:
+  - The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
+  - The first `prod:FullProductName` instance is converted into the `full_product_name`.
     If more than one `prod:FullProductName` instance is given,
     the CVRF CSAF Converter SHALL issue a warning that information might be lost during conversion of product paths.
     Such warning SHOULD contain the values of all `prod:FullProductName` instances skipped.
-  * The CVRF CSAF Converter constructs the first item of `subpaths` by converting the value of `RelationType` into `category`
+  - The CVRF CSAF Converter constructs the first item of `subpaths` by converting the value of `RelationType` into `category`
     and the value of the attribute `RelatesToProductReference` into `next_product_reference`.
 
     > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
@@ -13726,9 +13726,9 @@ Secondly, the program fulfills the following for all items of:
     >   element.
     > For examples, see appendix [Appendix D](#collapsing-product-paths).
 
-* `$.vulnerabilities[*].cwes[*]`:
-  * The CVRF CSAF Converter SHALL remove all preceding and trailing white space from the `name`.
-  * The CVRF CSAF Converter SHALL determine the CWE specification version the given CWE was selected from by
+- `$.vulnerabilities[*].cwes[*]`:
+  - The CVRF CSAF Converter SHALL remove all preceding and trailing white space from the `name`.
+  - The CVRF CSAF Converter SHALL determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `$.document.tracking.current_release_date` of the source document.
     If no such version exist, the first matching version published after the value of `$.document.tracking.current_release_date`
@@ -13738,22 +13738,22 @@ Secondly, the program fulfills the following for all items of:
 
     If the CWE does not match at all, the CVRF CSAF Converter SHALL omit this CWE and issue a warning that an invalid CWE was found and has
     been removed.
-  * If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF Converter SHALL omit this instance and issues a
+  - If a `vuln:CWE` instance refers to a CWE category or view, the CVRF CSAF Converter SHALL omit this instance and issues a
     warning that this CWE has been removed as its usage is not allowed in vulnerability mappings.
-* `$.vulnerabilities[*].disclosure_date`: If a `vuln:ReleaseDate` was given,
+- `$.vulnerabilities[*].disclosure_date`: If a `vuln:ReleaseDate` was given,
   the CVRF CSAF Converter SHALL convert its value into the `disclosure_date` element.
-* `$.vulnerabilities[*].ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
+- `$.vulnerabilities[*].ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
   Then, the CVRF CSAF Converter SHALL execute the following steps at the converted object:
-  * If an `system_name` was given, the CVRF CSAF Converter SHALL test whether it belongs to a registered
+  - If an `system_name` was given, the CVRF CSAF Converter SHALL test whether it belongs to a registered
   vulnerability ID system in RVISC.
-  * If the `system_name` belongs to an RVISC entry, the CVRF CSAF Converter SHALL execute
+  - If the `system_name` belongs to an RVISC entry, the CVRF CSAF Converter SHALL execute
     test [6.2.53](#matching-text-for-registered-id-system).
-    * If the test passes, no further action is needed.
-    * If the test fails, the CVRF CSAF Converter SHALL try to convert the entry based on the mapping
+    - If the test passes, no further action is needed.
+    - If the test fails, the CVRF CSAF Converter SHALL try to convert the entry based on the mapping
       given in \[[RVISC-M](#RVISC-M)\].
-      * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CVRF CSAF Converter SHALL issue
+      - If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CVRF CSAF Converter SHALL issue
         a warning that an ID from a registered vulnerability system was detected and converted.
-      * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails,
+      - If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails,
         the CVRF CSAF Converter SHALL issue a warning that an ID from a registered vulnerability system was detected and
         but could not be converted automatically.
         Such warning SHALL state the reason for failure.
@@ -13763,13 +13763,13 @@ Secondly, the program fulfills the following for all items of:
 
       The output SHALL include the original values and, if applicable, the converted ones.
 
-  * If the `system_name` does not belong to an RVISC entry, the CVRF CSAF Converter SHALL try to convert the entry based on the
+  - If the `system_name` does not belong to an RVISC entry, the CVRF CSAF Converter SHALL try to convert the entry based on the
     mapping given in \[[RVISC-M](#RVISC-M)\].
-    * If no matching mapping exists, the CVRF CSAF Converter SHALL issue a warning that an ID from a potentially
+    - If no matching mapping exists, the CVRF CSAF Converter SHALL issue a warning that an ID from a potentially
       unregistered vulnerability system was detected and no change occurred.
-    * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CVRF CSAF Converter SHALL
+    - If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CVRF CSAF Converter SHALL
       issue a warning that an ID from a vulnerability system with a known mapping was detected and converted.
-    * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails otherwise,
+    - If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails otherwise,
       the CVRF CSAF Converter SHALL issue a warning that an ID from a vulnerability system with a known mapping was detected
       and but could not be converted automatically.
       Such warning SHALL state the reason for failure.
@@ -13779,20 +13779,20 @@ Secondly, the program fulfills the following for all items of:
 
     The output SHALL include the original values and, if applicable, the converted ones.
 
-* `$.vulnerabilities[*].metrics[*]`:
-  * For any CVSS v4 element, the CVRF CSAF Converter SHALL compute the `baseSeverity` from the `baseScore` according to
+- `$.vulnerabilities[*].metrics[*]`:
+  - For any CVSS v4 element, the CVRF CSAF Converter SHALL compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard. (CSAF CVRF v1.2 predates CVSS v4.0.)
-  * For any CVSS v3 element, the CVRF CSAF Converter SHALL compute the `baseSeverity` from the `baseScore` according to
+  - For any CVSS v3 element, the CVRF CSAF Converter SHALL compute the `baseSeverity` from the `baseScore` according to
     the rules of the applicable CVSS standard.
-  * If no `product_id` is given, the CVRF CSAF Converter appends all Product IDs which are listed under `../product_status` in
+  - If no `product_id` is given, the CVRF CSAF Converter appends all Product IDs which are listed under `../product_status` in
     the arrays `known_affected`, `first_affected` and `last_affected`.
     If none of these arrays exist, the CVRF CSAF Converter issues an error that no matching Product ID was found for this score element.
-  * If a `vectorString` is missing, the CVRF CSAF Converter issues an error that the CVSS element could not be converted as
+  - If a `vectorString` is missing, the CVRF CSAF Converter issues an error that the CVSS element could not be converted as
     the CVSS vector was missing.
     A CVRF CSAF Converter MAY offer a configuration option to delete such elements.
-  * If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF Converter discards
+  - If there are CVSS v3.0 and CVSS v3.1 Vectors available for the same product, the CVRF CSAF Converter discards
     the CVSS v3.0 information and provide in CSAF only the CVSS v3.1 information.
-  * To determine, which minor version of CVSS v3 is used and to evaluate a CVSS v4 that was wrongly inserted in a CVSS v3 element,
+  - To determine, which minor version of CVSS v3 is used and to evaluate a CVSS v4 that was wrongly inserted in a CVSS v3 element,
     the CVRF CSAF Converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
@@ -13834,7 +13834,7 @@ Secondly, the program fulfills the following for all items of:
 
     4. Retrieve the CVSS version from a config value, which defaults to `3.0`.
        (As CSAF CVRF v1.2 predates CVSS v3.1.) The CVRF CSAF Converter issues a warning that this value was taken from the config.
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0 calculator exists,
   the CVRF CSAF Converter SHALL convert the vector given in the fragment into a `cvss_v4` object linked to all affected products of the vulnerability.
 
   > A tool MAY implement an option to suppress this conversion.
@@ -13842,7 +13842,7 @@ Secondly, the program fulfills the following for all items of:
   If the CVRF CSAF Converter is unable to construct a valid object with the information given, the CVRF CSAF Converter SHALL
   remove the invalid `cvss_v4` object and issue a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
-* `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
+- `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
   [3.2.4.11](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is
   a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
@@ -13850,140 +13850,140 @@ Secondly, the program fulfills the following for all items of:
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
-* `$.vulnerabilities[*].remediations[*]`:
-  * If neither `product_ids` nor `group_ids` are given, the CVRF CSAF Converter appends all Product IDs which are listed under
+- `$.vulnerabilities[*].remediations[*]`:
+  - If neither `product_ids` nor `group_ids` are given, the CVRF CSAF Converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.
     If none of these arrays exist, the CVRF CSAF Converter issues an error that no matching Product ID was found for this remediation element.
-  * The CVRF CSAF Converter SHALL convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
+  - The CVRF CSAF Converter SHALL convert any remediation with the type `Vendor Fix` into the category `optional_patch` if the product in
     question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
     Otherwise, the category `vendor_fix` SHALL be set.
     If multiple products are associated with the remediation - either directly or through a product group - and the products belong to
     different product status groups, the CVRF CSAF Converter SHALL duplicate the remediation, change the category in one instance
     to `optional_patch` and distribute the products accordingly as stated by the conversion rule.
-  * The CVRF CSAF Converter SHALL convert any remediation with the type `None Available` into the category `fix_planned`
+  - The CVRF CSAF Converter SHALL convert any remediation with the type `None Available` into the category `fix_planned`
     if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the future or no `Date` at all.
     Consequently, the product SHALL be removed from the remediation of the category `vendor_fix`.
     If it was the last product in that remediation, the remediation SHALL be removed.
-  * The CVRF CSAF Converter SHALL remove any product from a remediation with the type `None Available`
+  - The CVRF CSAF Converter SHALL remove any product from a remediation with the type `None Available`
     if the product in question is also listed in a remediation of the type `Vendor Fix` with a `Date` in the past or to the exact same time.
     If it was the last product in that remediation, the remediation SHALL be removed.
-  * In any other case, the CVRF CSAF Converter SHALL preserve the product in the remediation of the category `none_available`.
-  * The CVRF CSAF Converter SHALL issue a warning if a remediation was added, deleted or the value of the category was changed,
+  - In any other case, the CVRF CSAF Converter SHALL preserve the product in the remediation of the category `none_available`.
+  - The CVRF CSAF Converter SHALL issue a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
 
 ### 9.1.6 Conformance Clause 6: CSAF Content Management System <a id='conformance-clause-6-csaf-content-management-system'></a>
 
 A CSAF Content Management System satisfies the "CSAF Content Management System" conformance profile if the content management system:
 
-* satisfies the "CSAF Producer" conformance profile.
-* satisfies the "CSAF Viewer" conformance profile.
-* provides at least the following management functions:
+- satisfies the "CSAF Producer" conformance profile.
+- satisfies the "CSAF Viewer" conformance profile.
+- provides at least the following management functions:
 
-  * create new CSAF Documents
-  * prefill CSAF Documents based on values given in the configuration (see below)
-  * create a new version of an existing CSAF Document
-  * checkout old versions of a CSAF Document
-  * show all differences between versions of a CSAF Document
-  * list all CSAF Documents within the system
-  * delete CSAF Documents from the system
-  * review CSAF Documents in the system
-  * approve CSAF Documents
-  * search for CSAF Documents by values of required fields at `document`-level or their children within the system
-  * search for CSAF Documents by values of `cve` within the system
-  * search for CSAF Documents based on properties of `product_tree`
-  * filter on all properties which it is required to search for
-  * export of CSAF Documents
-  * show an audit log for each CSAF Document
-  * identify the latest version of CSAF Documents with the same `$.document.tracking.id`
-  * suggest a `$.document.tracking.id` based on the given configuration.
-  * track of the version of CSAF Documents automatically and increment according to the versioning scheme
+  - create new CSAF Documents
+  - prefill CSAF Documents based on values given in the configuration (see below)
+  - create a new version of an existing CSAF Document
+  - checkout old versions of a CSAF Document
+  - show all differences between versions of a CSAF Document
+  - list all CSAF Documents within the system
+  - delete CSAF Documents from the system
+  - review CSAF Documents in the system
+  - approve CSAF Documents
+  - search for CSAF Documents by values of required fields at `document`-level or their children within the system
+  - search for CSAF Documents by values of `cve` within the system
+  - search for CSAF Documents based on properties of `product_tree`
+  - filter on all properties which it is required to search for
+  - export of CSAF Documents
+  - show an audit log for each CSAF Document
+  - identify the latest version of CSAF Documents with the same `$.document.tracking.id`
+  - suggest a `$.document.tracking.id` based on the given configuration.
+  - track of the version of CSAF Documents automatically and increment according to the versioning scheme
     (see also subsections of [3.1.13](#version-type)) selected in the configuration.
-  * check that the document version is set correctly based on the changes in comparison to the previous version
+  - check that the document version is set correctly based on the changes in comparison to the previous version
     (see also subsections of [3.1.13](#version-type)).
-  * suggest to use the document status `interim` if a CSAF Document is updated more frequent than the given threshold in
+  - suggest to use the document status `interim` if a CSAF Document is updated more frequent than the given threshold in
     the configuration (default: `3` weeks)
-  * suggest to publish a new version of the CSAF Document with the document status `final` if the document status was
+  - suggest to publish a new version of the CSAF Document with the document status `final` if the document status was
     `interim` and no new release has be done during the given threshold in the configuration (default: `6` weeks)
 
     > Note that the terms "publish", "publication" and their derived forms are used in this conformance profile independent of
       whether the specified target group is the public or a closed group.
 
-  * support the following workflows:
+  - support the following workflows:
 
-    * "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments;
+    - "New Advisory": create a new advisory, request a review, provide review comments or approve it, resolve review comments;
       if the review approved it, the approval for publication can be requested;
       if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration)
       and the advisory is provided for publication (manual or time-based)
-    * "Update Advisory": open an existing advisory, create new revision & change content, request a review,
+    - "Update Advisory": open an existing advisory, create new revision & change content, request a review,
       provide review comments or approve it, resolve review comments;
       if the review approved it, the approval for publication can be requested;
       if granted the document status changes to `final` (or `ìnterim` based on the selection in approval or configuration)
       and the advisory is provided for publication (manual or time-based)
 
-* offers both: publication immediately or at a given date/time.
-* automates handling of date/time and version.
-* provides an API to retrieve all CSAF Documents which are currently in the status published.
-* optionally provides an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
-* provides a user management and support at least the following roles:
+- offers both: publication immediately or at a given date/time.
+- automates handling of date/time and version.
+- provides an API to retrieve all CSAF Documents which are currently in the status published.
+- optionally provides an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
+- provides a user management and support at least the following roles:
 
-  * _Registered_: Able to see all published CSAF Documents (but only in the published version).
-  * _Author_: inherits _Registered_ permissions and also can Create and Edit Own (mostly used for automated creation, see above)
-  * _Editor_: inherits _Author_ permissions and can Edit (mostly used in PSIRT)
-  * _Publisher_: inherits _Editor_ permissions and can Change state and Review any (mostly used as HEAD of PSIRT or team lead)
-  * _Reviewer_: inherits _Registered_ permissions and can Review advisories assigned to him (might be a subject matter expert or management)
-  * _Manager_: inherits _Publisher_ permissions and can Delete; User management up to _Publisher_
-  * _Administrator_: inherits _Manager_ permissions and can Change the configuration
+  - _Registered_: Able to see all published CSAF Documents (but only in the published version).
+  - _Author_: inherits _Registered_ permissions and also can Create and Edit Own (mostly used for automated creation, see above)
+  - _Editor_: inherits _Author_ permissions and can Edit (mostly used in PSIRT)
+  - _Publisher_: inherits _Editor_ permissions and can Change state and Review any (mostly used as HEAD of PSIRT or team lead)
+  - _Reviewer_: inherits _Registered_ permissions and can Review advisories assigned to him (might be a subject matter expert or management)
+  - _Manager_: inherits _Publisher_ permissions and can Delete; User management up to _Publisher_
+  - _Administrator_: inherits _Manager_ permissions and can Change the configuration
 
-* may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group.
+- may use groups to support client separation (multitenancy) and therefore restrict the roles to actions within their group.
   In this case, there SHALL be a _Group configurator_ which is able to change the values which are used to prefill fields in
   new advisories for that group. He might also do the user management for the group up to a configured level.
-* prefills the following fields in new CSAF Documents with the values given below or based on the templates from configuration:
+- prefills the following fields in new CSAF Documents with the values given below or based on the templates from configuration:
 
-  * `$['$schema']` with the value prescribed by the schema
-  * `$.document.csaf_version` with the value prescribed by the schema
-  * `$.document.lang`
-  * `$.document.notes`
-    * `legal_disclaimer` (Terms of use from the configuration)
-    * `general` (General Security recommendations from the configuration)
-  * `$.document.tracking.current_release_date` with the current date
-  * `$.document.tracking.generator` and children
-  * `$.document.tracking.initial_release_date` with the current date
-  * `$.document.tracking.revision_history`
-    * `date` with the current date
-    * `number` (based on the templates according to the versioning scheme configured)
-    * `summary` (based on the templates from configuration; default: "Initial version.")
-  * `$.document.tracking.status` with `draft`
-  * `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
-  * `$.document.publisher` and children
-  * `$.document.category` (based on the templates from configuration)
+  - `$['$schema']` with the value prescribed by the schema
+  - `$.document.csaf_version` with the value prescribed by the schema
+  - `$.document.lang`
+  - `$.document.notes`
+    - `legal_disclaimer` (Terms of use from the configuration)
+    - `general` (General Security recommendations from the configuration)
+  - `$.document.tracking.current_release_date` with the current date
+  - `$.document.tracking.generator` and children
+  - `$.document.tracking.initial_release_date` with the current date
+  - `$.document.tracking.revision_history`
+    - `date` with the current date
+    - `number` (based on the templates according to the versioning scheme configured)
+    - `summary` (based on the templates from configuration; default: "Initial version.")
+  - `$.document.tracking.status` with `draft`
+  - `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
+  - `$.document.publisher` and children
+  - `$.document.category` (based on the templates from configuration)
 
-* When updating an existing CSAF Document:
+- When updating an existing CSAF Document:
   
-  * prefills all fields which have be present in the existing CSAF Document
-  * adds a new item in `$.document.tracking.revision_history[*]`
-  * updates the following fields with the values given below or based on the templates from configuration:
-    * `$['$schema']` with the value prescribed by the schema
-    * `$.document.csaf_version` with the value prescribed by the schema
-    * `$.document.lang`
-    * `$.document.notes`
-      * `legal_disclaimer` (Terms of use from the configuration)
-      * `general` (General Security recommendations from the configuration)
-    * `$.document.tracking.current_release_date` with the current date
-    * `$.document.tracking.generator` and children
-    * the new item in `$.document.tracking.revision_history[*]`
-      * `date` with the current date
-      * `number` (based on the templates according to the versioning scheme configured)
-    * `$.document.tracking.status` with `draft`
-    * `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
-    * `$.document.publisher` and children
+  - prefills all fields which have be present in the existing CSAF Document
+  - adds a new item in `$.document.tracking.revision_history[*]`
+  - updates the following fields with the values given below or based on the templates from configuration:
+    - `$['$schema']` with the value prescribed by the schema
+    - `$.document.csaf_version` with the value prescribed by the schema
+    - `$.document.lang`
+    - `$.document.notes`
+      - `legal_disclaimer` (Terms of use from the configuration)
+      - `general` (General Security recommendations from the configuration)
+    - `$.document.tracking.current_release_date` with the current date
+    - `$.document.tracking.generator` and children
+    - the new item in `$.document.tracking.revision_history[*]`
+      - `date` with the current date
+      - `number` (based on the templates according to the versioning scheme configured)
+    - `$.document.tracking.status` with `draft`
+    - `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
+    - `$.document.publisher` and children
 
 ### 9.1.7 Conformance Clause 7: CSAF Post-Processor <a id='conformance-clause-7-csaf-post-processor'></a>
 
 A CSAF Post-Processor satisfies the "CSAF Post-Processor" conformance profile if the post-processor:
 
-* satisfies the "CSAF Consumer" conformance profile.
-* satisfies the "CSAF Producer" conformance profile.
-* additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to post-processors.
+- satisfies the "CSAF Consumer" conformance profile.
+- satisfies the "CSAF Producer" conformance profile.
+- additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to post-processors.
 
 ### 9.1.8 Conformance Clause 8: CSAF Modifier <a id='conformance-clause-8-csaf-modifier'></a>
 
@@ -13991,19 +13991,19 @@ A program satisfies the "CSAF Modifier" conformance profile if the program fulfi
 
 The program:
 
-* satisfies the "CSAF Post-Processor" conformance profile.
-* adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
-* does not emit any objects, properties, or values which, according to section [9](#conformance),
+- satisfies the "CSAF Post-Processor" conformance profile.
+- adds, deletes or modifies at least one property, array, object or value of a property or item of an array.
+- does not emit any objects, properties, or values which, according to section [9](#conformance),
   are intended to be produced only by CSAF Translators.
-* satisfies the normative requirements given below.
+- satisfies the normative requirements given below.
 
 The resulting modified document:
 
-* does not have the same `$.document.tracking.id` as the original document.
+- does not have the same `$.document.tracking.id` as the original document.
   The modified document can use a completely new `$.document.tracking.id` or compute one by appending the original `$.document.tracking.id` as
   a suffix after an ID from the naming scheme of the issuer of the modified version.
   It SHOULD NOT use the original `$.document.tracking.id` as a prefix.
-* includes a reference to the original advisory as first element of the array `$.document.references[*]`.
+- includes a reference to the original advisory as first element of the array `$.document.references[*]`.
 
 ### 9.1.9 Conformance Clause 9: CSAF Translator <a id='conformance-clause-9-csaf-translator'></a>
 
@@ -14011,14 +14011,14 @@ A program satisfies the "CSAF Translator" conformance profile if the program ful
 
 The program:
 
-* satisfies the "CSAF Post-Processor" conformance profile.
-* translates at least one value.
-* preserves the same semantics and form across translations.
-* satisfies the normative requirements given below and does not add or remove other elements than required below.
+- satisfies the "CSAF Post-Processor" conformance profile.
+- translates at least one value.
+- preserves the same semantics and form across translations.
+- satisfies the normative requirements given below and does not add or remove other elements than required below.
 
 The resulting translated document:
 
-* does not use the same `$.document.tracking.id` as the original document.
+- does not use the same `$.document.tracking.id` as the original document.
   The translated document can use a completely new `$.document.tracking.id` or compute one by using the original `$.document.tracking.id` as
   a prefix and adding an ID from the naming scheme of the issuer of the translated version.
   It SHOULD NOT use the original `$.document.tracking.id` as a suffix.
@@ -14028,19 +14028,19 @@ The resulting translated document:
   > Note that the term "publish" is used in this conformance profile independent of whether the specified target group is the public
     or a closed group.
 
-* provides the `$.document.lang` property with a value matching the language of the translation.
-* provides the `$.document.source_lang` to contain the language of the original document (and SHOULD only be set by CSAF Translators).
-* has the value `translator` set in `$.document.publisher.category`
-* includes a reference to the original advisory as first element of the array `$.document.references[*]`.
-* MAY contain translations for elements in arrays of `references_t` after the first element.
+- provides the `$.document.lang` property with a value matching the language of the translation.
+- provides the `$.document.source_lang` to contain the language of the original document (and SHOULD only be set by CSAF Translators).
+- has the value `translator` set in `$.document.publisher.category`
+- includes a reference to the original advisory as first element of the array `$.document.references[*]`.
+- MAY contain translations for elements in arrays of `references_t` after the first element.
   However, it SHALL keep the original URLs as references at the end.
 
 ### 9.1.10 Conformance Clause 10: CSAF Consumer <a id='conformance-clause-10-csaf-consumer'></a>
 
 A processor satisfies the "CSAF Consumer" conformance profile if the processor:
 
-* reads CSAF Documents and interprets them according to the semantics defined in section [3](#schema-elements) and [5](#additional-conventions).
-* satisfies those normative requirements in section [2.4](#extensions), [3](#schema-elements), [5](#additional-conventions) and
+- reads CSAF Documents and interprets them according to the semantics defined in section [3](#schema-elements) and [5](#additional-conventions).
+- satisfies those normative requirements in section [2.4](#extensions), [3](#schema-elements), [5](#additional-conventions) and
   [8](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Consumers.
 
 ### 9.1.11 Conformance Clause 11: CSAF Viewer <a id='conformance-clause-11-csaf-viewer'></a>
@@ -14049,91 +14049,91 @@ A viewer satisfies the "CSAF Viewer" conformance profile if the viewer fulfills 
 
 The viewer:
 
-* satisfies the "CSAF Consumer" conformance profile.
-* satisfies those normative requirements in section [3](#schema-elements), [5](#additional-conventions) and
+- satisfies the "CSAF Consumer" conformance profile.
+- satisfies those normative requirements in section [3](#schema-elements), [5](#additional-conventions) and
   [8](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Viewers.
-* satisfies the normative requirements given below.
+- satisfies the normative requirements given below.
 
 For each CVSS-Score in `$.vulnerabilities[*].metrics[*]` the viewer:
 
-* preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
-* SHOULD prefer the item of `metrics[*]` for each `product_id` which originates from the document author (and therefore has no property `source`)
+- preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
+- SHOULD prefer the item of `metrics[*]` for each `product_id` which originates from the document author (and therefore has no property `source`)
   and has the highest CVSS Base Score and newest CVSS version (in that order) if a `product_id` is listed in more than one item of `metrics[*]`.
 
 ### 9.1.12 Conformance Clause 12: CSAF Management System <a id='conformance-clause-12-csaf-management-system'></a>
 
 A CSAF Management System satisfies the "CSAF Management System" conformance profile if the management system:
 
-* satisfies the "CSAF Viewer" conformance profile.
-* provides at least the following management functions:
-  * add new CSAF Documents (e.g. from file system or URL) to the system
-  * list all CSAF Documents within the system
-  * delete CSAF Documents from the system
-  * comment on CSAF Documents in the system
-  * mark CSAF Documents as read in the system
-  * search for CSAF Documents by values of required fields at `document`-level or their children within the system
-  * search for CSAF Documents by values of `cve` within the system
-  * search for CSAF Documents based on properties of `$.product_tree`
-  * filter on all properties which it is required to search for
-  * sort on all properties which it is required to search for
-  * sort on CVSS scores and `$.document.aggregate_severity.text`
-* identifies the latest version of CSAF Documents with the same `$.document.tracking.id`.
-* is able to show the difference between `2` versions of a CSAF Document with the same `$.document.tracking.id`.
+- satisfies the "CSAF Viewer" conformance profile.
+- provides at least the following management functions:
+  - add new CSAF Documents (e.g. from file system or URL) to the system
+  - list all CSAF Documents within the system
+  - delete CSAF Documents from the system
+  - comment on CSAF Documents in the system
+  - mark CSAF Documents as read in the system
+  - search for CSAF Documents by values of required fields at `document`-level or their children within the system
+  - search for CSAF Documents by values of `cve` within the system
+  - search for CSAF Documents based on properties of `$.product_tree`
+  - filter on all properties which it is required to search for
+  - sort on all properties which it is required to search for
+  - sort on CVSS scores and `$.document.aggregate_severity.text`
+- identifies the latest version of CSAF Documents with the same `$.document.tracking.id`.
+- is able to show the difference between `2` versions of a CSAF Document with the same `$.document.tracking.id`.
 
 ### 9.1.13 Conformance Clause 13: CSAF Asset Matching System <a id='conformance-clause-13-csaf-asset-matching-system'></a>
 
 A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conformance profile if the asset matching system:
 
-* satisfies the "CSAF Management System" conformance profile.
-* is an asset database or connects to one.
-* matches the CSAF Documents within the system to the respective assets.
+- satisfies the "CSAF Management System" conformance profile.
+- is an asset database or connects to one.
+- matches the CSAF Documents within the system to the respective assets.
   This might be done with a probability which gives the end user the chance to broaden or narrow the results.
   The process of matching is also referred to as "run of the asset matching module".
-* provides for each product of the asset database a list of matched advisories.
-* provides for each asset of the asset database a list of matched advisories.
-* provides for each CSAF Document a list of matched product of the asset database.
-* provides for each CSAF Document a list of matched asset of the asset database.
-* provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
+- provides for each product of the asset database a list of matched advisories.
+- provides for each asset of the asset database a list of matched advisories.
+- provides for each CSAF Document a list of matched product of the asset database.
+- provides for each CSAF Document a list of matched asset of the asset database.
+- provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
-* does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
-* detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
-* is able to trigger a run of the asset matching module:
-  * manually:
-    * per CSAF Document
-    * per list of CSAF Documents
-    * per asset
-    * per list of assets
-  * automatically:
-    * when a new CSAF Document is inserted (for this CSAF Document)
-    * when a new asset is inserted (for this asset)
-    * when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
+- does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
+- detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
+- is able to trigger a run of the asset matching module:
+  - manually:
+    - per CSAF Document
+    - per list of CSAF Documents
+    - per asset
+    - per list of assets
+  - automatically:
+    - when a new CSAF Document is inserted (for this CSAF Document)
+    - when a new asset is inserted (for this asset)
+    - when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
 
     > These also apply if more than one CSAF Document or asset was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
 
-  * Manually and automatically triggered runs SHOULD NOT be pooled.
-* provides at least the following statistics for the count of assets:
-  * matching that CSAF Document at all
-  * marked with a given status
+  - Manually and automatically triggered runs SHOULD NOT be pooled.
+- provides at least the following statistics for the count of assets:
+  - matching that CSAF Document at all
+  - marked with a given status
 
 ### 9.1.14 Conformance Clause 14: CSAF Basic Validator <a id='conformance-clause-14-csaf-basic-validator'></a>
 
 A program satisfies the "CSAF Basic Validator" conformance profile if the program:
 
-* reads documents and performs a check against the JSON schema,
+- reads documents and performs a check against the JSON schema,
   including also the format validation (cf. section [2.2](#format-validation)).
-* performs all tests of the preset `mandatory` as given in section [6.4.1](#presets-defined-through-test-subsections).
-* does not change the CSAF Documents.
-* satisfies those normative requirements in sections [2.4](#extensions), [3](#schema-elements), [6.1](#mandatory-tests),
+- performs all tests of the preset `mandatory` as given in section [6.4.1](#presets-defined-through-test-subsections).
+- does not change the CSAF Documents.
+- satisfies those normative requirements in sections [2.4](#extensions), [3](#schema-elements), [6.1](#mandatory-tests),
   [6.4](#test-presets), and [8](#safety-security-and-data-protection-considerations) that are designated as applying to
   CSAF Validators.
-* issues a warning if an "not implemented warning" occurs as the validation status might not be correct.
+- issues a warning if an "not implemented warning" occurs as the validation status might not be correct.
 
 A CSAF Basic Validator MAY provide one or more additional functions:
 
-* Only run one or more selected mandatory tests.
-* Apply quick fixes as specified in the standard.
-* Apply additional quick fixes as implemented by the vendor.
+- Only run one or more selected mandatory tests.
+- Apply quick fixes as specified in the standard.
+- Apply additional quick fixes as implemented by the vendor.
 
 A CSAF Basic Validator MAY implement CSAF Additional Tests.
 In that case, it SHALL make through its documentation available which tests are implemented.
@@ -14142,9 +14142,9 @@ In that case, it SHALL make through its documentation available which tests are 
 
 A CSAF Basic Validator satisfies the "CSAF Extended Validator" conformance profile if the CSAF Basic Validator:
 
-* satisfies the "CSAF Basic Validator" conformance profile.
-* additionally performs all tests of the preset `recommended` as given in section [6.4.1](#presets-defined-through-test-subsections).
-* additionally satisfies those normative requirements in section [6.2](#recommended-tests)
+- satisfies the "CSAF Basic Validator" conformance profile.
+- additionally performs all tests of the preset `recommended` as given in section [6.4.1](#presets-defined-through-test-subsections).
+- additionally satisfies those normative requirements in section [6.2](#recommended-tests)
   that are designated as applying to CSAF Validators.
 
 A CSAF Extended Validator MAY provide an additional function to only run one or more selected recommended tests.
@@ -14153,10 +14153,10 @@ A CSAF Extended Validator MAY provide an additional function to only run one or 
 
 A CSAF Extended Validator satisfies the "CSAF Full Validator" conformance profile if the CSAF Extended Validator:
 
-* satisfies the "CSAF Extended Validator" conformance profile.
-* additionally performs all tests of the preset `informative` as given in section [6.4.1](#presets-defined-through-test-subsections).
-* provides an option to additionally use a custom dictionary for test [6.3.8](#spell-check).
-* additionally satisfies those normative requirements in section [6.3](#informative-tests)
+- satisfies the "CSAF Extended Validator" conformance profile.
+- additionally performs all tests of the preset `informative` as given in section [6.4.1](#presets-defined-through-test-subsections).
+- provides an option to additionally use a custom dictionary for test [6.3.8](#spell-check).
+- additionally satisfies those normative requirements in section [6.3](#informative-tests)
   that are designated as applying to CSAF Validators.
 
 A CSAF Full Validator MAY provide an additional function to only run one or more selected informative tests.
@@ -14165,41 +14165,41 @@ A CSAF Full Validator MAY provide an additional function to only run one or more
 
 A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformance profile if the SBOM matching system:
 
-* satisfies the "CSAF Management System" conformance profile.
-* is an SBOM database or connects to one.
+- satisfies the "CSAF Management System" conformance profile.
+- is an SBOM database or connects to one.
 
   > A repository or any other location that can be queried for SBOMs and their content is also considered an SBOM database.
-* matches the CSAF Documents within the system to the respective SBOM components.
+- matches the CSAF Documents within the system to the respective SBOM components.
   This might be done with a probability which gives the user the chance to broaden or narrow the results.
   The process of matching is also referred to as "run of the SBOM matching module".
-* provides for each SBOM of the SBOM database a list of matched advisories.
-* provides for each SBOM component of the SBOM database a list of matched advisories.
-* provides for each CSAF Document a list of matched SBOMs of the SBOM database.
-* provides for each CSAF Document a list of matched SBOM components of the SBOM database.
-* provides for each vulnerability within a CSAF Document the option to mark a matched SBOM component in the SBOM database as "not remediated",
+- provides for each SBOM of the SBOM database a list of matched advisories.
+- provides for each SBOM component of the SBOM database a list of matched advisories.
+- provides for each CSAF Document a list of matched SBOMs of the SBOM database.
+- provides for each CSAF Document a list of matched SBOM components of the SBOM database.
+- provides for each vulnerability within a CSAF Document the option to mark a matched SBOM component in the SBOM database as "not remediated",
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
-* does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-* detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
-* is able to trigger a run of the SBOM matching module:
-  * manually:
-    * per CSAF Document
-    * per list of CSAF Documents
-    * per SBOM component
-    * per list of SBOM components
-  * automatically:
-    * when a new CSAF Document is inserted (for this CSAF Document)
-    * when a new SBOM component is inserted (for this SBOM component)
-    * when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
+- does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
+- detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
+- is able to trigger a run of the SBOM matching module:
+  - manually:
+    - per CSAF Document
+    - per list of CSAF Documents
+    - per SBOM component
+    - per list of SBOM components
+  - automatically:
+    - when a new CSAF Document is inserted (for this CSAF Document)
+    - when a new SBOM component is inserted (for this SBOM component)
+    - when the Major version in a CSAF Document with semantic versioning changes (for this CSAF Document)
 
     > These also apply if more than one CSAF Document or SBOM component was added.
     > To reduce the computational efforts the runs can be pooled into one run which fulfills all the tasks at once (batch mode).
 
   > Manually and automatically triggered runs should not be pooled.
 
-* provides at least the following statistics for the count of SBOM component:
-  * matching that CSAF Document at all
-  * marked with a given status
+- provides at least the following statistics for the count of SBOM component:
+  - matching that CSAF Document at all
+  - marked with a given status
 
 ### 9.1.18 Conformance Clause 18: CSAF 2.0 to CSAF 2.1 Converter <a id='conformance-clause-18-csaf-2-0-to-csaf-2-1-converter'></a>
 
@@ -14207,30 +14207,30 @@ A program satisfies the "CSAF 2.0 to CSAF 2.1 Converter" conformance profile if 
 
 Firstly, the program:
 
-* satisfies the "CSAF Producer" conformance profile.
-* takes only CSAF 2.0 Documents as input.
-* issues a warning that an additional property was detected and not converted if it detects an additional property in the input.
+- satisfies the "CSAF Producer" conformance profile.
+- takes only CSAF 2.0 Documents as input.
+- issues a warning that an additional property was detected and not converted if it detects an additional property in the input.
   Such a warning SHALL include the additional property and its path.
   The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
-* includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
+- includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
   unless otherwise specified in this standard.
-* additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
 
-* value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 Converter
+- value type `string` with format `date-time`: If the value contains a `60` in the seconds place, the CSAF 2.0 to CSAF 2.1 Converter
   SHALL replace the seconds and their fractions with `59.999999`.
   In addition, the converter issues a warning that leap seconds are now prohibited in CSAF and the value has been replaced.
   The CSAF 2.0 to CSAF 2.1 Converter SHOULD indicate in such warning message whether the value was a valid leap second or not.
-* type `$['$defs'].branches_t`:
-  * If a branch item uses the category `legacy`,
+- type `$['$defs'].branches_t`:
+  - If a branch item uses the category `legacy`,
     the CSAF 2.0 to CSAF 2.1 Converter SHALL replace it with the category `product_name`.
     In addition, the converter issues a warning that this type does not exist in CSAF 2.1 and have been replaced with the category `product_name`.
 
     > There is a chance, that this replacement is incorrect or another category is a better fit.
     > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
   
-  * If any branch category appears multiple times along a path under `$.product_tree.branches` and the category is not an excepted one according to
+  - If any branch category appears multiple times along a path under `$.product_tree.branches` and the category is not an excepted one according to
     test [6.1.57](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
     1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION`, `undefined` and `unknown`
@@ -14252,7 +14252,7 @@ Secondly, the program fulfills the following for all items of:
 
     > A tool MAY provide a non-default option to output the invalid document.
 
-  * If the branch categories `product_version` and `product_version_range` appear along a path under `$.product_tree.branches`,
+  - If the branch categories `product_version` and `product_version_range` appear along a path under `$.product_tree.branches`,
     the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
 
@@ -14280,7 +14280,7 @@ Secondly, the program fulfills the following for all items of:
 
     > A tool MAY provide a non-default option to output the invalid document.
 
-  * If the value of `name` of an item categorized as `product_version_range` and contains an upper open ended product version range,
+  - If the value of `name` of an item categorized as `product_version_range` and contains an upper open ended product version range,
     the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
 
@@ -14306,7 +14306,7 @@ Secondly, the program fulfills the following for all items of:
 
     > A tool MAY provide a non-default option to output the invalid document.
 
-  * If the value of `name` of an item categorized as `product_version_range` contains just a single version,
+  - If the value of `name` of an item categorized as `product_version_range` contains just a single version,
     the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
 
@@ -14331,9 +14331,9 @@ Secondly, the program fulfills the following for all items of:
 
     > A tool MAY provide a non-default option to output the invalid document.
 
-* type `$['$defs'].full_product_name_t..product_identification_helper.cpe`: If a CPE is invalid,
+- type `$['$defs'].full_product_name_t..product_identification_helper.cpe`: If a CPE is invalid,
   the CSAF 2.0 to CSAF 2.1 Converter SHOULD remove the invalid value and issue a warning that an invalid CPE was detected and removed.
-* type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`:
+- type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`:
   If the algorithm is known to the implementation or mentioned in this standard, the CSAF 2.0 to CSAF 2.1 Converter SHALL ensure its spelling
   is exactly as prescribed by this standard.
   If the algorithm is unknown to the implementation, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it to lowercase and issue a warning that
@@ -14341,18 +14341,18 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY provide a non-default option to suppress this conversion step.
 
-* type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..value`: The CSAF 2.0 to CSAF 2.1 Converter SHALL convert
+- type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..value`: The CSAF 2.0 to CSAF 2.1 Converter SHALL convert
   the value into a lowercase string.
-* type `$['$defs'].full_product_name_t..product_identification_helper..model_numbers[*]`:
+- type `$['$defs'].full_product_name_t..product_identification_helper..model_numbers[*]`:
 
   > The values were implicitly open ended in CSAF 2.0 which resulted in ambiguity.
   > A fixed-length matching was not possible.
   > CSAF 2.1 requires that values ​​intended to be interpreted as "starts with" be explicitly marked with an asterisk (`*`) at the end.
 
-  * If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and
+  - If a model number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and
     issue a warning that a partial model number was detected and a star has been added.
-  * If the model number contains a `\`, the CSAF 2.0 to CSAF 2.1 Converter SHALL escape it by inserting an additional `\` before the character.
-  * If the model number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the entry and
+  - If the model number contains a `\`, the CSAF 2.0 to CSAF 2.1 Converter SHALL escape it by inserting an additional `\` before the character.
+  - If the model number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the entry and
     issue a warning that a model number with multiple stars was detected and removed.
 
   > A tool MAY provide a non-default option to interpret all model numbers as complete and therefore does not add any stars.
@@ -14361,18 +14361,18 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY provide a non-default option to interpret the `*` in all model numbers as part of the model number itself and therefore escape it.
 
-* type `$['$defs'].full_product_name_t..product_identification_helper..purls`: If a `$['$defs'].full_product_name_t..product_identification_helper..purl` is given,
+- type `$['$defs'].full_product_name_t..product_identification_helper..purls`: If a `$['$defs'].full_product_name_t..product_identification_helper..purl` is given,
   the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it into the first item of the corresponding `purls` array.
-* type `$['$defs'].full_product_name_t..product_identification_helper..serial_numbers[*]`:
+- type `$['$defs'].full_product_name_t..product_identification_helper..serial_numbers[*]`:
 
   > The values were implicitly open ended in CSAF 2.0 which resulted in ambiguity.
   > A fixed-length matching was not possible.
   > CSAF 2.1 requires that values ​​intended to be interpreted as "starts with" be explicitly marked with an asterisk (`*`) at the end.
 
-  * If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and
+  - If a serial number is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and
     issue a warning that a partial serial number was detected and a star has been added.
-  * If the serial number contains a `\`, the CSAF 2.0 to CSAF 2.1 Converter SHALL escape it by inserting an additional `\` before the character.
-  * If the serial number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the entry and
+  - If the serial number contains a `\`, the CSAF 2.0 to CSAF 2.1 Converter SHALL escape it by inserting an additional `\` before the character.
+  - If the serial number contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the entry and
     issue a warning that a serial number with multiple stars was detected and removed.
 
   > A tool MAY provide a non-default option to interpret all serial numbers as complete and therefore does not add any stars.
@@ -14381,17 +14381,17 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
 
-* type `$['$defs'].full_product_name_t..product_identification_helper..skus[*]`:
+- type `$['$defs'].full_product_name_t..product_identification_helper..skus[*]`:
   
   > The values were implicitly open ended in CSAF 2.0 which resulted in ambiguity.
   > A fixed-length matching was not possible.
   > CSAF 2.1 requires that values ​​intended to be interpreted as "starts with" be explicitly marked with an asterisk (`*`) at the end.
 
-  * If a stock keeping unit is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and
+  - If a stock keeping unit is given that does not end on a star, the CSAF 2.0 to CSAF 2.1 Converter SHOULD add a `*` to the end and
     issue a warning that a partial stock keeping unit was detected and a star has been added.
-  * If the stock keeping unit contains a `\`,
+  - If the stock keeping unit contains a `\`,
     the CSAF 2.0 to CSAF 2.1 Converter SHALL escape it by inserting an additional `\` before the character.
-  * If the stock keeping unit contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the entry and
+  - If the stock keeping unit contains multiple unescaped `*` after the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the entry and
     issue a warning that a stock keeping unit with multiple stars was detected and removed.
 
   > A tool MAY provide a non-default option to interpret all stock keeping units as complete and therefore does not add any stars.
@@ -14402,9 +14402,9 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY provide a non-default option to interpret the `*` in all stock keeping units as part of the stock keeping unit
   > itself and therefore escape it.
 
-* `$['$schema']`: The CSAF 2.0 to CSAF 2.1 Converter SHALL set property with the value prescribed by the schema.
-* `$.document.category`:
-  * If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a
+- `$['$schema']`: The CSAF 2.0 to CSAF 2.1 Converter SHALL set property with the value prescribed by the schema.
+- `$.document.category`:
+  - If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a
     valid CSAF Document in this profile according to CSAF 2.1.
     For any version range of affected products that uses the strict `<`, i.e. not `<=`, as comparator of the last version constraint, the CSAF 2.0
     to CSAF 2.1 Converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
@@ -14412,10 +14412,10 @@ Secondly, the program fulfills the following for all items of:
     Such warning SHALL contain the full product name and its path as well as the paths of the `$.vulnerabilities[*]` it was added to.
     If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
-  * If the `$.document.lang` is English or unspecified, the following rules apply:
-    * If the `$.document.title` starts with the string `Superseded` or the `$.document.category` has the value `Superseded` (case-insensitive),
+  - If the `$.document.lang` is English or unspecified, the following rules apply:
+    - If the `$.document.title` starts with the string `Superseded` or the `$.document.category` has the value `Superseded` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
-    * If the `$.document.title` starts with the string `Withdrawn` or the `$.document.category` has the value `Withdrawn` (case-insensitive),
+    - If the `$.document.title` starts with the string `Withdrawn` or the `$.document.category` has the value `Withdrawn` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
  
     > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
@@ -14425,8 +14425,8 @@ Secondly, the program fulfills the following for all items of:
 
     If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
     of the original CSAF Document and issue a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
-* `$.document.csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter SHALL update the value to `2.1`.
-* `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it according to the table below:
+- `$.document.csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter SHALL update the value to `2.1`.
+- `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it according to the table below:
   
   | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
   |---------------------------|---------------------------|
@@ -14445,17 +14445,17 @@ Secondly, the program fulfills the following for all items of:
   > This is a common case for CSAF 2.0 Documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 Converter SHOULD assign `TLP:CLEAR` and issue a warning that the default TLP has been set.
-* `$.document.license_expression`: If any `$.document.notes` item in with `category` `legal_disclaimer` contains a valid SPDX license expression,
+- `$.document.license_expression`: If any `$.document.notes` item in with `category` `legal_disclaimer` contains a valid SPDX license expression,
   the CSAF 2.0 to CSAF 2.1 Converter SHALL apply the following rules for the list of candidates:
-  * If this list contains only one element, the CSAF 2.0 to CSAF 2.1 Converter SHALL set this value as value of `license_expression`.
+  - If this list contains only one element, the CSAF 2.0 to CSAF 2.1 Converter SHALL set this value as value of `license_expression`.
     In addition, the converter issues a warning that license expression was found and set as document license expression.
-  * If multiple SPDX license expressions are found, the CSAF 2.0 to CSAF 2.1 Converter issues a warning that multiple
+  - If multiple SPDX license expressions are found, the CSAF 2.0 to CSAF 2.1 Converter issues a warning that multiple
     SPDX license expressions were found and therefore no document license expression could be determined.
     Such a warning SHALL include the list of all SPDX license expressions and their associated paths.
 
   > A tool MAY implement an option to suppress this conversion.
 
-* `$.document.notes`: If any `$.document.notes` item contains one of the `category` and `title` combinations specified in
+- `$.document.notes`: If any `$.document.notes` item contains one of the `category` and `title` combinations specified in
   [3.2.2.8](#document-property---notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
   is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and issue a warning that a
@@ -14463,15 +14463,15 @@ Secondly, the program fulfills the following for all items of:
   Such warning SHALL also include the note and the assigned products.
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
-* `$.document.publisher.category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD issue a warning that some parties have
+- `$.document.publisher.category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD issue a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning SHALL exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
-* `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
+- `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
   from the `$.document.title`. In addition, separating characters including but not limited to white space, colon, dash and brackets SHALL be removed.
-* `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter
+- `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter
   SHALL apply the following rules:
-  * The value of `product_reference` is set as the value of `beginning_product_reference`.
-  * The CSAF 2.0 to CSAF 2.1 Converter constructs the first item of `subpaths` by setting the value of `category` into `category`
+  - The value of `product_reference` is set as the value of `beginning_product_reference`.
+  - The CSAF 2.0 to CSAF 2.1 Converter constructs the first item of `subpaths` by setting the value of `category` into `category`
     and the value of `relates_to_product_reference` into `next_product_reference`.
 
     > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
@@ -14482,9 +14482,9 @@ Secondly, the program fulfills the following for all items of:
     >   element.
     > For examples, see appendix [Appendix D](#collapsing-product-paths).
 
-* `$.vulnerabilities[*].cwes[*]`:
-  * The CSAF 2.0 to CSAF 2.1 Converter SHALL remove all preceding and trailing white space from the `name`.
-  * The CSAF 2.0 to CSAF 2.1 Converter SHALL determine the CWE specification version the given CWE was selected from by
+- `$.vulnerabilities[*].cwes[*]`:
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL remove all preceding and trailing white space from the `name`.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `$.document.tracking.current_release_date` of the source document.
     If no such version exist, the first matching version published after the value of `$.document.tracking.current_release_date`
@@ -14494,18 +14494,18 @@ Secondly, the program fulfills the following for all items of:
 
     The tool SHOULD implement an option to use the latest available CWE version at the time of the conversion that still matches.
 
-* `$.vulnerabilities[*].disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert its value as value
+- `$.vulnerabilities[*].disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert its value as value
   into the `disclosure_date` element.
-* `$.vulnerabilities[*].ids`:  If an `system_name` was given, the CSAF 2.0 to CSAF 2.1 Converter SHALL test whether it belongs to a registered
+- `$.vulnerabilities[*].ids`:  If an `system_name` was given, the CSAF 2.0 to CSAF 2.1 Converter SHALL test whether it belongs to a registered
   vulnerability ID system in RVISC.
-  * If the `system_name` belongs to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter SHALL execute
+  - If the `system_name` belongs to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter SHALL execute
     test [6.2.53](#matching-text-for-registered-id-system).
-    * If the test passes, no further action is needed.
-    * If the test fails, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the entry based on the mapping
+    - If the test passes, no further action is needed.
+    - If the test fails, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the entry based on the mapping
       given in \[[RVISC-M](#RVISC-M)\].
-      * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
+      - If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
         issue a warning that an ID from a registered vulnerability system was detected and converted.
-      * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails,
+      - If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails,
         the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that an ID from a registered vulnerability system was detected and
         but could not be converted automatically.
         Such warning SHALL state the reason for failure.
@@ -14515,13 +14515,13 @@ Secondly, the program fulfills the following for all items of:
 
       The output SHALL include the original values and, if applicable, the converted ones.
 
-  * If the `system_name` does not belong to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the entry based on the
+  - If the `system_name` does not belong to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the entry based on the
     mapping given in \[[RVISC-M](#RVISC-M)\].
-    * If no matching mapping exists, the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that an ID from a potentially
+    - If no matching mapping exists, the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that an ID from a potentially
       unregistered vulnerability system was detected and no change occurred.
-    * If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
+    - If the mapping succeeds and passes test [6.2.53](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
       issue a warning that an ID from a vulnerability system with a known mapping was detected and converted.
-    * If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails otherwise,
+    - If the mapping succeeds but does not passes test [6.2.53](#matching-text-for-registered-id-system) or the mapping fails otherwise,
       the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that an ID from a vulnerability system with a known mapping was detected
       and but could not be converted automatically.
       Such warning SHALL state the reason for failure.
@@ -14531,7 +14531,7 @@ Secondly, the program fulfills the following for all items of:
 
     The output SHALL include the original values and, if applicable, the converted ones.
 
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4`: If an external reference in the vulnerability linking to the official FIRST.org CVSS v4.0
   calculator exists, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert the vector given in the fragment into a `cvss_v4` object linked to all
   affected products of the vulnerability.
   
@@ -14540,7 +14540,7 @@ Secondly, the program fulfills the following for all items of:
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to construct a valid object with the information given, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the invalid `cvss_v4` object and issue a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
-* `$.vulnerabilities[*].metrics[*].content.ssvc_v2`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
+- `$.vulnerabilities[*].metrics[*].content.ssvc_v2`: If a SSVC vector or decision points of an SSVC vector are given in an item of `notes` of the current
   vulnerability using the `title` `SSVC` and the `category` `other`, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert that data into the `ssvc_v2`
   object within the current vulnerability.
   If the CSAF 2.0 to CSAF 2.1 Converter is able to construct a valid object without losing any information, the corresponding `notes` item SHALL
@@ -14549,7 +14549,7 @@ Secondly, the program fulfills the following for all items of:
   remove the invalid `ssvc_v2` object, keep the original item of `notes` and issue a warning that the automatic conversion of the SSVC data failed.
   If the CSAF 2.0 to CSAF 2.1 Converter would lose information during the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `ssvc_v2`
   object, keep the original item of `notes` and issue a warning that the automatic conversion of the SSVC data would lead to losing information.
-* `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item contains one of the `category` and `title` combinations specified in
+- `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item contains one of the `category` and `title` combinations specified in
   [3.2.4.11](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that
   extension is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential
@@ -14557,22 +14557,22 @@ Secondly, the program fulfills the following for all items of:
   Such warning SHALL also include the note and the assigned products.
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a
   potential product specific note has been discovered and no products could been assigned to it.
-* `$.vulnerabilities[*].remediations[*]`:
-  * The CSAF 2.0 to CSAF 2.1 Converter SHALL convert any remediation with the category `vendor_fix` into the category `optional_patch`
+- `$.vulnerabilities[*].remediations[*]`:
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL convert any remediation with the category `vendor_fix` into the category `optional_patch`
     if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
     Otherwise, the category `vendor_fix` SHALL stay the same.
     If multiple products are associated with the remediation - either directly or through a product group - and the products belong to different
     product status groups, the CSAF 2.0 to CSAF 2.1 Converter SHALL duplicate the remediation, change the category in one instance to `optional_patch`
     and distribute the products accordingly as stated by the conversion rule.
-  * The CSAF 2.0 to CSAF 2.1 Converter SHALL convert any remediation with the category `none_available` into the category `fix_planned`
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL convert any remediation with the category `none_available` into the category `fix_planned`
     if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the future or no `date` at all.
     Consequently, the product SHALL be removed from the remediation of the category `vendor_fix`.
     If it was the last product in that remediation, the remediation SHALL be removed.
-  * The CSAF 2.0 to CSAF 2.1 Converter SHALL remove any product from a remediation with the category `none_available`
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL remove any product from a remediation with the category `none_available`
     if the product in question is also listed in a remediation of the category `vendor_fix` with a `date` in the past or to the exact same time.
     If it was the last product in that remediation, the remediation SHALL be removed.
-  * In any other case, the CSAF 2.0 to CSAF 2.1 Converter SHALL preserve the product in the remediation of the category `none_available`.
-  * The CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning if a remediation was added, deleted or the value of the category was changed,
+  - In any other case, the CSAF 2.0 to CSAF 2.1 Converter SHALL preserve the product in the remediation of the category `none_available`.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
 
 > A tool MAY implement options to convert other Markdown formats to GitHub-flavored Markdown.
@@ -14584,39 +14584,39 @@ Secondly, the program fulfills the following for all items of:
 
 A library satisfies the "CSAF Library" conformance profile if the library:
 
-* implements all elements as data structures conforming to the syntax and semantics defined in section [2.2](#format-validation),
+- implements all elements as data structures conforming to the syntax and semantics defined in section [2.2](#format-validation),
   [2.3](#date-and-time), [3](#schema-elements), [4](#profiles) and [5](#additional-conventions).
-* checks all elements according to the patterns provided in the JSON schema.
-* has a function that checks version ranges.
-* has a function that helps to create version ranges.
-* provides for each element functions that allow to create, add, modify and delete that element.
-* has a function that reads a CSAF Document into the data structure from a
-  * file system.
-  * URL.
-  * data stream.
-* provides function for sorting the keys and sorts the keys automatically on output.
-* has a function that outputs the data structure as CSAF Document
-  * on the file system.
-  * as string.
-  * into a data stream.
-* has a function to determine the filename according to [5.1](#filename) and sets the filename per default when saving a CSAF Document.
-* generates a new `product_id` for each new element of type `full_product_name_t` unless an ID is given during the creation.
-* generates a new `group_id` for each new element of type `product_group_id_t` unless an ID is given during the creation.
-* provides a function to retrieve all elements of type `product_id_t` with its corresponding `full_product_name_t/name` and
+- checks all elements according to the patterns provided in the JSON schema.
+- has a function that checks version ranges.
+- has a function that helps to create version ranges.
+- provides for each element functions that allow to create, add, modify and delete that element.
+- has a function that reads a CSAF Document into the data structure from a
+  - file system.
+  - URL.
+  - data stream.
+- provides function for sorting the keys and sorts the keys automatically on output.
+- has a function that outputs the data structure as CSAF Document
+  - on the file system.
+  - as string.
+  - into a data stream.
+- has a function to determine the filename according to [5.1](#filename) and sets the filename per default when saving a CSAF Document.
+- generates a new `product_id` for each new element of type `full_product_name_t` unless an ID is given during the creation.
+- generates a new `group_id` for each new element of type `product_group_id_t` unless an ID is given during the creation.
+- provides a function to retrieve all elements of type `product_id_t` with its corresponding `full_product_name_t/name` and
   `full_product_name_t/product_identification_helper`.
-* provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
-* provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
+- provides a function to retrieve all `product_identification_helper` and their mapping to elements of type `product_id_t`.
+- provides a function to retrieve a VEX status mapping for all data, which includes the combination of vulnerability, product, product status
   and, where necessary according to the profile, the impact statement respectively the action statement.
-* provides a function to generate a `full_product_name_t/name` within `branches` through concatenating the `name` values separated by white space
+- provides a function to generate a `full_product_name_t/name` within `branches` through concatenating the `name` values separated by white space
   of the elements along the path towards this leaf.
-* provides a function to generate a combined subpath name for an element of type `subpath_t` through concatenating separated by white space:
-  * the `category` with `_` replaced by white space and
-  * the `name` value of the product identified by the Product ID in `next_product_reference`.
-* provides a function to generate a `full_product_name_t/name` within `product_paths` through concatenating separated by white space:
-  * the `name` value of the product identified by the Product ID in `beginning_product_reference` and
-  * the combined subpath name for all elements in `subpaths` in their order.
-* calculates the CVSS scores and severities for existing data for all CVSS versions.
-* validates the CVSS scores and severities for existing data for all CVSS versions.
+- provides a function to generate a combined subpath name for an element of type `subpath_t` through concatenating separated by white space:
+  - the `category` with `_` replaced by white space and
+  - the `name` value of the product identified by the Product ID in `next_product_reference`.
+- provides a function to generate a `full_product_name_t/name` within `product_paths` through concatenating separated by white space:
+  - the `name` value of the product identified by the Product ID in `beginning_product_reference` and
+  - the combined subpath name for all elements in `subpaths` in their order.
+- calculates the CVSS scores and severities for existing data for all CVSS versions.
+- validates the CVSS scores and severities for existing data for all CVSS versions.
 
 > The library MAY implement an option to retrieve the keys unsorted.
 
@@ -14624,10 +14624,10 @@ A library satisfies the "CSAF Library" conformance profile if the library:
 
 A CSAF Library satisfies the "CSAF Library with Basic Validation" conformance profile if the CSAF Library:
 
-* satisfies the "CSAF Library" conformance profile.
-* satisfies the "CSAF Basic Validator" conformance profile.
-* validates the CSAF Document before output according to the "CSAF Basic Validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF Basic Validator" and presents the validation
+- satisfies the "CSAF Library" conformance profile.
+- satisfies the "CSAF Basic Validator" conformance profile.
+- validates the CSAF Document before output according to the "CSAF Basic Validator" and presents the validation result accordingly.
+- provide a function to validate the data structure in its current state according to the "CSAF Basic Validator" and presents the validation
   result accordingly.
 
 A CSAF Library does not satisfies the "CSAF Library with Basic Validation" conformance profile if the CSAF Library uses an external library or
@@ -14637,10 +14637,10 @@ program for the "CSAF Basic Validator" part and does not enforce its presence.
 
 A CSAF Library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library:
 
-* satisfies the "CSAF Library" conformance profile.
-* satisfies the "CSAF Extended Validator" conformance profile.
-* validates the CSAF Document before output according to the "CSAF Extended Validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF Extended Validator" and presents the validation
+- satisfies the "CSAF Library" conformance profile.
+- satisfies the "CSAF Extended Validator" conformance profile.
+- validates the CSAF Document before output according to the "CSAF Extended Validator" and presents the validation result accordingly.
+- provide a function to validate the data structure in its current state according to the "CSAF Extended Validator" and presents the validation
   result accordingly.
 
 A CSAF Library does not satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library uses an external library or
@@ -14650,10 +14650,10 @@ program for the "CSAF Extended Validator" part and does not enforce its presence
 
 A CSAF Library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library:
 
-* satisfies the "CSAF Library" conformance profile.
-* satisfies the "CSAF Full Validator" conformance profile.
-* validates the CSAF Document before output according to the "CSAF Full Validator" and presents the validation result accordingly.
-* provide a function to validate the data structure in its current state according to the "CSAF Full Validator" and presents the validation
+- satisfies the "CSAF Library" conformance profile.
+- satisfies the "CSAF Full Validator" conformance profile.
+- validates the CSAF Document before output according to the "CSAF Full Validator" and presents the validation result accordingly.
+- provide a function to validate the data structure in its current state according to the "CSAF Full Validator" and presents the validation
   result accordingly.
 
 A CSAF Library does not satisfies the "CSAF Library with Full Validation" conformance profile if the CSAF Library uses an external library or
@@ -14663,11 +14663,11 @@ program for the "CSAF Full Validator" part and does not enforce its presence.
 
 A program satisfies the "CSAF Downloader" conformance profile if the program:
 
-* conforms to the process defined in section [7.3](#retrieving-rules) by executing all parts that are applicable to the given role.
-* supports directory-based and ROLIE-based retrieval.
-* is able to execute both steps from section [7.3](#retrieving-rules) separately.
-* uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
-* satisfies those normative requirements in section [7](#distributing-csaf-documents) that are designated as applying to CSAF Downloaders.
+- conforms to the process defined in section [7.3](#retrieving-rules) by executing all parts that are applicable to the given role.
+- supports directory-based and ROLIE-based retrieval.
+- is able to execute both steps from section [7.3](#retrieving-rules) separately.
+- uses a program-specific HTTP User Agent, e.g. consisting of the name and version of the program.
+- satisfies those normative requirements in section [7](#distributing-csaf-documents) that are designated as applying to CSAF Downloaders.
 
 > A tool MAY implement an option to store CSAF Documents that fail any of the steps in section [7.3.2](#retrieving-csaf-documents).
 
@@ -14675,12 +14675,12 @@ A program satisfies the "CSAF Downloader" conformance profile if the program:
 
 A program satisfies the "CSAF Withdrawer" conformance profile if the program:
 
-* satisfies the "CSAF Post-Processor" conformance profile.
-* keeps the original `$.document.tracking.id`.
-* adds a new item to the revision history stating the revision metadata of the withdrawal.
-* adds the reasoning for withdrawal as specified in section [4.7](#profile-7-withdrawn).
-* removes the `$.product_tree`.
-* removes the `$.vulnerabilities`.
+- satisfies the "CSAF Post-Processor" conformance profile.
+- keeps the original `$.document.tracking.id`.
+- adds a new item to the revision history stating the revision metadata of the withdrawal.
+- adds the reasoning for withdrawal as specified in section [4.7](#profile-7-withdrawn).
+- removes the `$.product_tree`.
+- removes the `$.vulnerabilities`.
 
 > A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
 
@@ -14688,13 +14688,13 @@ A program satisfies the "CSAF Withdrawer" conformance profile if the program:
 
 A program satisfies the "CSAF Superseder" conformance profile if the program:
 
-* satisfies the "CSAF Post-Processor" conformance profile.
-* keeps the original `$.document.tracking.id`.
-* adds a new item to the revision history stating the revision metadata of the supersession.
-* adds the reasoning for supersession as specified in section [4.8](#profile-8-superseded).
-* adds the reference to the superseding document as specified in section [4.8](#profile-8-superseded).
-* removes the `$.product_tree`.
-* removes the `$.vulnerabilities`.
+- satisfies the "CSAF Post-Processor" conformance profile.
+- keeps the original `$.document.tracking.id`.
+- adds a new item to the revision history stating the revision metadata of the supersession.
+- adds the reasoning for supersession as specified in section [4.8](#profile-8-superseded).
+- adds the reference to the superseding document as specified in section [4.8](#profile-8-superseded).
+- removes the `$.product_tree`.
+- removes the `$.vulnerabilities`.
 
 > A tool MAY implement an option to additionally remove any element that would hinder the production of a valid CSAF.
 
@@ -14704,49 +14704,49 @@ A program satisfies the "CSAF RVISC ID Updater" conformance profile if the progr
 
 The program:
 
-* satisfies the "CSAF Post-Processor" conformance profile.
-* applies the corresponding assignment from \[[RVISC-M](#RVISC-M)\] to each item in `$.vulnerabilities[*].ids[*]`
+- satisfies the "CSAF Post-Processor" conformance profile.
+- applies the corresponding assignment from \[[RVISC-M](#RVISC-M)\] to each item in `$.vulnerabilities[*].ids[*]`
   whose `system_name` is not contained in \[[RVISC-R](#RVISC-R)\].
-* applies the corresponding assignment from \[[RVISC-M](#RVISC-M)\] to each item in `$.vulnerabilities[*].ids[*]`
+- applies the corresponding assignment from \[[RVISC-M](#RVISC-M)\] to each item in `$.vulnerabilities[*].ids[*]`
   whose `system_name` is contained in \[[RVISC-R](#RVISC-R)\] but the `text` does not conform the entry.
-* satisfies the normative requirements given below.
+- satisfies the normative requirements given below.
 
 The program SHALL provide the following options:
 
-* an option to insert an automatically generated revision history entry detailing the changes applied and
+- an option to insert an automatically generated revision history entry detailing the changes applied and
   make necessary updates to elements in `$.document.tracking` (commit mode).
-* an option to set selected or all parameters for the commit mode manually which take precedence over the automated generated values.
-* an option to do a dry-run which does not apply the changes but just displays them.
-* an option to interactively accept or discard changes.
-* an option to ignore certain values for `system_name`.
-* an option to output all items in `$.vulnerabilities[*].ids[*]` whose `system_name` is not contained in \[[RVISC-R](#RVISC-R)\].
-* an option to output all items in `$.vulnerabilities[*].ids[*]` whose `system_name` is contained in \[[RVISC-R](#RVISC-R)\]
+- an option to set selected or all parameters for the commit mode manually which take precedence over the automated generated values.
+- an option to do a dry-run which does not apply the changes but just displays them.
+- an option to interactively accept or discard changes.
+- an option to ignore certain values for `system_name`.
+- an option to output all items in `$.vulnerabilities[*].ids[*]` whose `system_name` is not contained in \[[RVISC-R](#RVISC-R)\].
+- an option to output all items in `$.vulnerabilities[*].ids[*]` whose `system_name` is contained in \[[RVISC-R](#RVISC-R)\]
   but the `text` does not conform the entry.
-* an option to map an existing `system_name` to a new value or apply a transformation to a `text`
+- an option to map an existing `system_name` to a new value or apply a transformation to a `text`
   based on the `system_name` value and a `precondition`.
 
 ### 9.1.27 Conformance Clause 27: CSAF Additional Test <a id='conformance-clause-27-csaf-additional-test'></a>
 
 A test satisfies the "CSAF Additional Test" conformance profile if it:
 
-* covers a requirement of the standard.
-* operates on a CSAF Document.
-* outputs a result object that aligns with result objects provided for tests specified in section [6](#tests).
-* has a name starting with `AdditionalTest_` followed by a name of the specifying entity conforming to the rules for prefixes of
+- covers a requirement of the standard.
+- operates on a CSAF Document.
+- outputs a result object that aligns with result objects provided for tests specified in section [6](#tests).
+- has a name starting with `AdditionalTest_` followed by a name of the specifying entity conforming to the rules for prefixes of
   test presets (cf. section [6.4](#test-presets)) and an unique name for the test within that entity.
-* has its definition specified in the same structure as in section [6](#tests).
+- has its definition specified in the same structure as in section [6](#tests).
 
 ### 9.1.28 Conformance Clause 28: CSAF Extension <a id='conformance-clause-28-csaf-extension'></a>
 
 A JSON object satisfies the "CSAF Extension" conformance profile if it:
 
-* conforms to the syntax and semantics defined in section [2.4](#extensions).
-* validates against the [CSAF Extension Content Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
+- conforms to the syntax and semantics defined in section [2.4](#extensions).
+- validates against the [CSAF Extension Content Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
   and the schema given through its `$schema` property.
-* uses the value of `$id` of its CSAF Extension Schema as the value of its `$schema` property.
-* conveys additional information that cannot be conveyed with the CSAF Core elements.
-* does not convey any content that can be conveyed with the CSAF Core elements.
-* does not contradict the content or purpose of this specification.
+- uses the value of `$id` of its CSAF Extension Schema as the value of its `$schema` property.
+- conveys additional information that cannot be conveyed with the CSAF Core elements.
+- does not convey any content that can be conveyed with the CSAF Core elements.
+- does not contradict the content or purpose of this specification.
 
 ### 9.1.29 Conformance Clause 29: CSAF Extension Schema <a id='conformance-clause-29-csaf-extension-schema'></a>
 
@@ -14754,20 +14754,20 @@ A JSON schema satisfies the "CSAF Extension Schema" conformance profile if fulfi
 
 Firstly, it:
 
-* describes a JSON object satisfying the "CSAF Extension" conformance profile.
-* validates against the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json).
-* uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
+- describes a JSON object satisfying the "CSAF Extension" conformance profile.
+- validates against the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json).
+- uses the [CSAF Extension Metaschema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
   as the value of its `$schema` property.
-* is versioned according to \[[SemVer](#SemVer)\].
-* has an `$id` that conforms to the `pattern` given for the property `$schema` in section [2.4.4.1](#content-schema-property---schema).
-* does not allow unevaluated properties.
+- is versioned according to \[[SemVer](#SemVer)\].
+- has an `$id` that conforms to the `pattern` given for the property `$schema` in section [2.4.4.1](#content-schema-property---schema).
+- does not allow unevaluated properties.
   It MAY include `patternProperties` if they are typed.
 
   > `patternProperties` are typed if they can't have more than one `type` and that `type` is given through the schema.
 
 Secondly, it:
 
-* SHOULD avoid unpredictable JSON key names.
+- SHOULD avoid unpredictable JSON key names.
 
   > Implementations usually ignore any additional properties as they are hard to access, process and may imply security risks.
 
@@ -14775,17 +14775,17 @@ Secondly, it:
 
 A test satisfies the "CSAF Extension Overlay Test" conformance profile if it:
 
-* is executed only if the specifying CSAF Extension is present.
+- is executed only if the specifying CSAF Extension is present.
 
   > To reuse a test from a different CSAF Extension, it is sufficient to assign it a name according to the rules below
   > and point to the specification of the test it reuses.
   > The referenced specification in such case must be accessible to anyone that can retrieve the referencing CSAF Extension.
 
-* extends or replaces a test specified in this standard in section [6](#tests) or a CSAF Additional Test.
-* does not adversely affect the purpose of the test in question.
-* has a name starting with `Extension_Overlay_Test_` followed by a name of the specifying entity conforming to the
+- extends or replaces a test specified in this standard in section [6](#tests) or a CSAF Additional Test.
+- does not adversely affect the purpose of the test in question.
+- has a name starting with `Extension_Overlay_Test_` followed by a name of the specifying entity conforming to the
   rules for prefixes of test presets (cf. section [6.4](#test-presets)) and the name of the tests that it replaces.
-* has its definition specified in the same structure as in section [6](#tests).
+- has its definition specified in the same structure as in section [6](#tests).
 
 The CSAF Extension Overlay Test SHOULD only differ in the paths or the document categories it is applied to.
 
@@ -14796,65 +14796,65 @@ The CSAF Extension Overlay Test SHOULD only differ in the paths or the document 
 
 A test satisfies the "CSAF Extension Additional Test" conformance profile if it:
 
-* is executed only if the specifying CSAF Extension is present.
+- is executed only if the specifying CSAF Extension is present.
 
   > To reuse a test from a different CSAF Extension, it is sufficient to assign it a name according to the rules below
   > and point to the specification of the test it reuses.
   > The referenced specification in such case must be accessible to anyone that can retrieve the referencing CSAF Extension.
 
-* provides additional checks in the context of the CSAF Extension or the CSAF Document the extension is embedded in.
-* has a name starting with `Extension_Additional_Test_` followed by a name of the specifying entity conforming to the
+- provides additional checks in the context of the CSAF Extension or the CSAF Document the extension is embedded in.
+- has a name starting with `Extension_Additional_Test_` followed by a name of the specifying entity conforming to the
   rules for prefixes of test presets (cf. section [6.4](#test-presets)) and an unique number for the test within that entity.
-* has its definition specified in the same structure as in section [6](#tests).
+- has its definition specified in the same structure as in section [6](#tests).
 
 ### 9.1.32 Conformance Clause 32: CSAF Extension Test <a id='conformance-clause-32-csaf-extension-test'></a>
 
 A test satisfies the "CSAF Extension Test" conformance profile if it:
 
-* satisfies the "CSAF Extension Overlay Test" conformance profile or the "CSAF Extension Additional Test" conformance profile.
+- satisfies the "CSAF Extension Overlay Test" conformance profile or the "CSAF Extension Additional Test" conformance profile.
 
 ### 9.1.33 Conformance Clause 33: CSAF Extension Specification <a id='conformance-clause-33-csaf-extension-specification'></a>
 
 A specification satisfies the "CSAF Extension Specification" conformance profile if:
 
-* it defines exactly one extension satisfying the "CSAF Extension" conformance profile.
-* it defines exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
-* all tests defined in it satisfy the "CSAF Extension Test" conformance profile.
-* it contains all tests needed for the validation of the extension.
+- it defines exactly one extension satisfying the "CSAF Extension" conformance profile.
+- it defines exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
+- all tests defined in it satisfy the "CSAF Extension Test" conformance profile.
+- it contains all tests needed for the validation of the extension.
 
   > This includes tests that check for prerequisites in the CSAF document, if applicable.
   > Referencing an existing test is considered to fulfill the "contains" requirement,
   > if the referenced test is accessible to anyone that can access the referencing specification.
 
-* all requirements above are fulfilled for the same extension.
+- all requirements above are fulfilled for the same extension.
 
 ### 9.1.34 Conformance Clause 34: CSAF Extension Bundle <a id='conformance-clause-34-csaf-extension-bundle'></a>
 
 A compilation of artifacts satisfies the "CSAF Extension Bundle" conformance profile if:
 
-* it contains exactly one extension satisfying the "CSAF Extension" conformance profile.
-* it contains exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
-* it contains exactly one JSON object satisfying the "CSAF Extension Metadata Schema".
-* all necessary test files to implement the "CSAF Extension Test" for this extension.
-* has a name that it can be referred to.
+- it contains exactly one extension satisfying the "CSAF Extension" conformance profile.
+- it contains exactly one JSON schema satisfying the "CSAF Extension Schema" conformance profile.
+- it contains exactly one JSON object satisfying the "CSAF Extension Metadata Schema".
+- all necessary test files to implement the "CSAF Extension Test" for this extension.
+- has a name that it can be referred to.
 
 ### 9.1.35 Conformance Clause 35: CSAF Extension Package <a id='conformance-clause-35-csaf-extension-package'></a>
 
 A compilation of artifacts satisfies the "CSAF Extension Package" conformance profile if:
 
-* it contains exactly one specification satisfying the "CSAF Extension Specification" conformance profile.
-* it contains exactly one compilation of artifacts satisfying the "CSAF Extension Bundle" conformance profile.
-* has a name that it can be referred to.
+- it contains exactly one specification satisfying the "CSAF Extension Specification" conformance profile.
+- it contains exactly one compilation of artifacts satisfying the "CSAF Extension Bundle" conformance profile.
+- has a name that it can be referred to.
 
 ### 9.1.36 Conformance Clause 36: CSAF Extension Collection <a id='conformance-clause-36-csaf-extension-collection'></a>
 
 A set of artifacts satisfies the "CSAF Extension Collection" conformance profile if it:
 
-* contains one or more named compilation of artifacts that satisfy the "CSAF Extension Package" conformance profile.
-* does not contain any compilation of artifacts that looks like a CSAF Extension Package
+- contains one or more named compilation of artifacts that satisfy the "CSAF Extension Package" conformance profile.
+- does not contain any compilation of artifacts that looks like a CSAF Extension Package
   but does not satisfy the "CSAF Extension Package" conformance profile.
 
--------
+---
 
 # Appendix A. Acknowledgments <a id='acknowledgments'></a>
 
@@ -14979,7 +14979,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Will       | Rideout          | Arista Networks                                       |
 | Xiaoyu     | Ge               | Huawei Technologies Co., Ltd.                         |
 
--------
+---
 
 # Appendix B. Revision History <a id='revision-history'></a>
 
@@ -15024,274 +15024,274 @@ e.g.: 150 MiB.
 
 An array SHOULD NOT have more than:
 
-* 10 000 items for
-  * `$.document.acknowledgments`
-  * `$.document.acknowledgments[*].names`
-  * `$.document.acknowledgments[*].urls`
-  * `$.document.tracking.aliases`
-  * `$.document.x_extensions`
-  * `$.product_tree.branches[*]..product.product_identification_helper.hashes`
-  * `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes`
-  * `$.product_tree.branches[*]..product.product_identification_helper.purls`
-  * `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls`
-  * `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris`
-  * `$.product_tree.branches[*]..product.x_extensions`
-  * `$.product_tree.branches[*].product.product_identification_helper.hashes`
-  * `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes`
-  * `$.product_tree.branches[*].product.product_identification_helper.purls`
-  * `$.product_tree.branches[*].product.product_identification_helper.sbom_urls`
-  * `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris`
-  * `$.product_tree.branches[*].product.x_extensions`
-  * `$.product_tree.full_product_names[*].product_identification_helper.hashes`
-  * `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes`
-  * `$.product_tree.full_product_names[*].product_identification_helper.purls`
-  * `$.product_tree.full_product_names[*].product_identification_helper.sbom_urls`
-  * `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris`
-  * `$.product_tree.full_product_names[*].x_extensions`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.purls`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.sbom_urls`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris`
-  * `$.product_tree.product_paths[*].full_product_name.x_extensions`
-  * `$.vulnerabilities[*].acknowledgments`
-  * `$.vulnerabilities[*].acknowledgments[*].names`
-  * `$.vulnerabilities[*].acknowledgments[*].urls`
-  * `$.vulnerabilities[*].cwes`
-  * `$.vulnerabilities[*].ids`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids`
-  * `$.vulnerabilities[*].metrics[*].content.x_extensions`
-  * `$.vulnerabilities[*].remediations[*].entitlements`
-  * `$.vulnerabilities[*].x_extensions`
-  * `$.x_extensions`
+- 10 000 items for
+  - `$.document.acknowledgments`
+  - `$.document.acknowledgments[*].names`
+  - `$.document.acknowledgments[*].urls`
+  - `$.document.tracking.aliases`
+  - `$.document.x_extensions`
+  - `$.product_tree.branches[*]..product.product_identification_helper.hashes`
+  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes`
+  - `$.product_tree.branches[*]..product.product_identification_helper.purls`
+  - `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls`
+  - `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris`
+  - `$.product_tree.branches[*]..product.x_extensions`
+  - `$.product_tree.branches[*].product.product_identification_helper.hashes`
+  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes`
+  - `$.product_tree.branches[*].product.product_identification_helper.purls`
+  - `$.product_tree.branches[*].product.product_identification_helper.sbom_urls`
+  - `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris`
+  - `$.product_tree.branches[*].product.x_extensions`
+  - `$.product_tree.full_product_names[*].product_identification_helper.hashes`
+  - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes`
+  - `$.product_tree.full_product_names[*].product_identification_helper.purls`
+  - `$.product_tree.full_product_names[*].product_identification_helper.sbom_urls`
+  - `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris`
+  - `$.product_tree.full_product_names[*].x_extensions`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.purls`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.sbom_urls`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris`
+  - `$.product_tree.product_paths[*].full_product_name.x_extensions`
+  - `$.vulnerabilities[*].acknowledgments`
+  - `$.vulnerabilities[*].acknowledgments[*].names`
+  - `$.vulnerabilities[*].acknowledgments[*].urls`
+  - `$.vulnerabilities[*].cwes`
+  - `$.vulnerabilities[*].ids`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids`
+  - `$.vulnerabilities[*].metrics[*].content.x_extensions`
+  - `$.vulnerabilities[*].remediations[*].entitlements`
+  - `$.vulnerabilities[*].x_extensions`
+  - `$.x_extensions`
 
-* 40 000 items for
-  * `$.document.notes`
-  * `$.document.references`
-  * `$.vulnerabilities[*].involvements`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references`
-  * `$.vulnerabilities[*].notes`
-  * `$.vulnerabilities[*].references`
+- 40 000 items for
+  - `$.document.notes`
+  - `$.document.references`
+  - `$.vulnerabilities[*].involvements`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references`
+  - `$.vulnerabilities[*].notes`
+  - `$.vulnerabilities[*].references`
 
-* 100 000 for
-  * `$.document.tracking.revision_history`
-  * `$.product_tree.branches`
-  * `$.product_tree..branches`
-  * `$.product_tree.branches[*]..product.product_identification_helper.model_numbers`
-  * `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers`
-  * `$.product_tree.branches[*]..product.product_identification_helper.skus`
-  * `$.product_tree.branches[*].product.product_identification_helper.model_numbers`
-  * `$.product_tree.branches[*].product.product_identification_helper.serial_numbers`
-  * `$.product_tree.branches[*].product.product_identification_helper.skus`
-  * `$.product_tree.full_product_names`
-  * `$.product_tree.full_product_names[*].product_identification_helper.model_numbers`
-  * `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers`
-  * `$.product_tree.full_product_names[*].product_identification_helper.skus`
-  * `$.product_tree.product_groups[*].product_ids`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.skus`
-  * `$.product_tree.product_paths[*].subpaths`
-  * `$.vulnerabilities`
+- 100 000 for
+  - `$.document.tracking.revision_history`
+  - `$.product_tree.branches`
+  - `$.product_tree..branches`
+  - `$.product_tree.branches[*]..product.product_identification_helper.model_numbers`
+  - `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers`
+  - `$.product_tree.branches[*]..product.product_identification_helper.skus`
+  - `$.product_tree.branches[*].product.product_identification_helper.model_numbers`
+  - `$.product_tree.branches[*].product.product_identification_helper.serial_numbers`
+  - `$.product_tree.branches[*].product.product_identification_helper.skus`
+  - `$.product_tree.full_product_names`
+  - `$.product_tree.full_product_names[*].product_identification_helper.model_numbers`
+  - `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers`
+  - `$.product_tree.full_product_names[*].product_identification_helper.skus`
+  - `$.product_tree.product_groups[*].product_ids`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.skus`
+  - `$.product_tree.product_paths[*].subpaths`
+  - `$.vulnerabilities`
 
-* 10 000 000 for
-  * `$.product_tree.product_groups`
-  * `$.product_tree.product_paths`
-  * `$.vulnerabilities[*].remediations[*].group_ids`
+- 10 000 000 for
+  - `$.product_tree.product_groups`
+  - `$.product_tree.product_paths`
+  - `$.vulnerabilities[*].remediations[*].group_ids`
 
-* 100 000 000 for
-  * `$.document.notes[*].group_ids`
-  * `$.document.notes[*].product_ids`
-  * `$.vulnerabilities[*].first_known_exploitation_dates`
-  * `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids`
-  * `$.vulnerabilities[*].first_known_exploitation_dates[*].product_ids`
-  * `$.vulnerabilities[*].flags`
-  * `$.vulnerabilities[*].flags[*].group_ids`
-  * `$.vulnerabilities[*].flags[*].product_ids`
-  * `$.vulnerabilities[*].involvements[*].group_ids`
-  * `$.vulnerabilities[*].involvements[*].product_ids`
-  * `$.vulnerabilities[*].metrics`
-  * `$.vulnerabilities[*].metrics[*].products`
-  * `$.vulnerabilities[*].notes[*].group_ids`
-  * `$.vulnerabilities[*].notes[*].product_ids`
-  * `$.vulnerabilities[*].product_status.first_affected`
-  * `$.vulnerabilities[*].product_status.first_fixed`
-  * `$.vulnerabilities[*].product_status.fixed`
-  * `$.vulnerabilities[*].product_status.known_affected`
-  * `$.vulnerabilities[*].product_status.known_not_affected`
-  * `$.vulnerabilities[*].product_status.last_affected`
-  * `$.vulnerabilities[*].product_status.recommended`
-  * `$.vulnerabilities[*].product_status.under_investigation`
-  * `$.vulnerabilities[*].product_status.unknown`
-  * `$.vulnerabilities[*].remediations`
-  * `$.vulnerabilities[*].remediations[*].product_ids`
-  * `$.vulnerabilities[*].threats`
-  * `$.vulnerabilities[*].threats[*].group_ids`
-  * `$.vulnerabilities[*].threats[*].product_ids`
+- 100 000 000 for
+  - `$.document.notes[*].group_ids`
+  - `$.document.notes[*].product_ids`
+  - `$.vulnerabilities[*].first_known_exploitation_dates`
+  - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids`
+  - `$.vulnerabilities[*].first_known_exploitation_dates[*].product_ids`
+  - `$.vulnerabilities[*].flags`
+  - `$.vulnerabilities[*].flags[*].group_ids`
+  - `$.vulnerabilities[*].flags[*].product_ids`
+  - `$.vulnerabilities[*].involvements[*].group_ids`
+  - `$.vulnerabilities[*].involvements[*].product_ids`
+  - `$.vulnerabilities[*].metrics`
+  - `$.vulnerabilities[*].metrics[*].products`
+  - `$.vulnerabilities[*].notes[*].group_ids`
+  - `$.vulnerabilities[*].notes[*].product_ids`
+  - `$.vulnerabilities[*].product_status.first_affected`
+  - `$.vulnerabilities[*].product_status.first_fixed`
+  - `$.vulnerabilities[*].product_status.fixed`
+  - `$.vulnerabilities[*].product_status.known_affected`
+  - `$.vulnerabilities[*].product_status.known_not_affected`
+  - `$.vulnerabilities[*].product_status.last_affected`
+  - `$.vulnerabilities[*].product_status.recommended`
+  - `$.vulnerabilities[*].product_status.under_investigation`
+  - `$.vulnerabilities[*].product_status.unknown`
+  - `$.vulnerabilities[*].remediations`
+  - `$.vulnerabilities[*].remediations[*].product_ids`
+  - `$.vulnerabilities[*].threats`
+  - `$.vulnerabilities[*].threats[*].group_ids`
+  - `$.vulnerabilities[*].threats[*].product_ids`
 
 ## C.3 String Length <a id='string-length'></a>
 
 A string SHOULD NOT have a length greater than:
 
-* 1000 for
-  * `$.document.acknowledgments[*].names[*]`
-  * `$.document.acknowledgments[*].organization`
-  * `$.document.aggregate_severity.text`
-  * `$.document.category`
-  * `$.document.distribution.sharing_group.name`
-  * `$.document.lang`
-  * `$.document.license_expression`
-  * `$.document.notes[*].audience`
-  * `$.document.notes[*].group_ids[*]`
-  * `$.document.notes[*].product_ids[*]`
-  * `$.document.notes[*].title`
-  * `$.document.publisher.name`
-  * `$.document.source_lang`
-  * `$.document.title`
-  * `$.document.tracking.aliases[*]`
-  * `$.document.tracking.generator.engine.name`
-  * `$.document.tracking.generator.engine.version`
-  * `$.document.tracking.id`
-  * `$.document.tracking.revision_history[*].legacy_version`
-  * `$.document.tracking.revision_history[*].number`
-  * `$.document.tracking.version`
-  * `$.product_tree.branches[*]..name`
-  * `$.product_tree.branches[*]..product.name`
-  * `$.product_tree.branches[*]..product.product_id`
-  * `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  * `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].value`
-  * `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].filename`
-  * `$.product_tree.branches[*]..product.product_identification_helper.model_numbers[*]`
-  * `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers[*]`
-  * `$.product_tree.branches[*]..product.product_identification_helper.skus[*]`
-  * `$.product_tree.branches[*].name`
-  * `$.product_tree.branches[*].product.name`
-  * `$.product_tree.branches[*].product.product_id`
-  * `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  * `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value`
-  * `$.product_tree.branches[*].product.product_identification_helper.hashes[*].filename`
-  * `$.product_tree.branches[*].product.product_identification_helper.model_numbers[*]`
-  * `$.product_tree.branches[*].product.product_identification_helper.serial_numbers[*]`
-  * `$.product_tree.branches[*].product.product_identification_helper.skus[*]`
-  * `$.product_tree.full_product_names[*].name`
-  * `$.product_tree.full_product_names[*].product_id`
-  * `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  * `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].value`
-  * `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].filename`
-  * `$.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]`
-  * `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]`
-  * `$.product_tree.full_product_names[*].product_identification_helper.skus[*]`
-  * `$.product_tree.product_groups[*].group_id`
-  * `$.product_tree.product_groups[*].product_ids[*]`
-  * `$.product_tree.product_paths[*].full_product_name.name`
-  * `$.product_tree.product_paths[*].full_product_name.product_id`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].filename`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]`
-  * `$.product_tree.product_paths[*].beginning_product_reference`
-  * `$.product_tree.product_paths[*].subpaths[*].next_product_reference`
-  * `$.vulnerabilities[*].acknowledgments[*].names[*]`
-  * `$.vulnerabilities[*].acknowledgments[*].organization`
-  * `$.vulnerabilities[*].cve`
-  * `$.vulnerabilities[*].cwes[*].id`
-  * `$.vulnerabilities[*].cwes[*].name`
-  * `$.vulnerabilities[*].cwes[*].version`
-  * `$.vulnerabilities[*].flags[*].group_ids[*]`
-  * `$.vulnerabilities[*].flags[*].product_ids[*]`
-  * `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
-  * `$.vulnerabilities[*].ids[*].system_name`
-  * `$.vulnerabilities[*].ids[*].text`
-  * `$.vulnerabilities[*].involvements[*].contact`
-  * `$.vulnerabilities[*].involvements[*].group_ids[*]`
-  * `$.vulnerabilities[*].metrics[*].content.cvss_v2.vectorString`
-  * `$.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString`
-  * `$.vulnerabilities[*].metrics[*].content.cvss_v4.vectorString`
-  * `$.vulnerabilities[*].metrics[*].content.epss.percentile`
-  * `$.vulnerabilities[*].metrics[*].content.epss.probability`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].key`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].key`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].name`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].version`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]`
-  * `$.vulnerabilities[*].metrics[*].products[*]`
-  * `$.vulnerabilities[*].notes[*].audience`
-  * `$.vulnerabilities[*].notes[*].group_ids[*]`
-  * `$.vulnerabilities[*].notes[*].product_ids[*]`
-  * `$.vulnerabilities[*].notes[*].title`
-  * `$.vulnerabilities[*].product_status.first_affected[*]`
-  * `$.vulnerabilities[*].product_status.first_fixed[*]`
-  * `$.vulnerabilities[*].product_status.fixed[*]`
-  * `$.vulnerabilities[*].product_status.known_affected[*]`
-  * `$.vulnerabilities[*].product_status.known_not_affected[*]`
-  * `$.vulnerabilities[*].product_status.last_affected[*]`
-  * `$.vulnerabilities[*].product_status.recommended[*]`
-  * `$.vulnerabilities[*].product_status.under_investigation[*]`
-  * `$.vulnerabilities[*].product_status.unknown[*]`
-  * `$.vulnerabilities[*].remediations[*].group_ids[*]`
-  * `$.vulnerabilities[*].remediations[*].product_ids[*]`
-  * `$.vulnerabilities[*].threats[*].group_ids[*]`
-  * `$.vulnerabilities[*].threats[*].product_ids[*]`
-  * `$.vulnerabilities[*].title`
+- 1000 for
+  - `$.document.acknowledgments[*].names[*]`
+  - `$.document.acknowledgments[*].organization`
+  - `$.document.aggregate_severity.text`
+  - `$.document.category`
+  - `$.document.distribution.sharing_group.name`
+  - `$.document.lang`
+  - `$.document.license_expression`
+  - `$.document.notes[*].audience`
+  - `$.document.notes[*].group_ids[*]`
+  - `$.document.notes[*].product_ids[*]`
+  - `$.document.notes[*].title`
+  - `$.document.publisher.name`
+  - `$.document.source_lang`
+  - `$.document.title`
+  - `$.document.tracking.aliases[*]`
+  - `$.document.tracking.generator.engine.name`
+  - `$.document.tracking.generator.engine.version`
+  - `$.document.tracking.id`
+  - `$.document.tracking.revision_history[*].legacy_version`
+  - `$.document.tracking.revision_history[*].number`
+  - `$.document.tracking.version`
+  - `$.product_tree.branches[*]..name`
+  - `$.product_tree.branches[*]..product.name`
+  - `$.product_tree.branches[*]..product.product_id`
+  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
+  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].value`
+  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].filename`
+  - `$.product_tree.branches[*]..product.product_identification_helper.model_numbers[*]`
+  - `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers[*]`
+  - `$.product_tree.branches[*]..product.product_identification_helper.skus[*]`
+  - `$.product_tree.branches[*].name`
+  - `$.product_tree.branches[*].product.name`
+  - `$.product_tree.branches[*].product.product_id`
+  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
+  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value`
+  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].filename`
+  - `$.product_tree.branches[*].product.product_identification_helper.model_numbers[*]`
+  - `$.product_tree.branches[*].product.product_identification_helper.serial_numbers[*]`
+  - `$.product_tree.branches[*].product.product_identification_helper.skus[*]`
+  - `$.product_tree.full_product_names[*].name`
+  - `$.product_tree.full_product_names[*].product_id`
+  - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm`
+  - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].value`
+  - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].filename`
+  - `$.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]`
+  - `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]`
+  - `$.product_tree.full_product_names[*].product_identification_helper.skus[*]`
+  - `$.product_tree.product_groups[*].group_id`
+  - `$.product_tree.product_groups[*].product_ids[*]`
+  - `$.product_tree.product_paths[*].full_product_name.name`
+  - `$.product_tree.product_paths[*].full_product_name.product_id`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].filename`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]`
+  - `$.product_tree.product_paths[*].beginning_product_reference`
+  - `$.product_tree.product_paths[*].subpaths[*].next_product_reference`
+  - `$.vulnerabilities[*].acknowledgments[*].names[*]`
+  - `$.vulnerabilities[*].acknowledgments[*].organization`
+  - `$.vulnerabilities[*].cve`
+  - `$.vulnerabilities[*].cwes[*].id`
+  - `$.vulnerabilities[*].cwes[*].name`
+  - `$.vulnerabilities[*].cwes[*].version`
+  - `$.vulnerabilities[*].flags[*].group_ids[*]`
+  - `$.vulnerabilities[*].flags[*].product_ids[*]`
+  - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
+  - `$.vulnerabilities[*].ids[*].system_name`
+  - `$.vulnerabilities[*].ids[*].text`
+  - `$.vulnerabilities[*].involvements[*].contact`
+  - `$.vulnerabilities[*].involvements[*].group_ids[*]`
+  - `$.vulnerabilities[*].metrics[*].content.cvss_v2.vectorString`
+  - `$.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString`
+  - `$.vulnerabilities[*].metrics[*].content.cvss_v4.vectorString`
+  - `$.vulnerabilities[*].metrics[*].content.epss.percentile`
+  - `$.vulnerabilities[*].metrics[*].content.epss.probability`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].key`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].key`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].name`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].version`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]`
+  - `$.vulnerabilities[*].metrics[*].products[*]`
+  - `$.vulnerabilities[*].notes[*].audience`
+  - `$.vulnerabilities[*].notes[*].group_ids[*]`
+  - `$.vulnerabilities[*].notes[*].product_ids[*]`
+  - `$.vulnerabilities[*].notes[*].title`
+  - `$.vulnerabilities[*].product_status.first_affected[*]`
+  - `$.vulnerabilities[*].product_status.first_fixed[*]`
+  - `$.vulnerabilities[*].product_status.fixed[*]`
+  - `$.vulnerabilities[*].product_status.known_affected[*]`
+  - `$.vulnerabilities[*].product_status.known_not_affected[*]`
+  - `$.vulnerabilities[*].product_status.last_affected[*]`
+  - `$.vulnerabilities[*].product_status.recommended[*]`
+  - `$.vulnerabilities[*].product_status.under_investigation[*]`
+  - `$.vulnerabilities[*].product_status.unknown[*]`
+  - `$.vulnerabilities[*].remediations[*].group_ids[*]`
+  - `$.vulnerabilities[*].remediations[*].product_ids[*]`
+  - `$.vulnerabilities[*].threats[*].group_ids[*]`
+  - `$.vulnerabilities[*].threats[*].product_ids[*]`
+  - `$.vulnerabilities[*].title`
 
-* 10 000 for
-  * `$.document.acknowledgments[*].summary`
-  * `$.document.distribution.text`
-  * `$.document.publisher.contact_details`
-  * `$.document.publisher.issuing_authority`
-  * `$.document.references[*].summary`
-  * `$.document.tracking.revision_history[*].summary`
-  * `$.product_tree.branches[*]..product.product_identification_helper.cpe`
-  * `$.product_tree.branches[*]..product.product_identification_helper.purls[*]`
-  * `$.product_tree.branches[*].product.product_identification_helper.cpe`
-  * `$.product_tree.branches[*].product.product_identification_helper.purls[*]`
-  * `$.product_tree.full_product_names[*].product_identification_helper.cpe`
-  * `$.product_tree.full_product_names[*].product_identification_helper.purls[*]`
-  * `$.product_tree.product_groups[*].summary`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.cpe`
-  * `$.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]`
-  * `$.vulnerabilities[*].acknowledgments[*].summary`
-  * `$.vulnerabilities[*].involvements[*].summary`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].summary`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].summary`
-  * `$.vulnerabilities[*].references[*].summary`
-  * `$.vulnerabilities[*].remediations[*].entitlements[*]`
+- 10 000 for
+  - `$.document.acknowledgments[*].summary`
+  - `$.document.distribution.text`
+  - `$.document.publisher.contact_details`
+  - `$.document.publisher.issuing_authority`
+  - `$.document.references[*].summary`
+  - `$.document.tracking.revision_history[*].summary`
+  - `$.product_tree.branches[*]..product.product_identification_helper.cpe`
+  - `$.product_tree.branches[*]..product.product_identification_helper.purls[*]`
+  - `$.product_tree.branches[*].product.product_identification_helper.cpe`
+  - `$.product_tree.branches[*].product.product_identification_helper.purls[*]`
+  - `$.product_tree.full_product_names[*].product_identification_helper.cpe`
+  - `$.product_tree.full_product_names[*].product_identification_helper.purls[*]`
+  - `$.product_tree.product_groups[*].summary`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.cpe`
+  - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]`
+  - `$.vulnerabilities[*].acknowledgments[*].summary`
+  - `$.vulnerabilities[*].involvements[*].summary`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].summary`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].summary`
+  - `$.vulnerabilities[*].references[*].summary`
+  - `$.vulnerabilities[*].remediations[*].entitlements[*]`
 
-* 30 000 for
-  * `$.document.notes[*].text`
-  * `$.vulnerabilities[*].notes[*].text`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].description`
-  * `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].description`
+- 30 000 for
+  - `$.document.notes[*].text`
+  - `$.vulnerabilities[*].notes[*].text`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].description`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].description`
 
-* 250 000 for
-  * `$.vulnerabilities[*].remediations[*].details`
-  * `$.vulnerabilities[*].remediations[*].restart_required.details`
-  * `$.vulnerabilities[*].threats[*].details`
+- 250 000 for
+  - `$.vulnerabilities[*].remediations[*].details`
+  - `$.vulnerabilities[*].remediations[*].restart_required.details`
+  - `$.vulnerabilities[*].threats[*].details`
 
 ## C.4 Date <a id='date'></a>
 
 The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
-* `$.document.tracking.current_release_date`
-* `$.document.tracking.generator.date`
-* `$.document.tracking.initial_release_date`
-* `$.document.tracking.revision_history[*].date`
-* `$.vulnerabilities[*].disclosure_date`
-* `$.vulnerabilities[*].discovery_date`
-* `$.vulnerabilities[*].first_known_exploitation_dates[*].date`
-* `$.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date`
-* `$.vulnerabilities[*].flags[*].date`
-* `$.vulnerabilities[*].involvements[*].date`
-* `$.vulnerabilities[*].metrics[*].content.epss.timestamp`
-* `$.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp`
-* `$.vulnerabilities[*].remediations[*].date`
-* `$.vulnerabilities[*].threats[*].date`
+- `$.document.tracking.current_release_date`
+- `$.document.tracking.generator.date`
+- `$.document.tracking.initial_release_date`
+- `$.document.tracking.revision_history[*].date`
+- `$.vulnerabilities[*].disclosure_date`
+- `$.vulnerabilities[*].discovery_date`
+- `$.vulnerabilities[*].first_known_exploitation_dates[*].date`
+- `$.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date`
+- `$.vulnerabilities[*].flags[*].date`
+- `$.vulnerabilities[*].involvements[*].date`
+- `$.vulnerabilities[*].metrics[*].content.epss.timestamp`
+- `$.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp`
+- `$.vulnerabilities[*].remediations[*].date`
+- `$.vulnerabilities[*].threats[*].date`
 
 ## C.5 Enum <a id='enum'></a>
 
@@ -15303,155 +15303,155 @@ A string which is an enum has a fixed maximum length given by its longest value.
 The value of `$['$schema']` is a fixed URL, currently pointing to the JSON schema location.
 It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
 
-* `$['$schema']` (59)
+- `$['$schema']` (59)
 
 For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:
 
-* `$.document.csaf_version` (3)
-* `$.document.distribution.tlp.label` (12)
-* `$.document.notes[*].category` (16)
-* `$.document.publisher.category` (11)
-* `$.document.references[*].category` (8)
-* `$.document.tracking.status` (7)
-* `$.document.x_extensions[*].category` (13)
-* `$.product_tree.branches[*]..category` (15)
-* `$.product_tree.branches[*]..product.x_extensions[*].category` (13)
-* `$.product_tree.branches[*].category` (15)
-* `$.product_tree.branches[*].product.x_extensions[*].category` (13)
-* `$.product_tree.full_product_names[*].x_extensions[*].category` (13)
-* `$.product_tree.product_paths[*].category` (21)
-* `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category` (13)
-* `$.vulnerabilities[*].flags[*].label` (49)
-* `$.vulnerabilities[*].involvements[*].party` (11)
-* `$.vulnerabilities[*].involvements[*].status` (17)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessComplexity` (6)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessVector` (16)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.authentication` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.availabilityImpact` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.availabilityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.collateralDamagePotential` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.confidentialityImpact` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.confidentialityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.exploitability` (16)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.integrityImpact` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.integrityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.remediationLevel` (13)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.reportConfidence` (14)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.targetDistribution` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v2.version` (3)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.attackComplexity` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.attackVector` (16)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.availabilityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.availabilityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.baseSeverity` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.confidentialityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.confidentialityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.environmentalSeverity` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.exploitCodeMaturity` (16)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.integrityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.integrityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedAttackComplexity` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedAttackVector` (16)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedAvailabilityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedConfidentialityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedIntegrityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedPrivilegesRequired` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedScope` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedUserInteraction` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.privilegesRequired` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.remediationLevel` (13)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.reportConfidence` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.scope` (9)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.temporalSeverity` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.userInteraction` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v3.version` (3)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.attackComplexity` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.attackRequirements` (7)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.attackVector` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.Automatable` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.availabilityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.baseSeverity` (8)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.confidentialityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.exploitMaturity` (16)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.integrityRequirement` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedAttackComplexity` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedAttackRequirements` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedAttackVector` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedPrivilegesRequired` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedSubAvailabilityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedSubConfidentialityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedSubIntegrityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedUserInteraction` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedVulnAvailabilityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedVulnConfidentialityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedVulnIntegrityImpact` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.privilegesRequired` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.providerUrgency` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.Recovery` (13)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.Safety` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.subAvailabilityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.subConfidentialityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.subIntegrityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.userInteraction` (7)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.valueDensity` (12)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.version` (3)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnAvailabilityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnConfidentialityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnerabilityResponseEffort` (11)
-* `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnIntegrityImpact` (4)
-* `$.vulnerabilities[*].metrics[*].content.qualitative_severity_rating` (8)
-* `$.vulnerabilities[*].metrics[*].content.ssvc_v2.schemaVersion` (5)
-* `$.vulnerabilities[*].metrics[*].content.x_extensions[*].category` (13)
-* `$.vulnerabilities[*].notes[*].category` (16)
-* `$.vulnerabilities[*].references[*].category` (8)
-* `$.vulnerabilities[*].remediations[*].category` (14)
-* `$.vulnerabilities[*].remediations[*].restart_required.category` (20)
-* `$.vulnerabilities[*].threats[*].category` (14)
-* `$.vulnerabilities[*].x_extensions[*].category` (13)
-* `$.x_extensions[*].category` (13)
+- `$.document.csaf_version` (3)
+- `$.document.distribution.tlp.label` (12)
+- `$.document.notes[*].category` (16)
+- `$.document.publisher.category` (11)
+- `$.document.references[*].category` (8)
+- `$.document.tracking.status` (7)
+- `$.document.x_extensions[*].category` (13)
+- `$.product_tree.branches[*]..category` (15)
+- `$.product_tree.branches[*]..product.x_extensions[*].category` (13)
+- `$.product_tree.branches[*].category` (15)
+- `$.product_tree.branches[*].product.x_extensions[*].category` (13)
+- `$.product_tree.full_product_names[*].x_extensions[*].category` (13)
+- `$.product_tree.product_paths[*].category` (21)
+- `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category` (13)
+- `$.vulnerabilities[*].flags[*].label` (49)
+- `$.vulnerabilities[*].involvements[*].party` (11)
+- `$.vulnerabilities[*].involvements[*].status` (17)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessComplexity` (6)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessVector` (16)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.authentication` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.availabilityImpact` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.availabilityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.collateralDamagePotential` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.confidentialityImpact` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.confidentialityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.exploitability` (16)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.integrityImpact` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.integrityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.remediationLevel` (13)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.reportConfidence` (14)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.targetDistribution` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v2.version` (3)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.attackComplexity` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.attackVector` (16)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.availabilityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.availabilityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.baseSeverity` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.confidentialityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.confidentialityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.environmentalSeverity` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.exploitCodeMaturity` (16)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.integrityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.integrityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedAttackComplexity` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedAttackVector` (16)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedAvailabilityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedConfidentialityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedIntegrityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedPrivilegesRequired` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedScope` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.modifiedUserInteraction` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.privilegesRequired` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.remediationLevel` (13)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.reportConfidence` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.scope` (9)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.temporalSeverity` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.userInteraction` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v3.version` (3)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.attackComplexity` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.attackRequirements` (7)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.attackVector` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.Automatable` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.availabilityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.baseSeverity` (8)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.confidentialityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.exploitMaturity` (16)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.integrityRequirement` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedAttackComplexity` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedAttackRequirements` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedAttackVector` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedPrivilegesRequired` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedSubAvailabilityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedSubConfidentialityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedSubIntegrityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedUserInteraction` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedVulnAvailabilityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedVulnConfidentialityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.modifiedVulnIntegrityImpact` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.privilegesRequired` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.providerUrgency` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.Recovery` (13)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.Safety` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.subAvailabilityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.subConfidentialityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.subIntegrityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.userInteraction` (7)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.valueDensity` (12)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.version` (3)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnAvailabilityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnConfidentialityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnerabilityResponseEffort` (11)
+- `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnIntegrityImpact` (4)
+- `$.vulnerabilities[*].metrics[*].content.qualitative_severity_rating` (8)
+- `$.vulnerabilities[*].metrics[*].content.ssvc_v2.schemaVersion` (5)
+- `$.vulnerabilities[*].metrics[*].content.x_extensions[*].category` (13)
+- `$.vulnerabilities[*].notes[*].category` (16)
+- `$.vulnerabilities[*].references[*].category` (8)
+- `$.vulnerabilities[*].remediations[*].category` (14)
+- `$.vulnerabilities[*].remediations[*].restart_required.category` (20)
+- `$.vulnerabilities[*].threats[*].category` (14)
+- `$.vulnerabilities[*].x_extensions[*].category` (13)
+- `$.x_extensions[*].category` (13)
 
 ## C.6 URI Length <a id='uri-length'></a>
 
 A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
 
-* `$.document.acknowledgments[*].urls[*]`
-* `$.document.aggregate_severity.namespace`
-* `$.document.distribution.tlp.url`
-* `$.document.publisher.namespace`
-* `$.document.references[*].url`
-* `$.document.x_extensions[*]['$schema']`
-* `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]`
-* `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace`
-* `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.branches[*]..product.x_extensions[*]['$schema']`
-* `$.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]`
-* `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace`
-* `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.branches[*].product.x_extensions[*]['$schema']`
-* `$.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]`
-* `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace`
-* `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.full_product_names[*].x_extensions[*]['$schema']`
-* `$.product_tree.product_paths[*].full_product_name.product_identification_helper.sbom_urls[*]`
-* `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].namespace`
-* `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].uri`
-* `$.product_tree.product_paths[*].full_product_name.x_extensions[*]['$schema']`
-* `$.vulnerabilities[*].acknowledgments[*].urls[*]`
-* `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].uri`
-* `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].uri`
-* `$.vulnerabilities[*].metrics[*].content.x_extensions[*]['$schema']`
-* `$.vulnerabilities[*].metrics[*].source`
-* `$.vulnerabilities[*].references[*].url`
-* `$.vulnerabilities[*].remediations[*].url`
-* `$.vulnerabilities[*].x_extensions[*]['$schema']`
-* `$.x_extensions[*]['$schema']`
+- `$.document.acknowledgments[*].urls[*]`
+- `$.document.aggregate_severity.namespace`
+- `$.document.distribution.tlp.url`
+- `$.document.publisher.namespace`
+- `$.document.references[*].url`
+- `$.document.x_extensions[*]['$schema']`
+- `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]`
+- `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace`
+- `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri`
+- `$.product_tree.branches[*]..product.x_extensions[*]['$schema']`
+- `$.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]`
+- `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace`
+- `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri`
+- `$.product_tree.branches[*].product.x_extensions[*]['$schema']`
+- `$.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]`
+- `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace`
+- `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri`
+- `$.product_tree.full_product_names[*].x_extensions[*]['$schema']`
+- `$.product_tree.product_paths[*].full_product_name.product_identification_helper.sbom_urls[*]`
+- `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].namespace`
+- `$.product_tree.product_paths[*].full_product_name.product_identification_helper.x_generic_uris[*].uri`
+- `$.product_tree.product_paths[*].full_product_name.x_extensions[*]['$schema']`
+- `$.vulnerabilities[*].acknowledgments[*].urls[*]`
+- `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].uri`
+- `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].uri`
+- `$.vulnerabilities[*].metrics[*].content.x_extensions[*]['$schema']`
+- `$.vulnerabilities[*].metrics[*].source`
+- `$.vulnerabilities[*].references[*].url`
+- `$.vulnerabilities[*].remediations[*].url`
+- `$.vulnerabilities[*].x_extensions[*]['$schema']`
+- `$.x_extensions[*]['$schema']`
 
 ## C.7 UUID Length <a id='uuid-length'></a>
 
 A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
 
-* `$.document.distribution.sharing_group.id` (36)
+- `$.document.distribution.sharing_group.id` (36)
 
 # Appendix D. Collapsing Product Paths <a id='collapsing-product-paths'></a>
 
