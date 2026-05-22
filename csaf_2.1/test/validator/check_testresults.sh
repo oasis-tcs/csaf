@@ -4,12 +4,9 @@ SCHEMA=csaf_2.1/test/validator/testresult_json_schema.json
 TESTCASES_SCHEMA=csaf_2.1/test/validator/testcases_json_schema.json
 META_SCHEMA=csaf_2.1/json_schema/meta.json
 VALIDATOR=csaf_2.1/test/validator.py
-TESTPATH=csaf_2.1/test/validator/data/$1/*.json
-TESTFILE=testresult.json
+TESTPATH=csaf_2.1/test/validator/data/$1/*.result.json
 
 FAIL=0
-DIRFILES=""
-TESTFILES=""
 
 # go to root of git repository
 cd `dirname $0`/../../..
@@ -25,6 +22,13 @@ validate() {
 
 }
 
-validate "${TESTPATH}${TESTFILE}"
+test_all() {
+  for i in $(ls -1 ${TESTPATH})
+  do
+    validate $i
+  done
+}
+
+test_all
 
 exit ${FAIL}

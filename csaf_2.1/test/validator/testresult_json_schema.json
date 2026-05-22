@@ -22,7 +22,7 @@
         "id": {
           "title": "Number of the test",
           "description": "Contains the section number of the test in the specification.",
-          "$ref": "testcases_json_schema/../$defs/test_t/properties/id"
+          "$ref": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testcases_json_schema.json#/$defs/test_t/properties/id"
         },
         "infos": {
           "title": "Information",
