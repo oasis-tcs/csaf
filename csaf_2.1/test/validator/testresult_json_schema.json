@@ -1,0 +1,123 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "title": "Test result for a single CSAF test file",
+  "description": "Representation of the expected result for a given test file from the test suite provided for section 6 of the specification.",
+  "type": "object",
+  "$defs": {
+    "result_t": {
+      "title": "Result",
+      "description": "Contains the result for a given test.",
+      "type": "object",
+      "required": [
+        "id",
+        "valid"
+      ],
+      "properties": {
+        "errors": {
+          "title": "Errors",
+          "description": "Contains a list of errors.",
+          "$ref": "#/$defs/validation_messages_t"
+        },
+        "id": {
+          "title": "Number of the test",
+          "description": "Contains the section number of the test in the specification.",
+          "$ref": "testcases_json_schema/../$defs/test_t/properties/id"
+        },
+        "infos": {
+          "title": "Information",
+          "description": "Contains a list of information.",
+          "$ref": "#/$defs/validation_messages_t"
+        },
+        "valid": {
+          "title": "Valid",
+          "description": "States whether the data passed the test.",
+          "type": "boolean"
+        },
+        "warnings": {
+          "title": "Warnings",
+          "description": "Contains a list of warnings.",
+          "$ref": "#/$defs/validation_messages_t"
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation_message_t": {
+      "title": "Validation message",
+      "description": "Contains a message and the instance path it occurred.",
+      "type": "object",
+      "required": [
+        "instance_path",
+        "message"
+      ],
+      "properties": {
+        "instance_path": {
+          "title": "Instance path",
+          "description": "Contains a JSON pointer detailing the path to the instance that raised the issue.",
+          "type": "string",
+          "format": "json-pointer",
+          "pattern": "^(/([^~\\/]|(~[01]))*)+$"
+        },
+        "message": {
+          "title": "Message",
+          "description": "Contains the message detailing what the issues is.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation_messages_t": {
+      "title": "Validation messages",
+      "description": "Contains a list of validation messages.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/validation_message_t"
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "overall_valid",
+    "primary_result",
+    "resultschema_version"
+  ],
+  "properties": {
+    "$schema": {
+      "title": "JSON schema",
+      "description": "Contains the URL of the JSON schema for test result which the document promises to be valid for.",
+      "type": "string",
+      "enum": [
+        "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json"
+      ],
+      "format": "uri"
+    },
+    "overall_valid": {
+      "title": "Overall valid",
+      "description": "States whether the file passes all basic tests.",
+      "type": "boolean"
+    },
+    "primary_result": {
+      "title": "Primary result",
+      "description": "Contains the expected result for this test.",
+      "$ref": "#/$defs/result_t"
+    },
+    "resultschema_version": {
+      "title": "Result version",
+      "description": "Contains the current version of this schema",
+      "type": "string",
+      "const": "2.1"
+    },
+    "secondary_results": {
+      "title": "Secondary results",
+      "description": "Contains a list of expected result for other tests.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/result_t"
+      }
+    }
+  },
+  "additionalProperties": false
+}
