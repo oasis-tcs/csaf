@@ -4,8 +4,8 @@ It MUST be tested that a CSAF document using Max UUID as sharing group ID has th
 
 The relevant path for this test is:
 
-```
-  /document/distribution/tlp/label
+```list-of-jsonpaths
+  $.document.distribution.tlp.label
 ```
 
 *Example 1 (which fails the test):*

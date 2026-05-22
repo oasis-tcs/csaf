@@ -21,7 +21,7 @@
     "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
   ],
   "$schema": "https://www.first.org/cvss/meta.json",
-  "$id": "https://www.first.org/cvss/cvss-v4.0.2.json?20260226",
+  "$id": "https://www.first.org/cvss/cvss-v4.0.json?20260226",
   "title": "JSON Schema for Common Vulnerability Scoring System version 4.0, Revision 2",
   "type": "object",
     "$defs": {

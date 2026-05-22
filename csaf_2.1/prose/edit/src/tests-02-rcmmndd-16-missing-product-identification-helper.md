@@ -1,13 +1,13 @@
 ### Missing Product Identification Helper
 
-For each element of type `/$defs/full_product_name_t` it MUST be tested that it includes the property `product_identification_helper`.
+For each element of type `$['$defs'].full_product_name_t` it MUST be tested that it includes the property `product_identification_helper`.
 
 The relevant paths for this test are:
 
-```
-  /product_tree/branches[](/branches[])*/product
-  /product_tree/full_product_names[]
-  /product_tree/product_paths[]/full_product_name
+```list-of-jsonpaths
+  $.product_tree.branches[*]..product
+  $.product_tree.full_product_names[*]
+  $.product_tree.product_paths[*].full_product_name
 ```
 
 *Example 1 (which fails the test):*

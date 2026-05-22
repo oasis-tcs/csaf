@@ -6,8 +6,8 @@ The test MAY be skipped for other license inventoring entities.
 
 The relevant path for this test is:
 
-```
-  /document/license_expression
+```list-of-jsonpaths
+  $.document.license_expression
 ```
 
 *Example 1 (which fails the test):*

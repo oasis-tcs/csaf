@@ -4,8 +4,8 @@ It MUST be tested that no sharing group is used if the document is `TLP:CLEAR`.
 
 The relevant path for this test is:
 
-```
-  /document/distribution/sharing_group
+```list-of-jsonpaths
+  $.document.distribution.sharing_group
 ```
 
 *Example 1 (which fails the test):*

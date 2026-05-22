@@ -1,5 +1,5 @@
 %% first titlepage (book front matter)
-\pdfbookmark[startatroot,bold]{Common Security Advisory Framework Version 2.1 CSD01}{doctitle}
+\pdfbookmark[startatroot,bold]{Common Security Advisory Framework Version 2.1 CSD03}{doctitle}
 \pdfbookmark[section]{Frontmatter}{status}
 \mbox{}\vskip -2em
 \includegraphics{\theChosenTitlePageLogo}
@@ -9,23 +9,23 @@
 2.1}\label{common-security-advisory-framework-version-2.1}
 
 \subsection*{Committee Specification Draft
-02}\label{committee-specification-draft-02}
+03}\label{committee-specification-draft-03}
 
-\subsection*{25 February 2026}\label{pub-date}
+\subsection*{29 April 2026}\label{pub-date}
 
 \paragraph*{This stage:}\label{this-stage}
+
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md}
+(Authoritative)\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html}\\
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf}
+
+\paragraph*{Previous stage:}\label{previous-stage}
 
 \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md}
 (Authoritative)\\
 \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html}\\
 \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf}
-
-\paragraph*{Previous stage:}\label{previous-stage}
-
-\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.md}
-(Authoritative)\\
-\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.html}\\
-\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/csaf-v2.1-csd01.pdf}
 
 \paragraph*{Latest stage:}\label{latest-stage}
 
@@ -65,22 +65,22 @@ includes:
 \tightlist
 \item
   Aggregator JSON schema:\\
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/aggregator.json}.\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json}.\\
   Latest stage:
   \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json}.
 \item
   CSAF JSON schema:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/csaf.json}.\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json}.\\
   Latest stage:
   \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json}.
 \item
   Meta JSON schema:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/meta.json}.\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json}.\\
   Latest stage:
   \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json}.
 \item
   Provider JSON schema:
-  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd01/schema/provider.json}.\\
+  \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json}.\\
   Latest stage:
   \href{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}{https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json}.
 \end{itemize}
@@ -173,9 +173,9 @@ be used:
 \textbf{{[}csaf-v2.1{]}}
 
 \emph{Common Security Advisory Framework Version 2.1}. Edited by Stefan
-Hagen, and Thomas Schmidt. 25 February 2026. OASIS Committee Specification
-Draft 02.
-\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html}.
+Hagen, and Thomas Schmidt. 29 April 2026. OASIS Committee Specification
+Draft 03.
+\href{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html}.
 Latest stage: \href{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}{https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html}.
 
 \paragraph*{Notices}\label{notices}

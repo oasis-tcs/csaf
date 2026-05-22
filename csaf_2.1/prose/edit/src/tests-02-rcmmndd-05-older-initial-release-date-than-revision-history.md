@@ -5,8 +5,8 @@ As the timestamps might use different timezones, the sorting and comparison MUST
 
 The relevant path for this test is:
 
-```
-    /document/tracking/initial_release_date
+```list-of-jsonpaths
+  $.document.tracking.initial_release_date
 ```
 
 *Example 1 (which fails the test):*

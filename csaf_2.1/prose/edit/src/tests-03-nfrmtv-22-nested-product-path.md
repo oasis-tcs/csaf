@@ -1,7 +1,7 @@
 ### Nested Product Path
 
-For each item in `/product_tree/product_paths[]` it MUST be tested that all referenced Product IDs are not defined under a
-`full_product_name_t` element within items of `/product_tree/product_paths`.
+For each item in `$.product_tree.product_paths[*]` it MUST be tested that all referenced Product IDs are not defined under a
+`full_product_name_t` element within items of `$.product_tree.product_paths`.
 
 > A product defined by a product path that contains another product path is usually harder to match.
 > Nevertheless, there are scenarios that require such a nesting to correctly describe the reality
@@ -9,9 +9,9 @@ For each item in `/product_tree/product_paths[]` it MUST be tested that all refe
 
 The relevant paths for this test are:
 
-```
-  /product_tree/product_paths[]/beginning_product_reference
-  /product_tree/product_paths[]/subpaths[]/next_product_reference
+```list-of-jsonpaths
+  $.product_tree.product_paths[*].beginning_product_reference
+  $.product_tree.product_paths[*].subpaths[*].next_product_reference
 ```
 
 *Example 1 (which fails the test):*

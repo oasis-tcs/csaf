@@ -1,6 +1,6 @@
 ### Version Range in Product Version
 
-For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that
+For each element of type `$['$defs'].branches_t` with `category` of `product_version` it MUST be tested that
 the value of `name` does not contain a version range.
 
 > To implement this test it is deemed sufficient that, when converted to lowercase, the value of `name` satisfies the two requirements below:
@@ -28,8 +28,8 @@ the value of `name` does not contain a version range.
 
 The relevant paths for this test are:
 
-```
-  /product_tree/branches[](/branches[])*/name
+```list-of-jsonpaths
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

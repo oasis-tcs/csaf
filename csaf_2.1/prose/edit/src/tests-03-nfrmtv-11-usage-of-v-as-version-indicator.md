@@ -1,6 +1,6 @@
 ### Usage of V as Version Indicator
 
-For each element of type `/$defs/branches_t` with `category` of `product_version` it MUST be tested that
+For each element of type `$['$defs'].branches_t` with `category` of `product_version` it MUST be tested that
 the value of `name` does not start with `v` or `V` before the version.
 
 > To implement this test it is deemed sufficient that the value of `name` does not match the following regex:
@@ -11,8 +11,8 @@ the value of `name` does not start with `v` or `V` before the version.
 
 The relevant paths for this test are:
 
-```
-  /product_tree/branches[](/branches[])*/name
+```list-of-jsonpaths
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*

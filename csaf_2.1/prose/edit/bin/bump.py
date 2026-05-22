@@ -416,7 +416,7 @@ def main(args: list[str]) -> int:
                 pass
 
         prefix = '_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. '
-        postfix = '. OASIS Committee Specification Draft 02. https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.'
+        postfix = '. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.'
         if 11 < len(line) < 19 and line.endswith(postfix):
             pub_date = line.replace(prefix, '').replace(postfix, '')
             try:
@@ -450,7 +450,7 @@ def main(args: list[str]) -> int:
     prefix = '| csaf-v2.1-wd'
     in_between = f'{job[PUB_ISO_COMPACT]}-dev | {job[PUB_ISO_DASH]}'
     stop_token = prefix + in_between
-    postfix = ' | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD02                   |'
+    postfix = ' | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD03                   |'
     debug and print('#  -  -  -  -  -  -  -  -  - ')
     for line in lines:
         # <-- append here when past_table is True

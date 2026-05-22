@@ -8,9 +8,9 @@ the URL referenced resolves with a HTTP status code less than 400.
 
 The relevant paths for this test are:
 
-```
-  /document/references[]/url
-  /vulnerabilities[]/references[]/url
+```list-of-jsonpaths
+  $.document.references[*].url
+  $.vulnerabilities[*].references[*].url
 ```
 
 *Example 1 (which fails the test):*

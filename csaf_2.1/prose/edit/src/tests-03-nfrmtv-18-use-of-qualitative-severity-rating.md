@@ -3,15 +3,15 @@
 For each item in `metrics` it MUST be tested that it does not use the qualitative severity rating.
 
 > This covers all items in `metrics` regardless of their origin.
-> Even though the Qualitative Severity Rating is a specified property, it's usage is discouraged as it provides
+> Even though the Qualitative Severity Rating is a specified property, its usage is discouraged as it provides
 > no information about the assessment inputs.
 > Nevertheless, it can be useful to provide the such limited assessment result, especially for supply chain vulnerabilities
 > where the upstream product just provides a qualitative severity rating.
 
 The relevant path for this test is:
 
-```
-    /vulnerabilities[]/metrics[]
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics[*]
 ```
 
 *Example 1 (which fails the test):*
@@ -43,5 +43,3 @@ The relevant path for this test is:
 ```
 
 > The upstream provided metric for `CSAFPID-9080700` uses a `qualitative_severity_rating`.
-
--------

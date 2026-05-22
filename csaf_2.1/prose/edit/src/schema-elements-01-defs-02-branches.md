@@ -169,7 +169,8 @@ The value of MUST obey to exactly one of the following options:
 
 2. Vers-like Specifier (vls)
 
-    This option uses only the `<version-constraint>` part from the vers specification. It MUST NOT have an URI nor the `<versioning-scheme>` part.
+    This option uses only the `constraint` part from the vers specification.
+    It MUST NOT have a URI nor the `type` part.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.

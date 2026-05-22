@@ -1,13 +1,13 @@
 ### Mixed Integer and Semantic Versioning
 
-It MUST be tested that all elements of type `/$defs/version_t` follow either integer versioning or
+It MUST be tested that all elements of type `$['$defs'].version_t` follow either integer versioning or
 semantic versioning homogeneously within the same document.
 
 The relevant paths for this test are:
 
-```
-  /document/tracking/revision_history[]/number
-  /document/tracking/version
+```list-of-jsonpaths
+  $.document.tracking.revision_history[*].number
+  $.document.tracking.version
 ```
 
 *Example 1 (which fails the test):*

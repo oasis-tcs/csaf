@@ -2,16 +2,16 @@
 
 This subsubsection structures the mandatory tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
-Each of the following tests SHOULD be treated as they where listed similar to the other tests.
+Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
 > An application MAY group these tests by profiles when providing the additional function to only run one or more selected tests.
 > This results in one virtual test per profile.
 
 #### Document Notes{#document-notes-for-informational-advisory-and-security-incident-response}
 
-It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
+It MUST be tested that at least one item in `$.document.notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_informational_advisory
@@ -20,8 +20,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /document/notes
+```list-of-jsonpaths
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -40,9 +40,9 @@ The relevant path for this test is:
 
 #### Document References{#document-references-for-informational-advisory-and-security-incident-response}
 
-It MUST be tested that at least one item in `/document/references` exists that has links to an `external` source.
+It MUST be tested that at least one item in `$.document.references` exists that has links to an `external` source.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_informational_advisory
@@ -51,8 +51,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /document/references
+```list-of-jsonpaths
+  $.document.references
 ```
 
 *Example 1 (which fails the test):*
@@ -71,9 +71,9 @@ The relevant path for this test is:
 
 #### Vulnerabilities{#vulnerabilities-for-informational-advisory}
 
-It MUST be tested that the element `/vulnerabilities` does not exist.
+It MUST be tested that the element `$.vulnerabilities` does not exist.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_informational_advisory
@@ -83,8 +83,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities
+```list-of-jsonpaths
+  $.vulnerabilities
 ```
 
 *Example 1 (which fails the test):*
@@ -97,15 +97,15 @@ The relevant path for this test is:
   ]
 ```
 
-> The element `/vulnerabilities` exists.
+> The element `$.vulnerabilities` exists.
 
-> A tool MAY change the `/document/category` to `csaf_base` as a quick fix.
+> A tool MAY change the `$.document.category` to `csaf_base` as a quick fix.
 
 #### Product Tree{#product-tree-for-security-advisory-vex-deprecated-security-advisory}
 
-It MUST be tested that the element `/product_tree` exists.
+It MUST be tested that the element `$.product_tree` exists.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_security_advisory
@@ -115,8 +115,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /product_tree
+```list-of-jsonpaths
+  $.product_tree
 ```
 
 *Example 1 (which fails the test):*
@@ -132,13 +132,13 @@ The relevant path for this test is:
   }
 ```
 
-> The element `/product_tree` does not exist.
+> The element `$.product_tree` does not exist.
 
 #### Vulnerability Notes
 
-For each item in `/vulnerabilities` it MUST be tested that the element `notes` exists.
+For each item in `$.vulnerabilities` it MUST be tested that the element `notes` exists.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_security_advisory
@@ -148,8 +148,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/notes
+```list-of-jsonpaths
+  $.vulnerabilities[*].notes
 ```
 
 *Example 1 (which fails the test):*
@@ -171,9 +171,9 @@ The relevant path for this test is:
 
 #### Product Status
 
-For each item in `/vulnerabilities` it MUST be tested that the element `product_status` exists.
+For each item in `$.vulnerabilities` it MUST be tested that the element `product_status` exists.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_security_advisory
@@ -182,8 +182,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/product_status
+```list-of-jsonpaths
+  $.vulnerabilities[*].product_status
 ```
 
 *Example 1 (which fails the test):*
@@ -200,10 +200,10 @@ The relevant path for this test is:
 
 #### VEX Product Status
 
-For each item in `/vulnerabilities` it MUST be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
+For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
 or `under_investigation` is present in `product_status`.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_vex
@@ -211,11 +211,11 @@ The relevant value for `/document/category` is:
 
 The relevant paths for this test are:
 
-```
-  /vulnerabilities[]/product_status/fixed
-  /vulnerabilities[]/product_status/known_affected
-  /vulnerabilities[]/product_status/known_not_affected
-  /vulnerabilities[]/product_status/under_investigation
+```list-of-jsonpaths
+  $.vulnerabilities[*].product_status.fixed
+  $.vulnerabilities[*].product_status.known_affected
+  $.vulnerabilities[*].product_status.known_not_affected
+  $.vulnerabilities[*].product_status.under_investigation
 ```
 
 *Example 1 (which fails the test):*
@@ -235,9 +235,9 @@ The relevant paths for this test are:
 
 #### Vulnerability ID
 
-For each item in `/vulnerabilities` it MUST be tested that at least one of the elements `cve` or `ids` is present.
+For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `cve` or `ids` is present.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_vex
@@ -245,9 +245,9 @@ The relevant value for `/document/category` is:
 
 The relevant paths for this test are:
 
-```
-  /vulnerabilities[]/cve
-  /vulnerabilities[]/ids
+```list-of-jsonpaths
+  $.vulnerabilities[*].cve
+  $.vulnerabilities[*].ids
 ```
 
 *Example 1 (which fails the test):*
@@ -264,11 +264,11 @@ The relevant paths for this test are:
 
 #### Impact Statement
 
-For each item in `/vulnerabilities[]/product_status/known_not_affected` it MUST be tested that
-a corresponding impact statement exist in `/vulnerabilities[]/flags` or `/vulnerabilities[]/threats`.
+For each item in `$.vulnerabilities[*].product_status.known_not_affected` it MUST be tested that
+a corresponding impact statement exist in `$.vulnerabilities[*].flags` or `$.vulnerabilities[*].threats`.
 For the latter one, the `category` value for such a statement MUST be `impact`.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_vex
@@ -276,9 +276,9 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/flags
-  /vulnerabilities[]/threats
+```list-of-jsonpaths
+  $.vulnerabilities[*].flags
+  $.vulnerabilities[*].threats
 ```
 
 *Example 1 (which fails the test):*
@@ -338,10 +338,10 @@ The relevant path for this test is:
 
 #### Action Statement
 
-For each item in `/vulnerabilities[]/product_status/known_affected` it MUST be tested that
-a corresponding action statement exist in `/vulnerabilities[]/remediations`.
+For each item in `$.vulnerabilities[*].product_status.known_affected` it MUST be tested that
+a corresponding action statement exist in `$.vulnerabilities[*].remediations`.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_vex
@@ -349,8 +349,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/remediations
+```list-of-jsonpaths
+  $.vulnerabilities[*].remediations
 ```
 
 *Example 1 (which fails the test):*
@@ -411,9 +411,9 @@ The relevant path for this test is:
 
 #### Vulnerabilities{#vulnerabilities-for-security-advisory-or-vex}
 
-It MUST be tested that the element `/vulnerabilities` exists.
+It MUST be tested that the element `$.vulnerabilities` exists.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_security_advisory
@@ -423,8 +423,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities
+```list-of-jsonpaths
+  $.vulnerabilities
 ```
 
 *Example 1 (which fails the test):*
@@ -440,13 +440,13 @@ The relevant path for this test is:
   }
 ```
 
-> The element `/vulnerabilities` does not exist.
+> The element `$.vulnerabilities` does not exist.
 
 #### Affected Products
 
-For each item in `/vulnerabilities` it MUST be tested that the element `product_status/known_affected` exists.
+For each item in `$.vulnerabilities` it MUST be tested that the element `product_status/known_affected` exists.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_security_advisory
@@ -454,8 +454,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/product_status/known_affected
+```list-of-jsonpaths
+  $.vulnerabilities[*].product_status.known_affected
 ```
 
 *Example 1 (which fails the test):*
@@ -480,7 +480,7 @@ it MUST be tested that a corresponding version of the product is listed as affec
 > Such product path could also be just the product identified by `beginning_product_reference` if the first subpath element
 > has the category `installed_with`.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_security_advisory
@@ -488,8 +488,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/product_status/known_affected
+```list-of-jsonpaths
+  $.vulnerabilities[*].product_status.known_affected
 ```
 
 *Example 1 (which fails the test):*
@@ -538,9 +538,9 @@ The relevant path for this test is:
 
 #### Document Notes{#document-notes-for-withdrawn-and-superseded}
 
-It MUST be tested that at least one item in `/document/notes` exists which has a `category` of `description`.
+It MUST be tested that at least one item in `$.document.notes` exists which has a `category` of `description`.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_withdrawn
@@ -549,8 +549,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /document/notes
+```list-of-jsonpaths
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -569,9 +569,9 @@ The relevant path for this test is:
 
 #### Product Tree{#product-tree-for-withdrawn-and-superseded}
 
-It MUST be tested that the element `/product_tree` does not exist.
+It MUST be tested that the element `$.product_tree` does not exist.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_withdrawn
@@ -580,8 +580,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /product_tree
+```list-of-jsonpaths
+  $.product_tree
 ```
 
 *Example 1 (which fails the test):*
@@ -592,13 +592,13 @@ The relevant path for this test is:
     ]
 ```
 
-> The element `/product_tree` exists.
+> The element `$.product_tree` exists.
 
 #### Revision History{#revision-history-for-withdrawn-and-superseded}
 
 It MUST be tested that the revision history contains at least two entries.
 
-The relevant values for `/document/category` are:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_withdrawn
@@ -607,8 +607,8 @@ The relevant values for `/document/category` are:
 
 The relevant path for this test is:
 
-```
-  /document/tracking/revision_history
+```list-of-jsonpaths
+  $.document.tracking.revision_history
 ```
 
 *Example 1 (which fails the test):*
@@ -631,7 +631,7 @@ If the document language is English or unspecified, it MUST be tested that exact
 that has the title `Reasoning for Withdrawal`.
 The `category` of this item MUST be `description`.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_withdrawn
@@ -639,8 +639,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /document/notes
+```list-of-jsonpaths
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -663,7 +663,7 @@ If the document language is English or unspecified, it MUST be tested that exact
 that has the title `Reasoning for Supersession`.
 The `category` of this item MUST be `description`.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_superseded
@@ -671,8 +671,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /document/notes
+```list-of-jsonpaths
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*
@@ -695,7 +695,7 @@ If the document language is English or unspecified, it MUST be tested that at le
 that has a summary starting with `Superseding Document`.
 The `category` of this item MUST be `external`.
 
-The relevant value for `/document/category` is:
+The relevant value for `$.document.category` is:
 
 ```
   csaf_superseded
@@ -703,8 +703,8 @@ The relevant value for `/document/category` is:
 
 The relevant path for this test is:
 
-```
-  /document/references
+```list-of-jsonpaths
+  $.document.references
 ```
 
 *Example 1 (which fails the test):*

@@ -5,8 +5,8 @@ As the timestamps might use different timezones, the comparison MUST take timezo
 
 The relevant path for this test is:
 
-```
-  /document/tracking/revision_history[]/date
+```list-of-jsonpaths
+  $.document.tracking.revision_history[*].date
 ```
 
 *Example 1 (which fails the test):*

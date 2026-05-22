@@ -1,12 +1,12 @@
 ### Single Version as Product Version Range
 
-For each element of type `/$defs/branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` does not
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` does not
 identify only a single version.
 
 The relevant path for this test is:
 
-```
-    /product_tree/branches[](/branches[])*/name
+```list-of-jsonpaths
+  $.product_tree.branches[*]..name
 ```
 
 *Example 1 (which fails the test):*
