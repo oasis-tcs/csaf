@@ -35,14 +35,14 @@ validate() {
 }
 
 test_all() {
-  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}" | grep -Ev "${EXCLUDE_LEAP}")
+  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}" | grep -Ev "${EXCLUDE_LEAP}" | grep -Ev ".result.json$")
   do
     validate $i
   done
 }
 
 test_all_strict() {
-  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}" | grep -Ev "${EXCLUDE_LEAP}" )
+  for i in $(ls -1 ${TESTPATH} | grep -Ev "${EXCLUDE}" | grep -Ev "${EXCLUDE_LEAP}" | grep -Ev ".result.json$")
   do
     validate $i
   done
