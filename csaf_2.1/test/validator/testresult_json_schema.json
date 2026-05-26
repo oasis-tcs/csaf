@@ -95,12 +95,12 @@
     },
     "overall_valid": {
       "title": "Overall valid",
-      "description": "States whether the file passes all basic tests.",
+      "description": "States whether the file passes all basic tests. This might differ from the result for the specific test.",
       "type": "boolean"
     },
     "primary_result": {
       "title": "Primary result",
-      "description": "Contains the expected result for this test.",
+      "description": "Contains the expected result for this specific test. Results for any other tests may be added as secondary results.",
       "$ref": "#/$defs/result_t"
     },
     "resultschema_version": {
@@ -111,7 +111,7 @@
     },
     "secondary_results": {
       "title": "Secondary results",
-      "description": "Contains a list of expected result for other tests.",
+      "description": "Contains a list of expected result for other tests. It is not guaranteed to contain expected results for all other tests. Main purpose is to aid in understanding edge cases.",
       "minItems": 1,
       "uniqueItems": true,
       "items": {
