@@ -236,6 +236,13 @@ The relevant paths for this test are:
 #### Vulnerability ID
 
 For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `cve` or `ids` is present.
+If no `cve` is present and all items in `ids` contain `group_ids` or `product_ids`,
+it MUST be tested that each product mentioned in `product_status[*][*]` is assigned at least one item in `ids`.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+
+> Without this rule, a product could be mentioned in a VEX that has no clear reference to a vulnerability identifier.
+> If a CVE is present, or at least one item in `ids` without `group_ids` and `product_ids`,
+> the corresponding vulnerability identifier applies to the vulnerability itself and therefore to all products mention in this vulnerability.
 
 The relevant value for `$.document.category` is:
 
