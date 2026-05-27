@@ -3,7 +3,7 @@
   "overall_valid": false,
   "primary_result": {
     "id": "6.2.38",
-    "valid": true
+    "passed": true
   },
   "resultschema_version": "2.1",
   "secondary_results": [
@@ -15,7 +15,7 @@
         }
       ],
       "id": "6.1.26",
-      "valid": false
+      "passed": false
     }
   ]
 }

@@ -11,7 +11,7 @@
       "type": "object",
       "required": [
         "id",
-        "valid"
+        "passed"
       ],
       "properties": {
         "errors": {
@@ -29,9 +29,9 @@
           "description": "Contains a list of information.",
           "$ref": "#/$defs/validation_messages_t"
         },
-        "valid": {
-          "title": "Valid",
-          "description": "States whether the data passed the test.",
+        "passed": {
+          "title": "Passed",
+          "description": "States whether the data passed this specific test.",
           "type": "boolean"
         },
         "warnings": {
