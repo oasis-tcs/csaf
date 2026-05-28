@@ -317,6 +317,7 @@ tracking IDs for the vulnerability (if such information exists).
 
 Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
 unique label or tracking ID for the vulnerability.
+In addition, any ID item MAY expose the optional properties Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```yaml <!--json-path($..vulnerabilities..ids..properties)-->
 <csaf-instance>:
@@ -326,10 +327,20 @@ unique label or tracking ID for the vulnerability.
     # ...
     ids:
     - # <id-instance>:
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
       system_name: String
       text: String
     # ...
 ```
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of product groups.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of products.
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 

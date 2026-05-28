@@ -1,0 +1,202 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_vex",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Vulnerability ID (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-08-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
+      },
+      {
+        "name": "Product B",
+        "product_id": "CSAFPID-9080701"
+      },
+      {
+        "name": "Product C",
+        "product_id": "CSAFPID-9080702"
+      },
+      {
+        "name": "Product D",
+        "product_id": "CSAFPID-9080703"
+      }
+    ],
+    "product_groups": [
+      {
+        "group_id": "CSAFGID-1020300",
+        "product_ids": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701"
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "ids": [
+        {
+          "product_ids": [
+            "CSAFPID-9080702"
+          ],
+          "system_name": "https://github.com/oasis-tcs/csaf",
+          "text": "#1361"
+        }
+      ],
+      "notes": [
+        {
+          "category": "summary",
+          "text": "The SMBv1 server in Microsoft Windows Vista SP2; Windows Server 2008 SP2 and R2 SP1; Windows 7 SP1; Windows 8.1; Windows Server 2012 Gold and R2; Windows RT 8.1; and Windows 10 Gold, 1511, and 1607; and Windows Server 2016 allows remote attackers to execute arbitrary code via crafted packets, aka \"Windows SMB Remote Code Execution Vulnerability.\" This vulnerability is different from those described in CVE-2017-0143, CVE-2017-0144, CVE-2017-0146, and CVE-2017-0148. ",
+          "title": "Vulnerability summary"
+        }
+      ],
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702"
+        ]
+      },
+      "threats": [
+        {
+          "category": "impact",
+          "details": "The vulnerable code is not present in these products.",
+          "group_ids": [
+            "CSAFGID-1020300"
+          ],
+          "product_ids": [
+            "CSAFPID-9080702"
+          ]
+        }
+      ]
+    },
+    {
+      "ids": [
+        {
+          "group_ids": [
+            "CSAFGID-1020300"
+          ],
+          "system_name": "https://example.com",
+          "text": "a-specific-example-id-group-based"
+        },
+        {
+          "product_ids": [
+            "CSAFPID-9080702"
+          ],
+          "system_name": "https://example.org",
+          "text": "a-specific-example-id-product-based"
+        }
+      ],
+      "notes": [
+        {
+          "category": "summary",
+          "text": "The SMBv1 server in Microsoft Windows Vista SP2; Windows Server 2008 SP2 and R2 SP1; Windows 7 SP1; Windows 8.1; Windows Server 2012 Gold and R2; Windows RT 8.1; and Windows 10 Gold, 1511, and 1607; and Windows Server 2016 allows remote attackers to execute arbitrary code via crafted packets, aka \"Windows SMB Remote Code Execution Vulnerability.\" This vulnerability is different from those described in CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, and CVE-2017-0148.",
+          "title": "Vulnerability summary"
+        }
+      ],
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702",
+          "CSAFPID-9080703"
+        ]
+      },
+      "threats": [
+        {
+          "category": "impact",
+          "details": "The vulnerable code is not present in these products.",
+          "group_ids": [
+            "CSAFGID-1020300"
+          ],
+          "product_ids": [
+            "CSAFPID-9080702",
+            "CSAFPID-9080703"
+          ]
+        }
+      ]
+    },
+    {
+      "ids": [
+        {
+          "group_ids": [
+            "CSAFGID-1020300"
+          ],
+          "product_ids": [
+            "CSAFPID-9080702"
+          ],
+          "system_name": "https://example.com",
+          "text": "some-example-id"
+        },
+        {
+          "group_ids": [
+            "CSAFGID-1020300"
+          ],
+          "system_name": "https://example.com",
+          "text": "a-specific-example-id-group-based"
+        },
+        {
+          "product_ids": [
+            "CSAFPID-9080702"
+          ],
+          "system_name": "https://example.org",
+          "text": "a-specific-example-id-product-based"
+        }
+      ],
+      "notes": [
+        {
+          "category": "summary",
+          "text": "The SMBv1 server in Microsoft Windows Vista SP2; Windows Server 2008 SP2 and R2 SP1; Windows 7 SP1; Windows 8.1; Windows Server 2012 Gold and R2; Windows RT 8.1; and Windows 10 Gold, 1511, and 1607; and Windows Server 2016 allows remote attackers to obtain sensitive information from process memory via a crafted packets, aka \"Windows SMB Information Disclosure Vulnerability.\"",
+          "title": "Vulnerability summary"
+        }
+      ],
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700",
+          "CSAFPID-9080701",
+          "CSAFPID-9080702",
+          "CSAFPID-9080703"
+        ]
+      },
+      "threats": [
+        {
+          "category": "impact",
+          "details": "The vulnerable code is not present in these products.",
+          "group_ids": [
+            "CSAFGID-1020300"
+          ],
+          "product_ids": [
+            "CSAFPID-9080702",
+            "CSAFPID-9080703"
+          ]
+        }
+      ]
+    }
+  ]
+}
