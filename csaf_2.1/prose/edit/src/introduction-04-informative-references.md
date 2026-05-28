@@ -16,10 +16,10 @@ CSAF-v2.0
 :    _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. <https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html>.
 
 CVE
-:    _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, Revised Feb. 2016, <https://cve.mitre.org/docs/cve-intro-handout.pdf>.
+:    _CVE: Common Vulnerability and Exposures_, CVE Project, <https://www.cve.org>.
 
-CVE-NF
-:    _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names - CVE ID Syntax Change_, MITRE, January 01, 2014, <https://cve.mitre.org/cve/identifiers/syntaxchange.html>.
+CVE-AO
+:   _CVE: Common Vulnerability and Exposures_, CVE Project, <https://www.cve.org/About/Overview>.
 
 CVRF-1-1
 :    _The Common Vulnerability Reporting Framework (CVRF) Version 1.1_, M. Schiffman, Editor, May 2012, Internet Consortium for Advancement of Security on the Internet (ICASI), <https://www.icasi.org/the-common-vulnerability-reporting-framework-cvrf-v1-1/>.
