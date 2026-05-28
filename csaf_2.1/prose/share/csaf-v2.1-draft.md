@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 03
 
-## 29 April 2026
+## 27 May 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \
@@ -3923,6 +3923,7 @@ tracking IDs for the vulnerability (if such information exists).
 
 Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
 unique label or tracking ID for the vulnerability.
+In addition, any ID item MAY expose the optional properties Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```yaml <!--json-path($..vulnerabilities..ids..properties)-->
 <csaf-instance>:
@@ -3932,10 +3933,20 @@ unique label or tracking ID for the vulnerability.
     # ...
     ids:
     - # <id-instance>:
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
       system_name: String
       text: String
     # ...
 ```
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of product groups.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of products.
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 
@@ -5340,6 +5351,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
   $.vulnerabilities[*].first_known_exploitation_dates[*].product_ids[*]
   $.vulnerabilities[*].flags[*].product_ids[*]
+  $.vulnerabilities[*].ids[*].product_ids[*]
   $.vulnerabilities[*].involvements[*].product_ids[*]
   $.vulnerabilities[*].metrics[*].products[*]
   $.vulnerabilities[*].notes[*].product_ids[*]
@@ -5463,6 +5475,7 @@ The relevant paths for this test are:
   $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
   $.vulnerabilities[*].flags[*].group_ids[*]
+  $.vulnerabilities[*].ids[*].group_ids[*]
   $.vulnerabilities[*].involvements[*].group_ids[*]
   $.vulnerabilities[*].notes[*].group_ids[*]
   $.vulnerabilities[*].remediations[*].group_ids[*]
@@ -6533,6 +6546,13 @@ The relevant paths for this test are:
 #### 6.1.27.8 Vulnerability ID <a id='vulnerability-id'></a>
 
 For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `cve` or `ids` is present.
+If no `cve` is present and all items in `ids` contain `group_ids` or `product_ids`,
+it MUST be tested that each product mentioned in `product_status[*][*]` is assigned at least one item in `ids`.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+
+> Without this rule, a product could be mentioned in a VEX that has no clear reference to a vulnerability identifier.
+> If a CVE is present, or at least one item in `ids` without `group_ids` and `product_ids`,
+> the corresponding vulnerability identifier applies to the vulnerability itself and therefore to all products mention in this vulnerability.
 
 The relevant value for `$.document.category` is:
 
@@ -9401,8 +9421,8 @@ The relevant path for this test is:
 ```
     "distribution": {
       "sharing_group": {
-        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
-        "name": "Public"
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "No sharing allowed"
       },
       // ...
     },
@@ -15111,6 +15131,8 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].flags`
   - `$.vulnerabilities[*].flags[*].group_ids`
   - `$.vulnerabilities[*].flags[*].product_ids`
+  - `$.vulnerabilities[*].ids[*].group_ids`
+  - `$.vulnerabilities[*].ids[*].product_ids`
   - `$.vulnerabilities[*].involvements[*].group_ids`
   - `$.vulnerabilities[*].involvements[*].product_ids`
   - `$.vulnerabilities[*].metrics`
@@ -15205,6 +15227,8 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].flags[*].group_ids[*]`
   - `$.vulnerabilities[*].flags[*].product_ids[*]`
   - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
+  - `$.vulnerabilities[*].ids[*].group_ids[*]`
+  - `$.vulnerabilities[*].ids[*].product_ids[*]`
   - `$.vulnerabilities[*].ids[*].system_name`
   - `$.vulnerabilities[*].ids[*].text`
   - `$.vulnerabilities[*].involvements[*].contact`
