@@ -3487,20 +3487,24 @@
       "failures": [
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-01.json",
+          "result": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-01.result.json",
           "valid": true
         },
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-02.json",
+          "result": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-02.result.json",
           "valid": false
         }
       ],
       "valid": [
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-11.json",
+          "result": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-11.result.json",
           "valid": true
         },
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-12.json",
+          "result": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-12.result.json",
           "valid": true
         },
         {

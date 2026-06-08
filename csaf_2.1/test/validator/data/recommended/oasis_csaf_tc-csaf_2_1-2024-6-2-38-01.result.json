@@ -1,21 +1,21 @@
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
-  "overall_valid": false,
+  "overall_valid": true,
   "primary_result": {
+    "warnings": [
+        {
+          "instance_path": "/document/category",
+          "message": "deprecated profile `csaf_deprecated_security_advisory` used"
+        }
+      ],
     "id": "6.2.38",
-    "passed": true
+    "passed": false
   },
   "resultschema_version": "2.1",
   "secondary_results": [
     {
-      "errors": [
-        {
-          "instance_path": "/document/category",
-          "message": "reserved prefix `CSAF_` used"
-        }
-      ],
       "id": "6.1.26",
-      "passed": false
+      "passed": true
     }
   ]
 }
