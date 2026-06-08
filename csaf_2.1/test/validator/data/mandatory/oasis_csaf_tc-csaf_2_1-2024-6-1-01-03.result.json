@@ -5,23 +5,23 @@
     "errors": [
       {
         "instance_path": "/vulnerabilities/0/ids/0/product_ids/0",
-        "message": "definition of product id missing"
+        "message": "definition of product id `CSAFPID-9080710` missing"
       },
       {
         "instance_path": "/vulnerabilities/0/ids/0/product_ids/1",
-        "message": "definition of product id missing"
+        "message": "definition of product id `CSAFPID-9080711` missing"
       },
       {
         "instance_path": "/vulnerabilities/0/ids/1/product_ids/0",
-        "message": "definition of product id missing"
+        "message": "definition of product id `CSAFPID-9080712` missing"
       },
       {
         "instance_path": "/vulnerabilities/0/ids/1/product_ids/2",
-        "message": "definition of product id missing"
+        "message": "definition of product id `CSAFPID-9080714` missing"
       },
       {
         "instance_path": "/vulnerabilities/0/ids/2/product_ids/0",
-        "message": "definition of product id missing"
+        "message": "definition of product id `CSAFPID-9080715` missing"
       }
     ],
     "id": "6.1.1",
