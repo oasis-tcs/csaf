@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 03
 
-## 29 April 2026
+## 27 May 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \
@@ -844,9 +844,9 @@ For purposes of this document, the following terms and definitions apply:
 
 **\[**<span id="CSAF-v2.0" class="anchor"></span>**CSAF-v2.0\]** _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. <https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html>.
 
-**\[**<span id="CVE" class="anchor"></span>**CVE\]** _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names_, MITRE, 1999, Revised Feb. 2016, <https://cve.mitre.org/docs/cve-intro-handout.pdf>.
+**\[**<span id="CVE" class="anchor"></span>**CVE\]** _CVE: Common Vulnerability and Exposures_, CVE Project, <https://www.cve.org>.
 
-**\[**<span id="CVE-NF" class="anchor"></span>**CVE-NF\]** _Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names - CVE ID Syntax Change_, MITRE, January 01, 2014, <https://cve.mitre.org/cve/identifiers/syntaxchange.html>.
+**\[**<span id="CVE-AO" class="anchor"></span>**CVE-AO\]** _CVE: Common Vulnerability and Exposures_, CVE Project, <https://www.cve.org/About/Overview>.
 
 **\[**<span id="CVRF-1-1" class="anchor"></span>**CVRF-1-1\]** _The Common Vulnerability Reporting Framework (CVRF) Version 1.1_, M. Schiffman, Editor, May 2012, Internet Consortium for Advancement of Security on the Internet (ICASI), <https://www.icasi.org/the-common-vulnerability-reporting-framework-cvrf-v1-1/>.
 
@@ -3923,6 +3923,7 @@ tracking IDs for the vulnerability (if such information exists).
 
 Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
 unique label or tracking ID for the vulnerability.
+In addition, any ID item MAY expose the optional properties Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```yaml <!--json-path($..vulnerabilities..ids..properties)-->
 <csaf-instance>:
@@ -3932,10 +3933,20 @@ unique label or tracking ID for the vulnerability.
     # ...
     ids:
     - # <id-instance>:
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
       system_name: String
       text: String
     # ...
 ```
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of product groups.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of products.
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 
@@ -5340,6 +5351,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
   $.vulnerabilities[*].first_known_exploitation_dates[*].product_ids[*]
   $.vulnerabilities[*].flags[*].product_ids[*]
+  $.vulnerabilities[*].ids[*].product_ids[*]
   $.vulnerabilities[*].involvements[*].product_ids[*]
   $.vulnerabilities[*].metrics[*].products[*]
   $.vulnerabilities[*].notes[*].product_ids[*]
@@ -5463,6 +5475,7 @@ The relevant paths for this test are:
   $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
   $.vulnerabilities[*].flags[*].group_ids[*]
+  $.vulnerabilities[*].ids[*].group_ids[*]
   $.vulnerabilities[*].involvements[*].group_ids[*]
   $.vulnerabilities[*].notes[*].group_ids[*]
   $.vulnerabilities[*].remediations[*].group_ids[*]
@@ -6533,6 +6546,13 @@ The relevant paths for this test are:
 #### 6.1.27.8 Vulnerability ID <a id='vulnerability-id'></a>
 
 For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `cve` or `ids` is present.
+If no `cve` is present and all items in `ids` contain `group_ids` or `product_ids`,
+it MUST be tested that each product mentioned in `product_status[*][*]` is assigned at least one item in `ids`.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+
+> Without this rule, a product could be mentioned in a VEX that has no clear reference to a vulnerability identifier.
+> If a CVE is present, or at least one item in `ids` without `group_ids` and `product_ids`,
+> the corresponding vulnerability identifier applies to the vulnerability itself and therefore to all products mention in this vulnerability.
 
 The relevant value for `$.document.category` is:
 
@@ -9401,8 +9421,8 @@ The relevant path for this test is:
 ```
     "distribution": {
       "sharing_group": {
-        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
-        "name": "Public"
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "No sharing allowed"
       },
       // ...
     },
@@ -14869,6 +14889,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Anthony     | Berglas          | Cryptsoft Pty Ltd.                                             |
 | Avkash      | Kathiriya        | Cyware Labs                                                    |
 | Bernd       | Grobauer         | Siemens AG                                                     |
+| Celia       | Savidge          | Dell Technologies                                              |
 | Chok        | Poh              | Oracle                                                         |
 | Christian   | Banse            | Fraunhofer-Gesellschaft e.V. - Fraunhofer AISEC                |
 | Christoph   | Plutte           | Ericsson AB                                                    |
@@ -14876,6 +14897,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Dave        | Tamasi           | Google LLC                                                     |
 | David       | Waltermire       | NIST                                                           |
 | Denny       | Page             | Individual                                                     |
+| Dejan       | Bosanac          | Red Hat                                                        |
 | Diane       | Morris           | Cisco Systems                                                  |
 | Dina        | Truxius          | Federal Office for Information Security (BSI) Germany          |
 | Feng        | Cao              | Oracle                                                         |
@@ -14886,12 +14908,11 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Jeff        | Schutt           | Cisco Systems                                                  |
 | Jennifer    | Victor           | Dell Technologies                                              |
 | Jessica     | Fitzgerald-McKay | National Security Agency                                       |
+| Jessie      | Vaught           | Red Hat                                                        |
 | Johannes    | Lorenz           | Siemens AG                                                     |
 | Justin      | Corlett          | Cryptsoft Pty Ltd.                                             |
 | Justin      | Murphy           | US DHS Cybersecurity and Infrastructure Security Agency (CISA) |
-| Liming      | Wu               | Huawei Technologies Co., Ltd.                                  |
 | Martin      | Prpic            | Red Hat                                                        |
-| Michael     | Cantonwine       | Hewlett Packard Enterprise (HPE)                               |
 | Michael     | Reeder           | Dell Technologies                                              |
 | Michael     | Schueler         | Cisco Systems                                                  |
 | Nick        | Leali            | Cisco Systems                                                  |
@@ -14908,21 +14929,18 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Sonny       | van Lingen       | Huawei Technologies Co., Ltd.                                  |
 | Stefan      | Hagen            | Individual                                                     |
 | Tania       | Ward             | Dell Technologies                                              |
-| Ted         | Bedwell          | Cisco Systems                                                  |
 | Thomas      | Proell           | Siemens AG                                                     |
 | Thomas      | Schaffer         | Cisco Systems                                                  |
 | Thomas      | Schmidt          | Federal Office for Information Security (BSI) Germany          |
 | Tim         | Hudson           | Cryptsoft Pty Ltd.                                             |
 | Tobias      | Limmer           | Siemens AG                                                     |
 | Tyler       | Townes           | BlackBerry Limited                                             |
-| Umair       | Bukhari          | Ericsson AB                                                    |
 | Vic         | Chung            | SAP SE                                                         |
 | Vijay       | Sarvepalli       | Carnegie Mellon University                                     |
 | Vincent     | Danen            | Red Hat                                                        |
 | Vivek       | Nair             | Microsoft                                                      |
 | William     | Ho Thiam Hock    | Huawei Technologies Co., Ltd.                                  |
 | Xiaoyu      | Ge               | Huawei Technologies Co., Ltd.                                  |
-| Yogesh      | Yadav            | Cisco Systems                                                  |
 | Zebin       | Zhang            | Huawei Technologies Co., Ltd.                                  |
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of the previous version (CSAF 2.0) of this specification and their contributions are gratefully acknowledged:
@@ -15111,6 +15129,8 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].flags`
   - `$.vulnerabilities[*].flags[*].group_ids`
   - `$.vulnerabilities[*].flags[*].product_ids`
+  - `$.vulnerabilities[*].ids[*].group_ids`
+  - `$.vulnerabilities[*].ids[*].product_ids`
   - `$.vulnerabilities[*].involvements[*].group_ids`
   - `$.vulnerabilities[*].involvements[*].product_ids`
   - `$.vulnerabilities[*].metrics`
@@ -15205,6 +15225,8 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].flags[*].group_ids[*]`
   - `$.vulnerabilities[*].flags[*].product_ids[*]`
   - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
+  - `$.vulnerabilities[*].ids[*].group_ids[*]`
+  - `$.vulnerabilities[*].ids[*].product_ids[*]`
   - `$.vulnerabilities[*].ids[*].system_name`
   - `$.vulnerabilities[*].ids[*].text`
   - `$.vulnerabilities[*].involvements[*].contact`

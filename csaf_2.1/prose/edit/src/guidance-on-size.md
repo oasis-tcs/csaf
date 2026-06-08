@@ -121,6 +121,8 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].flags`
   - `$.vulnerabilities[*].flags[*].group_ids`
   - `$.vulnerabilities[*].flags[*].product_ids`
+  - `$.vulnerabilities[*].ids[*].group_ids`
+  - `$.vulnerabilities[*].ids[*].product_ids`
   - `$.vulnerabilities[*].involvements[*].group_ids`
   - `$.vulnerabilities[*].involvements[*].product_ids`
   - `$.vulnerabilities[*].metrics`
@@ -215,6 +217,8 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].flags[*].group_ids[*]`
   - `$.vulnerabilities[*].flags[*].product_ids[*]`
   - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
+  - `$.vulnerabilities[*].ids[*].group_ids[*]`
+  - `$.vulnerabilities[*].ids[*].product_ids[*]`
   - `$.vulnerabilities[*].ids[*].system_name`
   - `$.vulnerabilities[*].ids[*].text`
   - `$.vulnerabilities[*].involvements[*].contact`

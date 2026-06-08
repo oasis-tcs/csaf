@@ -431,8 +431,8 @@
     <h2 id="committee-specification-draft-03">
       Committee Specification Draft 03
     </h2>
-    <h2 id="29-april-2026">
-      29 April 2026
+    <h2 id="27-may-2026">
+      27 May 2026
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -2260,11 +2260,10 @@
       "https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html">https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html</a>. Latest stage: <a href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html">https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html</a>.
     </p>
     <p>
-      <strong>[</strong><span id="CVE" class="anchor"></span><strong>CVE]</strong> <em>Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names</em>, MITRE, 1999, Revised Feb. 2016, <a href="https://cve.mitre.org/docs/cve-intro-handout.pdf">https://cve.mitre.org/docs/cve-intro-handout.pdf</a>.
+      <strong>[</strong><span id="CVE" class="anchor"></span><strong>CVE]</strong> <em>CVE: Common Vulnerability and Exposures</em>, CVE Project, <a href="https://www.cve.org">https://www.cve.org</a>.
     </p>
     <p>
-      <strong>[</strong><span id="CVE-NF" class="anchor"></span><strong>CVE-NF]</strong> <em>Common Vulnerability and Exposures (CVE) – The Standard for Information Security Vulnerability Names - CVE ID Syntax Change</em>, MITRE, January 01, 2014, <a href=
-      "https://cve.mitre.org/cve/identifiers/syntaxchange.html">https://cve.mitre.org/cve/identifiers/syntaxchange.html</a>.
+      <strong>[</strong><span id="CVE-AO" class="anchor"></span><strong>CVE-AO]</strong> <em>CVE: Common Vulnerability and Exposures</em>, CVE Project, <a href="https://www.cve.org/About/Overview">https://www.cve.org/About/Overview</a>.
     </p>
     <p>
       <strong>[</strong><span id="CVRF-1-1" class="anchor"></span><strong>CVRF-1-1]</strong> <em>The Common Vulnerability Reporting Framework (CVRF) Version 1.1</em>, M. Schiffman, Editor, May 2012, Internet Consortium for Advancement of Security on the Internet (ICASI), <a href=
@@ -5641,7 +5640,8 @@
 <span id="cb149-7"><a href="#cb149-7" aria-hidden="true" tabindex="-1"></a><span class="co">    # ...</span></span></code></pre>
     </div>
     <p>
-      Every ID item of value type <code>object</code> with the two mandatory properties System Name (<code>system_name</code>) and Text (<code>text</code>) contains a single unique label or tracking ID for the vulnerability.
+      Every ID item of value type <code>object</code> with the two mandatory properties System Name (<code>system_name</code>) and Text (<code>text</code>) contains a single unique label or tracking ID for the vulnerability. In addition, any ID item MAY expose the optional properties Group IDs (<code>group_ids</code>) and Product IDs
+      (<code>product_ids</code>).
     </p>
     <div class="sourceCode" id="cb150">
       <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;csaf-instance&gt;</span><span class="kw">:</span></span>
@@ -5651,10 +5651,28 @@
 <span id="cb150-5"><a href="#cb150-5" aria-hidden="true" tabindex="-1"></a><span class="co">    # ...</span></span>
 <span id="cb150-6"><a href="#cb150-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ids</span><span class="kw">:</span></span>
 <span id="cb150-7"><a href="#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="co"> # &lt;id-instance&gt;:</span></span>
-<span id="cb150-8"><a href="#cb150-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">system_name</span><span class="kw">:</span><span class="at"> String</span></span>
-<span id="cb150-9"><a href="#cb150-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> String</span></span>
-<span id="cb150-10"><a href="#cb150-10" aria-hidden="true" tabindex="-1"></a><span class="co">    # ...</span></span></code></pre>
+<span id="cb150-8"><a href="#cb150-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">group_ids</span><span class="kw">:</span><span class="at"> $defs.product_groups_t</span></span>
+<span id="cb150-9"><a href="#cb150-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">product_ids</span><span class="kw">:</span><span class="at"> $defs.products_t</span></span>
+<span id="cb150-10"><a href="#cb150-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">system_name</span><span class="kw">:</span><span class="at"> String</span></span>
+<span id="cb150-11"><a href="#cb150-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> String</span></span>
+<span id="cb150-12"><a href="#cb150-12" aria-hidden="true" tabindex="-1"></a><span class="co">    # ...</span></span></code></pre>
     </div>
+    <p>
+      Group IDs (<code>group_ids</code>) are of value type Product Groups (<code>product_groups_t</code>) and contain a list of Product Groups the current ID item applies to.
+    </p>
+    <blockquote>
+      <p>
+        This can be used to provide the information that this specific ID applies only to a specific set of product groups.
+      </p>
+    </blockquote>
+    <p>
+      Product IDs (<code>product_ids</code>) are of value type Products (<code>products_t</code>) and contain a list of Products the current ID item applies to.
+    </p>
+    <blockquote>
+      <p>
+        This can be used to provide the information that this specific ID applies only to a specific set of products.
+      </p>
+    </blockquote>
     <p>
       System name (<code>system_name</code>) of value type <code>string</code> with <code>1</code> or more characters indicates the name of the vulnerability tracking or numbering system.
     </p>
@@ -7914,6 +7932,7 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
   $.vulnerabilities[*].first_known_exploitation_dates[*].product_ids[*]
   $.vulnerabilities[*].flags[*].product_ids[*]
+  $.vulnerabilities[*].ids[*].product_ids[*]
   $.vulnerabilities[*].involvements[*].product_ids[*]
   $.vulnerabilities[*].metrics[*].products[*]
   $.vulnerabilities[*].notes[*].product_ids[*]
@@ -8039,6 +8058,7 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
     <pre class="list-of-jsonpaths"><code>  $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
   $.vulnerabilities[*].flags[*].group_ids[*]
+  $.vulnerabilities[*].ids[*].group_ids[*]
   $.vulnerabilities[*].involvements[*].group_ids[*]
   $.vulnerabilities[*].notes[*].group_ids[*]
   $.vulnerabilities[*].remediations[*].group_ids[*]
@@ -9167,8 +9187,15 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
       6.1.27.8 Vulnerability ID <a id='vulnerability-id'></a>
     </h4>
     <p>
-      For each item in <code>$.vulnerabilities</code> it MUST be tested that at least one of the elements <code>cve</code> or <code>ids</code> is present.
+      For each item in <code>$.vulnerabilities</code> it MUST be tested that at least one of the elements <code>cve</code> or <code>ids</code> is present. If no <code>cve</code> is present and all items in <code>ids</code> contain <code>group_ids</code> or <code>product_ids</code>, it MUST be tested that each product mentioned in
+      <code>product_status[*][*]</code> is assigned at least one item in <code>ids</code>. This is independent from whether the product is referenced directly or indirectly through a product group.
     </p>
+    <blockquote>
+      <p>
+        Without this rule, a product could be mentioned in a VEX that has no clear reference to a vulnerability identifier. If a CVE is present, or at least one item in <code>ids</code> without <code>group_ids</code> and <code>product_ids</code>, the corresponding vulnerability identifier applies to the vulnerability itself and therefore to
+        all products mention in this vulnerability.
+      </p>
+    </blockquote>
     <p>
       The relevant value for <code>$.document.category</code> is:
     </p>
@@ -12171,8 +12198,8 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
     </p>
     <pre><code>    "distribution": {
       "sharing_group": {
-        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
-        "name": "Public"
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "No sharing allowed"
       },
       // ...
     },</code></pre>
@@ -19423,6 +19450,17 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
+            Celia
+          </td>
+          <td style="text-align: left;">
+            Savidge
+          </td>
+          <td style="text-align: left;">
+            Dell Technologies
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
             Chok
           </td>
           <td style="text-align: left;">
@@ -19496,6 +19534,17 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </td>
           <td style="text-align: left;">
             Individual
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
+            Dejan
+          </td>
+          <td style="text-align: left;">
+            Bosanac
+          </td>
+          <td style="text-align: left;">
+            Red Hat
           </td>
         </tr>
         <tr>
@@ -19610,6 +19659,17 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
+            Jessie
+          </td>
+          <td style="text-align: left;">
+            Vaught
+          </td>
+          <td style="text-align: left;">
+            Red Hat
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left;">
             Johannes
           </td>
           <td style="text-align: left;">
@@ -19643,17 +19703,6 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            Liming
-          </td>
-          <td style="text-align: left;">
-            Wu
-          </td>
-          <td style="text-align: left;">
-            Huawei Technologies Co., Ltd.
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: left;">
             Martin
           </td>
           <td style="text-align: left;">
@@ -19661,17 +19710,6 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </td>
           <td style="text-align: left;">
             Red Hat
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: left;">
-            Michael
-          </td>
-          <td style="text-align: left;">
-            Cantonwine
-          </td>
-          <td style="text-align: left;">
-            Hewlett Packard Enterprise (HPE)
           </td>
         </tr>
         <tr>
@@ -19852,17 +19890,6 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            Ted
-          </td>
-          <td style="text-align: left;">
-            Bedwell
-          </td>
-          <td style="text-align: left;">
-            Cisco Systems
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: left;">
             Thomas
           </td>
           <td style="text-align: left;">
@@ -19929,17 +19956,6 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
         </tr>
         <tr>
           <td style="text-align: left;">
-            Umair
-          </td>
-          <td style="text-align: left;">
-            Bukhari
-          </td>
-          <td style="text-align: left;">
-            Ericsson AB
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: left;">
             Vic
           </td>
           <td style="text-align: left;">
@@ -20002,17 +20018,6 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </td>
           <td style="text-align: left;">
             Huawei Technologies Co., Ltd.
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: left;">
-            Yogesh
-          </td>
-          <td style="text-align: left;">
-            Yadav
-          </td>
-          <td style="text-align: left;">
-            Cisco Systems
           </td>
         </tr>
         <tr>
@@ -20884,6 +20889,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             <code>$.vulnerabilities[*].flags[*].product_ids</code>
           </li>
           <li>
+            <code>$.vulnerabilities[*].ids[*].group_ids</code>
+          </li>
+          <li>
+            <code>$.vulnerabilities[*].ids[*].product_ids</code>
+          </li>
+          <li>
             <code>$.vulnerabilities[*].involvements[*].group_ids</code>
           </li>
           <li>
@@ -21161,6 +21172,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
           </li>
           <li>
             <code>$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]</code>
+          </li>
+          <li>
+            <code>$.vulnerabilities[*].ids[*].group_ids[*]</code>
+          </li>
+          <li>
+            <code>$.vulnerabilities[*].ids[*].product_ids[*]</code>
           </li>
           <li>
             <code>$.vulnerabilities[*].ids[*].system_name</code>

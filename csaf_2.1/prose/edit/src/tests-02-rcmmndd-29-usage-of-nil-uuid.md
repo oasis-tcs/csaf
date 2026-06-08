@@ -13,8 +13,8 @@ The relevant path for this test is:
 ```
     "distribution": {
       "sharing_group": {
-        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
-        "name": "Public"
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "No sharing allowed"
       },
       // ...
     },
