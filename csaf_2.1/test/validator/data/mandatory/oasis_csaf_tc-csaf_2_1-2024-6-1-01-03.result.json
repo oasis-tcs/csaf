@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "errors": [
+      {
+        "instance_path": "/vulnerabilities/0/ids/0/product_ids/0",
+        "message": "definition of product id missing"
+      },
+      {
+        "instance_path": "/vulnerabilities/0/ids/0/product_ids/1",
+        "message": "definition of product id missing"
+      },
+      {
+        "instance_path": "/vulnerabilities/0/ids/1/product_ids/0",
+        "message": "definition of product id missing"
+      },
+      {
+        "instance_path": "/vulnerabilities/0/ids/1/product_ids/2",
+        "message": "definition of product id missing"
+      },
+      {
+        "instance_path": "/vulnerabilities/0/ids/2/product_ids/0",
+        "message": "definition of product id missing"
+      }
+    ],
+    "id": "6.1.1",
+    "passed": false
+  },
+  "resultschema_version": "2.1"
+}

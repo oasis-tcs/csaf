@@ -112,8 +112,8 @@
       "ids": [
         {
           "product_ids": [
-            "CSAFPID-9080710",
-            "CSAFPID-9080711",
+            "CSAFPID-9080700",
+            "CSAFPID-9080701",
             "CSAFPID-9080704"
           ],
           "system_name": "https://github.com/oasis-tcs/csaf",
@@ -121,16 +121,16 @@
         },
         {
           "product_ids": [
-            "CSAFPID-9080712",
+            "CSAFPID-9080702",
             "CSAFPID-9080703",
-            "CSAFPID-9080714"
+            "CSAFPID-9080704"
           ],
           "system_name": "https://example.com",
           "text": "some-example-id"
         },
         {
           "product_ids": [
-            "CSAFPID-9080715"
+            "CSAFPID-9080705"
           ],
           "system_name": "https://example.org",
           "text": "some-example-id"
