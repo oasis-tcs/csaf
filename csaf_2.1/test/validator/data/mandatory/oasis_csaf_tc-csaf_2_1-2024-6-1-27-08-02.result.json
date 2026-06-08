@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "errors": [
+      {
+        "instance_path": "/vulnerabilities/0/product_status/known_not_affected/2",
+        "message": "product id `CSAFPID-9080702` does not have a vulnerability id assigned nor a CVE or general vulnerability id is given"
+      },
+      {
+        "instance_path": "/vulnerabilities/1/product_status/known_not_affected/3",
+        "message": "product id `CSAFPID-9080703` does not have a vulnerability id assigned nor a CVE or general vulnerability id is given"
+      },
+      {
+        "instance_path": "/vulnerabilities/2/product_status/known_not_affected/3",
+        "message": "product id `CSAFPID-9080703` does not have a vulnerability id assigned nor a CVE or general vulnerability id is given"
+      }
+    ],
+    "id": "6.1.27.8",
+    "passed": false
+  },
+  "resultschema_version": "2.1"
+}
