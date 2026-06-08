@@ -34,7 +34,8 @@ collect_test_files() {
   printf "%s\n" "Collect list of files in $1 ..."
   NEGATIVE=$(jq '.tests[].failures[].name' $1 -r)
   POSITIVE=$(jq '.tests[].valid[]?.name' $1 -r)
-  TESTFILES=$(echo -e "${NEGATIVE}\n${POSITIVE}" | sort)
+  RESULTS=$(jq '.. | .result?' $1 -r | grep -v "null")
+  TESTFILES=$(echo -e "${NEGATIVE}\n${POSITIVE}\n${RESULTS}" | sort)
 }
 
 check_files_exist() {

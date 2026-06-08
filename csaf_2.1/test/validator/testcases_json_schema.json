@@ -16,9 +16,15 @@
       "properties": {
         "name": {
           "title": "Name of the test file",
-          "description": "Contains the filename and path relative to the JSON that includes this object.",
+          "description": "Contains the filename and path relative to the JSON that details the testcase.",
           "type": "string",
           "pattern": "^.+\\.json$"
+        },
+        "result": {
+          "title": "Name of the result file",
+          "description": "Contains the filename and path relative to the JSON that details the expected result.",
+          "type": "string",
+          "pattern": "^.+\\.result\\.json$"
         },
         "valid": {
           "title": "Evaluation result",
