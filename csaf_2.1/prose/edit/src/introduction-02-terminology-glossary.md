@@ -20,6 +20,9 @@ _Examples_: A physical file in a file system such as a source file, an object fi
 a specific version of a file in a version control system; a database table accessed via an HTTP request;
 an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
+Critical Extension
+:    An extension that if an instance of it is included in a CSAF Document causes at least one mandatory test to fail.
+
 CSAF 2.0 to CSAF 2.1 Converter
 :    A CSAF Producer which takes a CSAF 2.0 Document as input and converts it into a valid CSAF 2.1 Document.
 
