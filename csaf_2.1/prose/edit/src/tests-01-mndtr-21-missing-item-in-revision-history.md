@@ -1,6 +1,6 @@
 ### Missing Item in Revision History
 
-It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date`.
+It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date` and as a second level criteria `number`.
 
 > Dates are used as primary sorting criteria as they correspond to publications.
 > The assigned numbers might be incorrect.
