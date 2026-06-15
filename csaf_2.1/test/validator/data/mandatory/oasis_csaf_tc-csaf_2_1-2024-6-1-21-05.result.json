@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "errors": [
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "revision history does not start with a version of `0` or `1` when sorted by date (was `3`)"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `2` when sorted by date"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `4` when sorted by date"
+      }
+    ],
+    "id": "6.1.21",
+    "passed": false
+  },
+  "resultschema_version": "2.1"
+}

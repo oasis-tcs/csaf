@@ -1,0 +1,67 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Missing Item in Revision History (valid example 6)",
+    "tracking": {
+      "current_release_date": "2024-01-21T18:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-21-16",
+      "initial_release_date": "2023-01-22T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2023-01-22T10:00:00.000Z",
+          "number": "1.0.0",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2023-08-22T10:00:00.000Z",
+          "number": "2.0.0",
+          "summary": "Previously undocumented changes."
+        },
+        {
+          "date": "2023-08-22T10:00:00.000Z",
+          "number": "3.0.0",
+          "summary": "Previously undocumented changes."
+        },
+        {
+          "date": "2023-08-22T10:00:00.000Z",
+          "number": "4.0.0",
+          "summary": "Previously incorrectly marked as 'Initial version.'"
+        },
+        {
+          "date": "2024-01-21T11:00:00.000+07:00",
+          "number": "5.0.0",
+          "summary": "Some other changes with a signage mistake"
+        },
+        {
+          "date": "2024-01-21T10:00:00.000Z",
+          "number": "5.2.0",
+          "summary": "Some other changes."
+        },
+        {
+          "date": "2024-01-21T11:00:00.000+06:00",
+          "number": "5.1.0",
+          "summary": "Some other changes."
+        },
+        {
+          "date": "2024-01-21T11:00:00.000Z",
+          "number": "6.0.0",
+          "summary": "Some other changes. Correct also revision history."
+        }
+      ],
+      "status": "draft",
+      "version": "6.0.0"
+    }
+  }
+}

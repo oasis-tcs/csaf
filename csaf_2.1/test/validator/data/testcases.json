@@ -730,32 +730,64 @@
       "failures": [
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-01.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-01.result.json",
           "valid": false
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-02.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-02.result.json",
           "valid": false
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-03.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-03.result.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-04.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-04.result.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-05.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-05.result.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-06.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-06.result.json",
           "valid": false
         }
       ],
       "valid": [
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-11.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-11.result.json",
           "valid": true
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-12.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-12.result.json",
           "valid": true
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-13.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-13.result.json",
           "valid": true
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-14.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-14.result.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-15.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-15.result.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-16.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-21-16.result.json",
           "valid": true
         }
       ]
