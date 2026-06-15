@@ -7,6 +7,10 @@ As the timestamps might use different timezones, the sorting MUST take timezones
 In order to create consistent results in the case of mixed integer and semantic versioning (failing test
 [sec](#mixed-integer-and-semantic-versioning)), implementations SHALL map items with integer versioning to
 semantic versioning by appending `.0.0` to the corresponding values.
+The aforementioned rule is solely used during the processing to create consistent test results.
+
+> This processing rule is not a suggested quick fix for test [sec](#mixed-integer-and-semantic-versioning)
+> but implementation guidance for this edge case.
 
 The relevant path for this test is:
 
