@@ -8,8 +8,6 @@ FAIL=0
 
 # go to root of git repository
 cd `dirname $0`/../../../..
-echo `pwd`
-ls $TESTPATH
 
 validate() {
   printf "%s" "Testing file $1 against schema ${SCHEMA} ... "
