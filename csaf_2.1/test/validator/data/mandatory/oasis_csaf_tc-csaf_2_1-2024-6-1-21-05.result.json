@@ -9,6 +9,10 @@
       },
       {
         "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `1` when sorted by date"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
         "message": "missing revision history item with number `2` when sorted by date"
       },
       {
