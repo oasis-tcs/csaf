@@ -9,7 +9,7 @@
       },
       {
         "instance_path": "/document/tracking/revision_history",
-        "message": "missing revision history item with number `1`"
+        "message": "missing revision history item with number `1` at all"
       }
     ],
     "id": "6.1.21",

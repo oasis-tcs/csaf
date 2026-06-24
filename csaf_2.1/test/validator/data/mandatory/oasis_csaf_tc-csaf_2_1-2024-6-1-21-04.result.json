@@ -5,7 +5,7 @@
     "errors": [
       {
         "instance_path": "/document/tracking/revision_history",
-        "message": "missing revision history item with number `2.0.0`"
+        "message": "missing revision history item with number `2.0.0`at all"
       }
     ],
     "id": "6.1.21",
