@@ -17,7 +17,7 @@
       "errors": [
         {
           "instance_path": "/document/category",
-          "message": "prohibited use of reserved prefix `csaf_deprecated_` as the category `csaf_deprecated_unknown_type` not in the official list"
+          "message": "prohibited use of reserved prefix `csaf_` as the category `csaf_deprecated_unknown_type` not in the official list"
         }
       ],
       "id": "6.1.26",
