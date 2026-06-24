@@ -87,8 +87,8 @@ Valid `enum` values are:
 
 ```
   essential
-  substantial
-  informational
+  significant
+  supplementary
 ```
 
 The value `essential` indicates, that the content provided through this extension is crucial to understand of the CSAF document
@@ -96,12 +96,12 @@ this extension is included in.
 CSAF consumers and CSAF validators MUST warn if they process a CSAF Document including such extension instance and
 do not have the extension in question already implemented.
 
-The value `substantial` indicates, that the content provided through this extension is highly relevant and significantly aids
+The value `significant` indicates, that the content provided through this extension is highly relevant and significantly aids
 in understanding the overall content of the CSAF document.
 CSAF consumers and CSAF validators SHOULD warn if they process a CSAF Document including such an extension instance and
 do not have the extension in question already implemented.
 
-The value `informational` indicates, that the content provided through this extension provides additional information.
+The value `supplementary` indicates, that the content provided through this extension provides additional information.
 CSAF consumers and CSAF validators MAY warn if they process a CSAF Document including such an extension instance and
 do not have the extension in question already implemented.
 

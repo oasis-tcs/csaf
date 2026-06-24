@@ -196,8 +196,8 @@
                 "type": "string",
                 "enum": [
                   "essential",
-                  "substantial",
-                  "informational"
+                  "significant",
+                  "supplementary"
                 ]
               }
             }
