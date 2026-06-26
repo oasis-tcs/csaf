@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 03
 
-## 27 May 2026
+## 24 June 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \

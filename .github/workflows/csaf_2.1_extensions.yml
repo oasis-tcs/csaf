@@ -30,7 +30,7 @@ jobs:
       run: python3 -c "from importlib.metadata import version; print(version('jsonschema'))"
     - name: Test extensions in extension/data/valid/*/*.json
       run: ./csaf_2.1/test/extension/metaschema/run_tests.sh ./csaf_2.1/test/extension/data/valid/*/*-content_*.json
-    - name: Test extensions in extension/data/valid/*/*.json
+    - name: Test extensions in extension/data/invalid/*/*.json
       run: ./csaf_2.1/test/extension/metaschema/run_invalid_tests.sh ./csaf_2.1/test/extension/data/invalid/*/*-content_*.json
 
   metadata-test:
@@ -54,5 +54,5 @@ jobs:
       run: python3 -c "from importlib.metadata import version; print(version('jsonschema'))"
     - name: Test extension metadata in extension/data/valid/*/*.json
       run: ./csaf_2.1/test/extension/metadata/run_tests.sh ./csaf_2.1/test/extension/data/valid/*/*-metadata_*.json
-    - name: Test extension metadata in extension/data/valid/*/*.json
+    - name: Test extension metadata in extension/data/invalid/*/*.json
       run: ./csaf_2.1/test/extension/metadata/run_invalid_tests.sh ./csaf_2.1/test/extension/data/invalid/*/*-metadata_*.json

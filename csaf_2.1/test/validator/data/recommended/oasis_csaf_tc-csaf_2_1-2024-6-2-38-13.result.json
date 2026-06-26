@@ -11,7 +11,7 @@
       "errors": [
         {
           "instance_path": "/document/category",
-          "message": "reserved prefix used"
+          "message": "reserved prefix `CSAF_` used"
         }
       ],
       "id": "6.1.26",
