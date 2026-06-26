@@ -27,7 +27,7 @@ The relevant paths for this test are:
   "x_extensions": [
     {
       "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/invalid/documentation-01/documentation-01-content_1.0.0.json",
-      "category": "high_value",
+      "category": "significant",
       "content": {
         "documentation": "This extension is for documentation and test purposed only. It is invalid as it misses the `critical` property. It is not allowed to be used in a production CSAF."
       }
@@ -108,12 +108,12 @@ The relevant paths for this test are:
     "x_extensions": [
       {
         "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
-        "category": "high_value",
+        "category": "significant",
         // ...
       },
       {
         "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
-        "category": "informational",
+        "category": "supplementary",
         // ...
       }
     ]
