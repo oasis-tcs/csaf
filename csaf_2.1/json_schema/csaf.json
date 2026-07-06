@@ -557,6 +557,74 @@
         "1.4.3",
         "2.40.0+21AF26D3"
       ]
+    },
+    "involvements_t": {
+      "title": "List of involvements",
+      "description": "Contains a list of involvements.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "title": "Involvement",
+        "description": "Is a container, that allows the document producers to comment on the level of involvement (or engagement) of themselves or third parties in the vulnerability identification, scoping, and remediation process.",
+        "type": "object",
+        "required": [
+          "party",
+          "status"
+        ],
+        "properties": {
+          "contact": {
+            "title": "Party contact information",
+            "description": "Contains the contact information of the party that was used in this state.",
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "title": "Date of involvement",
+            "description": "Holds the date and time of the involvement entry.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "group_ids": {
+            "$ref": "#/$defs/product_groups_t"
+          },
+          "party": {
+            "title": "Party category",
+            "description": "Defines the category of the involved party.",
+            "type": "string",
+            "enum": [
+              "coordinator",
+              "discoverer",
+              "other",
+              "user",
+              "vendor"
+            ]
+          },
+          "product_ids": {
+            "$ref": "#/$defs/products_t"
+          },
+          "status": {
+            "title": "Party status",
+            "description": "Defines contact status of the involved party.",
+            "type": "string",
+            "enum": [
+              "completed",
+              "contact_attempted",
+              "disputed",
+              "in_progress",
+              "not_contacted",
+              "open"
+            ]
+          },
+          "summary": {
+            "title": "Summary of the involvement",
+            "description": "Contains additional context regarding what is going on.",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "required": [
@@ -1000,6 +1068,9 @@
           "title": "Document-level Extensions",
           "description": "Contains a list of extensions valid at the document property level of the CSAF document and associated with this document metadata.",
           "$ref": "#/$defs/extensions_t"
+        },
+        "involvements": {
+          "$ref": "#/$defs/involvements_t"
         }
       },
       "additionalProperties": false
@@ -1314,72 +1385,7 @@
             }
           },
           "involvements": {
-            "title": "List of involvements",
-            "description": "Contains a list of involvements.",
-            "type": "array",
-            "minItems": 1,
-            "uniqueItems": true,
-            "items": {
-              "title": "Involvement",
-              "description": "Is a container, that allows the document producers to comment on the level of involvement (or engagement) of themselves or third parties in the vulnerability identification, scoping, and remediation process.",
-              "type": "object",
-              "required": [
-                "party",
-                "status"
-              ],
-              "properties": {
-                "contact": {
-                  "title": "Party contact information",
-                  "description": "Contains the contact information of the party that was used in this state.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "date": {
-                  "title": "Date of involvement",
-                  "description": "Holds the date and time of the involvement entry.",
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "group_ids": {
-                  "$ref": "#/$defs/product_groups_t"
-                },
-                "party": {
-                  "title": "Party category",
-                  "description": "Defines the category of the involved party.",
-                  "type": "string",
-                  "enum": [
-                    "coordinator",
-                    "discoverer",
-                    "other",
-                    "user",
-                    "vendor"
-                  ]
-                },
-                "product_ids": {
-                  "$ref": "#/$defs/products_t"
-                },
-                "status": {
-                  "title": "Party status",
-                  "description": "Defines contact status of the involved party.",
-                  "type": "string",
-                  "enum": [
-                    "completed",
-                    "contact_attempted",
-                    "disputed",
-                    "in_progress",
-                    "not_contacted",
-                    "open"
-                  ]
-                },
-                "summary": {
-                  "title": "Summary of the involvement",
-                  "description": "Contains additional context regarding what is going on.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "additionalProperties": false
-            }
+            "$ref": "#/$defs/involvements_t"
           },
           "metrics": {
             "title": "List of metrics",
