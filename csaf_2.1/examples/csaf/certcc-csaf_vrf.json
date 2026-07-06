@@ -1,0 +1,169 @@
+{
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+    "document": {
+	"title": "A buffer overflow in Product Acme makes it expose credentials of all users directly",	
+	"acknowledgments": [
+	    {
+		"names": [
+		    "John Doe "
+		],
+		"organization": "Hacking Enterprise"
+	    }
+	],
+	"category": "CERT/CC Vulnerability Request Form",
+	"csaf_version": "2.1",
+	"distribution": {
+	    "tlp": {
+		"label": "AMBER",
+		"url": "https://www.first.org/tlp/"
+	    }
+	},
+	"publisher": {
+	    "category": "discoverer",
+	    "contact_details": "Researcher Contact",
+	    "issuing_authority": "Hacking Enterprise",
+	    "name": "John Doe",
+	    "namespace": "mailto:johndoe@example.com"
+	},
+	"tracking": {
+	    "current_release_date": "2026-06-30T16:03:15.790Z",
+	    "generator": {
+		"date": "2026-06-30T16:03:15.790Z",
+		"engine": {
+		    "name": "VINCE",
+		    "version": "2.6.4"
+		}
+	    },
+	    "id": "VU#834248",
+	    "initial_release_date": "2025-11-03T17:02:39.000Z",
+	    "revision_history": [
+		{
+		    "date": "2025-11-03T17:02:39+00:00",
+		    "number": "1.20251103170239.1",
+		    "summary": "Released on 2025-11-03T17:02:39+00:00"
+		}
+	    ],
+	    "status": "final",
+	    "version": "1.20251103170239.1"
+	}
+    },
+      "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "category": "product_version",
+            "name": "1.0.0",
+            "product": {
+              "name": "Acme IDManager",
+              "product_id": "CSAFPID-0001"
+            }
+          }
+        ],
+        "category": "vendor",
+        "name": "Acme Inc."
+      }
+    ]
+  },
+    "vulnerabilities": [
+	{
+	    "metrics": [
+		{
+		    "content": {
+			"ssvc_v2": {
+			    "schemaVersion": "2.0.0",
+			    "selections": [
+				{
+				    "key": "E",
+				    "name": "Exploitation",
+				    "namespace": "ssvc",
+				    "values": [
+					{
+					    "key": "A",
+					    "name": "Active"
+					}
+				    ],
+				    "version": "1.1.0"
+				}
+			    ],
+			    "timestamp": "2024-01-24T10:00:00.000Z"
+			}
+		    },
+		    "products": [
+			"CSAFPID-0001"
+		    ]
+		}],
+
+	    "involvements": [
+		{
+		    "party": "discoverer",
+		    "summary": "Disclosure Plans\n",
+		    "status": "open"
+		},
+		{
+		    "date": "2026-04-08T00:00:00.000Z",
+		    "party": "discoverer",
+		    "status": "contact_attempted",
+		    "summary": "Summary of previous vendor communications "
+		}
+	    ],
+	    "notes": [
+		{
+		    "category": "description",
+		    "text": "A buffer overflow in Product Acme makes it expose credentials of all users directly",
+		    "title": "Vulnerability Description"
+		},
+		{
+		    "audience": "coordinator",
+		    "category": "other",
+		    "text": "How this was discovered",
+		    "title": "Vulnerability Discovery Method"
+		}
+	    ],
+	    "product_status": {
+		"under_investigation": [
+		    "CSAFPID-0001"
+		]
+	    },
+	    "references": [
+		{
+		    "category": "external",
+		    "summary": "Publicly Known",
+		    "url": "https://example.com/public/"
+		},
+		{
+		    "category": "external",
+		    "summary": "Publicy Exploited References",
+		    "url": "https://example.com/attack"
+		}
+	    ],
+	    "threats": [
+		{
+		    "category": "impact",
+		    "details": "Impact of the Vulnerability "
+		},
+		{
+		    "category": "exploit_status",
+		    "details": "Exploitation Method"
+		}
+	    ],
+	    "title": "A buffer overflow in Product Acme makes it expose credentials of all users directly"
+	}
+    ],
+    "x_extensions": [
+	{
+	    "$schema": "https://democert.org/cvd/csaf_2.1_root_extension_1.0.1.json",
+	    "category": "high_value",
+	    "critical": false,
+	    "content": {
+		"ai/ml": false,
+		"ics_impact": false,
+		"share_contact_with_vendor": true,
+		"private_comments": "I want to report more things later",
+		"contact_pgp_url": "https://example.com/johndoe.key",
+		"Related_IDs": ["CVE-1900-0000"]
+	    }
+	}
+    ]
+}
+
