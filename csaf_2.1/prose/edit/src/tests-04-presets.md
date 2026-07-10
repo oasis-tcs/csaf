@@ -112,7 +112,7 @@ Additional presets are defined as follows:
     -[sec](#official-extension)
     -[sec](#critical-extension)
     -[sec](#usage-of-experimental-extension-in-tlp-clear-document)
-    -[sec](#extension-category-critical)
+    -[sec](#extension-category-essential)
     -[sec](#usage-of-experimental-extension-in-non-tlp-clear-document)
     -[sec](#usage-of-extension-at-document-level)
     -[sec](#usage-of-extension-in-product-tree-branch-path)

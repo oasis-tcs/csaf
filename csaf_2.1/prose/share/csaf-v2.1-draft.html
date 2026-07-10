@@ -431,8 +431,8 @@
     <h2 id="committee-specification-draft-03">
       Committee Specification Draft 03
     </h2>
-    <h2 id="27-may-2026">
-      27 May 2026
+    <h2 id="24-june-2026">
+      24 June 2026
     </h2>
     <h4 id="this-stage">
       This stage:
@@ -1343,7 +1343,7 @@
                 </li>
                 <li>6.3.21 <a href="#informative-tests--extension-tests">Extension Tests</a>
                   <ul>
-                    <li>6.3.21.1 <a href="#extension-category-critical">Extension Category Critical</a>
+                    <li>6.3.21.1 <a href="#extension-category-essential">Extension Category Essential</a>
                     </li>
                     <li>6.3.21.2 <a href="#usage-of-experimental-extension-in-non-tlp-clear-document">Usage of Experimental Extension in Non TLP:CLEAR Document</a>
                     </li>
@@ -1633,6 +1633,12 @@
       <dd>
         sequence of bytes addressable via a URI. <em>Examples</em>: A physical file in a file system such as a source file, an object file, a configuration file or a data file; a specific version of a file in a version control system; a database table accessed via an HTTP request; an arbitrary stream of bytes returned from an HTTP request, a
         product URL, a common product enumeration value.
+      </dd>
+      <dt id="def;critical-extension">
+        Critical Extension
+      </dt>
+      <dd>
+        An extension that if an instance of it is included in a CSAF Document causes at least one mandatory test to fail.
       </dd>
       <dt id="def;csaf-2-0-to-csaf-2-1-converter">
         CSAF 2.0 to CSAF 2.1 Converter
@@ -2219,6 +2225,12 @@
       <strong>[</strong><span id="RFC4180" class="anchor"></span><strong>RFC4180]</strong> Shafranovich, Y., "Common Format and MIME Type for Comma-Separated Values (CSV) Files", RFC 4180, DOI 10.17487/RFC4180, October 2005, <a href="https://www.rfc-editor.org/info/rfc4180">https://www.rfc-editor.org/info/rfc4180</a>.
     </p>
     <p>
+      <strong>[</strong><span id="RFC4647" class="anchor"></span><strong>RFC4647]</strong> Phillips, A., Ed. and M. Davis, Ed., "Matching of Language Tags", BCP 47, RFC 4647, DOI 10.17487/RFC4647, September 2006, <a href="https://www.rfc-editor.org/info/rfc4647/">https://www.rfc-editor.org/info/rfc4647/</a>.
+    </p>
+    <p>
+      <strong>[</strong><span id="RFC5646" class="anchor"></span><strong>RFC5646]</strong> Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646, September 2009, <a href="https://www.rfc-editor.org/info/rfc5646/">https://www.rfc-editor.org/info/rfc5646/</a>.
+    </p>
+    <p>
       <strong>[</strong><span id="RFC7230" class="anchor"></span><strong>RFC7230]</strong> Roy T. Fielding and Julian Reschke, "Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing", RFC 7230, DOI 10.17487/RFC7230, June 2014, <a href="https://www.rfc-editor.org/info/rfc7230">https://www.rfc-editor.org/info/rfc7230</a>.
     </p>
     <p>
@@ -2803,19 +2815,19 @@
     <p>
       Extension Category (<code>category</code>) of value type <code>string</code> and <code>enum</code> holds the category of the extension content. Valid <code>enum</code> values are:
     </p>
-    <pre><code>  critical
-  high_value
-  informational</code></pre>
+    <pre><code>  essential
+  significant
+  supplementary</code></pre>
     <p>
-      The value <code>critical</code> indicates, that the content provided through this extension is crucial to understand of the CSAF document this extension is included in. CSAF consumers and CSAF validators MUST warn if they process a CSAF Document including such extension instance and do not have the extension in question already
-      implement.
+      The value <code>essential</code> indicates, that the content provided through this extension is crucial to understand of the CSAF document this extension is included in. CSAF consumers and CSAF validators MUST warn if they process a CSAF Document including such extension instance and do not have the extension in question already
+      implemented.
     </p>
     <p>
-      The value <code>high_value</code> indicates, that the content provided through this extension is highly relevant and significantly aids in understanding the overall content of the CSAF document. CSAF consumers and CSAF validators SHOULD warn if they process a CSAF Document including such an extension instance and do not have the
+      The value <code>significant</code> indicates, that the content provided through this extension is highly relevant and significantly aids in understanding the overall content of the CSAF document. CSAF consumers and CSAF validators SHOULD warn if they process a CSAF Document including such an extension instance and do not have the
       extension in question already implemented.
     </p>
     <p>
-      The value <code>informational</code> indicates, that the content provided through this extension just provides additional information. CSAF consumers and CSAF validators MAY warn if they process a CSAF Document including such an extension instance and do not have the extension in question already implemented.
+      The value <code>supplementary</code> indicates, that the content provided through this extension provides additional information. CSAF consumers and CSAF validators MAY warn if they process a CSAF Document including such an extension instance and do not have the extension in question already implemented.
     </p>
     <h4 id="2443-content-schema-property---content-">
       2.4.4.3 Content Schema Property - Content <a id='content-schema-property---content'></a>
@@ -3333,7 +3345,7 @@
       3.1.4.3.2 Full Product Name Type - Product Identification Helper - Hashes <a id='full-product-name-type---product-identification-helper---hashes'></a>
     </h5>
     <p>
-      List of hashes (<code>hashes</code>) of value type <code>array</code> holding at least <code>1</code> item contains a list of cryptographic hashes usable to identify files.
+      List of hashes (<code>hashes</code>) of value type <code>array</code> with <code>1</code> or more unique items contains a list of cryptographic hashes usable to identify files.
     </p>
     <div class="sourceCode" id="cb31">
       <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$defs</span><span class="kw">:</span></span>
@@ -3363,7 +3375,7 @@
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co">  # ...</span></span></code></pre>
     </div>
     <p>
-      List of file hashes (<code>file_hashes</code>) of value type <code>array</code> holding at least <code>1</code> item contains a list of cryptographic hashes for this file.
+      List of file hashes (<code>file_hashes</code>) of value type <code>array</code> with <code>1</code> or more unique items contains a list of cryptographic hashes for this file.
     </p>
     <div class="sourceCode" id="cb33">
       <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$defs</span><span class="kw">:</span></span>
@@ -3540,7 +3552,7 @@
       3.1.4.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs <a id='full-product-name-type---product-identification-helper---sbom-urls'></a>
     </h5>
     <p>
-      The list of SBOM URLs (<code>sbom_urls</code>) of value type <code>array</code> with <code>1</code> or more items contains a list of URLs where SBOMs for this product can be retrieved.
+      The list of SBOM URLs (<code>sbom_urls</code>) of value type <code>array</code> with <code>1</code> or more unique items contains a list of URLs where SBOMs for this product can be retrieved.
     </p>
     <blockquote>
       <p>
@@ -3610,7 +3622,7 @@
       3.1.4.3.7 Full Product Name Type - Product Identification Helper - SKUs <a id='full-product-name-type---product-identification-helper---skus'></a>
     </h5>
     <p>
-      The list of stock keeping units (<code>skus</code>) of value type <code>array</code> with <code>1</code> or more items contains a list of stock keeping units.
+      The list of stock keeping units (<code>skus</code>) of value type <code>array</code> with <code>1</code> or more unique items contains a list of stock keeping units.
     </p>
     <p>
       A list of stock keeping units SHOULD only be used if the list of product paths is used to decouple e.g. hardware from the software, or the stock keeping units change during update. In the latter case the remediations SHALL include the new stock keeping units or a description how it can be obtained.
@@ -3660,7 +3672,7 @@
       3.1.4.3.8 Full Product Name Type - Product Identification Helper - Generic URIs <a id='full-product-name-type---product-identification-helper---generic-uris'></a>
     </h5>
     <p>
-      List of generic URIs (<code>x_generic_uris</code>) of value type <code>array</code> with at least <code>1</code> item contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
+      List of generic URIs (<code>x_generic_uris</code>) of value type <code>array</code> with <code>1</code> or more unique items contains a list of identifiers which are either vendor-specific or derived from a standard not yet supported.
     </p>
     <div class="sourceCode" id="cb51">
       <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$defs</span><span class="kw">:</span></span>
@@ -3749,8 +3761,8 @@
     </p>
     <blockquote>
       <p>
-        CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they should not be used to ensure readability across the ecosystem. It is recommended to follow the conventions for the capitalization of the subtags even though it is not
-        mandatory as most users are used to that.
+        The pattern given above is derived from the ABNF depicted in Figure 1 in [<a href="#RFC5646">RFC5646</a>]. CSAF skips those grandfathered language tags that are deprecated at the time of writing the specification. Even though the private use language tags are supported they should not be used to ensure readability across the
+        ecosystem. It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
       </p>
     </blockquote>
     <p>
@@ -4859,12 +4871,10 @@
     <p>
       The property MUST be present for any CSAF document with the value <code>translator</code> in <code>$.document.publisher.category</code>. The property SHALL NOT be present if the document was not translated.
     </p>
-    <blockquote>
-      <p>
-        If an issuing party publishes a CSAF document with the same content in more than one language, one of these documents SHOULD be deemed the "original", the other ones SHOULD be considered translations from the "original". The issuing party can retain its original publisher information including the <code>category</code>. However, other
-        rules defined in the conformance clause "CSAF translator" SHOULD be applied.
-      </p>
-    </blockquote>
+    <p>
+      If an issuing party publishes a CSAF document with the same content in more than one language, one of these documents SHOULD be deemed the "original", the other ones SHOULD be considered translations from the "original". The issuing party can retain its original publisher information including the <code>category</code>. However, other
+      rules defined in the conformance clause "CSAF translator" SHOULD be applied.
+    </p>
     <h4 id="32212-document-property---title-">
       3.2.2.12 Document Property - Title <a id='document-property---title'></a>
     </h4>
@@ -8467,6 +8477,15 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
       It MUST be tested that the value of <code>number</code> of items of the revision history are sorted ascending when the items are sorted ascending by <code>date</code> and as a second level criteria <code>number</code>. As the timestamps might use different timezones, the sorting MUST take timezones into account.
     </p>
     <p>
+      In order to create consistent results in the case of mixed integer and semantic versioning (failing test <a href="#mixed-integer-and-semantic-versioning">6.1.30</a>), implementations SHALL map items with integer versioning to semantic versioning by appending <code>.0.0</code> to the corresponding values. The aforementioned rule is
+      solely used during the processing to create consistent test results.
+    </p>
+    <blockquote>
+      <p>
+        This processing rule is not a suggested quick fix for test <a href="#mixed-integer-and-semantic-versioning">6.1.30</a> but implementation guidance for this edge case.
+      </p>
+    </blockquote>
+    <p>
       The relevant path for this test is:
     </p>
     <pre class="list-of-jsonpaths"><code>  $.document.tracking.revision_history</code></pre>
@@ -8487,7 +8506,7 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
   ]</code></pre>
     <blockquote>
       <p>
-        The first item has a higher version number than the second.
+        The first item when sorted by <code>date</code> has a higher version number than the second.
       </p>
     </blockquote>
     <h3 id="6115-translator-">
@@ -8700,8 +8719,17 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
       6.1.21 Missing Item in Revision History <a id='missing-item-in-revision-history'></a>
     </h3>
     <p>
-      It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by <code>date</code>. As the timestamps might use different timezones, the sorting MUST take timezones into account. In the case of semantic versioning, this applies only to the Major version. It MUST also be tested that
-      the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or a Major version of 0 or 1 in the case of semantic versioning.
+      It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by <code>date</code> and as a second level criteria <code>number</code>.
+    </p>
+    <blockquote>
+      <p>
+        Dates are used as primary sorting criteria as they correspond to publications. The assigned numbers might be incorrect. Issuing parties are advised to investigate the issue and fix errors by providing the factual revision history with one entry per release. Note that this might lead to a situation where an invalid revision history is
+        corrected by modifying the <code>number</code> in a revision history item to a lower value as required by this test. Nevertheless, the newly added item created to release the corrected version of the document to the intended target group will have a newer timestamp and therefore show up correctly at CSAF consumers.
+      </p>
+    </blockquote>
+    <p>
+      As the timestamps might use different timezones, the sorting MUST take timezones into account. The error message MUST differentiate between a version number not present at all and one that is missing in the sorted list. In the case of semantic versioning, this applies only to the Major version. It MUST also be tested that the first item
+      in such a sorted list has either the version number 0 or 1 in the case of integer versioning or a Major version of 0 or 1 in the case of semantic versioning.
     </p>
     <p>
       The relevant path for this test is:
@@ -11068,7 +11096,7 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
     <pre><code>  "x_extensions": [
     {
       "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/invalid/documentation-01/documentation-01-content_1.0.0.json",
-      "category": "high_value",
+      "category": "significant",
       "content": {
         "documentation": "This extension is for documentation and test purposed only. It is invalid as it misses the `critical` property. It is not allowed to be used in a production CSAF."
       }
@@ -11155,12 +11183,12 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
     "x_extensions": [
       {
         "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
-        "category": "high_value",
+        "category": "significant",
         // ...
       },
       {
         "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
-        "category": "informational",
+        "category": "supplementary",
         // ...
       }
     ]
@@ -14862,15 +14890,15 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
         An application MAY group these tests when providing the additional function to only run one or more selected tests.
       </p>
     </blockquote>
-    <h4 id="63211-extension-category-critical-">
-      6.3.21.1 Extension Category Critical <a id='extension-category-critical'></a>
+    <h4 id="63211-extension-category-essential-">
+      6.3.21.1 Extension Category Essential <a id='extension-category-essential'></a>
     </h4>
     <p>
-      For each item in an element of type <code>$['$defs'].extensions_t</code> it MUST be tested that the extension <code>category</code> of the item is not <code>critical</code>.
+      For each item in an element of type <code>$['$defs'].extensions_t</code> it MUST be tested that the extension <code>category</code> of the item is not <code>essential</code>.
     </p>
     <blockquote>
       <p>
-        It is sufficient to check whether the value of <code>category</code> is not <code>critical</code>.
+        It is sufficient to check whether the value of <code>category</code> is not <code>essential</code>.
       </p>
     </blockquote>
     <p>
@@ -14884,18 +14912,18 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
   $.vulnerabilities[*].x_extensions[*].category
   $.x_extensions[*].category</code></pre>
     <p>
-      <em>Example 1 (which fails the test):</em><a id='extension-category-critical-eg-1'></a><a id='sec-6-3-21-1-eg-1'></a><a id='example-228'></a>
+      <em>Example 1 (which fails the test):</em><a id='extension-category-essential-eg-1'></a><a id='sec-6-3-21-1-eg-1'></a><a id='example-228'></a>
     </p>
     <pre><code>  "x_extensions": [
     {
       // ...
-      "category": "critical",
+      "category": "essential",
       // ...
     }
   ]</code></pre>
     <blockquote>
       <p>
-        The extension category is <code>critical</code>. A reader that does not understand this extension might miss information that is critical to understand the content of the CSAF document.
+        The extension category is <code>essential</code>. A reader that does not understand this extension might miss information that is essential to understand the content of the CSAF document.
       </p>
     </blockquote>
     <h4 id="63212-usage-of-experimental-extension-in-non-tlpclear-document-">
@@ -15472,7 +15500,7 @@ $.vulnerabilities[*].product_status.fixed[*]</code></pre>
           <li>Description: Any test that is related to CSAF Extensions.
           </li>
           <li>Set: -<a href="#mandatory-tests--extension-tests-content-schema">6.1.60.1</a> -<a href="#mandatory-tests--extension-tests-extension-schema">6.1.60.2</a> -<a href="#mandatory-tests--extension-tests-metadata">6.1.60.3</a> -<a href="#extension-in-superseded-or-withdrawn-document">6.2.39.4.1</a> -<a href=
-          "#registered-extension">6.2.54.1</a> -<a href="#official-extension">6.2.54.2</a> -<a href="#critical-extension">6.2.54.3</a> -<a href="#usage-of-experimental-extension-in-tlp-clear-document">6.2.54.4</a> -<a href="#extension-category-critical">6.3.21.1</a> -<a href=
+          "#registered-extension">6.2.54.1</a> -<a href="#official-extension">6.2.54.2</a> -<a href="#critical-extension">6.2.54.3</a> -<a href="#usage-of-experimental-extension-in-tlp-clear-document">6.2.54.4</a> -<a href="#extension-category-essential">6.3.21.1</a> -<a href=
           "#usage-of-experimental-extension-in-non-tlp-clear-document">6.3.21.2</a> -<a href="#usage-of-extension-at-document-level">6.3.21.3</a> -<a href="#usage-of-extension-in-product-tree-branch-path">6.3.21.4</a> -<a href="#usage-of-extension-in-product-tree-full-product-names-path">6.3.21.5</a> -<a href=
           "#usage-of-extension-in-product-tree-product-paths-path">6.3.21.6</a> -<a href="#usage-of-extension-in-vulnerabilities-metrics-path">6.3.21.7</a> -<a href="#usage-of-extension-at-vulnerabilities-level">6.3.21.8</a> -<a href="#usage-of-extension-at-root-level">6.3.21.9</a>
           </li>
@@ -18393,7 +18421,19 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
-          type <code>$['$defs'].full_product_name_t..product_identification_helper.cpe</code>: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD remove the invalid value and issue a warning that an invalid CPE was detected and removed.
+          type <code>$['$defs'].full_product_name_t..product_identification_helper..cpe</code>: If a CPE is invalid, the CSAF 2.0 to CSAF 2.1 Converter SHOULD remove the invalid value and issue a warning that an invalid CPE was detected and removed.
+        </p>
+      </li>
+      <li>
+        <p>
+          type <code>$['$defs'].full_product_name_t..product_identification_helper..hashes</code>: The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion. If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that all items are
+          unique.
+        </p>
+      </li>
+      <li>
+        <p>
+          type <code>$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes</code>: The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion. If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that all
+          items are unique.
         </p>
       </li>
       <li>
@@ -18452,6 +18492,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
+          type <code>$['$defs'].full_product_name_t..product_identification_helper..sbom_urls</code>: The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion. If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that all items are
+          unique.
+        </p>
+      </li>
+      <li>
+        <p>
           type <code>$['$defs'].full_product_name_t..product_identification_helper..serial_numbers[*]</code>:
         </p>
         <blockquote>
@@ -18485,6 +18531,11 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
       </li>
       <li>
         <p>
+          type <code>$['$defs'].full_product_name_t..product_identification_helper..skus</code>: The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion. If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that all items are unique.
+        </p>
+      </li>
+      <li>
+        <p>
           type <code>$['$defs'].full_product_name_t..product_identification_helper..skus[*]</code>:
         </p>
         <blockquote>
@@ -18515,6 +18566,12 @@ File name of signature file: esa-2022-02723.json.asc</code></pre>
             A tool MAY provide a non-default option to interpret the <code>*</code> in all stock keeping units as part of the stock keeping unit itself and therefore escape it.
           </p>
         </blockquote>
+      </li>
+      <li>
+        <p>
+          type <code>$['$defs'].full_product_name_t..product_identification_helper..x_generic_uris</code>: The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion. If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that all items
+          are unique.
+        </p>
       </li>
       <li>
         <p>

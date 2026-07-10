@@ -322,7 +322,7 @@
   "6.3.19.5": "Overlapping Product Version Range with Product Version in Branch",
   "6.3.20": "Use of Unregistered ID System",
   "6.3.21": "Extension Tests",
-  "6.3.21.1": "Extension Category Critical",
+  "6.3.21.1": "Extension Category Essential",
   "6.3.21.2": "Usage of Experimental Extension in Non TLP:CLEAR Document",
   "6.3.21.3": "Usage of Extension at Document Level",
   "6.3.21.4": "Usage of Extension in Product Tree Branch Path",

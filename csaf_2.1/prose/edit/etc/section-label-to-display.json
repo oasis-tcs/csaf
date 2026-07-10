@@ -125,7 +125,7 @@
   "document-status-draft": "6.1.17",
   "document-tracking-id-in-title": "6.2.22",
   "enum": "C.5",
-  "extension-category-critical": "6.3.21.1",
+  "extension-category-essential": "6.3.21.1",
   "extension-in-superseded-or-withdrawn-document": "6.2.39.4.1",
   "extensions": "2.4",
   "extensions-property": "3.2.5",

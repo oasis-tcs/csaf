@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "errors": [
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `2` at all"
+      }
+    ],
+    "id": "6.1.21",
+    "passed": false
+  },
+  "resultschema_version": "2.1"
+}
