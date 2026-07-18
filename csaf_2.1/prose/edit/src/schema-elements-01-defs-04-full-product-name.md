@@ -76,8 +76,7 @@ See [CPE23-N] for details.
 
 ##### Full Product Name Type - Product Identification Helper - Hashes
 
-List of hashes (`hashes`) of value type `array` with `1` or more unique items
-contains a list of cryptographic hashes usable to identify files.
+List of hashes (`hashes`) of value type `array` holding at least `1` item contains a list of cryptographic hashes usable to identify files.
 
 ```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes)-->
 $defs:
@@ -108,8 +107,7 @@ $defs:
   # ...
 ```
 
-List of file hashes (`file_hashes`) of value type `array` with `1` or more unique items
-contains a list of cryptographic hashes for this file.
+List of file hashes (`file_hashes`) of value type `array` holding at least `1` item contains a list of cryptographic hashes for this file.
 
 ```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes)-->
 $defs:
@@ -297,8 +295,8 @@ Otherwise, separate product branches SHOULD be used to differentiate between the
 
 ##### Full Product Name Type - Product Identification Helper - SBOM URLs
 
-The list of SBOM URLs (`sbom_urls`) of value type `array` with `1` or more unique items
-contains a list of URLs where SBOMs for this product can be retrieved.
+The list of SBOM URLs (`sbom_urls`) of value type `array` with `1` or more items contains
+a list of URLs where SBOMs for this product can be retrieved.
 
 > The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
 
@@ -325,8 +323,8 @@ Any given SBOM URL of value type `string` with format `uri` contains a URL of on
 
 ##### Full Product Name Type - Product Identification Helper - Serial Numbers
 
-The list of serial numbers (`serial_numbers`) of value type `array` with `1` or more unique items 
-contains a list of serial numbers.
+The list of serial numbers (`serial_numbers`) of value type `array` with `1` or more unique items contains
+a list of serial numbers.
 
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected,
 or the serial numbers change during update.
@@ -368,8 +366,7 @@ As part of the serial number, the special characters `?`, `*` and `\` MUST be es
 
 ##### Full Product Name Type - Product Identification Helper - SKUs
 
-The list of stock keeping units (`skus`) of value type `array` with `1` or more unique items
-contains a list of stock keeping units.
+The list of stock keeping units (`skus`) of value type `array` with `1` or more items contains a list of stock keeping units.
 
 A list of stock keeping units SHOULD only be used if the list of product paths is used to decouple e.g. hardware from the software,
 or the stock keeping units change during update.
@@ -417,8 +414,7 @@ As part of the stock keeping unit, the special characters `?`, `*` and `\` MUST 
 
 ##### Full Product Name Type - Product Identification Helper - Generic URIs
 
-List of generic URIs (`x_generic_uris`) of value type `array` with `1` or more unique items
-contains a list of identifiers which are
+List of generic URIs (`x_generic_uris`) of value type `array` with at least `1` item contains a list of identifiers which are
 either vendor-specific or derived from a standard not yet supported.
 
 ```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..x_generic_uris)-->

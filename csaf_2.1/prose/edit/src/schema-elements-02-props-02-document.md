@@ -359,12 +359,16 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
 
-| `category` | `title` | content of `text` |
-|---------------|---------------|-------------------|
-| `description` | Product Description | Contains a description of a product given in the `product_tree` in regard to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
-| `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
-| `legal_disclaimer` | License | Contains the only license text of the document license. |
-| `summary` | Summary | Contains a short summary of the content of the advisory. |
+\columns=15%,35%,
+
+| category           | title                            | content of text                                                                                                                                                                               |
+|:-------------------|:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| description        | Product Description              | Contains a description of a product given in the `product_tree` in regard to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
+| general            | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document.                                     |
+| legal\_disclaimer  | License                          | Contains the only license text of the document license.                                                                                                                                       |
+| summary            | Summary                          | Contains a short summary of the content of the advisory.                                                                                                                                      |
+
+Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:special-combinations-of-category-and-title}
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
@@ -509,10 +513,10 @@ a translation then the value of this property describes from which language this
 The property MUST be present for any CSAF document with the value `translator` in `$.document.publisher.category`.
 The property SHALL NOT be present if the document was not translated.
 
-If an issuing party publishes a CSAF document with the same content in more than one language,
-one of these documents SHOULD be deemed the "original", the other ones SHOULD be considered translations from the "original".
-The issuing party can retain its original publisher information including the `category`.
-However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
+> If an issuing party publishes a CSAF document with the same content in more than one language,
+> one of these documents SHOULD be deemed the "original", the other ones SHOULD be considered translations from the "original".
+> The issuing party can retain its original publisher information including the `category`.
+> However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
 
 #### Document Property - Title
 

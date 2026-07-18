@@ -322,7 +322,7 @@
   "6.3.19.5": "Overlapping Product Version Range with Product Version in Branch",
   "6.3.20": "Use of Unregistered ID System",
   "6.3.21": "Extension Tests",
-  "6.3.21.1": "Extension Category Essential",
+  "6.3.21.1": "Extension Category Critical",
   "6.3.21.2": "Usage of Experimental Extension in Non TLP:CLEAR Document",
   "6.3.21.3": "Usage of Extension at Document Level",
   "6.3.21.4": "Usage of Extension in Product Tree Branch Path",
@@ -417,9 +417,9 @@
   "9.1.34": "Conformance Clause 34: CSAF Extension Bundle",
   "9.1.35": "Conformance Clause 35: CSAF Extension Package",
   "9.1.36": "Conformance Clause 36: CSAF Extension Collection",
-  "Appendix A.": "Acknowledgments",
-  "Appendix B.": "Revision History",
-  "Appendix C.": "Guidance on the Size of CSAF Documents",
+  "Appendix A": "Acknowledgments",
+  "Appendix B": "Revision History",
+  "Appendix C": "Guidance on the Size of CSAF Documents",
   "C.1": "File Size",
   "C.2": "Array Length",
   "C.3": "String Length",
@@ -427,5 +427,5 @@
   "C.5": "Enum",
   "C.6": "URI Length",
   "C.7": "UUID Length",
-  "Appendix D.": "Collapsing Product Paths"
+  "Appendix D": "Collapsing Product Paths"
 }

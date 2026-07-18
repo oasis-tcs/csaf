@@ -20,9 +20,6 @@ _Examples_: A physical file in a file system such as a source file, an object fi
 a specific version of a file in a version control system; a database table accessed via an HTTP request;
 an arbitrary stream of bytes returned from an HTTP request, a product URL, a common product enumeration value.
 
-Critical Extension
-:    An extension that if an instance of it is included in a CSAF Document causes at least one mandatory test to fail.
-
 CSAF 2.0 to CSAF 2.1 Converter
 :    A CSAF Producer which takes a CSAF 2.0 Document as input and converts it into a valid CSAF 2.1 Document.
 
@@ -195,7 +192,7 @@ Fingerprint
 even if a relevant artifact is modified.
 
 Formatted Message
-:     message string which contains formatting information such as Markdown formatting characters.
+:    message string which contains formatting information such as Markdown formatting characters.
 
 Fully Qualified Logical Name
 :    string that fully identifies the programmatic construct specified by a logical location,
@@ -290,7 +287,7 @@ Tool Component
 :    component of an analysis tool or converter, either its driver or an extension, consisting of one or more files.
 
 Top-Level Artifact
-:     artifact which is not contained within any other artifact.
+:    artifact which is not contained within any other artifact.
 
 Translation
 :    rendering of a tool component's localizable strings into another language.
@@ -313,7 +310,7 @@ VEX
 a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.
 
 Viewer
-:     see CSAF Viewer.
+:    see CSAF Viewer.
 
 Vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy

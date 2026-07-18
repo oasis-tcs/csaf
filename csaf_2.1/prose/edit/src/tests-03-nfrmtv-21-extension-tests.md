@@ -5,12 +5,12 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 > An application MAY group these tests when providing the additional function to only run one or more selected tests.
 
-#### Extension Category Essential
+#### Extension Category Critical
 
 For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the extension `category` of the item
-is not `essential`.
+is not `critical`.
 
-> It is sufficient to check whether the value of `category` is not `essential`.
+> It is sufficient to check whether the value of `category` is not `critical`.
 
 The relevant paths for this test are:
 
@@ -30,14 +30,14 @@ The relevant paths for this test are:
   "x_extensions": [
     {
       // ...
-      "category": "essential",
+      "category": "critical",
       // ...
     }
   ]
 ```
 
-> The extension category is `essential`.
-> A reader that does not understand this extension might miss information that is essential to understand the content of the CSAF document.
+> The extension category is `critical`.
+> A reader that does not understand this extension might miss information that is critical to understand the content of the CSAF document.
 
 #### Usage of Experimental Extension in Non TLP:CLEAR Document{#usage-of-experimental-extension-in-non-tlp-clear-document}
 

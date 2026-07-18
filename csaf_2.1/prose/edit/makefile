@@ -8,16 +8,21 @@ black = black -S -l $(linelength) --target-version $(pyversion) --quiet bin
 lint = ruff check bin
 types = mypy bin
 build_root = build/
-build_pdf = $(build_root)render/pdf/
-liitos_templates = etc/liitos/
-optimize_pdf = qpdf --linearize --replace-input
+OPEN ?= open
 
-target_gfm_plus = gfm+vendor_hacks
-target_pdf = pdf
+target_gfm_plus = gfm-plus
 
-out_html = ../share/csaf-v2.1-draft.html
-out_gfm_plus = ../share/csaf-v2.1-draft.md
-out_pdf = ../share/csaf-v2.1-draft.pdf
+shared = ../share/
+artifact_stem = csaf-v2.1-draft
+
+out_gfm_plus      = $(shared)$(artifact_stem).md
+out_html          = $(shared)$(artifact_stem).html
+out_ir            = $(shared)$(artifact_stem).ir.json
+out_manifest      = $(shared)$(artifact_stem).manifest.json
+out_pdf           = $(shared)$(artifact_stem).pdf
+out_pdf_sha256    = $(shared)$(artifact_stem).pdf.sha256
+out_pdf_blake3    = $(shared)$(artifact_stem).pdf.blake3
+out_typst         = $(shared)$(artifact_stem).typ
 
 .PHONY: all
 all: lint types build
@@ -41,67 +46,56 @@ types:
 	command -v mypy >/dev/null 2>&1 || { echo >&2 "make types requires mypy but it's not installed - you can install with: 'pip install mypy'.  Aborting."; exit 1; }
 	$(types)
 
-.PHONY: inversions
-inversions: invert-sections invert-examples
-
-.PHONY: invert-examples
-invert-examples:
-	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-examples requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
-	inverso -agm 4321 etc/example-global-to-local.json etc/example-local-to-global.json
-
-.PHONY: invert-sections
-invert-sections:
-	command -v inverso >/dev/null 2>&1 || { echo >&2 "make invert-sections requires inverso but it's not installed - you can install with: 'pip install inverso'.  Aborting."; exit 1; }
-	inverso -g etc/section-display-to-label.json etc/section-label-to-display.json
-
 .PHONY: render
-render: render-html
+render: html
 
-.PHONY: render-markdown
-render-markdown: inversions
-	bin/volatile.py && \
-	  cp -a build/tmp.md $(out_gfm_plus) && \
+.PHONY: sections
+sections:
+	nide harvest
+
+.PHONY: gfm-plus
+gfm-plus: sections
+	nide assemble && \
+	  cp -p build/ir.json $(out_ir) && \
+	  nide render -t $(target_gfm_plus) && \
+	  cp -p build/gfm-plus.md $(out_gfm_plus) && \
 	  printf "Rendered user facing delivery item in markdown format:\n" && \
-	  ls -l $(out_gfm_plus)
+	  ls -l $(out_gfm_plus) $(out_ir)
 
-.PHONY: render-html
-render-html: render-markdown
-	command -v pandoc >/dev/null 2>&1 || { echo >&2 "make render-html requires pandoc but it's not installed - you can get help on installing at https://pandoc.org.  Aborting."; exit 1; }
-	command -v tidy >/dev/null 2>&1 || { echo >&2 "make render-html requires tidy but it's not installed - you can get help on installing by searching for it on the wild internets.  Aborting."; exit 1; }
-	pandoc -f gfm+definition_lists -t html build/tmp.md --columns=345  \
-		--css style/base.css --css style/skin.css --standalone -o build/tmp.html && \
-	  bin/toccata.py && \
-	  timeout 2 tidy -config etc/tidy-config.txt build/injected.html -ashtml 2>/dev/null | \
-		sed 's/<!\[CDATA\[//g; s/\]\]>//g;' > $(out_html) && \
+.PHONY: html
+html: gfm-plus
+	command -v pandoc >/dev/null 2>&1 || { echo >&2 "make html requires pandoc but it's not installed - you can get help on installing at https://pandoc.org.  Aborting."; exit 1; }
+	nide render -t html && \
+	  pandoc -f gfm+definition_lists -t html build/html.md --columns=345 --css style/base.css --css style/skin.css --standalone -o build/pandoc.html && \
+	  nide inject && \
+	  cp -a build/injected.html $(out_html) && \
 	  printf "Rendered user facing delivery item in html format:\n" && \
 	  ls -l $(out_html)
 
-.PHONY: render-pdf
-render-pdf:
-	command -v liitos >/dev/null 2>&1 || { echo >&2 "make render-pdf requires liitos but it's not installed - you can install per pip install liitos.  Aborting."; exit 1; }
-	command -v etiketti >/dev/null 2>&1 || { echo >&2 "make render-pdf requires etiketti but it's not installed - you can install per pip install etiketti.  Aborting."; exit 1; }
-	command -v qpdf >/dev/null 2>&1 || { echo >&2 "make render-pdf requires qpdf but it's not installed - you can search the internets on how to install qpdf.  Aborting."; exit 1; }
-	bin/lapidify.py --target $(target_pdf) && \
-		mkdir -p $(build_pdf)images $(build_root)images && \
-		printf "pdf.md\n" > $(build_root)bind.txt && \
-		cp -a ../media/OASISLogo-v3.0.png $(build_root)images/ && \
-		cp -a ../media/OASISLogo-v3.0.png $(build_pdf)images/ && \
-		cp -a $(liitos_templates)approvals.yml $(build_root) && \
-		cp -a $(liitos_templates)bookmatter.tex.in $(build_root) && \
-		cp -a $(liitos_templates)changes.yml $(build_root) && \
-		cp -a $(liitos_templates)driver.tex.in $(build_pdf) && \
-		cp -a $(liitos_templates)meta.yml $(build_root) && \
-		cp -a $(liitos_templates)metadata.tex.in $(build_pdf) && \
-		cp -a $(liitos_templates)patch.yml $(build_root) && \
-		cp -a $(liitos_templates)publisher.tex.in $(build_root) && \
-		cp -a $(liitos_templates)setup.tex.in $(build_pdf) && \
-		cp -a $(liitos_templates)structure.yml $(build_root) && \
-		cp -a etc/etiketti/etiketti.yml $(build_pdf) && \
-		cd $(build_pdf) && \
-		max_print_line=10000 liitos render ../../ --target csaf --facet pdf --patch-tables --filters ' ' --label "etiketti --config etiketti.yml --enforce"  && \
-		$(optimize_pdf) -- this.pdf && \
-		cp -a this.pdf ../../../$(out_pdf) && \
-		open ../../../$(out_pdf)
+.PHONY: pdf
+pdf:
+	command -v pandoc >/dev/null 2>&1 || { echo >&2 "make pdf requires pandoc but it's not installed - you can get help on installing at https://pandoc.org.  Aborting."; exit 1; }
+	command -v typst >/dev/null 2>&1 || { echo >&2 "make pdf requires typst but it's not installed - you can get help on installing at https://typst.app.  Aborting."; exit 1; }
+	nide assemble
+	nide render -t typst
+	mkdir -p build/images
+	cp -p ../media/OASISLogo-v3.0.png build/images/
+	pandoc -f markdown+definition_lists -t typst --standalone --template etc/csaf.typ --lua-filter build/nide-columns.lua build/typst.md -o build/typst.typ
+	typst compile --root . build/typst.typ build/csaf-typst.pdf
+	cp -p build/csaf-typst.pdf $(out_pdf)
+	cp -p build/typst.typ $(out_typst)
+	shasum -a 256 $(out_pdf) > $(out_pdf_sha256)
+	{ command -v b3sum >/dev/null 2>&1 && b3sum $(out_pdf) > $(out_pdf_blake3); } || \
+	  { [ -f $(out_pdf_blake3) ] && printf "WARNING: b3sum not installed — $(out_pdf_blake3) is stale.\n" || true; }
+	$(OPEN) $(out_pdf)
+
+.PHONY: release
+release: html pdf
+	nide manifest
+	nide validate
+	printf "Release complete. Manifest verified.\n"
+	cp -a build/manifest.json $(out_manifest)
+	ls -l $(shared)$(artifact_stem).*
 
 .PHONY: build
 build: render status
@@ -109,25 +103,56 @@ build: render status
 .PHONY: status
 status:
 	printf "Current version control status:\n"; \
-	git status
-
-.PHONY: diff-pdf
-diff-pdf:
-	printf "Current PDF version control diff:\n"; \
-	command -v iconv >/dev/null 2>&1 || { echo >&2 "make diff-pdf requires iconv but it's not installed - you can search the internets on how to install iconf.  Aborting."; exit 1; }
-	git diff -a $(out_pdf) | iconv --from-code=UTF-8 -c
+	git status || true
 
 .PHONY: clean
 clean:
-	rm -f $(build_root)approvals.yml \
-	  $(build_root)bind.txt \
-	  $(build_root)bookmatter.tex.in \
-	  $(build_root)changes.yml \
-	  $(build_root)driver.tex.in \
-	  $(build_root)meta.yml \
-	  $(build_root)metadata.tex.in \
-	  $(build_root)patch.yml \
-	  $(build_root)publisher.tex.in \
-	  $(build_root)setup.tex.in \
-	  $(build_root)structure.yml
-	rm -fr $(build_root)src/ $(build_pdf)
+	rm -f build/*.md build/*.html build/*.json build/*.lua build/*.typ \
+	  build/csaf-typst.pdf
+	rm -fr build/images/ build/render/
+
+.PHONY: distclean
+distclean: clean
+	rm -fr $(build_root)
+
+.PHONY: quality
+quality:
+	nide quality
+
+.PHONY: diff
+diff:
+	nide diff --mode prose $(out_html) || true
+
+.PHONY: diff-repro
+diff-repro:
+	nide diff --mode repro $(out_pdf) || true
+
+.PHONY: diff-pdf  # Deprecated - use diff-repro
+diff-pdf: diff-repro
+
+.PHONY: context
+context:
+	printf "Clone-info:\n"
+	printf "%s name.is(): '%s'\n" "-" "$$(basename `git rev-parse --show-toplevel`)"
+	printf "%s branch.is(): '%s'\n" "-" "$$(git branch --show-current)"
+	printf "%s revision.is(): sha1:%s\n" "-" "$$(git rev-parse HEAD)"
+	printf "%s location.is(): %s\n" "-" "$$(python -c "(lambda _Y: (lambda _mod: (lambda Path: (lambda g: [(lambda x: [(lambda c, p: (lambda _loop1: _loop1(c, p))(_Y(lambda _loop1: (lambda c, p: ([_loop1(c, p) for (p, c) in [x(p, c, g)]][0]) if (c != p) and (str(c) != '/') else print((f\"(orga/repo='{c.parent.name}/{c.name}', rel-path='{o.relative_to(c)}')\" if (c == p) else \"(orga/repo='?/?', rel-path='?')\"))))))(c if 'c' in dir() else None, p if 'p' in dir() else None) for (_, c) in [x(p, c, g)]][0])(lambda p, c, g: (c, c.parent if not (c / g).is_dir() else c)) for o, p, c in [[Path().resolve()] * 3]][0])('.git'))(_mod.Path))(__import__('pathlib', {}, {}, ['Path'])))((lambda f: (lambda x: x(x))(lambda y: f(lambda *args: y(y)(*args)))))")"
+	printf "%s node.id(): '%s'\n" "-" "$$(python -c 'import platform; import uuid; print(str(uuid.uuid3(uuid.NAMESPACE_DNS, platform.node())))')"
+
+.PHONY: name  # Deprecated - backwards compatibility target
+name: context
+
+.PHONY: whoami  # Deprecated - backwards compatibility target
+whoami: context
+
+.PHONY: typst  # Deprecated - use pdf
+typst: pdf
+
+.PHONY: render-html  # Deprecated - backwards compatibility target
+render-html: html
+
+.PHONY: render-markdown  # Deprecated - backwards compatibility target
+render-markdown: gfm-plus
+
+.PHONY: render-pdf  # Deprecated - backwards compatibility target
+render-pdf: pdf

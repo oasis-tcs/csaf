@@ -1,5 +1,4 @@
-
-![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
+![](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
 ---
 
@@ -7,7 +6,7 @@
 
 ## Committee Specification Draft 03
 
-## 24 June 2026
+## 27 May 2026
 
 #### This stage:
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \

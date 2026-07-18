@@ -709,11 +709,15 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
 
-| `category` | `title` | content of `text` |
-|---------------|---------------|-------------------|
-| `description` | CVE Description | Contains the official and unchanged CVE description for this specific vulnerability. |
-| `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
-| `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
+\columns=12%,24%,
+
+| category    |  title                | content of text                                                                                                                                      |
+|:------------|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| description | CVE Description       | Contains the official and unchanged CVE description for this specific vulnerability.                                                                 |
+| description | Preconditions         | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
+| summary     | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description.                                                                   |
+
+Table: Combinations of `category` and `title` with special meaning.{#vulnerabilities-property-notes-tab-1}
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
@@ -938,34 +942,40 @@ Therefore, such a combination MUST NOT be used in the list of remediations for t
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed and prohibited combinations:
 
-| category value   | `workaround` | `mitigation` | `vendor_fix` | `optional_patch` | `none_available` | `fix_planned` | `no_fix_planned` |
-|:----------------:|:------------:|:------------:|:------------:|:----------------:|:----------------:|:-------------:|:----------------:|
-| `workaround`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
-| `mitigation`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
-| `vendor_fix`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | prohibited    | prohibited       |
-| `optional_patch` | prohibited   | prohibited   | prohibited   | allowed          | prohibited       | prohibited    | prohibited       |
-| `none_available` | prohibited   | prohibited   | prohibited   | prohibited       | allowed          | prohibited    | prohibited       |
-| `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
-| `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
+\tablefontsize=small 
+\columns=-----------------,----------,----------,-----------,---------------,---------------,------------,----------------
 
-Table 1: Remediation Combinations
+| category value   | workaround | mitigation | vendor\_fix | optional\_patch | none\_available | fix\_planned | no\_fix\_planned |
+|:-----------------|:----------:|:----------:|:-----------:|:---------------:|:---------------:|:------------:|:----------------:|
+| workaround       |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |   allowed    |     allowed      |
+| mitigation       |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |   allowed    |     allowed      |
+| vendor\_fix      |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |  prohibited  |    prohibited    |
+| optional\_patch  | prohibited | prohibited | prohibited  |     allowed     |   prohibited    |  prohibited  |    prohibited    |
+| none\_available  | prohibited | prohibited | prohibited  |   prohibited    |     allowed     |  prohibited  |    prohibited    |
+| fix\_planned     |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |   allowed    |    prohibited    |
+| no\_fix\_planned |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |  prohibited  |     allowed      |
+
+Table: Remediation Combinations{#vulnerabilities-property-remediations-category-tab-1}
 
 Some category values contradict certain product status groups.
 Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed, discouraged and prohibited combinations:
 
-| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Unknown     | Recommended |
-|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|:-----------:|
-| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
-| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
-| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
-| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     | allowed     |
-| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     | allowed     |
-| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
-| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
+\tablefontsize=small 
+\columns=,12%,13%,13%,19%,13%,13%
 
-Table 2: Product Status Remediation Category Combinations
+| category value   |  Affected  | Not Affected |    Fixed    | Under Investigation |   Unknown   | Recommended |
+|:-----------------|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|:-----------:|
+| workaround       |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| mitigation       |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| vendor\_fix      |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| optional\_patch  | prohibited |   allowed    | discouraged |       allowed       |   allowed   |   allowed   |
+| none\_available  |  allowed   |  prohibited  | prohibited  |       allowed       |   allowed   |   allowed   |
+| fix\_planned     |  allowed   | discouraged  | prohibited  |     discouraged     | discouraged |   allowed   |
+| no\_fix\_planned |  allowed   | discouraged  | prohibited  |       allowed       |   allowed   |   allowed   |
+
+Table: Product Status Remediation Category Combinations{#vulnerabilities-property-remediations-category-tab-2}
 
 The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
 

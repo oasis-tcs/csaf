@@ -128,16 +128,8 @@ Secondly, the program fulfills the following for all items of:
 
     > A tool MAY provide a non-default option to output the invalid document.
 
-- type `$['$defs'].full_product_name_t..product_identification_helper..cpe`: If a CPE is invalid,
+- type `$['$defs'].full_product_name_t..product_identification_helper.cpe`: If a CPE is invalid,
   the CSAF 2.0 to CSAF 2.1 Converter SHOULD remove the invalid value and issue a warning that an invalid CPE was detected and removed.
-- type `$['$defs'].full_product_name_t..product_identification_helper..hashes`:
-  The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion.
-  If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that
-  all items are unique.
-- type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes`:
-  The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion.
-  If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that
-  all items are unique.
 - type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`:
   If the algorithm is known to the implementation or mentioned in this standard, the CSAF 2.0 to CSAF 2.1 Converter SHALL ensure its spelling
   is exactly as prescribed by this standard.
@@ -168,10 +160,6 @@ Secondly, the program fulfills the following for all items of:
 
 - type `$['$defs'].full_product_name_t..product_identification_helper..purls`: If a `$['$defs'].full_product_name_t..product_identification_helper..purl` is given,
   the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it into the first item of the corresponding `purls` array.
-- type `$['$defs'].full_product_name_t..product_identification_helper..sbom_urls`:
-  The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion.
-  If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that
-  all items are unique.
 - type `$['$defs'].full_product_name_t..product_identification_helper..serial_numbers[*]`:
 
   > The values were implicitly open ended in CSAF 2.0 which resulted in ambiguity.
@@ -190,10 +178,6 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY provide a non-default option to interpret the `*` in all serial numbers as part of the serial number itself and therefore escape it.
 
-- type `$['$defs'].full_product_name_t..product_identification_helper..skus`:
-  The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion.
-  If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that
-  all items are unique.
 - type `$['$defs'].full_product_name_t..product_identification_helper..skus[*]`:
   
   > The values were implicitly open ended in CSAF 2.0 which resulted in ambiguity.
@@ -215,10 +199,6 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY provide a non-default option to interpret the `*` in all stock keeping units as part of the stock keeping unit
   > itself and therefore escape it.
 
-- type `$['$defs'].full_product_name_t..product_identification_helper..x_generic_uris`:
-  The CSAF 2.0 to CSAF 2.1 Converter SHALL keep the order of the items during the conversion.
-  If a value occurs multiple times, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert only the first one and therefore making sure that
-  all items are unique.
 - `$['$schema']`: The CSAF 2.0 to CSAF 2.1 Converter SHALL set property with the value prescribed by the schema.
 - `$.document.category`:
   - If the `category` equals `csaf_security_advisory`, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a
@@ -251,6 +231,8 @@ Secondly, the program fulfills the following for all items of:
   | `TLP:GREEN`               | `TLP:GREEN`               |
   | `TLP:AMBER`               | `TLP:AMBER`               |
   | `TLP:RED`                 | `TLP:RED`                 |
+
+  Table: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.{#tab:tlp-labels-across-csaf-versions}
 
   If `$.document.distribution.text` contains the string `TLP v2.0: TLP:` followed by a valid TLP v2.0 label as defined in the CSAF 2.1 JSON schema,
   the CSAF 2.0 to CSAF 2.1 Converter SHOULD provide an option to use this label instead.
