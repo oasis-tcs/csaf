@@ -1,13 +1,13 @@
 ### Inconsistent SSVC Timestamp
 
-For each vulnerability, it MUST be tested that the each SSVC `timestamp` is earlier than or equal to the `date` of the newest item of the
+For each vulnerability, it MUST be tested that each SSVC `timestamp` is earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`.
 As the timestamps might use different timezones, the sorting MUST take timezones into account.
 
 The relevant path for this test is:
 
-```
-    /vulnerabilities[]/metrics[]/content/ssvc_v2/timestamp
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
 ```
 
 *Example 1 (which fails the test):*

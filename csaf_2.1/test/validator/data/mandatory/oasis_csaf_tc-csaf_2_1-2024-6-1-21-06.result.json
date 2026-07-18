@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "errors": [
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "revision history does not start with a version of `0.y.z` or `1.0.0` when sorted by date (was `4.0.0`)"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `1.0.0` before `2023-08-22T10:00:00.000Z`"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `2.0.0` before `2023-08-22T10:00:00.000Z`"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `3.0.0` before `2023-08-22T10:00:00.000Z`"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `5.0.0` between `2023-08-22T10:00:00.000Z` and `2024-01-21T11:00:00.000+06:00`"
+      }
+    ],
+    "id": "6.1.21",
+    "passed": false
+  },
+  "resultschema_version": "2.1",
+  "secondary_results": [
+    {
+      "errors": [
+        {
+          "instance_path": "/document/tracking/revision_history",
+          "message": "items must be in ascending order when sorted by `date` and `number`"
+        }
+      ],
+      "id": "6.1.14",
+      "passed": false
+    }
+  ]
+}

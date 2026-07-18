@@ -8,8 +8,8 @@ If no language specific translation has been recorded, the test MUST be skipped 
 
 The relevant path for this test is:
 
-```
-  /document/notes
+```list-of-jsonpaths
+  $.document.notes
 ```
 
 *Example 1 (which fails the test):*

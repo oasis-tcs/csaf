@@ -4,8 +4,8 @@ It MUST be tested that the CVE number is given.
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/cve
+```list-of-jsonpaths
+  $.vulnerabilities[*].cve
 ```
 
 *Example 1 (which fails the test):*

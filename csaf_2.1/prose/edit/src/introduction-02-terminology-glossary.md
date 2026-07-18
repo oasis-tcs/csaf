@@ -192,7 +192,7 @@ Fingerprint
 even if a relevant artifact is modified.
 
 Formatted Message
-:     message string which contains formatting information such as Markdown formatting characters.
+:    message string which contains formatting information such as Markdown formatting characters.
 
 Fully Qualified Logical Name
 :    string that fully identifies the programmatic construct specified by a logical location,
@@ -287,7 +287,7 @@ Tool Component
 :    component of an analysis tool or converter, either its driver or an extension, consisting of one or more files.
 
 Top-Level Artifact
-:     artifact which is not contained within any other artifact.
+:    artifact which is not contained within any other artifact.
 
 Translation
 :    rendering of a tool component's localizable strings into another language.
@@ -310,7 +310,7 @@ VEX
 a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.
 
 Viewer
-:     see CSAF Viewer.
+:    see CSAF Viewer.
 
 Vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy

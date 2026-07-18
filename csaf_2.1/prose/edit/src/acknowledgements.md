@@ -11,6 +11,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Anthony     | Berglas          | Cryptsoft Pty Ltd.                                             |
 | Avkash      | Kathiriya        | Cyware Labs                                                    |
 | Bernd       | Grobauer         | Siemens AG                                                     |
+| Celia       | Savidge          | Dell Technologies                                              |
 | Chok        | Poh              | Oracle                                                         |
 | Christian   | Banse            | Fraunhofer-Gesellschaft e.V. - Fraunhofer AISEC                |
 | Christoph   | Plutte           | Ericsson AB                                                    |
@@ -18,6 +19,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Dave        | Tamasi           | Google LLC                                                     |
 | David       | Waltermire       | NIST                                                           |
 | Denny       | Page             | Individual                                                     |
+| Dejan       | Bosanac          | Red Hat                                                        |
 | Diane       | Morris           | Cisco Systems                                                  |
 | Dina        | Truxius          | Federal Office for Information Security (BSI) Germany          |
 | Feng        | Cao              | Oracle                                                         |
@@ -28,12 +30,11 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Jeff        | Schutt           | Cisco Systems                                                  |
 | Jennifer    | Victor           | Dell Technologies                                              |
 | Jessica     | Fitzgerald-McKay | National Security Agency                                       |
+| Jessie      | Vaught           | Red Hat                                                        |
 | Johannes    | Lorenz           | Siemens AG                                                     |
 | Justin      | Corlett          | Cryptsoft Pty Ltd.                                             |
 | Justin      | Murphy           | US DHS Cybersecurity and Infrastructure Security Agency (CISA) |
-| Liming      | Wu               | Huawei Technologies Co., Ltd.                                  |
 | Martin      | Prpic            | Red Hat                                                        |
-| Michael     | Cantonwine       | Hewlett Packard Enterprise (HPE)                               |
 | Michael     | Reeder           | Dell Technologies                                              |
 | Michael     | Schueler         | Cisco Systems                                                  |
 | Nick        | Leali            | Cisco Systems                                                  |
@@ -50,21 +51,18 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Sonny       | van Lingen       | Huawei Technologies Co., Ltd.                                  |
 | Stefan      | Hagen            | Individual                                                     |
 | Tania       | Ward             | Dell Technologies                                              |
-| Ted         | Bedwell          | Cisco Systems                                                  |
 | Thomas      | Proell           | Siemens AG                                                     |
 | Thomas      | Schaffer         | Cisco Systems                                                  |
 | Thomas      | Schmidt          | Federal Office for Information Security (BSI) Germany          |
 | Tim         | Hudson           | Cryptsoft Pty Ltd.                                             |
 | Tobias      | Limmer           | Siemens AG                                                     |
 | Tyler       | Townes           | BlackBerry Limited                                             |
-| Umair       | Bukhari          | Ericsson AB                                                    |
 | Vic         | Chung            | SAP SE                                                         |
 | Vijay       | Sarvepalli       | Carnegie Mellon University                                     |
 | Vincent     | Danen            | Red Hat                                                        |
 | Vivek       | Nair             | Microsoft                                                      |
 | William     | Ho Thiam Hock    | Huawei Technologies Co., Ltd.                                  |
 | Xiaoyu      | Ge               | Huawei Technologies Co., Ltd.                                  |
-| Yogesh      | Yadav            | Cisco Systems                                                  |
 | Zebin       | Zhang            | Huawei Technologies Co., Ltd.                                  |
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of the previous version (CSAF 2.0) of this specification and their contributions are gratefully acknowledged:
@@ -121,4 +119,4 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 | Will       | Rideout          | Arista Networks                                       |
 | Xiaoyu     | Ge               | Huawei Technologies Co., Ltd.                         |
 
--------
+---

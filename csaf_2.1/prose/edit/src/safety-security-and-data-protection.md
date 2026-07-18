@@ -16,16 +16,16 @@ CSAF documents are based on JSON, thus the security considerations of [cite](#RF
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 
-* CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
+- CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
   To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer,
   e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
-* Deeply nested markup can cause a stack overflow in the Markdown processor [cite](#GFMENG).
+- Deeply nested markup can cause a stack overflow in the Markdown processor [cite](#GFMENG).
   To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
   **Note**: One example is the GitHub fork of the `cmark` Markdown processor [cite](#GFMCMARK).
-* To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
+- To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
   CSAF consumers SHALL either disable HTML processing (for example, by using the `--safe` option in the `cmark` Markdown processor)
   or run the resulting HTML through an HTML sanitizer.
-* To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, `javascript:` links),
+- To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, `javascript:` links),
   CSAF consumers SHALL either remove all actions from links (for example, by displaying them as standard text)
 or render only those actionable that are known to be safe (for example, determining that via the media type).
 CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to
@@ -48,10 +48,17 @@ As setting the `Access-Control-Allow-Origin` header potentially allows for cross
 it SHOULD only be served on files and directories containing CSAF data.
 For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
 
+Implementors are reminded that the evaluation of JSONPath can lead to multiple elements within the result array.
+Especially CSAF validators SHALL NOT stop the evaluation of the result array after the first instance unless instructed explicitly
+by a non-default option even though the specification might just expect one instance.
+Otherwise, test results could be incomplete or wrong.
+To avoid ambiguity, it is RECOMMENDED to use JSON pointer (see [cite](#RFC6901)) when identifying or referring to a specific key or instance
+within a CSAF document.
+
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
 Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.
-If CSAF producers, CSAF consumers or CSAF validators provide a option to interactively or automatically load missing schemes,
+If CSAF producers, CSAF consumers or CSAF validators provide an option to interactively or automatically load missing schemes,
 they SHALL point out the risks of setting the option and actively warn the user about it.
 Such option SHALL NOT be set by default.
 CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks.
@@ -61,4 +68,4 @@ It is RECOMMENDED to do them at least before a release.
 
 > Such checks can be automated, e.g. in the CI/CD pipeline.
 
--------
+---

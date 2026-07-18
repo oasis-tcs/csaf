@@ -283,20 +283,20 @@ The given values reflect the VEX not affected justifications.
 See [VEX-Justification] for more details.
 The values MUST be used as follows:
 
-* `component_not_present`: The software is not affected because the vulnerable component is not in the product.
-* `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+- `component_not_present`: The software is not affected because the vulnerable component is not in the product.
+- `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
 
   > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options)
   > the specific code causing the vulnerability is not present in the component.
 
-* `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
+- `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
   However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
-* `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
+- `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
   including non-anticipated states of the product.
 
   > Components that are neither used nor executed by the product.
 
-* `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
+- `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
 
@@ -317,6 +317,7 @@ tracking IDs for the vulnerability (if such information exists).
 
 Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
 unique label or tracking ID for the vulnerability.
+In addition, any ID item MAY expose the optional properties Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
 ```yaml <!--json-path($..vulnerabilities..ids..properties)-->
 <csaf-instance>:
@@ -326,10 +327,20 @@ unique label or tracking ID for the vulnerability.
     # ...
     ids:
     - # <id-instance>:
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
       system_name: String
       text: String
     # ...
 ```
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of product groups.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of products.
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 
@@ -527,7 +538,7 @@ A Content object has at least `1` property.
           - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.0.json' ))
           - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.1.json' ))
           # >
-        cvss_v4: $ref.eval(concat( *FIRST-CVSS 'cvss-v4.0.1.json' ))
+        cvss_v4: $ref.eval(concat( *FIRST-CVSS 'cvss-v4.0.json' ))
         epss: Mapping
         qualitative_severity_rating: String.Enum
         ssvc_v2:
@@ -549,7 +560,7 @@ The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the
 See [cite](#CVSS30) respectively [cite](#CVSS31) for details.
 
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v4.0.2.json](https://www.first.org/cvss/cvss-v4.0.2.json).
+[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
 See [cite](#CVSS40) for details.
 
 The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)
@@ -598,11 +609,11 @@ of the severity of the vulnerability regarding the products on a qualitative sca
 Valid `enum` values are:
 
 ```
-    "critical",
-    "high",
-    "low",
-    "medium",
-    "none"
+    critical
+    high
+    low
+    medium
+    none
 ```
 
 The value `critical` indicates that this vulnerability allows attackers to fully compromise a system or access sensitive data
@@ -698,11 +709,15 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
 
-| `category` | `title` | content of `text` |
-|---------------|---------------|-------------------|
-| `description` | CVE Description | Contains the official and unchanged CVE description for this specific vulnerability. |
-| `description` | Preconditions | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
-| `summary` | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description. |
+\columns=12%,24%,
+
+| category    |  title                | content of text                                                                                                                                      |
+|:------------|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| description | CVE Description       | Contains the official and unchanged CVE description for this specific vulnerability.                                                                 |
+| description | Preconditions         | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
+| summary     | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description.                                                                   |
+
+Table: Combinations of `category` and `title` with special meaning.{#vulnerabilities-property-notes-tab-1}
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
@@ -747,7 +762,7 @@ Actions are recommended to remediate or address this vulnerability.
 
 > This could include for instance learning more about the vulnerability and context,
 > and/or making a risk-based decision to patch or apply defense-in-depth measures.
-> See `/vulnerabilities[]/remediations`, `/vulnerabilities[]/notes` and `/vulnerabilities[]/threats` for more details.
+> See `$.vulnerabilities[*].remediations`, `$.vulnerabilities[*].notes` and `$.vulnerabilities[*].threats` for more details.
 
 Known not affected (`known_not_affected`) of value type Products (`products_t`) represents that these versions are known not to be affected by
 the vulnerability.
@@ -755,7 +770,7 @@ No remediation is required regarding this vulnerability.
 
 > This could for instance be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist,
 > or other factors.
-> See `/vulnerabilities[]/flags` and `/vulnerabilities[]/threats` in category `impact` for more details.
+> See `$.vulnerabilities[*].flags` and `$.vulnerabilities[*].threats` in category `impact` for more details.
 
 Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be
 affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
@@ -773,43 +788,43 @@ There is also no investigation and therefore the status might never be determine
 
 The individual properties form the following product status groups:
 
-* Affected:
-
-   ```
-   /vulnerabilities[]/product_status/first_affected[]
-   /vulnerabilities[]/product_status/known_affected[]
-   /vulnerabilities[]/product_status/last_affected[]
-   ```
-
-* Not affected:
+- Affected:
 
   ```
-  /vulnerabilities[]/product_status/known_not_affected[]
+  $.vulnerabilities[*].product_status.first_affected[*]
+  $.vulnerabilities[*].product_status.known_affected[*]
+  $.vulnerabilities[*].product_status.last_affected[*]
   ```
 
-* Fixed:
+- Not affected:
 
   ```
-  /vulnerabilities[]/product_status/first_fixed[]
-  /vulnerabilities[]/product_status/fixed[]
+  $.vulnerabilities[*].product_status.known_not_affected[*]
   ```
 
-* Under investigation:
+- Fixed:
 
   ```
-  /vulnerabilities[]/product_status/under_investigation[]
+  $.vulnerabilities[*].product_status.first_fixed[*]
+  $.vulnerabilities[*].product_status.fixed[*]
   ```
 
-* Unknown:
+- Under investigation:
 
   ```
-  /vulnerabilities[]/product_status/unknown[]
+  $.vulnerabilities[*].product_status.under_investigation[*]
+  ```
+
+- Unknown:
+
+  ```
+  $.vulnerabilities[*].product_status.unknown[*]
   ```
 
 As the aforementioned product status groups contradict each other,
 the sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
 
-> Note: An issuer might recommend (`/vulnerabilities[]/product_status/recommended`) a product version from any group - also from the affected group,
+> Note: An issuer might recommend (`$.vulnerabilities[*].product_status.recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
 #### Vulnerabilities Property - References
@@ -927,34 +942,40 @@ Therefore, such a combination MUST NOT be used in the list of remediations for t
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed and prohibited combinations:
 
-| category value   | `workaround` | `mitigation` | `vendor_fix` | `optional_patch` | `none_available` | `fix_planned` | `no_fix_planned` |
-|:----------------:|:------------:|:------------:|:------------:|:----------------:|:----------------:|:-------------:|:----------------:|
-| `workaround`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
-| `mitigation`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | allowed       | allowed          |
-| `vendor_fix`     | allowed      | allowed      | allowed      | prohibited       | prohibited       | prohibited    | prohibited       |
-| `optional_patch` | prohibited   | prohibited   | prohibited   | allowed          | prohibited       | prohibited    | prohibited       |
-| `none_available` | prohibited   | prohibited   | prohibited   | prohibited       | allowed          | prohibited    | prohibited       |
-| `fix_planned`    | allowed      | allowed      | prohibited   | prohibited       | prohibited       | allowed       | prohibited       |
-| `no_fix_planned` | allowed      | allowed      | prohibited   | prohibited       | prohibited       | prohibited    | allowed          |
+\tablefontsize=small 
+\columns=-----------------,----------,----------,-----------,---------------,---------------,------------,----------------
 
-Table 1: Remediation Combinations
+| category value   | workaround | mitigation | vendor\_fix | optional\_patch | none\_available | fix\_planned | no\_fix\_planned |
+|:-----------------|:----------:|:----------:|:-----------:|:---------------:|:---------------:|:------------:|:----------------:|
+| workaround       |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |   allowed    |     allowed      |
+| mitigation       |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |   allowed    |     allowed      |
+| vendor\_fix      |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |  prohibited  |    prohibited    |
+| optional\_patch  | prohibited | prohibited | prohibited  |     allowed     |   prohibited    |  prohibited  |    prohibited    |
+| none\_available  | prohibited | prohibited | prohibited  |   prohibited    |     allowed     |  prohibited  |    prohibited    |
+| fix\_planned     |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |   allowed    |    prohibited    |
+| no\_fix\_planned |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |  prohibited  |     allowed      |
+
+Table: Remediation Combinations{#vulnerabilities-property-remediations-category-tab-1}
 
 Some category values contradict certain product status groups.
 Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed, discouraged and prohibited combinations:
 
-| category value   | Affected   | Not Affected | Fixed       | Under Investigation | Unknown     | Recommended |
-|:----------------:|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|:-----------:|
-| `workaround`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
-| `mitigation`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
-| `vendor_fix`     | allowed    | prohibited   | prohibited  | discouraged         | discouraged | allowed     |
-| `optional_patch` | prohibited | allowed      | discouraged | allowed             | allowed     | allowed     |
-| `none_available` | allowed    | prohibited   | prohibited  | allowed             | allowed     | allowed     |
-| `fix_planned`    | allowed    | discouraged  | prohibited  | discouraged         | discouraged | allowed     |
-| `no_fix_planned` | allowed    | discouraged  | prohibited  | allowed             | allowed     | allowed     |
+\tablefontsize=small 
+\columns=,12%,13%,13%,19%,13%,13%
 
-Table 2: Product Status Remediation Category Combinations
+| category value   |  Affected  | Not Affected |    Fixed    | Under Investigation |   Unknown   | Recommended |
+|:-----------------|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|:-----------:|
+| workaround       |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| mitigation       |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| vendor\_fix      |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| optional\_patch  | prohibited |   allowed    | discouraged |       allowed       |   allowed   |   allowed   |
+| none\_available  |  allowed   |  prohibited  | prohibited  |       allowed       |   allowed   |   allowed   |
+| fix\_planned     |  allowed   | discouraged  | prohibited  |     discouraged     | discouraged |   allowed   |
+| no\_fix\_planned |  allowed   | discouraged  | prohibited  |       allowed       |   allowed   |   allowed   |
+
+Table: Product Status Remediation Category Combinations{#vulnerabilities-property-remediations-category-tab-2}
 
 The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
 
@@ -1074,24 +1095,24 @@ Valid values are:
 
 The values MUST be used as follows:
 
-* `none`: No restart required.
-* `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
+- `none`: No restart required.
+- `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
    needs to be restarted.
-* `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
-* `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
+- `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
+- `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
   to restart the vulnerable component or process values / context is only given at the start of the parent process.
-* `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted.
+- `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted.
   This could be the case e.g. for a core service of a software.
-* `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication)
+- `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication)
   to the vulnerable component need to be restarted.
-* `machine`: The machine on which the vulnerable component is installed on needs to be restarted.
+- `machine`: The machine on which the vulnerable component is installed on needs to be restarted.
   This is the value which SHOULD be used if an OS needs to be restarted.
   It is typically the case for OS upgrades.
-* `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted.
+- `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted.
   This value might be useful for a remediation if no patch is available.
   If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at
   the same time and restart afterwards can leave one with a clean system.
-* `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
+- `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
   This MAY include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
 
 Additional restart information (`details`) of value type `string` with `1` or more characters provides additional information for the restart.
@@ -1123,7 +1144,7 @@ This information can change as the vulnerability ages and new information become
 In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
 ```yaml <!--json-path($..vulnerabilities..threats..properties)-->
- <csaf-instance>:
+<csaf-instance>:
   # ...
   vulnerabilities:
   - # <vulnerability-instance>:

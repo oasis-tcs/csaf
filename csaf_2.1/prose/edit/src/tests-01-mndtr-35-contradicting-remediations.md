@@ -1,13 +1,13 @@
 ### Contradicting Remediations
 
-For each item in `/vulnerabilities[]/remediations` it MUST be tested that a product is not member of
-contradicting remediation categories (see table [tab](#vulnerabilities-property-remediations-category-tab-1)).
+For each item in `$.vulnerabilities[*].remediations` it MUST be tested that a product is not member of
+contradicting remediation categories (see [tab](#vulnerabilities-property-remediations-category-tab-1)).
 This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/remediations[]
+```list-of-jsonpaths
+  $.vulnerabilities[*].remediations[*]
 ```
 
 *Example 1 (which fails the test):*

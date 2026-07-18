@@ -4,8 +4,8 @@ For each item in the CWE array it MUST be tested that the CWE is not deprecated 
 
 The relevant path for this test is:
 
-```
-  /vulnerabilities[]/cwes[]
+```list-of-jsonpaths
+  $.vulnerabilities[*].cwes[*]
 ```
 
 *Example 1 (which fails the test):*

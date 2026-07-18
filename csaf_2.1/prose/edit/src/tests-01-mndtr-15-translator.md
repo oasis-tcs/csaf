@@ -1,13 +1,13 @@
 ### Translator
 
-It MUST be tested that `/document/source_lang` is present and set if the value `translator` is used for `/document/publisher/category`.
+It MUST be tested that `$.document.source_lang` is present and set if the value `translator` is used for `$.document.publisher.category`.
 A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
 not being present at all.
 
 The relevant path for this test is:
 
-```
-    /document/source_lang
+```list-of-jsonpaths
+  $.document.source_lang
 ```
 
 *Example 1 (which fails the test):*

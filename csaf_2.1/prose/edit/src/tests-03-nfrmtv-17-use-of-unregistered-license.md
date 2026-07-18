@@ -5,8 +5,8 @@ or AboutCode's "ScanCode LicenseDB".
 
 The relevant path for this test is:
 
-```
-  /document/license_expression
+```list-of-jsonpaths
+  $.document.license_expression
 ```
 
 *Example 1 (which fails the test):*

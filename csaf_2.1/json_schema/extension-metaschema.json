@@ -195,9 +195,9 @@
               "items": {
                 "type": "string",
                 "enum": [
-                  "critical",
-                  "high_value",
-                  "informational"
+                  "essential",
+                  "significant",
+                  "supplementary"
                 ]
               }
             }

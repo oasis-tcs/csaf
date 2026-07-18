@@ -25,8 +25,8 @@ Therefore, a CSAF aggregator can list that issuing party if it mirrors the files
 
 A distributing party satisfies the "CSAF Publisher" role if the party:
 
-* satisfies the requirements 1 to 4 in section [sec](#requirements).
-* distributes only CSAF documents on behalf of its own.
+- satisfies the requirements 1 to 4 in section [sec](#requirements).
+- distributes only CSAF documents on behalf of its own.
 
 ### Role: CSAF Provider
 
@@ -34,16 +34,16 @@ A CSAF publisher satisfies the "CSAF Provider" role if the party fulfills the fo
 
 Firstly, the party:
 
-* satisfies the "CSAF Publisher" role profile.
-* additionally satisfies the requirements 5 to 7, 24 and 25 in section [sec](#requirements).
+- satisfies the "CSAF Publisher" role profile.
+- additionally satisfies the requirements 5 to 7, 24 and 25 in section [sec](#requirements).
 
 Secondly, the party:
 
-* satisfies at least one of the requirements 8 to 10 in section [sec](#requirements).
+- satisfies at least one of the requirements 8 to 10 in section [sec](#requirements).
 
 Thirdly, the party:
 
-* satisfies the requirements 11 to 14 in section [sec](#requirements) or requirements 15 to 17 in section [sec](#requirements).
+- satisfies the requirements 11 to 14 in section [sec](#requirements) or requirements 15 to 17 in section [sec](#requirements).
 
 > If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17.
 > If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
@@ -52,16 +52,16 @@ Thirdly, the party:
 
 A CSAF provider satisfies the "CSAF Trusted Provider" role if the party:
 
-* satisfies the "CSAF Provider" role profile.
-* additionally satisfies the requirements 18 to 20 in section [sec](#requirements).
+- satisfies the "CSAF Provider" role profile.
+- additionally satisfies the requirements 18 to 20 in section [sec](#requirements).
 
 ### Role: CSAF Lister
 
 A distributing party satisfies the "CSAF Lister" role if the party:
 
-* satisfies the requirements 6, 21, 22, 24 and 25 in section [sec](#requirements).
-* uses the value `lister` for `/aggregator/category`.
-* does not list any mirror pointing to a domain under its own control.
+- satisfies the requirements 6, 21, 22, 24 and 25 in section [sec](#requirements).
+- uses the value `lister` for `$.aggregator.category`.
+- does not list any mirror pointing to a domain under its own control.
 
 > The purpose of this role is to provide a list of URLs where to find CSAF documents.
 > It is not assumed that the list will be complete.
@@ -70,12 +70,12 @@ A distributing party satisfies the "CSAF Lister" role if the party:
 
 A distributing party satisfies the "CSAF Aggregator" role if the party:
 
-* satisfies the requirements 1 to 6 and 21 to 25 in section [sec](#requirements).
-* uses the value `aggregator` for `/aggregator/category`.
-* lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
-* links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
+- satisfies the requirements 1 to 6 and 21 to 25 in section [sec](#requirements).
+- uses the value `aggregator` for `$.aggregator.category`.
+- lists a mirror for at least two disjoint issuing parties pointing to a domain under its own control.
+- links the public part of the OpenPGP key used to sign CSAF documents for each mirrored issuing party in
   the corresponding `provider-metadata.json`.
-* provides for each CSAF document that is mirrored a signature (requirement 19) and a hash (requirement 18).
+- provides for each CSAF document that is mirrored a signature (requirement 19) and a hash (requirement 18).
   Both SHALL be listed in the ROLIE feed. If the issuing party provides those files for a CSAF document, they SHOULD be copied as well.
   If the issuing party does not provide those files, they SHALL be created by the CSAF aggregator.
   Such a signature does not imply any liability of CSAF aggregator for the content of the corresponding CSAF document.

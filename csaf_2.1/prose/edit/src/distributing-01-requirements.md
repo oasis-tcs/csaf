@@ -186,7 +186,7 @@ The use of the scheme "HTTPS" is required.
 ### Requirement 11: One Folder per Year
 
 The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
-value of `/document/tracking/initial_release_date`.
+value of `$.document.tracking.initial_release_date`.
 
 *Examples 1:*
 
@@ -213,7 +213,7 @@ The last entry MAY skip the newline sequence.
 
 > This can be used to download all CSAF documents.
 
-The file `index.txt` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+The file `index.txt` SHALL be located in the folder given as directory URL under `$.distributions[*].directory.url` in the `provider-metadata.json`.
 
 > If different TLP labels are used, multiple `index.txt` exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
@@ -308,7 +308,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 ### Requirement 13: changes.csv{#requirement-13-changes-csv}
 
 The file `changes.csv` contains a list of CSAF documents in the current TLP level that were changed recently.
-Therefore, it MUST contain the filename as well as the value of `/document/tracking/current_release_date` for each
+Therefore, it MUST contain the filename as well as the value of `$.document.tracking.current_release_date` for each
 CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
 The `changes.csv` SHALL be a valid comma separated values format as defined by [cite](#RFC4180) without double quotes.
 
@@ -327,7 +327,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 > Note: As CSAF 2.0 requires quotes, an [cite](#RFC4180) parser can read both format revisions.
 
-The file `changes.csv` SHALL be located in the folder given as directory URL under `/distributions[]/directory/url` in the `provider-metadata.json`.
+The file `changes.csv` SHALL be located in the folder given as directory URL under `$.distributions[*].directory.url` in the `provider-metadata.json`.
 
 > The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
 > The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
@@ -350,8 +350,8 @@ Additional ROLIE feeds might exist that contain only a subset of the CSAF docume
 The selection criteria SHOULD be described through the summary.
 At least one of the feeds
 
-* TLP:CLEAR
-* TLP:GREEN
+- TLP:CLEAR
+- TLP:GREEN
 
 MUST exist.
 Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322).
@@ -463,14 +463,14 @@ If it is used, each ROLIE category document MUST be a JSON file that conforms wi
 A ROLIE category document SHOULD reside next to the corresponding ROLIE feed.
 ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
-* document category
-* document language
-* values of the branch category within the Product Tree including but not limited to
-  * `vendor`
-  * `product_family`
-  * `product_name`
-  * `product_version`
-* type of product
+- document category
+- document language
+- values of the branch category within the Product Tree including but not limited to
+  - `vendor`
+  - `product_family`
+  - `product_name`
+  - `product_version`
+- type of product
 
   *Examples 1:*
 
@@ -485,7 +485,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
     Server
   ```
 
-* areas or sectors, the products are used in
+- areas or sectors, the products are used in
 
   *Examples 2:*
 
@@ -500,7 +500,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
     Water
   ```
 
-* any other categorization useful to the consumers
+- any other categorization useful to the consumers
 
 *Example 3:*
 
@@ -567,10 +567,10 @@ CSAF document signatures, the signing party SHOULD adhere to or surpass the prev
 regarding key length.
 Tools SHOULD treat the violation of the rules given in the first sentence as:
 
-* warning if the signature is only valid for 90 days or less at the time of the verification,
-* error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
+- warning if the signature is only valid for 90 days or less at the time of the verification,
+- error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
   the verification and
-* error if the signature is expired at the time of the verification.
+- error if the signature is expired at the time of the verification.
 
 ### Requirement 20: Public OpenPGP Key
 
@@ -658,8 +658,8 @@ The folder name SHOULD be retrieved from the name of the issuing authority.
 This folders MUST be adjacent to the `aggregator.json` (requirement 21).
 Each such folder MUST at least:
 
-* provide a `provider-metadata.json` for the current issuing party.
-* provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
+- provide a `provider-metadata.json` for the current issuing party.
+- provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
 *Example 1:*
 

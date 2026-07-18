@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TESTPATH=$*
+TESTPATH=$($* | grep -Ev ".result.json")
 
 FAIL=0
 
@@ -17,7 +17,7 @@ test_all() {
   do
     check $i
   done
-} 
+}
 
 test_all
 

@@ -1,8 +1,8 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testcases_json_schema.json",
-  "title": "Test cases for CSAF",
-  "description": "Representation of the data provided for test cases from section 6 of the specification.",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/language_specific_translation/translations_json_schema.json",
+  "title": "Translations for CSAF Fixed Terms",
+  "description": "Representation of the translation data for fixed terms from section 3 of the specification.",
   "type": "object",
   "$defs": {
     "term_t": {

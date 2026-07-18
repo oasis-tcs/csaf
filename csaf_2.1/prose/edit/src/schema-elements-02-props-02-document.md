@@ -201,8 +201,8 @@ Sharing Group ID than Max UUID (`ffffffff-ffff-ffff-ffff-ffffffffffff`).
 
 If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for
 CSAF modifier (cf. section [sec](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of
-`/document/tracking/id` SHALL be applied.
-This implies that usually the sharing group ID is used as a prefix to the original `/document/tracking/id`.
+`$.document.tracking.id` SHALL be applied.
+This implies that usually the sharing group ID is used as a prefix to the original `$.document.tracking.id`.
 
 Sharing Group Name (`name`) of value type `string` with one or more characters contains a human-readable name for the sharing group.
 
@@ -359,12 +359,16 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
 
-| `category` | `title` | content of `text` |
-|---------------|---------------|-------------------|
-| `description` | Product Description | Contains a description of a product given in the `product_tree` in regard to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
-| `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
-| `legal_disclaimer` | License | Contains the only license text of the document license. |
-| `summary` | Summary | Contains a short summary of the content of the advisory. |
+\columns=15%,35%,
+
+| category           | title                            | content of text                                                                                                                                                                               |
+|:-------------------|:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| description        | Product Description              | Contains a description of a product given in the `product_tree` in regard to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
+| general            | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document.                                     |
+| legal\_disclaimer  | License                          | Contains the only license text of the document license.                                                                                                                                       |
+| summary            | Summary                          | Contains a short summary of the content of the advisory.                                                                                                                                      |
+
+Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:special-combinations-of-category-and-title}
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 
@@ -467,16 +471,16 @@ The URL SHALL be normalized.
 
 An issuing party can choose any URL which fulfills the requirements state above.
 The URL MAY be dereferenceable. If an issuing party has chosen a URL, it SHOULD NOT change.
-Tools can make use of the combination of `/document/publisher/namespace` and `/document/tracking/id` as it
+Tools can make use of the combination of `$.document.publisher.namespace` and `$.document.tracking.id` as it
 identifies a CSAF document globally unique.
 
 If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with
 an incremented (patch) version which has no other changes than:
 
-* the new publisher information
-* the updated revision history
-* the updated item in `/document/references[]` which points to the new version of the CSAF document
-* an added item in `/document/references[]` which points to the previous version of the CSAF document (if the URL changed)
+- the new publisher information
+- the updated revision history
+- the updated item in `$.document.references[*]` which points to the new version of the CSAF document
+- an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
 
 *Examples 1:*
 
@@ -506,7 +510,7 @@ Document references (`references`) of value type References Type (`references_t`
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is
 a translation then the value of this property describes from which language this document was translated.
 
-The property MUST be present for any CSAF document with the value `translator` in `/document/publisher/category`.
+The property MUST be present for any CSAF document with the value `translator` in `$.document.publisher.category`.
 The property SHALL NOT be present if the document was not translated.
 
 > If an issuing party publishes a CSAF document with the same content in more than one language,
@@ -661,8 +665,8 @@ It MUST be unique for that organization.
 
 This value is also used to determine the filename for the CSAF document (cf. section [sec](#filename)).
 
-> The combination of `/document/publisher/namespace` and `/document/tracking/id` identifies a CSAF document globally unique.
-> The combination of `/document/publisher/namespace`, `/document/tracking/id`, and `/document/tracking/version` identifies
+> The combination of `$.document.publisher.namespace` and `$.document.tracking.id` identifies a CSAF document globally unique.
+> The combination of `$.document.publisher.namespace`, `$.document.tracking.id`, and `$.document.tracking.version` identifies
 > that specific version of the CSAF document globally unique.
 
 ##### Document Property - Tracking - Initial Release Date

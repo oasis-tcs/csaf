@@ -6,7 +6,7 @@ This section provides additional rules for handling CSAF documents.
 
 The following rules MUST be applied to determine the filename for the CSAF document:
 
-1. The value `/document/tracking/id` is converted into lowercase.
+1. The value `$.document.tracking.id` is converted into lowercase.
 2. Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (`_`):
    * lower-case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
@@ -17,7 +17,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    >
    > Even though the underscore `_` (0x5F) is a valid character in the filename it is replaced to avoid situations
    > where the conversion rule might lead to multiple consecutive underscores.
-   > As a result, a `/document/tracking/id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
+   > As a result, a `$.document.tracking.id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 
 3. The file extension `.json` MUST be appended.
 
@@ -53,32 +53,32 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 
 The use of GitHub-flavoured Markdown is permitted in the following fields:
 
-```
-  /document/acknowledgments[]/summary
-  /document/distribution/text
-  /document/notes[]/text
-  /document/publisher/issuing_authority
-  /document/references[]/summary
-  /document/tracking/revision_history[]/summary
-  /product_tree/product_groups[]/summary
-  /vulnerabilities[]/acknowledgments[]/summary
-  /vulnerabilities[]/involvements[]/summary
-  /vulnerabilities[]/notes[]/text
-  /vulnerabilities[]/references[]/summary
-  /vulnerabilities[]/remediations[]/details
-  /vulnerabilities[]/remediations[]/entitlements[]
-  /vulnerabilities[]/remediations[]/restart_required/details
-  /vulnerabilities[]/threats[]/details
+```list-of-jsonpaths
+  $.document.acknowledgments[*].summary
+  $.document.distribution.text
+  $.document.notes[*].text
+  $.document.publisher.issuing_authority
+  $.document.references[*].summary
+  $.document.tracking.revision_history[*].summary
+  $.product_tree.product_groups[*].summary
+  $.vulnerabilities[*].acknowledgments[*].summary
+  $.vulnerabilities[*].involvements[*].summary
+  $.vulnerabilities[*].notes[*].text
+  $.vulnerabilities[*].references[*].summary
+  $.vulnerabilities[*].remediations[*].details
+  $.vulnerabilities[*].remediations[*].entitlements[*]
+  $.vulnerabilities[*].remediations[*].restart_required.details
+  $.vulnerabilities[*].threats[*].details
 ```
 
 Other fields MUST NOT contain Markdown.
 
 ## Branch Recursion
 
-The `/product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
+The `$.product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
 
-```
-/product_tree/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/branches[]/product
+```list-of-jsonpaths
+  $.product_tree.branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].product
 ```
 
 ## Hardware and Software within the Product Tree
@@ -217,4 +217,4 @@ To form the overall product, both parts MUST be combined through a product path.
 > Having multiple products with the same `product_identification_helper` in different `product_status` for the same vulnerability
 > would make it undecidable for machines what the `product_status` actually is.
 
--------
+---

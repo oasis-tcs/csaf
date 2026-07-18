@@ -23,8 +23,8 @@
       "description": "Holds the category of the extension content.",
       "type": "string",
       "enum": [
-        "high_value",
-        "informational"
+        "significant",
+        "supplementary"
       ]
     },
     "content": {

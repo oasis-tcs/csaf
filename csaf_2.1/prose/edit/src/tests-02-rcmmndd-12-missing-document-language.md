@@ -6,8 +6,8 @@ not being present at all.
 
 The relevant path for this test is:
 
-```
-  /document/lang
+```list-of-jsonpaths
+  $.document.lang
 ```
 
 *Example 1 (which fails the test):*

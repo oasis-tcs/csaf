@@ -417,9 +417,9 @@
   "9.1.34": "conformance-clause-34-csaf-extension-bundle",
   "9.1.35": "conformance-clause-35-csaf-extension-package",
   "9.1.36": "conformance-clause-36-csaf-extension-collection",
-  "Appendix A.": "acknowledgments",
-  "Appendix B.": "revision-history",
-  "Appendix C.": "guidance-on-the-size-of-csaf-documents",
+  "Appendix A": "acknowledgments",
+  "Appendix B": "revision-history",
+  "Appendix C": "guidance-on-the-size-of-csaf-documents",
   "C.1": "file-size",
   "C.2": "array-length",
   "C.3": "string-length",
@@ -427,5 +427,5 @@
   "C.5": "enum",
   "C.6": "uri-length",
   "C.7": "uuid-length",
-  "Appendix D.": "collapsing-product-paths"
+  "Appendix D": "collapsing-product-paths"
 }

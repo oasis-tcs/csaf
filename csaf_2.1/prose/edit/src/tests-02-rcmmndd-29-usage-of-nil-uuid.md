@@ -4,8 +4,8 @@ It MUST be tested that the Nil UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
-```
-  /document/distribution/sharing_group/id
+```list-of-jsonpaths
+  $.document.distribution.sharing_group.id
 ```
 
 *Example 1 (which fails the test):*
@@ -13,8 +13,8 @@ The relevant path for this test is:
 ```
     "distribution": {
       "sharing_group": {
-        "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
-        "name": "Public"
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "No sharing allowed"
       },
       // ...
     },

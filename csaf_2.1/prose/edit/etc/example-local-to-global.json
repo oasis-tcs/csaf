@@ -1,5 +1,5 @@
 {
-  "Please do not edit manually!": "Cf. sections-config.yaml and bin/sections.py",
+  "Please do not edit manually!": "Cf. nide.yaml and nide",
   "typographical-conventions-eg-1": "4321",
   "content-schema-property---schema-eg-1": "1",
   "metadata-eg-1": "2",

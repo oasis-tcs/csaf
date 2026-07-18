@@ -1,11 +1,11 @@
 ### Document Tracking ID in Title
 
-It MUST be tested that the `/document/title` does not contain the `/document/tracking/id`.
+It MUST be tested that the `$.document.title` does not contain the `$.document.tracking.id`.
 
 The relevant path for this test is:
 
-```
-  /document/title
+```list-of-jsonpaths
+  $.document.title
 ```
 
 *Example 1 (which fails the test):*

@@ -51,4 +51,4 @@ based on the main domain of the aggregator as specified in requirement 21 in sec
 **Indirect locating**: A retrieving party MAY choose to determine the location of an `aggregator.json` through an out-of-band channel,
 e.g. an email list, news articles or a public website.
 
--------
+---

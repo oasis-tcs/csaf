@@ -36,3 +36,10 @@ jobs:
 
     - name: Test validator/data/testcases.json against testcase schema
       run: ./csaf_2.1/test/validator/check_testcases.sh
+
+    - name: Test results in validator/data/mandatory against schema
+      run: ./csaf_2.1/test/validator/check_testresults.sh mandatory
+    - name: Test results in validator/data/recommended against schema
+      run: ./csaf_2.1/test/validator/check_testresults.sh recommended
+    - name: Test results in validator/data/informative against schema
+      run: ./csaf_2.1/test/validator/check_testresults.sh informative

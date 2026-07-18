@@ -21,9 +21,9 @@
       "description": "Holds the category of the extension content.",
       "type": "string",
       "enum": [
-        "critical",
-        "high_value",
-        "informational"
+        "essential",
+        "significant",
+        "supplementary"
       ]
     },
     "content": {
