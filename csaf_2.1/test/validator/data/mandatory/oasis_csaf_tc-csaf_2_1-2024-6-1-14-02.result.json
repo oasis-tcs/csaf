@@ -5,7 +5,7 @@
     "errors": [
       {
         "instance_path": "/document/tracking/revision_history",
-        "message": "items must be in ascending order when sorted by date and number"
+        "message": "items must be in ascending order when sorted by `date` and `number`"
       }
     ],
     "id": "6.1.14",
