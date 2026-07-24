@@ -39,7 +39,7 @@ The relevant paths for this test are:
 > The extension category is `essential`.
 > A reader that does not understand this extension might miss information that is essential to understand the content of the CSAF document.
 
-#### Usage of Experimental Extension in Non TLP:CLEAR Document{#usage-of-experimental-extension-in-non-tlp-clear-document}
+#### Usage of Experimental Extension in Non-TLP:CLEAR Document{#usage-of-experimental-extension-in-non-tlp-clear-document}
 
 For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that no experimental extension is used
 if the document is not labeled `TLP:CLEAR`.
