@@ -7,7 +7,7 @@
     "warnings": [
       {
         "instance_path": "/product_tree/branches/0/branches/0/branches/0/name",
-        "message": "usage of unknown version type `someweirdunknownversiontype` (not registered, not supported)"
+        "message": "usage of unknown version type `someweirdunknownverstype` (not registered, not supported)"
       }
     ]
   },

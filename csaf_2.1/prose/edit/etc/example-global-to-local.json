@@ -196,7 +196,7 @@
   "194": "overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1",
   "195": "overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1",
   "196": "overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1",
-  "197": "unknown-version-scheme-in-vers-eg-1",
+  "197": "unknown-vers-type-eg-1",
   "198": "unknown-hash-algorithm-eg-1",
   "199": "matching-text-for-registered-id-system-eg-1",
   "200": "registered-extension-eg-1",

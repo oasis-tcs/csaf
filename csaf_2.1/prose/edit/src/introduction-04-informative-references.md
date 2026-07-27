@@ -139,7 +139,7 @@ SSVC-DP
 :    _SSVC/data/json/decision_points at main · CERTCC/SSVC_, CERT/CC, <https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points>
 
 VERS
-:    _vers: a mostly universal version range specifier_, Part of the package-URL GitHub Project, <https://github.com/package-url/vers-spec>.
+:    _VErsion Range Specifier (VERS) Specification_, Part of the package-URL GitHub Project, <https://github.com/package-url/vers-spec>.
 
 VEX
 :    _Vulnerability-Exploitability eXchange (VEX) - An Overview_, VEX sub-group of the Framing Working Group in the NTIA SBOM initiative, 27 September 2021, <https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf>.

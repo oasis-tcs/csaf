@@ -287,7 +287,7 @@
   "6.2.50.1": "overlapping-product-version-range-with-vers-in-contradicting-product-status-group",
   "6.2.50.2": "overlapping-product-version-range-with-vls-in-contradicting-product-status-group",
   "6.2.50.3": "overlapping-product-version-range-with-product-version-in-contradicting-product-status-group",
-  "6.2.51": "unknown-version-scheme-in-vers",
+  "6.2.51": "unknown-vers-type",
   "6.2.52": "unknown-hash-algorithm",
   "6.2.53": "matching-text-for-registered-id-system",
   "6.2.54": "recommended-tests--extension-tests",
