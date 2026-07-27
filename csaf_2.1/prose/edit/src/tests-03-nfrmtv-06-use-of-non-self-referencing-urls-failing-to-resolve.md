@@ -17,9 +17,9 @@ The relevant paths for this test are:
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri
-  $.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]
-  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace
-  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri
+  $.product_tree..branches[*].product.product_identification_helper.sbom_urls[*]
+  $.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].namespace
+  $.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].uri
   $.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]
   $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace
   $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri

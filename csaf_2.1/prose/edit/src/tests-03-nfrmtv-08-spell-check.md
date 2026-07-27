@@ -24,10 +24,8 @@ The relevant paths for this test are:
   $.document.tracking.aliases[*]
   $.document.tracking.generator.engine.name
   $.document.tracking.revision_history[*].summary
-  $.product_tree.branches[*]..name
-  $.product_tree.branches[*]..product.name
-  $.product_tree.branches[*].name
-  $.product_tree.branches[*].product.name
+  $.product_tree..branches[*].name
+  $.product_tree..branches[*].product.name
   $.product_tree.full_product_names[*].name
   $.product_tree.product_groups[*].summary
   $.product_tree.product_paths[*].full_product_name.name
