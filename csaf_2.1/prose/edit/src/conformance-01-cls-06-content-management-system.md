@@ -68,6 +68,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
 
   - `$['$schema']` with the value prescribed by the schema
   - `$.document.csaf_version` with the value prescribed by the schema
+  - `$.document.distribution.tlp.label` with a default of `TLP:CLEAR`
   - `$.document.lang`
   - `$.document.notes`
     - `legal_disclaimer` (Terms of use from the configuration)
@@ -103,3 +104,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
     - `$.document.tracking.status` with `draft`
     - `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
     - `$.document.publisher` and children
+
+- before allowing `$.document.tracking.status` to transition from `draft` to `interim` or `final`, enforces that any newly created
+  or updated document contains all required fields, in order for the document to be valid according to the profile specified in
+  `$.document.category`.
