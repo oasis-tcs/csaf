@@ -207,7 +207,7 @@ For each `EPVR` (as `CTPVR`), it MUST be tested that all product version ranges 
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 *Example 1 (which fails the test):*
@@ -246,7 +246,7 @@ For each `EPVR` (as `CTPVR`), it MUST be tested that all product versions of ele
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 *Example 1 (which fails the test):*

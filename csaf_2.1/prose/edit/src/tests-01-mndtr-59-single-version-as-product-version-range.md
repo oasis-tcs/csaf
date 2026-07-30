@@ -6,7 +6,7 @@ identify only a single version.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 *Example 1 (which fails the test):*

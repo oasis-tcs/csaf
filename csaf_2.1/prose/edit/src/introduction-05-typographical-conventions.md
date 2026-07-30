@@ -19,6 +19,12 @@ JSONPath is also used within the standard as syntax for specifying paths or refe
 They can have multiple results when being applied to a JSON instance or schema.
 However, when referring to a schema with one of the keywords `$ref` or `$dynamicRef` the value is a `URI-Reference`
 (cf. section 8.2.3 of [cite](#JSON-Schema-Core)).
+To represent paths which contain the branch recursion below `$.product_tree.branches[*]` the descendant segment syntax
+`$.product_tree..branches[*]` is used.
+Implementations need to ensure that only matching paths with the intended type are selected.
+For example, this could be done by checking that the property names that are omitted through the `..` syntax along the path
+between `product_tree` and `branches` are just `branches`.
+Including but not limited to paths containing `x_extensions` could introduce arbitrary other property names.
 
 Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
 
