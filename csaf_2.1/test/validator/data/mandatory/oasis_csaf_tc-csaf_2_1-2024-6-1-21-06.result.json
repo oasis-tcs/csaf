@@ -21,7 +21,7 @@
       },
       {
         "instance_path": "/document/tracking/revision_history",
-        "message": "missing revision history item with number `5.0.0` between `2023-08-22T10:00:00.000Z` and `2024-01-21T11:00:00.000+06:00`"
+        "message": "missing revision history item with number `5.0.0` between `2023-08-22T10:00:00.000Z` and `2024-01-21T11:00:00.000Z`"
       }
     ],
     "id": "6.1.21",

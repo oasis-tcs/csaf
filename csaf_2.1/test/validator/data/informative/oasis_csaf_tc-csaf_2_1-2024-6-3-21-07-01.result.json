@@ -1,14 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
-  "overall_valid": false,
+  "overall_valid": true,
   "primary_result": {
-    "errors": [
+     "infos": [
       {
-        "instance_path": "/document/tracking/revision_history",
-        "message": "missing revision history item with number `2.0.0` at all"
+        "instance_path": "/vulnerabilities/0/metrics/0/content/x_extensions",
+        "message": "usage of extensions"
       }
     ],
-    "id": "6.1.21",
+    "id": "6.3.21.7",
     "passed": false
   },
   "resultschema_version": "2.1"
