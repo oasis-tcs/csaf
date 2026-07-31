@@ -972,8 +972,8 @@ Stakeholder-Specific Vulnerability Categorization], CERT/CC,
 #emph[SSVC/data/json/decision\_points at main · CERTCC/SSVC], CERT/CC,
 #link("https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points")
 
-#strong[\[]<VERS>#strong[VERS\]] #emph[vers: a mostly universal version
-range specifier], Part of the package-URL GitHub Project,
+#strong[\[]<VERS>#strong[VERS\]] #emph[VErsion Range Specifier (VERS)
+Specification], Part of the package-URL GitHub Project,
 #link("https://github.com/package-url/vers-spec").
 
 #strong[\[]<VEX>#strong[VEX\]] #emph[Vulnerability-Exploitability
@@ -1036,7 +1036,15 @@ or referring to elements relevant to the current context. They can have
 multiple results when being applied to a JSON instance or schema.
 However, when referring to a schema with one of the keywords `$ref` or
 `$dynamicRef` the value is a `URI-Reference` (cf.~section 8.2.3 of
-\[#link(<JSON-Schema-Core>)[JSON-Schema-Core]\]).
+\[#link(<JSON-Schema-Core>)[JSON-Schema-Core]\]). To represent paths
+which contain the branch recursion below `$.product_tree.branches[*]`
+the descendant segment syntax `$.product_tree..branches[*]` is used.
+Implementations need to ensure that only matching paths with the
+intended type are selected. For example, this could be done by checking
+that the property names that are omitted through the `..` syntax along
+the path between `product_tree` and `branches` are just `branches`.
+Including but not limited to paths containing `x_extensions` could
+introduce arbitrary other property names.
 
 Some sections of this specification are illustrated with non-normative
 examples introduced with "Example" or "Examples" like so:
@@ -1836,20 +1844,20 @@ If adjacent property `category` has the value `product_version_range`,
 the value of `name` MUST contain version ranges. The value of MUST obey
 to exactly one of the following options:
 
-+ Version Range Specifier (vers)
++ VErsion Range Specifier (VERS)
 
   #quote(block: true)[
-  vers is an ongoing community effort to address the problem of version
+  VERS is an ongoing community effort to address the problem of version
   ranges. Its draft specification is available at
   \[#link(<VERS>)[VERS]\].
   ]
 
-  vers MUST be used in its canonical form. To convey the term "all
-  versions", the special string `vers:all/*` MUST be used.
+  VERS SHALL be used in its canonical form. To convey the term "all
+  versions", the special string `vers:all/*` SHALL be used.
 
   #quote(block: true)[
   According to the interpretation used here, the canonical form requires
-  that the vers is normalized.
+  that the VERS is normalized.
   ]
 
   #emph[Examples 1 (for `name` when using `product_version_range` with
@@ -1863,15 +1871,15 @@ to exactly one of the following options:
   ```
 
   #quote(block: true)[
-  Through the definitions of the vers specification a user can compute
+  Through the definitions of the VERS specification a user can compute
   whether a given version is in a given range.
   ]
 
-+ Vers-like Specifier (vls)
++ VERS-like Specifier (vls)
 
-  This option uses only the `constraint` part from the vers
-  specification. It MUST NOT have a URI nor the `type` part. It is a
-  fallback option and SHOULD NOT be used unless really necessary.
+  This option uses only the `constraint` part from the VERS
+  specification. It MUST NOT have the `scheme` nor the `type` part. It
+  is a fallback option and SHOULD NOT be used unless really necessary.
 
   #quote(block: true)[
   The reason for that is, that it is nearly impossible for tools to
@@ -5875,20 +5883,21 @@ Neither `CSAF Security Advisory` nor `csaf security advisory` are valid
 values for `$.document.category`.
 ]
 
-An issuing party might choose to set `$.document.publisher.name` in
-front of a value that is intended to only be used by another profile to
-state that the CSAF document does not use the profile associated with
-this value. In this case, the (case insensitive) string "CSAF" MUST be
-removed from the value. This SHOULD be done if the issuing party is
-unable or unwilling to use the value `csaf_base`, e.g.~due to legal or
-cooperate identity reasons.
+An issuing party might choose to prepend its `$.document.publisher.name`
+to a value in `$.document.category` that would otherwise be intended to
+only be used by another profile, to state that the CSAF document does
+not use the profile associated with this value. In this case, the (case
+insensitive) string "CSAF" MUST be removed from the value. This SHOULD
+be done if the issuing party is unable or unwilling to use the value
+`csaf_base`, e.g.~due to legal or cooperate identity reasons.
 
 #quote(block: true)[
 Both values `Example Company Security Advisory` and
-`Example Company security_advisory` in `$.document.category` use the
-profile "CSAF Base". This is important to prepare forward compatibility
-as later versions of CSAF might add new profiles. Therefore, the values
-which can be used for the profile "CSAF Base" might change.
+`Example Company security_advisory` in `$.document.category` are
+therefore valid categories for the profile "CSAF Base". This is
+important to prepare forward compatibility as later versions of CSAF
+might add new profiles. Therefore, the values which can be used for the
+profile "CSAF Base" might change.
 ]
 
 == Profile 2: Security Incident Response
@@ -6531,7 +6540,7 @@ that the `product_id` was not already defined within the same document.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_id
+  $.product_tree..branches[*].product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
@@ -7043,7 +7052,7 @@ constraints given in section
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.purls[*]
+  $.product_tree..branches[*].product.product_identification_helper.purls[*]
   $.product_tree.full_product_names[*].product_identification_helper.purls[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
 ```
@@ -7528,7 +7537,7 @@ times in one item of file hashes.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes
+  $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
@@ -8631,7 +8640,7 @@ lowercase, the value of `name` satisfies the two requirements below:
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -8764,7 +8773,7 @@ instances of `branches`.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product
+  $.product_tree..branches[*].product
 ```
 
 #emph[Example 1 (which fails the
@@ -9240,7 +9249,7 @@ PURLs it MUST be tested that the PURLs only differ in their qualifiers.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.purls[*]
+  $.product_tree..branches[*].product.product_identification_helper.purls[*]
   $.product_tree.full_product_names[*].product_identification_helper.purls[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
 ```
@@ -9281,7 +9290,7 @@ number introduce ambiguity and are therefore prohibited.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.model_numbers[*]
+  $.product_tree..branches[*].product.product_identification_helper.model_numbers[*]
   $.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]
 ```
@@ -9312,7 +9321,7 @@ number introduce ambiguity and are therefore prohibited.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.serial_numbers[*]
+  $.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]
   $.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]
 ```
@@ -9588,14 +9597,14 @@ For each element of type `$['$defs'].branches_t` with `category` of
 `product_version_range`, it MUST be tested that the value of `name`
 complies with the rules given in section
 #link(<branches-type---name-under-product-version-range>)[3.1.2.3.2].
-Version schemes of vers not supported by the implementation SHALL result
-in a warning which MUST include the version scheme name used.
-Nevertheless, all other rules MUST be checked to the extent possible.
+VERS types not supported by the implementation SHALL result in a warning
+which MUST include the VERS type name used. Nevertheless, all other
+rules MUST be checked to the extent possible.
 
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -9905,7 +9914,7 @@ exception is `product_family` which can occur multiple times. Therefore,
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..category
+  $.product_tree..branches[*].category
 ```
 
 #emph[Example 1 (which fails the
@@ -9948,7 +9957,7 @@ leading to the `full_product_name_t` element.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..category
+  $.product_tree..branches[*].category
 ```
 
 #emph[Example 1 (which fails the
@@ -9992,7 +10001,7 @@ not identify only a single version.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -10035,7 +10044,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product.x_extensions[*]
+  $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
@@ -10075,7 +10084,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product.x_extensions[*]
+  $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
@@ -10128,7 +10137,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions
-  $.product_tree.branches[*]..product.x_extensions
+  $.product_tree..branches[*].product.x_extensions
   $.product_tree.full_product_names[*].x_extensions
   $.product_tree.product_paths[*].full_product_name.x_extensions
   $.vulnerabilities[*].metrics[*].content.x_extensions
@@ -10174,7 +10183,7 @@ number introduce ambiguity and are therefore prohibited.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.skus[*]
+  $.product_tree..branches[*].product.product_identification_helper.skus[*]
   $.product_tree.full_product_names[*].product_identification_helper.skus[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]
 ```
@@ -10212,7 +10221,7 @@ This test SHALL be skipped for CSAF documents conforming the profile
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_id
+  $.product_tree..branches[*].product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
@@ -10487,7 +10496,7 @@ double check the results.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes
+  $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
@@ -10538,7 +10547,7 @@ double check the results.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes
+  $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
@@ -10767,7 +10776,7 @@ tested that it includes the property `product_identification_helper`.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product
+  $.product_tree..branches[*].product
   $.product_tree.full_product_names[*]
   $.product_tree.product_paths[*].full_product_name
 ```
@@ -10827,16 +10836,16 @@ fix, if that didn't exist before. Alternatively, it MAY remove such
 element as a quick fix.
 ]
 
-=== Product Version Range without vers
+=== Product Version Range without VERS
 <product-version-range-without-vers>
 For each element of type `$['$defs'].branches_t` with `category` of
 `product_version_range` it MUST be tested that the value of `name`
-indicates that the product version range is using vers.
+indicates that the product version range is using VERS.
 
 #quote(block: true)[
-Compliance with the vers specification itself is enforced via test
-#link(<product-version-range-rules>)[6.1.50]. Unknown version schemes
-are detected via test #link(<unknown-version-scheme-in-vers>)[6.2.51].
+Compliance with the VERS specification itself is enforced via test
+#link(<product-version-range-rules>)[6.1.50]. Unknown VERS types are
+detected via test #link(<unknown-vers-type>)[6.2.51].
 
 To implement this test it is deemed sufficient that the value of `name`
 matches the following regex:
@@ -10846,7 +10855,7 @@ matches the following regex:
 ```
 ]
 
-The warning MUST clearly advise to carefully check whether vers can be
+The warning MUST clearly advise to carefully check whether VERS can be
 used or the versions can be enumerated as the use of vls is only a
 fallback option. For more details, see sections
 #link(<branches-type---category>)[3.1.2.2] and
@@ -10860,7 +10869,7 @@ future versions of this standard.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -10878,7 +10887,7 @@ test):]#box()<product-version-range-without-vers-eg-1>
 
 #quote(block: true)[
 The version range `>4.2` is a valid vls but not valid according to the
-vers specification.
+VERS specification.
 ]
 
 === CVSS for Fixed Products
@@ -11397,7 +11406,7 @@ does not make the CSAF document invalid.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product
+  $.product_tree..branches[*].product
   $.product_tree.full_product_names[*]
   $.product_tree.product_paths[*].full_product_name
 ```
@@ -11472,7 +11481,7 @@ each object is compared by deep-equality of its key/value pairs
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper
+  $.product_tree..branches[*].product.product_identification_helper
   $.product_tree.full_product_names[*].product_id.product_identification_helper
   $.product_tree.product_paths[*].full_product_name.product_id.product_identification_helper
 ```
@@ -12204,8 +12213,8 @@ are referred to as counterparts.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.cpe
-  $.product_tree.branches[*]..product.product_identification_helper.purls[*]
+  $.product_tree..branches[*].product.product_identification_helper.cpe
+  $.product_tree..branches[*].product.product_identification_helper.purls[*]
 ```
 
 #emph[Example 1 (which fails the
@@ -12454,7 +12463,7 @@ e.g.~`Open Source Ltd.`.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -12501,7 +12510,7 @@ product version range contains as comparator either `>` or `>=`.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -12571,7 +12580,7 @@ product version ranges. The following definitions apply to all tests:
 
 - `PVRSS` is divided in three pairwise disjoint sets:
 
-  + Elements that use valid vers form the "product version range sibling
+  + Elements that use valid VERS form the "product version range sibling
     set - vers" (`PVRSS-vers`).
   + Elements that use valid vls form the "product version range sibling
     set - vls" (`PVRSS-vls`).
@@ -12600,11 +12609,11 @@ product version ranges. The following definitions apply to all tests:
 
 - Attributes of `PVRSS` elements can be combined:
 
-  + Product version range sibling set with branches - vers
+  + Product version range sibling set with branches - VERS
     (`PVRSS+b-vers`): Intersection of `PVRSS+b` and `PVRSS-vers`
   + Product version range sibling set with branches - vls
     (`PVRSS+b-vls`): Intersection of `PVRSS+b` and `PVRSS-vls`
-  + Product version range sibling set with leaf - vers (`PVRSS+l-vers`):
+  + Product version range sibling set with leaf - VERS (`PVRSS+l-vers`):
     Intersection of `PVRSS+l` and `PVRSS-vers`
   + Product version range sibling set with leaf - vls (`PVRSS+l-vls`):
     Intersection of `PVRSS+l` and `PVRSS-vls`
@@ -12612,7 +12621,7 @@ product version ranges. The following definitions apply to all tests:
     (`PVRSS+b-invalid`): Intersection of `PVRSS+b` and `PVRSS-invalid`
   + Product version range sibling set with leaf - invalid
     (`PVRSS+l-invalid`): Intersection of `PVRSS+l` and `PVRSS-invalid`
-  + Product version range sibling set - invalid branch - vers
+  + Product version range sibling set - invalid branch - VERS
     (`PVRSS+i-vers`): Intersection of `PVRSS+i` and `PVRSS-vers`
   + Product version range sibling set - invalid branch - vls
     (`PVRSS+i-vls`): Intersection of `PVRSS+i` and `PVRSS-vls`
@@ -12628,7 +12637,7 @@ product tree. Elements in `PVRSS-invalid` should be detected by test
 #link(<product-version-range-rules>)[6.1.50].
 ]
 
-==== Overlapping Product Version Range with vers in Contradicting Product Status Group
+==== Overlapping Product Version Range with VERS in Contradicting Product Status Group
 <overlapping-product-version-range-with-vers-in-contradicting-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
 groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
@@ -12859,44 +12868,42 @@ A tool MAY exclude the overlapping product version from the product
 version range as a quick fix.
 ]
 
-=== Unknown Version Scheme in vers
-<unknown-version-scheme-in-vers>
+=== Unknown VERS Type
+<unknown-vers-type>
 For each element of type `$['$defs'].branches_t` with `category` of
 `product_version_range` which indicates that it is using vers, it MUST
-be tested that the version scheme is supported by the implementation.
-The warning MUST differentiate between officially registered version
-schemes and those that are not in this state.
+be tested that the VERS type is officially registered and supported by
+the implementation. The warning MUST differentiate between officially
+registered VERS types and those that are not in this state.
 
 #quote(block: true)[
-Different implementations might support different version schemes.
-Usually, unknown version schemes hinder the automated evaluation of
-vers. However, it is expected that the test is able to recognize all
-officially registered version schemes. The differentiation will help
-users analyzing the result of the test and addressing the issue
-appropriately.
+Different implementations might support different VERS types. Usually,
+unknown VERS types hinder the automated evaluation of VERS. However, it
+is expected that the test is able to recognize all officially registered
+VERS types. The differentiation will help users analyzing the result of
+the test and addressing the issue appropriately.
 ]
 
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
-#emph[Example 1 (which fails the
-test):]#box()<unknown-version-scheme-in-vers-eg-1>
+#emph[Example 1 (which fails the test):]#box()<unknown-vers-type-eg-1>
 
 ```
     {
       "category": "product_version_range",
-      "name": "vers:someweirdunknownversionscheme/<4.2.0|>3.91.1|!=3.2.0|<1.2",
+      "name": "vers:someweirdunknownverstype/<4.2.0|>3.91.1|!=3.2.0|<1.2",
       // ...
     }
 ```
 
 #quote(block: true)[
-The version scheme `someweirdunknownversionscheme` is a not an
-officially registered vers version scheme. Note: An implementation would
-also have to state whether it supports this version scheme.
+The VERS type `someweirdunknownverstype` is a not an officially
+registered one. Note: An implementation would also have to state whether
+it supports this VERS type.
 ]
 
 === Unknown Hash Algorithm
@@ -12921,7 +12928,7 @@ appropriately.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].algorithm
+  $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm
 ```
@@ -12999,7 +13006,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product.x_extensions[*]
+  $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
@@ -13032,7 +13039,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product.x_extensions[*]
+  $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
@@ -13068,7 +13075,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*].critical
-  $.product_tree.branches[*]..product.x_extensions[*].critical
+  $.product_tree..branches[*].product.x_extensions[*].critical
   $.product_tree.full_product_names[*].x_extensions[*].critical
   $.product_tree.product_paths[*].full_product_name.x_extensions[*].critical
   $.vulnerabilities[*].metrics[*].content.x_extensions[*].critical
@@ -13101,7 +13108,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product.x_extensions[*]
+  $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
@@ -13309,7 +13316,7 @@ It MUST be tested that the length of the hash value is not shorter than
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].value
+  $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value
 ```
@@ -13367,9 +13374,9 @@ The relevant paths for this test are:
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri
-  $.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]
-  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace
-  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri
+  $.product_tree..branches[*].product.product_identification_helper.sbom_urls[*]
+  $.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].namespace
+  $.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].uri
   $.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]
   $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace
   $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri
@@ -13463,10 +13470,8 @@ The relevant paths for this test are:
   $.document.tracking.aliases[*]
   $.document.tracking.generator.engine.name
   $.document.tracking.revision_history[*].summary
-  $.product_tree.branches[*]..name
-  $.product_tree.branches[*]..product.name
-  $.product_tree.branches[*].name
-  $.product_tree.branches[*].product.name
+  $.product_tree..branches[*].name
+  $.product_tree..branches[*].product.name
   $.product_tree.full_product_names[*].name
   $.product_tree.product_groups[*].summary
   $.product_tree.product_paths[*].full_product_name.name
@@ -13570,7 +13575,7 @@ ranges and enumerate versions wherever possible.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..category
+  $.product_tree..branches[*].category
 ```
 
 #emph[Example 1 (which fails the
@@ -13602,7 +13607,7 @@ does not match the following regex:
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -13978,7 +13983,7 @@ errors in the construction of the product tree. The abbreviations for
 groups are defined in section
 #link(<overlapping-product-version-range>)[6.2.50].
 
-==== Overlapping Product Version Range with vers in Same Product Status Group
+==== Overlapping Product Version Range with VERS in Same Product Status Group
 <overlapping-product-version-range-with-vers-in-same-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
 groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
@@ -14212,7 +14217,7 @@ overlap with `CTPVR`.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -14259,7 +14264,7 @@ with `CTPVR`.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 #emph[Example 1 (which fails the
@@ -14348,7 +14353,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*].category
-  $.product_tree.branches[*]..product.x_extensions[*].category
+  $.product_tree..branches[*].product.x_extensions[*].category
   $.product_tree.full_product_names[*].x_extensions[*].category
   $.product_tree.product_paths[*].full_product_name.x_extensions[*].category
   $.vulnerabilities[*].metrics[*].content.x_extensions[*].category
@@ -14385,7 +14390,7 @@ The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.document.x_extensions[*]
-  $.product_tree.branches[*]..product.x_extensions[*]
+  $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
   $.product_tree.product_paths[*].full_product_name.x_extensions[*]
   $.vulnerabilities[*].metrics[*].content.x_extensions[*]
@@ -14460,7 +14465,7 @@ path that starts with `$.product_tree.branches`.
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..product.x_extensions
+  $.product_tree..branches[*].product.x_extensions
 ```
 
 #emph[Example 1 (which fails the
@@ -17644,7 +17649,7 @@ Secondly, the program fulfills the following for all items of:
     to CSAF 2.1 Converter SHALL try to convert the data into a valid
     product tree by applying the following steps to the path:
 
-    + If value of `name` is in the vers format:
+    + If value of `name` is in the VERS format:
       - the category of the original `product_version_range` item SHALL
         be changed to `product_version` and
       - the version SHALL be extracted from the version constraint and
@@ -18830,18 +18835,12 @@ An array SHOULD NOT have more than:
   - `$.document.acknowledgments[*].urls`
   - `$.document.tracking.aliases`
   - `$.document.x_extensions`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes`
-  - `$.product_tree.branches[*]..product.product_identification_helper.purls`
-  - `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls`
-  - `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris`
-  - `$.product_tree.branches[*]..product.x_extensions`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes`
-  - `$.product_tree.branches[*].product.product_identification_helper.purls`
-  - `$.product_tree.branches[*].product.product_identification_helper.sbom_urls`
-  - `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris`
-  - `$.product_tree.branches[*].product.x_extensions`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes`
+  - `$.product_tree..branches[*].product.product_identification_helper.purls`
+  - `$.product_tree..branches[*].product.product_identification_helper.sbom_urls`
+  - `$.product_tree..branches[*].product.product_identification_helper.x_generic_uris`
+  - `$.product_tree..branches[*].product.x_extensions`
   - `$.product_tree.full_product_names[*].product_identification_helper.hashes`
   - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes`
   - `$.product_tree.full_product_names[*].product_identification_helper.purls`
@@ -18878,12 +18877,9 @@ An array SHOULD NOT have more than:
   - `$.document.tracking.revision_history`
   - `$.product_tree.branches`
   - `$.product_tree..branches`
-  - `$.product_tree.branches[*]..product.product_identification_helper.model_numbers`
-  - `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers`
-  - `$.product_tree.branches[*]..product.product_identification_helper.skus`
-  - `$.product_tree.branches[*].product.product_identification_helper.model_numbers`
-  - `$.product_tree.branches[*].product.product_identification_helper.serial_numbers`
-  - `$.product_tree.branches[*].product.product_identification_helper.skus`
+  - `$.product_tree..branches[*].product.product_identification_helper.model_numbers`
+  - `$.product_tree..branches[*].product.product_identification_helper.serial_numbers`
+  - `$.product_tree..branches[*].product.product_identification_helper.skus`
   - `$.product_tree.full_product_names`
   - `$.product_tree.full_product_names[*].product_identification_helper.model_numbers`
   - `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers`
@@ -18956,24 +18952,15 @@ A string SHOULD NOT have a length greater than:
   - `$.document.tracking.revision_history[*].legacy_version`
   - `$.document.tracking.revision_history[*].number`
   - `$.document.tracking.version`
-  - `$.product_tree.branches[*]..name`
-  - `$.product_tree.branches[*]..product.name`
-  - `$.product_tree.branches[*]..product.product_id`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].value`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].filename`
-  - `$.product_tree.branches[*]..product.product_identification_helper.model_numbers[*]`
-  - `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers[*]`
-  - `$.product_tree.branches[*]..product.product_identification_helper.skus[*]`
-  - `$.product_tree.branches[*].name`
-  - `$.product_tree.branches[*].product.name`
-  - `$.product_tree.branches[*].product.product_id`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].filename`
-  - `$.product_tree.branches[*].product.product_identification_helper.model_numbers[*]`
-  - `$.product_tree.branches[*].product.product_identification_helper.serial_numbers[*]`
-  - `$.product_tree.branches[*].product.product_identification_helper.skus[*]`
+  - `$.product_tree..branches[*].name`
+  - `$.product_tree..branches[*].product.name`
+  - `$.product_tree..branches[*].product.product_id`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].filename`
+  - `$.product_tree..branches[*].product.product_identification_helper.model_numbers[*]`
+  - `$.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]`
+  - `$.product_tree..branches[*].product.product_identification_helper.skus[*]`
   - `$.product_tree.full_product_names[*].name`
   - `$.product_tree.full_product_names[*].product_id`
   - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm`
@@ -19046,10 +19033,8 @@ A string SHOULD NOT have a length greater than:
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
   - `$.document.tracking.revision_history[*].summary`
-  - `$.product_tree.branches[*]..product.product_identification_helper.cpe`
-  - `$.product_tree.branches[*]..product.product_identification_helper.purls[*]`
-  - `$.product_tree.branches[*].product.product_identification_helper.cpe`
-  - `$.product_tree.branches[*].product.product_identification_helper.purls[*]`
+  - `$.product_tree..branches[*].product.product_identification_helper.cpe`
+  - `$.product_tree..branches[*].product.product_identification_helper.purls[*]`
   - `$.product_tree.full_product_names[*].product_identification_helper.cpe`
   - `$.product_tree.full_product_names[*].product_identification_helper.purls[*]`
   - `$.product_tree.product_groups[*].summary`
@@ -19118,10 +19103,8 @@ each value is not greater than 50. This applies to:
 - `$.document.references[*].category` (8)
 - `$.document.tracking.status` (7)
 - `$.document.x_extensions[*].category` (13)
-- `$.product_tree.branches[*]..category` (15)
-- `$.product_tree.branches[*]..product.x_extensions[*].category` (13)
-- `$.product_tree.branches[*].category` (15)
-- `$.product_tree.branches[*].product.x_extensions[*].category` (13)
+- `$.product_tree..branches[*].category` (15)
+- `$.product_tree..branches[*].product.x_extensions[*].category` (13)
 - `$.product_tree.full_product_names[*].x_extensions[*].category` (13)
 - `$.product_tree.product_paths[*].category` (21)
 - `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category`
@@ -19277,14 +19260,10 @@ This applies to:
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`
-- `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]`
-- `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace`
-- `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri`
-- `$.product_tree.branches[*]..product.x_extensions[*]['$schema']`
-- `$.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]`
-- `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace`
-- `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri`
-- `$.product_tree.branches[*].product.x_extensions[*]['$schema']`
+- `$.product_tree..branches[*].product.product_identification_helper.sbom_urls[*]`
+- `$.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].namespace`
+- `$.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].uri`
+- `$.product_tree..branches[*].product.x_extensions[*]['$schema']`
 - `$.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]`
 - `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace`
 - `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri`

@@ -340,7 +340,7 @@
   "translator": "6.1.15",
   "typographical-conventions": "1.5",
   "unknown-hash-algorithm": "6.2.52",
-  "unknown-version-scheme-in-vers": "6.2.51",
+  "unknown-vers-type": "6.2.51",
   "unused-definition-of-product-id": "6.2.1",
   "upper-open-ended-product-version-range": "6.2.49",
   "uri-length": "C.6",
