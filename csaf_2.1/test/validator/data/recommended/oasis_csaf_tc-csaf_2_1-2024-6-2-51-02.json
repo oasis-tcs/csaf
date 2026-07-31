@@ -13,7 +13,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Unknown Version Scheme in vers (failing example 2)",
+    "title": "Recommended Test: Unknown VERS Type (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-51-02",
@@ -45,7 +45,7 @@
                             "branches": [
                               {
                                 "category": "product_version_range",
-                                "name": "vers:someotherunknownversiontype/>=2012-06-30T23:59:60Z|<=2016-12-31T23:59:60Z",
+                                "name": "vers:someotherunknownverstype/>=2012-06-30T23:59:60Z|<=2016-12-31T23:59:60Z",
                                 "product": {
                                   "name": "Example Company Product A between 2012-06-30T23:59:60Z and 2016-12-31T23:59:60Z (both included)",
                                   "product_id": "CSAFPID-9080700"

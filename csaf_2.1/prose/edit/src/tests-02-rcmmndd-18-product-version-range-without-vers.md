@@ -1,10 +1,10 @@
-### Product Version Range without vers
+### Product Version Range without VERS
 
 For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` it MUST be tested that
-the value of `name` indicates that the product version range is using vers.
+the value of `name` indicates that the product version range is using VERS.
 
-> Compliance with the vers specification itself is enforced via test [sec](#product-version-range-rules).
-> Unknown version schemes are detected via test [sec](#unknown-version-scheme-in-vers).
+> Compliance with the VERS specification itself is enforced via test [sec](#product-version-range-rules).
+> Unknown VERS types are detected via test [sec](#unknown-vers-type).
 >
 > To implement this test it is deemed sufficient that the value of `name` matches the following regex:
 >
@@ -12,7 +12,7 @@ the value of `name` indicates that the product version range is using vers.
 >   ^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+
 > ```
 
-The warning MUST clearly advise to carefully check whether vers can be used or the versions can be enumerated as
+The warning MUST clearly advise to carefully check whether VERS can be used or the versions can be enumerated as
 the use of vls is only a fallback option.
 For more details, see sections [sec](#branches-type---category) and [sec](#branches-type---name-under-product-version-range).
 
@@ -36,4 +36,4 @@ The relevant paths for this test are:
             ]
 ```
 
-> The version range `>4.2` is a valid vls but not valid according to the vers specification.
+> The version range `>4.2` is a valid vls but not valid according to the VERS specification.

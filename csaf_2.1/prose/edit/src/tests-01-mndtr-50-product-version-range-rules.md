@@ -1,8 +1,8 @@
 ### Product Version Range Rules
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` complies with
-the rules given in section [sec](#branches-type---name-under-product-version-range).
-Version schemes of vers not supported by the implementation SHALL result in a warning which MUST include the version scheme name used.
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it MUST be tested
+that the value of `name` complies with the rules given in section [sec](#branches-type---name-under-product-version-range).
+VERS types not supported by the implementation SHALL result in a warning which MUST include the VERS type name used.
 Nevertheless, all other rules MUST be checked to the extent possible.
 
 The relevant path for this test is:

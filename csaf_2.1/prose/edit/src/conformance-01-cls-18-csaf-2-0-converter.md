@@ -107,7 +107,7 @@ Secondly, the program fulfills the following for all items of:
     the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
 
-    1. If value of `name` is in the vers format:
+    1. If value of `name` is in the VERS format:
        * the category of the original `product_version_range` item SHALL be changed to `product_version` and
        * the version SHALL be extracted from the version constraint and set as new value of `name`.
     2. If value of `name` is in the vls format:
