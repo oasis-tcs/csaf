@@ -149,22 +149,5 @@
             ],
             "title": "A buffer overflow in Product Acme makes it expose credentials of all users directly"
         }
-    ],
-    "x_extensions": [
-        {
-            "$schema": "https://democert.org/cvd/csaf_2.1_root_extension_1.0.1.json",
-            "category": "high_value",
-            "critical": false,
-            "content": {
-                "ai/ml": false,
-                "ics_impact": false,
-                "share_contact_with_vendor": true,
-                "private_comments": "I want to report more things later",
-                "contact_pgp_url": "https://example.com/johndoe.key",
-                "Related_IDs": [
-                    "CVE-1900-0000"
-                ]
-            }
-        }
     ]
 }
