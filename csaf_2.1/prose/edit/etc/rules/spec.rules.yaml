@@ -1,0 +1,355 @@
+meta:
+  name: csaf-spec-rules
+  description: >-
+    CSAF 2.1 specification-level quality rules.
+    Run with: nide quality --rules etc/rules/spec.rules.yaml
+  # extends: oasis
+  # Uncomment the line above once etc/rules/oasis.rules.yaml is present.
+  # Fetch it from OASIS-Docs/publication-assurance and copy it here unchanged.
+  # The OASIS-prefixed rules below are stand-ins for that org file.
+
+context:
+  tc-name: csaf
+  spec-name: csaf
+  spec-version: "2.1"
+  stage: csd03
+  doc-url-base: https://docs.oasis-open.org/csaf/csaf/v2.1
+
+rules:
+
+  # ── OASIS template structure ───────────────────────────────────────────────
+  # These will live in oasis.rules.yaml once available; remove them then.
+
+  - id: OASIS-CONFORMANCE
+    severity: BLOCKER
+    description: A Conformance section must be present (OASIS TC Process §2.18)
+    check:
+      type: section-present
+      pattern: '^Conformance'
+      flags: IGNORECASE
+
+  - id: OASIS-TECHNICAL-COMMITTEE
+    severity: BLOCKER
+    description: A Technical Committee entry must appear in the front matter
+    check:
+      type: section-present
+      pattern: 'Technical Committee'
+      flags: IGNORECASE
+
+  - id: OASIS-CHAIRS
+    severity: WARN
+    description: A Chairs entry must appear in the front matter
+    check:
+      type: section-present
+      pattern: '^Chairs?[.:]?\s*$'
+      flags: IGNORECASE
+
+  - id: OASIS-EDITORS
+    severity: WARN
+    description: An Editors entry must appear in the front matter
+    check:
+      type: section-present
+      pattern: '^Editors?[.:]?\s*$'
+      flags: IGNORECASE
+
+  - id: OASIS-ABSTRACT
+    severity: BLOCKER
+    description: An Abstract section must be present (OASIS template)
+    check:
+      type: section-present
+      pattern: '^Abstract'
+      flags: IGNORECASE
+
+  - id: OASIS-LOGO
+    severity: WARN
+    description: The canonical OASIS logo must appear in the document
+    check:
+      type: any-match
+      target: prose
+      pattern: 'OASISLogo'
+
+  # ── RFC 2119 / 8174 citation ───────────────────────────────────────────────
+
+  - id: OASIS-RFC-2119-CITED
+    severity: BLOCKER
+    description: >-
+      When RFC 2119 normative keywords are used (MUST, SHALL, SHOULD, MAY, …),
+      RFC 2119 must be cited in the normative references.
+    check:
+      type: conditional
+      condition:
+        type: any-match
+        target: prose
+        # All-caps normative keyword; do NOT add IGNORECASE — case matters here
+        pattern: '\b(MUST NOT|MUST|SHALL NOT|SHALL|SHOULD NOT|SHOULD|NOT RECOMMENDED|RECOMMENDED|OPTIONAL|REQUIRED)\b'
+      then:
+        type: any-match
+        target: links
+        pattern: '#RFC2119'
+
+  - id: OASIS-RFC-8174-PAIRED
+    severity: WARN
+    description: >-
+      When RFC 2119 is cited, RFC 8174 (uppercase-only clarification) must
+      also be cited alongside it.
+    check:
+      type: conditional
+      condition:
+        type: any-match
+        target: links
+        pattern: '#RFC2119'
+      then:
+        type: any-match
+        target: links
+        pattern: '#RFC8174'
+
+  # ── Editorial residue ──────────────────────────────────────────────────────
+
+  - id: OASIS-RESID-TODO
+    severity: BLOCKER
+    description: No TODO markers may remain in the prose
+    check:
+      type: all-match
+      target: prose
+      pattern: 'TODO[\(:]'
+      invert: true
+
+  - id: OASIS-RESID-TBD
+    severity: WARN
+    description: No bare TBD placeholder lines may remain
+    check:
+      type: all-match
+      target: prose
+      pattern: '^\s*tbd\s*$'
+      flags: IGNORECASE
+      invert: true
+
+  - id: OASIS-RESID-FILL-IN
+    severity: WARN
+    description: >-
+      No 'Will be filled in' placeholders may remain (tolerated early-stage,
+      must resolve before Committee Specification)
+    check:
+      type: all-match
+      target: prose
+      pattern: 'Will be filled in'
+      flags: IGNORECASE
+      invert: true
+
+  # ── Link hygiene ───────────────────────────────────────────────────────────
+
+  - id: OASIS-LINK-DEAD-LISTS
+    severity: WARN
+    description: >-
+      No links to the retired lists.oasis-open.org mail infrastructure;
+      use the Higher Logic comments route instead
+    check:
+      type: all-match
+      target: links
+      pattern: 'lists\.oasis-open\.org'
+      invert: true
+
+  - id: OASIS-LINK-DOUBLE-SLASH
+    severity: WARN
+    description: Relative links must not contain double-slash path segments (CDN 404s)
+    check:
+      type: all-match
+      target: relative-links
+      pattern: '//'
+      invert: true
+
+  # ── CSAF 2.1 spec-specific checks ─────────────────────────────────────────
+
+  - id: CSAF-TITLE
+    severity: BLOCKER
+    description: The document title must identify CSAF by name
+    check:
+      type: section-present
+      pattern: 'Common Security Advisory Framework'
+      flags: IGNORECASE
+
+  - id: CSAF-STAGE-HEADING
+    severity: WARN
+    description: >-
+      A publication-stage heading (Committee Specification Draft, Committee
+      Specification, etc.) must appear in the front matter
+    check:
+      type: section-present
+      pattern: 'Committee Specification Draft|Committee Specification|Candidate OASIS Standard|OASIS Standard'
+      flags: IGNORECASE
+
+  - id: CSAF-THIS-STAGE
+    severity: BLOCKER
+    description: A 'This stage' heading must be present in the front matter
+    check:
+      type: section-present
+      pattern: 'This stage'
+      flags: IGNORECASE
+
+  - id: CSAF-LATEST-STAGE
+    severity: WARN
+    description: A 'Latest stage' heading must be present in the front matter
+    check:
+      type: section-present
+      pattern: 'Latest stage'
+      flags: IGNORECASE
+
+  - id: CSAF-DOC-URL
+    severity: WARN
+    description: >-
+      At least one this-stage URL under docs.oasis-open.org/csaf/csaf must
+      appear in the document (checked in prose since CSAF uses bare URLs,
+      not markdown links, in its front matter)
+    check:
+      type: any-match
+      target: prose
+      pattern: 'docs\.oasis-open\.org/csaf/csaf'
+      flags: IGNORECASE
+
+  - id: CSAF-TC-LINK
+    severity: WARN
+    description: A link to the OASIS CSAF TC must appear in the front matter
+    check:
+      type: any-match
+      target: links
+      pattern: 'oasis-open\.org.*csaf'
+      flags: IGNORECASE
+
+  - id: CSAF-INTRODUCTION
+    severity: BLOCKER
+    description: An Introduction section must be present
+    check:
+      type: section-present
+      pattern: '^Introduction'
+      flags: IGNORECASE
+
+  - id: CSAF-NORMATIVE-REFS
+    severity: BLOCKER
+    description: A Normative References subsection must be present
+    check:
+      type: section-present
+      pattern: 'Normative References'
+      flags: IGNORECASE
+
+  - id: CSAF-INFORMATIVE-REFS
+    severity: WARN
+    description: An Informative References subsection should be present
+    check:
+      type: section-present
+      pattern: 'Informative References'
+      flags: IGNORECASE
+
+  - id: CSAF-TERMINOLOGY
+    severity: WARN
+    description: A Terminology subsection must be present under Introduction
+    check:
+      type: section-present
+      pattern: '^Terminology'
+      flags: IGNORECASE
+
+  - id: CSAF-SCHEMA-ELEMENTS
+    severity: BLOCKER
+    description: A Schema Elements section must be present (core CSAF structure)
+    check:
+      type: section-present
+      pattern: 'Schema.?Elements'
+      flags: IGNORECASE
+
+  - id: CSAF-PROFILES
+    severity: BLOCKER
+    description: A Profiles section must be present (core CSAF structure)
+    check:
+      type: section-present
+      pattern: '^Profiles'
+      flags: IGNORECASE
+
+  - id: CSAF-PROFILE-BASE
+    severity: WARN
+    description: A Profile 1 CSAF Base definition must be present
+    check:
+      type: section-present
+      pattern: 'Profile.*CSAF Base|CSAF Base'
+      flags: IGNORECASE
+
+  - id: CSAF-TESTS
+    severity: BLOCKER
+    description: A Tests section must be present (core CSAF normative content)
+    check:
+      type: section-present
+      pattern: '^Tests'
+      flags: IGNORECASE
+
+  - id: CSAF-DESIGN-CONSIDERATIONS
+    severity: WARN
+    description: A Design Considerations section should be present
+    check:
+      type: section-present
+      pattern: 'Design Considerations'
+      flags: IGNORECASE
+
+  - id: CSAF-ADDITIONAL-CONVENTIONS
+    severity: WARN
+    description: An Additional Conventions section should be present
+    check:
+      type: section-present
+      pattern: 'Additional Conventions'
+      flags: IGNORECASE
+
+  - id: CSAF-ACKNOWLEDGMENTS
+    severity: WARN
+    description: >-
+      An Acknowledgments appendix should be present. Match exact heading
+      text only — 'Acknowledgments Type' is a schema element and must not match.
+    check:
+      type: section-present
+      pattern: '^Acknowledgments?$'
+      flags: IGNORECASE
+
+  - id: CSAF-REVISION-HISTORY
+    severity: WARN
+    description: >-
+      A Revision History appendix should be present. Match exact heading
+      text only — the schema member 'Tracking - Revision History' must not match.
+    check:
+      type: section-present
+      pattern: '^Revision History$'
+      flags: IGNORECASE
+
+  # ── CSAF-specific content checks ──────────────────────────────────────────
+
+  - id: CSAF-VEX-PROFILE
+    severity: WARN
+    description: A VEX profile definition must be present
+    check:
+      type: section-present
+      pattern: '\bVEX\b'
+      flags: IGNORECASE
+
+  - id: CSAF-MANDATORY-TESTS
+    severity: WARN
+    description: A mandatory tests section must be present under Tests
+    check:
+      type: section-present
+      pattern: 'Mandatory Tests?'
+      flags: IGNORECASE
+
+  - id: CSAF-RECOMMENDED-TESTS
+    severity: WARN
+    description: A Recommended Tests section must be present under Tests (CSAF 2.1 uses Recommended, not Optional)
+    check:
+      type: section-present
+      pattern: '^Recommended Tests$'
+      flags: IGNORECASE
+
+  - id: CSAF-INFORMATIVE-TESTS
+    severity: WARN
+    description: An Informative Tests section must be present under Tests
+    check:
+      type: section-present
+      pattern: '^Informative Tests$'
+      flags: IGNORECASE
+
+  # Note: references-resolve is omitted because CSAF uses [cite](#RFC...) links
+  # extensively. Citation fragment IDs are not section labels, so
+  # references-resolve would produce false positives for all citation links.
+  # Use 'nide harvest' and inspect the section LUTs to verify section links.
