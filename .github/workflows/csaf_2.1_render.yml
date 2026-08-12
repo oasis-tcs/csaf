@@ -58,11 +58,11 @@ jobs:
           sudo install -m 755 b3sum /usr/local/bin/b3sum
 
       - name: Render all channels, manifest, checksums
-        working-directory: csaf-v2.1/prose/edit
+        working-directory: csaf_2.1/prose/edit
         run: make release OPEN=true
 
       - name: Run quality rules (OASIS baseline + spec-specific)
-        working-directory: csaf-v2.1/prose/edit
+        working-directory: csaf_2.1/prose/edit
         run: |
           nide quality --rules etc/rules/spec.rules.yaml
 
@@ -70,12 +70,12 @@ jobs:
         with:
           name: csaf-v2.1-draft-${{ github.sha }}
           path: |
-            csaf-v2.1/prose/share/csaf-v2.1-draft.md
-            csaf-v2.1/prose/share/csaf-v2.1-draft.html
-            csaf-v2.1/prose/share/csaf-v2.1-draft.pdf
-            csaf-v2.1/prose/share/csaf-v2.1-draft.ir.json
-            csaf-v2.1/prose/share/csaf-v2.1-draft.manifest.json
-            csaf-v2.1/prose/share/csaf-v2.1-draft.pdf.sha256
-            csaf-v2.1/prose/share/csaf-v2.1-draft.pdf.blake3
-            csaf-v2.1/prose/share/csaf-v2.1-draft.typ
+            csaf_2.1/prose/share/csaf-v2.1-draft.md
+            csaf_2.1/prose/share/csaf-v2.1-draft.html
+            csaf_2.1/prose/share/csaf-v2.1-draft.pdf
+            csaf_2.1/prose/share/csaf-v2.1-draft.ir.json
+            csaf_2.1/prose/share/csaf-v2.1-draft.manifest.json
+            csaf_2.1/prose/share/csaf-v2.1-draft.pdf.sha256
+            csaf_2.1/prose/share/csaf-v2.1-draft.pdf.blake3
+            csaf_2.1/prose/share/csaf-v2.1-draft.typ
           if-no-files-found: error
