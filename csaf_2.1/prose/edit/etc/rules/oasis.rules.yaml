@@ -1,0 +1,157 @@
+meta:
+  name: oasis-publication-assurance
+  description: >-
+    OASIS TC Process baseline quality rules for all Standards Track Work Products.
+    Maintained in OASIS-Docs/publication-assurance; copy here unchanged when the
+    upstream file is published.  Spec-level rule files extend this baseline via
+    meta.extends: oasis and add TC- and spec-specific checks on top.
+
+rules:
+
+  # ── OASIS template structure ───────────────────────────────────────────────
+
+  - id: OASIS-SCOPE
+    severity: BLOCKER
+    description: A Scope section must be present (OASIS TC Process §2.18)
+    check:
+      type: section-present
+      pattern: '^Scope'
+      flags: IGNORECASE
+
+  - id: OASIS-CONFORMANCE
+    severity: BLOCKER
+    description: A Conformance section must be present (OASIS TC Process §2.18)
+    check:
+      type: section-present
+      pattern: '^Conformance'
+      flags: IGNORECASE
+
+  - id: OASIS-TECHNICAL-COMMITTEE
+    severity: BLOCKER
+    description: A Technical Committee entry must appear in the front matter
+    check:
+      type: section-present
+      pattern: 'Technical Committee'
+      flags: IGNORECASE
+
+  - id: OASIS-CHAIRS
+    severity: WARN
+    description: A Chairs entry must appear in the front matter
+    check:
+      type: section-present
+      pattern: '^Chairs?$'
+      flags: IGNORECASE
+
+  - id: OASIS-EDITORS
+    severity: WARN
+    description: An Editors entry must appear in the front matter
+    check:
+      type: section-present
+      pattern: '^Editors?$'
+      flags: IGNORECASE
+
+  - id: OASIS-ABSTRACT
+    severity: BLOCKER
+    description: An Abstract section must be present (OASIS template)
+    check:
+      type: section-present
+      pattern: '^Abstract'
+      flags: IGNORECASE
+
+  - id: OASIS-LOGO
+    severity: WARN
+    description: The canonical OASIS logo must appear in the document
+    check:
+      type: any-match
+      target: prose
+      pattern: 'OASISLogo'
+
+  # ── RFC 2119 / 8174 citation ───────────────────────────────────────────────
+
+  - id: OASIS-RFC-2119-CITED
+    severity: BLOCKER
+    description: >-
+      When RFC 2119 normative keywords are used (MUST, SHALL, SHOULD, MAY, …),
+      RFC 2119 must be cited in the normative references.
+    check:
+      type: conditional
+      condition:
+        type: any-match
+        target: prose
+        # All-caps normative keyword; do NOT add IGNORECASE — case matters
+        pattern: '\b(MUST NOT|MUST|SHALL NOT|SHALL|SHOULD NOT|SHOULD|NOT RECOMMENDED|RECOMMENDED|OPTIONAL|REQUIRED)\b'
+      then:
+        type: any-match
+        target: links
+        pattern: '#RFC2119'
+
+  - id: OASIS-RFC-8174-PAIRED
+    severity: WARN
+    description: >-
+      When RFC 2119 is cited, RFC 8174 (uppercase-only clarification) must
+      also be cited alongside it.
+    check:
+      type: conditional
+      condition:
+        type: any-match
+        target: links
+        pattern: '#RFC2119'
+      then:
+        type: any-match
+        target: links
+        pattern: '#RFC8174'
+
+  # ── Editorial residue ──────────────────────────────────────────────────────
+
+  - id: OASIS-RESID-TODO
+    severity: BLOCKER
+    description: No TODO markers may remain in the prose
+    check:
+      type: all-match
+      target: prose
+      pattern: 'TODO[\(:]'
+      invert: true
+
+  - id: OASIS-RESID-TBD
+    severity: WARN
+    description: No bare TBD placeholder lines may remain
+    check:
+      type: all-match
+      target: prose
+      pattern: '^\s*tbd\s*$'
+      flags: IGNORECASE
+      invert: true
+
+  - id: OASIS-RESID-FILL-IN
+    severity: WARN
+    description: >-
+      No 'Will be filled in' placeholders may remain (tolerated early-stage,
+      must resolve before Committee Specification)
+    check:
+      type: all-match
+      target: prose
+      pattern: 'Will be filled in'
+      flags: IGNORECASE
+      invert: true
+
+  # ── Link hygiene ───────────────────────────────────────────────────────────
+
+  - id: OASIS-LINK-DEAD-LISTS
+    severity: WARN
+    description: >-
+      No links to the retired lists.oasis-open.org mail infrastructure;
+      use the Higher Logic comments route instead
+    check:
+      type: all-match
+      target: links
+      pattern: 'lists\.oasis-open\.org'
+      invert: true
+
+  - id: OASIS-LINK-DOUBLE-SLASH
+    severity: WARN
+    description: Relative links must not contain double-slash path segments (CDN 404s)
+    check:
+      type: all-match
+      target: relative-links
+      pattern: '//'
+      invert: true
