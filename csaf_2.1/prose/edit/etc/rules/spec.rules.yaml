@@ -15,6 +15,25 @@ context:
 
 rules:
 
+  # ── OASIS baseline overrides ──────────────────────────────────────────────
+  # oasis.rules.yaml itself is untouched; this replaces just this one inherited
+  # rule (nide 2026.8.14+: a spec rule whose id matches an org rule's id
+  # overrides it in place instead of duplicating it — see meta.extends).
+
+  - id: OASIS-SCOPE
+    severity: WARN
+    description: >-
+      Downgraded from the org-level BLOCKER for CSAF 2.1 only: CSAF's section
+      numbers are a published external interface (e.g. test-case IDs such as
+      6.1.22), so a new top-level Scope section cannot be inserted without
+      renumbering everything after it for this revision. Editors' position:
+      https://github.com/oasis-tcs/csaf/pull/1498#issuecomment-5285762786 .
+      To be reconsidered for the v3.0 interface redesign.
+    check:
+      type: section-present
+      pattern: '^Scope'
+      flags: IGNORECASE
+
   # ── CSAF 2.1 spec-specific checks ─────────────────────────────────────────
 
   - id: CSAF-TITLE

@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04   # pinned, not ubuntu-latest
     env:
-      NIDE_VERSION: "2026.7.19"
+      NIDE_VERSION: "2026.8.14"
       TYPST_VERSION: "0.15.1"
       PANDOC_VERSION: "3.10.1"
       B3SUM_VERSION: "1.8.6"
