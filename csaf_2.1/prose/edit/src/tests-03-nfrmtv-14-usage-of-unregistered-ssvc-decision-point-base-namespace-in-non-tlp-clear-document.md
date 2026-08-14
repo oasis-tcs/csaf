@@ -1,4 +1,4 @@
-### Usage of Unregistered SSVC Decision Point Base Namespace in Non TLP:CLEAR Document{#usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document}
+### Usage of Unregistered SSVC Decision Point Base Namespace in Non-TLP:CLEAR Document{#usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document}
 
 For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one
 if the document is not labeled `TLP:CLEAR`.

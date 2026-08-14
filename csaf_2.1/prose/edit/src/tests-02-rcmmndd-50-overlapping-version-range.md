@@ -20,7 +20,7 @@ The following definitions apply to all tests:
   2. Elements that have the branch category `product_version` form the "product version sibling set" (`PVSS`).
   3. Elements that do not fall into 1 or 2 form the "other branch category sibling set" (`OBCSS`).
 - `PVRSS` is divided in three pairwise disjoint sets:
-  1. Elements that use valid vers form the "product version range sibling set - vers" (`PVRSS-vers`).
+  1. Elements that use valid VERS form the "product version range sibling set - vers" (`PVRSS-vers`).
   2. Elements that use valid vls form the "product version range sibling set - vls" (`PVRSS-vls`).
   3. Elements that do not fall into 1 or 2 form the "product version range sibling set - invalid" (`PVRSS-invalid`).
 - `PVRSS` elements can also be grouped into three pairwise disjoint sets:
@@ -32,13 +32,13 @@ The following definitions apply to all tests:
   2. Elements that contain the `product` as only optional property form the "product version sibling set with leaf" (`PVSS+l`).
   3. Elements that do not fall into 1 or 2 form the "product version sibling set - invalid branch" (`PVSS+i`).
 - Attributes of `PVRSS` elements can be combined:
-  1. Product version range sibling set with branches - vers (`PVRSS+b-vers`): Intersection of `PVRSS+b` and `PVRSS-vers`
+  1. Product version range sibling set with branches - VERS (`PVRSS+b-vers`): Intersection of `PVRSS+b` and `PVRSS-vers`
   2. Product version range sibling set with branches - vls (`PVRSS+b-vls`): Intersection of `PVRSS+b` and `PVRSS-vls`
-  3. Product version range sibling set with leaf - vers (`PVRSS+l-vers`): Intersection of `PVRSS+l` and `PVRSS-vers`
+  3. Product version range sibling set with leaf - VERS (`PVRSS+l-vers`): Intersection of `PVRSS+l` and `PVRSS-vers`
   4. Product version range sibling set with leaf - vls (`PVRSS+l-vls`): Intersection of `PVRSS+l` and `PVRSS-vls`
   5. Product version range sibling set with branches - invalid (`PVRSS+b-invalid`): Intersection of `PVRSS+b` and `PVRSS-invalid`
   6. Product version range sibling set with leaf - invalid (`PVRSS+l-invalid`): Intersection of `PVRSS+l` and `PVRSS-invalid`
-  7. Product version range sibling set - invalid branch - vers (`PVRSS+i-vers`): Intersection of `PVRSS+i` and `PVRSS-vers`
+  7. Product version range sibling set - invalid branch - VERS (`PVRSS+i-vers`): Intersection of `PVRSS+i` and `PVRSS-vers`
   8. Product version range sibling set - invalid branch - vls (`PVRSS+i-vls`): Intersection of `PVRSS+i` and `PVRSS-vls`
   9. Product version range sibling set - invalid branch - invalid (`PVRSS+i-invalid`): Intersection of `PVRSS+i` and `PVRSS-invalid`
 
@@ -47,7 +47,7 @@ The following definitions apply to all tests:
 > an invalid product tree.
 > Elements in `PVRSS-invalid` should be detected by test [sec](#product-version-range-rules).
 
-#### Overlapping Product Version Range with vers in Contradicting Product Status Group
+#### Overlapping Product Version Range with VERS in Contradicting Product Status Group
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
 For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not

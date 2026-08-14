@@ -1,0 +1,80 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Unknown VERS Type (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-51-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "branches": [
+                  {
+                    "branches": [
+                      {
+                        "branches": [
+                          {
+                            "branches": [
+                              {
+                                "category": "product_version_range",
+                                "name": "vers:someotherunknownverstype/>=2012-06-30T23:59:60Z|<=2016-12-31T23:59:60Z",
+                                "product": {
+                                  "name": "Example Company Product A between 2012-06-30T23:59:60Z and 2016-12-31T23:59:60Z (both included)",
+                                  "product_id": "CSAFPID-9080700"
+                                }
+                              }
+                            ],
+                            "category": "product_name",
+                            "name": "Product A"
+                          }
+                        ],
+                        "category": "product_family",
+                        "name": "Hierarchy"
+                      }
+                    ],
+                    "category": "product_family",
+                    "name": "Family"
+                  }
+                ],
+                "category": "product_family",
+                "name": "Nested"
+              }
+            ],
+            "category": "product_family",
+            "name": "Some"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  }
+}

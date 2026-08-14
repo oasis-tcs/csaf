@@ -1,44 +1,36 @@
 # The CSAF 2.1 Prose Folder
 
-This place offers access to the editable sources of the v2.1 CSAF specification (to be).
+This folder holds the editorial sources and versioned delivery items for the CSAF v2.1 specification.
 
-In the `share` folder there are the user facing delivery items that offer layout and navigation
-optimized for online viewing per
+| Subfolder | Purpose                                                                               |
+|:----------|:--------------------------------------------------------------------------------------|
+| `edit/`   | Authoring workspace — sources, configuration, and build tooling; see `edit/README.md` |
+| `share/`  | Versioned delivery items built from `edit/`; see `share/README.md`                    |
 
-- a typical web interface of a version control server (like Codeberg, GitHub, GitLab, or SourceHut) - the Markdown file
-- any typical browser (like Brave, Chrome, Edge, Firefox, Orion, or Safari) - the HTML file
+## Delivery formats
 
-Inside the `edit` folder we build these delivery items from the source files (also in Markdown format, but
-split by concerns, verifiable per syntax, and offering clean structural constructs for definition lists etc.
-instead of the specific idioms mixed in for ease of use in specific reading tools).
+We build four delivery channels from the same source:
 
-To generate both the Markdown and the HTML user facing delivery items simply call `make` inside the edit folder.
+- **GFM+** (`csaf-v2.1-draft.md`) — optimised for reading on version-control web interfaces
+  (Codeberg, GitHub, GitLab, SourceHut, …)
+- **HTML** (`csaf-v2.1-draft.html`) — standalone file for any browser
+- **PDF** (`csaf-v2.1-draft.pdf`) — compiled via typst
+- **IR** (`csaf-v2.1-draft.ir.json`) — nide's channel-neutral internal representation;
+  useful for tooling and diffing
 
-Execution of any `make` target / dependency that uses non-standard tools, will verify the tools are available.
-In case essential tools for the task are missing,
-make will abort printing some information on what is missing and how such tool can be installed.
+To build all channels and verify the manifest, run from `edit/`:
 
+    make release
 
-## Typical Editor Tasks
+To build incrementally:
 
-When changing section labels, positions of sections, or when adding, moving, or deleting examples,
-the mappings have to be updated
+    make gfm-plus   # GFM+ and IR
+    make html       # HTML (implies gfm-plus)
+    make pdf        # PDF + typst source + checksums
 
-Please only modify two of the four mapping files. The other two will be derived from the former.
+To check document completeness against the editorial rules:
 
-Changes to section mapping:
+    make quality    # per-rule PASS/FAIL/NA report (reads etc/rules/spec.rules.yaml)
 
-1. Edit `etc/section-display-to-label.json` to align with the document
-2. Eventually (when moving sections or renaming the labels) edit `etc/example-global-to-local.json` too.
-3. Execute `make inversions` to derive the coresponding `etc/section-label-to-display.json` and
-   `etc/example-local-to-global.json` files, or directly call `make`.
-   The latter has the `inversions` target as dependency.
-
-Changes only to examples:
-
-1. Edit `etc/example-global-to-local.json` too.
-2. Execute `make invert-examples` to derive the coresponding `etc/example-local-to-global.json` file, or directly call `make`.
-   The latter has the `inversions` target as dependency.
-
-In case the `make` command does detect `inverso` tool needed for the inversions as missing,
-but does not print out the installation hint: `pip install inverso` should do the trick.
+Execution of any target that uses non-standard tools will verify the tools are available.
+If an essential tool is missing, make aborts with a message describing what is needed and how to install it.

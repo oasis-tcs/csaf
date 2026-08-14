@@ -1,0 +1,231 @@
+meta:
+  name: csaf-spec-rules
+  description: >-
+    CSAF 2.1 specification-level quality rules.
+    Extends the shared OASIS baseline (oasis.rules.yaml) and adds CSAF-specific checks.
+    Run with: nide quality --rules etc/rules/spec.rules.yaml
+  extends: oasis
+
+context:
+  tc-name: csaf
+  spec-name: csaf
+  spec-version: "2.1"
+  stage: csd03
+  doc-url-base: https://docs.oasis-open.org/csaf/csaf/v2.1
+
+rules:
+
+  # ── OASIS baseline overrides ──────────────────────────────────────────────
+  # oasis.rules.yaml itself is untouched; this replaces just this one inherited
+  # rule (nide 2026.8.14+: a spec rule whose id matches an org rule's id
+  # overrides it in place instead of duplicating it — see meta.extends).
+
+  - id: OASIS-SCOPE
+    severity: WARN
+    description: >-
+      Downgraded from the org-level BLOCKER for CSAF 2.1 only: CSAF's section
+      numbers are a published external interface (e.g. test-case IDs such as
+      6.1.22), so a new top-level Scope section cannot be inserted without
+      renumbering everything after it for this revision. Editors' position:
+      https://github.com/oasis-tcs/csaf/pull/1498#issuecomment-5285762786 .
+      To be reconsidered for the v3.0 interface redesign.
+    check:
+      type: section-present
+      pattern: '^Scope'
+      flags: IGNORECASE
+
+  # ── CSAF 2.1 spec-specific checks ─────────────────────────────────────────
+
+  - id: CSAF-TITLE
+    severity: BLOCKER
+    description: The document title must identify CSAF by name
+    check:
+      type: section-present
+      pattern: 'Common Security Advisory Framework'
+      flags: IGNORECASE
+
+  - id: CSAF-STAGE-HEADING
+    severity: WARN
+    description: >-
+      A publication-stage heading (Committee Specification Draft, Committee
+      Specification, etc.) must appear in the front matter
+    check:
+      type: section-present
+      pattern: 'Committee Specification Draft|Committee Specification|Candidate OASIS Standard|OASIS Standard'
+      flags: IGNORECASE
+
+  - id: CSAF-THIS-STAGE
+    severity: BLOCKER
+    description: A 'This stage' heading must be present in the front matter
+    check:
+      type: section-present
+      pattern: 'This stage'
+      flags: IGNORECASE
+
+  - id: CSAF-LATEST-STAGE
+    severity: WARN
+    description: A 'Latest stage' heading must be present in the front matter
+    check:
+      type: section-present
+      pattern: 'Latest stage'
+      flags: IGNORECASE
+
+  - id: CSAF-DOC-URL
+    severity: WARN
+    description: >-
+      At least one this-stage URL under docs.oasis-open.org/csaf/csaf must
+      appear in the document (checked in prose since CSAF uses bare URLs,
+      not markdown links, in its front matter)
+    check:
+      type: any-match
+      target: prose
+      pattern: 'docs\.oasis-open\.org/csaf/csaf'
+      flags: IGNORECASE
+
+  - id: CSAF-TC-LINK
+    severity: WARN
+    description: A link to the OASIS CSAF TC must appear in the front matter
+    check:
+      type: any-match
+      target: links
+      pattern: 'oasis-open\.org.*csaf'
+      flags: IGNORECASE
+
+  - id: CSAF-INTRODUCTION
+    severity: BLOCKER
+    description: An Introduction section must be present
+    check:
+      type: section-present
+      pattern: '^Introduction'
+      flags: IGNORECASE
+
+  - id: CSAF-NORMATIVE-REFS
+    severity: BLOCKER
+    description: A Normative References subsection must be present
+    check:
+      type: section-present
+      pattern: 'Normative References'
+      flags: IGNORECASE
+
+  - id: CSAF-INFORMATIVE-REFS
+    severity: WARN
+    description: An Informative References subsection should be present
+    check:
+      type: section-present
+      pattern: 'Informative References'
+      flags: IGNORECASE
+
+  - id: CSAF-TERMINOLOGY
+    severity: WARN
+    description: A Terminology subsection must be present under Introduction
+    check:
+      type: section-present
+      pattern: '^Terminology'
+      flags: IGNORECASE
+
+  - id: CSAF-SCHEMA-ELEMENTS
+    severity: BLOCKER
+    description: A Schema Elements section must be present (core CSAF structure)
+    check:
+      type: section-present
+      pattern: 'Schema.?Elements'
+      flags: IGNORECASE
+
+  - id: CSAF-PROFILES
+    severity: BLOCKER
+    description: A Profiles section must be present (core CSAF structure)
+    check:
+      type: section-present
+      pattern: '^Profiles'
+      flags: IGNORECASE
+
+  - id: CSAF-PROFILE-BASE
+    severity: WARN
+    description: A Profile 1 CSAF Base definition must be present
+    check:
+      type: section-present
+      pattern: 'Profile.*CSAF Base|CSAF Base'
+      flags: IGNORECASE
+
+  - id: CSAF-TESTS
+    severity: BLOCKER
+    description: A Tests section must be present (core CSAF normative content)
+    check:
+      type: section-present
+      pattern: '^Tests'
+      flags: IGNORECASE
+
+  - id: CSAF-DESIGN-CONSIDERATIONS
+    severity: WARN
+    description: A Design Considerations section should be present
+    check:
+      type: section-present
+      pattern: 'Design Considerations'
+      flags: IGNORECASE
+
+  - id: CSAF-ADDITIONAL-CONVENTIONS
+    severity: WARN
+    description: An Additional Conventions section should be present
+    check:
+      type: section-present
+      pattern: 'Additional Conventions'
+      flags: IGNORECASE
+
+  - id: CSAF-ACKNOWLEDGMENTS
+    severity: WARN
+    description: >-
+      An Acknowledgments appendix should be present. Match exact heading
+      text only — 'Acknowledgments Type' is a schema element and must not match.
+    check:
+      type: section-present
+      pattern: '^Acknowledgments?$'
+      flags: IGNORECASE
+
+  - id: CSAF-REVISION-HISTORY
+    severity: WARN
+    description: >-
+      A Revision History appendix should be present. Match exact heading
+      text only — the schema member 'Tracking - Revision History' must not match.
+    check:
+      type: section-present
+      pattern: '^Revision History$'
+      flags: IGNORECASE
+
+  # ── CSAF-specific content checks ──────────────────────────────────────────
+
+  - id: CSAF-VEX-PROFILE
+    severity: WARN
+    description: A VEX profile definition must be present
+    check:
+      type: section-present
+      pattern: '\bVEX\b'
+      flags: IGNORECASE
+
+  - id: CSAF-MANDATORY-TESTS
+    severity: WARN
+    description: A mandatory tests section must be present under Tests
+    check:
+      type: section-present
+      pattern: 'Mandatory Tests?'
+      flags: IGNORECASE
+
+  - id: CSAF-RECOMMENDED-TESTS
+    severity: WARN
+    description: A Recommended Tests section must be present under Tests (CSAF 2.1 uses Recommended, not Optional)
+    check:
+      type: section-present
+      pattern: '^Recommended Tests$'
+      flags: IGNORECASE
+
+  - id: CSAF-INFORMATIVE-TESTS
+    severity: WARN
+    description: An Informative Tests section must be present under Tests
+    check:
+      type: section-present
+      pattern: '^Informative Tests$'
+      flags: IGNORECASE
+
+  # Note: references-resolve is omitted because CSAF uses [cite](#RFC...) links
+  # extensively. Citation fragment IDs are not section labels, so
+  # references-resolve would produce false positives for all citation links.
+  # Use 'nide harvest' and inspect the section LUTs to verify section links.

@@ -148,7 +148,7 @@ tests-02-rcmmndd-47-use-of-qualitative-severity-rating-by-issuing-party.md
 tests-02-rcmmndd-48-misuse-at-vendor-name.md
 tests-02-rcmmndd-49-upper-open-ended-product-version-range.md
 tests-02-rcmmndd-50-overlapping-version-range.md
-tests-02-rcmmndd-51-unknown-version-scheme-in-vers.md
+tests-02-rcmmndd-51-unknown-vers-type.md
 tests-02-rcmmndd-52-unknown-hash-algorithm.md
 tests-02-rcmmndd-53-matching-text-for-registered-id-system.md
 tests-02-rcmmndd-54-extension-tests.md

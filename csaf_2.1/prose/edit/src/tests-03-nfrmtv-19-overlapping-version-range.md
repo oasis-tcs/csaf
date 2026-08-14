@@ -4,7 +4,7 @@ This subsubsection structures the informative tests for overlapping product vers
 These tests provide weak indicators of potential errors in the construction of the product tree.
 The abbreviations for groups are defined in section [sec](#overlapping-product-version-range).
 
-#### Overlapping Product Version Range with vers in Same Product Status Group
+#### Overlapping Product Version Range with VERS in Same Product Status Group
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
 For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
@@ -207,7 +207,7 @@ For each `EPVR` (as `CTPVR`), it MUST be tested that all product version ranges 
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 *Example 1 (which fails the test):*
@@ -246,7 +246,7 @@ For each `EPVR` (as `CTPVR`), it MUST be tested that all product versions of ele
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.product_tree.branches[*]..name
+  $.product_tree..branches[*].name
 ```
 
 *Example 1 (which fails the test):*

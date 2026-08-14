@@ -1,4 +1,4 @@
-### Use of Non-self Referencing URLs Failing to Resolve
+### Use of Non-Self Referencing URLs Failing to Resolve
 
 For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from
 the 2xx (Successful) or 3xx (Redirection) class.
@@ -17,9 +17,9 @@ The relevant paths for this test are:
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri
-  $.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]
-  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace
-  $.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri
+  $.product_tree..branches[*].product.product_identification_helper.sbom_urls[*]
+  $.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].namespace
+  $.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].uri
   $.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]
   $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace
   $.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri

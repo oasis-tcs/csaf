@@ -148,13 +148,14 @@ If adjacent property `category` has the value `product_version`, the value of `n
 If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges.
 The value of MUST obey to exactly one of the following options:
 
-1. Version Range Specifier (vers)
+1. VErsion Range Specifier (VERS)
 
-    > vers is an ongoing community effort to address the problem of version ranges. Its draft specification is available at [cite](#VERS).
+    > VERS is an ongoing community effort to address the problem of version ranges.
+    > Its draft specification is available at [cite](#VERS).
 
-    vers MUST be used in its canonical form. To convey the term "all versions", the special string `vers:all/*` MUST be used.
+    VERS SHALL be used in its canonical form. To convey the term "all versions", the special string `vers:all/*` SHALL be used.
 
-   > According to the interpretation used here, the canonical form requires that the vers is normalized.
+   > According to the interpretation used here, the canonical form requires that the VERS is normalized.
 
     *Examples 1 (for `name` when using `product_version_range` with vers):*
 
@@ -165,12 +166,12 @@ The value of MUST obey to exactly one of the following options:
         vers:tomee/>=8.0.0-M1|<=8.0.1
     ```
 
-    > Through the definitions of the vers specification a user can compute whether a given version is in a given range.
+    > Through the definitions of the VERS specification a user can compute whether a given version is in a given range.
 
-2. Vers-like Specifier (vls)
+2. VERS-like Specifier (vls)
 
-    This option uses only the `constraint` part from the vers specification.
-    It MUST NOT have a URI nor the `type` part.
+    This option uses only the `constraint` part from the VERS specification.
+    It MUST NOT have the `scheme` nor the `type` part.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.

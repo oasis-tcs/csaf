@@ -359,12 +359,16 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
 
 The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
 
-| `category` | `title` | content of `text` |
-|---------------|---------------|-------------------|
-| `description` | Product Description | Contains a description of a product given in the `product_tree` in regard to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
-| `general` | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document. |
-| `legal_disclaimer` | License | Contains the only license text of the document license. |
-| `summary` | Summary | Contains a short summary of the content of the advisory. |
+\columns=15%,35%,
+
+| category           | title                            | content of text                                                                                                                                                                               |
+|:-------------------|:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| description        | Product Description              | Contains a description of a product given in the `product_tree` in regard to field of application and core functionality. This SHOULD be bound to the corresponding product or product group. |
+| general            | General Security Recommendations | Contains general advise and security recommendations that are related, generic and might be independently applicable of the content of the CSAF document.                                     |
+| legal\_disclaimer  | License                          | Contains the only license text of the document license.                                                                                                                                       |
+| summary            | Summary                          | Contains a short summary of the content of the advisory.                                                                                                                                      |
+
+Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:special-combinations-of-category-and-title}
 
 If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
 

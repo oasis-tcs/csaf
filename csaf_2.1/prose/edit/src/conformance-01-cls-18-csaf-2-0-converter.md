@@ -107,7 +107,7 @@ Secondly, the program fulfills the following for all items of:
     the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
 
-    1. If value of `name` is in the vers format:
+    1. If value of `name` is in the VERS format:
        * the category of the original `product_version_range` item SHALL be changed to `product_version` and
        * the version SHALL be extracted from the version constraint and set as new value of `name`.
     2. If value of `name` is in the vls format:
@@ -252,10 +252,12 @@ Secondly, the program fulfills the following for all items of:
   | `TLP:AMBER`               | `TLP:AMBER`               |
   | `TLP:RED`                 | `TLP:RED`                 |
 
+  Table: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.{#tab:tlp-labels-across-csaf-versions}
+
   If `$.document.distribution.text` contains the string `TLP v2.0: TLP:` followed by a valid TLP v2.0 label as defined in the CSAF 2.1 JSON schema,
   the CSAF 2.0 to CSAF 2.1 Converter SHOULD provide an option to use this label instead.
 
-  If the TLP label changes during such a conversion in a way not listed in the table above,
+  If the TLP label changes during such a conversion in a way not listed in the table [tab](tab:tlp-labels-across-csaf-versions),
   the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that the TLP label was taken from the distribution text.
   This warning SHALL include both values: the value converted using the table and the value from the distribution text.
 

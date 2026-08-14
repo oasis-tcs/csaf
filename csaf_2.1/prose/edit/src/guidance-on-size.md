@@ -40,18 +40,12 @@ An array SHOULD NOT have more than:
   - `$.document.acknowledgments[*].urls`
   - `$.document.tracking.aliases`
   - `$.document.x_extensions`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes`
-  - `$.product_tree.branches[*]..product.product_identification_helper.purls`
-  - `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls`
-  - `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris`
-  - `$.product_tree.branches[*]..product.x_extensions`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes`
-  - `$.product_tree.branches[*].product.product_identification_helper.purls`
-  - `$.product_tree.branches[*].product.product_identification_helper.sbom_urls`
-  - `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris`
-  - `$.product_tree.branches[*].product.x_extensions`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes`
+  - `$.product_tree..branches[*].product.product_identification_helper.purls`
+  - `$.product_tree..branches[*].product.product_identification_helper.sbom_urls`
+  - `$.product_tree..branches[*].product.product_identification_helper.x_generic_uris`
+  - `$.product_tree..branches[*].product.x_extensions`
   - `$.product_tree.full_product_names[*].product_identification_helper.hashes`
   - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes`
   - `$.product_tree.full_product_names[*].product_identification_helper.purls`
@@ -90,12 +84,9 @@ An array SHOULD NOT have more than:
   - `$.document.tracking.revision_history`
   - `$.product_tree.branches`
   - `$.product_tree..branches`
-  - `$.product_tree.branches[*]..product.product_identification_helper.model_numbers`
-  - `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers`
-  - `$.product_tree.branches[*]..product.product_identification_helper.skus`
-  - `$.product_tree.branches[*].product.product_identification_helper.model_numbers`
-  - `$.product_tree.branches[*].product.product_identification_helper.serial_numbers`
-  - `$.product_tree.branches[*].product.product_identification_helper.skus`
+  - `$.product_tree..branches[*].product.product_identification_helper.model_numbers`
+  - `$.product_tree..branches[*].product.product_identification_helper.serial_numbers`
+  - `$.product_tree..branches[*].product.product_identification_helper.skus`
   - `$.product_tree.full_product_names`
   - `$.product_tree.full_product_names[*].product_identification_helper.model_numbers`
   - `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers`
@@ -170,24 +161,15 @@ A string SHOULD NOT have a length greater than:
   - `$.document.tracking.revision_history[*].legacy_version`
   - `$.document.tracking.revision_history[*].number`
   - `$.document.tracking.version`
-  - `$.product_tree.branches[*]..name`
-  - `$.product_tree.branches[*]..product.name`
-  - `$.product_tree.branches[*]..product.product_id`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].file_hashes[*].value`
-  - `$.product_tree.branches[*]..product.product_identification_helper.hashes[*].filename`
-  - `$.product_tree.branches[*]..product.product_identification_helper.model_numbers[*]`
-  - `$.product_tree.branches[*]..product.product_identification_helper.serial_numbers[*]`
-  - `$.product_tree.branches[*]..product.product_identification_helper.skus[*]`
-  - `$.product_tree.branches[*].name`
-  - `$.product_tree.branches[*].product.name`
-  - `$.product_tree.branches[*].product.product_id`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value`
-  - `$.product_tree.branches[*].product.product_identification_helper.hashes[*].filename`
-  - `$.product_tree.branches[*].product.product_identification_helper.model_numbers[*]`
-  - `$.product_tree.branches[*].product.product_identification_helper.serial_numbers[*]`
-  - `$.product_tree.branches[*].product.product_identification_helper.skus[*]`
+  - `$.product_tree..branches[*].name`
+  - `$.product_tree..branches[*].product.name`
+  - `$.product_tree..branches[*].product.product_id`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value`
+  - `$.product_tree..branches[*].product.product_identification_helper.hashes[*].filename`
+  - `$.product_tree..branches[*].product.product_identification_helper.model_numbers[*]`
+  - `$.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]`
+  - `$.product_tree..branches[*].product.product_identification_helper.skus[*]`
   - `$.product_tree.full_product_names[*].name`
   - `$.product_tree.full_product_names[*].product_id`
   - `$.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm`
@@ -261,10 +243,8 @@ A string SHOULD NOT have a length greater than:
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
   - `$.document.tracking.revision_history[*].summary`
-  - `$.product_tree.branches[*]..product.product_identification_helper.cpe`
-  - `$.product_tree.branches[*]..product.product_identification_helper.purls[*]`
-  - `$.product_tree.branches[*].product.product_identification_helper.cpe`
-  - `$.product_tree.branches[*].product.product_identification_helper.purls[*]`
+  - `$.product_tree..branches[*].product.product_identification_helper.cpe`
+  - `$.product_tree..branches[*].product.product_identification_helper.purls[*]`
   - `$.product_tree.full_product_names[*].product_identification_helper.cpe`
   - `$.product_tree.full_product_names[*].product_identification_helper.purls[*]`
   - `$.product_tree.product_groups[*].summary`
@@ -329,10 +309,8 @@ This applies to:
 - `$.document.references[*].category` (8)
 - `$.document.tracking.status` (7)
 - `$.document.x_extensions[*].category` (13)
-- `$.product_tree.branches[*]..category` (15)
-- `$.product_tree.branches[*]..product.x_extensions[*].category` (13)
-- `$.product_tree.branches[*].category` (15)
-- `$.product_tree.branches[*].product.x_extensions[*].category` (13)
+- `$.product_tree..branches[*].category` (15)
+- `$.product_tree..branches[*].product.x_extensions[*].category` (13)
 - `$.product_tree.full_product_names[*].x_extensions[*].category` (13)
 - `$.product_tree.product_paths[*].category` (21)
 - `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category` (13)
@@ -435,14 +413,10 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`
-- `$.product_tree.branches[*]..product.product_identification_helper.sbom_urls[*]`
-- `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].namespace`
-- `$.product_tree.branches[*]..product.product_identification_helper.x_generic_uris[*].uri`
-- `$.product_tree.branches[*]..product.x_extensions[*]['$schema']`
-- `$.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]`
-- `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace`
-- `$.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].uri`
-- `$.product_tree.branches[*].product.x_extensions[*]['$schema']`
+- `$.product_tree..branches[*].product.product_identification_helper.sbom_urls[*]`
+- `$.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].namespace`
+- `$.product_tree..branches[*].product.product_identification_helper.x_generic_uris[*].uri`
+- `$.product_tree..branches[*].product.x_extensions[*]['$schema']`
 - `$.product_tree.full_product_names[*].product_identification_helper.sbom_urls[*]`
 - `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].namespace`
 - `$.product_tree.full_product_names[*].product_identification_helper.x_generic_uris[*].uri`

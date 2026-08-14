@@ -1,0 +1,81 @@
+name: CSAF 2.1 render (Linux)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04   # pinned, not ubuntu-latest
+    env:
+      NIDE_VERSION: "2026.8.14"
+      TYPST_VERSION: "0.15.1"
+      PANDOC_VERSION: "3.10.1"
+      B3SUM_VERSION: "1.8.6"
+      # NOTE: PANDOC_DEB_SHA256 / TYPST_TAR_SHA256 / B3SUM_BIN_SHA256 are hashes
+      # of the exact release assets above. On any version bump, re-download the
+      # new asset and recompute its hash before updating the *_VERSION value:
+      #   curl -fsSL -o f.deb <url> && sha256sum f.deb
+      # A stale hash here will hard-fail the install step (by design).
+      PANDOC_DEB_SHA256: "b419369915e0f3181be0afdb040ec8ecc6b70e72e5992652a0d83aed9e6bc109"
+      TYPST_TAR_SHA256:  "a6d077d0a95eed5a2eba715b2dae06be954f624ccbf85758a03f389ded33118c"
+      B3SUM_BIN_SHA256:  "25a8cfacd32dddea4b5f8151b565e6fb410c8b925ee6571422936b7e6c3102df"
+
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.14"
+
+      - name: Install nide (pinned, isolated venv to avoid PEP 668)
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          pip install "nide[manifest]==${NIDE_VERSION}"
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+
+      - name: Install pandoc (pinned .deb, checksum-verified)
+        run: |
+          curl -fsSL -o pandoc.deb \
+            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          echo "${PANDOC_DEB_SHA256}  pandoc.deb" | sha256sum -c -
+          sudo dpkg -i pandoc.deb || sudo apt-get install -f -y
+
+      - name: Install typst (pinned static binary, checksum-verified)
+        run: |
+          curl -fsSL -o typst.tar.xz \
+            "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz"
+          echo "${TYPST_TAR_SHA256}  typst.tar.xz" | sha256sum -c -
+          tar -xJf typst.tar.xz --strip-components=1
+          sudo install -m 755 typst /usr/local/bin/typst
+
+      - name: Install b3sum (pinned static binary, checksum-verified)
+        run: |
+          curl -fsSL -o b3sum \
+            "https://github.com/BLAKE3-team/BLAKE3/releases/download/${B3SUM_VERSION}/b3sum_linux_x64_bin"
+          echo "${B3SUM_BIN_SHA256}  b3sum" | sha256sum -c -
+          sudo install -m 755 b3sum /usr/local/bin/b3sum
+
+      - name: Render all channels, manifest, checksums
+        working-directory: csaf_2.1/prose/edit
+        run: make release OPEN=true
+
+      - name: Run quality rules (OASIS baseline + spec-specific)
+        working-directory: csaf_2.1/prose/edit
+        run: |
+          nide quality --rules etc/rules/spec.rules.yaml
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: csaf-v2.1-draft-${{ github.sha }}
+          path: |
+            csaf_2.1/prose/share/csaf-v2.1-draft.md
+            csaf_2.1/prose/share/csaf-v2.1-draft.html
+            csaf_2.1/prose/share/csaf-v2.1-draft.pdf
+            csaf_2.1/prose/share/csaf-v2.1-draft.ir.json
+            csaf_2.1/prose/share/csaf-v2.1-draft.manifest.json
+            csaf_2.1/prose/share/csaf-v2.1-draft.pdf.sha256
+            csaf_2.1/prose/share/csaf-v2.1-draft.pdf.blake3
+            csaf_2.1/prose/share/csaf-v2.1-draft.typ
+          if-no-files-found: error
