@@ -4,7 +4,9 @@ SCHEMA=csaf_2.1/test/validator/testresult_json_schema.json
 TESTCASES_SCHEMA=csaf_2.1/test/validator/testcases_json_schema.json
 META_SCHEMA=csaf_2.1/json_schema/meta.json
 VALIDATOR=csaf_2.1/test/validator.py
+CONSISTENCY=csaf_2.1/test/validator/check_consistency.py
 TESTPATH=csaf_2.1/test/validator/data/$1/*.result.json
+TESTCASES=csaf_2.1/test/validator/data/testcases.json
 
 FAIL=0
 
@@ -29,6 +31,18 @@ test_all() {
   done
 }
 
+check_consistency() {
+  printf "%s" "Check consistency of result files ... "
+  if python3 $CONSISTENCY $TESTCASES; then
+    printf "%s\n" SUCCESS
+  else
+    printf "%s\n" FAILED
+    FAIL=1
+  fi
+}
+
 test_all
+
+check_consistency
 
 exit ${FAIL}
