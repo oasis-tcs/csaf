@@ -157,7 +157,7 @@ The value of MUST obey to exactly one of the following options:
 
    > According to the interpretation used here, the canonical form requires that the VERS is normalized.
 
-    *Examples 1 (for `name` when using `product_version_range` with vers):*
+    *Examples 1 (for `name` when using `product_version_range` with VERS):*
 
     ```
         vers:gem/>=2.2.0|!=2.2.1|<2.3.0
