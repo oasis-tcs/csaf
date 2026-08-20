@@ -155,7 +155,12 @@ tests-02-rcmmndd-35-usage-of-unregistered-ssvc-decision-point.md
 tests-02-rcmmndd-36-usage-of-ssvc-decision-point-namespa.md
 tests-02-rcmmndd-37-usage-of-unknown-ssvc-decision-point-without-resource.md
 tests-02-rcmmndd-38-usage-of-deprecated-profile.md
-tests-02-rcmmndd-39-profile-tests.md
+tests-02-rcmmndd-39-00-profile-tests.md
+tests-02-rcmmndd-39-01-missing-fixed-product.md
+tests-02-rcmmndd-39-02-language-specific-reasoning-for-withdrawal.md
+tests-02-rcmmndd-39-03-language-specific-reasoning-for-supersession.md
+tests-02-rcmmndd-39-04-language-specific-superseding-document.md
+tests-02-rcmmndd-39-05-extension-in-superseded-or-withdrawn-document.md
 tests-02-rcmmndd-40-product-description-without-product.md
 tests-02-rcmmndd-41-old-epss-timestamp.md
 tests-02-rcmmndd-42-inconsistent-product-identification-helper.md
