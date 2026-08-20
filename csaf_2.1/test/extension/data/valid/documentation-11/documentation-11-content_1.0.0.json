@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json",
-  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
+  "$id": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
   "title": "CSAF Extension: Documentation 11",
   "description": "Representation of a valid extension used for documentation purposes.",
   "type": "object",
@@ -16,7 +16,7 @@
       "description": "Contains the URL of the CSAF Extension JSON schema which the JSON object promises to be valid for.",
       "type": "string",
       "format": "uri",
-      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json"
+      "const": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json"
     },
     "category": {
       "title": "Extension Category",
