@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "id": "6.2.26",
+    "passed": true
+  },
+  "resultschema_version": "2.1",
+  "secondary_results": [
+    {
+      "errors": [
+        {
+          "instance_path": "/vulnerabilities/2/cwes/0/id",
+          "message": "Weakness 'CWE-399' does not exist in version 4.13."
+        },
+        {
+          "instance_path": "/vulnerabilities/3/cwes/0/id",
+          "message": "Weakness 'CWE-699' does not exist in version 4.13."
+        }
+      ],
+      "id": "6.1.11",
+      "passed": false
+    }
+  ]
+}
