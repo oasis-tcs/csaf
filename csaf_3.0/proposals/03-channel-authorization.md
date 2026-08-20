@@ -1,9 +1,5 @@
 # Proposal 3 — Channel Authorization (TLP/Sharing-Group Gate)
 
-*[Diese Seite auf Deutsch lesen](03-channel-authorization.de.md)* — the German version is a
-faithful, complete translation of this document. In case of any discrepancy, this English version is
-authoritative.
-
 **Status:** Sketch, no spec text yet. See [../README.md](../README.md) for motivation and how this
 fits alongside the other three proposals.
 
@@ -25,6 +21,25 @@ subscribers whose clearance matches the document's `distribution.tlp.label` or
 - TLP:GREEN/CLEAR → open, no authorization needed.
 - Staged release (RED → AMBER → GREEN) = a new revision of the same document at a higher TLP tier,
   not a separate document/channel-switch concept.
+
+## Minimum field set
+
+Kept deliberately minimal, since we scope out *how* authentication happens (see "Deliberate scoping"
+below) — only the decision inputs and their source are specified:
+
+| Field | Source | Role in the decision |
+| --- | --- | --- |
+| `document.distribution.tlp.label` | already exists, `$.document.distribution.tlp.label` | minimum clearance tier required |
+| `document.distribution.sharing_group.id` | already exists, `$.document.distribution.sharing_group.id` | required only if the tier is scoped to a closed group (typically AMBER and above) |
+| `subscriber.clearance_tiers` | new, provider-side subscriber record — format not mandated | which TLP tiers this subscriber may receive at all |
+| `subscriber.sharing_groups` | new, provider-side subscriber record — format not mandated | which `sharing_group.id` values this subscriber is a member of |
+
+The authorization decision on `hub.mode=subscribe` (P2) is then a pure comparison: reject the
+subscription unless `document.distribution.tlp.label` is in `subscriber.clearance_tiers` **and**, if
+present, `document.distribution.sharing_group.id` is in `subscriber.sharing_groups`. How a provider
+establishes `subscriber.clearance_tiers`/`subscriber.sharing_groups` for a given subscriber (contract,
+manual vetting, an existing IAM system) is explicitly out of scope — the spec only mandates that the
+comparison itself must happen before a subscription is confirmed.
 
 ## Deliberate scoping
 

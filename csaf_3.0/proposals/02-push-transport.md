@@ -1,9 +1,5 @@
 # Proposal 2 — Push Transport (WebSub Extension)
 
-*[Diese Seite auf Deutsch lesen](02-push-transport.de.md)* — the German version is a faithful,
-complete translation of this document. In case of any discrepancy, this English version is
-authoritative.
-
 **Status:** Sketch, no spec text yet. See [../README.md](../README.md) for motivation and how this
 fits alongside the other three proposals.
 
@@ -26,6 +22,72 @@ Based on [WebSub](https://www.w3.org/TR/websub/) (W3C Recommendation, 2018):
    against abuse).
 4. On new/changed publication: hub notifies subscribers — payload = P1 event instead of just "go
    check again".
+
+## Minimum field set
+
+The subscription handshake reuses WebSub's own parameters as-is — nothing new to specify there:
+
+| Field | Source | Value in our mapping |
+| --- | --- | --- |
+| `hub.mode` | WebSub standard | `subscribe` / `unsubscribe` |
+| `hub.topic` | WebSub standard | the ROLIE category feed URL for one product (Requirement 17) |
+| `hub.callback` | WebSub standard | subscriber-supplied |
+| `hub.secret` | WebSub standard | used to HMAC-sign notification payloads |
+| `hub.lease_seconds` | WebSub standard | subscription expiry; renewal handling still open, see below |
+
+The one thing that *is* new: what the hub sends on notification. We propose the notification body be
+one or more [P1 events](01-event-schema.md) (JSON array, one entry per change since the last
+notification), HMAC-signed with `hub.secret`, rather than the bare "topic changed, go re-fetch" ping
+that vanilla WebSub defaults to. This is what makes P1 and P2 combine into an actual push
+notification instead of just a push-triggered poll.
+
+## Example (illustrative, non-normative)
+
+The subscribe request is plain WebSub, form-encoded per the standard:
+
+```
+POST /websub/hub HTTP/1.1
+Host: psirt.acme.example
+Content-Type: application/x-www-form-urlencoded
+
+hub.mode=subscribe
+&hub.topic=https%3A%2F%2Fpsirt.acme.example%2Fcsaf%2Ffeed-set-top-box.json
+&hub.callback=https%3A%2F%2Ftrustsource.io%2Fwebhook%2Facme-set-top-box
+&hub.secret=8f3e...
+&hub.lease_seconds=2592000
+```
+
+The notification the hub sends once a matching document is published — body is a JSON array of
+[P1 events](01-event-schema.md), signature over the raw body carried in a header per the WebSub
+authenticated-content-distribution mechanism:
+
+```
+POST /webhook/acme-set-top-box HTTP/1.1
+Host: trustsource.io
+Content-Type: application/json
+X-Hub-Signature: <HMAC of the body below, keyed with hub.secret>
+Link: <https://psirt.acme.example/csaf/feed-set-top-box.json>; rel="self",
+      <https://psirt.acme.example/websub/hub>; rel="hub"
+
+[
+  {
+    "document_id": "acme-vex-2026-0512",
+    "document_version": "1.0.0",
+    "publisher_namespace": "https://psirt.acme.example",
+    "document_category": "csaf_vex",
+    "product": {
+      "vendor": "Acme Corp",
+      "product_name": "Acme Streamline Set-Top Box",
+      "product_version": "4.2.1"
+    },
+    "vulnerability_ids": [{ "system_name": "CVE", "text": "CVE-2026-12345" }],
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "release_date": "2026-08-20T09:00:00Z",
+    "signature": "<detached event signature>"
+  }
+]
+```
 
 ## Mandatory safety-net requirement
 

@@ -1,9 +1,5 @@
 # CSAF 3.0 — Distribution & Discoverability Extensions
 
-*[Diese Seite auf Deutsch lesen](README.de.md)* — the German version is a faithful, complete
-translation of this document, not an independent text. In case of any discrepancy, this English
-version is authoritative.
-
 ## Status of this folder
 
 This is **not** a TC work product, but an individual discussion draft prepared ahead of the CSAF
@@ -68,9 +64,9 @@ commonly cited, more recent reference points for fixed-line transmission are **0
 – 1.4 TB), that is roughly **14–200 kWh** for a single full sync run by a single consumer — an order
 of magnitude that adds up quickly across repeated cycles and many consumers.
 
-> We recommend treating this figure in the presentation explicitly as an **order-of-magnitude
-> argument, not a robust metric**, and stating the methodological uncertainty openly. Its purpose is
-> to add a second, TC-external driver (sustainability discussion, EU Green Deal relevance) alongside
+> PLEASE NOTE: We recommend treating this figure explicitly as an **order-of-magnitude
+> argument, not a robust metric**. The data relies on a methodological uncertain ground and requires additional review .
+> Its purpose is to add a second, TC-external driver (sustainability discussion, EU Green Deal relevance) alongside
 > the primary efficiency argument — not to be defended as hard proof.
 
 ### Why now
@@ -200,7 +196,7 @@ does not come across as a naive sweeping change.
 | Objection | Rebuttal |
 | --- | --- |
 | "CSAF is deliberately designed as stateless/static so distribution stays robust even when infrastructure breaks — this breaks that principle." | No such break: the store/ROLIE feed remains the authoritative, still-mirrorable source of truth. Push is purely additive, with mandatory pull-based reconciliation as a fallback (see architecture sketch). A provider who does not implement P2–P4 loses nothing. |
-| "The TC is currently fighting to finish CSAF 2.1 — this is the wrong time." | Explicitly positioned as v3 material, no competition for 2.1 editor bandwidth. The goal of this presentation is early socialization of the idea, not inclusion in the current version. Four independently assessable small steps rather than one big change. |
+| "The TC is currently fighting to finish CSAF 2.1 — this is the wrong time." | Explicitly positioned as v3 material, no competition for 2.1 editor bandwidth. The goal of this presentation is early socialization of the idea, not necessarily inclusion in the current version. Four independently assessable small steps rather than one big change. |
 | "The extension mechanism (Issue #1375) is still unresolved — don't open more architectural fronts now." | Fair point, but a different layer: #1375 is about schema extensibility of individual documents (section 2.4), these proposals concern the distribution layer (section 7). Largely orthogonal; once the extension mechanism is settled, P1 could even be expressed as an extension itself. |
 | "This is just building infrastructure that TrustSource & co. will then sell as a product — is that really neutral?" | Hub/broker are deliberately specified as an open, protocol-based standard (WebSub), not a proprietary system — anyone can operate a hub, just as anyone can operate an aggregator today. No vendor lock-in intended. |
 | "WebSub is blog/RSS technology, not enterprise/security grade." | A finished W3C standard since 2018, not an experiment. Current precedent: the OGC put forward a WebSub extension for the IoT-adjacent SensorThings API in 2025. Known weaknesses (best-effort delivery, no failover) are exactly why P2 is mandatorily paired with P1-based reconciliation, instead of relying on push alone. |

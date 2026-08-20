@@ -1,9 +1,5 @@
 # Proposal 4 — Delegated Publication (Proxy Trusted Provider + Provenance Chain)
 
-*[Diese Seite auf Deutsch lesen](04-delegated-publication.de.md)* — the German version is a
-faithful, complete translation of this document. In case of any discrepancy, this English version is
-authoritative.
-
 **Status:** Sketch, no spec text yet. See [../README.md](../README.md) for motivation and how this
 fits alongside the other three proposals.
 
@@ -36,6 +32,20 @@ verification of the vendor's identity during onboarding — analogous to the exi
 ("If the issuing party does not provide those files, they SHALL be created by the CSAF aggregator").
 Weaker non-repudiation, but a pragmatic fallback for the least-equipped vendors.
 
+## Minimum field set for the delegation record
+
+The one artifact this proposal genuinely adds (everything else reuses existing fields, see above):
+
+| Field | Type | Purpose |
+| --- | --- | --- |
+| `vendor_namespace` | uri | must equal the delegating document's `$.document.publisher.namespace` |
+| `trusted_provider_namespace` | uri | the delegate's own identity, same form as `publisher.namespace` |
+| `vendor_key_fingerprint` | string, optional | OpenPGP fingerprint of the vendor's own key (Variant A only, see below) |
+| `scope` | string or list | which products/namespaces the delegation covers — `*` for "all documents under this namespace" or a restricted list |
+| `valid_from` / `valid_until` | date-time | delegation validity window, same freshness discipline as Requirement 19 signatures |
+| `revoked_at` | date-time, optional | set on early revocation; absence means "not revoked" |
+| `record_signature` | string | signs the record itself — see open question on who signs it |
+
 ## What needs to be newly specified
 
 An explicit, time-limited and revocable **delegation record** ("Vendor X delegates publication rights
@@ -44,6 +54,8 @@ successfully completed RVISC process (see meeting minutes 2026-04-29).
 
 ## Open questions
 
+- Who signs `record_signature`? The vendor (Variant A, strongest — an active act of delegation),
+  the Trusted Provider alone (Variant B, weaker — a self-declared claim), or both?
 - Revocation/expiry mechanism for delegation records (reuse of the signature validity logic from
   Requirement 19?).
 - Abuse protection: how is it prevented that someone falsely claims to be a vendor's delegate?
