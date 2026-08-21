@@ -151,6 +151,7 @@ A string SHOULD NOT have a length greater than:
   - `$.document.notes[*].group_ids[*]`
   - `$.document.notes[*].product_ids[*]`
   - `$.document.notes[*].title`
+  - `$.document.publisher.contact.email`
   - `$.document.publisher.name`
   - `$.document.source_lang`
   - `$.document.title`
@@ -239,7 +240,7 @@ A string SHOULD NOT have a length greater than:
 - 10 000 for
   - `$.document.acknowledgments[*].summary`
   - `$.document.distribution.text`
-  - `$.document.publisher.contact_details`
+  - `$.document.publisher.contact.details`
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
   - `$.document.tracking.revision_history[*].summary`
@@ -410,6 +411,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
 - `$.document.distribution.tlp.url`
+- `$.document.publisher.contact.public_openpgp_key_url`
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`
