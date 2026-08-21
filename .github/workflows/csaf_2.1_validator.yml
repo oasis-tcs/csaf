@@ -43,3 +43,6 @@ jobs:
       run: ./csaf_2.1/test/validator/check_testresults.sh recommended
     - name: Test results in validator/data/informative against schema
       run: ./csaf_2.1/test/validator/check_testresults.sh informative
+
+    - name: Test SSVC in validator/auxiliary/ssvc/test against schema
+      run: ./csaf_2.1/test/validator/check_auxiliary.sh test
