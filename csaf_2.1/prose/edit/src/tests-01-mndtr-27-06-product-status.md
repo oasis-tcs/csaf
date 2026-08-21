@@ -7,6 +7,7 @@ The relevant values for `$.document.category` are:
 ```
   csaf_security_advisory
   csaf_deprecated_security_advisory
+  csaf_vulnerability_report
 ```
 
 The relevant path for this test is:
