@@ -2,6 +2,7 @@
 
 A text file or data stream satisfies the "CSAF Document" conformance profile if it:
 
+- is valid JSON encoded using UTF-8.
 - conforms to the syntax and semantics defined in section [sec](#format-validation).
 - conforms to the syntax and semantics defined in section [sec](#date-and-time).
 - conforms to the syntax and semantics defined in section [sec](#extensions).
