@@ -82,6 +82,7 @@ tests-01-mndtr-27-16-revision-history-for-withdrawn-and-superseded.md
 tests-01-mndtr-27-17-reasoning-for-withdrawal.md
 tests-01-mndtr-27-18-reasoning-for-supersession.md
 tests-01-mndtr-27-19-reference-to-superseding-document.md
+tests-01-mndtr-27-20-vulnerability-summary.md
 tests-01-mndtr-28-translation.md
 tests-01-mndtr-29-remediation-without-product-reference.md
 tests-01-mndtr-30-mixed-integer-and-semantic-versioning.md
