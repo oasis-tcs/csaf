@@ -204,6 +204,10 @@ typically by means of a hierarchical identifier.
 Hierarchical String
 :    string in the format &lt;component>{/&lt;component>}*.
 
+Issuing Party
+:    entity that releases a CSAF document, independent of its role according to the distribution system.
+It is usually the same one as described by the value of `$.document.publisher` in that CSAF document.
+
 Line
 :    contiguous sequence of characters, starting either at the beginning of an artifact or immediately after
 a newline sequence, and ending at and including the nearest subsequent newline sequence, if one is present,
