@@ -4,8 +4,12 @@
   "primary_result": {
     "errors": [
       {
-        "instance_path": "/vulnerabilities/0/product_status/known_not_affected/2",
-        "message": "product id `CSAFPID-9080702` does not have a vulnerability id assigned nor a CVE or general vulnerability id is given"
+        "instance_path": "/vulnerabilities/0/product_status/known_not_affected/0",
+        "message": "product id `CSAFPID-9080700` does not have a vulnerability id assigned nor a CVE or general vulnerability id is given"
+      },
+      {
+        "instance_path": "/vulnerabilities/0/product_status/known_not_affected/1",
+        "message": "product id `CSAFPID-9080701` does not have a vulnerability id assigned nor a CVE or general vulnerability id is given"
       },
       {
         "instance_path": "/vulnerabilities/1/product_status/known_not_affected/3",
