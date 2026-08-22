@@ -37,6 +37,7 @@ Therefore, it MUST be skipped if the document category matches one of the values
 >  csaf_superseded
 >  csaf_vex
 >  csaf_withdrawn
+>  csaf_vulnerability_report
 > ```
 
 This is the only mandatory test related to the profile "CSAF Base" as the required fields SHALL be checked by validating the JSON schema.
@@ -62,6 +63,7 @@ The relevant path for this test is:
   V_eX
   veX
   withdrawn
+  vulnerability report
 ```
 
 *Example 2 (which fails the test):*

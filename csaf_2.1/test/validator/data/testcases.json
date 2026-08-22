@@ -1022,6 +1022,10 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-04-03.json",
           "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-04-04.json",
+          "valid": false
         }
       ]
     },
@@ -1083,6 +1087,10 @@
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-02.json",
           "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-02.result.json",
           "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-03.json",
+          "valid": false
         }
       ],
       "valid": [
@@ -1094,6 +1102,10 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-12.json",
           "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-12.result.json",
+          "valid": true
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-13.json",
           "valid": true
         }
       ]
@@ -1178,6 +1190,10 @@
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-03.json",
+          "valid": false
+        },
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-04.json",
           "valid": false
         }
       ]
@@ -1431,6 +1447,16 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-19-13.json",
           "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.27.20",
+      "group": "mandatory",
+      "failures": [
+        {
+          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-20-01.json",
+          "valid": false
         }
       ]
     },
@@ -3691,6 +3717,16 @@
         },
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-12.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.2.39.6",
+      "group": "recommended",
+      "failures": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-06-01.json",
           "valid": true
         }
       ]

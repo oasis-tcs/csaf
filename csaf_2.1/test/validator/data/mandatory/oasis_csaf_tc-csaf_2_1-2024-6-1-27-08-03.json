@@ -1,0 +1,89 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_vex",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Vulnerability ID (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-08-03",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "name": "Vendor ",
+        "category": "vendor",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "Product",
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "1.0.0",
+                "product": {
+                  "name": "Vendor  Product 1.0.0",
+                  "product_id": "CSAFPID-0001"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "notes": [
+        {
+          "text": "The vulnerability is described in full here.",
+          "category": "description",
+          "title": "Vulnerability Description"
+        },
+        {
+          "text": "Vulnerability discovery method is discussed here.",
+          "audience": "coordinator",
+          "category": "other",
+          "title": "Vulnerability Discovery Method"
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-0001"
+        ]
+      },
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "This vulnerability is not known to the document issuer to be exploited in the wild."
+        },
+        {
+          "category": "impact",
+          "details": "Exploiting this vulnerability will result in arbitrary code execution with highest privileges and can be performed by an unauthenticated remote attacker over network."
+        }
+      ],
+      "title": "The vulnerability is some cool new vulnerability."
+    }
+  ]
+}
