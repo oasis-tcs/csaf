@@ -354,7 +354,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Provides vulnerability assessment metrics, such as CVSS, EPSS, SSVC,
     > or other supported scoring systems.
     > If the discoverer is aware of active exploitation, that information SHOULD be
-    > communicated using the appropriate supported metric.
+    > communicated using the SSVC Exploitatation metric as "Active" or "PoC"
     > Evidence supporting known exploitation MAY be referenced using
     > `$.vulnerabilities[*].references`
     > to assist investigation by vendors and coordinators.
@@ -375,7 +375,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 - The following elements MAY exist:
 
-      - `$.vulnerabilities[*].involvements`
+  - `$.vulnerabilities[*].involvements`
 
     > Records coordination activities between the parties involved in the disclosure of the specific vulnerability.
 
