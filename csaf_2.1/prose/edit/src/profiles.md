@@ -348,7 +348,34 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > Additional information, such as `sharing_group` or `text`, MAY be provided to further clarify
     > the issuing party's intended sharing expectations.
 
-  - `$.vulnerabilities[*].involvements`
+
+  - `$.vulnerabilities[*].metrics`
+
+    > Provides vulnerability assessment metrics, such as CVSS, EPSS, SSVC,
+    > or other supported scoring systems.
+    > If the discoverer is aware of active exploitation, that information SHOULD be
+    > communicated using the appropriate supported metric.
+    > Evidence supporting known exploitation MAY be referenced using
+    > `$.vulnerabilities[*].references`
+    > to assist investigation by vendors and coordinators.
+
+  - `$.vulnerabilities[*].references`
+
+    > Identifies publicly available information relevant to the reported vulnerability,
+    > including references supporting evidence of known exploitation where applicable.
+
+  - `$.vulnerabilities[*].threats`
+
+    > Describes the reported security impact or exploitation status.
+
+  - `$.vulnerabilities[*].title`
+
+    > Provides a concise title for each reported vulnerability.
+
+
+- The following elements MAY exist:
+
+      - `$.vulnerabilities[*].involvements`
 
     > Records coordination activities between the parties involved in the disclosure of the specific vulnerability.
 
@@ -372,28 +399,5 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > disclosure date for the reported vulnerabilities.
     > When a future date is specified, the involvement `status` is RECOMMENDED to be `open`.
     
-  - `$.vulnerabilities[*].metrics`
 
-    > Provides vulnerability assessment metrics, such as CVSS, EPSS, SSVC,
-    > or other supported scoring systems.
-    > If the discoverer is aware of active exploitation, that information SHOULD be
-    > communicated using the appropriate supported metric.
-    > Evidence supporting known exploitation SHOULD be referenced using
-  
-  
-  -  `$.vulnerabilities[*].references`
-    > to assist investigation by vendors and coordinators.
-
-  - `$.vulnerabilities[*].references`
-
-    > Identifies publicly available information relevant to the reported vulnerability,
-    > including references supporting evidence of known exploitation where applicable.
-
-  - `$.vulnerabilities[*].threats`
-
-    > Describes the reported security impact or exploitation status.
-
-  - `$.vulnerabilities[*].title`
-
-    > Provides a concise title for each reported vulnerability.
 ---

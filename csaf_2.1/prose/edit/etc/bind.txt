@@ -162,6 +162,7 @@ tests-02-rcmmndd-39-02-language-specific-reasoning-for-withdrawal.md
 tests-02-rcmmndd-39-03-language-specific-reasoning-for-supersession.md
 tests-02-rcmmndd-39-04-language-specific-superseding-document.md
 tests-02-rcmmndd-39-05-extension-in-superseded-or-withdrawn-document.md
+tests-02-rcmmndd-39-06-language-specific-vulnerability-summary.md
 tests-02-rcmmndd-40-product-description-without-product.md
 tests-02-rcmmndd-41-old-epss-timestamp.md
 tests-02-rcmmndd-42-inconsistent-product-identification-helper.md
