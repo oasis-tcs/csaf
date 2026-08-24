@@ -13,6 +13,7 @@ The relevant paths for this test are:
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url
   $.document.references[*].url
+  $.document.publisher.contact.public_openpgp_key_url
   $.document.publisher.namespace
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
