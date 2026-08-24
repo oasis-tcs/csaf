@@ -105,6 +105,16 @@ Secondly, the program fulfills the following for all items of:
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
+- `$.document.publisher.contact`:
+  - If a `cvrf:ContactDetails` element is present, the CVRF CSAF Converter SHALL convert its content into the value of the `details` property.
+  - If a URL to a Public OpenPGP Key was provided in the `cvrf:ContactDetails` element and the URL fulfills the requirements of the property
+    `public_openpgp_key_url`, the CVRF CSAF Converter SHALL set it as the content of that property.
+  - The CVRF CSAF Converter SHOULD extract the matching email address from the content of the `cvrf:ContactDetails` element, if applicable,
+    or use the first email address and set it as value of `email`.
+  - The CVRF CSAF Converter SHALL provide configuration options and corresponding arguments to set these values if they are not present.
+    If values from both sources are present, the program SHOULD prefer the latter one.
+    It SHOULD provide an option to overwrite the values extracted from the document.
+    The program SHALL NOT use hard-coded values.
 - `$.document.publisher.name` and `$.document.publisher.namespace`:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
