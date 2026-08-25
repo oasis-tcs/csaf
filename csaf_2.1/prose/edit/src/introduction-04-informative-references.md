@@ -81,6 +81,9 @@ OPENSSL
 PURL
 :    _Package URL (PURL)_, GitHub Project, <https://github.com/package-url/purl-spec>.
 
+RFC3156
+:    Elkins, M., Torto, D., Levien, R., and T. Roessler, "MIME Security with OpenPGP", RFC 3156, DOI 10.17487/RFC3156, August 2001, <https://www.rfc-editor.org/info/rfc3156/>.
+
 RFC3552
 :    Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, <https://www.rfc-editor.org/info/rfc3552>.
 
