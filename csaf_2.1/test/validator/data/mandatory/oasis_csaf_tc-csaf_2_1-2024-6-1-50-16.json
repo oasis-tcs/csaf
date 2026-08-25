@@ -37,7 +37,7 @@
             "branches": [
               {
                 "category": "product_version_range",
-                "name": "vers:someweirdunknownversionscheme/<4.2.0|>3.91.1|!=3.2.0|<1.2",
+                "name": "vers:someweirdunknownversiontype/<4.2.0|>3.91.1|!=3.2.0|<1.2",
                 "product": {
                   "name": "Example Company Product A before 4.2.0 and between 3.91.1 and 1.2 but excluding 3.2.0",
                   "product_id": "CSAFPID-9080700"
@@ -45,7 +45,7 @@
               },
               {
                 "category": "product_version_range",
-                "name": "vers:somecoolunknownversionscheme/>Jo_3,16|<=2.Ko_5,20",
+                "name": "vers:somecoolunknownversiontype/>Jo_3,16|<=2.Ko_5,20",
                 "product": {
                   "name": "Example Company Product A after Jo_3,16 up to and including 2.Ko_5,20",
                   "product_id": "CSAFPID-9080701"
