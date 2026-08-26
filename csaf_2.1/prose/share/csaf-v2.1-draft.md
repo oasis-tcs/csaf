@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 03 <a id='committee-specification-draft-03'></a>
 
-## 29 July 2026 <a id='29-july-2026'></a>
+## 26 August 2026 <a id='26-august-2026'></a>
 
 #### This stage <a id='this-stage'></a>
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \
@@ -87,7 +87,7 @@ When referencing this specification the following citation format should be used
 
 **[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 26 August 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 ---
 
@@ -390,7 +390,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)  
 			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)  
 			6.2.39.4 [Language Specific Superseding Document](#language-specific-superseding-document)  
-				6.2.39.4.1 [Extension in Superseded or Withdrawn Document](#extension-in-superseded-or-withdrawn-document)  
+			6.2.39.5 [Extension in Superseded or Withdrawn Document](#extension-in-superseded-or-withdrawn-document)  
 		6.2.40 [Product Description without Product Reference](#product-description-without-product-reference)  
 		6.2.41 [Old EPSS Timestamp](#old-epss-timestamp)  
 		6.2.42 [Inconsistent Product Identification Helper](#inconsistent-product-identification-helper)  
@@ -774,6 +774,10 @@ typically by means of a hierarchical identifier.
 
 Hierarchical String
 :    string in the format &lt;component>{/&lt;component>}*.
+
+Issuing Party
+:    entity that releases a CSAF document, independent of its role according to the distribution system.
+It is usually the same one as described by the value of `$.document.publisher` in that CSAF document.
 
 Line
 :    contiguous sequence of characters, starting either at the beginning of an artifact or immediately after
@@ -1717,7 +1721,7 @@ The value of MUST obey to exactly one of the following options:
 
    > According to the interpretation used here, the canonical form requires that the VERS is normalized.
 
-    *Examples 1 (for `name` when using `product_version_range` with vers):*<a id='branches-type---name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-10'></a>
+    *Examples 1 (for `name` when using `product_version_range` with VERS):*<a id='branches-type---name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-10'></a>
 
     ```
         vers:gem/>=2.2.0|!=2.2.1|<2.3.0
@@ -4004,7 +4008,7 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
 ```
 
 The given values reflect the VEX not affected justifications.
-See [VEX-Justification] for more details.
+See \[[VEX-Justification](#VEX-Justification)\] for more details.
 The values MUST be used as follows:
 
 - `component_not_present`: The software is not affected because the vulnerable component is not in the product.
@@ -10151,7 +10155,7 @@ The relevant path for this test is:
 
 > The note has the correct title. However, it uses the wrong category.
 
-##### 6.2.39.4.1 Extension in Superseded or Withdrawn Document <a id='extension-in-superseded-or-withdrawn-document'></a>
+#### 6.2.39.5 Extension in Superseded or Withdrawn Document <a id='extension-in-superseded-or-withdrawn-document'></a>
 
 It MUST be tested that the document does not contain an extension.
 
@@ -10169,7 +10173,7 @@ The relevant paths for this test are:
   $.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-4-1-eg-1'></a><a id='example-181'></a>
+*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-5-eg-1'></a><a id='example-181'></a>
 
 ```
   {
@@ -12540,33 +12544,33 @@ Additional presets are defined as follows:
 - `extensions`:
   - Description: Any test that is related to CSAF Extensions.
   - Set:
-    -[6.1.60.1](#mandatory-tests--extension-tests-content-schema)
-    -[6.1.60.2](#mandatory-tests--extension-tests-extension-schema)
-    -[6.1.60.3](#mandatory-tests--extension-tests-metadata)
-    -[6.2.39.4.1](#extension-in-superseded-or-withdrawn-document)
-    -[6.2.54.1](#registered-extension)
-    -[6.2.54.2](#official-extension)
-    -[6.2.54.3](#critical-extension)
-    -[6.2.54.4](#usage-of-experimental-extension-in-tlp-clear-document)
-    -[6.3.21.1](#extension-category-essential)
-    -[6.3.21.2](#usage-of-experimental-extension-in-non-tlp-clear-document)
-    -[6.3.21.3](#usage-of-extension-at-document-level)
-    -[6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
-    -[6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
-    -[6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
-    -[6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
-    -[6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
-    -[6.3.21.9](#usage-of-extension-at-root-level)
+    - [6.1.60.1](#mandatory-tests--extension-tests-content-schema)
+    - [6.1.60.2](#mandatory-tests--extension-tests-extension-schema)
+    - [6.1.60.3](#mandatory-tests--extension-tests-metadata)
+    - [6.2.39.5](#extension-in-superseded-or-withdrawn-document)
+    - [6.2.54.1](#registered-extension)
+    - [6.2.54.2](#official-extension)
+    - [6.2.54.3](#critical-extension)
+    - [6.2.54.4](#usage-of-experimental-extension-in-tlp-clear-document)
+    - [6.3.21.1](#extension-category-essential)
+    - [6.3.21.2](#usage-of-experimental-extension-in-non-tlp-clear-document)
+    - [6.3.21.3](#usage-of-extension-at-document-level)
+    - [6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
+    - [6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
+    - [6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
+    - [6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
+    - [6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
+    - [6.3.21.9](#usage-of-extension-at-root-level)
 - `extensions-exist`:
   - Description: Detects CSAF Extensions in all places.
   - Set:
-    -[6.3.21.3](#usage-of-extension-at-document-level)
-    -[6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
-    -[6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
-    -[6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
-    -[6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
-    -[6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
-    -[6.3.21.9](#usage-of-extension-at-root-level)
+    - [6.3.21.3](#usage-of-extension-at-document-level)
+    - [6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
+    - [6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
+    - [6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
+    - [6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
+    - [6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
+    - [6.3.21.9](#usage-of-extension-at-root-level)
 
 # 7. Distributing CSAF Documents <a id='distributing-csaf-documents'></a>
 
@@ -12616,7 +12620,8 @@ However, it MUST be ensured that the documents are still access protected.
 
 ### 7.1.6 Requirement 6: No Redirects <a id='requirement-6-no-redirects'></a>
 
-Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
+Redirects SHOULD NOT be used.
+If they are inevitable only HTTP Header redirects SHALL be used.
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 

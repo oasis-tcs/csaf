@@ -21,7 +21,7 @@
     align: (left + horizon, center + horizon, right + horizon),
     text(size: 8pt)[csaf-v2.1-csd03],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[27 May 2026 — Page #counter(page).display()
+    text(size: 8pt)[26 August 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -53,8 +53,8 @@ Advisory Framework Version 2.1]
 #heading(level: 2, outlined: false, numbering: none)[Committee
 Specification Draft 03]
 <committee-specification-draft-03>
-#heading(level: 2, outlined: false, numbering: none)[29 July 2026]
-<29-july-2026>
+#heading(level: 2, outlined: false, numbering: none)[26 August 2026]
+<26-august-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
@@ -201,8 +201,8 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee
-Specification Draft 03.
+Hagen and Thomas Schmidt. 26 August 2026. OASIS Committee Specification
+Draft 03.
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html.
 Latest stage:
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
@@ -547,6 +547,11 @@ message string which contains formatting information such as Markdown formatting
 
 / ​Hierarchical String<def:hierarchical-string>: string in the format
     \<component\>{/\<component\>}\*.
+
+/ ​Issuing Party<def:issuing-party>: entity that releases a CSAF
+    document, independent of its role according to the distribution
+    system. It is usually the same one as described by the value of
+    `$.document.publisher` in that CSAF document.
 
 / ​Line<def:line>: contiguous sequence of characters, starting either at
     the beginning of an artifact or immediately after a newline
@@ -1861,7 +1866,7 @@ to exactly one of the following options:
   ]
 
   #emph[Examples 1 (for `name` when using `product_version_range` with
-  vers):]#box()<branches-type---name-under-product-version-range-eg-1>
+  VERS):]#box()<branches-type---name-under-product-version-range-eg-1>
 
   ```
       vers:gem/>=2.2.0|!=2.2.1|<2.3.0
@@ -4624,8 +4629,8 @@ the machine readable label. Valid `enum` values are:
 ```
 
 The given values reflect the VEX not affected justifications. See
-\[VEX-Justification\] for more details. The values MUST be used as
-follows:
+\[#link(<VEX-Justification>)[VEX-Justification]\] for more details. The
+values MUST be used as follows:
 
 - `component_not_present`: The software is not affected because the
   vulnerable component is not in the product.
@@ -12041,7 +12046,7 @@ test):]#box()<language-specific-superseding-document-eg-1>
 The note has the correct title. However, it uses the wrong category.
 ]
 
-===== Extension in Superseded or Withdrawn Document
+==== Extension in Superseded or Withdrawn Document
 <extension-in-superseded-or-withdrawn-document>
 It MUST be tested that the document does not contain an extension.
 
@@ -14876,32 +14881,33 @@ Additional presets are defined as follows:
 - `extensions`:
   - Description: Any test that is related to CSAF Extensions.
   - Set:
-    \-#link(<mandatory-tests--extension-tests-content-schema>)[6.1.60.1]
-    \-#link(<mandatory-tests--extension-tests-extension-schema>)[6.1.60.2]
-    \-#link(<mandatory-tests--extension-tests-metadata>)[6.1.60.3]
-    \-#link(<extension-in-superseded-or-withdrawn-document>)[6.2.39.4.1]
-    \-#link(<registered-extension>)[6.2.54.1]
-    \-#link(<official-extension>)[6.2.54.2]
-    \-#link(<critical-extension>)[6.2.54.3]
-    \-#link(<usage-of-experimental-extension-in-tlp-clear-document>)[6.2.54.4]
-    \-#link(<extension-category-essential>)[6.3.21.1]
-    \-#link(<usage-of-experimental-extension-in-non-tlp-clear-document>)[6.3.21.2]
-    \-#link(<usage-of-extension-at-document-level>)[6.3.21.3]
-    \-#link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
-    \-#link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
-    \-#link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
-    \-#link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
-    \-#link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
-    \-#link(<usage-of-extension-at-root-level>)[6.3.21.9]
+    - #link(<mandatory-tests--extension-tests-content-schema>)[6.1.60.1]
+    - #link(<mandatory-tests--extension-tests-extension-schema>)[6.1.60.2]
+    - #link(<mandatory-tests--extension-tests-metadata>)[6.1.60.3]
+    - #link(<extension-in-superseded-or-withdrawn-document>)[6.2.39.5]
+    - #link(<registered-extension>)[6.2.54.1]
+    - #link(<official-extension>)[6.2.54.2]
+    - #link(<critical-extension>)[6.2.54.3]
+    - #link(<usage-of-experimental-extension-in-tlp-clear-document>)[6.2.54.4]
+    - #link(<extension-category-essential>)[6.3.21.1]
+    - #link(<usage-of-experimental-extension-in-non-tlp-clear-document>)[6.3.21.2]
+    - #link(<usage-of-extension-at-document-level>)[6.3.21.3]
+    - #link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
+    - #link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
+    - #link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
+    - #link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
+    - #link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
+    - #link(<usage-of-extension-at-root-level>)[6.3.21.9]
 - `extensions-exist`:
   - Description: Detects CSAF Extensions in all places.
-  - Set: -#link(<usage-of-extension-at-document-level>)[6.3.21.3]
-    \-#link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
-    \-#link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
-    \-#link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
-    \-#link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
-    \-#link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
-    \-#link(<usage-of-extension-at-root-level>)[6.3.21.9]
+  - Set:
+    - #link(<usage-of-extension-at-document-level>)[6.3.21.3]
+    - #link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
+    - #link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
+    - #link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
+    - #link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
+    - #link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
+    - #link(<usage-of-extension-at-root-level>)[6.3.21.9]
 
 #pagebreak(weak: true)
 = Distributing CSAF Documents
@@ -14967,7 +14973,7 @@ protected.
 === Requirement 6: No Redirects
 <requirement-6-no-redirects>
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header
-redirects are allowed.
+redirects SHALL be used.
 
 #quote(block: true)[
 Reasoning: Clients should not parse the payload for navigation and some,
