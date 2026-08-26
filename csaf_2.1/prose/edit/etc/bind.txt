@@ -176,6 +176,7 @@ tests-02-rcmmndd-51-unknown-vers-type.md
 tests-02-rcmmndd-52-unknown-hash-algorithm.md
 tests-02-rcmmndd-53-matching-text-for-registered-id-system.md
 tests-02-rcmmndd-54-extension-tests.md
+tests-02-rcmmndd-55-public-openpgp-key-url.md
 tests-03-informative.md
 tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
 tests-03-nfrmtv-02-use-of-cvss-v3-0.md
@@ -199,6 +200,7 @@ tests-03-nfrmtv-19-overlapping-version-range.md
 tests-03-nfrmtv-20-use-of-unregistered-id-system.md
 tests-03-nfrmtv-21-extension-tests.md
 tests-03-nfrmtv-22-nested-product-path.md
+tests-03-nfrmtv-24-public-openpgp-key-url-user-id.md
 tests-04-presets.md
 distributing-00.md
 distributing-01-requirements.md

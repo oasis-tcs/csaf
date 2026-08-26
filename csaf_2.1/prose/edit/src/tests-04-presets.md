@@ -55,14 +55,19 @@ As presets are sets, the operator `+` MUST be interpreted as the union operation
 
 Additional presets are defined as follows:
 
+- `non-external-request-free`:
+  - Description: Any test that cannot be executed without a request into the Internet or a different network.
+  - Set:
+    - [sec](#public-openpgp-key-url)
+    - [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
+    - [sec](#use-of-self-referencing-urls-failing-to-resolve)
 - `external-request-free`:
   - Description: Any test that can be executed without a request into the Internet or a different network.
 
     > This is intended to be used for browser-based tools as external requests may result in CORS issues.
     > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
 
-  - Set: `full` excluding tests [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
-    and [sec](#use-of-self-referencing-urls-failing-to-resolve)
+  - Set: `full` excluding tests from preset `non-external-request-free`
 - `consistent-revision-history`:
   - Description: Any test that is related to the revision history and ensures consistence within it.
   - Set:

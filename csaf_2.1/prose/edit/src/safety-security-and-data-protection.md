@@ -68,4 +68,11 @@ It is RECOMMENDED to do them at least before a release.
 
 > Such checks can be automated, e.g. in the CI/CD pipeline.
 
+CSAF documents can contain personally identifiable information.
+This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses.
+Issuing parties SHALL ensure that they are allowed to publish such information.
+
+> Acknowledging entities or individuals is always possible with their consent.
+> Functional email addresses are usually not consider to be personally identifiable information.
+
 ---

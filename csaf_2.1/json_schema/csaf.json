@@ -780,14 +780,55 @@
                 "vendor"
               ]
             },
-            "contact_details": {
-              "title": "Contact details",
-              "description": "Information on how to contact the publisher, possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.",
-              "type": "string",
-              "minLength": 1,
-              "examples": [
-                "Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact."
-              ]
+            "contact": {
+              "title": "Contact",
+              "description": "Contains information on how to contact the publisher.",
+              "type": "object",
+              "minProperties": 1,
+              "dependentRequired": {
+                "public_openpgp_key_url": [
+                  "email"
+                ]
+              },
+              "properties": {
+                "details": {
+                  "title": "Contact Details",
+                  "description": "Contains details regarding ways to reach the publisher, e.g. through web sites, phone numbers, and postal mail addresses.",
+                  "type": "string",
+                  "minLength": 1,
+                  "examples": [
+                    "Example Company can be reached at tel:+493023125232, or via our website at https://www.example.com/contact."
+                  ]
+                },
+                "email": {
+                  "title": "Email",
+                  "description": "Contains the email address that can be used to reach the issuing party.",
+                  "type": "string",
+                  "format": "email",
+                  "minLength": 6,
+                  "examples": [
+                    "productcert@example.net",
+                    "psirt@example.com",
+                    "reporter@securityresearcher.example",
+                    "vulnerability@coordinator.example"
+                  ]
+                },
+                "public_openpgp_key_url": {
+                  "title": "Public OpenPGP Key URL",
+                  "description": "Contains a URL pointing to a public OpenPGP key valid for the email of issuing party provided in the sibling property `email`.",
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/",
+                  "minLength": 11,
+                  "examples": [
+                    "https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability",
+                    "https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert",
+                    "https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter",
+                    "https://psirt.example.com/security/openpgp/latest"
+                  ]
+                }
+              },
+              "additionalProperties": false
             },
             "issuing_authority": {
               "title": "Issuing authority",

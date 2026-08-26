@@ -1,14 +1,6 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
   "document": {
-    "acknowledgments": [
-      {
-        "summary": "A URL that does resolve with HTTP status code >=400.",
-        "urls": [
-          "https://github.com/oasis-tcs/csaf/not-available"
-        ]
-      }
-    ],
     "category": "csaf_base",
     "csaf_version": "2.1",
     "distribution": {
@@ -18,13 +10,17 @@
     },
     "publisher": {
       "category": "other",
+      "contact": {
+        "email": "test-6.2.55@csaf.example",
+        "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/binary.pgp"
+      },
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative Test: Use of Non-Self Referencing URLs Failing to Resolve (failing example 2)",
+    "title": "Recommended Test: Public OpenPGP Key URL (failing example 3)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-06-02",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-55-03",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
