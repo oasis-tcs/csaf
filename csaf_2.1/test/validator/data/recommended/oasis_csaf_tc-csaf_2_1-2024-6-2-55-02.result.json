@@ -7,7 +7,7 @@
     "warnings": [
       {
         "instance_path": "/document/publisher/contact/public_openpgp_key_url",
-        "message": "Content-Type does not match `application/pgp-keys"
+        "message": "Content-Type does not match `application/pgp-keys`"
       }
     ]
   },

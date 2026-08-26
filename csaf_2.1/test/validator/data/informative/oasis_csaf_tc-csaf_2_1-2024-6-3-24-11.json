@@ -12,15 +12,15 @@
       "category": "other",
       "contact": {
         "email": "test-6.2.55@csaf.example",
-        "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/without-user-id.asc"
+        "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
       },
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Public OpenPGP Key URL (failing example 2)",
+    "title": "Informative Test: Public OpenPGP Key URL User ID (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-55-02",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-24-01",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {

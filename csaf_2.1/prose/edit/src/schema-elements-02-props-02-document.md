@@ -489,8 +489,8 @@ and `pattern` (regular expression):
 Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key valid for the email of issuing party provided
 in the sibling property `email`.
 
-> It is desired that the OpenPGP Key contains the same email address in its userid as given through the property `email`.
-> However, due to data protection and operation concerns neither a userid in the OpenPGP key nor
+> It is desired that the OpenPGP Key contains the same email address in its user ID as given through the property `email`.
+> However, due to data protection and operation concerns neither a user ID in the OpenPGP key nor
 > an exact match to the value of `email` is enforced by this standard.
 > The use of aliases is permitted.
 > The issuing party is responsible for ensuring the usability of the key provided.
