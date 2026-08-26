@@ -4,7 +4,7 @@ It MUST be tested that the URL given as value of `public_openpgp_key_url` in the
 delivers valid public OpenPGP key allowing encryption as ASCII armored file with the matching content type.
 The test MUST be skipped if the URL results in a client or server error.
 
-> As these might be temporary errors, they are reported through test [sec](tests-03-nfrmtv-06-use-of-non-self-referencing-urls-failing-to-resolve).
+> As these might be temporary errors, they are reported through test [sec](#use-of-non-self-referencing-urls-failing-to-resolve).
 
 The relevant path for this test is:
 
