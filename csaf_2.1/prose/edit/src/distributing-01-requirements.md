@@ -40,7 +40,8 @@ However, it MUST be ensured that the documents are still access protected.
 
 ### Requirement 6: No Redirects
 
-Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
+Redirects SHOULD NOT be used.
+If they are inevitable only HTTP Header redirects SHALL be used.
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 

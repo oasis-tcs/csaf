@@ -280,7 +280,7 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
 ```
 
 The given values reflect the VEX not affected justifications.
-See [VEX-Justification] for more details.
+See [cite](#VEX-Justification) for more details.
 The values MUST be used as follows:
 
 - `component_not_present`: The software is not affected because the vulnerable component is not in the product.
