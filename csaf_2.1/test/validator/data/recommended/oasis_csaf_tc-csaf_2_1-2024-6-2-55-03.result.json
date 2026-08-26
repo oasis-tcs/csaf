@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": true,
+  "primary_result": {
+    "id": "6.2.55",
+    "passed": false,
+    "warnings": [
+      {
+        "instance_path": "/document/publisher/contact/public_openpgp_key_url",
+        "message": "Content retrieved is not ASCII-armored"
+      },
+      {
+        "instance_path": "/document/publisher/contact/public_openpgp_key_url",
+        "message": "Content-Type does not match `application/pgp-keys"
+      }
+    ]
+  },
+  "resultschema_version": "2.1"
+}

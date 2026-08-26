@@ -496,7 +496,8 @@ in the sibling property `email`.
 > The issuing party is responsible for ensuring the usability of the key provided.
 
 The URL MAY point to a location that redirects.
-The content delivered SHALL be a valid OpenPGP key as ASCII armored file with the matching content type.
+Redirects SHALL fulfil the same requirements as specified in [sec](#requirement-6-no-redirects).
+The content delivered SHALL be a valid OpenPGP key allowing encryption as ASCII armored file with the matching content type.
 See [cite](#RFC4880) and [cite](#RFC3156) for more details.
 
 *Examples 3:*
