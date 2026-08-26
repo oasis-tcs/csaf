@@ -1077,6 +1077,7 @@
       "failures": [
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-01.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-01.result.json",
           "valid": false
         },
         {

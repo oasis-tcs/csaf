@@ -1,0 +1,123 @@
+{
+  "title": "DecisionPoint",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://certcc.github.io/SSVC/data/schema/v2/DecisionPoint_2_0_0.schema.json",
+  "description": "This schema defines the structure to represent an SSVC DecisionPoint object.",
+  "type": "object",
+  "$defs": {
+    "DecisionPointValue": {
+      "title": "DecisionPointValue",
+      "description": "Models a single value option for a decision point.\n\nEach value should have the following attributes:\n\n- name (str): A name\n- description (str): A description\n- key (str): A key (a short, unique string) that can be used to identify the value in a shorthand way\n- _comment (str): An optional comment that will be included in the object.",
+      "properties": {
+        "key": {
+          "title": "Key",
+          "description": "A short, non-empty string identifier for the object. Keys must start with an alphanumeric, contain only alphanumerics and `_`, and end with an alphanumeric.(`T*` is explicitly grandfathered in as a valid key, but should not be used for new objects.)",
+          "examples": [
+            "E",
+            "A",
+            "SI",
+            "L",
+            "M",
+            "H",
+            "Mixed_case_OK",
+            "alph4num3ric"
+          ],
+          "minLength": 1,
+          "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9])|(T\\*))$",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "minLength": 1,
+          "type": "string"
+        },
+        "definition": {
+          "title": "Definition",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "definition"
+      ],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "namespace": {
+      "title": "Namespace",
+      "description": "The namespace of the SSVC object.",
+      "examples": [
+        "ssvc",
+        "cisa",
+        "x_example.test#test//.example.test#private-extension",
+        "ssvc/de-DE/.example.organization#reference-arch-1"
+      ],
+      "maxLength": 1000,
+      "minLength": 3,
+      "pattern": "^(x_([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*|[a-z]([a-z]|[0-9])(((\\.|-))?(([a-z]|[0-9]))+)+(#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*)?)((/|/(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){0,2})?|[a-zA-Z]{4,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){2,8})+)?|[xX](-([a-zA-Z0-9]){2,8})+|i-default|i-mingo))((/((([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){0,2})?|[a-zA-Z]{4,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){2,8})+)?|[xX](-([a-zA-Z0-9]){2,8})+|i-default|i-mingo)|\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*|\\.(([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+|([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*)\\$(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){0,2})?|[a-zA-Z]{4,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){2,8})+)?|[xX](-([a-zA-Z0-9]){2,8})+|i-default|i-mingo)))+)?)?$",
+      "type": "string"
+    },
+    "key": {
+      "title": "Key",
+      "description": "A short, non-empty string identifier for the object. Keys must start with an alphanumeric, contain only alphanumerics and `_`, and end with an alphanumeric.(`T*` is explicitly grandfathered in as a valid key, but should not be used for new objects.)",
+      "examples": [
+        "E",
+        "A",
+        "SI",
+        "L",
+        "M",
+        "H",
+        "Mixed_case_OK",
+        "alph4num3ric"
+      ],
+      "minLength": 1,
+      "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9])|(T\\*))$",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "default": "0.0.1",
+      "description": "The version of the SSVC object. This must be a valid semantic version string.",
+      "examples": [
+        "1.0.0",
+        "2.1.3"
+      ],
+      "minLength": 5,
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "minLength": 1,
+      "type": "string"
+    },
+    "definition": {
+      "title": "Definition",
+      "minLength": 1,
+      "type": "string"
+    },
+    "schemaVersion": {
+      "title": "Schemaversion",
+      "const": "2.0.0",
+      "type": "string"
+    },
+    "values": {
+      "title": "Values",
+      "items": {
+        "$ref": "#/$defs/DecisionPointValue"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "namespace",
+    "key",
+    "name",
+    "definition",
+    "schemaVersion",
+    "values"
+  ]
+}
