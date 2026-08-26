@@ -33,4 +33,4 @@ Recommendation:
 
 It is recommended that issuing parties conduct an analysis to make an informed decision based on pros and cons regarding the
 inclusion of a matching email address into the user ID of the public OpenPGP key.
-Sections [sec](#document-property-publisher-contact) and [sec](#safety-security-and-data-protection) contain advise to take into consideration.
+Sections [sec](#document-property---publisher---contact) and [sec](#safety-security-and-data-protection-considerations) contain advise to take into consideration.
