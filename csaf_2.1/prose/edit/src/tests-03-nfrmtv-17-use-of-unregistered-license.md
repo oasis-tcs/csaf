@@ -1,6 +1,6 @@
 ### Use of Unregistered License
 
-It MUST be tested that the all license identifiers and exceptions are listed either in the official SPDX license identifier list
+It SHALL be tested that the all license identifiers and exceptions are listed either in the official SPDX license identifier list
 or AboutCode's "ScanCode LicenseDB".
 
 The relevant path for this test is:

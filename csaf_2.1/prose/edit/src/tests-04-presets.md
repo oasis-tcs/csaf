@@ -4,9 +4,9 @@ A test preset is a predefined set of tests that was given a name.
 It MAY contain any number of tests.
 Two presets MAY overlap.
 The content of a preset MAY vary in different CSAF versions.
-A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator.
+A CSAF validator SHALL support every official preset that solely include tests that are implemented by the CSAF validator.
 A CSAF validator MAY provide or support additional presets.
-A CSAF validator MUST implement all tests for any supported preset.
+A CSAF validator SHALL implement all tests for any supported preset.
 
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
@@ -18,8 +18,8 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 - `org_` followed by an organization identifier and an underscore (`_`):
   for any preset specified by an organization as a part of a public definition
   that can be implemented by different CSAF validators.
-  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
-  The organization identifier MUST be registered with the OASIS CSAF TC prior to the publication of the definition.
+  The organization identifier SHALL only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
+  The organization identifier SHALL be registered with the OASIS CSAF TC prior to the publication of the definition.
 
 - `csaf_`: for any preset defined later on by the OASIS CSAF TC.
 
@@ -49,7 +49,7 @@ The following presets are defined through conformance targets:
 
   > Note: The last preset MAY vary between different implementations as it is implementation specific.
 
-As presets are sets, the operator `+` MUST be interpreted as the union operation.
+As presets are sets, the operator `+` SHALL be interpreted as the union operation.
 
 ### Additional Presets
 

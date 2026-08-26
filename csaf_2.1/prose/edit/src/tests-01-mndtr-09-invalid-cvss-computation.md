@@ -1,6 +1,6 @@
 ### Invalid CVSS Computation
 
-It MUST be tested that the given CVSS object has the values computed correctly according to the definition.
+It SHALL be tested that the given CVSS object has the values computed correctly according to the definition.
 
 > The `vectorString` SHOULD take precedence.
 

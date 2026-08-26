@@ -1,6 +1,6 @@
 ### Build Metadata in Revision History
 
-For each item in revision history it MUST be tested that `number` does not include build metadata.
+For each item in revision history it SHALL be tested that `number` does not include build metadata.
 
 The relevant path for this test is:
 

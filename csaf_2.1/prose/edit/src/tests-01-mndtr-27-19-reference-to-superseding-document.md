@@ -1,8 +1,8 @@
 #### Reference to Superseding Document
 
-If the document language is English or unspecified, it MUST be tested that at least one item in document references exists
+If the document language is English or unspecified, it SHALL be tested that at least one item in document references exists
 that has a summary starting with `Superseding Document`.
-The `category` of this item MUST be `external`.
+The `category` of this item SHALL be `external`.
 
 The relevant value for `$.document.category` is:
 

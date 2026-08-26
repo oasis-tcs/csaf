@@ -1,6 +1,6 @@
 #### Vulnerabilities{#vulnerabilities-for-security-advisory-or-vex}
 
-It MUST be tested that the element `$.vulnerabilities` exists.
+It SHALL be tested that the element `$.vulnerabilities` exists.
 
 The relevant values for `$.document.category` are:
 

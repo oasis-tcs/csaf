@@ -12,7 +12,7 @@ There are two options how it can be used:
 - semantic versioning (preferred; according to the rules below)
 - integer versioning
 
-A CSAF document MUST use only one versioning system.
+A CSAF document SHALL use only one versioning system.
 
 *Examples 1:*
 
@@ -35,17 +35,17 @@ The regular expression for this type is:
 
 The following rules apply:
 
-1. Once a versioned document has been released, the contents of that version MUST NOT be modified.
-   Any modifications MUST be released as a new version.
+1. Once a versioned document has been released, the contents of that version SHALL NOT be modified.
+   Any modifications SHALL be released as a new version.
 2. Version zero (`0`) is for initial development before the `initial_release_date`.
-   The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
+   The document status SHALL be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
 3. Version `1` defines the initial release to the specified target group.
    Each new version where `$.document.tracking.status` is `final` has a version number incremented by one.
-4. Pre-release versions (document status `draft`) MUST carry the new version number.
+4. Pre-release versions (document status `draft`) SHALL carry the new version number.
    Sole exception is before the initial release (see rule 2).
    The combination of document status `draft` and version `1` MAY be used to indicate that the content is unlikely to change.
 5. Build metadata is never included in the version.
-6. Precedence MUST be determined by integer comparison.
+6. Precedence SHALL be determined by integer comparison.
 
 #### Version Type - Semantic Versioning{#version-type---semantic-versioning}
 
@@ -59,14 +59,14 @@ The goal of this structure is to provide additional information to the end user 
 The "public API" in regard to CSAF is the CSAF document with its structure and content.
 This results in the following rules:
 
-1. A normal version number MUST take the form `X.Y.Z` where `X`, `Y`, and `Z` are non-negative integers, and MUST NOT contain leading zeroes.
+1. A normal version number SHALL take the form `X.Y.Z` where `X`, `Y`, and `Z` are non-negative integers, and SHALL NOT contain leading zeroes.
    `X` is the major version, `Y` is the minor version, and `Z` is the patch version.
-   Each element MUST increase numerically.
+   Each element SHALL increase numerically.
    For instance: `1.9.0` -> `1.10.0` -> `1.11.0`.
-2. Once a versioned document has been released, the contents of that version MUST NOT be modified.
-   Any modifications MUST be released as a new version.
+2. Once a versioned document has been released, the contents of that version SHALL NOT be modified.
+   Any modifications SHALL be released as a new version.
 3. Major version zero (`0.y.z`) is for initial development before the `initial_release_date`.
-   The document status MUST be `draft`. Anything MAY change at any time.
+   The document status SHALL be `draft`. Anything MAY change at any time.
    The document SHOULD NOT be considered stable. Changes which would increment the major version according to rule 7 are
    tracked in this stage with (`0.y.z`) by incrementing the minor version `y` instead.
    Changes that would increment the minor or patch version according to rule 6 or 5 are both tracked in this stage with
@@ -74,16 +74,16 @@ This results in the following rules:
 4. Version `1.0.0` defines the initial release to the specified target group.
    The way in which the version number is incremented after this release is dependent on the content and structure of
    the document and how it changes.
-5. Patch version `Z` (`x.y.Z` | `x > 0`) MUST be incremented if only backwards compatible bug fixes are introduced.
+5. Patch version `Z` (`x.y.Z` | `x > 0`) SHALL be incremented if only backwards compatible bug fixes are introduced.
    A bug fix is defined as an internal change that fixes incorrect behavior.
 
    > In the context of the document this is the case e.g. for spelling mistakes.
 
-6. Minor version `Y` (`x.Y.z` | `x > 0`) MUST be incremented if the content of an existing element changes except for
+6. Minor version `Y` (`x.Y.z` | `x > 0`) SHALL be incremented if the content of an existing element changes except for
    those which are covered through rule 7.
-   It MUST be incremented if substantial new information are introduced or new elements are provided.
-   It MAY include patch level changes. Patch version MUST be reset to `0` when minor version is incremented.
-7. Major version `X` (`X.y.z` | `X > 0`) MUST be incremented if a new comparison with the end user's asset database is required.
+   It SHALL be incremented if substantial new information are introduced or new elements are provided.
+   It MAY include patch level changes. Patch version SHALL be reset to `0` when minor version is incremented.
+7. Major version `X` (`X.y.z` | `X > 0`) SHALL be incremented if a new comparison with the end user's asset database is required.
    This includes:
 
    * changes (adding, removing elements or modifying content) in `$.product_tree` or elements which contain `$.product_tree` in their path
@@ -98,10 +98,10 @@ This results in the following rules:
      * `$.vulnerabilities[*].product_status.known_not_affected`
 
    It MAY also include minor and patch level changes.
-   Patch and minor version MUST be reset to `0` when major version is incremented.
+   Patch and minor version SHALL be reset to `0` when major version is incremented.
 8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately
-   following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
-   Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes.
+   following the patch version. Identifiers SHALL comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
+   Identifiers SHALL NOT be empty. Numeric identifiers SHALL NOT include leading zeroes.
    Pre-release versions have a lower precedence than the associated normal version.
    A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as
    denoted by its associated normal version.
@@ -116,10 +116,10 @@ This results in the following rules:
    1.0.0-x.7.z.92
    ```
 
-9. Pre-release MUST NOT be included if `$.document.tracking.status` is `final`.
+9. Pre-release SHALL NOT be included if `$.document.tracking.status` is `final`.
 10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following
-    the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
-    Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence.
+    the patch or pre-release version. Identifiers SHALL comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
+    Identifiers SHALL NOT be empty. Build metadata SHALL be ignored when determining version precedence.
     Thus two versions that differ only in the build metadata, have the same precedence.
 
     *Examples 2:*
@@ -133,7 +133,7 @@ This results in the following rules:
 
 11. Precedence refers to how versions are compared to each other when ordered.
 
-    1. Precedence MUST be calculated by separating the version into major, minor,
+    1. Precedence SHALL be calculated by separating the version into major, minor,
        patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows:
        Major, minor, and patch versions are always compared numerically.
@@ -153,7 +153,7 @@ This results in the following rules:
        ```
 
     4. Precedence for two pre-release versions with the same major, minor,
-       and patch version MUST be determined by comparing each dot separated identifier from left to right until a difference is found as follows:
+       and patch version SHALL be determined by comparing each dot separated identifier from left to right until a difference is found as follows:
 
        1. Identifiers consisting of only digits are compared numerically.
        2. Identifiers with letters or hyphens are compared lexically in ASCII sort order.

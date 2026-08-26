@@ -1,6 +1,6 @@
 ### Multiple Definition in Revision History
 
-It MUST be tested that items of the revision history do not contain the same version number.
+It SHALL be tested that items of the revision history do not contain the same version number.
 
 The relevant path for this test is:
 

@@ -1,6 +1,6 @@
 #### Document Notes{#document-notes-for-informational-advisory-and-security-incident-response}
 
-It MUST be tested that at least one item in `$.document.notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
+It SHALL be tested that at least one item in `$.document.notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
 
 The relevant values for `$.document.category` are:
 

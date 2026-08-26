@@ -1,9 +1,9 @@
 #### Language Specific Superseding Document
 
-If the document language is specified but not English, it MUST be tested that at least one item in document references exists
+If the document language is specified but not English, it SHALL be tested that at least one item in document references exists
 that starts with the language specific translation of the term `Superseding Document` as `summary`.
-The `category` of this item MUST be `external`.
-If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+The `category` of this item SHALL be `external`.
+If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no such translation is known.
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 

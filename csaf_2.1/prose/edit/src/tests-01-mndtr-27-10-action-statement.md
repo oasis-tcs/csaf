@@ -1,6 +1,6 @@
 #### Action Statement
 
-For each item in `$.vulnerabilities[*].product_status.known_affected` it MUST be tested that
+For each item in `$.vulnerabilities[*].product_status.known_affected` it SHALL be tested that
 a corresponding action statement exist in `$.vulnerabilities[*].remediations`.
 
 The relevant value for `$.document.category` is:

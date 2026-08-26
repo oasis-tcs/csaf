@@ -1,10 +1,10 @@
 ### Public OpenPGP Key URL User ID
 
-It MUST be tested that the URL given as value of `public_openpgp_key_url` in the CSAF document
+It SHALL be tested that the URL given as value of `public_openpgp_key_url` in the CSAF document
 delivers a public OpenPGP key with an email in the user ID matching the sibling property `email`.
-The test MUST be skipped if the URL results in a client or server error or
+The test SHALL be skipped if the URL results in a client or server error or
 the OpenPGP key retrieved is not in ASCII-armored format.
-The test MUST report if the user ID is not set or empty.
+The test SHALL report if the user ID is not set or empty.
 
 > The cases excluded are handled through tests [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
 > and [sec](#public-openpgp-key-url).

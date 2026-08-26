@@ -1,6 +1,6 @@
 ### Usage of Sharing Group on TLP:CLEAR{#usage-of-sharing-group-on-tlp-clear}
 
-It MUST be tested that no sharing group is used if the document is `TLP:CLEAR`.
+It SHALL be tested that no sharing group is used if the document is `TLP:CLEAR`.
 
 The relevant path for this test is:
 

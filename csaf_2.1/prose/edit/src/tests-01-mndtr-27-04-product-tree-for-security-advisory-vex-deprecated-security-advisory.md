@@ -1,6 +1,6 @@
 #### Product Tree{#product-tree-for-security-advisory-vex-deprecated-security-advisory}
 
-It MUST be tested that the element `$.product_tree` exists.
+It SHALL be tested that the element `$.product_tree` exists.
 
 The relevant values for `$.document.category` are:
 

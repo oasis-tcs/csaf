@@ -1,6 +1,6 @@
 ### Document Status Draft
 
-It MUST be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
+It SHALL be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
 
 The relevant path for this test is:
 

@@ -1,6 +1,6 @@
 ### Use of Qualitative Severity Rating by Issuing Party
 
-For each item in `metrics` provided by the issuing party it MUST be tested that it does not use the qualitative severity rating.
+For each item in `metrics` provided by the issuing party it SHALL be tested that it does not use the qualitative severity rating.
 
 > This covers all items in `metrics` that do not have a `source` property and those where the `source` is equal to
 > the canonical URL.

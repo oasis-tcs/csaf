@@ -1,6 +1,6 @@
 ### Use of CVSS v3.0
 
-For each item in the list of metrics which contains the `cvss_v3` object under `content` it MUST be tested that CVSS v3.0 is not used.
+For each item in the list of metrics which contains the `cvss_v3` object under `content` it SHALL be tested that CVSS v3.0 is not used.
 
 The relevant paths for this test are:
 

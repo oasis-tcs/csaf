@@ -1,9 +1,9 @@
 ### SSVC Decision Points
 
-For each SSVC decision point given under `selections` within a registered base `namespace`, it MUST be tested that given decision point exists,
+For each SSVC decision point given under `selections` within a registered base `namespace`, it SHALL be tested that given decision point exists,
 is valid and the items in `values` are ordered correctly.
 The test SHALL pass, if a unregistered `namespace` is used.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > A list of all currently registered namespaces is a available in the SSVC documentation at [cite](#SSVC-RNS).
 >

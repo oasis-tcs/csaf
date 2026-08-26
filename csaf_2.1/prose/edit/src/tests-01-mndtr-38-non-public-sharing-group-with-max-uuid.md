@@ -1,6 +1,6 @@
 ### Non-Public Sharing Group with Max UUID
 
-It MUST be tested that a CSAF document using Max UUID as sharing group ID has the TLP label `CLEAR`.
+It SHALL be tested that a CSAF document using Max UUID as sharing group ID has the TLP label `CLEAR`.
 
 The relevant path for this test is:
 

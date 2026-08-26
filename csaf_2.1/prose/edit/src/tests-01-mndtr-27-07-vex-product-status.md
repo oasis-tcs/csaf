@@ -1,6 +1,6 @@
 #### VEX Product Status
 
-For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
+For each item in `$.vulnerabilities` it SHALL be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
 or `under_investigation` is present in `product_status`.
 
 The relevant value for `$.document.category` is:

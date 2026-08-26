@@ -6,8 +6,8 @@ The abbreviations for groups are defined in section [sec](#overlapping-product-v
 
 #### Overlapping Product Version Range with VERS in Same Product Status Group
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
 member of the same product status group (see section [sec](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -71,8 +71,8 @@ The relevant path for this test is:
 
 #### Overlapping Product Version Range with vls in Same Product Status Group
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
 member of the same product status group (see section [sec](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -136,8 +136,8 @@ The relevant path for this test is:
 
 #### Overlapping Product Version Range with Product Version in Same Product Status Group
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
 member of the same product status group (see section [sec](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -201,8 +201,8 @@ The relevant path for this test is:
 
 #### Overlapping Product Version Range with Product Version Range in Branch
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that all product version ranges of elements in `PVRSS+b` do not overlap with `CTPVR`.
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that all product version ranges of elements in `PVRSS+b` do not overlap with `CTPVR`.
 
 The relevant path for this test is:
 
@@ -240,8 +240,8 @@ The relevant path for this test is:
 
 #### Overlapping Product Version Range with Product Version in Branch
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that all product versions of elements in `PVSS+b` do not overlap with `CTPVR`.
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that all product versions of elements in `PVSS+b` do not overlap with `CTPVR`.
 
 The relevant path for this test is:
 

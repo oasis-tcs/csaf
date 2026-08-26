@@ -1,6 +1,6 @@
 ### Missing Date in Involvements
 
-For each item in the list of involvements it MUST be tested that it includes the property `date`.
+For each item in the list of involvements it SHALL be tested that it includes the property `date`.
 
 The relevant path for this test is:
 

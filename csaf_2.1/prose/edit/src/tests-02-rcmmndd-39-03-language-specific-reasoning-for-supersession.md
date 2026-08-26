@@ -1,9 +1,9 @@
 #### Language Specific Reasoning for Supersession
 
-If the document language is specified but not English, it MUST be tested that exactly one item in document notes exists
+If the document language is specified but not English, it SHALL be tested that exactly one item in document notes exists
 that has the language specific translation of the term `Reasoning for Supersession` as `title`.
-The `category` of this item MUST be `description`.
-If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+The `category` of this item SHALL be `description`.
+If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no such translation is known.
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 

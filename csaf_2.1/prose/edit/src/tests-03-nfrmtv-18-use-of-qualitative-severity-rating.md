@@ -1,6 +1,6 @@
 ### Use of Qualitative Severity Rating
 
-For each item in `metrics` it MUST be tested that it does not use the qualitative severity rating.
+For each item in `metrics` it SHALL be tested that it does not use the qualitative severity rating.
 
 > This covers all items in `metrics` regardless of their origin.
 > Even though the Qualitative Severity Rating is a specified property, its usage is discouraged as it provides

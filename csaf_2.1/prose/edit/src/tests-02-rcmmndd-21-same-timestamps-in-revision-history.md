@@ -1,7 +1,7 @@
 ### Same Timestamps in Revision History
 
-It MUST be tested that the timestamps of all items in the revision history are pairwise disjoint.
-As the timestamps might use different timezones, the comparison MUST take timezones into account.
+It SHALL be tested that the timestamps of all items in the revision history are pairwise disjoint.
+As the timestamps might use different timezones, the comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 

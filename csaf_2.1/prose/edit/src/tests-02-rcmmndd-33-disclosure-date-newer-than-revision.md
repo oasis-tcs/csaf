@@ -1,8 +1,8 @@
 ### Disclosure Date Newer than Revision History
 
-For each vulnerability, it MUST be tested that the `disclosure_date` is earlier or equal to the `date` of the newest item of the `revision_history`
+For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier or equal to the `date` of the newest item of the `revision_history`
 if the `disclosure_date` is in the past at the time of the test execution.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 > The result of the test is dependent upon the time of the execution of the test - it might change for a given CSAF document over time.
 > However, the latest version of a CSAF document should always pass the test.

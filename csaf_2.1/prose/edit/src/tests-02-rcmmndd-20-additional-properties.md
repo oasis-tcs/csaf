@@ -1,10 +1,10 @@
 ### Additional Properties
 
-It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+It SHALL be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
 This also applies for referenced schemas.
-For CSAF Extensions, the declared schemas MUST be checked additionally to the CSAF Extension Content Schema.
-Additional and unevaluated properties allowed by the CSAF Extension Content Schema MUST not be reported.
-CSAF Extensions not supported by the implementation SHALL result in a warning which MUST include the value of `$schema` of the extension.
+For CSAF Extensions, the declared schemas SHALL be checked additionally to the CSAF Extension Content Schema.
+Additional and unevaluated properties allowed by the CSAF Extension Content Schema SHALL not be reported.
+CSAF Extensions not supported by the implementation SHALL result in a warning which SHALL include the value of `$schema` of the extension.
 Such warning SHALL differentiate between the different classes of extensions.
 
 > Some of the errors could be reported by combining the JSON schema check with several mandatory tests,

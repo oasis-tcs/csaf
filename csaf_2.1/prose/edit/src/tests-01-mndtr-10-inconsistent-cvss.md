@@ -1,6 +1,6 @@
 ### Inconsistent CVSS
 
-It MUST be tested that the given CVSS properties do not contradict the CVSS vector.
+It SHALL be tested that the given CVSS properties do not contradict the CVSS vector.
 
 The relevant paths for this test are:
 

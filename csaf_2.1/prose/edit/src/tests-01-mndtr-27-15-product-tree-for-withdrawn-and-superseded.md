@@ -1,6 +1,6 @@
 #### Product Tree{#product-tree-for-withdrawn-and-superseded}
 
-It MUST be tested that the element `$.product_tree` does not exist.
+It SHALL be tested that the element `$.product_tree` does not exist.
 
 The relevant values for `$.document.category` are:
 

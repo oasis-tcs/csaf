@@ -1,8 +1,8 @@
 ### Inconsistent Product Identification Helper
 
-For each product identification helper which resides in `branches`, it MUST be tested that the product identification helper contain at least
+For each product identification helper which resides in `branches`, it SHALL be tested that the product identification helper contain at least
 the same information as the categorized strings.
-Information that cannot be represented in the specific product identification helper MUST be omitted from the comparison.
+Information that cannot be represented in the specific product identification helper SHALL be omitted from the comparison.
 
 > To implement this test it is deemed sufficient to follow the process below.
 > It is based on a static mapping of branch categories to the corresponding part of the product identification helpers.

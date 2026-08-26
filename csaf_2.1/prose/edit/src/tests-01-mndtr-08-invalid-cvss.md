@@ -1,6 +1,6 @@
 ### Invalid CVSS
 
-It MUST be tested that the given CVSS object is valid according to the referenced schema.
+It SHALL be tested that the given CVSS object is valid according to the referenced schema.
 
 The relevant paths for this test are:
 

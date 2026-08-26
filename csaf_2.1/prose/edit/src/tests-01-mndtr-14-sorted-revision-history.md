@@ -1,8 +1,8 @@
 ### Sorted Revision History
 
-It MUST be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted
+It SHALL be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted
 ascending by `date` and as a second level criteria `number`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 In order to create consistent results in the case of mixed integer and semantic versioning (failing test
 [sec](#mixed-integer-and-semantic-versioning)), implementations SHALL map items with integer versioning to

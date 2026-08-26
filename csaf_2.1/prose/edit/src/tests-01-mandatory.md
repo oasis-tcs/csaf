@@ -1,4 +1,4 @@
 ## Mandatory Tests
 
-Mandatory tests MUST NOT fail at a valid CSAF document.
-A program MUST handle a test failure as an error.
+Mandatory tests SHALL NOT fail at a valid CSAF document.
+A program SHALL handle a test failure as an error.

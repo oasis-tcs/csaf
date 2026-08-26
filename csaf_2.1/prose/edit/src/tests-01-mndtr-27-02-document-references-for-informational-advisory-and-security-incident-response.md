@@ -1,6 +1,6 @@
 #### Document References{#document-references-for-informational-advisory-and-security-incident-response}
 
-It MUST be tested that at least one item in `$.document.references` exists that has links to an `external` source.
+It SHALL be tested that at least one item in `$.document.references` exists that has links to an `external` source.
 
 The relevant values for `$.document.category` are:
 

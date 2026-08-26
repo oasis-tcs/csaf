@@ -1,6 +1,6 @@
 ### Multiple Use of Same Hash Algorithm
 
-It MUST be tested that the same hash algorithm is not used multiple times in one item of file hashes.
+It SHALL be tested that the same hash algorithm is not used multiple times in one item of file hashes.
 
 The relevant paths for this test are:
 

@@ -39,7 +39,7 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
    If both are present, the ROLIE information SHOULD be preferred.
 2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section [sec](#requirements)) SHOULD be retrieved together
    with the CSAF document.
-   They MUST be checked before further processing the CSAF document.
+   They SHALL be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
 4. Execute mandatory tests on the CSAF document.
 

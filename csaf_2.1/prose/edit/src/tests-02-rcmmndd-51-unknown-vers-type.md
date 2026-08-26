@@ -1,8 +1,8 @@
 ### Unknown VERS Type
 
 For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` which indicates that it is using vers,
-it MUST be tested that the VERS type is officially registered and supported by the implementation.
-The warning MUST differentiate between officially registered VERS types and those that are not in this state.
+it SHALL be tested that the VERS type is officially registered and supported by the implementation.
+The warning SHALL differentiate between officially registered VERS types and those that are not in this state.
 
 > Different implementations might support different VERS types.
 > Usually, unknown VERS types hinder the automated evaluation of VERS.

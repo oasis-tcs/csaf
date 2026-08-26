@@ -1,6 +1,6 @@
 ### CVSS for Fixed Products
 
-For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that
+For each item the fixed products group (`first_fixed` and `fixed`) it SHALL be tested that
 a CVSS applying to this product has an overall score of `0`.
 The test SHALL pass if none of the Product IDs listed within product status `fixed` or
 `first_fixed` is found in `products` of any item of the `metrics` element.

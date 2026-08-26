@@ -10,6 +10,6 @@ $defs:
   # ...
 ```
 
-Each item MUST comply with the rules for CSAF Extensions and validate against the
+Each item SHALL comply with the rules for CSAF Extensions and validate against the
 [CSAF Extension Content schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) as well as the schema given
 through its `$schema` property.

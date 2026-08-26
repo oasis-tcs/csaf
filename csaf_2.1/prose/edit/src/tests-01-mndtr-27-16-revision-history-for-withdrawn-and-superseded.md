@@ -1,6 +1,6 @@
 #### Revision History{#revision-history-for-withdrawn-and-superseded}
 
-It MUST be tested that the revision history contains at least two entries.
+It SHALL be tested that the revision history contains at least two entries.
 
 The relevant values for `$.document.category` are:
 

@@ -1,6 +1,6 @@
 ### Usage of Nil UUID
 
-It MUST be tested that the Nil UUID is not used as sharing group id.
+It SHALL be tested that the Nil UUID is not used as sharing group id.
 
 The relevant path for this test is:
 

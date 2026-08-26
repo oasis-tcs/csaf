@@ -1,6 +1,6 @@
 ### Hardware and Software
 
-For each product containing at least one of the Product Identification Helpers `serial_numbers` or `model_numbers` it MUST be tested
+For each product containing at least one of the Product Identification Helpers `serial_numbers` or `model_numbers` it SHALL be tested
 that a product path exists referencing this product.
 
 > This tests detects a potential situation where hardware and software have been mixed in the `product_tree`.

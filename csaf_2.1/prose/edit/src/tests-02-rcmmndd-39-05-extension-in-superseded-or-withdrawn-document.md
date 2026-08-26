@@ -1,6 +1,6 @@
 #### Extension in Superseded or Withdrawn Document
 
-It MUST be tested that the document does not contain an extension.
+It SHALL be tested that the document does not contain an extension.
 
 The relevant values for `$.document.category` are:
 

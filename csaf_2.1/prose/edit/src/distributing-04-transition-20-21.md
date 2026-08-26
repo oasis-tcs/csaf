@@ -39,14 +39,14 @@ The announcement MAY contain also the following information:
 The following process SHOULD be followed:
 
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
-  - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.0/provider-metadata.json` path.
+  - Its `canonical_url` SHALL be set to an URL corresponding to the `/.well-known/csaf/v2.0/provider-metadata.json` path.
 
     > The property `maintained_until` was not defined in CSAF 2.0 and therefore cannot be used -
     > otherwise it would be set to the end of the transition period.
 
   - The URL SHALL also be added as an entry in the security.txt, if used.
 - A `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/v2.1/provider-metadata.json`.
-  - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.1/provider-metadata.json` path.
+  - Its `canonical_url` SHALL be set to an URL corresponding to the `/.well-known/csaf/v2.1/provider-metadata.json` path.
   - Optionally, the property `maintained_from` can be set to an appropriate date in the future, if the service is not considered stable yet.
 
     > The transition officially starts at the date and time noted in the property `maintained_from` as this is the point in time
@@ -80,9 +80,9 @@ If a DNS path (cf. section [sec](#requirement-10-dns-path)) is used instead of t
 The following rules apply for the archival of CSAF document from a previous version:
 
 - This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.tar.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
-- The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section
+- The CSAF documents within the archive SHALL be sorted into folders according to requirement 11 in section
   [sec](#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [sec](#requirement-18-integrity).
-- The archive MUST be accompanied by a hash of the same algorithm.
+- The archive SHALL be accompanied by a hash of the same algorithm.
 - Existing signatures MAY also be included into the archive.
   It is NOT RECOMMENDED to renew the signatures in the archive unless the archive is updated with new content.
 
@@ -95,4 +95,4 @@ It is RECOMMENDED to use the following URLs during the process:
 - `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
 - `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
 
-A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 publishers and providers.
+A CSAF 2.1 aggregator SHALL only sync and list CSAF 2.1 publishers and providers.

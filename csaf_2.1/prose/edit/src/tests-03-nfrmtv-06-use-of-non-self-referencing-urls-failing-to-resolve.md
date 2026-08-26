@@ -1,6 +1,6 @@
 ### Use of Non-Self Referencing URLs Failing to Resolve
 
-For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from
+For each URL which is not in the category `self` it SHALL be tested that it resolves with a HTTP status code from
 the 2xx (Successful) or 3xx (Redirection) class.
 
 > This test does not apply for any item in an array of type `references_t` with the category `self`.
