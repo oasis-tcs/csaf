@@ -320,10 +320,8 @@ apply:
 
 / ​Advisory<def:advisory>: reporting item that describes a condition
     present in an artifact and that requires action by the consumers.
-
 / ​Advisory Document<def:advisory-document>: artifact in which an
     analysis tool reports a result.
-
 / ​Advisory Management System<def:advisory-management-system>: software
     system that consumes the documents produced by analysis tools,
     produces advisories that enable engineering and operating
@@ -332,11 +330,9 @@ apply:
     advisories and displaying information about individual advisories.
     #strong[Note]: An Advisory Management System can interact with a
     document viewer to display information about individual advisories.
-
 / ​Advisory Matching<def:advisory-matching>: process of determining
     whether two advisories are targeting the same products and
     conditions.
-
 / ​Artifact<def:artifact>: sequence of bytes addressable via a URI.
     #emph[Examples]: A physical file in a file system such as a source
     file, an object file, a configuration file or a data file; a
@@ -344,343 +340,241 @@ apply:
     table accessed via an HTTP request; an arbitrary stream of bytes
     returned from an HTTP request, a product URL, a common product
     enumeration value.
-
 / ​Critical Extension<def:critical-extension>: An extension that if an
     instance of it is included in a CSAF Document causes at least one
     mandatory test to fail.
-
 / ​CSAF 2.0 to CSAF 2.1 Converter<def:csaf-2-0-to-csaf-2-1-converter>: A
     CSAF Producer which takes a CSAF 2.0 Document as input and converts
     it into a valid CSAF 2.1 Document.
-
 / ​CSAF Additional Test<def:csaf-additional-test>: A test that is not yet
     defined in section #link(<tests>)[6].
-
 / ​CSAF Asset Matching System<def:csaf-asset-matching-system>: program
     that connects to or is an asset database and is able to manage CSAF
     Documents as required by CSAF Management System as well as matching
     them to assets of the asset database.
-
 / ​CSAF Basic Validator<def:csaf-basic-validator>: A program that reads a
     document and checks it against the JSON schema and performs
     mandatory tests.
-
 / ​CSAF Consumer<def:csaf-consumer>: program that reads and interprets a
     CSAF Document.
-
 / ​CSAF Content Management System<def:csaf-content-management-system>: program
     that is able to create, review and manage CSAF Documents and is able
     to preview their details as required by CSAF Viewer.
-
 / ​CSAF Converter<def:csaf-converter>: CSAF Producer that transforms the
     output of an analysis tool from its native output format into the
     CSAF format.
-
 / ​CSAF Core<def:csaf-core>: All parts of CSAF except for the parts
     covering extensions.
-
 / ​CSAF Direct Producer<def:csaf-direct-producer>: analysis tool which
     acts as a CSAF Producer.
-
 / ​CSAF Document<def:csaf-document>: security advisory text document in
     the format defined by this document.
-
 / ​CSAF Downloader<def:csaf-downloader>: A program that retrieves CSAF
     Documents in an automated fashion.
-
 / ​CSAF Extended Validator<def:csaf-extended-validator>: A CSAF Basic
     Validator that additionally performs recommended tests.
-
 / ​CSAF Extension<def:csaf-extension>: A specified JSON object conveying
     additional information different from the content that can be
     conveyed with the CSAF Core elements.
-
 / ​CSAF Extension Additional Test<def:csaf-extension-additional-test>: A
     test whose execution depends on the presence of the specifying CSAF
     Extension that provides additional checks in the context of the CSAF
     Extension or the CSAF Document the extension is embedded in.
-
 / ​CSAF Extension Bundle<def:csaf-extension-bundle>: A of compilation of
     machine-readable artifacts related to a single CSAF Extension.
-
 / ​CSAF Extension Collection<def:csaf-extension-collection>: A set of
     multiple CSAF Extension Packages.
-
 / ​CSAF Extension Overlay Test<def:csaf-extension-overlay-test>: A test
     whose execution depends on the presence of the specifying CSAF
     Extension that extends or replaces a test standardized in this
     specification or a CSAF Additional Test.
-
 / ​CSAF Extension Package<def:csaf-extension-package>: A of compilation
     of all artifacts related to a single CSAF Extension.
-
 / ​CSAF Extension Schema<def:csaf-extension-schema>: A JSON schema
     specifying the content and properties of a CSAF Extension.
-
 / ​CSAF Extension Specification<def:csaf-extension-specification>: The
     specification of a single CSAF Extension and related material.
-
 / ​CSAF Extension Test<def:csaf-extension-test>: A test that is either a
     CSAF Extension Overlay Test or a CSAF Extension Additional Test.
-
 / ​CSAF Full Validator<def:csaf-full-validator>: A CSAF Extended
     Validator that additionally performs informative tests.
-
 / ​CSAF Library<def:csaf-library>: A library that implements CSAF data
     capabilities.
-
 / ​CSAF Library with Basic Validation<def:csaf-library-with-basic-validation>: A
     CSAF Library that also satisfies the conformance target "CSAF Basic
     Validator".
-
 / ​CSAF Library with Extended Validation<def:csaf-library-with-extended-validation>: A
     CSAF Library that also satisfies the conformance target "CSAF
     Extended Validator".
-
 / ​CSAF Library with Full Validation<def:csaf-library-with-full-validation>: A
     CSAF Library that also satisfies the conformance target "CSAF Full
     Validator".
-
 / ​CSAF Management System<def:csaf-management-system>: program that is
     able to manage CSAF Documents and is able to display their details
     as required by CSAF Viewer.
-
 / ​CSAF Modifier<def:csaf-modifier>: CSAF Post-Processor which takes a
     CSAF Document as input and modifies the structure or values of
     properties. The output is a valid CSAF Document.
-
 / ​CSAF Post-Processor<def:csaf-post-processor>: CSAF Producer that
     transforms an existing CSAF Document into a new CSAF Document, for
     example, by removing or redacting elements according to sharing
     policies.
-
 / ​CSAF Producer<def:csaf-producer>: program that emits output in the
     CSAF format.
-
 / ​CSAF RVISC ID Updater<def:csaf-rvisc-id-updater>: A CSAF
     Post-Processor that updates vulnerability IDs in a given CSAF based
     on the entries in RVISC.
-
 / ​CSAF SBOM Matching System<def:csaf-sbom-matching-system>: A program
     that connects to or is an SBOM database and is able to manage CSAF
     Documents as required by CSAF Management System as well as matching
     them to SBOM components of the SBOM database.
-
 / ​CSAF Superseder<def:csaf-superseder>: A CSAF Post-Processor that
     transforms a given CSAF into a superseded one.
-
 / ​CSAF Translator<def:csaf-translator>: CSAF Post-Processor which takes
     a CSAF Document as input and translates values of properties into
     another language. The output is a valid CSAF Document.
-
 / ​CSAF Viewer<def:csaf-viewer>: CSAF Consumer that reads a CSAF
     Document, displays a list of the results it contains, and allows an
     end user to view each result in the context of the artifact in which
     it occurs.
-
 / ​CSAF Withdrawer<def:csaf-withdrawer>: A CSAF Post-Processor that
     transforms a given CSAF into a withdrawn one.
-
 / ​CVRF CSAF Converter<def:cvrf-csaf-converter>: CSAF Producer which
     takes a CVRF document as input and converts it into a valid CSAF
     Document.
-
 / ​Document<def:document>: output file produced by an analysis tool,
     which enumerates the results produced by the tool.
-
 / ​Driver<def:driver>: tool component containing an analysis tool's or
     converter's primary executable, which controls the tool's or
     converter's execution, and which in the case of an analysis tool
     typically defines a set of analysis rules.
-
 / ​Embedded Link<def:embedded-link>: syntactic construct which enables a
     message string to refer to a location mentioned in the document.
-
 / ​Empty Array<def:empty-array>: array that contains no elements, and so
     has a length of zero.
-
 / ​Empty Object<def:empty-object>: object that contains no properties.
-
 / ​Empty String<def:empty-string>: string that contains no characters,
     and so has a length of zero.
-
 / ​\(End) User<def:end-user>: person who uses the information in a
     document to investigate, triage, or resolve results.
-
 / ​Engineering System<def:engineering-system>: software analysis
     environment within which analysis tools execute. #strong[Note]: An
     engineering system might include a build system, a source control
     system, a result management system, a bug tracking system, a test
     execution system, and so on.
-
 / ​Extension<def:extension>: tool component other than the driver (for
     example, a plugin, a configuration file, or a taxonomy).
-
 / ​External Property File<def:external-property-file>: file containing
     the values of one or more externalized properties.
-
 / ​Externalizable Property<def:externalizable-property>: property that
     can be contained in an external property file.
-
 / ​Externalized Property<def:externalized-property>: property stored
     outside of the CSAF Document to which it logically belongs.
-
 / ​False Positive<def:false-positive>: result which an end user decides
     does not actually represent a problem.
-
 / ​Filter<def:filter>: refine a list by selecting entries that match
     given criteria.
-
 / ​Fingerprint<def:fingerprint>: stable value that can be used by a
     result management system to uniquely identify a result over time,
     even if a relevant artifact is modified.
-
-/ ​Formatted Message<def:formatted-message>: #block[
-```
-message string which contains formatting information such as Markdown formatting characters.
-```
-]
-
+/ ​Formatted Message<def:formatted-message>: message string which
+    contains formatting information such as Markdown formatting
+    characters.
 / ​Fully Qualified Logical Name<def:fully-qualified-logical-name>: string
     that fully identifies the programmatic construct specified by a
     logical location, typically by means of a hierarchical identifier.
-
 / ​Hierarchical String<def:hierarchical-string>: string in the format
     \<component\>{/\<component\>}\*.
-
 / ​Issuing Party<def:issuing-party>: entity that releases a CSAF
     document, independent of its role according to the distribution
     system. It is usually the same one as described by the value of
     `$.document.publisher` in that CSAF document.
-
 / ​Line<def:line>: contiguous sequence of characters, starting either at
     the beginning of an artifact or immediately after a newline
     sequence, and ending at and including the nearest subsequent newline
     sequence, if one is present, or else extending to the end of the
     artifact.
-
 / ​Line (Number)<def:line-number>: 1-based index of a line within a file.
     #strong[Note]: Abbreviated to "line" when there is no danger of
     ambiguity with "line" in the sense of a sequence of characters.
-
 / ​Localizable<def:localizable>: subject to being translated from one
     natural language to another.
-
 / ​Message String<def:message-string>: human-readable string that conveys
     information relevant to an element in a CSAF Document.
-
 / ​Nested Artifact<def:nested-artifact>: artifact that is contained
     within another artifact.
-
 / ​Newline Sequence<def:newline-sequence>: sequence of one or more
     characters representing the end of a line of text. #strong[Note]:
     Some systems represent a newline sequence with a single newline
     character; others represent it as a carriage return character
     followed by a newline character.
-
 / ​Notification<def:notification>: reporting item that describes a
     condition encountered by a tool during its execution.
-
 / ​Opaque<def:opaque>: neither human-readable nor machine-parsable into
     constituent parts.
-
 / ​Parent (Artifact)<def:parent-artifact>: artifact which contains one or
     more nested artifacts.
-
 / ​Plain Text Message<def:plain-text-message>: message string which does
     not contain any formatting information.
-
 / ​Plugin<def:plugin>: tool component that defines additional rules.
-
 / ​Policy<def:policy>: set of rule configurations that specify how
     results that violate the rules defined by a particular tool
     component are to be treated.
-
 / ​Problem<def:problem>: result which indicates a condition that has the
     potential to detract from the quality of the program.
     #emph[Examples]: A security vulnerability, a deviation from
     contractual or legal requirements.
-
 / ​Product<def:product>: is any deliverable (e.g.~software, hardware,
     specification, or service) which can be referred to with a name.
     This applies regardless of the origin, the license model, or the
     mode of distribution of the deliverable.
-
 / ​Property<def:property>: attribute of an object consisting of a name
     and a value associated with the name.
-
 / ​Redactable Property<def:redactable-property>: property that
     potentially contains sensitive information that a CSAF Direct
     Producer or a CSAF Post-Processor might wish to redact.
-
 / ​Reporting Item<def:reporting-item>: unit of output produced by a tool,
     either a result or a notification.
-
 / ​Reporting Configuration<def:reporting-configuration>: the subset of
     reporting metadata that a tool can configure at runtime, before
     performing its scan. #emph[Examples]: severity level, rank
-
 / ​Repository<def:repository>: container for a related set of files in a
     version control system.
-
 / ​Search<def:search>: compile a list of entries that match given
     criteria.
-
 / ​Taxonomy<def:taxonomy>: classification of analysis results into a set
     of categories.
-
 / ​Tag<def:tag>: string that conveys additional information about the
     CSAF Document element to which it applies.
-
 / ​Text Artifact<def:text-artifact>: artifact considered as a sequence of
     characters organized into lines and columns.
-
 / ​Text Region<def:text-region>: region representing a contiguous range
     of zero or more characters in a text artifact.
-
 / ​Tool Component<def:tool-component>: component of an analysis tool or
     converter, either its driver or an extension, consisting of one or
     more files.
-
-/ ​Top-Level Artifact<def:top-level-artifact>: #block[
-```
-artifact which is not contained within any other artifact.
-```
-]
-
+/ ​Top-Level Artifact<def:top-level-artifact>: artifact which is not
+    contained within any other artifact.
 / ​Translation<def:translation>: rendering of a tool component's
     localizable strings into another language.
-
 / ​Triage<def:triage>: decide whether a result indicates a problem that
     needs to be corrected.
-
 / ​User<def:user>: see end user.
-
 / ​VCS<def:vcs>: version control system.
-
 / ​Vendor<def:vendor>: the community, individual, or organization that
     created or maintains a product (including open source software and
     hardware providers).
-
 / ​VEX<def:vex>: Vulnerability Exploitability eXchange - enables a
     supplier or other party to assert whether or not a particular
     product is affected by a specific vulnerability, especially helpful
     in efficiently consuming SBOM data.
-
-/ ​Viewer<def:viewer>: #block[
-```
-see CSAF Viewer.
-```
-]
-
+/ ​Viewer<def:viewer>: see CSAF Viewer.
 / ​Vulnerability<def:vulnerability>: functional behavior of a product or
     service that violates an implicit or explicit security policy
     (conforming to ISO/IEC 29147 \[#link(<ISO29147>)[ISO29147]\]).
-
 / ​White Space<def:white-space>: code point used to improve text
     readability or token separation as defined in section 12.2 of
     \[#link(<ECMA-262>)[ECMA-262]\].
-
 / ​XML<def:xml>: eXtensible Markup Language - the format used by the
     predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
 
@@ -890,6 +784,11 @@ library], OpenSSL Software Foundation,
 
 #strong[\[]<PURL>#strong[PURL\]] #emph[Package URL (PURL)], GitHub
 Project, #link("https://github.com/package-url/purl-spec").
+
+#strong[\[]<RFC3156>#strong[RFC3156\]] Elkins, M., Torto, D., Levien,
+R., and T. Roessler, "MIME Security with OpenPGP", RFC 3156, DOI
+10.17487/RFC3156, August 2001,
+#link("https://www.rfc-editor.org/info/rfc3156/").
 
 #strong[\[]<RFC3552>#strong[RFC3552\]] Rescorla, E. and B. Korver,
 "Guidelines for Writing RFC Text on Security Considerations", BCP 72,
@@ -3593,18 +3492,19 @@ the `group_ids` respectively `product_ids`.
 Publisher (`publisher`) of value type `object` with the mandatory
 properties Category (`category`), Name (`name`) and Namespace
 (`namespace`) provides information on the publishing entity. The two
-other optional properties are: `contact_details` and
-`issuing_authority`.
+other optional properties are: `contact` and `issuing_authority`.
 
 ```yaml
 <csaf-instance>:
   document:
+    # ...
     publisher:
       category: String
-      contact_details: String
+      contact: Mapping
       issuing_authority: String
       name: String
       namespace: String
+    # ...
 ```
 
 ===== Document Property - Publisher - Category
@@ -3666,18 +3566,87 @@ vendors, product security incident response teams (PSIRTs), open source
 projects as well as product resellers and distributors, including
 authoritative vendor partners.
 
-===== Document Property - Publisher - Contact Details
-<document-property---publisher---contact-details>
-Contact details (`contact_details`) of value type `string` with `1` or
-more characters provides information on how to contact the publisher,
-possibly including details such as web sites, email addresses, phone
-numbers, and postal mail addresses.
+===== Document Property - Publisher - Contact
+<document-property---publisher---contact>
+Contact (`contact`) of value type `object` with `1` or more properties
+contains information on how to contact the publisher. The properties are
+Contact Details (`details`), Email (`email`) and Public OpenPGP Key URL
+(`public_openpgp_key_url`) If the property `public_openpgp_key_url` is
+set, the `email` SHALL be set as well.
 
-#emph[Example
-1:]#box()<document-property---publisher---contact-details-eg-1>
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    publisher:
+      # ...
+      contact:
+        details: String
+        email: String.EMAIL
+        public_openpgp_key_url: String.URI
+      # ...
+    # ...
+```
+
+Contact details (`details`) of value type `string` with `1` or more
+characters contains details regarding ways to reach the publisher,
+e.g.~through web sites, phone numbers, and postal mail addresses.
+
+#emph[Example 1:]#box()<document-property---publisher---contact-eg-1>
 
 ```
-    Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
+    Example Company can be reached at tel:+493023125232,
+    or via our website at https://www.example.com/contact.
+```
+
+Email (`email`) of value type `string` of `6` or more characters with
+format `email` contains the email address that can be used to reach the
+issuing party.
+
+#emph[Examples 2:]#box()<document-property---publisher---contact-eg-2>
+
+```
+    "productcert@example.net"
+    "psirt@example.com"
+    "reporter@securityresearcher.example"
+    "vulnerability@coordinator.example"
+```
+
+Public OpenPGP Key URL (`public_openpgp_key_url`) has value type
+`string` of `11` or more characters with format `uri` and `pattern`
+(regular expression):
+
+```
+    ^https:\\/\\/
+```
+
+Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key
+valid for the email of issuing party provided in the sibling property
+`email`.
+
+#quote(block: true)[
+It is desired that the OpenPGP Key contains the same email address in
+its user ID as given through the property `email`. However, due to data
+protection and operation concerns neither a user ID in the OpenPGP key
+nor an exact match to the value of `email` is enforced by this standard.
+The use of aliases is permitted. The issuing party is responsible for
+ensuring the usability of the key provided.
+]
+
+The URL MAY point to a location that redirects. Redirects SHALL fulfil
+the same requirements as specified in
+#link(<requirement-6-no-redirects>)[7.1.6]. The content delivered SHALL
+be a valid OpenPGP key allowing encryption as ASCII armored file with
+the matching content type. See \[#link(<RFC4880>)[RFC4880]\] and
+\[#link(<RFC3156>)[RFC3156]\] for more details.
+
+#emph[Examples 3:]#box()<document-property---publisher---contact-eg-3>
+
+```
+    "https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability"
+    "https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert"
+    "https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter"
+    "https://psirt.example.com/security/openpgp/latest"
 ```
 
 ===== Document Property - Publisher - Issuing Authority
@@ -11236,6 +11205,13 @@ in version `7.0` of the CWE schema definition. As a consequence, this
 information might not be available before CWE version `4.12`.
 ]
 
+The test SHALL NOT fail on items that are not allowed at all.
+
+#quote(block: true)[
+Those are covert through tests #link(<mandatory-tests--cwe>)[6.1.11] and
+#link(<usage-of-cwe-not-allowed-for-vulnerability-mapping>)[6.2.25]
+]
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
@@ -13150,6 +13126,39 @@ The extension is an experimental CSAF Extension. Its properties and
 meaning might therefore not be known to the reader of the document.
 ]
 
+=== Public OpenPGP Key URL
+<public-openpgp-key-url>
+It MUST be tested that the URL given as value of
+`public_openpgp_key_url` in the CSAF document delivers a valid public
+OpenPGP key allowing encryption as ASCII armored file with the matching
+content type. The test MUST be skipped if the URL results in a client or
+server error.
+
+#quote(block: true)[
+As these might be temporary errors, they are reported through test
+#link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6].
+]
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.publisher.contact.public_openpgp_key_url
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<public-openpgp-key-url-eg-1>
+
+```
+    "contact": {
+      // ...
+      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
+    },
+```
+
+#quote(block: true)[
+The `public_openpgp_key_url` points to an expired OpenPGP key.
+]
+
 == Informative Tests
 <informative-tests>
 Informative tests provide insights in common mistakes and bad practices.
@@ -13375,6 +13384,7 @@ The relevant paths for this test are:
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url
   $.document.references[*].url
+  $.document.publisher.contact.public_openpgp_key_url
   $.document.publisher.namespace
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
@@ -14745,6 +14755,55 @@ The Product with the ID `CSAFPID-908070605` is defined through a product
 reference which belongs to a product formed by a product path.
 ]
 
+=== Public OpenPGP Key URL User ID
+<public-openpgp-key-url-user-id>
+It MUST be tested that the URL given as value of
+`public_openpgp_key_url` in the CSAF document delivers a public OpenPGP
+key with an email in the user ID matching the sibling property `email`.
+The test MUST be skipped if the URL results in a client or server error
+or the OpenPGP key retrieved is not in ASCII-armored format. The test
+MUST report if the user ID is not set or empty.
+
+#quote(block: true)[
+The cases excluded are handled through tests
+#link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6] and
+#link(<public-openpgp-key-url>)[6.2.55].
+]
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.publisher.contact.public_openpgp_key_url
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<public-openpgp-key-url-user-id-eg-1>
+
+```
+    "contact": {
+      "email": "test-6.3.24@csaf.example",
+      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
+    },
+```
+
+#quote(block: true)[
+The `public_openpgp_key_url` points to an OpenPGP key where the user ID
+does not match the email given in the sibling property `email`.
+
+Note: A difference between the email address in the user ID and the
+value of the property `email` does not necessarily mean that the
+receiver of the email is unable to decrypt the messages.
+]
+
+Recommendation:
+
+It is recommended that issuing parties conduct an analysis to make an
+informed decision based on pros and cons regarding the inclusion of a
+matching email address into the user ID of the public OpenPGP key.
+Sections #link(<document-property---publisher---contact>)[3.2.2.9.2] and
+#link(<safety-security-and-data-protection-considerations>)[8] contain
+advise to take into consideration.
+
 == Test Presets
 <test-presets>
 A test preset is a predefined set of tests that was given a name. It MAY
@@ -14824,6 +14883,13 @@ operation.
 <additional-presets>
 Additional presets are defined as follows:
 
+- `non-external-request-free`:
+  - Description: Any test that cannot be executed without a request into
+    the Internet or a different network.
+  - Set:
+    - #link(<public-openpgp-key-url>)[6.2.55]
+    - #link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6]
+    - #link(<use-of-self-referencing-urls-failing-to-resolve>)[6.3.7]
 - `external-request-free`:
   - Description: Any test that can be executed without a request into
     the Internet or a different network.
@@ -14835,9 +14901,7 @@ Additional presets are defined as follows:
     validator are not considered external.
     ]
 
-  - Set: `full` excluding tests
-    #link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6]
-    and #link(<use-of-self-referencing-urls-failing-to-resolve>)[6.3.7]
+  - Set: `full` excluding tests from preset `non-external-request-free`
 - `consistent-revision-history`:
   - Description: Any test that is related to the revision history and
     ensures consistence within it.
@@ -16309,6 +16373,17 @@ least before a release.
 Such checks can be automated, e.g.~in the CI/CD pipeline.
 ]
 
+CSAF documents can contain personally identifiable information. This
+includes but is not limited to names, e.g.~in acknowledgments, as well
+as email addresses. Issuing parties SHALL ensure that they are allowed
+to publish such information.
+
+#quote(block: true)[
+Acknowledging entities or individuals is always possible with their
+consent. Functional email addresses are usually not consider to be
+personally identifiable information.
+]
+
 #pagebreak(weak: true)
 = Conformance
 <conformance>
@@ -16441,6 +16516,7 @@ targets") for which this document defines requirements are:
 A text file or data stream satisfies the "CSAF Document" conformance
 profile if it:
 
+- is valid JSON encoded using UTF-8.
 - conforms to the syntax and semantics defined in section
   #link(<format-validation>)[2.2].
 - conforms to the syntax and semantics defined in section
@@ -16702,6 +16778,26 @@ Secondly, the program fulfills the following for all items of:
   remove the reference to the products and issue a warning that a
   potential product specific note has been discovered and no products
   could been assigned to it.
+
+- `$.document.publisher.contact`:
+
+  - If a `cvrf:ContactDetails` element is present, the CVRF CSAF
+    Converter SHALL convert its content into the value of the `details`
+    property.
+  - If a URL to a Public OpenPGP Key was provided in the
+    `cvrf:ContactDetails` element and the URL fulfills the requirements
+    of the property `public_openpgp_key_url`, the CVRF CSAF Converter
+    SHALL set it as the content of that property.
+  - The CVRF CSAF Converter SHOULD extract the matching email address
+    from the content of the `cvrf:ContactDetails` element, if
+    applicable, or use the first email address and set it as value of
+    `email`.
+  - The CVRF CSAF Converter SHALL provide configuration options and
+    corresponding arguments to set these values if they are not present.
+    If values from both sources are present, the program SHOULD prefer
+    the latter one. It SHOULD provide an option to overwrite the values
+    extracted from the document. The program SHALL NOT use hard-coded
+    values.
 
 - `$.document.publisher.name` and `$.document.publisher.namespace`: Sets
   the value as given in the configuration of the program or the
@@ -18005,6 +18101,27 @@ Secondly, the program fulfills the following for all items of:
   this warning SHALL exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
 
+- `$.document.publisher.contact`:
+
+  - If a `$.document.publisher.contact_details` element is present, the
+    CSAF 2.0 to CSAF 2.1 Converter SHALL convert its content into the
+    value of the `details` property.
+  - If a URL to a Public OpenPGP Key was provided in the
+    `$.document.publisher.contact_details` element and the URL fulfills
+    the requirements of the property `public_openpgp_key_url`, the CSAF
+    2.0 to CSAF 2.1 Converter SHALL set it as the content of that
+    property.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHOULD extract the matching email
+    address from the content of the
+    `$.document.publisher.contact_details` element, if applicable, or
+    use the first email address and set it as value of `email`.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL provide configuration
+    options and corresponding arguments to set these values if they are
+    not present. If values from both sources are present, the program
+    SHOULD prefer the latter one. It SHOULD provide an option to
+    overwrite the values extracted from the document. The program SHALL
+    NOT use hard-coded values.
+
 - `$.document.title`: If the value contains the
   `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the `$.document.tracking.id` from the `$.document.title`. In
@@ -18948,6 +19065,7 @@ A string SHOULD NOT have a length greater than:
   - `$.document.notes[*].group_ids[*]`
   - `$.document.notes[*].product_ids[*]`
   - `$.document.notes[*].title`
+  - `$.document.publisher.contact.email`
   - `$.document.publisher.name`
   - `$.document.source_lang`
   - `$.document.title`
@@ -19035,7 +19153,7 @@ A string SHOULD NOT have a length greater than:
 - 10 000 for
   - `$.document.acknowledgments[*].summary`
   - `$.document.distribution.text`
-  - `$.document.publisher.contact_details`
+  - `$.document.publisher.contact.details`
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
   - `$.document.tracking.revision_history[*].summary`
@@ -19263,6 +19381,7 @@ This applies to:
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
 - `$.document.distribution.tlp.url`
+- `$.document.publisher.contact.public_openpgp_key_url`
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`
