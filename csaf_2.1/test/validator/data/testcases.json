@@ -4906,6 +4906,11 @@
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-24-11.json",
           "result": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-24-11.result.json",
           "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-24-12.json",
+          "result": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-24-12.result.json",
+          "valid": true
         }
       ]
     }
