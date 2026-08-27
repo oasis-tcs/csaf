@@ -61,7 +61,7 @@ EPSS
 :    _Exploit Prediction Scoring System (EPSS)_,  FIRST.Org, Inc., <https://www.first.org/epss/>
 
 FETCH
-:    _Fetch: Living Standard_, <https://fetch.spec.whatwg.org>.
+:    _Fetch: Living Standard - Last Updated 25 August 2026_, <https://fetch.spec.whatwg.org>.
 
 GFMCMARK
 :    _GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, <https://github.com/github/cmark>.

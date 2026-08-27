@@ -47,7 +47,7 @@ If they are inevitable only HTTP Header redirects SHALL be used.
 
 If any redirects are used, there SHOULD NOT be more than `10`, and MUST NOT be more than `20` consecutive redirects.
 
-> This aligns with section 4.4 of the [cite](#FETCH) specification.
+> This aligns with "HTTP-redirect fetch" section of the [cite](#FETCH) specification.
 
 ### Requirement 7: provider-metadata.json
 
