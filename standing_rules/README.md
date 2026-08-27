@@ -6,3 +6,4 @@ This folder lists the standing rules adopted by the TC.
 | ------------------ | ---------------------------- | ------------ | -------------------------------------------------------------- |
 | [#MMR](MMR.md)     | Maintainer Merge Right       | 2025-08-27   | any editorial, test, technical, and tool related pull requests |
 | [#SR1BP](SR1BP.md) | Editor CSD Publication Right | 2026-02-25   | publication of additional CSDs                                 |
+| [#RMC](RCM.md)     | RVISC Mapping Changes        | 2026-04-29   | changes to the RVISC Mapping file                              |
