@@ -15,7 +15,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 CSAF defines three classes of extensions. They differ in how widely they are shared, whether they are reviewed, and where they are hosted:
 
 | Class | Registration / review | Listed in registry | Hosting | Typical use |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | 
 | Official | Registered, plus additional testing and TC review | Yes | `extensions.csaf.dev` | Mature, validated extensions RECOMMENDED for broad adoption |
 | Registered | Reviewed and approved by the OASIS CSAF Technical Committee | Yes | Implementer's choice | Extensions with demonstrated community need, available for any implementer to use |
 | Private | None required | No | Implementer's choice | Internal and experimental use within a single organization or closed community; not intended for production |
