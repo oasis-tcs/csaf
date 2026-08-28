@@ -84,7 +84,7 @@ Extension authors MUST grant OASIS a license to include the extension, with or w
 The TC maintains four authoritative lists that govern which extensions may be used and how:
 
 - **Official extensions.** The list of extensions maintained by the TC and hosted at `extension.csaf.dev`.
-- - **Registered extensions.** The list of registered extensions.
+- **Registered extensions.** The list of registered extensions.
 - **Deprecated extensions.** Extensions that MAY still be used, but whose support is scheduled for removal in the near future. Authors SHOULD migrate away from a deprecated extension to CSAF Core or to a current extension.
 - **Deny-listed extensions.** Extensions that MUST NOT be used, for example because an official property now conveys the same information.
 
