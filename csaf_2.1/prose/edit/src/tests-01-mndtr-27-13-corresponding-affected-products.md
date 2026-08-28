@@ -1,7 +1,7 @@
 #### Corresponding Affected Products
 
 For each product listed in the product status group fixed in any vulnerability,
-it MUST be tested that a corresponding version of the product is listed as affected in the same vulnerability.
+it SHALL be tested that a corresponding version of the product is listed as affected in the same vulnerability.
 
 > For a product path including the `installed_with` relationship the product path leading to but not including the relationship
 > is a corresponding product.

@@ -1,6 +1,6 @@
 ### Product Version Range without VERS
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` it MUST be tested that
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` it SHALL be tested that
 the value of `name` indicates that the product version range is using VERS.
 
 > Compliance with the VERS specification itself is enforced via test [sec](#product-version-range-rules).
@@ -12,7 +12,7 @@ the value of `name` indicates that the product version range is using VERS.
 >   ^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+
 > ```
 
-The warning MUST clearly advise to carefully check whether VERS can be used or the versions can be enumerated as
+The warning SHALL clearly advise to carefully check whether VERS can be used or the versions can be enumerated as
 the use of vls is only a fallback option.
 For more details, see sections [sec](#branches-type---category) and [sec](#branches-type---name-under-product-version-range).
 

@@ -1,6 +1,6 @@
 #### Affected Products
 
-For each item in `$.vulnerabilities` it MUST be tested that the element `product_status/known_affected` exists.
+For each item in `$.vulnerabilities` it SHALL be tested that the element `product_status/known_affected` exists.
 
 The relevant value for `$.document.category` is:
 

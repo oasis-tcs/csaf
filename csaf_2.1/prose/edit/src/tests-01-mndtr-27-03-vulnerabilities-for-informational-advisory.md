@@ -1,6 +1,6 @@
 #### Vulnerabilities{#vulnerabilities-for-informational-advisory}
 
-It MUST be tested that the element `$.vulnerabilities` does not exist.
+It SHALL be tested that the element `$.vulnerabilities` does not exist.
 
 The relevant values for `$.document.category` are:
 

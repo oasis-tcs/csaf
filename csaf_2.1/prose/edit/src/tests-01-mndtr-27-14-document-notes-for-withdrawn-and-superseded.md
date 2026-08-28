@@ -1,6 +1,6 @@
 #### Document Notes{#document-notes-for-withdrawn-and-superseded}
 
-It MUST be tested that at least one item in `$.document.notes` exists which has a `category` of `description`.
+It SHALL be tested that at least one item in `$.document.notes` exists which has a `category` of `description`.
 
 The relevant values for `$.document.category` are:
 

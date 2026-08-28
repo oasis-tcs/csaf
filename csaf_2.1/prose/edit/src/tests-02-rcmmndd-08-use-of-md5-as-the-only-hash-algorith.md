@@ -1,6 +1,6 @@
 ### Use of MD5 As the Only Hash Algorithm
 
-It MUST be tested that the hash algorithm `md5` is not the only one present.
+It SHALL be tested that the hash algorithm `md5` is not the only one present.
 
 > Since collision attacks exist for MD5 such value should be accompanied by a second cryptographically stronger hash.
 > This will allow users to double check the results.

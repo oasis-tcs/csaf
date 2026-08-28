@@ -1,6 +1,6 @@
 ### Sorting{#recommended-tests--sorting}
 
-It MUST be tested that all keys in a CSAF document are sorted alphabetically.
+It SHALL be tested that all keys in a CSAF document are sorted alphabetically.
 
 The relevant path for this test is:
 

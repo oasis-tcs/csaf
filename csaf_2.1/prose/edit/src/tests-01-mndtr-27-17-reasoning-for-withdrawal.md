@@ -1,8 +1,8 @@
 #### Reasoning for Withdrawal
 
-If the document language is English or unspecified, it MUST be tested that exactly one item in document notes exists
+If the document language is English or unspecified, it SHALL be tested that exactly one item in document notes exists
 that has the title `Reasoning for Withdrawal`.
-The `category` of this item MUST be `description`.
+The `category` of this item SHALL be `description`.
 
 The relevant value for `$.document.category` is:
 

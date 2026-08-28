@@ -1,6 +1,6 @@
 ### Use of Same Product Identification Helper for Different Products
 
-For each Product Identification Helper category it MUST be tested that the same value is not used for multiple products in this category.
+For each Product Identification Helper category it SHALL be tested that the same value is not used for multiple products in this category.
 
 > This test detects a potentially incorrect constructed product tree.
 > Note: This test will fail if the CSAF document contains in its `product_tree` the old and new name of a product that was renamed.

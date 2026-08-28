@@ -1,6 +1,6 @@
 #### Product Status
 
-For each item in `$.vulnerabilities` it MUST be tested that the element `product_status` exists.
+For each item in `$.vulnerabilities` it SHALL be tested that the element `product_status` exists.
 
 The relevant values for `$.document.category` are:
 

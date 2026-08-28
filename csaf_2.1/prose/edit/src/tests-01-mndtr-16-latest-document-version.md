@@ -1,8 +1,8 @@
 ### Latest Document Version
 
-It MUST be tested that document version has the same value as the `number` in the last item of the revision history when
+It SHALL be tested that document version has the same value as the `number` in the last item of the revision history when
 it is sorted ascending by `date` and as a second level criteria `number`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 Build metadata is ignored in the comparison.
 Any pre-release part is also ignored if the document status is `draft`.
 

@@ -1,6 +1,6 @@
 ### PURL Qualifiers
 
-For each `product_identification_helper` object containing multiple PURLs it MUST be tested that the PURLs only differ in their qualifiers.
+For each `product_identification_helper` object containing multiple PURLs it SHALL be tested that the PURLs only differ in their qualifiers.
 
 The relevant paths for this test are:
 

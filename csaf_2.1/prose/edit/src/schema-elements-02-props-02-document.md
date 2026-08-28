@@ -141,7 +141,7 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
     Releasable to NATO countries
 ```
 
-> Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated
+> Note that for such restrictions the Sharing Group Name SHALL exist and all participants SHALL know the associated
 > Sharing Group IDs to allow for automation.
 
 ##### Document Property - Distribution - Sharing Group{#document-property---distribution-sharing-group}
@@ -175,7 +175,7 @@ e.g. during a Multi-Party Coordinated Vulnerability Disclosure case.
 > Otherwise, the consequences of adding or removing parties from a case and the implications to other cases have to be considered.
 
 The ID SHOULD NOT change throughout different CSAF documents, if the same sharing group is addressed.
-It MUST differ if a different sharing group is addressed.
+It SHALL differ if a different sharing group is addressed.
 
 > It is assumed that the ID is globally unique, if constructed according to the specification for UUID Version 4.
 
@@ -190,7 +190,7 @@ Therefore, they are reserved for implementation-specific situations:
   > For example, the system uses the UUID as an indication whether a user allowed to see the document.
   > The security considerations from [cite](#RFC9562) should be reflected on.
 
-- A system MAY use the Nil UUID for CSAF documents that MUST NOT be shared.
+- A system MAY use the Nil UUID for CSAF documents that SHALL NOT be shared.
 
   > For example, the CSAF document is just being drafted and the accidental leakage should be prevented.
 
@@ -285,10 +285,10 @@ corresponding to IETF BCP 47 / RFC 5646.
 
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
-It MUST NOT contain a license text.
+It SHALL NOT contain a license text.
 See Annex B of [cite](#SPDX301) for details.
-The `DocumentRef` part given in that ABNF MUST NOT be used in CSAF.
-Any SPDX license identifier not from the official SPDX license identifier list MUST contain a prefix of the form
+The `DocumentRef` part given in that ABNF SHALL NOT be used in CSAF.
+Any SPDX license identifier not from the official SPDX license identifier list SHALL contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
 entity that provided the database this license identifier was found in.
 Unless otherwise previously established, the unique name SHOULD be a domain name.
@@ -297,17 +297,17 @@ The same applies for `AdditionRef-` identifiers.
 In addition, the following rules apply:
 
 - License identification:
-  1. The SPDX License List Version 3.26.0 or later MUST be consulted to identify the appropriate SPDX license identifier or
+  1. The SPDX License List Version 3.26.0 or later SHALL be consulted to identify the appropriate SPDX license identifier or
      construct an expression based on a SPDX license identifier.
      Deprecated license identifiers SHOULD NOT be used.
-     SPDX license identifiers that were deprecated before the version listed above MUST NOT be used.
+     SPDX license identifiers that were deprecated before the version listed above SHALL NOT be used.
 
      > The list is available at <https://spdx.org/licenses/>.
      > It includes also the exceptions.
 
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
-     the license database AboutCode's "ScanCode LicenseDB" MUST be consulted as a next step.
-     License identifiers from this database MUST use the prefix `LicenseRef-scancode-`.
+     the license database AboutCode's "ScanCode LicenseDB" SHALL be consulted as a next step.
+     License identifiers from this database SHALL use the prefix `LicenseRef-scancode-`.
 
      > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
 
@@ -315,8 +315,8 @@ In addition, the following rules apply:
   3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
      the issuing party SHALL create their own license identifier following the rules above.
      The license identifier SHOULD contain the version number of the license.
-     The license text MUST be made available through exactly one document note using the `category` `legal_disclaimer`.
-     The `title` MUST be `License` for English or an unspecified document language.
+     The license text SHALL be made available through exactly one document note using the `category` `legal_disclaimer`.
+     The `title` SHALL be `License` for English or an unspecified document language.
      For any other language, it SHOULD be the language specific translation of that term.
 
 - License similarity:
@@ -357,7 +357,7 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
     # ...
 ```
 
-The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+The following combinations of `category` and `title` have a special meaning and SHALL be used as stated below:
 
 \columns=15%,35%,
 
@@ -370,7 +370,7 @@ The following combinations of `category` and `title` have a special meaning and 
 
 Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:special-combinations-of-category-and-title}
 
-If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
+If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
 #### Document Property - Publisher
 
@@ -573,7 +573,7 @@ Document references (`references`) of value type References Type (`references_t`
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is
 a translation then the value of this property describes from which language this document was translated.
 
-The property MUST be present for any CSAF document with the value `translator` in `$.document.publisher.category`.
+The property SHALL be present for any CSAF document with the value `translator` in `$.document.publisher.category`.
 The property SHALL NOT be present if the document was not translated.
 
 If an issuing party publishes a CSAF document with the same content in more than one language,
@@ -716,7 +716,7 @@ It SHALL NOT start or end with a white space and SHALL NOT contain a newline seq
 
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority.
-It MUST be unique for that organization.
+It SHALL be unique for that organization.
 
 *Examples 1:*
 
@@ -741,8 +741,8 @@ when this document was first released to the specified target group.
 > For `TLP:GREEN` and higher, this is the timestamp when it was first made available to the specific group.
 > Note that the initial release date does not change after the initial release even if the document is later on released to a broader audience.
 
-If the timestamp of the initial release date was set incorrectly, it MUST be corrected.
-This change MUST be tracked with a new entry in the revision history.
+If the timestamp of the initial release date was set incorrectly, it SHALL be corrected.
+This change SHALL be tracked with a new entry in the revision history.
 
 ##### Document Property - Tracking - Revision History
 
@@ -793,12 +793,12 @@ The Number (`number`) has value type Version (`version_t`).
 The Summary of the revision (`summary`) of value type `string` with `1` or more characters holds a single non-empty string representing
 a short description of the changes.
 
-Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from the document if the document status is `final`.
+Each Revision item which has a `number` of `0` or `0.y.z` SHALL be removed from the document if the document status is `final`.
 Versions of the document which are pre-release SHALL NOT have its own revision item.
-All changes MUST be tracked in the item for the next release version.
+All changes SHALL be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision item.
 
-Any issuing party using a CSAF document as basis and modifying it MUST create a new revision history tracking the modified document.
+Any issuing party using a CSAF document as basis and modifying it SHALL create a new revision history tracking the modified document.
 This applies especially to CSAF multiplier.
 
 > The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
@@ -808,7 +808,7 @@ This applies especially to CSAF multiplier.
 ##### Document Property - Tracking - Status
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
-The value MUST be one of the following:
+The value SHALL be one of the following:
 
 ```
     draft
@@ -825,7 +825,7 @@ This SHOULD be used if the issuing party expects no, slow or few changes.
 
 The value `interim` indicates, that the issuing party expects rapid updates.
 This SHOULD be used if the expected rate of release for this document is significant higher than for other documents.
-Once the rate slows down it MUST be changed to `final`. This MAY be done in a patch version.
+Once the rate slows down it SHALL be changed to `final`. This MAY be done in a patch version.
 
 > This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation.
 > It can be used as an indication to pull the CSAF document more frequently.

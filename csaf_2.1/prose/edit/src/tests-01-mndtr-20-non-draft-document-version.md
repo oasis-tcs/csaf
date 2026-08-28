@@ -1,6 +1,6 @@
 ### Non-Draft Document Version
 
-It MUST be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
+It SHALL be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
 
 The relevant path for this test is:
 

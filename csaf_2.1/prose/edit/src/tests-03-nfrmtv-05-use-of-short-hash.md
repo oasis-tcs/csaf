@@ -1,6 +1,6 @@
 ### Use of Short Hash
 
-It MUST be tested that the length of the hash value is not shorter than 64 characters.
+It SHALL be tested that the length of the hash value is not shorter than 64 characters.
 
 The relevant paths for this test are:
 

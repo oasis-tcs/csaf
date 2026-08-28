@@ -1,6 +1,6 @@
 ### Usage of Non-Latest CWE Version
 
-For each item in the CWE array it MUST be tested that the latest CWE version available at the time of the last revision was used.
+For each item in the CWE array it SHALL be tested that the latest CWE version available at the time of the last revision was used.
 The test SHALL fail if a later CWE version was used.
 
 The relevant path for this test is:

@@ -1,6 +1,6 @@
 ### Multiple Definition in Involvements
 
-It MUST be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
+It SHALL be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
 
 The relevant path for this test is:
 

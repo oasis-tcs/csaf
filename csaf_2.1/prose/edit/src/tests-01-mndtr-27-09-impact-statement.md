@@ -1,8 +1,8 @@
 #### Impact Statement
 
-For each item in `$.vulnerabilities[*].product_status.known_not_affected` it MUST be tested that
+For each item in `$.vulnerabilities[*].product_status.known_not_affected` it SHALL be tested that
 a corresponding impact statement exist in `$.vulnerabilities[*].flags` or `$.vulnerabilities[*].threats`.
-For the latter one, the `category` value for such a statement MUST be `impact`.
+For the latter one, the `category` value for such a statement SHALL be `impact`.
 
 The relevant value for `$.document.category` is:
 

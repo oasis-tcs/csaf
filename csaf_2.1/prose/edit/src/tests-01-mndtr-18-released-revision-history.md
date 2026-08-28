@@ -1,6 +1,6 @@
 ### Released Revision History
 
-It MUST be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
+It SHALL be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
 
 The relevant path for this test is:
 

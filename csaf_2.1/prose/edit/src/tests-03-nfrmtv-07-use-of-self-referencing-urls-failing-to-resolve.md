@@ -1,6 +1,6 @@
 ### Use of Self Referencing URLs Failing to Resolve
 
-For each item in an array of type `references_t` with the category `self` it MUST be tested that
+For each item in an array of type `references_t` with the category `self` it SHALL be tested that
 the URL referenced resolves with a HTTP status code less than 400.
 
 > This test will most likely fail if the CSAF document is in a status before the initial release.

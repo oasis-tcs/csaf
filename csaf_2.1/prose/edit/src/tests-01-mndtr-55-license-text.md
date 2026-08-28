@@ -2,8 +2,8 @@
 
 If the document language is English or unspecified,
 and the `license_expression` contains license identifiers or exceptions that are not listed in the SPDX license list or AboutCode's "ScanCode LicenseDB",
-it MUST be tested that exactly one item in document notes exists that has the title `License`.
-The category of this item MUST be `legal_disclaimer`.
+it SHALL be tested that exactly one item in document notes exists that has the title `License`.
+The category of this item SHALL be `legal_disclaimer`.
 
 The relevant path for this test is:
 

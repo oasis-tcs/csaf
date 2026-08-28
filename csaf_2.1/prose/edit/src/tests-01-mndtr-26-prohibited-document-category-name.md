@@ -1,6 +1,6 @@
 ### Prohibited Document Category Name
 
-It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
+It SHALL be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
 value of any other profile than "CSAF Base".
 Any occurrences of dash, hyphen, minus, underscore, and white space characters are removed from the values on both sides before the
 case insensitive match.
@@ -21,10 +21,10 @@ case insensitive match.
 > * Fullwidth low line
 
 This applies for both, the comparison against the name and value.
-Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is exactly `csaf_base`.
+Also the value SHALL NOT start with the reserved prefix `csaf_` except if the value is exactly `csaf_base`.
 
 This test does only apply for CSAF documents with the profile "CSAF Base".
-Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
+Therefore, it SHALL be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
 
 > For CSAF 2.1, the test must be skipped for the following values in `$.document.category`:
 >

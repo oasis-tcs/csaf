@@ -1,7 +1,7 @@
 ### CWE{#mandatory-tests--cwe}
 
-For each CWE it MUST be tested that the given CWE exists and is valid in the `version` provided.
-Any `id` that refers to a CWE Category or View MUST fail the test.
+For each CWE it SHALL be tested that the given CWE exists and is valid in the `version` provided.
+Any `id` that refers to a CWE Category or View SHALL fail the test.
 
 > A list of all CWE release archives is available at [cite](#CWE-A).
 

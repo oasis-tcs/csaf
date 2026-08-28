@@ -1,6 +1,6 @@
 ### Use of SHA-1 As the Only Hash Algorithm
 
-It MUST be tested that the hash algorithm `sha1` is not the only one present.
+It SHALL be tested that the hash algorithm `sha1` is not the only one present.
 
 > Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash.
 > This will allow users to double check the results.

@@ -1,6 +1,6 @@
 ### Use of CVSS v2 As the Only Scoring System
 
-For each item in the list of metrics which contains the `cvss_v2` object under `content` it MUST be tested that is not the only scoring item present.
+For each item in the list of metrics which contains the `cvss_v2` object under `content` it SHALL be tested that is not the only scoring item present.
 The test SHALL pass if a second scoring object is available regarding the specific product.
 
 > One source might just provide CVSS v2.

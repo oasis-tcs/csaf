@@ -1,6 +1,6 @@
 ### Usage of Deprecated CWE
 
-For each item in the CWE array it MUST be tested that the CWE is not deprecated in the given version.
+For each item in the CWE array it SHALL be tested that the CWE is not deprecated in the given version.
 
 The relevant path for this test is:
 

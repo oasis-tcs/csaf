@@ -1,6 +1,6 @@
 ### Revision History Entries for Pre-release Versions
 
-It MUST be tested that no item of the revision history has a `number` which includes pre-release information.
+It SHALL be tested that no item of the revision history has a `number` which includes pre-release information.
 
 The relevant path for this test is:
 
