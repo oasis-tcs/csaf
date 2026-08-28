@@ -17,7 +17,7 @@ CSAF defines three classes of extensions. They differ in how widely they are sha
 | Class | Registration / review | Listed in registry | Hosting | Typical use |
 | --- | --- | --- | --- | --- | 
 | Official | Registered, plus additional testing and TC review | Yes | `extensions.csaf.dev` | Mature, validated extensions RECOMMENDED for broad adoption |
-| Registered | Reviewed and approved by the OASIS CSAF Technical Committee | Yes | Implementer's choice | Extensions with demonstrated community need, available for any implementer to use |
+| Registered | Reviewed and approved by the OASIS CSAF Technical Committee | Yes | Publicly accessible at location of implementer's choice | Extensions with demonstrated community need, available for any implementer to use |
 | Private | None required | No | Implementer's choice | Internal and experimental use within a single organization or closed community; not intended for production |
 
 **Official extensions** are the subset of extensions registered that have reached the highest level of maturity and validation. They are hosted at `extension.csaf.dev`, undergo additional implementation testing and TC review, and are RECOMMENDED for broad adoption. Official extensions classified as critical additionally require the second vote described under Review and Approval.
@@ -54,10 +54,9 @@ Nevertheless, it is RECOMMENDED that also private extensions fulfill them.
 
 **Complement, do not duplicate.** An extension MUST NOT convey data that CSAF Core already intends to convey. Implementers MUST fully use the relevant CSAF Core fields before turning to an extension. Extensions exist to fill genuine gaps in the standard, not to work around limited adoption of existing fields. Once CSAF Core or an official extension conveys information previously carried by an extension, the official field MUST be used, and the TC MAY deny-list the superseded extension to preserve interoperability.
 
-**Align with the purpose of CSAF.** An extension MUST NOT contradict the purpose or intent of CSAF. It MUST support the creation, exchange, and consumption of security advisory information, and any domain-specific data it introduces MUST serve a vulnerability or product context.
+**Align with the purpose of CSAF.** An extension MUST NOT contradict the purpose or intent of CSAF. It MUST support the creation, exchange, and consumption of security advisory information, and any domain-specific data it introduces MUST serve a vulnerability or product context, the description or assessment of a vulnerability, the technical identification, lifecycle or vulnerability applicability of a product, remediation or mitigation, identification or configuration of a product, or the relationships between vulnerabilities and products. Extensions addressing unrelated concerns, such as organizational processes or internal workflows not tied to advisory content, are out of scope and will not be considered for registration. 
 
-**Limit scope to a single location.** An extension is limited to one specific location in the CSAF schema. This constraint keeps extensions predictable and straightforward to implement. Because an extension MUST serve a vulnerability or product context, registered and official MUST directly support the description or assessment of a vulnerability, the technical identification, lifecycle or vulnerability applicability of a product, remediation or mitigation, identification or configuration of a product, or the handling, reporting or exchange of a security advisory or the relationships between vulnerabilities and products. Extensions addressing unrelated concerns, such as organizational processes or internal workflows not tied to advisory content, are out of scope and will not be considered for registration. Extensions that can apply to a single vulnerability or the whole CSAF document are allowed to appear in both locations.
-
+**Limit scope to a single location.** An extension is limited to one specific location in the CSAF schema. This constraint keeps extensions predictable and straightforward to implement. Extensions that can apply to a single vulnerability or the whole CSAF document are allowed to appear in both locations.
 
 ### Documentation and Implementation
 
