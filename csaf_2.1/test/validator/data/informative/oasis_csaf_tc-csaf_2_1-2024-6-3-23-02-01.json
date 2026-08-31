@@ -1,0 +1,113 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "acknowledgments": [
+      {
+        "names": [
+          "Jane Researcher"
+        ],
+        "organization": "Example Research Lab",
+        "summary": "Reported the vulnerability privately to the vendor."
+      }
+    ],
+    "aggregate_severity": {
+      "namespace": "https://example.com/severity",
+      "text": "High"
+    },
+    "category": "csaf_vulnerability_report",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "AMBER"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Informative Test: Vulnerability Report Involvement Party (failing example 1)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-23-02-01",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Example Widget 1.0",
+        "product_id": "CSAFPID-0001"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "involvements": [
+        {
+          "date": "2024-01-15T09:00:00.000Z",
+          "party": "vendor",
+          "status": "contact_attempted",
+          "summary": "This entry represents the initial report but does not identify the discoverer as the initiating party."
+        }
+      ],
+      "metrics": [
+        {
+          "content": {
+            "cvss_v3": {
+              "baseScore": 8.8,
+              "baseSeverity": "HIGH",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "version": "3.1"
+            }
+          },
+          "products": [
+            "CSAFPID-0001"
+          ]
+        }
+      ],
+      "notes": [
+        {
+          "category": "summary",
+          "product_ids": [
+            "CSAFPID-0001"
+          ],
+          "text": "The vendor is investigating a privilege escalation vulnerability in Example Widget 1.0.",
+          "title": "Vulnerability Summary"
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-0001"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "Researcher proof-of-concept write-up",
+          "url": "https://example.com/advisories/CVE-1900-0001"
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "details": "Successful exploitation may allow an authenticated attacker to gain administrative privileges.",
+          "product_ids": [
+            "CSAFPID-0001"
+          ]
+        }
+      ],
+      "title": "Example Widget privilege escalation"
+    }
+  ]
+}
