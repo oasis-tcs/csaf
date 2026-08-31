@@ -272,7 +272,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 ---
 ## Profile 9: Vulnerability Report
 
-This profile SHOULD be used to exchange a vulnerability report during the Coordinated Vulnerability Disclosure (CVD) process.
+This profile SHALL be used to exchange a vulnerability report during the Coordinated Vulnerability Disclosure (CVD) process.
 It supports communication between discoverers, vendors, and, where applicable, coordinators prior to public disclosure.
 A Vulnerability Report is intended for use during the private coordination process prior to public disclosure.
 It provides a structured mechanism for exchanging information throughout the coordinated disclosure process among the participating parties.
