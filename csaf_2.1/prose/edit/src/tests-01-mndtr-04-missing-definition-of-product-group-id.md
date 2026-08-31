@@ -1,7 +1,7 @@
 ### Missing Definition of Product Group ID
 
 For each element of type `$['$defs'].product_group_id_t` which is not inside a Product Group (`$.product_tree.product_groups[*]`) and
-therefore reference an element within the `product_tree` it MUST be tested that the Product Group element with the matching `group_id` exists.
+therefore reference an element within the `product_tree` it SHALL be tested that the Product Group element with the matching `group_id` exists.
 The same applies for all items of elements of type `$['$defs'].product_groups_t`.
 
 The relevant paths for this test are:

@@ -70,10 +70,10 @@ CSAF Extension Additional Test
 the CSAF Extension or the CSAF Document the extension is embedded in.
 
 CSAF Extension Bundle
-:   A of compilation of machine-readable artifacts related to a single CSAF Extension.
+:    A of compilation of machine-readable artifacts related to a single CSAF Extension.
 
 CSAF Extension Collection
-:   A set of multiple CSAF Extension Packages.
+:    A set of multiple CSAF Extension Packages.
 
 CSAF Extension Overlay Test
 :    A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a  test standardized in this
@@ -195,7 +195,7 @@ Fingerprint
 even if a relevant artifact is modified.
 
 Formatted Message
-:     message string which contains formatting information such as Markdown formatting characters.
+:    message string which contains formatting information such as Markdown formatting characters.
 
 Fully Qualified Logical Name
 :    string that fully identifies the programmatic construct specified by a logical location,
@@ -203,6 +203,10 @@ typically by means of a hierarchical identifier.
 
 Hierarchical String
 :    string in the format &lt;component>{/&lt;component>}*.
+
+Issuing Party
+:    entity that releases a CSAF document, independent of its role according to the distribution system.
+It is usually the same one as described by the value of `$.document.publisher` in that CSAF document.
 
 Line
 :    contiguous sequence of characters, starting either at the beginning of an artifact or immediately after
@@ -290,7 +294,7 @@ Tool Component
 :    component of an analysis tool or converter, either its driver or an extension, consisting of one or more files.
 
 Top-Level Artifact
-:     artifact which is not contained within any other artifact.
+:    artifact which is not contained within any other artifact.
 
 Translation
 :    rendering of a tool component's localizable strings into another language.
@@ -313,7 +317,7 @@ VEX
 a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.
 
 Viewer
-:     see CSAF Viewer.
+:    see CSAF Viewer.
 
 Vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy

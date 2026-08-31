@@ -242,14 +242,14 @@ possibly with placeholders.
 > Often it is abbreviated as "MN", M/N" or "model no.".
 
 If a part of a model number of the component to identify is given,
-it MUST begin at the first and end at the last character position of the string representing the targeted component.
+it SHALL begin at the first and end at the last character position of the string representing the targeted component.
 The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
 these positions from matching.
 This applies also to the first character.
-An unescaped `*` MUST be the only `*` wildcard in the string.
-As part of the model number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` SHALL be the only `*` wildcard in the string.
+As part of the model number, the special characters `?`, `*` and `\` SHALL be escaped with `\`.
 
-> Note: A backslash MUST be escaped itself in a JSON string.
+> Note: A backslash SHALL be escaped itself in a JSON string.
 
 *Examples 1:*
 
@@ -347,14 +347,14 @@ Any given serial number of value type `string` with at least `1` character repre
 possibly with placeholders.
 
 If a part of a serial number of the component to identify is given,
-it MUST begin at the first and end at the last character position of the string representing the targeted component.
+it SHALL begin at the first and end at the last character position of the string representing the targeted component.
 The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
 these positions from matching.
 This applies also to the first character.
-An unescaped `*` MUST be the only `*` wildcard in the string.
-As part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` SHALL be the only `*` wildcard in the string.
+As part of the serial number, the special characters `?`, `*` and `\` SHALL be escaped with `\`.
 
-> Note: A backslash MUST be escaped itself in a JSON string.
+> Note: A backslash SHALL be escaped itself in a JSON string.
 
 *Examples 1:*
 
@@ -396,14 +396,14 @@ of the component to identify - possibly with placeholders.
 > Sometimes this is also called "item number", "article number" or "product number".
 
 If a part of a stock keeping unit of the component to identify is given,
-it MUST begin at the first and end at the last character position of the string representing the targeted component.
+it SHALL begin at the first and end at the last character position of the string representing the targeted component.
 The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
 these positions from matching.
 This applies also to the first character.
-An unescaped `*` MUST be the only `*` wildcard in the string.
-As part of the stock keeping unit, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` SHALL be the only `*` wildcard in the string.
+As part of the stock keeping unit, the special characters `?`, `*` and `\` SHALL be escaped with `\`.
 
-> Note: A backslash MUST be escaped itself in a JSON string.
+> Note: A backslash SHALL be escaped itself in a JSON string.
 
 *Examples 1:*
 

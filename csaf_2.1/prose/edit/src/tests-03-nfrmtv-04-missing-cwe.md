@@ -1,6 +1,6 @@
 ### Missing CWE
 
-It MUST be tested that at least one CWE is given.
+It SHALL be tested that at least one CWE is given.
 
 The relevant path for this test is:
 

@@ -1,6 +1,6 @@
 ### Use of Non-Self Referencing URLs Failing to Resolve
 
-For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from
+For each URL which is not in the category `self` it SHALL be tested that it resolves with a HTTP status code from
 the 2xx (Successful) or 3xx (Redirection) class.
 
 > This test does not apply for any item in an array of type `references_t` with the category `self`.
@@ -13,6 +13,7 @@ The relevant paths for this test are:
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url
   $.document.references[*].url
+  $.document.publisher.contact.public_openpgp_key_url
   $.document.publisher.namespace
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace

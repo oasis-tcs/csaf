@@ -192,7 +192,7 @@ contains a list of dates of first known exploitations.
 Every First known exploitation date item of value type `object` with the two mandatory properties Date of the information (`date`) and
 Date of the exploitation (`exploitation_date`) holds at least `3` properties and contains information on when this vulnerability was
 first known to be exploited in the wild in the products specified.
-At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which products or
 product groups this date is applicable.
 
 > This information can be helpful to determine the risk of compromise.
@@ -243,7 +243,7 @@ List of flags (`flags`) of value type `array` with `1` or more unique items (a s
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to
 this vulnerability as a single machine readable flag.
 For example, this could be a machine readable justification code why a product is not affected.
-At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which products or
 product groups this flag is applicable.
 
 > These flags enable the receiving party to automate the selection of actions to take.
@@ -280,8 +280,8 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
 ```
 
 The given values reflect the VEX not affected justifications.
-See [VEX-Justification] for more details.
-The values MUST be used as follows:
+See [cite](#VEX-Justification) for more details.
+The values SHALL be used as follows:
 
 - `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 - `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
@@ -707,7 +707,7 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
   # ...
 ```
 
-The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+The following combinations of `category` and `title` have a special meaning and SHALL be used as stated below:
 
 \columns=12%,24%,
 
@@ -719,7 +719,7 @@ The following combinations of `category` and `title` have a special meaning and 
 
 Table: Combinations of `category` and `title` with special meaning.{#vulnerabilities-property-notes-tab-1}
 
-If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
+If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
 #### Vulnerabilities Property - Product Status{#vulnerabilities-property-product-status}
 
@@ -822,7 +822,7 @@ The individual properties form the following product status groups:
   ```
 
 As the aforementioned product status groups contradict each other,
-the sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
+the sets formed by the contradicting groups within one vulnerability item SHALL be pairwise disjoint.
 
 > Note: An issuer might recommend (`$.vulnerabilities[*].product_status.recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
@@ -863,7 +863,7 @@ List of remediations (`remediations`) of value type `array` with `1` or more Rem
 
 Every Remediation item of value type `object` with the two mandatory properties Category (`category`) and
 Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
-At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which
 products or product groups this remediation is applicable.
 
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
@@ -938,7 +938,7 @@ This is often the case when a product has been orphaned, declared end-of-life, o
 The text in field `details` SHOULD contain details about why there will be no fix issued.
 
 Some category values contradict each other and thus are mutually exclusive per product.
-Therefore, such a combination MUST NOT be used in the list of remediations for the same product.
+Therefore, such a combination SHALL NOT be used in the list of remediations for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed and prohibited combinations:
 
@@ -958,7 +958,7 @@ The following tables shows the allowed and prohibited combinations:
 Table: Remediation Combinations{#vulnerabilities-property-remediations-category-tab-1}
 
 Some category values contradict certain product status groups.
-Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
+Therefore, such a combination SHALL NOT exist in a vulnerability item for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed, discouraged and prohibited combinations:
 
@@ -1093,7 +1093,7 @@ Valid values are:
     zone
 ```
 
-The values MUST be used as follows:
+The values SHALL be used as follows:
 
 - `none`: No restart required.
 - `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)

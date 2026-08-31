@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 03 <a id='committee-specification-draft-03'></a>
 
-## 29 July 2026 <a id='29-july-2026'></a>
+## 26 August 2026 <a id='26-august-2026'></a>
 
 #### This stage <a id='this-stage'></a>
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \
@@ -87,7 +87,7 @@ When referencing this specification the following citation format should be used
 
 **[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 26 August 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 ---
 
@@ -193,7 +193,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			3.2.2.8 [Document Property - Notes](#document-property---notes)  
 			3.2.2.9 [Document Property - Publisher](#document-property---publisher)  
 				3.2.2.9.1 [Document Property - Publisher - Category](#document-property---publisher-category)  
-				3.2.2.9.2 [Document Property - Publisher - Contact Details](#document-property---publisher---contact-details)  
+				3.2.2.9.2 [Document Property - Publisher - Contact](#document-property---publisher---contact)  
 				3.2.2.9.3 [Document Property - Publisher - Issuing Authority](#document-property---publisher---issuing-authority)  
 				3.2.2.9.4 [Document Property - Publisher - Name](#document-property---publisher---name)  
 				3.2.2.9.5 [Document Property - Publisher - Namespace](#document-property---publisher---namespace)  
@@ -390,7 +390,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)  
 			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)  
 			6.2.39.4 [Language Specific Superseding Document](#language-specific-superseding-document)  
-				6.2.39.4.1 [Extension in Superseded or Withdrawn Document](#extension-in-superseded-or-withdrawn-document)  
+			6.2.39.5 [Extension in Superseded or Withdrawn Document](#extension-in-superseded-or-withdrawn-document)  
 		6.2.40 [Product Description without Product Reference](#product-description-without-product-reference)  
 		6.2.41 [Old EPSS Timestamp](#old-epss-timestamp)  
 		6.2.42 [Inconsistent Product Identification Helper](#inconsistent-product-identification-helper)  
@@ -413,6 +413,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			6.2.54.2 [Official Extension](#official-extension)  
 			6.2.54.3 [Critical Extension](#critical-extension)  
 			6.2.54.4 [Usage of Experimental Extension in TLP:CLEAR Document](#usage-of-experimental-extension-in-tlp-clear-document)  
+		6.2.55 [Public OpenPGP Key URL](#public-openpgp-key-url)  
 	6.3 [Informative Tests](#informative-tests)  
 		6.3.1 [Use of CVSS v2 As the Only Scoring System](#use-of-cvss-v2-as-the-only-scoring-system)  
 		6.3.2 [Use of CVSS v3.0](#use-of-cvss-v3-0)  
@@ -450,6 +451,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			6.3.21.8 [Usage of Extension at Vulnerabilities Level](#usage-of-extension-at-vulnerabilities-level)  
 			6.3.21.9 [Usage of Extension at Root Level](#usage-of-extension-at-root-level)  
 		6.3.22 [Nested Product Path](#nested-product-path)  
+		6.3.23 [Public OpenPGP Key URL User ID](#public-openpgp-key-url-user-id)  
 	6.4 [Test Presets](#test-presets)  
 		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)  
 		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)  
@@ -641,10 +643,10 @@ CSAF Extension Additional Test
 the CSAF Extension or the CSAF Document the extension is embedded in.
 
 CSAF Extension Bundle
-:   A of compilation of machine-readable artifacts related to a single CSAF Extension.
+:    A of compilation of machine-readable artifacts related to a single CSAF Extension.
 
 CSAF Extension Collection
-:   A set of multiple CSAF Extension Packages.
+:    A set of multiple CSAF Extension Packages.
 
 CSAF Extension Overlay Test
 :    A test whose execution depends on the presence of the specifying CSAF Extension that extends or replaces a  test standardized in this
@@ -766,7 +768,7 @@ Fingerprint
 even if a relevant artifact is modified.
 
 Formatted Message
-:     message string which contains formatting information such as Markdown formatting characters.
+:    message string which contains formatting information such as Markdown formatting characters.
 
 Fully Qualified Logical Name
 :    string that fully identifies the programmatic construct specified by a logical location,
@@ -774,6 +776,10 @@ typically by means of a hierarchical identifier.
 
 Hierarchical String
 :    string in the format &lt;component>{/&lt;component>}*.
+
+Issuing Party
+:    entity that releases a CSAF document, independent of its role according to the distribution system.
+It is usually the same one as described by the value of `$.document.publisher` in that CSAF document.
 
 Line
 :    contiguous sequence of characters, starting either at the beginning of an artifact or immediately after
@@ -861,7 +867,7 @@ Tool Component
 :    component of an analysis tool or converter, either its driver or an extension, consisting of one or more files.
 
 Top-Level Artifact
-:     artifact which is not contained within any other artifact.
+:    artifact which is not contained within any other artifact.
 
 Translation
 :    rendering of a tool component's localizable strings into another language.
@@ -884,7 +890,7 @@ VEX
 a particular product is affected by a specific vulnerability, especially helpful in efficiently consuming SBOM data.
 
 Viewer
-:     see CSAF Viewer.
+:    see CSAF Viewer.
 
 Vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy
@@ -976,7 +982,7 @@ XML
 
 **\[**<span id="EPSS" class="anchor"></span>**EPSS\]** _Exploit Prediction Scoring System (EPSS)_,  FIRST.Org, Inc., <https://www.first.org/epss/>
 
-**\[**<span id="FETCH" class="anchor"></span>**FETCH\]** _Fetch: Living Standard_, <https://fetch.spec.whatwg.org>.
+**\[**<span id="FETCH" class="anchor"></span>**FETCH\]** _Fetch: Living Standard - Last Updated 25 August 2026_, <https://fetch.spec.whatwg.org>.
 
 **\[**<span id="GFMCMARK" class="anchor"></span>**GFMCMARK\]** _GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C_, <https://github.com/github/cmark>.
 
@@ -989,6 +995,8 @@ XML
 **\[**<span id="OPENSSL" class="anchor"></span>**OPENSSL\]** _GTLS/SSL and crypto library_, OpenSSL Software Foundation, <https://www.openssl.org/>.
 
 **\[**<span id="PURL" class="anchor"></span>**PURL\]** _Package URL (PURL)_, GitHub Project, <https://github.com/package-url/purl-spec>.
+
+**\[**<span id="RFC3156" class="anchor"></span>**RFC3156\]** Elkins, M., Torto, D., Levien, R., and T. Roessler, "MIME Security with OpenPGP", RFC 3156, DOI 10.17487/RFC3156, August 2001, <https://www.rfc-editor.org/info/rfc3156/>.
 
 **\[**<span id="RFC3552" class="anchor"></span>**RFC3552\]** Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, <https://www.rfc-editor.org/info/rfc3552>.
 
@@ -1185,7 +1193,7 @@ The JSON schemas defined in this standard do not allow the use of additional pro
 
 Sole exception are the dedicated extension points (`x_extensions`) which allow the usage of extension defined outside this specification.
 To still ensure interoperability and guide tools how to deal with this data a CSAF Extension Content Schema
-and CSAF Extension Metaschema has been defined and MUST be adhered to (cf. section [2.4](#extensions)).
+and CSAF Extension Metaschema has been defined and SHALL be adhered to (cf. section [2.4](#extensions)).
 Document issuers are advised to always balance pros and cons regarding the use of extension.
 
 Section [4](#profiles) defined profiles that are used to ensure a common understanding of which fields are required in a given use case.
@@ -1250,13 +1258,13 @@ This standard uses the `date-time` format as defined in JSON Schema Draft 2020-1
 In accordance with \[[RFC3339](#RFC3339)\] and \[[ISO8601-1](#ISO8601-1)\], the following rules apply:
 
 - The letter `T` separating the date and time SHALL be upper case.
-- The separator between date and time MUST be the letter `T`.
+- The separator between date and time SHALL be the letter `T`.
 - The letter `Z` indicating the timezone UTC SHALL be upper case.
 - Fractions of seconds are allowed as specified in the standards mention above with the full stop (`.`) as separator.
-- Empty timezones MUST NOT be used.
+- Empty timezones SHALL NOT be used.
 - The ABNF of RFC 3339, section 5.6 applies.
 
-In contrast to the aforementioned standards, leap seconds MUST NOT be used.
+In contrast to the aforementioned standards, leap seconds SHALL NOT be used.
 
   > While a full support of \[[RFC3339](#RFC3339)\] would be preferred, significant challenges have been mentioned by implementers
   > as most libraries are lacking the support for leap seconds.
@@ -1268,10 +1276,10 @@ This standard allows for extensions to the standardized schema.
 
 The following rules apply:
 
-- An extension MUST NOT occur in any other place than specified.
-- An extension MUST satisfy the Conformance Target "CSAF Extension".
-- The schema specifying the content and properties of the CSAF Extension MUST satisfy the Conformance Target "CSAF Extension Schema".
-- For official and registered extensions a CSAF Extension Package MUST be provided.
+- An extension SHALL NOT occur in any other place than specified.
+- An extension SHALL satisfy the Conformance Target "CSAF Extension".
+- The schema specifying the content and properties of the CSAF Extension SHALL satisfy the Conformance Target "CSAF Extension Schema".
+- For official and registered extensions a CSAF Extension Package SHALL be provided.
 - CSAF Extensions SHOULD NOT provide CSAF Extension Overlay Tests for tests in the preset `extensions`.
 
 ### 2.4.1 Classes <a id='classes'></a>
@@ -1304,18 +1312,18 @@ The OASIS CSAF TC maintains:
 - a list of deny-listed extensions.
 
 Deprecated extensions can still be used but support for them is removed in near future. If avoidable, they SHOULD NOT be used.
-Deny-listed extensions MUST NOT be used.
+Deny-listed extensions SHALL NOT be used.
 The lists of deprecated extensions and deny-listed extensions MAY contain extensions that do not fulfill the conformance target CSAF Extension.
 
 The list MAY contain additional examples.
 
 ### 2.4.3 Metaschema <a id='metaschema'></a>
 
-The CSAF Extension Metaschema MUST be used to validate a CSAF Extension Schema.
+The CSAF Extension Metaschema SHALL be used to validate a CSAF Extension Schema.
 
 ### 2.4.4 Content Schema <a id='content-schema'></a>
 
-An extension MUST contain exactly the following elements:
+An extension SHALL contain exactly the following elements:
 CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`critical`) and Content (`content`).
 
 ```yaml <!--json-path($.properties)-->
@@ -1334,8 +1342,8 @@ CSAF Extension Schema (`$schema`) of value type CSAF Extension Content `$schema`
 This SHOULD also be the location where the JSON schema can be retrieved.
 The value SHOULD match the `$id` of the JSON schema that defines the extension.
 The URL SHOULD contain a human-readable name for the extension before the version string.
-The versioning MUST use \[[SemVer](#SemVer)\].
-URLs using a domain mentioned in \[[RFC2606](#RFC2606)\] MUST be used according to their defined purpose.
+The versioning SHALL use \[[SemVer](#SemVer)\].
+URLs using a domain mentioned in \[[RFC2606](#RFC2606)\] SHALL be used according to their defined purpose.
 
 *Examples 1:*<a id='content-schema-property---schema-eg-1'></a><a id='sec-2-4-4-1-eg-1'></a><a id='example-1'></a>
 
@@ -1357,7 +1365,7 @@ Valid `enum` values are:
 
 The value `essential` indicates, that the content provided through this extension is crucial to understand of the CSAF document
 this extension is included in.
-CSAF consumers and CSAF validators MUST warn if they process a CSAF Document including such extension instance and
+CSAF consumers and CSAF validators SHALL warn if they process a CSAF Document including such extension instance and
 do not have the extension in question already implemented.
 
 The value `significant` indicates, that the content provided through this extension is highly relevant and significantly aids
@@ -1380,7 +1388,7 @@ The property names (JSON keys) can be chosen freely; they SHOULD characterize th
 Critical (`critical`) of value type `boolean` determines whether using the extension would fail a mandatory test.
 The `default` value for this is `false`.
 
-For any failing test, a CSAF Extension Test MUST be provided.
+For any failing test, a CSAF Extension Test SHALL be provided.
 
 ### 2.4.5 Metadata <a id='metadata'></a>
 
@@ -1630,7 +1638,7 @@ The value `product_name` indicates the name of the product.
 
 The value `product_version` indicates exactly a single version of the product.
 The value of the adjacent `name` property can be numeric or some other descriptor.
-However, it MUST NOT contain version ranges of any kind.
+However, it SHALL NOT contain version ranges of any kind.
 
 > It is recommended to enumerate versions wherever possible.
 > Nevertheless, the TC understands that this is sometimes impossible.
@@ -1675,7 +1683,7 @@ part of the product version as given by the vendor.
 
 ##### 3.1.2.3.1 Branches Type - Name under Product Version <a id='branches-type---name-under-product-version'></a>
 
-If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
+If adjacent property `category` has the value `product_version`, the value of `name` SHALL NOT contain version ranges of any kind.
 
 *Examples 1 (for `name` when using `product_version`):*<a id='branches-type---name-under-product-version-eg-1'></a><a id='sec-3-1-2-3-1-eg-1'></a><a id='example-8'></a>
 
@@ -1705,8 +1713,8 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 ##### 3.1.2.3.2 Branches Type - Name under Product Version Range <a id='branches-type---name-under-product-version-range'></a>
 
-If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges.
-The value of MUST obey to exactly one of the following options:
+If adjacent property `category` has the value `product_version_range`, the value of `name` SHALL contain version ranges.
+The value of SHALL obey to exactly one of the following options:
 
 1. VErsion Range Specifier (VERS)
 
@@ -1717,7 +1725,7 @@ The value of MUST obey to exactly one of the following options:
 
    > According to the interpretation used here, the canonical form requires that the VERS is normalized.
 
-    *Examples 1 (for `name` when using `product_version_range` with vers):*<a id='branches-type---name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-10'></a>
+    *Examples 1 (for `name` when using `product_version_range` with VERS):*<a id='branches-type---name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-10'></a>
 
     ```
         vers:gem/>=2.2.0|!=2.2.1|<2.3.0
@@ -1731,7 +1739,7 @@ The value of MUST obey to exactly one of the following options:
 2. VERS-like Specifier (vls)
 
     This option uses only the `constraint` part from the VERS specification.
-    It MUST NOT have the `scheme` nor the `type` part.
+    It SHALL NOT have the `scheme` nor the `type` part.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
@@ -1766,7 +1774,7 @@ $defs:
   # ...
 ```
 
-Each item MUST comply with the rules for CSAF Extensions and validate against the
+Each item SHALL comply with the rules for CSAF Extensions and validate against the
 [CSAF Extension Content schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) as well as the schema given
 through its `$schema` property.
 
@@ -2014,14 +2022,14 @@ possibly with placeholders.
 > Often it is abbreviated as "MN", M/N" or "model no.".
 
 If a part of a model number of the component to identify is given,
-it MUST begin at the first and end at the last character position of the string representing the targeted component.
+it SHALL begin at the first and end at the last character position of the string representing the targeted component.
 The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
 these positions from matching.
 This applies also to the first character.
-An unescaped `*` MUST be the only `*` wildcard in the string.
-As part of the model number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` SHALL be the only `*` wildcard in the string.
+As part of the model number, the special characters `?`, `*` and `\` SHALL be escaped with `\`.
 
-> Note: A backslash MUST be escaped itself in a JSON string.
+> Note: A backslash SHALL be escaped itself in a JSON string.
 
 *Examples 1:*<a id='full-product-name-type---product-identification-helper---model-numbers-eg-1'></a><a id='sec-3-1-4-3-3-eg-1'></a><a id='example-16'></a>
 
@@ -2119,14 +2127,14 @@ Any given serial number of value type `string` with at least `1` character repre
 possibly with placeholders.
 
 If a part of a serial number of the component to identify is given,
-it MUST begin at the first and end at the last character position of the string representing the targeted component.
+it SHALL begin at the first and end at the last character position of the string representing the targeted component.
 The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
 these positions from matching.
 This applies also to the first character.
-An unescaped `*` MUST be the only `*` wildcard in the string.
-As part of the serial number, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` SHALL be the only `*` wildcard in the string.
+As part of the serial number, the special characters `?`, `*` and `\` SHALL be escaped with `\`.
 
-> Note: A backslash MUST be escaped itself in a JSON string.
+> Note: A backslash SHALL be escaped itself in a JSON string.
 
 *Examples 1:*<a id='full-product-name-type---product-identification-helper---serial-numbers-eg-1'></a><a id='sec-3-1-4-3-6-eg-1'></a><a id='example-18'></a>
 
@@ -2168,14 +2176,14 @@ of the component to identify - possibly with placeholders.
 > Sometimes this is also called "item number", "article number" or "product number".
 
 If a part of a stock keeping unit of the component to identify is given,
-it MUST begin at the first and end at the last character position of the string representing the targeted component.
+it SHALL begin at the first and end at the last character position of the string representing the targeted component.
 The wildcard characters `?` (for a single character) and `*` (for zero or more characters) signal exclusion of characters at
 these positions from matching.
 This applies also to the first character.
-An unescaped `*` MUST be the only `*` wildcard in the string.
-As part of the stock keeping unit, the special characters `?`, `*` and `\` MUST be escaped with `\`.
+An unescaped `*` SHALL be the only `*` wildcard in the string.
+As part of the stock keeping unit, the special characters `?`, `*` and `\` SHALL be escaped with `\`.
 
-> Note: A backslash MUST be escaped itself in a JSON string.
+> Note: A backslash SHALL be escaped itself in a JSON string.
 
 *Examples 1:*<a id='full-product-name-type---product-identification-helper---skus-eg-1'></a><a id='sec-3-1-4-3-7-eg-1'></a><a id='example-19'></a>
 
@@ -2573,7 +2581,7 @@ There are two options how it can be used:
 - semantic versioning (preferred; according to the rules below)
 - integer versioning
 
-A CSAF document MUST use only one versioning system.
+A CSAF document SHALL use only one versioning system.
 
 *Examples 1:*<a id='version-type-eg-1'></a><a id='sec-3-1-13-eg-1'></a><a id='example-27'></a>
 
@@ -2596,17 +2604,17 @@ The regular expression for this type is:
 
 The following rules apply:
 
-1. Once a versioned document has been released, the contents of that version MUST NOT be modified.
-   Any modifications MUST be released as a new version.
+1. Once a versioned document has been released, the contents of that version SHALL NOT be modified.
+   Any modifications SHALL be released as a new version.
 2. Version zero (`0`) is for initial development before the `initial_release_date`.
-   The document status MUST be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
+   The document status SHALL be `draft`. Anything MAY change at any time. The document SHOULD NOT be considered stable.
 3. Version `1` defines the initial release to the specified target group.
    Each new version where `$.document.tracking.status` is `final` has a version number incremented by one.
-4. Pre-release versions (document status `draft`) MUST carry the new version number.
+4. Pre-release versions (document status `draft`) SHALL carry the new version number.
    Sole exception is before the initial release (see rule 2).
    The combination of document status `draft` and version `1` MAY be used to indicate that the content is unlikely to change.
 5. Build metadata is never included in the version.
-6. Precedence MUST be determined by integer comparison.
+6. Precedence SHALL be determined by integer comparison.
 
 #### 3.1.13.2 Version Type - Semantic Versioning <a id='version-type---semantic-versioning'></a>
 
@@ -2620,14 +2628,14 @@ The goal of this structure is to provide additional information to the end user 
 The "public API" in regard to CSAF is the CSAF document with its structure and content.
 This results in the following rules:
 
-1. A normal version number MUST take the form `X.Y.Z` where `X`, `Y`, and `Z` are non-negative integers, and MUST NOT contain leading zeroes.
+1. A normal version number SHALL take the form `X.Y.Z` where `X`, `Y`, and `Z` are non-negative integers, and SHALL NOT contain leading zeroes.
    `X` is the major version, `Y` is the minor version, and `Z` is the patch version.
-   Each element MUST increase numerically.
+   Each element SHALL increase numerically.
    For instance: `1.9.0` -> `1.10.0` -> `1.11.0`.
-2. Once a versioned document has been released, the contents of that version MUST NOT be modified.
-   Any modifications MUST be released as a new version.
+2. Once a versioned document has been released, the contents of that version SHALL NOT be modified.
+   Any modifications SHALL be released as a new version.
 3. Major version zero (`0.y.z`) is for initial development before the `initial_release_date`.
-   The document status MUST be `draft`. Anything MAY change at any time.
+   The document status SHALL be `draft`. Anything MAY change at any time.
    The document SHOULD NOT be considered stable. Changes which would increment the major version according to rule 7 are
    tracked in this stage with (`0.y.z`) by incrementing the minor version `y` instead.
    Changes that would increment the minor or patch version according to rule 6 or 5 are both tracked in this stage with
@@ -2635,16 +2643,16 @@ This results in the following rules:
 4. Version `1.0.0` defines the initial release to the specified target group.
    The way in which the version number is incremented after this release is dependent on the content and structure of
    the document and how it changes.
-5. Patch version `Z` (`x.y.Z` | `x > 0`) MUST be incremented if only backwards compatible bug fixes are introduced.
+5. Patch version `Z` (`x.y.Z` | `x > 0`) SHALL be incremented if only backwards compatible bug fixes are introduced.
    A bug fix is defined as an internal change that fixes incorrect behavior.
 
    > In the context of the document this is the case e.g. for spelling mistakes.
 
-6. Minor version `Y` (`x.Y.z` | `x > 0`) MUST be incremented if the content of an existing element changes except for
+6. Minor version `Y` (`x.Y.z` | `x > 0`) SHALL be incremented if the content of an existing element changes except for
    those which are covered through rule 7.
-   It MUST be incremented if substantial new information are introduced or new elements are provided.
-   It MAY include patch level changes. Patch version MUST be reset to `0` when minor version is incremented.
-7. Major version `X` (`X.y.z` | `X > 0`) MUST be incremented if a new comparison with the end user's asset database is required.
+   It SHALL be incremented if substantial new information are introduced or new elements are provided.
+   It MAY include patch level changes. Patch version SHALL be reset to `0` when minor version is incremented.
+7. Major version `X` (`X.y.z` | `X > 0`) SHALL be incremented if a new comparison with the end user's asset database is required.
    This includes:
 
    * changes (adding, removing elements or modifying content) in `$.product_tree` or elements which contain `$.product_tree` in their path
@@ -2659,10 +2667,10 @@ This results in the following rules:
      * `$.vulnerabilities[*].product_status.known_not_affected`
 
    It MAY also include minor and patch level changes.
-   Patch and minor version MUST be reset to `0` when major version is incremented.
+   Patch and minor version SHALL be reset to `0` when major version is incremented.
 8. A pre-release version (document status `draft`) MAY be denoted by appending a hyphen and a series of dot separated identifiers immediately
-   following the patch version. Identifiers MUST comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
-   Identifiers MUST NOT be empty. Numeric identifiers MUST NOT include leading zeroes.
+   following the patch version. Identifiers SHALL comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
+   Identifiers SHALL NOT be empty. Numeric identifiers SHALL NOT include leading zeroes.
    Pre-release versions have a lower precedence than the associated normal version.
    A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as
    denoted by its associated normal version.
@@ -2677,10 +2685,10 @@ This results in the following rules:
    1.0.0-x.7.z.92
    ```
 
-9. Pre-release MUST NOT be included if `$.document.tracking.status` is `final`.
+9. Pre-release SHALL NOT be included if `$.document.tracking.status` is `final`.
 10. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately following
-    the patch or pre-release version. Identifiers MUST comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
-    Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining version precedence.
+    the patch or pre-release version. Identifiers SHALL comprise only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`.
+    Identifiers SHALL NOT be empty. Build metadata SHALL be ignored when determining version precedence.
     Thus two versions that differ only in the build metadata, have the same precedence.
 
     *Examples 2:*<a id='version-type---semantic-versioning-eg-2'></a><a id='sec-3-1-13-2-eg-2'></a><a id='example-29'></a>
@@ -2694,7 +2702,7 @@ This results in the following rules:
 
 11. Precedence refers to how versions are compared to each other when ordered.
 
-    1. Precedence MUST be calculated by separating the version into major, minor,
+    1. Precedence SHALL be calculated by separating the version into major, minor,
        patch and pre-release identifiers in that order (Build metadata does not figure into precedence).
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows:
        Major, minor, and patch versions are always compared numerically.
@@ -2714,7 +2722,7 @@ This results in the following rules:
        ```
 
     4. Precedence for two pre-release versions with the same major, minor,
-       and patch version MUST be determined by comparing each dot separated identifier from left to right until a difference is found as follows:
+       and patch version SHALL be determined by comparing each dot separated identifier from left to right until a difference is found as follows:
 
        1. Identifiers consisting of only digits are compared numerically.
        2. Identifiers with letters or hyphens are compared lexically in ASCII sort order.
@@ -2900,7 +2908,7 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
     Releasable to NATO countries
 ```
 
-> Note that for such restrictions the Sharing Group Name MUST exist and all participants MUST know the associated
+> Note that for such restrictions the Sharing Group Name SHALL exist and all participants SHALL know the associated
 > Sharing Group IDs to allow for automation.
 
 ##### 3.2.2.5.1 Document Property - Distribution - Sharing Group <a id='document-property---distribution-sharing-group'></a>
@@ -2934,7 +2942,7 @@ e.g. during a Multi-Party Coordinated Vulnerability Disclosure case.
 > Otherwise, the consequences of adding or removing parties from a case and the implications to other cases have to be considered.
 
 The ID SHOULD NOT change throughout different CSAF documents, if the same sharing group is addressed.
-It MUST differ if a different sharing group is addressed.
+It SHALL differ if a different sharing group is addressed.
 
 > It is assumed that the ID is globally unique, if constructed according to the specification for UUID Version 4.
 
@@ -2949,7 +2957,7 @@ Therefore, they are reserved for implementation-specific situations:
   > For example, the system uses the UUID as an indication whether a user allowed to see the document.
   > The security considerations from \[[RFC9562](#RFC9562)\] should be reflected on.
 
-- A system MAY use the Nil UUID for CSAF documents that MUST NOT be shared.
+- A system MAY use the Nil UUID for CSAF documents that SHALL NOT be shared.
 
   > For example, the CSAF document is just being drafted and the accidental leakage should be prevented.
 
@@ -3044,10 +3052,10 @@ corresponding to IETF BCP 47 / RFC 5646.
 
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
-It MUST NOT contain a license text.
+It SHALL NOT contain a license text.
 See Annex B of \[[SPDX301](#SPDX301)\] for details.
-The `DocumentRef` part given in that ABNF MUST NOT be used in CSAF.
-Any SPDX license identifier not from the official SPDX license identifier list MUST contain a prefix of the form
+The `DocumentRef` part given in that ABNF SHALL NOT be used in CSAF.
+Any SPDX license identifier not from the official SPDX license identifier list SHALL contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
 entity that provided the database this license identifier was found in.
 Unless otherwise previously established, the unique name SHOULD be a domain name.
@@ -3056,17 +3064,17 @@ The same applies for `AdditionRef-` identifiers.
 In addition, the following rules apply:
 
 - License identification:
-  1. The SPDX License List Version 3.26.0 or later MUST be consulted to identify the appropriate SPDX license identifier or
+  1. The SPDX License List Version 3.26.0 or later SHALL be consulted to identify the appropriate SPDX license identifier or
      construct an expression based on a SPDX license identifier.
      Deprecated license identifiers SHOULD NOT be used.
-     SPDX license identifiers that were deprecated before the version listed above MUST NOT be used.
+     SPDX license identifiers that were deprecated before the version listed above SHALL NOT be used.
 
      > The list is available at <https://spdx.org/licenses/>.
      > It includes also the exceptions.
 
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
-     the license database AboutCode's "ScanCode LicenseDB" MUST be consulted as a next step.
-     License identifiers from this database MUST use the prefix `LicenseRef-scancode-`.
+     the license database AboutCode's "ScanCode LicenseDB" SHALL be consulted as a next step.
+     License identifiers from this database SHALL use the prefix `LicenseRef-scancode-`.
 
      > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
 
@@ -3074,8 +3082,8 @@ In addition, the following rules apply:
   3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
      the issuing party SHALL create their own license identifier following the rules above.
      The license identifier SHOULD contain the version number of the license.
-     The license text MUST be made available through exactly one document note using the `category` `legal_disclaimer`.
-     The `title` MUST be `License` for English or an unspecified document language.
+     The license text SHALL be made available through exactly one document note using the `category` `legal_disclaimer`.
+     The `title` SHALL be `License` for English or an unspecified document language.
      For any other language, it SHOULD be the language specific translation of that term.
 
 - License similarity:
@@ -3116,7 +3124,7 @@ Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associ
     # ...
 ```
 
-The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+The following combinations of `category` and `title` have a special meaning and SHALL be used as stated below:
 
 
 | category           | title                            | content of text                                                                                                                                                                               |
@@ -3129,23 +3137,25 @@ The following combinations of `category` and `title` have a special meaning and 
 <a id="tab:special-combinations-of-category-and-title"></a>
 table 1: Requirements for combinations of `category` and `title` that have a special meaning.
 
-If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
+If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
 #### 3.2.2.9 Document Property - Publisher <a id='document-property---publisher'></a>
 
 Publisher (`publisher`) of value type `object` with the mandatory properties Category (`category`), Name (`name`) and
 Namespace (`namespace`) provides information on the publishing entity.
-The two other optional properties are: `contact_details` and `issuing_authority`.
+The two other optional properties are: `contact` and `issuing_authority`.
 
 ```yaml <!--json-path($..document..publisher.properties)-->
 <csaf-instance>:
   document:
+    # ...
     publisher:
       category: String
-      contact_details: String
+      contact: Mapping
       issuing_authority: String
       name: String
       namespace: String
+    # ...
 ```
 
 ##### 3.2.2.9.1 Document Property - Publisher - Category <a id='document-property---publisher-category'></a>
@@ -3194,15 +3204,76 @@ The value `vendor` indicates developers or maintainers of information system pro
 This includes all authoritative product vendors, product security incident response teams (PSIRTs),
 open source projects as well as product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.2.9.2 Document Property - Publisher - Contact Details <a id='document-property---publisher---contact-details'></a>
+##### 3.2.2.9.2 Document Property - Publisher - Contact <a id='document-property---publisher---contact'></a>
 
-Contact details (`contact_details`) of value type `string` with `1` or more characters provides information on how to contact the publisher,
-possibly including details such as web sites, email addresses, phone numbers, and postal mail addresses.
+Contact (`contact`) of value type `object` with `1` or more properties contains information on how to contact the publisher.
+The properties are Contact Details (`details`), Email (`email`) and Public OpenPGP Key URL (`public_openpgp_key_url`)
+If the property `public_openpgp_key_url` is set, the `email` SHALL be set as well.
 
-*Example 1:*<a id='document-property---publisher---contact-details-eg-1'></a><a id='sec-3-2-2-9-2-eg-1'></a><a id='example-40'></a>
+```yaml <!--json-path($..document..publisher.properties.contact.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    publisher:
+      # ...
+      contact:
+        details: String
+        email: String.EMAIL
+        public_openpgp_key_url: String.URI
+      # ...
+    # ...
+```
+
+Contact details (`details`) of value type `string` with `1` or more characters contains details regarding ways to reach the publisher,
+ e.g. through web sites, phone numbers, and postal mail addresses.
+
+*Example 1:*<a id='document-property---publisher---contact-eg-1'></a><a id='sec-3-2-2-9-2-eg-1'></a><a id='example-40'></a>
 
 ```
-    Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
+    Example Company can be reached at tel:+493023125232,
+    or via our website at https://www.example.com/contact.
+```
+
+Email (`email`) of value type `string` of `6` or more characters with format `email` contains the email address
+that can be used to reach the issuing party.
+
+*Examples 2:*<a id='document-property---publisher---contact-eg-2'></a><a id='sec-3-2-2-9-2-eg-2'></a><a id='example-41'></a>
+
+```
+    "productcert@example.net"
+    "psirt@example.com"
+    "reporter@securityresearcher.example"
+    "vulnerability@coordinator.example"
+```
+
+Public OpenPGP Key URL (`public_openpgp_key_url`) has value type `string` of `11` or more characters with format `uri`
+and `pattern` (regular expression):
+
+```
+    ^https:\\/\\/
+```
+
+Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key valid for the email of issuing party provided
+in the sibling property `email`.
+
+> It is desired that the OpenPGP Key contains the same email address in its user ID as given through the property `email`.
+> However, due to data protection and operation concerns neither a user ID in the OpenPGP key nor
+> an exact match to the value of `email` is enforced by this standard.
+> The use of aliases is permitted.
+> The issuing party is responsible for ensuring the usability of the key provided.
+
+The URL MAY point to a location that redirects.
+Redirects SHALL fulfil the same requirements as specified in [7.1.6](#requirement-6-no-redirects).
+The content delivered SHALL be a valid OpenPGP key allowing encryption as ASCII armored file with the matching content type.
+See \[[RFC4880](#RFC4880)\] and \[[RFC3156](#RFC3156)\] for more details.
+
+*Examples 3:*<a id='document-property---publisher---contact-eg-3'></a><a id='sec-3-2-2-9-2-eg-3'></a><a id='example-42'></a>
+
+```
+    "https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability"
+    "https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert"
+    "https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter"
+    "https://psirt.example.com/security/openpgp/latest"
 ```
 
 ##### 3.2.2.9.3 Document Property - Publisher - Issuing Authority <a id='document-property---publisher---issuing-authority'></a>
@@ -3214,7 +3285,7 @@ the authority of the issuing party to release the document, in particular, the p
 
 The Name of publisher (`name`) of value type `string` with `1` or more characters contains the name of the issuing party.
 
-*Examples 1:*<a id='document-property---publisher---name-eg-1'></a><a id='sec-3-2-2-9-4-eg-1'></a><a id='example-41'></a>
+*Examples 1:*<a id='document-property---publisher---name-eg-1'></a><a id='sec-3-2-2-9-4-eg-1'></a><a id='example-43'></a>
 
 ```
      BSI
@@ -3241,7 +3312,7 @@ an incremented (patch) version which has no other changes than:
 - the updated item in `$.document.references[*]` which points to the new version of the CSAF document
 - an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Examples 1:*<a id='document-property---publisher---namespace-eg-1'></a><a id='sec-3-2-2-9-5-eg-1'></a><a id='example-42'></a>
+*Examples 1:*<a id='document-property---publisher---namespace-eg-1'></a><a id='sec-3-2-2-9-5-eg-1'></a><a id='example-44'></a>
 
 ```
     https://csaf.io
@@ -3269,7 +3340,7 @@ Document references (`references`) of value type References Type (`references_t`
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is
 a translation then the value of this property describes from which language this document was translated.
 
-The property MUST be present for any CSAF document with the value `translator` in `$.document.publisher.category`.
+The property SHALL be present for any CSAF document with the value `translator` in `$.document.publisher.category`.
 The property SHALL NOT be present if the document was not translated.
 
 If an issuing party publishes a CSAF document with the same content in more than one language,
@@ -3282,7 +3353,7 @@ However, other rules defined in the conformance clause "CSAF translator" SHOULD 
 Title of this document (`title`) of value type `string` with `1` or more characters SHOULD be a canonical name for the document,
 and sufficiently unique to distinguish it from similar documents.
 
-*Examples 1:*<a id='document-property---title-eg-1'></a><a id='sec-3-2-2-12-eg-1'></a><a id='example-43'></a>
+*Examples 1:*<a id='document-property---title-eg-1'></a><a id='sec-3-2-2-12-eg-1'></a><a id='example-45'></a>
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
@@ -3328,7 +3399,7 @@ list of alternate names for the same document.
 Every such Alternate Name of value type `string` with `1` or more characters specifies a non-empty string that represents a
 distinct optional alternative ID used to refer to the document.
 
-*Example 1:*<a id='document-property---tracking---aliases-eg-1'></a><a id='sec-3-2-2-13-1-eg-1'></a><a id='example-44'></a>
+*Example 1:*<a id='document-property---tracking---aliases-eg-1'></a><a id='sec-3-2-2-13-1-eg-1'></a><a id='example-46'></a>
 
 ```
     CVE-2019-12345
@@ -3378,7 +3449,7 @@ optional property Engine version (`version`) contains information about the engi
 
 Engine name (`name`) of value type `string` with `1` or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 1:*<a id='document-property---tracking---generator-eg-1'></a><a id='sec-3-2-2-13-3-eg-1'></a><a id='example-45'></a>
+*Examples 1:*<a id='document-property---tracking---generator-eg-1'></a><a id='sec-3-2-2-13-3-eg-1'></a><a id='example-47'></a>
 
 ```
     Red Hat rhsa-to-cvrf
@@ -3391,7 +3462,7 @@ Engine version (`version`) of value type `string` with `1` or more characters co
 > Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 2:*<a id='document-property---tracking---generator-eg-2'></a><a id='sec-3-2-2-13-3-eg-2'></a><a id='example-46'></a>
+*Examples 2:*<a id='document-property---tracking---generator-eg-2'></a><a id='sec-3-2-2-13-3-eg-2'></a><a id='example-48'></a>
 
 ```
     0.6.0
@@ -3412,9 +3483,9 @@ It SHALL NOT start or end with a white space and SHALL NOT contain a newline seq
 
 The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
 Its value SHOULD be assigned and maintained by the original document issuing authority.
-It MUST be unique for that organization.
+It SHALL be unique for that organization.
 
-*Examples 1:*<a id='document-property---tracking---id-eg-1'></a><a id='sec-3-2-2-13-4-eg-1'></a><a id='example-47'></a>
+*Examples 1:*<a id='document-property---tracking---id-eg-1'></a><a id='sec-3-2-2-13-4-eg-1'></a><a id='example-49'></a>
 
 ```
     Example Company - 2019-YH3234
@@ -3437,8 +3508,8 @@ when this document was first released to the specified target group.
 > For `TLP:GREEN` and higher, this is the timestamp when it was first made available to the specific group.
 > Note that the initial release date does not change after the initial release even if the document is later on released to a broader audience.
 
-If the timestamp of the initial release date was set incorrectly, it MUST be corrected.
-This change MUST be tracked with a new entry in the revision history.
+If the timestamp of the initial release date was set incorrectly, it SHALL be corrected.
+This change SHALL be tracked with a new entry in the revision history.
 
 ##### 3.2.2.13.6 Document Property - Tracking - Revision History <a id='document-property---tracking---revision-history'></a>
 
@@ -3489,12 +3560,12 @@ The Number (`number`) has value type Version (`version_t`).
 The Summary of the revision (`summary`) of value type `string` with `1` or more characters holds a single non-empty string representing
 a short description of the changes.
 
-Each Revision item which has a `number` of `0` or `0.y.z` MUST be removed from the document if the document status is `final`.
+Each Revision item which has a `number` of `0` or `0.y.z` SHALL be removed from the document if the document status is `final`.
 Versions of the document which are pre-release SHALL NOT have its own revision item.
-All changes MUST be tracked in the item for the next release version.
+All changes SHALL be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision item.
 
-Any issuing party using a CSAF document as basis and modifying it MUST create a new revision history tracking the modified document.
+Any issuing party using a CSAF document as basis and modifying it SHALL create a new revision history tracking the modified document.
 This applies especially to CSAF multiplier.
 
 > The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
@@ -3504,7 +3575,7 @@ This applies especially to CSAF multiplier.
 ##### 3.2.2.13.7 Document Property - Tracking - Status <a id='document-property---tracking---status'></a>
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
-The value MUST be one of the following:
+The value SHALL be one of the following:
 
 ```
     draft
@@ -3521,7 +3592,7 @@ This SHOULD be used if the issuing party expects no, slow or few changes.
 
 The value `interim` indicates, that the issuing party expects rapid updates.
 This SHOULD be used if the expected rate of release for this document is significant higher than for other documents.
-Once the rate slows down it MUST be changed to `final`. This MAY be done in a patch version.
+Once the rate slows down it SHALL be changed to `final`. This MAY be done in a patch version.
 
 > This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation.
 > It can be used as an indication to pull the CSAF document more frequently.
@@ -3606,7 +3677,7 @@ the optional Summary (`summary`) property.
 
 The summary of the product group (`summary`) of value type `string` with `1` or more characters gives a short, optional description of the group.
 
-*Examples 1:*<a id='product-tree-property---product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-48'></a>
+*Examples 1:*<a id='product-tree-property---product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-50'></a>
 
 ```
     Products supporting Modbus.
@@ -3683,7 +3754,7 @@ each one relating to the path defined by all previous elements up to the beginni
   # ...
 ```
 
-*Example 1:*<a id='product-tree-property---product-paths-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-49'></a>
+*Example 1:*<a id='product-tree-property---product-paths-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-51'></a>
 
 ```
   "product_tree": {
@@ -3839,7 +3910,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 It holds the ID for the weakness associated.
 
-*Examples 1:*<a id='vulnerabilities-property---cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-50'></a>
+*Examples 1:*<a id='vulnerabilities-property---cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-52'></a>
 
 ```
     CWE-22
@@ -3855,7 +3926,7 @@ The Weakness name (`name`) has value type `string` of `1` or more characters wit
 
 The Weakness name holds the full name of the weakness as given in the CWE specification.
 
-*Examples 2:*<a id='vulnerabilities-property---cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-51'></a>
+*Examples 2:*<a id='vulnerabilities-property---cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-53'></a>
 
 ```
     Cross-Site Request Forgery (CSRF)
@@ -3872,7 +3943,7 @@ The CWE version (`version`) has value type `string` with `pattern` (regular expr
 It holds the version string of the CWE specification this weakness was extracted from.
 When creating or modifying a CSAF document, the latest published version of the CWE specification SHOULD be used.
 
-*Examples 3:*<a id='vulnerabilities-property---cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-52'></a>
+*Examples 3:*<a id='vulnerabilities-property---cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-54'></a>
 
 ```
     "1.0",
@@ -3916,7 +3987,7 @@ contains a list of dates of first known exploitations.
 Every First known exploitation date item of value type `object` with the two mandatory properties Date of the information (`date`) and
 Date of the exploitation (`exploitation_date`) holds at least `3` properties and contains information on when this vulnerability was
 first known to be exploited in the wild in the products specified.
-At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which products or
 product groups this date is applicable.
 
 > This information can be helpful to determine the risk of compromise.
@@ -3967,7 +4038,7 @@ List of flags (`flags`) of value type `array` with `1` or more unique items (a s
 Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to
 this vulnerability as a single machine readable flag.
 For example, this could be a machine readable justification code why a product is not affected.
-At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which products or
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which products or
 product groups this flag is applicable.
 
 > These flags enable the receiving party to automate the selection of actions to take.
@@ -4004,8 +4075,8 @@ Label of the flag (`label`) of value type `string` and `enum` specifies the mach
 ```
 
 The given values reflect the VEX not affected justifications.
-See [VEX-Justification] for more details.
-The values MUST be used as follows:
+See \[[VEX-Justification](#VEX-Justification)\] for more details.
+The values SHALL be used as follows:
 
 - `component_not_present`: The software is not affected because the vulnerable component is not in the product.
 - `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
@@ -4068,7 +4139,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Examples 1:*<a id='vulnerabilities-property---ids-eg-1'></a><a id='sec-3-2-4-8-eg-1'></a><a id='example-53'></a>
+*Examples 1:*<a id='vulnerabilities-property---ids-eg-1'></a><a id='sec-3-2-4-8-eg-1'></a><a id='example-55'></a>
 
 ```
     Cisco Bug ID
@@ -4078,7 +4149,7 @@ System name (`system_name`) of value type `string` with `1` or more characters i
 
 Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Examples 2:*<a id='vulnerabilities-property---ids-eg-2'></a><a id='sec-3-2-4-8-eg-2'></a><a id='example-54'></a>
+*Examples 2:*<a id='vulnerabilities-property---ids-eg-2'></a><a id='sec-3-2-4-8-eg-2'></a><a id='example-56'></a>
 
 ```
     CSCso66472
@@ -4431,7 +4502,7 @@ Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes a
   # ...
 ```
 
-The following combinations of `category` and `title` have a special meaning and MUST be used as stated below:
+The following combinations of `category` and `title` have a special meaning and SHALL be used as stated below:
 
 
 | category    |  title                | content of text                                                                                                                                      |
@@ -4443,7 +4514,7 @@ The following combinations of `category` and `title` have a special meaning and 
 <a id="vulnerabilities-property-notes-tab-1"></a>
 table 2: Combinations of `category` and `title` with special meaning.
 
-If a note is specific to a product or product group it MUST be bound via the `group_ids` respectively `product_ids`.
+If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
 #### 3.2.4.12 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
 
@@ -4546,7 +4617,7 @@ The individual properties form the following product status groups:
   ```
 
 As the aforementioned product status groups contradict each other,
-the sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
+the sets formed by the contradicting groups within one vulnerability item SHALL be pairwise disjoint.
 
 > Note: An issuer might recommend (`$.vulnerabilities[*].product_status.recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
@@ -4587,7 +4658,7 @@ List of remediations (`remediations`) of value type `array` with `1` or more Rem
 
 Every Remediation item of value type `object` with the two mandatory properties Category (`category`) and
 Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
-At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) MUST be present to state for which
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which
 products or product groups this remediation is applicable.
 
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
@@ -4662,7 +4733,7 @@ This is often the case when a product has been orphaned, declared end-of-life, o
 The text in field `details` SHOULD contain details about why there will be no fix issued.
 
 Some category values contradict each other and thus are mutually exclusive per product.
-Therefore, such a combination MUST NOT be used in the list of remediations for the same product.
+Therefore, such a combination SHALL NOT be used in the list of remediations for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed and prohibited combinations:
 
@@ -4681,7 +4752,7 @@ The following tables shows the allowed and prohibited combinations:
 table 3: Remediation Combinations
 
 Some category values contradict certain product status groups.
-Therefore, such a combination MUST NOT exist in a vulnerability item for the same product.
+Therefore, such a combination SHALL NOT exist in a vulnerability item for the same product.
 This is independent from whether the product is referenced directly or indirectly through a product group.
 The following tables shows the allowed, discouraged and prohibited combinations:
 
@@ -4815,7 +4886,7 @@ Valid values are:
     zone
 ```
 
-The values MUST be used as follows:
+The values SHALL be used as follows:
 
 - `none`: No restart required.
 - `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
@@ -4966,7 +5037,7 @@ To ensure a common understanding of which fields are required in a given use cas
 Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose.
 The value of `$.document.category` is used to identify a CSAF document's profile. The following rules apply:
 
-1. Each CSAF document MUST conform the **CSAF Base** profile.
+1. Each CSAF document SHALL conform the **CSAF Base** profile.
 2. Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional
    fields from the standard mandatory.
    A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends.
@@ -4980,7 +5051,7 @@ The value of `$.document.category` is used to identify a CSAF document's profile
 6. Values of `$.document.category` that do not match any of the values defined in section [4](#profiles) of this standard SHALL be validated against
    the "CSAF Base" profile.
 7. Local or private profiles MAY exist and tools MAY choose to support them.
-8. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
+8. If an official profile and a private profile exists, tools SHALL validate against the official one from the standard.
 
 ## 4.1 Profile 1: CSAF Base <a id='profile-1-csaf-base'></a>
 
@@ -4990,7 +5061,7 @@ Furthermore, it is the foundation all other profiles are build on.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "CSAF Base":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - `$['$schema']`
   - `$.document.category`
   - `$.document.csaf_version`
@@ -5016,7 +5087,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 An issuing party might choose to prepend its `$.document.publisher.name` to a value in `$.document.category` that would otherwise be 
 intended to only be used by another profile, to state that the CSAF document does not use the profile associated with this value.
-In this case, the (case insensitive) string "CSAF" MUST be removed from the value.
+In this case, the (case insensitive) string "CSAF" SHALL be removed from the value.
 This SHOULD be done if the issuing party is unable or unwilling to use the value `csaf_base`, e.g. due to legal or cooperate identity reasons.
 
 > Both values `Example Company Security Advisory` and `Example Company security_advisory` in `$.document.category` are therefore valid 
@@ -5034,7 +5105,7 @@ the implications on its own products and infrastructure.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Incident Response":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
 
@@ -5053,7 +5124,7 @@ This profile SHOULD be used to provide information which are **not related to a 
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
 
@@ -5070,7 +5141,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   If there is any information that would reside in the element `$.vulnerabilities` the CSAF document SHOULD use another profile,
   e.g. "Security Advisory".
 
-If the element `$.product_tree` exists, a user MUST assume that all products mentioned are affected.
+If the element `$.product_tree` exists, a user SHALL assume that all products mentioned are affected.
 
 ## 4.4 Profile 4: Security Advisory <a id='profile-4-security-advisory'></a>
 
@@ -5078,7 +5149,7 @@ This profile SHOULD be used to provide information which is related to vulnerabi
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
@@ -5116,7 +5187,7 @@ See \[[VEX](#VEX)\] for details.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
@@ -5135,7 +5206,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 - For each item in
   - `$.vulnerabilities[*].product_status.known_not_affected` an impact statement SHALL exist as machine readable flag
     in `$.vulnerabilities[*].flags` or as human readable justification in `$.vulnerabilities[*].threats`.
-    For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain
+    For the latter one, the `category` value for such a statement SHALL be `impact` and the `details` field SHALL contain
     a description why the vulnerability cannot be exploited.
   - `$.vulnerabilities[*].product_status.known_affected` additional product specific information SHALL be provided
     in `$.vulnerabilities[*].remediations` as an action statement.
@@ -5144,9 +5215,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
 
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object.
-  > However, it MUST be ensured that for each Product ID the required information according to its product status as stated
-  > in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an
-  > impact statement and all products with the status `known_affected` MUST have additional product specific information
+  > However, it SHALL be ensured that for each Product ID the required information according to its product status as stated
+  > in the two points above is available. This implies that all products with the status `known_not_affected` SHALL have an
+  > impact statement and all products with the status `known_affected` SHALL have additional product specific information
   > regardless of whether that is referenced through the Product ID or a Product Group ID.
 
 - The value of `$.document.category` SHALL be `csaf_vex`.
@@ -5162,7 +5233,7 @@ The profile "Security Advisory" from section [4.4](#profile-4-security-advisory)
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Deprecated Security Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
@@ -5178,21 +5249,21 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 ## 4.7 Profile 7: Withdrawn <a id='profile-7-withdrawn'></a>
 
-This profile MUST be used for any CSAF document that is withdrawn. It MUST NOT be used for any superseded document.
+This profile SHALL be used for any CSAF document that is withdrawn. It SHALL NOT be used for any superseded document.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Withdrawn":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with exactly one item using the `category` `description`
     describing the original content and the reasons for the withdrawal
 
     > Other items, such as a legal disclaimer, may exist alongside the required one.
 
-    The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
+    The `title` SHALL be `Reasoning for Withdrawal` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
   - `$.document.tracking.revision_history` with at least `2` entries.
-    Any previous items MUST NOT be removed.
+    Any previous items SHALL NOT be removed.
 
     > A CSAF document cannot be withdrawn during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
@@ -5205,27 +5276,27 @@ The CSAF document MAY link to additional information through `$.document.referen
 
 ## 4.8 Profile 8: Superseded <a id='profile-8-superseded'></a>
 
-This profile MUST be used for any CSAF document that is superseded. It MUST NOT be used for any withdrawn document.
+This profile SHALL be used for any CSAF document that is superseded. It SHALL NOT be used for any withdrawn document.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Superseded":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with exactly one item using the `category` `description`
 
       > Other items, such as a legal disclaimer, may exist alongside the required one.
 
-    The `title` MUST be `Reasoning for Supersession` for English or an unspecified document language.
+    The `title` SHALL be `Reasoning for Supersession` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
   - `$.document.tracking.revision_history` with at least `2` entries.
-    Any previous items MUST NOT be removed.
+    Any previous items SHALL NOT be removed.
 
     > A CSAF document cannot be superseded during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `$.document.tracking.status` is kept in `draft`.
 
   - `$.document.references` containing at least one item with `category` `external`
-    The `summary` MUST start with `Superseding Document` for English or an unspecified document language.
+    The `summary` SHALL start with `Superseding Document` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
 - The value of `$.document.category` SHALL be `csaf_superseded`.
 - The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.
@@ -5238,10 +5309,10 @@ This section provides additional rules for handling CSAF documents.
 
 ## 5.1 Filename <a id='filename'></a>
 
-The following rules MUST be applied to determine the filename for the CSAF document:
+The following rules SHALL be applied to determine the filename for the CSAF document:
 
-1. The value `$.document.tracking.id` is converted into lowercase.
-2. Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (`_`):
+1. The value `$.document.tracking.id` SHALL be converted into lowercase.
+2. Any character sequence which is not part of one of the following groups SHALL be replaced by a single underscore (`_`):
    * lower-case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
    * special characters: `+` (0x2B), `-` (0x2D)
@@ -5253,9 +5324,9 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    > where the conversion rule might lead to multiple consecutive underscores.
    > As a result, a `$.document.tracking.id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 
-3. The file extension `.json` MUST be appended.
+3. The file extension `.json` SHALL be appended.
 
-*Examples 1:*<a id='filename-eg-1'></a><a id='sec-5-1-eg-1'></a><a id='example-55'></a>
+*Examples 1:*<a id='filename-eg-1'></a><a id='sec-5-1-eg-1'></a><a id='example-57'></a>
 
 ```
   cisco-sa-20190513-secureboot.json
@@ -5266,7 +5337,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 > It is currently considered best practice to indicate that a CSAF document is invalid by
 > inserting `_invalid` into the filename in front of the file extension.
 
-*Examples 2:*<a id='filename-eg-2'></a><a id='sec-5-1-eg-2'></a><a id='example-56'></a>
+*Examples 2:*<a id='filename-eg-2'></a><a id='sec-5-1-eg-2'></a><a id='example-58'></a>
 
 ```
   cisco-sa-20190513-secureboot_invalid.json
@@ -5277,7 +5348,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 ## 5.2 Separation in Data Stream <a id='separation-in-data-stream'></a>
 
 If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween,
-they MUST be separated by the Record Separator in accordance with \[[RFC7464](#RFC7464)\].
+they SHALL be separated by the Record Separator in accordance with \[[RFC7464](#RFC7464)\].
 
 ## 5.3 Sorting <a id='additional-conventions--sorting'></a>
 
@@ -5305,7 +5376,7 @@ The use of GitHub-flavoured Markdown is permitted in the following fields:
   $.vulnerabilities[*].threats[*].details
 ```
 
-Other fields MUST NOT contain Markdown.
+Other fields SHALL NOT contain Markdown.
 
 ## 5.5 Branch Recursion <a id='branch-recursion'></a>
 
@@ -5317,11 +5388,11 @@ The `$.product_tree` uses a nested structure for `branches`. Along a single path
 
 ## 5.6 Hardware and Software within the Product Tree <a id='hardware-and-software-within-the-product-tree'></a>
 
-If a product consists of hardware and software, the hardware part MUST be presented as one product in the product tree
+If a product consists of hardware and software, the hardware part SHALL be presented as one product in the product tree
 and the software part as another one.
-To form the overall product, both parts MUST be combined through a product path.
+To form the overall product, both parts SHALL be combined through a product path.
 
-*Example 1:*<a id='hardware-and-software-within-the-product-tree-eg-1'></a><a id='sec-5-6-eg-1'></a><a id='example-57'></a>
+*Example 1:*<a id='hardware-and-software-within-the-product-tree-eg-1'></a><a id='sec-5-6-eg-1'></a><a id='example-59'></a>
 
 ```
   "product_tree": {
@@ -5460,13 +5531,13 @@ The fourth subsection groups tests into preset.
 
 ## 6.1 Mandatory Tests <a id='mandatory-tests'></a>
 
-Mandatory tests MUST NOT fail at a valid CSAF document.
-A program MUST handle a test failure as an error.
+Mandatory tests SHALL NOT fail at a valid CSAF document.
+A program SHALL handle a test failure as an error.
 
 ### 6.1.1 Missing Definition of Product ID <a id='missing-definition-of-product-id'></a>
 
 For each element of type `$['$defs'].product_id_t` which is not inside a Full Product Name (type: `full_product_name_t`) and
-therefore reference an element within the `product_tree` it MUST be tested that the Full Product Name element with the matching `product_id` exists.
+therefore reference an element within the `product_tree` it SHALL be tested that the Full Product Name element with the matching `product_id` exists.
 The same applies for all items of elements of type `$['$defs'].products_t`.
 
 The relevant paths for this test are:
@@ -5495,7 +5566,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].threats[*].product_ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-definition-of-product-id-eg-1'></a><a id='sec-6-1-1-eg-1'></a><a id='example-58'></a>
+*Example 1 (which fails the test):*<a id='missing-definition-of-product-id-eg-1'></a><a id='sec-6-1-1-eg-1'></a><a id='example-60'></a>
 
 ```
   "product_tree": {
@@ -5516,7 +5587,7 @@ The relevant paths for this test are:
 ### 6.1.2 Multiple Definition of Product ID <a id='multiple-definition-of-product-id'></a>
 
 For each Product ID (type `$['$defs'].product_id_t`) in Full Product Name elements (type: `$['$defs'].full_product_name_t`) it
-MUST be tested that the `product_id` was not already defined within the same document.
+SHALL be tested that the `product_id` was not already defined within the same document.
 
 The relevant paths for this test are:
 
@@ -5526,7 +5597,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-of-product-id-eg-1'></a><a id='sec-6-1-2-eg-1'></a><a id='example-59'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-of-product-id-eg-1'></a><a id='sec-6-1-2-eg-1'></a><a id='example-61'></a>
 
 ```
   "product_tree": {
@@ -5548,7 +5619,7 @@ The relevant paths for this test are:
 ### 6.1.3 Circular Definition of Product ID <a id='circular-definition-of-product-id'></a>
 
 For each new defined Product ID (type `$['$defs'].product_id_t`) in items of product paths (`$.product_tree.product_paths`) it
-MUST be tested that the `product_id` does not end up in a circle.
+SHALL be tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:
 
@@ -5560,7 +5631,7 @@ The relevant path for this test is:
 > a Product ID defined in a product path item is used as `beginning_product_reference` or `next_product_reference`.
 > Only for those which fulfill this condition it is necessary to run the full check following the references.
 
-*Example 1 (which fails the test):*<a id='circular-definition-of-product-id-eg-1'></a><a id='sec-6-1-3-eg-1'></a><a id='example-60'></a>
+*Example 1 (which fails the test):*<a id='circular-definition-of-product-id-eg-1'></a><a id='sec-6-1-3-eg-1'></a><a id='example-62'></a>
 
 ```
   "product_tree": {
@@ -5593,7 +5664,7 @@ The relevant path for this test is:
 ### 6.1.4 Missing Definition of Product Group ID <a id='missing-definition-of-product-group-id'></a>
 
 For each element of type `$['$defs'].product_group_id_t` which is not inside a Product Group (`$.product_tree.product_groups[*]`) and
-therefore reference an element within the `product_tree` it MUST be tested that the Product Group element with the matching `group_id` exists.
+therefore reference an element within the `product_tree` it SHALL be tested that the Product Group element with the matching `group_id` exists.
 The same applies for all items of elements of type `$['$defs'].product_groups_t`.
 
 The relevant paths for this test are:
@@ -5609,7 +5680,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].threats[*].group_ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-4-eg-1'></a><a id='example-61'></a>
+*Example 1 (which fails the test):*<a id='missing-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-4-eg-1'></a><a id='example-63'></a>
 
 ```
   "product_tree": {
@@ -5640,7 +5711,7 @@ The relevant paths for this test are:
 ### 6.1.5 Multiple Definition of Product Group ID <a id='multiple-definition-of-product-group-id'></a>
 
 For each Product Group ID (type `$['$defs'].product_group_id_t`) Product Group elements (`$.product_tree.product_groups[*]`) it
-MUST be tested that the `group_id` was not already defined within the same document.
+SHALL be tested that the `group_id` was not already defined within the same document.
 
 The relevant path for this test is:
 
@@ -5648,7 +5719,7 @@ The relevant path for this test is:
   $.product_tree.product_groups[*].group_id
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-5-eg-1'></a><a id='example-62'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-5-eg-1'></a><a id='example-64'></a>
 
 ```
   "product_tree": {
@@ -5689,9 +5760,9 @@ The relevant path for this test is:
 
 ### 6.1.6 Contradicting Product Status <a id='contradicting-product-status'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that the same Product ID is not a member of contradicting
+For each item in `$.vulnerabilities` it SHALL be tested that the same Product ID is not a member of contradicting
 product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
-The sets formed by the contradicting groups within one vulnerability item MUST be pairwise disjoint.
+The sets formed by the contradicting groups within one vulnerability item SHALL be pairwise disjoint.
 
 The relevant path for this test is:
 
@@ -5699,7 +5770,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='contradicting-product-status-eg-1'></a><a id='sec-6-1-6-eg-1'></a><a id='example-63'></a>
+*Example 1 (which fails the test):*<a id='contradicting-product-status-eg-1'></a><a id='sec-6-1-6-eg-1'></a><a id='example-65'></a>
 
 ```
   "product_tree": {
@@ -5728,7 +5799,7 @@ The relevant path for this test is:
 
 ### 6.1.7 Multiple Scores with Same Version per Product <a id='multiple-scores-with-same-version-per-product'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that the same Product ID is not a member of more than one CVSS vector with the same version and same source.
+For each item in `$.vulnerabilities` it SHALL be tested that the same Product ID is not a member of more than one CVSS vector with the same version and same source.
 
 > Different sources might assign different scores for the same product.
 
@@ -5740,7 +5811,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-scores-with-same-version-per-product-eg-1'></a><a id='sec-6-1-7-eg-1'></a><a id='example-64'></a>
+*Example 1 (which fails the test):*<a id='multiple-scores-with-same-version-per-product-eg-1'></a><a id='sec-6-1-7-eg-1'></a><a id='example-66'></a>
 
 ```
   "product_tree": {
@@ -5789,7 +5860,7 @@ The relevant path for this test is:
 
 ### 6.1.8 Invalid CVSS <a id='invalid-cvss'></a>
 
-It MUST be tested that the given CVSS object is valid according to the referenced schema.
+It SHALL be tested that the given CVSS object is valid according to the referenced schema.
 
 The relevant paths for this test are:
 
@@ -5799,7 +5870,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].metrics[*].content.cvss_v4
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-65'></a>
+*Example 1 (which fails the test):*<a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-67'></a>
 
 ```
   "cvss_v3": {
@@ -5816,7 +5887,7 @@ The relevant paths for this test are:
 
 ### 6.1.9 Invalid CVSS Computation <a id='invalid-cvss-computation'></a>
 
-It MUST be tested that the given CVSS object has the values computed correctly according to the definition.
+It SHALL be tested that the given CVSS object has the values computed correctly according to the definition.
 
 > The `vectorString` SHOULD take precedence.
 
@@ -5839,7 +5910,7 @@ The relevant paths for this test are:
 > Note: CVSS v4 does not define `threatScore`, `threatSeverity`, `environmentalScore` and `environmentalSeverity`.
 > The existence of these JSON keys in an older version of the schema was fixed with version `4.0.1`.
 
-*Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-66'></a>
+*Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-68'></a>
 
 ```
   "cvss_v3": {
@@ -5856,7 +5927,7 @@ The relevant paths for this test are:
 
 ### 6.1.10 Inconsistent CVSS <a id='inconsistent-cvss'></a>
 
-It MUST be tested that the given CVSS properties do not contradict the CVSS vector.
+It SHALL be tested that the given CVSS properties do not contradict the CVSS vector.
 
 The relevant paths for this test are:
 
@@ -5866,7 +5937,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].metrics[*].content.cvss_v4
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-67'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-69'></a>
 
 ```
   "cvss_v3": {
@@ -5891,8 +5962,8 @@ The relevant paths for this test are:
 
 ### 6.1.11 CWE <a id='mandatory-tests--cwe'></a>
 
-For each CWE it MUST be tested that the given CWE exists and is valid in the `version` provided.
-Any `id` that refers to a CWE Category or View MUST fail the test.
+For each CWE it SHALL be tested that the given CWE exists and is valid in the `version` provided.
+Any `id` that refers to a CWE Category or View SHALL fail the test.
 
 > A list of all CWE release archives is available at \[[CWE-A](#CWE-A)\].
 
@@ -5902,7 +5973,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-68'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-70'></a>
 
 ```
   "cwes": [
@@ -5918,7 +5989,7 @@ The relevant path for this test is:
 
 ### 6.1.12 Language <a id='language'></a>
 
-For each element of type `$['$defs'].lang_t` it MUST be tested that the language code is valid and exists.
+For each element of type `$['$defs'].lang_t` it SHALL be tested that the language code is valid and exists.
 
 The relevant paths for this test are:
 
@@ -5927,7 +5998,7 @@ The relevant paths for this test are:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='language-eg-1'></a><a id='sec-6-1-12-eg-1'></a><a id='example-69'></a>
+*Example 1 (which fails the test):*<a id='language-eg-1'></a><a id='sec-6-1-12-eg-1'></a><a id='example-71'></a>
 
 ```
   "lang": "EZ"
@@ -5939,7 +6010,7 @@ The relevant paths for this test are:
 
 ### 6.1.13 PURL <a id='purl'></a>
 
-It MUST be tested that all given PURLs are valid.
+It SHALL be tested that all given PURLs are valid.
 
 > It is not sufficient to just test against the `pattern` provided in section [3.1.4.3.4](#full-product-name-type-product-identification-helper-purls).
 > The PURL must be validated against the requirements in the \[[ECMA-427](#ECMA-427)\] specification and the additional constraints given in
@@ -5953,7 +6024,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
 ```
 
-*Example 1 (which fails the test):*<a id='purl-eg-1'></a><a id='sec-6-1-13-eg-1'></a><a id='example-70'></a>
+*Example 1 (which fails the test):*<a id='purl-eg-1'></a><a id='sec-6-1-13-eg-1'></a><a id='example-72'></a>
 
 ```
   "product_tree": {
@@ -5975,9 +6046,9 @@ The relevant paths for this test are:
 
 ### 6.1.14 Sorted Revision History <a id='sorted-revision-history'></a>
 
-It MUST be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted
+It SHALL be tested that the value of `number` of items of the revision history are sorted ascending when the items are sorted
 ascending by `date` and as a second level criteria `number`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 In order to create consistent results in the case of mixed integer and semantic versioning (failing test
 [6.1.30](#mixed-integer-and-semantic-versioning)), implementations SHALL map items with integer versioning to
@@ -5993,7 +6064,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='sorted-revision-history-eg-1'></a><a id='sec-6-1-14-eg-1'></a><a id='example-71'></a>
+*Example 1 (which fails the test):*<a id='sorted-revision-history-eg-1'></a><a id='sec-6-1-14-eg-1'></a><a id='example-73'></a>
 
 ```
   "revision_history": [
@@ -6014,7 +6085,7 @@ The relevant path for this test is:
 
 ### 6.1.15 Translator <a id='translator'></a>
 
-It MUST be tested that `$.document.source_lang` is present and set if the value `translator` is used for `$.document.publisher.category`.
+It SHALL be tested that `$.document.source_lang` is present and set if the value `translator` is used for `$.document.publisher.category`.
 A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
 not being present at all.
 
@@ -6024,7 +6095,7 @@ The relevant path for this test is:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='translator-eg-1'></a><a id='sec-6-1-15-eg-1'></a><a id='example-72'></a>
+*Example 1 (which fails the test):*<a id='translator-eg-1'></a><a id='sec-6-1-15-eg-1'></a><a id='example-74'></a>
 
 ```
   "document": {
@@ -6046,9 +6117,9 @@ The relevant path for this test is:
 
 ### 6.1.16 Latest Document Version <a id='latest-document-version'></a>
 
-It MUST be tested that document version has the same value as the `number` in the last item of the revision history when
+It SHALL be tested that document version has the same value as the `number` in the last item of the revision history when
 it is sorted ascending by `date` and as a second level criteria `number`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 Build metadata is ignored in the comparison.
 Any pre-release part is also ignored if the document status is `draft`.
 
@@ -6058,7 +6129,7 @@ The relevant path for this test is:
   $.document.tracking.version
 ```
 
-*Example 1 (which fails the test):*<a id='latest-document-version-eg-1'></a><a id='sec-6-1-16-eg-1'></a><a id='example-73'></a>
+*Example 1 (which fails the test):*<a id='latest-document-version-eg-1'></a><a id='sec-6-1-16-eg-1'></a><a id='example-75'></a>
 
 ```
   "tracking": {
@@ -6086,7 +6157,7 @@ The relevant path for this test is:
 
 ### 6.1.17 Document Status Draft <a id='document-status-draft'></a>
 
-It MUST be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
+It SHALL be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
 
 The relevant path for this test is:
 
@@ -6094,7 +6165,7 @@ The relevant path for this test is:
   $.document.tracking.status
 ```
 
-*Example 1 (which fails the test):*<a id='document-status-draft-eg-1'></a><a id='sec-6-1-17-eg-1'></a><a id='example-74'></a>
+*Example 1 (which fails the test):*<a id='document-status-draft-eg-1'></a><a id='sec-6-1-17-eg-1'></a><a id='example-76'></a>
 
 ```
     "tracking": {
@@ -6110,7 +6181,7 @@ The relevant path for this test is:
 
 ### 6.1.18 Released Revision History <a id='released-revision-history'></a>
 
-It MUST be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
+It SHALL be tested that no item of the revision history has a `number` of `0` or `0.y.z` when the document status is `final` or `interim`.
 
 The relevant path for this test is:
 
@@ -6118,7 +6189,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].number
 ```
 
-*Example 1 (which fails the test):*<a id='released-revision-history-eg-1'></a><a id='sec-6-1-18-eg-1'></a><a id='example-75'></a>
+*Example 1 (which fails the test):*<a id='released-revision-history-eg-1'></a><a id='sec-6-1-18-eg-1'></a><a id='example-77'></a>
 
 ```
     "tracking": {
@@ -6146,7 +6217,7 @@ The relevant path for this test is:
 
 ### 6.1.19 Revision History Entries for Pre-release Versions <a id='revision-history-entries-for-pre-release-versions'></a>
 
-It MUST be tested that no item of the revision history has a `number` which includes pre-release information.
+It SHALL be tested that no item of the revision history has a `number` which includes pre-release information.
 
 The relevant path for this test is:
 
@@ -6154,7 +6225,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].number
 ```
 
-*Example 1 (which fails the test):*<a id='revision-history-entries-for-pre-release-versions-eg-1'></a><a id='sec-6-1-19-eg-1'></a><a id='example-76'></a>
+*Example 1 (which fails the test):*<a id='revision-history-entries-for-pre-release-versions-eg-1'></a><a id='sec-6-1-19-eg-1'></a><a id='example-78'></a>
 
 ```
     "revision_history": [
@@ -6179,7 +6250,7 @@ The relevant path for this test is:
 
 ### 6.1.20 Non-Draft Document Version <a id='non-draft-document-version'></a>
 
-It MUST be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
+It SHALL be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
 
 The relevant path for this test is:
 
@@ -6187,7 +6258,7 @@ The relevant path for this test is:
   $.document.tracking.version
 ```
 
-*Example 1 (which fails the test):*<a id='non-draft-document-version-eg-1'></a><a id='sec-6-1-20-eg-1'></a><a id='example-77'></a>
+*Example 1 (which fails the test):*<a id='non-draft-document-version-eg-1'></a><a id='sec-6-1-20-eg-1'></a><a id='example-79'></a>
 
 ```
     "tracking": {
@@ -6203,7 +6274,7 @@ The relevant path for this test is:
 
 ### 6.1.21 Missing Item in Revision History <a id='missing-item-in-revision-history'></a>
 
-It MUST be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date` and as a second level criteria `number`.
+It SHALL be tested that items of the revision history do not omit a version number when the items are sorted ascending by `date` and as a second level criteria `number`.
 
 > Dates are used as primary sorting criteria as they correspond to publications.
 > The assigned numbers might be incorrect.
@@ -6213,10 +6284,10 @@ It MUST be tested that items of the revision history do not omit a version numbe
 > Nevertheless, the newly added item created to release the corrected version of the document to the intended target group will have a newer
 > timestamp and therefore show up correctly at CSAF consumers.
 
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
-The error message MUST differentiate between a version number not present at all and one that is missing in the sorted list.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
+The error message SHALL differentiate between a version number not present at all and one that is missing in the sorted list.
 In the case of semantic versioning, this applies only to the Major version.
-It MUST also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or
+It SHALL also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or
 a Major version of 0 or 1 in the case of semantic versioning.
 
 The relevant path for this test is:
@@ -6225,7 +6296,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='missing-item-in-revision-history-eg-1'></a><a id='sec-6-1-21-eg-1'></a><a id='example-78'></a>
+*Example 1 (which fails the test):*<a id='missing-item-in-revision-history-eg-1'></a><a id='sec-6-1-21-eg-1'></a><a id='example-80'></a>
 
 ```
     "revision_history": [
@@ -6249,7 +6320,7 @@ The relevant path for this test is:
 
 ### 6.1.22 Multiple Definition in Revision History <a id='multiple-definition-in-revision-history'></a>
 
-It MUST be tested that items of the revision history do not contain the same version number.
+It SHALL be tested that items of the revision history do not contain the same version number.
 
 The relevant path for this test is:
 
@@ -6257,7 +6328,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-in-revision-history-eg-1'></a><a id='sec-6-1-22-eg-1'></a><a id='example-79'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-in-revision-history-eg-1'></a><a id='sec-6-1-22-eg-1'></a><a id='example-81'></a>
 
 ```
    "revision_history": [
@@ -6278,7 +6349,7 @@ The relevant path for this test is:
 
 ### 6.1.23 Multiple Use of Same CVE <a id='multiple-use-of-same-cve'></a>
 
-It MUST be tested that a CVE is not used in multiple vulnerability items.
+It SHALL be tested that a CVE is not used in multiple vulnerability items.
 
 The relevant path for this test is:
 
@@ -6286,7 +6357,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cve
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-use-of-same-cve-eg-1'></a><a id='sec-6-1-23-eg-1'></a><a id='example-80'></a>
+*Example 1 (which fails the test):*<a id='multiple-use-of-same-cve-eg-1'></a><a id='sec-6-1-23-eg-1'></a><a id='example-82'></a>
 
 ```
   "vulnerabilities": [
@@ -6303,7 +6374,7 @@ The relevant path for this test is:
 
 ### 6.1.24 Multiple Definition in Involvements <a id='multiple-definition-in-involvements'></a>
 
-It MUST be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
+It SHALL be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
 
 The relevant path for this test is:
 
@@ -6311,7 +6382,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].involvements
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-in-involvements-eg-1'></a><a id='sec-6-1-24-eg-1'></a><a id='example-81'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-in-involvements-eg-1'></a><a id='sec-6-1-24-eg-1'></a><a id='example-83'></a>
 
 ```
   "vulnerabilities": [
@@ -6337,7 +6408,7 @@ The relevant path for this test is:
 
 ### 6.1.25 Multiple Use of Same Hash Algorithm <a id='multiple-use-of-same-hash-algorithm'></a>
 
-It MUST be tested that the same hash algorithm is not used multiple times in one item of file hashes.
+It SHALL be tested that the same hash algorithm is not used multiple times in one item of file hashes.
 
 The relevant paths for this test are:
 
@@ -6347,7 +6418,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-use-of-same-hash-algorithm-eg-1'></a><a id='sec-6-1-25-eg-1'></a><a id='example-82'></a>
+*Example 1 (which fails the test):*<a id='multiple-use-of-same-hash-algorithm-eg-1'></a><a id='sec-6-1-25-eg-1'></a><a id='example-84'></a>
 
 ```
   "product_tree": {
@@ -6381,7 +6452,7 @@ The relevant paths for this test are:
 
 ### 6.1.26 Prohibited Document Category Name <a id='prohibited-document-category-name'></a>
 
-It MUST be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
+It SHALL be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
 value of any other profile than "CSAF Base".
 Any occurrences of dash, hyphen, minus, underscore, and white space characters are removed from the values on both sides before the
 case insensitive match.
@@ -6402,10 +6473,10 @@ case insensitive match.
 > * Fullwidth low line
 
 This applies for both, the comparison against the name and value.
-Also the value MUST NOT start with the reserved prefix `csaf_` except if the value is exactly `csaf_base`.
+Also the value SHALL NOT start with the reserved prefix `csaf_` except if the value is exactly `csaf_base`.
 
 This test does only apply for CSAF documents with the profile "CSAF Base".
-Therefore, it MUST be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
+Therefore, it SHALL be skipped if the document category matches one of the values defined for the profile other than "CSAF Base".
 
 > For CSAF 2.1, the test must be skipped for the following values in `$.document.category`:
 >
@@ -6428,7 +6499,7 @@ The relevant path for this test is:
   $.document.category
 ```
 
-*Examples 1 (for currently prohibited values):*<a id='prohibited-document-category-name-eg-1'></a><a id='sec-6-1-26-eg-1'></a><a id='example-83'></a>
+*Examples 1 (for currently prohibited values):*<a id='prohibited-document-category-name-eg-1'></a><a id='sec-6-1-26-eg-1'></a><a id='example-85'></a>
 
 ```
   Csaf_a
@@ -6445,7 +6516,7 @@ The relevant path for this test is:
   withdrawn
 ```
 
-*Example 2 (which fails the test):*<a id='prohibited-document-category-name-eg-2'></a><a id='sec-6-1-26-eg-2'></a><a id='example-84'></a>
+*Example 2 (which fails the test):*<a id='prohibited-document-category-name-eg-2'></a><a id='sec-6-1-26-eg-2'></a><a id='example-86'></a>
 
 ```
   "category": "Security_Incident_Response"
@@ -6464,7 +6535,7 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 #### 6.1.27.1 Document Notes <a id='document-notes-for-informational-advisory-and-security-incident-response'></a>
 
-It MUST be tested that at least one item in `$.document.notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
+It SHALL be tested that at least one item in `$.document.notes` exists which has a `category` of `description`, `details`, `general` or `summary`.
 
 The relevant values for `$.document.category` are:
 
@@ -6479,7 +6550,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='document-notes-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-1-eg-1'></a><a id='example-85'></a>
+*Example 1 (which fails the test):*<a id='document-notes-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-1-eg-1'></a><a id='example-87'></a>
 
 ```
   "notes": [
@@ -6495,7 +6566,7 @@ The relevant path for this test is:
 
 #### 6.1.27.2 Document References <a id='document-references-for-informational-advisory-and-security-incident-response'></a>
 
-It MUST be tested that at least one item in `$.document.references` exists that has links to an `external` source.
+It SHALL be tested that at least one item in `$.document.references` exists that has links to an `external` source.
 
 The relevant values for `$.document.category` are:
 
@@ -6510,7 +6581,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='document-references-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-2-eg-1'></a><a id='example-86'></a>
+*Example 1 (which fails the test):*<a id='document-references-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-2-eg-1'></a><a id='example-88'></a>
 
 ```
   "references": [
@@ -6526,7 +6597,7 @@ The relevant path for this test is:
 
 #### 6.1.27.3 Vulnerabilities <a id='vulnerabilities-for-informational-advisory'></a>
 
-It MUST be tested that the element `$.vulnerabilities` does not exist.
+It SHALL be tested that the element `$.vulnerabilities` does not exist.
 
 The relevant values for `$.document.category` are:
 
@@ -6542,7 +6613,7 @@ The relevant path for this test is:
   $.vulnerabilities
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerabilities-for-informational-advisory-eg-1'></a><a id='sec-6-1-27-3-eg-1'></a><a id='example-87'></a>
+*Example 1 (which fails the test):*<a id='vulnerabilities-for-informational-advisory-eg-1'></a><a id='sec-6-1-27-3-eg-1'></a><a id='example-89'></a>
 
 ```
   "vulnerabilities": [
@@ -6558,7 +6629,7 @@ The relevant path for this test is:
 
 #### 6.1.27.4 Product Tree <a id='product-tree-for-security-advisory-vex-deprecated-security-advisory'></a>
 
-It MUST be tested that the element `$.product_tree` exists.
+It SHALL be tested that the element `$.product_tree` exists.
 
 The relevant values for `$.document.category` are:
 
@@ -6574,7 +6645,7 @@ The relevant path for this test is:
   $.product_tree
 ```
 
-*Example 1 (which fails the test):*<a id='product-tree-for-security-advisory-vex-deprecated-security-advisory-eg-1'></a><a id='sec-6-1-27-4-eg-1'></a><a id='example-88'></a>
+*Example 1 (which fails the test):*<a id='product-tree-for-security-advisory-vex-deprecated-security-advisory-eg-1'></a><a id='sec-6-1-27-4-eg-1'></a><a id='example-90'></a>
 
 ```
   {
@@ -6591,7 +6662,7 @@ The relevant path for this test is:
 
 #### 6.1.27.5 Vulnerability Notes <a id='vulnerability-notes'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that the element `notes` exists.
+For each item in `$.vulnerabilities` it SHALL be tested that the element `notes` exists.
 
 The relevant values for `$.document.category` are:
 
@@ -6607,7 +6678,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].notes
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-notes-eg-1'></a><a id='sec-6-1-27-5-eg-1'></a><a id='example-89'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-notes-eg-1'></a><a id='sec-6-1-27-5-eg-1'></a><a id='example-91'></a>
 
 ```
   "vulnerabilities": [
@@ -6626,7 +6697,7 @@ The relevant path for this test is:
 
 #### 6.1.27.6 Product Status <a id='product-status'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that the element `product_status` exists.
+For each item in `$.vulnerabilities` it SHALL be tested that the element `product_status` exists.
 
 The relevant values for `$.document.category` are:
 
@@ -6641,7 +6712,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='product-status-eg-1'></a><a id='sec-6-1-27-6-eg-1'></a><a id='example-90'></a>
+*Example 1 (which fails the test):*<a id='product-status-eg-1'></a><a id='sec-6-1-27-6-eg-1'></a><a id='example-92'></a>
 
 ```
   "vulnerabilities": [
@@ -6655,7 +6726,7 @@ The relevant path for this test is:
 
 #### 6.1.27.7 VEX Product Status <a id='vex-product-status'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
+For each item in `$.vulnerabilities` it SHALL be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
 or `under_investigation` is present in `product_status`.
 
 The relevant value for `$.document.category` is:
@@ -6673,7 +6744,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].product_status.under_investigation
 ```
 
-*Example 1 (which fails the test):*<a id='vex-product-status-eg-1'></a><a id='sec-6-1-27-7-eg-1'></a><a id='example-91'></a>
+*Example 1 (which fails the test):*<a id='vex-product-status-eg-1'></a><a id='sec-6-1-27-7-eg-1'></a><a id='example-93'></a>
 
 ```
   "product_status": {
@@ -6690,9 +6761,9 @@ The relevant paths for this test are:
 
 #### 6.1.27.8 Vulnerability ID <a id='vulnerability-id'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that at least one of the elements `cve` or `ids` is present.
+For each item in `$.vulnerabilities` it SHALL be tested that at least one of the elements `cve` or `ids` is present.
 If no `cve` is present and all items in `ids` contain `group_ids` or `product_ids`,
-it MUST be tested that each product mentioned in `product_status[*][*]` is assigned at least one item in `ids`.
+it SHALL be tested that each product mentioned in `product_status[*][*]` is assigned at least one item in `ids`.
 This is independent from whether the product is referenced directly or indirectly through a product group.
 
 > Without this rule, a product could be mentioned in a VEX that has no clear reference to a vulnerability identifier.
@@ -6712,7 +6783,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].ids
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-id-eg-1'></a><a id='sec-6-1-27-8-eg-1'></a><a id='example-92'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-id-eg-1'></a><a id='sec-6-1-27-8-eg-1'></a><a id='example-94'></a>
 
 ```
   "vulnerabilities": [
@@ -6726,9 +6797,9 @@ The relevant paths for this test are:
 
 #### 6.1.27.9 Impact Statement <a id='impact-statement'></a>
 
-For each item in `$.vulnerabilities[*].product_status.known_not_affected` it MUST be tested that
+For each item in `$.vulnerabilities[*].product_status.known_not_affected` it SHALL be tested that
 a corresponding impact statement exist in `$.vulnerabilities[*].flags` or `$.vulnerabilities[*].threats`.
-For the latter one, the `category` value for such a statement MUST be `impact`.
+For the latter one, the `category` value for such a statement SHALL be `impact`.
 
 The relevant value for `$.document.category` is:
 
@@ -6743,7 +6814,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].threats
 ```
 
-*Example 1 (which fails the test):*<a id='impact-statement-eg-1'></a><a id='sec-6-1-27-9-eg-1'></a><a id='example-93'></a>
+*Example 1 (which fails the test):*<a id='impact-statement-eg-1'></a><a id='sec-6-1-27-9-eg-1'></a><a id='example-95'></a>
 
 ```
   "product_tree": {
@@ -6800,7 +6871,7 @@ The relevant path for this test is:
 
 #### 6.1.27.10 Action Statement <a id='action-statement'></a>
 
-For each item in `$.vulnerabilities[*].product_status.known_affected` it MUST be tested that
+For each item in `$.vulnerabilities[*].product_status.known_affected` it SHALL be tested that
 a corresponding action statement exist in `$.vulnerabilities[*].remediations`.
 
 The relevant value for `$.document.category` is:
@@ -6815,7 +6886,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations
 ```
 
-*Example 1 (which fails the test):*<a id='action-statement-eg-1'></a><a id='sec-6-1-27-10-eg-1'></a><a id='example-94'></a>
+*Example 1 (which fails the test):*<a id='action-statement-eg-1'></a><a id='sec-6-1-27-10-eg-1'></a><a id='example-96'></a>
 
 ```
   "product_tree": {
@@ -6873,7 +6944,7 @@ The relevant path for this test is:
 
 #### 6.1.27.11 Vulnerabilities <a id='vulnerabilities-for-security-advisory-or-vex'></a>
 
-It MUST be tested that the element `$.vulnerabilities` exists.
+It SHALL be tested that the element `$.vulnerabilities` exists.
 
 The relevant values for `$.document.category` are:
 
@@ -6889,7 +6960,7 @@ The relevant path for this test is:
   $.vulnerabilities
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerabilities-for-security-advisory-or-vex-eg-1'></a><a id='sec-6-1-27-11-eg-1'></a><a id='example-95'></a>
+*Example 1 (which fails the test):*<a id='vulnerabilities-for-security-advisory-or-vex-eg-1'></a><a id='sec-6-1-27-11-eg-1'></a><a id='example-97'></a>
 
 ```
   {
@@ -6906,7 +6977,7 @@ The relevant path for this test is:
 
 #### 6.1.27.12 Affected Products <a id='affected-products'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that the element `product_status/known_affected` exists.
+For each item in `$.vulnerabilities` it SHALL be tested that the element `product_status/known_affected` exists.
 
 The relevant value for `$.document.category` is:
 
@@ -6920,7 +6991,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status.known_affected
 ```
 
-*Example 1 (which fails the test):*<a id='affected-products-eg-1'></a><a id='sec-6-1-27-12-eg-1'></a><a id='example-96'></a>
+*Example 1 (which fails the test):*<a id='affected-products-eg-1'></a><a id='sec-6-1-27-12-eg-1'></a><a id='example-98'></a>
 
 ```
       "product_status": {
@@ -6935,7 +7006,7 @@ The relevant path for this test is:
 #### 6.1.27.13 Corresponding Affected Products <a id='corresponding-affected-products'></a>
 
 For each product listed in the product status group fixed in any vulnerability,
-it MUST be tested that a corresponding version of the product is listed as affected in the same vulnerability.
+it SHALL be tested that a corresponding version of the product is listed as affected in the same vulnerability.
 
 > For a product path including the `installed_with` relationship the product path leading to but not including the relationship
 > is a corresponding product.
@@ -6954,7 +7025,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status.known_affected
 ```
 
-*Example 1 (which fails the test):*<a id='corresponding-affected-products-eg-1'></a><a id='sec-6-1-27-13-eg-1'></a><a id='example-97'></a>
+*Example 1 (which fails the test):*<a id='corresponding-affected-products-eg-1'></a><a id='sec-6-1-27-13-eg-1'></a><a id='example-99'></a>
 
 ```
   {
@@ -7000,7 +7071,7 @@ The relevant path for this test is:
 
 #### 6.1.27.14 Document Notes <a id='document-notes-for-withdrawn-and-superseded'></a>
 
-It MUST be tested that at least one item in `$.document.notes` exists which has a `category` of `description`.
+It SHALL be tested that at least one item in `$.document.notes` exists which has a `category` of `description`.
 
 The relevant values for `$.document.category` are:
 
@@ -7015,7 +7086,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='document-notes-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-14-eg-1'></a><a id='example-98'></a>
+*Example 1 (which fails the test):*<a id='document-notes-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-14-eg-1'></a><a id='example-100'></a>
 
 ```
   "notes": [
@@ -7031,7 +7102,7 @@ The relevant path for this test is:
 
 #### 6.1.27.15 Product Tree <a id='product-tree-for-withdrawn-and-superseded'></a>
 
-It MUST be tested that the element `$.product_tree` does not exist.
+It SHALL be tested that the element `$.product_tree` does not exist.
 
 The relevant values for `$.document.category` are:
 
@@ -7046,7 +7117,7 @@ The relevant path for this test is:
   $.product_tree
 ```
 
-*Example 1 (which fails the test):*<a id='product-tree-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-15-eg-1'></a><a id='example-99'></a>
+*Example 1 (which fails the test):*<a id='product-tree-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-15-eg-1'></a><a id='example-101'></a>
 
 ```
     "product_tree": [
@@ -7058,7 +7129,7 @@ The relevant path for this test is:
 
 #### 6.1.27.16 Revision History <a id='revision-history-for-withdrawn-and-superseded'></a>
 
-It MUST be tested that the revision history contains at least two entries.
+It SHALL be tested that the revision history contains at least two entries.
 
 The relevant values for `$.document.category` are:
 
@@ -7073,7 +7144,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='revision-history-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-16-eg-1'></a><a id='example-100'></a>
+*Example 1 (which fails the test):*<a id='revision-history-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-16-eg-1'></a><a id='example-102'></a>
 
 ```
   "revision_history": [
@@ -7089,9 +7160,9 @@ The relevant path for this test is:
 
 #### 6.1.27.17 Reasoning for Withdrawal <a id='reasoning-for-withdrawal'></a>
 
-If the document language is English or unspecified, it MUST be tested that exactly one item in document notes exists
+If the document language is English or unspecified, it SHALL be tested that exactly one item in document notes exists
 that has the title `Reasoning for Withdrawal`.
-The `category` of this item MUST be `description`.
+The `category` of this item SHALL be `description`.
 
 The relevant value for `$.document.category` is:
 
@@ -7105,7 +7176,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='reasoning-for-withdrawal-eg-1'></a><a id='sec-6-1-27-17-eg-1'></a><a id='example-101'></a>
+*Example 1 (which fails the test):*<a id='reasoning-for-withdrawal-eg-1'></a><a id='sec-6-1-27-17-eg-1'></a><a id='example-103'></a>
 
 ```
   "notes": [
@@ -7121,9 +7192,9 @@ The relevant path for this test is:
 
 #### 6.1.27.18 Reasoning for Supersession <a id='reasoning-for-supersession'></a>
 
-If the document language is English or unspecified, it MUST be tested that exactly one item in document notes exists
+If the document language is English or unspecified, it SHALL be tested that exactly one item in document notes exists
 that has the title `Reasoning for Supersession`.
-The `category` of this item MUST be `description`.
+The `category` of this item SHALL be `description`.
 
 The relevant value for `$.document.category` is:
 
@@ -7137,7 +7208,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='reasoning-for-supersession-eg-1'></a><a id='sec-6-1-27-18-eg-1'></a><a id='example-102'></a>
+*Example 1 (which fails the test):*<a id='reasoning-for-supersession-eg-1'></a><a id='sec-6-1-27-18-eg-1'></a><a id='example-104'></a>
 
 ```
   "notes": [
@@ -7153,9 +7224,9 @@ The relevant path for this test is:
 
 #### 6.1.27.19 Reference to Superseding Document <a id='reference-to-superseding-document'></a>
 
-If the document language is English or unspecified, it MUST be tested that at least one item in document references exists
+If the document language is English or unspecified, it SHALL be tested that at least one item in document references exists
 that has a summary starting with `Superseding Document`.
-The `category` of this item MUST be `external`.
+The `category` of this item SHALL be `external`.
 
 The relevant value for `$.document.category` is:
 
@@ -7169,7 +7240,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='reference-to-superseding-document-eg-1'></a><a id='sec-6-1-27-19-eg-1'></a><a id='example-103'></a>
+*Example 1 (which fails the test):*<a id='reference-to-superseding-document-eg-1'></a><a id='sec-6-1-27-19-eg-1'></a><a id='example-105'></a>
 
 ```
     "references": [
@@ -7185,7 +7256,7 @@ The relevant path for this test is:
 
 ### 6.1.28 Translation <a id='translation'></a>
 
-It MUST be tested that the given source language and document language are not the same.
+It SHALL be tested that the given source language and document language are not the same.
 
 The relevant path for this test is:
 
@@ -7194,7 +7265,7 @@ The relevant path for this test is:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='translation-eg-1'></a><a id='sec-6-1-28-eg-1'></a><a id='example-104'></a>
+*Example 1 (which fails the test):*<a id='translation-eg-1'></a><a id='sec-6-1-28-eg-1'></a><a id='example-106'></a>
 
 ```
   "document": {
@@ -7214,7 +7285,7 @@ The relevant path for this test is:
 
 ### 6.1.29 Remediation without Product Reference <a id='remediation-without-product-reference'></a>
 
-For each item in `$.vulnerabilities[*].remediations` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+For each item in `$.vulnerabilities[*].remediations` it SHALL be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
 The relevant path for this test is:
 
@@ -7222,7 +7293,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='remediation-without-product-reference-eg-1'></a><a id='sec-6-1-29-eg-1'></a><a id='example-105'></a>
+*Example 1 (which fails the test):*<a id='remediation-without-product-reference-eg-1'></a><a id='sec-6-1-29-eg-1'></a><a id='example-107'></a>
 
 ```
       "remediations": [
@@ -7239,7 +7310,7 @@ The relevant path for this test is:
 
 ### 6.1.30 Mixed Integer and Semantic Versioning <a id='mixed-integer-and-semantic-versioning'></a>
 
-It MUST be tested that all elements of type `$['$defs'].version_t` follow either integer versioning or
+It SHALL be tested that all elements of type `$['$defs'].version_t` follow either integer versioning or
 semantic versioning homogeneously within the same document.
 
 The relevant paths for this test are:
@@ -7249,7 +7320,7 @@ The relevant paths for this test are:
   $.document.tracking.version
 ```
 
-*Example 1 (which fails the test):*<a id='mixed-integer-and-semantic-versioning-eg-1'></a><a id='sec-6-1-30-eg-1'></a><a id='example-106'></a>
+*Example 1 (which fails the test):*<a id='mixed-integer-and-semantic-versioning-eg-1'></a><a id='sec-6-1-30-eg-1'></a><a id='example-108'></a>
 
 ```
     "tracking": {
@@ -7278,7 +7349,7 @@ The relevant paths for this test are:
 
 ### 6.1.31 Version Range in Product Version <a id='version-range-in-product-version'></a>
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version` it MUST be tested that
+For each element of type `$['$defs'].branches_t` with `category` of `product_version` it SHALL be tested that
 the value of `name` does not contain a version range.
 
 > To implement this test it is deemed sufficient that, when converted to lowercase, the value of `name` satisfies the two requirements below:
@@ -7310,7 +7381,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='version-range-in-product-version-eg-1'></a><a id='sec-6-1-31-eg-1'></a><a id='example-107'></a>
+*Example 1 (which fails the test):*<a id='version-range-in-product-version-eg-1'></a><a id='sec-6-1-31-eg-1'></a><a id='example-109'></a>
 
 ```
             "branches": [
@@ -7326,7 +7397,7 @@ The relevant paths for this test are:
 
 ### 6.1.32 Flag without Product Reference <a id='flag-without-product-reference'></a>
 
-For each item in `$.vulnerabilities[*].flags` it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+For each item in `$.vulnerabilities[*].flags` it SHALL be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
 The relevant path for this test is:
 
@@ -7334,7 +7405,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].flags[*]
 ```
 
-*Example 1 (which fails the test):*<a id='flag-without-product-reference-eg-1'></a><a id='sec-6-1-32-eg-1'></a><a id='example-108'></a>
+*Example 1 (which fails the test):*<a id='flag-without-product-reference-eg-1'></a><a id='sec-6-1-32-eg-1'></a><a id='example-110'></a>
 
 ```
       "flags": [
@@ -7348,7 +7419,7 @@ The relevant path for this test is:
 
 ### 6.1.33 Multiple Flags with VEX Justification Codes per Product <a id='multiple-flags-with-vex-justification-codes-per-product'></a>
 
-For each item in `$.vulnerabilities[*]` it MUST be tested that a Product is not member of more than one Flag item with
+For each item in `$.vulnerabilities[*]` it SHALL be tested that a Product is not member of more than one Flag item with
 a VEX justification code (see section [3.2.4.7](#vulnerabilities-property-flags)).
 This takes indirect relations through Product Groups into account.
 
@@ -7361,7 +7432,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].flags
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-flags-with-vex-justification-codes-per-product-eg-1'></a><a id='sec-6-1-33-eg-1'></a><a id='example-109'></a>
+*Example 1 (which fails the test):*<a id='multiple-flags-with-vex-justification-codes-per-product-eg-1'></a><a id='sec-6-1-33-eg-1'></a><a id='example-111'></a>
 
 ```
   "product_tree": {
@@ -7417,7 +7488,7 @@ The relevant path for this test is:
 
 ### 6.1.34 Branches Recursion Depth <a id='mandatory-tests--branches-recursion-depth'></a>
 
-For each product defined under `$.product_tree.branches[*]` it MUST be tested that the complete JSON path
+For each product defined under `$.product_tree.branches[*]` it SHALL be tested that the complete JSON path
 does not contain more than 30 instances of `branches`.
 
 The relevant path for this test is:
@@ -7426,7 +7497,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].product
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--branches-recursion-depth-eg-1'></a><a id='sec-6-1-34-eg-1'></a><a id='example-110'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--branches-recursion-depth-eg-1'></a><a id='sec-6-1-34-eg-1'></a><a id='example-112'></a>
 
 ```
   "product_tree": {
@@ -7627,7 +7698,7 @@ The relevant path for this test is:
 
 ### 6.1.35 Contradicting Remediations <a id='contradicting-remediations'></a>
 
-For each item in `$.vulnerabilities[*].remediations` it MUST be tested that a product is not member of
+For each item in `$.vulnerabilities[*].remediations` it SHALL be tested that a product is not member of
 contradicting remediation categories (see table [table 3](#vulnerabilities-property-remediations-category-tab-1)).
 This takes indirect relations through product groups into account.
 
@@ -7637,7 +7708,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='contradicting-remediations-eg-1'></a><a id='sec-6-1-35-eg-1'></a><a id='example-111'></a>
+*Example 1 (which fails the test):*<a id='contradicting-remediations-eg-1'></a><a id='sec-6-1-35-eg-1'></a><a id='example-113'></a>
 
 ```
       "remediations": [
@@ -7667,7 +7738,7 @@ The relevant path for this test is:
 
 ### 6.1.36 Contradicting Product Status Remediation Combination <a id='contradicting-product-status-remediation-combination'></a>
 
-For each item in `$.vulnerabilities[*].remediations` it MUST be tested that a product is not member of a
+For each item in `$.vulnerabilities[*].remediations` it SHALL be tested that a product is not member of a
 contradicting product status group (see table [table 4](#vulnerabilities-property-remediations-category-tab-2)).
 This takes indirect relations through product groups into account.
 
@@ -7677,7 +7748,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='contradicting-product-status-remediation-combination-eg-1'></a><a id='sec-6-1-36-eg-1'></a><a id='example-112'></a>
+*Example 1 (which fails the test):*<a id='contradicting-product-status-remediation-combination-eg-1'></a><a id='sec-6-1-36-eg-1'></a><a id='example-114'></a>
 
 ```
       "product_status": {
@@ -7700,7 +7771,7 @@ The relevant path for this test is:
 
 ### 6.1.37 Date and Time <a id='mandatory-tests--date-and-time'></a>
 
-For each item of type `string` and format `date-time` it MUST be tested that it conforms to the rules given in section [2.3](#date-and-time).
+For each item of type `string` and format `date-time` it SHALL be tested that it conforms to the rules given in section [2.3](#date-and-time).
 
 The relevant path for this test is:
 
@@ -7721,7 +7792,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].threats[*].date
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--date-and-time-eg-1'></a><a id='sec-6-1-37-eg-1'></a><a id='example-113'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--date-and-time-eg-1'></a><a id='sec-6-1-37-eg-1'></a><a id='example-115'></a>
 
 ```
       "current_release_date": "2024-01-24 10:00:00.000Z",
@@ -7731,7 +7802,7 @@ The relevant path for this test is:
 
 ### 6.1.38 Non-Public Sharing Group with Max UUID <a id='non-public-sharing-group-with-max-uuid'></a>
 
-It MUST be tested that a CSAF document using Max UUID as sharing group ID has the TLP label `CLEAR`.
+It SHALL be tested that a CSAF document using Max UUID as sharing group ID has the TLP label `CLEAR`.
 
 The relevant path for this test is:
 
@@ -7739,7 +7810,7 @@ The relevant path for this test is:
   $.document.distribution.tlp.label
 ```
 
-*Example 1 (which fails the test):*<a id='non-public-sharing-group-with-max-uuid-eg-1'></a><a id='sec-6-1-38-eg-1'></a><a id='example-114'></a>
+*Example 1 (which fails the test):*<a id='non-public-sharing-group-with-max-uuid-eg-1'></a><a id='sec-6-1-38-eg-1'></a><a id='example-116'></a>
 
 ```
     "distribution": {
@@ -7759,7 +7830,7 @@ The relevant path for this test is:
 
 ### 6.1.39 Public Sharing Group with No Max UUID <a id='public-sharing-group-with-no-max-uuid'></a>
 
-It MUST be tested that a CSAF document with the TLP label `CLEAR` use the Max UUID as sharing group ID if any.
+It SHALL be tested that a CSAF document with the TLP label `CLEAR` use the Max UUID as sharing group ID if any.
 The test SHALL pass if no sharing group is present or the Nil UUID is used and the document status is `draft`.
 
 The relevant path for this test is:
@@ -7768,7 +7839,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.id
 ```
 
-*Example 1 (which fails the test):*<a id='public-sharing-group-with-no-max-uuid-eg-1'></a><a id='sec-6-1-39-eg-1'></a><a id='example-115'></a>
+*Example 1 (which fails the test):*<a id='public-sharing-group-with-no-max-uuid-eg-1'></a><a id='sec-6-1-39-eg-1'></a><a id='example-117'></a>
 
 ```
     "distribution": {
@@ -7787,7 +7858,7 @@ The relevant path for this test is:
 
 ### 6.1.40 Invalid Sharing Group Name <a id='invalid-sharing-group-name'></a>
 
-It MUST be tested that the value of sharing group name does not equal the reserved values from section [3.2.2.5.1](#document-property---distribution-sharing-group) if the precondition is not fulfilled.
+It SHALL be tested that the value of sharing group name does not equal the reserved values from section [3.2.2.5.1](#document-property---distribution-sharing-group) if the precondition is not fulfilled.
 
 The relevant path for this test is:
 
@@ -7795,7 +7866,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.name
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-sharing-group-name-eg-1'></a><a id='sec-6-1-40-eg-1'></a><a id='example-116'></a>
+*Example 1 (which fails the test):*<a id='invalid-sharing-group-name-eg-1'></a><a id='sec-6-1-40-eg-1'></a><a id='example-118'></a>
 
 ```
     "distribution": {
@@ -7813,7 +7884,7 @@ The relevant path for this test is:
 
 ### 6.1.41 Missing Sharing Group Name <a id='missing-sharing-group-name'></a>
 
-It MUST be tested that the sharing group name exists and equals the predefined reserved value from section [3.2.2.5.1](#document-property---distribution-sharing-group) if the precondition is fulfilled.
+It SHALL be tested that the sharing group name exists and equals the predefined reserved value from section [3.2.2.5.1](#document-property---distribution-sharing-group) if the precondition is fulfilled.
 
 The relevant path for this test is:
 
@@ -7821,7 +7892,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.name
 ```
 
-*Example 1 (which fails the test):*<a id='missing-sharing-group-name-eg-1'></a><a id='sec-6-1-41-eg-1'></a><a id='example-117'></a>
+*Example 1 (which fails the test):*<a id='missing-sharing-group-name-eg-1'></a><a id='sec-6-1-41-eg-1'></a><a id='example-119'></a>
 
 ```
     "distribution": {
@@ -7838,7 +7909,7 @@ The relevant path for this test is:
 
 ### 6.1.42 PURL Qualifiers <a id='purl-qualifiers'></a>
 
-For each `product_identification_helper` object containing multiple PURLs it MUST be tested that the PURLs only differ in their qualifiers.
+For each `product_identification_helper` object containing multiple PURLs it SHALL be tested that the PURLs only differ in their qualifiers.
 
 The relevant paths for this test are:
 
@@ -7848,7 +7919,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
 ```
 
-*Example 1 (which fails the test):*<a id='purl-qualifiers-eg-1'></a><a id='sec-6-1-42-eg-1'></a><a id='example-118'></a>
+*Example 1 (which fails the test):*<a id='purl-qualifiers-eg-1'></a><a id='sec-6-1-42-eg-1'></a><a id='example-120'></a>
 
 ```
   "product_tree": {
@@ -7871,7 +7942,7 @@ The relevant paths for this test are:
 
 ### 6.1.43 Use of Multiple Stars in Model Number <a id='use-of-multiple-stars-in-model-number'></a>
 
-For each model number it MUST be tested that it does not contain multiple unescaped stars.
+For each model number it SHALL be tested that it does not contain multiple unescaped stars.
 
 > Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
 
@@ -7883,7 +7954,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-model-number-eg-1'></a><a id='sec-6-1-43-eg-1'></a><a id='example-119'></a>
+*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-model-number-eg-1'></a><a id='sec-6-1-43-eg-1'></a><a id='example-121'></a>
 
 ```
           "model_numbers": [
@@ -7895,7 +7966,7 @@ The relevant paths for this test are:
 
 ### 6.1.44 Use of Multiple Stars in Serial Number <a id='use-of-multiple-stars-in-serial-number'></a>
 
-For each serial number it MUST be tested that it does not contain multiple unescaped stars.
+For each serial number it SHALL be tested that it does not contain multiple unescaped stars.
 
 > Multiple `*` that match zero or multiple characters within a serial number introduce ambiguity and are therefore prohibited.
 
@@ -7907,7 +7978,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-serial-number-eg-1'></a><a id='sec-6-1-44-eg-1'></a><a id='example-120'></a>
+*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-serial-number-eg-1'></a><a id='sec-6-1-44-eg-1'></a><a id='example-122'></a>
 
 ```
           "serial_numbers": [
@@ -7919,9 +7990,9 @@ The relevant paths for this test are:
 
 ### 6.1.45 Inconsistent Disclosure Date <a id='inconsistent-disclosure-date'></a>
 
-For each vulnerability, it MUST be tested that the `disclosure_date` is earlier than or equal to the `date` of the newest item of the `revision_history`
+For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier than or equal to the `date` of the newest item of the `revision_history`
 if the document is labeled `TLP:CLEAR` and the document status is `final` or `interim`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -7929,7 +8000,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].disclosure_date
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-disclosure-date-eg-1'></a><a id='sec-6-1-45-eg-1'></a><a id='example-121'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-disclosure-date-eg-1'></a><a id='sec-6-1-45-eg-1'></a><a id='example-123'></a>
 
 ```
   "document": {
@@ -7964,7 +8035,7 @@ The relevant path for this test is:
 
 ### 6.1.46 Invalid SSVC <a id='invalid-ssvc'></a>
 
-It MUST be tested that the given SSVC object is valid according to the referenced schema.
+It SHALL be tested that the given SSVC object is valid according to the referenced schema.
 
 The relevant path for this test is:
 
@@ -7972,7 +8043,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-ssvc-eg-1'></a><a id='sec-6-1-46-eg-1'></a><a id='example-122'></a>
+*Example 1 (which fails the test):*<a id='invalid-ssvc-eg-1'></a><a id='sec-6-1-46-eg-1'></a><a id='example-124'></a>
 
 ```
   "ssvc_v2": {
@@ -7985,9 +8056,9 @@ The relevant path for this test is:
 
 ### 6.1.47 Inconsistent SSVC Target IDs <a id='inconsistent-ssvc-target-ids'></a>
 
-For each `ssvc_v2` object it MUST be tested that each item in `target_ids` is either the CVE of the vulnerability given in `cve`
+For each `ssvc_v2` object it SHALL be tested that each item in `target_ids` is either the CVE of the vulnerability given in `cve`
 or the `text` of an item in the `ids` array of the vulnerability.
-The test MUST fail, if the target ID equals the `$.document.tracking.id` and the CSAF document contains more than one vulnerability.
+The test SHALL fail, if the target ID equals the `$.document.tracking.id` and the CSAF document contains more than one vulnerability.
 
 The relevant path for this test is:
 
@@ -7995,7 +8066,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-ssvc-target-ids-eg-1'></a><a id='sec-6-1-47-eg-1'></a><a id='example-123'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-ssvc-target-ids-eg-1'></a><a id='sec-6-1-47-eg-1'></a><a id='example-125'></a>
 
 ```
   "vulnerabilities": [
@@ -8023,14 +8094,14 @@ The relevant path for this test is:
 
 > A tool MAY remove any inconsistent SSVC Target ID as a quick fix.
 
-If the tool removes the last item of the array, it MUST remove the element `target_ids` as well.
+If the tool removes the last item of the array, it SHALL remove the element `target_ids` as well.
 
 ### 6.1.48 SSVC Decision Points <a id='ssvc-decision-points'></a>
 
-For each SSVC decision point given under `selections` within a registered base `namespace`, it MUST be tested that given decision point exists,
+For each SSVC decision point given under `selections` within a registered base `namespace`, it SHALL be tested that given decision point exists,
 is valid and the items in `values` are ordered correctly.
 The test SHALL pass, if a unregistered `namespace` is used.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > A list of all currently registered namespaces is a available in the SSVC documentation at \[[SSVC-RNS](#SSVC-RNS)\].
 >
@@ -8051,7 +8122,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
-*Example 1 (which fails the test):*<a id='ssvc-decision-points-eg-1'></a><a id='sec-6-1-48-eg-1'></a><a id='example-124'></a>
+*Example 1 (which fails the test):*<a id='ssvc-decision-points-eg-1'></a><a id='sec-6-1-48-eg-1'></a><a id='example-126'></a>
 
 ```
   "ssvc_v2": {
@@ -8083,9 +8154,9 @@ The relevant path for this test is:
 
 ### 6.1.49 Inconsistent SSVC Timestamp <a id='inconsistent-ssvc-timestamp'></a>
 
-For each vulnerability, it MUST be tested that each SSVC `timestamp` is earlier than or equal to the `date` of the newest item of the
+For each vulnerability, it SHALL be tested that each SSVC `timestamp` is earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -8093,7 +8164,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-ssvc-timestamp-eg-1'></a><a id='sec-6-1-49-eg-1'></a><a id='example-125'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-ssvc-timestamp-eg-1'></a><a id='sec-6-1-49-eg-1'></a><a id='example-127'></a>
 
 ```
   "document": {
@@ -8133,10 +8204,10 @@ The relevant path for this test is:
 
 ### 6.1.50 Product Version Range Rules <a id='product-version-range-rules'></a>
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it MUST be tested
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it SHALL be tested
 that the value of `name` complies with the rules given in section [3.1.2.3.2](#branches-type---name-under-product-version-range).
-VERS types not supported by the implementation SHALL result in a warning which MUST include the VERS type name used.
-Nevertheless, all other rules MUST be checked to the extent possible.
+VERS types not supported by the implementation SHALL result in a warning which SHALL include the VERS type name used.
+Nevertheless, all other rules SHALL be checked to the extent possible.
 
 The relevant path for this test is:
 
@@ -8144,7 +8215,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='product-version-range-rules-eg-1'></a><a id='sec-6-1-50-eg-1'></a><a id='example-126'></a>
+*Example 1 (which fails the test):*<a id='product-version-range-rules-eg-1'></a><a id='sec-6-1-50-eg-1'></a><a id='example-128'></a>
 
 ```
         {
@@ -8158,9 +8229,9 @@ The relevant path for this test is:
 
 ### 6.1.51 Inconsistent EPSS Timestamp <a id='inconsistent-epss-timestamp'></a>
 
-For each vulnerability, it MUST be tested that each EPSS `timestamp` is earlier than or equal to the `date` of the newest item of the
+For each vulnerability, it SHALL be tested that each EPSS `timestamp` is earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -8168,7 +8239,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-epss-timestamp-eg-1'></a><a id='sec-6-1-51-eg-1'></a><a id='example-127'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-epss-timestamp-eg-1'></a><a id='sec-6-1-51-eg-1'></a><a id='example-129'></a>
 
 ```
   "document": {
@@ -8217,9 +8288,9 @@ The relevant path for this test is:
 
 ### 6.1.52 Inconsistent First Known Exploitation Dates <a id='inconsistent-first-known-exploitation-dates'></a>
 
-For each First Known Exploitation Dates item, it MUST be tested that the values of its `date` and `exploitation_date` properties are both earlier than
+For each First Known Exploitation Dates item, it SHALL be tested that the values of its `date` and `exploitation_date` properties are both earlier than
 or equal to the `date` of the newest item of the `revision_history` if the document status is `final` or `interim`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant paths for this test are:
 
@@ -8228,7 +8299,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-first-known-exploitation-dates-eg-1'></a><a id='sec-6-1-52-eg-1'></a><a id='example-128'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-first-known-exploitation-dates-eg-1'></a><a id='sec-6-1-52-eg-1'></a><a id='example-130'></a>
 
 ```
   "document": {
@@ -8265,9 +8336,9 @@ The relevant paths for this test are:
 
 ### 6.1.53 Inconsistent Exploitation Date <a id='inconsistent-exploitation-date'></a>
 
-For each First Known Exploitation Dates item, it MUST be tested that the value of `exploitation_date` is earlier than or equal to value of the
+For each First Known Exploitation Dates item, it SHALL be tested that the value of `exploitation_date` is earlier than or equal to value of the
 sibling element `date`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -8275,7 +8346,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-exploitation-date-eg-1'></a><a id='sec-6-1-53-eg-1'></a><a id='example-129'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-exploitation-date-eg-1'></a><a id='sec-6-1-53-eg-1'></a><a id='example-131'></a>
 
 ```
   "first_known_exploitation_dates": [
@@ -8291,7 +8362,7 @@ The relevant path for this test is:
 
 ### 6.1.54 License Expression <a id='license-expression'></a>
 
-It MUST be tested that the license expression is valid.
+It SHALL be tested that the license expression is valid.
 
 > To implement this test, it is deemed sufficient to check for the ABNF defined in annex B of \[[SPDX301](#SPDX301)\] and
 > the restriction on the `DocumentRef` part given in [3.2.2.7](#document-property---license-expression).
@@ -8304,7 +8375,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='license-expression-eg-1'></a><a id='sec-6-1-54-eg-1'></a><a id='example-130'></a>
+*Example 1 (which fails the test):*<a id='license-expression-eg-1'></a><a id='sec-6-1-54-eg-1'></a><a id='example-132'></a>
 
 ```
     "license_expression": "This is a license text that should not be here.",
@@ -8316,8 +8387,8 @@ The relevant path for this test is:
 
 If the document language is English or unspecified,
 and the `license_expression` contains license identifiers or exceptions that are not listed in the SPDX license list or AboutCode's "ScanCode LicenseDB",
-it MUST be tested that exactly one item in document notes exists that has the title `License`.
-The category of this item MUST be `legal_disclaimer`.
+it SHALL be tested that exactly one item in document notes exists that has the title `License`.
+The category of this item SHALL be `legal_disclaimer`.
 
 The relevant path for this test is:
 
@@ -8325,7 +8396,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='license-text-eg-1'></a><a id='sec-6-1-55-eg-1'></a><a id='example-131'></a>
+*Example 1 (which fails the test):*<a id='license-text-eg-1'></a><a id='sec-6-1-55-eg-1'></a><a id='example-133'></a>
 
 ```
   "document": {
@@ -8346,7 +8417,7 @@ The relevant path for this test is:
 
 ### 6.1.56 Use of CVSS and Qualitative Severity Rating <a id='use-of-cvss-and-qualitative-severity-rating'></a>
 
-For each item in `$.vulnerabilities` it MUST be tested that no Qualitative Severity Rating and CVSS values are listed for the tuple of Product ID
+For each item in `$.vulnerabilities` it SHALL be tested that no Qualitative Severity Rating and CVSS values are listed for the tuple of Product ID
 and source.
 
 > Different source might assign different metrics for the same product.
@@ -8357,7 +8428,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-and-qualitative-severity-rating-eg-1'></a><a id='sec-6-1-56-eg-1'></a><a id='example-132'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-and-qualitative-severity-rating-eg-1'></a><a id='sec-6-1-56-eg-1'></a><a id='example-134'></a>
 
 ```
   "product_tree": {
@@ -8400,10 +8471,10 @@ The relevant path for this test is:
 
 ### 6.1.57 Stacked Branch Categories <a id='stacked-branch-categories'></a>
 
-For each `full_product_name_t` element under `$.product_tree.branches`, it MUST be tested that branch categories used along the path
+For each `full_product_name_t` element under `$.product_tree.branches`, it SHALL be tested that branch categories used along the path
 leading to the `full_product_name_t` element appear only once in the path.
 The sole exception is `product_family` which can occur multiple times.
-Therefore, `product_family` MUST be ignored in the test.
+Therefore, `product_family` SHALL be ignored in the test.
 
 The relevant path for this test is:
 
@@ -8411,7 +8482,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='stacked-branch-categories-eg-1'></a><a id='sec-6-1-57-eg-1'></a><a id='example-133'></a>
+*Example 1 (which fails the test):*<a id='stacked-branch-categories-eg-1'></a><a id='sec-6-1-57-eg-1'></a><a id='example-135'></a>
 
 ```
   "product_tree": {
@@ -8437,7 +8508,7 @@ The relevant path for this test is:
 
 ### 6.1.58 Use of `product_version` in one Path with `product_version_range` <a id='use-of-product-version-in-one-path-with-product-version-range'></a>
 
-For each `full_product_name_t` element under `$.product_tree.branches`, it MUST be tested that only one of the branch categories
+For each `full_product_name_t` element under `$.product_tree.branches`, it SHALL be tested that only one of the branch categories
 `product_version` and `product_version_range` is used along the path leading to the `full_product_name_t` element.
 
 The relevant path for this test is:
@@ -8446,7 +8517,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-product-version-in-one-path-with-product-version-range-eg-1'></a><a id='sec-6-1-58-eg-1'></a><a id='example-134'></a>
+*Example 1 (which fails the test):*<a id='use-of-product-version-in-one-path-with-product-version-range-eg-1'></a><a id='sec-6-1-58-eg-1'></a><a id='example-136'></a>
 
 ```
     {
@@ -8472,7 +8543,7 @@ The relevant path for this test is:
 
 ### 6.1.59 Single Version as Product Version Range <a id='single-version-as-product-version-range'></a>
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` does not
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it SHALL be tested that the value of `name` does not
 identify only a single version.
 
 The relevant path for this test is:
@@ -8481,7 +8552,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='single-version-as-product-version-range-eg-1'></a><a id='sec-6-1-59-eg-1'></a><a id='example-135'></a>
+*Example 1 (which fails the test):*<a id='single-version-as-product-version-range-eg-1'></a><a id='sec-6-1-59-eg-1'></a><a id='example-137'></a>
 
 ```
         {
@@ -8504,7 +8575,7 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 #### 6.1.60.1 Content Schema <a id='mandatory-tests--extension-tests-content-schema'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the item is valid against the Extension Content Schema.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that the item is valid against the Extension Content Schema.
 
 The relevant paths for this test are:
 
@@ -8518,7 +8589,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-content-schema-eg-1'></a><a id='sec-6-1-60-1-eg-1'></a><a id='example-136'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-content-schema-eg-1'></a><a id='sec-6-1-60-1-eg-1'></a><a id='example-138'></a>
 
 ```
   "x_extensions": [
@@ -8536,8 +8607,8 @@ The relevant paths for this test are:
 
 #### 6.1.60.2 Extension Schema <a id='mandatory-tests--extension-tests-extension-schema'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the item is valid against the declared CSAF Extension Schema.
-CSAF Extensions not supported by the implementation SHALL result in a warning which MUST include the value of `$schema` of the extension.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that the item is valid against the declared CSAF Extension Schema.
+CSAF Extensions not supported by the implementation SHALL result in a warning which SHALL include the value of `$schema` of the extension.
 Such warning SHALL differentiate between the different classes of extensions.
 
 The relevant paths for this test are:
@@ -8552,7 +8623,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-extension-schema-eg-1'></a><a id='sec-6-1-60-2-eg-1'></a><a id='example-137'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-extension-schema-eg-1'></a><a id='sec-6-1-60-2-eg-1'></a><a id='example-139'></a>
 
 ```
   "x_extensions": [
@@ -8574,9 +8645,9 @@ The relevant paths for this test are:
 
 #### 6.1.60.3 Extension Metadata <a id='mandatory-tests--extension-tests-metadata'></a>
 
-For each element of type `$['$defs'].extensions_t` it MUST be tested that the requirements provided through its metadata are fulfilled
+For each element of type `$['$defs'].extensions_t` it SHALL be tested that the requirements provided through its metadata are fulfilled
 for each CSAF Extension used.
-CSAF Extensions not supported by the implementation SHALL result in a warning which MUST include the value of `$schema` of the extension.
+CSAF Extensions not supported by the implementation SHALL result in a warning which SHALL include the value of `$schema` of the extension.
 Such warning SHALL differentiate between the different classes of extensions.
 
 > This includes, but is not limited to:
@@ -8597,7 +8668,7 @@ The relevant paths for this test are:
   $.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-metadata-eg-1'></a><a id='sec-6-1-60-3-eg-1'></a><a id='example-138'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-metadata-eg-1'></a><a id='sec-6-1-60-3-eg-1'></a><a id='example-140'></a>
 
 ```
   {
@@ -8621,7 +8692,7 @@ The relevant paths for this test are:
 
 ### 6.1.61 Use of Multiple Stars in SKU <a id='use-of-multiple-stars-in-sku'></a>
 
-For each stock keeping unit it MUST be tested that it does not contain multiple unescaped stars.
+For each stock keeping unit it SHALL be tested that it does not contain multiple unescaped stars.
 
 > Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
 
@@ -8633,7 +8704,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-sku-eg-1'></a><a id='sec-6-1-61-eg-1'></a><a id='example-139'></a>
+*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-sku-eg-1'></a><a id='sec-6-1-61-eg-1'></a><a id='example-141'></a>
 
 ```
           "skus": [
@@ -8647,11 +8718,11 @@ The relevant paths for this test are:
 
 Recommended tests SHOULD NOT fail at a valid CSAF document without a good reason. Failing such a test does not make the CSAF document invalid.
 These tests may include information about features which are still supported but expected to be deprecated in a future version of CSAF.
-A program MUST handle a test failure as a warning.
+A program SHALL handle a test failure as a warning.
 
 ### 6.2.1 Unused Definition of Product ID <a id='unused-definition-of-product-id'></a>
 
-For each Product ID (type `$['$defs'].product_id_t`) in Full Product Name elements (type: `$['$defs'].full_product_name_t`) it MUST be tested that
+For each Product ID (type `$['$defs'].product_id_t`) in Full Product Name elements (type: `$['$defs'].full_product_name_t`) it SHALL be tested that
 the `product_id` is referenced somewhere within the same document.
 
 This test SHALL be skipped for CSAF documents conforming the profile "Informational Advisory".
@@ -8664,7 +8735,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
 
-*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-140'></a>
+*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-142'></a>
 
 ```
   "product_tree": {
@@ -8683,7 +8754,7 @@ The relevant paths for this test are:
 
 ### 6.2.2 Missing Remediation <a id='missing-remediation'></a>
 
-For each Product ID (type `$['$defs'].product_id_t`) in the Product Status groups Affected and Under investigation it MUST be tested that
+For each Product ID (type `$['$defs'].product_id_t`) in the Product Status groups Affected and Under investigation it SHALL be tested that
 a remediation exists.
 
 > The remediation might be of the category `none_available` or `no_fix_planned`.
@@ -8697,7 +8768,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].product_status.under_investigation[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-141'></a>
+*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-143'></a>
 
 ```
   "product_tree": {
@@ -8723,7 +8794,7 @@ The relevant paths for this test are:
 
 ### 6.2.3 Missing Metric <a id='missing-metric'></a>
 
-For each Product ID (type `$['$defs'].product_id_t`) in the Product Status groups Affected it MUST be tested that
+For each Product ID (type `$['$defs'].product_id_t`) in the Product Status groups Affected it SHALL be tested that
 a metric object exists which covers this product.
 
 The relevant paths for this test are:
@@ -8734,7 +8805,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].product_status.last_affected[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-142'></a>
+*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-144'></a>
 
 ```
   "product_tree": {
@@ -8760,7 +8831,7 @@ The relevant paths for this test are:
 
 ### 6.2.4 Build Metadata in Revision History <a id='build-metadata-in-revision-history'></a>
 
-For each item in revision history it MUST be tested that `number` does not include build metadata.
+For each item in revision history it SHALL be tested that `number` does not include build metadata.
 
 The relevant path for this test is:
 
@@ -8768,7 +8839,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].number
 ```
 
-*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-143'></a>
+*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-145'></a>
 
 ```
     "revision_history": [
@@ -8784,8 +8855,8 @@ The relevant path for this test is:
 
 ### 6.2.5 Older Initial Release Date than Revision History <a id='older-initial-release-date-than-revision-history'></a>
 
-It MUST be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
-As the timestamps might use different timezones, the sorting and comparison MUST take timezones into account.
+It SHALL be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
+As the timestamps might use different timezones, the sorting and comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -8793,7 +8864,7 @@ The relevant path for this test is:
   $.document.tracking.initial_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-144'></a>
+*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-146'></a>
 
 ```
     "tracking": {
@@ -8820,8 +8891,8 @@ The relevant path for this test is:
 
 ### 6.2.6 Older Current Release Date than Revision History <a id='older-current-release-date-than-revision-history'></a>
 
-It MUST be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
-As the timestamps might use different timezones, the sorting and comparison MUST take timezones into account.
+It SHALL be tested that the Current Release Date is not older than the `date` of the newest item in Revision History.
+As the timestamps might use different timezones, the sorting and comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -8829,7 +8900,7 @@ The relevant path for this test is:
   $.document.tracking.current_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-145'></a>
+*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-147'></a>
 
 ```
     "tracking": {
@@ -8856,7 +8927,7 @@ The relevant path for this test is:
 
 ### 6.2.7 Missing Date in Involvements <a id='missing-date-in-involvements'></a>
 
-For each item in the list of involvements it MUST be tested that it includes the property `date`.
+For each item in the list of involvements it SHALL be tested that it includes the property `date`.
 
 The relevant path for this test is:
 
@@ -8864,7 +8935,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].involvements
 ```
 
-*Example 1 (which fails the test):*<a id='missing-date-in-involvements-eg-1'></a><a id='sec-6-2-7-eg-1'></a><a id='example-146'></a>
+*Example 1 (which fails the test):*<a id='missing-date-in-involvements-eg-1'></a><a id='sec-6-2-7-eg-1'></a><a id='example-148'></a>
 
 ```
   "vulnerabilities": [
@@ -8883,7 +8954,7 @@ The relevant path for this test is:
 
 ### 6.2.8 Use of MD5 As the Only Hash Algorithm <a id='use-of-md5-as-the-only-hash-algorithm'></a>
 
-It MUST be tested that the hash algorithm `md5` is not the only one present.
+It SHALL be tested that the hash algorithm `md5` is not the only one present.
 
 > Since collision attacks exist for MD5 such value should be accompanied by a second cryptographically stronger hash.
 > This will allow users to double check the results.
@@ -8896,7 +8967,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-147'></a>
+*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-149'></a>
 
 ```
   "product_tree": {
@@ -8926,7 +8997,7 @@ The relevant paths for this test are:
 
 ### 6.2.9 Use of SHA-1 As the Only Hash Algorithm <a id='use-of-sha-1-as-the-only-hash-algorithm'></a>
 
-It MUST be tested that the hash algorithm `sha1` is not the only one present.
+It SHALL be tested that the hash algorithm `sha1` is not the only one present.
 
 > Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash.
 > This will allow users to double check the results.
@@ -8939,7 +9010,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-148'></a>
+*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-150'></a>
 
 ```
   "product_tree": {
@@ -8975,7 +9046,7 @@ The relevant paths for this test are:
 
 ### 6.2.11 Missing Canonical URL <a id='missing-canonical-url'></a>
 
-It MUST be tested that the CSAF document has a canonical URL.
+It SHALL be tested that the CSAF document has a canonical URL.
 
 > To implement this test it is deemed sufficient that one item in `$.document.references` fulfills all of the following:
 >
@@ -8989,7 +9060,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-149'></a>
+*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-151'></a>
 
 ```
   "document": {
@@ -9016,7 +9087,7 @@ The relevant path for this test is:
 
 ### 6.2.12 Missing Document Language <a id='missing-document-language'></a>
 
-It MUST be tested that the document language member is present and set.
+It SHALL be tested that the document language member is present and set.
 A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
 not being present at all.
 
@@ -9026,7 +9097,7 @@ The relevant path for this test is:
   $.document.lang
 ```
 
-*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-150'></a>
+*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-152'></a>
 
 ```
   "document": {
@@ -9051,7 +9122,7 @@ The relevant path for this test is:
 
 ### 6.2.13 Sorting <a id='recommended-tests--sorting'></a>
 
-It MUST be tested that all keys in a CSAF document are sorted alphabetically.
+It SHALL be tested that all keys in a CSAF document are sorted alphabetically.
 
 The relevant path for this test is:
 
@@ -9059,7 +9130,7 @@ The relevant path for this test is:
   $
 ```
 
-*Example 1 (which fails the test):*<a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-151'></a>
+*Example 1 (which fails the test):*<a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-153'></a>
 
 ```
   "document": {
@@ -9075,7 +9146,7 @@ The relevant path for this test is:
 
 ### 6.2.14 Use of Private Language <a id='use-of-private-language'></a>
 
-For each element of type `$['$defs'].lang_t` it MUST be tested that the language code does not contain subtags reserved for private use.
+For each element of type `$['$defs'].lang_t` it SHALL be tested that the language code does not contain subtags reserved for private use.
 
 The relevant paths for this test are:
 
@@ -9084,7 +9155,7 @@ The relevant paths for this test are:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-152'></a>
+*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-154'></a>
 
 ```
   "lang": "qtx"
@@ -9096,7 +9167,7 @@ The relevant paths for this test are:
 
 ### 6.2.15 Use of Default Language <a id='use-of-default-language'></a>
 
-For each element of type `$['$defs'].lang_t` it MUST be tested that the language code is not `i-default`.
+For each element of type `$['$defs'].lang_t` it SHALL be tested that the language code is not `i-default`.
 
 The relevant paths for this test are:
 
@@ -9105,7 +9176,7 @@ The relevant paths for this test are:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-153'></a>
+*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-155'></a>
 
 ```
   "lang": "i-default"
@@ -9117,7 +9188,7 @@ The relevant paths for this test are:
 
 ### 6.2.16 Missing Product Identification Helper <a id='missing-product-identification-helper'></a>
 
-For each element of type `$['$defs'].full_product_name_t` it MUST be tested that it includes the property `product_identification_helper`.
+For each element of type `$['$defs'].full_product_name_t` it SHALL be tested that it includes the property `product_identification_helper`.
 
 The relevant paths for this test are:
 
@@ -9127,7 +9198,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name
 ```
 
-*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-154'></a>
+*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-156'></a>
 
 ```
     "full_product_names": [
@@ -9142,7 +9213,7 @@ The relevant paths for this test are:
 
 ### 6.2.17 CVE in Field IDs <a id='cve-in-field-ids'></a>
 
-For each item in `$.vulnerabilities[*].ids` it MUST be tested that it is not a CVE ID.
+For each item in `$.vulnerabilities[*].ids` it SHALL be tested that it is not a CVE ID.
 
 > It is sufficient to check, whether the property `text` matches the regex `^CVE-[0-9]{4}-[0-9]{4,}$`.
 
@@ -9152,7 +9223,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-155'></a>
+*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-157'></a>
 
 ```
       "ids": [
@@ -9170,7 +9241,7 @@ The relevant paths for this test are:
 
 ### 6.2.18 Product Version Range without VERS <a id='product-version-range-without-vers'></a>
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` it MUST be tested that
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` it SHALL be tested that
 the value of `name` indicates that the product version range is using VERS.
 
 > Compliance with the VERS specification itself is enforced via test [6.1.50](#product-version-range-rules).
@@ -9182,7 +9253,7 @@ the value of `name` indicates that the product version range is using VERS.
 >   ^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+
 > ```
 
-The warning MUST clearly advise to carefully check whether VERS can be used or the versions can be enumerated as
+The warning SHALL clearly advise to carefully check whether VERS can be used or the versions can be enumerated as
 the use of vls is only a fallback option.
 For more details, see sections [3.1.2.2](#branches-type---category) and [3.1.2.3.2](#branches-type---name-under-product-version-range).
 
@@ -9194,7 +9265,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-156'></a>
+*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-158'></a>
 
 ```
             "branches": [
@@ -9210,7 +9281,7 @@ The relevant paths for this test are:
 
 ### 6.2.19 CVSS for Fixed Products <a id='cvss-for-fixed-products'></a>
 
-For each item the fixed products group (`first_fixed` and `fixed`) it MUST be tested that
+For each item the fixed products group (`first_fixed` and `fixed`) it SHALL be tested that
 a CVSS applying to this product has an overall score of `0`.
 The test SHALL pass if none of the Product IDs listed within product status `fixed` or
 `first_fixed` is found in `products` of any item of the `metrics` element.
@@ -9222,7 +9293,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status.fixed[*]
 ```
 
-*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-157'></a>
+*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-159'></a>
 
 ```
   "product_tree": {
@@ -9276,11 +9347,11 @@ The relevant path for this test is:
 
 ### 6.2.20 Additional Properties <a id='additional-properties'></a>
 
-It MUST be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
+It SHALL be tested that there is no additional property in the CSAF document that was not defined in the CSAF JSON schema.
 This also applies for referenced schemas.
-For CSAF Extensions, the declared schemas MUST be checked additionally to the CSAF Extension Content Schema.
-Additional and unevaluated properties allowed by the CSAF Extension Content Schema MUST not be reported.
-CSAF Extensions not supported by the implementation SHALL result in a warning which MUST include the value of `$schema` of the extension.
+For CSAF Extensions, the declared schemas SHALL be checked additionally to the CSAF Extension Content Schema.
+Additional and unevaluated properties allowed by the CSAF Extension Content Schema SHALL not be reported.
+CSAF Extensions not supported by the implementation SHALL result in a warning which SHALL include the value of `$schema` of the extension.
 Such warning SHALL differentiate between the different classes of extensions.
 
 > Some of the errors could be reported by combining the JSON schema check with several mandatory tests,
@@ -9296,7 +9367,7 @@ The relevant path for this test is:
 > To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated
 > and sets `additionalProperties` respectively `unevaluatedProperties` to `false` at all appropriate places to detect additional properties.
 
-*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-158'></a>
+*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-160'></a>
 
 ```
             "cvss_v3": {
@@ -9314,8 +9385,8 @@ The relevant path for this test is:
 
 ### 6.2.21 Same Timestamps in Revision History <a id='same-timestamps-in-revision-history'></a>
 
-It MUST be tested that the timestamps of all items in the revision history are pairwise disjoint.
-As the timestamps might use different timezones, the comparison MUST take timezones into account.
+It SHALL be tested that the timestamps of all items in the revision history are pairwise disjoint.
+As the timestamps might use different timezones, the comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -9323,7 +9394,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].date
 ```
 
-*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-159'></a>
+*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-161'></a>
 
 ```
   "revision_history": [
@@ -9344,7 +9415,7 @@ The relevant path for this test is:
 
 ### 6.2.22 Document Tracking ID in Title <a id='document-tracking-id-in-title'></a>
 
-It MUST be tested that the `$.document.title` does not contain the `$.document.tracking.id`.
+It SHALL be tested that the `$.document.title` does not contain the `$.document.tracking.id`.
 
 The relevant path for this test is:
 
@@ -9352,7 +9423,7 @@ The relevant path for this test is:
   $.document.title
 ```
 
-*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-160'></a>
+*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-162'></a>
 
 ```
     "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
@@ -9370,7 +9441,7 @@ The relevant path for this test is:
 
 ### 6.2.23 Usage of Deprecated CWE <a id='usage-of-deprecated-cwe'></a>
 
-For each item in the CWE array it MUST be tested that the CWE is not deprecated in the given version.
+For each item in the CWE array it SHALL be tested that the CWE is not deprecated in the given version.
 
 The relevant path for this test is:
 
@@ -9378,7 +9449,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-161'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-163'></a>
 
 ```
      "cwes": [
@@ -9396,7 +9467,7 @@ The relevant path for this test is:
 
 ### 6.2.24 Usage of Non-Latest CWE Version <a id='usage-of-non-latest-cwe-version'></a>
 
-For each item in the CWE array it MUST be tested that the latest CWE version available at the time of the last revision was used.
+For each item in the CWE array it SHALL be tested that the latest CWE version available at the time of the last revision was used.
 The test SHALL fail if a later CWE version was used.
 
 The relevant path for this test is:
@@ -9405,7 +9476,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-162'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-164'></a>
 
 ```
   "document": {
@@ -9435,7 +9506,7 @@ The relevant path for this test is:
 
 ### 6.2.25 Usage of CWE Not Allowed for Vulnerability Mapping <a id='usage-of-cwe-not-allowed-for-vulnerability-mapping'></a>
 
-For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed.
+For each item in the CWE array it SHALL be tested that the vulnerability mapping is allowed.
 
 > Currently, this includes the two usage state `Allowed` and `Allowed-with-Review`.
 >
@@ -9448,7 +9519,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-163'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-165'></a>
 
 ```
       "cwes": [
@@ -9464,7 +9535,7 @@ The relevant path for this test is:
 
 ### 6.2.26 Usage of CWE Allowed with Review for Vulnerability Mapping <a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping'></a>
 
-For each item in the CWE array it MUST be tested that the vulnerability mapping is allowed without review.
+For each item in the CWE array it SHALL be tested that the vulnerability mapping is allowed without review.
 
 > Reasoning: CWEs marked with a vulnerability mapping state of `Allowed-with-Review` should only be used if a thorough review was done.
 > This test helps to flag such mappings which can be used to trigger processes that ensure the extra review, e.g. by a senior analyst.
@@ -9472,13 +9543,17 @@ For each item in the CWE array it MUST be tested that the vulnerability mapping 
 > Note: The property `Usage` within the `MappingNotesType` was introduced in version `7.0` of the CWE schema definition.
 > As a consequence, this information might not be available before CWE version `4.12`.
 
+The test SHALL NOT fail on items that are not allowed at all.
+
+> Those are covert through tests [6.1.11](#mandatory-tests--cwe) and [6.2.25](#usage-of-cwe-not-allowed-for-vulnerability-mapping)
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-164'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-166'></a>
 
 ```
       "cwes": [
@@ -9494,7 +9569,7 @@ The relevant path for this test is:
 
 ### 6.2.27 Discouraged Product Status Remediation Combination <a id='discouraged-product-status-remediation-combination'></a>
 
-For each item in `$.vulnerabilities[*].remediations`, it MUST be tested that a Product is not member of a discouraged product status group
+For each item in `$.vulnerabilities[*].remediations`, it SHALL be tested that a Product is not member of a discouraged product status group
 remediation category combination (see table [table 4](#vulnerabilities-property-remediations-category-tab-2)).
 This takes indirect relations through Product Groups into account.
 
@@ -9504,7 +9579,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-165'></a>
+*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-167'></a>
 
 ```
       "product_status": {
@@ -9527,7 +9602,7 @@ The relevant path for this test is:
 
 ### 6.2.28 Usage of Max UUID <a id='usage-of-max-uuid'></a>
 
-It MUST be tested that the Max UUID is not used as sharing group id.
+It SHALL be tested that the Max UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
@@ -9535,7 +9610,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-166'></a>
+*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-168'></a>
 
 ```
     "distribution": {
@@ -9553,7 +9628,7 @@ The relevant path for this test is:
 
 ### 6.2.29 Usage of Nil UUID <a id='usage-of-nil-uuid'></a>
 
-It MUST be tested that the Nil UUID is not used as sharing group id.
+It SHALL be tested that the Nil UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
@@ -9561,7 +9636,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-167'></a>
+*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-169'></a>
 
 ```
     "distribution": {
@@ -9579,7 +9654,7 @@ The relevant path for this test is:
 
 ### 6.2.30 Usage of Sharing Group on TLP:CLEAR <a id='usage-of-sharing-group-on-tlp-clear'></a>
 
-It MUST be tested that no sharing group is used if the document is `TLP:CLEAR`.
+It SHALL be tested that no sharing group is used if the document is `TLP:CLEAR`.
 
 The relevant path for this test is:
 
@@ -9587,7 +9662,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-168'></a>
+*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-170'></a>
 
 ```
     "distribution": {
@@ -9607,7 +9682,7 @@ The relevant path for this test is:
 
 ### 6.2.31 Hardware and Software <a id='hardware-and-software'></a>
 
-For each product containing at least one of the Product Identification Helpers `serial_numbers` or `model_numbers` it MUST be tested
+For each product containing at least one of the Product Identification Helpers `serial_numbers` or `model_numbers` it SHALL be tested
 that a product path exists referencing this product.
 
 > This tests detects a potential situation where hardware and software have been mixed in the `product_tree`.
@@ -9623,7 +9698,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name
 ```
 
-*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-169'></a>
+*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-171'></a>
 
 ```
   "product_tree": {
@@ -9664,7 +9739,7 @@ The relevant paths for this test are:
 
 ### 6.2.32 Use of Same Product Identification Helper for Different Products <a id='use-of-same-product-identification-helper-for-different-products'></a>
 
-For each Product Identification Helper category it MUST be tested that the same value is not used for multiple products in this category.
+For each Product Identification Helper category it SHALL be tested that the same value is not used for multiple products in this category.
 
 > This test detects a potentially incorrect constructed product tree.
 > Note: This test will fail if the CSAF document contains in its `product_tree` the old and new name of a product that was renamed.
@@ -9683,7 +9758,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_id.product_identification_helper
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-170'></a>
+*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-172'></a>
 
 ```
   "product_tree": {
@@ -9734,9 +9809,9 @@ The relevant paths for this test are:
 
 ### 6.2.33 Disclosure Date Newer than Revision History <a id='disclosure-date-newer-than-revision-history'></a>
 
-For each vulnerability, it MUST be tested that the `disclosure_date` is earlier or equal to the `date` of the newest item of the `revision_history`
+For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier or equal to the `date` of the newest item of the `revision_history`
 if the `disclosure_date` is in the past at the time of the test execution.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 > The result of the test is dependent upon the time of the execution of the test - it might change for a given CSAF document over time.
 > However, the latest version of a CSAF document should always pass the test.
@@ -9747,7 +9822,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].disclosure_date
 ```
 
-*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-171'></a>
+*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-173'></a>
 
 ```
   "document": {
@@ -9784,8 +9859,8 @@ The relevant path for this test is:
 
 ### 6.2.34 Usage of Unknown SSVC Decision Point Base Namespace <a id='usage-of-unknown-ssvc-decision-point-base-namespace'></a>
 
-For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is a registered one.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+For each SSVC decision point given under `selections`, it SHALL be tested that the base `namespace` is a registered one.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > This test fails on unregistered namespaces as well as registered ones not yet supported by the implementation.
 
@@ -9795,7 +9870,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-172'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-174'></a>
 
 ```
   "ssvc_v2": {
@@ -9816,9 +9891,9 @@ The relevant path for this test is:
 
 ### 6.2.35 Usage of Unregistered SSVC Decision Point Base Namespace in TLP:CLEAR Document <a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document'></a>
 
-For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one
+For each SSVC decision point given under `selections`, it SHALL be tested that the base `namespace` is not an unregistered one
 if the document is labeled `TLP:CLEAR`.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -9826,7 +9901,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-173'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-175'></a>
 
 ```
   {
@@ -9869,9 +9944,9 @@ The relevant path for this test is:
 
 ### 6.2.36 Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document <a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document'></a>
 
-For each SSVC decision point given under `selections`, it MUST be tested that the `namespace` does not use an extension
+For each SSVC decision point given under `selections`, it SHALL be tested that the `namespace` does not use an extension
 if the document is labeled `TLP:CLEAR`.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -9879,7 +9954,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-174'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-176'></a>
 
 ```
   {
@@ -9925,14 +10000,14 @@ The relevant path for this test is:
 ### 6.2.37 Usage of Unknown SSVC Decision Point Namespace without Resource <a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource'></a>
 
 For each SSVC object containing a decision point with a full `namespace` that is not registered,
-it MUST be tested that a Decision Point Resource exists for each one that provides additional context about the
+it SHALL be tested that a Decision Point Resource exists for each one that provides additional context about the
 decision points from this namespace.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > A full namespace includes any extension.
 > To implement this test it is deemed sufficient to check whether the `summary` contains the full `namespace`.
 
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -9940,7 +10015,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-175'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-177'></a>
 
 ```
   "content": {
@@ -9969,7 +10044,7 @@ The relevant path for this test is:
 
 ### 6.2.38 Usage of Deprecated Profile <a id='usage-of-deprecated-profile'></a>
 
-It MUST be tested that the `$.document.category` does not start with `csaf_deprecated_`.
+It SHALL be tested that the `$.document.category` does not start with `csaf_deprecated_`.
 
 > To implement this test it is deemed sufficient to do a "starts with" check.
 > In contrast to test [6.1.26](#prohibited-document-category-name), this test detects the use of a profile defined by CSAF that is deprecated.
@@ -9980,7 +10055,7 @@ The relevant path for this test is:
   $.document.category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-176'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-178'></a>
 
 ```
     "category": "csaf_deprecated_security_advisory",
@@ -9998,10 +10073,10 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 #### 6.2.39.1 Missing Fixed Product <a id='missing-fixed-product'></a>
 
 For each product listed in the product status group affected in any vulnerability,
-it MUST be tested that a corresponding version of the product is listed as fixed in the same vulnerability.
-The test MUST be skipped if there is a clear indication, that such a version of the product does not exist.
+it SHALL be tested that a corresponding version of the product is listed as fixed in the same vulnerability.
+The test SHALL be skipped if there is a clear indication, that such a version of the product does not exist.
 Indicators include a remediation item with one of the categories `fix_planned`, `no_fix_planned` or `none_available` referring to the affected product.
-The test MUST NOT be skipped, if there is an indication, that such a version of the product might exist.
+The test SHALL NOT be skipped, if there is an indication, that such a version of the product might exist.
 Indicators include an affected product version range with the comparator `<` in the last version constraint and
 a remediation item with the categories `vendor_fix` referring to the affected product.
 
@@ -10017,7 +10092,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-177'></a>
+*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-179'></a>
 
 ```
   "vulnerabilities": [
@@ -10048,10 +10123,10 @@ The relevant path for this test is:
 
 #### 6.2.39.2 Language Specific Reasoning for Withdrawal <a id='language-specific-reasoning-for-withdrawal'></a>
 
-If the document language is specified but not English, it MUST be tested that exactly one item in document notes exists
+If the document language is specified but not English, it SHALL be tested that exactly one item in document notes exists
 that has the language specific translation of the term `Reasoning for Withdrawal` as `title`.
-The `category` of this item MUST be `description`.
-If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+The `category` of this item SHALL be `description`.
+If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no such translation is known.
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
@@ -10067,7 +10142,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-178'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-180'></a>
 
 ```
     "notes": [
@@ -10083,10 +10158,10 @@ The relevant path for this test is:
 
 #### 6.2.39.3 Language Specific Reasoning for Supersession <a id='language-specific-reasoning-for-supersession'></a>
 
-If the document language is specified but not English, it MUST be tested that exactly one item in document notes exists
+If the document language is specified but not English, it SHALL be tested that exactly one item in document notes exists
 that has the language specific translation of the term `Reasoning for Supersession` as `title`.
-The `category` of this item MUST be `description`.
-If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+The `category` of this item SHALL be `description`.
+If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no such translation is known.
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
@@ -10102,7 +10177,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-179'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-181'></a>
 
 ```
     "notes": [
@@ -10118,10 +10193,10 @@ The relevant path for this test is:
 
 #### 6.2.39.4 Language Specific Superseding Document <a id='language-specific-superseding-document'></a>
 
-If the document language is specified but not English, it MUST be tested that at least one item in document references exists
+If the document language is specified but not English, it SHALL be tested that at least one item in document references exists
 that starts with the language specific translation of the term `Superseding Document` as `summary`.
-The `category` of this item MUST be `external`.
-If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+The `category` of this item SHALL be `external`.
+If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no such translation is known.
 
 > A list of the language specific translations is kept at the OASIS CSAF TC.
 
@@ -10137,7 +10212,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-180'></a>
+*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-182'></a>
 
 ```
     "references": [
@@ -10151,9 +10226,9 @@ The relevant path for this test is:
 
 > The note has the correct title. However, it uses the wrong category.
 
-##### 6.2.39.4.1 Extension in Superseded or Withdrawn Document <a id='extension-in-superseded-or-withdrawn-document'></a>
+#### 6.2.39.5 Extension in Superseded or Withdrawn Document <a id='extension-in-superseded-or-withdrawn-document'></a>
 
-It MUST be tested that the document does not contain an extension.
+It SHALL be tested that the document does not contain an extension.
 
 The relevant values for `$.document.category` are:
 
@@ -10169,7 +10244,7 @@ The relevant paths for this test are:
   $.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-4-1-eg-1'></a><a id='example-181'></a>
+*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-5-eg-1'></a><a id='example-183'></a>
 
 ```
   {
@@ -10187,13 +10262,13 @@ The relevant paths for this test are:
 
 ### 6.2.40 Product Description without Product Reference <a id='product-description-without-product-reference'></a>
 
-For each product description it MUST be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+For each product description it SHALL be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
 > If the document language is English or unspecified, the product description can be identified by checking for a note containing the corresponding
 > `category` and `title` combination from [3.2.2.8](#document-property---notes).
 > For other languages, the language specific translation is used.
 
-If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no translation for
+If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no translation for
 product description is known.
 
 The relevant path for this test is:
@@ -10202,7 +10277,7 @@ The relevant path for this test is:
   $.document.notes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-182'></a>
+*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-184'></a>
 
 ```
     "notes": [
@@ -10218,9 +10293,9 @@ The relevant path for this test is:
 
 ### 6.2.41 Old EPSS Timestamp <a id='old-epss-timestamp'></a>
 
-For each vulnerability, it MUST be tested that the youngest EPSS `timestamp` is not more than 15 days older than to the `date` of the newest item of the
+For each vulnerability, it SHALL be tested that the youngest EPSS `timestamp` is not more than 15 days older than to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`.
-As the timestamps might use different timezones, the sorting MUST take timezones into account.
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -10228,7 +10303,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-183'></a>
+*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-185'></a>
 
 ```
   "document": {
@@ -10277,9 +10352,9 @@ The relevant path for this test is:
 
 ### 6.2.42 Inconsistent Product Identification Helper <a id='inconsistent-product-identification-helper'></a>
 
-For each product identification helper which resides in `branches`, it MUST be tested that the product identification helper contain at least
+For each product identification helper which resides in `branches`, it SHALL be tested that the product identification helper contain at least
 the same information as the categorized strings.
-Information that cannot be represented in the specific product identification helper MUST be omitted from the comparison.
+Information that cannot be represented in the specific product identification helper SHALL be omitted from the comparison.
 
 > To implement this test it is deemed sufficient to follow the process below.
 > It is based on a static mapping of branch categories to the corresponding part of the product identification helpers.
@@ -10299,7 +10374,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-184'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-186'></a>
 
 ```
   "product_tree": {
@@ -10347,7 +10422,7 @@ The relevant paths for this test are:
 
 ### 6.2.43 Missing License Expression <a id='missing-license-expression'></a>
 
-It MUST be tested that the license expression is present and set.
+It SHALL be tested that the license expression is present and set.
 A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
 not being present at all.
 
@@ -10357,7 +10432,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-185'></a>
+*Example 1 (which fails the test):*<a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-187'></a>
 
 ```
   "document": {
@@ -10377,7 +10452,7 @@ The relevant path for this test is:
 
 ### 6.2.44 Deprecated License Identifier <a id='deprecated-license-identifier'></a>
 
-It MUST be tested that all license identifier and exceptions used are not deprecated.
+It SHALL be tested that all license identifier and exceptions used are not deprecated.
 This SHALL be tested for the SPDX license list and AboutCode's "ScanCode LicenseDB".
 The test MAY be skipped for other license inventoring entities.
 
@@ -10387,7 +10462,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-186'></a>
+*Example 1 (which fails the test):*<a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-188'></a>
 
 ```
   "license_expression": "GFDL-1.1",
@@ -10397,7 +10472,7 @@ The relevant path for this test is:
 
 ### 6.2.45 Non-Existing License Identifier <a id='non-existing-license-identifier'></a>
 
-It MUST be tested that all license identifier and exceptions used exist.
+It SHALL be tested that all license identifier and exceptions used exist.
 This SHALL be tested for the SPDX license list and AboutCode's "ScanCode LicenseDB".
 The test MAY be skipped for other license inventoring entities.
 
@@ -10407,7 +10482,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-187'></a>
+*Example 1 (which fails the test):*<a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-189'></a>
 
 ```
   "license_expression": "A-License-Identifier-That-Does-Not-Exist",
@@ -10419,9 +10494,9 @@ The relevant path for this test is:
 
 If the document language is specified but not English,
 and the `license_expression` contains license identifiers or exceptions that are not listed in the SPDX license list or AboutCode's "ScanCode LicenseDB",
-it MUST be tested that exactly one item in document notes exists that has the language specific translation of the term `License` as title.
-The category of this item MUST be `legal_disclaimer`.
-If no language specific translation has been recorded, the test MUST be skipped and output an information to the user that no such translation is known.
+it SHALL be tested that exactly one item in document notes exists that has the language specific translation of the term `License` as title.
+The category of this item SHALL be `legal_disclaimer`.
+If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no such translation is known.
 
 The relevant path for this test is:
 
@@ -10429,7 +10504,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-188'></a>
+*Example 1 (which fails the test):*<a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-190'></a>
 
 ```
   "document": {
@@ -10451,7 +10526,7 @@ The relevant path for this test is:
 
 ### 6.2.47 Use of Qualitative Severity Rating by Issuing Party <a id='use-of-qualitative-severity-rating-by-issuing-party'></a>
 
-For each item in `metrics` provided by the issuing party it MUST be tested that it does not use the qualitative severity rating.
+For each item in `metrics` provided by the issuing party it SHALL be tested that it does not use the qualitative severity rating.
 
 > This covers all items in `metrics` that do not have a `source` property and those where the `source` is equal to
 > the canonical URL.
@@ -10463,7 +10538,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-189'></a>
+*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-191'></a>
 
 ```
   "product_tree": {
@@ -10496,7 +10571,7 @@ The relevant path for this test is:
 
 ### 6.2.48 Misuse at Vendor Name <a id='misuse-at-vendor-name'></a>
 
-For each item in `branches` with category `vendor` it MUST be tested that the `name` is not `Open Source`.
+For each item in `branches` with category `vendor` it SHALL be tested that the `name` is not `Open Source`.
 The comparison is case and white space insensitive.
 
 > Some issuing parties use `Open Source` as a vendor name for all open source products.
@@ -10511,7 +10586,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='misuse-at-vendor-name-eg-1'></a><a id='sec-6-2-48-eg-1'></a><a id='example-190'></a>
+*Example 1 (which fails the test):*<a id='misuse-at-vendor-name-eg-1'></a><a id='sec-6-2-48-eg-1'></a><a id='example-192'></a>
 
 ```
   "product_tree": {
@@ -10537,7 +10612,7 @@ The relevant path for this test is:
 
 ### 6.2.49 Upper Open Ended Product Version Range <a id='upper-open-ended-product-version-range'></a>
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it MUST be tested that the value of `name` is not an
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it SHALL be tested that the value of `name` is not an
 upper open ended product version range.
 
 > Usually, the last including version constraint of an upper open ended product version range contains as comparator either `>` or `>=`.
@@ -10548,7 +10623,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='upper-open-ended-product-version-range-eg-1'></a><a id='sec-6-2-49-eg-1'></a><a id='example-191'></a>
+*Example 1 (which fails the test):*<a id='upper-open-ended-product-version-range-eg-1'></a><a id='sec-6-2-49-eg-1'></a><a id='example-193'></a>
 
 ```
         {
@@ -10617,8 +10692,8 @@ The following definitions apply to all tests:
 
 #### 6.2.50.1 Overlapping Product Version Range with VERS in Contradicting Product Status Group <a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
 member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -10627,7 +10702,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-1-eg-1'></a><a id='example-192'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-1-eg-1'></a><a id='example-194'></a>
 
 ```
   "product_tree": {
@@ -10684,8 +10759,8 @@ The relevant path for this test is:
 
 #### 6.2.50.2 Overlapping Product Version Range with vls in Contradicting Product Status Group <a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
 member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -10694,7 +10769,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-2-eg-1'></a><a id='example-193'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-2-eg-1'></a><a id='example-195'></a>
 
 ```
   "product_tree": {
@@ -10751,8 +10826,8 @@ The relevant path for this test is:
 
 #### 6.2.50.3 Overlapping Product Version Range with Product Version in Contradicting Product Status Group <a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS+l` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVSS+l` that overlap with `CTPVR` are not
 member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -10761,7 +10836,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-3-eg-1'></a><a id='example-194'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-3-eg-1'></a><a id='example-196'></a>
 
 ```
   "product_tree": {
@@ -10819,8 +10894,8 @@ The relevant path for this test is:
 ### 6.2.51 Unknown VERS Type <a id='unknown-vers-type'></a>
 
 For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` which indicates that it is using vers,
-it MUST be tested that the VERS type is officially registered and supported by the implementation.
-The warning MUST differentiate between officially registered VERS types and those that are not in this state.
+it SHALL be tested that the VERS type is officially registered and supported by the implementation.
+The warning SHALL differentiate between officially registered VERS types and those that are not in this state.
 
 > Different implementations might support different VERS types.
 > Usually, unknown VERS types hinder the automated evaluation of VERS.
@@ -10833,7 +10908,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='unknown-vers-type-eg-1'></a><a id='sec-6-2-51-eg-1'></a><a id='example-195'></a>
+*Example 1 (which fails the test):*<a id='unknown-vers-type-eg-1'></a><a id='sec-6-2-51-eg-1'></a><a id='example-197'></a>
 
 ```
     {
@@ -10849,8 +10924,8 @@ The relevant paths for this test are:
 ### 6.2.52 Unknown Hash Algorithm <a id='unknown-hash-algorithm'></a>
 
 For each element of type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`,
-it MUST be tested that the hash algorithm is supported by the implementation.
-The warning MUST differentiate between the values mentioned in section [3.1.4.3.2](#full-product-name-type---product-identification-helper---hashes)
+it SHALL be tested that the hash algorithm is supported by the implementation.
+The warning SHALL differentiate between the values mentioned in section [3.1.4.3.2](#full-product-name-type---product-identification-helper---hashes)
 and those not mentioned there.
 
 > Different implementations might support different hash algorithms.
@@ -10866,7 +10941,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm
 ```
 
-*Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-196'></a>
+*Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-198'></a>
 
 ```
   {
@@ -10881,7 +10956,7 @@ The relevant paths for this test are:
 ### 6.2.53 Matching Text for Registered ID System <a id='matching-text-for-registered-id-system'></a>
 
 For each item in `$.vulnerabilities[*].ids` that has the value of a registered vulnerability ID system as `system_name`,
-it MUST be tested that the `text` in the CSAF document matches the `text_pattern` given by the
+it SHALL be tested that the `text` in the CSAF document matches the `text_pattern` given by the
 "Registry for Vulnerability ID Systems for CSAF" (RVISC).
 
 > The RVISC is available at \[[RVISC](#RVISC)\].
@@ -10892,7 +10967,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].ids[*].text
 ```
 
-*Example 1 (which fails the test):*<a id='matching-text-for-registered-id-system-eg-1'></a><a id='sec-6-2-53-eg-1'></a><a id='example-197'></a>
+*Example 1 (which fails the test):*<a id='matching-text-for-registered-id-system-eg-1'></a><a id='sec-6-2-53-eg-1'></a><a id='example-199'></a>
 
 ```
     "ids": [
@@ -10915,8 +10990,8 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 #### 6.2.54.1 Registered Extension <a id='registered-extension'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the item is a registered CSAF Extension.
-The test MUST be skipped for official CSAF Extensions.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that the item is a registered CSAF Extension.
+The test SHALL be skipped for official CSAF Extensions.
 
 The relevant paths for this test are:
 
@@ -10930,7 +11005,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='registered-extension-eg-1'></a><a id='sec-6-2-54-1-eg-1'></a><a id='example-198'></a>
+*Example 1 (which fails the test):*<a id='registered-extension-eg-1'></a><a id='sec-6-2-54-1-eg-1'></a><a id='example-200'></a>
 
 ```
   "x_extensions": [
@@ -10945,7 +11020,7 @@ The relevant paths for this test are:
 
 #### 6.2.54.2 Official Extension <a id='official-extension'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the item is an official CSAF Extension.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that the item is an official CSAF Extension.
 
 The relevant paths for this test are:
 
@@ -10959,7 +11034,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='official-extension-eg-1'></a><a id='sec-6-2-54-2-eg-1'></a><a id='example-199'></a>
+*Example 1 (which fails the test):*<a id='official-extension-eg-1'></a><a id='sec-6-2-54-2-eg-1'></a><a id='example-201'></a>
 
 ```
   "x_extensions": [
@@ -10974,7 +11049,7 @@ The relevant paths for this test are:
 
 #### 6.2.54.3 Critical Extension <a id='critical-extension'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the item is not a critical extension.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that the item is not a critical extension.
 
 > It is sufficient to check whether the value of `critical` is `false`.
 
@@ -10990,7 +11065,7 @@ The relevant paths for this test are:
   $.x_extensions[*].critical
 ```
 
-*Example 1 (which fails the test):*<a id='critical-extension-eg-1'></a><a id='sec-6-2-54-3-eg-1'></a><a id='example-200'></a>
+*Example 1 (which fails the test):*<a id='critical-extension-eg-1'></a><a id='sec-6-2-54-3-eg-1'></a><a id='example-202'></a>
 
 ```
   "x_extensions": [
@@ -11005,7 +11080,7 @@ The relevant paths for this test are:
 
 #### 6.2.54.4 Usage of Experimental Extension in TLP:CLEAR Document <a id='usage-of-experimental-extension-in-tlp-clear-document'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that no experimental extension is used
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that no experimental extension is used
 if the document is labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
@@ -11020,7 +11095,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-54-4-eg-1'></a><a id='example-201'></a>
+*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-54-4-eg-1'></a><a id='example-203'></a>
 
 ```
   {
@@ -11046,17 +11121,42 @@ The relevant paths for this test are:
 > The extension is an experimental CSAF Extension.
 > Its properties and meaning might therefore not be known to the reader of the document.
 
+### 6.2.55 Public OpenPGP Key URL <a id='public-openpgp-key-url'></a>
+
+It SHALL be tested that the URL given as value of `public_openpgp_key_url` in the CSAF document
+delivers a valid public OpenPGP key allowing encryption as ASCII armored file with the matching content type.
+The test SHALL be skipped if the URL results in a client or server error.
+
+> As these might be temporary errors, they are reported through test [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve).
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.publisher.contact.public_openpgp_key_url
+```
+
+*Example 1 (which fails the test):*<a id='public-openpgp-key-url-eg-1'></a><a id='sec-6-2-55-eg-1'></a><a id='example-204'></a>
+
+```
+    "contact": {
+      // ...
+      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
+    },
+```
+
+> The `public_openpgp_key_url` points to an expired OpenPGP key.
+
 ## 6.3 Informative Tests <a id='informative-tests'></a>
 
 Informative tests provide insights in common mistakes and bad practices.
 They MAY fail at a valid CSAF document.
 It is up to the issuing party to decide whether this was an intended behavior and can be ignore or should be treated.
 These tests MAY include information about recommended usage.
-A program MUST handle a test failure as a information.
+A program SHALL handle a test failure as a information.
 
 ### 6.3.1 Use of CVSS v2 As the Only Scoring System <a id='use-of-cvss-v2-as-the-only-scoring-system'></a>
 
-For each item in the list of metrics which contains the `cvss_v2` object under `content` it MUST be tested that is not the only scoring item present.
+For each item in the list of metrics which contains the `cvss_v2` object under `content` it SHALL be tested that is not the only scoring item present.
 The test SHALL pass if a second scoring object is available regarding the specific product.
 
 > One source might just provide CVSS v2.
@@ -11068,7 +11168,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-202'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-205'></a>
 
 ```
   "product_tree": {
@@ -11107,7 +11207,7 @@ It is recommended to (also) use the CVSS v4.0.
 
 ### 6.3.2 Use of CVSS v3.0 <a id='use-of-cvss-v3-0'></a>
 
-For each item in the list of metrics which contains the `cvss_v3` object under `content` it MUST be tested that CVSS v3.0 is not used.
+For each item in the list of metrics which contains the `cvss_v3` object under `content` it SHALL be tested that CVSS v3.0 is not used.
 
 The relevant paths for this test are:
 
@@ -11116,7 +11216,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-203'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-206'></a>
 
 ```
   "cvss_v3": {
@@ -11140,7 +11240,7 @@ It is recommended to upgrade to CVSS v3.1.
 
 ### 6.3.3 Missing CVE <a id='missing-cve'></a>
 
-It MUST be tested that the CVE number is given.
+It SHALL be tested that the CVE number is given.
 
 The relevant path for this test is:
 
@@ -11148,7 +11248,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cve
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-204'></a>
+*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-207'></a>
 
 ```
   "vulnerabilities": [
@@ -11168,7 +11268,7 @@ If no CVE exists for that vulnerability, it is recommended to get one assigned.
 
 ### 6.3.4 Missing CWE <a id='missing-cwe'></a>
 
-It MUST be tested that at least one CWE is given.
+It SHALL be tested that at least one CWE is given.
 
 The relevant path for this test is:
 
@@ -11176,7 +11276,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-205'></a>
+*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-208'></a>
 
 ```
   "vulnerabilities": [
@@ -11191,7 +11291,7 @@ The relevant path for this test is:
 
 ### 6.3.5 Use of Short Hash <a id='use-of-short-hash'></a>
 
-It MUST be tested that the length of the hash value is not shorter than 64 characters.
+It SHALL be tested that the length of the hash value is not shorter than 64 characters.
 
 The relevant paths for this test are:
 
@@ -11201,7 +11301,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-206'></a>
+*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-209'></a>
 
 ```
   "product_tree": {
@@ -11231,7 +11331,7 @@ The relevant paths for this test are:
 
 ### 6.3.6 Use of Non-Self Referencing URLs Failing to Resolve <a id='use-of-non-self-referencing-urls-failing-to-resolve'></a>
 
-For each URL which is not in the category `self` it MUST be tested that it resolves with a HTTP status code from
+For each URL which is not in the category `self` it SHALL be tested that it resolves with a HTTP status code from
 the 2xx (Successful) or 3xx (Redirection) class.
 
 > This test does not apply for any item in an array of type `references_t` with the category `self`.
@@ -11244,6 +11344,7 @@ The relevant paths for this test are:
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url
   $.document.references[*].url
+  $.document.publisher.contact.public_openpgp_key_url
   $.document.publisher.namespace
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
@@ -11262,7 +11363,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].remediations[*].url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-207'></a>
+*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-210'></a>
 
 ```
     "references": [
@@ -11278,7 +11379,7 @@ The relevant paths for this test are:
 
 ### 6.3.7 Use of Self Referencing URLs Failing to Resolve <a id='use-of-self-referencing-urls-failing-to-resolve'></a>
 
-For each item in an array of type `references_t` with the category `self` it MUST be tested that
+For each item in an array of type `references_t` with the category `self` it SHALL be tested that
 the URL referenced resolves with a HTTP status code less than 400.
 
 > This test will most likely fail if the CSAF document is in a status before the initial release.
@@ -11291,7 +11392,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].references[*].url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-208'></a>
+*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-211'></a>
 
 ```
     "references": [
@@ -11307,7 +11408,7 @@ The relevant paths for this test are:
 
 ### 6.3.8 Spell Check <a id='spell-check'></a>
 
-If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes.
+If the document language is given it SHALL be tested that a spell check for the given language does not find any mistakes.
 The test SHALL be skipped if the document language is not set.
 It SHALL fail if the given language is not supported.
 The value of `$.document.category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
@@ -11351,7 +11452,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].title
 ```
 
-*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-209'></a>
+*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-212'></a>
 
 ```
   "document": {
@@ -11371,7 +11472,7 @@ The relevant paths for this test are:
 
 ### 6.3.9 Branch Categories <a id='branch-categories'></a>
 
-For each element of type `$['$defs'].full_product_name_t` in `$.product_tree.branches` it MUST be tested that
+For each element of type `$['$defs'].full_product_name_t` in `$.product_tree.branches` it SHALL be tested that
 ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that
 order starting with the Product tree node.
 
@@ -11383,7 +11484,7 @@ The relevant paths for this test are:
   $.product_tree.branches
 ```
 
-*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-210'></a>
+*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-213'></a>
 
 ```
     "branches": [
@@ -11414,7 +11515,7 @@ The relevant paths for this test are:
 
 ### 6.3.10 Usage of Product Version Range <a id='usage-of-product-version-range'></a>
 
-For each element of type `$['$defs'].branches_t` it MUST be tested that the `category` is not `product_version_range`.
+For each element of type `$['$defs'].branches_t` it SHALL be tested that the `category` is not `product_version_range`.
 
 > It is usually hard decide for machines whether a product version matches a product version ranges.
 > Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.
@@ -11425,7 +11526,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-211'></a>
+*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-214'></a>
 
 ```
                 "category": "product_version_range",
@@ -11435,7 +11536,7 @@ The relevant paths for this test are:
 
 ### 6.3.11 Usage of V as Version Indicator <a id='usage-of-v-as-version-indicator'></a>
 
-For each element of type `$['$defs'].branches_t` with `category` of `product_version` it MUST be tested that
+For each element of type `$['$defs'].branches_t` with `category` of `product_version` it SHALL be tested that
 the value of `name` does not start with `v` or `V` before the version.
 
 > To implement this test it is deemed sufficient that the value of `name` does not match the following regex:
@@ -11450,7 +11551,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-212'></a>
+*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-215'></a>
 
 ```
             "branches": [
@@ -11466,8 +11567,8 @@ The relevant paths for this test are:
 
 ### 6.3.12 Missing CVSS v4.0 <a id='missing-cvss-v4-0'></a>
 
-For each item in the list of metrics that contains any CVSS object it MUST be tested that a `cvss_v4` object is present.
-The test MUST fail, if any Product ID (type `$['$defs'].product_id_t`) in the product status group Affected (see section [3.2.4.12](#vulnerabilities-property-product-status)) is not covered by
+For each item in the list of metrics that contains any CVSS object it SHALL be tested that a `cvss_v4` object is present.
+The test SHALL fail, if any Product ID (type `$['$defs'].product_id_t`) in the product status group Affected (see section [3.2.4.12](#vulnerabilities-property-product-status)) is not covered by
 any CVSS object.
 
 The relevant path for this test is:
@@ -11476,7 +11577,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-213'></a>
+*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-216'></a>
 
 ```
   "product_tree": {
@@ -11512,10 +11613,10 @@ The relevant path for this test is:
 
 ### 6.3.13 Usage of Non-Latest SSVC Decision Point Version <a id='usage-of-non-latest-ssvc-decision-point-version'></a>
 
-For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested the latest decision point
+For each SSVC decision point given under `selections` with a registered `namespace`, it SHALL be tested the latest decision point
 `version` available at the time of the `timestamp` was used.
 The test SHALL fail if a later `version` was used.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > A list of all valid decision points of registered namespaces including their values is available at the
 > SSVC repository (see \[[SSVC-DP](#SSVC-DP)\]).
@@ -11526,7 +11627,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-214'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-217'></a>
 
 ```
   "ssvc_v2": {
@@ -11548,9 +11649,9 @@ The relevant path for this test is:
 
 ### 6.3.14 Usage of Unregistered SSVC Decision Point Base Namespace in Non-TLP:CLEAR Document <a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document'></a>
 
-For each SSVC decision point given under `selections`, it MUST be tested that the base `namespace` is not an unregistered one
+For each SSVC decision point given under `selections`, it SHALL be tested that the base `namespace` is not an unregistered one
 if the document is not labeled `TLP:CLEAR`.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -11558,7 +11659,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-215'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-218'></a>
 
 ```
   {
@@ -11601,9 +11702,9 @@ The relevant path for this test is:
 
 ### 6.3.15 Usage of SSVC Decision Point Namespace with Extension in Non-TLP:CLEAR Document <a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document'></a>
 
-For each SSVC decision point given under `selections`, it MUST be tested that the `namespace` does not use an extension
+For each SSVC decision point given under `selections`, it SHALL be tested that the `namespace` does not use an extension
 if the document is not labeled `TLP:CLEAR`.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -11611,7 +11712,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-216'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-219'></a>
 
 ```
   {
@@ -11654,7 +11755,7 @@ The relevant path for this test is:
 
 ### 6.3.16 Grammar Check <a id='grammar-check'></a>
 
-If the document language is given it MUST be tested that a grammar check for the given language does not find any mistakes.
+If the document language is given it SHALL be tested that a grammar check for the given language does not find any mistakes.
 The test SHALL be skipped if the document language is not set.
 It SHALL fail if the given language is not supported.
 
@@ -11685,7 +11786,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].title
 ```
 
-*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-217'></a>
+*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-220'></a>
 
 ```
   "document": {
@@ -11709,7 +11810,7 @@ The relevant paths for this test are:
 
 ### 6.3.17 Use of Unregistered License <a id='use-of-unregistered-license'></a>
 
-It MUST be tested that the all license identifiers and exceptions are listed either in the official SPDX license identifier list
+It SHALL be tested that the all license identifiers and exceptions are listed either in the official SPDX license identifier list
 or AboutCode's "ScanCode LicenseDB".
 
 The relevant path for this test is:
@@ -11718,7 +11819,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-218'></a>
+*Example 1 (which fails the test):*<a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-221'></a>
 
 ```
     "license_expression": "LicenseRef-www.example.com-no-work-pd",
@@ -11729,7 +11830,7 @@ The relevant path for this test is:
 
 ### 6.3.18 Use of Qualitative Severity Rating <a id='use-of-qualitative-severity-rating'></a>
 
-For each item in `metrics` it MUST be tested that it does not use the qualitative severity rating.
+For each item in `metrics` it SHALL be tested that it does not use the qualitative severity rating.
 
 > This covers all items in `metrics` regardless of their origin.
 > Even though the Qualitative Severity Rating is a specified property, its usage is discouraged as it provides
@@ -11743,7 +11844,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-219'></a>
+*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-222'></a>
 
 ```
   "product_tree": {
@@ -11781,8 +11882,8 @@ The abbreviations for groups are defined in section [6.2.50](#overlapping-produc
 
 #### 6.3.19.1 Overlapping Product Version Range with VERS in Same Product Status Group <a id='overlapping-product-version-range-with-vers-in-same-product-status-group'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
 member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -11791,7 +11892,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-1-eg-1'></a><a id='example-220'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-1-eg-1'></a><a id='example-223'></a>
 
 ```
   "product_tree": {
@@ -11846,8 +11947,8 @@ The relevant path for this test is:
 
 #### 6.3.19.2 Overlapping Product Version Range with vls in Same Product Status Group <a id='overlapping-product-version-range-with-vls-in-same-product-status-group'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
 member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -11856,7 +11957,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-2-eg-1'></a><a id='example-221'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-2-eg-1'></a><a id='example-224'></a>
 
 ```
   "product_tree": {
@@ -11911,8 +12012,8 @@ The relevant path for this test is:
 
 #### 6.3.19.3 Overlapping Product Version Range with Product Version in Same Product Status Group <a id='overlapping-product-version-range-with-product-version-in-same-product-status-group'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
 member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
@@ -11921,7 +12022,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-3-eg-1'></a><a id='example-222'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-3-eg-1'></a><a id='example-225'></a>
 
 ```
   "product_tree": {
@@ -11976,8 +12077,8 @@ The relevant path for this test is:
 
 #### 6.3.19.4 Overlapping Product Version Range with Product Version Range in Branch <a id='overlapping-product-version-range-with-product-version-range-in-branch'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that all product version ranges of elements in `PVRSS+b` do not overlap with `CTPVR`.
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that all product version ranges of elements in `PVRSS+b` do not overlap with `CTPVR`.
 
 The relevant path for this test is:
 
@@ -11985,7 +12086,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-range-in-branch-eg-1'></a><a id='sec-6-3-19-4-eg-1'></a><a id='example-223'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-range-in-branch-eg-1'></a><a id='sec-6-3-19-4-eg-1'></a><a id='example-226'></a>
 
 ```
     {
@@ -12015,8 +12116,8 @@ The relevant path for this test is:
 
 #### 6.3.19.5 Overlapping Product Version Range with Product Version in Branch <a id='overlapping-product-version-range-with-product-version-in-branch'></a>
 
-For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups MUST be identified.
-For each `EPVR` (as `CTPVR`), it MUST be tested that all product versions of elements in `PVSS+b` do not overlap with `CTPVR`.
+For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
+For each `EPVR` (as `CTPVR`), it SHALL be tested that all product versions of elements in `PVSS+b` do not overlap with `CTPVR`.
 
 The relevant path for this test is:
 
@@ -12024,7 +12125,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-branch-eg-1'></a><a id='sec-6-3-19-5-eg-1'></a><a id='example-224'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-branch-eg-1'></a><a id='sec-6-3-19-5-eg-1'></a><a id='example-227'></a>
 
 ```
     {
@@ -12052,7 +12153,7 @@ The relevant path for this test is:
 
 ### 6.3.20 Use of Unregistered ID System <a id='use-of-unregistered-id-system'></a>
 
-For each item in `$.vulnerabilities[*].ids` it MUST be tested that the value of `system_name` belongs to a
+For each item in `$.vulnerabilities[*].ids` it SHALL be tested that the value of `system_name` belongs to a
 registered vulnerability ID system in RVISC.
 
 > The RVISC is available at \[[RVISC](#RVISC)\].
@@ -12063,7 +12164,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].ids[*].system_name
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-unregistered-id-system-eg-1'></a><a id='sec-6-3-20-eg-1'></a><a id='example-225'></a>
+*Example 1 (which fails the test):*<a id='use-of-unregistered-id-system-eg-1'></a><a id='sec-6-3-20-eg-1'></a><a id='example-228'></a>
 
 ```
     "ids": [
@@ -12085,7 +12186,7 @@ Each of the following tests SHOULD be treated as they were listed similar to the
 
 #### 6.3.21.1 Extension Category Essential <a id='extension-category-essential'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that the extension `category` of the item
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that the extension `category` of the item
 is not `essential`.
 
 > It is sufficient to check whether the value of `category` is not `essential`.
@@ -12102,7 +12203,7 @@ The relevant paths for this test are:
   $.x_extensions[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='extension-category-essential-eg-1'></a><a id='sec-6-3-21-1-eg-1'></a><a id='example-226'></a>
+*Example 1 (which fails the test):*<a id='extension-category-essential-eg-1'></a><a id='sec-6-3-21-1-eg-1'></a><a id='example-229'></a>
 
 ```
   "x_extensions": [
@@ -12119,7 +12220,7 @@ The relevant paths for this test are:
 
 #### 6.3.21.2 Usage of Experimental Extension in Non-TLP:CLEAR Document <a id='usage-of-experimental-extension-in-non-tlp-clear-document'></a>
 
-For each item in an element of type `$['$defs'].extensions_t` it MUST be tested that no experimental extension is used
+For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that no experimental extension is used
 if the document is not labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
@@ -12134,7 +12235,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-21-2-eg-1'></a><a id='example-227'></a>
+*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-21-2-eg-1'></a><a id='example-230'></a>
 
 ```
   {
@@ -12162,7 +12263,7 @@ The relevant paths for this test are:
 
 #### 6.3.21.3 Usage of Extension at Document Level <a id='usage-of-extension-at-document-level'></a>
 
-It MUST be tested that the element `$.document.x_extensions` does not exist.
+It SHALL be tested that the element `$.document.x_extensions` does not exist.
 
 The relevant path for this test is:
 
@@ -12170,7 +12271,7 @@ The relevant path for this test is:
   $.document.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-at-document-level-eg-1'></a><a id='sec-6-3-21-3-eg-1'></a><a id='example-228'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-at-document-level-eg-1'></a><a id='sec-6-3-21-3-eg-1'></a><a id='example-231'></a>
 
 ```
   {
@@ -12188,7 +12289,7 @@ The relevant path for this test is:
 
 #### 6.3.21.4 Usage of Extension in Product Tree Branch Path <a id='usage-of-extension-in-product-tree-branch-path'></a>
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.branches`.
+It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.branches`.
 
 The relevant path for this test is:
 
@@ -12196,7 +12297,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].product.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-branch-path-eg-1'></a><a id='sec-6-3-21-4-eg-1'></a><a id='example-229'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-branch-path-eg-1'></a><a id='sec-6-3-21-4-eg-1'></a><a id='example-232'></a>
 
 ```
   "product_tree": {
@@ -12228,7 +12329,7 @@ The relevant path for this test is:
 
 #### 6.3.21.5 Usage of Extension in Product Tree Full Product Names Path <a id='usage-of-extension-in-product-tree-full-product-names-path'></a>
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.full_product_names`.
+It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.full_product_names`.
 
 The relevant path for this test is:
 
@@ -12236,7 +12337,7 @@ The relevant path for this test is:
   $.product_tree.full_product_names[*].x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-full-product-names-path-eg-1'></a><a id='sec-6-3-21-5-eg-1'></a><a id='example-230'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-full-product-names-path-eg-1'></a><a id='sec-6-3-21-5-eg-1'></a><a id='example-233'></a>
 
 ```
   "product_tree": {
@@ -12255,7 +12356,7 @@ The relevant path for this test is:
 
 #### 6.3.21.6 Usage of Extension in Product Tree Product Paths Path <a id='usage-of-extension-in-product-tree-product-paths-path'></a>
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.product_paths`.
+It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.product_paths`.
 
 The relevant path for this test is:
 
@@ -12263,7 +12364,7 @@ The relevant path for this test is:
   $.product_tree.product_paths[*].full_product_name.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-product-paths-path-eg-1'></a><a id='sec-6-3-21-6-eg-1'></a><a id='example-231'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-product-paths-path-eg-1'></a><a id='sec-6-3-21-6-eg-1'></a><a id='example-234'></a>
 
 ```
   "product_tree": {
@@ -12287,7 +12388,7 @@ The relevant path for this test is:
 
 #### 6.3.21.7 Usage of Extension in Vulnerabilities Metrics Path <a id='usage-of-extension-in-vulnerabilities-metrics-path'></a>
 
-It MUST be tested that the element `x_extensions` does not exist in any path that starts with `$.vulnerabilities[*].metrics`.
+It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.vulnerabilities[*].metrics`.
 
 The relevant path for this test is:
 
@@ -12295,7 +12396,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-vulnerabilities-metrics-path-eg-1'></a><a id='sec-6-3-21-7-eg-1'></a><a id='example-232'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-vulnerabilities-metrics-path-eg-1'></a><a id='sec-6-3-21-7-eg-1'></a><a id='example-235'></a>
 
 ```
   "vulnerabilities": [
@@ -12318,7 +12419,7 @@ The relevant path for this test is:
 
 #### 6.3.21.8 Usage of Extension at Vulnerabilities Level <a id='usage-of-extension-at-vulnerabilities-level'></a>
 
-For each item `$.vulnerabilities` it MUST be tested that the element `x_extensions` does not exist.
+For each item `$.vulnerabilities` it SHALL be tested that the element `x_extensions` does not exist.
 
 The relevant path for this test is:
 
@@ -12326,7 +12427,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-at-vulnerabilities-level-eg-1'></a><a id='sec-6-3-21-8-eg-1'></a><a id='example-233'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-at-vulnerabilities-level-eg-1'></a><a id='sec-6-3-21-8-eg-1'></a><a id='example-236'></a>
 
 ```
   {
@@ -12346,7 +12447,7 @@ The relevant path for this test is:
 
 #### 6.3.21.9 Usage of Extension at Root Level <a id='usage-of-extension-at-root-level'></a>
 
-It MUST be tested that the element `$.x_extensions` does not exist.
+It SHALL be tested that the element `$.x_extensions` does not exist.
 
 The relevant path for this test is:
 
@@ -12354,7 +12455,7 @@ The relevant path for this test is:
   $.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-at-root-level-eg-1'></a><a id='sec-6-3-21-9-eg-1'></a><a id='example-234'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-at-root-level-eg-1'></a><a id='sec-6-3-21-9-eg-1'></a><a id='example-237'></a>
 
 ```
   {
@@ -12369,7 +12470,7 @@ The relevant path for this test is:
 
 ### 6.3.22 Nested Product Path <a id='nested-product-path'></a>
 
-For each item in `$.product_tree.product_paths[*]` it MUST be tested that all referenced Product IDs are not defined under a
+For each item in `$.product_tree.product_paths[*]` it SHALL be tested that all referenced Product IDs are not defined under a
 `full_product_name_t` element within items of `$.product_tree.product_paths`.
 
 > A product defined by a product path that contains another product path is usually harder to match.
@@ -12383,7 +12484,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
 ```
 
-*Example 1 (which fails the test):*<a id='nested-product-path-eg-1'></a><a id='sec-6-3-22-eg-1'></a><a id='example-235'></a>
+*Example 1 (which fails the test):*<a id='nested-product-path-eg-1'></a><a id='sec-6-3-22-eg-1'></a><a id='example-238'></a>
 
 ```
   "product_tree": {
@@ -12434,15 +12535,52 @@ The relevant paths for this test are:
 
 > The Product with the ID `CSAFPID-908070605` is defined through a product reference which belongs to a product formed by a product path.
 
+### 6.3.23 Public OpenPGP Key URL User ID <a id='public-openpgp-key-url-user-id'></a>
+
+It SHALL be tested that the URL given as value of `public_openpgp_key_url` in the CSAF document
+delivers a public OpenPGP key with an email in the user ID matching the sibling property `email`.
+The test SHALL be skipped if the URL results in a client or server error or
+the OpenPGP key retrieved is not in ASCII-armored format.
+The test SHALL report if the user ID is not set or empty.
+
+> The cases excluded are handled through tests [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve)
+> and [6.2.55](#public-openpgp-key-url).
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.publisher.contact.public_openpgp_key_url
+```
+
+*Example 1 (which fails the test):*<a id='public-openpgp-key-url-user-id-eg-1'></a><a id='sec-6-3-23-eg-1'></a><a id='example-239'></a>
+
+```
+    "contact": {
+      "email": "test-6.3.24@csaf.example",
+      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
+    },
+```
+
+> The `public_openpgp_key_url` points to an OpenPGP key where the user ID does not match the email given in the sibling property `email`.
+>
+> Note: A difference between the email address in the user ID and the value of the property `email` does not necessarily mean
+> that the receiver of the email is unable to decrypt the messages.
+
+Recommendation:
+
+It is recommended that issuing parties conduct an analysis to make an informed decision based on pros and cons regarding the
+inclusion of a matching email address into the user ID of the public OpenPGP key.
+Sections [3.2.2.9.2](#document-property---publisher---contact) and [8](#safety-security-and-data-protection-considerations) contain advise to take into consideration.
+
 ## 6.4 Test Presets <a id='test-presets'></a>
 
 A test preset is a predefined set of tests that was given a name.
 It MAY contain any number of tests.
 Two presets MAY overlap.
 The content of a preset MAY vary in different CSAF versions.
-A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator.
+A CSAF validator SHALL support every official preset that solely include tests that are implemented by the CSAF validator.
 A CSAF validator MAY provide or support additional presets.
-A CSAF validator MUST implement all tests for any supported preset.
+A CSAF validator SHALL implement all tests for any supported preset.
 
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
@@ -12454,8 +12592,8 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 - `org_` followed by an organization identifier and an underscore (`_`):
   for any preset specified by an organization as a part of a public definition
   that can be implemented by different CSAF validators.
-  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
-  The organization identifier MUST be registered with the OASIS CSAF TC prior to the publication of the definition.
+  The organization identifier SHALL only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
+  The organization identifier SHALL be registered with the OASIS CSAF TC prior to the publication of the definition.
 
 - `csaf_`: for any preset defined later on by the OASIS CSAF TC.
 
@@ -12485,20 +12623,25 @@ The following presets are defined through conformance targets:
 
   > Note: The last preset MAY vary between different implementations as it is implementation specific.
 
-As presets are sets, the operator `+` MUST be interpreted as the union operation.
+As presets are sets, the operator `+` SHALL be interpreted as the union operation.
 
 ### 6.4.3 Additional Presets <a id='additional-presets'></a>
 
 Additional presets are defined as follows:
 
+- `non-external-request-free`:
+  - Description: Any test that cannot be executed without a request into the Internet or a different network.
+  - Set:
+    - [6.2.55](#public-openpgp-key-url)
+    - [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve)
+    - [6.3.7](#use-of-self-referencing-urls-failing-to-resolve)
 - `external-request-free`:
   - Description: Any test that can be executed without a request into the Internet or a different network.
 
     > This is intended to be used for browser-based tools as external requests may result in CORS issues.
     > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
 
-  - Set: `full` excluding tests [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve)
-    and [6.3.7](#use-of-self-referencing-urls-failing-to-resolve)
+  - Set: `full` excluding tests from preset `non-external-request-free`
 - `consistent-revision-history`:
   - Description: Any test that is related to the revision history and ensures consistence within it.
   - Set:
@@ -12540,33 +12683,33 @@ Additional presets are defined as follows:
 - `extensions`:
   - Description: Any test that is related to CSAF Extensions.
   - Set:
-    -[6.1.60.1](#mandatory-tests--extension-tests-content-schema)
-    -[6.1.60.2](#mandatory-tests--extension-tests-extension-schema)
-    -[6.1.60.3](#mandatory-tests--extension-tests-metadata)
-    -[6.2.39.4.1](#extension-in-superseded-or-withdrawn-document)
-    -[6.2.54.1](#registered-extension)
-    -[6.2.54.2](#official-extension)
-    -[6.2.54.3](#critical-extension)
-    -[6.2.54.4](#usage-of-experimental-extension-in-tlp-clear-document)
-    -[6.3.21.1](#extension-category-essential)
-    -[6.3.21.2](#usage-of-experimental-extension-in-non-tlp-clear-document)
-    -[6.3.21.3](#usage-of-extension-at-document-level)
-    -[6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
-    -[6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
-    -[6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
-    -[6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
-    -[6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
-    -[6.3.21.9](#usage-of-extension-at-root-level)
+    - [6.1.60.1](#mandatory-tests--extension-tests-content-schema)
+    - [6.1.60.2](#mandatory-tests--extension-tests-extension-schema)
+    - [6.1.60.3](#mandatory-tests--extension-tests-metadata)
+    - [6.2.39.5](#extension-in-superseded-or-withdrawn-document)
+    - [6.2.54.1](#registered-extension)
+    - [6.2.54.2](#official-extension)
+    - [6.2.54.3](#critical-extension)
+    - [6.2.54.4](#usage-of-experimental-extension-in-tlp-clear-document)
+    - [6.3.21.1](#extension-category-essential)
+    - [6.3.21.2](#usage-of-experimental-extension-in-non-tlp-clear-document)
+    - [6.3.21.3](#usage-of-extension-at-document-level)
+    - [6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
+    - [6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
+    - [6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
+    - [6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
+    - [6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
+    - [6.3.21.9](#usage-of-extension-at-root-level)
 - `extensions-exist`:
   - Description: Detects CSAF Extensions in all places.
   - Set:
-    -[6.3.21.3](#usage-of-extension-at-document-level)
-    -[6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
-    -[6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
-    -[6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
-    -[6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
-    -[6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
-    -[6.3.21.9](#usage-of-extension-at-root-level)
+    - [6.3.21.3](#usage-of-extension-at-document-level)
+    - [6.3.21.4](#usage-of-extension-in-product-tree-branch-path)
+    - [6.3.21.5](#usage-of-extension-in-product-tree-full-product-names-path)
+    - [6.3.21.6](#usage-of-extension-in-product-tree-product-paths-path)
+    - [6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
+    - [6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
+    - [6.3.21.9](#usage-of-extension-at-root-level)
 
 # 7. Distributing CSAF Documents <a id='distributing-csaf-documents'></a>
 
@@ -12592,41 +12735,42 @@ The CSAF document has a filename according to the rules in section [5.1](#filena
 ### 7.1.3 Requirement 3: TLS <a id='requirement-3-tls'></a>
 
 The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity.
-The CSAF document MUST NOT be downloadable from a location which does not encrypt the transport when crossing organizational
+The CSAF document SHALL NOT be downloadable from a location which does not encrypt the transport when crossing organizational
 boundaries to maintain the chain of custody.
 
 ### 7.1.4 Requirement 4: TLP:CLEAR <a id='requirement-4-tlp-clear'></a>
 
-If the CSAF document is labeled TLP:CLEAR, it MUST be freely accessible.
+If the CSAF document is labeled TLP:CLEAR, it SHALL be freely accessible.
 
 This does not exclude that such a document is also available in an access protected customer portal.
-However, there MUST be one copy of the document available for people without access to the portal.
+However, there SHALL be one copy of the document available for people without access to the portal.
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a
 > press release but be able to retrieve the CSAF document.
 
 ### 7.1.5 Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED <a id='requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red'></a>
 
-CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED MUST be access protected.
+CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED SHALL be access protected.
 If they are provided via a web server this SHALL be done under a different path than for TLP:CLEAR,
 TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website.
-However, it MUST be ensured that the documents are still access protected.
+However, it SHALL be ensured that the documents are still access protected.
 
 ### 7.1.6 Requirement 6: No Redirects <a id='requirement-6-no-redirects'></a>
 
-Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
+Redirects SHOULD NOT be used.
+If they are inevitable only HTTP Header redirects SHALL be used.
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
-If any redirects are used, there SHOULD NOT be more than `10`, and MUST NOT be more than `20` consecutive redirects.
+If any redirects are used, there SHOULD NOT be more than `10`, and SHALL NOT be more than `20` consecutive redirects.
 
-> This aligns with section 4.4 of the \[[FETCH](#FETCH)\] specification.
+> This aligns with "HTTP-redirect fetch" section of the \[[FETCH](#FETCH)\] specification.
 
 ### 7.1.7 Requirement 7: provider-metadata.json <a id='requirement-7-provider-metadata-json'></a>
 
-The party MUST provide a valid `provider-metadata.json` according to the schema
+The party SHALL provide a valid `provider-metadata.json` according to the schema
 [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json) for its own metadata.
 The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a
 CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
@@ -12644,7 +12788,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-236'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-240'></a>
 
 ```
   {
@@ -12694,7 +12838,7 @@ Furthermore, such programs SHOULD evaluate the `maintained_from` property and ou
 
 If a CSAF publisher (cf. section [7.2.1](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
-If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
+If that is impossible or if the CSAF publisher is unresponsive the following values SHALL be used:
 
 ```
     "list_on_CSAF_aggregators": true,
@@ -12709,14 +12853,14 @@ If that is impossible or if the CSAF publisher is unresponsive the following val
 
 ### 7.1.8 Requirement 8: security.txt <a id='requirement-8-security-txt'></a>
 
-In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7).
-If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of \[[RFC7230](#RFC7230)\]).
+In the security.txt there SHALL be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7).
+If this field indicates a web URI, then it SHALL begin with "https://" (as per section 2.7.2 of \[[RFC7230](#RFC7230)\]).
 See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
 > The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-237'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-241'></a>
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -12730,7 +12874,7 @@ e.g. in case of changes to the organizational structure through mergers and acqu
 However, this SHOULD NOT be done and removed as soon as possible.
 A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
 and provider metadata of both versions are served simultaneously (cf. section [7.4](#transition-between-csaf-2-0-and-csaf-2-1)).
-If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
+If one of the URLs fulfills requirement 9, it SHALL be set as the first CSAF entry in the security.txt.
 
 ### 7.1.9 Requirement 9: Well-Known URL for provider-metadata.json <a id='requirement-9-well-known-url-for-provider-metadata-json'></a>
 
@@ -12738,7 +12882,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-238'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-242'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -12746,7 +12890,7 @@ The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more 
 
 As specified in [7.4](#transition-between-csaf-2-0-and-csaf-2-1), the value of `canonical_url` MAY differ from the URL that was
 requested as a part of this requirement.
-Such state is intended and MUST NOT be reported as error.
+Such state is intended and SHALL NOT be reported as error.
 
 ### 7.1.10 Requirement 10: DNS Path <a id='requirement-10-dns-path'></a>
 
@@ -12761,10 +12905,10 @@ The use of the scheme "HTTPS" is required.
 
 ### 7.1.11 Requirement 11: One Folder per Year <a id='requirement-11-one-folder-per-year'></a>
 
-The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
+The CSAF documents SHALL be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `$.document.tracking.initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-239'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-243'></a>
 
 ```
 2024
@@ -12773,11 +12917,11 @@ value of `$.document.tracking.initial_release_date`.
 
 ### 7.1.12 Requirement 12: index.txt <a id='requirement-12-index-txt'></a>
 
-The file `index.txt` MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+The file `index.txt` SHALL contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 Each entry SHALL be terminated by a newline sequence.
 The last entry MAY skip the newline sequence.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-240'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-244'></a>
 
 ```
 2025/esa-2025-421324.json
@@ -12794,7 +12938,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > If different TLP labels are used, multiple `index.txt` exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
-*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-241'></a>
+*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-245'></a>
 
 ```
 .well-known/
@@ -12844,7 +12988,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > Example \[\[[1](#requirement-12-index-txt-eg-1)\]\] depicts the content of the `index.txt` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
 
-*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-242'></a>
+*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-246'></a>
 
 ```
   "distributions": [
@@ -12884,14 +13028,14 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 ### 7.1.13 Requirement 13: changes.csv <a id='requirement-13-changes-csv'></a>
 
 The file `changes.csv` contains a list of CSAF documents in the current TLP level that were changed recently.
-Therefore, it MUST contain the filename as well as the value of `$.document.tracking.current_release_date` for each
-CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
+Therefore, it SHALL contain the filename as well as the value of `$.document.tracking.current_release_date` for each
+CSAF document in the sub-directories without a heading; lines SHALL be sorted by the `current_release_date` timestamp with the latest one first.
 The `changes.csv` SHALL be a valid comma separated values format as defined by \[[RFC4180](#RFC4180)\] without double quotes.
 
 > Note: As a consequence of section [7.1.2](#requirement-2-filename) Requirement 2 for filenames and section [7.1.11](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-243'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-247'></a>
 
 ```
 2024/esa-2024-430524.json,2025-07-21T11:14:37Z
@@ -12921,7 +13065,7 @@ Server-side generated directory listing SHALL be enabled to support manual navig
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
-All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed (summary feed).
+All CSAF documents with the same TLP level SHALL be listed in a single ROLIE feed (summary feed).
 Additional ROLIE feeds might exist that contain only a subset of the CSAF documents.
 The selection criteria SHOULD be described through the summary.
 At least one of the feeds
@@ -12929,13 +13073,13 @@ At least one of the feeds
 - TLP:CLEAR
 - TLP:GREEN
 
-MUST exist.
-Each ROLIE feed document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
+SHALL exist.
+Each ROLIE feed document SHALL be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 
-The ROLIE feed document MUST contain a feed category with the registered ROLIE information type `csaf`.
-The `scheme` for this category MUST be `urn:ietf:params:rolie:category:information-type`.
+The ROLIE feed document SHALL contain a feed category with the registered ROLIE information type `csaf`.
+The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:information-type`.
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-244'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-248'></a>
 
 ```
   {
@@ -12992,19 +13136,19 @@ The `scheme` for this category MUST be `urn:ietf:params:rolie:category:informati
   }
 ```
 
-Any existing hash file (requirement 18) MUST be listed in the corresponding entry of the ROLIE feed as an item of
+Any existing hash file (requirement 18) SHALL be listed in the corresponding entry of the ROLIE feed as an item of
 the array `link` having the `rel` value of `hash`.
-Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link`
+Any existing signature file (requirement 19) SHALL be listed in the corresponding entry of the ROLIE feed as an item of the array `link`
 having the `rel` value of `signature`.
 
 ### 7.1.16 Requirement 16: ROLIE Service Document <a id='requirement-16-rolie-service-document'></a>
 
 The use and therefore the existence of ROLIE service document is optional.
-If it is used, each ROLIE service document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\] and lists the ROLIE feed documents.
+If it is used, each ROLIE service document SHALL be a JSON file that conforms with \[[RFC8322](#RFC8322)\] and lists the ROLIE feed documents.
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-245'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-249'></a>
 
 ```
   {
@@ -13035,7 +13179,7 @@ The ROLIE service document SHOULD use the filename `service.json` and reside nex
 ### 7.1.17 Requirement 17: ROLIE Category Document <a id='requirement-17-rolie-category-document'></a>
 
 The use and therefore the existence of ROLIE category document is optional.
-If it is used, each ROLIE category document MUST be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
+If it is used, each ROLIE category document SHALL be a JSON file that conforms with \[[RFC8322](#RFC8322)\].
 A ROLIE category document SHOULD reside next to the corresponding ROLIE feed.
 ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
@@ -13048,7 +13192,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   - `product_version`
 - type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-246'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-250'></a>
 
   ```
     CPU
@@ -13063,7 +13207,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 - areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-247'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-251'></a>
 
   ```
     Chemical
@@ -13078,7 +13222,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 - any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-248'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-252'></a>
 
 ```
   {
@@ -13102,7 +13246,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHALL NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-249'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-253'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -13114,13 +13258,13 @@ The file content SHALL start with the first byte of the hexadecimal hash value.
 The hash value SHALL be represented in lowercase.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-250'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-254'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
 ```
 
-If a ROLIE feed exists, each hash file MUST be listed in it as described in requirement 15.
+If a ROLIE feed exists, each hash file SHALL be listed in it as described in requirement 15.
 
 ### 7.1.19 Requirement 19: Signatures <a id='requirement-19-signatures'></a>
 
@@ -13129,16 +13273,16 @@ extended by the appropriate extension.
 This signature SHALL be presented as an ASCII armored file.
 See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-251'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-255'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
 File name of signature file: esa-2022-02723.json.asc
 ```
 
-If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
+If a ROLIE feed exists, each signature file SHALL be listed in it as described in requirement 15.
 
-At all times, signatures MUST remain valid for a minimum of 30 days and ideally for at least 90 days. When executing
+At all times, signatures SHALL remain valid for a minimum of 30 days and ideally for at least 90 days. When executing
 CSAF document signatures, the signing party SHOULD adhere to or surpass the prevailing best practices and recommendations
 regarding key length.
 Tools SHOULD treat the violation of the rules given in the first sentence as:
@@ -13150,7 +13294,7 @@ Tools SHOULD treat the violation of the rules given in the first sentence as:
 
 ### 7.1.20 Requirement 20: Public OpenPGP Key <a id='requirement-20-public-openpgp-key'></a>
 
-The public part of the OpenPGP key used to sign the CSAF documents MUST be available.
+The public part of the OpenPGP key used to sign the CSAF documents SHALL be available.
 This key file SHALL be presented as an ASCII armored file.
 It SHOULD also be available at a public key server.
 
@@ -13162,14 +13306,14 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 ### 7.1.21 Requirement 21: List of CSAF Providers <a id='requirement-21-list-of-csaf-providers'></a>
 
-The file `aggregator.json` MUST be present and valid according to the
+The file `aggregator.json` SHALL be present and valid according to the
 JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
-It MUST NOT be stored adjacent to a `provider-metadata.json`.
+It SHALL NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD be accessible at the registered path in the `.well-known` directory:
 `/.well-known/csaf-aggregator/aggregator.json`.
 
-*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-252'></a>
+*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-256'></a>
 
 ```
   https://aggregator.example/.well-known/csaf-aggregator/aggregator.json
@@ -13178,7 +13322,7 @@ The file `aggregator.json` SHOULD be accessible at the registered path in the `.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-253'></a>
+*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-257'></a>
 
 ```
   {
@@ -13229,15 +13373,15 @@ or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
 
 ### 7.1.23 Requirement 23: Mirror <a id='requirement-23-mirror'></a>
 
-The CSAF documents for each issuing party that is mirrored MUST be in a different folder.
+The CSAF documents for each issuing party that is mirrored SHALL be in a different folder.
 The folder name SHOULD be retrieved from the name of the issuing authority.
-This folders MUST be adjacent to the `aggregator.json` (requirement 21).
-Each such folder MUST at least:
+This folders SHALL be adjacent to the `aggregator.json` (requirement 21).
+Each such folder SHALL at least:
 
 - provide a `provider-metadata.json` for the current issuing party.
 - provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-254'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-258'></a>
 
 ```
   {
@@ -13289,7 +13433,7 @@ Each such folder MUST at least:
 
 ### 7.1.24 Requirement 24: HTTP User-Agent <a id='requirement-24-http-user-agent'></a>
 
-Access to the CSAF related files and directories provided, for both metadata and documents, MUST be allowed independent of the
+Access to the CSAF related files and directories provided, for both metadata and documents, SHALL be allowed independent of the
 value of HTTP User-Agent.
 
 > Limit the value of HTTP User-Agents to a certain set would hinder adoption of tools retrieving the files.
@@ -13323,13 +13467,13 @@ The roles "CSAF Publisher", "CSAF Provider", and "CSAF Trusted Provider" are int
 The second group consists of the roles "CSAF Lister" and "CSAF Aggregator".
 They collect data from the aforementioned issuing parties of the first group and provide them in a single place to aid in automation.
 Parties of the second group can also issue their own advisories.
-However, they MUST follow the rules for the first group for that.
+However, they SHALL follow the rules for the first group for that.
 
 Both, a CSAF lister and a CSAF aggregator, decide based on their own rules which issuing parties to list respectively to mirror.
 However, an issuing party MAY apply to be listed or mirrored.
 
-Issuing parties MUST indicate through the value `false` in `list_on_CSAF_aggregators` if they do not want to be listed.
-Issuing parties MUST indicate through the value `false` in `mirror_on_CSAF_aggregators` if they do not want to be mirrored.
+Issuing parties SHALL indicate through the value `false` in `list_on_CSAF_aggregators` if they do not want to be listed.
+Issuing parties SHALL indicate through the value `false` in `mirror_on_CSAF_aggregators` if they do not want to be mirrored.
 
 The values are independent.
 The combination of the value `false` in `list_on_CSAF_aggregators` and `true` in `mirror_on_CSAF_aggregators` implies that
@@ -13360,8 +13504,8 @@ Thirdly, the party:
 
 - satisfies the requirements 11 to 14 in section [7.1](#requirements) or requirements 15 to 17 in section [7.1](#requirements).
 
-> If the party uses the ROLIE-based distribution, it MUST also satisfy requirements 15 to 17.
-> If it uses the directory-based distribution, it MUST also satisfy requirements 11 to 14.
+> If the party uses the ROLIE-based distribution, it must also satisfy requirements 15 to 17.
+> If it uses the directory-based distribution, it must also satisfy requirements 11 to 14.
 
 ### 7.2.3 Role: CSAF Trusted Provider <a id='role-csaf-trusted-provider'></a>
 
@@ -13412,7 +13556,7 @@ Additionally, a CSAF aggregator MAY list one or more issuing parties that it doe
 > To minimize the implementation efforts and process overhead, a CSAF aggregator MAY upload the CSAF documents of a CSAF publisher into
 > an internal instance of a CSAF provider software.
 > Such construct is called "CSAF Proxy Provider" as it can be mirrored by the CSAF aggregator software.
-> However, such a CSAF proxy provider MUST NOT be accessible from anyone else than the CSAF aggregator itself.
+> However, such a CSAF proxy provider SHALL NOT be accessible from anyone else than the CSAF aggregator itself.
 > Otherwise, that would violate the second rule of section [7.2.1](#role-csaf-publisher).
 > Therefore, it is recommended to expose the CSAF proxy provider only on localhost and allow the access only from the CSAF aggregator software.
 
@@ -13457,7 +13601,7 @@ Given a `provider-metadata.json`, the following process SHOULD be used to retrie
    If both are present, the ROLIE information SHOULD be preferred.
 2. For any CSAF trusted provider, the hash and signature files (requirements 18 to 19 in section [7.1](#requirements)) SHOULD be retrieved together
    with the CSAF document.
-   They MUST be checked before further processing the CSAF document.
+   They SHALL be checked before further processing the CSAF document.
 3. Test the CSAF document against the schema.
 4. Execute mandatory tests on the CSAF document.
 
@@ -13512,14 +13656,14 @@ The announcement MAY contain also the following information:
 The following process SHOULD be followed:
 
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed at `/.well-known/csaf/v2.0/provider-metadata.json`.
-  - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.0/provider-metadata.json` path.
+  - Its `canonical_url` SHALL be set to an URL corresponding to the `/.well-known/csaf/v2.0/provider-metadata.json` path.
 
     > The property `maintained_until` was not defined in CSAF 2.0 and therefore cannot be used -
     > otherwise it would be set to the end of the transition period.
 
   - The URL SHALL also be added as an entry in the security.txt, if used.
 - A `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed at `/.well-known/csaf/v2.1/provider-metadata.json`.
-  - Its `canonical_url` MUST be set to an URL corresponding to the `/.well-known/csaf/v2.1/provider-metadata.json` path.
+  - Its `canonical_url` SHALL be set to an URL corresponding to the `/.well-known/csaf/v2.1/provider-metadata.json` path.
   - Optionally, the property `maintained_from` can be set to an appropriate date in the future, if the service is not considered stable yet.
 
     > The transition officially starts at the date and time noted in the property `maintained_from` as this is the point in time
@@ -13553,9 +13697,9 @@ If a DNS path (cf. section [7.1.10](#requirement-10-dns-path)) is used instead o
 The following rules apply for the archival of CSAF document from a previous version:
 
 - This archive SHOULD be located in `/.well-known/csaf/archive/` and use the file name `v2.0.tar.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
-- The CSAF documents within the archive MUST be sorted into folders according to requirement 11 in section
+- The CSAF documents within the archive SHALL be sorted into folders according to requirement 11 in section
   [7.1.11](#requirement-11-one-folder-per-year) and be accompanied by a hash according to requirement 18 [7.1.18](#requirement-18-integrity).
-- The archive MUST be accompanied by a hash of the same algorithm.
+- The archive SHALL be accompanied by a hash of the same algorithm.
 - Existing signatures MAY also be included into the archive.
   It is NOT RECOMMENDED to renew the signatures in the archive unless the archive is updated with new content.
 
@@ -13568,11 +13712,11 @@ It is RECOMMENDED to use the following URLs during the process:
 - `/.well-known/csaf-aggregator/v2.0/aggregator.json` for a valid CSAF 2.0 `aggregator.json`
 - `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF 2.1 `aggregator.json`
 
-A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 publishers and providers.
+A CSAF 2.1 aggregator SHALL only sync and list CSAF 2.1 publishers and providers.
 
 # 8. Safety, Security, and Data Protection Considerations <a id='safety-security-and-data-protection-considerations'></a>
 
-All safety, security, and data protection requirements relevant to the context in which CSAF documents are used MUST be translated into,
+All safety, security, and data protection requirements relevant to the context in which CSAF documents are used SHALL be translated into,
 and consistently enforced through, CSAF implementations and processes.
 
 CSAF documents are based on JSON, thus the security considerations of \[[RFC8259](#RFC8259)\] apply and are repeated here as service for the reader:
@@ -13639,6 +13783,13 @@ have been altered, e.g. by an Errata to fix a bug.
 It is RECOMMENDED to do them at least before a release.
 
 > Such checks can be automated, e.g. in the CI/CD pipeline.
+
+CSAF documents can contain personally identifiable information.
+This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses.
+Issuing parties SHALL ensure that they are allowed to publish such information.
+
+> Acknowledging entities or individuals is always possible with their consent.
+> Functional email addresses are usually not consider to be personally identifiable information.
 
 ---
 
@@ -13719,6 +13870,7 @@ The entities ("conformance targets") for which this document defines requirement
 
 A text file or data stream satisfies the "CSAF Document" conformance profile if it:
 
+- is valid JSON encoded using UTF-8.
 - conforms to the syntax and semantics defined in section [2.2](#format-validation).
 - conforms to the syntax and semantics defined in section [2.3](#date-and-time).
 - conforms to the syntax and semantics defined in section [2.4](#extensions).
@@ -13865,6 +14017,16 @@ Secondly, the program fulfills the following for all items of:
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
   product specific note has been discovered and no products could been assigned to it.
+- `$.document.publisher.contact`:
+  - If a `cvrf:ContactDetails` element is present, the CVRF CSAF Converter SHALL convert its content into the value of the `details` property.
+  - If a URL to a Public OpenPGP Key was provided in the `cvrf:ContactDetails` element and the URL fulfills the requirements of the property
+    `public_openpgp_key_url`, the CVRF CSAF Converter SHALL set it as the content of that property.
+  - The CVRF CSAF Converter SHOULD extract the matching email address from the content of the `cvrf:ContactDetails` element, if applicable,
+    or use the first email address and set it as value of `email`.
+  - The CVRF CSAF Converter SHALL provide configuration options and corresponding arguments to set these values if they are not present.
+    If values from both sources are present, the program SHOULD prefer the latter one.
+    It SHOULD provide an option to overwrite the values extracted from the document.
+    The program SHALL NOT use hard-coded values.
 - `$.document.publisher.name` and `$.document.publisher.namespace`:
   Sets the value as given in the configuration of the program or the corresponding argument the program was invoked with.
   If values from both sources are present, the program SHOULD prefer the latter one.
@@ -13959,7 +14121,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF Converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-255'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-259'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -13968,7 +14130,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF Converter issues a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-256'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-260'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -13978,7 +14140,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-257'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-261'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -13989,7 +14151,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step SHALL be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-258'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-262'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -14651,6 +14813,18 @@ Secondly, the program fulfills the following for all items of:
 - `$.document.publisher.category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD issue a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning SHALL exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
+- `$.document.publisher.contact`:
+  - If a `$.document.publisher.contact_details` element is present,
+    the CSAF 2.0 to CSAF 2.1 Converter SHALL convert its content into the value of the `details` property.
+  - If a URL to a Public OpenPGP Key was provided in the `$.document.publisher.contact_details` element and
+    the URL fulfills the requirements of the property `public_openpgp_key_url`,
+    the CSAF 2.0 to CSAF 2.1 Converter SHALL set it as the content of that property.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHOULD extract the matching email address from the content of the
+    `$.document.publisher.contact_details` element, if applicable, or use the first email address and set it as value of `email`.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL provide configuration options and corresponding arguments to set these values if they are not present.
+    If values from both sources are present, the program SHOULD prefer the latter one.
+    It SHOULD provide an option to overwrite the values extracted from the document.
+    The program SHALL NOT use hard-coded values.
 - `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
   from the `$.document.title`. In addition, separating characters including but not limited to white space, colon, dash and brackets SHALL be removed.
 - `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter
@@ -15324,6 +15498,7 @@ A string SHOULD NOT have a length greater than:
   - `$.document.notes[*].group_ids[*]`
   - `$.document.notes[*].product_ids[*]`
   - `$.document.notes[*].title`
+  - `$.document.publisher.contact.email`
   - `$.document.publisher.name`
   - `$.document.source_lang`
   - `$.document.title`
@@ -15412,7 +15587,7 @@ A string SHOULD NOT have a length greater than:
 - 10 000 for
   - `$.document.acknowledgments[*].summary`
   - `$.document.distribution.text`
-  - `$.document.publisher.contact_details`
+  - `$.document.publisher.contact.details`
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
   - `$.document.tracking.revision_history[*].summary`
@@ -15583,6 +15758,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
 - `$.document.distribution.tlp.url`
+- `$.document.publisher.contact.public_openpgp_key_url`
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`
@@ -15618,7 +15794,7 @@ A string with format `uuid` SHOULD NOT have a length greater than 50. This appli
 
 The following examples are intended to aid in understanding under which circumstances product paths can be collapsed.
 
-*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-Appendix D-eg-1'></a><a id='example-259'></a>
+*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-Appendix D-eg-1'></a><a id='example-263'></a>
 
 ```
   "product_tree": {
@@ -15710,7 +15886,7 @@ The following examples are intended to aid in understanding under which circumst
 
 > Product paths in example 1 above can be collapse as shown in example 2 below.
 
-*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-Appendix D-eg-2'></a><a id='example-260'></a>
+*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-Appendix D-eg-2'></a><a id='example-264'></a>
 
 ```
   "product_tree": {
@@ -15790,7 +15966,7 @@ The following examples are intended to aid in understanding under which circumst
   }
 ```
 
-*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-Appendix D-eg-3'></a><a id='example-261'></a>
+*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-Appendix D-eg-3'></a><a id='example-265'></a>
 
 ```
   "product_tree": {
@@ -15928,7 +16104,7 @@ The following examples are intended to aid in understanding under which circumst
 > Product paths in example 3 cannot be collapsed without information loss.
 > For example, the `cpe` of the product identified by `CSAFPID-908070607` would be lost.
 
-*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-Appendix D-eg-4'></a><a id='example-262'></a>
+*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-Appendix D-eg-4'></a><a id='example-266'></a>
 
 ```
   {

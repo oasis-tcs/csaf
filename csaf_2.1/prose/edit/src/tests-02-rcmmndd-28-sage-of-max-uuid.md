@@ -1,6 +1,6 @@
 ### Usage of Max UUID
 
-It MUST be tested that the Max UUID is not used as sharing group id.
+It SHALL be tested that the Max UUID is not used as sharing group id.
 
 The relevant path for this test is:
 

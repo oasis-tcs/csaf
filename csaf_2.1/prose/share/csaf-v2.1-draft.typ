@@ -21,7 +21,7 @@
     align: (left + horizon, center + horizon, right + horizon),
     text(size: 8pt)[csaf-v2.1-csd03],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[27 May 2026 — Page #counter(page).display()
+    text(size: 8pt)[26 August 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -53,8 +53,8 @@ Advisory Framework Version 2.1]
 #heading(level: 2, outlined: false, numbering: none)[Committee
 Specification Draft 03]
 <committee-specification-draft-03>
-#heading(level: 2, outlined: false, numbering: none)[29 July 2026]
-<29-july-2026>
+#heading(level: 2, outlined: false, numbering: none)[26 August 2026]
+<26-august-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
@@ -201,8 +201,8 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 25 February 2026. OASIS Committee
-Specification Draft 03.
+Hagen and Thomas Schmidt. 26 August 2026. OASIS Committee Specification
+Draft 03.
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html.
 Latest stage:
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
@@ -320,10 +320,8 @@ apply:
 
 / ​Advisory<def:advisory>: reporting item that describes a condition
     present in an artifact and that requires action by the consumers.
-
 / ​Advisory Document<def:advisory-document>: artifact in which an
     analysis tool reports a result.
-
 / ​Advisory Management System<def:advisory-management-system>: software
     system that consumes the documents produced by analysis tools,
     produces advisories that enable engineering and operating
@@ -332,11 +330,9 @@ apply:
     advisories and displaying information about individual advisories.
     #strong[Note]: An Advisory Management System can interact with a
     document viewer to display information about individual advisories.
-
 / ​Advisory Matching<def:advisory-matching>: process of determining
     whether two advisories are targeting the same products and
     conditions.
-
 / ​Artifact<def:artifact>: sequence of bytes addressable via a URI.
     #emph[Examples]: A physical file in a file system such as a source
     file, an object file, a configuration file or a data file; a
@@ -344,338 +340,241 @@ apply:
     table accessed via an HTTP request; an arbitrary stream of bytes
     returned from an HTTP request, a product URL, a common product
     enumeration value.
-
 / ​Critical Extension<def:critical-extension>: An extension that if an
     instance of it is included in a CSAF Document causes at least one
     mandatory test to fail.
-
 / ​CSAF 2.0 to CSAF 2.1 Converter<def:csaf-2-0-to-csaf-2-1-converter>: A
     CSAF Producer which takes a CSAF 2.0 Document as input and converts
     it into a valid CSAF 2.1 Document.
-
 / ​CSAF Additional Test<def:csaf-additional-test>: A test that is not yet
     defined in section #link(<tests>)[6].
-
 / ​CSAF Asset Matching System<def:csaf-asset-matching-system>: program
     that connects to or is an asset database and is able to manage CSAF
     Documents as required by CSAF Management System as well as matching
     them to assets of the asset database.
-
 / ​CSAF Basic Validator<def:csaf-basic-validator>: A program that reads a
     document and checks it against the JSON schema and performs
     mandatory tests.
-
 / ​CSAF Consumer<def:csaf-consumer>: program that reads and interprets a
     CSAF Document.
-
 / ​CSAF Content Management System<def:csaf-content-management-system>: program
     that is able to create, review and manage CSAF Documents and is able
     to preview their details as required by CSAF Viewer.
-
 / ​CSAF Converter<def:csaf-converter>: CSAF Producer that transforms the
     output of an analysis tool from its native output format into the
     CSAF format.
-
 / ​CSAF Core<def:csaf-core>: All parts of CSAF except for the parts
     covering extensions.
-
 / ​CSAF Direct Producer<def:csaf-direct-producer>: analysis tool which
     acts as a CSAF Producer.
-
 / ​CSAF Document<def:csaf-document>: security advisory text document in
     the format defined by this document.
-
 / ​CSAF Downloader<def:csaf-downloader>: A program that retrieves CSAF
     Documents in an automated fashion.
-
 / ​CSAF Extended Validator<def:csaf-extended-validator>: A CSAF Basic
     Validator that additionally performs recommended tests.
-
 / ​CSAF Extension<def:csaf-extension>: A specified JSON object conveying
     additional information different from the content that can be
     conveyed with the CSAF Core elements.
-
 / ​CSAF Extension Additional Test<def:csaf-extension-additional-test>: A
     test whose execution depends on the presence of the specifying CSAF
     Extension that provides additional checks in the context of the CSAF
     Extension or the CSAF Document the extension is embedded in.
-
 / ​CSAF Extension Bundle<def:csaf-extension-bundle>: A of compilation of
     machine-readable artifacts related to a single CSAF Extension.
-
 / ​CSAF Extension Collection<def:csaf-extension-collection>: A set of
     multiple CSAF Extension Packages.
-
 / ​CSAF Extension Overlay Test<def:csaf-extension-overlay-test>: A test
     whose execution depends on the presence of the specifying CSAF
     Extension that extends or replaces a test standardized in this
     specification or a CSAF Additional Test.
-
 / ​CSAF Extension Package<def:csaf-extension-package>: A of compilation
     of all artifacts related to a single CSAF Extension.
-
 / ​CSAF Extension Schema<def:csaf-extension-schema>: A JSON schema
     specifying the content and properties of a CSAF Extension.
-
 / ​CSAF Extension Specification<def:csaf-extension-specification>: The
     specification of a single CSAF Extension and related material.
-
 / ​CSAF Extension Test<def:csaf-extension-test>: A test that is either a
     CSAF Extension Overlay Test or a CSAF Extension Additional Test.
-
 / ​CSAF Full Validator<def:csaf-full-validator>: A CSAF Extended
     Validator that additionally performs informative tests.
-
 / ​CSAF Library<def:csaf-library>: A library that implements CSAF data
     capabilities.
-
 / ​CSAF Library with Basic Validation<def:csaf-library-with-basic-validation>: A
     CSAF Library that also satisfies the conformance target "CSAF Basic
     Validator".
-
 / ​CSAF Library with Extended Validation<def:csaf-library-with-extended-validation>: A
     CSAF Library that also satisfies the conformance target "CSAF
     Extended Validator".
-
 / ​CSAF Library with Full Validation<def:csaf-library-with-full-validation>: A
     CSAF Library that also satisfies the conformance target "CSAF Full
     Validator".
-
 / ​CSAF Management System<def:csaf-management-system>: program that is
     able to manage CSAF Documents and is able to display their details
     as required by CSAF Viewer.
-
 / ​CSAF Modifier<def:csaf-modifier>: CSAF Post-Processor which takes a
     CSAF Document as input and modifies the structure or values of
     properties. The output is a valid CSAF Document.
-
 / ​CSAF Post-Processor<def:csaf-post-processor>: CSAF Producer that
     transforms an existing CSAF Document into a new CSAF Document, for
     example, by removing or redacting elements according to sharing
     policies.
-
 / ​CSAF Producer<def:csaf-producer>: program that emits output in the
     CSAF format.
-
 / ​CSAF RVISC ID Updater<def:csaf-rvisc-id-updater>: A CSAF
     Post-Processor that updates vulnerability IDs in a given CSAF based
     on the entries in RVISC.
-
 / ​CSAF SBOM Matching System<def:csaf-sbom-matching-system>: A program
     that connects to or is an SBOM database and is able to manage CSAF
     Documents as required by CSAF Management System as well as matching
     them to SBOM components of the SBOM database.
-
 / ​CSAF Superseder<def:csaf-superseder>: A CSAF Post-Processor that
     transforms a given CSAF into a superseded one.
-
 / ​CSAF Translator<def:csaf-translator>: CSAF Post-Processor which takes
     a CSAF Document as input and translates values of properties into
     another language. The output is a valid CSAF Document.
-
 / ​CSAF Viewer<def:csaf-viewer>: CSAF Consumer that reads a CSAF
     Document, displays a list of the results it contains, and allows an
     end user to view each result in the context of the artifact in which
     it occurs.
-
 / ​CSAF Withdrawer<def:csaf-withdrawer>: A CSAF Post-Processor that
     transforms a given CSAF into a withdrawn one.
-
 / ​CVRF CSAF Converter<def:cvrf-csaf-converter>: CSAF Producer which
     takes a CVRF document as input and converts it into a valid CSAF
     Document.
-
 / ​Document<def:document>: output file produced by an analysis tool,
     which enumerates the results produced by the tool.
-
 / ​Driver<def:driver>: tool component containing an analysis tool's or
     converter's primary executable, which controls the tool's or
     converter's execution, and which in the case of an analysis tool
     typically defines a set of analysis rules.
-
 / ​Embedded Link<def:embedded-link>: syntactic construct which enables a
     message string to refer to a location mentioned in the document.
-
 / ​Empty Array<def:empty-array>: array that contains no elements, and so
     has a length of zero.
-
 / ​Empty Object<def:empty-object>: object that contains no properties.
-
 / ​Empty String<def:empty-string>: string that contains no characters,
     and so has a length of zero.
-
 / ​\(End) User<def:end-user>: person who uses the information in a
     document to investigate, triage, or resolve results.
-
 / ​Engineering System<def:engineering-system>: software analysis
     environment within which analysis tools execute. #strong[Note]: An
     engineering system might include a build system, a source control
     system, a result management system, a bug tracking system, a test
     execution system, and so on.
-
 / ​Extension<def:extension>: tool component other than the driver (for
     example, a plugin, a configuration file, or a taxonomy).
-
 / ​External Property File<def:external-property-file>: file containing
     the values of one or more externalized properties.
-
 / ​Externalizable Property<def:externalizable-property>: property that
     can be contained in an external property file.
-
 / ​Externalized Property<def:externalized-property>: property stored
     outside of the CSAF Document to which it logically belongs.
-
 / ​False Positive<def:false-positive>: result which an end user decides
     does not actually represent a problem.
-
 / ​Filter<def:filter>: refine a list by selecting entries that match
     given criteria.
-
 / ​Fingerprint<def:fingerprint>: stable value that can be used by a
     result management system to uniquely identify a result over time,
     even if a relevant artifact is modified.
-
-/ ​Formatted Message<def:formatted-message>: #block[
-```
-message string which contains formatting information such as Markdown formatting characters.
-```
-]
-
+/ ​Formatted Message<def:formatted-message>: message string which
+    contains formatting information such as Markdown formatting
+    characters.
 / ​Fully Qualified Logical Name<def:fully-qualified-logical-name>: string
     that fully identifies the programmatic construct specified by a
     logical location, typically by means of a hierarchical identifier.
-
 / ​Hierarchical String<def:hierarchical-string>: string in the format
     \<component\>{/\<component\>}\*.
-
+/ ​Issuing Party<def:issuing-party>: entity that releases a CSAF
+    document, independent of its role according to the distribution
+    system. It is usually the same one as described by the value of
+    `$.document.publisher` in that CSAF document.
 / ​Line<def:line>: contiguous sequence of characters, starting either at
     the beginning of an artifact or immediately after a newline
     sequence, and ending at and including the nearest subsequent newline
     sequence, if one is present, or else extending to the end of the
     artifact.
-
 / ​Line (Number)<def:line-number>: 1-based index of a line within a file.
     #strong[Note]: Abbreviated to "line" when there is no danger of
     ambiguity with "line" in the sense of a sequence of characters.
-
 / ​Localizable<def:localizable>: subject to being translated from one
     natural language to another.
-
 / ​Message String<def:message-string>: human-readable string that conveys
     information relevant to an element in a CSAF Document.
-
 / ​Nested Artifact<def:nested-artifact>: artifact that is contained
     within another artifact.
-
 / ​Newline Sequence<def:newline-sequence>: sequence of one or more
     characters representing the end of a line of text. #strong[Note]:
     Some systems represent a newline sequence with a single newline
     character; others represent it as a carriage return character
     followed by a newline character.
-
 / ​Notification<def:notification>: reporting item that describes a
     condition encountered by a tool during its execution.
-
 / ​Opaque<def:opaque>: neither human-readable nor machine-parsable into
     constituent parts.
-
 / ​Parent (Artifact)<def:parent-artifact>: artifact which contains one or
     more nested artifacts.
-
 / ​Plain Text Message<def:plain-text-message>: message string which does
     not contain any formatting information.
-
 / ​Plugin<def:plugin>: tool component that defines additional rules.
-
 / ​Policy<def:policy>: set of rule configurations that specify how
     results that violate the rules defined by a particular tool
     component are to be treated.
-
 / ​Problem<def:problem>: result which indicates a condition that has the
     potential to detract from the quality of the program.
     #emph[Examples]: A security vulnerability, a deviation from
     contractual or legal requirements.
-
 / ​Product<def:product>: is any deliverable (e.g.~software, hardware,
     specification, or service) which can be referred to with a name.
     This applies regardless of the origin, the license model, or the
     mode of distribution of the deliverable.
-
 / ​Property<def:property>: attribute of an object consisting of a name
     and a value associated with the name.
-
 / ​Redactable Property<def:redactable-property>: property that
     potentially contains sensitive information that a CSAF Direct
     Producer or a CSAF Post-Processor might wish to redact.
-
 / ​Reporting Item<def:reporting-item>: unit of output produced by a tool,
     either a result or a notification.
-
 / ​Reporting Configuration<def:reporting-configuration>: the subset of
     reporting metadata that a tool can configure at runtime, before
     performing its scan. #emph[Examples]: severity level, rank
-
 / ​Repository<def:repository>: container for a related set of files in a
     version control system.
-
 / ​Search<def:search>: compile a list of entries that match given
     criteria.
-
 / ​Taxonomy<def:taxonomy>: classification of analysis results into a set
     of categories.
-
 / ​Tag<def:tag>: string that conveys additional information about the
     CSAF Document element to which it applies.
-
 / ​Text Artifact<def:text-artifact>: artifact considered as a sequence of
     characters organized into lines and columns.
-
 / ​Text Region<def:text-region>: region representing a contiguous range
     of zero or more characters in a text artifact.
-
 / ​Tool Component<def:tool-component>: component of an analysis tool or
     converter, either its driver or an extension, consisting of one or
     more files.
-
-/ ​Top-Level Artifact<def:top-level-artifact>: #block[
-```
-artifact which is not contained within any other artifact.
-```
-]
-
+/ ​Top-Level Artifact<def:top-level-artifact>: artifact which is not
+    contained within any other artifact.
 / ​Translation<def:translation>: rendering of a tool component's
     localizable strings into another language.
-
 / ​Triage<def:triage>: decide whether a result indicates a problem that
     needs to be corrected.
-
 / ​User<def:user>: see end user.
-
 / ​VCS<def:vcs>: version control system.
-
 / ​Vendor<def:vendor>: the community, individual, or organization that
     created or maintains a product (including open source software and
     hardware providers).
-
 / ​VEX<def:vex>: Vulnerability Exploitability eXchange - enables a
     supplier or other party to assert whether or not a particular
     product is affected by a specific vulnerability, especially helpful
     in efficiently consuming SBOM data.
-
-/ ​Viewer<def:viewer>: #block[
-```
-see CSAF Viewer.
-```
-]
-
+/ ​Viewer<def:viewer>: see CSAF Viewer.
 / ​Vulnerability<def:vulnerability>: functional behavior of a product or
     service that violates an implicit or explicit security policy
     (conforming to ISO/IEC 29147 \[#link(<ISO29147>)[ISO29147]\]).
-
 / ​White Space<def:white-space>: code point used to improve text
     readability or token separation as defined in section 12.2 of
     \[#link(<ECMA-262>)[ECMA-262]\].
-
 / ​XML<def:xml>: eXtensible Markup Language - the format used by the
     predecessors of this standard, namely CVRF 1.1 and CVRF 1.2.
 
@@ -858,8 +757,8 @@ specification], EMCA-427, 1st Edition, December 2025,
 #strong[\[]<EPSS>#strong[EPSS\]] #emph[Exploit Prediction Scoring System
 (EPSS)], FIRST.Org, Inc., #link("https://www.first.org/epss/")
 
-#strong[\[]<FETCH>#strong[FETCH\]] #emph[Fetch: Living Standard],
-#link("https://fetch.spec.whatwg.org").
+#strong[\[]<FETCH>#strong[FETCH\]] #emph[Fetch: Living Standard - Last
+Updated 25 August 2026], #link("https://fetch.spec.whatwg.org").
 
 #strong[\[]<GFMCMARK>#strong[GFMCMARK\]] #emph[GitHub's fork of cmark, a
 CommonMark parsing and rendering library and program in C],
@@ -885,6 +784,11 @@ library], OpenSSL Software Foundation,
 
 #strong[\[]<PURL>#strong[PURL\]] #emph[Package URL (PURL)], GitHub
 Project, #link("https://github.com/package-url/purl-spec").
+
+#strong[\[]<RFC3156>#strong[RFC3156\]] Elkins, M., Torto, D., Levien,
+R., and T. Roessler, "MIME Security with OpenPGP", RFC 3156, DOI
+10.17487/RFC3156, August 2001,
+#link("https://www.rfc-editor.org/info/rfc3156/").
 
 #strong[\[]<RFC3552>#strong[RFC3552\]] Rescorla, E. and B. Korver,
 "Guidelines for Writing RFC Text on Security Considerations", BCP 72,
@@ -1210,7 +1114,7 @@ Sole exception are the dedicated extension points (`x_extensions`) which
 allow the usage of extension defined outside this specification. To
 still ensure interoperability and guide tools how to deal with this data
 a CSAF Extension Content Schema and CSAF Extension Metaschema has been
-defined and MUST be adhered to (cf.~section #link(<extensions>)[2.4]).
+defined and SHALL be adhered to (cf.~section #link(<extensions>)[2.4]).
 Document issuers are advised to always balance pros and cons regarding
 the use of extension.
 
@@ -1292,14 +1196,14 @@ Draft 2020-12 Section 7.3.1. In accordance with
 following rules apply:
 
 - The letter `T` separating the date and time SHALL be upper case.
-- The separator between date and time MUST be the letter `T`.
+- The separator between date and time SHALL be the letter `T`.
 - The letter `Z` indicating the timezone UTC SHALL be upper case.
 - Fractions of seconds are allowed as specified in the standards mention
   above with the full stop (`.`) as separator.
-- Empty timezones MUST NOT be used.
+- Empty timezones SHALL NOT be used.
 - The ABNF of RFC 3339, section 5.6 applies.
 
-In contrast to the aforementioned standards, leap seconds MUST NOT be
+In contrast to the aforementioned standards, leap seconds SHALL NOT be
 used.
 
 #quote(block: true)[
@@ -1315,11 +1219,11 @@ This standard allows for extensions to the standardized schema.
 
 The following rules apply:
 
-- An extension MUST NOT occur in any other place than specified.
-- An extension MUST satisfy the Conformance Target "CSAF Extension".
+- An extension SHALL NOT occur in any other place than specified.
+- An extension SHALL satisfy the Conformance Target "CSAF Extension".
 - The schema specifying the content and properties of the CSAF Extension
-  MUST satisfy the Conformance Target "CSAF Extension Schema".
-- For official and registered extensions a CSAF Extension Package MUST
+  SHALL satisfy the Conformance Target "CSAF Extension Schema".
+- For official and registered extensions a CSAF Extension Package SHALL
   be provided.
 - CSAF Extensions SHOULD NOT provide CSAF Extension Overlay Tests for
   tests in the preset `extensions`.
@@ -1363,7 +1267,7 @@ The OASIS CSAF TC maintains:
 
 Deprecated extensions can still be used but support for them is removed
 in near future. If avoidable, they SHOULD NOT be used. Deny-listed
-extensions MUST NOT be used. The lists of deprecated extensions and
+extensions SHALL NOT be used. The lists of deprecated extensions and
 deny-listed extensions MAY contain extensions that do not fulfill the
 conformance target CSAF Extension.
 
@@ -1371,13 +1275,13 @@ The list MAY contain additional examples.
 
 === Metaschema
 <metaschema>
-The CSAF Extension Metaschema MUST be used to validate a CSAF Extension
+The CSAF Extension Metaschema SHALL be used to validate a CSAF Extension
 Schema.
 
 === Content Schema
 <content-schema>
-An extension MUST contain exactly the following elements: CSAF Extension
-Schema (`$schema`), Extension Category (`category`), Critical
+An extension SHALL contain exactly the following elements: CSAF
+Extension Schema (`$schema`), Extension Category (`category`), Critical
 (`critical`) and Content (`content`).
 
 ```yaml
@@ -1401,9 +1305,9 @@ Extension JSON schema which the JSON object promises to be valid for.
 This SHOULD also be the location where the JSON schema can be retrieved.
 The value SHOULD match the `$id` of the JSON schema that defines the
 extension. The URL SHOULD contain a human-readable name for the
-extension before the version string. The versioning MUST use
+extension before the version string. The versioning SHALL use
 \[#link(<SemVer>)[SemVer]\]. URLs using a domain mentioned in
-\[#link(<RFC2606>)[RFC2606]\] MUST be used according to their defined
+\[#link(<RFC2606>)[RFC2606]\] SHALL be used according to their defined
 purpose.
 
 #emph[Examples 1:]#box()<content-schema-property---schema-eg-1>
@@ -1426,7 +1330,7 @@ the category of the extension content. Valid `enum` values are:
 
 The value `essential` indicates, that the content provided through this
 extension is crucial to understand of the CSAF document this extension
-is included in. CSAF consumers and CSAF validators MUST warn if they
+is included in. CSAF consumers and CSAF validators SHALL warn if they
 process a CSAF Document including such extension instance and do not
 have the extension in question already implemented.
 
@@ -1456,7 +1360,7 @@ Critical (`critical`) of value type `boolean` determines whether using
 the extension would fail a mandatory test. The `default` value for this
 is `false`.
 
-For any failing test, a CSAF Extension Test MUST be provided.
+For any failing test, a CSAF Extension Test SHALL be provided.
 
 === Metadata
 <metadata>
@@ -1741,7 +1645,7 @@ The value `product_name` indicates the name of the product.
 
 The value `product_version` indicates exactly a single version of the
 product. The value of the adjacent `name` property can be numeric or
-some other descriptor. However, it MUST NOT contain version ranges of
+some other descriptor. However, it SHALL NOT contain version ranges of
 any kind.
 
 #quote(block: true)[
@@ -1802,7 +1706,7 @@ the product version as given by the vendor.
 ===== Branches Type - Name under Product Version
 <branches-type---name-under-product-version>
 If adjacent property `category` has the value `product_version`, the
-value of `name` MUST NOT contain version ranges of any kind.
+value of `name` SHALL NOT contain version ranges of any kind.
 
 #emph[Examples 1 (for `name` when using
 `product_version`):]#box()<branches-type---name-under-product-version-eg-1>
@@ -1841,8 +1745,8 @@ therefore invalid under the category `product_version`.
 ===== Branches Type - Name under Product Version Range
 <branches-type---name-under-product-version-range>
 If adjacent property `category` has the value `product_version_range`,
-the value of `name` MUST contain version ranges. The value of MUST obey
-to exactly one of the following options:
+the value of `name` SHALL contain version ranges. The value of SHALL
+obey to exactly one of the following options:
 
 + VErsion Range Specifier (VERS)
 
@@ -1861,7 +1765,7 @@ to exactly one of the following options:
   ]
 
   #emph[Examples 1 (for `name` when using `product_version_range` with
-  vers):]#box()<branches-type---name-under-product-version-range-eg-1>
+  VERS):]#box()<branches-type---name-under-product-version-range-eg-1>
 
   ```
       vers:gem/>=2.2.0|!=2.2.1|<2.3.0
@@ -1878,7 +1782,7 @@ to exactly one of the following options:
 + VERS-like Specifier (vls)
 
   This option uses only the `constraint` part from the VERS
-  specification. It MUST NOT have the `scheme` nor the `type` part. It
+  specification. It SHALL NOT have the `scheme` nor the `type` part. It
   is a fallback option and SHOULD NOT be used unless really necessary.
 
   #quote(block: true)[
@@ -1920,7 +1824,7 @@ $defs:
   # ...
 ```
 
-Each item MUST comply with the rules for CSAF Extensions and validate
+Each item SHALL comply with the rules for CSAF Extensions and validate
 against the
 #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json")[CSAF Extension Content schema]
 as well as the schema given through its `$schema` property.
@@ -2205,16 +2109,16 @@ synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
 ]
 
 If a part of a model number of the component to identify is given, it
-MUST begin at the first and end at the last character position of the
+SHALL begin at the first and end at the last character position of the
 string representing the targeted component. The wildcard characters `?`
 (for a single character) and `*` (for zero or more characters) signal
 exclusion of characters at these positions from matching. This applies
-also to the first character. An unescaped `*` MUST be the only `*`
+also to the first character. An unescaped `*` SHALL be the only `*`
 wildcard in the string. As part of the model number, the special
-characters `?`, `*` and `\` MUST be escaped with `\`.
+characters `?`, `*` and `\` SHALL be escaped with `\`.
 
 #quote(block: true)[
-Note: A backslash MUST be escaped itself in a JSON string.
+Note: A backslash SHALL be escaped itself in a JSON string.
 ]
 
 #emph[Examples
@@ -2331,16 +2235,16 @@ character represents a serial number of the component to identify -
 possibly with placeholders.
 
 If a part of a serial number of the component to identify is given, it
-MUST begin at the first and end at the last character position of the
+SHALL begin at the first and end at the last character position of the
 string representing the targeted component. The wildcard characters `?`
 (for a single character) and `*` (for zero or more characters) signal
 exclusion of characters at these positions from matching. This applies
-also to the first character. An unescaped `*` MUST be the only `*`
+also to the first character. An unescaped `*` SHALL be the only `*`
 wildcard in the string. As part of the serial number, the special
-characters `?`, `*` and `\` MUST be escaped with `\`.
+characters `?`, `*` and `\` SHALL be escaped with `\`.
 
 #quote(block: true)[
-Note: A backslash MUST be escaped itself in a JSON string.
+Note: A backslash SHALL be escaped itself in a JSON string.
 ]
 
 #emph[Examples
@@ -2393,16 +2297,16 @@ Sometimes this is also called "item number", "article number" or
 ]
 
 If a part of a stock keeping unit of the component to identify is given,
-it MUST begin at the first and end at the last character position of the
-string representing the targeted component. The wildcard characters `?`
-(for a single character) and `*` (for zero or more characters) signal
-exclusion of characters at these positions from matching. This applies
-also to the first character. An unescaped `*` MUST be the only `*`
-wildcard in the string. As part of the stock keeping unit, the special
-characters `?`, `*` and `\` MUST be escaped with `\`.
+it SHALL begin at the first and end at the last character position of
+the string representing the targeted component. The wildcard characters
+`?` (for a single character) and `*` (for zero or more characters)
+signal exclusion of characters at these positions from matching. This
+applies also to the first character. An unescaped `*` SHALL be the only
+`*` wildcard in the string. As part of the stock keeping unit, the
+special characters `?`, `*` and `\` SHALL be escaped with `\`.
 
 #quote(block: true)[
-Note: A backslash MUST be escaped itself in a JSON string.
+Note: A backslash SHALL be escaped itself in a JSON string.
 ]
 
 #emph[Examples
@@ -2873,7 +2777,7 @@ used:
 - semantic versioning (preferred; according to the rules below)
 - integer versioning
 
-A CSAF document MUST use only one versioning system.
+A CSAF document SHALL use only one versioning system.
 
 #emph[Examples 1:]#box()<version-type-eg-1>
 
@@ -2898,20 +2802,20 @@ regular expression for this type is:
 The following rules apply:
 
 + Once a versioned document has been released, the contents of that
-  version MUST NOT be modified. Any modifications MUST be released as a
-  new version.
+  version SHALL NOT be modified. Any modifications SHALL be released as
+  a new version.
 + Version zero (`0`) is for initial development before the
-  `initial_release_date`. The document status MUST be `draft`. Anything
+  `initial_release_date`. The document status SHALL be `draft`. Anything
   MAY change at any time. The document SHOULD NOT be considered stable.
 + Version `1` defines the initial release to the specified target group.
   Each new version where `$.document.tracking.status` is `final` has a
   version number incremented by one.
-+ Pre-release versions (document status `draft`) MUST carry the new
++ Pre-release versions (document status `draft`) SHALL carry the new
   version number. Sole exception is before the initial release (see rule
   2). The combination of document status `draft` and version `1` MAY be
   used to indicate that the content is unlikely to change.
 + Build metadata is never included in the version.
-+ Precedence MUST be determined by integer comparison.
++ Precedence SHALL be determined by integer comparison.
 
 ==== Version Type - Semantic Versioning
 <version-type---semantic-versioning>
@@ -2927,18 +2831,18 @@ end user whether a new comparison with the asset database is needed. The
 "public API" in regard to CSAF is the CSAF document with its structure
 and content. This results in the following rules:
 
-+ A normal version number MUST take the form `X.Y.Z` where `X`, `Y`, and
-  `Z` are non-negative integers, and MUST NOT contain leading zeroes.
-  `X` is the major version, `Y` is the minor version, and `Z` is the
-  patch version. Each element MUST increase numerically. For instance:
-  `1.9.0` -\> `1.10.0` -\> `1.11.0`.
++ A normal version number SHALL take the form `X.Y.Z` where `X`, `Y`,
+  and `Z` are non-negative integers, and SHALL NOT contain leading
+  zeroes. `X` is the major version, `Y` is the minor version, and `Z` is
+  the patch version. Each element SHALL increase numerically. For
+  instance: `1.9.0` -\> `1.10.0` -\> `1.11.0`.
 
 + Once a versioned document has been released, the contents of that
-  version MUST NOT be modified. Any modifications MUST be released as a
-  new version.
+  version SHALL NOT be modified. Any modifications SHALL be released as
+  a new version.
 
 + Major version zero (`0.y.z`) is for initial development before the
-  `initial_release_date`. The document status MUST be `draft`. Anything
+  `initial_release_date`. The document status SHALL be `draft`. Anything
   MAY change at any time. The document SHOULD NOT be considered stable.
   Changes which would increment the major version according to rule 7
   are tracked in this stage with (`0.y.z`) by incrementing the minor
@@ -2951,7 +2855,7 @@ and content. This results in the following rules:
   release is dependent on the content and structure of the document and
   how it changes.
 
-+ Patch version `Z` (`x.y.Z` | `x > 0`) MUST be incremented if only
++ Patch version `Z` (`x.y.Z` | `x > 0`) SHALL be incremented if only
   backwards compatible bug fixes are introduced. A bug fix is defined as
   an internal change that fixes incorrect behavior.
 
@@ -2960,14 +2864,14 @@ and content. This results in the following rules:
   mistakes.
   ]
 
-+ Minor version `Y` (`x.Y.z` | `x > 0`) MUST be incremented if the
++ Minor version `Y` (`x.Y.z` | `x > 0`) SHALL be incremented if the
   content of an existing element changes except for those which are
-  covered through rule 7. It MUST be incremented if substantial new
+  covered through rule 7. It SHALL be incremented if substantial new
   information are introduced or new elements are provided. It MAY
-  include patch level changes. Patch version MUST be reset to `0` when
+  include patch level changes. Patch version SHALL be reset to `0` when
   minor version is incremented.
 
-+ Major version `X` (`X.y.z` | `X > 0`) MUST be incremented if a new
++ Major version `X` (`X.y.z` | `X > 0`) SHALL be incremented if a new
   comparison with the end user's asset database is required. This
   includes:
 
@@ -2985,13 +2889,13 @@ and content. This results in the following rules:
     - `$.vulnerabilities[*].product_status.known_not_affected`
 
   It MAY also include minor and patch level changes. Patch and minor
-  version MUST be reset to `0` when major version is incremented.
+  version SHALL be reset to `0` when major version is incremented.
 
 + A pre-release version (document status `draft`) MAY be denoted by
   appending a hyphen and a series of dot separated identifiers
-  immediately following the patch version. Identifiers MUST comprise
-  only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`. Identifiers MUST
-  NOT be empty. Numeric identifiers MUST NOT include leading zeroes.
+  immediately following the patch version. Identifiers SHALL comprise
+  only ASCII alphanumerics and hyphens `[0-9A-Za-z-]`. Identifiers SHALL
+  NOT be empty. Numeric identifiers SHALL NOT include leading zeroes.
   Pre-release versions have a lower precedence than the associated
   normal version. A pre-release version indicates that the version is
   unstable and might not satisfy the intended compatibility requirements
@@ -3007,14 +2911,14 @@ and content. This results in the following rules:
   1.0.0-x.7.z.92
   ```
 
-+ Pre-release MUST NOT be included if `$.document.tracking.status` is
++ Pre-release SHALL NOT be included if `$.document.tracking.status` is
   `final`.
 
 + Build metadata MAY be denoted by appending a plus sign and a series of
   dot separated identifiers immediately following the patch or
-  pre-release version. Identifiers MUST comprise only ASCII
-  alphanumerics and hyphens `[0-9A-Za-z-]`. Identifiers MUST NOT be
-  empty. Build metadata MUST be ignored when determining version
+  pre-release version. Identifiers SHALL comprise only ASCII
+  alphanumerics and hyphens `[0-9A-Za-z-]`. Identifiers SHALL NOT be
+  empty. Build metadata SHALL be ignored when determining version
   precedence. Thus two versions that differ only in the build metadata,
   have the same precedence.
 
@@ -3030,7 +2934,7 @@ and content. This results in the following rules:
 + Precedence refers to how versions are compared to each other when
   ordered.
 
-  + Precedence MUST be calculated by separating the version into major,
+  + Precedence SHALL be calculated by separating the version into major,
     minor, patch and pre-release identifiers in that order (Build
     metadata does not figure into precedence).
 
@@ -3054,9 +2958,9 @@ and content. This results in the following rules:
     ```
 
   + Precedence for two pre-release versions with the same major, minor,
-    and patch version MUST be determined by comparing each dot separated
-    identifier from left to right until a difference is found as
-    follows:
+    and patch version SHALL be determined by comparing each dot
+    separated identifier from left to right until a difference is found
+    as follows:
 
     + Identifiers consisting of only digits are compared numerically.
     + Identifiers with letters or hyphens are compared lexically in
@@ -3275,9 +3179,9 @@ also be used to convey special TLP restrictions:
 ```
 
 #quote(block: true)[
-Note that for such restrictions the Sharing Group Name MUST exist and
-all participants MUST know the associated Sharing Group IDs to allow for
-automation.
+Note that for such restrictions the Sharing Group Name SHALL exist and
+all participants SHALL know the associated Sharing Group IDs to allow
+for automation.
 ]
 
 ===== Document Property - Distribution - Sharing Group
@@ -3319,7 +3223,7 @@ be considered.
 ]
 
 The ID SHOULD NOT change throughout different CSAF documents, if the
-same sharing group is addressed. It MUST differ if a different sharing
+same sharing group is addressed. It SHALL differ if a different sharing
 group is addressed.
 
 #quote(block: true)[
@@ -3343,7 +3247,7 @@ implementation-specific situations:
   \[#link(<RFC9562>)[RFC9562]\] should be reflected on.
   ]
 
-- A system MAY use the Nil UUID for CSAF documents that MUST NOT be
+- A system MAY use the Nil UUID for CSAF documents that SHALL NOT be
   shared.
 
   #quote(block: true)[
@@ -3461,10 +3365,10 @@ identifies the language used by this document, corresponding to IETF BCP
 <document-property---license-expression>
 License expression (`license_expression`) of value type `string` with
 `1` or more characters contains the SPDX license expression for the CSAF
-document. It MUST NOT contain a license text. See Annex B of
+document. It SHALL NOT contain a license text. See Annex B of
 \[#link(<SPDX301>)[SPDX301]\] for details. The `DocumentRef` part given
-in that ABNF MUST NOT be used in CSAF. Any SPDX license identifier not
-from the official SPDX license identifier list MUST contain a prefix of
+in that ABNF SHALL NOT be used in CSAF. Any SPDX license identifier not
+from the official SPDX license identifier list SHALL contain a prefix of
 the form `LicenseRef-<license-inventoring-entity>-` where
 `<license-inventoring-entity>` is replaced with a unique name for the
 entity that provided the database this license identifier was found in.
@@ -3474,11 +3378,11 @@ domain name. The same applies for `AdditionRef-` identifiers.
 In addition, the following rules apply:
 
 - License identification:
-  + The SPDX License List Version 3.26.0 or later MUST be consulted to
+  + The SPDX License List Version 3.26.0 or later SHALL be consulted to
     identify the appropriate SPDX license identifier or construct an
     expression based on a SPDX license identifier. Deprecated license
     identifiers SHOULD NOT be used. SPDX license identifiers that were
-    deprecated before the version listed above MUST NOT be used.
+    deprecated before the version listed above SHALL NOT be used.
 
     #quote(block: true)[
     The list is available at #link("https://spdx.org/licenses/"). It
@@ -3487,8 +3391,8 @@ In addition, the following rules apply:
 
   + If the appropriate license identifier is not found in the SPDX
     License List or expression been possible to constructed, the license
-    database AboutCode's "ScanCode LicenseDB" MUST be consulted as a
-    next step. License identifiers from this database MUST use the
+    database AboutCode's "ScanCode LicenseDB" SHALL be consulted as a
+    next step. License identifiers from this database SHALL use the
     prefix `LicenseRef-scancode-`.
 
     #quote(block: true)[
@@ -3503,9 +3407,9 @@ In addition, the following rules apply:
     identifier or expression and no extant identifier was found, the
     issuing party SHALL create their own license identifier following
     the rules above. The license identifier SHOULD contain the version
-    number of the license. The license text MUST be made available
+    number of the license. The license text SHALL be made available
     through exactly one document note using the `category`
-    `legal_disclaimer`. The `title` MUST be `License` for English or an
+    `legal_disclaimer`. The `title` SHALL be `License` for English or an
     unspecified document language. For any other language, it SHOULD be
     the language specific translation of that term.
 - License similarity:
@@ -3553,7 +3457,7 @@ notes associated with the whole document.
 ```
 
 The following combinations of `category` and `title` have a special
-meaning and MUST be used as stated below:
+meaning and SHALL be used as stated below:
 
 #figure(
   align(center)[#table(
@@ -3580,26 +3484,27 @@ meaning and MUST be used as stated below:
   )
 <tab:special-combinations-of-category-and-title>
 
-If a note is specific to a product or product group it MUST be bound via
-the `group_ids` respectively `product_ids`.
+If a note is specific to a product or product group it SHALL be bound
+via the `group_ids` respectively `product_ids`.
 
 ==== Document Property - Publisher
 <document-property---publisher>
 Publisher (`publisher`) of value type `object` with the mandatory
 properties Category (`category`), Name (`name`) and Namespace
 (`namespace`) provides information on the publishing entity. The two
-other optional properties are: `contact_details` and
-`issuing_authority`.
+other optional properties are: `contact` and `issuing_authority`.
 
 ```yaml
 <csaf-instance>:
   document:
+    # ...
     publisher:
       category: String
-      contact_details: String
+      contact: Mapping
       issuing_authority: String
       name: String
       namespace: String
+    # ...
 ```
 
 ===== Document Property - Publisher - Category
@@ -3661,18 +3566,87 @@ vendors, product security incident response teams (PSIRTs), open source
 projects as well as product resellers and distributors, including
 authoritative vendor partners.
 
-===== Document Property - Publisher - Contact Details
-<document-property---publisher---contact-details>
-Contact details (`contact_details`) of value type `string` with `1` or
-more characters provides information on how to contact the publisher,
-possibly including details such as web sites, email addresses, phone
-numbers, and postal mail addresses.
+===== Document Property - Publisher - Contact
+<document-property---publisher---contact>
+Contact (`contact`) of value type `object` with `1` or more properties
+contains information on how to contact the publisher. The properties are
+Contact Details (`details`), Email (`email`) and Public OpenPGP Key URL
+(`public_openpgp_key_url`) If the property `public_openpgp_key_url` is
+set, the `email` SHALL be set as well.
 
-#emph[Example
-1:]#box()<document-property---publisher---contact-details-eg-1>
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    publisher:
+      # ...
+      contact:
+        details: String
+        email: String.EMAIL
+        public_openpgp_key_url: String.URI
+      # ...
+    # ...
+```
+
+Contact details (`details`) of value type `string` with `1` or more
+characters contains details regarding ways to reach the publisher,
+e.g.~through web sites, phone numbers, and postal mail addresses.
+
+#emph[Example 1:]#box()<document-property---publisher---contact-eg-1>
 
 ```
-    Example Company can be reached at contact_us@example.com, or via our website at https://www.example.com/contact.
+    Example Company can be reached at tel:+493023125232,
+    or via our website at https://www.example.com/contact.
+```
+
+Email (`email`) of value type `string` of `6` or more characters with
+format `email` contains the email address that can be used to reach the
+issuing party.
+
+#emph[Examples 2:]#box()<document-property---publisher---contact-eg-2>
+
+```
+    "productcert@example.net"
+    "psirt@example.com"
+    "reporter@securityresearcher.example"
+    "vulnerability@coordinator.example"
+```
+
+Public OpenPGP Key URL (`public_openpgp_key_url`) has value type
+`string` of `11` or more characters with format `uri` and `pattern`
+(regular expression):
+
+```
+    ^https:\\/\\/
+```
+
+Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key
+valid for the email of issuing party provided in the sibling property
+`email`.
+
+#quote(block: true)[
+It is desired that the OpenPGP Key contains the same email address in
+its user ID as given through the property `email`. However, due to data
+protection and operation concerns neither a user ID in the OpenPGP key
+nor an exact match to the value of `email` is enforced by this standard.
+The use of aliases is permitted. The issuing party is responsible for
+ensuring the usability of the key provided.
+]
+
+The URL MAY point to a location that redirects. Redirects SHALL fulfil
+the same requirements as specified in
+#link(<requirement-6-no-redirects>)[7.1.6]. The content delivered SHALL
+be a valid OpenPGP key allowing encryption as ASCII armored file with
+the matching content type. See \[#link(<RFC4880>)[RFC4880]\] and
+\[#link(<RFC3156>)[RFC3156]\] for more details.
+
+#emph[Examples 3:]#box()<document-property---publisher---contact-eg-3>
+
+```
+    "https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability"
+    "https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert"
+    "https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter"
+    "https://psirt.example.com/security/openpgp/latest"
 ```
 
 ===== Document Property - Publisher - Issuing Authority
@@ -3752,7 +3726,7 @@ identifies if this copy of the document is a translation then the value
 of this property describes from which language this document was
 translated.
 
-The property MUST be present for any CSAF document with the value
+The property SHALL be present for any CSAF document with the value
 `translator` in `$.document.publisher.category`. The property SHALL NOT
 be present if the document was not translated.
 
@@ -3921,7 +3895,7 @@ sequence.
 
 The ID is a simple label that provides for a wide range of numbering
 values, types, and schemes. Its value SHOULD be assigned and maintained
-by the original document issuing authority. It MUST be unique for that
+by the original document issuing authority. It SHALL be unique for that
 organization.
 
 #emph[Examples 1:]#box()<document-property---tracking---id-eg-1>
@@ -3958,7 +3932,7 @@ even if the document is later on released to a broader audience.
 ]
 
 If the timestamp of the initial release date was set incorrectly, it
-MUST be corrected. This change MUST be tracked with a new entry in the
+SHALL be corrected. This change SHALL be tracked with a new entry in the
 revision history.
 
 ===== Document Property - Tracking - Revision History
@@ -4019,14 +3993,14 @@ The Summary of the revision (`summary`) of value type `string` with `1`
 or more characters holds a single non-empty string representing a short
 description of the changes.
 
-Each Revision item which has a `number` of `0` or `0.y.z` MUST be
+Each Revision item which has a `number` of `0` or `0.y.z` SHALL be
 removed from the document if the document status is `final`. Versions of
 the document which are pre-release SHALL NOT have its own revision item.
-All changes MUST be tracked in the item for the next release version.
+All changes SHALL be tracked in the item for the next release version.
 Build metadata SHOULD NOT be included in the `number` of any revision
 item.
 
-Any issuing party using a CSAF document as basis and modifying it MUST
+Any issuing party using a CSAF document as basis and modifying it SHALL
 create a new revision history tracking the modified document. This
 applies especially to CSAF multiplier.
 
@@ -4041,7 +4015,7 @@ last visit at this source (incremental download).
 ===== Document Property - Tracking - Status
 <document-property---tracking---status>
 Document status (`status`) of value type `string` and `enum` defines the
-draft status of the document. The value MUST be one of the following:
+draft status of the document. The value SHALL be one of the following:
 
 ```
     draft
@@ -4062,7 +4036,7 @@ no, slow or few changes.
 The value `interim` indicates, that the issuing party expects rapid
 updates. This SHOULD be used if the expected rate of release for this
 document is significant higher than for other documents. Once the rate
-slows down it MUST be changed to `final`. This MAY be done in a patch
+slows down it SHALL be changed to `final`. This MAY be done in a patch
 version.
 
 #quote(block: true)[
@@ -4513,7 +4487,7 @@ the exploitation (`exploitation_date`) holds at least `3` properties and
 contains information on when this vulnerability was first known to be
 exploited in the wild in the products specified. At least one of the
 optional elements Group IDs (`group_ids`) and Product IDs
-(`product_ids`) MUST be present to state for which products or product
+(`product_ids`) SHALL be present to state for which products or product
 groups this date is applicable.
 
 #quote(block: true)[
@@ -4579,7 +4553,7 @@ Every Flag item of value type `object` with the mandatory property Label
 vulnerability as a single machine readable flag. For example, this could
 be a machine readable justification code why a product is not affected.
 At least one of the optional elements Group IDs (`group_ids`) and
-Product IDs (`product_ids`) MUST be present to state for which products
+Product IDs (`product_ids`) SHALL be present to state for which products
 or product groups this flag is applicable.
 
 #quote(block: true)[
@@ -4624,8 +4598,8 @@ the machine readable label. Valid `enum` values are:
 ```
 
 The given values reflect the VEX not affected justifications. See
-\[VEX-Justification\] for more details. The values MUST be used as
-follows:
+\[#link(<VEX-Justification>)[VEX-Justification]\] for more details. The
+values SHALL be used as follows:
 
 - `component_not_present`: The software is not affected because the
   vulnerable component is not in the product.
@@ -5155,7 +5129,7 @@ notes associated with this vulnerability item.
 ```
 
 The following combinations of `category` and `title` have a special
-meaning and MUST be used as stated below:
+meaning and SHALL be used as stated below:
 
 #figure(
   align(center)[#table(
@@ -5177,8 +5151,8 @@ meaning and MUST be used as stated below:
   )
 <vulnerabilities-property-notes-tab-1>
 
-If a note is specific to a product or product group it MUST be bound via
-the `group_ids` respectively `product_ids`.
+If a note is specific to a product or product group it SHALL be bound
+via the `group_ids` respectively `product_ids`.
 
 ==== Vulnerabilities Property - Product Status
 <vulnerabilities-property-product-status>
@@ -5305,7 +5279,7 @@ The individual properties form the following product status groups:
 
 As the aforementioned product status groups contradict each other, the
 sets formed by the contradicting groups within one vulnerability item
-MUST be pairwise disjoint.
+SHALL be pairwise disjoint.
 
 #quote(block: true)[
 Note: An issuer might recommend
@@ -5354,7 +5328,7 @@ Every Remediation item of value type `object` with the two mandatory
 properties Category (`category`) and Details (`details`) specifies
 details on how to handle (and presumably, fix) a vulnerability. At least
 one of the optional elements Group IDs (`group_ids`) and Product IDs
-(`product_ids`) MUST be present to state for which products or product
+(`product_ids`) SHALL be present to state for which products or product
 groups this remediation is applicable.
 
 In addition, any Remediation MAY expose the six optional properties Date
@@ -5448,9 +5422,9 @@ or otherwise deprecated. The text in field `details` SHOULD contain
 details about why there will be no fix issued.
 
 Some category values contradict each other and thus are mutually
-exclusive per product. Therefore, such a combination MUST NOT be used in
-the list of remediations for the same product. This is independent from
-whether the product is referenced directly or indirectly through a
+exclusive per product. Therefore, such a combination SHALL NOT be used
+in the list of remediations for the same product. This is independent
+from whether the product is referenced directly or indirectly through a
 product group. The following tables shows the allowed and prohibited
 combinations:
 
@@ -5477,8 +5451,8 @@ combinations:
 <vulnerabilities-property-remediations-category-tab-1>
 
 Some category values contradict certain product status groups.
-Therefore, such a combination MUST NOT exist in a vulnerability item for
-the same product. This is independent from whether the product is
+Therefore, such a combination SHALL NOT exist in a vulnerability item
+for the same product. This is independent from whether the product is
 referenced directly or indirectly through a product group. The following
 tables shows the allowed, discouraged and prohibited combinations:
 
@@ -5630,7 +5604,7 @@ become effective. Valid values are:
     zone
 ```
 
-The values MUST be used as follows:
+The values SHALL be used as follows:
 
 - `none`: No restart required.
 - `vulnerable_component`: Only the vulnerable component (as given by the
@@ -5817,7 +5791,7 @@ that specific use case and providing insights into its purpose. The
 value of `$.document.category` is used to identify a CSAF document's
 profile. The following rules apply:
 
-+ Each CSAF document MUST conform the #strong[CSAF Base] profile.
++ Each CSAF document SHALL conform the #strong[CSAF Base] profile.
 + Each profile extends the base profile "CSAF Base" - directly or
   indirect through another profile from the standard - by making
   additional fields from the standard mandatory. A profile can always
@@ -5840,7 +5814,7 @@ profile. The following rules apply:
   validated against the "CSAF Base" profile.
 + Local or private profiles MAY exist and tools MAY choose to support
   them.
-+ If an official profile and a private profile exists, tools MUST
++ If an official profile and a private profile exists, tools SHALL
   validate against the official one from the standard.
 
 == Profile 1: CSAF Base
@@ -5853,7 +5827,7 @@ are build on.
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "CSAF Base":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - `$['$schema']`
   - `$.document.category`
   - `$.document.csaf_version`
@@ -5887,7 +5861,7 @@ An issuing party might choose to prepend its `$.document.publisher.name`
 to a value in `$.document.category` that would otherwise be intended to
 only be used by another profile, to state that the CSAF document does
 not use the profile associated with this value. In this case, the (case
-insensitive) string "CSAF" MUST be removed from the value. This SHOULD
+insensitive) string "CSAF" SHALL be removed from the value. This SHOULD
 be done if the issuing party is unable or unwilling to use the value
 `csaf_base`, e.g.~due to legal or cooperate identity reasons.
 
@@ -5916,7 +5890,7 @@ own products and infrastructure.
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "Security Incident Response":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
 
   - `$.document.notes` with at least one item which has a `category` of
@@ -5946,7 +5920,7 @@ related to a vulnerability] but e.g.~a misconfiguration.
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "Informational Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
 
   - `$.document.notes` with at least one item which has a `category` of
@@ -5972,7 +5946,7 @@ profile "Informational Advisory":
   information that would reside in the element `$.vulnerabilities` the
   CSAF document SHOULD use another profile, e.g.~"Security Advisory".
 
-If the element `$.product_tree` exists, a user MUST assume that all
+If the element `$.product_tree` exists, a user SHALL assume that all
 products mentioned are affected.
 
 == Profile 4: Security Advisory
@@ -5983,7 +5957,7 @@ vulnerabilities and corresponding remediations.
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "Security Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
 
   - `$.product_tree` which lists all products referenced later on in the
@@ -6041,7 +6015,7 @@ vulnerability. See \[#link(<VEX>)[VEX]\] for details.
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "VEX":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
 
   - `$.product_tree` which lists all products referenced later on in the
@@ -6071,7 +6045,7 @@ profile "VEX":
     statement SHALL exist as machine readable flag in
     `$.vulnerabilities[*].flags` or as human readable justification in
     `$.vulnerabilities[*].threats`. For the latter one, the `category`
-    value for such a statement MUST be `impact` and the `details` field
+    value for such a statement SHALL be `impact` and the `details` field
     SHALL contain a description why the vulnerability cannot be
     exploited.
 
@@ -6088,12 +6062,12 @@ profile "VEX":
 
   #quote(block: true)[
   Even though Product status lists Product IDs, Product Group IDs can be
-  used in the `remediations` and `threats` object. However, it MUST be
+  used in the `remediations` and `threats` object. However, it SHALL be
   ensured that for each Product ID the required information according to
   its product status as stated in the two points above is available.
   This implies that all products with the status `known_not_affected`
-  MUST have an impact statement and all products with the status
-  `known_affected` MUST have additional product specific information
+  SHALL have an impact statement and all products with the status
+  `known_affected` SHALL have additional product specific information
   regardless of whether that is referenced through the Product ID or a
   Product Group ID.
   ]
@@ -6116,7 +6090,7 @@ matches the definition of profile "Security Advisory" in CSAF 2.0.
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "Deprecated Security Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
 
   - `$.product_tree` which lists all products referenced later on in the
@@ -6140,13 +6114,13 @@ profile "Deprecated Security Advisory":
 
 == Profile 7: Withdrawn
 <profile-7-withdrawn>
-This profile MUST be used for any CSAF document that is withdrawn. It
-MUST NOT be used for any superseded document.
+This profile SHALL be used for any CSAF document that is withdrawn. It
+SHALL NOT be used for any superseded document.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "Withdrawn":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
 
   - `$.document.notes` with exactly one item using the `category`
@@ -6158,12 +6132,12 @@ profile "Withdrawn":
     required one.
     ]
 
-    The `title` MUST be `Reasoning for Withdrawal` for English or an
+    The `title` SHALL be `Reasoning for Withdrawal` for English or an
     unspecified document language. For any other language, it SHOULD be
     the language specific translation of that term.
 
   - `$.document.tracking.revision_history` with at least `2` entries.
-    Any previous items MUST NOT be removed.
+    Any previous items SHALL NOT be removed.
 
     #quote(block: true)[
     A CSAF document cannot be withdrawn during the initial release to
@@ -6179,13 +6153,13 @@ The CSAF document MAY link to additional information through
 
 == Profile 8: Superseded
 <profile-8-superseded>
-This profile MUST be used for any CSAF document that is superseded. It
-MUST NOT be used for any withdrawn document.
+This profile SHALL be used for any CSAF document that is superseded. It
+SHALL NOT be used for any withdrawn document.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "Superseded":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
 
   - `$.document.notes` with exactly one item using the `category`
@@ -6196,12 +6170,12 @@ profile "Superseded":
     required one.
     ]
 
-    The `title` MUST be `Reasoning for Supersession` for English or an
+    The `title` SHALL be `Reasoning for Supersession` for English or an
     unspecified document language. For any other language, it SHOULD be
     the language specific translation of that term.
 
   - `$.document.tracking.revision_history` with at least `2` entries.
-    Any previous items MUST NOT be removed.
+    Any previous items SHALL NOT be removed.
 
     #quote(block: true)[
     A CSAF document cannot be superseded during the initial release to
@@ -6211,7 +6185,7 @@ profile "Superseded":
     ]
 
   - `$.document.references` containing at least one item with `category`
-    `external` The `summary` MUST start with `Superseding Document` for
+    `external` The `summary` SHALL start with `Superseding Document` for
     English or an unspecified document language. For any other language,
     it SHOULD be the language specific translation of that term.
 - The value of `$.document.category` SHALL be `csaf_superseded`.
@@ -6224,12 +6198,12 @@ This section provides additional rules for handling CSAF documents.
 
 == Filename
 <filename>
-The following rules MUST be applied to determine the filename for the
+The following rules SHALL be applied to determine the filename for the
 CSAF document:
 
-+ The value `$.document.tracking.id` is converted into lowercase.
++ The value `$.document.tracking.id` SHALL be converted into lowercase.
 + Any character sequence which is not part of one of the following
-  groups MUST be replaced by a single underscore (`_`):
+  groups SHALL be replaced by a single underscore (`_`):
   - lower-case ASCII letters (0x61 - 0x7A)
   - digits (0x30 - 0x39)
   - special characters: `+` (0x2B), `-` (0x2D)
@@ -6245,7 +6219,7 @@ CSAF document:
   `$.document.tracking.id` with the value `2022_#01-A` is converted into
   `2022_01-a` instead of `2022__01-a`.
   ]
-+ The file extension `.json` MUST be appended.
++ The file extension `.json` SHALL be appended.
 
 #emph[Examples 1:]#box()<filename-eg-1>
 
@@ -6272,7 +6246,7 @@ of the file extension.
 == Separation in Data Stream
 <separation-in-data-stream>
 If multiple CSAF documents are transported via a data stream in a
-sequence without requests inbetween, they MUST be separated by the
+sequence without requests inbetween, they SHALL be separated by the
 Record Separator in accordance with \[#link(<RFC7464>)[RFC7464]\].
 
 == Sorting
@@ -6302,7 +6276,7 @@ fields:
   $.vulnerabilities[*].threats[*].details
 ```
 
-Other fields MUST NOT contain Markdown.
+Other fields SHALL NOT contain Markdown.
 
 == Branch Recursion
 <branch-recursion>
@@ -6316,9 +6290,9 @@ repetitions. Therefore, the longest path to a leaf is:
 
 == Hardware and Software within the Product Tree
 <hardware-and-software-within-the-product-tree>
-If a product consists of hardware and software, the hardware part MUST
+If a product consists of hardware and software, the hardware part SHALL
 be presented as one product in the product tree and the software part as
-another one. To form the overall product, both parts MUST be combined
+another one. To form the overall product, both parts SHALL be combined
 through a product path.
 
 #emph[Example
@@ -6472,14 +6446,14 @@ fourth subsection groups tests into preset.
 
 == Mandatory Tests
 <mandatory-tests>
-Mandatory tests MUST NOT fail at a valid CSAF document. A program MUST
+Mandatory tests SHALL NOT fail at a valid CSAF document. A program SHALL
 handle a test failure as an error.
 
 === Missing Definition of Product ID
 <missing-definition-of-product-id>
 For each element of type `$['$defs'].product_id_t` which is not inside a
 Full Product Name (type: `full_product_name_t`) and therefore reference
-an element within the `product_tree` it MUST be tested that the Full
+an element within the `product_tree` it SHALL be tested that the Full
 Product Name element with the matching `product_id` exists. The same
 applies for all items of elements of type `$['$defs'].products_t`.
 
@@ -6534,8 +6508,9 @@ Neither `CSAFPID-9080700` nor `CSAFPID-9080701` were defined in the
 === Multiple Definition of Product ID
 <multiple-definition-of-product-id>
 For each Product ID (type `$['$defs'].product_id_t`) in Full Product
-Name elements (type: `$['$defs'].full_product_name_t`) it MUST be tested
-that the `product_id` was not already defined within the same document.
+Name elements (type: `$['$defs'].full_product_name_t`) it SHALL be
+tested that the `product_id` was not already defined within the same
+document.
 
 The relevant paths for this test are:
 
@@ -6570,7 +6545,7 @@ test):]#box()<multiple-definition-of-product-id-eg-1>
 === Circular Definition of Product ID
 <circular-definition-of-product-id>
 For each new defined Product ID (type `$['$defs'].product_id_t`) in
-items of product paths (`$.product_tree.product_paths`) it MUST be
+items of product paths (`$.product_tree.product_paths`) it SHALL be
 tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:
@@ -6624,7 +6599,7 @@ test):]#box()<circular-definition-of-product-id-eg-1>
 <missing-definition-of-product-group-id>
 For each element of type `$['$defs'].product_group_id_t` which is not
 inside a Product Group (`$.product_tree.product_groups[*]`) and
-therefore reference an element within the `product_tree` it MUST be
+therefore reference an element within the `product_tree` it SHALL be
 tested that the Product Group element with the matching `group_id`
 exists. The same applies for all items of elements of type
 `$['$defs'].product_groups_t`.
@@ -6676,7 +6651,7 @@ test):]#box()<missing-definition-of-product-group-id-eg-1>
 === Multiple Definition of Product Group ID
 <multiple-definition-of-product-group-id>
 For each Product Group ID (type `$['$defs'].product_group_id_t`) Product
-Group elements (`$.product_tree.product_groups[*]`) it MUST be tested
+Group elements (`$.product_tree.product_groups[*]`) it SHALL be tested
 that the `group_id` was not already defined within the same document.
 
 The relevant path for this test is:
@@ -6729,11 +6704,11 @@ test):]#box()<multiple-definition-of-product-group-id-eg-1>
 
 === Contradicting Product Status
 <contradicting-product-status>
-For each item in `$.vulnerabilities` it MUST be tested that the same
+For each item in `$.vulnerabilities` it SHALL be tested that the same
 Product ID is not a member of contradicting product status groups (see
 section #link(<vulnerabilities-property-product-status>)[3.2.4.12]). The
 sets formed by the contradicting groups within one vulnerability item
-MUST be pairwise disjoint.
+SHALL be pairwise disjoint.
 
 The relevant path for this test is:
 
@@ -6774,7 +6749,7 @@ and "Not affected".
 
 === Multiple Scores with Same Version per Product
 <multiple-scores-with-same-version-per-product>
-For each item in `$.vulnerabilities` it MUST be tested that the same
+For each item in `$.vulnerabilities` it SHALL be tested that the same
 Product ID is not a member of more than one CVSS vector with the same
 version and same source.
 
@@ -6845,7 +6820,7 @@ author.
 
 === Invalid CVSS
 <invalid-cvss>
-It MUST be tested that the given CVSS object is valid according to the
+It SHALL be tested that the given CVSS object is valid according to the
 referenced schema.
 
 The relevant paths for this test are:
@@ -6878,7 +6853,7 @@ A tool MAY add one or more of the missing properties `version`,
 
 === Invalid CVSS Computation
 <invalid-cvss-computation>
-It MUST be tested that the given CVSS object has the values computed
+It SHALL be tested that the given CVSS object has the values computed
 correctly according to the definition.
 
 #quote(block: true)[
@@ -6932,7 +6907,7 @@ specification as a quick fix.
 
 === Inconsistent CVSS
 <inconsistent-cvss>
-It MUST be tested that the given CVSS properties do not contradict the
+It SHALL be tested that the given CVSS properties do not contradict the
 CVSS vector.
 
 The relevant paths for this test are:
@@ -6974,9 +6949,9 @@ A tool MAY overwrite contradicting values according to the
 
 === CWE
 <mandatory-tests--cwe>
-For each CWE it MUST be tested that the given CWE exists and is valid in
-the `version` provided. Any `id` that refers to a CWE Category or View
-MUST fail the test.
+For each CWE it SHALL be tested that the given CWE exists and is valid
+in the `version` provided. Any `id` that refers to a CWE Category or
+View SHALL fail the test.
 
 #quote(block: true)[
 A list of all CWE release archives is available at
@@ -7009,7 +6984,7 @@ The `CWE-79` exists. However, its name in version `4.13` is
 
 === Language
 <language>
-For each element of type `$['$defs'].lang_t` it MUST be tested that the
+For each element of type `$['$defs'].lang_t` it SHALL be tested that the
 language code is valid and exists.
 
 The relevant paths for this test are:
@@ -7037,7 +7012,7 @@ value as a quick fix.
 
 === PURL
 <purl>
-It MUST be tested that all given PURLs are valid.
+It SHALL be tested that all given PURLs are valid.
 
 #quote(block: true)[
 It is not sufficient to just test against the `pattern` provided in
@@ -7081,10 +7056,10 @@ Any valid PURL has a name component.
 
 === Sorted Revision History
 <sorted-revision-history>
-It MUST be tested that the value of `number` of items of the revision
+It SHALL be tested that the value of `number` of items of the revision
 history are sorted ascending when the items are sorted ascending by
 `date` and as a second level criteria `number`. As the timestamps might
-use different timezones, the sorting MUST take timezones into account.
+use different timezones, the sorting SHALL take timezones into account.
 
 In order to create consistent results in the case of mixed integer and
 semantic versioning (failing test
@@ -7130,7 +7105,7 @@ the second.
 
 === Translator
 <translator>
-It MUST be tested that `$.document.source_lang` is present and set if
+It SHALL be tested that `$.document.source_lang` is present and set if
 the value `translator` is used for `$.document.publisher.category`. A
 CSAF Validator SHALL differentiate in the error message between the key
 being present but having no or an empty value and not being present at
@@ -7169,10 +7144,10 @@ e.g.~through a given configuration.
 
 === Latest Document Version
 <latest-document-version>
-It MUST be tested that document version has the same value as the
+It SHALL be tested that document version has the same value as the
 `number` in the last item of the revision history when it is sorted
 ascending by `date` and as a second level criteria `number`. As the
-timestamps might use different timezones, the sorting MUST take
+timestamps might use different timezones, the sorting SHALL take
 timezones into account. Build metadata is ignored in the comparison. Any
 pre-release part is also ignored if the document status is `draft`.
 
@@ -7217,7 +7192,7 @@ item in the revision history after sorting as a quick fix.
 
 === Document Status Draft
 <document-status-draft>
-It MUST be tested that document status is `draft` if the document
+It SHALL be tested that document status is `draft` if the document
 version is `0` or `0.y.z` or contains the pre-release part.
 
 The relevant path for this test is:
@@ -7248,8 +7223,8 @@ A tool MAY set the document status to `draft` as a quick fix.
 
 === Released Revision History
 <released-revision-history>
-It MUST be tested that no item of the revision history has a `number` of
-`0` or `0.y.z` when the document status is `final` or `interim`.
+It SHALL be tested that no item of the revision history has a `number`
+of `0` or `0.y.z` when the document status is `final` or `interim`.
 
 The relevant path for this test is:
 
@@ -7292,7 +7267,7 @@ revision history as a quick fix.
 
 === Revision History Entries for Pre-release Versions
 <revision-history-entries-for-pre-release-versions>
-It MUST be tested that no item of the revision history has a `number`
+It SHALL be tested that no item of the revision history has a `number`
 which includes pre-release information.
 
 The relevant path for this test is:
@@ -7334,7 +7309,7 @@ information from the `number` instead of merging the item.
 
 === Non-Draft Document Version
 <non-draft-document-version>
-It MUST be tested that document version does not contain a pre-release
+It SHALL be tested that document version does not contain a pre-release
 part if the document status is `final` or `interim`.
 
 The relevant path for this test is:
@@ -7366,7 +7341,7 @@ quick fix.
 
 === Missing Item in Revision History
 <missing-item-in-revision-history>
-It MUST be tested that items of the revision history do not omit a
+It SHALL be tested that items of the revision history do not omit a
 version number when the items are sorted ascending by `date` and as a
 second level criteria `number`.
 
@@ -7383,11 +7358,11 @@ group will have a newer timestamp and therefore show up correctly at
 CSAF consumers.
 ]
 
-As the timestamps might use different timezones, the sorting MUST take
-timezones into account. The error message MUST differentiate between a
+As the timestamps might use different timezones, the sorting SHALL take
+timezones into account. The error message SHALL differentiate between a
 version number not present at all and one that is missing in the sorted
 list. In the case of semantic versioning, this applies only to the Major
-version. It MUST also be tested that the first item in such a sorted
+version. It SHALL also be tested that the first item in such a sorted
 list has either the version number 0 or 1 in the case of integer
 versioning or a Major version of 0 or 1 in the case of semantic
 versioning.
@@ -7428,7 +7403,7 @@ provided by the user or other data sources.
 
 === Multiple Definition in Revision History
 <multiple-definition-in-revision-history>
-It MUST be tested that items of the revision history do not contain the
+It SHALL be tested that items of the revision history do not contain the
 same version number.
 
 The relevant path for this test is:
@@ -7461,7 +7436,7 @@ The revision history contains two items with the version number `1`.
 
 === Multiple Use of Same CVE
 <multiple-use-of-same-cve>
-It MUST be tested that a CVE is not used in multiple vulnerability
+It SHALL be tested that a CVE is not used in multiple vulnerability
 items.
 
 The relevant path for this test is:
@@ -7491,7 +7466,7 @@ identifier `CVE-2017-0145`.
 
 === Multiple Definition in Involvements
 <multiple-definition-in-involvements>
-It MUST be tested that items of the list of involvements do not contain
+It SHALL be tested that items of the list of involvements do not contain
 the same `party` regardless of its `status` more than once at any
 `date`.
 
@@ -7531,7 +7506,7 @@ and `date`.
 
 === Multiple Use of Same Hash Algorithm
 <multiple-use-of-same-hash-algorithm>
-It MUST be tested that the same hash algorithm is not used multiple
+It SHALL be tested that the same hash algorithm is not used multiple
 times in one item of file hashes.
 
 The relevant paths for this test are:
@@ -7580,7 +7555,7 @@ hashes.
 
 === Prohibited Document Category Name
 <prohibited-document-category-name>
-It MUST be tested that the document category is not equal to the (case
+It SHALL be tested that the document category is not equal to the (case
 insensitive) name (without the prefix `csaf_`) or value of any other
 profile than "CSAF Base". Any occurrences of dash, hyphen, minus,
 underscore, and white space characters are removed from the values on
@@ -7605,11 +7580,11 @@ limited to:
 ]
 
 This applies for both, the comparison against the name and value. Also
-the value MUST NOT start with the reserved prefix `csaf_` except if the
+the value SHALL NOT start with the reserved prefix `csaf_` except if the
 value is exactly `csaf_base`.
 
 This test does only apply for CSAF documents with the profile "CSAF
-Base". Therefore, it MUST be skipped if the document category matches
+Base". Therefore, it SHALL be skipped if the document category matches
 one of the values defined for the profile other than "CSAF Base".
 
 #quote(block: true)[
@@ -7683,7 +7658,7 @@ in one virtual test per profile.
 
 ==== Document Notes
 <document-notes-for-informational-advisory-and-security-incident-response>
-It MUST be tested that at least one item in `$.document.notes` exists
+It SHALL be tested that at least one item in `$.document.notes` exists
 which has a `category` of `description`, `details`, `general` or
 `summary`.
 
@@ -7720,7 +7695,7 @@ The document notes do not contain an item which has a `category` of
 
 ==== Document References
 <document-references-for-informational-advisory-and-security-incident-response>
-It MUST be tested that at least one item in `$.document.references`
+It SHALL be tested that at least one item in `$.document.references`
 exists that has links to an `external` source.
 
 The relevant values for `$.document.category` are:
@@ -7756,7 +7731,7 @@ The document references do not contain any item which has the category
 
 ==== Vulnerabilities
 <vulnerabilities-for-informational-advisory>
-It MUST be tested that the element `$.vulnerabilities` does not exist.
+It SHALL be tested that the element `$.vulnerabilities` does not exist.
 
 The relevant values for `$.document.category` are:
 
@@ -7794,7 +7769,7 @@ fix.
 
 ==== Product Tree
 <product-tree-for-security-advisory-vex-deprecated-security-advisory>
-It MUST be tested that the element `$.product_tree` exists.
+It SHALL be tested that the element `$.product_tree` exists.
 
 The relevant values for `$.document.category` are:
 
@@ -7830,7 +7805,7 @@ The element `$.product_tree` does not exist.
 
 ==== Vulnerability Notes
 <vulnerability-notes>
-For each item in `$.vulnerabilities` it MUST be tested that the element
+For each item in `$.vulnerabilities` it SHALL be tested that the element
 `notes` exists.
 
 The relevant values for `$.document.category` are:
@@ -7868,7 +7843,7 @@ The vulnerability item has no `notes` element.
 
 ==== Product Status
 <product-status>
-For each item in `$.vulnerabilities` it MUST be tested that the element
+For each item in `$.vulnerabilities` it SHALL be tested that the element
 `product_status` exists.
 
 The relevant values for `$.document.category` are:
@@ -7900,8 +7875,8 @@ The vulnerability item has no `product_status` element.
 
 ==== VEX Product Status
 <vex-product-status>
-For each item in `$.vulnerabilities` it MUST be tested that at least one
-of the elements `fixed`, `known_affected`, `known_not_affected`, or
+For each item in `$.vulnerabilities` it SHALL be tested that at least
+one of the elements `fixed`, `known_affected`, `known_not_affected`, or
 `under_investigation` is present in `product_status`.
 
 The relevant value for `$.document.category` is:
@@ -7939,9 +7914,9 @@ None of the elements `fixed`, `known_affected`, `known_not_affected`, or
 
 ==== Vulnerability ID
 <vulnerability-id>
-For each item in `$.vulnerabilities` it MUST be tested that at least one
-of the elements `cve` or `ids` is present. If no `cve` is present and
-all items in `ids` contain `group_ids` or `product_ids`, it MUST be
+For each item in `$.vulnerabilities` it SHALL be tested that at least
+one of the elements `cve` or `ids` is present. If no `cve` is present
+and all items in `ids` contain `group_ids` or `product_ids`, it SHALL be
 tested that each product mentioned in `product_status[*][*]` is assigned
 at least one item in `ids`. This is independent from whether the product
 is referenced directly or indirectly through a product group.
@@ -7984,10 +7959,10 @@ None of the elements `cve` or `ids` is present.
 ==== Impact Statement
 <impact-statement>
 For each item in
-`$.vulnerabilities[*].product_status.known_not_affected` it MUST be
+`$.vulnerabilities[*].product_status.known_not_affected` it SHALL be
 tested that a corresponding impact statement exist in
 `$.vulnerabilities[*].flags` or `$.vulnerabilities[*].threats`. For the
-latter one, the `category` value for such a statement MUST be `impact`.
+latter one, the `category` value for such a statement SHALL be `impact`.
 
 The relevant value for `$.document.category` is:
 
@@ -8063,7 +8038,7 @@ is given through `CSAFGID-0001`.
 ==== Action Statement
 <action-statement>
 For each item in `$.vulnerabilities[*].product_status.known_affected` it
-MUST be tested that a corresponding action statement exist in
+SHALL be tested that a corresponding action statement exist in
 `$.vulnerabilities[*].remediations`.
 
 The relevant value for `$.document.category` is:
@@ -8139,7 +8114,7 @@ is given through `CSAFGID-0001`.
 
 ==== Vulnerabilities
 <vulnerabilities-for-security-advisory-or-vex>
-It MUST be tested that the element `$.vulnerabilities` exists.
+It SHALL be tested that the element `$.vulnerabilities` exists.
 
 The relevant values for `$.document.category` are:
 
@@ -8175,7 +8150,7 @@ The element `$.vulnerabilities` does not exist.
 
 ==== Affected Products
 <affected-products>
-For each item in `$.vulnerabilities` it MUST be tested that the element
+For each item in `$.vulnerabilities` it SHALL be tested that the element
 `product_status/known_affected` exists.
 
 The relevant value for `$.document.category` is:
@@ -8207,7 +8182,7 @@ The product status does not contain the `known_affected` element.
 ==== Corresponding Affected Products
 <corresponding-affected-products>
 For each product listed in the product status group fixed in any
-vulnerability, it MUST be tested that a corresponding version of the
+vulnerability, it SHALL be tested that a corresponding version of the
 product is listed as affected in the same vulnerability.
 
 #quote(block: true)[
@@ -8280,7 +8255,7 @@ corresponding affected products.
 
 ==== Document Notes
 <document-notes-for-withdrawn-and-superseded>
-It MUST be tested that at least one item in `$.document.notes` exists
+It SHALL be tested that at least one item in `$.document.notes` exists
 which has a `category` of `description`.
 
 The relevant values for `$.document.category` are:
@@ -8316,7 +8291,7 @@ The document notes do not contain an item which has a `category` of
 
 ==== Product Tree
 <product-tree-for-withdrawn-and-superseded>
-It MUST be tested that the element `$.product_tree` does not exist.
+It SHALL be tested that the element `$.product_tree` does not exist.
 
 The relevant values for `$.document.category` are:
 
@@ -8346,7 +8321,7 @@ The element `$.product_tree` exists.
 
 ==== Revision History
 <revision-history-for-withdrawn-and-superseded>
-It MUST be tested that the revision history contains at least two
+It SHALL be tested that the revision history contains at least two
 entries.
 
 The relevant values for `$.document.category` are:
@@ -8381,9 +8356,9 @@ The revision history contains only one entry.
 
 ==== Reasoning for Withdrawal
 <reasoning-for-withdrawal>
-If the document language is English or unspecified, it MUST be tested
+If the document language is English or unspecified, it SHALL be tested
 that exactly one item in document notes exists that has the title
-`Reasoning for Withdrawal`. The `category` of this item MUST be
+`Reasoning for Withdrawal`. The `category` of this item SHALL be
 `description`.
 
 The relevant value for `$.document.category` is:
@@ -8417,9 +8392,9 @@ The note has the correct title. However, it uses the wrong category.
 
 ==== Reasoning for Supersession
 <reasoning-for-supersession>
-If the document language is English or unspecified, it MUST be tested
+If the document language is English or unspecified, it SHALL be tested
 that exactly one item in document notes exists that has the title
-`Reasoning for Supersession`. The `category` of this item MUST be
+`Reasoning for Supersession`. The `category` of this item SHALL be
 `description`.
 
 The relevant value for `$.document.category` is:
@@ -8453,9 +8428,9 @@ The note has the correct title. However, it uses the wrong category.
 
 ==== Reference to Superseding Document
 <reference-to-superseding-document>
-If the document language is English or unspecified, it MUST be tested
+If the document language is English or unspecified, it SHALL be tested
 that at least one item in document references exists that has a summary
-starting with `Superseding Document`. The `category` of this item MUST
+starting with `Superseding Document`. The `category` of this item SHALL
 be `external`.
 
 The relevant value for `$.document.category` is:
@@ -8490,7 +8465,7 @@ Document". However, it uses the wrong category.
 
 === Translation
 <translation>
-It MUST be tested that the given source language and document language
+It SHALL be tested that the given source language and document language
 are not the same.
 
 The relevant path for this test is:
@@ -8525,7 +8500,7 @@ A tool MAY remove the source language as a quick fix.
 
 === Remediation without Product Reference
 <remediation-without-product-reference>
-For each item in `$.vulnerabilities[*].remediations` it MUST be tested
+For each item in `$.vulnerabilities[*].remediations` it SHALL be tested
 that it includes at least one of the elements `group_ids` or
 `product_ids`.
 
@@ -8559,7 +8534,7 @@ to the remediation as a quick fix.
 
 === Mixed Integer and Semantic Versioning
 <mixed-integer-and-semantic-versioning>
-It MUST be tested that all elements of type `$['$defs'].version_t`
+It SHALL be tested that all elements of type `$['$defs'].version_t`
 follow either integer versioning or semantic versioning homogeneously
 within the same document.
 
@@ -8607,7 +8582,7 @@ be stored in `legacy_version`.
 === Version Range in Product Version
 <version-range-in-product-version>
 For each element of type `$['$defs'].branches_t` with `category` of
-`product_version` it MUST be tested that the value of `name` does not
+`product_version` it SHALL be tested that the value of `name` does not
 contain a version range.
 
 #quote(block: true)[
@@ -8663,7 +8638,7 @@ The version range `prior to 4.2` is given for the branch category
 
 === Flag without Product Reference
 <flag-without-product-reference>
-For each item in `$.vulnerabilities[*].flags` it MUST be tested that it
+For each item in `$.vulnerabilities[*].flags` it SHALL be tested that it
 includes at least one of the elements `group_ids` or `product_ids`.
 
 The relevant path for this test is:
@@ -8689,10 +8664,11 @@ The given flag does not specify to which products it should be applied.
 
 === Multiple Flags with VEX Justification Codes per Product
 <multiple-flags-with-vex-justification-codes-per-product>
-For each item in `$.vulnerabilities[*]` it MUST be tested that a Product
-is not member of more than one Flag item with a VEX justification code
-(see section #link(<vulnerabilities-property-flags>)[3.2.4.7]). This
-takes indirect relations through Product Groups into account.
+For each item in `$.vulnerabilities[*]` it SHALL be tested that a
+Product is not member of more than one Flag item with a VEX
+justification code (see section
+#link(<vulnerabilities-property-flags>)[3.2.4.7]). This takes indirect
+relations through Product Groups into account.
 
 #quote(block: true)[
 Additional flags with a different purpose might be provided in later
@@ -8766,7 +8742,7 @@ There are two flags given for `CSAFPID-9080700` - one indirect through
 
 === Branches Recursion Depth
 <mandatory-tests--branches-recursion-depth>
-For each product defined under `$.product_tree.branches[*]` it MUST be
+For each product defined under `$.product_tree.branches[*]` it SHALL be
 tested that the complete JSON path does not contain more than 30
 instances of `branches`.
 
@@ -8980,7 +8956,7 @@ The complete JSON path contains 31 times `branches`.
 
 === Contradicting Remediations
 <contradicting-remediations>
-For each item in `$.vulnerabilities[*].remediations` it MUST be tested
+For each item in `$.vulnerabilities[*].remediations` it SHALL be tested
 that a product is not member of contradicting remediation categories
 (see table
 #link(<vulnerabilities-property-remediations-category-tab-1>)[table 3]).
@@ -9029,7 +9005,7 @@ follows: `vendor_fix` \> `mitigation` \> `workaround` \> `fix_planned`
 
 === Contradicting Product Status Remediation Combination
 <contradicting-product-status-remediation-combination>
-For each item in `$.vulnerabilities[*].remediations` it MUST be tested
+For each item in `$.vulnerabilities[*].remediations` it SHALL be tested
 that a product is not member of a contradicting product status group
 (see table
 #link(<vulnerabilities-property-remediations-category-tab-2>)[table 4]).
@@ -9068,7 +9044,7 @@ but the product was not affected at all.
 
 === Date and Time
 <mandatory-tests--date-and-time>
-For each item of type `string` and format `date-time` it MUST be tested
+For each item of type `string` and format `date-time` it SHALL be tested
 that it conforms to the rules given in section
 #link(<date-and-time>)[2.3].
 
@@ -9105,7 +9081,7 @@ letter `T`.
 
 === Non-Public Sharing Group with Max UUID
 <non-public-sharing-group-with-max-uuid>
-It MUST be tested that a CSAF document using Max UUID as sharing group
+It SHALL be tested that a CSAF document using Max UUID as sharing group
 ID has the TLP label `CLEAR`.
 
 The relevant path for this test is:
@@ -9140,7 +9116,7 @@ A tool MAY remove the property `sharing_group` as a quick fix.
 
 === Public Sharing Group with No Max UUID
 <public-sharing-group-with-no-max-uuid>
-It MUST be tested that a CSAF document with the TLP label `CLEAR` use
+It SHALL be tested that a CSAF document with the TLP label `CLEAR` use
 the Max UUID as sharing group ID if any. The test SHALL pass if no
 sharing group is present or the Nil UUID is used and the document status
 is `draft`.
@@ -9176,7 +9152,7 @@ A tool MAY update the sharing group id as a quick fix.
 
 === Invalid Sharing Group Name
 <invalid-sharing-group-name>
-It MUST be tested that the value of sharing group name does not equal
+It SHALL be tested that the value of sharing group name does not equal
 the reserved values from section
 #link(<document-property---distribution-sharing-group>)[3.2.2.5.1] if
 the precondition is not fulfilled.
@@ -9210,7 +9186,7 @@ A tool MAY update the sharing group name as a quick fix.
 
 === Missing Sharing Group Name
 <missing-sharing-group-name>
-It MUST be tested that the sharing group name exists and equals the
+It SHALL be tested that the sharing group name exists and equals the
 predefined reserved value from section
 #link(<document-property---distribution-sharing-group>)[3.2.2.5.1] if
 the precondition is fulfilled.
@@ -9244,7 +9220,7 @@ A tool MAY add the corresponding sharing group name as a quick fix.
 === PURL Qualifiers
 <purl-qualifiers>
 For each `product_identification_helper` object containing multiple
-PURLs it MUST be tested that the PURLs only differ in their qualifiers.
+PURLs it SHALL be tested that the PURLs only differ in their qualifiers.
 
 The relevant paths for this test are:
 
@@ -9279,7 +9255,7 @@ The two PURLs differ in the name component.
 
 === Use of Multiple Stars in Model Number
 <use-of-multiple-stars-in-model-number>
-For each model number it MUST be tested that it does not contain
+For each model number it SHALL be tested that it does not contain
 multiple unescaped stars.
 
 #quote(block: true)[
@@ -9310,7 +9286,7 @@ The model number contains two unescaped stars.
 
 === Use of Multiple Stars in Serial Number
 <use-of-multiple-stars-in-serial-number>
-For each serial number it MUST be tested that it does not contain
+For each serial number it SHALL be tested that it does not contain
 multiple unescaped stars.
 
 #quote(block: true)[
@@ -9341,11 +9317,11 @@ The serial number contains two unescaped stars.
 
 === Inconsistent Disclosure Date
 <inconsistent-disclosure-date>
-For each vulnerability, it MUST be tested that the `disclosure_date` is
+For each vulnerability, it SHALL be tested that the `disclosure_date` is
 earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document is labeled `TLP:CLEAR` and the
 document status is `final` or `interim`. As the timestamps might use
-different timezones, the sorting MUST take timezones into account.
+different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -9393,7 +9369,7 @@ The document is labeled `TLP:CLEAR` and in status `final` but the
 
 === Invalid SSVC
 <invalid-ssvc>
-It MUST be tested that the given SSVC object is valid according to the
+It SHALL be tested that the given SSVC object is valid according to the
 referenced schema.
 
 The relevant path for this test is:
@@ -9417,10 +9393,10 @@ The required element `selections` is missing.
 
 === Inconsistent SSVC Target IDs
 <inconsistent-ssvc-target-ids>
-For each `ssvc_v2` object it MUST be tested that each item in
+For each `ssvc_v2` object it SHALL be tested that each item in
 `target_ids` is either the CVE of the vulnerability given in `cve` or
 the `text` of an item in the `ids` array of the vulnerability. The test
-MUST fail, if the target ID equals the `$.document.tracking.id` and the
+SHALL fail, if the target ID equals the `$.document.tracking.id` and the
 CSAF document contains more than one vulnerability.
 
 The relevant path for this test is:
@@ -9462,16 +9438,16 @@ The SSVC Target ID does not match the CVE ID.
 A tool MAY remove any inconsistent SSVC Target ID as a quick fix.
 ]
 
-If the tool removes the last item of the array, it MUST remove the
+If the tool removes the last item of the array, it SHALL remove the
 element `target_ids` as well.
 
 === SSVC Decision Points
 <ssvc-decision-points>
 For each SSVC decision point given under `selections` within a
-registered base `namespace`, it MUST be tested that given decision point
-exists, is valid and the items in `values` are ordered correctly. The
-test SHALL pass, if a unregistered `namespace` is used. Namespaces
-reserved for special purpose MUST be treated as per their definition.
+registered base `namespace`, it SHALL be tested that given decision
+point exists, is valid and the items in `values` are ordered correctly.
+The test SHALL pass, if a unregistered `namespace` is used. Namespaces
+reserved for special purpose SHALL be treated as per their definition.
 
 #quote(block: true)[
 A list of all currently registered namespaces is a available in the SSVC
@@ -9537,10 +9513,10 @@ order of their definition as a quick fix.
 
 === Inconsistent SSVC Timestamp
 <inconsistent-ssvc-timestamp>
-For each vulnerability, it MUST be tested that each SSVC `timestamp` is
+For each vulnerability, it SHALL be tested that each SSVC `timestamp` is
 earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`. As
-the timestamps might use different timezones, the sorting MUST take
+the timestamps might use different timezones, the sorting SHALL take
 timezones into account.
 
 The relevant path for this test is:
@@ -9594,12 +9570,12 @@ the `date` of newest item in the `revision_history`.
 === Product Version Range Rules
 <product-version-range-rules>
 For each element of type `$['$defs'].branches_t` with `category` of
-`product_version_range`, it MUST be tested that the value of `name`
+`product_version_range`, it SHALL be tested that the value of `name`
 complies with the rules given in section
 #link(<branches-type---name-under-product-version-range>)[3.1.2.3.2].
 VERS types not supported by the implementation SHALL result in a warning
-which MUST include the VERS type name used. Nevertheless, all other
-rules MUST be checked to the extent possible.
+which SHALL include the VERS type name used. Nevertheless, all other
+rules SHALL be checked to the extent possible.
 
 The relevant path for this test is:
 
@@ -9625,10 +9601,10 @@ The version range given does not comply with the rules given in section
 
 === Inconsistent EPSS Timestamp
 <inconsistent-epss-timestamp>
-For each vulnerability, it MUST be tested that each EPSS `timestamp` is
+For each vulnerability, it SHALL be tested that each EPSS `timestamp` is
 earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`. As
-the timestamps might use different timezones, the sorting MUST take
+the timestamps might use different timezones, the sorting SHALL take
 timezones into account.
 
 The relevant path for this test is:
@@ -9690,11 +9666,12 @@ the `date` of newest item in the `revision_history`.
 
 === Inconsistent First Known Exploitation Dates
 <inconsistent-first-known-exploitation-dates>
-For each First Known Exploitation Dates item, it MUST be tested that the
-values of its `date` and `exploitation_date` properties are both earlier
-than or equal to the `date` of the newest item of the `revision_history`
-if the document status is `final` or `interim`. As the timestamps might
-use different timezones, the sorting MUST take timezones into account.
+For each First Known Exploitation Dates item, it SHALL be tested that
+the values of its `date` and `exploitation_date` properties are both
+earlier than or equal to the `date` of the newest item of the
+`revision_history` if the document status is `final` or `interim`. As
+the timestamps might use different timezones, the sorting SHALL take
+timezones into account.
 
 The relevant paths for this test are:
 
@@ -9744,10 +9721,10 @@ item are newer than the `date` of newest item in the `revision_history`.
 
 === Inconsistent Exploitation Date
 <inconsistent-exploitation-date>
-For each First Known Exploitation Dates item, it MUST be tested that the
-value of `exploitation_date` is earlier than or equal to value of the
-sibling element `date`. As the timestamps might use different timezones,
-the sorting MUST take timezones into account.
+For each First Known Exploitation Dates item, it SHALL be tested that
+the value of `exploitation_date` is earlier than or equal to value of
+the sibling element `date`. As the timestamps might use different
+timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -9775,7 +9752,7 @@ the same item.
 
 === License Expression
 <license-expression>
-It MUST be tested that the license expression is valid.
+It SHALL be tested that the license expression is valid.
 
 #quote(block: true)[
 To implement this test, it is deemed sufficient to check for the ABNF
@@ -9809,8 +9786,8 @@ expression.
 If the document language is English or unspecified, and the
 `license_expression` contains license identifiers or exceptions that are
 not listed in the SPDX license list or AboutCode's "ScanCode LicenseDB",
-it MUST be tested that exactly one item in document notes exists that
-has the title `License`. The category of this item MUST be
+it SHALL be tested that exactly one item in document notes exists that
+has the title `License`. The category of this item SHALL be
 `legal_disclaimer`.
 
 The relevant path for this test is:
@@ -9842,7 +9819,7 @@ The note has the correct title. However, it uses the wrong category.
 
 === Use of CVSS and Qualitative Severity Rating
 <use-of-cvss-and-qualitative-severity-rating>
-For each item in `$.vulnerabilities` it MUST be tested that no
+For each item in `$.vulnerabilities` it SHALL be tested that no
 Qualitative Severity Rating and CVSS values are listed for the tuple of
 Product ID and source.
 
@@ -9906,10 +9883,10 @@ A tool MAY remove the `qualitative_severity_rating` as a quick fix.
 === Stacked Branch Categories
 <stacked-branch-categories>
 For each `full_product_name_t` element under `$.product_tree.branches`,
-it MUST be tested that branch categories used along the path leading to
+it SHALL be tested that branch categories used along the path leading to
 the `full_product_name_t` element appear only once in the path. The sole
 exception is `product_family` which can occur multiple times. Therefore,
-`product_family` MUST be ignored in the test.
+`product_family` SHALL be ignored in the test.
 
 The relevant path for this test is:
 
@@ -9950,7 +9927,7 @@ applicable.
 === Use of `product_version` in one Path with `product_version_range`
 <use-of-product-version-in-one-path-with-product-version-range>
 For each `full_product_name_t` element under `$.product_tree.branches`,
-it MUST be tested that only one of the branch categories
+it SHALL be tested that only one of the branch categories
 `product_version` and `product_version_range` is used along the path
 leading to the `full_product_name_t` element.
 
@@ -9995,8 +9972,8 @@ a tool MAY convert a previously existing `product_name` element into a
 === Single Version as Product Version Range
 <single-version-as-product-version-range>
 For each element of type `$['$defs'].branches_t` with `category` of
-`product_version_range`, it MUST be tested that the value of `name` does
-not identify only a single version.
+`product_version_range`, it SHALL be tested that the value of `name`
+does not identify only a single version.
 
 The relevant path for this test is:
 
@@ -10037,8 +10014,8 @@ function to only run one or more selected tests.
 
 ==== Content Schema
 <mandatory-tests--extension-tests-content-schema>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that the item is valid against the Extension Content Schema.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that the item is valid against the Extension Content Schema.
 
 The relevant paths for this test are:
 
@@ -10073,12 +10050,12 @@ The extension is missing the required property `critical`.
 
 ==== Extension Schema
 <mandatory-tests--extension-tests-extension-schema>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that the item is valid against the declared CSAF Extension
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that the item is valid against the declared CSAF Extension
 Schema. CSAF Extensions not supported by the implementation SHALL result
-in a warning which MUST include the value of `$schema` of the extension.
-Such warning SHALL differentiate between the different classes of
-extensions.
+in a warning which SHALL include the value of `$schema` of the
+extension. Such warning SHALL differentiate between the different
+classes of extensions.
 
 The relevant paths for this test are:
 
@@ -10118,12 +10095,12 @@ by the declared CSAF Extension Schema.
 
 ==== Extension Metadata
 <mandatory-tests--extension-tests-metadata>
-For each element of type `$['$defs'].extensions_t` it MUST be tested
+For each element of type `$['$defs'].extensions_t` it SHALL be tested
 that the requirements provided through its metadata are fulfilled for
 each CSAF Extension used. CSAF Extensions not supported by the
-implementation SHALL result in a warning which MUST include the value of
-`$schema` of the extension. Such warning SHALL differentiate between the
-different classes of extensions.
+implementation SHALL result in a warning which SHALL include the value
+of `$schema` of the extension. Such warning SHALL differentiate between
+the different classes of extensions.
 
 #quote(block: true)[
 This includes, but is not limited to:
@@ -10172,7 +10149,7 @@ The extension is only allowed once in the path `$.x_extensions`.
 
 === Use of Multiple Stars in SKU
 <use-of-multiple-stars-in-sku>
-For each stock keeping unit it MUST be tested that it does not contain
+For each stock keeping unit it SHALL be tested that it does not contain
 multiple unescaped stars.
 
 #quote(block: true)[
@@ -10207,13 +10184,14 @@ Recommended tests SHOULD NOT fail at a valid CSAF document without a
 good reason. Failing such a test does not make the CSAF document
 invalid. These tests may include information about features which are
 still supported but expected to be deprecated in a future version of
-CSAF. A program MUST handle a test failure as a warning.
+CSAF. A program SHALL handle a test failure as a warning.
 
 === Unused Definition of Product ID
 <unused-definition-of-product-id>
 For each Product ID (type `$['$defs'].product_id_t`) in Full Product
-Name elements (type: `$['$defs'].full_product_name_t`) it MUST be tested
-that the `product_id` is referenced somewhere within the same document.
+Name elements (type: `$['$defs'].full_product_name_t`) it SHALL be
+tested that the `product_id` is referenced somewhere within the same
+document.
 
 This test SHALL be skipped for CSAF documents conforming the profile
 "Informational Advisory".
@@ -10252,7 +10230,7 @@ quick fix shall not be applied if the test was skipped.
 === Missing Remediation
 <missing-remediation>
 For each Product ID (type `$['$defs'].product_id_t`) in the Product
-Status groups Affected and Under investigation it MUST be tested that a
+Status groups Affected and Under investigation it SHALL be tested that a
 remediation exists.
 
 #quote(block: true)[
@@ -10299,7 +10277,7 @@ remediation object for this Product ID.
 === Missing Metric
 <missing-metric>
 For each Product ID (type `$['$defs'].product_id_t`) in the Product
-Status groups Affected it MUST be tested that a metric object exists
+Status groups Affected it SHALL be tested that a metric object exists
 which covers this product.
 
 The relevant paths for this test are:
@@ -10339,7 +10317,7 @@ metric object which covers this Product ID.
 
 === Build Metadata in Revision History
 <build-metadata-in-revision-history>
-For each item in revision history it MUST be tested that `number` does
+For each item in revision history it SHALL be tested that `number` does
 not include build metadata.
 
 The relevant path for this test is:
@@ -10368,9 +10346,9 @@ the build metadata `+exp.sha.ac00785`.
 
 === Older Initial Release Date than Revision History
 <older-initial-release-date-than-revision-history>
-It MUST be tested that the Initial Release Date is not older than the
+It SHALL be tested that the Initial Release Date is not older than the
 `date` of the oldest item in Revision History. As the timestamps might
-use different timezones, the sorting and comparison MUST take timezones
+use different timezones, the sorting and comparison SHALL take timezones
 into account.
 
 The relevant path for this test is:
@@ -10410,9 +10388,9 @@ Revision History.
 
 === Older Current Release Date than Revision History
 <older-current-release-date-than-revision-history>
-It MUST be tested that the Current Release Date is not older than the
+It SHALL be tested that the Current Release Date is not older than the
 `date` of the newest item in Revision History. As the timestamps might
-use different timezones, the sorting and comparison MUST take timezones
+use different timezones, the sorting and comparison SHALL take timezones
 into account.
 
 The relevant path for this test is:
@@ -10452,7 +10430,7 @@ Revision History.
 
 === Missing Date in Involvements
 <missing-date-in-involvements>
-For each item in the list of involvements it MUST be tested that it
+For each item in the list of involvements it SHALL be tested that it
 includes the property `date`.
 
 The relevant path for this test is:
@@ -10484,7 +10462,7 @@ property `date`.
 
 === Use of MD5 As the Only Hash Algorithm
 <use-of-md5-as-the-only-hash-algorithm>
-It MUST be tested that the hash algorithm `md5` is not the only one
+It SHALL be tested that the hash algorithm `md5` is not the only one
 present.
 
 #quote(block: true)[
@@ -10535,7 +10513,7 @@ accompanied by a second hash algorithm.
 
 === Use of SHA-1 As the Only Hash Algorithm
 <use-of-sha-1-as-the-only-hash-algorithm>
-It MUST be tested that the hash algorithm `sha1` is not the only one
+It SHALL be tested that the hash algorithm `sha1` is not the only one
 present.
 
 #quote(block: true)[
@@ -10595,7 +10573,7 @@ from any preset and requirement to be executed.
 
 === Missing Canonical URL
 <missing-canonical-url>
-It MUST be tested that the CSAF document has a canonical URL.
+It SHALL be tested that the CSAF document has a canonical URL.
 
 #quote(block: true)[
 To implement this test it is deemed sufficient that one item in
@@ -10644,7 +10622,7 @@ fulfill the requirement of a valid filename for a CSAF document.
 
 === Missing Document Language
 <missing-document-language>
-It MUST be tested that the document language member is present and set.
+It SHALL be tested that the document language member is present and set.
 A CSAF Validator SHALL differentiate in the error message between the
 key being present but having no or an empty value and not being present
 at all.
@@ -10686,7 +10664,7 @@ e.g.~through a given configuration.
 
 === Sorting
 <recommended-tests--sorting>
-It MUST be tested that all keys in a CSAF document are sorted
+It SHALL be tested that all keys in a CSAF document are sorted
 alphabetically.
 
 The relevant path for this test is:
@@ -10716,7 +10694,7 @@ A tool MAY sort the keys as a quick fix.
 
 === Use of Private Language
 <use-of-private-language>
-For each element of type `$['$defs'].lang_t` it MUST be tested that the
+For each element of type `$['$defs'].lang_t` it SHALL be tested that the
 language code does not contain subtags reserved for private use.
 
 The relevant paths for this test are:
@@ -10743,7 +10721,7 @@ A tool MAY remove such subtag as a quick fix.
 
 === Use of Default Language
 <use-of-default-language>
-For each element of type `$['$defs'].lang_t` it MUST be tested that the
+For each element of type `$['$defs'].lang_t` it SHALL be tested that the
 language code is not `i-default`.
 
 The relevant paths for this test are:
@@ -10770,7 +10748,7 @@ A tool MAY remove such element as a quick fix.
 
 === Missing Product Identification Helper
 <missing-product-identification-helper>
-For each element of type `$['$defs'].full_product_name_t` it MUST be
+For each element of type `$['$defs'].full_product_name_t` it SHALL be
 tested that it includes the property `product_identification_helper`.
 
 The relevant paths for this test are:
@@ -10800,8 +10778,8 @@ Identification Helper at all.
 
 === CVE in Field IDs
 <cve-in-field-ids>
-For each item in `$.vulnerabilities[*].ids` it MUST be tested that it is
-not a CVE ID.
+For each item in `$.vulnerabilities[*].ids` it SHALL be tested that it
+is not a CVE ID.
 
 #quote(block: true)[
 It is sufficient to check, whether the property `text` matches the regex
@@ -10839,7 +10817,7 @@ element as a quick fix.
 === Product Version Range without VERS
 <product-version-range-without-vers>
 For each element of type `$['$defs'].branches_t` with `category` of
-`product_version_range` it MUST be tested that the value of `name`
+`product_version_range` it SHALL be tested that the value of `name`
 indicates that the product version range is using VERS.
 
 #quote(block: true)[
@@ -10855,7 +10833,7 @@ matches the following regex:
 ```
 ]
 
-The warning MUST clearly advise to carefully check whether VERS can be
+The warning SHALL clearly advise to carefully check whether VERS can be
 used or the versions can be enumerated as the use of vls is only a
 fallback option. For more details, see sections
 #link(<branches-type---category>)[3.1.2.2] and
@@ -10893,10 +10871,10 @@ VERS specification.
 === CVSS for Fixed Products
 <cvss-for-fixed-products>
 For each item the fixed products group (`first_fixed` and `fixed`) it
-MUST be tested that a CVSS applying to this product has an overall score
-of `0`. The test SHALL pass if none of the Product IDs listed within
-product status `fixed` or `first_fixed` is found in `products` of any
-item of the `metrics` element.
+SHALL be tested that a CVSS applying to this product has an overall
+score of `0`. The test SHALL pass if none of the Product IDs listed
+within product status `fixed` or `first_fixed` is found in `products` of
+any item of the `metrics` element.
 
 The relevant path for this test is:
 
@@ -10973,15 +10951,15 @@ environmental properties have been identified:
 
 === Additional Properties
 <additional-properties>
-It MUST be tested that there is no additional property in the CSAF
+It SHALL be tested that there is no additional property in the CSAF
 document that was not defined in the CSAF JSON schema. This also applies
-for referenced schemas. For CSAF Extensions, the declared schemas MUST
+for referenced schemas. For CSAF Extensions, the declared schemas SHALL
 be checked additionally to the CSAF Extension Content Schema. Additional
 and unevaluated properties allowed by the CSAF Extension Content Schema
-MUST not be reported. CSAF Extensions not supported by the
-implementation SHALL result in a warning which MUST include the value of
-`$schema` of the extension. Such warning SHALL differentiate between the
-different classes of extensions.
+SHALL not be reported. CSAF Extensions not supported by the
+implementation SHALL result in a warning which SHALL include the value
+of `$schema` of the extension. Such warning SHALL differentiate between
+the different classes of extensions.
 
 #quote(block: true)[
 Some of the errors could be reported by combining the JSON schema check
@@ -11028,9 +11006,9 @@ A tool MAY remove such keys as a quick fix.
 
 === Same Timestamps in Revision History
 <same-timestamps-in-revision-history>
-It MUST be tested that the timestamps of all items in the revision
+It SHALL be tested that the timestamps of all items in the revision
 history are pairwise disjoint. As the timestamps might use different
-timezones, the comparison MUST take timezones into account.
+timezones, the comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -11062,7 +11040,7 @@ The first and second revision have the same timestamp.
 
 === Document Tracking ID in Title
 <document-tracking-id-in-title>
-It MUST be tested that the `$.document.title` does not contain the
+It SHALL be tested that the `$.document.title` does not contain the
 `$.document.tracking.id`.
 
 The relevant path for this test is:
@@ -11095,7 +11073,7 @@ colon, dash and brackets.
 
 === Usage of Deprecated CWE
 <usage-of-deprecated-cwe>
-For each item in the CWE array it MUST be tested that the CWE is not
+For each item in the CWE array it SHALL be tested that the CWE is not
 deprecated in the given version.
 
 The relevant path for this test is:
@@ -11128,7 +11106,7 @@ closest equivalent.
 
 === Usage of Non-Latest CWE Version
 <usage-of-non-latest-cwe-version>
-For each item in the CWE array it MUST be tested that the latest CWE
+For each item in the CWE array it SHALL be tested that the latest CWE
 version available at the time of the last revision was used. The test
 SHALL fail if a later CWE version was used.
 
@@ -11177,7 +11155,7 @@ CWE version as modifications to a CSAF document lead to a new
 
 === Usage of CWE Not Allowed for Vulnerability Mapping
 <usage-of-cwe-not-allowed-for-vulnerability-mapping>
-For each item in the CWE array it MUST be tested that the vulnerability
+For each item in the CWE array it SHALL be tested that the vulnerability
 mapping is allowed.
 
 #quote(block: true)[
@@ -11217,7 +11195,7 @@ available" \[#link(<CWE-20>)[CWE-20]\].
 
 === Usage of CWE Allowed with Review for Vulnerability Mapping
 <usage-of-cwe-allowed-with-review-for-vulnerability-mapping>
-For each item in the CWE array it MUST be tested that the vulnerability
+For each item in the CWE array it SHALL be tested that the vulnerability
 mapping is allowed without review.
 
 #quote(block: true)[
@@ -11229,6 +11207,13 @@ processes that ensure the extra review, e.g.~by a senior analyst.
 Note: The property `Usage` within the `MappingNotesType` was introduced
 in version `7.0` of the CWE schema definition. As a consequence, this
 information might not be available before CWE version `4.12`.
+]
+
+The test SHALL NOT fail on items that are not allowed at all.
+
+#quote(block: true)[
+Those are covert through tests #link(<mandatory-tests--cwe>)[6.1.11] and
+#link(<usage-of-cwe-not-allowed-for-vulnerability-mapping>)[6.2.25]
 ]
 
 The relevant path for this test is:
@@ -11258,7 +11243,7 @@ appropriate". \[#link(<CWE-1023>)[CWE-1023]\]
 
 === Discouraged Product Status Remediation Combination
 <discouraged-product-status-remediation-combination>
-For each item in `$.vulnerabilities[*].remediations`, it MUST be tested
+For each item in `$.vulnerabilities[*].remediations`, it SHALL be tested
 that a Product is not member of a discouraged product status group
 remediation category combination (see table
 #link(<vulnerabilities-property-remediations-category-tab-2>)[table 4]).
@@ -11297,7 +11282,7 @@ the product was not affected at all.
 
 === Usage of Max UUID
 <usage-of-max-uuid>
-It MUST be tested that the Max UUID is not used as sharing group id.
+It SHALL be tested that the Max UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
@@ -11327,7 +11312,7 @@ A tool MAY remove the property `sharing_group` as a quick fix.
 
 === Usage of Nil UUID
 <usage-of-nil-uuid>
-It MUST be tested that the Nil UUID is not used as sharing group id.
+It SHALL be tested that the Nil UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
@@ -11357,7 +11342,7 @@ A tool MAY remove the property `sharing_group` as a quick fix.
 
 === Usage of Sharing Group on TLP:CLEAR
 <usage-of-sharing-group-on-tlp-clear>
-It MUST be tested that no sharing group is used if the document is
+It SHALL be tested that no sharing group is used if the document is
 `TLP:CLEAR`.
 
 The relevant path for this test is:
@@ -11392,7 +11377,7 @@ A tool MAY remove the property `sharing_group` as a quick fix.
 === Hardware and Software
 <hardware-and-software>
 For each product containing at least one of the Product Identification
-Helpers `serial_numbers` or `model_numbers` it MUST be tested that a
+Helpers `serial_numbers` or `model_numbers` it SHALL be tested that a
 product path exists referencing this product.
 
 #quote(block: true)[
@@ -11460,7 +11445,7 @@ in section #link(<hardware-and-software-within-the-product-tree>)[5.6].
 
 === Use of Same Product Identification Helper for Different Products
 <use-of-same-product-identification-helper-for-different-products>
-For each Product Identification Helper category it MUST be tested that
+For each Product Identification Helper category it SHALL be tested that
 the same value is not used for multiple products in this category.
 
 #quote(block: true)[
@@ -11540,11 +11525,11 @@ Both products are identified by the same serial number `143-D-354`.
 
 === Disclosure Date Newer than Revision History
 <disclosure-date-newer-than-revision-history>
-For each vulnerability, it MUST be tested that the `disclosure_date` is
+For each vulnerability, it SHALL be tested that the `disclosure_date` is
 earlier or equal to the `date` of the newest item of the
 `revision_history` if the `disclosure_date` is in the past at the time
 of the test execution. As the timestamps might use different timezones,
-the sorting MUST take timezones into account.
+the sorting SHALL take timezones into account.
 
 #quote(block: true)[
 The result of the test is dependent upon the time of the execution of
@@ -11599,9 +11584,9 @@ item in the `revision_history`.
 
 === Usage of Unknown SSVC Decision Point Base Namespace
 <usage-of-unknown-ssvc-decision-point-base-namespace>
-For each SSVC decision point given under `selections`, it MUST be tested
-that the base `namespace` is a registered one. Namespaces reserved for
-special purpose MUST be treated as per their definition.
+For each SSVC decision point given under `selections`, it SHALL be
+tested that the base `namespace` is a registered one. Namespaces
+reserved for special purpose SHALL be treated as per their definition.
 
 #quote(block: true)[
 This test fails on unregistered namespaces as well as registered ones
@@ -11640,10 +11625,10 @@ therefore not be known to the reader of the document.
 
 === Usage of Unregistered SSVC Decision Point Base Namespace in TLP:CLEAR Document
 <usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document>
-For each SSVC decision point given under `selections`, it MUST be tested
-that the base `namespace` is not an unregistered one if the document is
-labeled `TLP:CLEAR`. Namespaces reserved for special purpose MUST be
-treated as per their definition.
+For each SSVC decision point given under `selections`, it SHALL be
+tested that the base `namespace` is not an unregistered one if the
+document is labeled `TLP:CLEAR`. Namespaces reserved for special purpose
+SHALL be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -11698,9 +11683,9 @@ to the reader of the document.
 
 === Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document
 <usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document>
-For each SSVC decision point given under `selections`, it MUST be tested
-that the `namespace` does not use an extension if the document is
-labeled `TLP:CLEAR`. Namespaces reserved for special purpose MUST be
+For each SSVC decision point given under `selections`, it SHALL be
+tested that the `namespace` does not use an extension if the document is
+labeled `TLP:CLEAR`. Namespaces reserved for special purpose SHALL be
 treated as per their definition.
 
 The relevant path for this test is:
@@ -11760,10 +11745,10 @@ points from the base namespace, if the extension is unknown.
 === Usage of Unknown SSVC Decision Point Namespace without Resource
 <usage-of-unknown-ssvc-decision-point-namespace-without-resource>
 For each SSVC object containing a decision point with a full `namespace`
-that is not registered, it MUST be tested that a Decision Point Resource
-exists for each one that provides additional context about the decision
-points from this namespace. Namespaces reserved for special purpose MUST
-be treated as per their definition.
+that is not registered, it SHALL be tested that a Decision Point
+Resource exists for each one that provides additional context about the
+decision points from this namespace. Namespaces reserved for special
+purpose SHALL be treated as per their definition.
 
 #quote(block: true)[
 A full namespace includes any extension. To implement this test it is
@@ -11771,7 +11756,7 @@ deemed sufficient to check whether the `summary` contains the full
 `namespace`.
 ]
 
-Namespaces reserved for special purpose MUST be treated as per their
+Namespaces reserved for special purpose SHALL be treated as per their
 definition.
 
 The relevant path for this test is:
@@ -11813,7 +11798,7 @@ registered one, however no `decision_point_resources` mentions the
 
 === Usage of Deprecated Profile
 <usage-of-deprecated-profile>
-It MUST be tested that the `$.document.category` does not start with
+It SHALL be tested that the `$.document.category` does not start with
 `csaf_deprecated_`.
 
 #quote(block: true)[
@@ -11851,12 +11836,12 @@ other tests.
 ==== Missing Fixed Product
 <missing-fixed-product>
 For each product listed in the product status group affected in any
-vulnerability, it MUST be tested that a corresponding version of the
-product is listed as fixed in the same vulnerability. The test MUST be
+vulnerability, it SHALL be tested that a corresponding version of the
+product is listed as fixed in the same vulnerability. The test SHALL be
 skipped if there is a clear indication, that such a version of the
 product does not exist. Indicators include a remediation item with one
 of the categories `fix_planned`, `no_fix_planned` or `none_available`
-referring to the affected product. The test MUST NOT be skipped, if
+referring to the affected product. The test SHALL NOT be skipped, if
 there is an indication, that such a version of the product might exist.
 Indicators include an affected product version range with the comparator
 `<` in the last version constraint and a remediation item with the
@@ -11912,12 +11897,13 @@ in the advisory as a quick fix.
 
 ==== Language Specific Reasoning for Withdrawal
 <language-specific-reasoning-for-withdrawal>
-If the document language is specified but not English, it MUST be tested
-that exactly one item in document notes exists that has the language
-specific translation of the term `Reasoning for Withdrawal` as `title`.
-The `category` of this item MUST be `description`. If no language
-specific translation has been recorded, the test MUST be skipped and
-output an information to the user that no such translation is known.
+If the document language is specified but not English, it SHALL be
+tested that exactly one item in document notes exists that has the
+language specific translation of the term `Reasoning for Withdrawal` as
+`title`. The `category` of this item SHALL be `description`. If no
+language specific translation has been recorded, the test SHALL be
+skipped and output an information to the user that no such translation
+is known.
 
 #quote(block: true)[
 A list of the language specific translations is kept at the OASIS CSAF
@@ -11955,11 +11941,11 @@ The note has the correct title. However, it uses the wrong category.
 
 ==== Language Specific Reasoning for Supersession
 <language-specific-reasoning-for-supersession>
-If the document language is specified but not English, it MUST be tested
-that exactly one item in document notes exists that has the language
-specific translation of the term `Reasoning for Supersession` as
-`title`. The `category` of this item MUST be `description`. If no
-language specific translation has been recorded, the test MUST be
+If the document language is specified but not English, it SHALL be
+tested that exactly one item in document notes exists that has the
+language specific translation of the term `Reasoning for Supersession`
+as `title`. The `category` of this item SHALL be `description`. If no
+language specific translation has been recorded, the test SHALL be
 skipped and output an information to the user that no such translation
 is known.
 
@@ -11999,13 +11985,13 @@ The note has the correct title. However, it uses the wrong category.
 
 ==== Language Specific Superseding Document
 <language-specific-superseding-document>
-If the document language is specified but not English, it MUST be tested
-that at least one item in document references exists that starts with
-the language specific translation of the term `Superseding Document` as
-`summary`. The `category` of this item MUST be `external`. If no
-language specific translation has been recorded, the test MUST be
-skipped and output an information to the user that no such translation
-is known.
+If the document language is specified but not English, it SHALL be
+tested that at least one item in document references exists that starts
+with the language specific translation of the term
+`Superseding Document` as `summary`. The `category` of this item SHALL
+be `external`. If no language specific translation has been recorded,
+the test SHALL be skipped and output an information to the user that no
+such translation is known.
 
 #quote(block: true)[
 A list of the language specific translations is kept at the OASIS CSAF
@@ -12041,9 +12027,9 @@ test):]#box()<language-specific-superseding-document-eg-1>
 The note has the correct title. However, it uses the wrong category.
 ]
 
-===== Extension in Superseded or Withdrawn Document
+==== Extension in Superseded or Withdrawn Document
 <extension-in-superseded-or-withdrawn-document>
-It MUST be tested that the document does not contain an extension.
+It SHALL be tested that the document does not contain an extension.
 
 The relevant values for `$.document.category` are:
 
@@ -12080,8 +12066,8 @@ The document contains a CSAF Extension.
 
 === Product Description without Product Reference
 <product-description-without-product-reference>
-For each product description it MUST be tested that it includes at least
-one of the elements `group_ids` or `product_ids`.
+For each product description it SHALL be tested that it includes at
+least one of the elements `group_ids` or `product_ids`.
 
 #quote(block: true)[
 If the document language is English or unspecified, the product
@@ -12091,7 +12077,7 @@ corresponding `category` and `title` combination from
 language specific translation is used.
 ]
 
-If no language specific translation has been recorded, the test MUST be
+If no language specific translation has been recorded, the test SHALL be
 skipped and output an information to the user that no translation for
 product description is known.
 
@@ -12120,11 +12106,11 @@ The given note item does not specify to which products it applies to.
 
 === Old EPSS Timestamp
 <old-epss-timestamp>
-For each vulnerability, it MUST be tested that the youngest EPSS
+For each vulnerability, it SHALL be tested that the youngest EPSS
 `timestamp` is not more than 15 days older than to the `date` of the
 newest item of the `revision_history` if the document status is `final`
 or `interim`. As the timestamps might use different timezones, the
-sorting MUST take timezones into account.
+sorting SHALL take timezones into account.
 
 The relevant path for this test is:
 
@@ -12185,9 +12171,9 @@ The document is in status `final` but the EPSS `timestamp` is more than
 === Inconsistent Product Identification Helper
 <inconsistent-product-identification-helper>
 For each product identification helper which resides in `branches`, it
-MUST be tested that the product identification helper contain at least
+SHALL be tested that the product identification helper contain at least
 the same information as the categorized strings. Information that cannot
-be represented in the specific product identification helper MUST be
+be represented in the specific product identification helper SHALL be
 omitted from the comparison.
 
 #quote(block: true)[
@@ -12269,9 +12255,10 @@ an update part that is not given through the categorized strings.
 
 === Missing License Expression
 <missing-license-expression>
-It MUST be tested that the license expression is present and set. A CSAF
-Validator SHALL differentiate in the error message between the key being
-present but having no or an empty value and not being present at all.
+It SHALL be tested that the license expression is present and set. A
+CSAF Validator SHALL differentiate in the error message between the key
+being present but having no or an empty value and not being present at
+all.
 
 The relevant path for this test is:
 
@@ -12305,7 +12292,7 @@ e.g.~through a given configuration.
 
 === Deprecated License Identifier
 <deprecated-license-identifier>
-It MUST be tested that all license identifier and exceptions used are
+It SHALL be tested that all license identifier and exceptions used are
 not deprecated. This SHALL be tested for the SPDX license list and
 AboutCode's "ScanCode LicenseDB". The test MAY be skipped for other
 license inventoring entities.
@@ -12329,10 +12316,10 @@ The license identifier `GFDL-1.1` was deprecated as of version 3.0.
 
 === Non-Existing License Identifier
 <non-existing-license-identifier>
-It MUST be tested that all license identifier and exceptions used exist.
-This SHALL be tested for the SPDX license list and AboutCode's "ScanCode
-LicenseDB". The test MAY be skipped for other license inventoring
-entities.
+It SHALL be tested that all license identifier and exceptions used
+exist. This SHALL be tested for the SPDX license list and AboutCode's
+"ScanCode LicenseDB". The test MAY be skipped for other license
+inventoring entities.
 
 The relevant path for this test is:
 
@@ -12356,10 +12343,10 @@ The license identifier does not exist in the SPDX license list.
 If the document language is specified but not English, and the
 `license_expression` contains license identifiers or exceptions that are
 not listed in the SPDX license list or AboutCode's "ScanCode LicenseDB",
-it MUST be tested that exactly one item in document notes exists that
+it SHALL be tested that exactly one item in document notes exists that
 has the language specific translation of the term `License` as title.
-The category of this item MUST be `legal_disclaimer`. If no language
-specific translation has been recorded, the test MUST be skipped and
+The category of this item SHALL be `legal_disclaimer`. If no language
+specific translation has been recorded, the test SHALL be skipped and
 output an information to the user that no such translation is known.
 
 The relevant path for this test is:
@@ -12393,7 +12380,7 @@ The note has the correct title. However, it uses the wrong category.
 
 === Use of Qualitative Severity Rating by Issuing Party
 <use-of-qualitative-severity-rating-by-issuing-party>
-For each item in `metrics` provided by the issuing party it MUST be
+For each item in `metrics` provided by the issuing party it SHALL be
 tested that it does not use the qualitative severity rating.
 
 #quote(block: true)[
@@ -12447,7 +12434,7 @@ A tool MAY recommend other metrics or guide a CVSS assessment.
 
 === Misuse at Vendor Name
 <misuse-at-vendor-name>
-For each item in `branches` with category `vendor` it MUST be tested
+For each item in `branches` with category `vendor` it SHALL be tested
 that the `name` is not `Open Source`. The comparison is case and white
 space insensitive.
 
@@ -12499,7 +12486,7 @@ A tool MAY replace the vendor name with the correct one as a quick fix.
 === Upper Open Ended Product Version Range
 <upper-open-ended-product-version-range>
 For each element of type `$['$defs'].branches_t` with `category` of
-`product_version_range`, it MUST be tested that the value of `name` is
+`product_version_range`, it SHALL be tested that the value of `name` is
 not an upper open ended product version range.
 
 #quote(block: true)[
@@ -12640,7 +12627,7 @@ product tree. Elements in `PVRSS-invalid` should be detected by test
 ==== Overlapping Product Version Range with VERS in Contradicting Product Status Group
 <overlapping-product-version-range-with-vers-in-contradicting-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vers` that
 overlap with `CTPVR` are not member of a contradicting product status
 groups (see section
@@ -12717,7 +12704,7 @@ ones to simplify the resolution as a quick fix.
 ==== Overlapping Product Version Range with vls in Contradicting Product Status Group
 <overlapping-product-version-range-with-vls-in-contradicting-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vls` that
 overlap with `CTPVR` are not member of a contradicting product status
 groups (see section
@@ -12794,7 +12781,7 @@ ones to simplify the resolution as a quick fix.
 ==== Overlapping Product Version Range with Product Version in Contradicting Product Status Group
 <overlapping-product-version-range-with-product-version-in-contradicting-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVSS+l` that overlap
 with `CTPVR` are not member of a contradicting product status groups
 (see section
@@ -12871,9 +12858,9 @@ version range as a quick fix.
 === Unknown VERS Type
 <unknown-vers-type>
 For each element of type `$['$defs'].branches_t` with `category` of
-`product_version_range` which indicates that it is using vers, it MUST
+`product_version_range` which indicates that it is using vers, it SHALL
 be tested that the VERS type is officially registered and supported by
-the implementation. The warning MUST differentiate between officially
+the implementation. The warning SHALL differentiate between officially
 registered VERS types and those that are not in this state.
 
 #quote(block: true)[
@@ -12910,8 +12897,8 @@ it supports this VERS type.
 <unknown-hash-algorithm>
 For each element of type
 `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`,
-it MUST be tested that the hash algorithm is supported by the
-implementation. The warning MUST differentiate between the values
+it SHALL be tested that the hash algorithm is supported by the
+implementation. The warning SHALL differentiate between the values
 mentioned in section
 #link(<full-product-name-type---product-identification-helper---hashes>)[3.1.4.3.2]
 and those not mentioned there.
@@ -12953,7 +12940,7 @@ this algorithm.
 === Matching Text for Registered ID System
 <matching-text-for-registered-id-system>
 For each item in `$.vulnerabilities[*].ids` that has the value of a
-registered vulnerability ID system as `system_name`, it MUST be tested
+registered vulnerability ID system as `system_name`, it SHALL be tested
 that the `text` in the CSAF document matches the `text_pattern` given by
 the "Registry for Vulnerability ID Systems for CSAF" (RVISC).
 
@@ -12998,9 +12985,9 @@ function to only run one or more selected tests.
 
 ==== Registered Extension
 <registered-extension>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that the item is a registered CSAF Extension. The test MUST be
-skipped for official CSAF Extensions.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that the item is a registered CSAF Extension. The test SHALL
+be skipped for official CSAF Extensions.
 
 The relevant paths for this test are:
 
@@ -13032,8 +13019,8 @@ The extension is neither an official nor a registered CSAF Extension.
 
 ==== Official Extension
 <official-extension>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that the item is an official CSAF Extension.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that the item is an official CSAF Extension.
 
 The relevant paths for this test are:
 
@@ -13064,8 +13051,8 @@ The extension is not an official CSAF Extension.
 
 ==== Critical Extension
 <critical-extension>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that the item is not a critical extension.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that the item is not a critical extension.
 
 #quote(block: true)[
 It is sufficient to check whether the value of `critical` is `false`.
@@ -13100,9 +13087,9 @@ The extension is critical.
 
 ==== Usage of Experimental Extension in TLP:CLEAR Document
 <usage-of-experimental-extension-in-tlp-clear-document>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that no experimental extension is used if the document is labeled
-`TLP:CLEAR`.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that no experimental extension is used if the document is
+labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
@@ -13145,18 +13132,51 @@ The extension is an experimental CSAF Extension. Its properties and
 meaning might therefore not be known to the reader of the document.
 ]
 
+=== Public OpenPGP Key URL
+<public-openpgp-key-url>
+It SHALL be tested that the URL given as value of
+`public_openpgp_key_url` in the CSAF document delivers a valid public
+OpenPGP key allowing encryption as ASCII armored file with the matching
+content type. The test SHALL be skipped if the URL results in a client
+or server error.
+
+#quote(block: true)[
+As these might be temporary errors, they are reported through test
+#link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6].
+]
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.publisher.contact.public_openpgp_key_url
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<public-openpgp-key-url-eg-1>
+
+```
+    "contact": {
+      // ...
+      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
+    },
+```
+
+#quote(block: true)[
+The `public_openpgp_key_url` points to an expired OpenPGP key.
+]
+
 == Informative Tests
 <informative-tests>
 Informative tests provide insights in common mistakes and bad practices.
 They MAY fail at a valid CSAF document. It is up to the issuing party to
 decide whether this was an intended behavior and can be ignore or should
 be treated. These tests MAY include information about recommended usage.
-A program MUST handle a test failure as a information.
+A program SHALL handle a test failure as a information.
 
 === Use of CVSS v2 As the Only Scoring System
 <use-of-cvss-v2-as-the-only-scoring-system>
 For each item in the list of metrics which contains the `cvss_v2` object
-under `content` it MUST be tested that is not the only scoring item
+under `content` it SHALL be tested that is not the only scoring item
 present. The test SHALL pass if a second scoring object is available
 regarding the specific product.
 
@@ -13215,7 +13235,7 @@ It is recommended to (also) use the CVSS v4.0.
 === Use of CVSS v3.0
 <use-of-cvss-v3-0>
 For each item in the list of metrics which contains the `cvss_v3` object
-under `content` it MUST be tested that CVSS v3.0 is not used.
+under `content` it SHALL be tested that CVSS v3.0 is not used.
 
 The relevant paths for this test are:
 
@@ -13254,7 +13274,7 @@ value are present and set.
 
 === Missing CVE
 <missing-cve>
-It MUST be tested that the CVE number is given.
+It SHALL be tested that the CVE number is given.
 
 The relevant path for this test is:
 
@@ -13285,7 +13305,7 @@ is recommended to get one assigned.
 
 === Missing CWE
 <missing-cwe>
-It MUST be tested that at least one CWE is given.
+It SHALL be tested that at least one CWE is given.
 
 The relevant path for this test is:
 
@@ -13310,7 +13330,7 @@ No CWE number is given.
 
 === Use of Short Hash
 <use-of-short-hash>
-It MUST be tested that the length of the hash value is not shorter than
+It SHALL be tested that the length of the hash value is not shorter than
 64 characters.
 
 The relevant paths for this test are:
@@ -13353,7 +13373,7 @@ The length of the hash value is only 32 characters long.
 
 === Use of Non-Self Referencing URLs Failing to Resolve
 <use-of-non-self-referencing-urls-failing-to-resolve>
-For each URL which is not in the category `self` it MUST be tested that
+For each URL which is not in the category `self` it SHALL be tested that
 it resolves with a HTTP status code from the 2xx (Successful) or 3xx
 (Redirection) class.
 
@@ -13370,6 +13390,7 @@ The relevant paths for this test are:
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url
   $.document.references[*].url
+  $.document.publisher.contact.public_openpgp_key_url
   $.document.publisher.namespace
   $.product_tree.branches[*].product.product_identification_helper.sbom_urls[*]
   $.product_tree.branches[*].product.product_identification_helper.x_generic_uris[*].namespace
@@ -13409,7 +13430,7 @@ from the 2xx (Successful) or 3xx (Redirection) class.
 === Use of Self Referencing URLs Failing to Resolve
 <use-of-self-referencing-urls-failing-to-resolve>
 For each item in an array of type `references_t` with the category
-`self` it MUST be tested that the URL referenced resolves with a HTTP
+`self` it SHALL be tested that the URL referenced resolves with a HTTP
 status code less than 400.
 
 #quote(block: true)[
@@ -13445,7 +13466,7 @@ a status code from the 2xx (Successful) or 3xx (Redirection) class.
 
 === Spell Check
 <spell-check>
-If the document language is given it MUST be tested that a spell check
+If the document language is given it SHALL be tested that a spell check
 for the given language does not find any mistakes. The test SHALL be
 skipped if the document language is not set. It SHALL fail if the given
 language is not supported. The value of `$.document.category` SHOULD NOT
@@ -13513,7 +13534,7 @@ There is a spelling mistake in `Secruity`.
 === Branch Categories
 <branch-categories>
 For each element of type `$['$defs'].full_product_name_t` in
-`$.product_tree.branches` it MUST be tested that ancestor nodes along
+`$.product_tree.branches` it SHALL be tested that ancestor nodes along
 the path exist which use the following branch categories `vendor` -\>
 `product_name` -\> `product_version` in that order starting with the
 Product tree node.
@@ -13563,7 +13584,7 @@ category `product_version`.
 
 === Usage of Product Version Range
 <usage-of-product-version-range>
-For each element of type `$['$defs'].branches_t` it MUST be tested that
+For each element of type `$['$defs'].branches_t` it SHALL be tested that
 the `category` is not `product_version_range`.
 
 #quote(block: true)[
@@ -13592,7 +13613,7 @@ The category `product_version_range` was used.
 === Usage of V as Version Indicator
 <usage-of-v-as-version-indicator>
 For each element of type `$['$defs'].branches_t` with `category` of
-`product_version` it MUST be tested that the value of `name` does not
+`product_version` it SHALL be tested that the value of `name` does not
 start with `v` or `V` before the version.
 
 #quote(block: true)[
@@ -13630,7 +13651,7 @@ The product version starts with a `v`.
 === Missing CVSS v4.0
 <missing-cvss-v4-0>
 For each item in the list of metrics that contains any CVSS object it
-MUST be tested that a `cvss_v4` object is present. The test MUST fail,
+SHALL be tested that a `cvss_v4` object is present. The test SHALL fail,
 if any Product ID (type `$['$defs'].product_id_t`) in the product status
 group Affected (see section
 #link(<vulnerabilities-property-product-status>)[3.2.4.12]) is not
@@ -13681,10 +13702,10 @@ There is no CVSS v4.0 score given for `CSAFPID-9080700`.
 === Usage of Non-Latest SSVC Decision Point Version
 <usage-of-non-latest-ssvc-decision-point-version>
 For each SSVC decision point given under `selections` with a registered
-`namespace`, it MUST be tested the latest decision point `version`
+`namespace`, it SHALL be tested the latest decision point `version`
 available at the time of the `timestamp` was used. The test SHALL fail
 if a later `version` was used. Namespaces reserved for special purpose
-MUST be treated as per their definition.
+SHALL be treated as per their definition.
 
 #quote(block: true)[
 A list of all valid decision points of registered namespaces including
@@ -13724,10 +13745,10 @@ decision point `Mission Impact` was already available.
 
 === Usage of Unregistered SSVC Decision Point Base Namespace in Non-TLP:CLEAR Document
 <usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document>
-For each SSVC decision point given under `selections`, it MUST be tested
-that the base `namespace` is not an unregistered one if the document is
-not labeled `TLP:CLEAR`. Namespaces reserved for special purpose MUST be
-treated as per their definition.
+For each SSVC decision point given under `selections`, it SHALL be
+tested that the base `namespace` is not an unregistered one if the
+document is not labeled `TLP:CLEAR`. Namespaces reserved for special
+purpose SHALL be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -13782,10 +13803,10 @@ to the reader of the document.
 
 === Usage of SSVC Decision Point Namespace with Extension in Non-TLP:CLEAR Document
 <usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document>
-For each SSVC decision point given under `selections`, it MUST be tested
-that the `namespace` does not use an extension if the document is not
-labeled `TLP:CLEAR`. Namespaces reserved for special purpose MUST be
-treated as per their definition.
+For each SSVC decision point given under `selections`, it SHALL be
+tested that the `namespace` does not use an extension if the document is
+not labeled `TLP:CLEAR`. Namespaces reserved for special purpose SHALL
+be treated as per their definition.
 
 The relevant path for this test is:
 
@@ -13840,10 +13861,10 @@ definitions might therefore not be known to the reader of the document.
 
 === Grammar Check
 <grammar-check>
-If the document language is given it MUST be tested that a grammar check
-for the given language does not find any mistakes. The test SHALL be
-skipped if the document language is not set. It SHALL fail if the given
-language is not supported.
+If the document language is given it SHALL be tested that a grammar
+check for the given language does not find any mistakes. The test SHALL
+be skipped if the document language is not set. It SHALL fail if the
+given language is not supported.
 
 The relevant paths for this test are:
 
@@ -13898,7 +13919,7 @@ Multiple grammar mistakes exist:
 
 === Use of Unregistered License
 <use-of-unregistered-license>
-It MUST be tested that the all license identifiers and exceptions are
+It SHALL be tested that the all license identifiers and exceptions are
 listed either in the official SPDX license identifier list or
 AboutCode's "ScanCode LicenseDB".
 
@@ -13923,7 +13944,7 @@ listed in the official SPDX license identifier list nor AboutCode's
 
 === Use of Qualitative Severity Rating
 <use-of-qualitative-severity-rating>
-For each item in `metrics` it MUST be tested that it does not use the
+For each item in `metrics` it SHALL be tested that it does not use the
 qualitative severity rating.
 
 #quote(block: true)[
@@ -13986,7 +14007,7 @@ groups are defined in section
 ==== Overlapping Product Version Range with VERS in Same Product Status Group
 <overlapping-product-version-range-with-vers-in-same-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vers` that
 overlap with `CTPVR` are not member of the same product status group
 (see section
@@ -14061,7 +14082,7 @@ ones to simplify the resolution as a quick fix.
 ==== Overlapping Product Version Range with vls in Same Product Status Group
 <overlapping-product-version-range-with-vls-in-same-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vls` that
 overlap with `CTPVR` are not member of the same product status group
 (see section
@@ -14136,7 +14157,7 @@ ones to simplify the resolution as a quick fix.
 ==== Overlapping Product Version Range with Product Version in Same Product Status Group
 <overlapping-product-version-range-with-product-version-in-same-product-status-group>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVSS` that overlap with
 `CTPVR` are not member of the same product status group (see section
 #link(<vulnerabilities-property-product-status>)[3.2.4.12]).
@@ -14210,7 +14231,7 @@ version range as a quick fix.
 ==== Overlapping Product Version Range with Product Version Range in Branch
 <overlapping-product-version-range-with-product-version-range-in-branch>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that all product version ranges of elements in `PVRSS+b` do not
 overlap with `CTPVR`.
 
@@ -14257,7 +14278,7 @@ ones to simplify the resolution as a quick fix.
 ==== Overlapping Product Version Range with Product Version in Branch
 <overlapping-product-version-range-with-product-version-in-branch>
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status
-groups MUST be identified. For each `EPVR` (as `CTPVR`), it MUST be
+groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that all product versions of elements in `PVSS+b` do not overlap
 with `CTPVR`.
 
@@ -14298,7 +14319,7 @@ The product version is part of the product version range.
 
 === Use of Unregistered ID System
 <use-of-unregistered-id-system>
-For each item in `$.vulnerabilities[*].ids` it MUST be tested that the
+For each item in `$.vulnerabilities[*].ids` it SHALL be tested that the
 value of `system_name` belongs to a registered vulnerability ID system
 in RVISC.
 
@@ -14341,8 +14362,8 @@ function to only run one or more selected tests.
 
 ==== Extension Category Essential
 <extension-category-essential>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that the extension `category` of the item is not `essential`.
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that the extension `category` of the item is not `essential`.
 
 #quote(block: true)[
 It is sufficient to check whether the value of `category` is not
@@ -14382,8 +14403,8 @@ the content of the CSAF document.
 
 ==== Usage of Experimental Extension in Non-TLP:CLEAR Document
 <usage-of-experimental-extension-in-non-tlp-clear-document>
-For each item in an element of type `$['$defs'].extensions_t` it MUST be
-tested that no experimental extension is used if the document is not
+For each item in an element of type `$['$defs'].extensions_t` it SHALL
+be tested that no experimental extension is used if the document is not
 labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
@@ -14429,7 +14450,7 @@ meaning might therefore not be known to the reader of the document.
 
 ==== Usage of Extension at Document Level
 <usage-of-extension-at-document-level>
-It MUST be tested that the element `$.document.x_extensions` does not
+It SHALL be tested that the element `$.document.x_extensions` does not
 exist.
 
 The relevant path for this test is:
@@ -14459,7 +14480,7 @@ The element `$.document.x_extensions` exists.
 
 ==== Usage of Extension in Product Tree Branch Path
 <usage-of-extension-in-product-tree-branch-path>
-It MUST be tested that the element `x_extensions` does not exist in any
+It SHALL be tested that the element `x_extensions` does not exist in any
 path that starts with `$.product_tree.branches`.
 
 The relevant path for this test is:
@@ -14504,7 +14525,7 @@ The element `x_extensions` exists in a path that starts with
 
 ==== Usage of Extension in Product Tree Full Product Names Path
 <usage-of-extension-in-product-tree-full-product-names-path>
-It MUST be tested that the element `x_extensions` does not exist in any
+It SHALL be tested that the element `x_extensions` does not exist in any
 path that starts with `$.product_tree.full_product_names`.
 
 The relevant path for this test is:
@@ -14536,7 +14557,7 @@ The element `x_extensions` exists in a path that starts with
 
 ==== Usage of Extension in Product Tree Product Paths Path
 <usage-of-extension-in-product-tree-product-paths-path>
-It MUST be tested that the element `x_extensions` does not exist in any
+It SHALL be tested that the element `x_extensions` does not exist in any
 path that starts with `$.product_tree.product_paths`.
 
 The relevant path for this test is:
@@ -14573,7 +14594,7 @@ The element `x_extensions` exists in a path that starts with
 
 ==== Usage of Extension in Vulnerabilities Metrics Path
 <usage-of-extension-in-vulnerabilities-metrics-path>
-It MUST be tested that the element `x_extensions` does not exist in any
+It SHALL be tested that the element `x_extensions` does not exist in any
 path that starts with `$.vulnerabilities[*].metrics`.
 
 The relevant path for this test is:
@@ -14609,7 +14630,7 @@ The element `x_extensions` exists in a path that starts with
 
 ==== Usage of Extension at Vulnerabilities Level
 <usage-of-extension-at-vulnerabilities-level>
-For each item `$.vulnerabilities` it MUST be tested that the element
+For each item `$.vulnerabilities` it SHALL be tested that the element
 `x_extensions` does not exist.
 
 The relevant path for this test is:
@@ -14641,7 +14662,7 @@ The element `x_extensions` exists inside a `vulnerabilities` item.
 
 ==== Usage of Extension at Root Level
 <usage-of-extension-at-root-level>
-It MUST be tested that the element `$.x_extensions` does not exist.
+It SHALL be tested that the element `$.x_extensions` does not exist.
 
 The relevant path for this test is:
 
@@ -14667,7 +14688,7 @@ The element `$.x_extensions` exists.
 
 === Nested Product Path
 <nested-product-path>
-For each item in `$.product_tree.product_paths[*]` it MUST be tested
+For each item in `$.product_tree.product_paths[*]` it SHALL be tested
 that all referenced Product IDs are not defined under a
 `full_product_name_t` element within items of
 `$.product_tree.product_paths`.
@@ -14740,14 +14761,63 @@ The Product with the ID `CSAFPID-908070605` is defined through a product
 reference which belongs to a product formed by a product path.
 ]
 
+=== Public OpenPGP Key URL User ID
+<public-openpgp-key-url-user-id>
+It SHALL be tested that the URL given as value of
+`public_openpgp_key_url` in the CSAF document delivers a public OpenPGP
+key with an email in the user ID matching the sibling property `email`.
+The test SHALL be skipped if the URL results in a client or server error
+or the OpenPGP key retrieved is not in ASCII-armored format. The test
+SHALL report if the user ID is not set or empty.
+
+#quote(block: true)[
+The cases excluded are handled through tests
+#link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6] and
+#link(<public-openpgp-key-url>)[6.2.55].
+]
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.publisher.contact.public_openpgp_key_url
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<public-openpgp-key-url-user-id-eg-1>
+
+```
+    "contact": {
+      "email": "test-6.3.24@csaf.example",
+      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
+    },
+```
+
+#quote(block: true)[
+The `public_openpgp_key_url` points to an OpenPGP key where the user ID
+does not match the email given in the sibling property `email`.
+
+Note: A difference between the email address in the user ID and the
+value of the property `email` does not necessarily mean that the
+receiver of the email is unable to decrypt the messages.
+]
+
+Recommendation:
+
+It is recommended that issuing parties conduct an analysis to make an
+informed decision based on pros and cons regarding the inclusion of a
+matching email address into the user ID of the public OpenPGP key.
+Sections #link(<document-property---publisher---contact>)[3.2.2.9.2] and
+#link(<safety-security-and-data-protection-considerations>)[8] contain
+advise to take into consideration.
+
 == Test Presets
 <test-presets>
 A test preset is a predefined set of tests that was given a name. It MAY
 contain any number of tests. Two presets MAY overlap. The content of a
-preset MAY vary in different CSAF versions. A CSAF validator MUST
+preset MAY vary in different CSAF versions. A CSAF validator SHALL
 support every official preset that solely include tests that are
 implemented by the CSAF validator. A CSAF validator MAY provide or
-support additional presets. A CSAF validator MUST implement all tests
+support additional presets. A CSAF validator SHALL implement all tests
 for any supported preset.
 
 Names of presets not defined in this CSAF standard SHALL have the
@@ -14764,8 +14834,8 @@ following prefix before their name:
 - `org_` followed by an organization identifier and an underscore (`_`):
   for any preset specified by an organization as a part of a public
   definition that can be implemented by different CSAF validators. The
-  organization identifier MUST only use the characters identified by the
-  pattern `[0-9a-zA-Z-.]`. The organization identifier MUST be
+  organization identifier SHALL only use the characters identified by
+  the pattern `[0-9a-zA-Z-.]`. The organization identifier SHALL be
   registered with the OASIS CSAF TC prior to the publication of the
   definition.
 
@@ -14812,13 +14882,20 @@ The following presets are defined through conformance targets:
   is implementation specific.
   ]
 
-As presets are sets, the operator `+` MUST be interpreted as the union
+As presets are sets, the operator `+` SHALL be interpreted as the union
 operation.
 
 === Additional Presets
 <additional-presets>
 Additional presets are defined as follows:
 
+- `non-external-request-free`:
+  - Description: Any test that cannot be executed without a request into
+    the Internet or a different network.
+  - Set:
+    - #link(<public-openpgp-key-url>)[6.2.55]
+    - #link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6]
+    - #link(<use-of-self-referencing-urls-failing-to-resolve>)[6.3.7]
 - `external-request-free`:
   - Description: Any test that can be executed without a request into
     the Internet or a different network.
@@ -14830,9 +14907,7 @@ Additional presets are defined as follows:
     validator are not considered external.
     ]
 
-  - Set: `full` excluding tests
-    #link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6]
-    and #link(<use-of-self-referencing-urls-failing-to-resolve>)[6.3.7]
+  - Set: `full` excluding tests from preset `non-external-request-free`
 - `consistent-revision-history`:
   - Description: Any test that is related to the revision history and
     ensures consistence within it.
@@ -14876,32 +14951,33 @@ Additional presets are defined as follows:
 - `extensions`:
   - Description: Any test that is related to CSAF Extensions.
   - Set:
-    \-#link(<mandatory-tests--extension-tests-content-schema>)[6.1.60.1]
-    \-#link(<mandatory-tests--extension-tests-extension-schema>)[6.1.60.2]
-    \-#link(<mandatory-tests--extension-tests-metadata>)[6.1.60.3]
-    \-#link(<extension-in-superseded-or-withdrawn-document>)[6.2.39.4.1]
-    \-#link(<registered-extension>)[6.2.54.1]
-    \-#link(<official-extension>)[6.2.54.2]
-    \-#link(<critical-extension>)[6.2.54.3]
-    \-#link(<usage-of-experimental-extension-in-tlp-clear-document>)[6.2.54.4]
-    \-#link(<extension-category-essential>)[6.3.21.1]
-    \-#link(<usage-of-experimental-extension-in-non-tlp-clear-document>)[6.3.21.2]
-    \-#link(<usage-of-extension-at-document-level>)[6.3.21.3]
-    \-#link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
-    \-#link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
-    \-#link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
-    \-#link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
-    \-#link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
-    \-#link(<usage-of-extension-at-root-level>)[6.3.21.9]
+    - #link(<mandatory-tests--extension-tests-content-schema>)[6.1.60.1]
+    - #link(<mandatory-tests--extension-tests-extension-schema>)[6.1.60.2]
+    - #link(<mandatory-tests--extension-tests-metadata>)[6.1.60.3]
+    - #link(<extension-in-superseded-or-withdrawn-document>)[6.2.39.5]
+    - #link(<registered-extension>)[6.2.54.1]
+    - #link(<official-extension>)[6.2.54.2]
+    - #link(<critical-extension>)[6.2.54.3]
+    - #link(<usage-of-experimental-extension-in-tlp-clear-document>)[6.2.54.4]
+    - #link(<extension-category-essential>)[6.3.21.1]
+    - #link(<usage-of-experimental-extension-in-non-tlp-clear-document>)[6.3.21.2]
+    - #link(<usage-of-extension-at-document-level>)[6.3.21.3]
+    - #link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
+    - #link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
+    - #link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
+    - #link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
+    - #link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
+    - #link(<usage-of-extension-at-root-level>)[6.3.21.9]
 - `extensions-exist`:
   - Description: Detects CSAF Extensions in all places.
-  - Set: -#link(<usage-of-extension-at-document-level>)[6.3.21.3]
-    \-#link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
-    \-#link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
-    \-#link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
-    \-#link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
-    \-#link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
-    \-#link(<usage-of-extension-at-root-level>)[6.3.21.9]
+  - Set:
+    - #link(<usage-of-extension-at-document-level>)[6.3.21.3]
+    - #link(<usage-of-extension-in-product-tree-branch-path>)[6.3.21.4]
+    - #link(<usage-of-extension-in-product-tree-full-product-names-path>)[6.3.21.5]
+    - #link(<usage-of-extension-in-product-tree-product-paths-path>)[6.3.21.6]
+    - #link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
+    - #link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
+    - #link(<usage-of-extension-at-root-level>)[6.3.21.9]
 
 #pagebreak(weak: true)
 = Distributing CSAF Documents
@@ -14932,18 +15008,19 @@ The CSAF document has a filename according to the rules in section
 === Requirement 3: TLS
 <requirement-3-tls>
 The CSAF document is per default retrievable from a website which uses
-TLS for encryption and server authenticity. The CSAF document MUST NOT
+TLS for encryption and server authenticity. The CSAF document SHALL NOT
 be downloadable from a location which does not encrypt the transport
 when crossing organizational boundaries to maintain the chain of
 custody.
 
 === Requirement 4: TLP:CLEAR
 <requirement-4-tlp-clear>
-If the CSAF document is labeled TLP:CLEAR, it MUST be freely accessible.
+If the CSAF document is labeled TLP:CLEAR, it SHALL be freely
+accessible.
 
 This does not exclude that such a document is also available in an
-access protected customer portal. However, there MUST be one copy of the
-document available for people without access to the portal.
+access protected customer portal. However, there SHALL be one copy of
+the document available for people without access to the portal.
 
 #quote(block: true)[
 Reasoning: If an advisory is already in the media, an end user should
@@ -14953,7 +15030,7 @@ but be able to retrieve the CSAF document.
 
 === Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED
 <requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red>
-CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED MUST be
+CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED SHALL be
 access protected. If they are provided via a web server this SHALL be
 done under a different path than for TLP:CLEAR, TLP:GREEN and unlabeled
 CSAF documents. TLS client authentication, access tokens or any other
@@ -14961,31 +15038,31 @@ automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of
 secured drop at the recipients' side to avoid putting them on their own
-website. However, it MUST be ensured that the documents are still access
-protected.
+website. However, it SHALL be ensured that the documents are still
+access protected.
 
 === Requirement 6: No Redirects
 <requirement-6-no-redirects>
 Redirects SHOULD NOT be used. If they are inevitable only HTTP Header
-redirects are allowed.
+redirects SHALL be used.
 
 #quote(block: true)[
 Reasoning: Clients should not parse the payload for navigation and some,
 as e.g.~`curl`, do not follow any other kind of redirects.
 ]
 
-If any redirects are used, there SHOULD NOT be more than `10`, and MUST
+If any redirects are used, there SHOULD NOT be more than `10`, and SHALL
 NOT be more than `20` consecutive redirects.
 
 #quote(block: true)[
-This aligns with section 4.4 of the \[#link(<FETCH>)[FETCH]\]
-specification.
+This aligns with "HTTP-redirect fetch" section of the
+\[#link(<FETCH>)[FETCH]\] specification.
 ]
 
 === Requirement 7: provider-metadata.json
 <requirement-7-provider-metadata-json>
-The party MUST provide a valid `provider-metadata.json` according to the
-schema
+The party SHALL provide a valid `provider-metadata.json` according to
+the schema
 #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json")[CSAF provider metadata]
 for its own metadata. The `publisher` object SHOULD match the one used
 in the CSAF documents of the issuing party but can be set to whatever
@@ -15073,7 +15150,7 @@ does not provide the `provider-metadata.json`, an aggregator SHOULD
 contact the CSAF publisher in question to determine the values for
 `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`. If that is
 impossible or if the CSAF publisher is unresponsive the following values
-MUST be used:
+SHALL be used:
 
 ```
     "list_on_CSAF_aggregators": true,
@@ -15092,10 +15169,10 @@ not the case as B's information depends on A.
 
 === Requirement 8: security.txt
 <requirement-8-security-txt>
-In the security.txt there MUST be at least one field `CSAF` which points
-to the `provider-metadata.json` (requirement 7). If this field indicates
-a web URI, then it MUST begin with "https:/\/" (as per section 2.7.2 of
-\[#link(<RFC7230>)[RFC7230]\]). See
+In the security.txt there SHALL be at least one field `CSAF` which
+points to the `provider-metadata.json` (requirement 7). If this field
+indicates a web URI, then it SHALL begin with "https:/\/" (as per
+section 2.7.2 of \[#link(<RFC7230>)[RFC7230]\]). See
 \[#link(<SECURITY-TXT>)[SECURITY-TXT]\] for more details.
 
 #quote(block: true)[
@@ -15120,7 +15197,7 @@ temporarily including multiple entries would be a transition phase
 between different CSAF versions, in which documents and provider
 metadata of both versions are served simultaneously (cf.~section
 #link(<transition-between-csaf-2-0-and-csaf-2-1>)[7.4]). If one of the
-URLs fulfills requirement 9, it MUST be set as the first CSAF entry in
+URLs fulfills requirement 9, it SHALL be set as the first CSAF entry in
 the security.txt.
 
 === Requirement 9: Well-Known URL for provider-metadata.json
@@ -15140,7 +15217,7 @@ See \[#link(<RFC8615>)[RFC8615]\] for more details.
 
 As specified in #link(<transition-between-csaf-2-0-and-csaf-2-1>)[7.4],
 the value of `canonical_url` MAY differ from the URL that was requested
-as a part of this requirement. Such state is intended and MUST NOT be
+as a part of this requirement. Such state is intended and SHALL NOT be
 reported as error.
 
 === Requirement 10: DNS Path
@@ -15161,7 +15238,7 @@ That implies that redirects SHALL NOT be used. The use of the scheme
 
 === Requirement 11: One Folder per Year
 <requirement-11-one-folder-per-year>
-The CSAF documents MUST be located within folders named `<YYYY>` where
+The CSAF documents SHALL be located within folders named `<YYYY>` where
 `<YYYY>` is the year given in the value of
 `$.document.tracking.initial_release_date`.
 
@@ -15174,7 +15251,7 @@ The CSAF documents MUST be located within folders named `<YYYY>` where
 
 === Requirement 12: index.txt
 <requirement-12-index-txt>
-The file `index.txt` MUST contain the list of all filenames of CSAF
+The file `index.txt` SHALL contain the list of all filenames of CSAF
 documents which are located in the sub-directories with their filenames.
 Each entry SHALL be terminated by a newline sequence. The last entry MAY
 skip the newline sequence.
@@ -15298,10 +15375,10 @@ the `index.txt` within the folder `clear` located at
 === Requirement 13: changes.csv
 <requirement-13-changes-csv>
 The file `changes.csv` contains a list of CSAF documents in the current
-TLP level that were changed recently. Therefore, it MUST contain the
+TLP level that were changed recently. Therefore, it SHALL contain the
 filename as well as the value of
 `$.document.tracking.current_release_date` for each CSAF document in the
-sub-directories without a heading; lines MUST be sorted by the
+sub-directories without a heading; lines SHALL be sorted by the
 `current_release_date` timestamp with the latest one first. The
 `changes.csv` SHALL be a valid comma separated values format as defined
 by \[#link(<RFC4180>)[RFC4180]\] without double quotes.
@@ -15362,7 +15439,7 @@ Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard
 to ease discovery of security content. ROLIE is built on top of the Atom
 Publishing Format and Protocol, with specific requirements that support
 publishing security content. All CSAF documents with the same TLP level
-MUST be listed in a single ROLIE feed (summary feed). Additional ROLIE
+SHALL be listed in a single ROLIE feed (summary feed). Additional ROLIE
 feeds might exist that contain only a subset of the CSAF documents. The
 selection criteria SHOULD be described through the summary. At least one
 of the feeds
@@ -15370,12 +15447,12 @@ of the feeds
 - TLP:CLEAR
 - TLP:GREEN
 
-MUST exist. Each ROLIE feed document MUST be a JSON file that conforms
+SHALL exist. Each ROLIE feed document SHALL be a JSON file that conforms
 with \[#link(<RFC8322>)[RFC8322]\].
 
-The ROLIE feed document MUST contain a feed category with the registered
-ROLIE information type `csaf`. The `scheme` for this category MUST be
-`urn:ietf:params:rolie:category:information-type`.
+The ROLIE feed document SHALL contain a feed category with the
+registered ROLIE information type `csaf`. The `scheme` for this category
+SHALL be `urn:ietf:params:rolie:category:information-type`.
 
 #emph[Example 1:]#box()<requirement-15-rolie-feed-eg-1>
 
@@ -15434,21 +15511,21 @@ ROLIE information type `csaf`. The `scheme` for this category MUST be
   }
 ```
 
-Any existing hash file (requirement 18) MUST be listed in the
+Any existing hash file (requirement 18) SHALL be listed in the
 corresponding entry of the ROLIE feed as an item of the array `link`
 having the `rel` value of `hash`. Any existing signature file
-(requirement 19) MUST be listed in the corresponding entry of the ROLIE
+(requirement 19) SHALL be listed in the corresponding entry of the ROLIE
 feed as an item of the array `link` having the `rel` value of
 `signature`.
 
 === Requirement 16: ROLIE Service Document
 <requirement-16-rolie-service-document>
 The use and therefore the existence of ROLIE service document is
-optional. If it is used, each ROLIE service document MUST be a JSON file
-that conforms with \[#link(<RFC8322>)[RFC8322]\] and lists the ROLIE
-feed documents. Additionally, it can also list the corresponding ROLIE
-category documents. The ROLIE service document SHOULD use the filename
-`service.json` and reside next to the `provider-metadata.json`.
+optional. If it is used, each ROLIE service document SHALL be a JSON
+file that conforms with \[#link(<RFC8322>)[RFC8322]\] and lists the
+ROLIE feed documents. Additionally, it can also list the corresponding
+ROLIE category documents. The ROLIE service document SHOULD use the
+filename `service.json` and reside next to the `provider-metadata.json`.
 
 #emph[Example 1:]#box()<requirement-16-rolie-service-document-eg-1>
 
@@ -15481,7 +15558,7 @@ category documents. The ROLIE service document SHOULD use the filename
 === Requirement 17: ROLIE Category Document
 <requirement-17-rolie-category-document>
 The use and therefore the existence of ROLIE category document is
-optional. If it is used, each ROLIE category document MUST be a JSON
+optional. If it is used, each ROLIE category document SHALL be a JSON
 file that conforms with \[#link(<RFC8322>)[RFC8322]\]. A ROLIE category
 document SHOULD reside next to the corresponding ROLIE feed. ROLIE
 categories SHOULD be used for to further dissect CSAF documents by one
@@ -15576,8 +15653,8 @@ one space.
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
 ```
 
-If a ROLIE feed exists, each hash file MUST be listed in it as described
-in requirement 15.
+If a ROLIE feed exists, each hash file SHALL be listed in it as
+described in requirement 15.
 
 === Requirement 19: Signatures
 <requirement-19-signatures>
@@ -15593,10 +15670,10 @@ File name of CSAF document: esa-2022-02723.json
 File name of signature file: esa-2022-02723.json.asc
 ```
 
-If a ROLIE feed exists, each signature file MUST be listed in it as
+If a ROLIE feed exists, each signature file SHALL be listed in it as
 described in requirement 15.
 
-At all times, signatures MUST remain valid for a minimum of 30 days and
+At all times, signatures SHALL remain valid for a minimum of 30 days and
 ideally for at least 90 days. When executing CSAF document signatures,
 the signing party SHOULD adhere to or surpass the prevailing best
 practices and recommendations regarding key length. Tools SHOULD treat
@@ -15610,7 +15687,7 @@ the violation of the rules given in the first sentence as:
 
 === Requirement 20: Public OpenPGP Key
 <requirement-20-public-openpgp-key>
-The public part of the OpenPGP key used to sign the CSAF documents MUST
+The public part of the OpenPGP key used to sign the CSAF documents SHALL
 be available. This key file SHALL be presented as an ASCII armored file.
 It SHOULD also be available at a public key server.
 
@@ -15628,10 +15705,10 @@ guidelines of competent authorities.
 
 === Requirement 21: List of CSAF Providers
 <requirement-21-list-of-csaf-providers>
-The file `aggregator.json` MUST be present and valid according to the
+The file `aggregator.json` SHALL be present and valid according to the
 JSON schema
 #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json")[CSAF aggregator].
-It MUST NOT be stored adjacent to a `provider-metadata.json`.
+It SHALL NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD be accessible at the registered path
 in the `.well-known` directory:
@@ -15699,10 +15776,10 @@ and one CSAF provider (including CSAF trusted provider).
 
 === Requirement 23: Mirror
 <requirement-23-mirror>
-The CSAF documents for each issuing party that is mirrored MUST be in a
+The CSAF documents for each issuing party that is mirrored SHALL be in a
 different folder. The folder name SHOULD be retrieved from the name of
-the issuing authority. This folders MUST be adjacent to the
-`aggregator.json` (requirement 21). Each such folder MUST at least:
+the issuing authority. This folders SHALL be adjacent to the
+`aggregator.json` (requirement 21). Each such folder SHALL at least:
 
 - provide a `provider-metadata.json` for the current issuing party.
 - provide the ROLIE feed document according to requirement 15 which
@@ -15761,8 +15838,8 @@ the issuing authority. This folders MUST be adjacent to the
 === Requirement 24: HTTP User-Agent
 <requirement-24-http-user-agent>
 Access to the CSAF related files and directories provided, for both
-metadata and documents, MUST be allowed independent of the value of HTTP
-User-Agent.
+metadata and documents, SHALL be allowed independent of the value of
+HTTP User-Agent.
 
 #quote(block: true)[
 Limit the value of HTTP User-Agents to a certain set would hinder
@@ -15814,15 +15891,15 @@ second group consists of the roles "CSAF Lister" and "CSAF Aggregator".
 They collect data from the aforementioned issuing parties of the first
 group and provide them in a single place to aid in automation. Parties
 of the second group can also issue their own advisories. However, they
-MUST follow the rules for the first group for that.
+SHALL follow the rules for the first group for that.
 
 Both, a CSAF lister and a CSAF aggregator, decide based on their own
 rules which issuing parties to list respectively to mirror. However, an
 issuing party MAY apply to be listed or mirrored.
 
-Issuing parties MUST indicate through the value `false` in
+Issuing parties SHALL indicate through the value `false` in
 `list_on_CSAF_aggregators` if they do not want to be listed. Issuing
-parties MUST indicate through the value `false` in
+parties SHALL indicate through the value `false` in
 `mirror_on_CSAF_aggregators` if they do not want to be mirrored.
 
 The values are independent. The combination of the value `false` in
@@ -15862,9 +15939,9 @@ Thirdly, the party:
   #link(<requirements>)[7.1].
 
 #quote(block: true)[
-If the party uses the ROLIE-based distribution, it MUST also satisfy
+If the party uses the ROLIE-based distribution, it must also satisfy
 requirements 15 to 17. If it uses the directory-based distribution, it
-MUST also satisfy requirements 11 to 14.
+must also satisfy requirements 11 to 14.
 ]
 
 === Role: CSAF Trusted Provider
@@ -15935,7 +16012,7 @@ their `aggregator.json`. To minimize the implementation efforts and
 process overhead, a CSAF aggregator MAY upload the CSAF documents of a
 CSAF publisher into an internal instance of a CSAF provider software.
 Such construct is called "CSAF Proxy Provider" as it can be mirrored by
-the CSAF aggregator software. However, such a CSAF proxy provider MUST
+the CSAF aggregator software. However, such a CSAF proxy provider SHALL
 NOT be accessible from anyone else than the CSAF aggregator itself.
 Otherwise, that would violate the second rule of section
 #link(<role-csaf-publisher>)[7.2.1]. Therefore, it is recommended to
@@ -16005,7 +16082,7 @@ to retrieve CSAF documents:
   present, the ROLIE information SHOULD be preferred.
 + For any CSAF trusted provider, the hash and signature files
   (requirements 18 to 19 in section #link(<requirements>)[7.1]) SHOULD
-  be retrieved together with the CSAF document. They MUST be checked
+  be retrieved together with the CSAF document. They SHALL be checked
   before further processing the CSAF document.
 + Test the CSAF document against the schema.
 + Execute mandatory tests on the CSAF document.
@@ -16086,7 +16163,7 @@ The following process SHOULD be followed:
 
 - A `provider-metadata.json` in conformance to CSAF 2.0 SHOULD be placed
   at `/.well-known/csaf/v2.0/provider-metadata.json`.
-  - Its `canonical_url` MUST be set to an URL corresponding to the
+  - Its `canonical_url` SHALL be set to an URL corresponding to the
     `/.well-known/csaf/v2.0/provider-metadata.json` path.
 
     #quote(block: true)[
@@ -16099,7 +16176,7 @@ The following process SHOULD be followed:
     used.
 - A `provider-metadata.json` in conformance to CSAF 2.1 SHOULD be placed
   at `/.well-known/csaf/v2.1/provider-metadata.json`.
-  - Its `canonical_url` MUST be set to an URL corresponding to the
+  - Its `canonical_url` SHALL be set to an URL corresponding to the
     `/.well-known/csaf/v2.1/provider-metadata.json` path.
 
   - Optionally, the property `maintained_from` can be set to an
@@ -16162,12 +16239,12 @@ previous version:
 
 - This archive SHOULD be located in `/.well-known/csaf/archive/` and use
   the file name `v2.0.tar.zst`, `v2.0.tar.bz2` or `v2.0.tar.xz`.
-- The CSAF documents within the archive MUST be sorted into folders
+- The CSAF documents within the archive SHALL be sorted into folders
   according to requirement 11 in section
   #link(<requirement-11-one-folder-per-year>)[7.1.11] and be accompanied
   by a hash according to requirement 18
   #link(<requirement-18-integrity>)[7.1.18].
-- The archive MUST be accompanied by a hash of the same algorithm.
+- The archive SHALL be accompanied by a hash of the same algorithm.
 - Existing signatures MAY also be included into the archive. It is NOT
   RECOMMENDED to renew the signatures in the archive unless the archive
   is updated with new content.
@@ -16185,14 +16262,14 @@ the following URLs during the process:
 - `/.well-known/csaf-aggregator/v2.1/aggregator.json` for a valid CSAF
   2.1 `aggregator.json`
 
-A CSAF 2.1 aggregator MUST only sync and list CSAF 2.1 publishers and
+A CSAF 2.1 aggregator SHALL only sync and list CSAF 2.1 publishers and
 providers.
 
 #pagebreak(weak: true)
 = Safety, Security, and Data Protection Considerations
 <safety-security-and-data-protection-considerations>
 All safety, security, and data protection requirements relevant to the
-context in which CSAF documents are used MUST be translated into, and
+context in which CSAF documents are used SHALL be translated into, and
 consistently enforced through, CSAF implementations and processes.
 
 CSAF documents are based on JSON, thus the security considerations of
@@ -16301,6 +16378,17 @@ least before a release.
 
 #quote(block: true)[
 Such checks can be automated, e.g.~in the CI/CD pipeline.
+]
+
+CSAF documents can contain personally identifiable information. This
+includes but is not limited to names, e.g.~in acknowledgments, as well
+as email addresses. Issuing parties SHALL ensure that they are allowed
+to publish such information.
+
+#quote(block: true)[
+Acknowledging entities or individuals is always possible with their
+consent. Functional email addresses are usually not consider to be
+personally identifiable information.
 ]
 
 #pagebreak(weak: true)
@@ -16435,6 +16523,7 @@ targets") for which this document defines requirements are:
 A text file or data stream satisfies the "CSAF Document" conformance
 profile if it:
 
+- is valid JSON encoded using UTF-8.
 - conforms to the syntax and semantics defined in section
   #link(<format-validation>)[2.2].
 - conforms to the syntax and semantics defined in section
@@ -16696,6 +16785,26 @@ Secondly, the program fulfills the following for all items of:
   remove the reference to the products and issue a warning that a
   potential product specific note has been discovered and no products
   could been assigned to it.
+
+- `$.document.publisher.contact`:
+
+  - If a `cvrf:ContactDetails` element is present, the CVRF CSAF
+    Converter SHALL convert its content into the value of the `details`
+    property.
+  - If a URL to a Public OpenPGP Key was provided in the
+    `cvrf:ContactDetails` element and the URL fulfills the requirements
+    of the property `public_openpgp_key_url`, the CVRF CSAF Converter
+    SHALL set it as the content of that property.
+  - The CVRF CSAF Converter SHOULD extract the matching email address
+    from the content of the `cvrf:ContactDetails` element, if
+    applicable, or use the first email address and set it as value of
+    `email`.
+  - The CVRF CSAF Converter SHALL provide configuration options and
+    corresponding arguments to set these values if they are not present.
+    If values from both sources are present, the program SHOULD prefer
+    the latter one. It SHOULD provide an option to overwrite the values
+    extracted from the document. The program SHALL NOT use hard-coded
+    values.
 
 - `$.document.publisher.name` and `$.document.publisher.namespace`: Sets
   the value as given in the configuration of the program or the
@@ -17999,6 +18108,27 @@ Secondly, the program fulfills the following for all items of:
   this warning SHALL exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
 
+- `$.document.publisher.contact`:
+
+  - If a `$.document.publisher.contact_details` element is present, the
+    CSAF 2.0 to CSAF 2.1 Converter SHALL convert its content into the
+    value of the `details` property.
+  - If a URL to a Public OpenPGP Key was provided in the
+    `$.document.publisher.contact_details` element and the URL fulfills
+    the requirements of the property `public_openpgp_key_url`, the CSAF
+    2.0 to CSAF 2.1 Converter SHALL set it as the content of that
+    property.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHOULD extract the matching email
+    address from the content of the
+    `$.document.publisher.contact_details` element, if applicable, or
+    use the first email address and set it as value of `email`.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL provide configuration
+    options and corresponding arguments to set these values if they are
+    not present. If values from both sources are present, the program
+    SHOULD prefer the latter one. It SHOULD provide an option to
+    overwrite the values extracted from the document. The program SHALL
+    NOT use hard-coded values.
+
 - `$.document.title`: If the value contains the
   `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the `$.document.tracking.id` from the `$.document.title`. In
@@ -18942,6 +19072,7 @@ A string SHOULD NOT have a length greater than:
   - `$.document.notes[*].group_ids[*]`
   - `$.document.notes[*].product_ids[*]`
   - `$.document.notes[*].title`
+  - `$.document.publisher.contact.email`
   - `$.document.publisher.name`
   - `$.document.source_lang`
   - `$.document.title`
@@ -19029,7 +19160,7 @@ A string SHOULD NOT have a length greater than:
 - 10 000 for
   - `$.document.acknowledgments[*].summary`
   - `$.document.distribution.text`
-  - `$.document.publisher.contact_details`
+  - `$.document.publisher.contact.details`
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
   - `$.document.tracking.revision_history[*].summary`
@@ -19257,6 +19388,7 @@ This applies to:
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
 - `$.document.distribution.tlp.url`
+- `$.document.publisher.contact.public_openpgp_key_url`
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`

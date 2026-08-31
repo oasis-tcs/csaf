@@ -1,6 +1,6 @@
 ### Translation
 
-It MUST be tested that the given source language and document language are not the same.
+It SHALL be tested that the given source language and document language are not the same.
 
 The relevant path for this test is:
 

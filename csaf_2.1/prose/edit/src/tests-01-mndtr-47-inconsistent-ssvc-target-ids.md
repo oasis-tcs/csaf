@@ -1,8 +1,8 @@
 ### Inconsistent SSVC Target IDs
 
-For each `ssvc_v2` object it MUST be tested that each item in `target_ids` is either the CVE of the vulnerability given in `cve`
+For each `ssvc_v2` object it SHALL be tested that each item in `target_ids` is either the CVE of the vulnerability given in `cve`
 or the `text` of an item in the `ids` array of the vulnerability.
-The test MUST fail, if the target ID equals the `$.document.tracking.id` and the CSAF document contains more than one vulnerability.
+The test SHALL fail, if the target ID equals the `$.document.tracking.id` and the CSAF document contains more than one vulnerability.
 
 The relevant path for this test is:
 
@@ -38,4 +38,4 @@ The relevant path for this test is:
 
 > A tool MAY remove any inconsistent SSVC Target ID as a quick fix.
 
-If the tool removes the last item of the array, it MUST remove the element `target_ids` as well.
+If the tool removes the last item of the array, it SHALL remove the element `target_ids` as well.

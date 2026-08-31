@@ -1,6 +1,6 @@
 ### Missing CVE
 
-It MUST be tested that the CVE number is given.
+It SHALL be tested that the CVE number is given.
 
 The relevant path for this test is:
 

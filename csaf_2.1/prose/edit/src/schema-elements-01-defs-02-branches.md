@@ -70,7 +70,7 @@ The value `product_name` indicates the name of the product.
 
 The value `product_version` indicates exactly a single version of the product.
 The value of the adjacent `name` property can be numeric or some other descriptor.
-However, it MUST NOT contain version ranges of any kind.
+However, it SHALL NOT contain version ranges of any kind.
 
 > It is recommended to enumerate versions wherever possible.
 > Nevertheless, the TC understands that this is sometimes impossible.
@@ -115,7 +115,7 @@ part of the product version as given by the vendor.
 
 ##### Branches Type - Name under Product Version
 
-If adjacent property `category` has the value `product_version`, the value of `name` MUST NOT contain version ranges of any kind.
+If adjacent property `category` has the value `product_version`, the value of `name` SHALL NOT contain version ranges of any kind.
 
 *Examples 1 (for `name` when using `product_version`):*
 
@@ -145,8 +145,8 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 ##### Branches Type - Name under Product Version Range{#branches-type---name-under-product-version-range}
 
-If adjacent property `category` has the value `product_version_range`, the value of `name` MUST contain version ranges.
-The value of MUST obey to exactly one of the following options:
+If adjacent property `category` has the value `product_version_range`, the value of `name` SHALL contain version ranges.
+The value of SHALL obey to exactly one of the following options:
 
 1. VErsion Range Specifier (VERS)
 
@@ -157,7 +157,7 @@ The value of MUST obey to exactly one of the following options:
 
    > According to the interpretation used here, the canonical form requires that the VERS is normalized.
 
-    *Examples 1 (for `name` when using `product_version_range` with vers):*
+    *Examples 1 (for `name` when using `product_version_range` with VERS):*
 
     ```
         vers:gem/>=2.2.0|!=2.2.1|<2.3.0
@@ -171,7 +171,7 @@ The value of MUST obey to exactly one of the following options:
 2. VERS-like Specifier (vls)
 
     This option uses only the `constraint` part from the VERS specification.
-    It MUST NOT have the `scheme` nor the `type` part.
+    It SHALL NOT have the `scheme` nor the `type` part.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.

@@ -5,7 +5,7 @@ To ensure a common understanding of which fields are required in a given use cas
 Each subsection describes such a profile by describing necessary content for that specific use case and providing insights into its purpose.
 The value of `$.document.category` is used to identify a CSAF document's profile. The following rules apply:
 
-1. Each CSAF document MUST conform the **CSAF Base** profile.
+1. Each CSAF document SHALL conform the **CSAF Base** profile.
 2. Each profile extends the base profile "CSAF Base" - directly or indirect through another profile from the standard - by making additional
    fields from the standard mandatory.
    A profile can always add, but never subtract nor overwrite requirements defined in the profile it extends.
@@ -19,7 +19,7 @@ The value of `$.document.category` is used to identify a CSAF document's profile
 6. Values of `$.document.category` that do not match any of the values defined in section [sec](#profiles) of this standard SHALL be validated against
    the "CSAF Base" profile.
 7. Local or private profiles MAY exist and tools MAY choose to support them.
-8. If an official profile and a private profile exists, tools MUST validate against the official one from the standard.
+8. If an official profile and a private profile exists, tools SHALL validate against the official one from the standard.
 
 ## Profile 1: CSAF Base
 
@@ -29,7 +29,7 @@ Furthermore, it is the foundation all other profiles are build on.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "CSAF Base":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - `$['$schema']`
   - `$.document.category`
   - `$.document.csaf_version`
@@ -55,7 +55,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 An issuing party might choose to prepend its `$.document.publisher.name` to a value in `$.document.category` that would otherwise be 
 intended to only be used by another profile, to state that the CSAF document does not use the profile associated with this value.
-In this case, the (case insensitive) string "CSAF" MUST be removed from the value.
+In this case, the (case insensitive) string "CSAF" SHALL be removed from the value.
 This SHOULD be done if the issuing party is unable or unwilling to use the value `csaf_base`, e.g. due to legal or cooperate identity reasons.
 
 > Both values `Example Company Security Advisory` and `Example Company security_advisory` in `$.document.category` are therefore valid 
@@ -73,7 +73,7 @@ the implications on its own products and infrastructure.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Incident Response":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
 
@@ -92,7 +92,7 @@ This profile SHOULD be used to provide information which are **not related to a 
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Informational Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with at least one item which has a `category` of `description`, `details`, `general` or `summary`
 
@@ -109,7 +109,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   If there is any information that would reside in the element `$.vulnerabilities` the CSAF document SHOULD use another profile,
   e.g. "Security Advisory".
 
-If the element `$.product_tree` exists, a user MUST assume that all products mentioned are affected.
+If the element `$.product_tree` exists, a user SHALL assume that all products mentioned are affected.
 
 ## Profile 4: Security Advisory
 
@@ -117,7 +117,7 @@ This profile SHOULD be used to provide information which is related to vulnerabi
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Security Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
@@ -155,7 +155,7 @@ See [cite](#VEX) for details.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "VEX":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
@@ -174,7 +174,7 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 - For each item in
   - `$.vulnerabilities[*].product_status.known_not_affected` an impact statement SHALL exist as machine readable flag
     in `$.vulnerabilities[*].flags` or as human readable justification in `$.vulnerabilities[*].threats`.
-    For the latter one, the `category` value for such a statement MUST be `impact` and the `details` field SHALL contain
+    For the latter one, the `category` value for such a statement SHALL be `impact` and the `details` field SHALL contain
     a description why the vulnerability cannot be exploited.
   - `$.vulnerabilities[*].product_status.known_affected` additional product specific information SHALL be provided
     in `$.vulnerabilities[*].remediations` as an action statement.
@@ -183,9 +183,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     > The use of the categories `no_fix_planned` and `none_available` for an action statement is permitted.
 
   > Even though Product status lists Product IDs, Product Group IDs can be used in the `remediations` and `threats` object.
-  > However, it MUST be ensured that for each Product ID the required information according to its product status as stated
-  > in the two points above is available. This implies that all products with the status `known_not_affected` MUST have an
-  > impact statement and all products with the status `known_affected` MUST have additional product specific information
+  > However, it SHALL be ensured that for each Product ID the required information according to its product status as stated
+  > in the two points above is available. This implies that all products with the status `known_not_affected` SHALL have an
+  > impact statement and all products with the status `known_affected` SHALL have additional product specific information
   > regardless of whether that is referenced through the Product ID or a Product Group ID.
 
 - The value of `$.document.category` SHALL be `csaf_vex`.
@@ -201,7 +201,7 @@ The profile "Security Advisory" from section [sec](#profile-4-security-advisory)
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Deprecated Security Advisory":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
@@ -217,21 +217,21 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
 ## Profile 7: Withdrawn
 
-This profile MUST be used for any CSAF document that is withdrawn. It MUST NOT be used for any superseded document.
+This profile SHALL be used for any CSAF document that is withdrawn. It SHALL NOT be used for any superseded document.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Withdrawn":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with exactly one item using the `category` `description`
     describing the original content and the reasons for the withdrawal
 
     > Other items, such as a legal disclaimer, may exist alongside the required one.
 
-    The `title` MUST be `Reasoning for Withdrawal` for English or an unspecified document language.
+    The `title` SHALL be `Reasoning for Withdrawal` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
   - `$.document.tracking.revision_history` with at least `2` entries.
-    Any previous items MUST NOT be removed.
+    Any previous items SHALL NOT be removed.
 
     > A CSAF document cannot be withdrawn during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
@@ -244,27 +244,27 @@ The CSAF document MAY link to additional information through `$.document.referen
 
 ## Profile 8: Superseded
 
-This profile MUST be used for any CSAF document that is superseded. It MUST NOT be used for any withdrawn document.
+This profile SHALL be used for any CSAF document that is superseded. It SHALL NOT be used for any withdrawn document.
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Superseded":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - all elements required by the profile "CSAF Base".
   - `$.document.notes` with exactly one item using the `category` `description`
 
       > Other items, such as a legal disclaimer, may exist alongside the required one.
 
-    The `title` MUST be `Reasoning for Supersession` for English or an unspecified document language.
+    The `title` SHALL be `Reasoning for Supersession` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
   - `$.document.tracking.revision_history` with at least `2` entries.
-    Any previous items MUST NOT be removed.
+    Any previous items SHALL NOT be removed.
 
     > A CSAF document cannot be superseded during the initial release to its specified target group.
     > In such case, the CSAF document should not be released at all.
     > If it was shared previously in draft status, then the `$.document.tracking.status` is kept in `draft`.
 
   - `$.document.references` containing at least one item with `category` `external`
-    The `summary` MUST start with `Superseding Document` for English or an unspecified document language.
+    The `summary` SHALL start with `Superseding Document` for English or an unspecified document language.
     For any other language, it SHOULD be the language specific translation of that term.
 - The value of `$.document.category` SHALL be `csaf_superseded`.
 - The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.

@@ -1,6 +1,6 @@
 ### Multiple Use of Same CVE
 
-It MUST be tested that a CVE is not used in multiple vulnerability items.
+It SHALL be tested that a CVE is not used in multiple vulnerability items.
 
 The relevant path for this test is:
 

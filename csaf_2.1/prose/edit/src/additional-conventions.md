@@ -4,10 +4,10 @@ This section provides additional rules for handling CSAF documents.
 
 ## Filename
 
-The following rules MUST be applied to determine the filename for the CSAF document:
+The following rules SHALL be applied to determine the filename for the CSAF document:
 
-1. The value `$.document.tracking.id` is converted into lowercase.
-2. Any character sequence which is not part of one of the following groups MUST be replaced by a single underscore (`_`):
+1. The value `$.document.tracking.id` SHALL be converted into lowercase.
+2. Any character sequence which is not part of one of the following groups SHALL be replaced by a single underscore (`_`):
    * lower-case ASCII letters (0x61 - 0x7A)
    * digits (0x30 - 0x39)
    * special characters: `+` (0x2B), `-` (0x2D)
@@ -19,7 +19,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
    > where the conversion rule might lead to multiple consecutive underscores.
    > As a result, a `$.document.tracking.id` with the value `2022_#01-A` is converted into `2022_01-a` instead of `2022__01-a`.
 
-3. The file extension `.json` MUST be appended.
+3. The file extension `.json` SHALL be appended.
 
 *Examples 1:*
 
@@ -43,7 +43,7 @@ The following rules MUST be applied to determine the filename for the CSAF docum
 ## Separation in Data Stream
 
 If multiple CSAF documents are transported via a data stream in a sequence without requests inbetween,
-they MUST be separated by the Record Separator in accordance with [cite](#RFC7464).
+they SHALL be separated by the Record Separator in accordance with [cite](#RFC7464).
 
 ## Sorting{#additional-conventions--sorting}
 
@@ -71,7 +71,7 @@ The use of GitHub-flavoured Markdown is permitted in the following fields:
   $.vulnerabilities[*].threats[*].details
 ```
 
-Other fields MUST NOT contain Markdown.
+Other fields SHALL NOT contain Markdown.
 
 ## Branch Recursion
 
@@ -83,9 +83,9 @@ The `$.product_tree` uses a nested structure for `branches`. Along a single path
 
 ## Hardware and Software within the Product Tree
 
-If a product consists of hardware and software, the hardware part MUST be presented as one product in the product tree
+If a product consists of hardware and software, the hardware part SHALL be presented as one product in the product tree
 and the software part as another one.
-To form the overall product, both parts MUST be combined through a product path.
+To form the overall product, both parts SHALL be combined through a product path.
 
 *Example 1:*
 

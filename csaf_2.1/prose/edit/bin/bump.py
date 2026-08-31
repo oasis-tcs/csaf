@@ -71,59 +71,30 @@ path = tool.relative_to(here)
 USAGE = f'usage: {path} [--{COMMIT}] [--{DEBUG}] "DD Month YYYY"'
 
 # Configuration and runtime parameter candidates:
-PDF_BOOKMATTER_IN = pathlib.Path('etc/liitos/bookmatter.tex.in')
-PDF_META_YAML = pathlib.Path('etc/liitos/meta.yml')
-PDF_SETUP_IN = pathlib.Path('etc/liitos/setup.tex.in')
+PDF_CSAF_TYP = pathlib.Path('etc/csaf.typ')
 SRC_FRONTMATTER = pathlib.Path('src/frontmatter.md')
-SRC_HISTORY = pathlib.Path('src/revision-history.md')
 
 SIMPLE_TRANSFORMS = {
-    PDF_BOOKMATTER_IN:[
+    PDF_CSAF_TYP: [
         {
             PREFIX: {
-                TOKEN: '\\subsection*{',
-                OPERATOR: 'startswith',
-            },
-            REPLACEMENT_CODE: PUB_DATE,
-            POSTFIX: {
-                TOKEN: '}\\label{pub-date}',
-                OPERATOR: 'endswith',
-            },
-        },
-        {
-            PREFIX: {
-                TOKEN: 'Hagen, and Thomas Schmidt. ',
-                OPERATOR: 'startswith',
-            },
-            REPLACEMENT_CODE: PUB_DATE,
-            POSTFIX: {
-                TOKEN: '. OASIS Committee Specification',
-                OPERATOR: 'endswith',
-            },
-        },
-    ],
-    PDF_META_YAML: [
-        {
-            PREFIX: {
-                TOKEN: '    footer_outer_field_normal_pages: ',
-                OPERATOR: 'startswith',
-            },
-            REPLACEMENT_CODE: PUB_DATE,
-            POSTFIX: {
-                TOKEN: ' - \\theMetaPageNumPrefix { } \\thepage { } of \\pageref{LastPage}',
-                OPERATOR: 'endswith',
-            },
-        },
-    ],
-    PDF_SETUP_IN: [
-        {
-            PREFIX: {
-                TOKEN: '  \\cfoot*{\\upshape{\\scriptsize Copyright © OASIS Open ',
+                TOKEN: '    text(size: 8pt)[Copyright © OASIS Open ',
                 OPERATOR: 'startswith',
             },
             REPLACEMENT_CODE: PUB_YEAR_STR,
             POSTFIX: {
-                TOKEN: '. All Rights Reserved.}}',
+                TOKEN: '. All Rights Reserved.],',
+                OPERATOR: 'endswith',
+            },
+        },
+        {
+            PREFIX: {
+                TOKEN: '    text(size: 8pt)[',
+                OPERATOR: 'startswith',
+            },
+            REPLACEMENT_CODE: PUB_DATE,
+            POSTFIX: {
+                TOKEN: ' — Page #counter(page).display()',
                 OPERATOR: 'endswith',
             },
         },
@@ -373,29 +344,13 @@ def main(args: list[str]) -> int:
 
     any_changes = False
 
-    lines = load_target(PDF_BOOKMATTER_IN)
-    err, bumped = apply_simple_changes(PDF_BOOKMATTER_IN, lines, SIMPLE_TRANSFORMS, job)
+    lines = load_target(PDF_CSAF_TYP)
+    err, bumped = apply_simple_changes(PDF_CSAF_TYP, lines, SIMPLE_TRANSFORMS, job)
     if err:
         for message in messages:
             print(message)
         return err
-    any_changes = output(PDF_BOOKMATTER_IN, lines, bumped, any_changes, do_commit)
-
-    lines = load_target(PDF_META_YAML)
-    err, bumped = apply_simple_changes(PDF_META_YAML, lines, SIMPLE_TRANSFORMS, job)
-    if err:
-        for message in messages:
-            print(message)
-        return err
-    any_changes = output(PDF_META_YAML, lines, bumped, any_changes, do_commit)
-
-    lines = load_target(PDF_SETUP_IN)
-    err, bumped = apply_simple_changes(PDF_SETUP_IN, lines, SIMPLE_TRANSFORMS, job)
-    if err:
-        for message in messages:
-            print(message)
-        return err
-    any_changes = output(PDF_SETUP_IN, lines, bumped, any_changes, do_commit)
+    any_changes = output(PDF_CSAF_TYP, lines, bumped, any_changes, do_commit)
 
     lines = load_target(SRC_FRONTMATTER)
     bumped = []
@@ -417,6 +372,13 @@ def main(args: list[str]) -> int:
 
         prefix = '_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. '
         postfix = '. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.'
+        if line.startswith(prefix) and line.endswith(postfix):
+            pub_date = line.replace(prefix, '').replace(postfix, '')
+            debug and print(f'DEBUG: Found prior pub-date ({pub_date})')
+            bumped.append(prefix + job[PUB_DATE] + postfix)
+            debug and print(f'DEBUG: Replaced with ({job[PUB_DATE]})')
+            continue
+
         if 11 < len(line) < 19 and line.endswith(postfix):
             pub_date = line.replace(prefix, '').replace(postfix, '')
             try:
@@ -441,45 +403,6 @@ def main(args: list[str]) -> int:
         bumped.append(line)
 
     any_changes = output(SRC_FRONTMATTER, lines, bumped, any_changes, do_commit)
-
-    lines = load_target(SRC_HISTORY)
-    bumped = []
-    do_amend = True
-    past_table = None  # State machine: None -> False -> True -> None
-    trigger_prefix = '|:-------------------------'
-    prefix = '| csaf-v2.1-wd'
-    in_between = f'{job[PUB_ISO_COMPACT]}-dev | {job[PUB_ISO_DASH]}'
-    stop_token = prefix + in_between
-    postfix = ' | Stefan Hagen and Thomas Schmidt | Editor Revision for CSD03                   |'
-    debug and print('#  -  -  -  -  -  -  -  -  - ')
-    for line in lines:
-        # <-- append here when past_table is True
-        if line.startswith(trigger_prefix) and past_table is None:
-            past_table = False
-            bumped.append(line)
-            continue
-
-        if line.startswith(prefix) and past_table is False:
-            bumped.append(line)
-            if line.startswith(stop_token):
-                do_amend = False
-            continue
-
-        if not line.strip(SPACE + DASH) and past_table is False:
-            debug and print('DEBUG: Found empty line following revision history table')
-            if do_amend:
-                bumped.append(prefix + in_between + postfix)
-                debug and print(f'DEBUG: Appended with in_between ({in_between})')
-                do_amend = False
-            else:
-                debug and print(f'DEBUG: Did NOT append duplicate ({in_between})')
-            bumped.append(line)
-            continue
-
-        bumped.append(line)
-
-    any_changes = output(SRC_HISTORY, lines, bumped, any_changes, do_commit)
-
 
     print()
     if any_changes:

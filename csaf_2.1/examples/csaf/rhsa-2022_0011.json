@@ -34,7 +34,9 @@
     ],
     "publisher": {
       "category": "vendor",
-      "contact_details": "https://access.redhat.com/security/team/contact/",
+      "contact": {
+        "details": "https://access.redhat.com/security/team/contact/"
+      },
       "name": "Red Hat Product Security",
       "namespace": "https://www.redhat.com"
     },

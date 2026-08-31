@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Prepare environment
       run: |
         sudo apt-get remove python3-jsonschema
@@ -43,3 +43,6 @@ jobs:
       run: ./csaf_2.1/test/validator/check_testresults.sh recommended
     - name: Test results in validator/data/informative against schema
       run: ./csaf_2.1/test/validator/check_testresults.sh informative
+
+    - name: Test SSVC in validator/auxiliary/ssvc/test against schema
+      run: ./csaf_2.1/test/validator/check_auxiliary.sh test

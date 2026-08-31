@@ -16,41 +16,42 @@ The CSAF document has a filename according to the rules in section [sec](#filena
 ### Requirement 3: TLS
 
 The CSAF document is per default retrievable from a website which uses TLS for encryption and server authenticity.
-The CSAF document MUST NOT be downloadable from a location which does not encrypt the transport when crossing organizational
+The CSAF document SHALL NOT be downloadable from a location which does not encrypt the transport when crossing organizational
 boundaries to maintain the chain of custody.
 
 ### Requirement 4: TLP:CLEAR
 
-If the CSAF document is labeled TLP:CLEAR, it MUST be freely accessible.
+If the CSAF document is labeled TLP:CLEAR, it SHALL be freely accessible.
 
 This does not exclude that such a document is also available in an access protected customer portal.
-However, there MUST be one copy of the document available for people without access to the portal.
+However, there SHALL be one copy of the document available for people without access to the portal.
 
 > Reasoning: If an advisory is already in the media, an end user should not be forced to collect the pieces of information from a
 > press release but be able to retrieve the CSAF document.
 
 ### Requirement 5: TLP:AMBER, TLP:AMBER+STRICT and TLP:RED{#requirement-5-tlp-amber-tlp-amber-strict-and-tlp-red}
 
-CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED MUST be access protected.
+CSAF documents labeled TLP:AMBER, TLP:AMBER+STRICT or TLP:RED SHALL be access protected.
 If they are provided via a web server this SHALL be done under a different path than for TLP:CLEAR,
 TLP:GREEN and unlabeled CSAF documents. TLS client authentication, access tokens or any other automatable authentication method SHALL be used.
 
 An issuing party MAY agree with the recipients to use any kind of secured drop at the recipients' side to avoid putting them on their own website.
-However, it MUST be ensured that the documents are still access protected.
+However, it SHALL be ensured that the documents are still access protected.
 
 ### Requirement 6: No Redirects
 
-Redirects SHOULD NOT be used. If they are inevitable only HTTP Header redirects are allowed.
+Redirects SHOULD NOT be used.
+If they are inevitable only HTTP Header redirects SHALL be used.
 
 > Reasoning: Clients should not parse the payload for navigation and some, as e.g. `curl`, do not follow any other kind of redirects.
 
-If any redirects are used, there SHOULD NOT be more than `10`, and MUST NOT be more than `20` consecutive redirects.
+If any redirects are used, there SHOULD NOT be more than `10`, and SHALL NOT be more than `20` consecutive redirects.
 
-> This aligns with section 4.4 of the [cite](#FETCH) specification.
+> This aligns with "HTTP-redirect fetch" section of the [cite](#FETCH) specification.
 
 ### Requirement 7: provider-metadata.json
 
-The party MUST provide a valid `provider-metadata.json` according to the schema
+The party SHALL provide a valid `provider-metadata.json` according to the schema
 [CSAF provider metadata](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json) for its own metadata.
 The `publisher` object SHOULD match the one used in the CSAF documents of the issuing party but can be set to whatever value a
 CSAF aggregator SHOULD display over any individual `publisher` values in the CSAF documents themselves.
@@ -118,7 +119,7 @@ Furthermore, such programs SHOULD evaluate the `maintained_from` property and ou
 
 If a CSAF publisher (cf. section [sec](#role-csaf-publisher)) does not provide the `provider-metadata.json`,
 an aggregator SHOULD contact the CSAF publisher in question to determine the values for `list_on_CSAF_aggregators` and `mirror_on_CSAF_aggregators`.
-If that is impossible or if the CSAF publisher is unresponsive the following values MUST be used:
+If that is impossible or if the CSAF publisher is unresponsive the following values SHALL be used:
 
 ```
     "list_on_CSAF_aggregators": true,
@@ -133,8 +134,8 @@ If that is impossible or if the CSAF publisher is unresponsive the following val
 
 ### Requirement 8: security.txt
 
-In the security.txt there MUST be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7).
-If this field indicates a web URI, then it MUST begin with "https://" (as per section 2.7.2 of [cite](#RFC7230)).
+In the security.txt there SHALL be at least one field `CSAF` which points to the `provider-metadata.json` (requirement 7).
+If this field indicates a web URI, then it SHALL begin with "https://" (as per section 2.7.2 of [cite](#RFC7230)).
 See [cite](#SECURITY-TXT) for more details.
 
 > The security.txt was published as [cite](#RFC9116) in April 2022.
@@ -154,7 +155,7 @@ e.g. in case of changes to the organizational structure through mergers and acqu
 However, this SHOULD NOT be done and removed as soon as possible.
 A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
 and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
-If one of the URLs fulfills requirement 9, it MUST be set as the first CSAF entry in the security.txt.
+If one of the URLs fulfills requirement 9, it SHALL be set as the first CSAF entry in the security.txt.
 
 ### Requirement 9: Well-Known URL for provider-metadata.json{#requirement-9-well-known-url-for-provider-metadata-json}
 
@@ -170,7 +171,7 @@ The use of the scheme "HTTPS" is required. See [cite](#RFC8615) for more details
 
 As specified in [sec](#transition-between-csaf-2-0-and-csaf-2-1), the value of `canonical_url` MAY differ from the URL that was
 requested as a part of this requirement.
-Such state is intended and MUST NOT be reported as error.
+Such state is intended and SHALL NOT be reported as error.
 
 ### Requirement 10: DNS Path
 
@@ -185,7 +186,7 @@ The use of the scheme "HTTPS" is required.
 
 ### Requirement 11: One Folder per Year
 
-The CSAF documents MUST be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
+The CSAF documents SHALL be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `$.document.tracking.initial_release_date`.
 
 *Examples 1:*
@@ -197,7 +198,7 @@ value of `$.document.tracking.initial_release_date`.
 
 ### Requirement 12: index.txt{#requirement-12-index-txt}
 
-The file `index.txt` MUST contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
+The file `index.txt` SHALL contain the list of all filenames of CSAF documents which are located in the sub-directories with their filenames.
 Each entry SHALL be terminated by a newline sequence.
 The last entry MAY skip the newline sequence.
 
@@ -308,8 +309,8 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 ### Requirement 13: changes.csv{#requirement-13-changes-csv}
 
 The file `changes.csv` contains a list of CSAF documents in the current TLP level that were changed recently.
-Therefore, it MUST contain the filename as well as the value of `$.document.tracking.current_release_date` for each
-CSAF document in the sub-directories without a heading; lines MUST be sorted by the `current_release_date` timestamp with the latest one first.
+Therefore, it SHALL contain the filename as well as the value of `$.document.tracking.current_release_date` for each
+CSAF document in the sub-directories without a heading; lines SHALL be sorted by the `current_release_date` timestamp with the latest one first.
 The `changes.csv` SHALL be a valid comma separated values format as defined by [cite](#RFC4180) without double quotes.
 
 > Note: As a consequence of section [sec](#requirement-2-filename) Requirement 2 for filenames and section [sec](#requirement-11-one-folder-per-year)
@@ -345,7 +346,7 @@ Server-side generated directory listing SHALL be enabled to support manual navig
 
 Resource-Oriented Lightweight Information Exchange (ROLIE) is a standard to ease discovery of security content.
 ROLIE is built on top of the Atom Publishing Format and Protocol, with specific requirements that support publishing security content.
-All CSAF documents with the same TLP level MUST be listed in a single ROLIE feed (summary feed).
+All CSAF documents with the same TLP level SHALL be listed in a single ROLIE feed (summary feed).
 Additional ROLIE feeds might exist that contain only a subset of the CSAF documents.
 The selection criteria SHOULD be described through the summary.
 At least one of the feeds
@@ -353,11 +354,11 @@ At least one of the feeds
 - TLP:CLEAR
 - TLP:GREEN
 
-MUST exist.
-Each ROLIE feed document MUST be a JSON file that conforms with [cite](#RFC8322).
+SHALL exist.
+Each ROLIE feed document SHALL be a JSON file that conforms with [cite](#RFC8322).
 
-The ROLIE feed document MUST contain a feed category with the registered ROLIE information type `csaf`.
-The `scheme` for this category MUST be `urn:ietf:params:rolie:category:information-type`.
+The ROLIE feed document SHALL contain a feed category with the registered ROLIE information type `csaf`.
+The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:information-type`.
 
 *Example 1:*
 
@@ -416,15 +417,15 @@ The `scheme` for this category MUST be `urn:ietf:params:rolie:category:informati
   }
 ```
 
-Any existing hash file (requirement 18) MUST be listed in the corresponding entry of the ROLIE feed as an item of
+Any existing hash file (requirement 18) SHALL be listed in the corresponding entry of the ROLIE feed as an item of
 the array `link` having the `rel` value of `hash`.
-Any existing signature file (requirement 19) MUST be listed in the corresponding entry of the ROLIE feed as an item of the array `link`
+Any existing signature file (requirement 19) SHALL be listed in the corresponding entry of the ROLIE feed as an item of the array `link`
 having the `rel` value of `signature`.
 
 ### Requirement 16: ROLIE Service Document
 
 The use and therefore the existence of ROLIE service document is optional.
-If it is used, each ROLIE service document MUST be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
+If it is used, each ROLIE service document SHALL be a JSON file that conforms with [cite](#RFC8322) and lists the ROLIE feed documents.
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
@@ -459,7 +460,7 @@ The ROLIE service document SHOULD use the filename `service.json` and reside nex
 ### Requirement 17: ROLIE Category Document
 
 The use and therefore the existence of ROLIE category document is optional.
-If it is used, each ROLIE category document MUST be a JSON file that conforms with [cite](#RFC8322).
+If it is used, each ROLIE category document SHALL be a JSON file that conforms with [cite](#RFC8322).
 A ROLIE category document SHOULD reside next to the corresponding ROLIE feed.
 ROLIE categories SHOULD be used for to further dissect CSAF documents by one or more of the following criteria:
 
@@ -544,7 +545,7 @@ Any subsequent data (like a filename) which is optional SHALL be separated by at
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
 ```
 
-If a ROLIE feed exists, each hash file MUST be listed in it as described in requirement 15.
+If a ROLIE feed exists, each hash file SHALL be listed in it as described in requirement 15.
 
 ### Requirement 19: Signatures
 
@@ -560,9 +561,9 @@ File name of CSAF document: esa-2022-02723.json
 File name of signature file: esa-2022-02723.json.asc
 ```
 
-If a ROLIE feed exists, each signature file MUST be listed in it as described in requirement 15.
+If a ROLIE feed exists, each signature file SHALL be listed in it as described in requirement 15.
 
-At all times, signatures MUST remain valid for a minimum of 30 days and ideally for at least 90 days. When executing
+At all times, signatures SHALL remain valid for a minimum of 30 days and ideally for at least 90 days. When executing
 CSAF document signatures, the signing party SHOULD adhere to or surpass the prevailing best practices and recommendations
 regarding key length.
 Tools SHOULD treat the violation of the rules given in the first sentence as:
@@ -574,7 +575,7 @@ Tools SHOULD treat the violation of the rules given in the first sentence as:
 
 ### Requirement 20: Public OpenPGP Key
 
-The public part of the OpenPGP key used to sign the CSAF documents MUST be available.
+The public part of the OpenPGP key used to sign the CSAF documents SHALL be available.
 This key file SHALL be presented as an ASCII armored file.
 It SHOULD also be available at a public key server.
 
@@ -586,9 +587,9 @@ The OpenPGP key SHOULD have a strength that is considered secure.
 
 ### Requirement 21: List of CSAF Providers
 
-The file `aggregator.json` MUST be present and valid according to the
+The file `aggregator.json` SHALL be present and valid according to the
 JSON schema [CSAF aggregator](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json).
-It MUST NOT be stored adjacent to a `provider-metadata.json`.
+It SHALL NOT be stored adjacent to a `provider-metadata.json`.
 
 The file `aggregator.json` SHOULD be accessible at the registered path in the `.well-known` directory:
 `/.well-known/csaf-aggregator/aggregator.json`.
@@ -653,10 +654,10 @@ or one CSAF publisher and one CSAF provider (including CSAF trusted provider).
 
 ### Requirement 23: Mirror
 
-The CSAF documents for each issuing party that is mirrored MUST be in a different folder.
+The CSAF documents for each issuing party that is mirrored SHALL be in a different folder.
 The folder name SHOULD be retrieved from the name of the issuing authority.
-This folders MUST be adjacent to the `aggregator.json` (requirement 21).
-Each such folder MUST at least:
+This folders SHALL be adjacent to the `aggregator.json` (requirement 21).
+Each such folder SHALL at least:
 
 - provide a `provider-metadata.json` for the current issuing party.
 - provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
@@ -713,7 +714,7 @@ Each such folder MUST at least:
 
 ### Requirement 24: HTTP User-Agent
 
-Access to the CSAF related files and directories provided, for both metadata and documents, MUST be allowed independent of the
+Access to the CSAF related files and directories provided, for both metadata and documents, SHALL be allowed independent of the
 value of HTTP User-Agent.
 
 > Limit the value of HTTP User-Agents to a certain set would hinder adoption of tools retrieving the files.

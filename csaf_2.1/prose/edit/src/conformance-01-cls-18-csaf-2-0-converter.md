@@ -285,6 +285,18 @@ Secondly, the program fulfills the following for all items of:
 - `$.document.publisher.category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD issue a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning SHALL exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
+- `$.document.publisher.contact`:
+  - If a `$.document.publisher.contact_details` element is present,
+    the CSAF 2.0 to CSAF 2.1 Converter SHALL convert its content into the value of the `details` property.
+  - If a URL to a Public OpenPGP Key was provided in the `$.document.publisher.contact_details` element and
+    the URL fulfills the requirements of the property `public_openpgp_key_url`,
+    the CSAF 2.0 to CSAF 2.1 Converter SHALL set it as the content of that property.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHOULD extract the matching email address from the content of the
+    `$.document.publisher.contact_details` element, if applicable, or use the first email address and set it as value of `email`.
+  - The CSAF 2.0 to CSAF 2.1 Converter SHALL provide configuration options and corresponding arguments to set these values if they are not present.
+    If values from both sources are present, the program SHOULD prefer the latter one.
+    It SHOULD provide an option to overwrite the values extracted from the document.
+    The program SHALL NOT use hard-coded values.
 - `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
   from the `$.document.title`. In addition, separating characters including but not limited to white space, colon, dash and brackets SHALL be removed.
 - `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter

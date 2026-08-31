@@ -1,6 +1,6 @@
 # Safety, Security, and Data Protection Considerations
 
-All safety, security, and data protection requirements relevant to the context in which CSAF documents are used MUST be translated into,
+All safety, security, and data protection requirements relevant to the context in which CSAF documents are used SHALL be translated into,
 and consistently enforced through, CSAF implementations and processes.
 
 CSAF documents are based on JSON, thus the security considerations of [cite](#RFC8259) apply and are repeated here as service for the reader:
@@ -67,5 +67,12 @@ have been altered, e.g. by an Errata to fix a bug.
 It is RECOMMENDED to do them at least before a release.
 
 > Such checks can be automated, e.g. in the CI/CD pipeline.
+
+CSAF documents can contain personally identifiable information.
+This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses.
+Issuing parties SHALL ensure that they are allowed to publish such information.
+
+> Acknowledging entities or individuals is always possible with their consent.
+> Functional email addresses are usually not consider to be personally identifiable information.
 
 ---

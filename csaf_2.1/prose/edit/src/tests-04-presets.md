@@ -4,9 +4,9 @@ A test preset is a predefined set of tests that was given a name.
 It MAY contain any number of tests.
 Two presets MAY overlap.
 The content of a preset MAY vary in different CSAF versions.
-A CSAF validator MUST support every official preset that solely include tests that are implemented by the CSAF validator.
+A CSAF validator SHALL support every official preset that solely include tests that are implemented by the CSAF validator.
 A CSAF validator MAY provide or support additional presets.
-A CSAF validator MUST implement all tests for any supported preset.
+A CSAF validator SHALL implement all tests for any supported preset.
 
 Names of presets not defined in this CSAF standard SHALL have the following prefix before their name:
 
@@ -18,8 +18,8 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 - `org_` followed by an organization identifier and an underscore (`_`):
   for any preset specified by an organization as a part of a public definition
   that can be implemented by different CSAF validators.
-  The organization identifier MUST only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
-  The organization identifier MUST be registered with the OASIS CSAF TC prior to the publication of the definition.
+  The organization identifier SHALL only use the characters identified by the pattern `[0-9a-zA-Z-.]`.
+  The organization identifier SHALL be registered with the OASIS CSAF TC prior to the publication of the definition.
 
 - `csaf_`: for any preset defined later on by the OASIS CSAF TC.
 
@@ -49,20 +49,25 @@ The following presets are defined through conformance targets:
 
   > Note: The last preset MAY vary between different implementations as it is implementation specific.
 
-As presets are sets, the operator `+` MUST be interpreted as the union operation.
+As presets are sets, the operator `+` SHALL be interpreted as the union operation.
 
 ### Additional Presets
 
 Additional presets are defined as follows:
 
+- `non-external-request-free`:
+  - Description: Any test that cannot be executed without a request into the Internet or a different network.
+  - Set:
+    - [sec](#public-openpgp-key-url)
+    - [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
+    - [sec](#use-of-self-referencing-urls-failing-to-resolve)
 - `external-request-free`:
   - Description: Any test that can be executed without a request into the Internet or a different network.
 
     > This is intended to be used for browser-based tools as external requests may result in CORS issues.
     > Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
 
-  - Set: `full` excluding tests [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
-    and [sec](#use-of-self-referencing-urls-failing-to-resolve)
+  - Set: `full` excluding tests from preset `non-external-request-free`
 - `consistent-revision-history`:
   - Description: Any test that is related to the revision history and ensures consistence within it.
   - Set:
@@ -104,30 +109,30 @@ Additional presets are defined as follows:
 - `extensions`:
   - Description: Any test that is related to CSAF Extensions.
   - Set:
-    -[sec](#mandatory-tests--extension-tests-content-schema)
-    -[sec](#mandatory-tests--extension-tests-extension-schema)
-    -[sec](#mandatory-tests--extension-tests-metadata)
-    -[sec](#extension-in-superseded-or-withdrawn-document)
-    -[sec](#registered-extension)
-    -[sec](#official-extension)
-    -[sec](#critical-extension)
-    -[sec](#usage-of-experimental-extension-in-tlp-clear-document)
-    -[sec](#extension-category-essential)
-    -[sec](#usage-of-experimental-extension-in-non-tlp-clear-document)
-    -[sec](#usage-of-extension-at-document-level)
-    -[sec](#usage-of-extension-in-product-tree-branch-path)
-    -[sec](#usage-of-extension-in-product-tree-full-product-names-path)
-    -[sec](#usage-of-extension-in-product-tree-product-paths-path)
-    -[sec](#usage-of-extension-in-vulnerabilities-metrics-path)
-    -[sec](#usage-of-extension-at-vulnerabilities-level)
-    -[sec](#usage-of-extension-at-root-level)
+    - [sec](#mandatory-tests--extension-tests-content-schema)
+    - [sec](#mandatory-tests--extension-tests-extension-schema)
+    - [sec](#mandatory-tests--extension-tests-metadata)
+    - [sec](#extension-in-superseded-or-withdrawn-document)
+    - [sec](#registered-extension)
+    - [sec](#official-extension)
+    - [sec](#critical-extension)
+    - [sec](#usage-of-experimental-extension-in-tlp-clear-document)
+    - [sec](#extension-category-essential)
+    - [sec](#usage-of-experimental-extension-in-non-tlp-clear-document)
+    - [sec](#usage-of-extension-at-document-level)
+    - [sec](#usage-of-extension-in-product-tree-branch-path)
+    - [sec](#usage-of-extension-in-product-tree-full-product-names-path)
+    - [sec](#usage-of-extension-in-product-tree-product-paths-path)
+    - [sec](#usage-of-extension-in-vulnerabilities-metrics-path)
+    - [sec](#usage-of-extension-at-vulnerabilities-level)
+    - [sec](#usage-of-extension-at-root-level)
 - `extensions-exist`:
   - Description: Detects CSAF Extensions in all places.
   - Set:
-    -[sec](#usage-of-extension-at-document-level)
-    -[sec](#usage-of-extension-in-product-tree-branch-path)
-    -[sec](#usage-of-extension-in-product-tree-full-product-names-path)
-    -[sec](#usage-of-extension-in-product-tree-product-paths-path)
-    -[sec](#usage-of-extension-in-vulnerabilities-metrics-path)
-    -[sec](#usage-of-extension-at-vulnerabilities-level)
-    -[sec](#usage-of-extension-at-root-level)
+    - [sec](#usage-of-extension-at-document-level)
+    - [sec](#usage-of-extension-in-product-tree-branch-path)
+    - [sec](#usage-of-extension-in-product-tree-full-product-names-path)
+    - [sec](#usage-of-extension-in-product-tree-product-paths-path)
+    - [sec](#usage-of-extension-in-vulnerabilities-metrics-path)
+    - [sec](#usage-of-extension-at-vulnerabilities-level)
+    - [sec](#usage-of-extension-at-root-level)

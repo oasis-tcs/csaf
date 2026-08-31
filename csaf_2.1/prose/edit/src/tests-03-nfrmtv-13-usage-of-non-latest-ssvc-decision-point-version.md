@@ -1,9 +1,9 @@
 ### Usage of Non-Latest SSVC Decision Point Version
 
-For each SSVC decision point given under `selections` with a registered `namespace`, it MUST be tested the latest decision point
+For each SSVC decision point given under `selections` with a registered `namespace`, it SHALL be tested the latest decision point
 `version` available at the time of the `timestamp` was used.
 The test SHALL fail if a later `version` was used.
-Namespaces reserved for special purpose MUST be treated as per their definition.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > A list of all valid decision points of registered namespaces including their values is available at the
 > SSVC repository (see [cite](#SSVC-DP)).

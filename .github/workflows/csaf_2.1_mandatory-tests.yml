@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Setup Node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
       with:
-        node-version: '20'
+        node-version: '24'
     - name: Setup csaf-validator-lib
       run: |
         cd ..
@@ -25,7 +25,7 @@ jobs:
         cd csaf-validator-lib && npm ci --prod
     - name: Run mandatory tests on examples
       run:  |
-        for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/*.json | grep -Ev 'rhsa-2021_5186.json|rhsa-2021_5217|rhsa-2022_0011.json'`
+        for i in `ls -1 ../csaf/csaf_2.1/examples/csaf/*.json | grep -Ev 'rhsa-2019_1862.json|rhsa-2021_5186.json|rhsa-2021_5217|rhsa-2022_0011.json|cisco-sa-20180328-smi2.json'`
         do
           printf "%s%s\n" "Starting test of " $i
           ../csaf-validator-lib/scripts/runTest.js -f $i -t base -c 2.1

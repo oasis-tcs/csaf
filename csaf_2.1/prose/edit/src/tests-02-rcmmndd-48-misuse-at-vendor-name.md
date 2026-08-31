@@ -1,6 +1,6 @@
 ### Misuse at Vendor Name
 
-For each item in `branches` with category `vendor` it MUST be tested that the `name` is not `Open Source`.
+For each item in `branches` with category `vendor` it SHALL be tested that the `name` is not `Open Source`.
 The comparison is case and white space insensitive.
 
 > Some issuing parties use `Open Source` as a vendor name for all open source products.

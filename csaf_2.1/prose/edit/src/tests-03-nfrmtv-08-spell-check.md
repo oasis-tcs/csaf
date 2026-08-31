@@ -1,6 +1,6 @@
 ### Spell Check
 
-If the document language is given it MUST be tested that a spell check for the given language does not find any mistakes.
+If the document language is given it SHALL be tested that a spell check for the given language does not find any mistakes.
 The test SHALL be skipped if the document language is not set.
 It SHALL fail if the given language is not supported.
 The value of `$.document.category` SHOULD NOT be tested if the CSAF document does not use the profile "CSAF Base".
