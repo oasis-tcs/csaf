@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
   "document": {
-    "category": "vulnerability report",
+    "category": "Vulnerability＿rePORT",
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
@@ -29,22 +29,67 @@
       "version": "1"
     }
   },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "17.4",
+                "product": {
+                  "name": "Example Company Product A 17.4",
+                  "product_id": "CSAFPID-9080700"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
   "vulnerabilities": [
     {
+      "ids": [
+        {
+          "system_name": "https://data.test.csaf.dev",
+          "text": "OASIS_CSAF_TC-CSAF_2.1-6-1-26"
+        }
+      ],
       "notes": [
         {
           "category": "summary",
-          "text": "A vulnerability that can't reference any product as the `product_tree` does not exist.",
+          "text": "Example Company Product A 17.4 performs only checks on file extensions with all lowercase letters. An unauthenticated remote attacker can execute arbitrary binaries if their file extension contains uppercase letters or other characters.",
           "title": "Vulnerability Summary"
         },
         {
           "audience": "coordinator",
           "category": "other",
-          "text": "Discovery text",
+          "text": "The vulnerability was discovered through source code analysis.",
           "title": "Vulnerability Discovery Method"
         }
       ],
-      "title": "A vulnerability item that can't reference any product as the product_tree does not exist."
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "This vulnerability is not known to the issuing party to be exploited in the wild."
+        },
+        {
+          "category": "impact",
+          "details": "Exploiting this vulnerability will result in arbitrary code execution with highest privileges and can be performed by an unauthenticated remote attacker over network."
+        }
+      ],
+      "title": "execute2.1337"
     }
   ]
 }
