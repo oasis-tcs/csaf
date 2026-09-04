@@ -1099,6 +1099,7 @@
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-03.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-03.result.json",
           "valid": false
         }
       ],
@@ -1115,6 +1116,7 @@
         },
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-13.json",
+          "result": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-08-13.result.json",
           "valid": true
         }
       ]

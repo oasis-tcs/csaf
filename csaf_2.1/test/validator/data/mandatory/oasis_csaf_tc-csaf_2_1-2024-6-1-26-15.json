@@ -55,6 +55,12 @@
   },
   "vulnerabilities": [
     {
+      "ids": [
+        {
+          "system_name": "https://data.test.csaf.dev",
+          "text": "OASIS_CSAF_TC-CSAF_2.1-6-1-26"
+        }
+      ],
       "notes": [
         {
           "category": "summary",

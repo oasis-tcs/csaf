@@ -5,7 +5,7 @@
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
-        "label": "CLEAR"
+        "label": "AMBER"
       }
     },
     "publisher": {
@@ -37,19 +37,19 @@
             "branches": [
               {
                 "category": "product_version",
-                "name": "1.0.0",
+                "name": "17.4",
                 "product": {
-                  "name": "Vendor  Product 1.0.0",
-                  "product_id": "CSAFPID-0001"
+                  "name": "Example Company Product A 17.4",
+                  "product_id": "CSAFPID-9080700"
                 }
               }
             ],
             "category": "product_name",
-            "name": "Product"
+            "name": "Product A"
           }
         ],
         "category": "vendor",
-        "name": "Vendor "
+        "name": "Example Company"
       }
     ]
   },
@@ -57,33 +57,33 @@
     {
       "notes": [
         {
-          "category": "description",
-          "text": "The vulnerability is described in full here.",
-          "title": "Vulnerability Description"
+          "category": "summary",
+          "text": "Example Company Product A 17.4 performs only checks on file extensions with all lowercase letters. An unauthenticated remote attacker can execute arbitrary binaries if their file extension contains uppercase letters or other characters.",
+          "title": "Vulnerability Summary"
         },
         {
           "audience": "coordinator",
           "category": "other",
-          "text": "Vulnerability discovery method is discussed here.",
+          "text": "The vulnerability was discovered through source code analysis.",
           "title": "Vulnerability Discovery Method"
         }
       ],
       "product_status": {
         "known_affected": [
-          "CSAFPID-0001"
+          "CSAFPID-9080700"
         ]
       },
       "threats": [
         {
           "category": "exploit_status",
-          "details": "This vulnerability is not known to the document issuer to be exploited in the wild."
+          "details": "This vulnerability is not known to the issuing party to be exploited in the wild."
         },
         {
           "category": "impact",
           "details": "Exploiting this vulnerability will result in arbitrary code execution with highest privileges and can be performed by an unauthenticated remote attacker over network."
         }
       ],
-      "title": "The vulnerability is some cool new vulnerability."
+      "title": "execute2.1337"
     }
   ]
 }

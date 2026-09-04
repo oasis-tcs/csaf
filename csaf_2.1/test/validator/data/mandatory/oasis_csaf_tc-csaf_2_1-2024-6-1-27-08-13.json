@@ -5,7 +5,7 @@
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
-        "label": "CLEAR"
+        "label": "AMBER"
       }
     },
     "publisher": {
@@ -58,33 +58,33 @@
       "cve": "CVE-1900-0001",
       "notes": [
         {
-          "category": "description",
-          "text": "The vulnerability is described here clearly.",
-          "title": "Vulnerability Description"
+          "category": "summary",
+          "text": "Example Company Product A 17.4 performs only checks on file extensions with all lowercase letters. An unauthenticated remote attacker can execute arbitrary binaries if their file extension contains uppercase letters or other characters.",
+          "title": "CVE description"
         },
         {
           "audience": "coordinator",
           "category": "other",
-          "text": "The vulnerability discovery method is provided here.",
+          "text": "The vulnerability was discovered through source code analysis.",
           "title": "Vulnerability Discovery Method"
         }
       ],
       "product_status": {
         "known_affected": [
-          "CSAFPID-0001"
+          "CSAFPID-9080700"
         ]
       },
       "threats": [
         {
           "category": "exploit_status",
-          "details": "This vulnerability is not known to the document issuer to be exploited in the wild."
+          "details": "This vulnerability is not known to the issuing party to be exploited in the wild."
         },
         {
           "category": "impact",
           "details": "Exploiting this vulnerability will result in arbitrary code execution with highest privileges and can be performed by an unauthenticated remote attacker over network."
         }
       ],
-      "title": "Some fancy vulnerability."
+      "title": "execute2.1337"
     }
   ]
 }
