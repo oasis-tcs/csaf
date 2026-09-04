@@ -5,7 +5,7 @@
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
-        "label": "CLEAR"
+        "label": "AMBER"
       }
     },
     "publisher": {
@@ -37,19 +37,19 @@
             "branches": [
               {
                 "category": "product_version",
-                "name": "1.0.0",
+                "name": "17.4",
                 "product": {
-                  "name": "Vendor  Product 1.0.0",
-                  "product_id": "CSAFPID-0001"
+                  "name": "Example Company Product A 17.4",
+                  "product_id": "CSAFPID-9080700"
                 }
               }
             ],
             "category": "product_name",
-            "name": "Product"
+            "name": "Product A"
           }
         ],
         "category": "vendor",
-        "name": "Vendor "
+        "name": "Example Company"
       }
     ]
   }
