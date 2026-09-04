@@ -297,13 +297,17 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
     If other participants during the coordination use different identifiers, they SHOULD be added to the report to provide a
     single place for such mapping.
 
-  - `$.vulnerabilities[*].notes` with at least one item using the `category` `summary`
+  - `$.vulnerabilities[*].notes` with at least one item using one of the following combinations:
+    - the `category` `summary`:
+      The `title` SHALL be `Vulnerability Summary` for English or an unspecified document language.
+      For any other language, it SHOULD be the language specific translation of that term.  
+      This entry SHALL be used to describe the vulnerability that requires coordination with participating parties.
+    - the `category` `description`:
+      The `title` SHALL be `CVE Description` for English or an unspecified document language.
+      For any other language, it SHOULD be the language specific translation of that term.  
+      This entry SHALL be used to describe the vulnerability that requires coordination with participating parties.
 
     > Other items may exist alongside the required one.
-
-    The `title` SHALL be `Vulnerability Summary` for English or an unspecified document language.
-    For any other language, it SHOULD be the language specific translation of that term.  
-    This entry SHALL be used to describe the vulnerability that requires coordination with participating parties.
 
   - `$.vulnerabilities[*].product_status`
 

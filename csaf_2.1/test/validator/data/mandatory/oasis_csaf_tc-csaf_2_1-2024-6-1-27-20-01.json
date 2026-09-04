@@ -13,7 +13,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: Vulnerability Summary (failing example 1)",
+    "title": "Mandatory Test: Vulnerability Notes (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-20-01",
@@ -29,22 +29,61 @@
       "version": "1"
     }
   },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "17.4",
+                "product": {
+                  "name": "Example Company Product A 17.4",
+                  "product_id": "CSAFPID-9080700"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
   "vulnerabilities": [
     {
+      "ids": [
+        {
+          "system_name": "https://data.test.csaf.dev",
+          "text": "OASIS_CSAF_TC-CSAF_2.1-6-1-27-20"
+        }
+      ],
       "notes": [
         {
           "category": "description",
-          "text": "A vulnerability that can't reference any product as the `product_tree` does not exist.",
+          "text": "Example Company Product A 17.4 performs only checks on file extensions with all lowercase letters. An unauthenticated remote attacker can execute arbitrary binaries if their file extension contains uppercase letters or other characters.",
           "title": "Vulnerability Summary"
-        },
-        {
-          "audience": "coordinator",
-          "category": "other",
-          "text": "Discovery text",
-          "title": "Vulnerability Discovery Method"
         }
       ],
-      "title": "A vulnerability item that can't reference any product as the product_tree does not exist."
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "This vulnerability is not known to the issuing party to be exploited in the wild."
+        },
+        {
+          "category": "impact",
+          "details": "Exploiting this vulnerability will result in arbitrary code execution with highest privileges and can be performed by an unauthenticated remote attacker over network."
+        }
+      ],
+      "title": "execute2.1337"
     }
   ]
 }
