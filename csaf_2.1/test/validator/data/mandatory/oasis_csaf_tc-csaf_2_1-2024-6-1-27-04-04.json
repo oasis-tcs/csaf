@@ -31,6 +31,7 @@
   },
   "vulnerabilities": [
     {
+      "cve": "CVE-1900-0001",
       "notes": [
         {
           "category": "summary",
