@@ -2,7 +2,7 @@
 
 SCHEMA=csaf_2.1/json_schema/csaf.json
 VALIDATOR=csaf_2.1/test/cpe/test-regex.js
-CPE_BASE_URL=https://nvd.nist.gov/feeds/xml/cpe/dictionary/
+CPE_BASE_URL=https://web.archive.org/web/20240926194713/https://nvd.nist.gov/feeds/xml/cpe/dictionary/
 CPE_2_3=official-cpe-dictionary_v2.3
 CPE_2_2=official-cpe-dictionary_v2.2
 
@@ -20,7 +20,7 @@ get_dictionary() {
 prepare_23_dictionary() {
   # Get CPE 2.3 fields
   # Correctly decode special characters
-  grep '<cpe-23:cpe23-item name=' "$CPE".xml | sed -e 's/^.*<cpe-23:cpe23-item name="//' -e 's/"\/\?>$//' \
+  grep '<cpe-23:cpe23-item name=' "$CPE".xml | sed -e 's/^.*<cpe-23:cpe23-item name="//' -e 's/"\/>$//' -e 's/">$//' \
     | sed -e 's/\\&amp;/\\\&/g' \
     | sed -e 's/\\&quot;/\\"/g' \
     > "$CPE".txt

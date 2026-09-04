@@ -82,6 +82,7 @@ tests-01-mndtr-27-16-revision-history-for-withdrawn-and-superseded.md
 tests-01-mndtr-27-17-reasoning-for-withdrawal.md
 tests-01-mndtr-27-18-reasoning-for-supersession.md
 tests-01-mndtr-27-19-reference-to-superseding-document.md
+tests-01-mndtr-27-20-vulnerability-notes-for-vulnerability-report.md
 tests-01-mndtr-28-translation.md
 tests-01-mndtr-29-remediation-without-product-reference.md
 tests-01-mndtr-30-mixed-integer-and-semantic-versioning.md
@@ -161,6 +162,14 @@ tests-02-rcmmndd-39-02-language-specific-reasoning-for-withdrawal.md
 tests-02-rcmmndd-39-03-language-specific-reasoning-for-supersession.md
 tests-02-rcmmndd-39-04-language-specific-superseding-document.md
 tests-02-rcmmndd-39-05-extension-in-superseded-or-withdrawn-document.md
+tests-02-rcmmndd-39-06-language-specific-vulnerability-summary.md
+tests-02-rcmmndd-39-07-document-acknowledgments-for-vulnerability-report.md
+tests-02-rcmmndd-39-08-document-aggregate-severity-for-vulnerability-report.md
+tests-02-rcmmndd-39-09-document-distribution-for-vulnerability-report.md
+tests-02-rcmmndd-39-10-vulnerability-metrics-for-vulnerability-report.md
+tests-02-rcmmndd-39-11-vulnerability-references-for-vulnerability-report.md
+tests-02-rcmmndd-39-12-vulnerability-threats-for-vulnerability-report.md
+tests-02-rcmmndd-39-13-vulnerability-title-for-vulnerability-report.md
 tests-02-rcmmndd-40-product-description-without-product.md
 tests-02-rcmmndd-41-old-epss-timestamp.md
 tests-02-rcmmndd-42-inconsistent-product-identification-helper.md
@@ -200,6 +209,10 @@ tests-03-nfrmtv-19-overlapping-version-range.md
 tests-03-nfrmtv-20-use-of-unregistered-id-system.md
 tests-03-nfrmtv-21-extension-tests.md
 tests-03-nfrmtv-22-nested-product-path.md
+tests-03-nfrmtv-23-01-vulnerability-report-involvements.md
+tests-03-nfrmtv-23-02-vulnerability-report-involvement-party.md
+tests-03-nfrmtv-23-03-vulnerability-report-involvement-status.md
+tests-03-nfrmtv-23-04-vulnerability-report-involvement-date.md
 tests-03-nfrmtv-24-public-openpgp-key-url-user-id.md
 tests-04-presets.md
 distributing-00.md
