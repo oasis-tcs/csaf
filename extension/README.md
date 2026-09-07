@@ -18,11 +18,11 @@ CSAF defines three classes of extensions. They differ in how widely they are sha
 
 | Class | Registration / review | Listed in registry | Hosting | Typical use |
 | --- | --- | --- | --- | --- | 
-| Official | Registered, plus additional testing and TC review | Yes | `extensions.csaf.dev` | Mature, validated extensions RECOMMENDED for broad adoption |
+| Official | Registered, plus additional testing and TC review | Yes | `extension.csaf.dev` | Mature, validated extensions RECOMMENDED for broad adoption |
 | Registered | Reviewed and approved by the OASIS CSAF Technical Committee | Yes | Publicly accessible at location of implementer's choice | Extensions with demonstrated community need, available for any implementer to use |
 | Private | None required | No | Implementer's choice | Internal and experimental use within a single organization or closed community; not intended for production |
 
-**Official extensions** are the subset of extensions registered that have reached the highest level of maturity and validation. They are hosted at `extensions.csaf.dev`, undergo additional implementation testing and TC review, and are RECOMMENDED for broad adoption. Official extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
+**Official extensions** are the subset of extensions registered that have reached the highest level of maturity and validation. They are hosted at `extension.csaf.dev`, undergo additional implementation testing and TC review, and are RECOMMENDED for broad adoption. Official extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
 
 **Registered extensions** are reviewed and approved by the OASIS CSAF Technical Committee (TC) and then listed publicly in the CSAF Extension Registry. They MUST meet all governance requirements described below, are available for any implementer to use, and are expected to demonstrate genuine community need alongside a baseline of quality. Registered extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
 
@@ -56,15 +56,28 @@ Nevertheless, it is RECOMMENDED that also private extensions fulfill them.
 
 **Complement, do not duplicate.** An extension MUST NOT convey data that CSAF Core already intends to convey. Implementers MUST fully use the relevant CSAF Core fields before turning to an extension. Extensions exist to fill genuine gaps in the standard, not to work around limited adoption of existing fields. Once CSAF Core or an official extension conveys information previously carried by an extension, the official field MUST be used, and the TC MAY deny-list the superseded extension to preserve interoperability.
 
-**Align with the purpose of CSAF.** An extension MUST NOT contradict the purpose or intent of CSAF. It MUST support the creation, exchange, and consumption of security advisory information, and any domain-specific data it introduces MUST serve a vulnerability or product context, the description or assessment of a vulnerability, the technical identification, lifecycle or vulnerability applicability of a product, remediation or mitigation, identification or configuration of a product, or the relationships between vulnerabilities and products. Extensions addressing unrelated concerns, such as organizational processes or internal workflows not tied to advisory content, are out of scope and will not be considered for registration. 
+**Align with the purpose of CSAF.** An extension MUST NOT contradict the purpose or intent of CSAF. It MUST support the creation, exchange, and consumption of security advisory information, and any domain-specific data it introduces MUST serve 
+- a vulnerability or product context,
+- the description or assessment of a vulnerability,
+- the technical identification, lifecycle or vulnerability applicability of a product, remediation or mitigation,
+- identification or configuration of a product, or the relationships between vulnerabilities and products.
+
+Extensions addressing unrelated concerns are out of scope and will not be considered for registration. This includes but is not limited to:
+- Extensions addressing organizational processes or internal workflows not tied to advisory content,
+- Extensions that contain data regarding the geographical location of vendors. 
 
 **Limit scope to a single location.** An extension is limited to one specific location in the CSAF schema. This constraint keeps extensions predictable and straightforward to implement. Extensions that can apply to a single vulnerability or the whole CSAF document are allowed to appear in both locations.
 
 ### Documentation and Implementation
 
-**Open source.** The CSAF Extension Package [https://github.com/oasis-tcs/csaf/blob/master/csaf_2.1/prose/share/csaf-v2.1-draft.md#conformance-clause-35-csaf-extension-package], extension schema, specification, tests, and all supporting documentation MUST be open source, and the source repositories MUST be publicly accessible. The chosen license MUST be compatible with the OASIS IPR Policy so that the material can be incorporated into CSAF. Documentation MUST be sufficient for an independent party to implement the extension without access to the authors. Private extensions are exempted from the requirement to make the Extension Package open source and publicly accessible while this is still RECOMMENDED.
+**Open source.** The CSAF Extension Package[CSAF Extension Package](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#conformance-clause-35-csaf-extension-package), extension schema, specification, tests, and all supporting documentation MUST be open source, and the source repositories MUST be publicly accessible. The chosen license MUST be compatible with the OASIS IPR Policy so that the material can be incorporated into CSAF. Documentation MUST be sufficient for an independent party to implement the extension without access to the authors.
 
-**Reference implementation.** A reference implementation MUST be available as open source and MUST be written in a memory-safe programming language. It demonstrates feasibility and surfaces implementation challenges before formal adoption. For official extensions, the reference implementation SHOULD be complete before the final TC vote. Private extensions are exempted from the requirement to make the reference implementation open source and publicly accessible while this is still RECOMMENDED.
+Private extensions are exempted from the requirement to make the Extension Package open source and publicly accessible while this is still RECOMMENDED.
+
+**Reference implementation.** A reference implementation MUST be available as open source and MUST be written in a memory-safe programming language.
+It demonstrates feasibility and surfaces implementation challenges before formal adoption.
+For official extensions, the reference implementation SHOULD be complete before the final TC vote.
+Private extensions are exempted from the requirement to make the reference implementation open source and publicly accessible while this is still RECOMMENDED.
 
 **Documentation standards.** Extensions MUST be reasonably documented, with a clear statement of purpose and usage guidance. Documentation MUST include schema definitions, use cases, examples, and integration guidance, and MUST be clear enough for independent developers to implement the extension correctly.
 
@@ -72,7 +85,9 @@ Nevertheless, it is RECOMMENDED that also private extensions fulfill them.
 
 **Technical Committee vote.** Accepting an extension as a registered or official extension requires a vote in the OASIS CSAF TC. A documented review of all governance requirements MUST precede the vote, and a community discussion period precedes formal voting.
 
-**Critical extension assessment.** Criticality is determined by the rules in the processing model above. When an extension proposed for registration is critical, a second vote is required that explicitly weighs whether its risks outweigh its benefits. Proposers SHOULD self-assess criticality at submission, and the TC assesses the classification during review.
+**Critical extension assessment.** Criticality is determined by the rules in the [processing model](#processing-model-critical-and-non-critical-extensions) above.
+When an extension proposed for registration is critical, a second vote is required that explicitly weighs whether its risks outweigh its benefits.
+Proposers SHOULD self-assess criticality at submission, and the TC assesses the classification during review.
 
 **Pre-release implementation testing.** For official extensions, the reference implementation SHOULD be complete and tested before the final vote. Real-world implementation reveals bugs, ambiguities, and integration issues, and feedback from that work informs the TC's decision.
 
@@ -84,12 +99,12 @@ Extension authors MUST grant OASIS a license to include the extension, with or w
 
 The TC maintains four authoritative lists that govern which extensions may be used and how:
 
-- **Official extensions.** The list of extensions maintained by the TC and hosted at `extensions.csaf.dev`.
+- **Official extensions.** The list of extensions maintained by the TC and hosted at `extension.csaf.dev`.
 - **Registered extensions.** The list of registered extensions.
 - **Deprecated extensions.** Extensions that MAY still be used, but whose support is scheduled for removal in the near future. Authors SHOULD migrate away from a deprecated extension to CSAF Core or to a current extension.
 - **Deny-listed extensions.** Extensions that MUST NOT be used, for example because an official property now conveys the same information.
 
-All lists are hosted at `extensions.csaf.dev`. The TC is free to place any extension, including experimental or non-conforming ones, on lists 3 and 4.
+All lists are hosted at `extension.csaf.dev`. The TC is free to place any extension, including experimental or non-conforming ones, on lists 3 and 4.
 
 An extension change controller MAY request to put its extension at any point on list 3 or 4.
 An extension change controller MAY submit its extension for registration.
@@ -112,4 +127,11 @@ To propose a new extension:
 7. Optionally, pursue official status by completing the additional implementation testing and TC review required for official extensions. Not every registered extension needs to become official.
 
 For questions or guidance, reach the OASIS CSAF Technical Committee through the project's public channels (issue tracker and TC mailing list).
+
+## Implementers Guidance
+Tools are free to choose which CSAF extensions they support.
+
+Nevertheless, the requirements of section [2.4.2](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#lists) and section [9](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#conformance) apply.
+Official extensions SHOULD be supported.
+Tools SHOULD NOT retrieve extension schemes during their run time as this poses a security risk (cf. section [8](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#safety-security-and-data-protection-considerations) for more details).
 
