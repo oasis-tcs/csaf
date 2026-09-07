@@ -26,10 +26,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Vulnerability Title (valid example 1)",
+    "title": "Recommended Test: Vulnerability Title (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-13-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-13-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -118,8 +118,7 @@
           "category": "impact",
           "details": "Exploiting this vulnerability will result in arbitrary code execution with highest privileges and can be performed by an unauthenticated remote attacker over network."
         }
-      ],
-      "title": "execute2.1337"
+      ]
     }
   ]
 }
