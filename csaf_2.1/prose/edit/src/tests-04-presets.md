@@ -61,6 +61,7 @@ Additional presets are defined as follows:
     - [sec](#public-openpgp-key-url)
     - [sec](#use-of-non-self-referencing-urls-failing-to-resolve)
     - [sec](#use-of-self-referencing-urls-failing-to-resolve)
+    - [sec](#public-openpgp-key-url-user-id)
 - `external-request-free`:
   - Description: Any test that can be executed without a request into the Internet or a different network.
 
