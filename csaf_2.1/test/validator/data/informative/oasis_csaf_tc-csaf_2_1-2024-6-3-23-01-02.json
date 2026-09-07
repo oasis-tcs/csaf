@@ -26,21 +26,16 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative Test: Involvements (valid example 1)",
+    "title": "Informative Test: Involvements (failing example 2)",
     "tracking": {
-      "current_release_date": "2024-01-30T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-23-01-11",
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-23-01-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
           "date": "2024-01-24T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
-        },
-        {
-          "date": "2024-01-30T10:00:00.000Z",
-          "number": "2",
-          "summary": "Updated involvements. Add CVSS metric."
         }
       ],
       "status": "final",
@@ -74,20 +69,6 @@
   "vulnerabilities": [
     {
       "cve": "CVE-1900-0001",
-      "involvements": [
-        {
-          "date": "2024-01-24T10:00:00.000Z",
-          "party": "discoverer",
-          "status": "contact_attempted",
-          "summary": "The discoverer submitted the initial private report to the vendor."
-        },
-        {
-          "date": "2024-01-26T09:00:00.000Z",
-          "party": "vendor",
-          "status": "in_progress",
-          "summary": "The vendor acknowledged the report and started triage."
-        }
-      ],
       "metrics": [
         {
           "content": {
