@@ -9,28 +9,14 @@
       }
     },
     "lang": "de-DE",
-    "notes": [
-      {
-        "category": "summary",
-        "text": "Dies ist die Schwachstellenübersicht.",
-        "title": "Schwachstellenübersicht"
-      }
-    ],
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "references": [
-      {
-        "category": "external",
-        "summary": "Ersetzendes Dokument",
-        "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
-      }
-    ],
-    "title": "Recommended Test: Language Vulnerability Summary (valid example 1)",
+    "title": "Recommended Test: Language Specific Vulnerability Notes (valid example 1)",
     "tracking": {
-      "current_release_date": "2024-05-24T10:00:00.000Z",
+      "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-06-11",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
@@ -38,15 +24,68 @@
           "date": "2024-01-24T10:00:00.000Z",
           "number": "1",
           "summary": "Initiale Version."
-        },
-        {
-          "date": "2024-05-24T10:00:00.000Z",
-          "number": "2",
-          "summary": "Ersetzt."
         }
       ],
       "status": "final",
-      "version": "2"
+      "version": "1"
     }
-  }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "17.4",
+                "product": {
+                  "name": "Example Company Produkt A 17.4",
+                  "product_id": "CSAFPID-9080700"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Produkt A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Example Company Produkt A 17.4 führt lediglich Überprüfungen auf Dateien mit Dateiendungen durch, die ausschließlich aus Kleinbuchstaben bestehen. Ein nicht authentifizierter Angreifer kann beliebige Binärdateien ausführen, wenn deren Dateiendung Großbuchstaben oder andere Zeichen enthält.",
+          "title": "CVE Beschreibung"
+        },
+        {
+          "audience": "coordinator",
+          "category": "other",
+          "text": "Die Sicherheitslücke wurde durch eine Analyse des Quellcodes entdeckt.",
+          "title": "Schwachstellenentdeckungsmethode"
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "threats": [
+        {
+          "category": "exploit_status",
+          "details": "Die Schwachstelle wird nach Kenntnisstand der veröffentlichenden Stelle nicht aktiv ausgenutzt."
+        },
+        {
+          "category": "impact",
+          "details": "Die Ausnutzung der Schwachstelle führt zur Ausführung von beliebigem Code mit den höchsten Privilegien und kann durch einen nicht authentifizierten, entfernten Angreifer über das Netzwerk ausgeführt werden."
+        }
+      ],
+      "title": "execute2.1337"
+    }
+  ]
 }

@@ -162,7 +162,7 @@ tests-02-rcmmndd-39-02-language-specific-reasoning-for-withdrawal.md
 tests-02-rcmmndd-39-03-language-specific-reasoning-for-supersession.md
 tests-02-rcmmndd-39-04-language-specific-superseding-document.md
 tests-02-rcmmndd-39-05-extension-in-superseded-or-withdrawn-document.md
-tests-02-rcmmndd-39-06-language-specific-vulnerability-summary.md
+tests-02-rcmmndd-39-06-language-specific-vulnerability-notes.md
 tests-02-rcmmndd-39-07-document-acknowledgments-for-vulnerability-report.md
 tests-02-rcmmndd-39-08-document-aggregate-severity-for-vulnerability-report.md
 tests-02-rcmmndd-39-09-document-distribution-for-vulnerability-report.md
