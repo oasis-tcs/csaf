@@ -74,7 +74,7 @@
           "CSAFPID-9080700"
         ]
       },
-            "references": [
+      "references": [
         {
           "category": "external",
           "summary": "Researcher proof-of-concept write-up",

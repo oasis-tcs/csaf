@@ -7,12 +7,12 @@
           "Jane Researcher"
         ],
         "organization": "Example Research Lab",
-        "summary": "Reported the vulnerability privately to the vendor."
+        "summary": "reporting the vulnerability securely to the vendor"
       }
     ],
     "aggregate_severity": {
-      "namespace": "https://example.com/severity",
-      "text": "High"
+      "namespace": "https://coordinator.example/severity",
+      "text": "Critical"
     },
     "category": "csaf_vulnerability_report",
     "csaf_version": "2.1",
@@ -26,7 +26,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Vulnerability Metrics for Vulnerability Report (failing example 1)",
+    "title": "Recommended Test: Vulnerability Metrics (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-39-10-01",
@@ -43,48 +43,32 @@
     }
   },
   "product_tree": {
-    "full_product_names": [
+    "branches": [
       {
-        "name": "Example Widget 1.0",
-        "product_id": "CSAFPID-0001"
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "17.4",
+                "product": {
+                  "name": "Example Company Product A 17.4",
+                  "product_id": "CSAFPID-9080700"
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
       }
     ]
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
-      "notes": [
-        {
-          "category": "summary",
-          "product_ids": [
-            "CSAFPID-0001"
-          ],
-          "text": "The vendor is investigating a privilege escalation vulnerability in Example Widget 1.0.",
-          "title": "Vulnerability Summary"
-        }
-      ],
-      "product_status": {
-        "known_affected": [
-          "CSAFPID-0001"
-        ]
-      },
-      "references": [
-        {
-          "category": "external",
-          "summary": "Researcher proof-of-concept write-up",
-          "url": "https://example.com/advisories/CVE-1900-0001"
-        }
-      ],
-      "threats": [
-        {
-          "category": "impact",
-          "details": "Successful exploitation may allow an authenticated attacker to gain administrative privileges.",
-          "product_ids": [
-            "CSAFPID-0001"
-          ]
-        }
-      ],
-      "title": "Example Widget privilege escalation"
+      "cve": "CVE-1900-0001"
     }
   ]
 }
