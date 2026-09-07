@@ -269,4 +269,119 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 - The value of `$.document.category` SHALL be `csaf_superseded`.
 - The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.
 
+## Profile 9: Vulnerability Report
+
+This profile SHALL be used to exchange a vulnerability report during the Coordinated Vulnerability Disclosure (CVD) process.
+Providing a structured mechanism for exchanging information throughout the coordinated vulnerability disclosure process among
+the participating parties it supports communication between discoverers, vendors, and, where applicable, coordinators.
+Information such as affected products, technical details, severity assessments, and supporting evidence can be exchanged
+privately using this profile to facilitate coordination.
+It MAY also be used to report previously partially or full-disclosed vulnerabilities to corresponding parties.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the profile "Vulnerability Report":
+
+- The following elements MUST exist and be valid:
+  - All elements required by the profile "CSAF Base".
+  - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
+  - `$.vulnerabilities` which lists all vulnerabilities to be reported.
+  - at least one of
+    - `$.vulnerabilities[*].cve`
+    - `$.vulnerabilities[*].ids`
+
+    Each reported vulnerability needs a unique identifier to track the vulnerability as well as avoid misunderstandings and
+    confusion during the coordination.
+    For any vulnerability that has a CVE assigned regardless of the state of the CVE, its CVE identifier SHALL be used.
+    In any other case, the issuing party SHALL provide an identifier that uniquely identifies the vulnerability within its
+    own organization.
+    An entity SHOULD make use of its corresponding RVISC entry.
+    If other participants during the coordination use different identifiers, they SHOULD be added to the report to provide a
+    single place for such mapping.
+
+  - `$.vulnerabilities[*].notes` with at least one item using one of the following combinations:
+    - the `category` `summary`:
+      The `title` SHALL be `Vulnerability Summary` for English or an unspecified document language.
+      For any other language, it SHOULD be the language specific translation of that term.  
+      This entry SHALL be used to describe the vulnerability that requires coordination with participating parties.
+    - the `category` `description`:
+      The `title` SHALL be `CVE Description` for English or an unspecified document language.
+      For any other language, it SHOULD be the language specific translation of that term.  
+      This entry SHALL be used to describe the vulnerability that requires coordination with participating parties.
+
+    > Other items may exist alongside the required one.
+
+  - `$.vulnerabilities[*].product_status`
+
+    > Lists each product's status with respect to the reported vulnerability as determined by the discoverer,
+    > or whoever is the issuing party of this document.
+
+  - `$.vulnerabilities[*].product_status.known_affected`
+
+    > Identifies the products that the issuing party has determined to be affected.
+    > This requirement ensures that a Vulnerability Report profile identifies at least one product
+    > to which the reported vulnerability is known to apply.
+
+- The value of `$.document.category` SHALL be `csaf_vulnerability_report`.
+
+- The following elements SHOULD exist:
+
+  - `$.document.acknowledgments`
+
+    Identifies the individuals or organizations that SHOULD receive public acknowledgment for the discovery.
+    If omitted, it indicates that the discoverer does not wish to receive public acknowledgment
+    following disclosure.
+
+  - `$.document.aggregate_severity`
+
+    > Provides an overall severity assessment for the report.
+
+  - `$.vulnerabilities[*].metrics`
+
+    > Provides vulnerability assessment metrics, such as CVSS, EPSS, SSVC,
+    > or other supported scoring systems.
+
+  - `$.vulnerabilities[*].references`
+
+    > Identifies publicly available information relevant to the reported vulnerability,
+    > including references supporting evidence of known exploitation where applicable.
+
+  - `$.vulnerabilities[*].threats`
+
+    > Describes the reported security impact or exploitation status.
+
+  - `$.vulnerabilities[*].title`
+
+    > Provides a concise title for each reported vulnerability.
+
+- The value of `$.document.distribution.tlp.label` SHOULD be `TLP:AMBER` to promote sharing on a need-to-know basis within the vendor's or
+  coordinator's organization and, where appropriate, their clients.
+  Additional information, such as `sharing_group` or `text`, MAY be provided to further clarify the issuing party's intended sharing expectations.
+- If the issuing party is aware of active exploitation, that information SHOULD be communicated using the SSVC Exploitatation metric
+  as `Active` or `PoC`.
+  Evidence supporting known exploitation MAY be referenced using `$.vulnerabilities[*].references`
+  to assist investigation by vendors and coordinators.
+
+- The following elements MAY exist:
+
+  - `$.vulnerabilities[*].disclosure_date` which SHOULD be used to communicate or coordinate an intended public
+    disclosure date for the reported vulnerabilities.
+  - `$.vulnerabilities[*].involvements`
+
+    > Records coordination activities between the parties involved in the disclosure of the specific vulnerability.
+
+  - `$.vulnerabilities[*].involvements[*].party`
+
+    > The involvement item's `party` field SHOULD be set to `discoverer`
+    > to identify the entity initiating the involvement.
+
+  - `$.vulnerabilities[*].involvements[*].status`
+
+    > The involvement item's `status` field MAY be set to values such as
+    > `not_contacted` or `contact_attempted`
+    > to indicate the coordination status between the participating parties.
+
+  - `$.vulnerabilities[*].involvements[*].date` which records when an interaction occurred.
+    Future dates MAY be used to communicate planned coordination activities,
+    including conference presentations, technical blogs, or public disclosure.
+    When a future date is specified, the involvement `status` is RECOMMENDED to be `open`.
+
 ---
