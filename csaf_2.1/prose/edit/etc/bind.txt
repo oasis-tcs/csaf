@@ -165,7 +165,7 @@ tests-02-rcmmndd-39-05-extension-in-superseded-or-withdrawn-document.md
 tests-02-rcmmndd-39-06-language-specific-vulnerability-notes.md
 tests-02-rcmmndd-39-07-document-acknowledgments-for-vulnerability-report.md
 tests-02-rcmmndd-39-08-aggregate-severity.md
-tests-02-rcmmndd-39-09-document-distribution-for-vulnerability-report.md
+tests-02-rcmmndd-39-09-tlp-label-for-vulnerability-report.md
 tests-02-rcmmndd-39-10-vulnerability-metrics-for-vulnerability-report.md
 tests-02-rcmmndd-39-11-vulnerability-references-for-vulnerability-report.md
 tests-02-rcmmndd-39-12-vulnerability-threats-for-vulnerability-report.md
