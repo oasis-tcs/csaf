@@ -26,10 +26,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative Test: Disclosure Date (valid example 1)",
+    "title": "Informative Test: Disclosure Date (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-30T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-23-02-11",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-23-02-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -74,7 +74,6 @@
   "vulnerabilities": [
     {
       "cve": "CVE-1900-0001",
-      "disclosure_date": "2024-07-26T09:00:00.000Z",
       "involvements": [
         {
           "date": "2024-01-24T10:00:00.000Z",
