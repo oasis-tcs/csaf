@@ -3867,6 +3867,10 @@
       "failures": [
         {
           "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-12-01.json",
+          "valid": false
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-12-02.json",
           "valid": true
         }
       ],
