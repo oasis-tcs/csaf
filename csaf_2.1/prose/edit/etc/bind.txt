@@ -212,9 +212,6 @@ tests-03-nfrmtv-22-nested-product-path.md
 tests-03-nfrmtv-23-00-profile-tests.md
 tests-03-nfrmtv-23-01-involvements.md
 tests-03-nfrmtv-23-02-disclosure-date.md
-tests-03-nfrmtv-23-02-vulnerability-report-involvement-party.md
-tests-03-nfrmtv-23-03-vulnerability-report-involvement-status.md
-tests-03-nfrmtv-23-04-vulnerability-report-involvement-date.md
 tests-03-nfrmtv-24-public-openpgp-key-url-user-id.md
 tests-04-presets.md
 distributing-00.md
