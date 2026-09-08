@@ -15,6 +15,9 @@ CPE23-N
 CSAF-v2.0
 :    _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. <https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html>.
 
+CVDGUIDE
+:     _The CERT Guide to Coordinated Vulnerability Disclosure_, v2025.6, Jun 16, 2025, <https://certcc.github.io/CERT-Guide-to-CVD/>
+
 CVE
 :    _CVE: Common Vulnerability and Exposures_, CVE Project, <https://www.cve.org>.
 
