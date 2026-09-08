@@ -152,11 +152,10 @@ CVRF CSAF Converter
 :    CSAF Producer which takes a CVRF document as input and converts it into a valid CSAF Document.
 
 Disclosure
-:    act of initially providing vulnerability information to a party that was not believed to be previously aware.
+:    act of initially providing vulnerability information to a party that was not believed to be previously aware (conforming to ISO/IEC [cite](#ISO29147)).
 
 Document
-:    output file produced by an analysis tool, which enumerates the results produced by the tool
-(conforming to ISO/IEC [cite](#ISO29147)).
+:    output file produced by an analysis tool, which enumerates the results produced by the tool.
 
 Driver
 :    tool component containing an analysis tool’s or converter’s primary executable,
