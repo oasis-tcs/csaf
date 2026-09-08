@@ -368,20 +368,4 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
     > Records coordination activities between the parties involved in the disclosure of the specific vulnerability.
 
-  - `$.vulnerabilities[*].involvements[*].party`
-
-    > The involvement item's `party` field SHOULD be set to `discoverer`
-    > to identify the entity initiating the involvement.
-
-  - `$.vulnerabilities[*].involvements[*].status`
-
-    > The involvement item's `status` field MAY be set to values such as
-    > `not_contacted` or `contact_attempted`
-    > to indicate the coordination status between the participating parties.
-
-  - `$.vulnerabilities[*].involvements[*].date` which records when an interaction occurred.
-    Future dates MAY be used to communicate planned coordination activities,
-    including conference presentations, technical blogs, or public disclosure.
-    When a future date is specified, the involvement `status` is RECOMMENDED to be `open`.
-
 ---

@@ -5132,38 +5132,6 @@
       ]
     },
     {
-      "id": "6.3.23.3",
-      "group": "informative",
-      "failures": [
-        {
-          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-23-03-01.json",
-          "valid": true
-        }
-      ],
-      "valid": [
-        {
-          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-23-03-11.json",
-          "valid": true
-        }
-      ]
-    },
-    {
-      "id": "6.3.23.4",
-      "group": "informative",
-      "failures": [
-        {
-          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-23-04-01.json",
-          "valid": true
-        }
-      ],
-      "valid": [
-        {
-          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-23-04-11.json",
-          "valid": true
-        }
-      ]
-    },
-    {
       "id": "6.3.24",
       "group": "informative",
       "failures": [
