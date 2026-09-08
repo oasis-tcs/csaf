@@ -6,7 +6,9 @@ It SHALL be tested that the CSAF document has a canonical URL.
 >
 > * It has the category `self`.
 > * The `url` starts with `https://`.
-> * The `url` ends with the valid filename for the CSAF document according to the rules in section [sec](#filename).
+> * The `url` ends with the valid filename for the CSAF document according to the rules in section [sec](#filename)
+>   which is preceded by a `/`.
+> * The hostname is not empty.
 
 The relevant path for this test is:
 
