@@ -21,7 +21,7 @@
     align: (left + horizon, center + horizon, right + horizon),
     text(size: 8pt)[csaf-v2.1-csd03],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[26 August 2026 — Page #counter(page).display()
+    text(size: 8pt)[02 September 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -53,8 +53,8 @@ Advisory Framework Version 2.1]
 #heading(level: 2, outlined: false, numbering: none)[Committee
 Specification Draft 03]
 <committee-specification-draft-03>
-#heading(level: 2, outlined: false, numbering: none)[26 August 2026]
-<26-august-2026>
+#heading(level: 2, outlined: false, numbering: none)[02 September 2026]
+<02-september-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
@@ -201,8 +201,8 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 26 August 2026. OASIS Committee Specification
-Draft 03.
+Hagen and Thomas Schmidt. 02 September 2026. OASIS Committee
+Specification Draft 03.
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html.
 Latest stage:
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
@@ -1629,6 +1629,12 @@ are:
 The value `architecture` indicates the architecture for which the
 product is intended.
 
+#quote(block: true)[
+This usually identifies the CPU instruction-set architecture. See also
+example \[#link(<branches-type---name-eg-2>)[2 (of section 3.1.2.3)]\]
+in section #link(<branches-type---name>)[3.1.2.3].
+]
+
 The value `host_name` indicates the host name of a system/service.
 
 The value `language` indicates the language of the product.
@@ -1637,6 +1643,13 @@ The value `patch_level` indicates the patch level of the product.
 
 The value `platform` indicates the (CPU) platform for which the product
 is intended.
+
+#quote(block: true)[
+As the same architecture is used in different platforms, this allows a
+differentiation. See also example
+\[#link(<branches-type---name-eg-3>)[3 (of section 3.1.2.3)]\] in
+section #link(<branches-type---name>)[3.1.2.3].
+]
 
 The value `product_family` indicates the product family that the product
 falls into.
@@ -1702,6 +1715,35 @@ branch.
 A leading `v` or `V` in the value of `name` SHOULD only exist for the
 categories `product_version` or `product_version_range` if it is part of
 the product version as given by the vendor.
+
+#emph[Examples 2 (for `name` when using
+`architecture`):]#box()<branches-type---name-eg-2>
+
+```
+    AArch32
+    AArch64
+    AMD64
+    ARMv7
+    ARMv8-R
+    ARMv9.7-A
+    IA-64
+    MISP32
+    m68k
+    ppc64el
+    RV64
+    s390
+    SPARC
+    x86
+```
+
+#emph[Examples 3 (for `name` when using
+`platform`):]#box()<branches-type---name-eg-3>
+
+```
+    AMD
+    ARM
+    Intel
+```
 
 ===== Branches Type - Name under Product Version
 <branches-type---name-under-product-version>
@@ -3469,9 +3511,13 @@ meaning and SHALL be used as stated below:
     product given in the `product_tree` in regard to field of
     application and core functionality. This SHOULD be bound to the
     corresponding product or product group.],
+    [general], [AI Usage], [Contains information on whether and how AI
+    systems were used in discovering, analyzing, remediating, or
+    documenting the content of the whole CSAF document, including the
+    human oversight applied.],
     [general], [General Security Recommendations], [Contains general
-    advise and security recommendations that are related, generic and
-    might be independently applicable of the content of the CSAF
+    advice and security recommendations that are related, generic and
+    might be applicable independently of the content of the CSAF
     document.],
     [legal\_disclaimer], [License], [Contains the only license text of
     the document license.],
@@ -3482,7 +3528,7 @@ meaning and SHALL be used as stated below:
   that have a special meaning.]
   , kind: table
   )
-<tab:special-combinations-of-category-and-title>
+<document-property-notes-tab-1>
 
 If a note is specific to a product or product group it SHALL be bound
 via the `group_ids` respectively `product_ids`.
@@ -5140,10 +5186,14 @@ meaning and SHALL be used as stated below:
     [description], [CVE Description], [Contains the official and
     unchanged CVE description for this specific vulnerability.],
     [description], [Preconditions], [Contains a description of the
-    preconditions that have to be fulfilled to be able to exploit the
-    vulnerability, e.g.~user account or physical access.],
-    [summary], [Vulnerability Summary], [Contains a summary of the
-    vulnerability which is not the official CVE description.],
+    preconditions that have to be fulfilled to be able to exploit this
+    specific vulnerability, e.g.~user account or physical access.],
+    [general], [AI Usage], [Contains a information on whether and how AI
+    systems were used in discovering, analyzing, remediating, or
+    documenting this specific vulnerability, including the human
+    oversight applied.],
+    [summary], [Vulnerability Summary], [Contains a summary of this
+    specific vulnerability which is not the official CVE description.],
   )]
   , caption: [Combinations of `category` and `title` with special
   meaning.]
@@ -14896,6 +14946,7 @@ Additional presets are defined as follows:
     - #link(<public-openpgp-key-url>)[6.2.55]
     - #link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6]
     - #link(<use-of-self-referencing-urls-failing-to-resolve>)[6.3.7]
+    - #link(<public-openpgp-key-url-user-id>)[6.3.23]
 - `external-request-free`:
   - Description: Any test that can be executed without a request into
     the Internet or a different network.
@@ -16773,7 +16824,8 @@ Secondly, the program fulfills the following for all items of:
   ]
 
 - `$.document.notes`: If any `cvrf:Note` item contains one of the
-  `category` and `title` combinations specified in
+  `category` and `title` combinations specified in table
+  #link(<document-property-notes-tab-1>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.8], where the `title` is
   extended, the CVRF CSAF Converter SHALL try to identify whether that
   extension is a specific product name, version or family. In such case,
@@ -17031,7 +17083,8 @@ Secondly, the program fulfills the following for all items of:
   include the specific error that occurred.
 
 - `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of
-  the `category` and `title` combinations specified in
+  the `category` and `title` combinations specified in table
+  #link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
   #link(<vulnerabilities-property-notes>)[3.2.4.11], where the `title`
   is extended, the CVRF CSAF Converter SHALL try to identify whether
   that extension is a specific product name, version or family. In such
@@ -17457,7 +17510,8 @@ the program:
   #link(<format-validation>)[2.2]).
 - performs all tests of the preset `mandatory` as given in section
   #link(<presets-defined-through-test-subsections>)[6.4.1].
-- does not change the CSAF Documents.
+- does not change the CSAF Documents unless explicitly invoked to do so
+  (e.g.~for applying quick fixes).
 - satisfies those normative requirements in sections
   #link(<extensions>)[2.4], #link(<schema-elements>)[3],
   #link(<mandatory-tests>)[6.1], #link(<test-presets>)[6.4], and
@@ -18089,7 +18143,8 @@ Secondly, the program fulfills the following for all items of:
   ]
 
 - `$.document.notes`: If any `$.document.notes` item contains one of the
-  `category` and `title` combinations specified in
+  `category` and `title` combinations specified in table
+  #link(<document-property-notes-tab-1>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.8], where the `title` is
   extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
   whether that extension is a specific product name, version or family.
@@ -18279,17 +18334,18 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item
   contains one of the `category` and `title` combinations specified in
-  #link(<vulnerabilities-property-notes>)[3.2.4.11], where the `title`
-  is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
-  whether that extension is a specific product name, version or family.
-  In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the
-  corresponding products to the note item and issue a warning that a
-  potential product specific note has been discovered and products have
-  been assigned to it. Such warning SHALL also include the note and the
-  assigned products. If the CSAF 2.0 to CSAF 2.1 Converter is unable to
-  create a valid object, it SHALL remove the reference to the products
-  and issue a warning that a potential product specific note has been
-  discovered and no products could been assigned to it.
+  table #link(<vulnerabilities-property-notes-tab-1>)[table 2] of
+  section #link(<vulnerabilities-property-notes>)[3.2.4.11], where the
+  `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
+  identify whether that extension is a specific product name, version or
+  family. In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
+  add the corresponding products to the note item and issue a warning
+  that a potential product specific note has been discovered and
+  products have been assigned to it. Such warning SHALL also include the
+  note and the assigned products. If the CSAF 2.0 to CSAF 2.1 Converter
+  is unable to create a valid object, it SHALL remove the reference to
+  the products and issue a warning that a potential product specific
+  note has been discovered and no products could been assigned to it.
 
 - `$.vulnerabilities[*].remediations[*]`:
 
