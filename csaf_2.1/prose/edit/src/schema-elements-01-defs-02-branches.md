@@ -203,8 +203,10 @@ The value of SHALL obey to exactly one of the following options:
 
 2. VERS-like Specifier (vls)
 
-    This option uses only the `constraint` part from the VERS specification.
+    This option uses only the `constraint` part from the VERS specification; special requirements regarding VERS state above apply.
     It SHALL NOT have the `scheme` nor the `type` part.
+    Neither `*` nor a constraint denoting a single version is valid.
+    Even though `1.0.0|1.1.0` is consider valid vls, it is RECOMMENDED to enumerate the versions instead.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
