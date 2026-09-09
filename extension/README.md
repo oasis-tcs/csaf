@@ -24,7 +24,7 @@ CSAF defines three classes of extensions. They differ in how widely they are sha
 
 **Official extensions** are the subset of extensions registered that have reached the highest level of maturity and validation.
 They are hosted at `extension.csaf.dev`, undergo additional implementation testing and TC review, and are RECOMMENDED for broad adoption.
-Official extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
+Official extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval).
 
 **Registered extensions** are reviewed and approved by the OASIS CSAF Technical Committee (TC) and then listed publicly in the CSAF Extension Registry.
 They MUST meet all governance requirements described below, are available for any implementer to use, and are expected to demonstrate genuine community need alongside a baseline of quality.
