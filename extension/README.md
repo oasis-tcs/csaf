@@ -44,9 +44,9 @@ An extension MUST be marked as critical when using it would cause any mandatory 
 
 Tools MUST honor this marking when processing a CSAF document:
 
-- A tool that encounters an **non-critical** extension it does not understand MAY ignore that extension's data and continue processing.
+- A tool that encounters a **non-critical** extension it does not understand MAY ignore that extension's data and continue processing.
 
-  > Note: The value of `critical` is solely relevant for processing, the extension's content and its impact of the understanding of the document is provided via the Extension Category (`category`; see also https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#content-schema-property---category).
+  > Note: The value of `critical` is solely relevant for processing, the extension's content and its impact on the understanding of the document is provided via the Extension Category (`category`; see also https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#content-schema-property---category).
 
 - A tool that encounters a **critical** extension it does not understand MUST fail processing of the CSAF document, unless the user explicitly forces it to continue.
 
@@ -74,7 +74,7 @@ Extensions addressing unrelated concerns are out of scope and will not be consid
 
 ### Documentation and Implementation
 
-**Open source.** The CSAF Extension Package[CSAF Extension Package](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#conformance-clause-35-csaf-extension-package), extension schema, specification, tests, and all supporting documentation MUST be open source, and the source repositories MUST be publicly accessible. The chosen license MUST be compatible with the OASIS IPR Policy so that the material can be incorporated into CSAF. Documentation MUST be sufficient for an independent party to implement the extension without access to the authors.
+**Open source.** The [CSAF Extension Package](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#conformance-clause-35-csaf-extension-package), extension schema, specification, tests, and all supporting documentation MUST be open source, and the source repositories MUST be publicly accessible. The chosen license MUST be compatible with the OASIS IPR Policy so that the material can be incorporated into CSAF. Documentation MUST be sufficient for an independent party to implement the extension without access to the authors.
 
 Private extensions are exempted from the requirement to make the Extension Package open source and publicly accessible while this is still RECOMMENDED.
 
@@ -112,7 +112,7 @@ All lists are hosted at `extension.csaf.dev`. The TC is free to place any extens
 
 An extension change controller MAY request to put its extension at any point on list 3 or 4.
 An extension change controller MAY submit its extension for registration.
-For lists 1 and 2, the process is described in [Review and Approval)[#Review-and-Approval).
+For lists 1 and 2, the process is described in [Review and Approval](#review-and-approval).
 The TC MAY maintain mirrors of extensions.
 
 ## Extension Registry
@@ -133,10 +133,11 @@ To propose a new extension:
 
 For questions or guidance, reach the OASIS CSAF Technical Committee through the project's public channels (issue tracker and TC mailing list).
 
-## Implementers Guidance
+## Implementer Guidance
+
 Tools are free to choose which CSAF extensions they support.
 
 Nevertheless, the requirements of section [2.4.2](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#lists) and section [9](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#conformance) apply.
 Official extensions SHOULD be supported.
-Tools SHOULD NOT retrieve extension schemes during their run time as this poses a security risk (cf. section [8](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#safety-security-and-data-protection-considerations) for more details).
+Tools SHOULD NOT retrieve extension schemas at runtime as this poses a security risk (cf. section [8](https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html#safety-security-and-data-protection-considerations) for more details).
 
