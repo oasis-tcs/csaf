@@ -6,7 +6,7 @@ the value of `name` does not start with `v` or `V` before the version.
 > To implement this test it is deemed sufficient that the value of `name` does not match the following regex:
 >
 > ```
->   ^[vV][0-9].*$
+>   ^[vV][0-9]
 > ```
 
 The relevant paths for this test are:

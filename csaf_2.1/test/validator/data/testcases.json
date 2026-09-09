@@ -4445,12 +4445,24 @@
       "failures": [
         {
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-01.json",
+          "result": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-01.result.json",
+          "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-02.json",
+          "result": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-02.result.json",
           "valid": true
         }
       ],
       "valid": [
         {
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-11.json",
+          "result": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-11.result.json",
+          "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-12.json",
+          "result": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-12.result.json",
           "valid": true
         }
       ]
