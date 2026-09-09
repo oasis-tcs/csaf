@@ -334,6 +334,10 @@ Secondly, the program fulfills the following for all items of:
     - If the test passes, no further action is needed.
     - If the test fails, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the entry based on the mapping
       given in [cite](#RVISC-M).
+      - If at least one matching mapping is ambiguous, the CSAF 2.0 to CSAF 2.1 Converter SHALL issue
+        a warning that an ID from a registered vulnerability system was detected and not converted as the mapping was ambiguous.
+        Such warning SHALL contain all matching mappings known from [cite](#RVISC-M).
+        The program SHOULD provide an option to force a user-defined conversion.
       - If the mapping succeeds and passes test [sec](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
         issue a warning that an ID from a registered vulnerability system was detected and converted.
       - If the mapping succeeds but does not passes test [sec](#matching-text-for-registered-id-system) or the mapping fails,

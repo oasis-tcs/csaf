@@ -9,6 +9,9 @@ The program:
   whose `system_name` is not contained in [cite](#RVISC-R).
 - applies the corresponding assignment from [cite](#RVISC-M) to each item in `$.vulnerabilities[*].ids[*]`
   whose `system_name` is contained in [cite](#RVISC-R) but the `text` does not conform the entry.
+- issues a warning and skips the conversion for any matching ambiguous assignment from [cite](#RVISC-M)
+  unless forced by the user to proceed with a certain option.
+  Such warning SHALL contain all matching ambiguous assignment from [cite](#RVISC-M).
 - satisfies the normative requirements given below.
 
 The program SHALL provide the following options:
@@ -24,3 +27,5 @@ The program SHALL provide the following options:
   but the `text` does not conform the entry.
 - an option to map an existing `system_name` to a new value or apply a transformation to a `text`
   based on the `system_name` value and a `precondition`.
+- an option to force the tool to proceed with the conversion applying an ambiguous assignment from [cite](#RVISC-M) as selected by the user.
+- an option to list all matching ambiguous assignment from [cite](#RVISC-M).
