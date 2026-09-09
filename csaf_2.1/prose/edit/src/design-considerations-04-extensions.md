@@ -117,6 +117,8 @@ Critical (`critical`) of value type `boolean` determines whether using the exten
 The `default` value for this is `false`.
 
 For any failing test, a CSAF Extension Test SHALL be provided.
+A CSAF Tool that encounters a critical extension it does not have implemented SHALL fail processing of the CSAF document,
+unless the user explicitly forces it to continue.
 
 ### Metadata
 

@@ -9,6 +9,7 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
 - satisfies those normative requirements in sections [sec](#extensions), [sec](#schema-elements), [sec](#mandatory-tests),
   [sec](#test-presets), and [sec](#safety-security-and-data-protection-considerations) that are designated as applying to
   CSAF Validators.
+- satisfies those normative requirements in section [sec](#extensions) that are designated as applying to CSAF Tools.
 - issues a warning if an "not implemented warning" occurs as the validation status might not be correct.
 
 A CSAF Basic Validator MAY provide one or more additional functions:
