@@ -28,7 +28,7 @@ Official extensions classified as critical additionally require the second vote 
 
 **Registered extensions** are reviewed and approved by the OASIS CSAF Technical Committee (TC) and then listed publicly in the CSAF Extension Registry.
 They MUST meet all governance requirements described below, are available for any implementer to use, and are expected to demonstrate genuine community need alongside a baseline of quality.
-Registered extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
+Registered extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval).
 
 **Private extensions** are used within a single organization or closed community. They require no registration or review and are not discoverable through the CSAF registry. They are intended for internal and experimental use rather than production; documents meant for production or for exchange beyond a closed community SHOULD rely on CSAF Core or on registered and official extensions.
 
