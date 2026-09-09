@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
   "document": {
-    "category": "csaf_informational_advisory",
+    "category": "csaf_security_incident_response",
     "csaf_version": "2.1",
     "distribution": {
       "tlp": {
@@ -11,7 +11,7 @@
     "notes": [
       {
         "category": "summary",
-        "text": "This CSAF document contained example data and pretends to be an Informational Advisory to create test data. This note would summarize the issue.",
+        "text": "This CSAF document contained example data and pretends to be an Security Incident Response to create test data. This note would contain a summary of the incident.",
         "title": "Summary"
       }
     ],
@@ -24,13 +24,18 @@
       {
         "category": "self",
         "summary": "The canonical URL.",
-        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-27-02-01.json"
+        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-27-02-12.json"
+      },
+      {
+        "category": "external",
+        "summary": "Official Vendor Statement",
+        "url": "https://news.example.org/2024-breach"
       }
     ],
-    "title": "Mandatory Test: Document References (failing example 1)",
+    "title": "Mandatory Test: Document References (valid example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-02-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-02-12",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {

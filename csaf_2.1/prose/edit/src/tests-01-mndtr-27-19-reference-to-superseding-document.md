@@ -21,11 +21,11 @@ The relevant path for this test is:
 ```
     "references": [
       {
-        "category": "self",
-        "summary": "Superseding Document",
+        "category": "external",
+        "summary": "Superseded Document",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
 ```
 
-> The reference summary starts correctly with the string "Superseding Document". However, it uses the wrong category.
+> There is no reference where the `summary` starts with the correct term `Superseding Document`.

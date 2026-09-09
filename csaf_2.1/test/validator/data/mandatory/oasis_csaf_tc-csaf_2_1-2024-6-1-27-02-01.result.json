@@ -1,15 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
-  "overall_valid": true,
+  "overall_valid": false,
   "primary_result": {
-    "id": "6.2.39.4",
-    "passed": false,
-    "warnings": [
+    "errors": [
       {
         "instance_path": "/document/references",
-        "message": "`csaf_superseded` must have at least one document reference with a summary starting with `Ersetzendes Dokument` and category `external`"
+        "message": "`csaf_informational_advisory` must have at least one document reference with category `external`"
       }
-    ]
+    ],
+    "id": "6.1.27.2",
+    "passed": false
   },
   "resultschema_version": "2.1"
 }
