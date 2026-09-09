@@ -55,6 +55,11 @@ Otherwise, test results could be incomplete or wrong.
 To avoid ambiguity, it is RECOMMENDED to use JSON pointer (see [cite](#RFC6901)) when identifying or referring to a specific key or instance
 within a CSAF document.
 
+CSAF tools SHALL careful choose default options when processing CSAF Documents.
+Especially CSAF validators have a risk of falling for DoS attacks as they could process data from untrusted sources.
+Therefore, it is RECOMMENDED to limit the amount of messages that can be issued by a test or during a run to a reasonable default.
+In such case, the CSAF validator SHALL indicate that there might have been more messages but processing stopped because of the limit.
+
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
 Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.
