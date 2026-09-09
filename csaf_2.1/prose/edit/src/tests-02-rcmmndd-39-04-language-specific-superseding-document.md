@@ -24,11 +24,11 @@ The relevant path for this test is:
 ```
     "references": [
       {
-        "category": "self",
+        "category": "external",
         "summary": "Ersetztes Dokument",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
 ```
 
-> The note has the correct title. However, it uses the wrong category.
+> There is no reference where the summary starts with the correct term `Ersetzendes Dokument`.

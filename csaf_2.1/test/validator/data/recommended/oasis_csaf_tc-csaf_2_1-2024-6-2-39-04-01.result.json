@@ -6,8 +6,8 @@
     "passed": false,
     "warnings": [
       {
-        "instance_path": "/document/references/0",
-        "message": "The category of the `Ersetzendes Dokument` reference must be present and contain the value `external` (was: `self`)."
+        "instance_path": "/document/references",
+        "message": "`csaf_superseded` must have at least one document reference with a summary starting with `Ersetzendes Dokument` and category `external`"
       }
     ]
   },

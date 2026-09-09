@@ -23,7 +23,7 @@
     },
     "references": [
       {
-        "category": "self",
+        "category": "external",
         "summary": "Ersetztes Dokument",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
