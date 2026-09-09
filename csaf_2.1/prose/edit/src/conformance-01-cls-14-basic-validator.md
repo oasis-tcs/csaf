@@ -5,7 +5,7 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
 - reads documents and performs a check against the JSON schema,
   including also the format validation (cf. section [sec](#format-validation)).
 - performs all tests of the preset `mandatory` as given in section [sec](#presets-defined-through-test-subsections).
-- does not change the CSAF Documents.
+- does not change the CSAF Documents unless explicitly invoked to do so (e.g. for applying quick fixes).
 - satisfies those normative requirements in sections [sec](#extensions), [sec](#schema-elements), [sec](#mandatory-tests),
   [sec](#test-presets), and [sec](#safety-security-and-data-protection-considerations) that are designated as applying to
   CSAF Validators.
