@@ -31,4 +31,4 @@ The relevant path for this test is:
     ],
 ```
 
-> There is no reference where the summary starts with the correct term `Ersetzendes Dokument`.
+> There is no reference where the `summary` starts with the correct term `Ersetzendes Dokument`.

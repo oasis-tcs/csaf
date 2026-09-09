@@ -4,15 +4,12 @@
   "primary_result": {
     "errors": [
       {
-        "instance_path": "/document/references/0",
-        "message": "The category of the `Superseding Document` reference must be present and contain the value `external` (was: `self`)."
+        "instance_path": "/document/references",
+        "message": "`csaf_superseded` must have at least one document reference with a summary starting with `Superseding Document` and category `external`"
       }
     ],
     "id": "6.1.27.19",
     "passed": false
   },
-  "resultschema_version": "2.1",
-  "secondary_results": [
-
-  ]
+  "resultschema_version": "2.1"
 }
