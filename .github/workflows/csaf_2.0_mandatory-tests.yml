@@ -22,7 +22,6 @@ jobs:
       run: |
         cd ..
         git clone https://github.com/secvisogram/csaf-validator-lib.git
-        npm install -g peggy
         cd csaf-validator-lib && npm ci --omit=dev
     - name: Run mandatory tests on examples
       run:  |
