@@ -15,6 +15,9 @@ CPE23-N
 CSAF-v2.0
 :    _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. <https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html>.
 
+CVDGUIDE
+:     _The CERT Guide to Coordinated Vulnerability Disclosure_, v2025.6, Jun 16, 2025, <https://certcc.github.io/CERT-Guide-to-CVD/>
+
 CVE
 :    _CVE: Common Vulnerability and Exposures_, CVE Project, <https://www.cve.org>.
 
@@ -74,6 +77,12 @@ ISO19770-2
 
 ISO29147
 :    _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October 23, 2018, <https://www.iso.org/standard/72311.html>.
+
+ISO30111
+:    _Information technology — Security techniques — Vulnerability handling processes_, International Standard, ISO/IEC 30111:2019, October 1, 2019, <https://www.iso.org/standard/69725.html>
+
+ISOTR5895
+:    _Cybersecurity — Multi-party coordinated vulnerability disclosure and handling_, International Standard, ISO/IEC TR 5895:2022, June 17, 2022, <https://www.iso.org/standard/81807.html>
 
 OPENSSL
 :    _GTLS/SSL and crypto library_, OpenSSL Software Foundation, <https://www.openssl.org/>.

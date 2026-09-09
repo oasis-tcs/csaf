@@ -100,6 +100,7 @@ Document category defines a short canonical name, chosen by the document produce
 ```
     csaf_base
     csaf_security_advisory
+    csaf_vulnerability_report
     csaf_vex
     Example Company Security Notice
 ```
