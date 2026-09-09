@@ -22,9 +22,13 @@ CSAF defines three classes of extensions. They differ in how widely they are sha
 | Registered | Reviewed and approved by the OASIS CSAF Technical Committee | Yes | Publicly accessible at location of implementer's choice | Extensions with demonstrated community need, available for any implementer to use |
 | Private | None required | No | Implementer's choice | Internal and experimental use within a single organization or closed community; not intended for production |
 
-**Official extensions** are the subset of extensions registered that have reached the highest level of maturity and validation. They are hosted at `extension.csaf.dev`, undergo additional implementation testing and TC review, and are RECOMMENDED for broad adoption. Official extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
+**Official extensions** are the subset of extensions registered that have reached the highest level of maturity and validation.
+They are hosted at `extension.csaf.dev`, undergo additional implementation testing and TC review, and are RECOMMENDED for broad adoption.
+Official extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
 
-**Registered extensions** are reviewed and approved by the OASIS CSAF Technical Committee (TC) and then listed publicly in the CSAF Extension Registry. They MUST meet all governance requirements described below, are available for any implementer to use, and are expected to demonstrate genuine community need alongside a baseline of quality. Registered extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
+**Registered extensions** are reviewed and approved by the OASIS CSAF Technical Committee (TC) and then listed publicly in the CSAF Extension Registry.
+They MUST meet all governance requirements described below, are available for any implementer to use, and are expected to demonstrate genuine community need alongside a baseline of quality.
+Registered extensions classified as critical additionally require the second vote described under [Review and Approval](#review-and-approval)..
 
 **Private extensions** are used within a single organization or closed community. They require no registration or review and are not discoverable through the CSAF registry. They are intended for internal and experimental use rather than production; documents meant for production or for exchange beyond a closed community SHOULD rely on CSAF Core or on registered and official extensions.
 
@@ -86,7 +90,7 @@ Private extensions are exempted from the requirement to make the reference imple
 **Technical Committee vote.** Accepting an extension as a registered or official extension requires a vote in the OASIS CSAF TC. A documented review of all governance requirements MUST precede the vote, and a community discussion period precedes formal voting.
 
 **Critical extension assessment.** Criticality is determined by the rules in the [processing model](#processing-model-critical-and-non-critical-extensions) above.
-When an extension proposed for registration is critical, a second vote is required that explicitly weighs whether its risks outweigh its benefits.
+When an extension proposed for registration is critical, a second vote is required that explicitly weighs whether its benefits outweigh its risks.
 Proposers SHOULD self-assess criticality at submission, and the TC assesses the classification during review.
 
 **Pre-release implementation testing.** For official extensions, the reference implementation SHOULD be complete and tested before the final vote. Real-world implementation reveals bugs, ambiguities, and integration issues, and feedback from that work informs the TC's decision.
@@ -109,6 +113,7 @@ All lists are hosted at `extension.csaf.dev`. The TC is free to place any extens
 An extension change controller MAY request to put its extension at any point on list 3 or 4.
 An extension change controller MAY submit its extension for registration.
 For lists 1 and 2, the process is described in [Review and Approval)[#Review-and-Approval).
+The TC MAY maintain mirrors of extensions.
 
 ## Extension Registry
 
