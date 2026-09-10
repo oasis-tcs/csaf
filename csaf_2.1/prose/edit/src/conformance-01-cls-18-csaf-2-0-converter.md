@@ -227,16 +227,19 @@ Secondly, the program fulfills the following for all items of:
     to CSAF 2.1 Converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
     The CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that a product was added to the `product_tree` and the corresponding `$.vulnerabilities[*]`.
     Such warning SHALL contain the full product name and its path as well as the paths of the `$.vulnerabilities[*]` it was added to.
-    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
-    `csaf_deprecated_security_advisory`.
+    The CSAF 2.0 to CSAF 2.1 Converter MAY have a non-default option to assign organization-wide IDs to any vulnerability not
+    containing a CVE nor any other vulnerability ID and therefore failing test [sec](#vulnerability-id).
+    Issuing parties are responsible to keep track of assigned IDs to prevent the assignment of the same ID twice for different issues.
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile,
+    it SHALL set the `category` value to `csaf_deprecated_security_advisory`.
   - If the `$.document.lang` is English or unspecified, the following rules apply:
     - If the `$.document.title` starts with the string `Superseded` or the `$.document.category` has the value `Superseded` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     - If the `$.document.title` starts with the string `Withdrawn` or the `$.document.category` has the value `Withdrawn` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
  
-    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
-    > to the profile.
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document
+    > according to the profile.
 
     > A tool MAY support this detection for other languages.
 

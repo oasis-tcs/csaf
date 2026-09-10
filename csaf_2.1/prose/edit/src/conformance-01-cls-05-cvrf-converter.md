@@ -62,10 +62,13 @@ Secondly, the program fulfills the following for all items of:
   If more than one `cvrf:Organization` instance is given, the CVRF CSAF Converter converts the first one into the `organization`.
   In addition, the converter issues a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 - `$.document.category`:
-  - If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF Converter SHALL try to convert the data
-    into a valid CSAF Document in this profile according to CSAF 2.1.
+  - If the `cvrf:DocumentType` is Security Advisory (white space and case-insensitive),
+    the CVRF CSAF Converter SHALL try to convert the data into a valid CSAF Document in this profile according to CSAF 2.1.
 
     > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
+    > A tool MAY offer rules to assign missing CVEs or vulnerability IDs.
+    > Nevertheless, issuing parties are responsible to keep track of assigned IDs to prevent
+    > the assignment of the same ID twice for different issues.
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
