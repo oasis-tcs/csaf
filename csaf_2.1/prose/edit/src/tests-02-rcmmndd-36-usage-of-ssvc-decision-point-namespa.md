@@ -4,6 +4,9 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 if the document is labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
+> To implement the check for an extensions part in the `namespace`,
+> it is deemed sufficient to check whether the `namespace` contains a `/`.
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
