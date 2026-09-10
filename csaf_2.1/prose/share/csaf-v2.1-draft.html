@@ -1786,7 +1786,7 @@ ranges.</p>
 <p>Through the definitions of the VERS specification a user can compute whether a given version is in a given range.</p>
 </blockquote></li>
 <li><p>VERS-like Specifier (vls)</p>
-<p>This option uses only the <code>constraint</code> part from the VERS specification; special requirements regarding VERS state above apply. It SHALL NOT have the <code>scheme</code> nor the <code>type</code> part. Neither <code>*</code> nor a constraint denoting a single version is valid. Even though <code>1.0.0|1.1.0</code> is consider
+<p>This option uses only the <code>constraint</code> part from the VERS specification; special requirements regarding VERS state above apply. It SHALL NOT have the <code>scheme</code> nor the <code>type</code> part. Neither <code>*</code> nor a constraint denoting a single version is valid. Even though <code>1.0.0|1.1.0</code> is considered
 valid vls, it is RECOMMENDED to enumerate the versions instead. It is a fallback option and SHOULD NOT be used unless really necessary.</p>
 <blockquote>
 <p>The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not. Also, different tools might come to different results regarding this question.</p>
@@ -4182,7 +4182,7 @@ href="#profile-4-security-advisory">4.4</a> SHOULD be used instead.</p>
 where applicable, coordinators. Information such as affected products, technical details, severity assessments, and supporting evidence can be exchanged privately using this profile to facilitate coordination. It MAY also be used to report previously partially or full-disclosed vulnerabilities to corresponding parties.</p>
 <p>A CSAF document SHALL fulfill the following requirements to satisfy the profile "Vulnerability Report":</p>
 <ul>
-<li><p>The following elements MUST exist and be valid:</p>
+<li><p>The following elements SHALL exist and be valid:</p>
 <ul>
 <li><p>All elements required by the profile "CSAF Base".</p></li>
 <li><p><code>$.product_tree</code> which lists all products referenced later on in the CSAF document regardless of their state.</p></li>
@@ -10652,6 +10652,8 @@ browser are a potent tool in the event of an attack, restricting the origins see
 <p>As setting the <code>Access-Control-Allow-Origin</code> header potentially allows for cross site request forgery, it SHOULD only be served on files and directories containing CSAF data. For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.</p>
 <p>Implementors are reminded that the evaluation of JSONPath can lead to multiple elements within the result array. Especially CSAF validators SHALL NOT stop the evaluation of the result array after the first instance unless instructed explicitly by a non-default option even though the specification might just expect one instance. Otherwise,
 test results could be incomplete or wrong. To avoid ambiguity, it is RECOMMENDED to use JSON pointer (see [<a href="#RFC6901">RFC6901</a>]) when identifying or referring to a specific key or instance within a CSAF document.</p>
+<p>CSAF tools SHALL have carefully chosen default options when processing CSAF Documents. Especially CSAF validators have a risk of falling for DoS attacks as they could process data from untrusted sources. Therefore, it is RECOMMENDED to limit the amount of messages that can be issued by a test or during a run to a reasonable default. In such
+case, the CSAF validator SHALL indicate that there might have been more messages but processing stopped because of the limit.</p>
 <p>CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents as this poses a security risk. Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation. If CSAF producers, CSAF consumers or CSAF validators
 provide an option to interactively or automatically load missing schemes, they SHALL point out the risks of setting the option and actively warn the user about it. Such option SHALL NOT be set by default. CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks. Tool developers
 SHOULD ensure to regularly check that those copies still reflect the current version of those schemas as they could have been altered, e.g. by an Errata to fix a bug. It is RECOMMENDED to do them at least before a release.</p>
@@ -10735,8 +10737,8 @@ href="#extensions-property">3.2.5</a>.</li>
 <p>A program satisfies the "CSAF Producer" conformance profile if the program:</p>
 <ul>
 <li>produces output in the CSAF format, according to the conformance profile "CSAF Document".</li>
-<li>satisfies those normative requirements in section <a href="#schema-elements">3</a> and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Producers.</li>
-<li>satisfies those normative requirements in section <a href="#extensions">2.4</a> that are designated as applying to CSAF Tools.</li>
+<li>satisfies those normative requirements in sections <a href="#schema-elements">3</a> and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Producers.</li>
+<li>satisfies those normative requirements in sections <a href="#extensions">2.4</a> and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Tools.</li>
 </ul>
 <h3 id="913-conformance-clause-3-csaf-direct-producer-">9.1.3 Conformance Clause 3: CSAF Direct Producer <a id='conformance-clause-3-csaf-direct-producer'></a></h3>
 <p>An analysis tool satisfies the "CSAF Direct Producer" conformance profile if the analysis tool:</p>
@@ -11105,7 +11107,7 @@ document.</p>
 <ul>
 <li>reads CSAF Documents and interprets them according to the semantics defined in section <a href="#schema-elements">3</a> and <a href="#additional-conventions">5</a>.</li>
 <li>satisfies those normative requirements in section <a href="#extensions">2.4</a>, <a href="#schema-elements">3</a>, <a href="#additional-conventions">5</a> and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Consumers.</li>
-<li>satisfies those normative requirements in section <a href="#extensions">2.4</a> that are designated as applying to CSAF Tools.</li>
+<li>satisfies those normative requirements in sections <a href="#extensions">2.4</a> and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Tools.</li>
 </ul>
 <h3 id="9111-conformance-clause-11-csaf-viewer-">9.1.11 Conformance Clause 11: CSAF Viewer <a id='conformance-clause-11-csaf-viewer'></a></h3>
 <p>A viewer satisfies the "CSAF Viewer" conformance profile if the viewer fulfills the three following groups of requirements:</p>
@@ -11189,7 +11191,7 @@ document.</p>
 <li>performs all tests of the preset <code>mandatory</code> as given in section <a href="#presets-defined-through-test-subsections">6.4.1</a>.</li>
 <li>does not change the CSAF Documents unless explicitly invoked to do so (e.g. for applying quick fixes).</li>
 <li>satisfies those normative requirements in sections <a href="#extensions">2.4</a>, <a href="#schema-elements">3</a>, <a href="#mandatory-tests">6.1</a>, <a href="#test-presets">6.4</a>, and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Validators.</li>
-<li>satisfies those normative requirements in section <a href="#extensions">2.4</a> that are designated as applying to CSAF Tools.</li>
+<li>satisfies those normative requirements in sections <a href="#extensions">2.4</a> and <a href="#safety-security-and-data-protection-considerations">8</a> that are designated as applying to CSAF Tools.</li>
 <li>issues a warning if an "not implemented warning" occurs as the validation status might not be correct.</li>
 </ul>
 <p>A CSAF Basic Validator MAY provide one or more additional functions:</p>
@@ -11197,6 +11199,8 @@ document.</p>
 <li>Only run one or more selected mandatory tests.</li>
 <li>Apply quick fixes as specified in the standard.</li>
 <li>Apply additional quick fixes as implemented by the vendor.</li>
+<li>Provide an option to fail after the first error.</li>
+<li>Provide an option to generate all error messages. Such option SHOULD NOT be the default as it could lead into a DoS situation.</li>
 </ul>
 <p>A CSAF Basic Validator MAY implement CSAF Additional Tests. In that case, it SHALL make through its documentation available which tests are implemented.</p>
 <h3 id="9115-conformance-clause-15-csaf-extended-validator-">9.1.15 Conformance Clause 15: CSAF Extended Validator <a id='conformance-clause-15-csaf-extended-validator'></a></h3>

@@ -1805,7 +1805,7 @@ The value of SHALL obey to exactly one of the following options:
     This option uses only the `constraint` part from the VERS specification; special requirements regarding VERS state above apply.
     It SHALL NOT have the `scheme` nor the `type` part.
     Neither `*` nor a constraint denoting a single version is valid.
-    Even though `1.0.0|1.1.0` is consider valid vls, it is RECOMMENDED to enumerate the versions instead.
+    Even though `1.0.0|1.1.0` is considered valid vls, it is RECOMMENDED to enumerate the versions instead.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
@@ -5381,7 +5381,7 @@ It MAY also be used to report previously partially or full-disclosed vulnerabili
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Vulnerability Report":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - All elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities to be reported.
@@ -14326,6 +14326,11 @@ Otherwise, test results could be incomplete or wrong.
 To avoid ambiguity, it is RECOMMENDED to use JSON pointer (see \[[RFC6901](#RFC6901)\]) when identifying or referring to a specific key or instance
 within a CSAF document.
 
+CSAF tools SHALL have carefully chosen default options when processing CSAF Documents.
+Especially CSAF validators have a risk of falling for DoS attacks as they could process data from untrusted sources.
+Therefore, it is RECOMMENDED to limit the amount of messages that can be issued by a test or during a run to a reasonable default.
+In such case, the CSAF validator SHALL indicate that there might have been more messages but processing stopped because of the limit.
+
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
 as this poses a security risk.
 Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.
@@ -14443,9 +14448,10 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 A program satisfies the "CSAF Producer" conformance profile if the program:
 
 - produces output in the CSAF format, according to the conformance profile "CSAF Document".
-- satisfies those normative requirements in section [3](#schema-elements) and [8](#safety-security-and-data-protection-considerations) that
-  are designated as applying to CSAF Producers.
-- satisfies those normative requirements in section [2.4](#extensions) that are designated as applying to CSAF Tools.
+- satisfies those normative requirements in sections [3](#schema-elements) and [8](#safety-security-and-data-protection-considerations)
+  that are designated as applying to CSAF Producers.
+- satisfies those normative requirements in sections [2.4](#extensions) and [8](#safety-security-and-data-protection-considerations)
+  that are designated as applying to CSAF Tools.
 
 ### 9.1.3 Conformance Clause 3: CSAF Direct Producer <a id='conformance-clause-3-csaf-direct-producer'></a>
 
@@ -14929,7 +14935,8 @@ A processor satisfies the "CSAF Consumer" conformance profile if the processor:
 - reads CSAF Documents and interprets them according to the semantics defined in section [3](#schema-elements) and [5](#additional-conventions).
 - satisfies those normative requirements in section [2.4](#extensions), [3](#schema-elements), [5](#additional-conventions) and
   [8](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Consumers.
-- satisfies those normative requirements in section [2.4](#extensions) that are designated as applying to CSAF Tools.
+- satisfies those normative requirements in sections [2.4](#extensions) and [8](#safety-security-and-data-protection-considerations)
+  that are designated as applying to CSAF Tools.
 
 ### 9.1.11 Conformance Clause 11: CSAF Viewer <a id='conformance-clause-11-csaf-viewer'></a>
 
@@ -15017,7 +15024,8 @@ A program satisfies the "CSAF Basic Validator" conformance profile if the progra
 - satisfies those normative requirements in sections [2.4](#extensions), [3](#schema-elements), [6.1](#mandatory-tests),
   [6.4](#test-presets), and [8](#safety-security-and-data-protection-considerations) that are designated as applying to
   CSAF Validators.
-- satisfies those normative requirements in section [2.4](#extensions) that are designated as applying to CSAF Tools.
+- satisfies those normative requirements in sections [2.4](#extensions) and [8](#safety-security-and-data-protection-considerations)
+  that are designated as applying to CSAF Tools.
 - issues a warning if an "not implemented warning" occurs as the validation status might not be correct.
 
 A CSAF Basic Validator MAY provide one or more additional functions:
@@ -15025,6 +15033,9 @@ A CSAF Basic Validator MAY provide one or more additional functions:
 - Only run one or more selected mandatory tests.
 - Apply quick fixes as specified in the standard.
 - Apply additional quick fixes as implemented by the vendor.
+- Provide an option to fail after the first error.
+- Provide an option to generate all error messages.
+  Such option SHOULD NOT be the default as it could lead into a DoS situation.
 
 A CSAF Basic Validator MAY implement CSAF Additional Tests.
 In that case, it SHALL make through its documentation available which tests are implemented.

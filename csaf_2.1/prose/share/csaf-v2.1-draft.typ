@@ -1853,7 +1853,7 @@ obey to exactly one of the following options:
   specification; special requirements regarding VERS state above apply.
   It SHALL NOT have the `scheme` nor the `type` part. Neither `*` nor a
   constraint denoting a single version is valid. Even though
-  `1.0.0|1.1.0` is consider valid vls, it is RECOMMENDED to enumerate
+  `1.0.0|1.1.0` is considered valid vls, it is RECOMMENDED to enumerate
   the versions instead. It is a fallback option and SHOULD NOT be used
   unless really necessary.
 
@@ -6288,7 +6288,7 @@ vulnerabilities to corresponding parties.
 A CSAF document SHALL fulfill the following requirements to satisfy the
 profile "Vulnerability Report":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
 
   - All elements required by the profile "CSAF Base".
 
@@ -17062,6 +17062,14 @@ RECOMMENDED to use JSON pointer (see \[#link(<RFC6901>)[RFC6901]\]) when
 identifying or referring to a specific key or instance within a CSAF
 document.
 
+CSAF tools SHALL have carefully chosen default options when processing
+CSAF Documents. Especially CSAF validators have a risk of falling for
+DoS attacks as they could process data from untrusted sources.
+Therefore, it is RECOMMENDED to limit the amount of messages that can be
+issued by a test or during a run to a reasonable default. In such case,
+the CSAF validator SHALL indicate that there might have been more
+messages but processing stopped because of the limit.
+
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT
 automatically retrieve JSON schemas from a URL declared in CSAF
 documents as this poses a security risk. Loading files from an untrusted
@@ -17256,13 +17264,14 @@ program:
 
 - produces output in the CSAF format, according to the conformance
   profile "CSAF Document".
-- satisfies those normative requirements in section
+- satisfies those normative requirements in sections
   #link(<schema-elements>)[3] and
   #link(<safety-security-and-data-protection-considerations>)[8] that
   are designated as applying to CSAF Producers.
-- satisfies those normative requirements in section
-  #link(<extensions>)[2.4] that are designated as applying to CSAF
-  Tools.
+- satisfies those normative requirements in sections
+  #link(<extensions>)[2.4] and
+  #link(<safety-security-and-data-protection-considerations>)[8] that
+  are designated as applying to CSAF Tools.
 
 === Conformance Clause 3: CSAF Direct Producer
 <conformance-clause-3-csaf-direct-producer>
@@ -18061,9 +18070,10 @@ processor:
   #link(<additional-conventions>)[5] and
   #link(<safety-security-and-data-protection-considerations>)[8] that
   are designated as applying to CSAF Consumers.
-- satisfies those normative requirements in section
-  #link(<extensions>)[2.4] that are designated as applying to CSAF
-  Tools.
+- satisfies those normative requirements in sections
+  #link(<extensions>)[2.4] and
+  #link(<safety-security-and-data-protection-considerations>)[8] that
+  are designated as applying to CSAF Tools.
 
 === Conformance Clause 11: CSAF Viewer
 <conformance-clause-11-csaf-viewer>
@@ -18182,9 +18192,10 @@ the program:
   #link(<mandatory-tests>)[6.1], #link(<test-presets>)[6.4], and
   #link(<safety-security-and-data-protection-considerations>)[8] that
   are designated as applying to CSAF Validators.
-- satisfies those normative requirements in section
-  #link(<extensions>)[2.4] that are designated as applying to CSAF
-  Tools.
+- satisfies those normative requirements in sections
+  #link(<extensions>)[2.4] and
+  #link(<safety-security-and-data-protection-considerations>)[8] that
+  are designated as applying to CSAF Tools.
 - issues a warning if an "not implemented warning" occurs as the
   validation status might not be correct.
 
@@ -18193,6 +18204,9 @@ A CSAF Basic Validator MAY provide one or more additional functions:
 - Only run one or more selected mandatory tests.
 - Apply quick fixes as specified in the standard.
 - Apply additional quick fixes as implemented by the vendor.
+- Provide an option to fail after the first error.
+- Provide an option to generate all error messages. Such option SHOULD
+  NOT be the default as it could lead into a DoS situation.
 
 A CSAF Basic Validator MAY implement CSAF Additional Tests. In that
 case, it SHALL make through its documentation available which tests are
