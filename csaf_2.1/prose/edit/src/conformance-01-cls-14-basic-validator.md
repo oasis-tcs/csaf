@@ -17,6 +17,9 @@ A CSAF Basic Validator MAY provide one or more additional functions:
 - Only run one or more selected mandatory tests.
 - Apply quick fixes as specified in the standard.
 - Apply additional quick fixes as implemented by the vendor.
+- Provide an option to fail after the first error.
+- Provide an option to generate all error messages.
+  Such option SHOULD NOT be the default as it could lead into a DoS situation.
 
 A CSAF Basic Validator MAY implement CSAF Additional Tests.
 In that case, it SHALL make through its documentation available which tests are implemented.
