@@ -4822,6 +4822,10 @@
         {
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-15-02.json",
           "valid": true
+        },
+        {
+          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-15-03.json",
+          "valid": true
         }
       ],
       "valid": [
