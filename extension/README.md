@@ -1,4 +1,4 @@
-# Governance of CSAF Extensions for CSAF
+# Governance of CSAF Extensions
 
 ## Overview
 
