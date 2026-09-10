@@ -121,6 +121,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
+  - at least one of
+    - `$.vulnerabilities[*].cve`
+    - `$.vulnerabilities[*].ids`
   - `$.vulnerabilities[*].notes`
 
     > Provides details about the vulnerability.

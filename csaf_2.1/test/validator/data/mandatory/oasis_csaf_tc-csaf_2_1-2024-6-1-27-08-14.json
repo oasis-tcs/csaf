@@ -13,10 +13,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: Affected Products (failing example 1)",
+    "title": "Mandatory Test: Vulnerability ID (valid example 4)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-12-01",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-08-14",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -42,6 +42,14 @@
                   "name": "Example Company Product A 4.1",
                   "product_id": "CSAFPID-9080700"
                 }
+              },
+              {
+                "category": "product_version",
+                "name": "4.2",
+                "product": {
+                  "name": "Example Company Product A 4.2",
+                  "product_id": "CSAFPID-9080701"
+                }
               }
             ],
             "category": "product_name",
@@ -55,7 +63,12 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-1900-0001",
+      "ids": [
+        {
+          "system_name": "https://github.com/oasis-tcs/csaf",
+          "text": "#1559"
+        }
+      ],
       "notes": [
         {
           "category": "summary",
@@ -64,6 +77,9 @@
         }
       ],
       "product_status": {
+        "known_affected": [
+          "CSAFPID-9080701"
+        ],
         "under_investigation": [
           "CSAFPID-9080700"
         ]
