@@ -26,10 +26,10 @@ The following abbreviations are used:
 | [11](https://groups.oasis-open.org/discussion/clarify-output-an-information-in-converter-rule-detail-1372) | 2026-04-01 | BR | [9.1.5 + 9.1.18: clarify "output an information" in converter rules](https://github.com/oasis-tcs/csaf/issues/1372) | 2026-04-29 | [Comment Resolution CSD02PR: #1372](https://github.com/oasis-tcs/csaf/pull/1404) | Completed |
 | [12](https://groups.oasis-open.org/discussion/issue-1373-minor-lose-false-friend-loose-in-9118) | 2026-04-01 | BR | [9.1.18 Lose false friend "loose"](https://github.com/oasis-tcs/csaf/issues/1373) | 2026-04-29 | [Comment Resolution CSD02PR: #1373](https://github.com/oasis-tcs/csaf/pull/1429) | Completed |
 | [13](https://groups.oasis-open.org/discussion/new-issue-6238-clarify-handling-of-unicode-variants) | 2026-04-07 | Johannes Pein | [6.2.38: Clarify handling of unicode variants](https://github.com/oasis-tcs/csaf/issues/1374) | 2026-04-29 | [Comment Resolution CSD02PR: #1374](https://github.com/oasis-tcs/csaf/pull/1406) | Completed |
-| [14](https://groups.oasis-open.org/discussion/new-issue-24-reconsider-csaf-extension-mechanism) | 2026-04-07 | SL | [Reconsider the CSAF Extensions mechanism](https://github.com/oasis-tcs/csaf/issues/1375) |  |  |  |
+| [14](https://groups.oasis-open.org/discussion/new-issue-24-reconsider-csaf-extension-mechanism) | 2026-04-07 | SL | [Reconsider the CSAF Extensions mechanism](https://github.com/oasis-tcs/csaf/issues/1375) | 2026-09-09 | [Extension governance](https://github.com/oasis-tcs/csaf/pull/1565) | Completed |
 
 ## Evaluation of Feedback
 
-The TC considers above public comments as well as other more editorial feedback documented in issue [#1396](https://github.com/oasis-tcs/csaf/issues/1396) and classified/considered per pull requests [#1399](https://github.com/oasis-tcs/csaf/pull/1399), [#1463](https://github.com/oasis-tcs/csaf/pull/1463) as **Material** per OASIS TC process.
+The TC considers above public comments as well as other more editorial feedback documented in issue [#1396](https://github.com/oasis-tcs/csaf/issues/1396) and classified/considered per pull requests [#1399](https://github.com/oasis-tcs/csaf/pull/1399), [#1463](https://github.com/oasis-tcs/csaf/pull/1463), and [#1574](https://github.com/oasis-tcs/csaf/pull/1574) as **Material** per OASIS TC process.
 
 To ease verification by anyone and to support the administration this comment resolution log is provided as an individual document as per this artifact.

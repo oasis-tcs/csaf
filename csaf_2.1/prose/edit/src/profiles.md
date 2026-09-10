@@ -280,7 +280,7 @@ It MAY also be used to report previously partially or full-disclosed vulnerabili
 
 A CSAF document SHALL fulfill the following requirements to satisfy the profile "Vulnerability Report":
 
-- The following elements MUST exist and be valid:
+- The following elements SHALL exist and be valid:
   - All elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities to be reported.
