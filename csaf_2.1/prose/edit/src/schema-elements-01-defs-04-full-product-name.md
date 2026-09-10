@@ -58,8 +58,10 @@ A helper to identify the product SHALL identify the product described by the `na
 A matching algorithm has to be able to rely on the `product_identification_helper` information during the matching without having to
 check e.g. the branches hierarchy leading to the product.
 
-> Therefore, it is, for example, prohibited to omit the version from the CPE if a `product_version` was given in branches hierarchy
-> leading to the product.
+Only exception is the use of a CPE with a version part of `*`:
+A matching algorithm SHALL check whether a parent element along the path leading to the `product_identification_helper` exists,
+that has the category `product_version_range`.
+In such case, the corresponding value of the product version range SHALL be used as version information for the matching.
 
 ##### Full Product Name Type - Product Identification Helper - CPE
 
