@@ -48,17 +48,18 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   - `$.document.tracking.version`
 - The value of `$.document.category` SHALL NOT be equal to or a close match for any value that is intended to only be used by
   another profile nor to the (case insensitive) name of any other profile from the standard.
-  Such case insensitive matching does not take occurrences of dash, hyphen, minus, white space, and underscore characters into account.
+  Such case insensitive matching does not take occurrences of dash, hyphen, minus, white space, invisible and underscore characters
+  into account.
   To explicitly select the use of this profile the value `csaf_base` SHOULD be used.
 
 > Neither `CSAF Security Advisory` nor `csaf security advisory` are valid values for `$.document.category`.
 
-An issuing party might choose to prepend its `$.document.publisher.name` to a value in `$.document.category` that would otherwise be 
+An issuing party might choose to prepend its `$.document.publisher.name` to a value in `$.document.category` that would otherwise be
 intended to only be used by another profile, to state that the CSAF document does not use the profile associated with this value.
 In this case, the (case insensitive) string "CSAF" SHALL be removed from the value.
 This SHOULD be done if the issuing party is unable or unwilling to use the value `csaf_base`, e.g. due to legal or cooperate identity reasons.
 
-> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `$.document.category` are therefore valid 
+> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `$.document.category` are therefore valid
 > categories for the profile "CSAF Base".
 > This is important to prepare forward compatibility as later versions of CSAF might add new profiles.
 > Therefore, the values which can be used for the profile "CSAF Base" might change.

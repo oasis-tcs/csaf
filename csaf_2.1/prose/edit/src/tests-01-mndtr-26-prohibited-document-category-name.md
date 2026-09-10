@@ -2,8 +2,8 @@
 
 It SHALL be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
 value of any other profile than "CSAF Base".
-Any occurrences of dash, hyphen, minus, underscore, and white space characters are removed from the values on both sides before the
-case insensitive match.
+Any occurrences of dash, hyphen, minus, underscore, white space and invisible characters are removed from the values
+on both sides before the case insensitive match.
 
 > The characters listed above are independent of their graphical variants.
 > In general, all corresponding unicode characters are part of the group.
