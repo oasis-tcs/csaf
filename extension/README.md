@@ -70,7 +70,7 @@ Extensions addressing unrelated concerns are out of scope and will not be consid
 - Extensions addressing organizational processes or internal workflows not tied to advisory content,
 - Extensions that contain data regarding the geographical location of vendors. 
 
-**Limit scope to a single location.** An extension is limited to one specific location in the CSAF schema. This constraint keeps extensions predictable and straightforward to implement. Extensions that can apply to a single vulnerability or the whole CSAF document are allowed to appear in both locations.
+**Limit scope to a single location.** An extension is limited to one defined location in the CSAF schema. This constraint keeps extensions predictable and straightforward to implement. As an exception, an extension that is meaningful both for a single vulnerability and for the whole CSAF document MAY be defined for both of those locations.
 
 ### Documentation and Implementation
 
