@@ -172,7 +172,7 @@ intended date in the future.
 
 If a vulnerability was patched without stating that it is a vulnerability,
 the vulnerability is in the context of this specification not considered to be disclosed.
-As a consequence, the `discovery_date` needs earlier than or equal to the `disclosure_date`.
+As a consequence, the `discovery_date` needs to be earlier than or equal to the `disclosure_date`.
 
 #### Vulnerabilities Property - Discovery Date
 
