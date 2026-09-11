@@ -229,7 +229,7 @@ Secondly, the program fulfills the following for all items of:
     Such warning SHALL contain the full product name and its path as well as the paths of the `$.vulnerabilities[*]` it was added to.
     The CSAF 2.0 to CSAF 2.1 Converter MAY have a non-default option to assign organization-wide IDs to any vulnerability not
     containing a CVE nor any other vulnerability ID and therefore failing test [sec](#vulnerability-id).
-    Issuing parties are responsible to keep track of assigned IDs to prevent the assignment of the same ID twice for different issues.
+    Issuing parties are responsible to keep track of assigned IDs to prevent the assignment of the same ID  for different issues.
     If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile,
     it SHALL set the `category` value to `csaf_deprecated_security_advisory`.
   - If the `$.document.lang` is English or unspecified, the following rules apply:
