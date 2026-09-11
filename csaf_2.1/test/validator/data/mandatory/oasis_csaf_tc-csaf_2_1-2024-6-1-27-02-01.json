@@ -8,6 +8,13 @@
         "label": "CLEAR"
       }
     },
+    "notes": [
+      {
+        "category": "summary",
+        "text": "This CSAF document contained example data and pretends to be an Informational Advisory to create test data. This note would summarize the issue.",
+        "title": "Summary"
+      }
+    ],
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",

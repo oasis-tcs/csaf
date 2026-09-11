@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": true,
+  "primary_result": {
+    "id": "6.1.27.8",
+    "passed": true
+  },
+  "resultschema_version": "2.1"
+}

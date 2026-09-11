@@ -21,7 +21,7 @@
     align: (left + horizon, center + horizon, right + horizon),
     text(size: 8pt)[csaf-v2.1-csd03],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[26 August 2026 — Page #counter(page).display()
+    text(size: 8pt)[02 September 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -53,8 +53,8 @@ Advisory Framework Version 2.1]
 #heading(level: 2, outlined: false, numbering: none)[Committee
 Specification Draft 03]
 <committee-specification-draft-03>
-#heading(level: 2, outlined: false, numbering: none)[26 August 2026]
-<26-august-2026>
+#heading(level: 2, outlined: false, numbering: none)[02 September 2026]
+<02-september-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
@@ -201,8 +201,8 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 26 August 2026. OASIS Committee Specification
-Draft 03.
+Hagen and Thomas Schmidt. 02 September 2026. OASIS Committee
+Specification Draft 03.
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html.
 Latest stage:
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
@@ -340,6 +340,12 @@ apply:
     table accessed via an HTTP request; an arbitrary stream of bytes
     returned from an HTTP request, a product URL, a common product
     enumeration value.
+/ ​Coordinated Vulnerability Disclosure (CVD)<def:coordinated-vulnerability-disclosure-cvd>: A
+    disclosure process that includes coordination.
+/ ​Coordination<def:coordination>: set of activities including
+    identifying and engaging stakeholders, mediating, communicating and
+    other planning in support of vulnerability disclosure (conforming to
+    ISO/IEC \[#link(<ISO29147>)[ISO29147]\]).
 / ​Critical Extension<def:critical-extension>: An extension that if an
     instance of it is included in a CSAF Document causes at least one
     mandatory test to fail.
@@ -442,6 +448,9 @@ apply:
 / ​CVRF CSAF Converter<def:cvrf-csaf-converter>: CSAF Producer which
     takes a CVRF document as input and converts it into a valid CSAF
     Document.
+/ ​Disclosure<def:disclosure>: act of initially providing vulnerability
+    information to a party that was not believed to be previously aware
+    (conforming to ISO/IEC \[#link(<ISO29147>)[ISO29147]\]).
 / ​Document<def:document>: output file produced by an analysis tool,
     which enumerates the results produced by the tool.
 / ​Driver<def:driver>: tool component containing an analysis tool's or
@@ -571,7 +580,7 @@ apply:
 / ​Viewer<def:viewer>: see CSAF Viewer.
 / ​Vulnerability<def:vulnerability>: functional behavior of a product or
     service that violates an implicit or explicit security policy
-    (conforming to ISO/IEC 29147 \[#link(<ISO29147>)[ISO29147]\]).
+    (conforming to ISO/IEC \[#link(<ISO29147>)[ISO29147]\]).
 / ​White Space<def:white-space>: code point used to improve text
     readability or token separation as defined in section 12.2 of
     \[#link(<ECMA-262>)[ECMA-262]\].
@@ -695,6 +704,10 @@ and Thomas Schmidt. 18 November 2022. OASIS Standard.
 Latest stage:
 #link("https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html").
 
+#strong[\[]<CVDGUIDE>#strong[CVDGUIDE\]] #emph[The CERT Guide to
+Coordinated Vulnerability Disclosure], v2025.6, Jun 16, 2025,
+#link("https://certcc.github.io/CERT-Guide-to-CVD/")
+
 #strong[\[]<CVE>#strong[CVE\]] #emph[CVE: Common Vulnerability and
 Exposures], CVE Project, #link("https://www.cve.org").
 
@@ -777,6 +790,16 @@ tag], International Standard, ISO 19770-2:2015, September 30, 2015,
 --- Security techniques --- Vulnerability disclosure], International
 Standard, ISO/IEC 29147:2018, October 23, 2018,
 #link("https://www.iso.org/standard/72311.html").
+
+#strong[\[]<ISO30111>#strong[ISO30111\]] #emph[Information technology
+--- Security techniques --- Vulnerability handling processes],
+International Standard, ISO/IEC 30111:2019, October 1, 2019,
+#link("https://www.iso.org/standard/69725.html")
+
+#strong[\[]<ISOTR5895>#strong[ISOTR5895\]] #emph[Cybersecurity ---
+Multi-party coordinated vulnerability disclosure and handling],
+International Standard, ISO/IEC TR 5895:2022, June 17, 2022,
+#link("https://www.iso.org/standard/81807.html")
 
 #strong[\[]<OPENSSL>#strong[OPENSSL\]] #emph[GTLS/SSL and crypto
 library], OpenSSL Software Foundation,
@@ -1360,7 +1383,10 @@ Critical (`critical`) of value type `boolean` determines whether using
 the extension would fail a mandatory test. The `default` value for this
 is `false`.
 
-For any failing test, a CSAF Extension Test SHALL be provided.
+For any failing test, a CSAF Extension Test SHALL be provided. A CSAF
+Tool that encounters a critical extension it does not have implemented
+SHALL fail processing of the CSAF document, unless the user explicitly
+forces it to continue.
 
 === Metadata
 <metadata>
@@ -1629,6 +1655,12 @@ are:
 The value `architecture` indicates the architecture for which the
 product is intended.
 
+#quote(block: true)[
+This usually identifies the CPU instruction-set architecture. See also
+example \[#link(<branches-type---name-eg-2>)[2 (of section 3.1.2.3)]\]
+in section #link(<branches-type---name>)[3.1.2.3].
+]
+
 The value `host_name` indicates the host name of a system/service.
 
 The value `language` indicates the language of the product.
@@ -1637,6 +1669,13 @@ The value `patch_level` indicates the patch level of the product.
 
 The value `platform` indicates the (CPU) platform for which the product
 is intended.
+
+#quote(block: true)[
+As the same architecture is used in different platforms, this allows a
+differentiation. See also example
+\[#link(<branches-type---name-eg-3>)[3 (of section 3.1.2.3)]\] in
+section #link(<branches-type---name>)[3.1.2.3].
+]
 
 The value `product_family` indicates the product family that the product
 falls into.
@@ -1702,6 +1741,35 @@ branch.
 A leading `v` or `V` in the value of `name` SHOULD only exist for the
 categories `product_version` or `product_version_range` if it is part of
 the product version as given by the vendor.
+
+#emph[Examples 2 (for `name` when using
+`architecture`):]#box()<branches-type---name-eg-2>
+
+```
+    AArch32
+    AArch64
+    AMD64
+    ARMv7
+    ARMv8-R
+    ARMv9.7-A
+    IA-64
+    MISP32
+    m68k
+    ppc64el
+    RV64
+    s390
+    SPARC
+    x86
+```
+
+#emph[Examples 3 (for `name` when using
+`platform`):]#box()<branches-type---name-eg-3>
+
+```
+    AMD
+    ARM
+    Intel
+```
 
 ===== Branches Type - Name under Product Version
 <branches-type---name-under-product-version>
@@ -1782,8 +1850,12 @@ obey to exactly one of the following options:
 + VERS-like Specifier (vls)
 
   This option uses only the `constraint` part from the VERS
-  specification. It SHALL NOT have the `scheme` nor the `type` part. It
-  is a fallback option and SHOULD NOT be used unless really necessary.
+  specification; special requirements regarding VERS state above apply.
+  It SHALL NOT have the `scheme` nor the `type` part. Neither `*` nor a
+  constraint denoting a single version is valid. Even though
+  `1.0.0|1.1.0` is considered valid vls, it is RECOMMENDED to enumerate
+  the versions instead. It is a fallback option and SHOULD NOT be used
+  unless really necessary.
 
   #quote(block: true)[
   The reason for that is, that it is nearly impossible for tools to
@@ -3133,6 +3205,7 @@ It is directly related to the profiles defined in section
 ```
     csaf_base
     csaf_security_advisory
+    csaf_vulnerability_report
     csaf_vex
     Example Company Security Notice
 ```
@@ -3469,9 +3542,13 @@ meaning and SHALL be used as stated below:
     product given in the `product_tree` in regard to field of
     application and core functionality. This SHOULD be bound to the
     corresponding product or product group.],
+    [general], [AI Usage], [Contains information on whether and how AI
+    systems were used in discovering, analyzing, remediating, or
+    documenting the content of the whole CSAF document, including the
+    human oversight applied.],
     [general], [General Security Recommendations], [Contains general
-    advise and security recommendations that are related, generic and
-    might be independently applicable of the content of the CSAF
+    advice and security recommendations that are related, generic and
+    might be applicable independently of the content of the CSAF
     document.],
     [legal\_disclaimer], [License], [Contains the only license text of
     the document license.],
@@ -3482,7 +3559,7 @@ meaning and SHALL be used as stated below:
   that have a special meaning.]
   , kind: table
   )
-<tab:special-combinations-of-category-and-title>
+<document-property-notes-tab-1>
 
 If a note is specific to a product or product group it SHALL be bound
 via the `group_ids` respectively `product_ids`.
@@ -5140,10 +5217,14 @@ meaning and SHALL be used as stated below:
     [description], [CVE Description], [Contains the official and
     unchanged CVE description for this specific vulnerability.],
     [description], [Preconditions], [Contains a description of the
-    preconditions that have to be fulfilled to be able to exploit the
-    vulnerability, e.g.~user account or physical access.],
-    [summary], [Vulnerability Summary], [Contains a summary of the
-    vulnerability which is not the official CVE description.],
+    preconditions that have to be fulfilled to be able to exploit this
+    specific vulnerability, e.g.~user account or physical access.],
+    [general], [AI Usage], [Contains a information on whether and how AI
+    systems were used in discovering, analyzing, remediating, or
+    documenting this specific vulnerability, including the human
+    oversight applied.],
+    [summary], [Vulnerability Summary], [Contains a summary of this
+    specific vulnerability which is not the official CVE description.],
   )]
   , caption: [Combinations of `category` and `title` with special
   meaning.]
@@ -6190,6 +6271,155 @@ profile "Superseded":
     it SHOULD be the language specific translation of that term.
 - The value of `$.document.category` SHALL be `csaf_superseded`.
 - The elements `$.product_tree` and `$.vulnerabilities` SHALL NOT exist.
+
+== Profile 9: Vulnerability Report
+<profile-9-vulnerability-report>
+This profile SHALL be used to exchange a vulnerability report during the
+Coordinated Vulnerability Disclosure (CVD) process. Providing a
+structured mechanism for exchanging information throughout the
+coordinated vulnerability disclosure process among the participating
+parties it supports communication between discoverers, vendors, and,
+where applicable, coordinators. Information such as affected products,
+technical details, severity assessments, and supporting evidence can be
+exchanged privately using this profile to facilitate coordination. It
+MAY also be used to report previously partially or full-disclosed
+vulnerabilities to corresponding parties.
+
+A CSAF document SHALL fulfill the following requirements to satisfy the
+profile "Vulnerability Report":
+
+- The following elements SHALL exist and be valid:
+
+  - All elements required by the profile "CSAF Base".
+
+  - `$.product_tree` which lists all products referenced later on in the
+    CSAF document regardless of their state.
+
+  - `$.vulnerabilities` which lists all vulnerabilities to be reported.
+
+  - at least one of
+
+    - `$.vulnerabilities[*].cve`
+    - `$.vulnerabilities[*].ids`
+
+    Each reported vulnerability needs a unique identifier to track the
+    vulnerability as well as avoid misunderstandings and confusion
+    during the coordination. For any vulnerability that has a CVE
+    assigned regardless of the state of the CVE, its CVE identifier
+    SHALL be used. In any other case, the issuing party SHALL provide an
+    identifier that uniquely identifies the vulnerability within its own
+    organization. An entity SHOULD make use of its corresponding RVISC
+    entry. If other participants during the coordination use different
+    identifiers, they SHOULD be added to the report to provide a single
+    place for such mapping.
+
+  - `$.vulnerabilities[*].notes` with at least one item using one of the
+    following combinations:
+
+    - the `category` `summary`: The `title` SHALL be
+      `Vulnerability Summary` for English or an unspecified document
+      language. For any other language, it SHOULD be the language
+      specific translation of that term. \ This entry SHALL be used to
+      describe the vulnerability that requires coordination with
+      participating parties.
+    - the `category` `description`: The `title` SHALL be
+      `CVE Description` for English or an unspecified document language.
+      For any other language, it SHOULD be the language specific
+      translation of that term. \ This entry SHALL be used to describe
+      the vulnerability that requires coordination with participating
+      parties.
+
+    #quote(block: true)[
+    Other items may exist alongside the required one.
+    ]
+
+  - `$.vulnerabilities[*].product_status`
+
+    #quote(block: true)[
+    Lists each product's status with respect to the reported
+    vulnerability as determined by the discoverer, or whoever is the
+    issuing party of this document.
+    ]
+
+  - `$.vulnerabilities[*].product_status.known_affected`
+
+    #quote(block: true)[
+    Identifies the products that the issuing party has determined to be
+    affected. This requirement ensures that a Vulnerability Report
+    profile identifies at least one product to which the reported
+    vulnerability is known to apply.
+    ]
+
+- The value of `$.document.category` SHALL be
+  `csaf_vulnerability_report`.
+
+- The following elements SHOULD exist:
+
+  - `$.document.acknowledgments`
+
+    Identifies the individuals or organizations that SHOULD receive
+    public acknowledgment for the discovery. If omitted, it indicates
+    that the discoverer does not wish to receive public acknowledgment
+    following disclosure.
+
+  - `$.document.aggregate_severity`
+
+    #quote(block: true)[
+    Provides an overall severity assessment for the report.
+    ]
+
+  - `$.vulnerabilities[*].metrics`
+
+    #quote(block: true)[
+    Provides vulnerability assessment metrics, such as CVSS, EPSS, SSVC,
+    or other supported scoring systems.
+    ]
+
+  - `$.vulnerabilities[*].references`
+
+    #quote(block: true)[
+    Identifies publicly available information relevant to the reported
+    vulnerability, including references supporting evidence of known
+    exploitation where applicable.
+    ]
+
+  - `$.vulnerabilities[*].threats`
+
+    #quote(block: true)[
+    Describes the reported security impact or exploitation status.
+    ]
+
+  - `$.vulnerabilities[*].title`
+
+    #quote(block: true)[
+    Provides a concise title for each reported vulnerability.
+    ]
+
+- The value of `$.document.distribution.tlp.label` SHOULD be `TLP:AMBER`
+  to promote sharing on a need-to-know basis within the vendor's or
+  coordinator's organization and, where appropriate, their clients.
+  Additional information, such as `sharing_group` or `text`, MAY be
+  provided to further clarify the issuing party's intended sharing
+  expectations.
+
+- If the issuing party is aware of active exploitation, that information
+  SHOULD be communicated using the SSVC Exploitatation metric as
+  `Active` or `PoC`. Evidence supporting known exploitation MAY be
+  referenced using `$.vulnerabilities[*].references` to assist
+  investigation by vendors and coordinators.
+
+- The following elements MAY exist:
+
+  - `$.vulnerabilities[*].disclosure_date` which SHOULD be used to
+    communicate or coordinate an intended public disclosure date for the
+    reported vulnerabilities.
+
+  - `$.vulnerabilities[*].involvements`
+
+    #quote(block: true)[
+    Records coordination activities between the parties involved in the
+    disclosure of the specific vulnerability.
+    ]
 
 #pagebreak(weak: true)
 = Additional Conventions
@@ -7600,6 +7830,7 @@ For CSAF 2.1, the test must be skipped for the following values in
  csaf_superseded
  csaf_vex
  csaf_withdrawn
+ csaf_vulnerability_report
 ```
 ]
 
@@ -7628,6 +7859,7 @@ values):]#box()<prohibited-document-category-name-eg-1>
   V_eX
   veX
   withdrawn
+  Vulnerability＿rePORT
 ```
 
 #emph[Example 2 (which fails the
@@ -7696,13 +7928,22 @@ The document notes do not contain an item which has a `category` of
 ==== Document References
 <document-references-for-informational-advisory-and-security-incident-response>
 It SHALL be tested that at least one item in `$.document.references`
-exists that has links to an `external` source.
+exists that contains a link to an `external` source. The property
+`category` SHALL be present for this item.
+
+#quote(block: true)[
+Other items MAY exist which do not contain the property `category`.
+Issuing parties are advised that tools MAY explicitly filter for or
+prioritize entries that have the contain the property `category` with
+the value of `external`.
+]
 
 The relevant values for `$.document.category` are:
 
 ```
   csaf_informational_advisory
   csaf_security_incident_response
+  csaf_superseded
 ```
 
 The relevant path for this test is:
@@ -7777,6 +8018,7 @@ The relevant values for `$.document.category` are:
   csaf_security_advisory
   csaf_vex
   csaf_deprecated_security_advisory
+  csaf_vulnerability_report
 ```
 
 The relevant path for this test is:
@@ -7922,17 +8164,19 @@ at least one item in `ids`. This is independent from whether the product
 is referenced directly or indirectly through a product group.
 
 #quote(block: true)[
-Without this rule, a product could be mentioned in a VEX that has no
-clear reference to a vulnerability identifier. If a CVE is present, or
-at least one item in `ids` without `group_ids` and `product_ids`, the
-corresponding vulnerability identifier applies to the vulnerability
-itself and therefore to all products mention in this vulnerability.
+Without this rule, a product could be mentioned in a CSAF Document that
+has no clear reference to a vulnerability identifier. If a CVE is
+present, or at least one item in `ids` without `group_ids` and
+`product_ids`, the corresponding vulnerability identifier applies to the
+vulnerability itself and therefore to all products mention in this
+vulnerability.
 ]
 
-The relevant value for `$.document.category` is:
+The relevant values for `$.document.category` are:
 
 ```
   csaf_vex
+  csaf_vulnerability_report
 ```
 
 The relevant paths for this test are:
@@ -8122,6 +8366,7 @@ The relevant values for `$.document.category` are:
   csaf_security_advisory
   csaf_vex
   csaf_deprecated_security_advisory
+  csaf_vulnerability_report
 ```
 
 The relevant path for this test is:
@@ -8135,6 +8380,7 @@ test):]#box()<vulnerabilities-for-security-advisory-or-vex-eg-1>
 
 ```
   {
+    "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
     "document": {
       // ...
     },
@@ -8430,8 +8676,8 @@ The note has the correct title. However, it uses the wrong category.
 <reference-to-superseding-document>
 If the document language is English or unspecified, it SHALL be tested
 that at least one item in document references exists that has a summary
-starting with `Superseding Document`. The `category` of this item SHALL
-be `external`.
+starting with `Superseding Document`. For each of these items, the
+`category` SHALL be present and have the value `external`.
 
 The relevant value for `$.document.category` is:
 
@@ -8451,16 +8697,54 @@ test):]#box()<reference-to-superseding-document-eg-1>
 ```
     "references": [
       {
-        "category": "self",
-        "summary": "Superseding Document",
+        "category": "external",
+        "summary": "Superseded Document",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
 ```
 
 #quote(block: true)[
-The reference summary starts correctly with the string "Superseding
-Document". However, it uses the wrong category.
+There is no reference where the `summary` starts with the correct term
+`Superseding Document`.
+]
+
+==== Vulnerability Notes
+<vulnerability-notes-for-vulnerability-report>
+If the document language is English or unspecified, it SHALL be tested
+that at least one item in vulnerability notes exists that has the title
+`Vulnerability Summary` or `CVE Description`. The `category` of this
+item SHALL be consistent with the value required in table
+#link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
+#link(<vulnerabilities-property-notes>)[3.2.4.11].
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerability[*].notes
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<vulnerability-notes-for-vulnerability-report-eg-1>
+
+```
+  "notes": [
+    {
+      "category": "description",
+      "text": "Example Company Product A 17.4 performs only checks on file extensions with all lowercase letters. An unauthenticated remote attacker can execute arbitrary binaries if their file extension contains uppercase letters or other characters.",
+      "title": "Vulnerability Summary"
+    }
+  ],
+```
+
+#quote(block: true)[
+The note has the correct title. However, it uses the wrong category.
 ]
 
 === Translation
@@ -10582,7 +10866,9 @@ To implement this test it is deemed sufficient that one item in
 - It has the category `self`.
 - The `url` starts with `https://`.
 - The `url` ends with the valid filename for the CSAF document according
-  to the rules in section #link(<filename>)[5.1].
+  to the rules in section #link(<filename>)[5.1] which is preceded by a
+  `/`.
+- The hostname is not empty.
 ]
 
 The relevant path for this test is:
@@ -11988,10 +12274,11 @@ The note has the correct title. However, it uses the wrong category.
 If the document language is specified but not English, it SHALL be
 tested that at least one item in document references exists that starts
 with the language specific translation of the term
-`Superseding Document` as `summary`. The `category` of this item SHALL
-be `external`. If no language specific translation has been recorded,
-the test SHALL be skipped and output an information to the user that no
-such translation is known.
+`Superseding Document` as `summary`. For each of these items, the
+`category` SHALL be present and have the value `external`. If no
+language specific translation has been recorded, the test SHALL be
+skipped and output an information to the user that no such translation
+is known.
 
 #quote(block: true)[
 A list of the language specific translations is kept at the OASIS CSAF
@@ -12016,7 +12303,7 @@ test):]#box()<language-specific-superseding-document-eg-1>
 ```
     "references": [
       {
-        "category": "self",
+        "category": "external",
         "summary": "Ersetztes Dokument",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
@@ -12024,7 +12311,8 @@ test):]#box()<language-specific-superseding-document-eg-1>
 ```
 
 #quote(block: true)[
-The note has the correct title. However, it uses the wrong category.
+There is no reference where the `summary` starts with the correct term
+`Ersetzendes Dokument`.
 ]
 
 ==== Extension in Superseded or Withdrawn Document
@@ -12062,6 +12350,334 @@ test):]#box()<extension-in-superseded-or-withdrawn-document-eg-1>
 
 #quote(block: true)[
 The document contains a CSAF Extension.
+]
+
+==== Language Specific Vulnerability Notes
+<language-specific-vulnerability-notes>
+If the document language is specified but not English, it SHALL be
+tested that at least one item in vulnerability notes exist that has the
+language specific translation of the term `Vulnerability Summary` or
+`CVE Description` as `title`. The `category` of this item SHALL be
+consistent with the value required in table
+#link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
+#link(<vulnerabilities-property-notes>)[3.2.4.11]. If no language
+specific translation has been recorded, the test SHALL be skipped and
+output an information to the user that no such translation is known.
+
+#quote(block: true)[
+A list of the language specific translations is kept at the OASIS CSAF
+TC.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].notes
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<language-specific-vulnerability-notes-eg-1>
+
+```
+    "notes": [
+      {
+        "category": "summary",
+        // ...
+        "title": "CVE Beschreibung"
+      }
+    ],
+```
+
+#quote(block: true)[
+The note has the correct title. However, it uses the wrong category.
+]
+
+==== Document Acknowledgments
+<document-acknowledgments-for-vulnerability-report>
+It SHALL be tested that the element `$.document.acknowledgments` exists.
+
+#quote(block: true)[
+Public acknowledgment helps ensure that discoverers and contributing
+organizations receive appropriate credit after coordinated disclosure.
+Omitting the acknowledgments element indicates that the discoverer does
+not wish to receive public acknowledgment following disclosure. In such
+case, the test fails by design. Discoverers that do not wish to receive
+public acknowledgment MAY safely ignore the test.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.acknowledgments
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<document-acknowledgments-for-vulnerability-report-eg-1>
+
+```
+  "document": {
+    "category": "csaf_vulnerability_report"
+    // ...
+  }
+```
+
+#quote(block: true)[
+The element `$.document.acknowledgments` does not exist.
+]
+
+Recommendation:
+
+It is recommended to add `$.document.acknowledgments` so the
+vulnerability report identifies who should receive public acknowledgment
+and provides a suggested phrasing for that. For an example, see
+\[#link(<acknowledgments-type---example-eg-1>)[1 (of section 3.1.1.5)]\]
+in section #link(<acknowledgments-type---example>)[3.1.1.5].
+
+==== Aggregate Severity
+<aggregate-severity>
+It SHALL be tested that the element `$.document.aggregate_severity`
+exists.
+
+#quote(block: true)[
+An aggregate severity helps recipients quickly understand the overall
+urgency of the vulnerability report during coordination.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.aggregate_severity
+```
+
+#emph[Example 1 (which fails the test):]#box()<aggregate-severity-eg-1>
+
+```
+  "document": {
+    "category": "csaf_vulnerability_report",
+    // ...
+  }
+```
+
+#quote(block: true)[
+The element `$.document.aggregate_severity` does not exist.
+]
+
+#quote(block: true)[
+A tool MAY add the highest value of all CVSS Severity values of all
+vulnerabilities as quick fix.
+]
+
+==== TLP-Label for Vulnerability Report
+<tlp-label-for-vulnerability-report>
+It SHALL be tested that the TLP label is set to `AMBER`.
+
+#quote(block: true)[
+The vulnerability report profile recommends `TLP:AMBER` as reasonable
+default so the report can be shared on a need-to-know basis during
+private coordination. Note that there are cases, where the document
+distribution needs to be limited more (e.g.~`TLP:AMBER+STRICT`). Also,
+there are cases, where there is no added value in limiting the
+distribution to `TLP:AMBER`. For example, if the report contains only
+already public information as a full disclosure happened before.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.distribution.tlp.label
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<tlp-label-for-vulnerability-report-eg-1>
+
+```
+  "distribution": {
+    "tlp": {
+      "label": "RED"
+    }
+  }
+```
+
+#quote(block: true)[
+The vulnerability report uses a TLP label other than the recommended
+value `AMBER`.
+]
+
+#quote(block: true)[
+A tool MAY set the TLP label to `AMBER` as a quick fix.
+]
+
+==== Vulnerability Metrics
+<vulnerability-metrics>
+It SHALL be tested that `$.vulnerabilities[*].metrics` exists.
+
+#quote(block: true)[
+Metrics such as CVSS, EPSS, or SSVC help recipients evaluate technical
+severity and prioritize their response.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<vulnerability-metrics-eg-1>
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001"
+    }
+  ]
+```
+
+#quote(block: true)[
+The vulnerability does not have a `metrics` element.
+]
+
+==== Vulnerability References
+<vulnerability-references>
+It SHALL be tested that `$.vulnerabilities[*].references` exists.
+
+#quote(block: true)[
+Public references help vendors and coordinators review supporting
+evidence, reproduction material, and exploitation claims.
+]
+
+Additional information SHOULD NOT be published if the solely purpose of
+the publication is to be reference in the vulnerability report. The
+issuing party SHOULD just reference material already published. Any
+unpublished material MAY be included into the vulnerability report, if
+applicable.
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].references
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<vulnerability-references-eg-1>
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001"
+    }
+  ]
+```
+
+#quote(block: true)[
+The vulnerability does not have a `references` element.
+]
+
+==== Vulnerability Threats
+<vulnerability-threats>
+It SHALL be tested that `$.vulnerabilities[*].threats` exists.
+
+#quote(block: true)[
+Threat statements capture reported impact or exploitation status and
+help the receiving party understand the security consequences.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].threats
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<vulnerability-threats-eg-1>
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001"
+    }
+  ]
+```
+
+#quote(block: true)[
+The vulnerability does not have a `threats` element.
+]
+
+==== Vulnerability Title
+<vulnerability-title>
+It SHALL be tested that `$.vulnerabilities[*].title` exists.
+
+#quote(block: true)[
+A concise vulnerability title helps the participating parties discuss,
+triage, and track the report consistently.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].title
+```
+
+#emph[Example 1 (which fails the test):]#box()<vulnerability-title-eg-1>
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001"
+    }
+  ]
+```
+
+#quote(block: true)[
+The vulnerability does not have a `title` element.
 ]
 
 === Product Description without Product Reference
@@ -13621,7 +14237,7 @@ To implement this test it is deemed sufficient that the value of `name`
 does not match the following regex:
 
 ```
-  ^[vV][0-9].*$
+  ^[vV][0-9]
 ```
 ]
 
@@ -14761,6 +15377,90 @@ The Product with the ID `CSAFPID-908070605` is defined through a product
 reference which belongs to a product formed by a product path.
 ]
 
+=== Profile Tests
+<informative--profile-tests>
+This subsubsection structures the informative tests for the profiles.
+Not all tests apply for all profiles. Tests SHOULD be skipped if the
+document category does not match the one given in the test. Each of the
+following tests SHOULD be treated as they were listed similar to the
+other tests.
+
+=== Involvements
+<involvements>
+It SHALL be tested that `$.vulnerabilities[*].involvements` exists.
+
+#quote(block: true)[
+Recording involvement entries helps the participating parties understand
+the disclosure timeline and who has engaged in the process.
+]
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].involvements
+```
+
+#emph[Example 1 (which fails the test):]#box()<involvements-eg-1>
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001"
+    }
+  ]
+```
+
+#quote(block: true)[
+The vulnerability does not record any coordination activity in
+`$.vulnerabilities[*].involvements`.
+]
+
+Recommendation:
+
+It is recommended that issuing parties use
+`$.vulnerabilities[*].involvements` to record coordination milestones
+during the CVD process.
+
+=== Disclosure Date
+<disclosure-date>
+It SHALL be tested that `$.vulnerabilities[*].disclosure_date` exists.
+
+The relevant value for `$.document.category` is:
+
+```
+  csaf_vulnerability_report
+```
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].disclosure_date
+```
+
+#emph[Example 1 (which fails the test):]#box()<disclosure-date-eg-1>
+
+```
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001"
+    }
+  ]
+```
+
+#quote(block: true)[
+The vulnerability does not have a `disclosure_date` element.
+]
+
+Recommendation:
+
+It is recommended that issuing parties use the disclosure date.
+
 === Public OpenPGP Key URL User ID
 <public-openpgp-key-url-user-id>
 It SHALL be tested that the URL given as value of
@@ -14896,6 +15596,7 @@ Additional presets are defined as follows:
     - #link(<public-openpgp-key-url>)[6.2.55]
     - #link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6]
     - #link(<use-of-self-referencing-urls-failing-to-resolve>)[6.3.7]
+    - #link(<public-openpgp-key-url-user-id>)[6.3.26]
 - `external-request-free`:
   - Description: Any test that can be executed without a request into
     the Internet or a different network.
@@ -16361,6 +17062,14 @@ RECOMMENDED to use JSON pointer (see \[#link(<RFC6901>)[RFC6901]\]) when
 identifying or referring to a specific key or instance within a CSAF
 document.
 
+CSAF tools SHALL have carefully chosen default options when processing
+CSAF Documents. Especially CSAF validators have a risk of falling for
+DoS attacks as they could process data from untrusted sources.
+Therefore, it is RECOMMENDED to limit the amount of messages that can be
+issued by a test or during a run to a reasonable default. In such case,
+the CSAF validator SHALL indicate that there might have been more
+messages but processing stopped because of the limit.
+
 CSAF producers, CSAF consumers and CSAF validators SHOULD NOT
 automatically retrieve JSON schemas from a URL declared in CSAF
 documents as this poses a security risk. Loading files from an untrusted
@@ -16555,10 +17264,14 @@ program:
 
 - produces output in the CSAF format, according to the conformance
   profile "CSAF Document".
-- satisfies those normative requirements in section
+- satisfies those normative requirements in sections
   #link(<schema-elements>)[3] and
   #link(<safety-security-and-data-protection-considerations>)[8] that
   are designated as applying to CSAF Producers.
+- satisfies those normative requirements in sections
+  #link(<extensions>)[2.4] and
+  #link(<safety-security-and-data-protection-considerations>)[8] that
+  are designated as applying to CSAF Tools.
 
 === Conformance Clause 3: CSAF Direct Producer
 <conformance-clause-3-csaf-direct-producer>
@@ -16773,7 +17486,8 @@ Secondly, the program fulfills the following for all items of:
   ]
 
 - `$.document.notes`: If any `cvrf:Note` item contains one of the
-  `category` and `title` combinations specified in
+  `category` and `title` combinations specified in table
+  #link(<document-property-notes-tab-1>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.8], where the `title` is
   extended, the CVRF CSAF Converter SHALL try to identify whether that
   extension is a specific product name, version or family. In such case,
@@ -16895,6 +17609,12 @@ Secondly, the program fulfills the following for all items of:
     - If the test fails, the CVRF CSAF Converter SHALL try to convert
       the entry based on the mapping given in
       \[#link(<RVISC-M>)[RVISC-M]\].
+      - If at least one matching mapping is ambiguous, the CVRF CSAF
+        Converter SHALL issue a warning that an ID from a registered
+        vulnerability system was detected and not converted as the
+        mapping was ambiguous. Such warning SHALL contain all matching
+        mappings known from \[#link(<RVISC-M>)[RVISC-M]\]. The program
+        SHOULD provide an option to force a user-defined conversion.
       - If the mapping succeeds and passes test
         #link(<matching-text-for-registered-id-system>)[6.2.53], the
         CVRF CSAF Converter SHALL issue a warning that an ID from a
@@ -17031,7 +17751,8 @@ Secondly, the program fulfills the following for all items of:
   include the specific error that occurred.
 
 - `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of
-  the `category` and `title` combinations specified in
+  the `category` and `title` combinations specified in table
+  #link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
   #link(<vulnerabilities-property-notes>)[3.2.4.11], where the `title`
   is extended, the CVRF CSAF Converter SHALL try to identify whether
   that extension is a specific product name, version or family. In such
@@ -17349,11 +18070,15 @@ processor:
   #link(<additional-conventions>)[5] and
   #link(<safety-security-and-data-protection-considerations>)[8] that
   are designated as applying to CSAF Consumers.
+- satisfies those normative requirements in sections
+  #link(<extensions>)[2.4] and
+  #link(<safety-security-and-data-protection-considerations>)[8] that
+  are designated as applying to CSAF Tools.
 
 === Conformance Clause 11: CSAF Viewer
 <conformance-clause-11-csaf-viewer>
 A viewer satisfies the "CSAF Viewer" conformance profile if the viewer
-fulfills the two following groups of requirements:
+fulfills the three following groups of requirements:
 
 The viewer:
 
@@ -17373,6 +18098,9 @@ For each CVSS-Score in `$.vulnerabilities[*].metrics[*]` the viewer:
   `source`) and has the highest CVSS Base Score and newest CVSS version
   (in that order) if a `product_id` is listed in more than one item of
   `metrics[*]`.
+
+The viewer SHOULD output the data of extensions that it does not have
+implemented as text.
 
 === Conformance Clause 12: CSAF Management System
 <conformance-clause-12-csaf-management-system>
@@ -17457,12 +18185,17 @@ the program:
   #link(<format-validation>)[2.2]).
 - performs all tests of the preset `mandatory` as given in section
   #link(<presets-defined-through-test-subsections>)[6.4.1].
-- does not change the CSAF Documents.
+- does not change the CSAF Documents unless explicitly invoked to do so
+  (e.g.~for applying quick fixes).
 - satisfies those normative requirements in sections
   #link(<extensions>)[2.4], #link(<schema-elements>)[3],
   #link(<mandatory-tests>)[6.1], #link(<test-presets>)[6.4], and
   #link(<safety-security-and-data-protection-considerations>)[8] that
   are designated as applying to CSAF Validators.
+- satisfies those normative requirements in sections
+  #link(<extensions>)[2.4] and
+  #link(<safety-security-and-data-protection-considerations>)[8] that
+  are designated as applying to CSAF Tools.
 - issues a warning if an "not implemented warning" occurs as the
   validation status might not be correct.
 
@@ -17471,6 +18204,9 @@ A CSAF Basic Validator MAY provide one or more additional functions:
 - Only run one or more selected mandatory tests.
 - Apply quick fixes as specified in the standard.
 - Apply additional quick fixes as implemented by the vendor.
+- Provide an option to fail after the first error.
+- Provide an option to generate all error messages. Such option SHOULD
+  NOT be the default as it could lead into a DoS situation.
 
 A CSAF Basic Validator MAY implement CSAF Additional Tests. In that
 case, it SHALL make through its documentation available which tests are
@@ -18089,7 +18825,8 @@ Secondly, the program fulfills the following for all items of:
   ]
 
 - `$.document.notes`: If any `$.document.notes` item contains one of the
-  `category` and `title` combinations specified in
+  `category` and `title` combinations specified in table
+  #link(<document-property-notes-tab-1>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.8], where the `title` is
   extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
   whether that extension is a specific product name, version or family.
@@ -18197,6 +18934,13 @@ Secondly, the program fulfills the following for all items of:
     - If the test fails, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
       convert the entry based on the mapping given in
       \[#link(<RVISC-M>)[RVISC-M]\].
+      - If at least one matching mapping is ambiguous, the CSAF 2.0 to
+        CSAF 2.1 Converter SHALL issue a warning that an ID from a
+        registered vulnerability system was detected and not converted
+        as the mapping was ambiguous. Such warning SHALL contain all
+        matching mappings known from \[#link(<RVISC-M>)[RVISC-M]\]. The
+        program SHOULD provide an option to force a user-defined
+        conversion.
       - If the mapping succeeds and passes test
         #link(<matching-text-for-registered-id-system>)[6.2.53], the
         CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that an ID
@@ -18279,17 +19023,18 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item
   contains one of the `category` and `title` combinations specified in
-  #link(<vulnerabilities-property-notes>)[3.2.4.11], where the `title`
-  is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
-  whether that extension is a specific product name, version or family.
-  In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the
-  corresponding products to the note item and issue a warning that a
-  potential product specific note has been discovered and products have
-  been assigned to it. Such warning SHALL also include the note and the
-  assigned products. If the CSAF 2.0 to CSAF 2.1 Converter is unable to
-  create a valid object, it SHALL remove the reference to the products
-  and issue a warning that a potential product specific note has been
-  discovered and no products could been assigned to it.
+  table #link(<vulnerabilities-property-notes-tab-1>)[table 2] of
+  section #link(<vulnerabilities-property-notes>)[3.2.4.11], where the
+  `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
+  identify whether that extension is a specific product name, version or
+  family. In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
+  add the corresponding products to the note item and issue a warning
+  that a potential product specific note has been discovered and
+  products have been assigned to it. Such warning SHALL also include the
+  note and the assigned products. If the CSAF 2.0 to CSAF 2.1 Converter
+  is unable to create a valid object, it SHALL remove the reference to
+  the products and issue a warning that a potential product specific
+  note has been discovered and no products could been assigned to it.
 
 - `$.vulnerabilities[*].remediations[*]`:
 
@@ -18532,6 +19277,10 @@ The program:
   `$.vulnerabilities[*].ids[*]` whose `system_name` is contained in
   \[#link(<RVISC-R>)[RVISC-R]\] but the `text` does not conform the
   entry.
+- issues a warning and skips the conversion for any matching ambiguous
+  assignment from \[#link(<RVISC-M>)[RVISC-M]\] unless forced by the
+  user to proceed with a certain option. Such warning SHALL contain all
+  matching ambiguous assignment from \[#link(<RVISC-M>)[RVISC-M]\].
 - satisfies the normative requirements given below.
 
 The program SHALL provide the following options:
@@ -18553,6 +19302,11 @@ The program SHALL provide the following options:
 - an option to map an existing `system_name` to a new value or apply a
   transformation to a `text` based on the `system_name` value and a
   `precondition`.
+- an option to force the tool to proceed with the conversion applying an
+  ambiguous assignment from \[#link(<RVISC-M>)[RVISC-M]\] as selected by
+  the user.
+- an option to list all matching ambiguous assignment from
+  \[#link(<RVISC-M>)[RVISC-M]\].
 
 === Conformance Clause 27: CSAF Additional Test
 <conformance-clause-27-csaf-additional-test>
@@ -18746,6 +19500,9 @@ conformance profile if:
 - it contains exactly one compilation of artifacts satisfying the "CSAF
   Extension Bundle" conformance profile.
 - has a name that it can be referred to.
+
+A CSAF Extension Package MAY contain additional documentation and
+artifacts to guide implementers.
 
 === Conformance Clause 36: CSAF Extension Collection
 <conformance-clause-36-csaf-extension-collection>

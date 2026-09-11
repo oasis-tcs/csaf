@@ -2,7 +2,7 @@
 
 If the document language is English or unspecified, it SHALL be tested that at least one item in document references exists
 that has a summary starting with `Superseding Document`.
-The `category` of this item SHALL be `external`.
+For each of these items, the `category` SHALL be present and have the value `external`.
 
 The relevant value for `$.document.category` is:
 
@@ -21,11 +21,11 @@ The relevant path for this test is:
 ```
     "references": [
       {
-        "category": "self",
-        "summary": "Superseding Document",
+        "category": "external",
+        "summary": "Superseded Document",
         "url": "https://example.com/.well-known/csaf/clear/2024/esa-2024-1234.json"
       }
     ],
 ```
 
-> The reference summary starts correctly with the string "Superseding Document". However, it uses the wrong category.
+> There is no reference where the `summary` starts with the correct term `Superseding Document`.

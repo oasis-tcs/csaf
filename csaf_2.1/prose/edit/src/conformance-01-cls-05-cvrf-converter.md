@@ -48,6 +48,7 @@ Secondly, the program fulfills the following for all items of:
     Such a error SHALL include the invalid path as well as the branch types that were present multiple times.
 
     > A tool MAY provide a non-default option to output the invalid document.
+
 - type `$['$defs'].full_product_name_t..product_identification_helper.cpe`: If a CPE is invalid,
   the CVRF CSAF Converter SHOULD remove the invalid value and issue a warning that an invalid CPE was detected and removed.
 - type `$['$defs'].version_t`: If any element doesn't match the semantic versioning,
@@ -98,7 +99,8 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY implement an option to suppress this conversion.
 
-- `$.document.notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in [sec](#document-property---notes),
+- `$.document.notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in table
+  [tab](#document-property-notes-tab-1) of section [sec](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -164,6 +166,10 @@ Secondly, the program fulfills the following for all items of:
     - If the test passes, no further action is needed.
     - If the test fails, the CVRF CSAF Converter SHALL try to convert the entry based on the mapping
       given in [cite](#RVISC-M).
+      - If at least one matching mapping is ambiguous, the CVRF CSAF Converter SHALL issue
+        a warning that an ID from a registered vulnerability system was detected and not converted as the mapping was ambiguous.
+        Such warning SHALL contain all matching mappings known from [cite](#RVISC-M).
+        The program SHOULD provide an option to force a user-defined conversion.
       - If the mapping succeeds and passes test [sec](#matching-text-for-registered-id-system), the CVRF CSAF Converter SHALL issue
         a warning that an ID from a registered vulnerability system was detected and converted.
       - If the mapping succeeds but does not passes test [sec](#matching-text-for-registered-id-system) or the mapping fails,
@@ -255,9 +261,9 @@ Secondly, the program fulfills the following for all items of:
   If the CVRF CSAF Converter is unable to construct a valid object with the information given, the CVRF CSAF Converter SHALL
   remove the invalid `cvss_v4` object and issue a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
-- `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in
-  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is
-  a specific product name, version or family.
+- `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in table
+  [tab](#vulnerabilities-property-notes-tab-1) of section [sec](#vulnerabilities-property-notes), where the `title` is extended,
+  the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.

@@ -711,11 +711,12 @@ The following combinations of `category` and `title` have a special meaning and 
 
 \columns=12%,24%,
 
-| category    |  title                | content of text                                                                                                                                      |
-|:------------|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| description | CVE Description       | Contains the official and unchanged CVE description for this specific vulnerability.                                                                 |
-| description | Preconditions         | Contains a description of the preconditions that have to be fulfilled to be able to exploit the vulnerability, e.g. user account or physical access. |
-| summary     | Vulnerability Summary | Contains a summary of the vulnerability which is not the official CVE description.                                                                   |
+| category    |  title                | content of text                                                                                                                                                                           |
+|:------------|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| description | CVE Description       | Contains the official and unchanged CVE description for this specific vulnerability.                                                                                                      |
+| description | Preconditions         | Contains a description of the preconditions that have to be fulfilled to be able to exploit this specific vulnerability, e.g. user account or physical access.                            |
+| general     | AI Usage              | Contains a information on whether and how AI systems were used in discovering, analyzing, remediating, or documenting this specific vulnerability, including the human oversight applied. |
+| summary     | Vulnerability Summary | Contains a summary of this specific vulnerability which is not the official CVE description.                                                                                              |
 
 Table: Combinations of `category` and `title` with special meaning.{#vulnerabilities-property-notes-tab-1}
 

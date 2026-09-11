@@ -1,0 +1,51 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_superseded",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "notes": [
+      {
+        "category": "description",
+        "text": "This CSAF document contained example data and was superseded to create test data.",
+        "title": "Reasoning for Supersession"
+      }
+    ],
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "The canonical URL.",
+        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-27-02-03.json"
+      }
+    ],
+    "title": "Mandatory Test: Document References (failing example 3)",
+    "tracking": {
+      "current_release_date": "2024-05-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-27-02-03",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2024-05-24T10:00:00.000Z",
+          "number": "2",
+          "summary": "Supersession."
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  }
+}

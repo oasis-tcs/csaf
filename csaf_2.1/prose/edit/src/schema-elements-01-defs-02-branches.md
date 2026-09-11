@@ -56,6 +56,9 @@ Valid `enum` values are:
 
 The value `architecture` indicates the architecture for which the product is intended.
 
+> This usually identifies the CPU instruction-set architecture.
+> See also example [eg](#branches-type---name-eg-2) in section [sec](#branches-type---name).
+
 The value `host_name` indicates the host name of a system/service.
 
 The value `language` indicates the language of the product.
@@ -63,6 +66,9 @@ The value `language` indicates the language of the product.
 The value `patch_level` indicates the patch level of the product.
 
 The value `platform` indicates the (CPU) platform for which the product is intended.
+
+> As the same architecture is used in different platforms, this allows a differentiation.
+> See also example [eg](#branches-type---name-eg-3) in section [sec](#branches-type---name).
 
 The value `product_family` indicates the product family that the product falls into.
 
@@ -112,6 +118,33 @@ Name of the branch (`name`) of value type `string` with `1` or more characters c
 
 A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is
 part of the product version as given by the vendor.
+
+*Examples 2 (for `name` when using `architecture`):*
+
+```
+    AArch32
+    AArch64
+    AMD64
+    ARMv7
+    ARMv8-R
+    ARMv9.7-A
+    IA-64
+    MISP32
+    m68k
+    ppc64el
+    RV64
+    s390
+    SPARC
+    x86
+```
+
+*Examples 3 (for `name` when using `platform`):*
+
+```
+    AMD
+    ARM
+    Intel
+```
 
 ##### Branches Type - Name under Product Version
 
@@ -170,8 +203,10 @@ The value of SHALL obey to exactly one of the following options:
 
 2. VERS-like Specifier (vls)
 
-    This option uses only the `constraint` part from the VERS specification.
+    This option uses only the `constraint` part from the VERS specification; special requirements regarding VERS state above apply.
     It SHALL NOT have the `scheme` nor the `type` part.
+    Neither `*` nor a constraint denoting a single version is valid.
+    Even though `1.0.0|1.1.0` is considered valid vls, it is RECOMMENDED to enumerate the versions instead.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
     > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.

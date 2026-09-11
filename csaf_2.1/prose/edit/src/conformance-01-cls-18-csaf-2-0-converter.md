@@ -274,9 +274,9 @@ Secondly, the program fulfills the following for all items of:
 
   > A tool MAY implement an option to suppress this conversion.
 
-- `$.document.notes`: If any `$.document.notes` item contains one of the `category` and `title` combinations specified in
-  [sec](#document-property---notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension
-  is a specific product name, version or family.
+- `$.document.notes`: If any `$.document.notes` item contains one of the `category` and `title` combinations specified in table
+  [tab](#document-property-notes-tab-1) of section [sec](#document-property---notes), where the `title` is extended,
+  the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and issue a warning that a
   potential product specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.
@@ -334,6 +334,10 @@ Secondly, the program fulfills the following for all items of:
     - If the test passes, no further action is needed.
     - If the test fails, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the entry based on the mapping
       given in [cite](#RVISC-M).
+      - If at least one matching mapping is ambiguous, the CSAF 2.0 to CSAF 2.1 Converter SHALL issue
+        a warning that an ID from a registered vulnerability system was detected and not converted as the mapping was ambiguous.
+        Such warning SHALL contain all matching mappings known from [cite](#RVISC-M).
+        The program SHOULD provide an option to force a user-defined conversion.
       - If the mapping succeeds and passes test [sec](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
         issue a warning that an ID from a registered vulnerability system was detected and converted.
       - If the mapping succeeds but does not passes test [sec](#matching-text-for-registered-id-system) or the mapping fails,
@@ -380,9 +384,9 @@ Secondly, the program fulfills the following for all items of:
   remove the invalid `ssvc_v2` object, keep the original item of `notes` and issue a warning that the automatic conversion of the SSVC data failed.
   If the CSAF 2.0 to CSAF 2.1 Converter would lose information during the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `ssvc_v2`
   object, keep the original item of `notes` and issue a warning that the automatic conversion of the SSVC data would lead to losing information.
-- `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item contains one of the `category` and `title` combinations specified in
-  [sec](#vulnerabilities-property-notes), where the `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that
-  extension is a specific product name, version or family.
+- `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item contains one of the `category` and `title` combinations specified in table
+  [tab](#vulnerabilities-property-notes-tab-1) of section [sec](#vulnerabilities-property-notes), where the `title` is extended,
+  the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential
   product specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.

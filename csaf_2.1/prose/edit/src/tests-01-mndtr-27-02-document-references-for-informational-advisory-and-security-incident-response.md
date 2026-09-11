@@ -1,12 +1,18 @@
 #### Document References{#document-references-for-informational-advisory-and-security-incident-response}
 
-It SHALL be tested that at least one item in `$.document.references` exists that has links to an `external` source.
+It SHALL be tested that at least one item in `$.document.references` exists that contains a link to an `external` source.
+The property `category` SHALL be present for this item.
+
+> Other items MAY exist which do not contain the property `category`.
+> Issuing parties are advised that tools MAY explicitly filter for or prioritize entries that have the contain
+> the property `category` with the value of `external`.
 
 The relevant values for `$.document.category` are:
 
 ```
   csaf_informational_advisory
   csaf_security_incident_response
+  csaf_superseded
 ```
 
 The relevant path for this test is:

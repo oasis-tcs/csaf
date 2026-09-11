@@ -11,6 +11,12 @@
       "type": "object",
       "minProperties": 1,
       "properties": {
+        "cve_description": {
+          "title": "CVE Description",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        },
         "license": {
           "title": "License",
           "description": "Contains the language specific translation of the term.",
@@ -37,6 +43,12 @@
         },
         "superseding_document": {
           "title": "Superseding Document",
+          "description": "Contains the language specific translation of the term.",
+          "type": "string",
+          "minLength": 1
+        },
+        "vulnerability_summary": {
+          "title": "Vulnerability Summary",
           "description": "Contains the language specific translation of the term.",
           "type": "string",
           "minLength": 1
