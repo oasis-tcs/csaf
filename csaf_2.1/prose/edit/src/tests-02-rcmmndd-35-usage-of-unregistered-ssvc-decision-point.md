@@ -4,6 +4,9 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 if the document is labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
+> To implement this determine the base namespace in this test, it is deemed sufficient to remove any characters including
+> and after the first `/`.
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
