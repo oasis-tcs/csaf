@@ -68,7 +68,7 @@ Secondly, the program fulfills the following for all items of:
     > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
     > A tool MAY offer rules to assign missing CVEs or vulnerability IDs.
     > Nevertheless, issuing parties are responsible to keep track of assigned IDs to prevent
-    > the assignment of the same ID more than once for different issues.
+    > the assignment of the same ID for different issues.
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
