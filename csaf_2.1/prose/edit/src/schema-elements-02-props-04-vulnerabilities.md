@@ -170,6 +170,10 @@ As disclosure dates may change during a vulnerability disclosure process, an iss
 to confirm that the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new
 intended date in the future.
 
+If a vulnerability was patched without stating that it is a vulnerability,
+the vulnerability is in the context of this specification not considered to be disclosed.
+As a consequence, the `discovery_date` needs earlier than or equal to the `disclosure_date`.
+
 #### Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
