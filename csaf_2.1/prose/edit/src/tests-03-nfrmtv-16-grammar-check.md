@@ -10,6 +10,8 @@ The relevant paths for this test are:
   $.document.acknowledgments[*].summary
   $.document.aggregate_severity.text
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
@@ -19,7 +21,6 @@ The relevant paths for this test are:
   $.document.tracking.revision_history[*].summary
   $.product_tree.product_groups[*].summary
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].audience
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].notes[*].title
