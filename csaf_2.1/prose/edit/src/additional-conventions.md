@@ -51,7 +51,7 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 
 ## Usage of Markdown
 
-The use of GitHub-flavoured Markdown is permitted in the following fields:
+The use of GitHub-flavored Markdown is permitted in the following fields:
 
 ```list-of-jsonpaths
   $.document.acknowledgments[*].summary
