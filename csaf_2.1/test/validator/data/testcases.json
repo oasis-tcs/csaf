@@ -2896,16 +2896,6 @@
       ]
     },
     {
-      "id": "6.2.7",
-      "group": "recommended",
-      "failures": [
-        {
-          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-07-01.json",
-          "valid": true
-        }
-      ]
-    },
-    {
       "id": "6.2.8",
       "group": "recommended",
       "failures": [
@@ -5242,10 +5232,6 @@
         {
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-23-01-01.json",
           "valid": false
-        },
-        {
-          "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-23-01-02.json",
-          "valid": true
         }
       ],
       "valid": [

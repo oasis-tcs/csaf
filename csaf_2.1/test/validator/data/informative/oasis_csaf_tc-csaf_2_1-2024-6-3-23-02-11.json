@@ -21,6 +21,41 @@
         "label": "AMBER"
       }
     },
+    "involvement": {
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "ACN-1",
+          "acting_entity_ids": ["EID-0001"],
+          "date": "2024-01-10T09:00:00Z",
+          "category": "notification",
+          "receiving_entity_ids": ["EID-0002"],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor."
+        },
+        {
+          "action_id": "ACN-2",
+          "acting_entity_ids": ["EID-0002"],
+          "date": "2024-01-10T15:00:00Z",
+          "category": "confirmation",
+          "receiving_entity_ids": ["EID-0001"],
+          "referenced_action_ids": ["ACN-1"],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        }
+      ]
+    },
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",
@@ -28,7 +63,7 @@
     },
     "title": "Informative Test: Disclosure Date (valid example 1)",
     "tracking": {
-      "current_release_date": "2024-01-30T10:00:00.000Z",
+      "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-23-02-11",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
@@ -36,11 +71,6 @@
           "date": "2024-01-24T10:00:00.000Z",
           "number": "1",
           "summary": "Initial version."
-        },
-        {
-          "date": "2024-01-30T10:00:00.000Z",
-          "number": "2",
-          "summary": "Updated involvements. Add CVSS metric."
         }
       ],
       "status": "final",
@@ -75,20 +105,6 @@
     {
       "cve": "CVE-1900-0001",
       "disclosure_date": "2024-07-26T09:00:00.000Z",
-      "involvements": [
-        {
-          "date": "2024-01-24T10:00:00.000Z",
-          "party": "discoverer",
-          "status": "contact_attempted",
-          "summary": "The discoverer submitted the initial private report to the vendor."
-        },
-        {
-          "date": "2024-01-26T09:00:00.000Z",
-          "party": "vendor",
-          "status": "in_progress",
-          "summary": "The vendor acknowledged the report and started triage."
-        }
-      ],
       "metrics": [
         {
           "content": {
