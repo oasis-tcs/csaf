@@ -20,6 +20,7 @@ schema-elements-01-defs-04-contact.md
 schema-elements-01-defs-05-dl-vuln-id.md
 schema-elements-01-defs-06-entity-group-id.md
 schema-elements-01-defs-07-entity-id.md
+schema-elements-01-defs-08-entity-refs.md
 schema-elements-01-defs-03-extensions.md
 schema-elements-01-defs-04-full-product-name.md
 schema-elements-01-defs-05-language.md

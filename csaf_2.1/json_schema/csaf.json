@@ -249,10 +249,11 @@
       "uniqueItems": true,
       "items": {
         "anyOf": [
-          { "$ref": "#/$defs/entity_id_t" },
-          { "$ref": "#/$defs/entity_group_id_t" }
+          { "$ref": "#/$defs/entity_group_id_t" },
+          { "$ref": "#/$defs/entity_id_t" }
         ]
-      }
+      },
+      "unevaluatedItems": false
     },
     "extensions_t": {
       "title": "List of extensions",
@@ -926,7 +927,7 @@
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": {
-                      "ref": "#/$defs/dl_vuln_id_t"
+                      "$ref": "#/$defs/dl_vuln_id_t"
                     }
                   },
                   "group_ids": {
@@ -1542,7 +1543,7 @@
           "dl_vuln_id": {
             "title": "Document local vuln ID",
             "description": "Contains the local IDs referring to this vulnerability from another part of the same document.",
-            "ref": "#/$defs/dl_vuln_id_t"
+            "$ref": "#/$defs/dl_vuln_id_t"
           },
           "first_known_exploitation_dates": {
             "title": "List of first known exploitation dates",
