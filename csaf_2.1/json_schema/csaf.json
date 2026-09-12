@@ -205,7 +205,7 @@
       "additionalProperties": false
     },
     "dl_vuln_id_t": {
-      "title": "Reference token for vulnerability instance",
+      "title": "Document-local reference token for vulnerability instance",
       "description": "Contains a token required to identify a vulnerability uniquely in the context of the current document so that it can be referred to from other parts in the document.",
       "type": "string",
       "pattern": "^VULN-[0-9A-Za-z._-]+$",
