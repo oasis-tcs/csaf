@@ -12,7 +12,7 @@ The value contains a token required to identify an action uniquely in the contex
 ```yaml <!--json-path($['$defs'].action_id_t)-->
 $defs:
   # ...
-  action_id_t: String
+  action_id_t: String.Pattern
   # ...
 ```
 

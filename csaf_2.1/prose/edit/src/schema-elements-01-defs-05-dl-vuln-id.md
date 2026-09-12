@@ -14,7 +14,7 @@ It SHOULD NOT to be used to refer to a vulnerability from outside of the CSAF do
 ```yaml <!--json-path($['$defs'].dl_vuln_id_t)-->
 $defs:
   # ...
-  dl_vuln_id_t: String
+  dl_vuln_id_t: String.Pattern
   # ...
 ```
 
