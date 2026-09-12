@@ -23,6 +23,9 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   - show an audit log for each CSAF Document
   - identify the latest version of CSAF Documents with the same `$.document.tracking.id`
   - suggest a `$.document.tracking.id` based on the given configuration.
+  - option to suggest an ID for a vulnerability based on the given configuration.
+  - initialize a vulnerability element from a given CVE by loading the corresponding CVE JSON from a location provided in the configuration.
+    Local instances implementing the respective CVE API SHALL be supported.
   - track of the version of CSAF Documents automatically and increment according to the versioning scheme
     (see also subsections of [sec](#version-type)) selected in the configuration.
   - check that the document version is set correctly based on the changes in comparison to the previous version
@@ -33,7 +36,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
     `interim` and no new release has be done during the given threshold in the configuration (default: `6` weeks)
 
     > Note that the terms "publish", "publication" and their derived forms are used in this conformance profile independent of
-      whether the specified target group is the public or a closed group.
+    > whether the specified target group is the public or a closed group.
 
   - support the following workflows:
 

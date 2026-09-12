@@ -4,6 +4,9 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > This test fails on unregistered namespaces as well as registered ones not yet supported by the implementation.
+>
+> To implement this determine the base namespace in this test, it is deemed sufficient to remove any characters including
+> and after the first `/`.
 
 The relevant path for this test is:
 

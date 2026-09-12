@@ -117,6 +117,7 @@ tests-01-mndtr-58-use-of-product-version-in-one-path-with-product-version-range.
 tests-01-mndtr-59-single-version-as-product-version-range.md
 tests-01-mndtr-60-extension-tests.md
 tests-01-mndtr-61-use-of-multiple-stars-in-sku.md
+tests-01-mndtr-62-inconsistent-discovery-date.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
