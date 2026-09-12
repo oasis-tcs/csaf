@@ -16,6 +16,7 @@ schema-elements-01-definitions.md
 schema-elements-01-defs-01-acknowledgements.md
 schema-elements-01-defs-02-action-id.md
 schema-elements-01-defs-03-branches.md
+schema-elements-01-defs-04-contact.md
 schema-elements-01-defs-03-extensions.md
 schema-elements-01-defs-04-full-product-name.md
 schema-elements-01-defs-05-language.md
