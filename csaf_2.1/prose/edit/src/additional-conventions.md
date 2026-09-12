@@ -56,13 +56,14 @@ The use of GitHub-flavoured Markdown is permitted in the following fields:
 ```list-of-jsonpaths
   $.document.acknowledgments[*].summary
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].text
   $.document.publisher.issuing_authority
   $.document.references[*].summary
   $.document.tracking.revision_history[*].summary
   $.product_tree.product_groups[*].summary
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].references[*].summary
   $.vulnerabilities[*].remediations[*].details
