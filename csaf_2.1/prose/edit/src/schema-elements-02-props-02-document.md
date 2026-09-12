@@ -3,7 +3,7 @@
 Document level meta-data (`document`) of value type `object` with the six mandatory properties Category (`category`),
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the eight optional properties Acknowledgments (`acknowledgments`),
+In addition, the `document` object MAY provide the nine optional properties Acknowledgments (`acknowledgments`),
 Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
 References (`references`), Source Language (`source_lang`), and Document-level Extensions (`x_extensions`) .
 
@@ -15,6 +15,7 @@ References (`references`), Source Language (`source_lang`), and Document-level E
     category: String.Pattern
     csaf_version: String.Enum
     distribution: Mapping
+    involvement: Mapping
     lang: $defs.lang_t
     license_expression: String
     notes: $defs.notes_t
@@ -276,6 +277,159 @@ The default value is the URL to the definition by FIRST:
     https://www.us-cert.gov/tlp
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/TLP/merkblatt-tlp.pdf
 ```
+
+#### Document Property - Involvement
+
+Involvement (`involvement`) of value type `object` with the mandatory properties List of actions (`actions`) and
+List of entities (`entities`) contains the coordination record stating entities and actions between them.
+The optional property is List of entity groups (`entity_groups`).
+
+```yaml <!--json-path($..document..involvement.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      entities: Sequence
+      entity_groups: Sequence
+    # ...
+```
+
+##### Document Property - Involvement - Actions
+
+List of actions (`actions`) of value type `array` with `1` or more unique items (a `set`) contains the timeline of actions.
+
+
+```yaml <!--json-path($..document..involvement..actions)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      # ...
+    # ...
+```
+
+Every Action item of value type `object` with the five mandatory properties List of acting entities (`acting_entity_ids`),
+Action ID (`action_id`), Action category (`category`), Date of the action (`date`), and Action status (`status`)
+contains details about a single event in the timeline.
+In addition, any Action item MAY expose the optional properties List of document-local vuln IDs `dl_vuln_ids`, Group IDs (`group_ids`), Product IDs (`product_ids`),
+List of receiving entities (`receiving_entity_ids`), List of referenced actions (`referenced_action_ids`), Summary of the action (`summary`), and Action status (`status`).
+
+```yaml <!--json-path($..document..involvement..actions..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions:
+      - # <action-instance>:
+        acting_entity_ids: $defs.entity_refs_id_t
+        action_id: $defs.action_id_t
+        category: String.Enum
+        date: String.DateTime
+        dl_vuln_ids: Sequence
+        group_ids: $defs.product_groups_t
+        product_ids: $defs.products_t
+        receiving_entity_ids: $defs.entity_refs_id_t
+        referenced_action_ids: $defs.action_id_t
+        summary: String
+        status: String.Enum
+      # ...
+    # ...
+```
+
+List of acting entities (`acting_entity_ids`) of value type
+Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
+
+Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
+Its values SHALL be unique across all action items.
+
+Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
+Valid values are:
+
+```
+    confirmation
+    coordination
+    discovery
+    dispute
+    exploitation
+    fix_deployment
+    fix_release
+    notification
+    triage
+```
+
+The value `confirmation` indicates that the actor confirms that it received or accepted the action that this action refers to (via `referenced_action_ids`).
+
+The value `coordination` indicates that the parties coordinate their work.
+
+The value `discovery` indicates that the actor found the vulnerability.
+
+The value `dispute` indicates that the actor disputes the action that this action refers to (via `referenced_action_ids`).
+It can dispute that the action is correct, its severity, or that it occurred.
+
+The value `exploitation` indicates that the actor used the vulnerability, or a party saw or controlled such use.
+
+The value `fix_deployment` indicates that the actor installed a fix.
+
+The value `fix_release` indicates that the actor published a fix, or made a fix available.
+
+The value `notification` indicates that the actor tells a different party about the vulnerability.
+
+The values `triage`indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
+
+A `confirmation` and a `dispute` are always about a different action.
+Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_ids`.
+
+For a `confirmation`, each entity in the `acting_entity_ids` set SHALL also be in the `receiving_entity_ids` set of the action that it refers to.
+Entity groups are resolved before this.
+Only a entity that received an action can confirm that action.
+
+Date of the action (`date`) of value type `string` with format `date-time` contains the date when the action occurred.
+
+List of document-local vuln IDs (`dl_vuln_ids`) of value type `array` with `1` or more unique items (a `set`) contains a list of local IDs
+referring to vulnerabilities within the same document that this action applies to.
+Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element the current action applies to.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current action item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current action item applies to.
+
+List of receiving entities (`receiving_entity_ids`) of value type
+Entity Refs ID (`entity_refs_id_t`) contains a list of entities that receive the action.
+
+List of referenced actions (`referenced_action_ids`) of value type `array` with `1` or more unique items (a `set`)
+contains a list of other actions reference by this action.
+Every referenced action item of value type Action ID (`action_id_t`) refers to a single vulnerability.
+
+Summary of the action (`summary`) of value type `string` with `1` or more characters contains information about the action.
+
+Action status (`status`) of value type `string` and `enum` contains an observation about the action.
+Valid values are:
+
+```
+  attempted
+  completed
+  deferred
+  discontinued
+  in_progress
+  outstanding
+  planned
+```
+
+The value `attempted` indicates that the actor tried to do the action, but it did not reach the recipient.
+
+The value `completed` indicates that the actor completed the action.
+
+The value `deferred` indicates that the actor decided not to act at this time. It will examine the decision again later.
+
+The value `discontinued` indicates that the actor started the work and then stopped it before it was complete.
+
+The value `in_progress` indicates that the actor is doing the work now.
+
+The value `outstanding` indicates that a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
 
 #### Document Property - Language
 
