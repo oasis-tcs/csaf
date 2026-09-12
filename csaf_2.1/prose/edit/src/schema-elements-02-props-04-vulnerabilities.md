@@ -13,7 +13,7 @@ The Vulnerability item of value type `object` with `1` or more properties is a c
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
 Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
-List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
+List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`),
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
 
@@ -30,7 +30,6 @@ Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_ext
     first_known_exploitation_dates: Sequence
     flags: Sequence
     ids: Sequence
-    involvements: Sequence
     metrics: Sequence
     notes: $defs.notes_t
     product_status: Mapping
@@ -377,113 +376,6 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 >
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
-
-#### Vulnerabilities Property - Involvements
-
-List of involvements (`involvements`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of involvements.
-
-```yaml <!--json-path($..vulnerabilities..involvements)-->
-<csaf-instance>:
-  # ...
-  vulnerabilities:
-  - # <vulnerability-instance>:
-    # ...
-    involvements: Sequence
-    # ...
-```
-
-Every Involvement item of value type `object` with the two mandatory properties Party (`party`), Status (`status`) and
-the five optional properties Party contact information (`contact`), Date of involvement (`date`), Group IDs (`group_ids`),
-Product IDs (`product_ids`), and Summary (`summary`) is a container that allows the document producers to comment on the level of
-involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process.
-It can also be used to convey the disclosure timeline.
-The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
-
-```yaml <!--json-path($..vulnerabilities..involvements..properties)-->
-<csaf-instance>:
-  # ...
-  vulnerabilities:
-  - # <vulnerability-instance>:
-    # ...
-    involvements:
-    - # <involvement-instance>:
-      contact: String
-      date: String.DateTime
-      group_ids: $defs.product_groups_t
-      party: String.Enum
-      product_ids: $defs.products_t
-      status: String.Enum
-      summary: String
-    # ...
-```
-
-Party contact information (`contact`) contains the contact information of the party that was used in this state.
-
-> In many cases, that could be an email address.
-
-Date of involvement (`date`) of value type `string` with format `date-time` holds the date and time of the involvement entry.
-
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
-involvement item applies to.
-
-Party category (`party`) of value type `string` and `enum` defines the category of the involved party.
-Valid values are:
-
-```
-    coordinator
-    discoverer
-    other
-    user
-    vendor
-```
-
-These values follow the same definitions as given for the publisher category (cf. section [sec](#document-property---publisher-category)).
-
-Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current
-involvement item applies to.
-
-Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
-Valid values are:
-
-```
-    completed
-    contact_attempted
-    disputed
-    in_progress
-    not_contacted
-    open
-```
-
-Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages,
-a party's involvement could move from state to state.
-However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether.
-It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress involvement SHOULD eventually expect to issue
-a document containing one of the statuses `disputed` or `completed` as the latest one.
-
-> The two vulnerability involvement status states, `contact_attempted` and `not_contacted` are intended for use by document producers other than
-> vendors (such as research or coordinating entities).
-
-The value `completed` indicates that the party asserts that investigation of the vulnerability is complete.
-No additional information, fixes, or documentation from the party about the vulnerability should be expected to be released.
-
-The value `contact_attempted` indicates that the document producer attempted to contact the party.
-
-The value `disputed` indicates that the party disputes the vulnerability report in its entirety.
-This status SHOULD be used when the party believes that a vulnerability report regarding a product is completely inaccurate
-(that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
-
-The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds,
-or patches may have been made available by the party, but more information or fixes may be released in the future.
-The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
-
-The value `not_contacted` indicates that the document producer has not attempted to make contact with the party.
-
-The value `open` is the default status.
-It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the party has acknowledged awareness of
-the vulnerability report.
-The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
-
-Summary of involvement (`summary`) of value type `string` with `1` or more characters contains additional context regarding what is going on.
 
 #### Vulnerabilities Property - Metrics
 
