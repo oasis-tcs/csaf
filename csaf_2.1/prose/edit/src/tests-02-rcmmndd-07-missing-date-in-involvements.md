@@ -1,26 +1,6 @@
-### Missing Date in Involvements
+### Missing Date of the Actions (Obsolete){#missing-date-of-the-action}
 
-For each item in the list of involvements it SHALL be tested that it includes the property `date`.
-
-The relevant path for this test is:
-
-```list-of-jsonpaths
-  $.vulnerabilities[*].involvements
-```
-
-*Example 1 (which fails the test):*
-
-```
-  "vulnerabilities": [
-    {
-      "involvements": [
-        {
-          "party": "vendor",
-          "status": "in_progress"
-        }
-      ]
-    }
-  ]
-```
-
-> The list of involvements contains an item which does not contain the property `date`.
+> The date stating when an involvement action occurred is now required by the schema.
+> Therefore, the recommended test is obsolete.
+> This section is kept to document that change and keep the numbering of the remaining sections stable.
+> The test is excluded from any preset and requirement to be executed.
