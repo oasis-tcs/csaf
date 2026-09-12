@@ -921,7 +921,7 @@
                     "format": "date-time"
                   },
                   "dl_vuln_ids": {
-                    "title": "List of document local vuln IDs",
+                    "title": "List of document-local vuln IDs",
                     "description": "Contains a list of local IDs referring to vulnerabilities within the same document that this action applies to.",
                     "type": "array",
                     "minItems": 1,
