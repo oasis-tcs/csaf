@@ -8,12 +8,46 @@
         "label": "CLEAR"
       }
     },
+    "involvement": {
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "ACN-1",
+          "acting_entity_refs": ["EID-0001"],
+          "date": "2024-01-10T09:00:00Z",
+          "category": "notification",
+          "receiving_entity_refs": ["EID-0002"],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor."
+        },
+        {
+          "action_id": "ACN-2",
+          "acting_entity_refs": ["EID-0001"],
+          "date": "2024-01-10T09:00:00Z",
+          "category": "notification",
+          "receiving_entity_refs": ["EID-0002"],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor."
+        }
+      ]
+    },
     "publisher": {
       "category": "other",
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Mandatory Test: Multiple Definition in Involvements (failing example 1)",
+    "title": "Mandatory Test: Multiple Definition in Actions (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-24-01",
@@ -28,22 +62,5 @@
       "status": "final",
       "version": "1"
     }
-  },
-  "vulnerabilities": [
-    {
-      "involvements": [
-        {
-          "date": "2023-08-23T10:00:00.000Z",
-          "party": "vendor",
-          "status": "completed"
-        },
-        {
-          "date": "2023-08-23T10:00:00.000Z",
-          "party": "vendor",
-          "status": "in_progress",
-          "summary": "The vendor has released a mitigation and is working to fully resolve the issue."
-        }
-      ]
-    }
-  ]
+  }
 }

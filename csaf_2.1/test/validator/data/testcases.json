@@ -862,19 +862,11 @@
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-24-01.json",
           "valid": false
-        },
-        {
-          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-24-02.json",
-          "valid": false
         }
       ],
       "valid": [
         {
           "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-24-11.json",
-          "valid": true
-        },
-        {
-          "name": "mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-24-12.json",
           "valid": true
         }
       ]

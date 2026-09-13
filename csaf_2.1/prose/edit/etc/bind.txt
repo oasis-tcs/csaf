@@ -65,7 +65,7 @@ tests-01-mndtr-20-non-draft-document-version.md
 tests-01-mndtr-21-missing-item-in-revision-history.md
 tests-01-mndtr-22-multiple-definition-in-revision-history.md
 tests-01-mndtr-23-multiple-use-of-same-cve.md
-tests-01-mndtr-24-multiple-definition-in-involvements.md
+tests-01-mndtr-24-multiple-definition-in-actions.md
 tests-01-mndtr-25-multiple-use-of-same-hash-algorithm.md
 tests-01-mndtr-26-prohibited-document-category-name.md
 tests-01-mndtr-27-00-profile-tests.md
