@@ -8,6 +8,77 @@
         "label": "CLEAR"
       }
     },
+    "involvement": {
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        },
+        {
+          "category": "adversary",
+          "entity_id": "EID-0003"
+        },
+        {
+          "category": "public",
+          "entity_id": "EID-0004"
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "ACN-1",
+          "acting_entity_refs": ["EID-0001"],
+          "date": "2023-02-02T10:00:00.000Z",
+          "category": "notification",
+          "group_ids": [
+            "CSAFGID-1020302"
+          ],
+          "receiving_entity_refs": ["EID-0002"],
+          "status": "attempted",
+          "summary": "The discoverer sent a detailed report regarding the vulnerability for Product A in versions 1.0.0 up to 1.2.0."
+        },
+        {
+          "action_id": "ACN-2",
+          "acting_entity_refs": ["EID-0003"],
+          "date": "2023-12-23T11:00:00.000Z",
+          "category": "notification",
+          "group_ids": [
+            "CSAFGID-1020301"
+          ],
+          "status": "in_progress",
+          "summary": "An unknown party starts to publish exploits for the vulnerability to Metasploit."
+        },
+        {
+          "action_id": "ACN-3",
+          "acting_entity_refs": ["EID-0003"],
+          "date": "2024-01-10T11:00:00.000Z",
+          "category": "notification",
+          "group_ids": [
+            "CSAFGID-1020301"
+          ],
+          "referenced_action_ids": ["ACN-2"],
+          "status": "completed",
+          "summary": "The unknown party states that it has completed the publication of exploits as they are reliable for Product A in version 1.0.0 and 1.1.0."
+        },
+        {
+          "action_id": "ACN-4",
+          "acting_entity_refs": ["EID-0002"],
+          "date": "2024-01-24T10:00:00.000Z",
+          "category": "notification",
+          "group_ids": [
+            "CSAFGID-1020304"
+          ],
+          "receiving_entity_refs": ["EID-0004"],
+          "status": "completed",
+          "summary": "With the release of this advisory, the vendor has completed the CVD process."
+        }
+      ]
+    },
     "notes": [
       {
         "category": "description",
@@ -139,44 +210,6 @@
             "CSAFGID-1020303"
           ],
           "label": "vulnerable_code_not_present"
-        }
-      ],
-      "involvements": [
-        {
-          "date": "2023-02-02T10:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020302"
-          ],
-          "party": "discoverer",
-          "status": "contact_attempted",
-          "summary": "The discoverer sent a detailed report regarding the vulnerability for Product A in versions 1.0.0 up to 1.2.0."
-        },
-        {
-          "date": "2023-12-23T11:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020301"
-          ],
-          "party": "other",
-          "status": "in_progress",
-          "summary": "An unknown party starts to publish exploits for the vulnerability to Metasploit."
-        },
-        {
-          "date": "2024-01-10T11:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020302"
-          ],
-          "party": "other",
-          "status": "completed",
-          "summary": "The unknown party states that it has completed the publication of exploits as they are reliable for Product A in version 1.0.0 and 1.1.0."
-        },
-        {
-          "date": "2024-01-24T10:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020304"
-          ],
-          "party": "vendor",
-          "status": "completed",
-          "summary": "With the release of this advisory, the vendor has completed the CVD process."
         }
       ],
       "notes": [

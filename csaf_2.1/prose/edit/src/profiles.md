@@ -367,8 +367,8 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
   - `$.vulnerabilities[*].disclosure_date` which SHOULD be used to communicate or coordinate an intended public
     disclosure date for the reported vulnerabilities.
-  - `$.vulnerabilities[*].involvements`
+  - `$.document.involvement`
 
-    > Records coordination activities between the parties involved in the disclosure of the specific vulnerability.
+    > Records coordination activities between the parties involved in the disclosure of the vulnerabilities.
 
 ---

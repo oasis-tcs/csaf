@@ -14,6 +14,10 @@ The relevant paths for this test are:
   $.document.aggregate_severity.text
   $.document.category
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entities[*].name
+  $.document.involvement.entity_groups[*].name
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
@@ -32,7 +36,6 @@ The relevant paths for this test are:
   $.vulnerabilities[*].acknowledgments[*].names[*]
   $.vulnerabilities[*].acknowledgments[*].organization
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].audience
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].notes[*].title
