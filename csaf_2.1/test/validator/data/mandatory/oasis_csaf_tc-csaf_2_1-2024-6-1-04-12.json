@@ -8,7 +8,7 @@
         "label": "CLEAR"
       }
     },
-        "involvement": {
+    "involvement": {
       "entities": [
         {
           "category": "discoverer",
@@ -227,44 +227,6 @@
             "CSAFGID-1020303"
           ],
           "label": "vulnerable_code_not_present"
-        }
-      ],
-      "involvements": [
-        {
-          "date": "2023-02-02T10:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020302"
-          ],
-          "party": "discoverer",
-          "status": "contact_attempted",
-          "summary": "The discoverer sent a detailed report regarding the vulnerability for Product A in versions 1.0.0 up to 1.2.0."
-        },
-        {
-          "date": "2023-12-23T11:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020301"
-          ],
-          "party": "other",
-          "status": "in_progress",
-          "summary": "An unknown party starts to publish exploits for the vulnerability to Metasploit."
-        },
-        {
-          "date": "2024-01-10T11:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020302"
-          ],
-          "party": "other",
-          "status": "completed",
-          "summary": "The unknown party states that it has completed the publication of exploits as they are reliable for Product A in version 1.0.0 and 1.1.0."
-        },
-        {
-          "date": "2024-01-24T10:00:00.000Z",
-          "group_ids": [
-            "CSAFGID-1020304"
-          ],
-          "party": "vendor",
-          "status": "completed",
-          "summary": "With the release of this advisory, the vendor has completed the CVD process."
         }
       ],
       "notes": [
