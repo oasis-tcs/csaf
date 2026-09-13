@@ -131,7 +131,7 @@ tests-02-rcmmndd-03-missing-metric.md
 tests-02-rcmmndd-04-build-metadata-in-revision-history.md
 tests-02-rcmmndd-05-older-initial-release-date-than-revision-history.md
 tests-02-rcmmndd-06-older-current-release-date-than-Revision.md
-tests-02-rcmmndd-07-missing-date-in-involvements.md
+tests-02-rcmmndd-07-missing-date-of-the-action.md
 tests-02-rcmmndd-08-use-of-md5-as-the-only-hash-algorith.md
 tests-02-rcmmndd-09-use-of-sha-1-as-the-only-hash-algorithm.md
 tests-02-rcmmndd-10-missing-tlp-label.md
@@ -217,7 +217,7 @@ tests-03-nfrmtv-20-use-of-unregistered-id-system.md
 tests-03-nfrmtv-21-extension-tests.md
 tests-03-nfrmtv-22-nested-product-path.md
 tests-03-nfrmtv-23-00-profile-tests.md
-tests-03-nfrmtv-23-01-involvements.md
+tests-03-nfrmtv-23-01-involvement.md
 tests-03-nfrmtv-23-02-disclosure-date.md
 tests-03-nfrmtv-24-public-openpgp-key-url-user-id.md
 tests-04-presets.md
