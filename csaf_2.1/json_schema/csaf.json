@@ -1549,7 +1549,7 @@
           },
           "product_status": {
             "title": "Product status",
-            "description": "Contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability. ",
+            "description": "Contains different lists of product_ids which provide details on the status of the referenced product related to the current vulnerability.",
             "type": "object",
             "minProperties": 1,
             "properties": {
