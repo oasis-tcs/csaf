@@ -431,6 +431,105 @@ The value `outstanding` indicates that a party waits for this action. The status
 
 The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
 
+##### Document Property - Involvement - Entities
+
+List of entities (`entities`) of value type `array` with `1` or more unique items (a `set`) contains a list of entities related.
+
+```yaml <!--json-path($..document..involvement..entities)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities: Sequence
+      # ...
+    # ...
+```
+
+Every Entity item of value type `object` with the two mandatory properties Entity category (`category`) and Entity ID (`entity_id`) contains information about a single entity.
+In addition, any Entity item MAY expose the optional properties Contact of the entity (`contact`) and Name of the entity (`name`).
+
+```yaml <!--json-path($..document..involvement..entities..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        category: String.Enum
+        contact: $defs.contact_t
+        entity_id: $defs.entity_id_t
+        name: String
+      # ...
+    # ...
+```
+
+Entity category (`category`) of value type `string` and `enum` specifies the category of the party.
+Valid values are:
+
+```
+    adversary
+    coordinator
+    discoverer
+    multiplier
+    other
+    public
+    reporting_authority
+    user
+    vendor
+```
+
+The value `adversary` indicates an entity that acts against the other parties. It may be identified or not identified.
+
+The value `coordinator` indicates an entity that coordinates the disclosure between several parties, e.g. a CERT.
+
+The value `discoverer` indicates an entity that finds vulnerabilities, for example a researcher.
+
+> It is assume that the discoverer also reports vulnerabilities.
+
+The value `multiplier` indicates an entity that uses or distributes the data about a vulnerability.
+
+The value `other` indicates an entity that has a role that the other values do not give.
+
+The value `public` indicates the general public.
+
+The value `reporting_authority` indicates an entity that receives or requires a report, e.g. a national CSIRT.
+
+The value `user` indicates an entity that uses or operates a product mentioned.
+
+The value `vendor` indicates an entity that develops or maintains of information system products or services.
+This includes all authoritative product vendors, product security incident response teams (PSIRTs),
+open source projects as well as product resellers and distributors, including authoritative vendor partners.
+
+The `category` does not control the role: an entity can act in one action and receive in a different action.
+An `adversary` is permitted as a recipient, because a `notification` to an adversary records that the data went to that adversary.
+
+Contact of the entity (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the entity.
+
+```yaml <!--json-paths($..document..involvement..entities.properties.contact, $['$defs'].contact_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        # ...
+        contact:
+          details: String
+          email: String.EMAIL
+          public_openpgp_key_url: String.URI
+          url: String.URI
+        # ...
+      # ...
+    # ...
+```
+
+Entity ID (`entity_id`) value type Entity ID (`entity_id_t`) contains an ID for the entity.
+
+Contains an ID for the entity (`name`) of value type `string` with `1` or more characters contains the name of the entity.
+
 #### Document Property - Language
 
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
