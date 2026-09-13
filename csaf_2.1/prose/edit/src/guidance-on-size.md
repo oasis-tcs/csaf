@@ -73,14 +73,20 @@ An array SHOULD NOT have more than:
   - `$.x_extensions`
 
 - 40 000 items for
+  - `$.document.involvement.actions[*].acting_entity_refs`
+  - `$.document.involvement.actions[*].receiving_entity_refs`
+  - `$.document.involvement.entities`
+  - `$.document.involvement.entity_groups`
   - `$.document.notes`
   - `$.document.references`
-  - `$.vulnerabilities[*].involvements`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references`
   - `$.vulnerabilities[*].notes`
   - `$.vulnerabilities[*].references`
 
 - 100 000 for
+  - `$.document.involvement.actions`
+  - `$.document.involvement.actions[*].dl_vuln_ids`
+  - `$.document.involvement.actions[*].referenced_action_ids`
   - `$.document.tracking.revision_history`
   - `$.product_tree.branches`
   - `$.product_tree..branches`
@@ -104,6 +110,8 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].remediations[*].group_ids`
 
 - 100 000 000 for
+  - `$.document.involvement.actions[*].group_ids`
+  - `$.document.involvement.actions[*].product_ids`
   - `$.document.notes[*].group_ids`
   - `$.document.notes[*].product_ids`
   - `$.vulnerabilities[*].first_known_exploitation_dates`
@@ -114,8 +122,6 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].flags[*].product_ids`
   - `$.vulnerabilities[*].ids[*].group_ids`
   - `$.vulnerabilities[*].ids[*].product_ids`
-  - `$.vulnerabilities[*].involvements[*].group_ids`
-  - `$.vulnerabilities[*].involvements[*].product_ids`
   - `$.vulnerabilities[*].metrics`
   - `$.vulnerabilities[*].metrics[*].products`
   - `$.vulnerabilities[*].notes[*].group_ids`
@@ -145,6 +151,18 @@ A string SHOULD NOT have a length greater than:
   - `$.document.aggregate_severity.text`
   - `$.document.category`
   - `$.document.distribution.sharing_group.name`
+  - `$.document.involvement.actions[*].acting_entity_refs[*]`
+  - `$.document.involvement.actions[*].action_id`
+  - `$.document.involvement.actions[*].group_ids[*]`
+  - `$.document.involvement.actions[*].dl_vuln_ids[*]`
+  - `$.document.involvement.actions[*].product_ids[*]`
+  - `$.document.involvement.actions[*].receiving_entity_refs[*]`
+  - `$.document.involvement.actions[*].referenced_action_ids[*]`
+  - `$.document.involvement.entities[*].contact.email`
+  - `$.document.involvement.entities[*].entity_id`
+  - `$.document.involvement.entities[*].name`
+  - `$.document.involvement.entity_groups[*].entity_group_id`
+  - `$.document.involvement.entity_groups[*].name`
   - `$.document.lang`
   - `$.document.license_expression`
   - `$.document.notes[*].audience`
@@ -197,6 +215,7 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].cwes[*].id`
   - `$.vulnerabilities[*].cwes[*].name`
   - `$.vulnerabilities[*].cwes[*].version`
+  - `$.vulnerabilities[*].dl_vuln_id`
   - `$.vulnerabilities[*].flags[*].group_ids[*]`
   - `$.vulnerabilities[*].flags[*].product_ids[*]`
   - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
@@ -204,8 +223,6 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].ids[*].product_ids[*]`
   - `$.vulnerabilities[*].ids[*].system_name`
   - `$.vulnerabilities[*].ids[*].text`
-  - `$.vulnerabilities[*].involvements[*].contact`
-  - `$.vulnerabilities[*].involvements[*].group_ids[*]`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v2.vectorString`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v4.vectorString`
@@ -240,6 +257,9 @@ A string SHOULD NOT have a length greater than:
 - 10 000 for
   - `$.document.acknowledgments[*].summary`
   - `$.document.distribution.text`
+  - `$.document.involvement.actions[*].summary`
+  - `$.document.involvement.entities[*].contact.details`
+  - `$.document.involvement.entity_groups[*].summary`
   - `$.document.publisher.contact.details`
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
@@ -252,7 +272,6 @@ A string SHOULD NOT have a length greater than:
   - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.cpe`
   - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]`
   - `$.vulnerabilities[*].acknowledgments[*].summary`
-  - `$.vulnerabilities[*].involvements[*].summary`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].summary`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].summary`
   - `$.vulnerabilities[*].references[*].summary`
@@ -273,6 +292,7 @@ A string SHOULD NOT have a length greater than:
 
 The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
+- `$.document.involvement.actions[*].date`
 - `$.document.tracking.current_release_date`
 - `$.document.tracking.generator.date`
 - `$.document.tracking.initial_release_date`
@@ -282,7 +302,6 @@ The maximum length of strings representing a temporal value is given by the form
 - `$.vulnerabilities[*].first_known_exploitation_dates[*].date`
 - `$.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date`
 - `$.vulnerabilities[*].flags[*].date`
-- `$.vulnerabilities[*].involvements[*].date`
 - `$.vulnerabilities[*].metrics[*].content.epss.timestamp`
 - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp`
 - `$.vulnerabilities[*].remediations[*].date`
@@ -306,6 +325,9 @@ This applies to:
 - `$.document.csaf_version` (3)
 - `$.document.distribution.tlp.label` (12)
 - `$.document.notes[*].category` (16)
+- `$.document.involvement.actions[*].category` (14)
+- `$.document.involvement.actions[*].status` (12)
+- `$.document.involvement.entities[*].category` (19)
 - `$.document.publisher.category` (11)
 - `$.document.references[*].category` (8)
 - `$.document.tracking.status` (7)
@@ -316,8 +338,6 @@ This applies to:
 - `$.product_tree.product_paths[*].category` (21)
 - `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category` (13)
 - `$.vulnerabilities[*].flags[*].label` (49)
-- `$.vulnerabilities[*].involvements[*].party` (11)
-- `$.vulnerabilities[*].involvements[*].status` (17)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessComplexity` (6)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessVector` (16)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.authentication` (8)
@@ -411,7 +431,10 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
 - `$.document.distribution.tlp.url`
+- `$.document.involvement.entities[*].contact.public_openpgp_key_url`
+- `$.document.involvement.entities[*].contact.url`
 - `$.document.publisher.contact.public_openpgp_key_url`
+- `$.document.publisher.contact.url`
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`
