@@ -507,7 +507,7 @@ An `adversary` is permitted as a recipient, because a `notification` to an adver
 
 Contact of the entity (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the entity.
 
-```yaml <!--json-paths($..document..involvement..entities.properties.contact, $['$defs'].contact_t..properties)-->
+```yaml <!--json-paths($..document..involvement..entities..properties.contact, $['$defs'].contact_t..properties)-->
 <csaf-instance>:
   document:
     # ...
@@ -529,6 +529,49 @@ Contact of the entity (`contact`) of value type Contact Type (`contact_t`) conta
 Entity ID (`entity_id`) value type Entity ID (`entity_id_t`) contains an ID for the entity.
 
 Contains an ID for the entity (`name`) of value type `string` with `1` or more characters contains the name of the entity.
+
+##### Document Property - Involvement - Entity Groups
+
+List of entity groups (`entity_groups`) of value type `array` with `1` or more unique items (a `set`) contains a list of entity groups.
+
+```yaml <!--json-path($..document..involvement..entity_groups)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups: Sequence
+    # ...
+```
+
+Every Entity group item of value type `object` with the three mandatory properties Entity Group ID (`entity_group_id`),
+List of Entity IDs (`entity_ids`), and Name of the entity group (`name`) defines a new logical group of entities
+that can then be referred to in other parts of the document to address a group of entities with a single identifier.
+In addition, any Entity group item MAY expose the optional property Summary of the entity group (`summary`).
+
+```yaml <!--json-path($..document..involvement..entity_groups..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups:
+      - # <entity_group-instance>:
+        entity_group_id: $defs.entity_group_id_t
+        entity_ids: Sequence
+        name: String
+        summary: String
+    # ...
+```
+
+Entity Group ID (`entity_group_id`) value type Entity Group ID (`entity_group_id_t`) contains an ID for the entity group.
+
+List of Entity IDs (`entity_ids`) of value type `array` with `2` or more unique items (a `set`) lists the Entity IDs of those entities which are known as one group in the document.
+Every Entity ID item of value type Entity ID (`entity_id_t`) specifies a single entity being part of the group.
+
+Name of the entity group (`name`) of value type `string` with `1` or more characters contains a human-readable name for the entities grouped.
+
+Summary of the entity group (`summary`) of value type `string` with `1` or more characters contains a human-readable summary stating the purpose of the group.
 
 #### Document Property - Language
 

@@ -1049,7 +1049,7 @@
                   },
                   "entity_ids": {
                     "title": "List of Entity IDs",
-                    "description": "Lists the entity_ids of those entities which are known as one group in the document.",
+                    "description": "Lists the Entity IDs of those entities which are known as one group in the document.",
                     "type": "array",
                     "minItems": 2,
                     "uniqueItems": true,
@@ -1059,7 +1059,7 @@
                   },
                   "name": {
                     "title": "Name of the entity group",
-                    "description": "Contains an human-readable name for the entities grouped.",
+                    "description": "Contains a human-readable name for the entities grouped.",
                     "type": "string",
                     "minLength": 1,
                     "examples": [
@@ -1070,7 +1070,7 @@
                   },
                   "summary": {
                     "title": "Summary of the entity group",
-                    "description": "Contains an human-readable summary stating the purpose of the group.",
+                    "description": "Contains a human-readable summary stating the purpose of the group.",
                     "type": "string",
                     "minLength": 1
                   }
