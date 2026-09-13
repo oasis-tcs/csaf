@@ -310,11 +310,11 @@ List of actions (`actions`) of value type `array` with `1` or more unique items 
     # ...
 ```
 
-Every Action item of value type `object` with the five mandatory properties List of acting entities (`acting_entity_ids`),
+Every Action item of value type `object` with the five mandatory properties List of acting entities (`acting_entity_refs`),
 Action ID (`action_id`), Action category (`category`), Date of the action (`date`), and Action status (`status`)
 contains details about a single event in the timeline.
 In addition, any Action item MAY expose the optional properties List of document-local vuln IDs `dl_vuln_ids`, Group IDs (`group_ids`), Product IDs (`product_ids`),
-List of receiving entities (`receiving_entity_ids`), List of referenced actions (`referenced_action_ids`), Summary of the action (`summary`), and Action status (`status`).
+List of receiving entities (`receiving_entity_refs`), List of referenced actions (`referenced_action_ids`), Summary of the action (`summary`), and Action status (`status`).
 
 ```yaml <!--json-path($..document..involvement..actions..properties)-->
 <csaf-instance>:
@@ -323,14 +323,14 @@ List of receiving entities (`receiving_entity_ids`), List of referenced actions 
     involvement:
       actions:
       - # <action-instance>:
-        acting_entity_ids: $defs.entity_refs_id_t
+        acting_entity_refs: $defs.entity_refs_id_t
         action_id: $defs.action_id_t
         category: String.Enum
         date: String.DateTime
         dl_vuln_ids: Sequence
         group_ids: $defs.product_groups_t
         product_ids: $defs.products_t
-        receiving_entity_ids: $defs.entity_refs_id_t
+        receiving_entity_refs: $defs.entity_refs_id_t
         referenced_action_ids: $defs.action_id_t
         summary: String
         status: String.Enum
@@ -338,7 +338,7 @@ List of receiving entities (`receiving_entity_ids`), List of referenced actions 
     # ...
 ```
 
-List of acting entities (`acting_entity_ids`) of value type
+List of acting entities (`acting_entity_refs`) of value type
 Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
 
 Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
@@ -379,9 +379,9 @@ The value `notification` indicates that the actor tells a different party about 
 The values `triage` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
 
 A `confirmation` and a `dispute` are always about a different action.
-Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_ids`.
+Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_refs`.
 
-For a `confirmation`, each entity in the `acting_entity_ids` set SHALL also be in the `receiving_entity_ids` set of the action that it refers to.
+For a `confirmation`, each entity in the `acting_entity_refs` set SHALL also be in the `receiving_entity_refs` set of the action that it refers to.
 Entity groups are resolved before this.
 Only a entity that received an action can confirm that action.
 
@@ -395,7 +395,7 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) an
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current action item applies to.
 
-List of receiving entities (`receiving_entity_ids`) of value type
+List of receiving entities (`receiving_entity_refs`) of value type
 Entity Refs ID (`entity_refs_id_t`) contains a list of entities that receive the action.
 
 List of referenced actions (`referenced_action_ids`) of value type `array` with `1` or more unique items (a `set`)

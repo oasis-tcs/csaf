@@ -881,14 +881,14 @@
                 "description": "Contains details about a single event in the timeline.",
                 "type": "object",
                 "required": [
-                  "acting_entity_ids",
+                  "acting_entity_refs",
                   "action_id",
                   "category",
                   "date",
                   "status"
                 ],
                 "properties": {
-                  "acting_entity_ids": {
+                  "acting_entity_refs": {
                     "title": "List of acting entities",
                     "description": "Contains a list of entities that act.",
                     "$ref": "#/$defs/entity_refs_t"
@@ -936,7 +936,7 @@
                   "product_ids": {
                     "$ref": "#/$defs/products_t"
                   },
-                  "receiving_entity_ids": {
+                  "receiving_entity_refs": {
                     "title": "List of receiving entities",
                     "description": "Contains a list of entities that receive the action.",
                     "$ref": "#/$defs/entity_refs_t"
