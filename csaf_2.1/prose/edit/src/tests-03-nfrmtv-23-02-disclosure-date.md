@@ -1,4 +1,4 @@
-### Disclosure Date
+#### Disclosure Date
 
 It SHALL be tested that `$.vulnerabilities[*].disclosure_date` exists.
 

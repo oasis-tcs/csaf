@@ -21,7 +21,7 @@
     align: (left + horizon, center + horizon, right + horizon),
     text(size: 8pt)[csaf-v2.1-csd03],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[02 September 2026 — Page #counter(page).display()
+    text(size: 8pt)[11 September 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -53,8 +53,8 @@ Advisory Framework Version 2.1]
 #heading(level: 2, outlined: false, numbering: none)[Committee
 Specification Draft 03]
 <committee-specification-draft-03>
-#heading(level: 2, outlined: false, numbering: none)[02 September 2026]
-<02-september-2026>
+#heading(level: 2, outlined: false, numbering: none)[11 September 2026]
+<11-september-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
@@ -201,7 +201,7 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 02 September 2026. OASIS Committee
+Hagen and Thomas Schmidt. 11 September 2026. OASIS Committee
 Specification Draft 03.
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html.
 Latest stage:
@@ -1437,8 +1437,11 @@ additional properties, `product_tree`, `vulnerabilities`, and
 == Definitions
 <definitions>
 The definitions (`$defs`) introduce the following domain specific types
-into the CSAF language: Acknowledgments (`acknowledgments_t`), Branches
-(`branches_t`), Extensions (`extensions_t`), Full Product Name
+into the CSAF language: Acknowledgments (`acknowledgments_t`), Action ID
+(`action_id_t`), Branches (`branches_t`), Contact (`contact_t`),
+Document-local Vuln ID (`dl_vuln_id_t`), Entity Group ID
+(`entity_group_id_t`), Entity ID (`entity_id_t`), Entity Refs
+(`entity_refs_t`), Extensions (`extensions_t`), Full Product Name
 (`full_product_name_t`), Language (`lang_t`), Notes (`notes_t`), Product
 Group ID (`product_group_id_t`), Product Groups (`product_groups_t`),
 Product ID (`product_id_t`), Products (`products_t`), References
@@ -1447,7 +1450,13 @@ Product ID (`product_id_t`), Products (`products_t`), References
 ```yaml
 $defs:
   acknowledgments_t: Sequence
+  action_id_t: String.Pattern
   branches_t: Sequence
+  contact_t: Mapping
+  dl_vuln_id_t: String.Pattern
+  entity_group_id_t: String.Pattern
+  entity_id_t: String.Pattern
+  entity_refs_t: Sequence
   extensions_t: Sequence
   full_product_name_t: Mapping
   lang_t: String.Pattern
@@ -1587,6 +1596,36 @@ We thank the following parties for their efforts:
 - Antonio Vivaldi for influencing other composers
 ]
 
+=== Action ID Type
+<action-id-type>
+The Action ID Type (`action_id_t`) of value type `string` with `1` or
+more characters is a reference token for action instances. It SHALL
+conform to `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The value contains a token required to identify an action uniquely in
+the context of the current document so that it can be referred to from
+other parts in the document.
+
+```yaml
+$defs:
+  # ...
+  action_id_t: String.Pattern
+  # ...
+```
+
+#emph[Examples 1:]#box()<action-id-type-eg-1>
+
+```
+
+    1
+    AID-0001
+    Some ID
+```
+
 === Branches Type
 <branches-type>
 List of branches (`branches_t`) with value type `array` contains `1` or
@@ -1657,8 +1696,8 @@ product is intended.
 
 #quote(block: true)[
 This usually identifies the CPU instruction-set architecture. See also
-example \[#link(<branches-type---name-eg-2>)[2 (of section 3.1.2.3)]\]
-in section #link(<branches-type---name>)[3.1.2.3].
+example \[#link(<branches-type---name-eg-2>)[2 (of section 3.1.3.3)]\]
+in section #link(<branches-type---name>)[3.1.3.3].
 ]
 
 The value `host_name` indicates the host name of a system/service.
@@ -1673,8 +1712,8 @@ is intended.
 #quote(block: true)[
 As the same architecture is used in different platforms, this allows a
 differentiation. See also example
-\[#link(<branches-type---name-eg-3>)[3 (of section 3.1.2.3)]\] in
-section #link(<branches-type---name>)[3.1.2.3].
+\[#link(<branches-type---name-eg-3>)[3 (of section 3.1.3.3)]\] in
+section #link(<branches-type---name>)[3.1.3.3].
 ]
 
 The value `product_family` indicates the product family that the product
@@ -1883,6 +1922,230 @@ obey to exactly one of the following options:
 Product (`product`) has the value type Full Product Name
 (`full_product_name_t`).
 
+=== Contact Type
+<contact-type>
+Contact Type (`contact_t`) of value type `object` with `1` or more
+properties contains information on how to contact the party. The
+properties are Contact Details (`details`), Email (`email`), Public
+OpenPGP Key URL (`public_openpgp_key_url`), and Contact URL (`url`). If
+the property `public_openpgp_key_url` is set, the `email` SHALL be set
+as well.
+
+```yaml
+$defs:
+  # ...
+  contact_t:
+    details: String
+    email: String.EMAIL
+    public_openpgp_key_url: String.URI
+    url: String.URI
+  # ...
+```
+
+Contact details (`details`) of value type `string` with `1` or more
+characters contains details regarding ways to reach the party,
+e.g.~through web sites, phone numbers, and postal mail addresses.
+
+#emph[Example 1:]#box()<contact-type-eg-1>
+
+```
+    Example Company can be reached at tel:+493023125232,
+    or via our website at https://www.example.com/contact.
+```
+
+Email (`email`) of value type `string` of `6` or more characters with
+format `email` contains the email address that can be used to reach the
+party.
+
+#emph[Examples 2:]#box()<contact-type-eg-2>
+
+```
+    productcert@example.net
+    psirt@example.com
+    reporter@securityresearcher.example
+    vulnerability@coordinator.example
+```
+
+Public OpenPGP Key URL (`public_openpgp_key_url`) has value type
+`string` of `11` or more characters with format `uri` and `pattern`
+(regular expression):
+
+```
+    ^https:\\/\\/
+```
+
+Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key
+valid for the email of party provided in the sibling property `email`.
+
+#quote(block: true)[
+It is desired that the OpenPGP Key contains the same email address in
+its user ID as given through the property `email`. However, due to data
+protection and operation concerns neither a user ID in the OpenPGP key
+nor an exact match to the value of `email` is enforced by this standard.
+The use of aliases is permitted. The issuing party is responsible for
+ensuring the usability of the key provided.
+]
+
+The URL MAY point to a location that redirects. Redirects SHALL fulfill
+the same requirements as specified in
+#link(<requirement-6-no-redirects>)[7.1.6]. The content delivered SHALL
+be a valid OpenPGP key allowing encryption as ASCII armored file with
+the matching content type. See \[#link(<RFC4880>)[RFC4880]\] and
+\[#link(<RFC3156>)[RFC3156]\] for more details.
+
+#emph[Examples 3:]#box()<contact-type-eg-3>
+
+```
+    https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability
+    https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert
+    https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter
+    https://psirt.example.com/security/openpgp/latest
+```
+
+Contact URL (`url`) has value type `string` of `11` or more characters
+with format `uri` and `pattern` (regular expression):
+
+```
+    ^https:\\/\\/
+```
+
+Contact URL contains a URL that can be used to reach the party.
+
+#emph[Examples 4]:
+
+```
+    https://www.example.com/psirt/contact
+    https://www.example.net/psirt/report-a-vulnerability--expert-form
+    https://www.example.org/.well-known/security.txt
+```
+
+=== Document-local Vuln ID Type
+<document-local-vuln-id-type>
+The Document-local Vuln ID Type (`dl_vuln_id_t`) of value type `string`
+with `6` or more characters is a document-local reference token for
+vulnerability instances. It SHALL conform to `pattern` (regular
+expression):
+
+```
+    ^VULN-[0-9A-Za-z._-]+$
+```
+
+The value contains a token required to identify a vulnerability uniquely
+in the context of the current document so that it can be referred to
+from other parts in the document. It SHOULD NOT to be used to refer to a
+vulnerability from outside of the CSAF document.
+
+```yaml
+$defs:
+  # ...
+  dl_vuln_id_t: String.Pattern
+  # ...
+```
+
+#emph[Examples 1:]#box()<document-local-vuln-id-type-eg-1>
+
+```
+    VULN-0001
+    VULN-CVE-1900-0001
+```
+
+=== Entity Group ID Type
+<entity-group-id-type>
+The Entity Group ID Type (`entity_group_id_t`) of value type `string`
+with `6` or more characters is a reference token for entity group
+instances. It SHALL conform to `pattern` (regular expression):
+
+```
+    ^EGID-[0-9A-Za-z][0-9A-Za-z._-]*$
+```
+
+The value contains a token required to identify a group of entities
+uniquely in the context of the current document so that it can be
+referred to from other parts in the document.
+
+```yaml
+$defs:
+  # ...
+  entity_group_id_t: String.Pattern
+  # ...
+```
+
+#emph[Examples 1:]#box()<entity-group-id-type-eg-1>
+
+```
+    EGID-0001
+    EGID-CERTs
+    EGID-Coordinators
+    EGID-vendors
+```
+
+=== Entity ID Type
+<entity-id-type>
+The Entity ID Type (`entity_id_t`) of value type `string` with `5` or
+more characters is a reference token for entity instances. It SHALL
+conform to `pattern` (regular expression):
+
+```
+    ^EID-[0-9A-Za-z][0-9A-Za-z._-]*$
+```
+
+The value contains a token required to identify an entity uniquely in
+the context of the current document so that it can be referred to from
+other parts in the document.
+
+```yaml
+$defs:
+  # ...
+  entity_id_t: String.Pattern
+  # ...
+```
+
+#emph[Examples 1:]#box()<entity-id-type-eg-1>
+
+```
+    EID-0001
+    EID-CERT
+    EID-Example_Company
+    EID-org.example
+```
+
+=== Entity Refs Type
+<entity-refs-type>
+List of entity references (`entity_refs_t`) of value type `array` with
+`1` or more unique items (a `set`) specifies a list of `entity_ids` or
+`entity_group_ids` to give context to the parent item.
+
+```yaml
+$defs:
+  # ...
+  entity_refs_t: Sequence
+  # ...
+```
+
+Value type of every such entity reference item is any of Entity Group ID
+Type (`entity_group_id_t`) or Entity ID Type (`entity_id_t`).
+
+```yaml
+$defs:
+  # ...
+  entity_refs_t:
+  - # <entity-ref-instance>:
+    # !AnyOf<
+    - $defs.entity_group_id_t
+    - $defs.entity_id_t
+    #>
+  # ...
+```
+
+This type allows to reference Entity IDs directly and indirectly via an
+Entity Group ID within the same data structure.
+
+#quote(block: true)[
+The usage of the `anyOf` schema constraint allows for a faster
+evaluation. However, such construct needs to ensure that the schemas
+have no overlap.
+]
+
 === Extensions Type
 <extensions-type>
 List of extensions (`extensions_t`) of value type `array` with `1` or
@@ -1968,11 +2231,12 @@ on the `product_identification_helper` information during the matching
 without having to check e.g.~the branches hierarchy leading to the
 product.
 
-#quote(block: true)[
-Therefore, it is, for example, prohibited to omit the version from the
-CPE if a `product_version` was given in branches hierarchy leading to
-the product.
-]
+Only exception is the use of a CPE with a version part of `*`: A
+matching algorithm SHALL check whether a parent element along the path
+leading to the `product_identification_helper` exists, that has the
+category `product_version_range`. In such case, the corresponding value
+of the product version range SHALL be used as version information for
+the matching.
 
 ===== Full Product Name Type - Product Identification Helper - CPE
 <full-product-name-type---product-identification-helper---cpe>
@@ -3093,7 +3357,7 @@ six mandatory properties Category (`category`), CSAF Version
 (`csaf_version`), Distribution (`distribution`), Publisher
 (`publisher`), Title (`title`), and Tracking (`tracking`) captures the
 meta-data about this document describing a particular set of security
-advisories. In addition, the `document` object MAY provide the eight
+advisories. In addition, the `document` object MAY provide the nine
 optional properties Acknowledgments (`acknowledgments`), Aggregate
 Severity (`aggregate_severity`), Language (`lang`), License expression
 (`license_expression`), Notes (`notes`), References (`references`),
@@ -3108,6 +3372,7 @@ Source Language (`source_lang`), and Document-level Extensions
     category: String.Pattern
     csaf_version: String.Enum
     distribution: Mapping
+    involvement: Mapping
     lang: $defs.lang_t
     license_expression: String
     notes: $defs.notes_t
@@ -3428,6 +3693,368 @@ the definition by FIRST:
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/TLP/merkblatt-tlp.pdf
 ```
 
+==== Document Property - Involvement
+<document-property---involvement>
+Involvement (`involvement`) of value type `object` with the mandatory
+properties List of actions (`actions`) and List of entities (`entities`)
+contains the coordination record stating entities and actions between
+them. The optional property is List of entity groups (`entity_groups`).
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      entities: Sequence
+      entity_groups: Sequence
+    # ...
+```
+
+===== Document Property - Involvement - Actions
+<document-property---involvement---actions>
+List of actions (`actions`) of value type `array` with `1` or more
+unique items (a `set`) contains the timeline of actions.
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      # ...
+    # ...
+```
+
+Every Action item of value type `object` with the five mandatory
+properties List of acting entities (`acting_entity_refs`), Action ID
+(`action_id`), Action category (`category`), Date of the action
+(`date`), and Action status (`status`) contains details about a single
+event in the timeline. In addition, any Action item MAY expose the
+optional properties List of document-local vuln IDs `dl_vuln_ids`, Group
+IDs (`group_ids`), Product IDs (`product_ids`), List of receiving
+entities (`receiving_entity_refs`), List of referenced actions
+(`referenced_action_ids`), Summary of the action (`summary`), and Action
+status (`status`).
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions:
+      - # <action-instance>:
+        acting_entity_refs: $defs.entity_refs_id_t
+        action_id: $defs.action_id_t
+        category: String.Enum
+        date: String.DateTime
+        dl_vuln_ids: Sequence
+        group_ids: $defs.product_groups_t
+        product_ids: $defs.products_t
+        receiving_entity_refs: $defs.entity_refs_id_t
+        referenced_action_ids: $defs.action_id_t
+        summary: String
+        status: String.Enum
+      # ...
+    # ...
+```
+
+List of acting entities (`acting_entity_refs`) of value type Entity Refs
+ID (`entity_refs_id_t`) contains a list of entities that act.
+
+Action ID (`action_id`) of value type Action ID (`action_id_t`) contains
+the reference token for this action. Its values SHALL be unique across
+all action items.
+
+Action category (`category`) of value type `string` and `enum` specifies
+the category which this action belongs to. Valid values are:
+
+```
+    confirmation
+    coordination
+    discovery
+    dispute
+    exploitation
+    fix_deployment
+    fix_release
+    notification
+    triage
+```
+
+The value `confirmation` indicates that the actor confirms that it
+received or accepted the action that this action refers to (via
+`referenced_action_ids`).
+
+The value `coordination` indicates that the parties coordinate their
+work.
+
+The value `discovery` indicates that the actor found the vulnerability.
+
+The value `dispute` indicates that the actor disputes the action that
+this action refers to (via `referenced_action_ids`). It can dispute that
+the action is correct, its severity, or that it occurred.
+
+The value `exploitation` indicates that the actor used the
+vulnerability, or a party saw or controlled such use.
+
+The value `fix_deployment` indicates that the actor installed a fix.
+
+The value `fix_release` indicates that the actor published a fix, or
+made a fix available.
+
+The value `notification` indicates that the actor tells a different
+party about the vulnerability.
+
+The values `triage` indicates that the actor examines if the
+vulnerability is correct, how severe it is, or which products it applies
+to.
+
+A `confirmation` and a `dispute` are always about a different action.
+Each of them SHALL have a minimum of one value in
+`referenced_action_ids`, and each SHALL name a minimum of one party in
+`receiving_entity_refs`.
+
+For a `confirmation`, each entity in the `acting_entity_refs` set SHALL
+also be in the `receiving_entity_refs` set of the action that it refers
+to. Entity groups are resolved before this. Only a entity that received
+an action can confirm that action.
+
+Date of the action (`date`) of value type `string` with format
+`date-time` contains the date when the action occurred.
+
+List of document-local vuln IDs (`dl_vuln_ids`) of value type `array`
+with `1` or more unique items (a `set`) contains a list of local IDs
+referring to vulnerabilities within the same document that this action
+applies to. Every Document-local Vuln ID item of value type
+Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single
+vulnerability element the current action applies to.
+
+Group IDs (`group_ids`) are of value type Product Groups
+(`product_groups_t`) and contain a list of Product Groups the current
+action item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`)
+and contain a list of Products the current action item applies to.
+
+List of receiving entities (`receiving_entity_refs`) of value type
+Entity Refs ID (`entity_refs_id_t`) contains a list of entities that
+receive the action.
+
+List of referenced actions (`referenced_action_ids`) of value type
+`array` with `1` or more unique items (a `set`) contains a list of other
+actions reference by this action. Every referenced action item of value
+type Action ID (`action_id_t`) refers to a single vulnerability.
+
+Summary of the action (`summary`) of value type `string` with `1` or
+more characters contains information about the action.
+
+Action status (`status`) of value type `string` and `enum` contains an
+observation about the action. Valid values are:
+
+```
+  attempted
+  completed
+  deferred
+  discontinued
+  in_progress
+  outstanding
+  planned
+```
+
+The value `attempted` indicates that the actor tried to do the action,
+but it did not reach the recipient.
+
+The value `completed` indicates that the actor completed the action.
+
+The value `deferred` indicates that the actor decided not to act at this
+time. It will examine the decision again later.
+
+The value `discontinued` indicates that the actor started the work and
+then stopped it before it was complete.
+
+The value `in_progress` indicates that the actor is doing the work now.
+
+The value `outstanding` indicates that a party waits for this action.
+The status gives an observation and tells you nothing about the work of
+the actor.
+
+The value `planned` indicates that the a party waits for this action.
+The status gives an observation and tells you nothing about the work of
+the actor.
+
+===== Document Property - Involvement - Entities
+<document-property---involvement---entities>
+List of entities (`entities`) of value type `array` with `1` or more
+unique items (a `set`) contains a list of entities related.
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities: Sequence
+      # ...
+    # ...
+```
+
+Every Entity item of value type `object` with the two mandatory
+properties Entity category (`category`) and Entity ID (`entity_id`)
+contains information about a single entity. In addition, any Entity item
+MAY expose the optional properties Contact of the entity (`contact`) and
+Name of the entity (`name`).
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        category: String.Enum
+        contact: $defs.contact_t
+        entity_id: $defs.entity_id_t
+        name: String
+      # ...
+    # ...
+```
+
+Entity category (`category`) of value type `string` and `enum` specifies
+the category of the party. Valid values are:
+
+```
+    adversary
+    coordinator
+    discoverer
+    multiplier
+    other
+    public
+    reporting_authority
+    user
+    vendor
+```
+
+The value `adversary` indicates an entity that acts against the other
+parties. It may be identified or not identified.
+
+The value `coordinator` indicates an entity that coordinates the
+disclosure between several parties, e.g.~a CERT.
+
+The value `discoverer` indicates an entity that finds vulnerabilities,
+for example a researcher.
+
+#quote(block: true)[
+It is assume that the discoverer also reports vulnerabilities.
+]
+
+The value `multiplier` indicates an entity that uses or distributes the
+data about a vulnerability.
+
+The value `other` indicates an entity that has a role that the other
+values do not give.
+
+The value `public` indicates the general public.
+
+The value `reporting_authority` indicates an entity that receives or
+requires a report, e.g.~a national CSIRT.
+
+The value `user` indicates an entity that uses or operates a product
+mentioned.
+
+The value `vendor` indicates an entity that develops or maintains of
+information system products or services. This includes all authoritative
+product vendors, product security incident response teams (PSIRTs), open
+source projects as well as product resellers and distributors, including
+authoritative vendor partners.
+
+The `category` does not control the role: an entity can act in one
+action and receive in a different action. An `adversary` is permitted as
+a recipient, because a `notification` to an adversary records that the
+data went to that adversary.
+
+Contact of the entity (`contact`) of value type Contact Type
+(`contact_t`) contains information on how to contact the entity.
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        # ...
+        contact:
+          details: String
+          email: String.EMAIL
+          public_openpgp_key_url: String.URI
+          url: String.URI
+        # ...
+      # ...
+    # ...
+```
+
+Entity ID (`entity_id`) value type Entity ID (`entity_id_t`) contains an
+ID for the entity.
+
+Contains an ID for the entity (`name`) of value type `string` with `1`
+or more characters contains the name of the entity.
+
+===== Document Property - Involvement - Entity Groups
+<document-property---involvement---entity-groups>
+List of entity groups (`entity_groups`) of value type `array` with `1`
+or more unique items (a `set`) contains a list of entity groups.
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups: Sequence
+    # ...
+```
+
+Every Entity group item of value type `object` with the three mandatory
+properties Entity Group ID (`entity_group_id`), List of Entity IDs
+(`entity_ids`), and Name of the entity group (`name`) defines a new
+logical group of entities that can then be referred to in other parts of
+the document to address a group of entities with a single identifier. In
+addition, any Entity group item MAY expose the optional property Summary
+of the entity group (`summary`).
+
+```yaml
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups:
+      - # <entity_group-instance>:
+        entity_group_id: $defs.entity_group_id_t
+        entity_ids: Sequence
+        name: String
+        summary: String
+    # ...
+```
+
+Entity Group ID (`entity_group_id`) value type Entity Group ID
+(`entity_group_id_t`) contains an ID for the entity group.
+
+List of Entity IDs (`entity_ids`) of value type `array` with `2` or more
+unique items (a `set`) lists the Entity IDs of those entities which are
+known as one group in the document. Every Entity ID item of value type
+Entity ID (`entity_id_t`) specifies a single entity being part of the
+group.
+
+Name of the entity group (`name`) of value type `string` with `1` or
+more characters contains a human-readable name for the entities grouped.
+
+Summary of the entity group (`summary`) of value type `string` with `1`
+or more characters contains a human-readable summary stating the purpose
+of the group.
+
 ==== Document Property - Language
 <document-property---language>
 Document language (`lang`) of value type Language Type (`lang_t`)
@@ -3577,7 +4204,7 @@ other optional properties are: `contact` and `issuing_authority`.
     # ...
     publisher:
       category: String
-      contact: Mapping
+      contact: $defs.contact_t
       issuing_authority: String
       name: String
       namespace: String
@@ -3645,11 +4272,8 @@ authoritative vendor partners.
 
 ===== Document Property - Publisher - Contact
 <document-property---publisher---contact>
-Contact (`contact`) of value type `object` with `1` or more properties
-contains information on how to contact the publisher. The properties are
-Contact Details (`details`), Email (`email`) and Public OpenPGP Key URL
-(`public_openpgp_key_url`) If the property `public_openpgp_key_url` is
-set, the `email` SHALL be set as well.
+Contact (`contact`) of value type Contact Type (`contact_t`) contains
+information on how to contact the publisher.
 
 ```yaml
 <csaf-instance>:
@@ -3661,69 +4285,9 @@ set, the `email` SHALL be set as well.
         details: String
         email: String.EMAIL
         public_openpgp_key_url: String.URI
+        url: String.URI
       # ...
     # ...
-```
-
-Contact details (`details`) of value type `string` with `1` or more
-characters contains details regarding ways to reach the publisher,
-e.g.~through web sites, phone numbers, and postal mail addresses.
-
-#emph[Example 1:]#box()<document-property---publisher---contact-eg-1>
-
-```
-    Example Company can be reached at tel:+493023125232,
-    or via our website at https://www.example.com/contact.
-```
-
-Email (`email`) of value type `string` of `6` or more characters with
-format `email` contains the email address that can be used to reach the
-issuing party.
-
-#emph[Examples 2:]#box()<document-property---publisher---contact-eg-2>
-
-```
-    "productcert@example.net"
-    "psirt@example.com"
-    "reporter@securityresearcher.example"
-    "vulnerability@coordinator.example"
-```
-
-Public OpenPGP Key URL (`public_openpgp_key_url`) has value type
-`string` of `11` or more characters with format `uri` and `pattern`
-(regular expression):
-
-```
-    ^https:\\/\\/
-```
-
-Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key
-valid for the email of issuing party provided in the sibling property
-`email`.
-
-#quote(block: true)[
-It is desired that the OpenPGP Key contains the same email address in
-its user ID as given through the property `email`. However, due to data
-protection and operation concerns neither a user ID in the OpenPGP key
-nor an exact match to the value of `email` is enforced by this standard.
-The use of aliases is permitted. The issuing party is responsible for
-ensuring the usability of the key provided.
-]
-
-The URL MAY point to a location that redirects. Redirects SHALL fulfil
-the same requirements as specified in
-#link(<requirement-6-no-redirects>)[7.1.6]. The content delivered SHALL
-be a valid OpenPGP key allowing encryption as ASCII armored file with
-the matching content type. See \[#link(<RFC4880>)[RFC4880]\] and
-\[#link(<RFC3156>)[RFC3156]\] for more details.
-
-#emph[Examples 3:]#box()<document-property---publisher---contact-eg-3>
-
-```
-    "https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability"
-    "https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert"
-    "https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter"
-    "https://psirt.example.com/security/openpgp/latest"
 ```
 
 ===== Document Property - Publisher - Issuing Authority
@@ -4221,7 +4785,8 @@ Group ID (`group_id`) has value type Product Group ID
 
 List of Product IDs (`product_ids`) of value type `array` with `2` or
 more unique items of value type Product ID (`product_id_t`) lists the
-product\_ids of those products which known as one group in the document.
+product\_ids of those products which are known as one group in the
+document.
 
 ==== Product Tree Property - Product Paths
 <product-tree-property---product-paths>
@@ -4364,10 +4929,10 @@ Common Vulnerabilities and Exposures (CVE) (`cve`), Common Weakness
 Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`),
 Discovery Date (`discovery_date`), List of first known exploitation
 dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`),
-Involvements (`involvements`), Metrics (`metrics`), Notes (`notes`),
-Product Status (`product_status`), References (`references`),
-Remediations (`remediations`), Threats (`threats`), Title (`title`), and
-Vulnerability-level Extensions (`x_extensions`).
+Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`),
+References (`references`), Remediations (`remediations`), Threats
+(`threats`), Title (`title`), and Vulnerability-level Extensions
+(`x_extensions`).
 
 ```yaml
 <csaf-instance>:
@@ -4382,7 +4947,6 @@ Vulnerability-level Extensions (`x_extensions`).
     first_known_exploitation_dates: Sequence
     flags: Sequence
     ids: Sequence
-    involvements: Sequence
     metrics: Sequence
     notes: $defs.notes_t
     product_status: Mapping
@@ -4534,6 +5098,11 @@ dates may change during a vulnerability disclosure process, an issuing
 party SHOULD produce an updated CSAF document to confirm that the
 vulnerability was in fact disclosed to the public at that time or update
 the `disclosure_date` with the new intended date in the future.
+
+If a vulnerability was patched without stating that it is a
+vulnerability, the vulnerability is in the context of this specification
+not considered to be disclosed. As a consequence, the `discovery_date`
+needs to be earlier than or equal to the `disclosure_date`.
 
 ==== Vulnerabilities Property - Discovery Date
 <vulnerabilities-property---discovery-date>
@@ -4804,143 +5373,6 @@ The ID MAY be a vendor-specific value but is not to be used to publish
 the CVE tracking numbers (MITRE standard Common Vulnerabilities and
 Exposures), as these are specified inside the dedicated CVE element.
 ]
-
-==== Vulnerabilities Property - Involvements
-<vulnerabilities-property---involvements>
-List of involvements (`involvements`) of value type `array` with `1` or
-more unique items (a set) of value type `object` contains a list of
-involvements.
-
-```yaml
-<csaf-instance>:
-  # ...
-  vulnerabilities:
-  - # <vulnerability-instance>:
-    # ...
-    involvements: Sequence
-    # ...
-```
-
-Every Involvement item of value type `object` with the two mandatory
-properties Party (`party`), Status (`status`) and the five optional
-properties Party contact information (`contact`), Date of involvement
-(`date`), Group IDs (`group_ids`), Product IDs (`product_ids`), and
-Summary (`summary`) is a container that allows the document producers to
-comment on the level of involvement (or engagement) of themselves (or
-third parties) in the vulnerability identification, scoping, and
-remediation process. It can also be used to convey the disclosure
-timeline. The ordered tuple of the values of `party` and `date` (if
-present) SHALL be unique within `involvements`.
-
-```yaml
-<csaf-instance>:
-  # ...
-  vulnerabilities:
-  - # <vulnerability-instance>:
-    # ...
-    involvements:
-    - # <involvement-instance>:
-      contact: String
-      date: String.DateTime
-      group_ids: $defs.product_groups_t
-      party: String.Enum
-      product_ids: $defs.products_t
-      status: String.Enum
-      summary: String
-    # ...
-```
-
-Party contact information (`contact`) contains the contact information
-of the party that was used in this state.
-
-#quote(block: true)[
-In many cases, that could be an email address.
-]
-
-Date of involvement (`date`) of value type `string` with format
-`date-time` holds the date and time of the involvement entry.
-
-Group IDs (`group_ids`) are of value type Product Groups
-(`product_groups_t`) and contain a list of Product Groups the current
-involvement item applies to.
-
-Party category (`party`) of value type `string` and `enum` defines the
-category of the involved party. Valid values are:
-
-```
-    coordinator
-    discoverer
-    other
-    user
-    vendor
-```
-
-These values follow the same definitions as given for the publisher
-category (cf.~section
-#link(<document-property---publisher-category>)[3.2.2.9.1]).
-
-Product IDs (`product_ids`) are of value type Products (`products_t`)
-and contain a list of Products the current involvement item applies to.
-
-Party status (`status`) of value type `string` and `enum` defines
-contact status of the involved party. Valid values are:
-
-```
-    completed
-    contact_attempted
-    disputed
-    in_progress
-    not_contacted
-    open
-```
-
-Each status is mutually exclusive - only one status is valid for a
-particular vulnerability at a particular time. As the vulnerability
-ages, a party's involvement could move from state to state. However, in
-many cases, a document producer may choose not to issue CSAF documents
-at each state, or simply omit this element altogether. It is
-recommended, however, that vendors that issue CSAF documents indicating
-an open or in-progress involvement SHOULD eventually expect to issue a
-document containing one of the statuses `disputed` or `completed` as the
-latest one.
-
-#quote(block: true)[
-The two vulnerability involvement status states, `contact_attempted` and
-`not_contacted` are intended for use by document producers other than
-vendors (such as research or coordinating entities).
-]
-
-The value `completed` indicates that the party asserts that
-investigation of the vulnerability is complete. No additional
-information, fixes, or documentation from the party about the
-vulnerability should be expected to be released.
-
-The value `contact_attempted` indicates that the document producer
-attempted to contact the party.
-
-The value `disputed` indicates that the party disputes the vulnerability
-report in its entirety. This status SHOULD be used when the party
-believes that a vulnerability report regarding a product is completely
-inaccurate (that there is no real underlying security vulnerability) or
-that the technical issue being reported has no security implications.
-
-The value `in_progress` indicates that some hotfixes, permanent fixes,
-mitigations, workarounds, or patches may have been made available by the
-party, but more information or fixes may be released in the future. The
-use of this status by a vendor indicates that future information from
-the vendor about the vulnerability is to be expected.
-
-The value `not_contacted` indicates that the document producer has not
-attempted to make contact with the party.
-
-The value `open` is the default status. It doesn't indicate anything
-about the vulnerability remediation effort other than the fact that the
-party has acknowledged awareness of the vulnerability report. The use of
-this status by a vendor indicates that future updates from the vendor
-about the vulnerability are to be expected.
-
-Summary of involvement (`summary`) of value type `string` with `1` or
-more characters contains additional context regarding what is going on.
 
 ==== Vulnerabilities Property - Metrics
 <vulnerabilities-property---metrics>
@@ -5928,10 +6360,10 @@ profile "CSAF Base":
 - The value of `$.document.category` SHALL NOT be equal to or a close
   match for any value that is intended to only be used by another
   profile nor to the (case insensitive) name of any other profile from
-  the standard. Such case insensitive matching does not take occurrences
-  of dash, hyphen, minus, white space, and underscore characters into
-  account. To explicitly select the use of this profile the value
-  `csaf_base` SHOULD be used.
+  the standard. Such case insensitive matching does ignore any dash,
+  hyphen, minus, white space, invisible and underscore characters. To
+  explicitly select the use of this profile the value `csaf_base` SHOULD
+  be used.
 
 #quote(block: true)[
 Neither `CSAF Security Advisory` nor `csaf security advisory` are valid
@@ -6045,6 +6477,11 @@ profile "Security Advisory":
     CSAF document regardless of their state.
 
   - `$.vulnerabilities` which lists all vulnerabilities.
+
+  - at least one of
+
+    - `$.vulnerabilities[*].cve`
+    - `$.vulnerabilities[*].ids`
 
   - `$.vulnerabilities[*].notes`
 
@@ -6414,11 +6851,11 @@ profile "Vulnerability Report":
     communicate or coordinate an intended public disclosure date for the
     reported vulnerabilities.
 
-  - `$.vulnerabilities[*].involvements`
+  - `$.document.involvement`
 
     #quote(block: true)[
     Records coordination activities between the parties involved in the
-    disclosure of the specific vulnerability.
+    disclosure of the vulnerabilities.
     ]
 
 #pagebreak(weak: true)
@@ -6485,19 +6922,20 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 
 == Usage of Markdown
 <usage-of-markdown>
-The use of GitHub-flavoured Markdown is permitted in the following
+The use of GitHub-flavored Markdown is permitted in the following
 fields:
 
 ```list-of-jsonpaths
   $.document.acknowledgments[*].summary
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].text
   $.document.publisher.issuing_authority
   $.document.references[*].summary
   $.document.tracking.revision_history[*].summary
   $.product_tree.product_groups[*].summary
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].references[*].summary
   $.vulnerabilities[*].remediations[*].details
@@ -6657,7 +7095,7 @@ representing hardware unsettles the consumer whether the version applies
 to the software or hardware. Also, this would violate the rule regarding
 the full identification of a product by the
 `product_identification_helper` from section
-#link(<full-product-name-type-product-identification-helper>)[3.1.4.3].
+#link(<full-product-name-type-product-identification-helper>)[3.1.10.3].
 
 Based on the CVE statistics up to and including the year 2024, in the
 majority of cases the vulnerabilities reside in software or are
@@ -6690,6 +7128,7 @@ applies for all items of elements of type `$['$defs'].products_t`.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
+  $.document.involvement.actions[*].product_ids[*]
   $.document.notes[*].product_ids[*]
   $.product_tree.product_groups[*].product_ids[*]
   $.product_tree.product_paths[*].beginning_product_reference
@@ -6697,7 +7136,6 @@ The relevant paths for this test are:
   $.vulnerabilities[*].first_known_exploitation_dates[*].product_ids[*]
   $.vulnerabilities[*].flags[*].product_ids[*]
   $.vulnerabilities[*].ids[*].product_ids[*]
-  $.vulnerabilities[*].involvements[*].product_ids[*]
   $.vulnerabilities[*].metrics[*].products[*]
   $.vulnerabilities[*].notes[*].product_ids[*]
   $.vulnerabilities[*].product_status.first_affected[*]
@@ -6837,11 +7275,11 @@ exists. The same applies for all items of elements of type
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
+  $.document.involvement.actions[*].group_ids[*]
   $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
   $.vulnerabilities[*].flags[*].group_ids[*]
   $.vulnerabilities[*].ids[*].group_ids[*]
-  $.vulnerabilities[*].involvements[*].group_ids[*]
   $.vulnerabilities[*].notes[*].group_ids[*]
   $.vulnerabilities[*].remediations[*].group_ids[*]
   $.vulnerabilities[*].threats[*].group_ids[*]
@@ -6936,7 +7374,7 @@ test):]#box()<multiple-definition-of-product-group-id-eg-1>
 <contradicting-product-status>
 For each item in `$.vulnerabilities` it SHALL be tested that the same
 Product ID is not a member of contradicting product status groups (see
-section #link(<vulnerabilities-property-product-status>)[3.2.4.12]). The
+section #link(<vulnerabilities-property-product-status>)[3.2.4.11]). The
 sets formed by the contradicting groups within one vulnerability item
 SHALL be pairwise disjoint.
 
@@ -7247,11 +7685,11 @@ It SHALL be tested that all given PURLs are valid.
 #quote(block: true)[
 It is not sufficient to just test against the `pattern` provided in
 section
-#link(<full-product-name-type-product-identification-helper-purls>)[3.1.4.3.4].
+#link(<full-product-name-type-product-identification-helper-purls>)[3.1.10.3.4].
 The PURL must be validated against the requirements in the
 \[#link(<ECMA-427>)[ECMA-427]\] specification and the additional
 constraints given in section
-#link(<full-product-name-type-product-identification-helper-purls>)[3.1.4.3.4].
+#link(<full-product-name-type-product-identification-helper-purls>)[3.1.10.3.4].
 ]
 
 The relevant paths for this test are:
@@ -7694,44 +8132,62 @@ The vulnerabilities array contains two items with the same CVE
 identifier `CVE-2017-0145`.
 ]
 
-=== Multiple Definition in Involvements
-<multiple-definition-in-involvements>
-It SHALL be tested that items of the list of involvements do not contain
-the same `party` regardless of its `status` more than once at any
-`date`.
+=== Multiple Definition in Actions
+<multiple-definition-in-actions>
+It SHALL be tested that items of the list of actions do differ in more
+values than just the `action_id`.
+
+Ignoring the `action_id`, two items in the list of actions are the same,
+if:
+
++ all of the following fields contain the same value:
+  - `category`
+  - `date`
+  - `status`
+  - `summary`
++ and all of the following sets contain the same values:
+  - `acting_entity_refs`
+  - `dl_vuln_ids`
+  - `group_ids`
+  - `product_ids`
+  - `receiving_entity_refs`
+  - `referenced_action_ids`
 
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.vulnerabilities[*].involvements
+  $.document.involvement.actions
 ```
 
 #emph[Example 1 (which fails the
-test):]#box()<multiple-definition-in-involvements-eg-1>
+test):]#box()<multiple-definition-in-actions-eg-1>
 
 ```
-  "vulnerabilities": [
+  "actions": [
     {
-      "involvements": [
-        {
-          "date": "2023-08-23T10:00:00.000Z",
-          "party": "vendor",
-          "status": "completed"
-        },
-        {
-          "date": "2023-08-23T10:00:00.000Z",
-          "party": "vendor",
-          "status": "in_progress",
-          "summary": "The vendor has released a mitigation and is working to fully resolve the issue."
-        }
-      ]
+      "action_id": "ACN-1",
+      "acting_entity_refs": ["EID-0001"],
+      "date": "2024-01-10T09:00:00Z",
+      "category": "notification",
+      "receiving_entity_refs": ["EID-0002"],
+      "status": "completed",
+      "summary": "Reported vulnerability to vendor."
+    },
+    {
+      "action_id": "ACN-2",
+      "acting_entity_refs": ["EID-0001"],
+      "date": "2024-01-10T09:00:00Z",
+      "category": "notification",
+      "receiving_entity_refs": ["EID-0002"],
+      "status": "completed",
+      "summary": "Reported vulnerability to vendor."
     }
   ]
 ```
 
 #quote(block: true)[
-The list of involvements contains two items with the same tuple `party`
-and `date`.
+The list of actions contains two items with the same content when
+ignoring their `action_id`.
 ]
 
 === Multiple Use of Same Hash Algorithm
@@ -7788,8 +8244,8 @@ hashes.
 It SHALL be tested that the document category is not equal to the (case
 insensitive) name (without the prefix `csaf_`) or value of any other
 profile than "CSAF Base". Any occurrences of dash, hyphen, minus,
-underscore, and white space characters are removed from the values on
-both sides before the case insensitive match.
+underscore, white space and invisible characters are removed from the
+values on both sides before the case insensitive match.
 
 #quote(block: true)[
 The characters listed above are independent of their graphical variants.
@@ -7875,7 +8331,7 @@ the space was replaced with underscores.
 ]
 
 === Profile Tests
-<mandatory-profile-tests>
+<mandatory--profile-tests>
 This subsubsection structures the mandatory tests for the profiles. Not
 all tests apply for all profiles. Tests SHOULD be skipped if the
 document category does not match the one given in the test. Each of the
@@ -8175,6 +8631,7 @@ vulnerability.
 The relevant values for `$.document.category` are:
 
 ```
+  csaf_security_advisory
   csaf_vex
   csaf_vulnerability_report
 ```
@@ -8716,7 +9173,7 @@ that at least one item in vulnerability notes exists that has the title
 `Vulnerability Summary` or `CVE Description`. The `category` of this
 item SHALL be consistent with the value required in table
 #link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
-#link(<vulnerabilities-property-notes>)[3.2.4.11].
+#link(<vulnerabilities-property-notes>)[3.2.4.10].
 
 The relevant value for `$.document.category` is:
 
@@ -9335,6 +9792,7 @@ that it conforms to the rules given in section
 The relevant path for this test is:
 
 ```list-of-jsonpaths
+  $.document.involvement.actions[*].date
   $.document.tracking.current_release_date
   $.document.tracking.generator.date
   $.document.tracking.initial_release_date
@@ -9344,7 +9802,6 @@ The relevant path for this test is:
   $.vulnerabilities[*].first_known_exploitation_dates[*].date
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
   $.vulnerabilities[*].flags[*].date
-  $.vulnerabilities[*].involvements[*].date
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
   $.vulnerabilities[*].remediations[*].date
@@ -9654,7 +10111,9 @@ The document is labeled `TLP:CLEAR` and in status `final` but the
 === Invalid SSVC
 <invalid-ssvc>
 It SHALL be tested that the given SSVC object is valid according to the
-referenced schema.
+referenced schema. If the object contains a language code, for example
+as a part of a `namespace`, it SHALL also be tested that the language
+code is valid and exists.
 
 The relevant path for this test is:
 
@@ -9856,7 +10315,7 @@ the `date` of newest item in the `revision_history`.
 For each element of type `$['$defs'].branches_t` with `category` of
 `product_version_range`, it SHALL be tested that the value of `name`
 complies with the rules given in section
-#link(<branches-type---name-under-product-version-range>)[3.1.2.3.2].
+#link(<branches-type---name-under-product-version-range>)[3.1.3.3.2].
 VERS types not supported by the implementation SHALL result in a warning
 which SHALL include the VERS type name used. Nevertheless, all other
 rules SHALL be checked to the extent possible.
@@ -9880,7 +10339,7 @@ test):]#box()<product-version-range-rules-eg-1>
 
 #quote(block: true)[
 The version range given does not comply with the rules given in section
-#link(<branches-type---name-under-product-version-range>)[3.1.2.3.2].
+#link(<branches-type---name-under-product-version-range>)[3.1.3.3.2].
 ]
 
 === Inconsistent EPSS Timestamp
@@ -10042,7 +10501,7 @@ It SHALL be tested that the license expression is valid.
 To implement this test, it is deemed sufficient to check for the ABNF
 defined in annex B of \[#link(<SPDX301>)[SPDX301]\] and the restriction
 on the `DocumentRef` part given in
-#link(<document-property---license-expression>)[3.2.2.7]. Although a
+#link(<document-property---license-expression>)[3.2.2.8]. Although a
 match against the SPDX License List (`license-id`) or a specific
 `LicenseRef` or `AdditionalRef` list is not in scope for this test, it
 checks all other constraints given in the ABNF.
@@ -10462,6 +10921,54 @@ test):]#box()<use-of-multiple-stars-in-sku-eg-1>
 The stock keeping unit contains two unescaped stars.
 ]
 
+=== Inconsistent Discovery Date
+<inconsistent-discovery-date>
+For each vulnerability, it SHALL be tested that the `discovery_date` is
+earlier than or equal to the `date` of the newest item of the
+`revision_history` if the document status is `final` or `interim`. Also,
+the `discovery_date` SHALL be earlier than or equal to the
+`disclosure_date` of the same vulnerability.
+
+As the timestamps might use different timezones, the sorting SHALL take
+timezones into account.
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].discovery_date
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<inconsistent-discovery-date-eg-1>
+
+```
+  "document": {
+    // ...
+    "tracking": {
+      // ...
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      // ...
+    }
+  },
+  "vulnerabilities": [
+    {
+      "discovery_date": "2024-02-24T10:00:00.000Z"
+    }
+  ]
+```
+
+#quote(block: true)[
+The document is in status `final` but the `discovery_date` is newer than
+the `date` of newest item in the `revision_history`.
+]
+
 == Recommended Tests
 <recommended-tests>
 Recommended tests SHOULD NOT fail at a valid CSAF document without a
@@ -10712,36 +11219,15 @@ The current release date `2023-09-06T10:00:00.000Z` is older than
 Revision History.
 ]
 
-=== Missing Date in Involvements
-<missing-date-in-involvements>
-For each item in the list of involvements it SHALL be tested that it
-includes the property `date`.
-
-The relevant path for this test is:
-
-```list-of-jsonpaths
-  $.vulnerabilities[*].involvements
-```
-
-#emph[Example 1 (which fails the
-test):]#box()<missing-date-in-involvements-eg-1>
-
-```
-  "vulnerabilities": [
-    {
-      "involvements": [
-        {
-          "party": "vendor",
-          "status": "in_progress"
-        }
-      ]
-    }
-  ]
-```
-
+=== Missing Date of the Action (Obsolete)
+<missing-date-of-the-action>
 #quote(block: true)[
-The list of involvements contains an item which does not contain the
-property `date`.
+The date stating when an involvement action occurred ("Date of the
+action": \`\$.document.involvement.actions\[\*\].date) is now required
+by the schema. Therefore, the recommended test is obsolete. This section
+is kept to document that change and keep the numbering of the remaining
+sections stable. The test is excluded from any preset and requirement to
+be executed.
 ]
 
 === Use of MD5 As the Only Hash Algorithm
@@ -11122,8 +11608,8 @@ matches the following regex:
 The warning SHALL clearly advise to carefully check whether VERS can be
 used or the versions can be enumerated as the use of vls is only a
 fallback option. For more details, see sections
-#link(<branches-type---category>)[3.1.2.2] and
-#link(<branches-type---name-under-product-version-range>)[3.1.2.3.2].
+#link(<branches-type---category>)[3.1.3.2] and
+#link(<branches-type---name-under-product-version-range>)[3.1.3.3.2].
 
 #quote(block: true)[
 It is planned to deprecate and finally remove the support for vls in
@@ -11877,6 +12363,10 @@ reserved for special purpose SHALL be treated as per their definition.
 #quote(block: true)[
 This test fails on unregistered namespaces as well as registered ones
 not yet supported by the implementation.
+
+To implement this determine the base namespace in this test, it is
+deemed sufficient to remove any characters including and after the first
+`/`.
 ]
 
 The relevant path for this test is:
@@ -11915,6 +12405,12 @@ For each SSVC decision point given under `selections`, it SHALL be
 tested that the base `namespace` is not an unregistered one if the
 document is labeled `TLP:CLEAR`. Namespaces reserved for special purpose
 SHALL be treated as per their definition.
+
+#quote(block: true)[
+To implement this determine the base namespace in this test, it is
+deemed sufficient to remove any characters including and after the first
+`/`.
+]
 
 The relevant path for this test is:
 
@@ -11973,6 +12469,11 @@ For each SSVC decision point given under `selections`, it SHALL be
 tested that the `namespace` does not use an extension if the document is
 labeled `TLP:CLEAR`. Namespaces reserved for special purpose SHALL be
 treated as per their definition.
+
+#quote(block: true)[
+To implement the check for an extensions part in the `namespace`, it is
+deemed sufficient to check whether the `namespace` contains a `/`.
+]
 
 The relevant path for this test is:
 
@@ -12088,7 +12589,7 @@ It SHALL be tested that the `$.document.category` does not start with
 `csaf_deprecated_`.
 
 #quote(block: true)[
-To implement this test it is deemed sufficient to do a "starts with"
+To implement this test, it is deemed sufficient to do a "starts with"
 check. In contrast to test
 #link(<prohibited-document-category-name>)[6.1.26], this test detects
 the use of a profile defined by CSAF that is deprecated.
@@ -12112,7 +12613,7 @@ The document category starts with `csaf_deprecated_`.
 ]
 
 === Profile Tests
-<recommended-profile-tests>
+<recommended--profile-tests>
 This subsubsection structures the recommended tests for the profiles.
 Not all tests apply for all profiles. Tests SHOULD be skipped if the
 document category does not match the one given in the test. Each of the
@@ -12360,7 +12861,7 @@ language specific translation of the term `Vulnerability Summary` or
 `CVE Description` as `title`. The `category` of this item SHALL be
 consistent with the value required in table
 #link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
-#link(<vulnerabilities-property-notes>)[3.2.4.11]. If no language
+#link(<vulnerabilities-property-notes>)[3.2.4.10]. If no language
 specific translation has been recorded, the test SHALL be skipped and
 output an information to the user that no such translation is known.
 
@@ -12689,7 +13190,7 @@ least one of the elements `group_ids` or `product_ids`.
 If the document language is English or unspecified, the product
 description can be identified by checking for a note containing the
 corresponding `category` and `title` combination from
-#link(<document-property---notes>)[3.2.2.8]. For other languages, the
+#link(<document-property---notes>)[3.2.2.9]. For other languages, the
 language specific translation is used.
 ]
 
@@ -12798,14 +13299,18 @@ below. It is based on a static mapping of branch categories to the
 corresponding part of the product identification helpers. The latter one
 are referred to as counterparts.
 
-+ Determine counterpart in the specific product identification helper
-  for all categories used along the path up to the product.
++ Determine the counterparts in the specific product identification
+  helper for all categories used along the path up to the product.
 + Check whether the counterparts in the product identification helper
   are set.
-+ Check whether each set counterpart does not contain a wildcard unless
-  the value of the categorized string would indicate that.
++ Check whether each counterpart set does not contain a wildcard unless
+  the value of the categorized string would indicate that. Only
+  exception is the version part in a CPE, which can be set to `*` for a
+  product version range due to the matching exception in section
+  #link(<full-product-name-type-product-identification-helper>)[3.1.10.3].
 + Check whether the version part algins between the categorized strings
-  and the product identification helper.
+  and the product identification helper. Omit this check for a version
+  part of `*` in a CPE.
 + For CPE only: Check whether extra information is included in the CPE
   that is not in the categorized string. This might be a counterpart
   that is set but the corresponding categorized string is missing along
@@ -13247,7 +13752,7 @@ groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vers` that
 overlap with `CTPVR` are not member of a contradicting product status
 groups (see section
-#link(<vulnerabilities-property-product-status>)[3.2.4.12]).
+#link(<vulnerabilities-property-product-status>)[3.2.4.11]).
 
 The relevant path for this test is:
 
@@ -13324,7 +13829,7 @@ groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vls` that
 overlap with `CTPVR` are not member of a contradicting product status
 groups (see section
-#link(<vulnerabilities-property-product-status>)[3.2.4.12]).
+#link(<vulnerabilities-property-product-status>)[3.2.4.11]).
 
 The relevant path for this test is:
 
@@ -13401,7 +13906,7 @@ groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVSS+l` that overlap
 with `CTPVR` are not member of a contradicting product status groups
 (see section
-#link(<vulnerabilities-property-product-status>)[3.2.4.12]).
+#link(<vulnerabilities-property-product-status>)[3.2.4.11]).
 
 The relevant path for this test is:
 
@@ -13516,7 +14021,7 @@ For each element of type
 it SHALL be tested that the hash algorithm is supported by the
 implementation. The warning SHALL differentiate between the values
 mentioned in section
-#link(<full-product-name-type---product-identification-helper---hashes>)[3.1.4.3.2]
+#link(<full-product-name-type---product-identification-helper---hashes>)[3.1.10.3.2]
 and those not mentioned there.
 
 #quote(block: true)[
@@ -13548,7 +14053,7 @@ test):]#box()<unknown-hash-algorithm-eg-1>
 
 #quote(block: true)[
 The hash algorithm `unknown-algorithm` is not listed in section
-#link(<full-product-name-type---product-identification-helper---hashes>)[3.1.4.3.2].
+#link(<full-product-name-type---product-identification-helper---hashes>)[3.1.10.3.2].
 Note: An implementation would also have to state whether it supports
 this algorithm.
 ]
@@ -14097,6 +14602,10 @@ The relevant paths for this test are:
   $.document.aggregate_severity.text
   $.document.category
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entities[*].name
+  $.document.involvement.entity_groups[*].name
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
@@ -14115,7 +14624,6 @@ The relevant paths for this test are:
   $.vulnerabilities[*].acknowledgments[*].names[*]
   $.vulnerabilities[*].acknowledgments[*].organization
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].audience
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].notes[*].title
@@ -14270,7 +14778,7 @@ For each item in the list of metrics that contains any CVSS object it
 SHALL be tested that a `cvss_v4` object is present. The test SHALL fail,
 if any Product ID (type `$['$defs'].product_id_t`) in the product status
 group Affected (see section
-#link(<vulnerabilities-property-product-status>)[3.2.4.12]) is not
+#link(<vulnerabilities-property-product-status>)[3.2.4.11]) is not
 covered by any CVSS object.
 
 The relevant path for this test is:
@@ -14366,6 +14874,12 @@ tested that the base `namespace` is not an unregistered one if the
 document is not labeled `TLP:CLEAR`. Namespaces reserved for special
 purpose SHALL be treated as per their definition.
 
+#quote(block: true)[
+To implement this determine the base namespace in this test, it is
+deemed sufficient to remove any characters including and after the first
+`/`.
+]
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
@@ -14423,6 +14937,11 @@ For each SSVC decision point given under `selections`, it SHALL be
 tested that the `namespace` does not use an extension if the document is
 not labeled `TLP:CLEAR`. Namespaces reserved for special purpose SHALL
 be treated as per their definition.
+
+#quote(block: true)[
+To implement the check for an extensions part in the `namespace`, it is
+deemed sufficient to check whether the `namespace` contains a `/`.
+]
 
 The relevant path for this test is:
 
@@ -14488,6 +15007,8 @@ The relevant paths for this test are:
   $.document.acknowledgments[*].summary
   $.document.aggregate_severity.text
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
@@ -14497,7 +15018,6 @@ The relevant paths for this test are:
   $.document.tracking.revision_history[*].summary
   $.product_tree.product_groups[*].summary
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].audience
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].notes[*].title
@@ -14627,7 +15147,7 @@ groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vers` that
 overlap with `CTPVR` are not member of the same product status group
 (see section
-#link(<vulnerabilities-property-product-status>)[3.2.4.12]).
+#link(<vulnerabilities-property-product-status>)[3.2.4.11]).
 
 The relevant path for this test is:
 
@@ -14702,7 +15222,7 @@ groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVRSS+l-vls` that
 overlap with `CTPVR` are not member of the same product status group
 (see section
-#link(<vulnerabilities-property-product-status>)[3.2.4.12]).
+#link(<vulnerabilities-property-product-status>)[3.2.4.11]).
 
 The relevant path for this test is:
 
@@ -14776,7 +15296,7 @@ For each item in `$.vulnerabilities` all `EPVRPID` in the product status
 groups SHALL be identified. For each `EPVR` (as `CTPVR`), it SHALL be
 tested that the Product IDs of all elements in `PVSS` that overlap with
 `CTPVR` are not member of the same product status group (see section
-#link(<vulnerabilities-property-product-status>)[3.2.4.12]).
+#link(<vulnerabilities-property-product-status>)[3.2.4.11]).
 
 The relevant path for this test is:
 
@@ -15385,12 +15905,12 @@ document category does not match the one given in the test. Each of the
 following tests SHOULD be treated as they were listed similar to the
 other tests.
 
-=== Involvements
-<involvements>
-It SHALL be tested that `$.vulnerabilities[*].involvements` exists.
+==== Involvement
+<involvement>
+It SHALL be tested that `$.document.involvement` exists.
 
 #quote(block: true)[
-Recording involvement entries helps the participating parties understand
+Recording involvement actions helps the participating parties understand
 the disclosure timeline and who has engaged in the process.
 ]
 
@@ -15403,31 +15923,39 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.vulnerabilities[*].involvements
+  $.document.involvement
 ```
 
-#emph[Example 1 (which fails the test):]#box()<involvements-eg-1>
+#emph[Example 1 (which fails the test):]#box()<involvement-eg-1>
 
 ```
-  "vulnerabilities": [
-    {
-      "cve": "CVE-1900-0001"
-    }
-  ]
+  document: {
+    // ...
+    "distribution": {
+      "tlp": {
+        "label": "AMBER"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    // ...
+  }
 ```
 
 #quote(block: true)[
 The vulnerability does not record any coordination activity in
-`$.vulnerabilities[*].involvements`.
+`$.document.involvement`.
 ]
 
 Recommendation:
 
-It is recommended that issuing parties use
-`$.vulnerabilities[*].involvements` to record coordination milestones
-during the CVD process.
+It is recommended that issuing parties use `$.document.involvement` to
+record coordination milestones during the CVD process.
 
-=== Disclosure Date
+==== Disclosure Date
 <disclosure-date>
 It SHALL be tested that `$.vulnerabilities[*].disclosure_date` exists.
 
@@ -15506,9 +16034,9 @@ Recommendation:
 It is recommended that issuing parties conduct an analysis to make an
 informed decision based on pros and cons regarding the inclusion of a
 matching email address into the user ID of the public OpenPGP key.
-Sections #link(<document-property---publisher---contact>)[3.2.2.9.2] and
-#link(<safety-security-and-data-protection-considerations>)[8] contain
-advise to take into consideration.
+Sections #link(<document-property---publisher---contact>)[3.2.2.10.2]
+and #link(<safety-security-and-data-protection-considerations>)[8]
+contain advise to take into consideration.
 
 == Test Presets
 <test-presets>
@@ -15596,7 +16124,7 @@ Additional presets are defined as follows:
     - #link(<public-openpgp-key-url>)[6.2.55]
     - #link(<use-of-non-self-referencing-urls-failing-to-resolve>)[6.3.6]
     - #link(<use-of-self-referencing-urls-failing-to-resolve>)[6.3.7]
-    - #link(<public-openpgp-key-url-user-id>)[6.3.26]
+    - #link(<public-openpgp-key-url-user-id>)[6.3.24]
 - `external-request-free`:
   - Description: Any test that can be executed without a request into
     the Internet or a different network.
@@ -16997,7 +17525,7 @@ human-readable formats like HTML or PDF. Thus, for security reasons,
 CSAF producers and consumers SHALL adhere to the following:
 
 - CSAF producers SHOULD NOT emit messages that contain HTML, even though
-  GitHub-flavoured Markdown is permitted. To include HTML, source code,
+  GitHub-flavored Markdown is permitted. To include HTML, source code,
   or any other content that may be interpreted or executed by a CSAF
   consumer, e.g.~to provide a proof-of-concept, the issuing party SHALL
   use Markdown's fenced code blocks or inline code option.
@@ -17091,13 +17619,14 @@ Such checks can be automated, e.g.~in the CI/CD pipeline.
 
 CSAF documents can contain personally identifiable information. This
 includes but is not limited to names, e.g.~in acknowledgments, as well
-as email addresses. Issuing parties SHALL ensure that they are allowed
-to publish such information.
+as email addresses, e.g.~in involvement. Issuing parties SHALL ensure
+that they are allowed to publish such information.
 
 #quote(block: true)[
 Acknowledging entities or individuals is always possible with their
 consent. Functional email addresses are usually not consider to be
-personally identifiable information.
+personally identifiable information. The same applies for names of
+organizations.
 ]
 
 #pagebreak(weak: true)
@@ -17251,10 +17780,10 @@ profile if it:
 - contains no extension that does not fulfill the conformance profile
   "CSAF Extension".
 - contains no extension at any other path than the specified ones in
-  sections #link(<full-product-name-type---extensions>)[3.1.4.4],
-  #link(<document-property---extensions>)[3.2.2.14],
-  #link(<vulnerabilities-property---metrics---content>)[3.2.4.10.1],
-  #link(<vulnerabilities-property---extensions>)[3.2.4.17] and
+  sections #link(<full-product-name-type---extensions>)[3.1.10.4],
+  #link(<document-property---extensions>)[3.2.2.15],
+  #link(<vulnerabilities-property---metrics---content>)[3.2.4.9.1],
+  #link(<vulnerabilities-property---extensions>)[3.2.4.16] and
   #link(<extensions-property>)[3.2.5].
 
 === Conformance Clause 2: CSAF Producer
@@ -17413,13 +17942,17 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.document.category`:
 
-  - If the `cvrf:DocumentType` is Security Advisory (case-insensitive),
-    the CVRF CSAF Converter SHALL try to convert the data into a valid
-    CSAF Document in this profile according to CSAF 2.1.
+  - If the `cvrf:DocumentType` is Security Advisory (white space and
+    case-insensitive), the CVRF CSAF Converter SHALL try to convert the
+    data into a valid CSAF Document in this profile according to CSAF
+    2.1.
 
     #quote(block: true)[
     A tool MAY offer rules to create the missing fixed products from
-    version ranges, if applicable.
+    version ranges, if applicable. A tool MAY offer rules to assign
+    missing CVEs or vulnerability IDs. Nevertheless, issuing parties are
+    responsible to keep track of assigned IDs to prevent the assignment
+    of the same ID for different issues.
     ]
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1
@@ -17488,7 +18021,7 @@ Secondly, the program fulfills the following for all items of:
 - `$.document.notes`: If any `cvrf:Note` item contains one of the
   `category` and `title` combinations specified in table
   #link(<document-property-notes-tab-1>)[table 1] of section
-  #link(<document-property---notes>)[3.2.2.8], where the `title` is
+  #link(<document-property---notes>)[3.2.2.9], where the `title` is
   extended, the CVRF CSAF Converter SHALL try to identify whether that
   extension is a specific product name, version or family. In such case,
   the CVRF CSAF Converter SHALL try to add the corresponding products to
@@ -17753,7 +18286,7 @@ Secondly, the program fulfills the following for all items of:
 - `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of
   the `category` and `title` combinations specified in table
   #link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
-  #link(<vulnerabilities-property-notes>)[3.2.4.11], where the `title`
+  #link(<vulnerabilities-property-notes>)[3.2.4.10], where the `title`
   is extended, the CVRF CSAF Converter SHALL try to identify whether
   that extension is a specific product name, version or family. In such
   case, the CVRF CSAF Converter SHALL try to add the corresponding
@@ -17849,13 +18382,21 @@ System" conformance profile if the content management system:
 
   - suggest a `$.document.tracking.id` based on the given configuration.
 
+  - option to suggest an ID for a vulnerability based on the given
+    configuration.
+
+  - initialize a vulnerability element from a given CVE by loading the
+    corresponding CVE JSON from a location provided in the
+    configuration. Local instances implementing the respective CVE API
+    SHALL be supported.
+
   - track of the version of CSAF Documents automatically and increment
     according to the versioning scheme (see also subsections of
-    #link(<version-type>)[3.1.13]) selected in the configuration.
+    #link(<version-type>)[3.1.19]) selected in the configuration.
 
   - check that the document version is set correctly based on the
     changes in comparison to the previous version (see also subsections
-    of #link(<version-type>)[3.1.13]).
+    of #link(<version-type>)[3.1.19]).
 
   - suggest to use the document status `interim` if a CSAF Document is
     updated more frequent than the given threshold in the configuration
@@ -18152,7 +18693,7 @@ conformance profile if the asset matching system:
 - does not bring up a newer revision of a CSAF Document as a new match
   if the remediation for the matched product or asset has not changed.
 - detects the usage semantic version (as described in section
-  #link(<version-type---semantic-versioning>)[3.1.13.2]).
+  #link(<version-type---semantic-versioning>)[3.1.19.2]).
 - is able to trigger a run of the asset matching module:
   - manually:
     - per CSAF Document
@@ -18285,7 +18826,7 @@ conformance profile if the SBOM matching system:
   changed.
 
 - detects the usage semantic version (as described in section
-  #link(<version-type---semantic-versioning>)[3.1.13.2]).
+  #link(<version-type---semantic-versioning>)[3.1.19.2]).
 
 - is able to trigger a run of the SBOM matching module:
 
@@ -18726,9 +19267,15 @@ Secondly, the program fulfills the following for all items of:
     was added to the `product_tree` and the corresponding
     `$.vulnerabilities[*]`. Such warning SHALL contain the full product
     name and its path as well as the paths of the `$.vulnerabilities[*]`
-    it was added to. If the CSAF 2.0 to CSAF 2.1 Converter is unable to
-    create a valid CSAF 2.1 Document according to the profile, it SHALL
-    set the `category` value to `csaf_deprecated_security_advisory`.
+    it was added to. The CSAF 2.0 to CSAF 2.1 Converter MAY have a
+    non-default option to assign organization-wide IDs to any
+    vulnerability not containing a CVE nor any other vulnerability ID
+    and therefore failing test #link(<vulnerability-id>)[6.1.27.8].
+    Issuing parties are responsible to keep track of assigned IDs to
+    prevent the assignment of the same ID for different issues. If the
+    CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1
+    Document according to the profile, it SHALL set the `category` value
+    to `csaf_deprecated_security_advisory`.
   - If the `$.document.lang` is English or unspecified, the following
     rules apply:
     - If the `$.document.title` starts with the string `Superseded` or
@@ -18827,7 +19374,7 @@ Secondly, the program fulfills the following for all items of:
 - `$.document.notes`: If any `$.document.notes` item contains one of the
   `category` and `title` combinations specified in table
   #link(<document-property-notes-tab-1>)[table 1] of section
-  #link(<document-property---notes>)[3.2.2.8], where the `title` is
+  #link(<document-property---notes>)[3.2.2.9], where the `title` is
   extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
   whether that extension is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the
@@ -19024,7 +19571,7 @@ Secondly, the program fulfills the following for all items of:
 - `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item
   contains one of the `category` and `title` combinations specified in
   table #link(<vulnerabilities-property-notes-tab-1>)[table 2] of
-  section #link(<vulnerabilities-property-notes>)[3.2.4.11], where the
+  section #link(<vulnerabilities-property-notes>)[3.2.4.10], where the
   `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
   identify whether that extension is a specific product name, version or
   family. In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
@@ -19754,13 +20301,19 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].x_extensions`
   - `$.x_extensions`
 - 40 000 items for
+  - `$.document.involvement.actions[*].acting_entity_refs`
+  - `$.document.involvement.actions[*].receiving_entity_refs`
+  - `$.document.involvement.entities`
+  - `$.document.involvement.entity_groups`
   - `$.document.notes`
   - `$.document.references`
-  - `$.vulnerabilities[*].involvements`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references`
   - `$.vulnerabilities[*].notes`
   - `$.vulnerabilities[*].references`
 - 100 000 for
+  - `$.document.involvement.actions`
+  - `$.document.involvement.actions[*].dl_vuln_ids`
+  - `$.document.involvement.actions[*].referenced_action_ids`
   - `$.document.tracking.revision_history`
   - `$.product_tree.branches`
   - `$.product_tree..branches`
@@ -19782,6 +20335,8 @@ An array SHOULD NOT have more than:
   - `$.product_tree.product_paths`
   - `$.vulnerabilities[*].remediations[*].group_ids`
 - 100 000 000 for
+  - `$.document.involvement.actions[*].group_ids`
+  - `$.document.involvement.actions[*].product_ids`
   - `$.document.notes[*].group_ids`
   - `$.document.notes[*].product_ids`
   - `$.vulnerabilities[*].first_known_exploitation_dates`
@@ -19792,8 +20347,6 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].flags[*].product_ids`
   - `$.vulnerabilities[*].ids[*].group_ids`
   - `$.vulnerabilities[*].ids[*].product_ids`
-  - `$.vulnerabilities[*].involvements[*].group_ids`
-  - `$.vulnerabilities[*].involvements[*].product_ids`
   - `$.vulnerabilities[*].metrics`
   - `$.vulnerabilities[*].metrics[*].products`
   - `$.vulnerabilities[*].notes[*].group_ids`
@@ -19823,6 +20376,18 @@ A string SHOULD NOT have a length greater than:
   - `$.document.aggregate_severity.text`
   - `$.document.category`
   - `$.document.distribution.sharing_group.name`
+  - `$.document.involvement.actions[*].acting_entity_refs[*]`
+  - `$.document.involvement.actions[*].action_id`
+  - `$.document.involvement.actions[*].group_ids[*]`
+  - `$.document.involvement.actions[*].dl_vuln_ids[*]`
+  - `$.document.involvement.actions[*].product_ids[*]`
+  - `$.document.involvement.actions[*].receiving_entity_refs[*]`
+  - `$.document.involvement.actions[*].referenced_action_ids[*]`
+  - `$.document.involvement.entities[*].contact.email`
+  - `$.document.involvement.entities[*].entity_id`
+  - `$.document.involvement.entities[*].name`
+  - `$.document.involvement.entity_groups[*].entity_group_id`
+  - `$.document.involvement.entity_groups[*].name`
   - `$.document.lang`
   - `$.document.license_expression`
   - `$.document.notes[*].audience`
@@ -19875,6 +20440,7 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].cwes[*].id`
   - `$.vulnerabilities[*].cwes[*].name`
   - `$.vulnerabilities[*].cwes[*].version`
+  - `$.vulnerabilities[*].dl_vuln_id`
   - `$.vulnerabilities[*].flags[*].group_ids[*]`
   - `$.vulnerabilities[*].flags[*].product_ids[*]`
   - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
@@ -19882,8 +20448,6 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].ids[*].product_ids[*]`
   - `$.vulnerabilities[*].ids[*].system_name`
   - `$.vulnerabilities[*].ids[*].text`
-  - `$.vulnerabilities[*].involvements[*].contact`
-  - `$.vulnerabilities[*].involvements[*].group_ids[*]`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v2.vectorString`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v4.vectorString`
@@ -19917,6 +20481,9 @@ A string SHOULD NOT have a length greater than:
 - 10 000 for
   - `$.document.acknowledgments[*].summary`
   - `$.document.distribution.text`
+  - `$.document.involvement.actions[*].summary`
+  - `$.document.involvement.entities[*].contact.details`
+  - `$.document.involvement.entity_groups[*].summary`
   - `$.document.publisher.contact.details`
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
@@ -19929,7 +20496,6 @@ A string SHOULD NOT have a length greater than:
   - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.cpe`
   - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]`
   - `$.vulnerabilities[*].acknowledgments[*].summary`
-  - `$.vulnerabilities[*].involvements[*].summary`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].summary`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].summary`
   - `$.vulnerabilities[*].references[*].summary`
@@ -19949,6 +20515,7 @@ A string SHOULD NOT have a length greater than:
 The maximum length of strings representing a temporal value is given by
 the format specifier. This applies to:
 
+- `$.document.involvement.actions[*].date`
 - `$.document.tracking.current_release_date`
 - `$.document.tracking.generator.date`
 - `$.document.tracking.initial_release_date`
@@ -19958,7 +20525,6 @@ the format specifier. This applies to:
 - `$.vulnerabilities[*].first_known_exploitation_dates[*].date`
 - `$.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date`
 - `$.vulnerabilities[*].flags[*].date`
-- `$.vulnerabilities[*].involvements[*].date`
 - `$.vulnerabilities[*].metrics[*].content.epss.timestamp`
 - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp`
 - `$.vulnerabilities[*].remediations[*].date`
@@ -19987,6 +20553,9 @@ each value is not greater than 50. This applies to:
 - `$.document.csaf_version` (3)
 - `$.document.distribution.tlp.label` (12)
 - `$.document.notes[*].category` (16)
+- `$.document.involvement.actions[*].category` (14)
+- `$.document.involvement.actions[*].status` (12)
+- `$.document.involvement.entities[*].category` (19)
 - `$.document.publisher.category` (11)
 - `$.document.references[*].category` (8)
 - `$.document.tracking.status` (7)
@@ -19998,8 +20567,6 @@ each value is not greater than 50. This applies to:
 - `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category`
   (13)
 - `$.vulnerabilities[*].flags[*].label` (49)
-- `$.vulnerabilities[*].involvements[*].party` (11)
-- `$.vulnerabilities[*].involvements[*].status` (17)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessComplexity` (6)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessVector` (16)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.authentication` (8)
@@ -20145,7 +20712,10 @@ This applies to:
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
 - `$.document.distribution.tlp.url`
+- `$.document.involvement.entities[*].contact.public_openpgp_key_url`
+- `$.document.involvement.entities[*].contact.url`
 - `$.document.publisher.contact.public_openpgp_key_url`
+- `$.document.publisher.contact.url`
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`

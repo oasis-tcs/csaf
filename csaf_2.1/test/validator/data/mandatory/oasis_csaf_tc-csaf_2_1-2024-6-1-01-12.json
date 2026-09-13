@@ -8,6 +8,46 @@
         "label": "CLEAR"
       }
     },
+    "involvement": {
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "ACN-1",
+          "acting_entity_refs": ["EID-0001"],
+          "date": "2024-01-10T09:00:00Z",
+          "category": "notification",
+          "product_ids": [
+            "CSAFPID-9080700",
+            "CSAFPID-9080701",
+            "CSAFPID-9080702"
+          ],
+          "receiving_entity_refs": ["EID-0002"],
+          "status": "completed",
+          "summary": "The discoverer sent a detailed report regarding the vulnerability for Product A in versions 1.0.0 up to 1.2.0."
+        },
+        {
+          "action_id": "ACN-2",
+          "acting_entity_refs": ["EID-0002"],
+          "date": "2024-01-10T15:00:00Z",
+          "category": "confirmation",
+          "receiving_entity_refs": ["EID-0001"],
+          "referenced_action_ids": ["ACN-1"],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        }
+      ]
+    },
     "notes": [
       {
         "category": "description",
@@ -179,19 +219,6 @@
           "product_ids": [
             "CSAFPID-9080704"
           ]
-        }
-      ],
-      "involvements": [
-        {
-          "date": "2023-02-02T10:00:00.000Z",
-          "party": "discoverer",
-          "product_ids": [
-            "CSAFPID-9080700",
-            "CSAFPID-9080701",
-            "CSAFPID-9080702"
-          ],
-          "status": "contact_attempted",
-          "summary": "The discoverer sent a detailed report regarding the vulnerability for Product A in versions 1.0.0 up to 1.2.0."
         }
       ],
       "metrics": [

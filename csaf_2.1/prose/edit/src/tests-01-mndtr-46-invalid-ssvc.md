@@ -1,6 +1,8 @@
 ### Invalid SSVC
 
 It SHALL be tested that the given SSVC object is valid according to the referenced schema.
+If the object contains a language code, for example as a part of a `namespace`,
+it SHALL also be tested that the language code is valid and exists.
 
 The relevant path for this test is:
 

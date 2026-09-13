@@ -1,7 +1,7 @@
 ### Inconsistent Disclosure Date
 
-For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier than or equal to the `date` of the newest item of the `revision_history`
-if the document is labeled `TLP:CLEAR` and the document status is `final` or `interim`.
+For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier than or equal to the `date` of the newest item
+of the `revision_history` if the document is labeled `TLP:CLEAR` and the document status is `final` or `interim`.
 As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:

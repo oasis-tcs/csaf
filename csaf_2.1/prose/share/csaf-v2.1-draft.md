@@ -7,7 +7,7 @@
 
 ## Committee Specification Draft 03 <a id='committee-specification-draft-03'></a>
 
-## 02 September 2026 <a id='02-september-2026'></a>
+## 11 September 2026 <a id='11-september-2026'></a>
 
 #### This stage <a id='this-stage'></a>
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \
@@ -87,7 +87,7 @@ When referencing this specification the following citation format should be used
 
 **[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 02 September 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 11 September 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 ---
 
@@ -145,38 +145,44 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			3.1.1.3 [Acknowledgments Type - Summary](#acknowledgments-type---summary)  
 			3.1.1.4 [Acknowledgments Type - URLs](#acknowledgments-type---urls)  
 			3.1.1.5 [Acknowledgments Type - Example](#acknowledgments-type---example)  
-		3.1.2 [Branches Type](#branches-type)  
-			3.1.2.1 [Branches Type - Branches](#branches-type---branches)  
-			3.1.2.2 [Branches Type - Category](#branches-type---category)  
-			3.1.2.3 [Branches Type - Name](#branches-type---name)  
-				3.1.2.3.1 [Branches Type - Name under Product Version](#branches-type---name-under-product-version)  
-				3.1.2.3.2 [Branches Type - Name under Product Version Range](#branches-type---name-under-product-version-range)  
-			3.1.2.4 [Branches Type - Product](#branches-type---product)  
-		3.1.3 [Extensions Type](#extensions-type)  
-		3.1.4 [Full Product Name Type](#full-product-name-type)  
-			3.1.4.1 [Full Product Name Type - Name](#full-product-name-type---name)  
-			3.1.4.2 [Full Product Name Type - Product ID](#full-product-name-type---product-id)  
-			3.1.4.3 [Full Product Name Type - Product Identification Helper](#full-product-name-type-product-identification-helper)  
-				3.1.4.3.1 [Full Product Name Type - Product Identification Helper - CPE](#full-product-name-type---product-identification-helper---cpe)  
-				3.1.4.3.2 [Full Product Name Type - Product Identification Helper - Hashes](#full-product-name-type---product-identification-helper---hashes)  
-				3.1.4.3.3 [Full Product Name Type - Product Identification Helper - Model Numbers](#full-product-name-type---product-identification-helper---model-numbers)  
-				3.1.4.3.4 [Full Product Name Type - Product Identification Helper - PURLs](#full-product-name-type-product-identification-helper-purls)  
-				3.1.4.3.5 [Full Product Name Type - Product Identification Helper - SBOM URLs](#full-product-name-type---product-identification-helper---sbom-urls)  
-				3.1.4.3.6 [Full Product Name Type - Product Identification Helper - Serial Numbers](#full-product-name-type---product-identification-helper---serial-numbers)  
-				3.1.4.3.7 [Full Product Name Type - Product Identification Helper - SKUs](#full-product-name-type---product-identification-helper---skus)  
-				3.1.4.3.8 [Full Product Name Type - Product Identification Helper - Generic URIs](#full-product-name-type---product-identification-helper---generic-uris)  
-			3.1.4.4 [Full Product Name Type - Extensions](#full-product-name-type---extensions)  
-		3.1.5 [Language Type](#language-type)  
-		3.1.6 [Notes Type](#notes-type)  
-		3.1.7 [Product Group ID Type](#product-group-id-type)  
-		3.1.8 [Product Groups Type](#product-groups-type)  
-		3.1.9 [Product ID Type](#product-id-type)  
-		3.1.10 [Products Type](#products-type)  
-		3.1.11 [References Type](#references-type)  
-		3.1.12 [Subpath Type](#subpath-type)  
-		3.1.13 [Version Type](#version-type)  
-			3.1.13.1 [Version Type - Integer Versioning](#version-type---integer-versioning)  
-			3.1.13.2 [Version Type - Semantic Versioning](#version-type---semantic-versioning)  
+		3.1.2 [Action ID Type](#action-id-type)  
+		3.1.3 [Branches Type](#branches-type)  
+			3.1.3.1 [Branches Type - Branches](#branches-type---branches)  
+			3.1.3.2 [Branches Type - Category](#branches-type---category)  
+			3.1.3.3 [Branches Type - Name](#branches-type---name)  
+				3.1.3.3.1 [Branches Type - Name under Product Version](#branches-type---name-under-product-version)  
+				3.1.3.3.2 [Branches Type - Name under Product Version Range](#branches-type---name-under-product-version-range)  
+			3.1.3.4 [Branches Type - Product](#branches-type---product)  
+		3.1.4 [Contact Type](#contact-type)  
+		3.1.5 [Document-local Vuln ID Type](#document-local-vuln-id-type)  
+		3.1.6 [Entity Group ID Type](#entity-group-id-type)  
+		3.1.7 [Entity ID Type](#entity-id-type)  
+		3.1.8 [Entity Refs Type](#entity-refs-type)  
+		3.1.9 [Extensions Type](#extensions-type)  
+		3.1.10 [Full Product Name Type](#full-product-name-type)  
+			3.1.10.1 [Full Product Name Type - Name](#full-product-name-type---name)  
+			3.1.10.2 [Full Product Name Type - Product ID](#full-product-name-type---product-id)  
+			3.1.10.3 [Full Product Name Type - Product Identification Helper](#full-product-name-type-product-identification-helper)  
+				3.1.10.3.1 [Full Product Name Type - Product Identification Helper - CPE](#full-product-name-type---product-identification-helper---cpe)  
+				3.1.10.3.2 [Full Product Name Type - Product Identification Helper - Hashes](#full-product-name-type---product-identification-helper---hashes)  
+				3.1.10.3.3 [Full Product Name Type - Product Identification Helper - Model Numbers](#full-product-name-type---product-identification-helper---model-numbers)  
+				3.1.10.3.4 [Full Product Name Type - Product Identification Helper - PURLs](#full-product-name-type-product-identification-helper-purls)  
+				3.1.10.3.5 [Full Product Name Type - Product Identification Helper - SBOM URLs](#full-product-name-type---product-identification-helper---sbom-urls)  
+				3.1.10.3.6 [Full Product Name Type - Product Identification Helper - Serial Numbers](#full-product-name-type---product-identification-helper---serial-numbers)  
+				3.1.10.3.7 [Full Product Name Type - Product Identification Helper - SKUs](#full-product-name-type---product-identification-helper---skus)  
+				3.1.10.3.8 [Full Product Name Type - Product Identification Helper - Generic URIs](#full-product-name-type---product-identification-helper---generic-uris)  
+			3.1.10.4 [Full Product Name Type - Extensions](#full-product-name-type---extensions)  
+		3.1.11 [Language Type](#language-type)  
+		3.1.12 [Notes Type](#notes-type)  
+		3.1.13 [Product Group ID Type](#product-group-id-type)  
+		3.1.14 [Product Groups Type](#product-groups-type)  
+		3.1.15 [Product ID Type](#product-id-type)  
+		3.1.16 [Products Type](#products-type)  
+		3.1.17 [References Type](#references-type)  
+		3.1.18 [Subpath Type](#subpath-type)  
+		3.1.19 [Version Type](#version-type)  
+			3.1.19.1 [Version Type - Integer Versioning](#version-type---integer-versioning)  
+			3.1.19.2 [Version Type - Semantic Versioning](#version-type---semantic-versioning)  
 	3.2 [Properties](#properties)  
 		3.2.1 [Schema Property](#schema-property)  
 		3.2.2 [Document Property](#document-property)  
@@ -188,28 +194,32 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 				3.2.2.5.1 [Document Property - Distribution - Sharing Group](#document-property---distribution-sharing-group)  
 				3.2.2.5.2 [Document Property - Distribution - Text](#document-property---distribution---text)  
 				3.2.2.5.3 [Document Property - Distribution - TLP](#document-property---distribution---tlp)  
-			3.2.2.6 [Document Property - Language](#document-property---language)  
-			3.2.2.7 [Document Property - License Expression](#document-property---license-expression)  
-			3.2.2.8 [Document Property - Notes](#document-property---notes)  
-			3.2.2.9 [Document Property - Publisher](#document-property---publisher)  
-				3.2.2.9.1 [Document Property - Publisher - Category](#document-property---publisher-category)  
-				3.2.2.9.2 [Document Property - Publisher - Contact](#document-property---publisher---contact)  
-				3.2.2.9.3 [Document Property - Publisher - Issuing Authority](#document-property---publisher---issuing-authority)  
-				3.2.2.9.4 [Document Property - Publisher - Name](#document-property---publisher---name)  
-				3.2.2.9.5 [Document Property - Publisher - Namespace](#document-property---publisher---namespace)  
-			3.2.2.10 [Document Property - References](#document-property---references)  
-			3.2.2.11 [Document Property - Source Language](#document-property---source-language)  
-			3.2.2.12 [Document Property - Title](#document-property---title)  
-			3.2.2.13 [Document Property - Tracking](#document-property---tracking)  
-				3.2.2.13.1 [Document Property - Tracking - Aliases](#document-property---tracking---aliases)  
-				3.2.2.13.2 [Document Property - Tracking - Current Release Date](#document-property---tracking---current-release-date)  
-				3.2.2.13.3 [Document Property - Tracking - Generator](#document-property---tracking---generator)  
-				3.2.2.13.4 [Document Property - Tracking - ID](#document-property---tracking---id)  
-				3.2.2.13.5 [Document Property - Tracking - Initial Release Date](#document-property---tracking---initial-release-date)  
-				3.2.2.13.6 [Document Property - Tracking - Revision History](#document-property---tracking---revision-history)  
-				3.2.2.13.7 [Document Property - Tracking - Status](#document-property---tracking---status)  
-				3.2.2.13.8 [Document Property - Tracking - Version](#document-property---tracking---version)  
-			3.2.2.14 [Document Property - Extensions](#document-property---extensions)  
+			3.2.2.6 [Document Property - Involvement](#document-property---involvement)  
+				3.2.2.6.1 [Document Property - Involvement - Actions](#document-property---involvement---actions)  
+				3.2.2.6.2 [Document Property - Involvement - Entities](#document-property---involvement---entities)  
+				3.2.2.6.3 [Document Property - Involvement - Entity Groups](#document-property---involvement---entity-groups)  
+			3.2.2.7 [Document Property - Language](#document-property---language)  
+			3.2.2.8 [Document Property - License Expression](#document-property---license-expression)  
+			3.2.2.9 [Document Property - Notes](#document-property---notes)  
+			3.2.2.10 [Document Property - Publisher](#document-property---publisher)  
+				3.2.2.10.1 [Document Property - Publisher - Category](#document-property---publisher-category)  
+				3.2.2.10.2 [Document Property - Publisher - Contact](#document-property---publisher---contact)  
+				3.2.2.10.3 [Document Property - Publisher - Issuing Authority](#document-property---publisher---issuing-authority)  
+				3.2.2.10.4 [Document Property - Publisher - Name](#document-property---publisher---name)  
+				3.2.2.10.5 [Document Property - Publisher - Namespace](#document-property---publisher---namespace)  
+			3.2.2.11 [Document Property - References](#document-property---references)  
+			3.2.2.12 [Document Property - Source Language](#document-property---source-language)  
+			3.2.2.13 [Document Property - Title](#document-property---title)  
+			3.2.2.14 [Document Property - Tracking](#document-property---tracking)  
+				3.2.2.14.1 [Document Property - Tracking - Aliases](#document-property---tracking---aliases)  
+				3.2.2.14.2 [Document Property - Tracking - Current Release Date](#document-property---tracking---current-release-date)  
+				3.2.2.14.3 [Document Property - Tracking - Generator](#document-property---tracking---generator)  
+				3.2.2.14.4 [Document Property - Tracking - ID](#document-property---tracking---id)  
+				3.2.2.14.5 [Document Property - Tracking - Initial Release Date](#document-property---tracking---initial-release-date)  
+				3.2.2.14.6 [Document Property - Tracking - Revision History](#document-property---tracking---revision-history)  
+				3.2.2.14.7 [Document Property - Tracking - Status](#document-property---tracking---status)  
+				3.2.2.14.8 [Document Property - Tracking - Version](#document-property---tracking---version)  
+			3.2.2.15 [Document Property - Extensions](#document-property---extensions)  
 		3.2.3 [Product Tree Property](#product-tree-property)  
 			3.2.3.1 [Product Tree Property - Branches](#product-tree-property---branches)  
 			3.2.3.2 [Product Tree Property - Full Product Names](#product-tree-property---full-product-names)  
@@ -224,26 +234,25 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			3.2.4.6 [Vulnerabilities Property - First Known Exploitation Dates](#vulnerabilities-property---first-known-exploitation-dates)  
 			3.2.4.7 [Vulnerabilities Property - Flags](#vulnerabilities-property-flags)  
 			3.2.4.8 [Vulnerabilities Property - IDs](#vulnerabilities-property---ids)  
-			3.2.4.9 [Vulnerabilities Property - Involvements](#vulnerabilities-property---involvements)  
-			3.2.4.10 [Vulnerabilities Property - Metrics](#vulnerabilities-property---metrics)  
-				3.2.4.10.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property---metrics---content)  
-				3.2.4.10.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property---metrics---products)  
-				3.2.4.10.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property---metrics---source)  
-			3.2.4.11 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
-			3.2.4.12 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
-			3.2.4.13 [Vulnerabilities Property - References](#vulnerabilities-property---references)  
-			3.2.4.14 [Vulnerabilities Property - Remediations](#vulnerabilities-property---remediations)  
-				3.2.4.14.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
-				3.2.4.14.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property---remediations---date)  
-				3.2.4.14.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property---remediations---details)  
-				3.2.4.14.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property---remediations---entitlements)  
-				3.2.4.14.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property---remediations---group-ids)  
-				3.2.4.14.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property---remediations---product-ids)  
-				3.2.4.14.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property---remediations---restart-required)  
-				3.2.4.14.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property---remediations---url)  
-			3.2.4.15 [Vulnerabilities Property - Threats](#vulnerabilities-property---threats)  
-			3.2.4.16 [Vulnerabilities Property - Title](#vulnerabilities-property---title)  
-			3.2.4.17 [Vulnerabilities Property - Extensions](#vulnerabilities-property---extensions)  
+			3.2.4.9 [Vulnerabilities Property - Metrics](#vulnerabilities-property---metrics)  
+				3.2.4.9.1 [Vulnerabilities Property - Metrics - Content](#vulnerabilities-property---metrics---content)  
+				3.2.4.9.2 [Vulnerabilities Property - Metrics - Products](#vulnerabilities-property---metrics---products)  
+				3.2.4.9.3 [Vulnerabilities Property - Metrics - Source](#vulnerabilities-property---metrics---source)  
+			3.2.4.10 [Vulnerabilities Property - Notes](#vulnerabilities-property-notes)  
+			3.2.4.11 [Vulnerabilities Property - Product Status](#vulnerabilities-property-product-status)  
+			3.2.4.12 [Vulnerabilities Property - References](#vulnerabilities-property---references)  
+			3.2.4.13 [Vulnerabilities Property - Remediations](#vulnerabilities-property---remediations)  
+				3.2.4.13.1 [Vulnerabilities Property - Remediations - Category](#vulnerabilities-property-remediations-category)  
+				3.2.4.13.2 [Vulnerabilities Property - Remediations - Date](#vulnerabilities-property---remediations---date)  
+				3.2.4.13.3 [Vulnerabilities Property - Remediations - Details](#vulnerabilities-property---remediations---details)  
+				3.2.4.13.4 [Vulnerabilities Property - Remediations - Entitlements](#vulnerabilities-property---remediations---entitlements)  
+				3.2.4.13.5 [Vulnerabilities Property - Remediations - Group IDs](#vulnerabilities-property---remediations---group-ids)  
+				3.2.4.13.6 [Vulnerabilities Property - Remediations - Product IDs](#vulnerabilities-property---remediations---product-ids)  
+				3.2.4.13.7 [Vulnerabilities Property - Remediations - Restart Required](#vulnerabilities-property---remediations---restart-required)  
+				3.2.4.13.8 [Vulnerabilities Property - Remediations - URL](#vulnerabilities-property---remediations---url)  
+			3.2.4.14 [Vulnerabilities Property - Threats](#vulnerabilities-property---threats)  
+			3.2.4.15 [Vulnerabilities Property - Title](#vulnerabilities-property---title)  
+			3.2.4.16 [Vulnerabilities Property - Extensions](#vulnerabilities-property---extensions)  
 		3.2.5 [Extensions Property](#extensions-property)  
 4. [Profiles](#profiles)  
 	4.1 [Profile 1: CSAF Base](#profile-1-csaf-base)  
@@ -287,10 +296,10 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.1.21 [Missing Item in Revision History](#missing-item-in-revision-history)  
 		6.1.22 [Multiple Definition in Revision History](#multiple-definition-in-revision-history)  
 		6.1.23 [Multiple Use of Same CVE](#multiple-use-of-same-cve)  
-		6.1.24 [Multiple Definition in Involvements](#multiple-definition-in-involvements)  
+		6.1.24 [Multiple Definition in Actions](#multiple-definition-in-actions)  
 		6.1.25 [Multiple Use of Same Hash Algorithm](#multiple-use-of-same-hash-algorithm)  
 		6.1.26 [Prohibited Document Category Name](#prohibited-document-category-name)  
-		6.1.27 [Profile Tests](#mandatory-profile-tests)  
+		6.1.27 [Profile Tests](#mandatory--profile-tests)  
 			6.1.27.1 [Document Notes](#document-notes-for-informational-advisory-and-security-incident-response)  
 			6.1.27.2 [Document References](#document-references-for-informational-advisory-and-security-incident-response)  
 			6.1.27.3 [Vulnerabilities](#vulnerabilities-for-informational-advisory)  
@@ -348,6 +357,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			6.1.60.2 [Extension Schema](#mandatory-tests--extension-tests-extension-schema)  
 			6.1.60.3 [Extension Metadata](#mandatory-tests--extension-tests-metadata)  
 		6.1.61 [Use of Multiple Stars in SKU](#use-of-multiple-stars-in-sku)  
+		6.1.62 [Inconsistent Discovery Date](#inconsistent-discovery-date)  
 	6.2 [Recommended Tests](#recommended-tests)  
 		6.2.1 [Unused Definition of Product ID](#unused-definition-of-product-id)  
 		6.2.2 [Missing Remediation](#missing-remediation)  
@@ -355,7 +365,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.4 [Build Metadata in Revision History](#build-metadata-in-revision-history)  
 		6.2.5 [Older Initial Release Date than Revision History](#older-initial-release-date-than-revision-history)  
 		6.2.6 [Older Current Release Date than Revision History](#older-current-release-date-than-revision-history)  
-		6.2.7 [Missing Date in Involvements](#missing-date-in-involvements)  
+		6.2.7 [Missing Date of the Action (Obsolete)](#missing-date-of-the-action)  
 		6.2.8 [Use of MD5 As the Only Hash Algorithm](#use-of-md5-as-the-only-hash-algorithm)  
 		6.2.9 [Use of SHA-1 As the Only Hash Algorithm](#use-of-sha-1-as-the-only-hash-algorithm)  
 		6.2.10 [Missing TLP Label (Obsolete)](#missing-tlp-label)  
@@ -387,7 +397,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 		6.2.36 [Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document](#usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document)  
 		6.2.37 [Usage of Unknown SSVC Decision Point Namespace without Resource](#usage-of-unknown-ssvc-decision-point-namespace-without-resource)  
 		6.2.38 [Usage of Deprecated Profile](#usage-of-deprecated-profile)  
-		6.2.39 [Profile Tests](#recommended-profile-tests)  
+		6.2.39 [Profile Tests](#recommended--profile-tests)  
 			6.2.39.1 [Missing Fixed Product](#missing-fixed-product)  
 			6.2.39.2 [Language Specific Reasoning for Withdrawal](#language-specific-reasoning-for-withdrawal)  
 			6.2.39.3 [Language Specific Reasoning for Supersession](#language-specific-reasoning-for-supersession)  
@@ -462,9 +472,9 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			6.3.21.9 [Usage of Extension at Root Level](#usage-of-extension-at-root-level)  
 		6.3.22 [Nested Product Path](#nested-product-path)  
 		6.3.23 [Profile Tests](#informative--profile-tests)  
-		6.3.24 [Involvements](#involvements)  
-		6.3.25 [Disclosure Date](#disclosure-date)  
-		6.3.26 [Public OpenPGP Key URL User ID](#public-openpgp-key-url-user-id)  
+			6.3.23.1 [Involvement](#involvement)  
+			6.3.23.2 [Disclosure Date](#disclosure-date)  
+		6.3.24 [Public OpenPGP Key URL User ID](#public-openpgp-key-url-user-id)  
 	6.4 [Test Presets](#test-presets)  
 		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)  
 		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)  
@@ -1462,14 +1472,22 @@ The three additional properties, `product_tree`, `vulnerabilities`, and `x_exten
 ## 3.1 Definitions <a id='definitions'></a>
 
 The definitions (`$defs`) introduce the following domain specific types into the CSAF language:
-Acknowledgments (`acknowledgments_t`), Branches (`branches_t`), Extensions (`extensions_t`), Full Product Name (`full_product_name_t`),
+Acknowledgments (`acknowledgments_t`), Action ID (`action_id_t`), Branches (`branches_t`), Contact (`contact_t`),
+Document-local Vuln ID (`dl_vuln_id_t`), Entity Group ID (`entity_group_id_t`), Entity ID (`entity_id_t`),
+Entity Refs (`entity_refs_t`), Extensions (`extensions_t`), Full Product Name (`full_product_name_t`),
 Language (`lang_t`), Notes (`notes_t`), Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`),
 Product ID (`product_id_t`), Products (`products_t`), References (`references_t`), Subpath (`subpath_t`) and Version (`version_t`).
 
 ```yaml <!--json-path($['$defs'])-->
 $defs:
   acknowledgments_t: Sequence
+  action_id_t: String.Pattern
   branches_t: Sequence
+  contact_t: Mapping
+  dl_vuln_id_t: String.Pattern
+  entity_group_id_t: String.Pattern
+  entity_id_t: String.Pattern
+  entity_refs_t: Sequence
   extensions_t: Sequence
   full_product_name_t: Mapping
   lang_t: String.Pattern
@@ -1597,7 +1615,34 @@ The above SHOULD lead to the following outcome in a human-readable advisory:
 > * BSI for assistance in coordination
 > * Antonio Vivaldi for influencing other composers
 
-### 3.1.2 Branches Type <a id='branches-type'></a>
+### 3.1.2 Action ID Type <a id='action-id-type'></a>
+
+The Action ID Type (`action_id_t`) of value type `string` with `1` or more characters is a reference token for action instances.
+It SHALL conform to `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The value contains a token required to identify an action uniquely in the context of the current document so that it can be referred to from other parts in the document.
+
+```yaml <!--json-path($['$defs'].action_id_t)-->
+$defs:
+  # ...
+  action_id_t: String.Pattern
+  # ...
+```
+
+*Examples 1:*<a id='action-id-type-eg-1'></a><a id='sec-3-1-2-eg-1'></a><a id='example-7'></a>
+
+```
+
+    1
+    AID-0001
+    Some ID
+```
+
+### 3.1.3 Branches Type <a id='branches-type'></a>
 
 List of branches (`branches_t`) with value type `array` contains `1` or more branch elements as children of the current element.
 
@@ -1629,11 +1674,11 @@ $defs:
 > It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support
 > the identification and matching of products on the consumer side.
 
-#### 3.1.2.1 Branches Type - Branches <a id='branches-type---branches'></a>
+#### 3.1.3.1 Branches Type - Branches <a id='branches-type---branches'></a>
 
 List of branches (`branches`) has the value type `branches_t`.
 
-#### 3.1.2.2 Branches Type - Category <a id='branches-type---category'></a>
+#### 3.1.3.2 Branches Type - Category <a id='branches-type---category'></a>
 
 Category of the branch (`category`) of value type `string` and `enum` describes the characteristics of the labeled branch.
 Valid `enum` values are:
@@ -1656,7 +1701,7 @@ Valid `enum` values are:
 The value `architecture` indicates the architecture for which the product is intended.
 
 > This usually identifies the CPU instruction-set architecture.
-> See also example \[[2 (of section 3.1.2.3)](#branches-type---name-eg-2)\] in section [3.1.2.3](#branches-type---name).
+> See also example \[[2 (of section 3.1.3.3)](#branches-type---name-eg-2)\] in section [3.1.3.3](#branches-type---name).
 
 The value `host_name` indicates the host name of a system/service.
 
@@ -1667,7 +1712,7 @@ The value `patch_level` indicates the patch level of the product.
 The value `platform` indicates the (CPU) platform for which the product is intended.
 
 > As the same architecture is used in different platforms, this allows a differentiation.
-> See also example \[[3 (of section 3.1.2.3)](#branches-type---name-eg-3)\] in section [3.1.2.3](#branches-type---name).
+> See also example \[[3 (of section 3.1.3.3)](#branches-type---name-eg-3)\] in section [3.1.3.3](#branches-type---name).
 
 The value `product_family` indicates the product family that the product falls into.
 
@@ -1698,11 +1743,11 @@ The value `specification` indicates the specification such as a standard, best c
 
 The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
 
-#### 3.1.2.3 Branches Type - Name <a id='branches-type---name'></a>
+#### 3.1.3.3 Branches Type - Name <a id='branches-type---name'></a>
 
 Name of the branch (`name`) of value type `string` with `1` or more characters contains the canonical descriptor or 'friendly name' of the branch.
 
-*Examples 1:*<a id='branches-type---name-eg-1'></a><a id='sec-3-1-2-3-eg-1'></a><a id='example-7'></a>
+*Examples 1:*<a id='branches-type---name-eg-1'></a><a id='sec-3-1-3-3-eg-1'></a><a id='example-8'></a>
 
 ```
     10
@@ -1718,7 +1763,7 @@ Name of the branch (`name`) of value type `string` with `1` or more characters c
 A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is
 part of the product version as given by the vendor.
 
-*Examples 2 (for `name` when using `architecture`):*<a id='branches-type---name-eg-2'></a><a id='sec-3-1-2-3-eg-2'></a><a id='example-8'></a>
+*Examples 2 (for `name` when using `architecture`):*<a id='branches-type---name-eg-2'></a><a id='sec-3-1-3-3-eg-2'></a><a id='example-9'></a>
 
 ```
     AArch32
@@ -1737,7 +1782,7 @@ part of the product version as given by the vendor.
     x86
 ```
 
-*Examples 3 (for `name` when using `platform`):*<a id='branches-type---name-eg-3'></a><a id='sec-3-1-2-3-eg-3'></a><a id='example-9'></a>
+*Examples 3 (for `name` when using `platform`):*<a id='branches-type---name-eg-3'></a><a id='sec-3-1-3-3-eg-3'></a><a id='example-10'></a>
 
 ```
     AMD
@@ -1745,11 +1790,11 @@ part of the product version as given by the vendor.
     Intel
 ```
 
-##### 3.1.2.3.1 Branches Type - Name under Product Version <a id='branches-type---name-under-product-version'></a>
+##### 3.1.3.3.1 Branches Type - Name under Product Version <a id='branches-type---name-under-product-version'></a>
 
 If adjacent property `category` has the value `product_version`, the value of `name` SHALL NOT contain version ranges of any kind.
 
-*Examples 1 (for `name` when using `product_version`):*<a id='branches-type---name-under-product-version-eg-1'></a><a id='sec-3-1-2-3-1-eg-1'></a><a id='example-10'></a>
+*Examples 1 (for `name` when using `product_version`):*<a id='branches-type---name-under-product-version-eg-1'></a><a id='sec-3-1-3-3-1-eg-1'></a><a id='example-11'></a>
 
 ```
     10
@@ -1762,7 +1807,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 > If both version strings are the same, it is a match - otherwise not.
 > Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
 
-*Examples 2 (for `name` when using `product_version` which are invalid):*<a id='branches-type---name-under-product-version-eg-2'></a><a id='sec-3-1-2-3-1-eg-2'></a><a id='example-11'></a>
+*Examples 2 (for `name` when using `product_version` which are invalid):*<a id='branches-type---name-under-product-version-eg-2'></a><a id='sec-3-1-3-3-1-eg-2'></a><a id='example-12'></a>
 
 ```
     8.0.0 - 8.0.1
@@ -1775,7 +1820,7 @@ If adjacent property `category` has the value `product_version`, the value of `n
 
 > All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
 
-##### 3.1.2.3.2 Branches Type - Name under Product Version Range <a id='branches-type---name-under-product-version-range'></a>
+##### 3.1.3.3.2 Branches Type - Name under Product Version Range <a id='branches-type---name-under-product-version-range'></a>
 
 If adjacent property `category` has the value `product_version_range`, the value of `name` SHALL contain version ranges.
 The value of SHALL obey to exactly one of the following options:
@@ -1789,7 +1834,7 @@ The value of SHALL obey to exactly one of the following options:
 
    > According to the interpretation used here, the canonical form requires that the VERS is normalized.
 
-    *Examples 1 (for `name` when using `product_version_range` with VERS):*<a id='branches-type---name-under-product-version-range-eg-1'></a><a id='sec-3-1-2-3-2-eg-1'></a><a id='example-12'></a>
+    *Examples 1 (for `name` when using `product_version_range` with VERS):*<a id='branches-type---name-under-product-version-range-eg-1'></a><a id='sec-3-1-3-3-2-eg-1'></a><a id='example-13'></a>
 
     ```
         vers:gem/>=2.2.0|!=2.2.1|<2.3.0
@@ -1813,7 +1858,7 @@ The value of SHALL obey to exactly one of the following options:
 
     Tools MAY support this on best effort basis.
 
-    *Examples 2 (for `name` when using `product_version_range` with vls):*<a id='branches-type---name-under-product-version-range-eg-2'></a><a id='sec-3-1-2-3-2-eg-2'></a><a id='example-13'></a>
+    *Examples 2 (for `name` when using `product_version_range` with vls):*<a id='branches-type---name-under-product-version-range-eg-2'></a><a id='sec-3-1-3-3-2-eg-2'></a><a id='example-14'></a>
 
     ```
         <=2
@@ -1824,11 +1869,212 @@ The value of SHALL obey to exactly one of the following options:
         <2024-4-pabc0019|>2024-10-pefd0010|<2024-12-pjkl2010|>2024-12-pjkl5010|<=2025-1-pghi1001
     ```
 
-#### 3.1.2.4 Branches Type - Product <a id='branches-type---product'></a>
+#### 3.1.3.4 Branches Type - Product <a id='branches-type---product'></a>
 
 Product (`product`) has the value type Full Product Name (`full_product_name_t`).
 
-### 3.1.3 Extensions Type <a id='extensions-type'></a>
+### 3.1.4 Contact Type <a id='contact-type'></a>
+
+Contact Type (`contact_t`) of value type `object` with `1` or more properties contains information on how to contact the party.
+The properties are Contact Details (`details`), Email (`email`), Public OpenPGP Key URL (`public_openpgp_key_url`), and
+Contact URL (`url`).
+If the property `public_openpgp_key_url` is set, the `email` SHALL be set as well.
+
+```yaml <!--json-path($['$defs'].contact_t.properties)-->
+$defs:
+  # ...
+  contact_t:
+    details: String
+    email: String.EMAIL
+    public_openpgp_key_url: String.URI
+    url: String.URI
+  # ...
+```
+
+Contact details (`details`) of value type `string` with `1` or more characters contains details regarding ways to reach the party,
+ e.g. through web sites, phone numbers, and postal mail addresses.
+
+*Example 1:*<a id='contact-type-eg-1'></a><a id='sec-3-1-4-eg-1'></a><a id='example-15'></a>
+
+```
+    Example Company can be reached at tel:+493023125232,
+    or via our website at https://www.example.com/contact.
+```
+
+Email (`email`) of value type `string` of `6` or more characters with format `email` contains the email address
+that can be used to reach the party.
+
+*Examples 2:*<a id='contact-type-eg-2'></a><a id='sec-3-1-4-eg-2'></a><a id='example-16'></a>
+
+```
+    productcert@example.net
+    psirt@example.com
+    reporter@securityresearcher.example
+    vulnerability@coordinator.example
+```
+
+Public OpenPGP Key URL (`public_openpgp_key_url`) has value type `string` of `11` or more characters with format `uri`
+and `pattern` (regular expression):
+
+```
+    ^https:\\/\\/
+```
+
+Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key valid for the email of party provided
+in the sibling property `email`.
+
+> It is desired that the OpenPGP Key contains the same email address in its user ID as given through the property `email`.
+> However, due to data protection and operation concerns neither a user ID in the OpenPGP key nor
+> an exact match to the value of `email` is enforced by this standard.
+> The use of aliases is permitted.
+> The issuing party is responsible for ensuring the usability of the key provided.
+
+The URL MAY point to a location that redirects.
+Redirects SHALL fulfill the same requirements as specified in [7.1.6](#requirement-6-no-redirects).
+The content delivered SHALL be a valid OpenPGP key allowing encryption as ASCII armored file with the matching content type.
+See \[[RFC4880](#RFC4880)\] and \[[RFC3156](#RFC3156)\] for more details.
+
+*Examples 3:*<a id='contact-type-eg-3'></a><a id='sec-3-1-4-eg-3'></a><a id='example-17'></a>
+
+```
+    https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability
+    https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert
+    https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter
+    https://psirt.example.com/security/openpgp/latest
+```
+
+Contact URL (`url`) has value type `string` of `11` or more characters with format `uri` and `pattern` (regular expression):
+
+```
+    ^https:\\/\\/
+```
+
+Contact URL contains a URL that can be used to reach the party.
+
+*Examples 4*:
+
+```
+    https://www.example.com/psirt/contact
+    https://www.example.net/psirt/report-a-vulnerability--expert-form
+    https://www.example.org/.well-known/security.txt
+```
+
+### 3.1.5 Document-local Vuln ID Type <a id='document-local-vuln-id-type'></a>
+
+The Document-local Vuln ID Type (`dl_vuln_id_t`) of value type `string` with `6` or more characters is a document-local
+reference token for vulnerability instances.
+It SHALL conform to `pattern` (regular expression):
+
+```
+    ^VULN-[0-9A-Za-z._-]+$
+```
+
+The value contains a token required to identify a vulnerability uniquely in the context of the current document so that it can be referred to from other parts in the document.
+It SHOULD NOT to be used to refer to a vulnerability from outside of the CSAF document.
+
+```yaml <!--json-path($['$defs'].dl_vuln_id_t)-->
+$defs:
+  # ...
+  dl_vuln_id_t: String.Pattern
+  # ...
+```
+
+*Examples 1:*<a id='document-local-vuln-id-type-eg-1'></a><a id='sec-3-1-5-eg-1'></a><a id='example-19'></a>
+
+```
+    VULN-0001
+    VULN-CVE-1900-0001
+```
+
+### 3.1.6 Entity Group ID Type <a id='entity-group-id-type'></a>
+
+The Entity Group ID Type (`entity_group_id_t`) of value type `string` with `6` or more characters is a reference token for
+entity group instances.
+It SHALL conform to `pattern` (regular expression):
+
+```
+    ^EGID-[0-9A-Za-z][0-9A-Za-z._-]*$
+```
+
+The value contains a token required to identify a group of entities uniquely in the context of the current document
+so that it can be referred to from other parts in the document.
+
+```yaml <!--json-path($['$defs'].entity_group_id_t)-->
+$defs:
+  # ...
+  entity_group_id_t: String.Pattern
+  # ...
+```
+
+*Examples 1:*<a id='entity-group-id-type-eg-1'></a><a id='sec-3-1-6-eg-1'></a><a id='example-20'></a>
+
+```
+    EGID-0001
+    EGID-CERTs
+    EGID-Coordinators
+    EGID-vendors
+```
+
+### 3.1.7 Entity ID Type <a id='entity-id-type'></a>
+
+The Entity ID Type (`entity_id_t`) of value type `string` with `5` or more characters is a reference token for entity instances.
+It SHALL conform to `pattern` (regular expression):
+
+```
+    ^EID-[0-9A-Za-z][0-9A-Za-z._-]*$
+```
+
+The value contains a token required to identify an entity uniquely in the context of the current document
+so that it can be referred to from other parts in the document.
+
+```yaml <!--json-path($['$defs'].entity_id_t)-->
+$defs:
+  # ...
+  entity_id_t: String.Pattern
+  # ...
+```
+
+*Examples 1:*<a id='entity-id-type-eg-1'></a><a id='sec-3-1-7-eg-1'></a><a id='example-21'></a>
+
+```
+    EID-0001
+    EID-CERT
+    EID-Example_Company
+    EID-org.example
+```
+
+### 3.1.8 Entity Refs Type <a id='entity-refs-type'></a>
+
+List of entity references (`entity_refs_t`) of value type `array` with `1` or more unique items (a `set`)
+specifies a list of `entity_ids` or `entity_group_ids` to give context to the parent item.
+
+```yaml <!--json-path($['$defs'].entity_refs_t)-->
+$defs:
+  # ...
+  entity_refs_t: Sequence
+  # ...
+```
+
+Value type of every such entity reference item is any of Entity Group ID Type (`entity_group_id_t`) or Entity ID Type (`entity_id_t`).
+
+```yaml <!--json-path($['$defs'].entity_refs_t[*].properties)-->
+$defs:
+  # ...
+  entity_refs_t:
+  - # <entity-ref-instance>:
+    # !AnyOf<
+    - $defs.entity_group_id_t
+    - $defs.entity_id_t
+    #>
+  # ...
+```
+
+This type allows to reference Entity IDs directly and indirectly via an Entity Group ID within the same data structure.
+
+> The usage of the `anyOf` schema constraint allows for a faster evaluation.
+> However, such construct needs to ensure that the schemas have no overlap.
+
+### 3.1.9 Extensions Type <a id='extensions-type'></a>
 
 List of extensions (`extensions_t`) of value type `array` with `1` or more unique items (a `set`) contains a list of extension elements
 for the current context.
@@ -1844,7 +2090,7 @@ Each item SHALL comply with the rules for CSAF Extensions and validate against t
 [CSAF Extension Content schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) as well as the schema given
 through its `$schema` property.
 
-### 3.1.4 Full Product Name Type <a id='full-product-name-type'></a>
+### 3.1.10 Full Product Name Type <a id='full-product-name-type'></a>
 
 Full Product Name (`full_product_name_t`) of value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
@@ -1859,24 +2105,24 @@ $defs:
   # ...
 ```
 
-#### 3.1.4.1 Full Product Name Type - Name <a id='full-product-name-type---name'></a>
+#### 3.1.10.1 Full Product Name Type - Name <a id='full-product-name-type---name'></a>
 
 Textual description of the product (`name`) has value type `string` with `1` or more characters.
 The value SHOULD be the product's full canonical name, including version number and other attributes,
 as it would be used in a human-friendly document.
 
-*Examples 1:*<a id='full-product-name-type---name-eg-1'></a><a id='sec-3-1-4-1-eg-1'></a><a id='example-14'></a>
+*Examples 1:*<a id='full-product-name-type---name-eg-1'></a><a id='sec-3-1-10-1-eg-1'></a><a id='example-22'></a>
 
 ```
     Cisco AnyConnect Secure Mobility Client 2.3.185
     Microsoft Host Integration Server 2006 Service Pack 1
 ```
 
-#### 3.1.4.2 Full Product Name Type - Product ID <a id='full-product-name-type---product-id'></a>
+#### 3.1.10.2 Full Product Name Type - Product ID <a id='full-product-name-type---product-id'></a>
 
 Product ID (`product_id`) holds a value of type Product ID (`product_id_t`).
 
-#### 3.1.4.3 Full Product Name Type - Product Identification Helper <a id='full-product-name-type-product-identification-helper'></a>
+#### 3.1.10.3 Full Product Name Type - Product Identification Helper <a id='full-product-name-type-product-identification-helper'></a>
 
 Helper to identify the product (`product_identification_helper`) of value type `object` provides in its properties at least
 one method which aids in identifying the product in an asset database.
@@ -1904,10 +2150,12 @@ A helper to identify the product SHALL identify the product described by the `na
 A matching algorithm has to be able to rely on the `product_identification_helper` information during the matching without having to
 check e.g. the branches hierarchy leading to the product.
 
-> Therefore, it is, for example, prohibited to omit the version from the CPE if a `product_version` was given in branches hierarchy
-> leading to the product.
+Only exception is the use of a CPE with a version part of `*`:
+A matching algorithm SHALL check whether a parent element along the path leading to the `product_identification_helper` exists,
+that has the category `product_version_range`.
+In such case, the corresponding value of the product version range SHALL be used as version information for the matching.
 
-##### 3.1.4.3.1 Full Product Name Type - Product Identification Helper - CPE <a id='full-product-name-type---product-identification-helper---cpe'></a>
+##### 3.1.10.3.1 Full Product Name Type - Product Identification Helper - CPE <a id='full-product-name-type---product-identification-helper---cpe'></a>
 
 Common Platform Enumeration representation (`cpe`) has value type `string` of `5` or more characters with `pattern` (regular expression):
 
@@ -1920,7 +2168,7 @@ See [CPE23-N] for details.
 
 > Both, CPE 2.2 and CPE 2.3, are supported in CSAF.
 
-##### 3.1.4.3.2 Full Product Name Type - Product Identification Helper - Hashes <a id='full-product-name-type---product-identification-helper---hashes'></a>
+##### 3.1.10.3.2 Full Product Name Type - Product Identification Helper - Hashes <a id='full-product-name-type---product-identification-helper---hashes'></a>
 
 List of hashes (`hashes`) of value type `array` with `1` or more unique items
 contains a list of cryptographic hashes usable to identify files.
@@ -2002,7 +2250,7 @@ The algorithm of the cryptographic hash representation contains the name of the 
 The default value for `algorithm` is `sha256`.
 Secure cryptographic hash algorithms SHOULD be preferred.
 
-*Examples 1:*<a id='full-product-name-type---product-identification-helper---hashes-eg-1'></a><a id='sec-3-1-4-3-2-eg-1'></a><a id='example-15'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---hashes-eg-1'></a><a id='sec-3-1-10-3-2-eg-1'></a><a id='example-23'></a>
 
 ```
       blake2b512
@@ -2037,7 +2285,7 @@ The Value of the cryptographic hash representation (`value`) has value type `str
 
 The Value of the cryptographic hash attribute contains the cryptographic hash value in lowercase hexadecimal representation.
 
-*Examples 2:*<a id='full-product-name-type---product-identification-helper---hashes-eg-2'></a><a id='sec-3-1-4-3-2-eg-2'></a><a id='example-16'></a>
+*Examples 2:*<a id='full-product-name-type---product-identification-helper---hashes-eg-2'></a><a id='sec-3-1-10-3-2-eg-2'></a><a id='example-24'></a>
 
 ```
     37df33cb7464da5c7f077f4d56a32bc84987ec1d85b234537c1c1a4d4fc8d09dc29e2e762cb5203677bf849a2855a0283710f1f5fe1d6ce8d5ac85c645d0fcb3
@@ -2048,7 +2296,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
 The filename representation (`filename`) of value type `string` with `1` or more characters contains the name of
 the file which is identified by the hash values.
 
-*Examples 3:*<a id='full-product-name-type---product-identification-helper---hashes-eg-3'></a><a id='sec-3-1-4-3-2-eg-3'></a><a id='example-17'></a>
+*Examples 3:*<a id='full-product-name-type---product-identification-helper---hashes-eg-3'></a><a id='sec-3-1-10-3-2-eg-3'></a><a id='example-25'></a>
 
 ```
     WINWORD.EXE
@@ -2059,7 +2307,7 @@ the file which is identified by the hash values.
 If the value of the hash matches and the filename does not, a user SHOULD prefer the hash value.
 In such cases, the filename SHOULD be used as informational property.
 
-##### 3.1.4.3.3 Full Product Name Type - Product Identification Helper - Model Numbers <a id='full-product-name-type---product-identification-helper---model-numbers'></a>
+##### 3.1.10.3.3 Full Product Name Type - Product Identification Helper - Model Numbers <a id='full-product-name-type---product-identification-helper---model-numbers'></a>
 
 The list of models (`model_numbers`) of value type `array` with `1` or more unique items contains a list of model numbers.
 
@@ -2097,7 +2345,7 @@ As part of the model number, the special characters `?`, `*` and `\` SHALL be es
 
 > Note: A backslash SHALL be escaped itself in a JSON string.
 
-*Examples 1:*<a id='full-product-name-type---product-identification-helper---model-numbers-eg-1'></a><a id='sec-3-1-4-3-3-eg-1'></a><a id='example-18'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---model-numbers-eg-1'></a><a id='sec-3-1-10-3-3-eg-1'></a><a id='example-26'></a>
 
 ```
     *-G109A/EU?
@@ -2107,7 +2355,7 @@ As part of the model number, the special characters `?`, `*` and `\` SHALL be es
     IC25T060ATCS05-0
 ```
 
-##### 3.1.4.3.4 Full Product Name Type - Product Identification Helper - PURLs <a id='full-product-name-type-product-identification-helper-purls'></a>
+##### 3.1.10.3.4 Full Product Name Type - Product Identification Helper - PURLs <a id='full-product-name-type-product-identification-helper-purls'></a>
 
 List of PURLs (`purls`) of value type `array` with `1` or more unique items contains a list of Package-URL (PURL) identifiers.
 
@@ -2141,7 +2389,7 @@ Multiple PURLs can be specified to allow for identifiers to locate identical com
 If multiple PURLs are specified, they SHALL only differ in their qualifiers.
 Otherwise, separate product branches SHOULD be used to differentiate between the components.
 
-##### 3.1.4.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs <a id='full-product-name-type---product-identification-helper---sbom-urls'></a>
+##### 3.1.10.3.5 Full Product Name Type - Product Identification Helper - SBOM URLs <a id='full-product-name-type---product-identification-helper---sbom-urls'></a>
 
 The list of SBOM URLs (`sbom_urls`) of value type `array` with `1` or more unique items
 contains a list of URLs where SBOMs for this product can be retrieved.
@@ -2162,14 +2410,14 @@ $defs:
 
 Any given SBOM URL of value type `string` with format `uri` contains a URL of one SBOM for this product.
 
-*Examples 1:*<a id='full-product-name-type---product-identification-helper---sbom-urls-eg-1'></a><a id='sec-3-1-4-3-5-eg-1'></a><a id='example-19'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---sbom-urls-eg-1'></a><a id='sec-3-1-10-3-5-eg-1'></a><a id='example-27'></a>
 
 ```
     https://raw.githubusercontent.com/CycloneDX/bom-examples/master/SBOM/keycloak-10.0.2/bom.json
     https://swinslow.net/spdx-examples/example4/main-bin-v2
 ```
 
-##### 3.1.4.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers <a id='full-product-name-type---product-identification-helper---serial-numbers'></a>
+##### 3.1.10.3.6 Full Product Name Type - Product Identification Helper - Serial Numbers <a id='full-product-name-type---product-identification-helper---serial-numbers'></a>
 
 The list of serial numbers (`serial_numbers`) of value type `array` with `1` or more unique items 
 contains a list of serial numbers.
@@ -2202,7 +2450,7 @@ As part of the serial number, the special characters `?`, `*` and `\` SHALL be e
 
 > Note: A backslash SHALL be escaped itself in a JSON string.
 
-*Examples 1:*<a id='full-product-name-type---product-identification-helper---serial-numbers-eg-1'></a><a id='sec-3-1-4-3-6-eg-1'></a><a id='example-20'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---serial-numbers-eg-1'></a><a id='sec-3-1-10-3-6-eg-1'></a><a id='example-28'></a>
 
 ```
     *RF8R71YR???
@@ -2212,7 +2460,7 @@ As part of the serial number, the special characters `?`, `*` and `\` SHALL be e
     L234.696.30.044.712
 ```
 
-##### 3.1.4.3.7 Full Product Name Type - Product Identification Helper - SKUs <a id='full-product-name-type---product-identification-helper---skus'></a>
+##### 3.1.10.3.7 Full Product Name Type - Product Identification Helper - SKUs <a id='full-product-name-type---product-identification-helper---skus'></a>
 
 The list of stock keeping units (`skus`) of value type `array` with `1` or more unique items
 contains a list of stock keeping units.
@@ -2251,7 +2499,7 @@ As part of the stock keeping unit, the special characters `?`, `*` and `\` SHALL
 
 > Note: A backslash SHALL be escaped itself in a JSON string.
 
-*Examples 1:*<a id='full-product-name-type---product-identification-helper---skus-eg-1'></a><a id='sec-3-1-4-3-7-eg-1'></a><a id='example-21'></a>
+*Examples 1:*<a id='full-product-name-type---product-identification-helper---skus-eg-1'></a><a id='sec-3-1-10-3-7-eg-1'></a><a id='example-29'></a>
 
 ```
     11????2
@@ -2261,7 +2509,7 @@ As part of the stock keeping unit, the special characters `?`, `*` and `\` SHALL
     2.063.*.?:221-A
 ```
 
-##### 3.1.4.3.8 Full Product Name Type - Product Identification Helper - Generic URIs <a id='full-product-name-type---product-identification-helper---generic-uris'></a>
+##### 3.1.10.3.8 Full Product Name Type - Product Identification Helper - Generic URIs <a id='full-product-name-type---product-identification-helper---generic-uris'></a>
 
 List of generic URIs (`x_generic_uris`) of value type `array` with `1` or more unique items
 contains a list of identifiers which are
@@ -2301,7 +2549,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 
 > These elements can be used to reference a specific component from an SBOM:
 
-*Example 1 (linking a component from a CycloneDX SBOM using the bomlink mechanism):*<a id='full-product-name-type---product-identification-helper---generic-uris-eg-1'></a><a id='sec-3-1-4-3-8-eg-1'></a><a id='example-22'></a>
+*Example 1 (linking a component from a CycloneDX SBOM using the bomlink mechanism):*<a id='full-product-name-type---product-identification-helper---generic-uris-eg-1'></a><a id='sec-3-1-10-3-8-eg-1'></a><a id='example-30'></a>
 
 ```
           "x_generic_uris": [
@@ -2312,7 +2560,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
           ]
 ```
 
-*Example 2 (linking a component from an SPDX SBOM):*<a id='full-product-name-type---product-identification-helper---generic-uris-eg-2'></a><a id='sec-3-1-4-3-8-eg-2'></a><a id='example-23'></a>
+*Example 2 (linking a component from an SPDX SBOM):*<a id='full-product-name-type---product-identification-helper---generic-uris-eg-2'></a><a id='sec-3-1-10-3-8-eg-2'></a><a id='example-31'></a>
 
 ```
           "x_generic_uris": [
@@ -2323,7 +2571,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
           ]
 ```
 
-#### 3.1.4.4 Full Product Name Type - Extensions <a id='full-product-name-type---extensions'></a>
+#### 3.1.10.4 Full Product Name Type - Extensions <a id='full-product-name-type---extensions'></a>
 
 Product-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the full product name element level of the CSAF document and associated with this full product name element.
@@ -2343,7 +2591,7 @@ $defs:
   # ...
 ```
 
-### 3.1.5 Language Type <a id='language-type'></a>
+### 3.1.11 Language Type <a id='language-type'></a>
 
 Language type (`lang_t`) has value type `string` with `pattern` (regular expression):
 
@@ -2362,7 +2610,7 @@ See IETF language registry: <https://www.iana.org/assignments/language-subtag-re
 CSAF Producers SHALL follow the conventions for the capitalization of the subtags.
 CSAF Validators SHALL treat subtags as case-insensitive unless stated otherwise in the test.
 
-*Examples 1:*<a id='language-type-eg-1'></a><a id='sec-3-1-5-eg-1'></a><a id='example-24'></a>
+*Examples 1:*<a id='language-type-eg-1'></a><a id='sec-3-1-11-eg-1'></a><a id='example-32'></a>
 
 ```
     de
@@ -2372,7 +2620,7 @@ CSAF Validators SHALL treat subtags as case-insensitive unless stated otherwise 
     jp
 ```
 
-### 3.1.6 Notes Type <a id='notes-type'></a>
+### 3.1.12 Notes Type <a id='notes-type'></a>
 
 List of notes (`notes_t`) of value type `array` with `1` or more items of type `Note` contains notes which are specific to the current context.
 
@@ -2403,7 +2651,7 @@ $defs:
 
 Audience of note (`audience`) of value type `string` with `1` or more characters indicates who is intended to read it.
 
-*Examples 1:*<a id='notes-type-eg-1'></a><a id='sec-3-1-6-eg-1'></a><a id='example-25'></a>
+*Examples 1:*<a id='notes-type-eg-1'></a><a id='sec-3-1-12-eg-1'></a><a id='example-33'></a>
 
 ```
     all
@@ -2454,7 +2702,7 @@ Content varies depending on type.
 Title of note (`title`) of value type `string` with `1` or more characters provides a concise description of what
 is contained in the text of the note.
 
-*Examples 2:*<a id='notes-type-eg-2'></a><a id='sec-3-1-6-eg-2'></a><a id='example-26'></a>
+*Examples 2:*<a id='notes-type-eg-2'></a><a id='sec-3-1-12-eg-2'></a><a id='example-34'></a>
 
 ```
     Details
@@ -2463,7 +2711,7 @@ is contained in the text of the note.
     Impact on safety systems
 ```
 
-### 3.1.7 Product Group ID Type <a id='product-group-id-type'></a>
+### 3.1.13 Product Group ID Type <a id='product-group-id-type'></a>
 
 The Product Group ID Type (`product_group_id_t`) of value type `string` with `1` or more characters is a reference token for product group instances.
 The value is a token required to identify a group of products so that it can be referred to from other parts in the document.
@@ -2477,7 +2725,7 @@ $defs:
   # ...
 ```
 
-*Examples 1:*<a id='product-group-id-type-eg-1'></a><a id='sec-3-1-7-eg-1'></a><a id='example-27'></a>
+*Examples 1:*<a id='product-group-id-type-eg-1'></a><a id='sec-3-1-13-eg-1'></a><a id='example-35'></a>
 
 ```
     CSAFGID-0001
@@ -2488,7 +2736,7 @@ $defs:
 > Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and
 > the Product Group ID to support reading and parsing the document.
 
-### 3.1.8 Product Groups Type <a id='product-groups-type'></a>
+### 3.1.14 Product Groups Type <a id='product-groups-type'></a>
 
 List of Product Group ID (`product_groups_t`) of value type `array` with `1` or more unique items (a `set`) of type
 Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
@@ -2500,7 +2748,7 @@ $defs:
   # ...
 ```
 
-### 3.1.9 Product ID Type <a id='product-id-type'></a>
+### 3.1.15 Product ID Type <a id='product-id-type'></a>
 
 The Product ID Type (`product_id_t`) of value type `string` with `1` or more characters is a reference token for product instances.
 The value is a token required to identify a `full_product_name` so that it can be referred to from other parts in the document.
@@ -2514,7 +2762,7 @@ $defs:
   # ...
 ```
 
-*Examples 1:*<a id='product-id-type-eg-1'></a><a id='sec-3-1-9-eg-1'></a><a id='example-28'></a>
+*Examples 1:*<a id='product-id-type-eg-1'></a><a id='sec-3-1-15-eg-1'></a><a id='example-36'></a>
 
 ```
     CSAFPID-0004
@@ -2524,7 +2772,7 @@ $defs:
 > Even though the standard does not require a specific format it is recommended to use different prefixes for the Product ID and
 > the Product Group ID to support reading and parsing the document.
 
-### 3.1.10 Products Type <a id='products-type'></a>
+### 3.1.16 Products Type <a id='products-type'></a>
 
 List of Product IDs (`products_t`) of value type `array` with `1` or more unique items (a `set`) of type
 Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
@@ -2536,7 +2784,7 @@ $defs:
   # ...
 ```
 
-### 3.1.11 References Type <a id='references-type'></a>
+### 3.1.17 References Type <a id='references-type'></a>
 
 List of references (`references_t`) of value type `array` with `1` or more items of type Reference holds a list of Reference objects.
 
@@ -2584,7 +2832,7 @@ Summary of the reference (`summary`) of value type `string` with `1` or more cha
 
 URL of reference (`url`) of value type `string` with format `uri` provides the URL for the reference.
 
-### 3.1.12 Subpath Type <a id='subpath-type'></a>
+### 3.1.18 Subpath Type <a id='subpath-type'></a>
 
 Subpath (`subpath_t`) of value type `object` contains the next node along the current path and its relationship to the previous node.
 The properties `category` and `next_product_reference` are required.
@@ -2633,7 +2881,7 @@ These Product IDs SHOULD NOT be identical to provide minimal redundancy.
 Next product reference (`next_product_reference`) of value type Product ID (`product_id_t`) holds a Product ID that refers
 to the Full Product Name element, which is referenced as the second element of the relationship.
 
-### 3.1.13 Version Type <a id='version-type'></a>
+### 3.1.19 Version Type <a id='version-type'></a>
 
 The Version (`version_t`) type has value type `string` with `pattern` (regular expression):
 
@@ -2649,7 +2897,7 @@ There are two options how it can be used:
 
 A CSAF document SHALL use only one versioning system.
 
-*Examples 1:*<a id='version-type-eg-1'></a><a id='sec-3-1-13-eg-1'></a><a id='example-29'></a>
+*Examples 1:*<a id='version-type-eg-1'></a><a id='sec-3-1-19-eg-1'></a><a id='example-37'></a>
 
 ```
     1
@@ -2659,7 +2907,7 @@ A CSAF document SHALL use only one versioning system.
     2.40.0+21AF26D3
 ```
 
-#### 3.1.13.1 Version Type - Integer Versioning <a id='version-type---integer-versioning'></a>
+#### 3.1.19.1 Version Type - Integer Versioning <a id='version-type---integer-versioning'></a>
 
 Integer versioning increments for each version where the `$.document.tracking.status` is `final` the version number by one.
 The regular expression for this type is:
@@ -2682,7 +2930,7 @@ The following rules apply:
 5. Build metadata is never included in the version.
 6. Precedence SHALL be determined by integer comparison.
 
-#### 3.1.13.2 Version Type - Semantic Versioning <a id='version-type---semantic-versioning'></a>
+#### 3.1.19.2 Version Type - Semantic Versioning <a id='version-type---semantic-versioning'></a>
 
 Semantic versioning derived the rules from [SemVer]. The regular expression for this type is:
 
@@ -2741,7 +2989,7 @@ This results in the following rules:
    A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as
    denoted by its associated normal version.
 
-   *Examples 1:*<a id='version-type---semantic-versioning-eg-1'></a><a id='sec-3-1-13-2-eg-1'></a><a id='example-30'></a>
+   *Examples 1:*<a id='version-type---semantic-versioning-eg-1'></a><a id='sec-3-1-19-2-eg-1'></a><a id='example-38'></a>
 
    ```
    1.0.0-0.3.7
@@ -2757,7 +3005,7 @@ This results in the following rules:
     Identifiers SHALL NOT be empty. Build metadata SHALL be ignored when determining version precedence.
     Thus two versions that differ only in the build metadata, have the same precedence.
 
-    *Examples 2:*<a id='version-type---semantic-versioning-eg-2'></a><a id='sec-3-1-13-2-eg-2'></a><a id='example-31'></a>
+    *Examples 2:*<a id='version-type---semantic-versioning-eg-2'></a><a id='sec-3-1-19-2-eg-2'></a><a id='example-39'></a>
 
     ```
     1.0.0+20130313144700
@@ -2773,7 +3021,7 @@ This results in the following rules:
     2. Precedence is determined by the first difference when comparing each of these identifiers from left to right as follows:
        Major, minor, and patch versions are always compared numerically.
 
-       *Example 3:*<a id='version-type---semantic-versioning-eg-3'></a><a id='sec-3-1-13-2-eg-3'></a><a id='example-32'></a>
+       *Example 3:*<a id='version-type---semantic-versioning-eg-3'></a><a id='sec-3-1-19-2-eg-3'></a><a id='example-40'></a>
 
        ```
        1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
@@ -2781,7 +3029,7 @@ This results in the following rules:
 
     3. When major, minor, and patch are equal, a pre-release version has lower precedence than a normal version:
 
-       *Example 4:*<a id='version-type---semantic-versioning-eg-4'></a><a id='sec-3-1-13-2-eg-4'></a><a id='example-33'></a>
+       *Example 4:*<a id='version-type---semantic-versioning-eg-4'></a><a id='sec-3-1-19-2-eg-4'></a><a id='example-41'></a>
 
        ```
        1.0.0-alpha < 1.0.0
@@ -2795,7 +3043,7 @@ This results in the following rules:
        3. Numeric identifiers always have lower precedence than non-numeric identifiers.
        4. A larger set of pre-release fields has a higher precedence than a smaller set, if all of the preceding identifiers are equal.
 
-       *Example 5:*<a id='version-type---semantic-versioning-eg-5'></a><a id='sec-3-1-13-2-eg-5'></a><a id='example-34'></a>
+       *Example 5:*<a id='version-type---semantic-versioning-eg-5'></a><a id='sec-3-1-19-2-eg-5'></a><a id='example-42'></a>
 
        ```
        1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
@@ -2803,7 +3051,7 @@ This results in the following rules:
 
 Note, that the following values do no conform the semantic versioning described above.
 
-*Examples 6 (which are invalid):*<a id='version-type---semantic-versioning-eg-6'></a><a id='sec-3-1-13-2-eg-6'></a><a id='example-35'></a>
+*Examples 6 (which are invalid):*<a id='version-type---semantic-versioning-eg-6'></a><a id='sec-3-1-19-2-eg-6'></a><a id='example-43'></a>
 
 ```
   1.16.13.14-Cor
@@ -2836,7 +3084,7 @@ The single valid value for this `enum` is:
 Document level meta-data (`document`) of value type `object` with the six mandatory properties Category (`category`),
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
-In addition, the `document` object MAY provide the eight optional properties Acknowledgments (`acknowledgments`),
+In addition, the `document` object MAY provide the nine optional properties Acknowledgments (`acknowledgments`),
 Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
 References (`references`), Source Language (`source_lang`), and Document-level Extensions (`x_extensions`) .
 
@@ -2848,6 +3096,7 @@ References (`references`), Source Language (`source_lang`), and Document-level E
     category: String.Pattern
     csaf_version: String.Enum
     distribution: Mapping
+    involvement: Mapping
     lang: $defs.lang_t
     license_expression: String
     notes: $defs.notes_t
@@ -2900,7 +3149,7 @@ The Namespace of aggregate severity (`namespace`) of value type `string` with fo
 The Text of aggregate severity (`text`) of value type `string` with `1` or more characters provides a severity which is
 independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
 
-*Examples 1:*<a id='document-property---aggregate-severity-eg-1'></a><a id='sec-3-2-2-2-eg-1'></a><a id='example-36'></a>
+*Examples 1:*<a id='document-property---aggregate-severity-eg-1'></a><a id='sec-3-2-2-2-eg-1'></a><a id='example-44'></a>
 
 ```
     Critical
@@ -2928,7 +3177,7 @@ Document category defines a short canonical name, chosen by the document produce
     # ...
 ```
 
-*Examples 1:*<a id='document-property---category-eg-1'></a><a id='sec-3-2-2-3-eg-1'></a><a id='example-37'></a>
+*Examples 1:*<a id='document-property---category-eg-1'></a><a id='sec-3-2-2-3-eg-1'></a><a id='example-45'></a>
 
 ```
     csaf_base
@@ -2967,7 +3216,7 @@ If multiple values are present, the TLP information SHOULD be preferred as this 
 The Sharing Group SHALL be interpreted as specification to the TLP information.
 Therefore, the Sharing Group MAY also be used to convey special TLP restrictions:
 
-*Examples 1:*<a id='document-property---distribution-eg-1'></a><a id='sec-3-2-2-5-eg-1'></a><a id='example-38'></a>
+*Examples 1:*<a id='document-property---distribution-eg-1'></a><a id='sec-3-2-2-5-eg-1'></a><a id='example-46'></a>
 
 ```
     E-ISAC members-only
@@ -3050,7 +3299,7 @@ However, the following values are reserved for the conditions below:
 
 The Textual description (`text`) of value type `string` with `1` or more characters provides a textual description of additional constraints.
 
-*Examples 1:*<a id='document-property---distribution---text-eg-1'></a><a id='sec-3-2-2-5-2-eg-1'></a><a id='example-39'></a>
+*Examples 1:*<a id='document-property---distribution---text-eg-1'></a><a id='sec-3-2-2-5-2-eg-1'></a><a id='example-47'></a>
 
 ```
     Copyright 2024, Example Company, All Rights Reserved.
@@ -3103,19 +3352,314 @@ The default value is the URL to the definition by FIRST:
     https://www.first.org/tlp/
 ```
 
-*Examples 1:*<a id='document-property---distribution---tlp-eg-1'></a><a id='sec-3-2-2-5-3-eg-1'></a><a id='example-40'></a>
+*Examples 1:*<a id='document-property---distribution---tlp-eg-1'></a><a id='sec-3-2-2-5-3-eg-1'></a><a id='example-48'></a>
 
 ```
     https://www.us-cert.gov/tlp
     https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/TLP/merkblatt-tlp.pdf
 ```
 
-#### 3.2.2.6 Document Property - Language <a id='document-property---language'></a>
+#### 3.2.2.6 Document Property - Involvement <a id='document-property---involvement'></a>
+
+Involvement (`involvement`) of value type `object` with the mandatory properties List of actions (`actions`) and
+List of entities (`entities`) contains the coordination record stating entities and actions between them.
+The optional property is List of entity groups (`entity_groups`).
+
+```yaml <!--json-path($..document..involvement.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      entities: Sequence
+      entity_groups: Sequence
+    # ...
+```
+
+##### 3.2.2.6.1 Document Property - Involvement - Actions <a id='document-property---involvement---actions'></a>
+
+List of actions (`actions`) of value type `array` with `1` or more unique items (a `set`) contains the timeline of actions.
+
+
+```yaml <!--json-path($..document..involvement..actions)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      # ...
+    # ...
+```
+
+Every Action item of value type `object` with the five mandatory properties List of acting entities (`acting_entity_refs`),
+Action ID (`action_id`), Action category (`category`), Date of the action (`date`), and Action status (`status`)
+contains details about a single event in the timeline.
+In addition, any Action item MAY expose the optional properties List of document-local vuln IDs `dl_vuln_ids`, Group IDs (`group_ids`), Product IDs (`product_ids`),
+List of receiving entities (`receiving_entity_refs`), List of referenced actions (`referenced_action_ids`), Summary of the action (`summary`), and Action status (`status`).
+
+```yaml <!--json-path($..document..involvement..actions..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions:
+      - # <action-instance>:
+        acting_entity_refs: $defs.entity_refs_id_t
+        action_id: $defs.action_id_t
+        category: String.Enum
+        date: String.DateTime
+        dl_vuln_ids: Sequence
+        group_ids: $defs.product_groups_t
+        product_ids: $defs.products_t
+        receiving_entity_refs: $defs.entity_refs_id_t
+        referenced_action_ids: $defs.action_id_t
+        summary: String
+        status: String.Enum
+      # ...
+    # ...
+```
+
+List of acting entities (`acting_entity_refs`) of value type
+Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
+
+Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
+Its values SHALL be unique across all action items.
+
+Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
+Valid values are:
+
+```
+    confirmation
+    coordination
+    discovery
+    dispute
+    exploitation
+    fix_deployment
+    fix_release
+    notification
+    triage
+```
+
+The value `confirmation` indicates that the actor confirms that it received or accepted the action that this action refers to (via `referenced_action_ids`).
+
+The value `coordination` indicates that the parties coordinate their work.
+
+The value `discovery` indicates that the actor found the vulnerability.
+
+The value `dispute` indicates that the actor disputes the action that this action refers to (via `referenced_action_ids`).
+It can dispute that the action is correct, its severity, or that it occurred.
+
+The value `exploitation` indicates that the actor used the vulnerability, or a party saw or controlled such use.
+
+The value `fix_deployment` indicates that the actor installed a fix.
+
+The value `fix_release` indicates that the actor published a fix, or made a fix available.
+
+The value `notification` indicates that the actor tells a different party about the vulnerability.
+
+The values `triage` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
+
+A `confirmation` and a `dispute` are always about a different action.
+Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_refs`.
+
+For a `confirmation`, each entity in the `acting_entity_refs` set SHALL also be in the `receiving_entity_refs` set of the action that it refers to.
+Entity groups are resolved before this.
+Only a entity that received an action can confirm that action.
+
+Date of the action (`date`) of value type `string` with format `date-time` contains the date when the action occurred.
+
+List of document-local vuln IDs (`dl_vuln_ids`) of value type `array` with `1` or more unique items (a `set`) contains a list of local IDs
+referring to vulnerabilities within the same document that this action applies to.
+Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element the current action applies to.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current action item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current action item applies to.
+
+List of receiving entities (`receiving_entity_refs`) of value type
+Entity Refs ID (`entity_refs_id_t`) contains a list of entities that receive the action.
+
+List of referenced actions (`referenced_action_ids`) of value type `array` with `1` or more unique items (a `set`)
+contains a list of other actions reference by this action.
+Every referenced action item of value type Action ID (`action_id_t`) refers to a single vulnerability.
+
+Summary of the action (`summary`) of value type `string` with `1` or more characters contains information about the action.
+
+Action status (`status`) of value type `string` and `enum` contains an observation about the action.
+Valid values are:
+
+```
+  attempted
+  completed
+  deferred
+  discontinued
+  in_progress
+  outstanding
+  planned
+```
+
+The value `attempted` indicates that the actor tried to do the action, but it did not reach the recipient.
+
+The value `completed` indicates that the actor completed the action.
+
+The value `deferred` indicates that the actor decided not to act at this time. It will examine the decision again later.
+
+The value `discontinued` indicates that the actor started the work and then stopped it before it was complete.
+
+The value `in_progress` indicates that the actor is doing the work now.
+
+The value `outstanding` indicates that a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+##### 3.2.2.6.2 Document Property - Involvement - Entities <a id='document-property---involvement---entities'></a>
+
+List of entities (`entities`) of value type `array` with `1` or more unique items (a `set`) contains a list of entities related.
+
+```yaml <!--json-path($..document..involvement..entities)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities: Sequence
+      # ...
+    # ...
+```
+
+Every Entity item of value type `object` with the two mandatory properties Entity category (`category`) and Entity ID (`entity_id`) contains information about a single entity.
+In addition, any Entity item MAY expose the optional properties Contact of the entity (`contact`) and Name of the entity (`name`).
+
+```yaml <!--json-path($..document..involvement..entities..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        category: String.Enum
+        contact: $defs.contact_t
+        entity_id: $defs.entity_id_t
+        name: String
+      # ...
+    # ...
+```
+
+Entity category (`category`) of value type `string` and `enum` specifies the category of the party.
+Valid values are:
+
+```
+    adversary
+    coordinator
+    discoverer
+    multiplier
+    other
+    public
+    reporting_authority
+    user
+    vendor
+```
+
+The value `adversary` indicates an entity that acts against the other parties. It may be identified or not identified.
+
+The value `coordinator` indicates an entity that coordinates the disclosure between several parties, e.g. a CERT.
+
+The value `discoverer` indicates an entity that finds vulnerabilities, for example a researcher.
+
+> It is assume that the discoverer also reports vulnerabilities.
+
+The value `multiplier` indicates an entity that uses or distributes the data about a vulnerability.
+
+The value `other` indicates an entity that has a role that the other values do not give.
+
+The value `public` indicates the general public.
+
+The value `reporting_authority` indicates an entity that receives or requires a report, e.g. a national CSIRT.
+
+The value `user` indicates an entity that uses or operates a product mentioned.
+
+The value `vendor` indicates an entity that develops or maintains of information system products or services.
+This includes all authoritative product vendors, product security incident response teams (PSIRTs),
+open source projects as well as product resellers and distributors, including authoritative vendor partners.
+
+The `category` does not control the role: an entity can act in one action and receive in a different action.
+An `adversary` is permitted as a recipient, because a `notification` to an adversary records that the data went to that adversary.
+
+Contact of the entity (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the entity.
+
+```yaml <!--json-paths($..document..involvement..entities..properties.contact, $['$defs'].contact_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        # ...
+        contact:
+          details: String
+          email: String.EMAIL
+          public_openpgp_key_url: String.URI
+          url: String.URI
+        # ...
+      # ...
+    # ...
+```
+
+Entity ID (`entity_id`) value type Entity ID (`entity_id_t`) contains an ID for the entity.
+
+Contains an ID for the entity (`name`) of value type `string` with `1` or more characters contains the name of the entity.
+
+##### 3.2.2.6.3 Document Property - Involvement - Entity Groups <a id='document-property---involvement---entity-groups'></a>
+
+List of entity groups (`entity_groups`) of value type `array` with `1` or more unique items (a `set`) contains a list of entity groups.
+
+```yaml <!--json-path($..document..involvement..entity_groups)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups: Sequence
+    # ...
+```
+
+Every Entity group item of value type `object` with the three mandatory properties Entity Group ID (`entity_group_id`),
+List of Entity IDs (`entity_ids`), and Name of the entity group (`name`) defines a new logical group of entities
+that can then be referred to in other parts of the document to address a group of entities with a single identifier.
+In addition, any Entity group item MAY expose the optional property Summary of the entity group (`summary`).
+
+```yaml <!--json-path($..document..involvement..entity_groups..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups:
+      - # <entity_group-instance>:
+        entity_group_id: $defs.entity_group_id_t
+        entity_ids: Sequence
+        name: String
+        summary: String
+    # ...
+```
+
+Entity Group ID (`entity_group_id`) value type Entity Group ID (`entity_group_id_t`) contains an ID for the entity group.
+
+List of Entity IDs (`entity_ids`) of value type `array` with `2` or more unique items (a `set`) lists the Entity IDs of those entities which are known as one group in the document.
+Every Entity ID item of value type Entity ID (`entity_id_t`) specifies a single entity being part of the group.
+
+Name of the entity group (`name`) of value type `string` with `1` or more characters contains a human-readable name for the entities grouped.
+
+Summary of the entity group (`summary`) of value type `string` with `1` or more characters contains a human-readable summary stating the purpose of the group.
+
+#### 3.2.2.7 Document Property - Language <a id='document-property---language'></a>
 
 Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
 corresponding to IETF BCP 47 / RFC 5646.
 
-#### 3.2.2.7 Document Property - License Expression <a id='document-property---license-expression'></a>
+#### 3.2.2.8 Document Property - License Expression <a id='document-property---license-expression'></a>
 
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
@@ -3156,7 +3700,7 @@ In addition, the following rules apply:
 - License similarity:
   - Annex C of \[[SPDX301](#SPDX301)\] applies.
 
-*Examples 1:*<a id='document-property---license-expression-eg-1'></a><a id='sec-3-2-2-7-eg-1'></a><a id='example-41'></a>
+*Examples 1:*<a id='document-property---license-expression-eg-1'></a><a id='sec-3-2-2-8-eg-1'></a><a id='example-49'></a>
 
 ```
   CC-BY-4.0
@@ -3172,7 +3716,7 @@ through the ecosystem.
 > CSAF document but users need at least to activate the sources themselves.
 > This is relevant for services and tools, regardless of whether they are commercial or not.
 
-#### 3.2.2.8 Document Property - Notes <a id='document-property---notes'></a>
+#### 3.2.2.9 Document Property - Notes <a id='document-property---notes'></a>
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
@@ -3207,7 +3751,7 @@ table 1: Requirements for combinations of `category` and `title` that have a spe
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
-#### 3.2.2.9 Document Property - Publisher <a id='document-property---publisher'></a>
+#### 3.2.2.10 Document Property - Publisher <a id='document-property---publisher'></a>
 
 Publisher (`publisher`) of value type `object` with the mandatory properties Category (`category`), Name (`name`) and
 Namespace (`namespace`) provides information on the publishing entity.
@@ -3219,14 +3763,14 @@ The two other optional properties are: `contact` and `issuing_authority`.
     # ...
     publisher:
       category: String
-      contact: Mapping
+      contact: $defs.contact_t
       issuing_authority: String
       name: String
       namespace: String
     # ...
 ```
 
-##### 3.2.2.9.1 Document Property - Publisher - Category <a id='document-property---publisher-category'></a>
+##### 3.2.2.10.1 Document Property - Publisher - Category <a id='document-property---publisher-category'></a>
 
 The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of
 publisher releasing the document.
@@ -3272,13 +3816,11 @@ The value `vendor` indicates developers or maintainers of information system pro
 This includes all authoritative product vendors, product security incident response teams (PSIRTs),
 open source projects as well as product resellers and distributors, including authoritative vendor partners.
 
-##### 3.2.2.9.2 Document Property - Publisher - Contact <a id='document-property---publisher---contact'></a>
+##### 3.2.2.10.2 Document Property - Publisher - Contact <a id='document-property---publisher---contact'></a>
 
-Contact (`contact`) of value type `object` with `1` or more properties contains information on how to contact the publisher.
-The properties are Contact Details (`details`), Email (`email`) and Public OpenPGP Key URL (`public_openpgp_key_url`)
-If the property `public_openpgp_key_url` is set, the `email` SHALL be set as well.
+Contact (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the publisher.
 
-```yaml <!--json-path($..document..publisher.properties.contact.properties)-->
+```yaml <!--json-paths($..document..publisher.properties.contact.properties, $['$defs'].contact_t..properties)-->
 <csaf-instance>:
   document:
     # ...
@@ -3288,72 +3830,21 @@ If the property `public_openpgp_key_url` is set, the `email` SHALL be set as wel
         details: String
         email: String.EMAIL
         public_openpgp_key_url: String.URI
+        url: String.URI
       # ...
     # ...
 ```
 
-Contact details (`details`) of value type `string` with `1` or more characters contains details regarding ways to reach the publisher,
- e.g. through web sites, phone numbers, and postal mail addresses.
-
-*Example 1:*<a id='document-property---publisher---contact-eg-1'></a><a id='sec-3-2-2-9-2-eg-1'></a><a id='example-42'></a>
-
-```
-    Example Company can be reached at tel:+493023125232,
-    or via our website at https://www.example.com/contact.
-```
-
-Email (`email`) of value type `string` of `6` or more characters with format `email` contains the email address
-that can be used to reach the issuing party.
-
-*Examples 2:*<a id='document-property---publisher---contact-eg-2'></a><a id='sec-3-2-2-9-2-eg-2'></a><a id='example-43'></a>
-
-```
-    "productcert@example.net"
-    "psirt@example.com"
-    "reporter@securityresearcher.example"
-    "vulnerability@coordinator.example"
-```
-
-Public OpenPGP Key URL (`public_openpgp_key_url`) has value type `string` of `11` or more characters with format `uri`
-and `pattern` (regular expression):
-
-```
-    ^https:\\/\\/
-```
-
-Public OpenPGP Key URL contains a URL pointing to a public OpenPGP key valid for the email of issuing party provided
-in the sibling property `email`.
-
-> It is desired that the OpenPGP Key contains the same email address in its user ID as given through the property `email`.
-> However, due to data protection and operation concerns neither a user ID in the OpenPGP key nor
-> an exact match to the value of `email` is enforced by this standard.
-> The use of aliases is permitted.
-> The issuing party is responsible for ensuring the usability of the key provided.
-
-The URL MAY point to a location that redirects.
-Redirects SHALL fulfil the same requirements as specified in [7.1.6](#requirement-6-no-redirects).
-The content delivered SHALL be a valid OpenPGP key allowing encryption as ASCII armored file with the matching content type.
-See \[[RFC4880](#RFC4880)\] and \[[RFC3156](#RFC3156)\] for more details.
-
-*Examples 3:*<a id='document-property---publisher---contact-eg-3'></a><a id='sec-3-2-2-9-2-eg-3'></a><a id='example-44'></a>
-
-```
-    "https://coordinator.example/.well-known/openpgpkey/hu/nxdcs8npc6mn3xyfpcbiqhcu9s357r5m?l=vulnerability"
-    "https://example.net/.well-known/openpgpkey/hu/euwmpyfh4rzf8ymbqhjjhrirgib4dyfs?l=productcert"
-    "https://openpgpkey.securityresearcher.example/.well-known/openpgpkey/securityresearcher.example/hu/enudbakzkbdym3ymwjy9pcxztka75f73?l=reporter"
-    "https://psirt.example.com/security/openpgp/latest"
-```
-
-##### 3.2.2.9.3 Document Property - Publisher - Issuing Authority <a id='document-property---publisher---issuing-authority'></a>
+##### 3.2.2.10.3 Document Property - Publisher - Issuing Authority <a id='document-property---publisher---issuing-authority'></a>
 
 Issuing authority (`issuing_authority`) of value type `string` with `1` or more characters Provides information about
 the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
-##### 3.2.2.9.4 Document Property - Publisher - Name <a id='document-property---publisher---name'></a>
+##### 3.2.2.10.4 Document Property - Publisher - Name <a id='document-property---publisher---name'></a>
 
 The Name of publisher (`name`) of value type `string` with `1` or more characters contains the name of the issuing party.
 
-*Examples 1:*<a id='document-property---publisher---name-eg-1'></a><a id='sec-3-2-2-9-4-eg-1'></a><a id='example-45'></a>
+*Examples 1:*<a id='document-property---publisher---name-eg-1'></a><a id='sec-3-2-2-10-4-eg-1'></a><a id='example-50'></a>
 
 ```
      BSI
@@ -3361,7 +3852,7 @@ The Name of publisher (`name`) of value type `string` with `1` or more character
      Siemens ProductCERT
 ```
 
-##### 3.2.2.9.5 Document Property - Publisher - Namespace <a id='document-property---publisher---namespace'></a>
+##### 3.2.2.10.5 Document Property - Publisher - Namespace <a id='document-property---publisher---namespace'></a>
 
 The Namespace of publisher (`namespace`) of value type `string` with format `uri` contains a URL which
 is under control of the issuing party and can be used as a globally unique identifier for that issuing party.
@@ -3380,14 +3871,14 @@ an incremented (patch) version which has no other changes than:
 - the updated item in `$.document.references[*]` which points to the new version of the CSAF document
 - an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
 
-*Examples 1:*<a id='document-property---publisher---namespace-eg-1'></a><a id='sec-3-2-2-9-5-eg-1'></a><a id='example-46'></a>
+*Examples 1:*<a id='document-property---publisher---namespace-eg-1'></a><a id='sec-3-2-2-10-5-eg-1'></a><a id='example-51'></a>
 
 ```
     https://csaf.io
     https://www.example.com
 ```
 
-#### 3.2.2.10 Document Property - References <a id='document-property---references'></a>
+#### 3.2.2.11 Document Property - References <a id='document-property---references'></a>
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
@@ -3403,7 +3894,7 @@ Document references (`references`) of value type References Type (`references_t`
     # ...
 ```
 
-#### 3.2.2.11 Document Property - Source Language <a id='document-property---source-language'></a>
+#### 3.2.2.12 Document Property - Source Language <a id='document-property---source-language'></a>
 
 Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is
 a translation then the value of this property describes from which language this document was translated.
@@ -3416,19 +3907,19 @@ one of these documents SHOULD be deemed the "original", the other ones SHOULD be
 The issuing party can retain its original publisher information including the `category`.
 However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
 
-#### 3.2.2.12 Document Property - Title <a id='document-property---title'></a>
+#### 3.2.2.13 Document Property - Title <a id='document-property---title'></a>
 
 Title of this document (`title`) of value type `string` with `1` or more characters SHOULD be a canonical name for the document,
 and sufficiently unique to distinguish it from similar documents.
 
-*Examples 1:*<a id='document-property---title-eg-1'></a><a id='sec-3-2-2-12-eg-1'></a><a id='example-47'></a>
+*Examples 1:*<a id='document-property---title-eg-1'></a><a id='sec-3-2-2-13-eg-1'></a><a id='example-52'></a>
 
 ```
     Cisco IPv6 Crafted Packet Denial of Service Vulnerability
     Example Company Cross-Site-Scripting Vulnerability in Example Generator
 ```
 
-#### 3.2.2.13 Document Property - Tracking <a id='document-property---tracking'></a>
+#### 3.2.2.14 Document Property - Tracking <a id='document-property---tracking'></a>
 
 Tracking (`tracking`) of value type `object` with the six mandatory properties Current Release Date (`current_release_date`),
 Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`),
@@ -3450,7 +3941,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
       version: $defs.version_t
 ```
 
-##### 3.2.2.13.1 Document Property - Tracking - Aliases <a id='document-property---tracking---aliases'></a>
+##### 3.2.2.14.1 Document Property - Tracking - Aliases <a id='document-property---tracking---aliases'></a>
 
 Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
@@ -3467,18 +3958,18 @@ list of alternate names for the same document.
 Every such Alternate Name of value type `string` with `1` or more characters specifies a non-empty string that represents a
 distinct optional alternative ID used to refer to the document.
 
-*Example 1:*<a id='document-property---tracking---aliases-eg-1'></a><a id='sec-3-2-2-13-1-eg-1'></a><a id='example-48'></a>
+*Example 1:*<a id='document-property---tracking---aliases-eg-1'></a><a id='sec-3-2-2-14-1-eg-1'></a><a id='example-53'></a>
 
 ```
     CVE-2019-12345
 ```
 
-##### 3.2.2.13.2 Document Property - Tracking - Current Release Date <a id='document-property---tracking---current-release-date'></a>
+##### 3.2.2.14.2 Document Property - Tracking - Current Release Date <a id='document-property---tracking---current-release-date'></a>
 
 Current release date (`current_release_date`) of value type `string` with format `date-time` holds the date when
 the current revision of this document was released.
 
-##### 3.2.2.13.3 Document Property - Tracking - Generator <a id='document-property---tracking---generator'></a>
+##### 3.2.2.14.3 Document Property - Tracking - Generator <a id='document-property---tracking---generator'></a>
 
 Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and
 optional property Date (`date`) is a container to hold all elements related to the generation of the document.
@@ -3517,7 +4008,7 @@ optional property Engine version (`version`) contains information about the engi
 
 Engine name (`name`) of value type `string` with `1` or more characters represents the name of the engine that generated the CSAF document.
 
-*Examples 1:*<a id='document-property---tracking---generator-eg-1'></a><a id='sec-3-2-2-13-3-eg-1'></a><a id='example-49'></a>
+*Examples 1:*<a id='document-property---tracking---generator-eg-1'></a><a id='sec-3-2-2-14-3-eg-1'></a><a id='example-54'></a>
 
 ```
     Red Hat rhsa-to-cvrf
@@ -3530,7 +4021,7 @@ Engine version (`version`) of value type `string` with `1` or more characters co
 > Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
 > the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
 
-*Examples 2:*<a id='document-property---tracking---generator-eg-2'></a><a id='sec-3-2-2-13-3-eg-2'></a><a id='example-50'></a>
+*Examples 2:*<a id='document-property---tracking---generator-eg-2'></a><a id='sec-3-2-2-14-3-eg-2'></a><a id='example-55'></a>
 
 ```
     0.6.0
@@ -3538,7 +4029,7 @@ Engine version (`version`) of value type `string` with `1` or more characters co
     2
 ```
 
-##### 3.2.2.13.4 Document Property - Tracking - ID <a id='document-property---tracking---id'></a>
+##### 3.2.2.14.4 Document Property - Tracking - ID <a id='document-property---tracking---id'></a>
 
 Unique identifier for the document (`id`) has value type `string` of `1` or more characters with `pattern` (regular expression):
 
@@ -3553,7 +4044,7 @@ The ID is a simple label that provides for a wide range of numbering values, typ
 Its value SHOULD be assigned and maintained by the original document issuing authority.
 It SHALL be unique for that organization.
 
-*Examples 1:*<a id='document-property---tracking---id-eg-1'></a><a id='sec-3-2-2-13-4-eg-1'></a><a id='example-51'></a>
+*Examples 1:*<a id='document-property---tracking---id-eg-1'></a><a id='sec-3-2-2-14-4-eg-1'></a><a id='example-56'></a>
 
 ```
     Example Company - 2019-YH3234
@@ -3567,7 +4058,7 @@ This value is also used to determine the filename for the CSAF document (cf. sec
 > The combination of `$.document.publisher.namespace`, `$.document.tracking.id`, and `$.document.tracking.version` identifies
 > that specific version of the CSAF document globally unique.
 
-##### 3.2.2.13.5 Document Property - Tracking - Initial Release Date <a id='document-property---tracking---initial-release-date'></a>
+##### 3.2.2.14.5 Document Property - Tracking - Initial Release Date <a id='document-property---tracking---initial-release-date'></a>
 
 Initial release date (`initial_release_date`) of value type `string` with format `date-time` holds the date
 when this document was first released to the specified target group.
@@ -3579,7 +4070,7 @@ when this document was first released to the specified target group.
 If the timestamp of the initial release date was set incorrectly, it SHALL be corrected.
 This change SHALL be tracked with a new entry in the revision history.
 
-##### 3.2.2.13.6 Document Property - Tracking - Revision History <a id='document-property---tracking---revision-history'></a>
+##### 3.2.2.14.6 Document Property - Tracking - Revision History <a id='document-property---tracking---revision-history'></a>
 
 The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
 for each version of the CSAF document, including the initial one.
@@ -3640,7 +4131,7 @@ This applies especially to CSAF multiplier.
 > and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
 > of their last visit at this source (incremental download).
 
-##### 3.2.2.13.7 Document Property - Tracking - Status <a id='document-property---tracking---status'></a>
+##### 3.2.2.14.7 Document Property - Tracking - Status <a id='document-property---tracking---status'></a>
 
 Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
 The value SHALL be one of the following:
@@ -3665,11 +4156,11 @@ Once the rate slows down it SHALL be changed to `final`. This MAY be done in a p
 > This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation.
 > It can be used as an indication to pull the CSAF document more frequently.
 
-##### 3.2.2.13.8 Document Property - Tracking - Version <a id='document-property---tracking---version'></a>
+##### 3.2.2.14.8 Document Property - Tracking - Version <a id='document-property---tracking---version'></a>
 
 Version has the value type Version (`version_t`).
 
-#### 3.2.2.14 Document Property - Extensions <a id='document-property---extensions'></a>
+#### 3.2.2.15 Document Property - Extensions <a id='document-property---extensions'></a>
 
 Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the document property level of the CSAF document and associated with this document metadata.
@@ -3745,7 +4236,7 @@ the optional Summary (`summary`) property.
 
 The summary of the product group (`summary`) of value type `string` with `1` or more characters gives a short, optional description of the group.
 
-*Examples 1:*<a id='product-tree-property---product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-52'></a>
+*Examples 1:*<a id='product-tree-property---product-groups-eg-1'></a><a id='sec-3-2-3-3-eg-1'></a><a id='example-57'></a>
 
 ```
     Products supporting Modbus.
@@ -3755,7 +4246,7 @@ The summary of the product group (`summary`) of value type `string` with `1` or 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
 
 List of Product IDs (`product_ids`) of value type `array` with `2` or more unique items of value type Product ID (`product_id_t`) lists
-the product_ids of those products which known as one group in the document.
+the product_ids of those products which are known as one group in the document.
 
 #### 3.2.3.4 Product Tree Property - Product Paths <a id='product-tree-property---product-paths'></a>
 
@@ -3822,7 +4313,7 @@ each one relating to the path defined by all previous elements up to the beginni
   # ...
 ```
 
-*Example 1:*<a id='product-tree-property---product-paths-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-53'></a>
+*Example 1:*<a id='product-tree-property---product-paths-eg-1'></a><a id='sec-3-2-3-4-eg-1'></a><a id='example-58'></a>
 
 ```
   "product_tree": {
@@ -3876,7 +4367,7 @@ The Vulnerability item of value type `object` with `1` or more properties is a c
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
 Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
-List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`), Involvements (`involvements`),
+List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`),
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
 
@@ -3893,7 +4384,6 @@ Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_ext
     first_known_exploitation_dates: Sequence
     flags: Sequence
     ids: Sequence
-    involvements: Sequence
     metrics: Sequence
     notes: $defs.notes_t
     product_status: Mapping
@@ -3978,7 +4468,7 @@ The Weakness ID (`id`) has value type `string` with `pattern` (regular expressio
 
 It holds the ID for the weakness associated.
 
-*Examples 1:*<a id='vulnerabilities-property---cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-54'></a>
+*Examples 1:*<a id='vulnerabilities-property---cwes-eg-1'></a><a id='sec-3-2-4-3-eg-1'></a><a id='example-59'></a>
 
 ```
     CWE-22
@@ -3994,7 +4484,7 @@ The Weakness name (`name`) has value type `string` of `1` or more characters wit
 
 The Weakness name holds the full name of the weakness as given in the CWE specification.
 
-*Examples 2:*<a id='vulnerabilities-property---cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-55'></a>
+*Examples 2:*<a id='vulnerabilities-property---cwes-eg-2'></a><a id='sec-3-2-4-3-eg-2'></a><a id='example-60'></a>
 
 ```
     Cross-Site Request Forgery (CSRF)
@@ -4011,7 +4501,7 @@ The CWE version (`version`) has value type `string` with `pattern` (regular expr
 It holds the version string of the CWE specification this weakness was extracted from.
 When creating or modifying a CSAF document, the latest published version of the CWE specification SHOULD be used.
 
-*Examples 3:*<a id='vulnerabilities-property---cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-56'></a>
+*Examples 3:*<a id='vulnerabilities-property---cwes-eg-3'></a><a id='sec-3-2-4-3-eg-3'></a><a id='example-61'></a>
 
 ```
     "1.0",
@@ -4032,6 +4522,10 @@ This is also sometimes called embargo date.
 As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document
 to confirm that the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new
 intended date in the future.
+
+If a vulnerability was patched without stating that it is a vulnerability,
+the vulnerability is in the context of this specification not considered to be disclosed.
+As a consequence, the `discovery_date` needs to be earlier than or equal to the `disclosure_date`.
 
 #### 3.2.4.5 Vulnerabilities Property - Discovery Date <a id='vulnerabilities-property---discovery-date'></a>
 
@@ -4207,7 +4701,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 
 System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
 
-*Examples 1:*<a id='vulnerabilities-property---ids-eg-1'></a><a id='sec-3-2-4-8-eg-1'></a><a id='example-57'></a>
+*Examples 1:*<a id='vulnerabilities-property---ids-eg-1'></a><a id='sec-3-2-4-8-eg-1'></a><a id='example-62'></a>
 
 ```
     Cisco Bug ID
@@ -4217,7 +4711,7 @@ System name (`system_name`) of value type `string` with `1` or more characters i
 
 Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
 
-*Examples 2:*<a id='vulnerabilities-property---ids-eg-2'></a><a id='sec-3-2-4-8-eg-2'></a><a id='example-58'></a>
+*Examples 2:*<a id='vulnerabilities-property---ids-eg-2'></a><a id='sec-3-2-4-8-eg-2'></a><a id='example-63'></a>
 
 ```
     CSCso66472
@@ -4237,114 +4731,7 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 > The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
 > (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
 
-#### 3.2.4.9 Vulnerabilities Property - Involvements <a id='vulnerabilities-property---involvements'></a>
-
-List of involvements (`involvements`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of involvements.
-
-```yaml <!--json-path($..vulnerabilities..involvements)-->
-<csaf-instance>:
-  # ...
-  vulnerabilities:
-  - # <vulnerability-instance>:
-    # ...
-    involvements: Sequence
-    # ...
-```
-
-Every Involvement item of value type `object` with the two mandatory properties Party (`party`), Status (`status`) and
-the five optional properties Party contact information (`contact`), Date of involvement (`date`), Group IDs (`group_ids`),
-Product IDs (`product_ids`), and Summary (`summary`) is a container that allows the document producers to comment on the level of
-involvement (or engagement) of themselves (or third parties) in the vulnerability identification, scoping, and remediation process.
-It can also be used to convey the disclosure timeline.
-The ordered tuple of the values of `party` and `date` (if present) SHALL be unique within `involvements`.
-
-```yaml <!--json-path($..vulnerabilities..involvements..properties)-->
-<csaf-instance>:
-  # ...
-  vulnerabilities:
-  - # <vulnerability-instance>:
-    # ...
-    involvements:
-    - # <involvement-instance>:
-      contact: String
-      date: String.DateTime
-      group_ids: $defs.product_groups_t
-      party: String.Enum
-      product_ids: $defs.products_t
-      status: String.Enum
-      summary: String
-    # ...
-```
-
-Party contact information (`contact`) contains the contact information of the party that was used in this state.
-
-> In many cases, that could be an email address.
-
-Date of involvement (`date`) of value type `string` with format `date-time` holds the date and time of the involvement entry.
-
-Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
-involvement item applies to.
-
-Party category (`party`) of value type `string` and `enum` defines the category of the involved party.
-Valid values are:
-
-```
-    coordinator
-    discoverer
-    other
-    user
-    vendor
-```
-
-These values follow the same definitions as given for the publisher category (cf. section [3.2.2.9.1](#document-property---publisher-category)).
-
-Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current
-involvement item applies to.
-
-Party status (`status`) of value type `string` and `enum` defines contact status of the involved party.
-Valid values are:
-
-```
-    completed
-    contact_attempted
-    disputed
-    in_progress
-    not_contacted
-    open
-```
-
-Each status is mutually exclusive - only one status is valid for a particular vulnerability at a particular time. As the vulnerability ages,
-a party's involvement could move from state to state.
-However, in many cases, a document producer may choose not to issue CSAF documents at each state, or simply omit this element altogether.
-It is recommended, however, that vendors that issue CSAF documents indicating an open or in-progress involvement SHOULD eventually expect to issue
-a document containing one of the statuses `disputed` or `completed` as the latest one.
-
-> The two vulnerability involvement status states, `contact_attempted` and `not_contacted` are intended for use by document producers other than
-> vendors (such as research or coordinating entities).
-
-The value `completed` indicates that the party asserts that investigation of the vulnerability is complete.
-No additional information, fixes, or documentation from the party about the vulnerability should be expected to be released.
-
-The value `contact_attempted` indicates that the document producer attempted to contact the party.
-
-The value `disputed` indicates that the party disputes the vulnerability report in its entirety.
-This status SHOULD be used when the party believes that a vulnerability report regarding a product is completely inaccurate
-(that there is no real underlying security vulnerability) or that the technical issue being reported has no security implications.
-
-The value `in_progress` indicates that some hotfixes, permanent fixes, mitigations, workarounds,
-or patches may have been made available by the party, but more information or fixes may be released in the future.
-The use of this status by a vendor indicates that future information from the vendor about the vulnerability is to be expected.
-
-The value `not_contacted` indicates that the document producer has not attempted to make contact with the party.
-
-The value `open` is the default status.
-It doesn’t indicate anything about the vulnerability remediation effort other than the fact that the party has acknowledged awareness of
-the vulnerability report.
-The use of this status by a vendor indicates that future updates from the vendor about the vulnerability are to be expected.
-
-Summary of involvement (`summary`) of value type `string` with `1` or more characters contains additional context regarding what is going on.
-
-#### 3.2.4.10 Vulnerabilities Property - Metrics <a id='vulnerabilities-property---metrics'></a>
+#### 3.2.4.9 Vulnerabilities Property - Metrics <a id='vulnerabilities-property---metrics'></a>
 
 List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
 contains metric objects for the current vulnerability.
@@ -4376,7 +4763,7 @@ the optional property `source` contains all metadata about the metric including 
     # ...
 ```
 
-##### 3.2.4.10.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property---metrics---content'></a>
+##### 3.2.4.9.1 Vulnerabilities Property - Metrics - Content <a id='vulnerabilities-property---metrics---content'></a>
 
 Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
 EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`), SSVC v2 (`ssvc_v2`),
@@ -4534,21 +4921,21 @@ valid at the metrics-content-level of the CSAF document and associated with this
 > For new versions of an official supported standard, the OASIS CSAF TC will consider providing an official extension
 > to ensure interoperability.
 
-##### 3.2.4.10.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property---metrics---products'></a>
+##### 3.2.4.9.2 Vulnerabilities Property - Metrics - Products <a id='vulnerabilities-property---metrics---products'></a>
 
 Product IDs (`products`) of value type `products_t` with `1` or more items indicates for which products the given content applies.
 A metric object SHOULD reflect the associated product's status (for example,
 a fixed product no longer contains a vulnerability and should have a CVSS score of `0`, or simply no score listed;
 the known affected versions of that product can list the vulnerability score as it applies to them).
 
-##### 3.2.4.10.3 Vulnerabilities Property - Metrics - Source <a id='vulnerabilities-property---metrics---source'></a>
+##### 3.2.4.9.3 Vulnerabilities Property - Metrics - Source <a id='vulnerabilities-property---metrics---source'></a>
 
 Source (`source`) of value type `string` with format `uri` contains the URL of the source that originally determined the metric.
 If no source is given, then the metric was assigned by the document author.
 
 > For example, this could point to the vendor advisory, discoverer blog post, a multiplier's assessment or other sources that provide metric information.
 
-#### 3.2.4.11 Vulnerabilities Property - Notes <a id='vulnerabilities-property-notes'></a>
+#### 3.2.4.10 Vulnerabilities Property - Notes <a id='vulnerabilities-property-notes'></a>
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
@@ -4585,7 +4972,7 @@ table 2: Combinations of `category` and `title` with special meaning.
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
-#### 3.2.4.12 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
+#### 3.2.4.11 Vulnerabilities Property - Product Status <a id='vulnerabilities-property-product-status'></a>
 
 Product status (`product_status`) of value type `object` with `1` or more properties contains different lists of `product_ids` which
 provide details on the status of the referenced product related to the current vulnerability.
@@ -4691,7 +5078,7 @@ the sets formed by the contradicting groups within one vulnerability item SHALL 
 > Note: An issuer might recommend (`$.vulnerabilities[*].product_status.recommended`) a product version from any group - also from the affected group,
 > i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
 
-#### 3.2.4.13 Vulnerabilities Property - References <a id='vulnerabilities-property---references'></a>
+#### 3.2.4.12 Vulnerabilities Property - References <a id='vulnerabilities-property---references'></a>
 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
@@ -4711,7 +5098,7 @@ list of references associated with this vulnerability item.
   # ...
 ```
 
-#### 3.2.4.14 Vulnerabilities Property - Remediations <a id='vulnerabilities-property---remediations'></a>
+#### 3.2.4.13 Vulnerabilities Property - Remediations <a id='vulnerabilities-property---remediations'></a>
 
 List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
@@ -4752,7 +5139,7 @@ Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`ur
     # ...
 ```
 
-##### 3.2.4.14.1 Vulnerabilities Property - Remediations - Category <a id='vulnerabilities-property-remediations-category'></a>
+##### 3.2.4.13.1 Vulnerabilities Property - Remediations - Category <a id='vulnerabilities-property-remediations-category'></a>
 
 Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
 Valid values are:
@@ -4878,16 +5265,16 @@ The remaining discouraged combinations are appended at the end of the list:
 
 CSAF Viewers MAY sort the remediation items accordingly.
 
-##### 3.2.4.14.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property---remediations---date'></a>
+##### 3.2.4.13.2 Vulnerabilities Property - Remediations - Date <a id='vulnerabilities-property---remediations---date'></a>
 
 Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
 
-##### 3.2.4.14.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property---remediations---details'></a>
+##### 3.2.4.13.3 Vulnerabilities Property - Remediations - Details <a id='vulnerabilities-property---remediations---details'></a>
 
 Details of the remediation (`details`) of value type `string` with `1` or more characters contains a thorough human-readable
 discussion of the remediation.
 
-##### 3.2.4.14.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property---remediations---entitlements'></a>
+##### 3.2.4.13.4 Vulnerabilities Property - Remediations - Entitlements <a id='vulnerabilities-property---remediations---entitlements'></a>
 
 List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
 with `1` or more characters contains a list of entitlements.
@@ -4909,16 +5296,16 @@ with `1` or more characters contains a list of entitlements.
 Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that
 fully resolves the vulnerability.
 
-##### 3.2.4.14.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property---remediations---group-ids'></a>
+##### 3.2.4.13.5 Vulnerabilities Property - Remediations - Group IDs <a id='vulnerabilities-property---remediations---group-ids'></a>
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of
 Product Groups the current remediation item applies to.
 
-##### 3.2.4.14.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property---remediations---product-ids'></a>
+##### 3.2.4.13.6 Vulnerabilities Property - Remediations - Product IDs <a id='vulnerabilities-property---remediations---product-ids'></a>
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
 
-##### 3.2.4.14.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property---remediations---restart-required'></a>
+##### 3.2.4.13.7 Vulnerabilities Property - Remediations - Restart Required <a id='vulnerabilities-property---remediations---restart-required'></a>
 
 Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
@@ -4980,11 +5367,11 @@ The values SHALL be used as follows:
 Additional restart information (`details`) of value type `string` with `1` or more characters provides additional information for the restart.
 This can include details on procedures, scope or impact.
 
-##### 3.2.4.14.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property---remediations---url'></a>
+##### 3.2.4.13.8 Vulnerabilities Property - Remediations - URL <a id='vulnerabilities-property---remediations---url'></a>
 
 URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
 
-#### 3.2.4.15 Vulnerabilities Property - Threats <a id='vulnerabilities-property---threats'></a>
+#### 3.2.4.14 Vulnerabilities Property - Threats <a id='vulnerabilities-property---threats'></a>
 
 List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
 information about a vulnerability that can change with time.
@@ -5055,12 +5442,12 @@ Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) an
 
 Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
 
-#### 3.2.4.16 Vulnerabilities Property - Title <a id='vulnerabilities-property---title'></a>
+#### 3.2.4.15 Vulnerabilities Property - Title <a id='vulnerabilities-property---title'></a>
 
 Title (`title`) has value type `string` with `1` or more characters and gives the document producer the ability to apply a canonical name or
 title to the vulnerability.
 
-#### 3.2.4.17 Vulnerabilities Property - Extensions <a id='vulnerabilities-property---extensions'></a>
+#### 3.2.4.16 Vulnerabilities Property - Extensions <a id='vulnerabilities-property---extensions'></a>
 
 Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
 at the vulnerability item level of the CSAF document and associated with this vulnerability element.
@@ -5149,17 +5536,17 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   - `$.document.tracking.version`
 - The value of `$.document.category` SHALL NOT be equal to or a close match for any value that is intended to only be used by
   another profile nor to the (case insensitive) name of any other profile from the standard.
-  Such case insensitive matching does not take occurrences of dash, hyphen, minus, white space, and underscore characters into account.
+  Such case insensitive matching does ignore any dash, hyphen, minus, white space, invisible and underscore characters.
   To explicitly select the use of this profile the value `csaf_base` SHOULD be used.
 
 > Neither `CSAF Security Advisory` nor `csaf security advisory` are valid values for `$.document.category`.
 
-An issuing party might choose to prepend its `$.document.publisher.name` to a value in `$.document.category` that would otherwise be 
+An issuing party might choose to prepend its `$.document.publisher.name` to a value in `$.document.category` that would otherwise be
 intended to only be used by another profile, to state that the CSAF document does not use the profile associated with this value.
 In this case, the (case insensitive) string "CSAF" SHALL be removed from the value.
 This SHOULD be done if the issuing party is unable or unwilling to use the value `csaf_base`, e.g. due to legal or cooperate identity reasons.
 
-> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `$.document.category` are therefore valid 
+> Both values `Example Company Security Advisory` and `Example Company security_advisory` in `$.document.category` are therefore valid
 > categories for the profile "CSAF Base".
 > This is important to prepare forward compatibility as later versions of CSAF might add new profiles.
 > Therefore, the values which can be used for the profile "CSAF Base" might change.
@@ -5222,6 +5609,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
   - all elements required by the profile "CSAF Base".
   - `$.product_tree` which lists all products referenced later on in the CSAF document regardless of their state.
   - `$.vulnerabilities` which lists all vulnerabilities.
+  - at least one of
+    - `$.vulnerabilities[*].cve`
+    - `$.vulnerabilities[*].ids`
   - `$.vulnerabilities[*].notes`
 
     > Provides details about the vulnerability.
@@ -5465,9 +5855,9 @@ A CSAF document SHALL fulfill the following requirements to satisfy the profile 
 
   - `$.vulnerabilities[*].disclosure_date` which SHOULD be used to communicate or coordinate an intended public
     disclosure date for the reported vulnerabilities.
-  - `$.vulnerabilities[*].involvements`
+  - `$.document.involvement`
 
-    > Records coordination activities between the parties involved in the disclosure of the specific vulnerability.
+    > Records coordination activities between the parties involved in the disclosure of the vulnerabilities.
 
 ---
 
@@ -5494,7 +5884,7 @@ The following rules SHALL be applied to determine the filename for the CSAF docu
 
 3. The file extension `.json` SHALL be appended.
 
-*Examples 1:*<a id='filename-eg-1'></a><a id='sec-5-1-eg-1'></a><a id='example-59'></a>
+*Examples 1:*<a id='filename-eg-1'></a><a id='sec-5-1-eg-1'></a><a id='example-64'></a>
 
 ```
   cisco-sa-20190513-secureboot.json
@@ -5505,7 +5895,7 @@ The following rules SHALL be applied to determine the filename for the CSAF docu
 > It is currently considered best practice to indicate that a CSAF document is invalid by
 > inserting `_invalid` into the filename in front of the file extension.
 
-*Examples 2:*<a id='filename-eg-2'></a><a id='sec-5-1-eg-2'></a><a id='example-60'></a>
+*Examples 2:*<a id='filename-eg-2'></a><a id='sec-5-1-eg-2'></a><a id='example-65'></a>
 
 ```
   cisco-sa-20190513-secureboot_invalid.json
@@ -5524,18 +5914,19 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 
 ## 5.4 Usage of Markdown <a id='usage-of-markdown'></a>
 
-The use of GitHub-flavoured Markdown is permitted in the following fields:
+The use of GitHub-flavored Markdown is permitted in the following fields:
 
 ```list-of-jsonpaths
   $.document.acknowledgments[*].summary
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].text
   $.document.publisher.issuing_authority
   $.document.references[*].summary
   $.document.tracking.revision_history[*].summary
   $.product_tree.product_groups[*].summary
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].references[*].summary
   $.vulnerabilities[*].remediations[*].details
@@ -5560,7 +5951,7 @@ If a product consists of hardware and software, the hardware part SHALL be prese
 and the software part as another one.
 To form the overall product, both parts SHALL be combined through a product path.
 
-*Example 1:*<a id='hardware-and-software-within-the-product-tree-eg-1'></a><a id='sec-5-6-eg-1'></a><a id='example-61'></a>
+*Example 1:*<a id='hardware-and-software-within-the-product-tree-eg-1'></a><a id='sec-5-6-eg-1'></a><a id='example-66'></a>
 
 ```
   "product_tree": {
@@ -5683,7 +6074,7 @@ To form the overall product, both parts SHALL be combined through a product path
 > Representing the software version as a child element under elements representing hardware unsettles the consumer whether the version
 > applies to the software or hardware.
 > Also, this would violate the rule regarding the full identification of a product by the `product_identification_helper` from section
-> [3.1.4.3](#full-product-name-type-product-identification-helper).
+> [3.1.10.3](#full-product-name-type-product-identification-helper).
 >
 > Based on the CVE statistics up to and including the year 2024, in the majority of cases the vulnerabilities reside in software or
 > are remediated via software.
@@ -5711,6 +6102,7 @@ The same applies for all items of elements of type `$['$defs'].products_t`.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
+  $.document.involvement.actions[*].product_ids[*]
   $.document.notes[*].product_ids[*]
   $.product_tree.product_groups[*].product_ids[*]
   $.product_tree.product_paths[*].beginning_product_reference
@@ -5718,7 +6110,6 @@ The relevant paths for this test are:
   $.vulnerabilities[*].first_known_exploitation_dates[*].product_ids[*]
   $.vulnerabilities[*].flags[*].product_ids[*]
   $.vulnerabilities[*].ids[*].product_ids[*]
-  $.vulnerabilities[*].involvements[*].product_ids[*]
   $.vulnerabilities[*].metrics[*].products[*]
   $.vulnerabilities[*].notes[*].product_ids[*]
   $.vulnerabilities[*].product_status.first_affected[*]
@@ -5734,7 +6125,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].threats[*].product_ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-definition-of-product-id-eg-1'></a><a id='sec-6-1-1-eg-1'></a><a id='example-62'></a>
+*Example 1 (which fails the test):*<a id='missing-definition-of-product-id-eg-1'></a><a id='sec-6-1-1-eg-1'></a><a id='example-67'></a>
 
 ```
   "product_tree": {
@@ -5765,7 +6156,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-of-product-id-eg-1'></a><a id='sec-6-1-2-eg-1'></a><a id='example-63'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-of-product-id-eg-1'></a><a id='sec-6-1-2-eg-1'></a><a id='example-68'></a>
 
 ```
   "product_tree": {
@@ -5799,7 +6190,7 @@ The relevant path for this test is:
 > a Product ID defined in a product path item is used as `beginning_product_reference` or `next_product_reference`.
 > Only for those which fulfill this condition it is necessary to run the full check following the references.
 
-*Example 1 (which fails the test):*<a id='circular-definition-of-product-id-eg-1'></a><a id='sec-6-1-3-eg-1'></a><a id='example-64'></a>
+*Example 1 (which fails the test):*<a id='circular-definition-of-product-id-eg-1'></a><a id='sec-6-1-3-eg-1'></a><a id='example-69'></a>
 
 ```
   "product_tree": {
@@ -5838,17 +6229,17 @@ The same applies for all items of elements of type `$['$defs'].product_groups_t`
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
+  $.document.involvement.actions[*].group_ids[*]
   $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
   $.vulnerabilities[*].flags[*].group_ids[*]
   $.vulnerabilities[*].ids[*].group_ids[*]
-  $.vulnerabilities[*].involvements[*].group_ids[*]
   $.vulnerabilities[*].notes[*].group_ids[*]
   $.vulnerabilities[*].remediations[*].group_ids[*]
   $.vulnerabilities[*].threats[*].group_ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-4-eg-1'></a><a id='example-65'></a>
+*Example 1 (which fails the test):*<a id='missing-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-4-eg-1'></a><a id='example-70'></a>
 
 ```
   "product_tree": {
@@ -5887,7 +6278,7 @@ The relevant path for this test is:
   $.product_tree.product_groups[*].group_id
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-5-eg-1'></a><a id='example-66'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-of-product-group-id-eg-1'></a><a id='sec-6-1-5-eg-1'></a><a id='example-71'></a>
 
 ```
   "product_tree": {
@@ -5929,7 +6320,7 @@ The relevant path for this test is:
 ### 6.1.6 Contradicting Product Status <a id='contradicting-product-status'></a>
 
 For each item in `$.vulnerabilities` it SHALL be tested that the same Product ID is not a member of contradicting
-product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+product status groups (see section [3.2.4.11](#vulnerabilities-property-product-status)).
 The sets formed by the contradicting groups within one vulnerability item SHALL be pairwise disjoint.
 
 The relevant path for this test is:
@@ -5938,7 +6329,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='contradicting-product-status-eg-1'></a><a id='sec-6-1-6-eg-1'></a><a id='example-67'></a>
+*Example 1 (which fails the test):*<a id='contradicting-product-status-eg-1'></a><a id='sec-6-1-6-eg-1'></a><a id='example-72'></a>
 
 ```
   "product_tree": {
@@ -5979,7 +6370,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-scores-with-same-version-per-product-eg-1'></a><a id='sec-6-1-7-eg-1'></a><a id='example-68'></a>
+*Example 1 (which fails the test):*<a id='multiple-scores-with-same-version-per-product-eg-1'></a><a id='sec-6-1-7-eg-1'></a><a id='example-73'></a>
 
 ```
   "product_tree": {
@@ -6038,7 +6429,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].metrics[*].content.cvss_v4
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-69'></a>
+*Example 1 (which fails the test):*<a id='invalid-cvss-eg-1'></a><a id='sec-6-1-8-eg-1'></a><a id='example-74'></a>
 
 ```
   "cvss_v3": {
@@ -6078,7 +6469,7 @@ The relevant paths for this test are:
 > Note: CVSS v4 does not define `threatScore`, `threatSeverity`, `environmentalScore` and `environmentalSeverity`.
 > The existence of these JSON keys in an older version of the schema was fixed with version `4.0.1`.
 
-*Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-70'></a>
+*Example 1 (which fails the test):*<a id='invalid-cvss-computation-eg-1'></a><a id='sec-6-1-9-eg-1'></a><a id='example-75'></a>
 
 ```
   "cvss_v3": {
@@ -6105,7 +6496,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].metrics[*].content.cvss_v4
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-71'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-cvss-eg-1'></a><a id='sec-6-1-10-eg-1'></a><a id='example-76'></a>
 
 ```
   "cvss_v3": {
@@ -6141,7 +6532,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-72'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--cwe-eg-1'></a><a id='sec-6-1-11-eg-1'></a><a id='example-77'></a>
 
 ```
   "cwes": [
@@ -6166,7 +6557,7 @@ The relevant paths for this test are:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='language-eg-1'></a><a id='sec-6-1-12-eg-1'></a><a id='example-73'></a>
+*Example 1 (which fails the test):*<a id='language-eg-1'></a><a id='sec-6-1-12-eg-1'></a><a id='example-78'></a>
 
 ```
   "lang": "EZ"
@@ -6180,9 +6571,9 @@ The relevant paths for this test are:
 
 It SHALL be tested that all given PURLs are valid.
 
-> It is not sufficient to just test against the `pattern` provided in section [3.1.4.3.4](#full-product-name-type-product-identification-helper-purls).
+> It is not sufficient to just test against the `pattern` provided in section [3.1.10.3.4](#full-product-name-type-product-identification-helper-purls).
 > The PURL must be validated against the requirements in the \[[ECMA-427](#ECMA-427)\] specification and the additional constraints given in
-> section [3.1.4.3.4](#full-product-name-type-product-identification-helper-purls).
+> section [3.1.10.3.4](#full-product-name-type-product-identification-helper-purls).
 
 The relevant paths for this test are:
 
@@ -6192,7 +6583,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
 ```
 
-*Example 1 (which fails the test):*<a id='purl-eg-1'></a><a id='sec-6-1-13-eg-1'></a><a id='example-74'></a>
+*Example 1 (which fails the test):*<a id='purl-eg-1'></a><a id='sec-6-1-13-eg-1'></a><a id='example-79'></a>
 
 ```
   "product_tree": {
@@ -6232,7 +6623,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='sorted-revision-history-eg-1'></a><a id='sec-6-1-14-eg-1'></a><a id='example-75'></a>
+*Example 1 (which fails the test):*<a id='sorted-revision-history-eg-1'></a><a id='sec-6-1-14-eg-1'></a><a id='example-80'></a>
 
 ```
   "revision_history": [
@@ -6263,7 +6654,7 @@ The relevant path for this test is:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='translator-eg-1'></a><a id='sec-6-1-15-eg-1'></a><a id='example-76'></a>
+*Example 1 (which fails the test):*<a id='translator-eg-1'></a><a id='sec-6-1-15-eg-1'></a><a id='example-81'></a>
 
 ```
   "document": {
@@ -6297,7 +6688,7 @@ The relevant path for this test is:
   $.document.tracking.version
 ```
 
-*Example 1 (which fails the test):*<a id='latest-document-version-eg-1'></a><a id='sec-6-1-16-eg-1'></a><a id='example-77'></a>
+*Example 1 (which fails the test):*<a id='latest-document-version-eg-1'></a><a id='sec-6-1-16-eg-1'></a><a id='example-82'></a>
 
 ```
   "tracking": {
@@ -6333,7 +6724,7 @@ The relevant path for this test is:
   $.document.tracking.status
 ```
 
-*Example 1 (which fails the test):*<a id='document-status-draft-eg-1'></a><a id='sec-6-1-17-eg-1'></a><a id='example-78'></a>
+*Example 1 (which fails the test):*<a id='document-status-draft-eg-1'></a><a id='sec-6-1-17-eg-1'></a><a id='example-83'></a>
 
 ```
     "tracking": {
@@ -6357,7 +6748,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].number
 ```
 
-*Example 1 (which fails the test):*<a id='released-revision-history-eg-1'></a><a id='sec-6-1-18-eg-1'></a><a id='example-79'></a>
+*Example 1 (which fails the test):*<a id='released-revision-history-eg-1'></a><a id='sec-6-1-18-eg-1'></a><a id='example-84'></a>
 
 ```
     "tracking": {
@@ -6393,7 +6784,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].number
 ```
 
-*Example 1 (which fails the test):*<a id='revision-history-entries-for-pre-release-versions-eg-1'></a><a id='sec-6-1-19-eg-1'></a><a id='example-80'></a>
+*Example 1 (which fails the test):*<a id='revision-history-entries-for-pre-release-versions-eg-1'></a><a id='sec-6-1-19-eg-1'></a><a id='example-85'></a>
 
 ```
     "revision_history": [
@@ -6426,7 +6817,7 @@ The relevant path for this test is:
   $.document.tracking.version
 ```
 
-*Example 1 (which fails the test):*<a id='non-draft-document-version-eg-1'></a><a id='sec-6-1-20-eg-1'></a><a id='example-81'></a>
+*Example 1 (which fails the test):*<a id='non-draft-document-version-eg-1'></a><a id='sec-6-1-20-eg-1'></a><a id='example-86'></a>
 
 ```
     "tracking": {
@@ -6464,7 +6855,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='missing-item-in-revision-history-eg-1'></a><a id='sec-6-1-21-eg-1'></a><a id='example-82'></a>
+*Example 1 (which fails the test):*<a id='missing-item-in-revision-history-eg-1'></a><a id='sec-6-1-21-eg-1'></a><a id='example-87'></a>
 
 ```
     "revision_history": [
@@ -6496,7 +6887,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-in-revision-history-eg-1'></a><a id='sec-6-1-22-eg-1'></a><a id='example-83'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-in-revision-history-eg-1'></a><a id='sec-6-1-22-eg-1'></a><a id='example-88'></a>
 
 ```
    "revision_history": [
@@ -6525,7 +6916,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cve
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-use-of-same-cve-eg-1'></a><a id='sec-6-1-23-eg-1'></a><a id='example-84'></a>
+*Example 1 (which fails the test):*<a id='multiple-use-of-same-cve-eg-1'></a><a id='sec-6-1-23-eg-1'></a><a id='example-89'></a>
 
 ```
   "vulnerabilities": [
@@ -6540,39 +6931,57 @@ The relevant path for this test is:
 
 > The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
 
-### 6.1.24 Multiple Definition in Involvements <a id='multiple-definition-in-involvements'></a>
+### 6.1.24 Multiple Definition in Actions <a id='multiple-definition-in-actions'></a>
 
-It SHALL be tested that items of the list of involvements do not contain the same `party` regardless of its `status` more than once at any `date`.
+It SHALL be tested that items of the list of actions do differ in more values than just the `action_id`.
+
+Ignoring the `action_id`, two items in the list of actions are the same, if:
+
+1. all of the following fields contain the same value:
+   - `category`
+   - `date`
+   - `status`
+   - `summary`
+2. and all of the following sets contain the same values:
+   - `acting_entity_refs`
+   - `dl_vuln_ids`
+   - `group_ids`
+   - `product_ids`
+   - `receiving_entity_refs`
+   - `referenced_action_ids`
 
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.vulnerabilities[*].involvements
+  $.document.involvement.actions
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-definition-in-involvements-eg-1'></a><a id='sec-6-1-24-eg-1'></a><a id='example-85'></a>
+*Example 1 (which fails the test):*<a id='multiple-definition-in-actions-eg-1'></a><a id='sec-6-1-24-eg-1'></a><a id='example-90'></a>
 
 ```
-  "vulnerabilities": [
+  "actions": [
     {
-      "involvements": [
-        {
-          "date": "2023-08-23T10:00:00.000Z",
-          "party": "vendor",
-          "status": "completed"
-        },
-        {
-          "date": "2023-08-23T10:00:00.000Z",
-          "party": "vendor",
-          "status": "in_progress",
-          "summary": "The vendor has released a mitigation and is working to fully resolve the issue."
-        }
-      ]
+      "action_id": "ACN-1",
+      "acting_entity_refs": ["EID-0001"],
+      "date": "2024-01-10T09:00:00Z",
+      "category": "notification",
+      "receiving_entity_refs": ["EID-0002"],
+      "status": "completed",
+      "summary": "Reported vulnerability to vendor."
+    },
+    {
+      "action_id": "ACN-2",
+      "acting_entity_refs": ["EID-0001"],
+      "date": "2024-01-10T09:00:00Z",
+      "category": "notification",
+      "receiving_entity_refs": ["EID-0002"],
+      "status": "completed",
+      "summary": "Reported vulnerability to vendor."
     }
   ]
 ```
 
-> The list of involvements contains two items with the same tuple `party` and `date`.
+> The list of actions contains two items with the same content when ignoring their `action_id`.
 
 ### 6.1.25 Multiple Use of Same Hash Algorithm <a id='multiple-use-of-same-hash-algorithm'></a>
 
@@ -6586,7 +6995,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-use-of-same-hash-algorithm-eg-1'></a><a id='sec-6-1-25-eg-1'></a><a id='example-86'></a>
+*Example 1 (which fails the test):*<a id='multiple-use-of-same-hash-algorithm-eg-1'></a><a id='sec-6-1-25-eg-1'></a><a id='example-91'></a>
 
 ```
   "product_tree": {
@@ -6622,8 +7031,8 @@ The relevant paths for this test are:
 
 It SHALL be tested that the document category is not equal to the (case insensitive) name (without the prefix `csaf_`) or
 value of any other profile than "CSAF Base".
-Any occurrences of dash, hyphen, minus, underscore, and white space characters are removed from the values on both sides before the
-case insensitive match.
+Any occurrences of dash, hyphen, minus, underscore, white space and invisible characters are removed from the values
+on both sides before the case insensitive match.
 
 > The characters listed above are independent of their graphical variants.
 > In general, all corresponding unicode characters are part of the group.
@@ -6668,7 +7077,7 @@ The relevant path for this test is:
   $.document.category
 ```
 
-*Examples 1 (for currently prohibited values):*<a id='prohibited-document-category-name-eg-1'></a><a id='sec-6-1-26-eg-1'></a><a id='example-87'></a>
+*Examples 1 (for currently prohibited values):*<a id='prohibited-document-category-name-eg-1'></a><a id='sec-6-1-26-eg-1'></a><a id='example-92'></a>
 
 ```
   Csaf_a
@@ -6686,7 +7095,7 @@ The relevant path for this test is:
   Vulnerability＿rePORT
 ```
 
-*Example 2 (which fails the test):*<a id='prohibited-document-category-name-eg-2'></a><a id='sec-6-1-26-eg-2'></a><a id='example-88'></a>
+*Example 2 (which fails the test):*<a id='prohibited-document-category-name-eg-2'></a><a id='sec-6-1-26-eg-2'></a><a id='example-93'></a>
 
 ```
   "category": "Security_Incident_Response"
@@ -6694,7 +7103,7 @@ The relevant path for this test is:
 
 > The value `Security_Incident_Response` is the name of a profile where the space was replaced with underscores.
 
-### 6.1.27 Profile Tests <a id='mandatory-profile-tests'></a>
+### 6.1.27 Profile Tests <a id='mandatory--profile-tests'></a>
 
 This subsubsection structures the mandatory tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
@@ -6720,7 +7129,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='document-notes-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-1-eg-1'></a><a id='example-89'></a>
+*Example 1 (which fails the test):*<a id='document-notes-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-1-eg-1'></a><a id='example-94'></a>
 
 ```
   "notes": [
@@ -6757,7 +7166,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='document-references-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-2-eg-1'></a><a id='example-90'></a>
+*Example 1 (which fails the test):*<a id='document-references-for-informational-advisory-and-security-incident-response-eg-1'></a><a id='sec-6-1-27-2-eg-1'></a><a id='example-95'></a>
 
 ```
   "references": [
@@ -6789,7 +7198,7 @@ The relevant path for this test is:
   $.vulnerabilities
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerabilities-for-informational-advisory-eg-1'></a><a id='sec-6-1-27-3-eg-1'></a><a id='example-91'></a>
+*Example 1 (which fails the test):*<a id='vulnerabilities-for-informational-advisory-eg-1'></a><a id='sec-6-1-27-3-eg-1'></a><a id='example-96'></a>
 
 ```
   "vulnerabilities": [
@@ -6822,7 +7231,7 @@ The relevant path for this test is:
   $.product_tree
 ```
 
-*Example 1 (which fails the test):*<a id='product-tree-for-security-advisory-vex-deprecated-security-advisory-eg-1'></a><a id='sec-6-1-27-4-eg-1'></a><a id='example-92'></a>
+*Example 1 (which fails the test):*<a id='product-tree-for-security-advisory-vex-deprecated-security-advisory-eg-1'></a><a id='sec-6-1-27-4-eg-1'></a><a id='example-97'></a>
 
 ```
   {
@@ -6855,7 +7264,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].notes
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-notes-eg-1'></a><a id='sec-6-1-27-5-eg-1'></a><a id='example-93'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-notes-eg-1'></a><a id='sec-6-1-27-5-eg-1'></a><a id='example-98'></a>
 
 ```
   "vulnerabilities": [
@@ -6889,7 +7298,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='product-status-eg-1'></a><a id='sec-6-1-27-6-eg-1'></a><a id='example-94'></a>
+*Example 1 (which fails the test):*<a id='product-status-eg-1'></a><a id='sec-6-1-27-6-eg-1'></a><a id='example-99'></a>
 
 ```
   "vulnerabilities": [
@@ -6921,7 +7330,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].product_status.under_investigation
 ```
 
-*Example 1 (which fails the test):*<a id='vex-product-status-eg-1'></a><a id='sec-6-1-27-7-eg-1'></a><a id='example-95'></a>
+*Example 1 (which fails the test):*<a id='vex-product-status-eg-1'></a><a id='sec-6-1-27-7-eg-1'></a><a id='example-100'></a>
 
 ```
   "product_status": {
@@ -6950,6 +7359,7 @@ This is independent from whether the product is referenced directly or indirectl
 The relevant values for `$.document.category` are:
 
 ```
+  csaf_security_advisory
   csaf_vex
   csaf_vulnerability_report
 ```
@@ -6961,7 +7371,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].ids
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-id-eg-1'></a><a id='sec-6-1-27-8-eg-1'></a><a id='example-96'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-id-eg-1'></a><a id='sec-6-1-27-8-eg-1'></a><a id='example-101'></a>
 
 ```
   "vulnerabilities": [
@@ -6992,7 +7402,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].threats
 ```
 
-*Example 1 (which fails the test):*<a id='impact-statement-eg-1'></a><a id='sec-6-1-27-9-eg-1'></a><a id='example-97'></a>
+*Example 1 (which fails the test):*<a id='impact-statement-eg-1'></a><a id='sec-6-1-27-9-eg-1'></a><a id='example-102'></a>
 
 ```
   "product_tree": {
@@ -7064,7 +7474,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations
 ```
 
-*Example 1 (which fails the test):*<a id='action-statement-eg-1'></a><a id='sec-6-1-27-10-eg-1'></a><a id='example-98'></a>
+*Example 1 (which fails the test):*<a id='action-statement-eg-1'></a><a id='sec-6-1-27-10-eg-1'></a><a id='example-103'></a>
 
 ```
   "product_tree": {
@@ -7139,7 +7549,7 @@ The relevant path for this test is:
   $.vulnerabilities
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerabilities-for-security-advisory-or-vex-eg-1'></a><a id='sec-6-1-27-11-eg-1'></a><a id='example-99'></a>
+*Example 1 (which fails the test):*<a id='vulnerabilities-for-security-advisory-or-vex-eg-1'></a><a id='sec-6-1-27-11-eg-1'></a><a id='example-104'></a>
 
 ```
   {
@@ -7171,7 +7581,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status.known_affected
 ```
 
-*Example 1 (which fails the test):*<a id='affected-products-eg-1'></a><a id='sec-6-1-27-12-eg-1'></a><a id='example-100'></a>
+*Example 1 (which fails the test):*<a id='affected-products-eg-1'></a><a id='sec-6-1-27-12-eg-1'></a><a id='example-105'></a>
 
 ```
       "product_status": {
@@ -7205,7 +7615,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status.known_affected
 ```
 
-*Example 1 (which fails the test):*<a id='corresponding-affected-products-eg-1'></a><a id='sec-6-1-27-13-eg-1'></a><a id='example-101'></a>
+*Example 1 (which fails the test):*<a id='corresponding-affected-products-eg-1'></a><a id='sec-6-1-27-13-eg-1'></a><a id='example-106'></a>
 
 ```
   {
@@ -7266,7 +7676,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='document-notes-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-14-eg-1'></a><a id='example-102'></a>
+*Example 1 (which fails the test):*<a id='document-notes-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-14-eg-1'></a><a id='example-107'></a>
 
 ```
   "notes": [
@@ -7297,7 +7707,7 @@ The relevant path for this test is:
   $.product_tree
 ```
 
-*Example 1 (which fails the test):*<a id='product-tree-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-15-eg-1'></a><a id='example-103'></a>
+*Example 1 (which fails the test):*<a id='product-tree-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-15-eg-1'></a><a id='example-108'></a>
 
 ```
     "product_tree": [
@@ -7324,7 +7734,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history
 ```
 
-*Example 1 (which fails the test):*<a id='revision-history-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-16-eg-1'></a><a id='example-104'></a>
+*Example 1 (which fails the test):*<a id='revision-history-for-withdrawn-and-superseded-eg-1'></a><a id='sec-6-1-27-16-eg-1'></a><a id='example-109'></a>
 
 ```
   "revision_history": [
@@ -7356,7 +7766,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='reasoning-for-withdrawal-eg-1'></a><a id='sec-6-1-27-17-eg-1'></a><a id='example-105'></a>
+*Example 1 (which fails the test):*<a id='reasoning-for-withdrawal-eg-1'></a><a id='sec-6-1-27-17-eg-1'></a><a id='example-110'></a>
 
 ```
   "notes": [
@@ -7388,7 +7798,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='reasoning-for-supersession-eg-1'></a><a id='sec-6-1-27-18-eg-1'></a><a id='example-106'></a>
+*Example 1 (which fails the test):*<a id='reasoning-for-supersession-eg-1'></a><a id='sec-6-1-27-18-eg-1'></a><a id='example-111'></a>
 
 ```
   "notes": [
@@ -7420,7 +7830,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='reference-to-superseding-document-eg-1'></a><a id='sec-6-1-27-19-eg-1'></a><a id='example-107'></a>
+*Example 1 (which fails the test):*<a id='reference-to-superseding-document-eg-1'></a><a id='sec-6-1-27-19-eg-1'></a><a id='example-112'></a>
 
 ```
     "references": [
@@ -7439,7 +7849,7 @@ The relevant path for this test is:
 If the document language is English or unspecified, it SHALL be tested that at least
 one item in vulnerability notes exists that has the title `Vulnerability Summary` or `CVE Description`.
 The `category` of this item SHALL be consistent with the value required in table [table 2](#vulnerabilities-property-notes-tab-1)
-of section [3.2.4.11](#vulnerabilities-property-notes).
+of section [3.2.4.10](#vulnerabilities-property-notes).
 
 The relevant value for `$.document.category` is:
 
@@ -7453,7 +7863,7 @@ The relevant path for this test is:
   $.vulnerability[*].notes
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-notes-for-vulnerability-report-eg-1'></a><a id='sec-6-1-27-20-eg-1'></a><a id='example-108'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-notes-for-vulnerability-report-eg-1'></a><a id='sec-6-1-27-20-eg-1'></a><a id='example-113'></a>
 
 ```
   "notes": [
@@ -7478,7 +7888,7 @@ The relevant path for this test is:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='translation-eg-1'></a><a id='sec-6-1-28-eg-1'></a><a id='example-109'></a>
+*Example 1 (which fails the test):*<a id='translation-eg-1'></a><a id='sec-6-1-28-eg-1'></a><a id='example-114'></a>
 
 ```
   "document": {
@@ -7506,7 +7916,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='remediation-without-product-reference-eg-1'></a><a id='sec-6-1-29-eg-1'></a><a id='example-110'></a>
+*Example 1 (which fails the test):*<a id='remediation-without-product-reference-eg-1'></a><a id='sec-6-1-29-eg-1'></a><a id='example-115'></a>
 
 ```
       "remediations": [
@@ -7533,7 +7943,7 @@ The relevant paths for this test are:
   $.document.tracking.version
 ```
 
-*Example 1 (which fails the test):*<a id='mixed-integer-and-semantic-versioning-eg-1'></a><a id='sec-6-1-30-eg-1'></a><a id='example-111'></a>
+*Example 1 (which fails the test):*<a id='mixed-integer-and-semantic-versioning-eg-1'></a><a id='sec-6-1-30-eg-1'></a><a id='example-116'></a>
 
 ```
     "tracking": {
@@ -7594,7 +8004,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='version-range-in-product-version-eg-1'></a><a id='sec-6-1-31-eg-1'></a><a id='example-112'></a>
+*Example 1 (which fails the test):*<a id='version-range-in-product-version-eg-1'></a><a id='sec-6-1-31-eg-1'></a><a id='example-117'></a>
 
 ```
             "branches": [
@@ -7618,7 +8028,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].flags[*]
 ```
 
-*Example 1 (which fails the test):*<a id='flag-without-product-reference-eg-1'></a><a id='sec-6-1-32-eg-1'></a><a id='example-113'></a>
+*Example 1 (which fails the test):*<a id='flag-without-product-reference-eg-1'></a><a id='sec-6-1-32-eg-1'></a><a id='example-118'></a>
 
 ```
       "flags": [
@@ -7645,7 +8055,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].flags
 ```
 
-*Example 1 (which fails the test):*<a id='multiple-flags-with-vex-justification-codes-per-product-eg-1'></a><a id='sec-6-1-33-eg-1'></a><a id='example-114'></a>
+*Example 1 (which fails the test):*<a id='multiple-flags-with-vex-justification-codes-per-product-eg-1'></a><a id='sec-6-1-33-eg-1'></a><a id='example-119'></a>
 
 ```
   "product_tree": {
@@ -7710,7 +8120,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].product
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--branches-recursion-depth-eg-1'></a><a id='sec-6-1-34-eg-1'></a><a id='example-115'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--branches-recursion-depth-eg-1'></a><a id='sec-6-1-34-eg-1'></a><a id='example-120'></a>
 
 ```
   "product_tree": {
@@ -7921,7 +8331,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='contradicting-remediations-eg-1'></a><a id='sec-6-1-35-eg-1'></a><a id='example-116'></a>
+*Example 1 (which fails the test):*<a id='contradicting-remediations-eg-1'></a><a id='sec-6-1-35-eg-1'></a><a id='example-121'></a>
 
 ```
       "remediations": [
@@ -7961,7 +8371,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='contradicting-product-status-remediation-combination-eg-1'></a><a id='sec-6-1-36-eg-1'></a><a id='example-117'></a>
+*Example 1 (which fails the test):*<a id='contradicting-product-status-remediation-combination-eg-1'></a><a id='sec-6-1-36-eg-1'></a><a id='example-122'></a>
 
 ```
       "product_status": {
@@ -7989,6 +8399,7 @@ For each item of type `string` and format `date-time` it SHALL be tested that it
 The relevant path for this test is:
 
 ```list-of-jsonpaths
+  $.document.involvement.actions[*].date
   $.document.tracking.current_release_date
   $.document.tracking.generator.date
   $.document.tracking.initial_release_date
@@ -7998,14 +8409,13 @@ The relevant path for this test is:
   $.vulnerabilities[*].first_known_exploitation_dates[*].date
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
   $.vulnerabilities[*].flags[*].date
-  $.vulnerabilities[*].involvements[*].date
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
   $.vulnerabilities[*].remediations[*].date
   $.vulnerabilities[*].threats[*].date
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--date-and-time-eg-1'></a><a id='sec-6-1-37-eg-1'></a><a id='example-118'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--date-and-time-eg-1'></a><a id='sec-6-1-37-eg-1'></a><a id='example-123'></a>
 
 ```
       "current_release_date": "2024-01-24 10:00:00.000Z",
@@ -8023,7 +8433,7 @@ The relevant path for this test is:
   $.document.distribution.tlp.label
 ```
 
-*Example 1 (which fails the test):*<a id='non-public-sharing-group-with-max-uuid-eg-1'></a><a id='sec-6-1-38-eg-1'></a><a id='example-119'></a>
+*Example 1 (which fails the test):*<a id='non-public-sharing-group-with-max-uuid-eg-1'></a><a id='sec-6-1-38-eg-1'></a><a id='example-124'></a>
 
 ```
     "distribution": {
@@ -8052,7 +8462,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.id
 ```
 
-*Example 1 (which fails the test):*<a id='public-sharing-group-with-no-max-uuid-eg-1'></a><a id='sec-6-1-39-eg-1'></a><a id='example-120'></a>
+*Example 1 (which fails the test):*<a id='public-sharing-group-with-no-max-uuid-eg-1'></a><a id='sec-6-1-39-eg-1'></a><a id='example-125'></a>
 
 ```
     "distribution": {
@@ -8079,7 +8489,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.name
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-sharing-group-name-eg-1'></a><a id='sec-6-1-40-eg-1'></a><a id='example-121'></a>
+*Example 1 (which fails the test):*<a id='invalid-sharing-group-name-eg-1'></a><a id='sec-6-1-40-eg-1'></a><a id='example-126'></a>
 
 ```
     "distribution": {
@@ -8105,7 +8515,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.name
 ```
 
-*Example 1 (which fails the test):*<a id='missing-sharing-group-name-eg-1'></a><a id='sec-6-1-41-eg-1'></a><a id='example-122'></a>
+*Example 1 (which fails the test):*<a id='missing-sharing-group-name-eg-1'></a><a id='sec-6-1-41-eg-1'></a><a id='example-127'></a>
 
 ```
     "distribution": {
@@ -8132,7 +8542,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
 ```
 
-*Example 1 (which fails the test):*<a id='purl-qualifiers-eg-1'></a><a id='sec-6-1-42-eg-1'></a><a id='example-123'></a>
+*Example 1 (which fails the test):*<a id='purl-qualifiers-eg-1'></a><a id='sec-6-1-42-eg-1'></a><a id='example-128'></a>
 
 ```
   "product_tree": {
@@ -8167,7 +8577,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-model-number-eg-1'></a><a id='sec-6-1-43-eg-1'></a><a id='example-124'></a>
+*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-model-number-eg-1'></a><a id='sec-6-1-43-eg-1'></a><a id='example-129'></a>
 
 ```
           "model_numbers": [
@@ -8191,7 +8601,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-serial-number-eg-1'></a><a id='sec-6-1-44-eg-1'></a><a id='example-125'></a>
+*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-serial-number-eg-1'></a><a id='sec-6-1-44-eg-1'></a><a id='example-130'></a>
 
 ```
           "serial_numbers": [
@@ -8203,8 +8613,8 @@ The relevant paths for this test are:
 
 ### 6.1.45 Inconsistent Disclosure Date <a id='inconsistent-disclosure-date'></a>
 
-For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier than or equal to the `date` of the newest item of the `revision_history`
-if the document is labeled `TLP:CLEAR` and the document status is `final` or `interim`.
+For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier than or equal to the `date` of the newest item
+of the `revision_history` if the document is labeled `TLP:CLEAR` and the document status is `final` or `interim`.
 As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 
 The relevant path for this test is:
@@ -8213,7 +8623,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].disclosure_date
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-disclosure-date-eg-1'></a><a id='sec-6-1-45-eg-1'></a><a id='example-126'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-disclosure-date-eg-1'></a><a id='sec-6-1-45-eg-1'></a><a id='example-131'></a>
 
 ```
   "document": {
@@ -8249,6 +8659,8 @@ The relevant path for this test is:
 ### 6.1.46 Invalid SSVC <a id='invalid-ssvc'></a>
 
 It SHALL be tested that the given SSVC object is valid according to the referenced schema.
+If the object contains a language code, for example as a part of a `namespace`,
+it SHALL also be tested that the language code is valid and exists.
 
 The relevant path for this test is:
 
@@ -8256,7 +8668,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2
 ```
 
-*Example 1 (which fails the test):*<a id='invalid-ssvc-eg-1'></a><a id='sec-6-1-46-eg-1'></a><a id='example-127'></a>
+*Example 1 (which fails the test):*<a id='invalid-ssvc-eg-1'></a><a id='sec-6-1-46-eg-1'></a><a id='example-132'></a>
 
 ```
   "ssvc_v2": {
@@ -8279,7 +8691,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-ssvc-target-ids-eg-1'></a><a id='sec-6-1-47-eg-1'></a><a id='example-128'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-ssvc-target-ids-eg-1'></a><a id='sec-6-1-47-eg-1'></a><a id='example-133'></a>
 
 ```
   "vulnerabilities": [
@@ -8335,7 +8747,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
-*Example 1 (which fails the test):*<a id='ssvc-decision-points-eg-1'></a><a id='sec-6-1-48-eg-1'></a><a id='example-129'></a>
+*Example 1 (which fails the test):*<a id='ssvc-decision-points-eg-1'></a><a id='sec-6-1-48-eg-1'></a><a id='example-134'></a>
 
 ```
   "ssvc_v2": {
@@ -8377,7 +8789,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-ssvc-timestamp-eg-1'></a><a id='sec-6-1-49-eg-1'></a><a id='example-130'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-ssvc-timestamp-eg-1'></a><a id='sec-6-1-49-eg-1'></a><a id='example-135'></a>
 
 ```
   "document": {
@@ -8418,7 +8830,7 @@ The relevant path for this test is:
 ### 6.1.50 Product Version Range Rules <a id='product-version-range-rules'></a>
 
 For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it SHALL be tested
-that the value of `name` complies with the rules given in section [3.1.2.3.2](#branches-type---name-under-product-version-range).
+that the value of `name` complies with the rules given in section [3.1.3.3.2](#branches-type---name-under-product-version-range).
 VERS types not supported by the implementation SHALL result in a warning which SHALL include the VERS type name used.
 Nevertheless, all other rules SHALL be checked to the extent possible.
 
@@ -8428,7 +8840,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='product-version-range-rules-eg-1'></a><a id='sec-6-1-50-eg-1'></a><a id='example-131'></a>
+*Example 1 (which fails the test):*<a id='product-version-range-rules-eg-1'></a><a id='sec-6-1-50-eg-1'></a><a id='example-136'></a>
 
 ```
         {
@@ -8438,7 +8850,7 @@ The relevant path for this test is:
         }
 ```
 
-> The version range given does not comply with the rules given in section [3.1.2.3.2](#branches-type---name-under-product-version-range).
+> The version range given does not comply with the rules given in section [3.1.3.3.2](#branches-type---name-under-product-version-range).
 
 ### 6.1.51 Inconsistent EPSS Timestamp <a id='inconsistent-epss-timestamp'></a>
 
@@ -8452,7 +8864,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-epss-timestamp-eg-1'></a><a id='sec-6-1-51-eg-1'></a><a id='example-132'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-epss-timestamp-eg-1'></a><a id='sec-6-1-51-eg-1'></a><a id='example-137'></a>
 
 ```
   "document": {
@@ -8512,7 +8924,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-first-known-exploitation-dates-eg-1'></a><a id='sec-6-1-52-eg-1'></a><a id='example-133'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-first-known-exploitation-dates-eg-1'></a><a id='sec-6-1-52-eg-1'></a><a id='example-138'></a>
 
 ```
   "document": {
@@ -8559,7 +8971,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-exploitation-date-eg-1'></a><a id='sec-6-1-53-eg-1'></a><a id='example-134'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-exploitation-date-eg-1'></a><a id='sec-6-1-53-eg-1'></a><a id='example-139'></a>
 
 ```
   "first_known_exploitation_dates": [
@@ -8578,7 +8990,7 @@ The relevant path for this test is:
 It SHALL be tested that the license expression is valid.
 
 > To implement this test, it is deemed sufficient to check for the ABNF defined in annex B of \[[SPDX301](#SPDX301)\] and
-> the restriction on the `DocumentRef` part given in [3.2.2.7](#document-property---license-expression).
+> the restriction on the `DocumentRef` part given in [3.2.2.8](#document-property---license-expression).
 > Although a match against the SPDX License List (`license-id`) or a specific `LicenseRef` or `AdditionalRef` list
 > is not in scope for this test, it checks all other constraints given in the ABNF.
 
@@ -8588,7 +9000,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='license-expression-eg-1'></a><a id='sec-6-1-54-eg-1'></a><a id='example-135'></a>
+*Example 1 (which fails the test):*<a id='license-expression-eg-1'></a><a id='sec-6-1-54-eg-1'></a><a id='example-140'></a>
 
 ```
     "license_expression": "This is a license text that should not be here.",
@@ -8609,7 +9021,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='license-text-eg-1'></a><a id='sec-6-1-55-eg-1'></a><a id='example-136'></a>
+*Example 1 (which fails the test):*<a id='license-text-eg-1'></a><a id='sec-6-1-55-eg-1'></a><a id='example-141'></a>
 
 ```
   "document": {
@@ -8641,7 +9053,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-and-qualitative-severity-rating-eg-1'></a><a id='sec-6-1-56-eg-1'></a><a id='example-137'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-and-qualitative-severity-rating-eg-1'></a><a id='sec-6-1-56-eg-1'></a><a id='example-142'></a>
 
 ```
   "product_tree": {
@@ -8695,7 +9107,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='stacked-branch-categories-eg-1'></a><a id='sec-6-1-57-eg-1'></a><a id='example-138'></a>
+*Example 1 (which fails the test):*<a id='stacked-branch-categories-eg-1'></a><a id='sec-6-1-57-eg-1'></a><a id='example-143'></a>
 
 ```
   "product_tree": {
@@ -8730,7 +9142,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-product-version-in-one-path-with-product-version-range-eg-1'></a><a id='sec-6-1-58-eg-1'></a><a id='example-139'></a>
+*Example 1 (which fails the test):*<a id='use-of-product-version-in-one-path-with-product-version-range-eg-1'></a><a id='sec-6-1-58-eg-1'></a><a id='example-144'></a>
 
 ```
     {
@@ -8765,7 +9177,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='single-version-as-product-version-range-eg-1'></a><a id='sec-6-1-59-eg-1'></a><a id='example-140'></a>
+*Example 1 (which fails the test):*<a id='single-version-as-product-version-range-eg-1'></a><a id='sec-6-1-59-eg-1'></a><a id='example-145'></a>
 
 ```
         {
@@ -8802,7 +9214,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-content-schema-eg-1'></a><a id='sec-6-1-60-1-eg-1'></a><a id='example-141'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-content-schema-eg-1'></a><a id='sec-6-1-60-1-eg-1'></a><a id='example-146'></a>
 
 ```
   "x_extensions": [
@@ -8836,7 +9248,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-extension-schema-eg-1'></a><a id='sec-6-1-60-2-eg-1'></a><a id='example-142'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-extension-schema-eg-1'></a><a id='sec-6-1-60-2-eg-1'></a><a id='example-147'></a>
 
 ```
   "x_extensions": [
@@ -8881,7 +9293,7 @@ The relevant paths for this test are:
   $.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-metadata-eg-1'></a><a id='sec-6-1-60-3-eg-1'></a><a id='example-143'></a>
+*Example 1 (which fails the test):*<a id='mandatory-tests--extension-tests-metadata-eg-1'></a><a id='sec-6-1-60-3-eg-1'></a><a id='example-148'></a>
 
 ```
   {
@@ -8917,7 +9329,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-sku-eg-1'></a><a id='sec-6-1-61-eg-1'></a><a id='example-144'></a>
+*Example 1 (which fails the test):*<a id='use-of-multiple-stars-in-sku-eg-1'></a><a id='sec-6-1-61-eg-1'></a><a id='example-149'></a>
 
 ```
           "skus": [
@@ -8926,6 +9338,47 @@ The relevant paths for this test are:
 ```
 
 > The stock keeping unit contains two unescaped stars.
+
+### 6.1.62 Inconsistent Discovery Date <a id='inconsistent-discovery-date'></a>
+
+For each vulnerability, it SHALL be tested that the `discovery_date` is earlier than or equal to the `date` of the newest item
+of the `revision_history` if the document status is `final` or `interim`.
+Also, the `discovery_date` SHALL be earlier than or equal to the `disclosure_date` of the same vulnerability.
+
+As the timestamps might use different timezones, the sorting SHALL take timezones into account.
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].discovery_date
+```
+
+*Example 1 (which fails the test):*<a id='inconsistent-discovery-date-eg-1'></a><a id='sec-6-1-62-eg-1'></a><a id='example-150'></a>
+
+```
+  "document": {
+    // ...
+    "tracking": {
+      // ...
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      // ...
+    }
+  },
+  "vulnerabilities": [
+    {
+      "discovery_date": "2024-02-24T10:00:00.000Z"
+    }
+  ]
+```
+
+> The document is in status `final` but the `discovery_date` is newer than the `date` of newest item in the `revision_history`.
 
 ## 6.2 Recommended Tests <a id='recommended-tests'></a>
 
@@ -8948,7 +9401,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
 
-*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-145'></a>
+*Example 1 (which fails the test):*<a id='unused-definition-of-product-id-eg-1'></a><a id='sec-6-2-1-eg-1'></a><a id='example-151'></a>
 
 ```
   "product_tree": {
@@ -8981,7 +9434,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].product_status.under_investigation[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-146'></a>
+*Example 1 (which fails the test):*<a id='missing-remediation-eg-1'></a><a id='sec-6-2-2-eg-1'></a><a id='example-152'></a>
 
 ```
   "product_tree": {
@@ -9018,7 +9471,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].product_status.last_affected[*]
 ```
 
-*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-147'></a>
+*Example 1 (which fails the test):*<a id='missing-metric-eg-1'></a><a id='sec-6-2-3-eg-1'></a><a id='example-153'></a>
 
 ```
   "product_tree": {
@@ -9052,7 +9505,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].number
 ```
 
-*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-148'></a>
+*Example 1 (which fails the test):*<a id='build-metadata-in-revision-history-eg-1'></a><a id='sec-6-2-4-eg-1'></a><a id='example-154'></a>
 
 ```
     "revision_history": [
@@ -9077,7 +9530,7 @@ The relevant path for this test is:
   $.document.tracking.initial_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-149'></a>
+*Example 1 (which fails the test):*<a id='older-initial-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-5-eg-1'></a><a id='example-155'></a>
 
 ```
     "tracking": {
@@ -9113,7 +9566,7 @@ The relevant path for this test is:
   $.document.tracking.current_release_date
 ```
 
-*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-150'></a>
+*Example 1 (which fails the test):*<a id='older-current-release-date-than-revision-history-eg-1'></a><a id='sec-6-2-6-eg-1'></a><a id='example-156'></a>
 
 ```
     "tracking": {
@@ -9138,32 +9591,13 @@ The relevant path for this test is:
 > The current release date `2023-09-06T10:00:00.000Z` is older than `2023-09-23T11:00:00.000Z` which is the `date` of
 > the newest item in Revision History.
 
-### 6.2.7 Missing Date in Involvements <a id='missing-date-in-involvements'></a>
+### 6.2.7 Missing Date of the Action (Obsolete) <a id='missing-date-of-the-action'></a>
 
-For each item in the list of involvements it SHALL be tested that it includes the property `date`.
-
-The relevant path for this test is:
-
-```list-of-jsonpaths
-  $.vulnerabilities[*].involvements
-```
-
-*Example 1 (which fails the test):*<a id='missing-date-in-involvements-eg-1'></a><a id='sec-6-2-7-eg-1'></a><a id='example-151'></a>
-
-```
-  "vulnerabilities": [
-    {
-      "involvements": [
-        {
-          "party": "vendor",
-          "status": "in_progress"
-        }
-      ]
-    }
-  ]
-```
-
-> The list of involvements contains an item which does not contain the property `date`.
+> The date stating when an involvement action occurred ("Date of the action": `$.document.involvement.actions[*].date)
+> is now required by the schema.
+> Therefore, the recommended test is obsolete.
+> This section is kept to document that change and keep the numbering of the remaining sections stable.
+> The test is excluded from any preset and requirement to be executed.
 
 ### 6.2.8 Use of MD5 As the Only Hash Algorithm <a id='use-of-md5-as-the-only-hash-algorithm'></a>
 
@@ -9180,7 +9614,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-152'></a>
+*Example 1 (which fails the test):*<a id='use-of-md5-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-8-eg-1'></a><a id='example-157'></a>
 
 ```
   "product_tree": {
@@ -9223,7 +9657,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-153'></a>
+*Example 1 (which fails the test):*<a id='use-of-sha-1-as-the-only-hash-algorithm-eg-1'></a><a id='sec-6-2-9-eg-1'></a><a id='example-158'></a>
 
 ```
   "product_tree": {
@@ -9275,7 +9709,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-154'></a>
+*Example 1 (which fails the test):*<a id='missing-canonical-url-eg-1'></a><a id='sec-6-2-11-eg-1'></a><a id='example-159'></a>
 
 ```
   "document": {
@@ -9312,7 +9746,7 @@ The relevant path for this test is:
   $.document.lang
 ```
 
-*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-155'></a>
+*Example 1 (which fails the test):*<a id='missing-document-language-eg-1'></a><a id='sec-6-2-12-eg-1'></a><a id='example-160'></a>
 
 ```
   "document": {
@@ -9345,7 +9779,7 @@ The relevant path for this test is:
   $
 ```
 
-*Example 1 (which fails the test):*<a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-156'></a>
+*Example 1 (which fails the test):*<a id='recommended-tests--sorting-eg-1'></a><a id='sec-6-2-13-eg-1'></a><a id='example-161'></a>
 
 ```
   "document": {
@@ -9370,7 +9804,7 @@ The relevant paths for this test are:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-157'></a>
+*Example 1 (which fails the test):*<a id='use-of-private-language-eg-1'></a><a id='sec-6-2-14-eg-1'></a><a id='example-162'></a>
 
 ```
   "lang": "qtx"
@@ -9391,7 +9825,7 @@ The relevant paths for this test are:
   $.document.source_lang
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-158'></a>
+*Example 1 (which fails the test):*<a id='use-of-default-language-eg-1'></a><a id='sec-6-2-15-eg-1'></a><a id='example-163'></a>
 
 ```
   "lang": "i-default"
@@ -9413,7 +9847,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name
 ```
 
-*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-159'></a>
+*Example 1 (which fails the test):*<a id='missing-product-identification-helper-eg-1'></a><a id='sec-6-2-16-eg-1'></a><a id='example-164'></a>
 
 ```
     "full_product_names": [
@@ -9438,7 +9872,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].ids[*]
 ```
 
-*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-160'></a>
+*Example 1 (which fails the test):*<a id='cve-in-field-ids-eg-1'></a><a id='sec-6-2-17-eg-1'></a><a id='example-165'></a>
 
 ```
       "ids": [
@@ -9470,7 +9904,7 @@ the value of `name` indicates that the product version range is using VERS.
 
 The warning SHALL clearly advise to carefully check whether VERS can be used or the versions can be enumerated as
 the use of vls is only a fallback option.
-For more details, see sections [3.1.2.2](#branches-type---category) and [3.1.2.3.2](#branches-type---name-under-product-version-range).
+For more details, see sections [3.1.3.2](#branches-type---category) and [3.1.3.3.2](#branches-type---name-under-product-version-range).
 
 > It is planned to deprecate and finally remove the support for vls in future versions of this standard.
 
@@ -9480,7 +9914,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-161'></a>
+*Example 1 (which fails the test):*<a id='product-version-range-without-vers-eg-1'></a><a id='sec-6-2-18-eg-1'></a><a id='example-166'></a>
 
 ```
             "branches": [
@@ -9508,7 +9942,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status.fixed[*]
 ```
 
-*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-162'></a>
+*Example 1 (which fails the test):*<a id='cvss-for-fixed-products-eg-1'></a><a id='sec-6-2-19-eg-1'></a><a id='example-167'></a>
 
 ```
   "product_tree": {
@@ -9582,7 +10016,7 @@ The relevant path for this test is:
 > To implement this test it is deemed sufficient to validate the CSAF document against a "strict" version schema that has all references integrated
 > and sets `additionalProperties` respectively `unevaluatedProperties` to `false` at all appropriate places to detect additional properties.
 
-*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-163'></a>
+*Example 1 (which fails the test):*<a id='additional-properties-eg-1'></a><a id='sec-6-2-20-eg-1'></a><a id='example-168'></a>
 
 ```
             "cvss_v3": {
@@ -9609,7 +10043,7 @@ The relevant path for this test is:
   $.document.tracking.revision_history[*].date
 ```
 
-*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-164'></a>
+*Example 1 (which fails the test):*<a id='same-timestamps-in-revision-history-eg-1'></a><a id='sec-6-2-21-eg-1'></a><a id='example-169'></a>
 
 ```
   "revision_history": [
@@ -9638,7 +10072,7 @@ The relevant path for this test is:
   $.document.title
 ```
 
-*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-165'></a>
+*Example 1 (which fails the test):*<a id='document-tracking-id-in-title-eg-1'></a><a id='sec-6-2-22-eg-1'></a><a id='example-170'></a>
 
 ```
     "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
@@ -9664,7 +10098,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-166'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-cwe-eg-1'></a><a id='sec-6-2-23-eg-1'></a><a id='example-171'></a>
 
 ```
      "cwes": [
@@ -9691,7 +10125,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-167'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-cwe-version-eg-1'></a><a id='sec-6-2-24-eg-1'></a><a id='example-172'></a>
 
 ```
   "document": {
@@ -9734,7 +10168,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-168'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-not-allowed-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-25-eg-1'></a><a id='example-173'></a>
 
 ```
       "cwes": [
@@ -9768,7 +10202,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-169'></a>
+*Example 1 (which fails the test):*<a id='usage-of-cwe-allowed-with-review-for-vulnerability-mapping-eg-1'></a><a id='sec-6-2-26-eg-1'></a><a id='example-174'></a>
 
 ```
       "cwes": [
@@ -9794,7 +10228,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].remediations[*]
 ```
 
-*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-170'></a>
+*Example 1 (which fails the test):*<a id='discouraged-product-status-remediation-combination-eg-1'></a><a id='sec-6-2-27-eg-1'></a><a id='example-175'></a>
 
 ```
       "product_status": {
@@ -9825,7 +10259,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-171'></a>
+*Example 1 (which fails the test):*<a id='usage-of-max-uuid-eg-1'></a><a id='sec-6-2-28-eg-1'></a><a id='example-176'></a>
 
 ```
     "distribution": {
@@ -9851,7 +10285,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group.id
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-172'></a>
+*Example 1 (which fails the test):*<a id='usage-of-nil-uuid-eg-1'></a><a id='sec-6-2-29-eg-1'></a><a id='example-177'></a>
 
 ```
     "distribution": {
@@ -9877,7 +10311,7 @@ The relevant path for this test is:
   $.document.distribution.sharing_group
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-173'></a>
+*Example 1 (which fails the test):*<a id='usage-of-sharing-group-on-tlp-clear-eg-1'></a><a id='sec-6-2-30-eg-1'></a><a id='example-178'></a>
 
 ```
     "distribution": {
@@ -9913,7 +10347,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name
 ```
 
-*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-174'></a>
+*Example 1 (which fails the test):*<a id='hardware-and-software-eg-1'></a><a id='sec-6-2-31-eg-1'></a><a id='example-179'></a>
 
 ```
   "product_tree": {
@@ -9973,7 +10407,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_id.product_identification_helper
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-175'></a>
+*Example 1 (which fails the test):*<a id='use-of-same-product-identification-helper-for-different-products-eg-1'></a><a id='sec-6-2-32-eg-1'></a><a id='example-180'></a>
 
 ```
   "product_tree": {
@@ -10037,7 +10471,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].disclosure_date
 ```
 
-*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-176'></a>
+*Example 1 (which fails the test):*<a id='disclosure-date-newer-than-revision-history-eg-1'></a><a id='sec-6-2-33-eg-1'></a><a id='example-181'></a>
 
 ```
   "document": {
@@ -10078,6 +10512,9 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
 > This test fails on unregistered namespaces as well as registered ones not yet supported by the implementation.
+>
+> To implement this determine the base namespace in this test, it is deemed sufficient to remove any characters including
+> and after the first `/`.
 
 The relevant path for this test is:
 
@@ -10085,7 +10522,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-177'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-base-namespace-eg-1'></a><a id='sec-6-2-34-eg-1'></a><a id='example-182'></a>
 
 ```
   "ssvc_v2": {
@@ -10110,13 +10547,16 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 if the document is labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
+> To implement this determine the base namespace in this test, it is deemed sufficient to remove any characters including
+> and after the first `/`.
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-178'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-35-eg-1'></a><a id='example-183'></a>
 
 ```
   {
@@ -10163,13 +10603,16 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 if the document is labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
+> To implement the check for an extensions part in the `namespace`,
+> it is deemed sufficient to check whether the `namespace` contains a `/`.
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-179'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-36-eg-1'></a><a id='example-184'></a>
 
 ```
   {
@@ -10230,7 +10673,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-180'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unknown-ssvc-decision-point-namespace-without-resource-eg-1'></a><a id='sec-6-2-37-eg-1'></a><a id='example-185'></a>
 
 ```
   "content": {
@@ -10261,7 +10704,7 @@ The relevant path for this test is:
 
 It SHALL be tested that the `$.document.category` does not start with `csaf_deprecated_`.
 
-> To implement this test it is deemed sufficient to do a "starts with" check.
+> To implement this test, it is deemed sufficient to do a "starts with" check.
 > In contrast to test [6.1.26](#prohibited-document-category-name), this test detects the use of a profile defined by CSAF that is deprecated.
 
 The relevant path for this test is:
@@ -10270,7 +10713,7 @@ The relevant path for this test is:
   $.document.category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-181'></a>
+*Example 1 (which fails the test):*<a id='usage-of-deprecated-profile-eg-1'></a><a id='sec-6-2-38-eg-1'></a><a id='example-186'></a>
 
 ```
     "category": "csaf_deprecated_security_advisory",
@@ -10279,7 +10722,7 @@ The relevant path for this test is:
 
 > The document category starts with `csaf_deprecated_`.
 
-### 6.2.39 Profile Tests <a id='recommended-profile-tests'></a>
+### 6.2.39 Profile Tests <a id='recommended--profile-tests'></a>
 
 This subsubsection structures the recommended tests for the profiles. Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
@@ -10307,7 +10750,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-182'></a>
+*Example 1 (which fails the test):*<a id='missing-fixed-product-eg-1'></a><a id='sec-6-2-39-1-eg-1'></a><a id='example-187'></a>
 
 ```
   "vulnerabilities": [
@@ -10357,7 +10800,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-183'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-withdrawal-eg-1'></a><a id='sec-6-2-39-2-eg-1'></a><a id='example-188'></a>
 
 ```
     "notes": [
@@ -10392,7 +10835,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-184'></a>
+*Example 1 (which fails the test):*<a id='language-specific-reasoning-for-supersession-eg-1'></a><a id='sec-6-2-39-3-eg-1'></a><a id='example-189'></a>
 
 ```
     "notes": [
@@ -10427,7 +10870,7 @@ The relevant path for this test is:
   $.document.references
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-185'></a>
+*Example 1 (which fails the test):*<a id='language-specific-superseding-document-eg-1'></a><a id='sec-6-2-39-4-eg-1'></a><a id='example-190'></a>
 
 ```
     "references": [
@@ -10459,7 +10902,7 @@ The relevant paths for this test are:
   $.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-5-eg-1'></a><a id='example-186'></a>
+*Example 1 (which fails the test):*<a id='extension-in-superseded-or-withdrawn-document-eg-1'></a><a id='sec-6-2-39-5-eg-1'></a><a id='example-191'></a>
 
 ```
   {
@@ -10480,7 +10923,7 @@ The relevant paths for this test are:
 If the document language is specified but not English, it SHALL be tested that at least one item in vulnerability notes exist
 that has the language specific translation of the term `Vulnerability Summary` or `CVE Description` as `title`.
 The `category` of this item SHALL be consistent with the value required in table [table 2](#vulnerabilities-property-notes-tab-1)
-of section [3.2.4.11](#vulnerabilities-property-notes).
+of section [3.2.4.10](#vulnerabilities-property-notes).
 If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user
 that no such translation is known.
 
@@ -10498,7 +10941,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-vulnerability-notes-eg-1'></a><a id='sec-6-2-39-6-eg-1'></a><a id='example-187'></a>
+*Example 1 (which fails the test):*<a id='language-specific-vulnerability-notes-eg-1'></a><a id='sec-6-2-39-6-eg-1'></a><a id='example-192'></a>
 
 ```
     "notes": [
@@ -10533,7 +10976,7 @@ The relevant path for this test is:
   $.document.acknowledgments
 ```
 
-*Example 1 (which fails the test):*<a id='document-acknowledgments-for-vulnerability-report-eg-1'></a><a id='sec-6-2-39-7-eg-1'></a><a id='example-188'></a>
+*Example 1 (which fails the test):*<a id='document-acknowledgments-for-vulnerability-report-eg-1'></a><a id='sec-6-2-39-7-eg-1'></a><a id='example-193'></a>
 
 ```
   "document": {
@@ -10568,7 +11011,7 @@ The relevant path for this test is:
   $.document.aggregate_severity
 ```
 
-*Example 1 (which fails the test):*<a id='aggregate-severity-eg-1'></a><a id='sec-6-2-39-8-eg-1'></a><a id='example-189'></a>
+*Example 1 (which fails the test):*<a id='aggregate-severity-eg-1'></a><a id='sec-6-2-39-8-eg-1'></a><a id='example-194'></a>
 
 ```
   "document": {
@@ -10603,7 +11046,7 @@ The relevant path for this test is:
   $.document.distribution.tlp.label
 ```
 
-*Example 1 (which fails the test):*<a id='tlp-label-for-vulnerability-report-eg-1'></a><a id='sec-6-2-39-9-eg-1'></a><a id='example-190'></a>
+*Example 1 (which fails the test):*<a id='tlp-label-for-vulnerability-report-eg-1'></a><a id='sec-6-2-39-9-eg-1'></a><a id='example-195'></a>
 
 ```
   "distribution": {
@@ -10635,7 +11078,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-metrics-eg-1'></a><a id='sec-6-2-39-10-eg-1'></a><a id='example-191'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-metrics-eg-1'></a><a id='sec-6-2-39-10-eg-1'></a><a id='example-196'></a>
 
 ```
   "vulnerabilities": [
@@ -10669,7 +11112,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].references
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-references-eg-1'></a><a id='sec-6-2-39-11-eg-1'></a><a id='example-192'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-references-eg-1'></a><a id='sec-6-2-39-11-eg-1'></a><a id='example-197'></a>
 
 ```
   "vulnerabilities": [
@@ -10699,7 +11142,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].threats
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-threats-eg-1'></a><a id='sec-6-2-39-12-eg-1'></a><a id='example-193'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-threats-eg-1'></a><a id='sec-6-2-39-12-eg-1'></a><a id='example-198'></a>
 
 ```
   "vulnerabilities": [
@@ -10729,7 +11172,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].title
 ```
 
-*Example 1 (which fails the test):*<a id='vulnerability-title-eg-1'></a><a id='sec-6-2-39-13-eg-1'></a><a id='example-194'></a>
+*Example 1 (which fails the test):*<a id='vulnerability-title-eg-1'></a><a id='sec-6-2-39-13-eg-1'></a><a id='example-199'></a>
 
 ```
   "vulnerabilities": [
@@ -10746,7 +11189,7 @@ The relevant path for this test is:
 For each product description it SHALL be tested that it includes at least one of the elements `group_ids` or `product_ids`.
 
 > If the document language is English or unspecified, the product description can be identified by checking for a note containing the corresponding
-> `category` and `title` combination from [3.2.2.8](#document-property---notes).
+> `category` and `title` combination from [3.2.2.9](#document-property---notes).
 > For other languages, the language specific translation is used.
 
 If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no translation for
@@ -10758,7 +11201,7 @@ The relevant path for this test is:
   $.document.notes[*]
 ```
 
-*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-195'></a>
+*Example 1 (which fails the test):*<a id='product-description-without-product-reference-eg-1'></a><a id='sec-6-2-40-eg-1'></a><a id='example-200'></a>
 
 ```
     "notes": [
@@ -10784,7 +11227,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
-*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-196'></a>
+*Example 1 (which fails the test):*<a id='old-epss-timestamp-eg-1'></a><a id='sec-6-2-41-eg-1'></a><a id='example-201'></a>
 
 ```
   "document": {
@@ -10841,10 +11284,13 @@ Information that cannot be represented in the specific product identification he
 > It is based on a static mapping of branch categories to the corresponding part of the product identification helpers.
 > The latter one are referred to as counterparts.
 >
-> 1. Determine counterpart in the specific product identification helper for all categories used along the path up to the product.
+> 1. Determine the counterparts in the specific product identification helper for all categories used along the path up to the product.
 > 2. Check whether the counterparts in the product identification helper are set.
-> 3. Check whether each set counterpart does not contain a wildcard unless the value of the categorized string would indicate that.
+> 3. Check whether each counterpart set does not contain a wildcard unless the value of the categorized string would indicate that.
+>    Only exception is the version part in a CPE, which can be set to `*` for a product version range due to the matching exception
+>    in section [3.1.10.3](#full-product-name-type-product-identification-helper).
 > 4. Check whether the version part algins between the categorized strings and the product identification helper.
+>    Omit this check for a version part of `*` in a CPE.
 > 5. For CPE only: Check whether extra information is included in the CPE that is not in the categorized string.
 >    This might be a counterpart that is set but the corresponding categorized string is missing along th path.
 
@@ -10855,7 +11301,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
 ```
 
-*Example 1 (which fails the test):*<a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-197'></a>
+*Example 1 (which fails the test):*<a id='inconsistent-product-identification-helper-eg-1'></a><a id='sec-6-2-42-eg-1'></a><a id='example-202'></a>
 
 ```
   "product_tree": {
@@ -10913,7 +11359,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-198'></a>
+*Example 1 (which fails the test):*<a id='missing-license-expression-eg-1'></a><a id='sec-6-2-43-eg-1'></a><a id='example-203'></a>
 
 ```
   "document": {
@@ -10943,7 +11389,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-199'></a>
+*Example 1 (which fails the test):*<a id='deprecated-license-identifier-eg-1'></a><a id='sec-6-2-44-eg-1'></a><a id='example-204'></a>
 
 ```
   "license_expression": "GFDL-1.1",
@@ -10963,7 +11409,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-200'></a>
+*Example 1 (which fails the test):*<a id='non-existing-license-identifier-eg-1'></a><a id='sec-6-2-45-eg-1'></a><a id='example-205'></a>
 
 ```
   "license_expression": "A-License-Identifier-That-Does-Not-Exist",
@@ -10985,7 +11431,7 @@ The relevant path for this test is:
   $.document.notes
 ```
 
-*Example 1 (which fails the test):*<a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-201'></a>
+*Example 1 (which fails the test):*<a id='language-specific-license-text-eg-1'></a><a id='sec-6-2-46-eg-1'></a><a id='example-206'></a>
 
 ```
   "document": {
@@ -11019,7 +11465,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-202'></a>
+*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-by-issuing-party-eg-1'></a><a id='sec-6-2-47-eg-1'></a><a id='example-207'></a>
 
 ```
   "product_tree": {
@@ -11067,7 +11513,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='misuse-at-vendor-name-eg-1'></a><a id='sec-6-2-48-eg-1'></a><a id='example-203'></a>
+*Example 1 (which fails the test):*<a id='misuse-at-vendor-name-eg-1'></a><a id='sec-6-2-48-eg-1'></a><a id='example-208'></a>
 
 ```
   "product_tree": {
@@ -11104,7 +11550,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='upper-open-ended-product-version-range-eg-1'></a><a id='sec-6-2-49-eg-1'></a><a id='example-204'></a>
+*Example 1 (which fails the test):*<a id='upper-open-ended-product-version-range-eg-1'></a><a id='sec-6-2-49-eg-1'></a><a id='example-209'></a>
 
 ```
         {
@@ -11175,7 +11621,7 @@ The following definitions apply to all tests:
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
 For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
-member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+member of a contradicting product status groups (see section [3.2.4.11](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
 
@@ -11183,7 +11629,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-1-eg-1'></a><a id='example-205'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-1-eg-1'></a><a id='example-210'></a>
 
 ```
   "product_tree": {
@@ -11242,7 +11688,7 @@ The relevant path for this test is:
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
 For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
-member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+member of a contradicting product status groups (see section [3.2.4.11](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
 
@@ -11250,7 +11696,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-2-eg-1'></a><a id='example-206'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-2-eg-1'></a><a id='example-211'></a>
 
 ```
   "product_tree": {
@@ -11309,7 +11755,7 @@ The relevant path for this test is:
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
 For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVSS+l` that overlap with `CTPVR` are not
-member of a contradicting product status groups (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+member of a contradicting product status groups (see section [3.2.4.11](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
 
@@ -11317,7 +11763,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-3-eg-1'></a><a id='example-207'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-contradicting-product-status-group-eg-1'></a><a id='sec-6-2-50-3-eg-1'></a><a id='example-212'></a>
 
 ```
   "product_tree": {
@@ -11389,7 +11835,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='unknown-vers-type-eg-1'></a><a id='sec-6-2-51-eg-1'></a><a id='example-208'></a>
+*Example 1 (which fails the test):*<a id='unknown-vers-type-eg-1'></a><a id='sec-6-2-51-eg-1'></a><a id='example-213'></a>
 
 ```
     {
@@ -11406,7 +11852,7 @@ The relevant paths for this test are:
 
 For each element of type `$['$defs'].full_product_name_t..product_identification_helper..hashes[*]..file_hashes[*]..algorithm`,
 it SHALL be tested that the hash algorithm is supported by the implementation.
-The warning SHALL differentiate between the values mentioned in section [3.1.4.3.2](#full-product-name-type---product-identification-helper---hashes)
+The warning SHALL differentiate between the values mentioned in section [3.1.10.3.2](#full-product-name-type---product-identification-helper---hashes)
 and those not mentioned there.
 
 > Different implementations might support different hash algorithms.
@@ -11422,7 +11868,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm
 ```
 
-*Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-209'></a>
+*Example 1 (which fails the test):*<a id='unknown-hash-algorithm-eg-1'></a><a id='sec-6-2-52-eg-1'></a><a id='example-214'></a>
 
 ```
   {
@@ -11431,7 +11877,7 @@ The relevant paths for this test are:
   }
 ```
 
-> The hash algorithm `unknown-algorithm` is not listed in section [3.1.4.3.2](#full-product-name-type---product-identification-helper---hashes).
+> The hash algorithm `unknown-algorithm` is not listed in section [3.1.10.3.2](#full-product-name-type---product-identification-helper---hashes).
 > Note: An implementation would also have to state whether it supports this algorithm.
 
 ### 6.2.53 Matching Text for Registered ID System <a id='matching-text-for-registered-id-system'></a>
@@ -11448,7 +11894,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].ids[*].text
 ```
 
-*Example 1 (which fails the test):*<a id='matching-text-for-registered-id-system-eg-1'></a><a id='sec-6-2-53-eg-1'></a><a id='example-210'></a>
+*Example 1 (which fails the test):*<a id='matching-text-for-registered-id-system-eg-1'></a><a id='sec-6-2-53-eg-1'></a><a id='example-215'></a>
 
 ```
     "ids": [
@@ -11486,7 +11932,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='registered-extension-eg-1'></a><a id='sec-6-2-54-1-eg-1'></a><a id='example-211'></a>
+*Example 1 (which fails the test):*<a id='registered-extension-eg-1'></a><a id='sec-6-2-54-1-eg-1'></a><a id='example-216'></a>
 
 ```
   "x_extensions": [
@@ -11515,7 +11961,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='official-extension-eg-1'></a><a id='sec-6-2-54-2-eg-1'></a><a id='example-212'></a>
+*Example 1 (which fails the test):*<a id='official-extension-eg-1'></a><a id='sec-6-2-54-2-eg-1'></a><a id='example-217'></a>
 
 ```
   "x_extensions": [
@@ -11546,7 +11992,7 @@ The relevant paths for this test are:
   $.x_extensions[*].critical
 ```
 
-*Example 1 (which fails the test):*<a id='critical-extension-eg-1'></a><a id='sec-6-2-54-3-eg-1'></a><a id='example-213'></a>
+*Example 1 (which fails the test):*<a id='critical-extension-eg-1'></a><a id='sec-6-2-54-3-eg-1'></a><a id='example-218'></a>
 
 ```
   "x_extensions": [
@@ -11576,7 +12022,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-54-4-eg-1'></a><a id='example-214'></a>
+*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-tlp-clear-document-eg-1'></a><a id='sec-6-2-54-4-eg-1'></a><a id='example-219'></a>
 
 ```
   {
@@ -11616,7 +12062,7 @@ The relevant path for this test is:
   $.document.publisher.contact.public_openpgp_key_url
 ```
 
-*Example 1 (which fails the test):*<a id='public-openpgp-key-url-eg-1'></a><a id='sec-6-2-55-eg-1'></a><a id='example-215'></a>
+*Example 1 (which fails the test):*<a id='public-openpgp-key-url-eg-1'></a><a id='sec-6-2-55-eg-1'></a><a id='example-220'></a>
 
 ```
     "contact": {
@@ -11649,7 +12095,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-216'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v2-as-the-only-scoring-system-eg-1'></a><a id='sec-6-3-1-eg-1'></a><a id='example-221'></a>
 
 ```
   "product_tree": {
@@ -11697,7 +12143,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-217'></a>
+*Example 1 (which fails the test):*<a id='use-of-cvss-v3-0-eg-1'></a><a id='sec-6-3-2-eg-1'></a><a id='example-222'></a>
 
 ```
   "cvss_v3": {
@@ -11729,7 +12175,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cve
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-218'></a>
+*Example 1 (which fails the test):*<a id='missing-cve-eg-1'></a><a id='sec-6-3-3-eg-1'></a><a id='example-223'></a>
 
 ```
   "vulnerabilities": [
@@ -11757,7 +12203,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].cwes
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-219'></a>
+*Example 1 (which fails the test):*<a id='missing-cwe-eg-1'></a><a id='sec-6-3-4-eg-1'></a><a id='example-224'></a>
 
 ```
   "vulnerabilities": [
@@ -11782,7 +12228,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-220'></a>
+*Example 1 (which fails the test):*<a id='use-of-short-hash-eg-1'></a><a id='sec-6-3-5-eg-1'></a><a id='example-225'></a>
 
 ```
   "product_tree": {
@@ -11844,7 +12290,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].remediations[*].url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-221'></a>
+*Example 1 (which fails the test):*<a id='use-of-non-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-6-eg-1'></a><a id='example-226'></a>
 
 ```
     "references": [
@@ -11873,7 +12319,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].references[*].url
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-222'></a>
+*Example 1 (which fails the test):*<a id='use-of-self-referencing-urls-failing-to-resolve-eg-1'></a><a id='sec-6-3-7-eg-1'></a><a id='example-227'></a>
 
 ```
     "references": [
@@ -11903,6 +12349,10 @@ The relevant paths for this test are:
   $.document.aggregate_severity.text
   $.document.category
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entities[*].name
+  $.document.involvement.entity_groups[*].name
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
@@ -11921,7 +12371,6 @@ The relevant paths for this test are:
   $.vulnerabilities[*].acknowledgments[*].names[*]
   $.vulnerabilities[*].acknowledgments[*].organization
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].audience
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].notes[*].title
@@ -11933,7 +12382,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].title
 ```
 
-*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-223'></a>
+*Example 1 (which fails the test):*<a id='spell-check-eg-1'></a><a id='sec-6-3-8-eg-1'></a><a id='example-228'></a>
 
 ```
   "document": {
@@ -11965,7 +12414,7 @@ The relevant paths for this test are:
   $.product_tree.branches
 ```
 
-*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-224'></a>
+*Example 1 (which fails the test):*<a id='branch-categories-eg-1'></a><a id='sec-6-3-9-eg-1'></a><a id='example-229'></a>
 
 ```
     "branches": [
@@ -12007,7 +12456,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-225'></a>
+*Example 1 (which fails the test):*<a id='usage-of-product-version-range-eg-1'></a><a id='sec-6-3-10-eg-1'></a><a id='example-230'></a>
 
 ```
                 "category": "product_version_range",
@@ -12032,7 +12481,7 @@ The relevant paths for this test are:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-226'></a>
+*Example 1 (which fails the test):*<a id='usage-of-v-as-version-indicator-eg-1'></a><a id='sec-6-3-11-eg-1'></a><a id='example-231'></a>
 
 ```
             "branches": [
@@ -12049,7 +12498,7 @@ The relevant paths for this test are:
 ### 6.3.12 Missing CVSS v4.0 <a id='missing-cvss-v4-0'></a>
 
 For each item in the list of metrics that contains any CVSS object it SHALL be tested that a `cvss_v4` object is present.
-The test SHALL fail, if any Product ID (type `$['$defs'].product_id_t`) in the product status group Affected (see section [3.2.4.12](#vulnerabilities-property-product-status)) is not covered by
+The test SHALL fail, if any Product ID (type `$['$defs'].product_id_t`) in the product status group Affected (see section [3.2.4.11](#vulnerabilities-property-product-status)) is not covered by
 any CVSS object.
 
 The relevant path for this test is:
@@ -12058,7 +12507,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content
 ```
 
-*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-227'></a>
+*Example 1 (which fails the test):*<a id='missing-cvss-v4-0-eg-1'></a><a id='sec-6-3-12-eg-1'></a><a id='example-232'></a>
 
 ```
   "product_tree": {
@@ -12108,7 +12557,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-228'></a>
+*Example 1 (which fails the test):*<a id='usage-of-non-latest-ssvc-decision-point-version-eg-1'></a><a id='sec-6-3-13-eg-1'></a><a id='example-233'></a>
 
 ```
   "ssvc_v2": {
@@ -12134,13 +12583,16 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 if the document is not labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
+> To implement this determine the base namespace in this test, it is deemed sufficient to remove any characters including
+> and after the first `/`.
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-229'></a>
+*Example 1 (which fails the test):*<a id='usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-14-eg-1'></a><a id='example-234'></a>
 
 ```
   {
@@ -12187,13 +12639,16 @@ For each SSVC decision point given under `selections`, it SHALL be tested that t
 if the document is not labeled `TLP:CLEAR`.
 Namespaces reserved for special purpose SHALL be treated as per their definition.
 
+> To implement the check for an extensions part in the `namespace`,
+> it is deemed sufficient to check whether the `namespace` contains a `/`.
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-230'></a>
+*Example 1 (which fails the test):*<a id='usage-of-ssvc-decision-point-namespace-with-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-15-eg-1'></a><a id='example-235'></a>
 
 ```
   {
@@ -12246,6 +12701,8 @@ The relevant paths for this test are:
   $.document.acknowledgments[*].summary
   $.document.aggregate_severity.text
   $.document.distribution.text
+  $.document.involvement.actions[*].summary
+  $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
@@ -12255,7 +12712,6 @@ The relevant paths for this test are:
   $.document.tracking.revision_history[*].summary
   $.product_tree.product_groups[*].summary
   $.vulnerabilities[*].acknowledgments[*].summary
-  $.vulnerabilities[*].involvements[*].summary
   $.vulnerabilities[*].notes[*].audience
   $.vulnerabilities[*].notes[*].text
   $.vulnerabilities[*].notes[*].title
@@ -12267,7 +12723,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].title
 ```
 
-*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-231'></a>
+*Example 1 (which fails the test):*<a id='grammar-check-eg-1'></a><a id='sec-6-3-16-eg-1'></a><a id='example-236'></a>
 
 ```
   "document": {
@@ -12300,7 +12756,7 @@ The relevant path for this test is:
   $.document.license_expression
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-232'></a>
+*Example 1 (which fails the test):*<a id='use-of-unregistered-license-eg-1'></a><a id='sec-6-3-17-eg-1'></a><a id='example-237'></a>
 
 ```
     "license_expression": "LicenseRef-www.example.com-no-work-pd",
@@ -12325,7 +12781,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*]
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-233'></a>
+*Example 1 (which fails the test):*<a id='use-of-qualitative-severity-rating-eg-1'></a><a id='sec-6-3-18-eg-1'></a><a id='example-238'></a>
 
 ```
   "product_tree": {
@@ -12365,7 +12821,7 @@ The abbreviations for groups are defined in section [6.2.50](#overlapping-produc
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
 For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vers` that overlap with `CTPVR` are not
-member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+member of the same product status group (see section [3.2.4.11](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
 
@@ -12373,7 +12829,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-1-eg-1'></a><a id='example-234'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vers-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-1-eg-1'></a><a id='example-239'></a>
 
 ```
   "product_tree": {
@@ -12430,7 +12886,7 @@ The relevant path for this test is:
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
 For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVRSS+l-vls` that overlap with `CTPVR` are not
-member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+member of the same product status group (see section [3.2.4.11](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
 
@@ -12438,7 +12894,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-2-eg-1'></a><a id='example-235'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-vls-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-2-eg-1'></a><a id='example-240'></a>
 
 ```
   "product_tree": {
@@ -12495,7 +12951,7 @@ The relevant path for this test is:
 
 For each item in `$.vulnerabilities` all `EPVRPID` in the product status groups SHALL be identified.
 For each `EPVR` (as `CTPVR`), it SHALL be tested that the Product IDs of all elements in `PVSS` that overlap with `CTPVR` are not
-member of the same product status group (see section [3.2.4.12](#vulnerabilities-property-product-status)).
+member of the same product status group (see section [3.2.4.11](#vulnerabilities-property-product-status)).
 
 The relevant path for this test is:
 
@@ -12503,7 +12959,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].product_status
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-3-eg-1'></a><a id='example-236'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-same-product-status-group-eg-1'></a><a id='sec-6-3-19-3-eg-1'></a><a id='example-241'></a>
 
 ```
   "product_tree": {
@@ -12567,7 +13023,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-range-in-branch-eg-1'></a><a id='sec-6-3-19-4-eg-1'></a><a id='example-237'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-range-in-branch-eg-1'></a><a id='sec-6-3-19-4-eg-1'></a><a id='example-242'></a>
 
 ```
     {
@@ -12606,7 +13062,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].name
 ```
 
-*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-branch-eg-1'></a><a id='sec-6-3-19-5-eg-1'></a><a id='example-238'></a>
+*Example 1 (which fails the test):*<a id='overlapping-product-version-range-with-product-version-in-branch-eg-1'></a><a id='sec-6-3-19-5-eg-1'></a><a id='example-243'></a>
 
 ```
     {
@@ -12645,7 +13101,7 @@ The relevant paths for this test are:
   $.vulnerabilities[*].ids[*].system_name
 ```
 
-*Example 1 (which fails the test):*<a id='use-of-unregistered-id-system-eg-1'></a><a id='sec-6-3-20-eg-1'></a><a id='example-239'></a>
+*Example 1 (which fails the test):*<a id='use-of-unregistered-id-system-eg-1'></a><a id='sec-6-3-20-eg-1'></a><a id='example-244'></a>
 
 ```
     "ids": [
@@ -12684,7 +13140,7 @@ The relevant paths for this test are:
   $.x_extensions[*].category
 ```
 
-*Example 1 (which fails the test):*<a id='extension-category-essential-eg-1'></a><a id='sec-6-3-21-1-eg-1'></a><a id='example-240'></a>
+*Example 1 (which fails the test):*<a id='extension-category-essential-eg-1'></a><a id='sec-6-3-21-1-eg-1'></a><a id='example-245'></a>
 
 ```
   "x_extensions": [
@@ -12716,7 +13172,7 @@ The relevant paths for this test are:
   $.x_extensions[*]
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-21-2-eg-1'></a><a id='example-241'></a>
+*Example 1 (which fails the test):*<a id='usage-of-experimental-extension-in-non-tlp-clear-document-eg-1'></a><a id='sec-6-3-21-2-eg-1'></a><a id='example-246'></a>
 
 ```
   {
@@ -12752,7 +13208,7 @@ The relevant path for this test is:
   $.document.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-at-document-level-eg-1'></a><a id='sec-6-3-21-3-eg-1'></a><a id='example-242'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-at-document-level-eg-1'></a><a id='sec-6-3-21-3-eg-1'></a><a id='example-247'></a>
 
 ```
   {
@@ -12778,7 +13234,7 @@ The relevant path for this test is:
   $.product_tree..branches[*].product.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-branch-path-eg-1'></a><a id='sec-6-3-21-4-eg-1'></a><a id='example-243'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-branch-path-eg-1'></a><a id='sec-6-3-21-4-eg-1'></a><a id='example-248'></a>
 
 ```
   "product_tree": {
@@ -12818,7 +13274,7 @@ The relevant path for this test is:
   $.product_tree.full_product_names[*].x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-full-product-names-path-eg-1'></a><a id='sec-6-3-21-5-eg-1'></a><a id='example-244'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-full-product-names-path-eg-1'></a><a id='sec-6-3-21-5-eg-1'></a><a id='example-249'></a>
 
 ```
   "product_tree": {
@@ -12845,7 +13301,7 @@ The relevant path for this test is:
   $.product_tree.product_paths[*].full_product_name.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-product-paths-path-eg-1'></a><a id='sec-6-3-21-6-eg-1'></a><a id='example-245'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-product-tree-product-paths-path-eg-1'></a><a id='sec-6-3-21-6-eg-1'></a><a id='example-250'></a>
 
 ```
   "product_tree": {
@@ -12877,7 +13333,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].metrics[*].content.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-in-vulnerabilities-metrics-path-eg-1'></a><a id='sec-6-3-21-7-eg-1'></a><a id='example-246'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-in-vulnerabilities-metrics-path-eg-1'></a><a id='sec-6-3-21-7-eg-1'></a><a id='example-251'></a>
 
 ```
   "vulnerabilities": [
@@ -12908,7 +13364,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-at-vulnerabilities-level-eg-1'></a><a id='sec-6-3-21-8-eg-1'></a><a id='example-247'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-at-vulnerabilities-level-eg-1'></a><a id='sec-6-3-21-8-eg-1'></a><a id='example-252'></a>
 
 ```
   {
@@ -12936,7 +13392,7 @@ The relevant path for this test is:
   $.x_extensions
 ```
 
-*Example 1 (which fails the test):*<a id='usage-of-extension-at-root-level-eg-1'></a><a id='sec-6-3-21-9-eg-1'></a><a id='example-248'></a>
+*Example 1 (which fails the test):*<a id='usage-of-extension-at-root-level-eg-1'></a><a id='sec-6-3-21-9-eg-1'></a><a id='example-253'></a>
 
 ```
   {
@@ -12965,7 +13421,7 @@ The relevant paths for this test are:
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
 ```
 
-*Example 1 (which fails the test):*<a id='nested-product-path-eg-1'></a><a id='sec-6-3-22-eg-1'></a><a id='example-249'></a>
+*Example 1 (which fails the test):*<a id='nested-product-path-eg-1'></a><a id='sec-6-3-22-eg-1'></a><a id='example-254'></a>
 
 ```
   "product_tree": {
@@ -13023,11 +13479,11 @@ Not all tests apply for all profiles.
 Tests SHOULD be skipped if the document category does not match the one given in the test.
 Each of the following tests SHOULD be treated as they were listed similar to the other tests.
 
-### 6.3.24 Involvements <a id='involvements'></a>
+#### 6.3.23.1 Involvement <a id='involvement'></a>
 
-It SHALL be tested that `$.vulnerabilities[*].involvements` exists.
+It SHALL be tested that `$.document.involvement` exists.
 
-> Recording involvement entries helps the participating parties understand the disclosure timeline and who has engaged in the process.
+> Recording involvement actions helps the participating parties understand the disclosure timeline and who has engaged in the process.
 
 The relevant value for `$.document.category` is:
 
@@ -13038,26 +13494,35 @@ The relevant value for `$.document.category` is:
 The relevant path for this test is:
 
 ```list-of-jsonpaths
-  $.vulnerabilities[*].involvements
+  $.document.involvement
 ```
 
-*Example 1 (which fails the test):*<a id='involvements-eg-1'></a><a id='sec-6-3-24-eg-1'></a><a id='example-250'></a>
+*Example 1 (which fails the test):*<a id='involvement-eg-1'></a><a id='sec-6-3-23-1-eg-1'></a><a id='example-255'></a>
 
 ```
-  "vulnerabilities": [
-    {
-      "cve": "CVE-1900-0001"
-    }
-  ]
+  document: {
+    // ...
+    "distribution": {
+      "tlp": {
+        "label": "AMBER"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    // ...
+  }
 ```
 
-> The vulnerability does not record any coordination activity in `$.vulnerabilities[*].involvements`.
+> The vulnerability does not record any coordination activity in `$.document.involvement`.
 
 Recommendation:
 
-It is recommended that issuing parties use `$.vulnerabilities[*].involvements` to record coordination milestones during the CVD process.
+It is recommended that issuing parties use `$.document.involvement` to record coordination milestones during the CVD process.
 
-### 6.3.25 Disclosure Date <a id='disclosure-date'></a>
+#### 6.3.23.2 Disclosure Date <a id='disclosure-date'></a>
 
 It SHALL be tested that `$.vulnerabilities[*].disclosure_date` exists.
 
@@ -13073,7 +13538,7 @@ The relevant path for this test is:
   $.vulnerabilities[*].disclosure_date
 ```
 
-*Example 1 (which fails the test):*<a id='disclosure-date-eg-1'></a><a id='sec-6-3-25-eg-1'></a><a id='example-251'></a>
+*Example 1 (which fails the test):*<a id='disclosure-date-eg-1'></a><a id='sec-6-3-23-2-eg-1'></a><a id='example-256'></a>
 
 ```
   "vulnerabilities": [
@@ -13089,7 +13554,7 @@ Recommendation:
 
 It is recommended that issuing parties use the disclosure date.
 
-### 6.3.26 Public OpenPGP Key URL User ID <a id='public-openpgp-key-url-user-id'></a>
+### 6.3.24 Public OpenPGP Key URL User ID <a id='public-openpgp-key-url-user-id'></a>
 
 It SHALL be tested that the URL given as value of `public_openpgp_key_url` in the CSAF document
 delivers a public OpenPGP key with an email in the user ID matching the sibling property `email`.
@@ -13106,7 +13571,7 @@ The relevant path for this test is:
   $.document.publisher.contact.public_openpgp_key_url
 ```
 
-*Example 1 (which fails the test):*<a id='public-openpgp-key-url-user-id-eg-1'></a><a id='sec-6-3-26-eg-1'></a><a id='example-252'></a>
+*Example 1 (which fails the test):*<a id='public-openpgp-key-url-user-id-eg-1'></a><a id='sec-6-3-24-eg-1'></a><a id='example-257'></a>
 
 ```
     "contact": {
@@ -13124,7 +13589,7 @@ Recommendation:
 
 It is recommended that issuing parties conduct an analysis to make an informed decision based on pros and cons regarding the
 inclusion of a matching email address into the user ID of the public OpenPGP key.
-Sections [3.2.2.9.2](#document-property---publisher---contact) and [8](#safety-security-and-data-protection-considerations) contain advise to take into consideration.
+Sections [3.2.2.10.2](#document-property---publisher---contact) and [8](#safety-security-and-data-protection-considerations) contain advise to take into consideration.
 
 ## 6.4 Test Presets <a id='test-presets'></a>
 
@@ -13189,7 +13654,7 @@ Additional presets are defined as follows:
     - [6.2.55](#public-openpgp-key-url)
     - [6.3.6](#use-of-non-self-referencing-urls-failing-to-resolve)
     - [6.3.7](#use-of-self-referencing-urls-failing-to-resolve)
-    - [6.3.26](#public-openpgp-key-url-user-id)
+    - [6.3.24](#public-openpgp-key-url-user-id)
 - `external-request-free`:
   - Description: Any test that can be executed without a request into the Internet or a different network.
 
@@ -13343,7 +13808,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-253'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-258'></a>
 
 ```
   {
@@ -13415,7 +13880,7 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
 > The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-254'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-259'></a>
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -13437,7 +13902,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-255'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-260'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -13463,7 +13928,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents SHALL be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `$.document.tracking.initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-256'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-261'></a>
 
 ```
 2024
@@ -13476,7 +13941,7 @@ The file `index.txt` SHALL contain the list of all filenames of CSAF documents w
 Each entry SHALL be terminated by a newline sequence.
 The last entry MAY skip the newline sequence.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-257'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-262'></a>
 
 ```
 2025/esa-2025-421324.json
@@ -13493,7 +13958,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > If different TLP labels are used, multiple `index.txt` exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
-*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-258'></a>
+*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-263'></a>
 
 ```
 .well-known/
@@ -13543,7 +14008,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > Example \[\[[1](#requirement-12-index-txt-eg-1)\]\] depicts the content of the `index.txt` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
 
-*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-259'></a>
+*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-264'></a>
 
 ```
   "distributions": [
@@ -13590,7 +14055,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by \
 > Note: As a consequence of section [7.1.2](#requirement-2-filename) Requirement 2 for filenames and section [7.1.11](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-260'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-265'></a>
 
 ```
 2024/esa-2024-430524.json,2025-07-21T11:14:37Z
@@ -13634,7 +14099,7 @@ Each ROLIE feed document SHALL be a JSON file that conforms with \[[RFC8322](#RF
 The ROLIE feed document SHALL contain a feed category with the registered ROLIE information type `csaf`.
 The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:information-type`.
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-261'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-266'></a>
 
 ```
   {
@@ -13703,7 +14168,7 @@ If it is used, each ROLIE service document SHALL be a JSON file that conforms wi
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-262'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-267'></a>
 
 ```
   {
@@ -13747,7 +14212,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   - `product_version`
 - type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-263'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-268'></a>
 
   ```
     CPU
@@ -13762,7 +14227,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 - areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-264'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-269'></a>
 
   ```
     Chemical
@@ -13777,7 +14242,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 - any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-265'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-270'></a>
 
 ```
   {
@@ -13801,7 +14266,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHALL NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-266'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-271'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -13813,7 +14278,7 @@ The file content SHALL start with the first byte of the hexadecimal hash value.
 The hash value SHALL be represented in lowercase.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-267'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-272'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -13828,7 +14293,7 @@ extended by the appropriate extension.
 This signature SHALL be presented as an ASCII armored file.
 See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-268'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-273'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -13868,7 +14333,7 @@ It SHALL NOT be stored adjacent to a `provider-metadata.json`.
 The file `aggregator.json` SHOULD be accessible at the registered path in the `.well-known` directory:
 `/.well-known/csaf-aggregator/aggregator.json`.
 
-*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-269'></a>
+*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-274'></a>
 
 ```
   https://aggregator.example/.well-known/csaf-aggregator/aggregator.json
@@ -13877,7 +14342,7 @@ The file `aggregator.json` SHOULD be accessible at the registered path in the `.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-270'></a>
+*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-275'></a>
 
 ```
   {
@@ -13936,7 +14401,7 @@ Each such folder SHALL at least:
 - provide a `provider-metadata.json` for the current issuing party.
 - provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-271'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-276'></a>
 
 ```
   {
@@ -14287,7 +14752,7 @@ CSAF documents are based on JSON, thus the security considerations of \[[RFC8259
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 
-- CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
+- CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavored Markdown is permitted.
   To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer,
   e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
 - Deeply nested markup can cause a stack overflow in the Markdown processor \[[GFMENG](#GFMENG)\].
@@ -14345,11 +14810,12 @@ It is RECOMMENDED to do them at least before a release.
 > Such checks can be automated, e.g. in the CI/CD pipeline.
 
 CSAF documents can contain personally identifiable information.
-This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses.
+This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses, e.g. in involvement.
 Issuing parties SHALL ensure that they are allowed to publish such information.
 
 > Acknowledging entities or individuals is always possible with their consent.
 > Functional email addresses are usually not consider to be personally identifiable information.
+> The same applies for names of organizations.
 
 ---
 
@@ -14439,9 +14905,9 @@ A text file or data stream satisfies the "CSAF Document" conformance profile if 
 - conforms to the syntax and semantics defined in section [5](#additional-conventions).
 - does not fail any mandatory test defined in section [6.1](#mandatory-tests) respectively its corresponding CSAF Extension Test.
 - contains no extension that does not fulfill the conformance profile "CSAF Extension".
-- contains no extension at any other path than the specified ones in sections [3.1.4.4](#full-product-name-type---extensions),
-  [3.2.2.14](#document-property---extensions), [3.2.4.10.1](#vulnerabilities-property---metrics---content),
-  [3.2.4.17](#vulnerabilities-property---extensions) and [3.2.5](#extensions-property).
+- contains no extension at any other path than the specified ones in sections [3.1.10.4](#full-product-name-type---extensions),
+  [3.2.2.15](#document-property---extensions), [3.2.4.9.1](#vulnerabilities-property---metrics---content),
+  [3.2.4.16](#vulnerabilities-property---extensions) and [3.2.5](#extensions-property).
 
 ### 9.1.2 Conformance Clause 2: CSAF Producer <a id='conformance-clause-2-csaf-producer'></a>
 
@@ -14536,10 +15002,13 @@ Secondly, the program fulfills the following for all items of:
   If more than one `cvrf:Organization` instance is given, the CVRF CSAF Converter converts the first one into the `organization`.
   In addition, the converter issues a warning that information might be lost during conversion of document or vulnerability acknowledgment.
 - `$.document.category`:
-  - If the `cvrf:DocumentType` is Security Advisory (case-insensitive), the CVRF CSAF Converter SHALL try to convert the data
-    into a valid CSAF Document in this profile according to CSAF 2.1.
+  - If the `cvrf:DocumentType` is Security Advisory (white space and case-insensitive),
+    the CVRF CSAF Converter SHALL try to convert the data into a valid CSAF Document in this profile according to CSAF 2.1.
 
     > A tool MAY offer rules to create the missing fixed products from version ranges, if applicable.
+    > A tool MAY offer rules to assign missing CVEs or vulnerability IDs.
+    > Nevertheless, issuing parties are responsible to keep track of assigned IDs to prevent
+    > the assignment of the same ID for different issues.
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
     `csaf_deprecated_security_advisory`.
@@ -14574,7 +15043,7 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY implement an option to suppress this conversion.
 
 - `$.document.notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in table
-  [table 1](#document-property-notes-tab-1) of section [3.2.2.8](#document-property---notes),
+  [table 1](#document-property-notes-tab-1) of section [3.2.2.9](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -14689,7 +15158,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF Converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-272'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-277'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -14698,7 +15167,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF Converter issues a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-273'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-278'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -14708,7 +15177,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-274'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-279'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -14719,7 +15188,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step SHALL be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-275'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-280'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -14736,7 +15205,7 @@ Secondly, the program fulfills the following for all items of:
   remove the invalid `cvss_v4` object and issue a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 - `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in table
-  [table 2](#vulnerabilities-property-notes-tab-1) of section [3.2.4.11](#vulnerabilities-property-notes), where the `title` is extended,
+  [table 2](#vulnerabilities-property-notes-tab-1) of section [3.2.4.10](#vulnerabilities-property-notes), where the `title` is extended,
   the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -14789,17 +15258,20 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   - show an audit log for each CSAF Document
   - identify the latest version of CSAF Documents with the same `$.document.tracking.id`
   - suggest a `$.document.tracking.id` based on the given configuration.
+  - option to suggest an ID for a vulnerability based on the given configuration.
+  - initialize a vulnerability element from a given CVE by loading the corresponding CVE JSON from a location provided in the configuration.
+    Local instances implementing the respective CVE API SHALL be supported.
   - track of the version of CSAF Documents automatically and increment according to the versioning scheme
-    (see also subsections of [3.1.13](#version-type)) selected in the configuration.
+    (see also subsections of [3.1.19](#version-type)) selected in the configuration.
   - check that the document version is set correctly based on the changes in comparison to the previous version
-    (see also subsections of [3.1.13](#version-type)).
+    (see also subsections of [3.1.19](#version-type)).
   - suggest to use the document status `interim` if a CSAF Document is updated more frequent than the given threshold in
     the configuration (default: `3` weeks)
   - suggest to publish a new version of the CSAF Document with the document status `final` if the document status was
     `interim` and no new release has be done during the given threshold in the configuration (default: `6` weeks)
 
     > Note that the terms "publish", "publication" and their derived forms are used in this conformance profile independent of
-      whether the specified target group is the public or a closed group.
+    > whether the specified target group is the public or a closed group.
 
   - support the following workflows:
 
@@ -14993,7 +15465,7 @@ A CSAF Asset Matching System satisfies the "CSAF Asset Matching System" conforma
 - provides for each vulnerability within a CSAF Document the option to mark a matched asset in the asset database as "not remediated",
   "remediation in progress", or "remediation done". A switch to mark all assets at once MAY be implemented.
 - does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched product or asset has not changed.
-- detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
+- detects the usage semantic version (as described in section [3.1.19.2](#version-type---semantic-versioning)).
 - is able to trigger a run of the asset matching module:
   - manually:
     - per CSAF Document
@@ -15082,7 +15554,7 @@ A CSAF SBOM Matching System satisfies the "CSAF SBOM Matching System" conformanc
   "remediation in progress", or "remediation done".
   A switch to mark all SBOM component at once MAY be implemented.
 - does not bring up a newer revision of a CSAF Document as a new match if the remediation for the matched SBOM or SBOM component has not changed.
-- detects the usage semantic version (as described in section [3.1.13.2](#version-type---semantic-versioning)).
+- detects the usage semantic version (as described in section [3.1.19.2](#version-type---semantic-versioning)).
 - is able to trigger a run of the SBOM matching module:
   - manually:
     - per CSAF Document
@@ -15332,16 +15804,19 @@ Secondly, the program fulfills the following for all items of:
     to CSAF 2.1 Converter SHOULD add a new product with the version of the last constraint and add that in the appropriate places as `fixed`.
     The CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that a product was added to the `product_tree` and the corresponding `$.vulnerabilities[*]`.
     Such warning SHALL contain the full product name and its path as well as the paths of the `$.vulnerabilities[*]` it was added to.
-    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category` value to
-    `csaf_deprecated_security_advisory`.
+    The CSAF 2.0 to CSAF 2.1 Converter MAY have a non-default option to assign organization-wide IDs to any vulnerability not
+    containing a CVE nor any other vulnerability ID and therefore failing test [6.1.27.8](#vulnerability-id).
+    Issuing parties are responsible to keep track of assigned IDs to prevent the assignment of the same ID  for different issues.
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile,
+    it SHALL set the `category` value to `csaf_deprecated_security_advisory`.
   - If the `$.document.lang` is English or unspecified, the following rules apply:
     - If the `$.document.title` starts with the string `Superseded` or the `$.document.category` has the value `Superseded` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert all data into a valid CSAF Document in the profile "Superseded" according to CSAF 2.1.
     - If the `$.document.title` starts with the string `Withdrawn` or the `$.document.category` has the value `Withdrawn` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
  
-    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
-    > to the profile.
+    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document
+    > according to the profile.
 
     > A tool MAY support this detection for other languages.
 
@@ -15380,7 +15855,7 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY implement an option to suppress this conversion.
 
 - `$.document.notes`: If any `$.document.notes` item contains one of the `category` and `title` combinations specified in table
-  [table 1](#document-property-notes-tab-1) of section [3.2.2.8](#document-property---notes), where the `title` is extended,
+  [table 1](#document-property-notes-tab-1) of section [3.2.2.9](#document-property---notes), where the `title` is extended,
   the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and issue a warning that a
   potential product specific note has been discovered and products have been assigned to it.
@@ -15490,7 +15965,7 @@ Secondly, the program fulfills the following for all items of:
   If the CSAF 2.0 to CSAF 2.1 Converter would lose information during the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `ssvc_v2`
   object, keep the original item of `notes` and issue a warning that the automatic conversion of the SSVC data would lead to losing information.
 - `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item contains one of the `category` and `title` combinations specified in table
-  [table 2](#vulnerabilities-property-notes-tab-1) of section [3.2.4.11](#vulnerabilities-property-notes), where the `title` is extended,
+  [table 2](#vulnerabilities-property-notes-tab-1) of section [3.2.4.10](#vulnerabilities-property-notes), where the `title` is extended,
   the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential
   product specific note has been discovered and products have been assigned to it.
@@ -16008,14 +16483,20 @@ An array SHOULD NOT have more than:
   - `$.x_extensions`
 
 - 40 000 items for
+  - `$.document.involvement.actions[*].acting_entity_refs`
+  - `$.document.involvement.actions[*].receiving_entity_refs`
+  - `$.document.involvement.entities`
+  - `$.document.involvement.entity_groups`
   - `$.document.notes`
   - `$.document.references`
-  - `$.vulnerabilities[*].involvements`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references`
   - `$.vulnerabilities[*].notes`
   - `$.vulnerabilities[*].references`
 
 - 100 000 for
+  - `$.document.involvement.actions`
+  - `$.document.involvement.actions[*].dl_vuln_ids`
+  - `$.document.involvement.actions[*].referenced_action_ids`
   - `$.document.tracking.revision_history`
   - `$.product_tree.branches`
   - `$.product_tree..branches`
@@ -16039,6 +16520,8 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].remediations[*].group_ids`
 
 - 100 000 000 for
+  - `$.document.involvement.actions[*].group_ids`
+  - `$.document.involvement.actions[*].product_ids`
   - `$.document.notes[*].group_ids`
   - `$.document.notes[*].product_ids`
   - `$.vulnerabilities[*].first_known_exploitation_dates`
@@ -16049,8 +16532,6 @@ An array SHOULD NOT have more than:
   - `$.vulnerabilities[*].flags[*].product_ids`
   - `$.vulnerabilities[*].ids[*].group_ids`
   - `$.vulnerabilities[*].ids[*].product_ids`
-  - `$.vulnerabilities[*].involvements[*].group_ids`
-  - `$.vulnerabilities[*].involvements[*].product_ids`
   - `$.vulnerabilities[*].metrics`
   - `$.vulnerabilities[*].metrics[*].products`
   - `$.vulnerabilities[*].notes[*].group_ids`
@@ -16080,6 +16561,18 @@ A string SHOULD NOT have a length greater than:
   - `$.document.aggregate_severity.text`
   - `$.document.category`
   - `$.document.distribution.sharing_group.name`
+  - `$.document.involvement.actions[*].acting_entity_refs[*]`
+  - `$.document.involvement.actions[*].action_id`
+  - `$.document.involvement.actions[*].group_ids[*]`
+  - `$.document.involvement.actions[*].dl_vuln_ids[*]`
+  - `$.document.involvement.actions[*].product_ids[*]`
+  - `$.document.involvement.actions[*].receiving_entity_refs[*]`
+  - `$.document.involvement.actions[*].referenced_action_ids[*]`
+  - `$.document.involvement.entities[*].contact.email`
+  - `$.document.involvement.entities[*].entity_id`
+  - `$.document.involvement.entities[*].name`
+  - `$.document.involvement.entity_groups[*].entity_group_id`
+  - `$.document.involvement.entity_groups[*].name`
   - `$.document.lang`
   - `$.document.license_expression`
   - `$.document.notes[*].audience`
@@ -16132,6 +16625,7 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].cwes[*].id`
   - `$.vulnerabilities[*].cwes[*].name`
   - `$.vulnerabilities[*].cwes[*].version`
+  - `$.vulnerabilities[*].dl_vuln_id`
   - `$.vulnerabilities[*].flags[*].group_ids[*]`
   - `$.vulnerabilities[*].flags[*].product_ids[*]`
   - `$.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]`
@@ -16139,8 +16633,6 @@ A string SHOULD NOT have a length greater than:
   - `$.vulnerabilities[*].ids[*].product_ids[*]`
   - `$.vulnerabilities[*].ids[*].system_name`
   - `$.vulnerabilities[*].ids[*].text`
-  - `$.vulnerabilities[*].involvements[*].contact`
-  - `$.vulnerabilities[*].involvements[*].group_ids[*]`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v2.vectorString`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString`
   - `$.vulnerabilities[*].metrics[*].content.cvss_v4.vectorString`
@@ -16175,6 +16667,9 @@ A string SHOULD NOT have a length greater than:
 - 10 000 for
   - `$.document.acknowledgments[*].summary`
   - `$.document.distribution.text`
+  - `$.document.involvement.actions[*].summary`
+  - `$.document.involvement.entities[*].contact.details`
+  - `$.document.involvement.entity_groups[*].summary`
   - `$.document.publisher.contact.details`
   - `$.document.publisher.issuing_authority`
   - `$.document.references[*].summary`
@@ -16187,7 +16682,6 @@ A string SHOULD NOT have a length greater than:
   - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.cpe`
   - `$.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]`
   - `$.vulnerabilities[*].acknowledgments[*].summary`
-  - `$.vulnerabilities[*].involvements[*].summary`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources[*].summary`
   - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.references[*].summary`
   - `$.vulnerabilities[*].references[*].summary`
@@ -16208,6 +16702,7 @@ A string SHOULD NOT have a length greater than:
 
 The maximum length of strings representing a temporal value is given by the format specifier. This applies to:
 
+- `$.document.involvement.actions[*].date`
 - `$.document.tracking.current_release_date`
 - `$.document.tracking.generator.date`
 - `$.document.tracking.initial_release_date`
@@ -16217,7 +16712,6 @@ The maximum length of strings representing a temporal value is given by the form
 - `$.vulnerabilities[*].first_known_exploitation_dates[*].date`
 - `$.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date`
 - `$.vulnerabilities[*].flags[*].date`
-- `$.vulnerabilities[*].involvements[*].date`
 - `$.vulnerabilities[*].metrics[*].content.epss.timestamp`
 - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp`
 - `$.vulnerabilities[*].remediations[*].date`
@@ -16241,6 +16735,9 @@ This applies to:
 - `$.document.csaf_version` (3)
 - `$.document.distribution.tlp.label` (12)
 - `$.document.notes[*].category` (16)
+- `$.document.involvement.actions[*].category` (14)
+- `$.document.involvement.actions[*].status` (12)
+- `$.document.involvement.entities[*].category` (19)
 - `$.document.publisher.category` (11)
 - `$.document.references[*].category` (8)
 - `$.document.tracking.status` (7)
@@ -16251,8 +16748,6 @@ This applies to:
 - `$.product_tree.product_paths[*].category` (21)
 - `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category` (13)
 - `$.vulnerabilities[*].flags[*].label` (49)
-- `$.vulnerabilities[*].involvements[*].party` (11)
-- `$.vulnerabilities[*].involvements[*].status` (17)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessComplexity` (6)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessVector` (16)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.authentication` (8)
@@ -16346,7 +16841,10 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
 - `$.document.distribution.tlp.url`
+- `$.document.involvement.entities[*].contact.public_openpgp_key_url`
+- `$.document.involvement.entities[*].contact.url`
 - `$.document.publisher.contact.public_openpgp_key_url`
+- `$.document.publisher.contact.url`
 - `$.document.publisher.namespace`
 - `$.document.references[*].url`
 - `$.document.x_extensions[*]['$schema']`
@@ -16382,7 +16880,7 @@ A string with format `uuid` SHOULD NOT have a length greater than 50. This appli
 
 The following examples are intended to aid in understanding under which circumstances product paths can be collapsed.
 
-*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-Appendix D-eg-1'></a><a id='example-276'></a>
+*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-Appendix D-eg-1'></a><a id='example-281'></a>
 
 ```
   "product_tree": {
@@ -16474,7 +16972,7 @@ The following examples are intended to aid in understanding under which circumst
 
 > Product paths in example 1 above can be collapse as shown in example 2 below.
 
-*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-Appendix D-eg-2'></a><a id='example-277'></a>
+*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-Appendix D-eg-2'></a><a id='example-282'></a>
 
 ```
   "product_tree": {
@@ -16554,7 +17052,7 @@ The following examples are intended to aid in understanding under which circumst
   }
 ```
 
-*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-Appendix D-eg-3'></a><a id='example-278'></a>
+*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-Appendix D-eg-3'></a><a id='example-283'></a>
 
 ```
   "product_tree": {
@@ -16692,7 +17190,7 @@ The following examples are intended to aid in understanding under which circumst
 > Product paths in example 3 cannot be collapsed without information loss.
 > For example, the `cpe` of the product identified by `CSAFPID-908070607` would be lost.
 
-*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-Appendix D-eg-4'></a><a id='example-279'></a>
+*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-Appendix D-eg-4'></a><a id='example-284'></a>
 
 ```
   {

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "cs\u002D\u02D7\u05BE\u058A\u1400\u1806\u2010\u2011\u2012\u2013\u2014\u2015\u2043\u2053\u207B\u208B\u2212\u23AF\u23BA\u23BB\u23BC\u23E4\u2500\u2501\u254C\u254D\u2574\u2576\u2578\u257A\u2796\u29FF\u2E3A\u2E3B\u301C\uFE58\uFE63\uFF0D\uD82F\uDC86af_informa\u002D\u02D7\u05BE\u058A\u1400\u1806\u2010\u2011\u2012\u2013\u2014\u2015\u2043\u2053\u207B\u208B\u2212\u23AF\u23BA\u23BB\u23BC\u23E4\u2500\u2501\u254C\u254D\u2574\u2576\u2578\u257A\u2796\u29FF\u2E3A\u2E3B\u301C\uFE58\uFE63\uFF0D\uD82F\uDC86tional_advisory",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "notes": [
+      {
+        "category": "summary",
+        "text": "This CSAF document contained example data and pretends to be an Informational Advisory to create test data. This note would summarize the issue.",
+        "title": "Summary"
+      },
+      {
+        "audience": "Implementers",
+        "category": "other",
+        "text": "The document category contains hyphen and dash characters as currently identified by the TC.",
+        "title": "Explanation for Implementers"
+      }
+    ],
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "The canonical URL.",
+        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-26-16.json"
+      },
+      {
+        "category": "external",
+        "summary": "General Advise to Minimize Risks of Phishing",
+        "url": "https://files.example.com/knowledge/prevent-phishing"
+      }
+    ],
+    "title": "Mandatory Test: Prohibited Document Category Name (failing example 11)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-26-22",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  }
+}

@@ -16,7 +16,7 @@ CSAF documents are based on JSON, thus the security considerations of [cite](#RF
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 
-- CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavoured Markdown is permitted.
+- CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavored Markdown is permitted.
   To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer,
   e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
 - Deeply nested markup can cause a stack overflow in the Markdown processor [cite](#GFMENG).
@@ -74,10 +74,11 @@ It is RECOMMENDED to do them at least before a release.
 > Such checks can be automated, e.g. in the CI/CD pipeline.
 
 CSAF documents can contain personally identifiable information.
-This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses.
+This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses, e.g. in involvement.
 Issuing parties SHALL ensure that they are allowed to publish such information.
 
 > Acknowledging entities or individuals is always possible with their consent.
 > Functional email addresses are usually not consider to be personally identifiable information.
+> The same applies for names of organizations.
 
 ---
