@@ -7,6 +7,7 @@ The same applies for all items of elements of type `$['$defs'].products_t`.
 The relevant paths for this test are:
 
 ```list-of-jsonpaths
+  $.document.involvement.actions[*].product_ids[*]
   $.document.notes[*].product_ids[*]
   $.product_tree.product_groups[*].product_ids[*]
   $.product_tree.product_paths[*].beginning_product_reference
@@ -14,7 +15,6 @@ The relevant paths for this test are:
   $.vulnerabilities[*].first_known_exploitation_dates[*].product_ids[*]
   $.vulnerabilities[*].flags[*].product_ids[*]
   $.vulnerabilities[*].ids[*].product_ids[*]
-  $.vulnerabilities[*].involvements[*].product_ids[*]
   $.vulnerabilities[*].metrics[*].products[*]
   $.vulnerabilities[*].notes[*].product_ids[*]
   $.vulnerabilities[*].product_status.first_affected[*]
