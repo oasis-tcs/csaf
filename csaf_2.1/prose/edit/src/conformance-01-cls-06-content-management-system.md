@@ -67,11 +67,15 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
 - prefills the following fields in new CSAF Documents with the values given below or based on the templates from configuration:
 
   - `$['$schema']` with the value prescribed by the schema
+  - `$.document.category` (based on the templates from configuration)
   - `$.document.csaf_version` with the value prescribed by the schema
+  - `$.document.distribution.tlp.label` (based on the templates from configuration; default for drafts: "TLP:AMBER+Strict")
   - `$.document.lang`
+  - `$.document.license_expression` (based on the templates from configuration)
   - `$.document.notes`
     - `legal_disclaimer` (Terms of use from the configuration)
     - `general` (General Security recommendations from the configuration)
+  - `$.document.publisher` and children
   - `$.document.tracking.current_release_date` with the current date
   - `$.document.tracking.generator` and children
   - `$.document.tracking.initial_release_date` with the current date
@@ -81,8 +85,6 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
     - `summary` (based on the templates from configuration; default: "Initial version.")
   - `$.document.tracking.status` with `draft`
   - `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
-  - `$.document.publisher` and children
-  - `$.document.category` (based on the templates from configuration)
 
 - When updating an existing CSAF Document:
   
@@ -95,6 +97,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
     - `$.document.notes`
       - `legal_disclaimer` (Terms of use from the configuration)
       - `general` (General Security recommendations from the configuration)
+    - `$.document.publisher` and children
     - `$.document.tracking.current_release_date` with the current date
     - `$.document.tracking.generator` and children
     - the new item in `$.document.tracking.revision_history[*]`
@@ -102,4 +105,8 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
       - `number` (based on the templates according to the versioning scheme configured)
     - `$.document.tracking.status` with `draft`
     - `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
-    - `$.document.publisher` and children
+
+- before allowing `$.document.tracking.status` to transition from `draft` to `interim` or `final`
+  - enforces that any newly created or updated document contains all required fields, in order for the document to be valid
+    according to the profile specified in `$.document.category`.
+  - offers to set `$document.distribution.tlp.label` to the value configured for released documents (default: "TLP:CLEAR")
