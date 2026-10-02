@@ -614,7 +614,7 @@ The following combinations of `category` and `title` have a special meaning and 
 | general     | AI Usage              | Contains a information on whether and how AI systems were used in discovering, analyzing, remediating, or documenting this specific vulnerability, including the human oversight applied. |
 | summary     | Vulnerability Summary | Contains a summary of this specific vulnerability which is not the official CVE description.                                                                                              |
 
-Table: Combinations of `category` and `title` with special meaning.{#vulnerabilities-property-notes-tab-1}
+Table: Combinations of `category` and `title` with special meaning.{#tab:vulnerabilities-property-notes}
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
@@ -852,7 +852,7 @@ The following tables shows the allowed and prohibited combinations:
 | fix\_planned     |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |   allowed    |    prohibited    |
 | no\_fix\_planned |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |  prohibited  |     allowed      |
 
-Table: Remediation Combinations{#vulnerabilities-property-remediations-category-tab-1}
+Table: Remediation Combinations{#tab:vulnerabilities-property-remediations-category-1}
 
 Some category values contradict certain product status groups.
 Therefore, such a combination SHALL NOT exist in a vulnerability item for the same product.
@@ -872,7 +872,7 @@ The following tables shows the allowed, discouraged and prohibited combinations:
 | fix\_planned     |  allowed   | discouraged  | prohibited  |     discouraged     | discouraged |   allowed   |
 | no\_fix\_planned |  allowed   | discouraged  | prohibited  |       allowed       |   allowed   |   allowed   |
 
-Table: Product Status Remediation Category Combinations{#vulnerabilities-property-remediations-category-tab-2}
+Table: Product Status Remediation Category Combinations{#tab:vulnerabilities-property-remediations-category-2}
 
 The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
 

@@ -103,7 +103,7 @@ Secondly, the program fulfills the following for all items of:
   > A tool MAY implement an option to suppress this conversion.
 
 - `$.document.notes`: If any `cvrf:Note` item contains one of the `category` and `title` combinations specified in table
-  [tab](#document-property-notes-tab-1) of section [sec](#document-property---notes),
+  [tab](#tab:document-property-notes) of section [sec](#document-property---notes),
   where the `title` is extended, the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
@@ -265,7 +265,7 @@ Secondly, the program fulfills the following for all items of:
   remove the invalid `cvss_v4` object and issue a warning that the automatic conversion of the CVSS v4.0 reference failed.
   Such warning SHOULD include the specific error that occurred.
 - `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of the `category` and `title` combinations specified in table
-  [tab](#vulnerabilities-property-notes-tab-1) of section [sec](#vulnerabilities-property-notes), where the `title` is extended,
+  [tab](#tab:vulnerabilities-property-notes) of section [sec](#vulnerabilities-property-notes), where the `title` is extended,
   the CVRF CSAF Converter SHALL try to identify whether that extension is a specific product name, version or family.
   In such case, the CVRF CSAF Converter SHALL try to add the corresponding products to the note item and issue a warning that a potential product
   specific note has been discovered and products have been assigned to it.
