@@ -1,8 +1,6 @@
 
 ![](https://docs.oasis-open.org/templates/OASISLogo-v3.0.png)
 
----
-
 # Common Security Advisory Framework Version 2.1
 
 ## Committee Specification Draft 03
@@ -61,14 +59,13 @@ This specification replaces or supersedes:
 
 #### Declared JSON namespaces:
 
-- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json)
-- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json)
-- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json)
-- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json)
-- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json)
-- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json)
-- [https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json)
-
+- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json
+- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json
+- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json
+- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json
+- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json
+- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json
+- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json
 
 #### Abstract
 The Common Security Advisory Framework (CSAF) Version 2.1 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
