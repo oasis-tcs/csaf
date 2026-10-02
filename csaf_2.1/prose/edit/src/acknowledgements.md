@@ -1,6 +1,6 @@
 # Appendix A. Acknowledgments
 
-(This appendix does not form an integral part of this Specification and is informational.)
+(This appendix does not form an integral part of this specification and is informational.)
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
 
