@@ -2330,7 +2330,7 @@ Any given model number of value type `string` with at least `1` character repres
 possibly with placeholders.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously.
-> Often it is abbreviated as "MN", M/N" or "model no.".
+> Often it is abbreviated as "MN", "M/N" or "model no.".
 
 If a part of a model number of the component to identify is given,
 it SHALL begin at the first and end at the last character position of the string representing the targeted component.
@@ -16281,7 +16281,7 @@ A set of artifacts satisfies the "CSAF Extension Collection" conformance profile
 
 # Appendix A. Acknowledgments<a id='acknowledgments'></a>
 
-(This appendix does not form an integral part of this Specification and is informational.)
+(This appendix does not form an integral part of this specification and is informational.)
 
 The following individuals were members of the OASIS CSAF Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
 
@@ -16406,7 +16406,7 @@ The following individuals were members of the OASIS CSAF Technical Committee dur
 
 # Appendix B. Revision History<a id='revision-history'></a>
 
-(This appendix does not form an integral part of this Specification and is informational.)
+(This appendix does not form an integral part of this specification and is informational.)
 
 Revision tracking is publicly available in the version control system at
 <https://github.com/oasis-tcs/csaf/commits/master>.
@@ -16883,7 +16883,7 @@ A string with format `uuid` SHOULD NOT have a length greater than 50. This appli
 
 # Appendix D. Collapsing Product Paths<a id='collapsing-product-paths'></a>
 
-(This appendix does not form an integral part of this Specification and is informational.)
+(This appendix does not form an integral part of this specification and is informational.)
 
 The following examples are intended to aid in understanding under which circumstances product paths can be collapsed.
 

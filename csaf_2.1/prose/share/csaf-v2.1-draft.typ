@@ -2441,7 +2441,7 @@ possibly with placeholders.
 
 #quote(block: true)[
 The terms "model", "model number" and "model variant" are mostly used
-synonymously. Often it is abbreviated as "MN", M/N” or "model no.".
+synonymously. Often it is abbreviated as "MN", "M/N" or "model no.".
 ]
 
 If a part of a model number of the component to identify is given, it
@@ -20065,7 +20065,7 @@ profile if it:
 #pagebreak(weak: true)
 #heading(level: 1, numbering: none)[Appendix A. Acknowledgments]
 <acknowledgments>
-\(This appendix does not form an integral part of this Specification and
+\(This appendix does not form an integral part of this specification and
 is informational.)
 
 The following individuals were members of the OASIS CSAF Technical
@@ -20213,7 +20213,7 @@ specification and their contributions are gratefully acknowledged:
 #pagebreak(weak: true)
 #heading(level: 1, numbering: none)[Appendix B. Revision History]
 <revision-history>
-\(This appendix does not form an integral part of this Specification and
+\(This appendix does not form an integral part of this specification and
 is informational.)
 
 Revision tracking is publicly available in the version control system at
@@ -20758,7 +20758,7 @@ This applies to:
 #heading(level: 1, numbering: none)[Appendix D. Collapsing Product
 Paths]
 <collapsing-product-paths>
-\(This appendix does not form an integral part of this Specification and
+\(This appendix does not form an integral part of this specification and
 is informational.)
 
 The following examples are intended to aid in understanding under which
