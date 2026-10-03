@@ -3,19 +3,19 @@
 
 # Common Security Advisory Framework Version 2.1<a id='common-security-advisory-framework-version-2-1'></a>
 
-## Committee Specification Draft 03<a id='committee-specification-draft-03'></a>
+## Committee Specification Draft 04<a id='committee-specification-draft-04'></a>
 
-## 11 September 2026<a id='11-september-2026'></a>
+## 07 October 2026<a id='07-october-2026'></a>
 
 #### This stage<a id='this-stage'></a>
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md (Authoritative) \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html \
+https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf
+
+#### Previous stage<a id='previous-stage'></a>
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html \
 https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf
-
-#### Previous stage<a id='previous-stage'></a>
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf
 
 #### Latest stage<a id='latest-stage'></a>
 https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md (Authoritative) \
@@ -37,19 +37,19 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts<a id='additional-artifacts'></a>
 This prose specification is one component of a Work Product that also includes:
 
-- Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json. \
+- Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
-- CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json. \
+- CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
-- Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-content.json. \
+- Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
-- Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metadata.json. \
+- Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
-- Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metaschema.json. \
+- Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
-- Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json. \
+- Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
-- Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json. \
+- Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json. \
 Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
 #### Related work<a id='related-work'></a>
@@ -84,7 +84,7 @@ When referencing this specification the following citation format should be used
 
 **[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 11 September 2026. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 07 October 2026. OASIS Committee Specification Draft 04. https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
 ---
 
@@ -581,7 +581,7 @@ This specification is provided under the [Non-Assertion](https://www.oasis-open.
 the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/), the mode chosen when the Technical Committee was established.
 For information on whether any patents have been disclosed that may be essential to implementing this specification,
 and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's
-web page ([https://www.oasis-open.org/committees/csaf/ipr.php](https://www.oasis-open.org/committees/csaf/ipr.php)).
+web page (<https://www.oasis-open.org/committees/csaf/ipr.php>).
 
 ## 1.2 Terminology<a id='terminology'></a>
 
@@ -1169,7 +1169,7 @@ The latter aligns well with separation of concerns and shares the format family 
 the providers of product and vulnerability information which migrated from XML to JSON since the creation of CSAF CVRF version 1.2,
 the pre-predecessor of this specification.
 
-The acronym CSAF, “Common Security Advisory Framework”, stands for the target of concerted mitigation and remediation accomplishment.
+The acronym CSAF, "Common Security Advisory Framework", stands for the target of concerted mitigation and remediation accomplishment.
 
 Technically, the use of JSON schema allows validation and proof of model conformance (through established schema based validation)
 of the declared information inside CSAF documents.
@@ -4144,7 +4144,7 @@ The value `draft` indicates, that this is a pre-release, intended for issuing pa
 or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
 
 The value `final` indicates, that the issuing party asserts the content is unlikely to change.
-“Final” status is an indication only, and does not preclude updates.
+"Final" status is an indication only, and does not preclude updates.
 This SHOULD be used if the issuing party expects no, slow or few changes.
 
 The value `interim` indicates, that the issuing party expects rapid updates.
@@ -4799,16 +4799,16 @@ A Content object has at least `1` property.
 ```
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+<https://www.first.org/cvss/cvss-v2.0.json>.
 See \[[CVSS2](#CVSS2)\] for details.
 
 The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
-[https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
-[https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+<https://www.first.org/cvss/cvss-v3.0.json> or
+<https://www.first.org/cvss/cvss-v3.1.json>.
 See \[[CVSS30](#CVSS30)\] respectively \[[CVSS31](#CVSS31)\] for details.
 
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
+<https://www.first.org/cvss/cvss-v4.0.json>.
 See \[[CVSS40](#CVSS40)\] for details.
 
 The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)
@@ -4887,7 +4887,7 @@ Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency`
 an additional assessment provided by a party.
 
 The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
-[https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
+<https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json>.
 See \[[SSVC](#SSVC)\] for details.
 
 The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
@@ -5155,7 +5155,7 @@ Valid values are:
 
 The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that
 can be used to avoid exposure to the vulnerability. There MAY be none, one, or more workarounds available.
-This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
+This is typically the "first line of defense" against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
 
 The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that
 helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product.
@@ -14932,7 +14932,7 @@ An analysis tool satisfies the "CSAF Direct Producer" conformance profile if the
 
 ### 9.1.4 Conformance Clause 4: CSAF Converter<a id='conformance-clause-4-csaf-converter'></a>
 
-A converter satisfies the “CSAF Converter” conformance profile if the converter:
+A converter satisfies the "CSAF Converter" conformance profile if the converter:
 
 - satisfies the "CSAF Producer" conformance profile.
 - additionally satisfies those normative requirements in section [3](#schema-elements) that are designated as applying to converters.
@@ -15825,7 +15825,9 @@ Secondly, the program fulfills the following for all items of:
     of the original CSAF Document and issue a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
 - `$.document.csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter SHALL update the value to `2.1`.
 - `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it according to the table below:
-  
+
+  Table: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.{#tab:tlp-labels-across-csaf-versions}
+
 | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
 |:--------------------------|:--------------------------|
 | `TLP:WHITE`               | `TLP:CLEAR`               |
@@ -15833,12 +15835,10 @@ Secondly, the program fulfills the following for all items of:
 | `TLP:AMBER`               | `TLP:AMBER`               |
 | `TLP:RED`                 | `TLP:RED`                 |
 
-  Table: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.{#tab:tlp-labels-across-csaf-versions}
-
   If `$.document.distribution.text` contains the string `TLP v2.0: TLP:` followed by a valid TLP v2.0 label as defined in the CSAF 2.1 JSON schema,
   the CSAF 2.0 to CSAF 2.1 Converter SHOULD provide an option to use this label instead.
 
-  If the TLP label changes during such a conversion in a way not listed in the table [tab](tab:tlp-labels-across-csaf-versions),
+  If the TLP label changes during such a conversion in a way not listed in the table [tab](#tab:tlp-labels-across-csaf-versions),
   the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that the TLP label was taken from the distribution text.
   This warning SHALL include both values: the value converted using the table and the value from the distribution text.
 
