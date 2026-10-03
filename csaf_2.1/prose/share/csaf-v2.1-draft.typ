@@ -19,9 +19,9 @@
     stroke: (top: 0.5pt),
     columns: (1fr, 2fr, 1fr),
     align: (left + horizon, center + horizon, right + horizon),
-    text(size: 8pt)[csaf-v2.1-csd03],
+    text(size: 8pt)[csaf-v2.1-csd04],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[11 September 2026 — Page #counter(page).display()
+    text(size: 8pt)[07 October 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -51,23 +51,23 @@
 Advisory Framework Version 2.1]
 <common-security-advisory-framework-version-2-1>
 #heading(level: 2, outlined: false, numbering: none)[Committee
-Specification Draft 03]
-<committee-specification-draft-03>
-#heading(level: 2, outlined: false, numbering: none)[11 September 2026]
-<11-september-2026>
+Specification Draft 04]
+<committee-specification-draft-04>
+#heading(level: 2, outlined: false, numbering: none)[07 October 2026]
+<07-october-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md
+(Authoritative) \
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html \
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf
+
+#heading(level: 4, outlined: false, numbering: none)[Previous stage]
+<previous-stage>
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
 (Authoritative) \
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html \
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf
-
-#heading(level: 4, outlined: false, numbering: none)[Previous stage]
-<previous-stage>
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md
-(Authoritative) \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf
 
 #heading(level: 4, outlined: false, numbering: none)[Latest stage]
 <latest-stage>
@@ -102,31 +102,31 @@ This prose specification is one component of a Work Product that also
 includes:
 
 - Aggregator JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
 - CSAF JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json. \
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json. \
   Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
 - Extension Content JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-content.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
 - Extension Metadata JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metadata.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
 - Extension Metaschema JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metaschema.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
 - Meta JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json. \
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json. \
   Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
 - Provider JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
@@ -201,9 +201,9 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 11 September 2026. OASIS Committee
-Specification Draft 03.
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html.
+Hagen and Thomas Schmidt. 07 October 2026. OASIS Committee Specification
+Draft 04.
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html.
 Latest stage:
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
@@ -1053,7 +1053,7 @@ interchange utilized by the providers of product and vulnerability
 information which migrated from XML to JSON since the creation of CSAF
 CVRF version 1.2, the pre-predecessor of this specification.
 
-The acronym CSAF, “Common Security Advisory Framework”, stands for the
+The acronym CSAF, "Common Security Advisory Framework", stands for the
 target of concerted mitigation and remediation accomplishment.
 
 Technically, the use of JSON schema allows validation and proof of model
@@ -4670,7 +4670,7 @@ party is seeking feedback or indicating its intentions regarding a
 specific issue.
 
 The value `final` indicates, that the issuing party asserts the content
-is unlikely to change. “Final” status is an indication only, and does
+is unlikely to change. "Final" status is an indication only, and does
 not preclude updates. This SHOULD be used if the issuing party expects
 no, slow or few changes.
 
@@ -5887,8 +5887,8 @@ values are:
 The value `workaround` indicates that the remediation contains
 information about a configuration or specific deployment scenario that
 can be used to avoid exposure to the vulnerability. There MAY be none,
-one, or more workarounds available. This is typically the “first line of
-defense” against a new vulnerability before a mitigation or vendor fix
+one, or more workarounds available. This is typically the "first line of
+defense" against a new vulnerability before a mitigation or vendor fix
 has been issued or even discovered.
 
 The value `mitigation` indicates that the remediation contains
@@ -17817,7 +17817,7 @@ profile if the analysis tool:
 
 === Conformance Clause 4: CSAF Converter
 <conformance-clause-4-csaf-converter>
-A converter satisfies the “CSAF Converter” conformance profile if the
+A converter satisfies the "CSAF Converter" conformance profile if the
 converter:
 
 - satisfies the "CSAF Producer" conformance profile.
@@ -19337,7 +19337,7 @@ Secondly, the program fulfills the following for all items of:
   use this label instead.
 
   If the TLP label changes during such a conversion in a way not listed
-  in the table #link("tab:tlp-labels-across-csaf-versions")[tab], the
+  in the table #link(<tab:tlp-labels-across-csaf-versions>)[tab], the
   CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that the TLP
   label was taken from the distribution text. This warning SHALL include
   both values: the value converted using the table and the value from
