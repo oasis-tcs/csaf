@@ -802,7 +802,7 @@ Valid values are:
 
 The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that
 can be used to avoid exposure to the vulnerability. There MAY be none, one, or more workarounds available.
-This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
+This is typically the "first line of defense" against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
 
 The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that
 helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product.
