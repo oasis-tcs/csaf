@@ -10,7 +10,7 @@ The latter aligns well with separation of concerns and shares the format family 
 the providers of product and vulnerability information which migrated from XML to JSON since the creation of CSAF CVRF version 1.2,
 the pre-predecessor of this specification.
 
-The acronym CSAF, “Common Security Advisory Framework”, stands for the target of concerted mitigation and remediation accomplishment.
+The acronym CSAF, "Common Security Advisory Framework", stands for the target of concerted mitigation and remediation accomplishment.
 
 Technically, the use of JSON schema allows validation and proof of model conformance (through established schema based validation)
 of the declared information inside CSAF documents.

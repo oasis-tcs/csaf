@@ -666,7 +666,7 @@ The following combinations of `category` and `title` have a special meaning and 
 | legal\_disclaimer  | License                          | Contains the only license text of the document license.                                                                                                                                            |
 | summary            | Summary                          | Contains a short summary of the content of the advisory.                                                                                                                                           |
 
-Table: Requirements for combinations of `category` and `title` that have a special meaning.{#document-property-notes-tab-1}
+Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:document-property-notes}
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
@@ -1065,7 +1065,7 @@ The value `draft` indicates, that this is a pre-release, intended for issuing pa
 or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
 
 The value `final` indicates, that the issuing party asserts the content is unlikely to change.
-“Final” status is an indication only, and does not preclude updates.
+"Final" status is an indication only, and does not preclude updates.
 This SHOULD be used if the issuing party expects no, slow or few changes.
 
 The value `interim` indicates, that the issuing party expects rapid updates.
