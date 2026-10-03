@@ -1,6 +1,6 @@
 ### Conformance Clause 4: CSAF Converter
 
-A converter satisfies the “CSAF Converter” conformance profile if the converter:
+A converter satisfies the "CSAF Converter" conformance profile if the converter:
 
 - satisfies the "CSAF Producer" conformance profile.
 - additionally satisfies those normative requirements in section [sec](#schema-elements) that are designated as applying to converters.
