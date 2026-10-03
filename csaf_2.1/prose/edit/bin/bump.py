@@ -371,7 +371,7 @@ def main(args: list[str]) -> int:
                 pass
 
         prefix = '_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. '
-        postfix = '. OASIS Committee Specification Draft 03. https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.'
+        postfix = '. OASIS Committee Specification Draft 04. https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.'
         if line.startswith(prefix) and line.endswith(postfix):
             pub_date = line.replace(prefix, '').replace(postfix, '')
             debug and print(f'DEBUG: Found prior pub-date ({pub_date})')
