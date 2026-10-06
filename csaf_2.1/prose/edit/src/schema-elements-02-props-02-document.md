@@ -348,35 +348,52 @@ Action category (`category`) of value type `string` and `enum` specifies the cat
 Valid values are:
 
 ```
+    assessment
     confirmation
     coordination
     discovery
     dispute
+    embargo
     exploitation
     fix_deployment
     fix_release
     notification
-    triage
 ```
+
+The value `assessment` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
+An `assessment` action records that this examination took place, which entities took part in it, and when.
+Any resulting score or rating is given in `$.vulnerabilities[*].metrics` or `$.vulnerabilities[*].threats`, not in the action.
 
 The value `confirmation` indicates that the actor confirms that it received or accepted the action that this action refers to (via `referenced_action_ids`).
 
 The value `coordination` indicates that the parties coordinate their work.
 
-The value `discovery` indicates that the actor found the vulnerability.
+The value `discovery` indicates that the actor found the vulnerability, or found that an entity used the vulnerability.
+A `discovery` action that names an `exploitation` action in `referenced_action_ids` states that the actor found that use.
+A `discovery` action that names no action states that the actor found the vulnerability.
+The scope of a `discovery` action that names an `exploitation` action SHOULD be equal to or narrower than the scope of that action,
+after the resolution of product groups.
 
 The value `dispute` indicates that the actor disputes the action that this action refers to (via `referenced_action_ids`).
 It can dispute that the action is correct, its severity, or that it occurred.
+It can also state that the actor does not accept the action.
 
-The value `exploitation` indicates that the actor used the vulnerability, or a party saw or controlled such use.
+The value `embargo` indicates that the actor and the receiving entities agree to not disclose the information before the intended disclosure date.
+The agreed date is the `disclosure_date` of each vulnerability that `dl_vuln_ids` names.
+An `embargo` action SHALL name a minimum of one party in `receiving_entity_refs`,
+and it SHOULD name the vulnerabilities under embargo in `dl_vuln_ids`.
+An agreement to delay disclosure is an `embargo`. Other joint work of the parties stays `coordination`.
+The entities in `receiving_entity_refs` are the parties that the agreement binds.
+They are not necessarily the members of `$.document.distribution.sharing_group`.
+
+The value `exploitation` indicates that the actor used the vulnerability.
+With the status `attempted`, the action states that the actor tried to use the vulnerability and did not succeed.
 
 The value `fix_deployment` indicates that the actor installed a fix.
 
 The value `fix_release` indicates that the actor published a fix, or made a fix available.
 
 The value `notification` indicates that the actor tells a different party about the vulnerability.
-
-The values `triage` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
 
 A `confirmation` and a `dispute` are always about a different action.
 Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_refs`.
