@@ -108,7 +108,9 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
     - `$.document.tracking.status` with `draft`
     - `$.document.tracking.version` with the value of `number` the latest `$.document.tracking.revision_history[*]` element
 
-- before allowing `$.document.tracking.status` to transition from `draft` to `interim` or `final`
-  - enforces that any newly created or updated document contains all required fields, in order for the document to be valid
-    according to the profile specified in `$.document.category`.
-  - offers to set `$document.distribution.tlp.label` to the value configured for released documents (default: "TLP:CLEAR")
+- before allowing `$.document.tracking.status` to transition from `draft` to `interim` or `final`:
+  - enforce that the current document contains all required fields
+    according to the profile specified in `$.document.category`
+  - enforce that current document is a valid CSAF Document according to this specification
+  - offer to set `$document.distribution` and children to one of the values from the configuration
+    for released documents (default `label` for released documents is `TLP:CLEAR` with no `sharing_group` present)
