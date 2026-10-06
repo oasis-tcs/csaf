@@ -903,15 +903,16 @@
                     "description": "Specifies the category which this action belongs to.",
                     "type": "string",
                     "enum": [
+                      "assessment",
                       "confirmation",
                       "coordination",
                       "discovery",
                       "dispute",
+                      "embargo",
                       "exploitation",
                       "fix_deployment",
                       "fix_release",
-                      "notification",
-                      "triage"
+                      "notification"
                     ]
                   },
                   "date": {
