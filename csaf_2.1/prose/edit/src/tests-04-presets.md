@@ -92,6 +92,7 @@ Additional presets are defined as follows:
     - [sec](#inconsistent-epss-timestamp)
     - [sec](#inconsistent-first-known-exploitation-dates)
     - [sec](#inconsistent-exploitation-date)
+    - [sec](#inconsistent-discovery-date)
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:
