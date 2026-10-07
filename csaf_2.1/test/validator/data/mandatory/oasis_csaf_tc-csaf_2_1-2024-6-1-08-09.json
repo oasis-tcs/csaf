@@ -54,6 +54,23 @@
           ]
         }
       ]
+    },
+    {
+      "metrics": [
+        {
+          "content": {
+            "cvss_v2": {
+              "version": "2.0",
+              "vectorString": "AV:L/AC:L/Au:M/C:C/I:C/A:C",
+              "baseScore": 6.5,
+              "severity": "MEDIUM"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
     }
   ]
 }
