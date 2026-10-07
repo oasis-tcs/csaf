@@ -38,7 +38,7 @@ Delegation to industry best practices technologies is used in referencing schema
 
 - Classification for Document Distribution
   - Traffic Light Protocol (TLP)
-    - Default Definition: https://www.first.org/tlp/
+    - Default Definition: <https://www.first.org/tlp/>
 - Exploit Prediction
   - Exploit Prediction Scoring System (EPSS) [cite](#EPSS)
 - Package Data
@@ -47,19 +47,19 @@ Delegation to industry best practices technologies is used in referencing schema
   - Common Platform Enumeration (CPE) Version 2.3 [cite](#CPE23-N)
 - Vulnerability Categorization
   - Stakeholder-Specific Vulnerability Categorization [cite](#SSVC)
-    - JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json
+    - JSON Schema Reference: <https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json>
 - Vulnerability Classification
   - Common Weakness Enumeration (CWE) [cite](#CWE)
-    - CWE List: http://cwe.mitre.org/data/index.html
+    - CWE List: <https://cwe.mitre.org/data/index.html>
 - Vulnerability Scoring
   - Common Vulnerability Scoring System (CVSS) Version 4.0 [cite](#CVSS40)
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v4.0.json>
   - Common Vulnerability Scoring System (CVSS) Version 3.1 [cite](#CVSS31)
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v3.1.json>
   - Common Vulnerability Scoring System (CVSS) Version 3.0 [cite](#CVSS30)
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v3.0.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v3.0.json>
   - Common Vulnerability Scoring System (CVSS) Version 2.0 [cite](#CVSS2)
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v2.0.json>
 
 Even though not all - especially the referenced - JSON schemas prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
