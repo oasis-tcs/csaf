@@ -71,7 +71,8 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   - `$.document.csaf_version` with the value prescribed by the schema
   - `$.document.distribution`
     - `sharing_group` (based on the templates from configuration; per default a sharing group is omitted if not configured explicitly)
-    - `tlp` (based on the templates from configuration; default `label` for drafts: `TLP:AMBER+STRICT`)
+    - `tlp` (based on the templates from configuration; default `label` for drafts: `TLP:AMBER+STRICT`; default `label` for interim 
+      and final: `TLP:CLEAR`)
   - `$.document.lang`
   - `$.document.license_expression` (based on the templates from configuration)
   - `$.document.notes`
