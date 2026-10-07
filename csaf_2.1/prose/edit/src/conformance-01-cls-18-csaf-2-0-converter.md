@@ -5,7 +5,13 @@ A program satisfies the "CSAF 2.0 to CSAF 2.1 Converter" conformance profile if 
 Firstly, the program:
 
 - satisfies the "CSAF Producer" conformance profile.
-- takes only CSAF 2.0 Documents as input.
+- takes CSAF 2.0 Documents as input.
+- rejects invalid CSAF 2.0 Documents unless forced by the user to proceed with a certain option.
+  The existence of such option is OPTIONAL.
+
+  > If a program has no option to force the processing of invalid CSAF 2.0 documents,
+  > this does not necessarily mean that the program cannot be a compliant CSAF 2.0 to CSAF 2.1 Converter.
+
 - issues a warning that an additional property was detected and not converted if it detects an additional property in the input.
   Such a warning SHALL include the additional property and its path.
   The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
