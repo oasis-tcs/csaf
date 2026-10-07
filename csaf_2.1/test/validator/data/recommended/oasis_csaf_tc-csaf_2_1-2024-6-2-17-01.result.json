@@ -4,7 +4,7 @@
   "primary_result": {
     "id": "6.2.17",
     "passed": false,
-    "warning": [
+    "warnings": [
       {
         "instance_path": "/vulnerabilities/0/ids/0/text",
         "message": "`CVE-2021-44228` looks like a CVE ID; use the `cve` property instead of `ids`"
