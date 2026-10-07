@@ -144,6 +144,9 @@ SemVer
 SSVC
 :    _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>
 
+SSVC-OR
+:    _SSVC Object Registry_, CERT/CC, <https://certcc.github.io/SSVC/data/json/ssvc_object_registry.json>
+
 SSVC-RNS
 :    _Namespaces - SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/code/namespaces/#registered-namespace>
 

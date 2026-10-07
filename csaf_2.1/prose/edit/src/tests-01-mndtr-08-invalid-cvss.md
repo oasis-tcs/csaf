@@ -1,6 +1,7 @@
 ### Invalid CVSS
 
 It SHALL be tested that the given CVSS object is valid according to the referenced schema.
+The test SHALL fail if the object contains additional properties not defined in the referenced schema.
 
 The relevant paths for this test are:
 

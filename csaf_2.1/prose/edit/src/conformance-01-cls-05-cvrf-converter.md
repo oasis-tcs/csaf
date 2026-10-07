@@ -31,7 +31,7 @@ Secondly, the program fulfills the following for all items of:
     an excepted category according to test [sec](#stacked-branch-categories), the CVRF CSAF Converter SHALL try to convert the data into
     a valid product tree by applying the following steps to the path:
     1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` `undefined` and `unknown`
-       (white space, dash, hyphen, minus, underscore and case insensitive) SHALL be removed.
+       (white space, dash, hyphen, minus, underscore, invisible character and case insensitive on both sides) SHALL be removed.
     2. If the stacked `Branch Type` is `Product Version` and the item directly before the first `Product Version` is a `Product Name`:
        * the category of the original `Product Name` item SHALL be changed to `product_family` and
        * the category of the first `Product Version` item SHALL be changed to `product_name` and

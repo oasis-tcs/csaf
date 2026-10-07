@@ -4,8 +4,9 @@ Document level meta-data (`document`) of value type `object` with the six mandat
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
 In addition, the `document` object MAY provide the nine optional properties Acknowledgments (`acknowledgments`),
-Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
-References (`references`), Source Language (`source_lang`), and Document-level Extensions (`x_extensions`) .
+Aggregate Severity (`aggregate_severity`), Involvement (`involvement`), Language (`lang`),
+License expression (`license_expression`), Notes (`notes`), References (`references`),
+Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
 
 ```yaml <!--json-path($..document.properties)-->
 <csaf-instance>:
