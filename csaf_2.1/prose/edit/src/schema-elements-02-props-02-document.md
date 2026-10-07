@@ -358,6 +358,7 @@ Valid values are:
     fix_deployment
     fix_release
     notification
+    observation
 ```
 
 The value `assessment` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
@@ -368,11 +369,7 @@ The value `confirmation` indicates that the actor confirms that it received or a
 
 The value `coordination` indicates that the parties coordinate their work.
 
-The value `discovery` indicates that the actor found the vulnerability, or found that an entity used the vulnerability.
-A `discovery` action that names an `exploitation` action in `referenced_action_ids` states that the actor found that use.
-A `discovery` action that names no action states that the actor found the vulnerability.
-The scope of a `discovery` action that names an `exploitation` action SHOULD be equal to or narrower than the scope of that action,
-after the resolution of product groups.
+The value `discovery` indicates that the actor found the vulnerability.
 
 The value `dispute` indicates that the actor disputes the action that this action refers to (via `referenced_action_ids`).
 It can dispute that the action is correct, its severity, or that it occurred.
@@ -394,6 +391,14 @@ The value `fix_deployment` indicates that the actor installed a fix.
 The value `fix_release` indicates that the actor published a fix, or made a fix available.
 
 The value `notification` indicates that the actor tells a different party about the vulnerability.
+
+The value `observation` indicates that the actor observed that the vulnerability was used.
+The entities in `acting_entity_refs` are the entities that made the observation, and `date` is the date of the observation.
+An `observation` action MAY name an `exploitation` action in `referenced_action_ids`.
+That action gives the entity that used the vulnerability and the date of that use.
+The scope of an `observation` action that names an `exploitation` action SHOULD be equal to or narrower than the scope of that action,
+after the resolution of product groups.
+An entity that found the vulnerability itself records a `discovery`, not an `observation`.
 
 A `confirmation` and a `dispute` are always about a different action.
 Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_refs`.
