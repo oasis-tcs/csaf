@@ -31,7 +31,7 @@ Secondly, the program fulfills the following for all items of:
     test [sec](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
     1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION`, `undefined` and `unknown`
-       (white space, dash, hyphen, minus, underscore and case insensitive) SHALL be removed.
+       (white space, dash, hyphen, minus, underscore, invisible character and case insensitive on both sides) SHALL be removed.
     2. If the stacked branch category is `product_version` and the item directly before the first `product_version` is a `product_name`:
        * the category of the original `product_name` item SHALL be changed to `product_family` and
        * the category of the first `product_version` item SHALL be changed to `product_name` and
