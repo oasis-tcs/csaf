@@ -1,6 +1,6 @@
 ### Inconsistent Hash Value Length
 
-For each File hash object, it SHALL be tested that the `value` length aligns with the `algorithm`.
+For each file hash object, it SHALL be tested that the `value` length aligns with the `algorithm`.
 The test SHALL be skipped for algorithms with variable length output.
 Algorithms not supported by the implementation SHALL result in a warning which SHALL include the value of `algorithm`.
 The warning SHALL differentiate between the values mentioned in section [sec](#full-product-name-type---product-identification-helper---hashes)
