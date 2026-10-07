@@ -912,7 +912,8 @@
                       "exploitation",
                       "fix_deployment",
                       "fix_release",
-                      "notification"
+                      "notification",
+                      "observation"
                     ]
                   },
                   "date": {
@@ -960,7 +961,7 @@
                   },
                   "status": {
                     "title": "Action status",
-                    "description": "Contains an observation about the action.",
+                    "description": "Contains an assessment about the state of the action.",
                     "type": "string",
                     "enum": [
                       "attempted",
