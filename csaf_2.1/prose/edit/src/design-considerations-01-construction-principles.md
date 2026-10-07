@@ -5,7 +5,8 @@ process of collaboration between multiple stakeholders.
 The distinct and in part complex schemas are orchestrated, put into context and connected with each other serving
 the goal of providing actionable, structured, and validated information targeting a high degree of automation.
 
-The format chosen is [JSONSchema] which allows validation and delegation to sub schema providers.
+The format chosen is JSON schema (cf. [cite](#JSON-Schema-Core), [cite](#JSON-Schema-Validation), [cite](#JSON-Hyper-Schema))
+which allows validation and delegation to sub schema providers.
 The latter aligns well with separation of concerns and shares the format family of information interchange utilized by
 the providers of product and vulnerability information which migrated from XML to JSON since the creation of CSAF CVRF version 1.2,
 the pre-predecessor of this specification.
