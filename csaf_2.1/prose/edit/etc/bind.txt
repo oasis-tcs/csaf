@@ -221,6 +221,7 @@ tests-03-nfrmtv-23-00-profile-tests.md
 tests-03-nfrmtv-23-01-involvement.md
 tests-03-nfrmtv-23-02-disclosure-date.md
 tests-03-nfrmtv-24-public-openpgp-key-url-user-id.md
+tests-03-nfrmtv-25-non-latest-ssvc-decision-point-version-at-validation-time.md
 tests-04-presets.md
 distributing-00.md
 distributing-01-requirements.md
