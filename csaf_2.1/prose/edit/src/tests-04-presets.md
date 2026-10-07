@@ -137,3 +137,8 @@ Additional presets are defined as follows:
     - [sec](#usage-of-extension-in-vulnerabilities-metrics-path)
     - [sec](#usage-of-extension-at-vulnerabilities-level)
     - [sec](#usage-of-extension-at-root-level)
+- `validation-time`:
+  - Description: Any test whose result depends on the time it is run.
+  - Set:
+    - [sec](#disclosure-date-newer-than-revision-history)
+    - [sec](#non-latest-ssvc-decision-point-version-at-validation-time)
