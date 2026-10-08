@@ -19,9 +19,9 @@
     stroke: (top: 0.5pt),
     columns: (1fr, 2fr, 1fr),
     align: (left + horizon, center + horizon, right + horizon),
-    text(size: 8pt)[csaf-v2.1-csd03],
+    text(size: 8pt)[csaf-v2.1-csd04],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[11 September 2026 — Page #counter(page).display()
+    text(size: 8pt)[07 October 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -51,23 +51,23 @@
 Advisory Framework Version 2.1]
 <common-security-advisory-framework-version-2-1>
 #heading(level: 2, outlined: false, numbering: none)[Committee
-Specification Draft 03]
-<committee-specification-draft-03>
-#heading(level: 2, outlined: false, numbering: none)[11 September 2026]
-<11-september-2026>
+Specification Draft 04]
+<committee-specification-draft-04>
+#heading(level: 2, outlined: false, numbering: none)[07 October 2026]
+<07-october-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md
+(Authoritative) \
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html \
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf
+
+#heading(level: 4, outlined: false, numbering: none)[Previous stage]
+<previous-stage>
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
 (Authoritative) \
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html \
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf
-
-#heading(level: 4, outlined: false, numbering: none)[Previous stage]
-<previous-stage>
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.md
-(Authoritative) \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.html \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd02/csaf-v2.1-csd02.pdf
 
 #heading(level: 4, outlined: false, numbering: none)[Latest stage]
 <latest-stage>
@@ -102,31 +102,31 @@ This prose specification is one component of a Work Product that also
 includes:
 
 - Aggregator JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/aggregator.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
 - CSAF JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/csaf.json. \
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json. \
   Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
 - Extension Content JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-content.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
 - Extension Metadata JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metadata.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
 - Extension Metaschema JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/extension-metaschema.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
 - Meta JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/meta.json. \
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json. \
   Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
 - Provider JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/schema/provider.json.
+  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json.
   \ Latest stage:
   https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
 
@@ -144,13 +144,13 @@ This specification replaces or supersedes:
 #heading(level: 4, outlined: false, numbering: none)[Declared JSON
 namespaces:]
 <declared-json-namespaces>
-- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json")
-- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json")
-- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json")
-- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json")
-- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json")
-- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json")
-- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json")
+- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json
+- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json
+- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json
+- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json
+- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json
+- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json
+- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json
 
 #heading(level: 4, outlined: false, numbering: none)[Abstract]
 <abstract>
@@ -201,9 +201,9 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 11 September 2026. OASIS Committee
-Specification Draft 03.
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html.
+Hagen and Thomas Schmidt. 07 October 2026. OASIS Committee Specification
+Draft 04.
+https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html.
 Latest stage:
 https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
 
@@ -2441,7 +2441,7 @@ possibly with placeholders.
 
 #quote(block: true)[
 The terms "model", "model number" and "model variant" are mostly used
-synonymously. Often it is abbreviated as "MN", M/N" or "model no.".
+synonymously. Often it is abbreviated as "MN", "M/N" or "model no.".
 ]
 
 If a part of a model number of the component to identify is given, it
@@ -4186,7 +4186,7 @@ meaning and SHALL be used as stated below:
   that have a special meaning.]
   , kind: table
   )
-<document-property-notes-tab-1>
+<tab:document-property-notes>
 
 If a note is specific to a product or product group it SHALL be bound
 via the `group_ids` respectively `product_ids`.
@@ -5662,7 +5662,7 @@ meaning and SHALL be used as stated below:
   meaning.]
   , kind: table
   )
-<vulnerabilities-property-notes-tab-1>
+<tab:vulnerabilities-property-notes>
 
 If a note is specific to a product or product group it SHALL be bound
 via the `group_ids` respectively `product_ids`.
@@ -5961,7 +5961,7 @@ combinations:
   , caption: [Remediation Combinations]
   , kind: table
   )
-<vulnerabilities-property-remediations-category-tab-1>
+<tab:vulnerabilities-property-remediations-category-1>
 
 Some category values contradict certain product status groups.
 Therefore, such a combination SHALL NOT exist in a vulnerability item
@@ -5989,7 +5989,7 @@ tables shows the allowed, discouraged and prohibited combinations:
   , caption: [Product Status Remediation Category Combinations]
   , kind: table
   )
-<vulnerabilities-property-remediations-category-tab-2>
+<tab:vulnerabilities-property-remediations-category-2>
 
 The following preference for combinations of remediation categories and
 product status groups is RECOMMENDED:
@@ -9172,7 +9172,7 @@ If the document language is English or unspecified, it SHALL be tested
 that at least one item in vulnerability notes exists that has the title
 `Vulnerability Summary` or `CVE Description`. The `category` of this
 item SHALL be consistent with the value required in table
-#link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
+#link(<tab:vulnerabilities-property-notes>)[table 2] of section
 #link(<vulnerabilities-property-notes>)[3.2.4.10].
 
 The relevant value for `$.document.category` is:
@@ -9700,7 +9700,7 @@ The complete JSON path contains 31 times `branches`.
 For each item in `$.vulnerabilities[*].remediations` it SHALL be tested
 that a product is not member of contradicting remediation categories
 (see table
-#link(<vulnerabilities-property-remediations-category-tab-1>)[table 3]).
+#link(<tab:vulnerabilities-property-remediations-category-1>)[table 3]).
 This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
@@ -9749,7 +9749,7 @@ follows: `vendor_fix` \> `mitigation` \> `workaround` \> `fix_planned`
 For each item in `$.vulnerabilities[*].remediations` it SHALL be tested
 that a product is not member of a contradicting product status group
 (see table
-#link(<vulnerabilities-property-remediations-category-tab-2>)[table 4]).
+#link(<tab:vulnerabilities-property-remediations-category-2>)[table 4]).
 This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
@@ -12018,7 +12018,7 @@ appropriate". \[#link(<CWE-1023>)[CWE-1023]\]
 For each item in `$.vulnerabilities[*].remediations`, it SHALL be tested
 that a Product is not member of a discouraged product status group
 remediation category combination (see table
-#link(<vulnerabilities-property-remediations-category-tab-2>)[table 4]).
+#link(<tab:vulnerabilities-property-remediations-category-2>)[table 4]).
 This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:
@@ -12860,7 +12860,7 @@ tested that at least one item in vulnerability notes exist that has the
 language specific translation of the term `Vulnerability Summary` or
 `CVE Description` as `title`. The `category` of this item SHALL be
 consistent with the value required in table
-#link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
+#link(<tab:vulnerabilities-property-notes>)[table 2] of section
 #link(<vulnerabilities-property-notes>)[3.2.4.10]. If no language
 specific translation has been recorded, the test SHALL be skipped and
 output an information to the user that no such translation is known.
@@ -18020,7 +18020,7 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.document.notes`: If any `cvrf:Note` item contains one of the
   `category` and `title` combinations specified in table
-  #link(<document-property-notes-tab-1>)[table 1] of section
+  #link(<tab:document-property-notes>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.9], where the `title` is
   extended, the CVRF CSAF Converter SHALL try to identify whether that
   extension is a specific product name, version or family. In such case,
@@ -18285,7 +18285,7 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of
   the `category` and `title` combinations specified in table
-  #link(<vulnerabilities-property-notes-tab-1>)[table 2] of section
+  #link(<tab:vulnerabilities-property-notes>)[table 2] of section
   #link(<vulnerabilities-property-notes>)[3.2.4.10], where the `title`
   is extended, the CVRF CSAF Converter SHALL try to identify whether
   that extension is a specific product name, version or family. In such
@@ -19315,7 +19315,7 @@ Secondly, the program fulfills the following for all items of:
   #figure(
     align(center)[#table(
       columns: 2,
-      align: (auto,auto,),
+      align: (left,left,),
       table.header([CSAF 2.0 (using TLP v1.0)], [CSAF 2.1 (using TLP
         v2.0)],),
       table.hline(),
@@ -19337,7 +19337,7 @@ Secondly, the program fulfills the following for all items of:
   use this label instead.
 
   If the TLP label changes during such a conversion in a way not listed
-  in the table #link("tab:tlp-labels-across-csaf-versions")[tab], the
+  in the table #link(<tab:tlp-labels-across-csaf-versions>)[tab], the
   CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that the TLP
   label was taken from the distribution text. This warning SHALL include
   both values: the value converted using the table and the value from
@@ -19373,7 +19373,7 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.document.notes`: If any `$.document.notes` item contains one of the
   `category` and `title` combinations specified in table
-  #link(<document-property-notes-tab-1>)[table 1] of section
+  #link(<tab:document-property-notes>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.9], where the `title` is
   extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
   whether that extension is a specific product name, version or family.
@@ -19570,18 +19570,18 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item
   contains one of the `category` and `title` combinations specified in
-  table #link(<vulnerabilities-property-notes-tab-1>)[table 2] of
-  section #link(<vulnerabilities-property-notes>)[3.2.4.10], where the
-  `title` is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
-  identify whether that extension is a specific product name, version or
-  family. In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to
-  add the corresponding products to the note item and issue a warning
-  that a potential product specific note has been discovered and
-  products have been assigned to it. Such warning SHALL also include the
-  note and the assigned products. If the CSAF 2.0 to CSAF 2.1 Converter
-  is unable to create a valid object, it SHALL remove the reference to
-  the products and issue a warning that a potential product specific
-  note has been discovered and no products could been assigned to it.
+  table #link(<tab:vulnerabilities-property-notes>)[table 2] of section
+  #link(<vulnerabilities-property-notes>)[3.2.4.10], where the `title`
+  is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
+  whether that extension is a specific product name, version or family.
+  In such case, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to add the
+  corresponding products to the note item and issue a warning that a
+  potential product specific note has been discovered and products have
+  been assigned to it. Such warning SHALL also include the note and the
+  assigned products. If the CSAF 2.0 to CSAF 2.1 Converter is unable to
+  create a valid object, it SHALL remove the reference to the products
+  and issue a warning that a potential product specific note has been
+  discovered and no products could been assigned to it.
 
 - `$.vulnerabilities[*].remediations[*]`:
 
@@ -20065,6 +20065,9 @@ profile if it:
 #pagebreak(weak: true)
 #heading(level: 1, numbering: none)[Appendix A. Acknowledgments]
 <acknowledgments>
+\(This appendix does not form an integral part of this specification and
+is informational.)
+
 The following individuals were members of the OASIS CSAF Technical
 Committee during the creation of this specification and their
 contributions are gratefully acknowledged:
@@ -20210,6 +20213,9 @@ specification and their contributions are gratefully acknowledged:
 #pagebreak(weak: true)
 #heading(level: 1, numbering: none)[Appendix B. Revision History]
 <revision-history>
+\(This appendix does not form an integral part of this specification and
+is informational.)
+
 Revision tracking is publicly available in the version control system at
 #link("https://github.com/oasis-tcs/csaf/commits/master").
 
@@ -20752,6 +20758,9 @@ This applies to:
 #heading(level: 1, numbering: none)[Appendix D. Collapsing Product
 Paths]
 <collapsing-product-paths>
+\(This appendix does not form an integral part of this specification and
+is informational.)
+
 The following examples are intended to aid in understanding under which
 circumstances product paths can be collapsed.
 

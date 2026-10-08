@@ -241,7 +241,7 @@ Any given model number of value type `string` with at least `1` character repres
 possibly with placeholders.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously.
-> Often it is abbreviated as "MN", M/N" or "model no.".
+> Often it is abbreviated as "MN", "M/N" or "model no.".
 
 If a part of a model number of the component to identify is given,
 it SHALL begin at the first and end at the last character position of the string representing the targeted component.
