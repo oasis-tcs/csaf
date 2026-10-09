@@ -11,5 +11,17 @@
     ],
     "passed": false
   },
-  "resultschema_version": "2.1"
+  "resultschema_version": "2.1",
+  "secondary_results": [
+    {
+      "id": "6.1.63",
+      "passed": true,
+      "warnings": [
+        {
+          "instance_path": "/product_tree/full_product_names/0/product_identification_helper/hashes/0/file_hashes/0/value",
+          "message": "unsupported hash algorithm `test-short-hash-63`; no hash value length test executed"
+        }
+      ]
+    }
+  ]
 }
