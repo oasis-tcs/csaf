@@ -252,21 +252,12 @@ Secondly, the program fulfills the following for all items of:
     If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
     of the original CSAF Document and issue a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
 - `$.document.csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter SHALL update the value to `2.1`.
-- `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it according to the table below:
-
-  Table: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.{#tab:tlp-labels-across-csaf-versions}
-
-  | CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
-  |:--------------------------|:--------------------------|
-  | `TLP:WHITE`               | `TLP:CLEAR`               |
-  | `TLP:GREEN`               | `TLP:GREEN`               |
-  | `TLP:AMBER`               | `TLP:AMBER`               |
-  | `TLP:RED`                 | `TLP:RED`                 |
+- `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it according to [tab](#tab:tlp-labels-across-csaf-versions).
 
   If `$.document.distribution.text` contains the string `TLP v2.0: TLP:` followed by a valid TLP v2.0 label as defined in the CSAF 2.1 JSON schema,
   the CSAF 2.0 to CSAF 2.1 Converter SHOULD provide an option to use this label instead.
 
-  If the TLP label changes during such a conversion in a way not listed in the table [tab](#tab:tlp-labels-across-csaf-versions),
+  If the TLP label changes during such a conversion in a way not listed in [tab](#tab:tlp-labels-across-csaf-versions),
   the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that the TLP label was taken from the distribution text.
   This warning SHALL include both values: the value converted using the table and the value from the distribution text.
 
@@ -423,3 +414,14 @@ Secondly, the program fulfills the following for all items of:
 
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards.
 > Solely in this case, any of the rules above MAY be ignored to avoid data loss.
+
+Mapping TLP labels per CSAF version:
+
+| CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
+|:--------------------------|:--------------------------|
+| `TLP:WHITE`               | `TLP:CLEAR`               |
+| `TLP:GREEN`               | `TLP:GREEN`               |
+| `TLP:AMBER`               | `TLP:AMBER`               |
+| `TLP:RED`                 | `TLP:RED`                 |
+
+Table: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.{#tab:tlp-labels-across-csaf-versions}

@@ -57,23 +57,26 @@ Specification Draft 04]
 <07-october-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md")
 (Authoritative) \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html")
+\
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf")
 
 #heading(level: 4, outlined: false, numbering: none)[Previous stage]
 <previous-stage>
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md")
 (Authoritative) \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html")
+\
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf")
 
 #heading(level: 4, outlined: false, numbering: none)[Latest stage]
 <latest-stage>
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md (Authoritative)
-\ https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html \
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md")
+(Authoritative) \
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html") \
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf")
 
 #heading(level: 4, outlined: false, numbering: none)[Technical
 Committee]
@@ -102,33 +105,33 @@ This prose specification is one component of a Work Product that also
 includes:
 
 - Aggregator JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json").
   \ Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json").
 - CSAF JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json. \
-  Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json").
+  \ Latest stage:
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json").
 - Extension Content JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json").
   \ Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json").
 - Extension Metadata JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json").
   \ Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json").
 - Extension Metaschema JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json").
   \ Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json").
 - Meta JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json. \
-  Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
-- Provider JSON schema:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json").
   \ Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json").
+- Provider JSON schema:
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json").
+  \ Latest stage:
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json").
 
 #heading(level: 4, outlined: false, numbering: none)[Related work]
 <related-work>
@@ -137,20 +140,20 @@ This specification replaces or supersedes:
 - #emph[Common Security Advisory Framework Version 2.0]. Edited by
   Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022.
   OASIS Standard.
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html").
   Latest stage:
-  https:/\/docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html").
 
 #heading(level: 4, outlined: false, numbering: none)[Declared JSON
 namespaces:]
 <declared-json-namespaces>
-- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json
-- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json
-- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json
-- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json
-- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json
-- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json
-- https:/\/docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json
+- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json")
+- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json")
+- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json")
+- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json")
+- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json")
+- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json")
+- #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json")
 
 #heading(level: 4, outlined: false, numbering: none)[Abstract]
 <abstract>
@@ -167,13 +170,13 @@ the above date. The level of approval is also listed above. Check the
 "Latest stage" location noted above for possible later revisions of this
 document. Any other numbered Versions and other technical work produced
 by the Technical Committee (TC) are listed at
-https:/\/www.oasis-open.org/committees/tc\_home.php?wg\_abbrev=csaf\#technical.
+#link("https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical").
 
 TC members should send comments on this specification to the TC's email
 list. Others should send comments to the TC's public comment list, after
 subscribing to it by following the instructions at the "Send A Comment"
 button on the TC's web page at
-https:/\/www.oasis-open.org/committees/csaf/.
+#link("https://www.oasis-open.org/committees/csaf/").
 
 This specification is provided under the
 #link("https://www.oasis-open.org/policies-guidelines/ipr/#Non-Assertion-Mode")[Non-Assertion]
@@ -184,7 +187,7 @@ information on whether any patents have been disclosed that may be
 essential to implementing this specification, and any offers of patent
 licensing terms, please refer to the Intellectual Property Rights
 section of the TC's web page
-(https:/\/www.oasis-open.org/committees/csaf/ipr.php).
+(#link("https://www.oasis-open.org/committees/csaf/ipr.php")).
 
 Note that any machine-readable content
 (#link("https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang")[Computer Language Definitions])
@@ -203,9 +206,9 @@ be used:
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
 Hagen and Thomas Schmidt. 07 October 2026. OASIS Committee Specification
 Draft 04.
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html.
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html").
 Latest stage:
-https:/\/docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html").
 
 #heading(level: 2, outlined: false, numbering: none)[Notices]
 <notices>
@@ -284,8 +287,8 @@ this specification, and should be used only to refer to the organization
 and its official outputs. OASIS welcomes reference to, and
 implementation and use of, specifications, while reserving the right to
 enforce its marks against misleading uses. Please see
-https:/\/www.oasis-open.org/policies-guidelines/trademark/ for above
-guidance.
+#link("https://www.oasis-open.org/policies-guidelines/trademark/") for
+above guidance.
 
 #pagebreak(weak: true)
 // set channels.typst.toc-dots: true in nide.yaml to add dot leaders
@@ -891,6 +894,10 @@ T. Preston-Werner, June 2013, #link("https://semver.org/").
 Vulnerability Categorization], CERT/CC,
 #link("https://certcc.github.io/SSVC/reference/")
 
+#strong[\[]<SSVC-OR>#strong[SSVC-OR\]] #emph[SSVC Object Registry],
+CERT/CC,
+#link("https://certcc.github.io/SSVC/data/json/ssvc_object_registry.json")
+
 #strong[\[]<SSVC-RNS>#strong[SSVC-RNS\]] #emph[Namespaces - SSVC:
 Stakeholder-Specific Vulnerability Categorization], CERT/CC,
 #link("https://certcc.github.io/SSVC/reference/code/namespaces/#registered-namespace")
@@ -1046,12 +1053,16 @@ are orchestrated, put into context and connected with each other serving
 the goal of providing actionable, structured, and validated information
 targeting a high degree of automation.
 
-The format chosen is \[JSONSchema\] which allows validation and
-delegation to sub schema providers. The latter aligns well with
-separation of concerns and shares the format family of information
-interchange utilized by the providers of product and vulnerability
-information which migrated from XML to JSON since the creation of CSAF
-CVRF version 1.2, the pre-predecessor of this specification.
+The format chosen is JSON schema
+(cf.~\[#link(<JSON-Schema-Core>)[JSON-Schema-Core]\],
+\[#link(<JSON-Schema-Validation>)[JSON-Schema-Validation]\],
+\[#link(<JSON-Hyper-Schema>)[JSON-Hyper-Schema]\]) which allows
+validation and delegation to sub schema providers. The latter aligns
+well with separation of concerns and shares the format family of
+information interchange utilized by the providers of product and
+vulnerability information which migrated from XML to JSON since the
+creation of CSAF CVRF version 1.2, the pre-predecessor of this
+specification.
 
 The acronym CSAF, "Common Security Advisory Framework", stands for the
 target of concerted mitigation and remediation accomplishment.
@@ -1090,7 +1101,7 @@ referencing schemas for:
 
 - Classification for Document Distribution
   - Traffic Light Protocol (TLP)
-    - Default Definition: https:/\/www.first.org/tlp/
+    - Default Definition: #link("https://www.first.org/tlp/")
 - Exploit Prediction
   - Exploit Prediction Scoring System (EPSS) \[#link(<EPSS>)[EPSS]\]
 - Package Data
@@ -1102,23 +1113,27 @@ referencing schemas for:
   - Stakeholder-Specific Vulnerability Categorization
     \[#link(<SSVC>)[SSVC]\]
     - JSON Schema Reference:
-      https:/\/certcc.github.io/SSVC/data/schema/v2/SelectionList\_2\_0\_0.schema.json
+      #link("https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json")
 - Vulnerability Classification
   - Common Weakness Enumeration (CWE) \[#link(<CWE>)[CWE]\]
-    - CWE List: http:/\/cwe.mitre.org/data/index.html
+    - CWE List: #link("https://cwe.mitre.org/data/index.html")
 - Vulnerability Scoring
   - Common Vulnerability Scoring System (CVSS) Version 4.0
     \[#link(<CVSS40>)[CVSS40]\]
-    - JSON Schema Reference: https:/\/www.first.org/cvss/cvss-v4.0.json
+    - JSON Schema Reference:
+      #link("https://www.first.org/cvss/cvss-v4.0.json")
   - Common Vulnerability Scoring System (CVSS) Version 3.1
     \[#link(<CVSS31>)[CVSS31]\]
-    - JSON Schema Reference: https:/\/www.first.org/cvss/cvss-v3.1.json
+    - JSON Schema Reference:
+      #link("https://www.first.org/cvss/cvss-v3.1.json")
   - Common Vulnerability Scoring System (CVSS) Version 3.0
     \[#link(<CVSS30>)[CVSS30]\]
-    - JSON Schema Reference: https:/\/www.first.org/cvss/cvss-v3.0.json
+    - JSON Schema Reference:
+      #link("https://www.first.org/cvss/cvss-v3.0.json")
   - Common Vulnerability Scoring System (CVSS) Version 2.0
     \[#link(<CVSS2>)[CVSS2]\]
-    - JSON Schema Reference: https:/\/www.first.org/cvss/cvss-v2.0.json
+    - JSON Schema Reference:
+      #link("https://www.first.org/cvss/cvss-v2.0.json")
 
 Even though not all - especially the referenced - JSON schemas prohibit
 specifically additional properties and custom keywords, it is strongly
@@ -3359,10 +3374,10 @@ six mandatory properties Category (`category`), CSAF Version
 meta-data about this document describing a particular set of security
 advisories. In addition, the `document` object MAY provide the nine
 optional properties Acknowledgments (`acknowledgments`), Aggregate
-Severity (`aggregate_severity`), Language (`lang`), License expression
-(`license_expression`), Notes (`notes`), References (`references`),
-Source Language (`source_lang`), and Document-level Extensions
-(`x_extensions`) .
+Severity (`aggregate_severity`), Involvement (`involvement`), Language
+(`lang`), License expression (`license_expression`), Notes (`notes`),
+References (`references`), Source Language (`source_lang`), and
+Document-level Extensions (`x_extensions`).
 
 ```yaml
 <csaf-instance>:
@@ -7489,7 +7504,8 @@ author.
 === Invalid CVSS
 <invalid-cvss>
 It SHALL be tested that the given CVSS object is valid according to the
-referenced schema.
+referenced schema. The test SHALL fail if the object contains additional
+properties not defined in the referenced schema.
 
 The relevant paths for this test are:
 
@@ -11554,8 +11570,9 @@ For each item in `$.vulnerabilities[*].ids` it SHALL be tested that it
 is not a CVE ID.
 
 #quote(block: true)[
-It is sufficient to check, whether the property `text` matches the regex
-`^CVE-[0-9]{4}-[0-9]{4,}$`.
+To implement this test it is deemed sufficient to check after invisible
+and white space characters have been removed from the value of the
+property `text` whether it matches the regex `^CVE-[0-9]{4}-[0-9]{4,}$`.
 ]
 
 The relevant paths for this test are:
@@ -13556,16 +13573,19 @@ A tool MAY recommend other metrics or guide a CVSS assessment.
 === Misuse at Vendor Name
 <misuse-at-vendor-name>
 For each item in `branches` with category `vendor` it SHALL be tested
-that the `name` is not `Open Source`. The comparison is case and white
-space insensitive.
+that the `name` is not `Open Source`. Any occurrences of dash, hyphen,
+minus, underscore, white space and invisible characters are removed from
+the value on both sides before the case insensitive match.
 
 #quote(block: true)[
 Some issuing parties use `Open Source` as a vendor name for all open
 source products. This usage hinders efficient matching and is most
 likely not true. However, if there is a vendor whose official name is
 exactly `Open Source` it would be expected and acceptable to fail this
-test. This does not apply, if the official name differs,
-e.g.~`Open Source Ltd.`.
+test. The same applies for any other name that results in `opensource`
+after the removal step from sentence two. This does not apply, if the
+official name differs, e.g.~`Open Source Ltd.`. Users are advised to
+carefully review the results of this test.
 ]
 
 The relevant path for this test is:
@@ -14395,7 +14415,9 @@ value are present and set.
 
 === Missing CVE
 <missing-cve>
-It SHALL be tested that the CVE number is given.
+It SHALL be tested that the element `cve` is present and set. A CSAF
+Validator SHALL differentiate in the error message between the key being
+present but having no or an empty value and not being present at all.
 
 The relevant path for this test is:
 
@@ -14414,7 +14436,7 @@ The relevant path for this test is:
 ```
 
 #quote(block: true)[
-The CVE number is not given.
+The element `cve` is not present.
 ]
 
 Recommendation:
@@ -16038,6 +16060,64 @@ Sections #link(<document-property---publisher---contact>)[3.2.2.10.2]
 and #link(<safety-security-and-data-protection-considerations>)[8]
 contain advise to take into consideration.
 
+=== Non-Latest SSVC Decision Point Version at Validation Time
+<non-latest-ssvc-decision-point-version-at-validation-time>
+For each SSVC decision point given under `selections` with a registered
+`namespace`, it SHALL be tested the latest decision point `version`
+available at the time the test is performed was used. Namespaces
+reserved for special purpose SHALL be treated as per their definition.
+
+#quote(block: true)[
+The result of the test is dependent upon the time of the execution of
+the test - it might change for a given CSAF document over time. This
+test is intended to be used during the editorial process of CSAF
+documents. The significance of the test result regarding released CSAF
+documents is limited. It is not expected to update a released CSAF
+document if this test fails and no other new information is available.
+Observatories and other reporting entities are requested to not include
+this test in their general score.
+
+Usage of a later version of a SSVC Decision Point will cause test
+#link(<usage-of-non-latest-ssvc-decision-point-version>)[6.3.13] to
+fail. The reason for this is most likely an outdated data set of SSVC
+decision points. A list of all valid decision points of registered
+namespaces including their values is available at the SSVC registry (see
+\[#link(<SSVC-OR>)[SSVC-OR]\]).
+]
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<non-latest-ssvc-decision-point-version-at-validation-time-eg-1>
+
+```
+  "ssvc_v2": {
+    // ...
+    "selections": [
+      {
+        "key": "MI",
+        "name": "Mission Impact",
+        "namespace": "ssvc",
+        // ...
+        "version": "1.0.0"
+      }
+    ],
+    "timestamp": "2024-01-24T10:00:00.000Z"
+  }
+```
+
+#quote(block: true)[
+#quote(block: true)[
+At the time of the test execution `2026-10-07T10:00:00.000Z` version
+`2.0.0` of the SSVC decision point `Mission Impact` was already
+available.
+]
+]
+
 == Test Presets
 <test-presets>
 A test preset is a predefined set of tests that was given a name. It MAY
@@ -16162,6 +16242,7 @@ Additional presets are defined as follows:
     - #link(<inconsistent-epss-timestamp>)[6.1.51]
     - #link(<inconsistent-first-known-exploitation-dates>)[6.1.52]
     - #link(<inconsistent-exploitation-date>)[6.1.53]
+    - #link(<inconsistent-discovery-date>)[6.1.62]
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:
@@ -16207,6 +16288,11 @@ Additional presets are defined as follows:
     - #link(<usage-of-extension-in-vulnerabilities-metrics-path>)[6.3.21.7]
     - #link(<usage-of-extension-at-vulnerabilities-level>)[6.3.21.8]
     - #link(<usage-of-extension-at-root-level>)[6.3.21.9]
+- `validation-time`:
+  - Description: Any test whose result depends on the time it is run.
+  - Set:
+    - #link(<disclosure-date-newer-than-revision-history>)[6.2.33]
+    - #link(<non-latest-ssvc-decision-point-version-at-validation-time>)[6.3.25]
 
 #pagebreak(weak: true)
 = Distributing CSAF Documents
@@ -17611,7 +17697,8 @@ a local copy of all schemas necessary to fulfill their tasks. Tool
 developers SHOULD ensure to regularly check that those copies still
 reflect the current version of those schemas as they could have been
 altered, e.g.~by an Errata to fix a bug. It is RECOMMENDED to do them at
-least before a release.
+least before a release. The same applies for necessary data from
+registries and other sources.
 
 #quote(block: true)[
 Such checks can be automated, e.g.~in the CI/CD pipeline.
@@ -17881,8 +17968,8 @@ Secondly, the program fulfills the following for all items of:
 
     + If the stacked `Branch Type` is `Vendor`, the vendor items named
       `Open Source`, `NOASSERTION` `undefined` and `unknown` (white
-      space, dash, hyphen, minus, underscore and case insensitive) SHALL
-      be removed.
+      space, dash, hyphen, minus, underscore, invisible character and
+      case insensitive on both sides) SHALL be removed.
     + If the stacked `Branch Type` is `Product Version` and the item
       directly before the first `Product Version` is a `Product Name`:
       - the category of the original `Product Name` item SHALL be
@@ -18630,7 +18717,7 @@ The viewer:
   are designated as applying to CSAF Viewers.
 - satisfies the normative requirements given below.
 
-For each CVSS-Score in `$.vulnerabilities[*].metrics[*]` the viewer:
+For each CVSS score in `$.vulnerabilities[*].metrics[*]` the viewer:
 
 - preferably shows the `vector` if there is an inconsistency between the
   `vector` and any other sibling attribute.
@@ -18867,15 +18954,29 @@ requirements:
 Firstly, the program:
 
 - satisfies the "CSAF Producer" conformance profile.
-- takes only CSAF 2.0 Documents as input.
+
+- takes CSAF 2.0 Documents as input.
+
+- rejects invalid CSAF 2.0 Documents unless forced by the user to
+  proceed with a certain option. The existence of such option is
+  OPTIONAL.
+
+  #quote(block: true)[
+  If a program has no option to force the processing of invalid CSAF 2.0
+  documents, this does not necessarily mean that the program cannot be a
+  compliant CSAF 2.0 to CSAF 2.1 Converter.
+  ]
+
 - issues a warning that an additional property was detected and not
   converted if it detects an additional property in the input. Such a
   warning SHALL include the additional property and its path. The CSAF
   2.0 to CSAF 2.1 Converter SHALL ignore that additional property during
   the conversion.
+
 - includes in every error and warning the relevant paths and values ​​from
   the original file that triggered the alert, unless otherwise specified
   in this standard.
+
 - additionally satisfies the normative requirements given below.
 
 Secondly, the program fulfills the following for all items of:
@@ -18911,8 +19012,8 @@ Secondly, the program fulfills the following for all items of:
 
     + If the stacked branch category is `vendor`, the vendor items named
       `Open Source`, `NOASSERTION`, `undefined` and `unknown` (white
-      space, dash, hyphen, minus, underscore and case insensitive) SHALL
-      be removed.
+      space, dash, hyphen, minus, underscore, invisible character and
+      case insensitive on both sides) SHALL be removed.
     + If the stacked branch category is `product_version` and the item
       directly before the first `product_version` is a `product_name`:
       - the category of the original `product_name` item SHALL be
@@ -19309,27 +19410,8 @@ Secondly, the program fulfills the following for all items of:
   update the value to `2.1`.
 
 - `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF
-  2.0 to CSAF 2.1 Converter SHALL convert it according to the table
-  below:
-
-  #figure(
-    align(center)[#table(
-      columns: 2,
-      align: (left,left,),
-      table.header([CSAF 2.0 (using TLP v1.0)], [CSAF 2.1 (using TLP
-        v2.0)],),
-      table.hline(),
-      [`TLP:WHITE`], [`TLP:CLEAR`],
-      [`TLP:GREEN`], [`TLP:GREEN`],
-      [`TLP:AMBER`], [`TLP:AMBER`],
-      [`TLP:RED`], [`TLP:RED`],
-    )]
-    , caption: [Comparison of values for
-    `$.document.distribution.tlp.label` across CSAF versions 2.0 and
-    2.1.]
-    , kind: table
-    )
-  <tab:tlp-labels-across-csaf-versions>
+  2.0 to CSAF 2.1 Converter SHALL convert it according to
+  #link(<tab:tlp-labels-across-csaf-versions>)[table 5].
 
   If `$.document.distribution.text` contains the string `TLP v2.0: TLP:`
   followed by a valid TLP v2.0 label as defined in the CSAF 2.1 JSON
@@ -19337,11 +19419,11 @@ Secondly, the program fulfills the following for all items of:
   use this label instead.
 
   If the TLP label changes during such a conversion in a way not listed
-  in the table #link(<tab:tlp-labels-across-csaf-versions>)[tab], the
-  CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that the TLP
-  label was taken from the distribution text. This warning SHALL include
-  both values: the value converted using the table and the value from
-  the distribution text.
+  in #link(<tab:tlp-labels-across-csaf-versions>)[table 5], the CSAF 2.0
+  to CSAF 2.1 Converter SHALL issue a warning that the TLP label was
+  taken from the distribution text. This warning SHALL include both
+  values: the value converted using the table and the value from the
+  distribution text.
 
   #quote(block: true)[
   This is a common case for CSAF 2.0 Documents labeled as `TLP:RED` but
@@ -19625,6 +19707,26 @@ A tool MAY implement an additional, non-default option to output an
 invalid document that can be fixed afterwards. Solely in this case, any
 of the rules above MAY be ignored to avoid data loss.
 ]
+
+Mapping TLP labels per CSAF version:
+
+#figure(
+  align(center)[#table(
+    columns: 2,
+    align: (left,left,),
+    table.header([CSAF 2.0 (using TLP v1.0)], [CSAF 2.1 (using TLP
+      v2.0)],),
+    table.hline(),
+    [`TLP:WHITE`], [`TLP:CLEAR`],
+    [`TLP:GREEN`], [`TLP:GREEN`],
+    [`TLP:AMBER`], [`TLP:AMBER`],
+    [`TLP:RED`], [`TLP:RED`],
+  )]
+  , caption: [Comparison of values for
+  `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.]
+  , kind: table
+  )
+<tab:tlp-labels-across-csaf-versions>
 
 === Conformance Clause 19: CSAF Library
 <conformance-clause-19-csaf-library>
