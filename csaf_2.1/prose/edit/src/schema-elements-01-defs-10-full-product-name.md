@@ -147,14 +147,14 @@ $defs:
   # ...
 ```
 
-The algorithm of the cryptographic hash representation (`algorithm`) has value type `string` with `1` or more characters
+The Algorithm of the cryptographic hash representation (`algorithm`) has value type `string` with `1` or more characters
 with `pattern` (regular expression):
 
 ```
     ^[0-9a-z][0-9a-z-]*$
 ```
 
-The algorithm of the cryptographic hash representation contains the name of the cryptographic hash algorithm used to calculate the value.
+The Algorithm of the cryptographic hash representation contains the name of the cryptographic hash algorithm used to calculate the value.
 The default value for `algorithm` is `sha256`.
 Secure cryptographic hash algorithms SHOULD be preferred.
 
@@ -168,7 +168,8 @@ Secure cryptographic hash algorithms SHOULD be preferred.
       sha512
 ```
 
-These values are derived from the currently supported digests OpenSSL [cite](#OPENSSL). Leading dashes were removed.
+These values are derived from the currently supported digests OpenSSL [cite](#OPENSSL).
+Leading dashes were removed.
 
 > The command `openssl dgst -list` (Version 3.4.0 from 2024-10-22) outputs the following:
 >
@@ -201,7 +202,7 @@ The Value of the cryptographic hash attribute contains the cryptographic hash va
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
 ```
 
-The filename representation (`filename`) of value type `string` with `1` or more characters contains the name of
+The Filename representation (`filename`) of value type `string` with `1` or more characters contains the name of
 the file which is identified by the hash values.
 
 *Examples 3:*
@@ -241,7 +242,7 @@ Any given model number of value type `string` with at least `1` character repres
 possibly with placeholders.
 
 > The terms "model", "model number" and "model variant" are mostly used synonymously.
-> Often it is abbreviated as "MN", M/N" or "model no.".
+> Often it is abbreviated as "MN", "M/N" or "model no.".
 
 If a part of a model number of the component to identify is given,
 it SHALL begin at the first and end at the last character position of the string representing the targeted component.

@@ -92,6 +92,7 @@ Additional presets are defined as follows:
     - [sec](#inconsistent-epss-timestamp)
     - [sec](#inconsistent-first-known-exploitation-dates)
     - [sec](#inconsistent-exploitation-date)
+    - [sec](#inconsistent-discovery-date)
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:
@@ -137,3 +138,8 @@ Additional presets are defined as follows:
     - [sec](#usage-of-extension-in-vulnerabilities-metrics-path)
     - [sec](#usage-of-extension-at-vulnerabilities-level)
     - [sec](#usage-of-extension-at-root-level)
+- `validation-time`:
+  - Description: Any test whose result depends on the time it is run.
+  - Set:
+    - [sec](#disclosure-date-newer-than-revision-history)
+    - [sec](#non-latest-ssvc-decision-point-version-at-validation-time)

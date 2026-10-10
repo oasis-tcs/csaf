@@ -1,6 +1,8 @@
 ### Missing CVE
 
-It SHALL be tested that the CVE number is given.
+It SHALL be tested that the element `cve` is present and set.
+A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value
+and not being present at all.
 
 The relevant path for this test is:
 
@@ -18,7 +20,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The CVE number is not given.
+> The element `cve` is not present.
 
 Recommendation:
 

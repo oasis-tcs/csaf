@@ -4,8 +4,9 @@ Document level meta-data (`document`) of value type `object` with the six mandat
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
 In addition, the `document` object MAY provide the nine optional properties Acknowledgments (`acknowledgments`),
-Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
-References (`references`), Source Language (`source_lang`), and Document-level Extensions (`x_extensions`) .
+Aggregate Severity (`aggregate_severity`), Involvement (`involvement`), Language (`lang`),
+License expression (`license_expression`), Notes (`notes`), References (`references`),
+Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
 
 ```yaml <!--json-path($..document.properties)-->
 <csaf-instance>:
@@ -666,7 +667,7 @@ The following combinations of `category` and `title` have a special meaning and 
 | legal\_disclaimer  | License                          | Contains the only license text of the document license.                                                                                                                                            |
 | summary            | Summary                          | Contains a short summary of the content of the advisory.                                                                                                                                           |
 
-Table: Requirements for combinations of `category` and `title` that have a special meaning.{#document-property-notes-tab-1}
+Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:document-property-notes}
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
@@ -1065,7 +1066,7 @@ The value `draft` indicates, that this is a pre-release, intended for issuing pa
 or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
 
 The value `final` indicates, that the issuing party asserts the content is unlikely to change.
-“Final” status is an indication only, and does not preclude updates.
+"Final" status is an indication only, and does not preclude updates.
 This SHOULD be used if the issuing party expects no, slow or few changes.
 
 The value `interim` indicates, that the issuing party expects rapid updates.

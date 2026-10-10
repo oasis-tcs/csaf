@@ -447,16 +447,16 @@ A Content object has at least `1` property.
 ```
 
 The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v2.0.json](https://www.first.org/cvss/cvss-v2.0.json).
+<https://www.first.org/cvss/cvss-v2.0.json>.
 See [cite](#CVSS2) for details.
 
 The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
-[https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json) or
-[https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+<https://www.first.org/cvss/cvss-v3.0.json> or
+<https://www.first.org/cvss/cvss-v3.1.json>.
 See [cite](#CVSS30) respectively [cite](#CVSS31) for details.
 
 The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
-[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
+<https://www.first.org/cvss/cvss-v4.0.json>.
 See [cite](#CVSS40) for details.
 
 The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)
@@ -535,7 +535,7 @@ Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency`
 an additional assessment provided by a party.
 
 The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
-[https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json](https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json).
+<https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json>.
 See [cite](#SSVC) for details.
 
 The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
@@ -614,7 +614,7 @@ The following combinations of `category` and `title` have a special meaning and 
 | general     | AI Usage              | Contains a information on whether and how AI systems were used in discovering, analyzing, remediating, or documenting this specific vulnerability, including the human oversight applied. |
 | summary     | Vulnerability Summary | Contains a summary of this specific vulnerability which is not the official CVE description.                                                                                              |
 
-Table: Combinations of `category` and `title` with special meaning.{#vulnerabilities-property-notes-tab-1}
+Table: Combinations of `category` and `title` with special meaning.{#tab:vulnerabilities-property-notes}
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
@@ -802,7 +802,7 @@ Valid values are:
 
 The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that
 can be used to avoid exposure to the vulnerability. There MAY be none, one, or more workarounds available.
-This is typically the “first line of defense” against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
+This is typically the "first line of defense" against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
 
 The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that
 helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product.
@@ -852,7 +852,7 @@ The following tables shows the allowed and prohibited combinations:
 | fix\_planned     |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |   allowed    |    prohibited    |
 | no\_fix\_planned |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |  prohibited  |     allowed      |
 
-Table: Remediation Combinations{#vulnerabilities-property-remediations-category-tab-1}
+Table: Remediation Combinations{#tab:vulnerabilities-property-remediations-category-1}
 
 Some category values contradict certain product status groups.
 Therefore, such a combination SHALL NOT exist in a vulnerability item for the same product.
@@ -872,7 +872,7 @@ The following tables shows the allowed, discouraged and prohibited combinations:
 | fix\_planned     |  allowed   | discouraged  | prohibited  |     discouraged     | discouraged |   allowed   |
 | no\_fix\_planned |  allowed   | discouraged  | prohibited  |       allowed       |   allowed   |   allowed   |
 
-Table: Product Status Remediation Category Combinations{#vulnerabilities-property-remediations-category-tab-2}
+Table: Product Status Remediation Category Combinations{#tab:vulnerabilities-property-remediations-category-2}
 
 The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
 
