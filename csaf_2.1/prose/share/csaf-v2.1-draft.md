@@ -8,19 +8,19 @@
 ## 07 October 2026<a id='07-october-2026'></a>
 
 #### This stage<a id='this-stage'></a>
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md> (Authoritative) \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html> \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf>
 
 #### Previous stage<a id='previous-stage'></a>
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md> (Authoritative) \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html> \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf>
 
 #### Latest stage<a id='latest-stage'></a>
-https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md (Authoritative) \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html \
-https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md> (Authoritative) \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html> \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.pdf>
 
 #### Technical Committee<a id='technical-committee'></a>
 [OASIS Common Security Advisory Framework (CSAF) TC](https://www.oasis-open.org/committees/csaf/)
@@ -37,45 +37,45 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts<a id='additional-artifacts'></a>
 This prose specification is one component of a Work Product that also includes:
 
-- Aggregator JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json.
-- CSAF JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json.
-- Extension Content JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json.
-- Extension Metadata JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json.
-- Extension Metaschema JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json.
-- Meta JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json.
-- Provider JSON schema: https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json. \
-Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json.
+- Aggregator JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json>. \
+Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json>.
+- CSAF JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json>. \
+Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json>.
+- Extension Content JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json>. \
+Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json>.
+- Extension Metadata JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json>. \
+Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json>.
+- Extension Metaschema JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json>. \
+Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json>.
+- Meta JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json>. \
+Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json>.
+- Provider JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json>. \
+Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json>.
 
 #### Related work<a id='related-work'></a>
 This specification replaces or supersedes:
 
-- _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html.
+- _Common Security Advisory Framework Version 2.0_. Edited by Langley Rock, Stefan Hagen, and Thomas Schmidt. 18 November 2022. OASIS Standard. <https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html>.
 
 #### Declared JSON namespaces:<a id='declared-json-namespaces'></a>
 
-- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json
-- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json
-- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json
-- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json
-- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json
-- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json
-- https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json
+- <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json>
+- <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json>
+- <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json>
+- <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json>
+- <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json>
+- <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json>
+- <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json>
 
 #### Abstract<a id='abstract'></a>
 The Common Security Advisory Framework (CSAF) Version 2.1 is the definitive reference for the language which supports creation, update, and interoperable exchange of security advisories as structured information on products, vulnerabilities and the status of impact and remediation among interested parties.
 
 #### Status<a id='status'></a>
-This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical.
+This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf#technical>.
 
-TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at https://www.oasis-open.org/committees/csaf/.
+TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "Send A Comment" button on the TC's web page at <https://www.oasis-open.org/committees/csaf/>.
 
-This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr/#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/csaf/ipr.php).
+This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr/#Non-Assertion-Mode) Mode of the [OASIS IPR Policy](https://www.oasis-open.org/policies-guidelines/ipr/), the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (<https://www.oasis-open.org/committees/csaf/ipr.php>).
 
 Note that any machine-readable content ([Computer Language Definitions](https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26/#wpComponentsCompLang)) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.
 
@@ -84,7 +84,7 @@ When referencing this specification the following citation format should be used
 
 **[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 07 October 2026. OASIS Committee Specification Draft 04. https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html. Latest stage: https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 07 October 2026. OASIS Committee Specification Draft 04. <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html>.
 
 ---
 
@@ -108,7 +108,7 @@ As stated in the OASIS IPR Policy, the following three paragraphs in brackets ap
 
 \[OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this OASIS Standards Final Deliverable or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.\]
 
-The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see https://www.oasis-open.org/policies-guidelines/trademark/ for above guidance.
+The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see <https://www.oasis-open.org/policies-guidelines/trademark/> for above guidance.
 
 -------
 
@@ -472,6 +472,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 			6.3.23.1 [Involvement](#involvement)  
 			6.3.23.2 [Disclosure Date](#disclosure-date)  
 		6.3.24 [Public OpenPGP Key URL User ID](#public-openpgp-key-url-user-id)  
+		6.3.25 [Non-Latest SSVC Decision Point Version at Validation Time](#non-latest-ssvc-decision-point-version-at-validation-time)  
 	6.4 [Test Presets](#test-presets)  
 		6.4.1 [Presets Defined through Test Subsections](#presets-defined-through-test-subsections)  
 		6.4.2 [Presets Defined through Conformance Targets](#presets-defined-through-conformance-targets)  
@@ -1068,6 +1069,8 @@ XML
 
 **\[**<span id="SSVC" class="anchor"></span>**SSVC\]** _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>
 
+**\[**<span id="SSVC-OR" class="anchor"></span>**SSVC-OR\]** _SSVC Object Registry_, CERT/CC, <https://certcc.github.io/SSVC/data/json/ssvc_object_registry.json>
+
 **\[**<span id="SSVC-RNS" class="anchor"></span>**SSVC-RNS\]** _Namespaces - SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/code/namespaces/#registered-namespace>
 
 **\[**<span id="SSVC-DP" class="anchor"></span>**SSVC-DP\]** _SSVC/data/json/decision_points at main · CERTCC/SSVC_, CERT/CC, <https://github.com/CERTCC/SSVC/tree/main/data/json/decision_points>
@@ -1164,7 +1167,8 @@ process of collaboration between multiple stakeholders.
 The distinct and in part complex schemas are orchestrated, put into context and connected with each other serving
 the goal of providing actionable, structured, and validated information targeting a high degree of automation.
 
-The format chosen is [JSONSchema] which allows validation and delegation to sub schema providers.
+The format chosen is JSON schema (cf. \[[JSON-Schema-Core](#JSON-Schema-Core)\], \[[JSON-Schema-Validation](#JSON-Schema-Validation)\], \[[JSON-Hyper-Schema](#JSON-Hyper-Schema)\])
+which allows validation and delegation to sub schema providers.
 The latter aligns well with separation of concerns and shares the format family of information interchange utilized by
 the providers of product and vulnerability information which migrated from XML to JSON since the creation of CSAF CVRF version 1.2,
 the pre-predecessor of this specification.
@@ -1197,7 +1201,7 @@ Delegation to industry best practices technologies is used in referencing schema
 
 - Classification for Document Distribution
   - Traffic Light Protocol (TLP)
-    - Default Definition: https://www.first.org/tlp/
+    - Default Definition: <https://www.first.org/tlp/>
 - Exploit Prediction
   - Exploit Prediction Scoring System (EPSS) \[[EPSS](#EPSS)\]
 - Package Data
@@ -1206,19 +1210,19 @@ Delegation to industry best practices technologies is used in referencing schema
   - Common Platform Enumeration (CPE) Version 2.3 \[[CPE23-N](#CPE23-N)\]
 - Vulnerability Categorization
   - Stakeholder-Specific Vulnerability Categorization \[[SSVC](#SSVC)\]
-    - JSON Schema Reference: https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json
+    - JSON Schema Reference: <https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json>
 - Vulnerability Classification
   - Common Weakness Enumeration (CWE) \[[CWE](#CWE)\]
-    - CWE List: http://cwe.mitre.org/data/index.html
+    - CWE List: <https://cwe.mitre.org/data/index.html>
 - Vulnerability Scoring
   - Common Vulnerability Scoring System (CVSS) Version 4.0 \[[CVSS40](#CVSS40)\]
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v4.0.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v4.0.json>
   - Common Vulnerability Scoring System (CVSS) Version 3.1 \[[CVSS31](#CVSS31)\]
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v3.1.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v3.1.json>
   - Common Vulnerability Scoring System (CVSS) Version 3.0 \[[CVSS30](#CVSS30)\]
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v3.0.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v3.0.json>
   - Common Vulnerability Scoring System (CVSS) Version 2.0 \[[CVSS2](#CVSS2)\]
-    - JSON Schema Reference: https://www.first.org/cvss/cvss-v2.0.json
+    - JSON Schema Reference: <https://www.first.org/cvss/cvss-v2.0.json>
 
 Even though not all - especially the referenced - JSON schemas prohibit specifically additional properties and custom keywords,
 it is strongly recommended not to use them. Suggestions for new fields SHOULD be made through issues in the TC's GitHub.
@@ -3082,8 +3086,9 @@ Document level meta-data (`document`) of value type `object` with the six mandat
 CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
 and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
 In addition, the `document` object MAY provide the nine optional properties Acknowledgments (`acknowledgments`),
-Aggregate Severity (`aggregate_severity`), Language (`lang`), License expression (`license_expression`), Notes (`notes`),
-References (`references`), Source Language (`source_lang`), and Document-level Extensions (`x_extensions`) .
+Aggregate Severity (`aggregate_severity`), Involvement (`involvement`), Language (`lang`),
+License expression (`license_expression`), Notes (`notes`), References (`references`),
+Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
 
 ```yaml <!--json-path($..document.properties)-->
 <csaf-instance>:
@@ -6421,6 +6426,7 @@ The relevant path for this test is:
 ### 6.1.8 Invalid CVSS<a id='invalid-cvss'></a>
 
 It SHALL be tested that the given CVSS object is valid according to the referenced schema.
+The test SHALL fail if the object contains additional properties not defined in the referenced schema.
 
 The relevant paths for this test are:
 
@@ -9865,7 +9871,9 @@ The relevant paths for this test are:
 
 For each item in `$.vulnerabilities[*].ids` it SHALL be tested that it is not a CVE ID.
 
-> It is sufficient to check, whether the property `text` matches the regex `^CVE-[0-9]{4}-[0-9]{4,}$`.
+> To implement this test it is deemed sufficient to check
+> after invisible and white space characters have been removed from the value of the property `text`
+> whether it matches the regex `^CVE-[0-9]{4}-[0-9]{4,}$`.
 
 The relevant paths for this test are:
 
@@ -11500,13 +11508,16 @@ The relevant path for this test is:
 ### 6.2.48 Misuse at Vendor Name<a id='misuse-at-vendor-name'></a>
 
 For each item in `branches` with category `vendor` it SHALL be tested that the `name` is not `Open Source`.
-The comparison is case and white space insensitive.
+Any occurrences of dash, hyphen, minus, underscore, white space and invisible characters are removed from the value on both sides
+before the case insensitive match.
 
 > Some issuing parties use `Open Source` as a vendor name for all open source products.
 > This usage hinders efficient matching and is most likely not true.
 > However, if there is a vendor whose official name is exactly `Open Source` it would be expected and
 > acceptable to fail this test.
+> The same applies for any other name that results in `opensource` after the removal step from sentence two.
 > This does not apply, if the official name differs, e.g. `Open Source Ltd.`.
+> Users are advised to carefully review the results of this test.
 
 The relevant path for this test is:
 
@@ -12168,7 +12179,9 @@ It is recommended to upgrade to CVSS v3.1.
 
 ### 6.3.3 Missing CVE<a id='missing-cve'></a>
 
-It SHALL be tested that the CVE number is given.
+It SHALL be tested that the element `cve` is present and set.
+A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value
+and not being present at all.
 
 The relevant path for this test is:
 
@@ -12186,7 +12199,7 @@ The relevant path for this test is:
   ]
 ```
 
-> The CVE number is not given.
+> The element `cve` is not present.
 
 Recommendation:
 
@@ -13592,6 +13605,49 @@ It is recommended that issuing parties conduct an analysis to make an informed d
 inclusion of a matching email address into the user ID of the public OpenPGP key.
 Sections [3.2.2.10.2](#document-property---publisher---contact) and [8](#safety-security-and-data-protection-considerations) contain advise to take into consideration.
 
+### 6.3.25 Non-Latest SSVC Decision Point Version at Validation Time<a id='non-latest-ssvc-decision-point-version-at-validation-time'></a>
+
+For each SSVC decision point given under `selections` with a registered `namespace`, it SHALL be tested the latest decision point
+`version` available at the time the test is performed was used.
+Namespaces reserved for special purpose SHALL be treated as per their definition.
+
+> The result of the test is dependent upon the time of the execution of the test - it might change for a given CSAF document over time.
+> This test is intended to be used during the editorial process of CSAF documents.
+> The significance of the test result regarding released CSAF documents is limited.
+> It is not expected to update a released CSAF document if this test fails and no other new information is available.
+> Observatories and other reporting entities are requested to not include this test in their general score.
+>
+> Usage of a later version of a SSVC Decision Point will cause test [6.3.13](#usage-of-non-latest-ssvc-decision-point-version) to fail.
+> The reason for this is most likely an outdated data set of SSVC decision points.
+> A list of all valid decision points of registered namespaces including their values is available at the
+> SSVC registry (see \[[SSVC-OR](#SSVC-OR)\]).
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
+```
+
+*Example 1 (which fails the test):*<a id='non-latest-ssvc-decision-point-version-at-validation-time-eg-1'></a><a id='sec-6-3-25-eg-1'></a><a id='example-258'></a>
+
+```
+  "ssvc_v2": {
+    // ...
+    "selections": [
+      {
+        "key": "MI",
+        "name": "Mission Impact",
+        "namespace": "ssvc",
+        // ...
+        "version": "1.0.0"
+      }
+    ],
+    "timestamp": "2024-01-24T10:00:00.000Z"
+  }
+```
+
+> > At the time of the test execution `2026-10-07T10:00:00.000Z` version `2.0.0` of the SSVC decision point `Mission Impact` was already available.
+
 ## 6.4 Test Presets<a id='test-presets'></a>
 
 A test preset is a predefined set of tests that was given a name.
@@ -13686,6 +13742,7 @@ Additional presets are defined as follows:
     - [6.1.51](#inconsistent-epss-timestamp)
     - [6.1.52](#inconsistent-first-known-exploitation-dates)
     - [6.1.53](#inconsistent-exploitation-date)
+    - [6.1.62](#inconsistent-discovery-date)
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:
@@ -13731,6 +13788,11 @@ Additional presets are defined as follows:
     - [6.3.21.7](#usage-of-extension-in-vulnerabilities-metrics-path)
     - [6.3.21.8](#usage-of-extension-at-vulnerabilities-level)
     - [6.3.21.9](#usage-of-extension-at-root-level)
+- `validation-time`:
+  - Description: Any test whose result depends on the time it is run.
+  - Set:
+    - [6.2.33](#disclosure-date-newer-than-revision-history)
+    - [6.3.25](#non-latest-ssvc-decision-point-version-at-validation-time)
 
 # 7. Distributing CSAF Documents<a id='distributing-csaf-documents'></a>
 
@@ -13809,7 +13871,7 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
 > * https://domain.tld/security/csaf/provider-metadata.json
 
-*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-258'></a>
+*Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-259'></a>
 
 ```
   {
@@ -13881,7 +13943,7 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 > The security.txt was published as \[[RFC9116](#RFC9116)\] in April 2022.
 > The `CSAF` field was officially added through the IANA registry.
 
-*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-259'></a>
+*Examples 1:*<a id='requirement-8-security-txt-eg-1'></a><a id='sec-7-1-8-eg-1'></a><a id='example-260'></a>
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -13903,7 +13965,7 @@ The URL path `/.well-known/csaf/provider-metadata.json` under the main domain of
 the `provider-metadata.json` according to requirement 7. That implies that redirects SHALL NOT be used.
 The use of the scheme "HTTPS" is required. See \[[RFC8615](#RFC8615)\] for more details.
 
-*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-260'></a>
+*Example 1:*<a id='requirement-9-well-known-url-for-provider-metadata-json-eg-1'></a><a id='sec-7-1-9-eg-1'></a><a id='example-261'></a>
 
 ```
   https://www.example.com/.well-known/csaf/provider-metadata.json
@@ -13929,7 +13991,7 @@ The use of the scheme "HTTPS" is required.
 The CSAF documents SHALL be located within folders named `<YYYY>` where `<YYYY>` is the year given in the
 value of `$.document.tracking.initial_release_date`.
 
-*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-261'></a>
+*Examples 1:*<a id='requirement-11-one-folder-per-year-eg-1'></a><a id='sec-7-1-11-eg-1'></a><a id='example-262'></a>
 
 ```
 2024
@@ -13942,7 +14004,7 @@ The file `index.txt` SHALL contain the list of all filenames of CSAF documents w
 Each entry SHALL be terminated by a newline sequence.
 The last entry MAY skip the newline sequence.
 
-*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-262'></a>
+*Example 1:*<a id='requirement-12-index-txt-eg-1'></a><a id='sec-7-1-12-eg-1'></a><a id='example-263'></a>
 
 ```
 2025/esa-2025-421324.json
@@ -13959,7 +14021,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > If different TLP labels are used, multiple `index.txt` exist.
 > However, they are located in the corresponding folders and contain only the filenames of files for that TLP label.
 
-*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-263'></a>
+*Example 2:*<a id='requirement-12-index-txt-eg-2'></a><a id='sec-7-1-12-eg-2'></a><a id='example-264'></a>
 
 ```
 .well-known/
@@ -14009,7 +14071,7 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 > Example \[\[[1](#requirement-12-index-txt-eg-1)\]\] depicts the content of the `index.txt` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
 
-*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-264'></a>
+*Example 3:*<a id='requirement-12-index-txt-eg-3'></a><a id='sec-7-1-12-eg-3'></a><a id='example-265'></a>
 
 ```
   "distributions": [
@@ -14056,7 +14118,7 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by \
 > Note: As a consequence of section [7.1.2](#requirement-2-filename) Requirement 2 for filenames and section [7.1.11](#requirement-11-one-folder-per-year)
 > Requirement for directory names, there must not be any characters within the `changes.csv` that would require quoting.
 
-*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-265'></a>
+*Example 1:*<a id='requirement-13-changes-csv-eg-1'></a><a id='sec-7-1-13-eg-1'></a><a id='example-266'></a>
 
 ```
 2024/esa-2024-430524.json,2025-07-21T11:14:37Z
@@ -14100,7 +14162,7 @@ Each ROLIE feed document SHALL be a JSON file that conforms with \[[RFC8322](#RF
 The ROLIE feed document SHALL contain a feed category with the registered ROLIE information type `csaf`.
 The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:information-type`.
 
-*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-266'></a>
+*Example 1:*<a id='requirement-15-rolie-feed-eg-1'></a><a id='sec-7-1-15-eg-1'></a><a id='example-267'></a>
 
 ```
   {
@@ -14169,7 +14231,7 @@ If it is used, each ROLIE service document SHALL be a JSON file that conforms wi
 Additionally, it can also list the corresponding ROLIE category documents.
 The ROLIE service document SHOULD use the filename `service.json` and reside next to the `provider-metadata.json`.
 
-*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-267'></a>
+*Example 1:*<a id='requirement-16-rolie-service-document-eg-1'></a><a id='sec-7-1-16-eg-1'></a><a id='example-268'></a>
 
 ```
   {
@@ -14213,7 +14275,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
   - `product_version`
 - type of product
 
-  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-268'></a>
+  *Examples 1:*<a id='requirement-17-rolie-category-document-eg-1'></a><a id='sec-7-1-17-eg-1'></a><a id='example-269'></a>
 
   ```
     CPU
@@ -14228,7 +14290,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 - areas or sectors, the products are used in
 
-  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-269'></a>
+  *Examples 2:*<a id='requirement-17-rolie-category-document-eg-2'></a><a id='sec-7-1-17-eg-2'></a><a id='example-270'></a>
 
   ```
     Chemical
@@ -14243,7 +14305,7 @@ ROLIE categories SHOULD be used for to further dissect CSAF documents by one or 
 
 - any other categorization useful to the consumers
 
-*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-270'></a>
+*Example 3:*<a id='requirement-17-rolie-category-document-eg-3'></a><a id='sec-7-1-17-eg-3'></a><a id='example-271'></a>
 
 ```
   {
@@ -14267,7 +14329,7 @@ to ensure their integrity. The filename is constructed by appending the file ext
 
 MD5 and SHA1 SHALL NOT be used.
 
-*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-271'></a>
+*Example 1:*<a id='requirement-18-integrity-eg-1'></a><a id='sec-7-1-18-eg-1'></a><a id='example-272'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -14279,7 +14341,7 @@ The file content SHALL start with the first byte of the hexadecimal hash value.
 The hash value SHALL be represented in lowercase.
 Any subsequent data (like a filename) which is optional SHALL be separated by at least one space.
 
-*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-272'></a>
+*Example 2:*<a id='requirement-18-integrity-eg-2'></a><a id='sec-7-1-18-eg-2'></a><a id='example-273'></a>
 
 ```
 ea6a209dba30a958a78d82309d6cdcc6929fcb81673b3dc4d6b16fac18b6ff38  esa-2022-02723.json
@@ -14294,7 +14356,7 @@ extended by the appropriate extension.
 This signature SHALL be presented as an ASCII armored file.
 See \[[RFC4880](#RFC4880)\] for more details.
 
-*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-273'></a>
+*Example 1:*<a id='requirement-19-signatures-eg-1'></a><a id='sec-7-1-19-eg-1'></a><a id='example-274'></a>
 
 ```
 File name of CSAF document: esa-2022-02723.json
@@ -14334,7 +14396,7 @@ It SHALL NOT be stored adjacent to a `provider-metadata.json`.
 The file `aggregator.json` SHOULD be accessible at the registered path in the `.well-known` directory:
 `/.well-known/csaf-aggregator/aggregator.json`.
 
-*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-274'></a>
+*Examples 1:*<a id='requirement-21-list-of-csaf-providers-eg-1'></a><a id='sec-7-1-21-eg-1'></a><a id='example-275'></a>
 
 ```
   https://aggregator.example/.well-known/csaf-aggregator/aggregator.json
@@ -14343,7 +14405,7 @@ The file `aggregator.json` SHOULD be accessible at the registered path in the `.
 
 The file `aggregator.json` SHOULD only list the latest version of the metadata of a CSAF provider.
 
-*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-275'></a>
+*Example 2:*<a id='requirement-21-list-of-csaf-providers-eg-2'></a><a id='sec-7-1-21-eg-2'></a><a id='example-276'></a>
 
 ```
   {
@@ -14402,7 +14464,7 @@ Each such folder SHALL at least:
 - provide a `provider-metadata.json` for the current issuing party.
 - provide the ROLIE feed document according to requirement 15 which links to the local copy of the CSAF document.
 
-*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-276'></a>
+*Example 1:*<a id='requirement-23-mirror-eg-1'></a><a id='sec-7-1-23-eg-1'></a><a id='example-277'></a>
 
 ```
   {
@@ -14807,6 +14869,7 @@ CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of a
 Tool developers SHOULD ensure to regularly check that those copies still reflect the current version of those schemas as they could
 have been altered, e.g. by an Errata to fix a bug.
 It is RECOMMENDED to do them at least before a release.
+The same applies for necessary data from registries and other sources.
 
 > Such checks can be automated, e.g. in the CI/CD pipeline.
 
@@ -14972,7 +15035,7 @@ Secondly, the program fulfills the following for all items of:
     an excepted category according to test [6.1.57](#stacked-branch-categories), the CVRF CSAF Converter SHALL try to convert the data into
     a valid product tree by applying the following steps to the path:
     1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` `undefined` and `unknown`
-       (white space, dash, hyphen, minus, underscore and case insensitive) SHALL be removed.
+       (white space, dash, hyphen, minus, underscore, invisible character and case insensitive on both sides) SHALL be removed.
     2. If the stacked `Branch Type` is `Product Version` and the item directly before the first `Product Version` is a `Product Name`:
        * the category of the original `Product Name` item SHALL be changed to `product_family` and
        * the category of the first `Product Version` item SHALL be changed to `product_name` and
@@ -15159,7 +15222,7 @@ Secondly, the program fulfills the following for all items of:
     the CVRF CSAF Converter uses the following steps:
     1. Retrieve the CVSS version from the CVSS vector, if present.
 
-        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-277'></a>
+        *Example 1:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-1'></a><a id='sec-9-1-5-eg-1'></a><a id='example-278'></a>
 
         ```
           CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H => 3.1
@@ -15168,7 +15231,7 @@ Secondly, the program fulfills the following for all items of:
     2. Retrieve the CVSS version from the CVSS element's namespace, if present.
        The CVRF CSAF Converter issues a warning that this value was guessed from the element's namespace.
 
-        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-278'></a>
+        *Example 2:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-2'></a><a id='sec-9-1-5-eg-2'></a><a id='example-279'></a>
 
         ```
           xmlns:cvssv31="https://www.first.org/cvss/cvss-v3.1.xsd"
@@ -15178,7 +15241,7 @@ Secondly, the program fulfills the following for all items of:
 
         is handled the same as
 
-        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-279'></a>
+        *Example 3:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-3'></a><a id='sec-9-1-5-eg-3'></a><a id='example-280'></a>
 
         ```
           <ScoreSetV3 xmlns="https://www.first.org/cvss/cvss-v3.1.xsd">
@@ -15189,7 +15252,7 @@ Secondly, the program fulfills the following for all items of:
        If more than one CVSS namespace is present and the element is not clearly defined via the namespace,
        this step SHALL be skipped without a decision.
 
-        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-280'></a>
+        *Example 4:*<a id='conformance-clause-5-cvrf-csaf-converter-eg-4'></a><a id='sec-9-1-5-eg-4'></a><a id='example-281'></a>
 
         ```
           xmlns:cvssv3="https://www.first.org/cvss/cvss-v3.0.xsd" => 3.0
@@ -15422,7 +15485,7 @@ The viewer:
   [8](#safety-security-and-data-protection-considerations) that are designated as applying to CSAF Viewers.
 - satisfies the normative requirements given below.
 
-For each CVSS-Score in `$.vulnerabilities[*].metrics[*]` the viewer:
+For each CVSS score in `$.vulnerabilities[*].metrics[*]` the viewer:
 
 - preferably shows the `vector` if there is an inconsistency between the `vector` and any other sibling attribute.
 - SHOULD prefer the item of `metrics[*]` for each `product_id` which originates from the document author (and therefore has no property `source`)
@@ -15583,7 +15646,13 @@ A program satisfies the "CSAF 2.0 to CSAF 2.1 Converter" conformance profile if 
 Firstly, the program:
 
 - satisfies the "CSAF Producer" conformance profile.
-- takes only CSAF 2.0 Documents as input.
+- takes CSAF 2.0 Documents as input.
+- rejects invalid CSAF 2.0 Documents unless forced by the user to proceed with a certain option.
+  The existence of such option is OPTIONAL.
+
+  > If a program has no option to force the processing of invalid CSAF 2.0 documents,
+  > this does not necessarily mean that the program cannot be a compliant CSAF 2.0 to CSAF 2.1 Converter.
+
 - issues a warning that an additional property was detected and not converted if it detects an additional property in the input.
   Such a warning SHALL include the additional property and its path.
   The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
@@ -15609,7 +15678,7 @@ Secondly, the program fulfills the following for all items of:
     test [6.1.57](#stacked-branch-categories), the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert the data into a valid product tree by
     applying the following steps to the path:
     1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION`, `undefined` and `unknown`
-       (white space, dash, hyphen, minus, underscore and case insensitive) SHALL be removed.
+       (white space, dash, hyphen, minus, underscore, invisible character and case insensitive on both sides) SHALL be removed.
     2. If the stacked branch category is `product_version` and the item directly before the first `product_version` is a `product_name`:
        * the category of the original `product_name` item SHALL be changed to `product_family` and
        * the category of the first `product_version` item SHALL be changed to `product_name` and
@@ -15824,21 +15893,12 @@ Secondly, the program fulfills the following for all items of:
     If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
     of the original CSAF Document and issue a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
 - `$.document.csaf_version`: The CSAF 2.0 to CSAF 2.1 Converter SHALL update the value to `2.1`.
-- `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it according to the table below:
-
-  Table: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.{#tab:tlp-labels-across-csaf-versions}
-
-| CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
-|:--------------------------|:--------------------------|
-| `TLP:WHITE`               | `TLP:CLEAR`               |
-| `TLP:GREEN`               | `TLP:GREEN`               |
-| `TLP:AMBER`               | `TLP:AMBER`               |
-| `TLP:RED`                 | `TLP:RED`                 |
+- `$.document.distribution.tlp.label`: If a TLP label is given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert it according to [table 5](#tab:tlp-labels-across-csaf-versions).
 
   If `$.document.distribution.text` contains the string `TLP v2.0: TLP:` followed by a valid TLP v2.0 label as defined in the CSAF 2.1 JSON schema,
   the CSAF 2.0 to CSAF 2.1 Converter SHOULD provide an option to use this label instead.
 
-  If the TLP label changes during such a conversion in a way not listed in the table [tab](#tab:tlp-labels-across-csaf-versions),
+  If the TLP label changes during such a conversion in a way not listed in [table 5](#tab:tlp-labels-across-csaf-versions),
   the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that the TLP label was taken from the distribution text.
   This warning SHALL include both values: the value converted using the table and the value from the distribution text.
 
@@ -15995,6 +16055,19 @@ Secondly, the program fulfills the following for all items of:
 
 > A tool MAY implement an additional, non-default option to output an invalid document that can be fixed afterwards.
 > Solely in this case, any of the rules above MAY be ignored to avoid data loss.
+
+Mapping TLP labels per CSAF version:
+
+<a id="tab:tlp-labels-across-csaf-versions"></a>
+Table 5: Comparison of values for `$.document.distribution.tlp.label` across CSAF versions 2.0 and 2.1.
+
+| CSAF 2.0 (using TLP v1.0) | CSAF 2.1 (using TLP v2.0) |
+|:--------------------------|:--------------------------|
+| `TLP:WHITE`               | `TLP:CLEAR`               |
+| `TLP:GREEN`               | `TLP:GREEN`               |
+| `TLP:AMBER`               | `TLP:AMBER`               |
+| `TLP:RED`                 | `TLP:RED`                 |
+
 
 ### 9.1.19 Conformance Clause 19: CSAF Library<a id='conformance-clause-19-csaf-library'></a>
 
@@ -16887,7 +16960,7 @@ A string with format `uuid` SHOULD NOT have a length greater than 50. This appli
 
 The following examples are intended to aid in understanding under which circumstances product paths can be collapsed.
 
-*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-Appendix D-eg-1'></a><a id='example-281'></a>
+*Example 1 (which is not collapsed but collapsible)*:<a id='collapsing-product-paths-eg-1'></a><a id='sec-Appendix D-eg-1'></a><a id='example-282'></a>
 
 ```
   "product_tree": {
@@ -16979,7 +17052,7 @@ The following examples are intended to aid in understanding under which circumst
 
 > Product paths in example 1 above can be collapse as shown in example 2 below.
 
-*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-Appendix D-eg-2'></a><a id='example-282'></a>
+*Example 2 (which is collapsed)*:<a id='collapsing-product-paths-eg-2'></a><a id='sec-Appendix D-eg-2'></a><a id='example-283'></a>
 
 ```
   "product_tree": {
@@ -17059,7 +17132,7 @@ The following examples are intended to aid in understanding under which circumst
   }
 ```
 
-*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-Appendix D-eg-3'></a><a id='example-283'></a>
+*Example 3 (which is not collapsed nor collapsible without information loss)*:<a id='collapsing-product-paths-eg-3'></a><a id='sec-Appendix D-eg-3'></a><a id='example-284'></a>
 
 ```
   "product_tree": {
@@ -17197,7 +17270,7 @@ The following examples are intended to aid in understanding under which circumst
 > Product paths in example 3 cannot be collapsed without information loss.
 > For example, the `cpe` of the product identified by `CSAFPID-908070607` would be lost.
 
-*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-Appendix D-eg-4'></a><a id='example-284'></a>
+*Example 4 (which is not collapsed nor collapsible as products are referenced)*:<a id='collapsing-product-paths-eg-4'></a><a id='sec-Appendix D-eg-4'></a><a id='example-285'></a>
 
 ```
   {

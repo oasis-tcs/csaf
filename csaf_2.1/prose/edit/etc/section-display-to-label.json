@@ -357,6 +357,7 @@
   "6.3.23.1": "involvement",
   "6.3.23.2": "disclosure-date",
   "6.3.24": "public-openpgp-key-url-user-id",
+  "6.3.25": "non-latest-ssvc-decision-point-version-at-validation-time",
   "6.4": "test-presets",
   "6.4.1": "presets-defined-through-test-subsections",
   "6.4.2": "presets-defined-through-conformance-targets",

@@ -240,6 +240,7 @@
   "nested-product-path": "6.3.22",
   "non-draft-document-version": "6.1.20",
   "non-existing-license-identifier": "6.2.45",
+  "non-latest-ssvc-decision-point-version-at-validation-time": "6.3.25",
   "non-public-sharing-group-with-max-uuid": "6.1.38",
   "normative-references": "1.3",
   "notes-type": "3.1.12",
