@@ -2344,7 +2344,7 @@ $defs:
   # ...
 ```
 
-The algorithm of the cryptographic hash representation (`algorithm`) has
+The Algorithm of the cryptographic hash representation (`algorithm`) has
 value type `string` with `1` or more characters with `pattern` (regular
 expression):
 
@@ -2352,7 +2352,7 @@ expression):
     ^[0-9a-z][0-9a-z-]*$
 ```
 
-The algorithm of the cryptographic hash representation contains the name
+The Algorithm of the cryptographic hash representation contains the name
 of the cryptographic hash algorithm used to calculate the value. The
 default value for `algorithm` is `sha256`. Secure cryptographic hash
 algorithms SHOULD be preferred.
@@ -2409,7 +2409,7 @@ hash value in lowercase hexadecimal representation.
     9ea4c8200113d49d26505da0e02e2f49055dc078d1ad7a419b32e291c7afebbb84badfbd46dec42883bea0b2a1fa697c
 ```
 
-The filename representation (`filename`) of value type `string` with `1`
+The Filename representation (`filename`) of value type `string` with `1`
 or more characters contains the name of the file which is identified by
 the hash values.
 
@@ -9187,7 +9187,7 @@ There is no reference where the `summary` starts with the correct term
 If the document language is English or unspecified, it SHALL be tested
 that at least one item in vulnerability notes exists that has the title
 `Vulnerability Summary` or `CVE Description`. The `category` of this
-item SHALL be consistent with the value required in table
+item SHALL be consistent with the value required in
 #link(<tab:vulnerabilities-property-notes>)[table 2] of section
 #link(<vulnerabilities-property-notes>)[3.2.4.10].
 
@@ -9715,7 +9715,7 @@ The complete JSON path contains 31 times `branches`.
 <contradicting-remediations>
 For each item in `$.vulnerabilities[*].remediations` it SHALL be tested
 that a product is not member of contradicting remediation categories
-(see table
+(see
 #link(<tab:vulnerabilities-property-remediations-category-1>)[table 3]).
 This takes indirect relations through product groups into account.
 
@@ -9764,7 +9764,7 @@ follows: `vendor_fix` \> `mitigation` \> `workaround` \> `fix_planned`
 <contradicting-product-status-remediation-combination>
 For each item in `$.vulnerabilities[*].remediations` it SHALL be tested
 that a product is not member of a contradicting product status group
-(see table
+(see
 #link(<tab:vulnerabilities-property-remediations-category-2>)[table 4]).
 This takes indirect relations through product groups into account.
 
@@ -10985,6 +10985,57 @@ The document is in status `final` but the `discovery_date` is newer than
 the `date` of newest item in the `revision_history`.
 ]
 
+=== Inconsistent Hash Value Length
+<inconsistent-hash-value-length>
+For each file hash object, it SHALL be tested that the `value` length
+aligns with the `algorithm`. The test SHALL be skipped for algorithms
+with variable length output. Algorithms not supported by the
+implementation SHALL result in a warning which SHALL include the value
+of `algorithm`. The warning SHALL differentiate between the values
+mentioned in section
+#link(<full-product-name-type---product-identification-helper---hashes>)[3.1.10.3.2]
+and those not mentioned there.
+
+The relevant paths for this test are:
+
+```list-of-jsonpaths
+  $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*]
+  $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*]
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*]
+```
+
+#emph[Example 1 (which fails the
+test):]#box()<inconsistent-hash-value-length-eg-1>
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "sha256",
+                  "value": "026a37919b182ef7c63791e82c9645e2f897a3f0b73c7a6028c7febf62e93838d0143"
+                }
+              ],
+              "filename": "product_a.so"
+            }
+          ]
+        }
+      }
+    ]
+  }
+```
+
+#quote(block: true)[
+The hash claims to be an MD4 but its length (69 characters) is longer
+than the expected length (64 characters).
+]
+
 == Recommended Tests
 <recommended-tests>
 Recommended tests SHOULD NOT fail at a valid CSAF document without a
@@ -12034,7 +12085,7 @@ appropriate". \[#link(<CWE-1023>)[CWE-1023]\]
 <discouraged-product-status-remediation-combination>
 For each item in `$.vulnerabilities[*].remediations`, it SHALL be tested
 that a Product is not member of a discouraged product status group
-remediation category combination (see table
+remediation category combination (see
 #link(<tab:vulnerabilities-property-remediations-category-2>)[table 4]).
 This takes indirect relations through Product Groups into account.
 
@@ -12876,7 +12927,7 @@ If the document language is specified but not English, it SHALL be
 tested that at least one item in vulnerability notes exist that has the
 language specific translation of the term `Vulnerability Summary` or
 `CVE Description` as `title`. The `category` of this item SHALL be
-consistent with the value required in table
+consistent with the value required in
 #link(<tab:vulnerabilities-property-notes>)[table 2] of section
 #link(<vulnerabilities-property-notes>)[3.2.4.10]. If no language
 specific translation has been recorded, the test SHALL be skipped and
@@ -18106,7 +18157,7 @@ Secondly, the program fulfills the following for all items of:
   ]
 
 - `$.document.notes`: If any `cvrf:Note` item contains one of the
-  `category` and `title` combinations specified in table
+  `category` and `title` combinations specified in
   #link(<tab:document-property-notes>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.9], where the `title` is
   extended, the CVRF CSAF Converter SHALL try to identify whether that
@@ -18371,7 +18422,7 @@ Secondly, the program fulfills the following for all items of:
   include the specific error that occurred.
 
 - `$.vulnerabilities[*].notes`: If any `vuln:Note` item contains one of
-  the `category` and `title` combinations specified in table
+  the `category` and `title` combinations specified in
   #link(<tab:vulnerabilities-property-notes>)[table 2] of section
   #link(<vulnerabilities-property-notes>)[3.2.4.10], where the `title`
   is extended, the CVRF CSAF Converter SHALL try to identify whether
@@ -18555,12 +18606,22 @@ System" conformance profile if the content management system:
   given below or based on the templates from configuration:
 
   - `$['$schema']` with the value prescribed by the schema
+  - `$.document.category` (based on the templates from configuration)
   - `$.document.csaf_version` with the value prescribed by the schema
+  - `$.document.distribution`
+    - `sharing_group` (based on the templates from configuration; per
+      default a sharing group is omitted if not configured explicitly)
+    - `tlp` (based on the templates from configuration; default `label`
+      for drafts: `TLP:AMBER+STRICT`\; default `label` for interim and
+      final: `TLP:CLEAR`)
   - `$.document.lang`
+  - `$.document.license_expression` (based on the templates from
+    configuration)
   - `$.document.notes`
     - `legal_disclaimer` (Terms of use from the configuration)
     - `general` (General Security recommendations from the
       configuration)
+  - `$.document.publisher` and children
   - `$.document.tracking.current_release_date` with the current date
   - `$.document.tracking.generator` and children
   - `$.document.tracking.initial_release_date` with the current date
@@ -18573,8 +18634,6 @@ System" conformance profile if the content management system:
   - `$.document.tracking.status` with `draft`
   - `$.document.tracking.version` with the value of `number` the latest
     `$.document.tracking.revision_history[*]` element
-  - `$.document.publisher` and children
-  - `$.document.category` (based on the templates from configuration)
 
 - When updating an existing CSAF Document:
 
@@ -18590,6 +18649,7 @@ System" conformance profile if the content management system:
       - `legal_disclaimer` (Terms of use from the configuration)
       - `general` (General Security recommendations from the
         configuration)
+    - `$.document.publisher` and children
     - `$.document.tracking.current_release_date` with the current date
     - `$.document.tracking.generator` and children
     - the new item in `$.document.tracking.revision_history[*]`
@@ -18599,7 +18659,18 @@ System" conformance profile if the content management system:
     - `$.document.tracking.status` with `draft`
     - `$.document.tracking.version` with the value of `number` the
       latest `$.document.tracking.revision_history[*]` element
-    - `$.document.publisher` and children
+
+- before allowing `$.document.tracking.status` to transition from
+  `draft` to `interim` or `final`:
+
+  - enforces that the current document contains all required fields
+    according to the profile specified in `$.document.category`
+  - enforces that the current document is a valid CSAF Document
+    according to this specification
+  - offers to set `$.document.distribution` and children to one of the
+    values from the configuration for released documents (default
+    `label` for released documents is `TLP:CLEAR` with no
+    `sharing_group` present)
 
 === Conformance Clause 7: CSAF Post-Processor
 <conformance-clause-7-csaf-post-processor>
@@ -19454,7 +19525,7 @@ Secondly, the program fulfills the following for all items of:
   ]
 
 - `$.document.notes`: If any `$.document.notes` item contains one of the
-  `category` and `title` combinations specified in table
+  `category` and `title` combinations specified in
   #link(<tab:document-property-notes>)[table 1] of section
   #link(<document-property---notes>)[3.2.2.9], where the `title` is
   extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
@@ -19652,7 +19723,7 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.vulnerabilities[*].notes`: If any `$.vulnerabilities[*].notes` item
   contains one of the `category` and `title` combinations specified in
-  table #link(<tab:vulnerabilities-property-notes>)[table 2] of section
+  #link(<tab:vulnerabilities-property-notes>)[table 2] of section
   #link(<vulnerabilities-property-notes>)[3.2.4.10], where the `title`
   is extended, the CSAF 2.0 to CSAF 2.1 Converter SHALL try to identify
   whether that extension is a specific product name, version or family.

@@ -240,6 +240,7 @@
   "6.1.60.3": "Extension Metadata",
   "6.1.61": "Use of Multiple Stars in SKU",
   "6.1.62": "Inconsistent Discovery Date",
+  "6.1.63": "Inconsistent Hash Value Length",
   "6.2": "Recommended Tests",
   "6.2.1": "Unused Definition of Product ID",
   "6.2.2": "Missing Remediation",

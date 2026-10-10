@@ -240,6 +240,7 @@
   "6.1.60.3": "mandatory-tests--extension-tests-metadata",
   "6.1.61": "use-of-multiple-stars-in-sku",
   "6.1.62": "inconsistent-discovery-date",
+  "6.1.63": "inconsistent-hash-value-length",
   "6.2": "recommended-tests",
   "6.2.1": "unused-definition-of-product-id",
   "6.2.2": "missing-remediation",
