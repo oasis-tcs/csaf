@@ -19,6 +19,7 @@ Ignoring the `action_id`, two items in the list of actions are the same, if:
 
 A `dl_vuln_ids` mentioning all vulnerabilities in the document is equivalent to the element missing.
 All groups have to be expanded to their definitions for the test.
+As the timestamps might use different timezones, the comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 

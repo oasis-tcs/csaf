@@ -127,6 +127,7 @@ tests-01-mndtr-62-inconsistent-discovery-date.md
 tests-01-mndtr-63-inconsistent-hash-value-length.md
 tests-01-mndtr-64-00-involvement-tests.md
 tests-01-mndtr-64-01-missing-receiving-entity-refs.md
+tests-01-mndtr-64-02-contradicting-definition-in-actions.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
