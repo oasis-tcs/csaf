@@ -14,7 +14,9 @@ The relevant paths for this test are:
 ```
   {
     "action_id": "ACN-1",
-    "acting_entity_refs": ["EID-0001"],
+    "acting_entity_refs": [
+      "EID-0001"
+    ],
     "date": "2024-01-10T09:00:00Z",
     "category": "notification",
     "status": "attempted",

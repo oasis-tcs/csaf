@@ -34,19 +34,27 @@ The relevant path for this test is:
   "actions": [
     {
       "action_id": "ACN-1",
-      "acting_entity_refs": ["EID-0001"],
+      "acting_entity_refs": [
+        "EID-0001"
+      ],
       "date": "2024-01-10T09:00:00Z",
       "category": "notification",
-      "receiving_entity_refs": ["EID-0002"],
+      "receiving_entity_refs": [
+        "EID-0002"
+      ],
       "status": "discontinued",
       "summary": "Did not report vulnerability to vendor."
     },
     {
       "action_id": "ACN-2",
-      "acting_entity_refs": ["EID-0001"],
+      "acting_entity_refs": [
+        "EID-0001"
+      ],
       "date": "2024-01-10T09:00:00Z",
       "category": "notification",
-      "receiving_entity_refs": ["EID-0002"],
+      "receiving_entity_refs": [
+        "EID-0002"
+      ],
       "status": "completed",
       "summary": "Reported vulnerability to vendor."
     }
