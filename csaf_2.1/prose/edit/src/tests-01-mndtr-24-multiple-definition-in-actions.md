@@ -17,6 +17,9 @@ Ignoring the `action_id`, two items in the list of actions are the same, if:
    - `receiving_entity_refs`
    - `referenced_action_ids`
 
+A `dl_vuln_ids` mentioning all vulnerabilities in the document is equivalent to the element missing.
+All groups have to be expanded to their definitions for the test.
+
 The relevant path for this test is:
 
 ```list-of-jsonpaths
