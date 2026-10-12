@@ -1,6 +1,6 @@
 ### Missing Receiving Entity Refs
 
-For each item in `$.document.involvement.actions` which has one of the categories `confirmation`, `coordination`, `dispute` or `notfication`
+For each item in `$.document.involvement.actions` which has one of the categories `confirmation`, `coordination`, `dispute` or `notification`
 it SHALL be tested that the element `receiving_entity_refs` exists.
 
 The relevant paths for this test are:
