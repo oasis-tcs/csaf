@@ -5,6 +5,10 @@ meta:
     Maintained in OASIS-Docs/publication-assurance; copy here unchanged when the
     upstream file is published.  Spec-level rule files extend this baseline via
     meta.extends: oasis and add TC- and spec-specific checks on top.
+    Source-text rules that a nide authoring engine can prove from the document
+    prose live here; requirements that can only be checked on the delivered
+    package (filenames, published URIs, cross-file agreement, rendered
+    artifacts) stay exclusively in pub-check Python. One requirement, one home.
 
 rules:
 
@@ -26,20 +30,31 @@ rules:
       pattern: '^Conformance'
       flags: IGNORECASE
 
+  # An OASIS Open Project is governed by a Project Governing Board, not a TC, and
+  # its template says "Open Project:" and "Project Chair:". Requiring the TC wording
+  # would tell an Open Project work product (NIEMOpen) to invent a Technical
+  # Committee section it does not have. Kept in step with ORG_HEADING and
+  # TEMPLATE_SECTIONS in pub-check/oasis_pub_check.py: the two homes check the same
+  # prose, so they must accept the same prose or a document passes one and fails the
+  # other for no reason a reader can see.
   - id: OASIS-TECHNICAL-COMMITTEE
     severity: BLOCKER
-    description: A Technical Committee entry must appear in the front matter
+    description: >-
+      A Technical Committee entry (or, for an Open Project, an Open Project entry)
+      must appear in the front matter
     check:
       type: section-present
-      pattern: 'Technical Committee'
+      pattern: 'Technical Committee|Open Project'
       flags: IGNORECASE
 
   - id: OASIS-CHAIRS
     severity: WARN
-    description: A Chairs entry must appear in the front matter
+    description: >-
+      A Chairs entry must appear in the front matter, with or without a qualifier
+      ("Chairs", "Project Chair", "NTAC Technical Steering Committee Chairs")
     check:
       type: section-present
-      pattern: '^Chairs?$'
+      pattern: '^([\w/&.-]+ ){0,5}Chairs?$'
       flags: IGNORECASE
 
   - id: OASIS-EDITORS
@@ -134,6 +149,46 @@ rules:
       flags: IGNORECASE
       invert: true
 
+  # The OASIS Board-approved work product templates carry editor guidance and
+  # say so: "All template instructions are included within angle brackets and
+  # need to be deleted prior to publication." When a block survives, it ships as
+  # if it were specification text. KMIP Usage Guide v3.0 cnd01 reached public
+  # review carrying "NOTE (remove this note and following examples before
+  # publication)" and an external reviewer found it on day 5.
+  # The character class deliberately admits newlines, because the instruction is
+  # routinely wrapped mid-sentence in the source.
+  - id: OASIS-RESID-TEMPLATE-INSTRUCTION
+    severity: BLOCKER
+    description: >-
+      No template editor-instruction text may remain (an imperative to remove or
+      delete something 'before publication' means an instruction block was not
+      deleted)
+    check:
+      type: all-match
+      target: prose
+      pattern: '(remove|delete|deleted|removed|strip)[^.;:]{0,80}?(before|prior to)\s+publication'
+      flags: IGNORECASE
+      invert: true
+
+  # The template's status-section comments paragraph appears exactly once. A
+  # second copy rides in on a stale template merge and truncates the sentence
+  # it collides with. KMIP Usage Guide v3.0 cnd01 reached public review with
+  # the paragraph twice on page 2, the first copy cut off mid-sentence, and a
+  # public-review commenter reported it on day 3. [\s\S] spans the whole
+  # document because the two copies need not be adjacent.
+  - id: OASIS-COMMENTS-PARA-DUP
+    severity: WARN
+    description: >-
+      The template's 'send comments' status paragraph must appear exactly once
+      (a duplicated boilerplate block usually truncates the sentence it
+      collides with)
+    check:
+      type: all-match
+      target: prose
+      pattern: 'should send comments on this[\s\S]{1,6000}?should send comments on this'
+      flags: IGNORECASE
+      invert: true
+
   # ── Link hygiene ───────────────────────────────────────────────────────────
 
   - id: OASIS-LINK-DEAD-LISTS
@@ -155,3 +210,42 @@ rules:
       target: relative-links
       pattern: '//'
       invert: true
+
+  # -- Member-only URIs and reference-list hygiene ----------------------------
+
+  - id: OASIS-MEMBER-URI
+    severity: BLOCKER
+    description: >-
+      No OASIS member-only (Kavi) URI may be cited in the document
+      (Naming Directives v1.7 s6.6)
+    check:
+      type: all-match
+      target: links
+      pattern: '^(?:(?:https?:)?//)?(?:www\.)?oasis-open\.org/(?:apps/org/|committees/download\.php(?:[/?#]|$))'
+      flags: IGNORECASE
+      invert: true
+
+  - id: OASIS-REFERENCES-SPLIT
+    severity: WARN
+    description: >-
+      Normative references should be listed separately from informative
+      references, not under one undifferentiated 'References' heading, for
+      Standards Track Work Products (TC Handbook, Editorial quality
+      verification checklist, 'Normative vs. informative content')
+    check:
+      type: conditional
+      condition:
+        type: section-present
+        pattern: '^Conformance'
+        flags: IGNORECASE
+      then:
+        type: conditional
+        condition:
+          type: section-present
+          pattern: '^References\s*$'
+          flags: IGNORECASE
+        then:
+          type: any-match
+          target: headings
+          pattern: '^(Normative|Informative|Non-Normative)\s+References'
+          flags: IGNORECASE

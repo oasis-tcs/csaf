@@ -70,6 +70,7 @@ CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of a
 Tool developers SHOULD ensure to regularly check that those copies still reflect the current version of those schemas as they could
 have been altered, e.g. by an Errata to fix a bug.
 It is RECOMMENDED to do them at least before a release.
+The same applies for necessary data from registries and other sources.
 
 > Such checks can be automated, e.g. in the CI/CD pipeline.
 

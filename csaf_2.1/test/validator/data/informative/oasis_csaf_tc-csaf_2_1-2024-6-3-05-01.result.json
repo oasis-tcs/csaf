@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": true,
+  "primary_result": {
+    "id": "6.3.5",
+    "infos": [
+      {
+        "instance_path": "/product_tree/full_product_names/0/product_identification_helper/hashes/0/file_hashes/0/value",
+        "message": "hash value is only 32 characters; minimum recommended length is 64"
+      }
+    ],
+    "passed": false
+  },
+  "resultschema_version": "2.1"
+}

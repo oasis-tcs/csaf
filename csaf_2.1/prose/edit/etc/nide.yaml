@@ -59,7 +59,7 @@ channels:
       css-base: ../share/style/base.css
       css-skin: ../share/style/skin.css
       images: false
-      intro-trigger: '<h1 id="1-introduction'
+      intro-trigger: '<h1 id="introduction'
       logo-data-url: ../media/logo-data-url.txt
       logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
       toc-trigger: '<h1 id="table-of-contents'

@@ -1,5 +1,7 @@
 # Appendix D. Collapsing Product Paths{#collapsing-product-paths}
 
+(This appendix does not form an integral part of this specification and is informational.)
+
 The following examples are intended to aid in understanding under which circumstances product paths can be collapsed.
 
 *Example 1 (which is not collapsed but collapsible)*:

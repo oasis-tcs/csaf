@@ -1,0 +1,131 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "involvement": {
+      "actions": [
+        {
+          "acting_entity_refs": [
+            "EID-0001"
+          ],
+          "action_id": "ACN-1",
+          "category": "notification",
+          "date": "2024-01-10T09:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0002"
+          ],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor."
+        },
+        {
+          "acting_entity_refs": [
+            "EID-0002"
+          ],
+          "action_id": "ACN-2",
+          "category": "confirmation",
+          "date": "2024-01-10T15:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0001"
+          ],
+          "referenced_action_ids": [
+            "ACN-1"
+          ],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        }
+      ],
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        }
+      ]
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Date and Time (valid example 7)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "generator": {
+        "date": "2024-01-24T10:00:00.000Z",
+        "engine": {
+          "name": "OASIS Open CSAF TC Test Generator: handcrafted by the editors",
+          "version": "2.1"
+        }
+      },
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-37-17",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "first_known_exploitation_dates": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "exploitation_date": "2024-01-22T12:34:56.789Z",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ],
+      "flags": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "label": "vulnerable_code_not_in_execute_path",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ],
+      "remediations": [
+        {
+          "category": "optional_patch",
+          "date": "2024-01-24T10:00:00.000Z",
+          "details": "A patch is available that removes the vulnerable code and silences your scanner. Contact the vendor for information on applicability and retrieval.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2024-01-24T10:00:00.000Z",
+          "details": "The vulnerable code is present but not in the execution path. It is part of an old rollback mechanism."
+        }
+      ]
+    }
+  ]
+}

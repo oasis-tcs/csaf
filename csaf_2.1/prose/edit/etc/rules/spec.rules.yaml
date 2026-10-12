@@ -10,7 +10,7 @@ context:
   tc-name: csaf
   spec-name: csaf
   spec-version: "2.1"
-  stage: csd03
+  stage: csd04
   doc-url-base: https://docs.oasis-open.org/csaf/csaf/v2.1
 
 rules:
