@@ -264,9 +264,9 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 │  │  ├─ index.txt
 ```
 
-> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `index.txt` files - one for each TLP label.
-> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
-> Example \[[eg](#requirement-12-index-txt-eg-1)\] depicts the content of the `index.txt` within the folder `clear`
+> The example [eg](#requirement-12-index-txt-eg-2) uses five `index.txt` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example [eg](#requirement-12-index-txt-eg-3).
+> Example [eg](#requirement-12-index-txt-eg-1) depicts the content of the `index.txt` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
 
 *Example 3:*
@@ -330,9 +330,9 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 The file `changes.csv` SHALL be located in the folder given as directory URL under `$.distributions[*].directory.url` in the `provider-metadata.json`.
 
-> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
-> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
-> Example \[[eg](#requirement-13-changes-csv-eg-1)\] depicts the content of the `changes.csv` within the folder `clear`
+> The example [eg](#requirement-12-index-txt-eg-2) uses five `changes.csv` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example [eg](#requirement-12-index-txt-eg-3).
+> Example [eg](#requirement-13-changes-csv-eg-1) depicts the content of the `changes.csv` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/changes.csv`.
 
 ### Requirement 14: Directory Listings
