@@ -1,0 +1,107 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "involvement": {
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        },
+        {
+          "category": "coordinator",
+          "entity_id": "EID-0003",
+          "name": "Example Coordinator"
+        },
+        {
+          "category": "reporting_authority",
+          "entity_id": "EID-0004",
+          "name": "National CSIRT"
+        }
+      ],
+      "entity_groups": [
+        {
+          "entity_group_id": "EGID-9001",
+          "name": "Non-discoverer participants",
+          "entity_ids": [
+            "EID-0002",
+            "EID-0003",
+            "EID-0004"
+          ]
+        },
+        {
+          "entity_group_id": "EGID-9002",
+          "name": "Non-reporting authority participants",
+          "entity_ids": [
+            "EID-0001",
+            "EID-0002",
+            "EID-0003"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "ACN-1",
+          "acting_entity_refs": ["EID-0001"],
+          "date": "2024-01-10T09:00:00Z",
+          "category": "notification",
+          "receiving_entity_refs": ["EGID-9001"],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor, coordinator and regulator."
+        },
+        {
+          "action_id": "ACN-2",
+          "acting_entity_refs": ["EGID-9001"],
+          "date": "2024-01-10T15:00:00Z",
+          "category": "confirmation",
+          "receiving_entity_refs": ["EID-0001"],
+          "referenced_action_ids": ["ACN-1"],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        },
+        {
+          "action_id": "ACN-3",
+          "acting_entity_refs": ["EGID-9002"],
+          "date": "2024-01-20T10:00:00.000Z",
+          "category": "notification",
+          "receiving_entity_refs": ["EID-0004"],
+          "referenced_action_ids": ["ACN-1"],
+          "status": "completed",
+          "summary": "The group submitted a joint report to the authority."
+        }
+      ]
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Actor and Recipient (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-64-04-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  }
+}
