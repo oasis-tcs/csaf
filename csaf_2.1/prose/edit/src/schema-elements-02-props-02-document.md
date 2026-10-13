@@ -332,7 +332,7 @@ List of receiving entities (`receiving_entity_refs`), List of referenced actions
         group_ids: $defs.product_groups_t
         product_ids: $defs.products_t
         receiving_entity_refs: $defs.entity_refs_id_t
-        referenced_action_ids: $defs.action_id_t
+        referenced_action_ids: Sequence
         summary: String
         status: String.Enum
       # ...
