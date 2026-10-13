@@ -75,13 +75,13 @@ GFMENG
 ISO19770-2
 :    _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
-ISO29147
+ISOIEC29147
 :    _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October 23, 2018, <https://www.iso.org/standard/72311.html>.
 
-ISO30111
+ISOIEC30111
 :    _Information technology — Security techniques — Vulnerability handling processes_, International Standard, ISO/IEC 30111:2019, October 1, 2019, <https://www.iso.org/standard/69725.html>
 
-ISOTR5895
+ISOIECTR5895
 :    _Cybersecurity — Multi-party coordinated vulnerability disclosure and handling_, International Standard, ISO/IEC TR 5895:2022, June 17, 2022, <https://www.iso.org/standard/81807.html>
 
 OPENSSL
