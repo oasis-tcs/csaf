@@ -56,7 +56,7 @@
           "description": "Contains a JSON pointer detailing the path to the instance that raised the issue.",
           "type": "string",
           "format": "json-pointer",
-          "pattern": "^(/([^~\\/]|(~[01]))*)+$"
+          "pattern": "^(/([^~\\/]|(~[01]))*)*$"
         },
         "message": {
           "title": "Message",
