@@ -132,6 +132,9 @@ RVISC-M
 RVISC-R
 :    _Registry for RVISC_, RVISC Registry Part of the OASIS CSAF TC Registry, <https://registry.csaf.dev/id/registry/>.
 
+SCANCODE-LICENSEDB
+:   _LicenseDB_, nexB Inc. and others, <https://scancode-licensedb.aboutcode.org/>.
+
 SCAP12
 :    _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
 
@@ -140,6 +143,12 @@ SECURITY-TXT
 
 SemVer
 :    _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, <https://semver.org/>.
+
+SPDX231
+:    _The Software Package Data Exchange® (SPDX®) Specification Version 2.3.1_, Linux Foundation and its Contributors, 2026, <https://spdx.github.io/spdx-spec/v2.3.1/>.
+
+SPDX-L
+:    _SPDX License List | Software Package Data Exchange (SPDX)_,  SPDX Workgroup a Linux Foundation Project, <https://spdx.org/licenses/>.
 
 SSVC
 :    _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>
