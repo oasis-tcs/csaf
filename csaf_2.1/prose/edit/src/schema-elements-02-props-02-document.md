@@ -760,6 +760,15 @@ Contact (`contact`) of value type Contact Type (`contact_t`) contains informatio
 Issuing authority (`issuing_authority`) of value type `string` with `1` or more characters Provides information about
 the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
 
+*Examples 1:*
+
+```
+  Example Company PSIRT is responsible for vulnerability handling across all Example Company products and services.
+  Example CERT as designated CSIRT according to Directive (EU) 2022/2555 Article 12 section 1 acts as coordinator for the purposes of coordinated vulnerability disclosure.
+  Example ISAC publishes security information for products used by or relevant for its constituency enriched by a sector-specific assessment.
+  The Example Organization Security Team is responsible for vulnerability handling across all Example Organization offerings.
+```
+
 ##### Document Property - Publisher - Name
 
 The Name of publisher (`name`) of value type `string` with `1` or more characters contains the name of the issuing party.
