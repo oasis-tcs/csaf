@@ -11,10 +11,12 @@ The relevant paths for this test are:
   $.document.aggregate_severity.text
   $.document.distribution.text
   $.document.involvement.actions[*].summary
+  $.document.involvement.entities[*].contact.details
   $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
+  $.document.publisher.contact.details
   $.document.publisher.issuing_authority
   $.document.references[*].summary
   $.document.title
