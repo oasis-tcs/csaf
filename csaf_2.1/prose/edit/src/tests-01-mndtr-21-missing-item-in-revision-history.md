@@ -23,7 +23,7 @@ semantic versioning by appending `.0.0` to the corresponding values.
 Any value that is not a valid integer nor semantic version SHOULD be ignored in this test as the schema test will fail.
 The aforementioned rules are solely used during the processing to create consistent test results.
 
-> This processing rules are not a suggested quick fix for test [sec](#mixed-integer-and-semantic-versioning)
+> These processing rules are not a suggested quick fix for test [sec](#mixed-integer-and-semantic-versioning)
 > but implementation guidance for this edge case.
 
 The relevant path for this test is:
