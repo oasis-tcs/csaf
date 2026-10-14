@@ -15,12 +15,14 @@ The relevant paths for this test are:
   $.document.category
   $.document.distribution.text
   $.document.involvement.actions[*].summary
+  $.document.involvement.entities[*].contact.details
   $.document.involvement.entities[*].name
   $.document.involvement.entity_groups[*].name
   $.document.involvement.entity_groups[*].summary
   $.document.notes[*].audience
   $.document.notes[*].text
   $.document.notes[*].title
+  $.document.publisher.contact.details
   $.document.publisher.issuing_authority
   $.document.publisher.name
   $.document.references[*].summary
