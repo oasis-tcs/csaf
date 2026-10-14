@@ -12,9 +12,18 @@ It SHALL be tested that items of the revision history do not omit a version numb
 
 As the timestamps might use different timezones, the sorting SHALL take timezones into account.
 The error message SHALL differentiate between a version number not present at all and one that is missing in the sorted list.
-In the case of semantic versioning, this applies only to the Major version.
+In the case of semantic versioning in accordance with the rules from section [sec](#version-type---semantic-versioning),
+Minor and Patch versions MAY end at any point if the next version has a higher Major respectively Minor version.
 It SHALL also be tested that the first item in such a sorted list has either the version number 0 or 1 in the case of integer versioning or
 a Major version of 0 or 1 in the case of semantic versioning.
+
+In order to create consistent results in the case of mixed integer and semantic versioning (failing test
+[sec](#mixed-integer-and-semantic-versioning)), implementations SHALL map items with integer versioning to
+semantic versioning by appending `.0.0` to the corresponding values.
+The aforementioned rule is solely used during the processing to create consistent test results.
+
+> This processing rule is not a suggested quick fix for test [sec](#mixed-integer-and-semantic-versioning)
+> but implementation guidance for this edge case.
 
 The relevant path for this test is:
 
