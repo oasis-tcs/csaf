@@ -141,7 +141,7 @@ The Weakness name holds the full name of the weakness as given in the CWE specif
 The CWE version (`version`) has value type `string` with `pattern` (regular expression):
 
 ```
-    ^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$
+    ^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.([0-9]|([1-9]\\d+)))?$
 ```
 
 It holds the version string of the CWE specification this weakness was extracted from.
