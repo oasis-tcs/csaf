@@ -22,8 +22,19 @@
       "system_name": "https://euvd.enisa.europa.eu",
       "text_pattern": "^EUVD-[1-9][0-9]{3}-[0-9]{4,}$",
       "updated": "2026-02-06T15:35:00Z"
+    },
+    {
+      "common_name": "GCVE IDs",
+      "example_identifiers": [
+        "GCVE-0-2024-13987"
+      ],
+      "published": "2026-08-24T12:52:50Z",
+      "summary": "Contains identifiers from the Global CVE (GCVE) allocation system.",
+      "system_name": "https://gcve.eu",
+      "text_pattern": "^(?=.{8,255}$)GCVE-[0-9]+-[\\x22-\\x7E]+$",
+      "updated": "2026-08-24T12:52:50Z"
     }
   ],
-  "last_updated": "2026-02-06T15:35:00Z",
+  "last_updated": "2026-08-24T12:52:50Z",
   "registry_version": 1
 }
