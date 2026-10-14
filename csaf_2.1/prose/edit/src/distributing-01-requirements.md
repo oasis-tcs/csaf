@@ -574,7 +574,7 @@ Tools SHOULD treat the violation of the rules given in the first sentence as:
 - error if the signature is expired at the time of the verification.
 
 Signatures are a technical construct.
-A current signatures does not guarantee that there is not newer information available.
+A current signature does not guarantee that newer information is not also available.
 The date representing the state of knowledge on which a CSAF document is based is described by the `current_release_date` in the CSAF document.
 For this reason and because the signatures are located in separate files, signatures can be replaced without modifying the document itself.
 Therefore, issuing parties SHALL replace signatures without updating the corresponding CSAF documents.
