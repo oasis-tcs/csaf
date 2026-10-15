@@ -1,7 +1,7 @@
 ### Language
 
 For each element of type `$['$defs'].lang_t` it SHALL be tested that the language code is valid and exists.
-CSAF Validators SHALL differentiate in the error message between the language code that contain subtags not in the registry
+A CSAF validator SHALL differentiate in the error message between the language code that contain subtags not in the registry
 and those that contain only subtags from the registry but the compiled language code is invalid.
 
 > For example, this happens if a subtag for a region is used as primary language subtag.
