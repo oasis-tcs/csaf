@@ -1,7 +1,7 @@
 ### Missing License Expression
 
 It SHALL be tested that the license expression is present and set.
-A CSAF Validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+A CSAF validator SHALL differentiate in the error message between the key being present but having no or an empty value and
 not being present at all.
 
 The relevant path for this test is:

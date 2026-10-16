@@ -15,7 +15,7 @@ See IETF language registry: <https://www.iana.org/assignments/language-subtag-re
 > It is recommended to follow the conventions for the capitalization of the subtags even though it is not mandatory as most users are used to that.
 
 CSAF Producers SHALL follow the conventions for the capitalization of the subtags.
-CSAF Validators SHALL treat subtags as case-insensitive unless stated otherwise in the test.
+CSAF validators SHALL treat subtags as case-insensitive unless stated otherwise in the test.
 
 *Examples 1:*
 

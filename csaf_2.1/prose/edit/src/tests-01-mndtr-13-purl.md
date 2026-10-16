@@ -1,4 +1,4 @@
-### PURL
+### PURL{#mandatory--purl}
 
 It SHALL be tested that all given PURLs are valid.
 
