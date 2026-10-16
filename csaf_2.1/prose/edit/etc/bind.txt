@@ -136,6 +136,7 @@ tests-01-mndtr-64-07-missing-definition-of-entity-group-id.md
 tests-01-mndtr-64-08-multiple-definition-of-entity-group-id.md
 tests-01-mndtr-64-09-missing-definition-of-action-id.md
 tests-01-mndtr-64-10-multiple-definition-of-action-id.md
+tests-01-mndtr-64-11-circular-reference-of-action-id.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
