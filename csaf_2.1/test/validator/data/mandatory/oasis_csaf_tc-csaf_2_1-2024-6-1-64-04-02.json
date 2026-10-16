@@ -90,7 +90,9 @@
           "date": "2024-01-20T10:00:00.000Z",
           "category": "notification",
           "receiving_entity_refs": [
-            "EID-0004"
+            "EID-0004",
+            "EID-0003",
+            "EID-0002"
           ],
           "status": "completed",
           "summary": "The group submitted a joint report to the authority."
