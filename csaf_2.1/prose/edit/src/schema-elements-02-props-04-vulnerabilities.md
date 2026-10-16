@@ -13,7 +13,7 @@ The Vulnerability item of value type `object` with `1` or more properties is a c
 a single vulnerability in the document.
 Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
 Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
-List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`),
+Document-local Vuln ID (`dl_vuln_id`), List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`),
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
 
@@ -27,6 +27,7 @@ Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_ext
     cwes: Sequence
     disclosure_date: String.DateTime
     discovery_date: String.DateTime
+    dl_vuln_id: $defs.dl_vuln_id_t
     first_known_exploitation_dates: Sequence
     flags: Sequence
     ids: Sequence
@@ -176,6 +177,12 @@ As a consequence, the `discovery_date` needs to be earlier than or equal to the 
 #### Vulnerabilities Property - Discovery Date
 
 Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
+
+#### Vulnerability Property - Document-local Vuln ID
+
+Document-local Vuln ID (`dl_vuln_id`) of value type Document-local Vuln ID (`dl_vuln_id_t`) contains the local ID
+referring to this vulnerability from another part of the same document.
+Its value SHALL be unique across all vulnerability items within the document.
 
 #### Vulnerabilities Property - First Known Exploitation Dates
 

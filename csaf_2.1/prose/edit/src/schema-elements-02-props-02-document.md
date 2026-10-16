@@ -343,7 +343,7 @@ List of acting entities (`acting_entity_refs`) of value type
 Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
 
 Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
-Its values SHALL be unique across all action items.
+Its value SHALL be unique across all action items.
 
 Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
 Valid values are:
@@ -413,7 +413,8 @@ Date of the action (`date`) of value type `string` with format `date-time` conta
 
 List of document-local vuln IDs (`dl_vuln_ids`) of value type `array` with `1` or more unique items (a `set`) contains a list of local IDs
 referring to vulnerabilities within the same document that this action applies to.
-Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element the current action applies to.
+Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element
+the current action applies to.
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current action item applies to.
 
