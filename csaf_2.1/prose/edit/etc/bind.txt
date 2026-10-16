@@ -139,6 +139,7 @@ tests-01-mndtr-64-10-multiple-definition-of-action-id.md
 tests-01-mndtr-64-11-circular-reference-of-action-id.md
 tests-01-mndtr-65-00-document-local-vuln-id-tests.md
 tests-01-mndtr-65-01-missing-definition-of-document-local-vuln-id.md
+tests-01-mndtr-65-02-multiple-definition-of-document-local-vuln-id.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
