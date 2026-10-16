@@ -132,6 +132,7 @@ tests-01-mndtr-64-03-missing-recipient-on-attempt.md
 tests-01-mndtr-64-04-actor-and-recipient.md
 tests-01-mndtr-64-05-missing-definition-of-entity-id.md
 tests-01-mndtr-64-06-multiple-definition-of-entity-id.md
+tests-01-mndtr-64-07-missing-definition-of-entity-group-id.md
 tests-02-recommended.md
 tests-02-rcmmndd-01-unused-definition-of-product-id.md
 tests-02-rcmmndd-02-missing-remediation.md
