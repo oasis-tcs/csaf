@@ -3,7 +3,7 @@
 For each item in `$.document.involvement.actions` it SHALL be tested that an entity is not actor and recipient.
 This takes indirect relations through entity groups into account.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.document.involvement.actions[*]

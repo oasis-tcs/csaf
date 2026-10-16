@@ -3,7 +3,7 @@
 For each item in `$.document.involvement.actions` which has one of the categories `confirmation`, `coordination`, `dispute` or `notification`
 it SHALL be tested that the element `receiving_entity_refs` exists.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.document.involvement.actions[*]
