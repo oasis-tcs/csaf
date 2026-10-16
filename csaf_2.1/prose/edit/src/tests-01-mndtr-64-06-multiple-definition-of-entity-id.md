@@ -1,4 +1,4 @@
-### Multiple Definition of Entity ID
+#### Multiple Definition of Entity ID
 
 For each Entity ID (type: `$['$defs'].entity_id_t`) in Entity elements (`$.document.involvement.entities[*]`)
 it SHALL be tested that the `entity_id` was not already defined within the same document.

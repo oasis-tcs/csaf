@@ -1,4 +1,4 @@
-### Multiple Definition of Entity Group ID
+#### Multiple Definition of Entity Group ID
 
 For each Entity Group ID (type: `$['$defs'].entity_group_id_t`) in Entity Group elements (`$.document.involvement.entity_groups[*]`)
 it SHALL be tested that the `entity_group_id` was not already defined within the same document.

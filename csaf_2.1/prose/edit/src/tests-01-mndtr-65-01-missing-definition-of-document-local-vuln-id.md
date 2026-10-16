@@ -1,4 +1,4 @@
-### Missing Definition of Document-local Vuln ID
+#### Missing Definition of Document-local Vuln ID
 
 For each element of type `$['$defs'].dl_vuln_id_t` which is not inside a vulnerability (`$.vulnerabilities[*].dl_vuln_id`)
 and therefore references a vulnerability

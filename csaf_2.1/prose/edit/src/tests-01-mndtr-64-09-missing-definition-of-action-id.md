@@ -1,4 +1,4 @@
-### Missing Definition of Action ID
+#### Missing Definition of Action ID
 
 For each element of type `$['$defs'].action_id_t` which is not defining an action (`$.document.involvement.actions[*].action_id`)
 and therefore references an action

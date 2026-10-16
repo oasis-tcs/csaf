@@ -1,4 +1,4 @@
-### Missing Definition of Entity ID
+#### Missing Definition of Entity ID
 
 For each element of type `$['$defs'].entity_id_t` which is not inside the list of entities (`$.document.involvement.entities`)
 and therefore references an item within the list of entities

@@ -1,4 +1,4 @@
-### Multiple Definition of Document-local Vuln ID
+#### Multiple Definition of Document-local Vuln ID
 
 For each element of type `$['$defs'].dl_vuln_id_t` in vulnerabilities (`$.vulnerabilities[*].dl_vuln_id`)
 it SHALL be tested that the `dl_vuln_id` was not already defined within the same document.

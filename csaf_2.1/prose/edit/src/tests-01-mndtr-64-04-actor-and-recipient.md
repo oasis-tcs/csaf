@@ -1,4 +1,4 @@
-### Actor and Recipient
+#### Actor and Recipient
 
 For each item in `$.document.involvement.actions` it SHALL be tested that an entity is not actor and recipient.
 This takes indirect relations through entity groups into account.

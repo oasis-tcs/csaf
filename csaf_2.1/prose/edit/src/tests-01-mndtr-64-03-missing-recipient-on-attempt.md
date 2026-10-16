@@ -1,4 +1,4 @@
-### Missing Recipient on Attempt
+#### Missing Recipient on Attempt
 
 For each item in `$.document.involvement.actions` with the `status` value of `attempted`
 it SHALL be tested that the element `receiving_entity_refs` exists.

@@ -1,4 +1,4 @@
-### Circular Reference of Action ID
+#### Circular Reference of Action ID
 
 For each action containing at least one referenced action id (type `$['$defs'].action_id_t`)
 it SHALL be tested that the action does not end up in a circle.

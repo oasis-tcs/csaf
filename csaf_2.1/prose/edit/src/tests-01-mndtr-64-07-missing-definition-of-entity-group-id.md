@@ -1,4 +1,4 @@
-### Missing Definition of Entity Group ID
+#### Missing Definition of Entity Group ID
 
 For each element of type `$['$defs'].entity_group_id_t` which is not inside the list of entity groups (`$.document.involvement.entity_groups`)
 and therefore references an item within the list of entity groups

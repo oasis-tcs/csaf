@@ -1,4 +1,4 @@
-### Contradicting Definition in Actions
+#### Contradicting Definition in Actions
 
 It SHALL be tested that items of the list of actions do not contradict each other.
 

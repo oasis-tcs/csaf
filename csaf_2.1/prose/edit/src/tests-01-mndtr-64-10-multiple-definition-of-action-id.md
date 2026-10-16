@@ -1,4 +1,4 @@
-### Multiple Definition of Action ID
+#### Multiple Definition of Action ID
 
 For each element of type `$['$defs'].action_id_t` which is defining an action (`$.document.involvement.actions[*].action_id`)
 it SHALL be tested that the `action_id` was not already defined within the same document.
