@@ -44,4 +44,3 @@ The relevant paths for this test are:
 ```
 
 > The action `ACN-1` contains `EID-0002` as receiving entity which is not defined in the list of entities.
-
