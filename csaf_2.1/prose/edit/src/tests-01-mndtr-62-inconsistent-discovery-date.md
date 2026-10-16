@@ -4,7 +4,7 @@ For each vulnerability, it SHALL be tested that the `discovery_date` is earlier 
 of the `revision_history` if the document status is `final` or `interim`.
 Also, the `discovery_date` SHALL be earlier than or equal to the `disclosure_date` of the same vulnerability.
 
-As the timestamps might use different timezones, the sorting SHALL take timezones into account.
+As the timestamps might use different timezones, the sorting and comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 

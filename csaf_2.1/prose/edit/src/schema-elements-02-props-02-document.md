@@ -332,7 +332,7 @@ List of receiving entities (`receiving_entity_refs`), List of referenced actions
         group_ids: $defs.product_groups_t
         product_ids: $defs.products_t
         receiving_entity_refs: $defs.entity_refs_id_t
-        referenced_action_ids: $defs.action_id_t
+        referenced_action_ids: Sequence
         summary: String
         status: String.Enum
       # ...
@@ -672,6 +672,18 @@ Table: Requirements for combinations of `category` and `title` that have a speci
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
 
+*Example 1 (for `text` when stating a legal disclaimer):*
+
+```
+  This content is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). If you distribute this content, or a modified version of it, you must provide attribution to Example Organization and provide a link to the original.
+```
+
+*Example 2 (for `text` when stating a legal disclaimer):*
+
+```
+  THIS DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS AND DOES NOT IMPLY ANY KIND OF GUARANTEE OR WARRANTY, INCLUDING THE WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE. YOUR USE OF THE INFORMATION ON THE DOCUMENT OR MATERIALS LINKED FROM THE DOCUMENT IS AT YOUR OWN RISK. EXAMPLE COMPANY RESERVES THE RIGHT TO CHANGE OR UPDATE THIS DOCUMENT AT ANY TIME.
+```
+
 #### Document Property - Publisher
 
 Publisher (`publisher`) of value type `object` with the mandatory properties Category (`category`), Name (`name`) and
@@ -760,6 +772,15 @@ Contact (`contact`) of value type Contact Type (`contact_t`) contains informatio
 
 Issuing authority (`issuing_authority`) of value type `string` with `1` or more characters Provides information about
 the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
+
+*Examples 1:*
+
+```
+  Example Company PSIRT is responsible for vulnerability handling across all Example Company products and services.
+  Example CERT as designated CSIRT according to Directive (EU) 2022/2555 Article 12 section 1 acts as coordinator for the purposes of coordinated vulnerability disclosure.
+  Example ISAC publishes security information for products used by or relevant for its constituency enriched by a sector-specific assessment.
+  The Example Organization Security Team is responsible for vulnerability handling across all Example Organization offerings.
+```
 
 ##### Document Property - Publisher - Name
 
