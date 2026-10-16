@@ -391,7 +391,7 @@ The value `fix_deployment` indicates that the actor installed a fix.
 The value `fix_release` indicates that the actor published a fix, or made a fix available.
 
 The value `notification` indicates that the actor tells a different party about the vulnerability.
-To describe an action for which no suitable specific action category is available, the `notification` category SHOULD be used and any specific information SHOULD be described in the `action.summary` field.
+To describe an action for which no suitable specific action category is available, the `notification` category SHOULD be used and any specific information SHOULD be described in the `summary` field of the action.
 
 The value `observation` indicates that the actor observed that the vulnerability was used.
 The entities in `acting_entity_refs` are the entities that made the observation, and `date` is the date of the observation.
