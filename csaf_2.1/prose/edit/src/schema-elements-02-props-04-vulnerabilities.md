@@ -180,7 +180,7 @@ Discovery date (`discovery_date`) of value type `string` with format `date-time`
 
 #### Vulnerability Property - Document-local Vuln ID
 
-Document-local Vuln ID (`dl_vuln_id`) of value type Document-local Vuln ID Type (`dl_vuln_id_t`) contains the local ID
+Document-local Vuln ID (`dl_vuln_id`) of value type Document-local Vuln ID (`dl_vuln_id_t`) contains the local ID
 referring to this vulnerability from another part of the same document.
 Its value SHALL be unique across all vulnerability items within the document.
 

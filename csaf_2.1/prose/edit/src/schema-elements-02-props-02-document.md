@@ -343,7 +343,7 @@ List of acting entities (`acting_entity_refs`) of value type
 Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
 
 Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
-Its values SHALL be unique across all action items.
+Its value SHALL be unique across all action items.
 
 Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
 Valid values are:

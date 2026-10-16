@@ -64,6 +64,7 @@ The summary of the product group (`summary`) of value type `string` with `1` or 
 ```
 
 Group ID (`group_id`) has value type Product Group ID (`product_group_id_t`).
+Its value SHALL be unique across all Product Group items within the document.
 
 List of Product IDs (`product_ids`) of value type `array` with `2` or more unique items of value type Product ID (`product_id_t`) lists
 the product_ids of those products which are known as one group in the document.
