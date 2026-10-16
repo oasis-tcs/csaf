@@ -9,23 +9,23 @@
       }
     },
     "involvement": {
+      "actions": [
+        {
+          "acting_entity_refs": [
+            "EID-0001"
+          ],
+          "action_id": "ACN-1",
+          "category": "notification",
+          "date": "2024-01-10T09:00:00Z",
+          "status": "attempted",
+          "summary": "Tried to report vulnerability to vendor."
+        }
+      ],
       "entities": [
         {
           "category": "discoverer",
           "entity_id": "EID-0001",
           "name": "Jane Researcher"
-        }
-      ],
-      "actions": [
-        {
-          "action_id": "ACN-1",
-          "acting_entity_refs": [
-            "EID-0001"
-          ],
-          "date": "2024-01-10T09:00:00Z",
-          "category": "notification",
-          "status": "attempted",
-          "summary": "Tried to report vulnerability to vendor."
         }
       ]
     },

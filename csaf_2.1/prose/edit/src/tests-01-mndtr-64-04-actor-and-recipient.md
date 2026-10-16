@@ -13,12 +13,12 @@ The relevant paths for this test are:
 
 ```
   {
-    "action_id": "ACN-1",
     "acting_entity_refs": [
       "EID-0001"
     ],
-    "date": "2024-01-10T09:00:00Z",
+    "action_id": "ACN-1",
     "category": "notification",
+    "date": "2024-01-10T09:00:00Z",
     "receiving_entity_refs": [
       "EID-0001"
     ],

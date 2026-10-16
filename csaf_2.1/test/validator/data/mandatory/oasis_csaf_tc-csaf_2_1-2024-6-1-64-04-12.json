@@ -9,6 +9,50 @@
       }
     },
     "involvement": {
+      "actions": [
+        {
+          "acting_entity_refs": [
+            "EID-0001"
+          ],
+          "action_id": "ACN-1",
+          "category": "notification",
+          "date": "2024-01-10T09:00:00Z",
+          "receiving_entity_refs": [
+            "EGID-9001"
+          ],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor, coordinator and regulator."
+        },
+        {
+          "acting_entity_refs": [
+            "EGID-9001"
+          ],
+          "action_id": "ACN-2",
+          "category": "confirmation",
+          "date": "2024-01-10T15:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0001"
+          ],
+          "referenced_action_ids": [
+            "ACN-1"
+          ],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        },
+        {
+          "acting_entity_refs": [
+            "EGID-9002"
+          ],
+          "action_id": "ACN-3",
+          "category": "notification",
+          "date": "2024-01-20T10:00:00.000Z",
+          "receiving_entity_refs": [
+            "EID-0004"
+          ],
+          "status": "completed",
+          "summary": "The group submitted a joint report to the authority."
+        }
+      ],
       "entities": [
         {
           "category": "discoverer",
@@ -34,65 +78,21 @@
       "entity_groups": [
         {
           "entity_group_id": "EGID-9001",
-          "name": "Non-discoverer participants",
           "entity_ids": [
             "EID-0002",
             "EID-0003",
             "EID-0004"
-          ]
+          ],
+          "name": "Non-discoverer participants"
         },
         {
           "entity_group_id": "EGID-9002",
-          "name": "Non-reporting authority participants",
           "entity_ids": [
             "EID-0001",
             "EID-0002",
             "EID-0003"
-          ]
-        }
-      ],
-      "actions": [
-        {
-          "action_id": "ACN-1",
-          "acting_entity_refs": [
-            "EID-0001"
           ],
-          "date": "2024-01-10T09:00:00Z",
-          "category": "notification",
-          "receiving_entity_refs": [
-            "EGID-9001"
-          ],
-          "status": "completed",
-          "summary": "Reported vulnerability to vendor, coordinator and regulator."
-        },
-        {
-          "action_id": "ACN-2",
-          "acting_entity_refs": [
-            "EGID-9001"
-          ],
-          "date": "2024-01-10T15:00:00Z",
-          "category": "confirmation",
-          "receiving_entity_refs": [
-            "EID-0001"
-          ],
-          "referenced_action_ids": [
-            "ACN-1"
-          ],
-          "status": "completed",
-          "summary": "Confirmed receipt of the report."
-        },
-        {
-          "action_id": "ACN-3",
-          "acting_entity_refs": [
-            "EGID-9002"
-          ],
-          "date": "2024-01-20T10:00:00.000Z",
-          "category": "notification",
-          "receiving_entity_refs": [
-            "EID-0004"
-          ],
-          "status": "completed",
-          "summary": "The group submitted a joint report to the authority."
+          "name": "Non-reporting authority participants"
         }
       ]
     },
