@@ -57,8 +57,10 @@ The use of GitHub-flavored Markdown is permitted in the following fields:
   $.document.acknowledgments[*].summary
   $.document.distribution.text
   $.document.involvement.actions[*].summary
+  $.document.involvement.entities[*].contact.details
   $.document.involvement.entity_groups[*].summary
   $.document.notes[*].text
+  $.document.publisher.contact.details
   $.document.publisher.issuing_authority
   $.document.references[*].summary
   $.document.tracking.revision_history[*].summary

@@ -2,7 +2,7 @@
 
 For each vulnerability, it SHALL be tested that each SSVC `timestamp` is earlier than or equal to the `date` of the newest item of the
 `revision_history` if the document status is `final` or `interim`.
-As the timestamps might use different timezones, the sorting SHALL take timezones into account.
+As the timestamps might use different timezones, the sorting and comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 

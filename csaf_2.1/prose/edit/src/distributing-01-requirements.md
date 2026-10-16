@@ -64,10 +64,10 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > or in the main directory adjacent to the year folders (requirement 14), `changes.csv` (requirement 13) and the `index.txt` (requirement 12).
 > Suggested locations to store the `provider-metadata.json` are:
 >
-> * https://www.example.com/.well-known/csaf/provider-metadata.json
-> * https://domain.tld/security/data/csaf/provider-metadata.json
-> * https://psirt.domain.tld/advisories/csaf/provider-metadata.json
-> * https://domain.tld/security/csaf/provider-metadata.json
+> - <https://www.example.com/.well-known/csaf/provider-metadata.json>
+> - <https://domain.tld/security/data/csaf/provider-metadata.json>
+> - <https://psirt.domain.tld/advisories/csaf/provider-metadata.json>
+> - <https://domain.tld/security/csaf/provider-metadata.json>
 
 *Example 1 (minimal with ROLIE document):*
 
@@ -109,10 +109,10 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 ```
 
 The `maintained_until` and `maintained_from` properties can be used to indicate that the distributions contained in `provider-metadata.json` at
-the given `canonical_url` are only guaranteed to be maintained until or after the specified date and time. 
+the given `canonical_url` are only guaranteed to be maintained until or after the specified date and time.
 This SHOULD be used to support a transition period between CSAF 2.0 and CSAF 2.1 (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
-CSAF downloaders (cf. section [sec](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json` 
-SHOULD evaluate this property and emit a warning if the current date is less than 90 days away from `maintained_until` and an error if the current 
+CSAF downloaders (cf. section [sec](#conformance-clause-23-csaf-downloader)) and programs retrieving or providing a `provider-metadata.json`
+SHOULD evaluate this property and emit a warning if the current date is less than 90 days away from `maintained_until` and an error if the current
 date exceeds `maintained_until`.
 The programs MAY provide a non-default option to use the `provider-metadata.json` anyway.
 Furthermore, such programs SHOULD evaluate the `maintained_from` property and output a warning if the current date is still before the `maintained_from` timestamp.
@@ -153,7 +153,7 @@ CSAF: https://domain.tld/security/csaf/provider-metadata.json
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
 e.g. in case of changes to the organizational structure through mergers and acquisitions.
 However, this SHOULD NOT be done and removed as soon as possible.
-A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents 
+A valid use case for temporarily including multiple entries would be a transition phase between different CSAF versions, in which documents
 and provider metadata of both versions are served simultaneously (cf. section [sec](#transition-between-csaf-2-0-and-csaf-2-1)).
 If one of the URLs fulfills requirement 9, it SHALL be set as the first CSAF entry in the security.txt.
 
@@ -264,9 +264,9 @@ The file `index.txt` SHALL be located in the folder given as directory URL under
 │  │  ├─ index.txt
 ```
 
-> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `index.txt` files - one for each TLP label.
-> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
-> Example \[[eg](#requirement-12-index-txt-eg-1)\] depicts the content of the `index.txt` within the folder `clear`
+> The example [eg](#requirement-12-index-txt-eg-2) uses five `index.txt` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example [eg](#requirement-12-index-txt-eg-3).
+> Example [eg](#requirement-12-index-txt-eg-1) depicts the content of the `index.txt` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/index.txt`.
 
 *Example 3:*
@@ -330,9 +330,9 @@ The `changes.csv` SHALL be a valid comma separated values format as defined by [
 
 The file `changes.csv` SHALL be located in the folder given as directory URL under `$.distributions[*].directory.url` in the `provider-metadata.json`.
 
-> The example \[[eg](#requirement-12-index-txt-eg-2)\] uses five `changes.csv` files - one for each TLP label.
-> The corresponding `provider-metadata.json` excerpt is given in example \[[eg](#requirement-12-index-txt-eg-3)\].
-> Example \[[eg](#requirement-13-changes-csv-eg-1)\] depicts the content of the `changes.csv` within the folder `clear`
+> The example [eg](#requirement-12-index-txt-eg-2) uses five `changes.csv` files - one for each TLP label.
+> The corresponding `provider-metadata.json` excerpt is given in example [eg](#requirement-12-index-txt-eg-3).
+> Example [eg](#requirement-13-changes-csv-eg-1) depicts the content of the `changes.csv` within the folder `clear`
 > located at `https://www.example.com/.well-known/csaf/clear/changes.csv`.
 
 ### Requirement 14: Directory Listings
@@ -572,6 +572,12 @@ Tools SHOULD treat the violation of the rules given in the first sentence as:
 - error, which MAY be ignored by the user per option, if the signature is only valid for 30 days or less at the time of
   the verification and
 - error if the signature is expired at the time of the verification.
+
+Signatures are a technical construct.
+A current signature does not guarantee that newer information is not also available.
+The date representing the state of knowledge on which a CSAF document is based is described by the `current_release_date` in the CSAF document.
+For this reason and because the signatures are located in separate files, signatures can be replaced without modifying the document itself.
+Therefore, issuing parties SHALL replace signatures without updating the corresponding CSAF documents.
 
 ### Requirement 20: Public OpenPGP Key
 
