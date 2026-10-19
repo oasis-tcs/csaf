@@ -52,6 +52,6 @@ The relevant path for this test is:
   },
 ```
 
-> `EGID-9001` does not contain a `summary` and was not referenced elsewhere in the document.
+> The unreferenced entity group `EGID-9001` does not contain a `summary`.
 
 > A tool MAY suggest to add a summary to such definition as a quick fix.
