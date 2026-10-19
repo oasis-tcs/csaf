@@ -251,6 +251,7 @@ tests-03-nfrmtv-26-00-involvement-tests.md
 tests-03-nfrmtv-26-01-missing-confirmation-for-completed-notification.md
 tests-03-nfrmtv-26-02-unused-definition-of-entity-group-id.md
 tests-03-nfrmtv-26-03-vulnerability-not-covered-by-involvement.md
+tests-03-nfrmtv-26-04-multiple-use-of-same-entity-name.md
 tests-04-presets.md
 tests-05-result-elevation.md
 distributing-00.md
