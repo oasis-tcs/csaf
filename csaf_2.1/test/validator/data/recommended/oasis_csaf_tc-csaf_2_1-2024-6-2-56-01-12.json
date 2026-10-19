@@ -1,0 +1,142 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "involvement": {
+      "actions": [
+        {
+          "acting_entity_refs": [
+            "EID-0001"
+          ],
+          "action_id": "ACN-1",
+          "category": "notification",
+          "date": "2024-01-01T09:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0002"
+          ],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor."
+        },
+        {
+          "acting_entity_refs": [
+            "EID-0002"
+          ],
+          "action_id": "ACN-2",
+          "category": "confirmation",
+          "date": "2024-01-02T15:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0001"
+          ],
+          "referenced_action_ids": [
+            "ACN-1"
+          ],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        },
+        {
+          "acting_entity_refs": [
+            "EID-0002"
+          ],
+          "action_id": "ACN-3",
+          "category": "notification",
+          "date": "2024-01-24T10:00:00.000Z",
+          "receiving_entity_refs": [
+            "EID-0003",
+            "EGID-9001"
+          ],
+          "status": "completed",
+          "summary": "Released advisory."
+        },
+        {
+          "acting_entity_refs": [
+            "EID-0004"
+          ],
+          "action_id": "ACN-4",
+          "category": "confirmation",
+          "date": "2024-01-24T12:00:00.000Z",
+          "receiving_entity_refs": [
+            "EID-0002"
+          ],
+          "referenced_action_ids": [
+            "ACN-3"
+          ],
+          "status": "completed",
+          "summary": "Confirmed receipt of the advisory."
+        }
+      ],
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        },
+        {
+          "category": "public",
+          "entity_id": "EID-0003"
+        },
+        {
+          "category": "reporting_authority",
+          "entity_id": "EID-0004",
+          "name": "National CSIRT"
+        },
+        {
+          "category": "user",
+          "entity_id": "EID-0005",
+          "name": "Example User Org"
+        },
+        {
+          "category": "user",
+          "entity_id": "EID-0006",
+          "name": "Example User Company"
+        }
+      ],
+      "entity_groups": [
+        {
+          "entity_group_id": "EGID-9001",
+          "entity_ids": [
+            "EID-0004",
+            "EID-0005",
+            "EID-0006"
+          ],
+          "name": "Known entities to inform."
+        }
+      ]
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Completed Notification without any Confirmation (valid example 2)",
+    "tracking": {
+      "current_release_date": "2024-02-25T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-56-01-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        },
+        {
+          "date": "2024-02-25T10:00:00.000Z",
+          "number": "2",
+          "summary": "Updated involvement timeline."
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  }
+}

@@ -211,6 +211,8 @@ tests-02-rcmmndd-52-unknown-hash-algorithm.md
 tests-02-rcmmndd-53-matching-text-for-registered-id-system.md
 tests-02-rcmmndd-54-extension-tests.md
 tests-02-rcmmndd-55-public-openpgp-key-url.md
+tests-02-rcmmndd-56-00-involvement-tests.md
+tests-02-rcmmndd-56-01-completed-notification-without-any-confirmation.md
 tests-03-informative.md
 tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
 tests-03-nfrmtv-02-use-of-cvss-v3-0.md
