@@ -1,4 +1,4 @@
-### Involvement Tests{#mandatory--involvment-tests}
+### Involvement Tests{#mandatory--involvement-tests}
 
 This subsubsection structures the mandatory tests for `$.document.involvement`.
 Each of the following tests SHOULD be treated as they were listed similar to the other tests.

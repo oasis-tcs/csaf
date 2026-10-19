@@ -241,6 +241,8 @@ tests-03-nfrmtv-23-01-involvement.md
 tests-03-nfrmtv-23-02-disclosure-date.md
 tests-03-nfrmtv-24-public-openpgp-key-url-user-id.md
 tests-03-nfrmtv-25-non-latest-ssvc-decision-point-version-at-validation-time.md
+tests-03-nfrmtv-26-00-involvement-tests.md
+tests-03-nfrmtv-26-01-missing-confirmation-for-completed-notification.md
 tests-04-presets.md
 tests-05-result-elevation.md
 distributing-00.md
