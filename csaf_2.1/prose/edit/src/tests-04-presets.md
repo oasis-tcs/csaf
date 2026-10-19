@@ -93,6 +93,7 @@ Additional presets are defined as follows:
     - [sec](#inconsistent-first-known-exploitation-dates)
     - [sec](#inconsistent-exploitation-date)
     - [sec](#inconsistent-discovery-date)
+    - [sec](#inconsistent-future-action-date)
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:

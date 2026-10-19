@@ -22,34 +22,34 @@ The relevant path for this test is:
 *Example 1 (which fails the test):*
 
 ```
-{
-  // ...
-  "document": {
+  {
     // ...
-    "involvement": {
-      "actions": [
-        {
+    "document": {
+      // ...
+      "involvement": {
+        "actions": [
+          {
+            // ...
+            "action_id": "ACN-1",
+            // ...
+            "dl_vuln_ids": [
+              "VULN-1"
+            ],
+            // ...
+          },
           // ...
-          "action_id": "ACN-1",
-          // ...
-          "dl_vuln_ids": [
-            "VULN-1"
-          ],
-          // ...
-        },
+        ],
         // ...
-      ],
+      },
       // ...
     },
-    // ...
-  },
-  "vulnerabilities": [
-    {
-      "dl_vuln_id": "VULN-1",
-      "title": "A vulnerability explicitly referenced."
-    }
-  ]
-}
+    "vulnerabilities": [
+      {
+        "dl_vuln_id": "VULN-1",
+        "title": "A vulnerability explicitly referenced."
+      }
+    ]
+  }
 ```
 
 > `ACN-1` mentions all vulnerabilites from the CSAF document explicitly.
