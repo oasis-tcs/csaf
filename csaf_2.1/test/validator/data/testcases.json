@@ -4912,6 +4912,54 @@
       ]
     },
     {
+      "id": "6.2.56.2",
+      "group": "recommended",
+      "failures": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-01.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-02.json",
+          "valid": true
+        }
+      ],
+      "valid": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-11.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-12.json",
+          "valid": true
+        }
+      ]
+    },
+    {
+      "id": "6.2.57",
+      "group": "recommended",
+      "failures": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-01.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-02.json",
+          "valid": true
+        }
+      ],
+      "valid": [
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-11.json",
+          "valid": true
+        },
+        {
+          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-12.json",
+          "valid": true
+        }
+      ]
+    },
+    {
       "id": "6.3.1",
       "group": "informative",
       "failures": [
@@ -4947,30 +4995,6 @@
         },
         {
           "name": "informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-14.json",
-          "valid": true
-        }
-      ]
-    },
-    {
-      "id": "6.2.57",
-      "group": "recommended",
-      "failures": [
-        {
-          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-01.json",
-          "valid": true
-        },
-        {
-          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-02.json",
-          "valid": true
-        }
-      ],
-      "valid": [
-        {
-          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-11.json",
-          "valid": true
-        },
-        {
-          "name": "recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-57-12.json",
           "valid": true
         }
       ]
