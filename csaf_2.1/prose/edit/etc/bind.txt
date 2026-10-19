@@ -215,6 +215,7 @@ tests-02-rcmmndd-56-00-involvement-tests.md
 tests-02-rcmmndd-56-01-completed-notification-without-any-confirmation.md
 tests-02-rcmmndd-56-02-unused-definition-of-entity-group-id-without-summary.md
 tests-02-rcmmndd-56-03-unused-definition-of-entity-id.md
+tests-02-rcmmndd-56-04-explicit-reference-to-all-vulnerabilities.md
 tests-02-rcmmndd-57-unused-definition-of-document-local-vuln-id.md
 tests-03-informative.md
 tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
