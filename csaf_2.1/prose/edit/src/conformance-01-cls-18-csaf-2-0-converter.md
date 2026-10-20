@@ -295,11 +295,11 @@ Secondly, the program fulfills the following for all items of:
 
        The CSAF 2.0 to CSAF 2.1 Converter SHALL convert the value of `party` into the value of `category`.
        If the value of `party` is `other`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD issue a warning that some parties have been
-       regrouped into the new category values.
+       regrouped into new category values.
        An option to suppress this warning SHALL exist.
        In addition, an option SHOULD be provided to set one of the new values directly.
 
-       > Entities can be corrected through a mapping in the following step.
+       > Entities can be corrected through a mapping in a later step.
 
     4. The CSAF 2.0 to CSAF 2.1 Converter SHALL create an entity for the publisher of the CSAF 2.0 document with the same `name`
        and `category` as stated in the `$.document.publisher` object.
@@ -364,7 +364,8 @@ Secondly, the program fulfills the following for all items of:
        `dl_vuln_ids` of the representative of that group.
        Then, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove all items from `actions` except for the representative of the groups.
     During the conversion, the CSAF 2.0 to CSAF 2.1 Converter SHALL NOT invent data or set values in any other way than described above.
-    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document, it SHALL remove the `involvement` from the CSAF Document and issue a warning that `$.vulnerabilities[*].involvements could not be converted automatically
+    If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid CSAF 2.1 Document, it SHALL remove the `involvement`
+    from the CSAF Document and issue a warning that `$.vulnerabilities[*].involvements` could not be converted automatically
     and therefore have been removed.
 - `$.document.license_expression`: If any `$.document.notes` item in with `category` `legal_disclaimer` contains a valid SPDX license expression,
   the CSAF 2.0 to CSAF 2.1 Converter SHALL apply the following rules for the list of candidates:
