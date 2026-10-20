@@ -144,6 +144,4 @@ Additional presets are defined as follows:
   - Description: Any test whose result depends on the time it is run.
   - Set:
     - [sec](#disclosure-date-newer-than-revision-history)
-    - [sec](#completed-notification-without-any-confirmation)
     - [sec](#non-latest-ssvc-decision-point-version-at-validation-time)
-    - [sec](#missing-confirmation-for-completed-notification)
