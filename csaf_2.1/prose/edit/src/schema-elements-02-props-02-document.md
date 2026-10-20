@@ -457,6 +457,21 @@ The value `outstanding` indicates that a party waits for this action. The status
 
 The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
 
+> The commonly agreed order of these `status` values for a `notification` is:
+>
+> 1. `outstanding`
+> 2. `deferred`
+> 3. `planned`
+> 4. `attempted`
+> 5. `in_progress`
+> 6. `completed`
+> 7. `completed` referenced by a `confirmation` with `status` of `completed`
+>
+> The difference between a completed notification and one that also is referenced by a completed confirmation can be an important
+> distinction for the notifying entity.
+> Most likely, the list of actions will not carry every status for each `notification`
+> but will highlight the important steps in the process.
+
 ##### Document Property - Involvement - Entities
 
 List of entities (`entities`) of value type `array` with `1` or more unique items (a `set`) contains a list of entities related.
