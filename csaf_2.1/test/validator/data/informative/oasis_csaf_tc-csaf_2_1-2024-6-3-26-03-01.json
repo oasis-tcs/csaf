@@ -12,14 +12,11 @@
       "actions": [
         {
           "acting_entity_refs": [
-            "EID-0001"
+            "EGID-9001"
           ],
           "action_id": "ACN-1",
           "category": "notification",
           "date": "2024-01-01T09:00:00Z",
-          "dl_vuln_ids": [
-            "VULN-1"
-          ],
           "receiving_entity_refs": [
             "EID-0002"
           ],
@@ -33,11 +30,8 @@
           "action_id": "ACN-2",
           "category": "confirmation",
           "date": "2024-01-02T15:00:00Z",
-          "dl_vuln_ids": [
-            "VULN-1"
-          ],
           "receiving_entity_refs": [
-            "EID-0001"
+            "EGID-9002"
           ],
           "referenced_action_ids": [
             "ACN-1"
@@ -56,6 +50,29 @@
           "category": "vendor",
           "entity_id": "EID-0002",
           "name": "Example Company"
+        },
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0003",
+          "name": "Joe Researcher"
+        }
+      ],
+      "entity_groups": [
+        {
+          "entity_group_id": "EGID-9001",
+          "entity_ids": [
+            "EID-0001",
+            "EID-0003"
+          ],
+          "name": "JJ Research"
+        },
+        {
+          "entity_group_id": "EGID-9002",
+          "entity_ids": [
+            "EID-0001",
+            "EID-0003"
+          ],
+          "name": "JJ Research"
         }
       ]
     },
@@ -64,7 +81,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative Test: Vulnerability Not Covered by Involvement (failing example 1)",
+    "title": "Recommended Test: Multiple Use of Same Entity Group Name (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-26-03-01",
@@ -79,16 +96,5 @@
       "status": "final",
       "version": "1"
     }
-  },
-  "vulnerabilities": [
-    {
-      "cve": "CVE-1900-0001",
-      "dl_vuln_id": "VULN-1",
-      "title": "A vulnerability with a document-local vuln ID and CVE."
-    },
-    {
-      "cve": "CVE-1900-0002",
-      "title": "A vulnerability discovered independently."
-    }
-  ]
+  }
 }

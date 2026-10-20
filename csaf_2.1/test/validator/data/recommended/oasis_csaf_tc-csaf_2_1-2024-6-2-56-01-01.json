@@ -16,12 +16,28 @@
           ],
           "action_id": "ACN-1",
           "category": "notification",
-          "date": "2024-01-01T09:00:00Z",
+          "date": "2024-01-11T09:00:00Z",
           "receiving_entity_refs": [
             "EID-0002"
           ],
           "status": "completed",
           "summary": "Reported vulnerability to vendor."
+        },
+        {
+          "acting_entity_refs": [
+            "EID-0002"
+          ],
+          "action_id": "ACN-2",
+          "category": "confirmation",
+          "date": "2024-01-02T15:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0001"
+          ],
+          "referenced_action_ids": [
+            "ACN-1"
+          ],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
         }
       ],
       "entities": [
@@ -42,7 +58,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Completed Notification without any Confirmation (failing example 1)",
+    "title": "Recommended Test: Confirmation before Action (failing example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-56-01-01",

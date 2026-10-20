@@ -18,7 +18,7 @@
           "category": "notification",
           "date": "2024-01-01T09:00:00Z",
           "receiving_entity_refs": [
-            "EGID-9001"
+            "EID-0002"
           ],
           "status": "completed",
           "summary": "Reported vulnerability to vendor and coordinator."
@@ -30,22 +30,6 @@
           "action_id": "ACN-2",
           "category": "confirmation",
           "date": "2024-01-02T15:00:00Z",
-          "receiving_entity_refs": [
-            "EID-0001"
-          ],
-          "referenced_action_ids": [
-            "ACN-1"
-          ],
-          "status": "completed",
-          "summary": "Confirmed receipt of the report."
-        },
-        {
-          "acting_entity_refs": [
-            "EID-0003"
-          ],
-          "action_id": "ACN-3",
-          "category": "confirmation",
-          "date": "2024-01-02T10:00:00Z",
           "receiving_entity_refs": [
             "EID-0001"
           ],
@@ -66,21 +50,6 @@
           "category": "vendor",
           "entity_id": "EID-0002",
           "name": "Example Company"
-        },
-        {
-          "category": "coordinator",
-          "entity_id": "EID-0003",
-          "name": "Example Coordinator"
-        }
-      ],
-      "entity_groups": [
-        {
-          "entity_group_id": "EGID-9001",
-          "entity_ids": [
-            "EID-0002",
-            "EID-0003"
-          ],
-          "name": "Report receiver group"
         }
       ]
     },
@@ -89,7 +58,7 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Informative Test: Missing Confirmation for Completed Notification (valid example 1)",
+    "title": "Informative Test: Vulnerability Not Covered by Involvement (valid example 1)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
       "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-26-01-11",
@@ -104,5 +73,16 @@
       "status": "final",
       "version": "1"
     }
-  }
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "dl_vuln_id": "VULN-1",
+      "title": "A vulnerability with a document-local vuln ID and CVE."
+    },
+    {
+      "cve": "CVE-1900-0002",
+      "title": "A vulnerability discovered by the same researchers."
+    }
+  ]
 }

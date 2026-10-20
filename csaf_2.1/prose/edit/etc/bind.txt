@@ -212,12 +212,11 @@ tests-02-rcmmndd-53-matching-text-for-registered-id-system.md
 tests-02-rcmmndd-54-extension-tests.md
 tests-02-rcmmndd-55-public-openpgp-key-url.md
 tests-02-rcmmndd-56-00-involvement-tests.md
-tests-02-rcmmndd-56-01-completed-notification-without-any-confirmation.md
+tests-02-rcmmndd-56-01-confirmation-before-action.md
 tests-02-rcmmndd-56-02-unused-definition-of-entity-group-id-without-summary.md
 tests-02-rcmmndd-56-03-unused-definition-of-entity-id.md
 tests-02-rcmmndd-56-04-explicit-reference-to-all-vulnerabilities.md
 tests-02-rcmmndd-56-05-inconsistent-future-action-date.md
-tests-02-rcmmndd-56-06-confirmation-before-action.md
 tests-02-rcmmndd-57-unused-definition-of-document-local-vuln-id.md
 tests-03-informative.md
 tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
@@ -248,11 +247,10 @@ tests-03-nfrmtv-23-02-disclosure-date.md
 tests-03-nfrmtv-24-public-openpgp-key-url-user-id.md
 tests-03-nfrmtv-25-non-latest-ssvc-decision-point-version-at-validation-time.md
 tests-03-nfrmtv-26-00-involvement-tests.md
-tests-03-nfrmtv-26-01-missing-confirmation-for-completed-notification.md
+tests-03-nfrmtv-26-01-vulnerability-not-covered-by-involvement.md
 tests-03-nfrmtv-26-02-unused-definition-of-entity-group-id.md
-tests-03-nfrmtv-26-03-vulnerability-not-covered-by-involvement.md
+tests-03-nfrmtv-26-03-multiple-use-of-same-entity-group-name.md
 tests-03-nfrmtv-26-04-multiple-use-of-same-entity-name.md
-tests-03-nfrmtv-26-05-multiple-use-of-same-entity-group-name.md
 tests-04-presets.md
 tests-05-result-elevation.md
 distributing-00.md

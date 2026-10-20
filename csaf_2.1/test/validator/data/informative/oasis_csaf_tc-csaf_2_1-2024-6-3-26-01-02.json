@@ -17,6 +17,11 @@
           "action_id": "ACN-1",
           "category": "notification",
           "date": "2024-01-01T09:00:00Z",
+          "dl_vuln_ids": [
+            "VULN-1",
+            "VULN-2",
+            "VULN-3"
+          ],
           "receiving_entity_refs": [
             "EID-0002"
           ],
@@ -29,7 +34,11 @@
           ],
           "action_id": "ACN-2",
           "category": "notification",
-          "date": "2024-01-02T15:05:00+18:41",
+          "date": "2024-01-01T09:00:00Z",
+          "dl_vuln_ids": [
+            "VULN-4",
+            "VULN-5"
+          ],
           "receiving_entity_refs": [
             "EID-0002"
           ],
@@ -42,41 +51,18 @@
           ],
           "action_id": "ACN-3",
           "category": "confirmation",
-          "date": "2024-01-02T13:08:00+15:09",
+          "date": "2024-01-02T15:00:00Z",
+          "dl_vuln_ids": [
+            "VULN-1",
+            "VULN-2",
+            "VULN-5"
+          ],
           "receiving_entity_refs": [
             "EID-0001"
           ],
           "referenced_action_ids": [
             "ACN-1",
-            "ACN-2"          ],
-          "status": "completed",
-          "summary": "Confirmed receipt of the report."
-        },
-        {
-          "acting_entity_refs": [
-            "EID-0001"
-          ],
-          "action_id": "ACN-4",
-          "category": "notification",
-          "date": "2024-01-01T15:00:00-07:01",
-          "receiving_entity_refs": [
-            "EID-0002"
-          ],
-          "status": "completed",
-          "summary": "Reported vulnerability to vendor."
-        },
-        {
-          "acting_entity_refs": [
-            "EID-0002"
-          ],
-          "action_id": "ACN-5",
-          "category": "confirmation",
-          "date": "2024-01-01T09:08:00-14:27",
-          "receiving_entity_refs": [
-            "EID-0001"
-          ],
-          "referenced_action_ids": [
-            "ACN-4"
+            "ACN-2"
           ],
           "status": "completed",
           "summary": "Confirmed receipt of the report."
@@ -100,10 +86,10 @@
       "name": "OASIS CSAF TC",
       "namespace": "https://csaf.io"
     },
-    "title": "Recommended Test: Confirmation before Action (valid example 2)",
+    "title": "Informative Test: Vulnerability Not Covered by Involvement (failing example 2)",
     "tracking": {
       "current_release_date": "2024-01-24T10:00:00.000Z",
-      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-56-06-12",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-26-01-02",
       "initial_release_date": "2024-01-24T10:00:00.000Z",
       "revision_history": [
         {
@@ -115,5 +101,44 @@
       "status": "final",
       "version": "1"
     }
-  }
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "dl_vuln_id": "VULN-1",
+      "title": "A vulnerability with a document-local vuln ID and CVE."
+    },
+    {
+      "dl_vuln_id": "VULN-2",
+      "ids": [
+        {
+          "system_name": "Document-local Vuln ID",
+          "text": "VULN-2"
+        }
+      ],
+      "title": "A vulnerability with a document-local vuln ID and a vulnerability ids entry."
+    },
+    {
+      "cve": "CVE-1900-0002",
+      "dl_vuln_id": "VULN-3",
+      "ids": [
+        {
+          "system_name": "Document-local Vuln ID",
+          "text": "VULN-3"
+        }
+      ],
+      "title": "A vulnerability with a document-local vuln ID, CVE and vulnerability ids entry."
+    },
+    {
+      "dl_vuln_id": "VULN-4",
+      "title": "A vulnerability with a document-local vuln ID."
+    },
+    {
+      "dl_vuln_id": "VULN-5",
+      "title": "Another vulnerability with a document-local vuln ID."
+    },
+    {
+      "title": "A vulnerability without a document-local vuln ID."
+    }
+  ]
 }
