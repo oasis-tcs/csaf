@@ -8,9 +8,9 @@ The following rules SHALL be applied to determine the filename for the CSAF docu
 
 1. The value `$.document.tracking.id` SHALL be converted into lowercase.
 2. Any character sequence which is not part of one of the following groups SHALL be replaced by a single underscore (`_`):
-   * lower-case ASCII letters (0x61 - 0x7A)
-   * digits (0x30 - 0x39)
-   * special characters: `+` (0x2B), `-` (0x2D)
+   - lower-case ASCII letters (0x61 - 0x7A)
+   - digits (0x30 - 0x39)
+   - special characters: `+` (0x2B), `-` (0x2D)
 
    > The regex `[^+\-a-z0-9]+` can be used to find a character sequence which has to be replaced by an underscore.
    > However, it SHALL NOT be applied before completing the first step.

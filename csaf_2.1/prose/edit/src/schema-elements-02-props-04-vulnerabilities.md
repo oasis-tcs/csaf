@@ -367,10 +367,10 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 
 > General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
 >
-> * a Cisco bug ID,
-> * a GitHub Issue number,
-> * an ID from a Bugzilla system, or
-> * an ID from a public vulnerability database such as the X-Force Database.
+> - a Cisco bug ID,
+> - a GitHub Issue number,
+> - an ID from a Bugzilla system, or
+> - an ID from a public vulnerability database such as the X-Force Database.
 >
 > The list of registered vulnerability id systems is available via [cite](#RVISC).
 >

@@ -9,16 +9,16 @@ on both sides before the case insensitive match.
 > In general, all corresponding unicode characters are part of the group.
 > For example, dash, hyphen and underscore characters include, but are not limited to:
 >
-> * Em dash
-> * En dash
-> * Figure dash
-> * Horizontal bar
-> * Hyphen
-> * Hyphen-minus
-> * Non-breaking hyphen
-> * Low line
-> * Combining low line
-> * Fullwidth low line
+> - Em dash
+> - En dash
+> - Figure dash
+> - Horizontal bar
+> - Hyphen
+> - Hyphen-minus
+> - Non-breaking hyphen
+> - Low line
+> - Combining low line
+> - Fullwidth low line
 
 This applies for both, the comparison against the name and value.
 Also the value SHALL NOT start with the reserved prefix `csaf_` except if the value is exactly `csaf_base`.
