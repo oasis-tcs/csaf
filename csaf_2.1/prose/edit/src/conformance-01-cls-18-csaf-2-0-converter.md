@@ -39,9 +39,9 @@ Secondly, the program fulfills the following for all items of:
     1. If the stacked branch category is `vendor`, the vendor items named `Open Source`, `NOASSERTION`, `undefined` and `unknown`
        (white space, dash, hyphen, minus, underscore, invisible character and case insensitive on both sides) SHALL be removed.
     2. If the stacked branch category is `product_version` and the item directly before the first `product_version` is a `product_name`:
-       * the category of the original `product_name` item SHALL be changed to `product_family` and
-       * the category of the first `product_version` item SHALL be changed to `product_name` and
-       * the value of the newly created `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
+       - the category of the original `product_name` item SHALL be changed to `product_family` and
+       - the category of the first `product_version` item SHALL be changed to `product_name` and
+       - the value of the newly created `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
     it SHALL issue a warning that an invalid product tree with stacked branch categories was detected and resolved.
@@ -61,13 +61,13 @@ Secondly, the program fulfills the following for all items of:
 
     1. If the branch category `product_version` occurs before the `product_version_range` and the item directly before the first
        `product_version` is a `product_name`:
-       * the category of the original `product_name` item SHALL be changed to `product_family` and
-       * the category of the first `product_version` item SHALL be changed to `product_name` and
-       * the value of the newly created `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
+       - the category of the original `product_name` item SHALL be changed to `product_family` and
+       - the category of the first `product_version` item SHALL be changed to `product_name` and
+       - the value of the newly created `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
     2. If the branch category `product_version` occurs before the `product_version_range` and the item directly before the first
        `product_version` is a `product_family`:
-       * the category of the first `product_version` item SHALL be changed to `product_name` and
-       * the value of the direct ancestor `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
+       - the category of the first `product_version` item SHALL be changed to `product_name` and
+       - the value of the direct ancestor `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
     it SHALL issue a warning that an invalid product tree with branch categories `product_version` and `product_version_range` in
@@ -88,11 +88,11 @@ Secondly, the program fulfills the following for all items of:
     applying the following steps to the path:
 
     1. If value of `name` consists only of one version constraint:
-       * the category of the original `product_version_range` item SHALL be changed to `product_version` and
-       * the version SHALL be extracted from the original value and set as new value of `name`.
+       - the category of the original `product_version_range` item SHALL be changed to `product_version` and
+       - the version SHALL be extracted from the original value and set as new value of `name`.
     2. If value of `name` consists of more than one version constraint and the upper open range is the last version constraint:
-       * the category of the original `product_version_range` item SHALL be kept and
-       * the value `name` SHALL be converted into the product version range ending with the version the upper open ended product version
+       - the category of the original `product_version_range` item SHALL be kept and
+       - the value `name` SHALL be converted into the product version range ending with the version the upper open ended product version
          if that does not change the inclusion boundaries.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
@@ -114,11 +114,11 @@ Secondly, the program fulfills the following for all items of:
     applying the following steps to the path:
 
     1. If value of `name` is in the VERS format:
-       * the category of the original `product_version_range` item SHALL be changed to `product_version` and
-       * the version SHALL be extracted from the version constraint and set as new value of `name`.
+       - the category of the original `product_version_range` item SHALL be changed to `product_version` and
+       - the version SHALL be extracted from the version constraint and set as new value of `name`.
     2. If value of `name` is in the vls format:
-       * the category of the original `product_version_range` item SHALL be changed to `product_version` and
-       * the value `name` SHALL be kept unchanged.
+       - the category of the original `product_version_range` item SHALL be changed to `product_version` and
+       - the value `name` SHALL be kept unchanged.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
     it SHALL issue a warning that an invalid product tree with a `product_version` declared as `product_version_range` in
@@ -308,8 +308,8 @@ Secondly, the program fulfills the following for all items of:
     > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
     > if this is possible without the loss of correct information.
     > Usually, collapsing chained product paths is not possible if
-    > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
-    > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
+    > - a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
+    > - a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
     >   element.
     > For examples, see appendix [sec](#collapsing-product-paths).
 

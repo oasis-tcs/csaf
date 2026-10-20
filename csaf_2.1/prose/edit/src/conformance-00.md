@@ -14,7 +14,7 @@ The clauses, matching the targets one to one, are listed in separate sub-subsect
 > Instead, a single minimum capability level for every target is given to maintain important goals of providing
 > a common framework for security advisories:
 >
-> * Fast production, sharing, and actionable consumption of security advisories
-> * Consistent end to end automation through collaborating actors
-> * Clear baseline across the communities per this specification
-> * Additional per-community cooperative extensions which may flow back into future updates of this specification
+> - Fast production, sharing, and actionable consumption of security advisories
+> - Consistent end to end automation through collaborating actors
+> - Clear baseline across the communities per this specification
+> - Additional per-community cooperative extensions which may flow back into future updates of this specification
