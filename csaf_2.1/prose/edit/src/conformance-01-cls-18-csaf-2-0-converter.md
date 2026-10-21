@@ -400,6 +400,10 @@ Secondly, the program fulfills the following for all items of:
     If values from both sources are present, the program SHOULD prefer the latter one.
     It SHOULD provide an option to overwrite the values extracted from the document.
     The program SHALL NOT use hard-coded values.
+- `$.document.tracking.initial_release_date`: If the value would fail test [sec](#non-draft-initial-release-date),
+  the CSAF 2.0 to CSAF 2.1 Converter SHALL set the `date` of the revision history item with a `number` of `1` or `1.0.0` as value
+  for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
+  `date` from the revision history item with a `number` of `1` or `1.0.0`.
 - `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
   from the `$.document.title`. In addition, separating characters including but not limited to white space, colon, dash and brackets SHALL be removed.
 - `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter
