@@ -80,7 +80,7 @@ Secondly, the program fulfills the following for all items of:
     - If the `cvrf:DocumentTitle` starts with the string `Withdrawn` or the `cvrf:DocumentType` starts with `Withdrawn` (case-insensitive),
       the CVRF CSAF Converter SHALL try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
 
-    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document according
+    > A tool MAY provide a non-default option to remove or transform certain or all elements that hinder the creation of a valid CSAF Document according
     > to the profile.
 
     > A tool MAY support this detection for other languages.
@@ -212,7 +212,7 @@ Secondly, the program fulfills the following for all items of:
   specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
-  product specific note has been discovered and no products could been assigned to it.
+  product specific note has been discovered and no products could be assigned to it.
 - `$.document.publisher.contact`:
   - If a `cvrf:ContactDetails` element is present, the CVRF CSAF Converter SHALL convert its content into the value of the `details` property.
   - If a URL to a Public OpenPGP Key was provided in the `cvrf:ContactDetails` element and the URL fulfills the requirements of the property
@@ -252,7 +252,7 @@ Secondly, the program fulfills the following for all items of:
   - The CVRF CSAF Converter SHALL determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `$.document.tracking.current_release_date` of the source document.
-    If no such version exist, the first matching version published after the value of `$.document.tracking.current_release_date`
+    If no such version exists, the first matching version published after the value of `$.document.tracking.current_release_date`
     of the source document SHOULD be used.
 
     > This is done to create a deterministic conversion.
@@ -265,7 +265,7 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF Converter SHALL convert its value into the `disclosure_date` element.
 - `$.vulnerabilities[*].ids`: If a `vuln:ID` element is given, the CVRF CSAF Converter converts it into the first item of the `ids` array.
   Then, the CVRF CSAF Converter SHALL execute the following steps at the converted object:
-  - If an `system_name` was given, the CVRF CSAF Converter SHALL test whether it belongs to a registered
+  - If a `system_name` was given, the CVRF CSAF Converter SHALL test whether it belongs to a registered
   vulnerability ID system in RVISC.
   - If the `system_name` belongs to an RVISC entry, the CVRF CSAF Converter SHALL execute
     test [sec](#matching-text-for-registered-id-system).
@@ -278,7 +278,7 @@ Secondly, the program fulfills the following for all items of:
         The program SHOULD provide an option to force a user-defined conversion.
       - If the mapping succeeds and passes test [sec](#matching-text-for-registered-id-system), the CVRF CSAF Converter SHALL issue
         a warning that an ID from a registered vulnerability system was detected and converted.
-      - If the mapping succeeds but does not passes test [sec](#matching-text-for-registered-id-system) or the mapping fails,
+      - If the mapping succeeds but does not pass test [sec](#matching-text-for-registered-id-system) or the mapping fails,
         the CVRF CSAF Converter SHALL issue a warning that an ID from a registered vulnerability system was detected and
         but could not be converted automatically.
         Such warning SHALL state the reason for failure.
@@ -294,7 +294,7 @@ Secondly, the program fulfills the following for all items of:
       unregistered vulnerability system was detected and no change occurred.
     - If the mapping succeeds and passes test [sec](#matching-text-for-registered-id-system), the CVRF CSAF Converter SHALL
       issue a warning that an ID from a vulnerability system with a known mapping was detected and converted.
-    - If the mapping succeeds but does not passes test [sec](#matching-text-for-registered-id-system) or the mapping fails otherwise,
+    - If the mapping succeeds but does not pass test [sec](#matching-text-for-registered-id-system) or the mapping fails otherwise,
       the CVRF CSAF Converter SHALL issue a warning that an ID from a vulnerability system with a known mapping was detected
       and but could not be converted automatically.
       Such warning SHALL state the reason for failure.
@@ -374,7 +374,7 @@ Secondly, the program fulfills the following for all items of:
   specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.
   If the CVRF CSAF Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
-  product specific note has been discovered and no products could been assigned to it.
+  product specific note has been discovered and no products could be assigned to it.
 - `$.vulnerabilities[*].remediations[*]`:
   - If neither `product_ids` nor `group_ids` are given, the CVRF CSAF Converter appends all Product IDs which are listed under
     `../product_status` in the arrays `known_affected`, `first_affected` and `last_affected` into `product_ids`.

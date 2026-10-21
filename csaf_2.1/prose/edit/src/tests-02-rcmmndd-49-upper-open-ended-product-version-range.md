@@ -26,5 +26,5 @@ The relevant path for this test is:
 > If the upper open ended product version range consists only of one version constraint, a tool MAY convert it into the product version
 > it starts with as a quick fix, if applicable.
 > If the upper open ended product version range consists of more than one version constraint and the upper open range is the last version
-> constraint, a tool MAY convert it into the product version range ending with the version the upper open ended product version as a quick
+> constraint, a tool MAY convert it into the product version range ending with the version of the upper open ended product version as a quick
 > fix, if applicable.
