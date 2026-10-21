@@ -87,6 +87,109 @@ Secondly, the program fulfills the following for all items of:
 
     If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document according to the profile, it SHALL set the `category`
     according to the conversion rules and issue a warning a potentially withdrawn CSAF Document was created which would result in an invalid CSAF.
+- `$.document.involvement`:
+  - If the user passes an `involvement` element to the CVRF CSAF Converter, the tool SHALL insert that element into
+   `$.document.involvement` and omit the conversion of all `vuln:Involvements` elements.
+  - If any vulnerability item contains an `involvements` element and the user provided an `involvement` element,
+    the CVRF CSAF Converter SHOULD issue a warning that all `vuln:Involvements` elements omitted as
+    the user provided `involvement` takes precedence.
+  - If any vulnerability item contains an `involvements` element and the user did not provide an `involvement` element,
+    the CVRF CSAF Converter SHALL try to convert the data into a valid CSAF Document by apply the following process:
+    1. The CVRF CSAF Converter assigns each vulnerability containing an `vuln:Involvements` element a document-local vuln ID with the
+       prefix `VULN-`, followed by the current value of counter for the vulnerabilities containing an `vuln:Involvements` element.
+       The counter starts with `1` and is zero-padded to four digits before appended to the prefix.
+
+       > If the counter is at `1000` no additional padding is needed anymore.
+
+    2. The CVRF CSAF Converter SHALL create for each `vuln:Involvement` item a conversion ID which is constructed as follows:
+       - The filename is computed from the `$.document.tracking.id` according to the rules of [sec](#filename).
+         Remaining `+` in that string are replaced by `_`.
+         The file extension `.json` is removed from the string.
+       - This string is extended by appending the `dl_vuln_id` of the vulnerability the `vuln:Involvement` item is found in followed
+         by the item number inside the current `vuln:Involvements`.
+         The counter for the item number starts with `1` and is zero-padded to four digits.
+       This conversion ID identifies an involvement item with in a CSAF document locally
+       and provides collision resistance if the filenames of the processed files are sufficiently different.
+
+    3. The CVRF CSAF Converter SHALL create for each `Party` mentioned in the `vuln:Involvement` a new entry in `entities`
+       and assign a `entity_id` by prepending the mandatory prefix `EID-` to the conversion ID of that `vuln:Involvement` item.
+
+       > This create a new entry in `$.document.involvement.entities` per `vuln:Involvement` item.
+
+       The CVRF CSAF Converter SHALL convert the value of `Party` into the value of `category`.
+       If the value of `Party` is `Other`, the CVRF CSAF Converter SHOULD issue a warning that some parties have been
+       regrouped into new category values.
+       An option to suppress this warning SHALL exist.
+       In addition, an option SHOULD be provided to set one of the new values directly.
+
+       > Entities can be corrected through a mapping in a later step.
+
+    4. The CVRF CSAF Converter SHALL create an entity for the publisher of the CVRF document with the same `name`
+       and `category` as stated in the `cvrf:DocumentPublisher` element.
+       The `entity_id` SHALL be `EID-Publisher`.
+    5. If the user provides a mapping which contains `entities` to CVRF CSAF Converter,
+       the tool SHALL replace entries that contain a matching `entity_id` with the corresponding entry from the mapping.
+       The CVRF CSAF Converter SHALL skip this step, if not mapping was provided by the user.
+    6. Each item of the `vuln:Involvements` inside the current vulnerability is converted using the following subprocess:
+       - The CVRF CSAF Converter SHALL create a new `action` and add the document-local vuln ID of the current vulnerability
+         into `dl_vuln_ids` of the action.
+       - The `action_id` is constructed by prepending the prefix `ACN-` to the conversion ID of that `vuln:Involvement` item.
+       - If the `vuln:Description` was given, the CVRF CSAF Converter SHALL convert its value as value into the `summary` element.
+       - If the `date` was given in the `vuln:Description`, the CVRF CSAF Converter SHALL convert its value as value into the `date` element.
+         If the `date` is missing, the CVRF CSAF Converter SHOULD stop the subprocess and discard the `action` unless the user
+         instructed the tool to add the element with an empty value.
+         In the first case, the CVRF CSAF Converter SHALL issue a warning that an involvement without date was detected and
+         removed.
+         If the CVRF CSAF Converter was instructed to add an empty date, it SHALL issue a warning that an involvement without
+         date was detected and converted into an invalid action with empty `date`.
+
+         > In such case, the user is expected to add missing dates from other sources.
+
+       - The CVRF CSAF Converter SHALL use the [tab](#tab:involvement-status-and-category-mapping-from-cvrf-1-2) to set the
+         `category` and `status`.
+       - The CVRF CSAF Converter SHOULD have an option to extract additional details about the entity from the `vuln:Description`,
+         if applicable.
+         If that option is given, the CVRF CSAF Converter SHALL insert the additionally extracted details in the corresponding
+         fields and issue a warning that additional details were found and used to enrich the `entity`.
+         Such warning SHOULD provide the full enriched `entity` element and the `vuln:Description` that the content was extracted from.
+       - The CVRF CSAF Converter SHALL set the `acting_entity_refs` and `receiving_entity_refs` according to the content
+         of the current `vuln:Involvement` item using the corresponding entry from the list of entities.
+         As default, the entity that corresponds to the `Party` is referenced in the `acting_entity_refs`.
+         If the `vuln:Description` shows that the `Party` is the receiver, the entity that corresponds to the `Party` is referenced in
+         the `receiving_entity_refs`.
+       - To determine the entity that is not given in the CVRF document, the CVRF CSAF Converter SHALL apply the
+         following steps in this order:
+         1. If the missing entity can be derived from the context, e.g. through the content of the `vuln:Description`,
+            the respective entity SHALL be used.
+            In most cases, this will lead to inserting `EID-Publisher` into the `receiving_entity_refs` respectively `acting_entity_refs`.
+            The CVRF CSAF Converter SHALL NOT make up an entity not given in the `vuln:Description`.
+         2. If the context suggests that the `vuln:Involvement` item matches one of the categories that do not need a recipient,
+            the respective `category` SHALL be used.
+            The CVRF CSAF Converter SHALL reference the corresponding action `referenced_action_ids`
+            if required by the `category` value.
+            If the value cannot be determined with certainty, this step is unsuccessful.
+         3. If the steps mentioned above are unsuccessful or inconclusive, the CVRF CSAF Converter SHALL stop the subprocess
+            and discard the `action` unless the user instructed the tool to add the action with partial data.
+            In the first case, the CVRF CSAF Converter SHALL issue a warning that an involvement without sufficient data was
+            detected, could not be converted automatically and therefore was removed.
+            If the CVRF CSAF Converter was instructed to add the action with partial data, it SHALL issue a warning that an involvement without sufficient data was detected and only partially converted.
+    7. The CVRF CSAF Converter SHALL provide an option to collapse entities.
+       If that option is selected, the CVRF CSAF Converter SHALL map all items from `entities` into groups where each group
+       contains only members that differ only in their `entity_id`.
+       The first one of each group which becomes the representative of that group.
+       References to other elements of the group are replaced with a reference to the representative of the group.
+       Then, the CVRF CSAF Converter SHALL remove all items from `entities` except for the representative of the groups.
+    8. The CVRF CSAF Converter SHALL provide an option to collapse actions.
+       If that option is selected, the CVRF CSAF Converter SHALL map all items from `actions` which are not referenced in
+       any `referenced_action_ids` into groups where each group contains only members that differ only in their `dl_vuln_ids`.
+       The first one of each group which becomes the representative of that group.
+       The CVRF CSAF Converter SHALL collect all values from `dl_vuln_ids` within one group and insert the values into
+       `dl_vuln_ids` of the representative of that group.
+       Then, the CVRF CSAF Converter SHALL remove all items from `actions` except for the representative of the groups.
+    During the conversion, the CVRF CSAF Converter SHALL NOT invent data or set values in any other way than described above.
+    If the CVRF CSAF Converter is unable to create a valid CSAF 2.1 Document, it SHALL remove the `involvement` from the
+    CSAF Document and issue a warning that `vuln:Involvements` could not be converted automatically
+    and therefore have been removed.
 - `$.document.lang`: If one or more CVRF elements containing an `xml:lang` attribute exist and contain the exact same value,
   the CVRF CSAF Converter converts this value into `lang`.
   If the values of `xml:lang` attributes are not equal, the CVRF CSAF Converter issues a warning that the language could not be
@@ -292,3 +395,16 @@ Secondly, the program fulfills the following for all items of:
   - In any other case, the CVRF CSAF Converter SHALL preserve the product in the remediation of the category `none_available`.
   - The CVRF CSAF Converter SHALL issue a warning if a remediation was added, deleted or the value of the category was changed,
     including the products it was changed for.
+
+Mapping of involvements `status`:
+
+| CSAF CVRF 1.2 `Status` | CSAF 2.1 `status` | CSAF 2.1 Default `category` |
+|:-----------------------|:------------------|:----------------------------|
+| `Completed`            | `completed`       | `coordination`              |
+| `Contact Attempted`    | `attempted`       | `notification`              |
+| `Disputed`             | `completed`       | `dispute`                   |
+| `In Progress`          | `in_progress`     | `coordination`              |
+| `Not Contacted`        | `deferred`        | `notification`              |
+| `Open`                 | `outstanding`     | `coordination`              |
+
+Table: Mapping of values into `$.document.involvement.actions[*]` from CSAF CVRF 1.2 to CSAF 2.1.{#tab:involvement-status-and-category-mapping-from-cvrf-1-2}

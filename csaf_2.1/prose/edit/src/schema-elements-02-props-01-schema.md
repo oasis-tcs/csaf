@@ -1,7 +1,7 @@
 ### Schema Property
 
-JSON schema (`$schema`) of value type `string` and `enum` with format `uri` contains the URL of the CSAF JSON schema which the document promises to be valid for.
-The single valid value for this `enum` is:
+JSON schema (`$schema`) of value type `string` and `const` with format `uri` contains the URL of the CSAF JSON schema which the document promises to be valid for.
+The value for this `const` is:
 
 ```
   https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json

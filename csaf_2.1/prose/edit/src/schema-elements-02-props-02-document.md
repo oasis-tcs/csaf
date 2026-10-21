@@ -14,7 +14,7 @@ Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
     acknowledgments: $defs.acknowledgments_t
     aggregate_severity: Mapping
     category: String.Pattern
-    csaf_version: String.Enum
+    csaf_version: String.Const
     distribution: Mapping
     involvement: Mapping
     lang: $defs.lang_t
@@ -109,8 +109,8 @@ Document category defines a short canonical name, chosen by the document produce
 
 #### Document Property - CSAF Version
 
-CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
-The single valid value for this `enum` is:
+CSAF version (`csaf_version`) of value type `string` and `const` gives the version of the CSAF specification which the document was generated for.
+The value for this `const` is:
 
 ```
     2.1
@@ -343,7 +343,7 @@ List of acting entities (`acting_entity_refs`) of value type
 Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
 
 Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
-Its values SHALL be unique across all action items.
+Its value SHALL be unique across all action items.
 
 Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
 Valid values are:
@@ -392,7 +392,8 @@ The value `fix_deployment` indicates that the actor installed a fix.
 The value `fix_release` indicates that the actor published a fix, or made a fix available.
 
 The value `notification` indicates that the actor tells a different party about the vulnerability.
-To describe an action for which no suitable specific action category is available, the `notification` category SHOULD be used and any specific information SHOULD be described in the `summary` field of the action.
+To describe an action for which no suitable specific action category is available,
+the `notification` category SHOULD be used and any specific information SHOULD be described in the `summary` field of the action.
 
 The value `observation` indicates that the actor observed that the vulnerability was used.
 The entities in `acting_entity_refs` are the entities that made the observation, and `date` is the date of the observation.
@@ -413,7 +414,8 @@ Date of the action (`date`) of value type `string` with format `date-time` conta
 
 List of document-local vuln IDs (`dl_vuln_ids`) of value type `array` with `1` or more unique items (a `set`) contains a list of local IDs
 referring to vulnerabilities within the same document that this action applies to.
-Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element the current action applies to.
+Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element
+the current action applies to.
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current action item applies to.
 
@@ -454,6 +456,21 @@ The value `in_progress` indicates that the actor is doing the work now.
 The value `outstanding` indicates that a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
 
 The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+> The commonly agreed order of these `status` values for a `notification` is:
+>
+> 1. `outstanding`
+> 2. `deferred`
+> 3. `planned`
+> 4. `attempted`
+> 5. `in_progress`
+> 6. `completed`
+> 7. `completed` referenced by a `confirmation` with `status` of `completed`
+>
+> The difference between a completed notification and one that also is referenced by a completed confirmation can be an important
+> distinction for the notifying entity.
+> Most likely, the list of actions will not carry every status for each `notification`
+> but will highlight the important steps in the process.
 
 ##### Document Property - Involvement - Entities
 
@@ -607,7 +624,7 @@ corresponding to IETF BCP 47 / RFC 5646.
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
 It SHALL NOT contain a license text.
-See Annex B of [cite](#SPDX301) for details.
+See Annex B of [cite](#SPDX31) for details.
 The `DocumentRef` part given in that ABNF SHALL NOT be used in CSAF.
 Any SPDX license identifier not from the official SPDX license identifier list SHALL contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
@@ -623,25 +640,33 @@ In addition, the following rules apply:
      Deprecated license identifiers SHOULD NOT be used.
      SPDX license identifiers that were deprecated before the version listed above SHALL NOT be used.
 
-     > The list is available at <https://spdx.org/licenses/>.
+     > The list is available at [cite](#SPDX-L).
      > It includes also the exceptions.
 
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
      the license database AboutCode's "ScanCode LicenseDB" SHALL be consulted as a next step.
-     License identifiers from this database SHALL use the prefix `LicenseRef-scancode-`.
+     License identifier from this database SHALL use the prefix `LicenseRef-scancode-` and
+     addition expressions the prefix `AdditionRef-scancode-`.
+     The construction of a license expression with such identifiers is also allowed.
 
-     > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
+     > The database is currently available at [cite](#SCANCODE-LICENSEDB).
+     >
+     > Note that at the time of this writing the AboutCode's "ScanCode LicenseDB" uses `LicenseRef-scancode-` for exceptions
+     > which is the format used in [cite](#SPDX231).
+     > For the usage in CSAF, those values have to be converted.
 
-     The construction of a license expression with such an identifier is also allowed.
   3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
-     the issuing party SHALL create their own license identifier following the rules above.
-     The license identifier SHOULD contain the version number of the license.
+     the issuing party SHALL create their own license identifier and necessary addition identifiers following the rules above.
+     The identifier SHOULD contain the version number of the license respectively exception.
      The license text SHALL be made available through exactly one document note using the `category` `legal_disclaimer`.
      The `title` SHALL be `License` for English or an unspecified document language.
      For any other language, it SHOULD be the language specific translation of that term.
 
 - License similarity:
-  - Annex C of [cite](#SPDX301) applies.
+  - Annex C of [cite](#SPDX31) applies.
+
+- Case sensitivity:
+  CSAF follows the recommendation of SPDX and enforces case sensitivity for SPDX license expressions in CSAF documents.
 
 *Examples 1:*
 

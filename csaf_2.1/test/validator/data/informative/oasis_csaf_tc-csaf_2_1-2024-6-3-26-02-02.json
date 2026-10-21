@@ -1,0 +1,111 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "involvement": {
+      "actions": [
+        {
+          "acting_entity_refs": [
+            "EGID-9001"
+          ],
+          "action_id": "ACN-1",
+          "category": "notification",
+          "date": "2024-01-01T09:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0002"
+          ],
+          "status": "completed",
+          "summary": "Reported vulnerability to vendor."
+        },
+        {
+          "acting_entity_refs": [
+            "EID-0002"
+          ],
+          "action_id": "ACN-2",
+          "category": "confirmation",
+          "date": "2024-01-02T15:00:00Z",
+          "receiving_entity_refs": [
+            "EGID-9001"
+          ],
+          "referenced_action_ids": [
+            "ACN-1"
+          ],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        }
+      ],
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        {
+          "category": "vendor",
+          "entity_id": "EID-0002",
+          "name": "Example Company"
+        },
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0003",
+          "name": "Joe Researcher"
+        },
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0004",
+          "name": "Jennifer Researcher"
+        },
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0005",
+          "name": "Jonathan Researcher"
+        }
+      ],
+      "entity_groups": [
+        {
+          "entity_group_id": "EGID-9001",
+          "entity_ids": [
+            "EID-0001",
+            "EID-0003"
+          ],
+          "name": "JJ Research"
+        },
+        {
+          "entity_group_id": "EGID-9002",
+          "entity_ids": [
+            "EID-0004",
+            "EID-0005"
+          ],
+          "name": "J+J Research",
+          "summary": "Well-respected researchers that contributed expertise a lot during the assessment."
+        }
+      ]
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Informative Test: Unused Definition of Entity Group ID without Summary (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-3-26-02-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  }
+}
