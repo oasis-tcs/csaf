@@ -624,7 +624,7 @@ corresponding to IETF BCP 47 / RFC 5646.
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
 It SHALL NOT contain a license text.
-See Annex B of [cite](#SPDX301) for details.
+See Annex B of [cite](#SPDX31) for details.
 The `DocumentRef` part given in that ABNF SHALL NOT be used in CSAF.
 Any SPDX license identifier not from the official SPDX license identifier list SHALL contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
@@ -640,25 +640,33 @@ In addition, the following rules apply:
      Deprecated license identifiers SHOULD NOT be used.
      SPDX license identifiers that were deprecated before the version listed above SHALL NOT be used.
 
-     > The list is available at <https://spdx.org/licenses/>.
+     > The list is available at [cite](#SPDX-L).
      > It includes also the exceptions.
 
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
      the license database AboutCode's "ScanCode LicenseDB" SHALL be consulted as a next step.
-     License identifiers from this database SHALL use the prefix `LicenseRef-scancode-`.
+     License identifier from this database SHALL use the prefix `LicenseRef-scancode-` and
+     addition expressions the prefix `AdditionRef-scancode-`.
+     The construction of a license expression with such identifiers is also allowed.
 
-     > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
+     > The database is currently available at [cite](#SCANCODE-LICENSEDB).
+     >
+     > Note that at the time of this writing the AboutCode's "ScanCode LicenseDB" uses `LicenseRef-scancode-` for exceptions
+     > which is the format used in [cite](#SPDX231).
+     > For the usage in CSAF, those values have to be converted.
 
-     The construction of a license expression with such an identifier is also allowed.
   3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
-     the issuing party SHALL create their own license identifier following the rules above.
-     The license identifier SHOULD contain the version number of the license.
+     the issuing party SHALL create their own license identifier and necessary addition identifiers following the rules above.
+     The identifier SHOULD contain the version number of the license respectively exception.
      The license text SHALL be made available through exactly one document note using the `category` `legal_disclaimer`.
      The `title` SHALL be `License` for English or an unspecified document language.
      For any other language, it SHOULD be the language specific translation of that term.
 
 - License similarity:
-  - Annex C of [cite](#SPDX301) applies.
+  - Annex C of [cite](#SPDX31) applies.
+
+- Case sensitivity:
+  CSAF follows the recommendation of SPDX and enforces case sensitivity for SPDX license expressions in CSAF documents.
 
 *Examples 1:*
 
