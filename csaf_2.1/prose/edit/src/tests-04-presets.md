@@ -26,6 +26,19 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 To avoid collisions especially in the `x_` namespace,
 the reverse DNS notation for a domain under the author's own control MAY be used.
 
+Namespaces starting with the following prefixes as derived from [cite](#RFC2606) are reserved:
+
+- `x_test` and `org_test`: for testing purposes
+- `x_example` and `org_example`: for documentation and testing purposes
+- `x_invalid` and `org_invalid`: as always invalid
+
+Namespaces starting with the following prefixes are reserved by the OASIS CSAF TC:
+
+- `x_csaf`
+- `org_csaf`
+
+Those namespaces are solely assignable by the OASIS CSAF TC.
+
 Official presets are defined in different parts of the standard.
 
 ### Presets Defined through Test Subsections
