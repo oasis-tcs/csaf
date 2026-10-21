@@ -28,7 +28,7 @@ Secondly, the program fulfills the following for all items of:
 - type `$['$defs'].branches_t`:
   - If a branch item uses the category `legacy`,
     the CSAF 2.0 to CSAF 2.1 Converter SHALL replace it with the category `product_name`.
-    In addition, the converter issues a warning that this type does not exist in CSAF 2.1 and have been replaced with the category `product_name`.
+    In addition, the converter issues a warning that this type does not exist in CSAF 2.1 and has been replaced with the category `product_name`.
 
     > There is a chance, that this replacement is incorrect or another category is a better fit.
     > Users of the converter are advised to check the content of such documents to make sure the conversion is correct or at least not misleading.
@@ -92,7 +92,7 @@ Secondly, the program fulfills the following for all items of:
        - the version SHALL be extracted from the original value and set as new value of `name`.
     2. If value of `name` consists of more than one version constraint and the upper open range is the last version constraint:
        - the category of the original `product_version_range` item SHALL be kept and
-       - the value `name` SHALL be converted into the product version range ending with the version the upper open ended product version
+       - the value `name` SHALL be converted into the product version range ending with the version of the upper open ended product version
          if that does not change the inclusion boundaries.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
@@ -244,7 +244,7 @@ Secondly, the program fulfills the following for all items of:
     - If the `$.document.title` starts with the string `Withdrawn` or the `$.document.category` has the value `Withdrawn` (case-insensitive),
       the CSAF 2.0 to CSAF 2.1 Converter SHALL try to convert all data into a valid CSAF Document in the profile "Withdrawn" according to CSAF 2.1.
  
-    > A tool MAY provide a non-default option to remove or transform certain or all elements the hinder the creation of a valid CSAF Document
+    > A tool MAY provide a non-default option to remove or transform certain or all elements that hinder the creation of a valid CSAF Document
     > according to the profile.
 
     > A tool MAY support this detection for other languages.
@@ -264,7 +264,7 @@ Secondly, the program fulfills the following for all items of:
   > This is a common case for CSAF 2.0 Documents labeled as `TLP:RED` but actually intended to be `TLP:AMBER+STRICT`.
 
   If no TLP label was given, the CSAF 2.0 to CSAF 2.1 Converter SHOULD assign `TLP:CLEAR` and issue a warning that the default TLP has been set.
-- `$.document.license_expression`: If any `$.document.notes` item in with `category` `legal_disclaimer` contains a valid SPDX license expression,
+- `$.document.license_expression`: If any `$.document.notes` item with `category` `legal_disclaimer` contains a valid SPDX license expression,
   the CSAF 2.0 to CSAF 2.1 Converter SHALL apply the following rules for the list of candidates:
   - If this list contains only one element, the CSAF 2.0 to CSAF 2.1 Converter SHALL set this value as value of `license_expression`.
     In addition, the converter issues a warning that license expression was found and set as document license expression.
@@ -281,7 +281,7 @@ Secondly, the program fulfills the following for all items of:
   potential product specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a potential
-  product specific note has been discovered and no products could been assigned to it.
+  product specific note has been discovered and no products could be assigned to it.
 - `$.document.publisher.category`: If the value is `other`, the CSAF 2.0 to CSAF 2.1 Converter SHOULD issue a warning that some parties have
   been regrouped into the new value `multiplier`. An option to suppress this warning SHALL exist. In addition, an option SHOULD be provided to
   set the value to `multiplier`.
@@ -318,7 +318,7 @@ Secondly, the program fulfills the following for all items of:
   - The CSAF 2.0 to CSAF 2.1 Converter SHALL determine the CWE specification version the given CWE was selected from by
     using the latest version that matches the `id` and `name` exactly and was published prior to the value of
     `$.document.tracking.current_release_date` of the source document.
-    If no such version exist, the first matching version published after the value of `$.document.tracking.current_release_date`
+    If no such version exists, the first matching version published after the value of `$.document.tracking.current_release_date`
     of the source document SHOULD be used.
 
     > This is done to create a deterministic conversion.
@@ -327,7 +327,7 @@ Secondly, the program fulfills the following for all items of:
 
 - `$.vulnerabilities[*].disclosure_date`: If a `release_date` was given, the CSAF 2.0 to CSAF 2.1 Converter SHALL convert its value as value
   into the `disclosure_date` element.
-- `$.vulnerabilities[*].ids`:  If an `system_name` was given, the CSAF 2.0 to CSAF 2.1 Converter SHALL test whether it belongs to a registered
+- `$.vulnerabilities[*].ids`:  If a `system_name` was given, the CSAF 2.0 to CSAF 2.1 Converter SHALL test whether it belongs to a registered
   vulnerability ID system in RVISC.
   - If the `system_name` belongs to an RVISC entry, the CSAF 2.0 to CSAF 2.1 Converter SHALL execute
     test [sec](#matching-text-for-registered-id-system).
@@ -340,7 +340,7 @@ Secondly, the program fulfills the following for all items of:
         The program SHOULD provide an option to force a user-defined conversion.
       - If the mapping succeeds and passes test [sec](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
         issue a warning that an ID from a registered vulnerability system was detected and converted.
-      - If the mapping succeeds but does not passes test [sec](#matching-text-for-registered-id-system) or the mapping fails,
+      - If the mapping succeeds but does not pass test [sec](#matching-text-for-registered-id-system) or the mapping fails,
         the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that an ID from a registered vulnerability system was detected and
         but could not be converted automatically.
         Such warning SHALL state the reason for failure.
@@ -356,7 +356,7 @@ Secondly, the program fulfills the following for all items of:
       unregistered vulnerability system was detected and no change occurred.
     - If the mapping succeeds and passes test [sec](#matching-text-for-registered-id-system), the CSAF 2.0 to CSAF 2.1 Converter SHALL
       issue a warning that an ID from a vulnerability system with a known mapping was detected and converted.
-    - If the mapping succeeds but does not passes test [sec](#matching-text-for-registered-id-system) or the mapping fails otherwise,
+    - If the mapping succeeds but does not pass test [sec](#matching-text-for-registered-id-system) or the mapping fails otherwise,
       the CSAF 2.0 to CSAF 2.1 Converter SHALL issue a warning that an ID from a vulnerability system with a known mapping was detected
       and but could not be converted automatically.
       Such warning SHALL state the reason for failure.
@@ -391,7 +391,7 @@ Secondly, the program fulfills the following for all items of:
   product specific note has been discovered and products have been assigned to it.
   Such warning SHALL also include the note and the assigned products.
   If the CSAF 2.0 to CSAF 2.1 Converter is unable to create a valid object, it SHALL remove the reference to the products and issue a warning that a
-  potential product specific note has been discovered and no products could been assigned to it.
+  potential product specific note has been discovered and no products could be assigned to it.
 - `$.vulnerabilities[*].remediations[*]`:
   - The CSAF 2.0 to CSAF 2.1 Converter SHALL convert any remediation with the category `vendor_fix` into the category `optional_patch`
     if the product in question is in one of the product status groups "Not Affected" or "Fixed" for this vulnerability.
