@@ -343,7 +343,7 @@ List of acting entities (`acting_entity_refs`) of value type
 Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
 
 Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
-Its values SHALL be unique across all action items.
+Its value SHALL be unique across all action items.
 
 Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
 Valid values are:
@@ -392,7 +392,8 @@ The value `fix_deployment` indicates that the actor installed a fix.
 The value `fix_release` indicates that the actor published a fix, or made a fix available.
 
 The value `notification` indicates that the actor tells a different party about the vulnerability.
-To describe an action for which no suitable specific action category is available, the `notification` category SHOULD be used and any specific information SHOULD be described in the `summary` field of the action.
+To describe an action for which no suitable specific action category is available,
+the `notification` category SHOULD be used and any specific information SHOULD be described in the `summary` field of the action.
 
 The value `observation` indicates that the actor observed that the vulnerability was used.
 The entities in `acting_entity_refs` are the entities that made the observation, and `date` is the date of the observation.
@@ -413,7 +414,8 @@ Date of the action (`date`) of value type `string` with format `date-time` conta
 
 List of document-local vuln IDs (`dl_vuln_ids`) of value type `array` with `1` or more unique items (a `set`) contains a list of local IDs
 referring to vulnerabilities within the same document that this action applies to.
-Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element the current action applies to.
+Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element
+the current action applies to.
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current action item applies to.
 
@@ -454,6 +456,21 @@ The value `in_progress` indicates that the actor is doing the work now.
 The value `outstanding` indicates that a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
 
 The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+> The commonly agreed order of these `status` values for a `notification` is:
+>
+> 1. `outstanding`
+> 2. `deferred`
+> 3. `planned`
+> 4. `attempted`
+> 5. `in_progress`
+> 6. `completed`
+> 7. `completed` referenced by a `confirmation` with `status` of `completed`
+>
+> The difference between a completed notification and one that also is referenced by a completed confirmation can be an important
+> distinction for the notifying entity.
+> Most likely, the list of actions will not carry every status for each `notification`
+> but will highlight the important steps in the process.
 
 ##### Document Property - Involvement - Entities
 

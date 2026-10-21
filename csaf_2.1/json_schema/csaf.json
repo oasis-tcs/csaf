@@ -1549,8 +1549,8 @@
             "format": "date-time"
           },
           "dl_vuln_id": {
-            "title": "Document local vuln ID",
-            "description": "Contains the local IDs referring to this vulnerability from another part of the same document.",
+            "title": "Document-local Vuln ID",
+            "description": "Contains the local ID referring to this vulnerability from another part of the same document.",
             "$ref": "#/$defs/dl_vuln_id_t"
           },
           "first_known_exploitation_dates": {
