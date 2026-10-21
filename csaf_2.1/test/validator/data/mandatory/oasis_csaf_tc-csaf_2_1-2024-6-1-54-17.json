@@ -12,7 +12,7 @@
     "notes": [
       {
         "category": "legal_disclaimer",
-        "text": "This is the Example-CSAF-License-3.0 text.",
+        "text": "This is the Example-CSAF-License-3.0 with Some.SPDX-License-Exception-ID-that.technically.could.exist-but-obviously-does-not text.",
         "title": "License"
       }
     ],
