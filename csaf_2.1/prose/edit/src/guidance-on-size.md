@@ -280,8 +280,8 @@ A string SHOULD NOT have a length greater than:
 - 30 000 for
   - `$.document.notes[*].text`
   - `$.vulnerabilities[*].notes[*].text`
-  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].description`
-  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].description`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].definition`
+  - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].values[*].definition`
 
 - 250 000 for
   - `$.vulnerabilities[*].remediations[*].details`
@@ -311,8 +311,10 @@ The maximum length of strings representing a temporal value is given by the form
 
 A string which is an enum has a fixed maximum length given by its longest value.
 
-> Later versions of CSAF might add, modify or delete possible value which could change the longest value.
+> Later versions of CSAF might add, modify or delete possible values which could change the longest value.
 > Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
+
+`anyOf(const)` and `allOf(const)` are treated as enum values in this guidance.
 
 The value of `$['$schema']` is a fixed URL, currently pointing to the JSON schema location.
 It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
@@ -332,10 +334,10 @@ This applies to:
 - `$.document.references[*].category` (8)
 - `$.document.tracking.status` (7)
 - `$.document.x_extensions[*].category` (13)
-- `$.product_tree..branches[*].category` (15)
+- `$.product_tree..branches[*].category` (21)
 - `$.product_tree..branches[*].product.x_extensions[*].category` (13)
 - `$.product_tree.full_product_names[*].x_extensions[*].category` (13)
-- `$.product_tree.product_paths[*].category` (21)
+- `$.product_tree.product_paths[*].subpaths[*].category` (21)
 - `$.product_tree.product_paths[*].full_product_name.x_extensions[*].category` (13)
 - `$.vulnerabilities[*].flags[*].label` (49)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v2.accessComplexity` (6)
@@ -414,7 +416,6 @@ This applies to:
 - `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnerabilityResponseEffort` (11)
 - `$.vulnerabilities[*].metrics[*].content.cvss_v4.vulnIntegrityImpact` (4)
 - `$.vulnerabilities[*].metrics[*].content.qualitative_severity_rating` (8)
-- `$.vulnerabilities[*].metrics[*].content.ssvc_v2.schemaVersion` (5)
 - `$.vulnerabilities[*].metrics[*].content.x_extensions[*].category` (13)
 - `$.vulnerabilities[*].notes[*].category` (16)
 - `$.vulnerabilities[*].references[*].category` (8)
@@ -424,7 +425,19 @@ This applies to:
 - `$.vulnerabilities[*].x_extensions[*].category` (13)
 - `$.x_extensions[*].category` (13)
 
-## C.6 URI Length
+## C.6 Const
+
+A string which is a `const` has a fixed maximum length given by its own value.
+
+> Later versions of CSAF might modify the value which could change its length.
+> Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
+
+For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
+This applies to:
+
+- `$.vulnerabilities[*].metrics[*].content.ssvc_v2.schemaVersion` (5)
+
+## C.7 URI Length
 
 A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
 
@@ -460,7 +473,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 - `$.vulnerabilities[*].x_extensions[*]['$schema']`
 - `$.x_extensions[*]['$schema']`
 
-## C.7 UUID Length
+## C.8 UUID Length
 
 A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
 
