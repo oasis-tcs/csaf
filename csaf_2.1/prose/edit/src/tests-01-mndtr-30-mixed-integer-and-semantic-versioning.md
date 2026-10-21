@@ -3,6 +3,11 @@
 It SHALL be tested that all elements of type `$['$defs'].version_t` follow either integer versioning or
 semantic versioning homogeneously within the same document.
 
+In order to create consistent results in the case of a value that is not a valid integer nor semantic version,
+implementations SHOULD ignore such a value in this test as the schema test will fail.
+
+> This processing rule is solely implementation guidance for this edge case.
+
 The relevant paths for this test are:
 
 ```list-of-jsonpaths

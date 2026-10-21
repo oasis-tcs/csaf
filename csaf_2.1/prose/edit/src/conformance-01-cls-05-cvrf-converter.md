@@ -33,9 +33,9 @@ Secondly, the program fulfills the following for all items of:
     1. If the stacked `Branch Type` is `Vendor`, the vendor items named `Open Source`, `NOASSERTION` `undefined` and `unknown`
        (white space, dash, hyphen, minus, underscore, invisible character and case insensitive on both sides) SHALL be removed.
     2. If the stacked `Branch Type` is `Product Version` and the item directly before the first `Product Version` is a `Product Name`:
-       * the category of the original `Product Name` item SHALL be changed to `product_family` and
-       * the category of the first `Product Version` item SHALL be changed to `product_name` and
-       * the value of the newly created `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
+       - the category of the original `Product Name` item SHALL be changed to `product_family` and
+       - the category of the first `Product Version` item SHALL be changed to `product_name` and
+       - the value of the newly created `product_family` item SHALL be prepended at the value of the newly created `product_name` item.
 
     If the CVRF CSAF Converter is able to create a valid product tree,
     it SHALL issue a warning that an invalid product tree with stacked branch types was detected and resolved.
@@ -139,8 +139,8 @@ Secondly, the program fulfills the following for all items of:
     > A tool MAY provide an option to collapse chained product path elements into the appropriate number of product path elements,
     > if this is possible without the loss of correct information.
     > Usually, collapsing chained product paths is not possible if
-    > * a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
-    > * a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
+    > - a product (type: `full_product_name_t`) defined by a product path element in the chain is referenced in other parts of the document, or
+    > - a product (type: `full_product_name_t`) defined by a product path element in the chain contains a `product_identification_helper`
     >   element.
     > For examples, see appendix [sec](#collapsing-product-paths).
 

@@ -107,7 +107,7 @@ The above SHOULD lead to the following outcome in a human-readable advisory:
 
 > We thank the following parties for their efforts:
 >
-> * Johann Sebastian Bach, Georg Philipp Telemann, Georg Friedrich Händel from Baroque composers for wonderful music
-> * CISA for coordination efforts (see: <https://cisa.gov>)
-> * BSI for assistance in coordination
-> * Antonio Vivaldi for influencing other composers
+> - Johann Sebastian Bach, Georg Philipp Telemann, Georg Friedrich Händel from Baroque composers for wonderful music
+> - CISA for coordination efforts (see: <https://cisa.gov>)
+> - BSI for assistance in coordination
+> - Antonio Vivaldi for influencing other composers

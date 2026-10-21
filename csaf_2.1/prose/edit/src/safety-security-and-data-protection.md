@@ -13,6 +13,14 @@ CSAF documents are based on JSON, thus the security considerations of [cite](#RF
 > The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to
 > that language's syntax.
 
+[cite](#RFC8259) also states that JSON keys SHOULD be unique.
+However, this is not enforced.
+As some CSAF documents are created with human interaction, there is a risk of duplicate JSON keys.
+CSAF documents with duplicate JSON keys can lead situations where one JSON key is displayed but the other one is processed
+which can lead to unexpected outcomes - especially if automated actions are triggered.
+CSAF tools SHOULD handle this situation appropriately.
+Appropriate actions can differ depending on the intended use and environment.
+
 In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
 Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
 

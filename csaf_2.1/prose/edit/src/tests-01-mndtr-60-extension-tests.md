@@ -84,9 +84,9 @@ Such warning SHALL differentiate between the different classes of extensions.
 
 > This includes, but is not limited to:
 >
-> * The extension is allowed at this path at all.
-> * The extension is not used more often than allowed.
-> * The extension is not used with other incompatible extensions.
+> - The extension is allowed at this path at all.
+> - The extension is not used more often than allowed.
+> - The extension is not used with other incompatible extensions.
 
 The relevant paths for this test are:
 

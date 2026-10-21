@@ -141,7 +141,7 @@ The Weakness name holds the full name of the weakness as given in the CWE specif
 The CWE version (`version`) has value type `string` with `pattern` (regular expression):
 
 ```
-    ^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$
+    ^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.([0-9]|([1-9]\\d+)))?$
 ```
 
 It holds the version string of the CWE specification this weakness was extracted from.
@@ -367,10 +367,10 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 
 > General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
 >
-> * a Cisco bug ID,
-> * a GitHub Issue number,
-> * an ID from a Bugzilla system, or
-> * an ID from a public vulnerability database such as the X-Force Database.
+> - a Cisco bug ID,
+> - a GitHub Issue number,
+> - an ID from a Bugzilla system, or
+> - an ID from a public vulnerability database such as the X-Force Database.
 >
 > The list of registered vulnerability id systems is available via [cite](#RVISC).
 >

@@ -86,16 +86,16 @@ This results in the following rules:
 7. Major version `X` (`X.y.z` | `X > 0`) SHALL be incremented if a new comparison with the end user's asset database is required.
    This includes:
 
-   * changes (adding, removing elements or modifying content) in `$.product_tree` or elements which contain `$.product_tree` in their path
-   * adding or removing items of `$.vulnerabilities`
-   * adding or removing elements in:
-     * `$.vulnerabilities[*].product_status.first_affected`
-     * `$.vulnerabilities[*].product_status.known_affected`
-     * `$.vulnerabilities[*].product_status.last_affected`
-   * removing elements from:
-     * `$.vulnerabilities[*].product_status.first_fixed`
-     * `$.vulnerabilities[*].product_status.fixed`
-     * `$.vulnerabilities[*].product_status.known_not_affected`
+   - changes (adding, removing elements or modifying content) in `$.product_tree` or elements which contain `$.product_tree` in their path
+   - adding or removing items of `$.vulnerabilities`
+   - adding or removing elements in:
+     - `$.vulnerabilities[*].product_status.first_affected`
+     - `$.vulnerabilities[*].product_status.known_affected`
+     - `$.vulnerabilities[*].product_status.last_affected`
+   - removing elements from:
+     - `$.vulnerabilities[*].product_status.first_fixed`
+     - `$.vulnerabilities[*].product_status.fixed`
+     - `$.vulnerabilities[*].product_status.known_not_affected`
 
    It MAY also include minor and patch level changes.
    Patch and minor version SHALL be reset to `0` when major version is incremented.
