@@ -5,7 +5,7 @@
 
 ## Committee Specification Draft 04
 
-## 14 October 2026
+## 21 October 2026
 
 #### This stage
 <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md> (Authoritative) \
@@ -84,7 +84,7 @@ When referencing this specification the following citation format should be used
 
 **[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 14 October 2026. OASIS Committee Specification Draft 04. <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html>.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 21 October 2026. OASIS Committee Specification Draft 04. <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html>.
 
 ---
 
