@@ -14,7 +14,7 @@ Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
     acknowledgments: $defs.acknowledgments_t
     aggregate_severity: Mapping
     category: String.Pattern
-    csaf_version: String.Enum
+    csaf_version: String.Const
     distribution: Mapping
     involvement: Mapping
     lang: $defs.lang_t
@@ -109,8 +109,8 @@ Document category defines a short canonical name, chosen by the document produce
 
 #### Document Property - CSAF Version
 
-CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
-The single valid value for this `enum` is:
+CSAF version (`csaf_version`) of value type `string` and `const` gives the version of the CSAF specification which the document was generated for.
+The value for this `const` is:
 
 ```
     2.1

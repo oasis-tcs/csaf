@@ -316,15 +316,9 @@ A string which is an enum has a fixed maximum length given by its longest value.
 
 `anyOf(const)` and `allOf(const)` are treated as enum values in this guidance.
 
-The value of `$['$schema']` is a fixed URL, currently pointing to the JSON schema location.
-It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
-
-- `$['$schema']` (59)
-
-For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
+It seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:
 
-- `$.document.csaf_version` (3)
 - `$.document.distribution.tlp.label` (12)
 - `$.document.notes[*].category` (16)
 - `$.document.involvement.actions[*].category` (14)
@@ -432,9 +426,15 @@ A string which is a `const` has a fixed maximum length given by its own value.
 > Later versions of CSAF might modify the value which could change its length.
 > Therefore, this sizes should not be implemented as fixed limits if forward compatibility is desired.
 
+The value of `$['$schema']` is a fixed URL, currently pointing to the JSON schema location.
+It seems to be safe to assume that the length of this value is not greater than 150. This applies to:
+
+- `$['$schema']` (59)
+
 For all other values, it seems to be safe to assume that the length of each value is not greater than 50.
 This applies to:
 
+- `$.document.csaf_version` (3)
 - `$.vulnerabilities[*].metrics[*].content.ssvc_v2.schemaVersion` (5)
 
 ## C.7 URI Length
