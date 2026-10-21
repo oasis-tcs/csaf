@@ -75,13 +75,13 @@ GFMENG
 ISO19770-2
 :    _Information technology — IT asset management — Part 2: Software identification tag_, International Standard, ISO 19770-2:2015, September 30, 2015, <https://www.iso.org/standard/65666.html>.
 
-ISO29147
+ISOIEC29147
 :    _Information technology — Security techniques — Vulnerability disclosure_, International Standard, ISO/IEC 29147:2018, October 23, 2018, <https://www.iso.org/standard/72311.html>.
 
-ISO30111
+ISOIEC30111
 :    _Information technology — Security techniques — Vulnerability handling processes_, International Standard, ISO/IEC 30111:2019, October 1, 2019, <https://www.iso.org/standard/69725.html>
 
-ISOTR5895
+ISOIECTR5895
 :    _Cybersecurity — Multi-party coordinated vulnerability disclosure and handling_, International Standard, ISO/IEC TR 5895:2022, June 17, 2022, <https://www.iso.org/standard/81807.html>
 
 OPENSSL
@@ -132,6 +132,9 @@ RVISC-M
 RVISC-R
 :    _Registry for RVISC_, RVISC Registry Part of the OASIS CSAF TC Registry, <https://registry.csaf.dev/id/registry/>.
 
+SCANCODE-LICENSEDB
+:   _LicenseDB_, nexB Inc. and others, <https://scancode-licensedb.aboutcode.org/>.
+
 SCAP12
 :    _The Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.2_, D. Waltermire, S. Quinn, K. Scarfone, A. Halbardier, Editors, NIST Spec. Publ. 800‑126 rev. 2, September 2011, <https://dx.doi.org/10.6028/NIST.SP.800-126r2>.
 
@@ -140,6 +143,12 @@ SECURITY-TXT
 
 SemVer
 :    _Semantic Versioning 2.0.0_, T. Preston-Werner, June 2013, <https://semver.org/>.
+
+SPDX231
+:    _The Software Package Data Exchange® (SPDX®) Specification Version 2.3.1_, Linux Foundation and its Contributors, 2026, <https://spdx.github.io/spdx-spec/v2.3.1/>.
+
+SPDX-L
+:    _SPDX License List | Software Package Data Exchange (SPDX)_,  SPDX Workgroup a Linux Foundation Project, <https://spdx.org/licenses/>.
 
 SSVC
 :    _SSVC: Stakeholder-Specific Vulnerability Categorization_, CERT/CC, <https://certcc.github.io/SSVC/reference/>

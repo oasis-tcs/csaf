@@ -14,7 +14,7 @@ Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
     acknowledgments: $defs.acknowledgments_t
     aggregate_severity: Mapping
     category: String.Pattern
-    csaf_version: String.Enum
+    csaf_version: String.Const
     distribution: Mapping
     involvement: Mapping
     lang: $defs.lang_t
@@ -109,8 +109,8 @@ Document category defines a short canonical name, chosen by the document produce
 
 #### Document Property - CSAF Version
 
-CSAF version (`csaf_version`) of value type `string` and `enum` gives the version of the CSAF specification which the document was generated for.
-The single valid value for this `enum` is:
+CSAF version (`csaf_version`) of value type `string` and `const` gives the version of the CSAF specification which the document was generated for.
+The value for this `const` is:
 
 ```
     2.1
@@ -332,7 +332,7 @@ List of receiving entities (`receiving_entity_refs`), List of referenced actions
         group_ids: $defs.product_groups_t
         product_ids: $defs.products_t
         receiving_entity_refs: $defs.entity_refs_id_t
-        referenced_action_ids: $defs.action_id_t
+        referenced_action_ids: Sequence
         summary: String
         status: String.Enum
       # ...
@@ -343,22 +343,28 @@ List of acting entities (`acting_entity_refs`) of value type
 Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
 
 Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
-Its values SHALL be unique across all action items.
+Its value SHALL be unique across all action items.
 
 Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
 Valid values are:
 
 ```
+    assessment
     confirmation
     coordination
     discovery
     dispute
+    embargo
     exploitation
     fix_deployment
     fix_release
     notification
-    triage
+    observation
 ```
+
+The value `assessment` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
+An `assessment` action records that this examination took place, which entities took part in it, and when.
+Any resulting score or rating is given in `$.vulnerabilities[*].metrics` or `$.vulnerabilities[*].threats`, not in the action.
 
 The value `confirmation` indicates that the actor confirms that it received or accepted the action that this action refers to (via `referenced_action_ids`).
 
@@ -368,16 +374,34 @@ The value `discovery` indicates that the actor found the vulnerability.
 
 The value `dispute` indicates that the actor disputes the action that this action refers to (via `referenced_action_ids`).
 It can dispute that the action is correct, its severity, or that it occurred.
+It can also state that the actor does not accept the action.
 
-The value `exploitation` indicates that the actor used the vulnerability, or a party saw or controlled such use.
+The value `embargo` indicates that the actor and the receiving entities agree to not disclose the information before the intended disclosure date.
+The agreed date is the `disclosure_date` of each vulnerability that `dl_vuln_ids` names.
+An `embargo` action SHALL name a minimum of one party in `receiving_entity_refs`,
+and it SHOULD name the vulnerabilities under embargo in `dl_vuln_ids`.
+An agreement to delay disclosure is an `embargo`. Other joint work of the parties stays `coordination`.
+The entities in `receiving_entity_refs` are the parties that the agreement binds.
+They are not necessarily the members of `$.document.distribution.sharing_group`.
+
+The value `exploitation` indicates that the actor used the vulnerability.
+With the status `attempted`, the action states that the actor tried to use the vulnerability and did not succeed.
 
 The value `fix_deployment` indicates that the actor installed a fix.
 
 The value `fix_release` indicates that the actor published a fix, or made a fix available.
 
 The value `notification` indicates that the actor tells a different party about the vulnerability.
+To describe an action for which no suitable specific action category is available,
+the `notification` category SHOULD be used and any specific information SHOULD be described in the `summary` field of the action.
 
-The values `triage` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
+The value `observation` indicates that the actor observed that the vulnerability was used.
+The entities in `acting_entity_refs` are the entities that made the observation, and `date` is the date of the observation.
+An `observation` action MAY name an `exploitation` action in `referenced_action_ids`.
+That action gives the entity that used the vulnerability and the date of that use.
+The scope of an `observation` action that names an `exploitation` action SHOULD be equal to or narrower than the scope of that action,
+after the resolution of product groups.
+An entity that found the vulnerability itself records a `discovery`, not an `observation`.
 
 A `confirmation` and a `dispute` are always about a different action.
 Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_refs`.
@@ -390,7 +414,8 @@ Date of the action (`date`) of value type `string` with format `date-time` conta
 
 List of document-local vuln IDs (`dl_vuln_ids`) of value type `array` with `1` or more unique items (a `set`) contains a list of local IDs
 referring to vulnerabilities within the same document that this action applies to.
-Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element the current action applies to.
+Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element
+the current action applies to.
 
 Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current action item applies to.
 
@@ -431,6 +456,21 @@ The value `in_progress` indicates that the actor is doing the work now.
 The value `outstanding` indicates that a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
 
 The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+> The commonly agreed order of these `status` values for a `notification` is:
+>
+> 1. `outstanding`
+> 2. `deferred`
+> 3. `planned`
+> 4. `attempted`
+> 5. `in_progress`
+> 6. `completed`
+> 7. `completed` referenced by a `confirmation` with `status` of `completed`
+>
+> The difference between a completed notification and one that also is referenced by a completed confirmation can be an important
+> distinction for the notifying entity.
+> Most likely, the list of actions will not carry every status for each `notification`
+> but will highlight the important steps in the process.
 
 ##### Document Property - Involvement - Entities
 
@@ -584,7 +624,7 @@ corresponding to IETF BCP 47 / RFC 5646.
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
 It SHALL NOT contain a license text.
-See Annex B of [cite](#SPDX301) for details.
+See Annex B of [cite](#SPDX31) for details.
 The `DocumentRef` part given in that ABNF SHALL NOT be used in CSAF.
 Any SPDX license identifier not from the official SPDX license identifier list SHALL contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
@@ -600,25 +640,33 @@ In addition, the following rules apply:
      Deprecated license identifiers SHOULD NOT be used.
      SPDX license identifiers that were deprecated before the version listed above SHALL NOT be used.
 
-     > The list is available at <https://spdx.org/licenses/>.
+     > The list is available at [cite](#SPDX-L).
      > It includes also the exceptions.
 
   2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
      the license database AboutCode's "ScanCode LicenseDB" SHALL be consulted as a next step.
-     License identifiers from this database SHALL use the prefix `LicenseRef-scancode-`.
+     License identifier from this database SHALL use the prefix `LicenseRef-scancode-` and
+     addition expressions the prefix `AdditionRef-scancode-`.
+     The construction of a license expression with such identifiers is also allowed.
 
-     > The database is currently available at <https://scancode-licensedb.aboutcode.org/>.
+     > The database is currently available at [cite](#SCANCODE-LICENSEDB).
+     >
+     > Note that at the time of this writing the AboutCode's "ScanCode LicenseDB" uses `LicenseRef-scancode-` for exceptions
+     > which is the format used in [cite](#SPDX231).
+     > For the usage in CSAF, those values have to be converted.
 
-     The construction of a license expression with such an identifier is also allowed.
   3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
-     the issuing party SHALL create their own license identifier following the rules above.
-     The license identifier SHOULD contain the version number of the license.
+     the issuing party SHALL create their own license identifier and necessary addition identifiers following the rules above.
+     The identifier SHOULD contain the version number of the license respectively exception.
      The license text SHALL be made available through exactly one document note using the `category` `legal_disclaimer`.
      The `title` SHALL be `License` for English or an unspecified document language.
      For any other language, it SHOULD be the language specific translation of that term.
 
 - License similarity:
-  - Annex C of [cite](#SPDX301) applies.
+  - Annex C of [cite](#SPDX31) applies.
+
+- Case sensitivity:
+  CSAF follows the recommendation of SPDX and enforces case sensitivity for SPDX license expressions in CSAF documents.
 
 *Examples 1:*
 
@@ -670,6 +718,18 @@ The following combinations of `category` and `title` have a special meaning and 
 Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:document-property-notes}
 
 If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
+
+*Example 1 (for `text` when stating a legal disclaimer):*
+
+```
+  This content is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). If you distribute this content, or a modified version of it, you must provide attribution to Example Organization and provide a link to the original.
+```
+
+*Example 2 (for `text` when stating a legal disclaimer):*
+
+```
+  THIS DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS AND DOES NOT IMPLY ANY KIND OF GUARANTEE OR WARRANTY, INCLUDING THE WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE. YOUR USE OF THE INFORMATION ON THE DOCUMENT OR MATERIALS LINKED FROM THE DOCUMENT IS AT YOUR OWN RISK. EXAMPLE COMPANY RESERVES THE RIGHT TO CHANGE OR UPDATE THIS DOCUMENT AT ANY TIME.
+```
 
 #### Document Property - Publisher
 
@@ -759,6 +819,15 @@ Contact (`contact`) of value type Contact Type (`contact_t`) contains informatio
 
 Issuing authority (`issuing_authority`) of value type `string` with `1` or more characters Provides information about
 the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
+
+*Examples 1:*
+
+```
+  Example Company PSIRT is responsible for vulnerability handling across all Example Company products and services.
+  Example CERT as designated CSIRT according to Directive (EU) 2022/2555 Article 12 section 1 acts as coordinator for the purposes of coordinated vulnerability disclosure.
+  Example ISAC publishes security information for products used by or relevant for its constituency enriched by a sector-specific assessment.
+  The Example Organization Security Team is responsible for vulnerability handling across all Example Organization offerings.
+```
 
 ##### Document Property - Publisher - Name
 

@@ -35,5 +35,7 @@ A library satisfies the "CSAF Library" conformance profile if the library:
   - the combined subpath name for all elements in `subpaths` in their order.
 - calculates the CVSS scores and severities for existing data for all CVSS versions.
 - validates the CVSS scores and severities for existing data for all CVSS versions.
+- optionally generates a new `dl_vuln_id` or sets the one provided during the creation for each new vulnerability.
+- provides a function to remove all `dl_vuln_id` elements that are not referenced.
 
 > The library MAY implement an option to retrieve the keys unsorted.

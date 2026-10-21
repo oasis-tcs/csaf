@@ -699,9 +699,7 @@
       "title": "JSON schema",
       "description": "Contains the URL of the CSAF JSON schema which the document promises to be valid for.",
       "type": "string",
-      "enum": [
-        "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json"
-      ],
+      "const": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
       "format": "uri"
     },
     "document": {
@@ -768,9 +766,7 @@
           "title": "CSAF version",
           "description": "Gives the version of the CSAF specification which the document was generated for.",
           "type": "string",
-          "enum": [
-            "2.1"
-          ]
+          "const": "2.1"
         },
         "distribution": {
           "title": "Rules for document sharing",
@@ -903,15 +899,17 @@
                     "description": "Specifies the category which this action belongs to.",
                     "type": "string",
                     "enum": [
+                      "assessment",
                       "confirmation",
                       "coordination",
                       "discovery",
                       "dispute",
+                      "embargo",
                       "exploitation",
                       "fix_deployment",
                       "fix_release",
                       "notification",
-                      "triage"
+                      "observation"
                     ]
                   },
                   "date": {
@@ -1136,7 +1134,13 @@
               "title": "Issuing authority",
               "description": "Provides information about the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.",
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "examples": [
+                "Example Company PSIRT is responsible for vulnerability handling across all Example Company products and services.",
+                "Example CERT as designated CSIRT according to Directive (EU) 2022/2555 Article 12 section 1 acts as coordinator for the purposes of coordinated vulnerability disclosure.",
+                "Example ISAC publishes security information for products used by or relevant for its constituency enriched by a sector-specific assessment.",
+                "The Example Organization Security Team is responsible for vulnerability handling across all Example Organization offerings."
+              ]
             },
             "name": {
               "title": "Name of publisher",
@@ -1515,7 +1519,7 @@
                   "title": "CWE version",
                   "description": "Holds the version string of the CWE specification this weakness was extracted from.",
                   "type": "string",
-                  "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.\\d+)?$",
+                  "pattern": "^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.([0-9]|([1-9]\\d+)))?$",
                   "examples": [
                     "1.0",
                     "3.4.1",
@@ -1541,8 +1545,8 @@
             "format": "date-time"
           },
           "dl_vuln_id": {
-            "title": "Document local vuln ID",
-            "description": "Contains the local IDs referring to this vulnerability from another part of the same document.",
+            "title": "Document-local Vuln ID",
+            "description": "Contains the local ID referring to this vulnerability from another part of the same document.",
             "$ref": "#/$defs/dl_vuln_id_t"
           },
           "first_known_exploitation_dates": {

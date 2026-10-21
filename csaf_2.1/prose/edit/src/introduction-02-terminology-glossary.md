@@ -25,7 +25,7 @@ Coordinated Vulnerability Disclosure (CVD)
 
 Coordination
 :    set of activities including identifying and engaging stakeholders, mediating, communicating and other planning in support
-of vulnerability disclosure (conforming to ISO/IEC [cite](#ISO29147)).
+of vulnerability disclosure (conforming to [cite](#ISOIEC29147)).
 
 Critical Extension
 :    An extension that if an instance of it is included in a CSAF Document causes at least one mandatory test to fail.
@@ -152,7 +152,7 @@ CVRF CSAF Converter
 :    CSAF Producer which takes a CVRF document as input and converts it into a valid CSAF Document.
 
 Disclosure
-:    act of initially providing vulnerability information to a party that was not believed to be previously aware (conforming to ISO/IEC [cite](#ISO29147)).
+:    act of initially providing vulnerability information to a party that was not believed to be previously aware (conforming to [cite](#ISOIEC29147)).
 
 Document
 :    output file produced by an analysis tool, which enumerates the results produced by the tool.
@@ -331,7 +331,7 @@ Viewer
 
 Vulnerability
 :    functional behavior of a product or service that violates an implicit or explicit security policy
-(conforming to ISO/IEC [cite](#ISO29147)).
+(conforming to [cite](#ISOIEC29147)).
 
 White Space
 :    code point used to improve text readability or token separation as defined in section 12.2 of [cite](#ECMA-262).

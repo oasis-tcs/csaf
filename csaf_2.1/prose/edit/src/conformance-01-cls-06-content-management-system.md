@@ -26,6 +26,9 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
   - option to suggest an ID for a vulnerability based on the given configuration.
   - initialize a vulnerability element from a given CVE by loading the corresponding CVE JSON from a location provided in the configuration.
     Local instances implementing the respective CVE API SHALL be supported.
+  - support the creation of `$.document.involvement` by tracking the relationship between `vulnerabilities` and `actions` in order to
+    make sure the information in `$.document.involvement` stays correct when vulnerability items are added.
+  - option to automatically assign a `dl_vuln_id` for each vulnerability added.
   - track of the version of CSAF Documents automatically and increment according to the versioning scheme
     (see also subsections of [sec](#version-type)) selected in the configuration.
   - check that the document version is set correctly based on the changes in comparison to the previous version
@@ -54,6 +57,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
 - automates handling of date/time and version.
 - provides an API to retrieve all CSAF Documents which are currently in the status published.
 - optionally provides an API to import or create new advisories from outside systems (e.g. bug tracker, CVD platform,...).
+- optionally provides an API to update advisories from outside systems (e.g. add `$.document.involvement.actions` from ticket system).
 - provides a user management and support at least the following roles:
 
   - _Registered_: Able to see all published CSAF Documents (but only in the published version).
@@ -115,6 +119,7 @@ A CSAF Content Management System satisfies the "CSAF Content Management System" 
 - before allowing `$.document.tracking.status` to transition from `draft` to `interim` or `final`:
   - enforces that the current document contains all required fields
     according to the profile specified in `$.document.category`
+  - removes all `$.vulnerabilities[*].dl_vuln_ids` that are not referenced
   - enforces that the current document is a valid CSAF Document according to this specification
   - offers to set `$.document.distribution` and children to one of the values from the configuration
     for released documents (default `label` for released documents is `TLP:CLEAR` with no `sharing_group` present)

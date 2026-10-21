@@ -1,0 +1,20 @@
+name: JSON Schema Linting (CSAF 2.1)
+
+on:
+  push:
+    paths:
+      - 'csaf_2.1/**'
+  pull_request:
+    paths:
+      - 'csaf_2.1/**'
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+    - name: Install the JSON Schema CLI
+      uses: sourcemeta/jsonschema@f0b914e074973c93cb828676d7437c841f208022 # v17.2.1
+    - name: Lint csaf.json
+      run: jsonschema lint -j csaf_2.1/json_schema/csaf.json -C csaf_2.1/test/jsonschema_lint/jsonschema.json

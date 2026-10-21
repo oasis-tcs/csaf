@@ -26,6 +26,19 @@ Names of presets not defined in this CSAF standard SHALL have the following pref
 To avoid collisions especially in the `x_` namespace,
 the reverse DNS notation for a domain under the author's own control MAY be used.
 
+Namespaces starting with the following prefixes as derived from [cite](#RFC2606) are reserved:
+
+- `x_test` and `org_test`: for testing purposes
+- `x_example` and `org_example`: for documentation and testing purposes
+- `x_invalid` and `org_invalid`: as always invalid
+
+Namespaces starting with the following prefixes are reserved by the OASIS CSAF TC:
+
+- `x_csaf`
+- `org_csaf`
+
+Those namespaces are solely assignable by the OASIS CSAF TC.
+
 Official presets are defined in different parts of the standard.
 
 ### Presets Defined through Test Subsections
@@ -78,11 +91,13 @@ Additional presets are defined as follows:
     - [sec](#missing-item-in-revision-history)
     - [sec](#multiple-definition-in-revision-history)
     - [sec](#mandatory-tests--date-and-time)
+    - [sec](#non-draft-initial-release-date)
     - [sec](#build-metadata-in-revision-history)
     - [sec](#older-initial-release-date-than-revision-history)
     - [sec](#older-current-release-date-than-revision-history)
     - [sec](#same-timestamps-in-revision-history)
     - [sec](#disclosure-date-newer-than-revision-history)
+
 - `consistent-date-times`:
   - Description: Any test that is related to timestamps in CSAF and avoids invalid situations.
   - Set:
@@ -93,6 +108,8 @@ Additional presets are defined as follows:
     - [sec](#inconsistent-first-known-exploitation-dates)
     - [sec](#inconsistent-exploitation-date)
     - [sec](#inconsistent-discovery-date)
+    - [sec](#inconsistent-future-action-date)
+    - [sec](#confirmation-before-action)
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:

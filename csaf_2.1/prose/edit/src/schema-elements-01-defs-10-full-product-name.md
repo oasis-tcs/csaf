@@ -168,7 +168,7 @@ Secure cryptographic hash algorithms SHOULD be preferred.
       sha512
 ```
 
-These values are derived from the currently supported digests OpenSSL [cite](#OPENSSL).
+These values are derived from the currently supported digests in OpenSSL [cite](#OPENSSL).
 Leading dashes were removed.
 
 > The command `openssl dgst -list` (Version 3.4.0 from 2024-10-22) outputs the following:
