@@ -20,3 +20,5 @@ The relevant path for this test is:
 ```
 
 > The license expression contains a license text instead of a SPDX license expression.
+
+> A tool MAY provide a function to fix case errors as a quick fix, if applicable.
