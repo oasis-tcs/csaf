@@ -73,9 +73,7 @@
       "title": "JSON schema",
       "description": "Contains the URL of the Aggregator JSON schema which the document promises to be valid for.",
       "type": "string",
-      "enum": [
-        "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json"
-      ],
+      "const": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json",
       "format": "uri"
     },
     "aggregator": {
@@ -140,9 +138,7 @@
       "title": "CSAF aggregator version",
       "description": "Gives the version of the CSAF aggregator specification which the document was generated for.",
       "type": "string",
-      "enum": [
-        "2.1"
-      ]
+      "const": "2.1"
     },
     "canonical_url": {
       "title": "Canonical URL",

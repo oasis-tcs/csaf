@@ -41,9 +41,7 @@
       "title": "JSON schema",
       "description": "Contains the URL of the provider-metadata.json JSON schema which the document promises to be valid for.",
       "type": "string",
-      "enum": [
-        "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json"
-      ],
+      "const": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json",
       "format": "uri"
     },
     "canonical_url": {
@@ -196,9 +194,7 @@
       "title": "CSAF provider metadata version",
       "description": "Gives the version of the CSAF provider metadata specification which the document was generated for.",
       "type": "string",
-      "enum": [
-        "2.1"
-      ]
+      "const": "2.1"
     },
     "mirror_on_CSAF_aggregators": {
       "title": "Mirror on CSAF aggregators",
