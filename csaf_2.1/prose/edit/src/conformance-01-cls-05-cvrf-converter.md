@@ -230,6 +230,10 @@ Secondly, the program fulfills the following for all items of:
 - `$.document.tracking.id`: If the element `cvrf:ID` contains any newline sequence or leading or trailing white space,
   the CVRF CSAF Converter removes those characters.
   In addition, the converter issues a warning that the ID was changed.
+- `$.document.tracking.initial_release_date`: If the value would fail test [sec](#non-draft-initial-release-date),
+  the CVRF CSAF Converter SHALL set the `date` of the revision history item with a `number` of `1` or `1.0.0` as value
+  for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
+  `date` from the revision history item with a `number` of `1` or `1.0.0`.
 - `$.product_tree.product_paths[*]`: For each element `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following rules:
   - The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
   - The first `prod:FullProductName` instance is converted into the `full_product_name`.
