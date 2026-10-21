@@ -29,6 +29,6 @@ The following abbreviations are used:
 
 ## Evaluation of Feedback
 
-The TC considers above public comments as well as other more editorial feedback documented in issue [#1639](https://github.com/oasis-tcs/csaf/issues/1639) and classified/considered per pull request [#1640](https://github.com/oasis-tcs/csaf/pull/1640) as **Material** per OASIS TC process.
+The TC considers above public comments as well as other more editorial feedback documented in issue [#1639](https://github.com/oasis-tcs/csaf/issues/1639) and classified/considered per pull request [#1640](https://github.com/oasis-tcs/csaf/pull/1640) and [#1679](https://github.com/oasis-tcs/csaf/pull/1679) as **Material** per OASIS TC process.
 
 To ease verification by anyone and to support the administration this comment resolution log is provided as an individual document as per this artifact.
