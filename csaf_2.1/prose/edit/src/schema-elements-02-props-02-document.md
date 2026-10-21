@@ -584,7 +584,7 @@ corresponding to IETF BCP 47 / RFC 5646.
 License expression (`license_expression`) of value type `string` with `1` or more characters contains the
 SPDX license expression for the CSAF document.
 It SHALL NOT contain a license text.
-See Annex B of [cite](#SPDX301) for details.
+See Annex B of [cite](#SPDX31) for details.
 The `DocumentRef` part given in that ABNF SHALL NOT be used in CSAF.
 Any SPDX license identifier not from the official SPDX license identifier list SHALL contain a prefix of the form
 `LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
@@ -623,7 +623,10 @@ In addition, the following rules apply:
      For any other language, it SHOULD be the language specific translation of that term.
 
 - License similarity:
-  - Annex C of [cite](#SPDX301) applies.
+  - Annex C of [cite](#SPDX31) applies.
+
+- Case sensitivity:
+  CSAF follows the recommendation of SPDX and enforces case sensitivity for SPDX license expressions in CSAF documents.
 
 *Examples 1:*
 
