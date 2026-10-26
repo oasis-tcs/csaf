@@ -5,7 +5,7 @@ SHALL be tested that the `product_id` was not already defined within the same do
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id

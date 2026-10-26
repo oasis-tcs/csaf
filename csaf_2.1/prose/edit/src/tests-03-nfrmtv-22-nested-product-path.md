@@ -9,7 +9,7 @@ For each item in `$.product_tree.product_paths[*]` it SHALL be tested that all r
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.product_paths[*].beginning_product_reference
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
 ```

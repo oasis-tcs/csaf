@@ -5,7 +5,7 @@ The test SHALL fail if the object contains additional properties not defined in 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.cvss_v2
   $.vulnerabilities[*].metrics[*].content.cvss_v3
   $.vulnerabilities[*].metrics[*].content.cvss_v4

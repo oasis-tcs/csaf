@@ -11,7 +11,7 @@ It SHALL conform to `pattern` (regular expression):
 The value contains a token required to identify a vulnerability uniquely in the context of the current document so that it can be referred to from other parts in the document.
 It SHOULD NOT to be used to refer to a vulnerability from outside of the CSAF document.
 
-```yaml <!--json-path($['$defs'].dl_vuln_id_t)-->
+```{.yaml json-path="$['$defs'].dl_vuln_id_t"}
 $defs:
   # ...
   dl_vuln_id_t: String.Pattern

@@ -6,7 +6,7 @@ The test SHALL fail, if the target ID equals the `$.document.tracking.id` and th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]
 ```
 

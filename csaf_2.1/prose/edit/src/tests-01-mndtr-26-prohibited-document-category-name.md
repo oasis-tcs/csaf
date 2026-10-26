@@ -44,7 +44,7 @@ This is the only mandatory test related to the profile "CSAF Base" as the requir
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.category
 ```
 

@@ -8,7 +8,7 @@ and those that contain only subtags from the registry but the compiled language 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
   $.document.source_lang
 ```

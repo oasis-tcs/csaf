@@ -11,7 +11,7 @@ The test SHALL report if the user ID is not set or empty.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.publisher.contact.public_openpgp_key_url
 ```
 

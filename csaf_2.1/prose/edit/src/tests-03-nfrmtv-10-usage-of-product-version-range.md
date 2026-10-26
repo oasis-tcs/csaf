@@ -7,7 +7,7 @@ For each element of type `$['$defs'].branches_t` it SHALL be tested that the `ca
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].category
 ```
 

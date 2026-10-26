@@ -12,7 +12,7 @@ member of the same product status group (see section [sec](#vulnerabilities-prop
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -77,7 +77,7 @@ member of the same product status group (see section [sec](#vulnerabilities-prop
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -142,7 +142,7 @@ member of the same product status group (see section [sec](#vulnerabilities-prop
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -206,7 +206,7 @@ For each `EPVR` (as `CTPVR`), it SHALL be tested that all product version ranges
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -245,7 +245,7 @@ For each `EPVR` (as `CTPVR`), it SHALL be tested that all product versions of el
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 

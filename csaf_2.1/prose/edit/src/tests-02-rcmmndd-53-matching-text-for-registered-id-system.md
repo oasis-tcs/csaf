@@ -8,7 +8,7 @@ it SHALL be tested that the `text` in the CSAF document matches the `text_patter
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].ids[*].text
 ```
 

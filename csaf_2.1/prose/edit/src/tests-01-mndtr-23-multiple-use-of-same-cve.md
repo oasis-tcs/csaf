@@ -4,7 +4,7 @@ It SHALL be tested that a CVE is not used in multiple vulnerability items.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cve
 ```
 

@@ -9,7 +9,7 @@ It SHALL conform to `pattern` (regular expression):
 
 The value contains a token required to identify an action uniquely in the context of the current document so that it can be referred to from other parts in the document.
 
-```yaml <!--json-path($['$defs'].action_id_t)-->
+```{.yaml json-path="$['$defs'].action_id_t"}
 $defs:
   # ...
   action_id_t: String.Pattern

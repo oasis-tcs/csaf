@@ -5,7 +5,7 @@ As the timestamps might use different timezones, the comparison SHALL take timez
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].date
 ```
 

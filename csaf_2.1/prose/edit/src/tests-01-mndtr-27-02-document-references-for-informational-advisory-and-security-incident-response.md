@@ -17,7 +17,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.references
 ```
 

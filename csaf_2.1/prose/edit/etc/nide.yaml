@@ -68,3 +68,15 @@ channels:
     logo-remote-url: 'https://docs.oasis-open.org/templates/OASISLogo-v3.0.png'
   typst:
     page-break-l1: true
+
+pi:
+  json-schema: ../../json_schema/csaf.json
+  definitions:
+    - name: json-path
+      check: jsonpath-schema
+    - name: json-paths
+      arity: multiple
+      check: jsonpath-schema
+    - name: sequence-of
+      check: body-lines-as
+      arg: jsonpath
