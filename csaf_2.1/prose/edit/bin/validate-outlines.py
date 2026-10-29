@@ -25,10 +25,12 @@ NL = '\n'
 SP = ' '
 LS = COMMA + SP
 
-YAML_FCB_ON = '```yaml '
+YAML_FCB_ON = '```{.yaml '
 YAML_FCB_OFF = '```'
+ATTR_ON = '="'
+ATTR_OFF = '"}'
+LEGACY_YAML_FCB_ON = '```yaml '
 HC_ON = '<!--'
-HC_OFF = '-->'
 
 OK = 'OK'
 FAIL = 'FAIL'
@@ -46,21 +48,23 @@ if not pathlib.Path(VALERY_JSON_SCHEMA).is_file():
 def extract_paths(complete_line: str, line_no: int) -> list[str]:
     """Extract the json-path(s) from fenced YAML code block starts."""
     json_paths: list[str] = []
-    if complete_line.startswith('```yaml '):
-        line = complete_line[8:].strip()
-        if line.startswith(HC_ON) and line.endswith(HC_OFF):
-            line = line[4:-3]
-            if line.startswith('json-path(') and line.endswith(')'):
+    if complete_line.startswith(LEGACY_YAML_FCB_ON) and HC_ON in complete_line:
+        print(f'WARNING: Line {line_no+1} uses the retired comment form - ignored, use {YAML_FCB_ON}json-path="..."}}')
+        return json_paths
+    if complete_line.startswith(YAML_FCB_ON):
+        line = complete_line[len(YAML_FCB_ON) :].strip()
+        if line.endswith(ATTR_OFF):
+            name, _, line = line[: -len(ATTR_OFF)].partition(ATTR_ON)
+            if name == 'json-path':
                 if COMMA in line:
                     print(f'ERROR: Line {line_no+1} has multiple paths in json-path/1')
                     raise ValueError(
                         f'Use json-paths/n instead of json-path/1 in "{complete_line}"'
                     )
-                json_paths.append(line[10:-1])
+                json_paths.append(line)
                 return json_paths
 
-            if line.startswith('json-paths(') and line.endswith(')'):
-                line = line[11:-1]
+            if name == 'json-paths':
                 if COMMA not in line:
                     print(
                         f'ERROR: Line {line_no+1}'
@@ -89,7 +93,7 @@ def extract_paths_and_snippets(lines: list[str]) -> tuple[SomeType, SomeType]:
             slot_snippets[my_start].append(complete_line.rstrip(NL))
 
         if not in_yaml_fcb:
-            if complete_line.startswith(YAML_FCB_ON):
+            if complete_line.startswith((YAML_FCB_ON, LEGACY_YAML_FCB_ON)):
                 in_yaml_fcb = True
                 my_start = start
                 slot_snippets[my_start] = []

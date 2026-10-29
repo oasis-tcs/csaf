@@ -8,7 +8,7 @@ and those that contain only subtags from the registry but the compiled language 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2
 ```
 

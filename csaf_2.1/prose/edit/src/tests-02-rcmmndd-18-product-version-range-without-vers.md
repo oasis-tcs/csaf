@@ -20,7 +20,7 @@ For more details, see sections [sec](#branches-type---category) and [sec](#branc
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 

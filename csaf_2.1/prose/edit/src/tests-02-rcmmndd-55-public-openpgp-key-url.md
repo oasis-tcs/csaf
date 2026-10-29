@@ -8,7 +8,7 @@ The test SHALL be skipped if the URL results in a client or server error.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.publisher.contact.public_openpgp_key_url
 ```
 

@@ -12,7 +12,7 @@ It SHALL be tested that the CSAF document has a canonical URL.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.references
 ```
 

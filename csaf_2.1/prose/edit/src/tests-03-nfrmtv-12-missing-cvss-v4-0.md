@@ -6,7 +6,7 @@ any CVSS object.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content
 ```
 

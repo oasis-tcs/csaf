@@ -4,7 +4,7 @@ It SHALL be tested that document status is `draft` if the document version is `0
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.status
 ```
 

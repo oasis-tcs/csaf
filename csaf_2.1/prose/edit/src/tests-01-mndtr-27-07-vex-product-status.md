@@ -11,7 +11,7 @@ The relevant value for `$.document.category` is:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status.fixed
   $.vulnerabilities[*].product_status.known_affected
   $.vulnerabilities[*].product_status.known_not_affected

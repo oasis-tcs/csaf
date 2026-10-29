@@ -53,7 +53,7 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 
 The use of GitHub-flavored Markdown is permitted in the following fields:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.acknowledgments[*].summary
   $.document.distribution.text
   $.document.involvement.actions[*].summary
@@ -80,7 +80,7 @@ Other fields SHALL NOT contain Markdown.
 
 The `$.product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].product
 ```
 

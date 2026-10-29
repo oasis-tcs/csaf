@@ -8,7 +8,7 @@ For each item in `metrics` provided by the issuing party it SHALL be tested that
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*]
 ```
 

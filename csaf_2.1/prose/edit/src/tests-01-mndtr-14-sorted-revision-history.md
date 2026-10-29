@@ -15,7 +15,7 @@ The aforementioned rules are solely used during the processing to create consist
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history
 ```
 

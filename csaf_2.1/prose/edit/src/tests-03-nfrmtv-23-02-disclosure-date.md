@@ -10,7 +10,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].disclosure_date
 ```
 

@@ -4,7 +4,7 @@ For each item in revision history it SHALL be tested that `number` does not incl
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].number
 ```
 

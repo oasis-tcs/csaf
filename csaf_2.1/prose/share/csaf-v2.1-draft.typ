@@ -7045,7 +7045,7 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 The use of GitHub-flavored Markdown is permitted in the following
 fields:
 
-```list-of-jsonpaths
+```text
   $.document.acknowledgments[*].summary
   $.document.distribution.text
   $.document.involvement.actions[*].summary
@@ -7074,7 +7074,7 @@ The `$.product_tree` uses a nested structure for `branches`. Along a
 single path to a leaf, the recursion of `branches` is limited to 30
 repetitions. Therefore, the longest path to a leaf is:
 
-```list-of-jsonpaths
+```text
   $.product_tree.branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].product
 ```
 
@@ -7249,7 +7249,7 @@ applies for all items of elements of type `$['$defs'].products_t`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].product_ids[*]
   $.document.notes[*].product_ids[*]
   $.product_tree.product_groups[*].product_ids[*]
@@ -7304,7 +7304,7 @@ document.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id
@@ -7340,7 +7340,7 @@ tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
 
@@ -7396,7 +7396,7 @@ exists. The same applies for all items of elements of type
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].group_ids[*]
   $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
@@ -7446,7 +7446,7 @@ that the `group_id` was not already defined within the same document.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree.product_groups[*].group_id
 ```
 
@@ -7502,7 +7502,7 @@ SHALL be pairwise disjoint.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -7553,7 +7553,7 @@ The test also applies for versions not included in CSAF.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -7616,7 +7616,7 @@ properties not defined in the referenced schema.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.cvss_v2
   $.vulnerabilities[*].metrics[*].content.cvss_v3
   $.vulnerabilities[*].metrics[*].content.cvss_v4
@@ -7653,7 +7653,7 @@ The `vectorString` SHOULD take precedence.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.cvss_v2.baseScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.temporalScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.environmentalScore
@@ -7703,7 +7703,7 @@ CVSS vector.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.cvss_v2
   $.vulnerabilities[*].metrics[*].content.cvss_v3
   $.vulnerabilities[*].metrics[*].content.cvss_v4
@@ -7751,7 +7751,7 @@ A list of all CWE release archives is available at
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -7788,7 +7788,7 @@ language subtag.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.lang
   $.document.source_lang
 ```
@@ -7825,7 +7825,7 @@ constraints given in section
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
   $.product_tree.full_product_names[*].product_identification_helper.purls[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
@@ -7877,7 +7877,7 @@ implementation guidance for this edge case.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history
 ```
 
@@ -7914,7 +7914,7 @@ all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.source_lang
 ```
 
@@ -7954,7 +7954,7 @@ pre-release part is also ignored if the document status is `draft`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.version
 ```
 
@@ -7998,7 +7998,7 @@ version is `0` or `0.y.z` or contains the pre-release part.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.status
 ```
 
@@ -8029,7 +8029,7 @@ of `0` or `0.y.z` when the document status is `final` or `interim`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history[*].number
 ```
 
@@ -8073,7 +8073,7 @@ which includes pre-release information.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history[*].number
 ```
 
@@ -8115,7 +8115,7 @@ part if the document status is `final` or `interim`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.version
 ```
 
@@ -8187,7 +8187,7 @@ implementation guidance for this edge case.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history
 ```
 
@@ -8226,7 +8226,7 @@ same version number.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history
 ```
 
@@ -8259,7 +8259,7 @@ items.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cve
 ```
 
@@ -8310,7 +8310,7 @@ timezones, the comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions
 ```
 
@@ -8360,7 +8360,7 @@ times in one item of file hashes.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
@@ -8458,7 +8458,7 @@ the required fields SHALL be checked by validating the JSON schema.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.category
 ```
 
@@ -8522,7 +8522,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -8567,7 +8567,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.references
 ```
 
@@ -8603,7 +8603,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities
 ```
 
@@ -8642,7 +8642,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree
 ```
 
@@ -8679,7 +8679,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].notes
 ```
 
@@ -8716,7 +8716,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -8748,7 +8748,7 @@ The relevant value for `$.document.category` is:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status.fixed
   $.vulnerabilities[*].product_status.known_affected
   $.vulnerabilities[*].product_status.known_not_affected
@@ -8801,7 +8801,7 @@ The relevant values for `$.document.category` are:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cve
   $.vulnerabilities[*].ids
 ```
@@ -8836,7 +8836,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].flags
   $.vulnerabilities[*].threats
 ```
@@ -8913,7 +8913,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].remediations
 ```
 
@@ -8991,7 +8991,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities
 ```
 
@@ -9027,7 +9027,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status.known_affected
 ```
 
@@ -9067,7 +9067,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status.known_affected
 ```
 
@@ -9133,7 +9133,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -9168,7 +9168,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree
 ```
 
@@ -9199,7 +9199,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history
 ```
 
@@ -9235,7 +9235,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -9271,7 +9271,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -9307,7 +9307,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.references
 ```
 
@@ -9346,7 +9346,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerability[*].notes
 ```
 
@@ -9374,7 +9374,7 @@ are not the same.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.lang
   $.document.source_lang
 ```
@@ -9410,7 +9410,7 @@ that it includes at least one of the elements `group_ids` or
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -9453,7 +9453,7 @@ case.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history[*].number
   $.document.tracking.version
 ```
@@ -9527,7 +9527,7 @@ lowercase, the value of `name` satisfies the two requirements below:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -9556,7 +9556,7 @@ includes at least one of the elements `group_ids` or `product_ids`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].flags[*]
 ```
 
@@ -9591,7 +9591,7 @@ codes the test is specified to be forward-compatible.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].flags
 ```
 
@@ -9661,7 +9661,7 @@ instances of `branches`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product
 ```
 
@@ -9877,7 +9877,7 @@ This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -9926,7 +9926,7 @@ This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -9963,7 +9963,7 @@ that it conforms to the rules given in section
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].date
   $.document.tracking.current_release_date
   $.document.tracking.generator.date
@@ -9999,7 +9999,7 @@ ID has the TLP label `CLEAR`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.tlp.label
 ```
 
@@ -10036,7 +10036,7 @@ is `draft`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.sharing_group.id
 ```
 
@@ -10072,7 +10072,7 @@ the precondition is not fulfilled.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.sharing_group.name
 ```
 
@@ -10106,7 +10106,7 @@ the precondition is fulfilled.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.sharing_group.name
 ```
 
@@ -10137,7 +10137,7 @@ PURLs it SHALL be tested that the PURLs only differ in their qualifiers.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
   $.product_tree.full_product_names[*].product_identification_helper.purls[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
@@ -10178,7 +10178,7 @@ number introduce ambiguity and are therefore prohibited.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.model_numbers[*]
   $.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]
@@ -10209,7 +10209,7 @@ number introduce ambiguity and are therefore prohibited.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]
   $.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]
@@ -10239,7 +10239,7 @@ into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].disclosure_date
 ```
 
@@ -10293,7 +10293,7 @@ compiled language code is invalid.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2
 ```
 
@@ -10320,7 +10320,7 @@ CSAF document contains more than one vulnerability.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]
 ```
 
@@ -10389,7 +10389,7 @@ extensions as specified by SSVC must be applied in such case. Note that:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
@@ -10440,7 +10440,7 @@ SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
 ```
 
@@ -10498,7 +10498,7 @@ rules SHALL be checked to the extent possible.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -10528,7 +10528,7 @@ SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
@@ -10594,7 +10594,7 @@ SHALL take timezones into account.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].first_known_exploitation_dates[*].date
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
@@ -10647,7 +10647,7 @@ timezones, the comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
 
@@ -10685,7 +10685,7 @@ checks all other constraints given in the ABNF.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.license_expression
 ```
 
@@ -10716,7 +10716,7 @@ has the title `License`. The category of this item SHALL be
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -10753,7 +10753,7 @@ Different source might assign different metrics for the same product.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -10814,7 +10814,7 @@ exception is `product_family` which can occur multiple times. Therefore,
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].category
 ```
 
@@ -10857,7 +10857,7 @@ leading to the `full_product_name_t` element.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].category
 ```
 
@@ -10901,7 +10901,7 @@ does not identify only a single version.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -10943,7 +10943,7 @@ be tested that the item is valid against the Extension Content Schema.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -10983,7 +10983,7 @@ classes of extensions.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -11036,7 +11036,7 @@ This includes, but is not limited to:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions
   $.product_tree..branches[*].product.x_extensions
   $.product_tree.full_product_names[*].x_extensions
@@ -11083,7 +11083,7 @@ number introduce ambiguity and are therefore prohibited.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.skus[*]
   $.product_tree.full_product_names[*].product_identification_helper.skus[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]
@@ -11115,7 +11115,7 @@ comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].discovery_date
 ```
 
@@ -11163,7 +11163,7 @@ and those not mentioned there.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*]
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*]
@@ -11220,7 +11220,7 @@ it SHALL be tested that the element `receiving_entity_refs` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*]
 ```
 
@@ -11276,7 +11276,7 @@ changes along the timeline are expected.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions
 ```
 
@@ -11326,7 +11326,7 @@ value of `attempted` it SHALL be tested that the element
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*]
 ```
 
@@ -11358,7 +11358,7 @@ through entity groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*]
 ```
 
@@ -11403,7 +11403,7 @@ elements of type `$['$defs'].entity_refs_id_t`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].acting_entity_refs[*]
   $.document.involvement.actions[*].receiving_entity_refs[*]
   $.document.involvement.entity_groups[*].entity_ids[*]
@@ -11453,7 +11453,7 @@ For each Entity ID (type: `$['$defs'].entity_id_t`) in Entity elements
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.entities[*].entity_id
 ```
 
@@ -11492,7 +11492,7 @@ elements of type `$['$defs'].entity_refs_id_t`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].acting_entity_refs[*]
   $.document.involvement.actions[*].receiving_entity_refs[*]
 ```
@@ -11546,7 +11546,7 @@ within the same document.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.entity_groups[*].entity_group_id
 ```
 
@@ -11587,7 +11587,7 @@ matching `action_id` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].referenced_action_ids[*]
 ```
 
@@ -11629,7 +11629,7 @@ document.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].action_id
 ```
 
@@ -11665,7 +11665,7 @@ end up in a circle. This also includes actions containing their own
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*]
 ```
 
@@ -11698,7 +11698,7 @@ groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*]
 ```
 
@@ -11753,7 +11753,7 @@ element `referenced_action_ids` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*]
 ```
 
@@ -11800,7 +11800,7 @@ element with the matching `dl_vuln_id` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].dl_vuln_ids[*]
 ```
 
@@ -11847,7 +11847,7 @@ For each element of type `$['$defs'].dl_vuln_id_t` in vulnerabilities
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].dl_vuln_id
 ```
 
@@ -11882,7 +11882,7 @@ of `1` or `1.0.0` cannot be determined.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.initial_release_date
 ```
 
@@ -11937,7 +11937,7 @@ This test SHALL be skipped for CSAF documents conforming the profile
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id
@@ -11979,7 +11979,7 @@ The remediation might be of the category `none_available` or
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status.first_affected[*]
   $.vulnerabilities[*].product_status.known_affected[*]
   $.vulnerabilities[*].product_status.last_affected[*]
@@ -12021,7 +12021,7 @@ which covers this product.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status.first_affected[*]
   $.vulnerabilities[*].product_status.known_affected[*]
   $.vulnerabilities[*].product_status.last_affected[*]
@@ -12061,7 +12061,7 @@ not include build metadata.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history[*].number
 ```
 
@@ -12092,7 +12092,7 @@ into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.initial_release_date
 ```
 
@@ -12134,7 +12134,7 @@ into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.current_release_date
 ```
 
@@ -12191,7 +12191,7 @@ double check the results.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
@@ -12242,7 +12242,7 @@ double check the results.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
@@ -12307,7 +12307,7 @@ To implement this test it is deemed sufficient that one item in
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.references
 ```
 
@@ -12349,7 +12349,7 @@ at all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.lang
 ```
 
@@ -12389,7 +12389,7 @@ alphabetically.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $
 ```
 
@@ -12419,7 +12419,7 @@ language code does not contain subtags reserved for private use.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.lang
   $.document.source_lang
 ```
@@ -12446,7 +12446,7 @@ language code is not `i-default`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.lang
   $.document.source_lang
 ```
@@ -12473,7 +12473,7 @@ tested that it includes the property `product_identification_helper`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product
   $.product_tree.full_product_names[*]
   $.product_tree.product_paths[*].full_product_name
@@ -12509,7 +12509,7 @@ property `text` whether it matches the regex `^CVE-[0-9]{4}-[0-9]{4,}$`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].ids[*]
 ```
 
@@ -12567,7 +12567,7 @@ future versions of this standard.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -12599,7 +12599,7 @@ any item of the `metrics` element.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status.first_fixed[*]
   $.vulnerabilities[*].product_status.fixed[*]
 ```
@@ -12692,7 +12692,7 @@ issue.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $
 ```
 
@@ -12733,7 +12733,7 @@ timezones, the comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.tracking.revision_history[*].date
 ```
 
@@ -12766,7 +12766,7 @@ It SHALL be tested that the `$.document.title` does not contain the
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.title
 ```
 
@@ -12799,7 +12799,7 @@ deprecated in the given version.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -12833,7 +12833,7 @@ SHALL fail if a later CWE version was used.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -12890,7 +12890,7 @@ information might not be available before CWE version `4.12`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -12939,7 +12939,7 @@ Those are covert through tests #link(<mandatory-tests--cwe>)[6.1.11] and
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -12972,7 +12972,7 @@ This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -13007,7 +13007,7 @@ It SHALL be tested that the Max UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.sharing_group.id
 ```
 
@@ -13037,7 +13037,7 @@ It SHALL be tested that the Nil UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.sharing_group.id
 ```
 
@@ -13068,7 +13068,7 @@ It SHALL be tested that no sharing group is used if the document is
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.sharing_group
 ```
 
@@ -13111,7 +13111,7 @@ does not make the CSAF document invalid.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product
   $.product_tree.full_product_names[*]
   $.product_tree.product_paths[*].full_product_name
@@ -13185,7 +13185,7 @@ each object is compared by deep-equality of its key/value pairs
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper
   $.product_tree.full_product_names[*].product_id.product_identification_helper
   $.product_tree.product_paths[*].full_product_name.product_id.product_identification_helper
@@ -13259,7 +13259,7 @@ the latest version of a CSAF document should always pass the test.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].disclosure_date
 ```
 
@@ -13319,7 +13319,7 @@ deemed sufficient to remove any characters including and after the first
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -13362,7 +13362,7 @@ deemed sufficient to remove any characters including and after the first
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -13425,7 +13425,7 @@ deemed sufficient to check whether the `namespace` contains a `/`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -13496,7 +13496,7 @@ definition.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources
 ```
 
@@ -13545,7 +13545,7 @@ the use of a profile defined by CSAF that is deprecated.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.category
 ```
 
@@ -13590,7 +13590,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -13653,7 +13653,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -13697,7 +13697,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -13742,7 +13742,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.references
 ```
 
@@ -13777,7 +13777,7 @@ The relevant values for `$.document.category` are:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions
   $.x_extensions
 ```
@@ -13826,7 +13826,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].notes
 ```
 
@@ -13868,7 +13868,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.acknowledgments
 ```
 
@@ -13912,7 +13912,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.aggregate_severity
 ```
 
@@ -13956,7 +13956,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.distribution.tlp.label
 ```
 
@@ -13997,7 +13997,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics
 ```
 
@@ -14039,7 +14039,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].references
 ```
 
@@ -14075,7 +14075,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].threats
 ```
 
@@ -14111,7 +14111,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].title
 ```
 
@@ -14148,7 +14148,7 @@ product description is known.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes[*]
 ```
 
@@ -14179,7 +14179,7 @@ sorting and comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
@@ -14267,7 +14267,7 @@ are referred to as counterparts.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.cpe
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
 ```
@@ -14331,7 +14331,7 @@ all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.license_expression
 ```
 
@@ -14368,7 +14368,7 @@ license inventoring entities.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.license_expression
 ```
 
@@ -14392,7 +14392,7 @@ inventoring entities.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.license_expression
 ```
 
@@ -14420,7 +14420,7 @@ output an information to the user that no such translation is known.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.notes
 ```
 
@@ -14460,7 +14460,7 @@ cover assessments made by third parties.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -14521,7 +14521,7 @@ carefully review the results of this test.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -14568,7 +14568,7 @@ product version range contains as comparator either `>` or `>=`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -14707,7 +14707,7 @@ groups (see section
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -14784,7 +14784,7 @@ groups (see section
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -14861,7 +14861,7 @@ with `CTPVR` are not member of a contradicting product status groups
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -14945,7 +14945,7 @@ the test and addressing the issue appropriately.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -14986,7 +14986,7 @@ appropriately.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm
@@ -15022,7 +15022,7 @@ The RVISC is available at \[#link(<RVISC>)[RVISC]\].
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].ids[*].text
 ```
 
@@ -15063,7 +15063,7 @@ be skipped for official CSAF Extensions.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -15096,7 +15096,7 @@ be tested that the item is an official CSAF Extension.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -15132,7 +15132,7 @@ It is sufficient to check whether the value of `critical` is `false`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*].critical
   $.product_tree..branches[*].product.x_extensions[*].critical
   $.product_tree.full_product_names[*].x_extensions[*].critical
@@ -15165,7 +15165,7 @@ labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -15219,7 +15219,7 @@ As these might be temporary errors, they are reported through test
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.publisher.contact.public_openpgp_key_url
 ```
 
@@ -15258,7 +15258,7 @@ timezones, the sorting and comparison SHALL take timezones into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*]
 ```
 
@@ -15318,7 +15318,7 @@ how the group is related to the document and why it was added.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.entity_groups[*].entity_group_id
 ```
 
@@ -15379,7 +15379,7 @@ For each Entity ID (type: `$['$defs'].entity_id_t`) in Entity elements
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.entities[*].entity_id
 ```
 
@@ -15451,7 +15451,7 @@ Note to implementers: This test cannot fail, if
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].dl_vuln_ids[*]
 ```
 
@@ -15512,7 +15512,7 @@ which would have happened after the release of the document.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.actions[*].date
 ```
 
@@ -15576,7 +15576,7 @@ For each element of type `$['$defs'].dl_vuln_id_t` in vulnerabilities
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].dl_vuln_id
 ```
 
@@ -15665,7 +15665,7 @@ test passes.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics
 ```
 
@@ -15716,7 +15716,7 @@ under `content` it SHALL be tested that CVSS v3.0 is not used.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.cvss_v3.version
   $.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString
 ```
@@ -15757,7 +15757,7 @@ present but having no or an empty value and not being present at all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cve
 ```
 
@@ -15788,7 +15788,7 @@ It SHALL be tested that at least one CWE is given.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].cwes
 ```
 
@@ -15814,7 +15814,7 @@ It SHALL be tested that the length of the hash value is not shorter than
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value
@@ -15864,7 +15864,7 @@ see \[#link(<RFC7231>)[RFC7231]\].
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.acknowledgments[*].urls[*]
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url
@@ -15920,7 +15920,7 @@ classes see \[#link(<RFC7231>)[RFC7231]\].
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.references[*].url
   $.vulnerabilities[*].references[*].url
 ```
@@ -15953,7 +15953,7 @@ be tested if the CSAF document does not use the profile "CSAF Base".
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.acknowledgments[*].names[*]
   $.document.acknowledgments[*].organization
   $.document.acknowledgments[*].summary
@@ -16030,7 +16030,7 @@ aforementioned branch categories without making the test invalid.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree.branches
 ```
 
@@ -16079,7 +16079,7 @@ ranges and enumerate versions wherever possible.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].category
 ```
 
@@ -16111,7 +16111,7 @@ does not match the following regex:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -16143,7 +16143,7 @@ covered by any CVSS object.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content
 ```
 
@@ -16199,7 +16199,7 @@ their values is available at the SSVC repository (see
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
@@ -16242,7 +16242,7 @@ deemed sufficient to remove any characters including and after the first
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -16305,7 +16305,7 @@ deemed sufficient to check whether the `namespace` contains a `/`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -16363,7 +16363,7 @@ given language is not supported.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.acknowledgments[*].summary
   $.document.aggregate_severity.text
   $.document.distribution.text
@@ -16423,7 +16423,7 @@ AboutCode's "ScanCode LicenseDB".
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.license_expression
 ```
 
@@ -16456,7 +16456,7 @@ upstream product just provides a qualitative severity rating.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -16513,7 +16513,7 @@ overlap with `CTPVR` are not member of the same product status group
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -16588,7 +16588,7 @@ overlap with `CTPVR` are not member of the same product status group
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -16662,7 +16662,7 @@ tested that the Product IDs of all elements in `PVSS` that overlap with
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].product_status
 ```
 
@@ -16735,7 +16735,7 @@ overlap with `CTPVR`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -16782,7 +16782,7 @@ with `CTPVR`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].name
 ```
 
@@ -16827,7 +16827,7 @@ The RVISC is available at \[#link(<RVISC>)[RVISC]\].
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].ids[*].system_name
 ```
 
@@ -16870,7 +16870,7 @@ It is sufficient to check whether the value of `category` is not
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*].category
   $.product_tree..branches[*].product.x_extensions[*].category
   $.product_tree.full_product_names[*].x_extensions[*].category
@@ -16907,7 +16907,7 @@ labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -16953,7 +16953,7 @@ exist.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.x_extensions
 ```
 
@@ -16983,7 +16983,7 @@ path that starts with `$.product_tree.branches`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree..branches[*].product.x_extensions
 ```
 
@@ -17028,7 +17028,7 @@ path that starts with `$.product_tree.full_product_names`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree.full_product_names[*].x_extensions
 ```
 
@@ -17060,7 +17060,7 @@ path that starts with `$.product_tree.product_paths`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.product_tree.product_paths[*].full_product_name.x_extensions
 ```
 
@@ -17097,7 +17097,7 @@ path that starts with `$.vulnerabilities[*].metrics`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.x_extensions
 ```
 
@@ -17133,7 +17133,7 @@ For each item `$.vulnerabilities` it SHALL be tested that the element
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].x_extensions
 ```
 
@@ -17164,7 +17164,7 @@ It SHALL be tested that the element `$.x_extensions` does not exist.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.x_extensions
 ```
 
@@ -17200,7 +17200,7 @@ additional matching information.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```text
   $.product_tree.product_paths[*].beginning_product_reference
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
 ```
@@ -17284,7 +17284,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement
 ```
 
@@ -17329,7 +17329,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].disclosure_date
 ```
 
@@ -17368,7 +17368,7 @@ The cases excluded are handled through tests
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.publisher.contact.public_openpgp_key_url
 ```
 
@@ -17427,7 +17427,7 @@ namespaces including their values is available at the SSVC registry (see
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
@@ -17477,7 +17477,7 @@ coverage through omitting `dl_vuln_ids` into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.vulnerabilities[*]
 ```
 
@@ -17537,7 +17537,7 @@ within the same document.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.entity_groups[*].entity_group_id
 ```
 
@@ -17602,7 +17602,7 @@ For the justified scenarios, the test should be ignored.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.entity_groups[*].name
 ```
 
@@ -17648,7 +17648,7 @@ justified scenarios, the test should be ignored.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```text
   $.document.involvement.entities[*].name
 ```
 

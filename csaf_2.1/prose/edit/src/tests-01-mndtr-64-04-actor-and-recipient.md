@@ -5,7 +5,7 @@ This takes indirect relations through entity groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 

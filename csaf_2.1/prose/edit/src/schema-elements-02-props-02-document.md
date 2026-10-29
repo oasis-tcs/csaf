@@ -8,7 +8,7 @@ Aggregate Severity (`aggregate_severity`), Involvement (`involvement`), Language
 License expression (`license_expression`), Notes (`notes`), References (`references`),
 Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
 
-```yaml <!--json-path($..document.properties)-->
+```{.yaml json-path="$..document.properties"}
 <csaf-instance>:
   document:
     acknowledgments: $defs.acknowledgments_t
@@ -33,7 +33,7 @@ Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
 Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains
 a list of acknowledgment elements associated with the whole document.
 
-```yaml <!--json-paths($..document..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+```{.yaml json-paths="$..document..acknowledgments, $['$defs'].acknowledgments_t..properties"}
 <csaf-instance>:
   document:
     acknowledgements:  # $defs.acknowledgments_t
@@ -54,7 +54,7 @@ criticality with which the one or more vulnerabilities reported should be addres
 It is a document-level metric and applied to the document as a whole — not any specific vulnerability.
 The range of values in this field is defined according to the document producer's policies and procedures.
 
-```yaml <!--json-path($..document..aggregate_severity.properties)-->
+```{.yaml json-path="$..document..aggregate_severity.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -89,7 +89,7 @@ Document category defines a short canonical name, chosen by the document produce
 
 > It is directly related to the profiles defined in section [sec](#profiles).
 
-```yaml <!--json-path($..document.properties.category)-->
+```{.yaml json-path="$..document.properties.category"}
 <csaf-instance>:
   document:
     # ...
@@ -121,7 +121,7 @@ The value for this `const` is:
 Rules for document sharing (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
 optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
 
-```yaml <!--json-path($..document..distribution.properties)-->
+```{.yaml json-path="$..document..distribution.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -152,7 +152,7 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
 the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
 
-```yaml <!--json-path($..document..distribution..sharing_group.properties)-->
+```{.yaml json-path="$..document..distribution..sharing_group.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -232,7 +232,7 @@ The Textual description (`text`) of value type `string` with `1` or more charact
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and
 the optional property URL (`url`) provides details about the TLP classification of the document.
 
-```yaml <!--json-path($..document..distribution..tlp.properties)-->
+```{.yaml json-path="$..document..distribution..tlp.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -285,7 +285,7 @@ Involvement (`involvement`) of value type `object` with the mandatory properties
 List of entities (`entities`) contains the coordination record stating entities and actions between them.
 The optional property is List of entity groups (`entity_groups`).
 
-```yaml <!--json-path($..document..involvement.properties)-->
+```{.yaml json-path="$..document..involvement.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -301,7 +301,7 @@ The optional property is List of entity groups (`entity_groups`).
 List of actions (`actions`) of value type `array` with `1` or more unique items (a `set`) contains the timeline of actions.
 
 
-```yaml <!--json-path($..document..involvement..actions)-->
+```{.yaml json-path="$..document..involvement..actions"}
 <csaf-instance>:
   document:
     # ...
@@ -317,7 +317,7 @@ contains details about a single event in the timeline.
 In addition, any Action item MAY expose the optional properties List of document-local vuln IDs `dl_vuln_ids`, Group IDs (`group_ids`), Product IDs (`product_ids`),
 List of receiving entities (`receiving_entity_refs`), List of referenced actions (`referenced_action_ids`), Summary of the action (`summary`), and Action status (`status`).
 
-```yaml <!--json-path($..document..involvement..actions..properties)-->
+```{.yaml json-path="$..document..involvement..actions..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -476,7 +476,7 @@ The value `planned` indicates that the a party waits for this action. The status
 
 List of entities (`entities`) of value type `array` with `1` or more unique items (a `set`) contains a list of entities related.
 
-```yaml <!--json-path($..document..involvement..entities)-->
+```{.yaml json-path="$..document..involvement..entities"}
 <csaf-instance>:
   document:
     # ...
@@ -490,7 +490,7 @@ List of entities (`entities`) of value type `array` with `1` or more unique item
 Every Entity item of value type `object` with the two mandatory properties Entity category (`category`) and Entity ID (`entity_id`) contains information about a single entity.
 In addition, any Entity item MAY expose the optional properties Contact of the entity (`contact`) and Name of the entity (`name`).
 
-```yaml <!--json-path($..document..involvement..entities..properties)-->
+```{.yaml json-path="$..document..involvement..entities..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -548,7 +548,7 @@ An `adversary` is permitted as a recipient, because a `notification` to an adver
 
 Contact of the entity (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the entity.
 
-```yaml <!--json-paths($..document..involvement..entities..properties.contact, $['$defs'].contact_t..properties)-->
+```{.yaml json-paths="$..document..involvement..entities..properties.contact, $['$defs'].contact_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -575,7 +575,7 @@ Contains an ID for the entity (`name`) of value type `string` with `1` or more c
 
 List of entity groups (`entity_groups`) of value type `array` with `1` or more unique items (a `set`) contains a list of entity groups.
 
-```yaml <!--json-path($..document..involvement..entity_groups)-->
+```{.yaml json-path="$..document..involvement..entity_groups"}
 <csaf-instance>:
   document:
     # ...
@@ -590,7 +590,7 @@ List of Entity IDs (`entity_ids`), and Name of the entity group (`name`) defines
 that can then be referred to in other parts of the document to address a group of entities with a single identifier.
 In addition, any Entity group item MAY expose the optional property Summary of the entity group (`summary`).
 
-```yaml <!--json-path($..document..involvement..entity_groups..properties)-->
+```{.yaml json-path="$..document..involvement..entity_groups..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -688,7 +688,7 @@ through the ecosystem.
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
-```yaml <!--json-paths($..document..notes, $['$defs'].notes_t..properties)-->
+```{.yaml json-paths="$..document..notes, $['$defs'].notes_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -737,7 +737,7 @@ Publisher (`publisher`) of value type `object` with the mandatory properties Cat
 Namespace (`namespace`) provides information on the publishing entity.
 The two other optional properties are: `contact` and `issuing_authority`.
 
-```yaml <!--json-path($..document..publisher.properties)-->
+```{.yaml json-path="$..document..publisher.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -800,7 +800,7 @@ open source projects as well as product resellers and distributors, including au
 
 Contact (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the publisher.
 
-```yaml <!--json-paths($..document..publisher.properties.contact.properties, $['$defs'].contact_t..properties)-->
+```{.yaml json-paths="$..document..publisher.properties.contact.properties, $['$defs'].contact_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -871,7 +871,7 @@ an incremented (patch) version which has no other changes than:
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
-```yaml <!--json-paths($..document..references, $['$defs'].references_t..properties)-->
+```{.yaml json-paths="$..document..references, $['$defs'].references_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -915,7 +915,7 @@ Identifier (`id`), Initial Release Date (`initial_release_date`), Revision Histo
 and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
 
-```yaml <!--json-path($..document..tracking.properties)-->
+```{.yaml json-path="$..document..tracking.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -935,7 +935,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
 Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
 
-```yaml <!--json-path($..document..tracking..aliases)-->
+```{.yaml json-path="$..document..tracking..aliases"}
 <csaf-instance>:
   document:
     # ...
@@ -964,7 +964,7 @@ Document Generator (`generator`) of value type `object` with mandatory property 
 optional property Date (`date`) is a container to hold all elements related to the generation of the document.
 These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
-```yaml <!--json-path($..document..tracking..generator.properties)-->
+```{.yaml json-path="$..document..tracking..generator.properties"}
 <csaf-instance>:
   document:
     tracking:
@@ -982,7 +982,7 @@ this field MAY be different from the Initial Release Date and Current Release Da
 Engine of document generation (`engine`) of value type `object` with mandatory property Engine name (`name`) and
 optional property Engine version (`version`) contains information about the engine that generated the CSAF document.
 
-```yaml <!--json-path($..document..tracking..generator..engine.properties)-->
+```{.yaml json-path="$..document..tracking..generator..engine.properties"}
 <csaf-instance>:
   document:
     tracking:
@@ -1064,7 +1064,7 @@ This change SHALL be tracked with a new entry in the revision history.
 The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
 for each version of the CSAF document, including the initial one.
 
-```yaml <!--json-path($..document..tracking..revision_history)-->
+```{.yaml json-path="$..document..tracking..revision_history"}
 <csaf-instance>:
   document:
     # ...
@@ -1079,7 +1079,7 @@ Revision History Entry items are of value type `object` with the three mandatory
 and Summary (`summary`).
 In addition, a Revision MAY expose the optional property `legacy_version`.
 
-```yaml <!--json-path($..document..tracking..revision_history..properties)-->
+```{.yaml json-path="$..document..tracking..revision_history..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -1154,7 +1154,7 @@ Version has the value type Version (`version_t`).
 Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the document property level of the CSAF document and associated with this document metadata.
 
-```yaml <!--json-paths($..document..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$..document..x_extensions, $['$defs'].extensions_t..properties"}
 <csaf-instance>:
   document:
     # ...

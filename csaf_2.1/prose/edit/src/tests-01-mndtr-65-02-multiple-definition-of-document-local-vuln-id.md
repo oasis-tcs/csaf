@@ -5,7 +5,7 @@ it SHALL be tested that the `dl_vuln_id` was not already defined within the same
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].dl_vuln_id
 ```
 

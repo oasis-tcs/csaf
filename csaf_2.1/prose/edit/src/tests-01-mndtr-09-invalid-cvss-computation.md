@@ -6,7 +6,7 @@ It SHALL be tested that the given CVSS object has the values computed correctly 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.cvss_v2.baseScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.temporalScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.environmentalScore

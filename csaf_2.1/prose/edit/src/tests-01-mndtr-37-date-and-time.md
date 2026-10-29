@@ -4,7 +4,7 @@ For each item of type `string` and format `date-time` it SHALL be tested that it
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].date
   $.document.tracking.current_release_date
   $.document.tracking.generator.date

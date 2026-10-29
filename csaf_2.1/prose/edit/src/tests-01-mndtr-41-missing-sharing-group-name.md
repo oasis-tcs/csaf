@@ -4,7 +4,7 @@ It SHALL be tested that the sharing group name exists and equals the predefined 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group.name
 ```
 

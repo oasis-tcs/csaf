@@ -3,7 +3,7 @@
 List of entity references (`entity_refs_t`) of value type `array` with `1` or more unique items (a `set`)
 specifies a list of `entity_ids` or `entity_group_ids` to give context to the parent item.
 
-```yaml <!--json-path($['$defs'].entity_refs_t)-->
+```{.yaml json-path="$['$defs'].entity_refs_t"}
 $defs:
   # ...
   entity_refs_t: Sequence
@@ -12,7 +12,7 @@ $defs:
 
 Value type of every such entity reference item is any of Entity Group ID Type (`entity_group_id_t`) or Entity ID Type (`entity_id_t`).
 
-```yaml <!--json-path($['$defs'].entity_refs_t[*].properties)-->
+```{.yaml json-path="$['$defs'].entity_refs_t[*].properties"}
 $defs:
   # ...
   entity_refs_t:
