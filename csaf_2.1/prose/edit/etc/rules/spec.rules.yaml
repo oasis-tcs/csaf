@@ -235,11 +235,12 @@ rules:
   - id: CSAF-PI-SEQUENCE-OF
     severity: BLOCKER
     description: >-
-      Every line of a {.text sequence-of="jsonpath"} block must be a valid
-      JSONPath (successor of the list-of-jsonpaths marker).
+      Every line of a {.text sequence-of="jsonpath"} block and every inline
+      `$`/`$.…` code span must be a valid RFC 9535 JSONPath (successor of the
+      list-of-jsonpaths marker and of test/jsonpath/check_jsonpaths.py).
     check:
       type: pi
-      name: sequence-of
+      name: [sequence-of, inline-jsonpath]
 
   - id: CSAF-PI-OUTLINES
     severity: WARN

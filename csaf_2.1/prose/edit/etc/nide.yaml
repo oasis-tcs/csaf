@@ -79,4 +79,12 @@ pi:
       check: jsonpath-schema
     - name: sequence-of
       check: body-lines-as
-      arg: jsonpath
+      arg: jsonpath-rfc9535
+  syntaxes:
+    - name: jsonpath-rfc9535  # strict RFC 9535, as test/jsonpath/check_jsonpaths.py
+      kind: jsonpath
+      strict: true
+  inline:
+    - name: inline-jsonpath  # `$` and `$.…` code spans in prose, as check_jsonpaths.py
+      match: '^\$(\.|$)'
+      syntax: jsonpath-rfc9535
